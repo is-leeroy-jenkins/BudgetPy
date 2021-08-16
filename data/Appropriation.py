@@ -1,4 +1,8 @@
 class Appropriation():
     '''Defines the Appropriation Class'''
-    def __init__(self, code):
-        self.code = code
+    _code = ''
+    _name = ''
+
+    def __init__( self, code, name = '' ):
+        self._code = code
+        self._name = name

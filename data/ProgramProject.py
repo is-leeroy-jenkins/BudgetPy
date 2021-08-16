@@ -1,3 +1,8 @@
-'''Defines the ProgramProject Class'''
-def __init__(self, code):
-    self._code = code
+class ProgramProject():
+    '''Defines the ProgramProject Class'''
+    _code = ''
+    _name = ''
+
+    def __init__(self, code, name = ''):
+        self._code = code
+        self._name = name

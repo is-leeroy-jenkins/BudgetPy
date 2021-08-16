@@ -1,5 +1,8 @@
 class FinanceObjectClass():
     '''Defines the FinanceObjectClass Class'''
-    def __init__(self, code, name=''):
-        self.code = code
-        self.name = name
+    _code = ''
+    _name = ''
+
+    def __init__( self, code, name = '' ):
+        self._code = code
+        self._name = name
