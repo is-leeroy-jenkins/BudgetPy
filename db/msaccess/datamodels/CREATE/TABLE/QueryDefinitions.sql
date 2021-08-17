@@ -1,0 +1,7 @@
+CREATE TABLE QueryDefinitions
+(
+	QueryDefinitionId INTEGER NOT NULL UNIQUE CONSTRAINT PK_QueryDefinitions PRIMARY KEY,
+	Name TEXT(255) NULL,
+	Type TEXT(255) NULL
+);
+

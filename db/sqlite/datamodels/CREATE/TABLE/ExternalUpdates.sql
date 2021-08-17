@@ -1,0 +1,23 @@
+CREATE TABLE LowerReconcilliation (
+	ReconcilliationId	INTEGER NOT NULL UNIQUE,
+	ExtId	INTEGER NOT NULL,
+	PrcId	INTEGER NOT NULL UNIQUE,
+	BFY	 TEXT(255),
+	BudgetLevel	 TEXT(255),
+	AhCode	 TEXT(255),
+	FundName	 TEXT(255),
+	FundCode	 TEXT(255),
+	OrgCode	 TEXT(255),
+	AccountCode	 TEXT(255),
+	ProgramProjectCode	 TEXT(255),
+	ProgramProjectName	 TEXT(255),
+	BocCode	 TEXT(255),
+	BocName	 TEXT(255),
+	RcCode	 TEXT(255),
+	DivisionName	 TEXT(255),
+	System	NUMERIC,
+	Budget	NUMERIC,
+	Delta	NUMERIC,
+	NET	 TEXT(255),
+	PRIMARY KEY(ReconcilliationId AUTOINCREMENT)
+)
