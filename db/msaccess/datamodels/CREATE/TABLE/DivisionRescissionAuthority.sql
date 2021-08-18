@@ -1,6 +1,6 @@
 CREATE TABLE DivisionRescissionAuthority
 (
-	DivisionAuthorityId INTEGER NOT NULL UNIQUE CONSTRAINT PK_DivisionRescissionAuthority PRIMARY KEY,
+	DivisionAuthorityId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyDivisionRescissionAuthority PRIMARY KEY,
     RescissionId INTEGER NOT NULL UNIQUE,
 	PrcId INTEGER NOT NULL UNIQUE,
 	RPIO TEXT(255) NULL,

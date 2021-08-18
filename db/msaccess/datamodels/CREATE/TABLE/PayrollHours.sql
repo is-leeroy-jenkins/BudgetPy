@@ -1,4 +1,4 @@
-﻿CREATE TABLE IF NOT EXISTS PayrollHours
+﻿CREATE TABLE PayrollHours
 (
 	PayrollHoursId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyPayrollHours PRIMARY KEY,
 	RpioCode TEXT(255) NULL,

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS FullTimeEquivalents
+CREATE TABLE FullTimeEquivalents
 (
     FullTimeEquivalentId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyFullTimeEquivalents PRIMARY KEY,
 	PrcId INTEGER NOT NULL UNIQUE,

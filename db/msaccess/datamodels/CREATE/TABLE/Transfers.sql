@@ -1,6 +1,6 @@
 ﻿CREATE TABLE Transfers
 (
-	TransferId INTEGER NOT NULL CONSTRAINT PK_Transfers PRIMARY KEY,
+	TransferId INTEGER NOT NULL CONSTRAINT PrimaryKeyTransfers PRIMARY KEY,
 	BudgetLevel TEXT(255) NULL,
 	DocPrefix TEXT(255) NULL,
 	DocType TEXT(255) NULL,

@@ -1,6 +1,6 @@
 CREATE TABLE RegionalRescissionAuthority
 (
-	RegionalRescissionAuthorityId INTEGER NOT NULL UNIQUE CONSTRAINT PK_RegionalRescissionAuthority PRIMARY KEY,
+	RegionalRescissionAuthorityId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyRegionalRescissionAuthority PRIMARY KEY,
 	RescissionId INTEGER NOT NULL UNIQUE,
 	PrcId INTEGER NOT NULL UNIQUE,
 	RPIO TEXT(255) NULL,

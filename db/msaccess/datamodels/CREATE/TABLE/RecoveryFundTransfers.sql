@@ -1,6 +1,6 @@
 CREATE TABLE RecoveryFundTransfers
 (
-	RecoveryFundTransferId INTEGER NOT NULL UNIQUE CONSTRAINT PK_RecoveryFundTransfers PRIMARY KEY,
+	RecoveryFundTransferId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyRecoveryFundTransfers PRIMARY KEY,
 	TransferId INTEGER NOT NULL UNIQUE,
 	ReprogrammingNumber TEXT(255) NULL,
 	ProcessedDate DATETIME NULL,

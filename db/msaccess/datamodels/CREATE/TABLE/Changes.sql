@@ -1,6 +1,6 @@
 CREATE TABLE Changes
 (
-	    ChangeId INTEGER NOT NULL UNIQUE CONSTRAINT PK_Changes PRIMARY KEY,
+	    ChangeId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyChanges PRIMARY KEY,
 	    TableName TEXT(255) NULL,
 	    FieldName TEXT(255) NULL,
 	    ActionType TEXT(255) NULL,

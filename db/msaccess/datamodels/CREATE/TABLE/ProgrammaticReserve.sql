@@ -1,6 +1,6 @@
 CREATE TABLE ProgrammaticReserve
 (
-	ProgrammaticReserveId INTEGER NOT NULL UNIQUE CONSTRAINT PK_ProgrammaticReserve PRIMARY KEY,
+	ProgrammaticReserveId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyProgrammaticReserve PRIMARY KEY,
 	PrcId INTEGER NOT NULL,
 	BudgetLevel TEXT(255) NULL,
 	RPIO TEXT(255) NULL,

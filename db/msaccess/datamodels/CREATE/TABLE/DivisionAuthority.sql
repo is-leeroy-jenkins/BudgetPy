@@ -1,6 +1,6 @@
 CREATE TABLE DivisionAuthority
 (
-	DivisionAuthorityId INTEGER NOT NULL UNIQUE CONSTRAINT PK_DivisionAuthority PRIMARY KEY,
+	DivisionAuthorityId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyDivisionAuthority PRIMARY KEY,
 	PrcId INTEGER NOT NULL UNIQUE,
 	RPIO TEXT(255) NULL,
 	BudgetLevel TEXT(255) NULL,

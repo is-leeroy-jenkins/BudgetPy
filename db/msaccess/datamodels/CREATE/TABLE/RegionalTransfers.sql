@@ -1,6 +1,6 @@
-CREATE TABLE RegionalTransfers
+CREATE TABLE Reprogrammings
 (
-	RegionalTransferId INTEGER NOT NULL UNIQUE CONSTRAINT PK_RegionalTransfers PRIMARY KEY,
+	ReprogrammingId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyReprogrammings PRIMARY KEY,
 	TransferId INTEGER NOT NULL UNIQUE,
 	ReprogrammingNumber TEXT(255) NULL,
 	ProcessedDate DATETIME NULL,
@@ -17,10 +17,9 @@ CREATE TABLE RegionalTransfers
 	FundName TEXT(255) NULL,
 	ProgramProjectCode TEXT(255) NULL,
 	ProgramProjectName TEXT(255) NULL,
+	ProgramAreaCode TEXT(255) NULL,
+	ProgramAreaName TEXT(255) NULL,
 	BocName TEXT(255) NULL,
-	DocPrefix TEXT(255) NULL,
-	CONSTRAINT FK_RegionalTransfers
-	FOREIGN KEY (TransferId)
-	REFERENCES Transfers
+	DocPrefix TEXT(255) NULL
 );
 

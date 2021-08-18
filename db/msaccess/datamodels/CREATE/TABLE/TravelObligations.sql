@@ -1,6 +1,6 @@
 CREATE TABLE TravelObligations
 (
-	TravelObligationId INTEGER NOT NULL UNIQUE CONSTRAINT PK_TravelObligations PRIMARY KEY,
+	TravelObligationId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyTravelObligations PRIMARY KEY,
 	RpioCode TEXT(255) NULL,
 	BFY TEXT(255) NULL,
 	AhCode TEXT(255) NULL,

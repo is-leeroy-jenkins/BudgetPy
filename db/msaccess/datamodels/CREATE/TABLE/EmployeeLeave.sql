@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS DivisionRescissionAuthority
+CREATE TABLE DivisionRescissionAuthority
 (
 	DivisionAuthorityId INTEGER NOT NULL UNIQUE CONSTRAINT PK_DivisionRescissionAuthority PRIMARY KEY,
     RescissionId INTEGER NOT NULL UNIQUE,

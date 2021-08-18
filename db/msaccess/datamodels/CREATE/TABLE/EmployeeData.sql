@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS EmployeeData
+CREATE TABLE EmployeeData
 (
 	EmployeeDataId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyEmployeeData PRIMARY KEY,
 	RpioCode TEXT(255) NULL,

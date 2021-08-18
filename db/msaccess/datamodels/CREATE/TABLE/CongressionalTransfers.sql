@@ -15,6 +15,8 @@ CREATE TABLE CongressionalTransfers
 	FundName TEXT(255) NULL,
 	ProgramProjectCode TEXT(255) NULL,
 	ProgramProjectName TEXT(255) NULL,
+	ProgramAreaCode TEXT(255) NULL,
+	ProgramAreaName TEXT(255) NULL,
 	BocName TEXT(255) NULL,
 	SPIO TEXT(255) NULL
 );

@@ -1,6 +1,6 @@
 CREATE TABLE DivisionExecution
 (
-	DivisionExecutionId INTEGER NOT NULL UNIQUE CONSTRAINT PK_DivisionExecution PRIMARY KEY,
+	DivisionExecutionId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyDivisionExecution PRIMARY KEY,
 	BudgetLevel TEXT(255) NULL,
 	RPIO TEXT(255) NULL,
 	BFY TEXT(255) NULL,

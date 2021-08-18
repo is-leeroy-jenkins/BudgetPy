@@ -1,4 +1,4 @@
-﻿CREATE TABLE IF NOT EXISTS PayrollObligations
+﻿CREATE TABLE PayrollObligations
 (
 	PayrollObligationId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyPayrollObligations PRIMARY KEY,
 	RPIO TEXT(255) NULL,

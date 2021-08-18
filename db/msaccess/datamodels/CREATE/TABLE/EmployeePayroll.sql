@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS EmployeePayroll
+CREATE TABLE EmployeePayroll
 (
 	EmployeePayrollId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyEmployeePayroll PRIMARY KEY,
 	RcCode TEXT(255) NULL,

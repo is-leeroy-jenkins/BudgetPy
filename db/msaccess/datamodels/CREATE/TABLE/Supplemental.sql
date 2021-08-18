@@ -1,6 +1,6 @@
 ﻿CREATE TABLE Supplemental
 (
-	SupplementalId INTEGER NOT NULL UNIQUE CONSTRAINT PK_Supplemental PRIMARY KEY,
+	SupplementalId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeySupplemental PRIMARY KEY,
 	Type TEXT(255) NULL,
 	RcCode TEXT(255) NULL,
 	FundCode TEXT(255) NULL,
