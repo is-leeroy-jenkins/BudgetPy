@@ -1,0 +1,9 @@
+CREATE TABLE PayPeriods
+(
+	PayPeriodId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyPayPeriods PRIMARY KEY,
+	Period TEXT(255) NOT NULL,
+	PayPeriod TEXT(255) NULL,
+	StartDate DATETIME NULL,
+	EndDate DATETIME NULL
+);
+

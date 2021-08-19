@@ -1,0 +1,7 @@
+CREATE TABLE ReferenceTables
+(
+	ReferenceTableId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyReferenceTables PRIMARY KEY AUTOINCREMENT,
+	TableName TEXT(255) NULL,
+	Type TEXT(255) NULL
+);
+

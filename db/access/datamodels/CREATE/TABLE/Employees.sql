@@ -1,0 +1,8 @@
+CREATE TABLE Employees
+( 
+	PersonnelId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyEmployees PRIMARY KEY,
+	RcCode TEXT(255) NULL,
+	EpaNumber TEXT(255) NULL,
+	LastName TEXT(255) NULL,
+	FirstName TEXT(255) NULL
+);
