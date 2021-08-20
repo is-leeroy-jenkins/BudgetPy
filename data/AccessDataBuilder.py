@@ -16,4 +16,4 @@ class AccessDataBuilder():
 
     def get_data( self, table ):
         if self._data == '':
-            self._data = self._cursor.execute( 'SELECT * FROM {0}', table )
+            self._data = self._cursor.execute( f'SELECT * FROM {table}' )
