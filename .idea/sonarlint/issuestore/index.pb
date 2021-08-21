@@ -32,13 +32,9 @@ A
 ninja/Division.py,9\e\9e0b020f1d8869ab2690af2f9f960e363ab7be84
 B
 sql/References.sql,5\d\5dd3acd349315535ed85a97ef5aa2f9666b55631
-N
-data/SQLiteReferenceBuilder.py,4\c\4c0038f1bb73cef10de78e2ab8704016ae4bc378
 I
 data/SQLiteDataBuilder.py,6\2\62e5759ab4c12653d593c569857c55d6f99ac795
 N
 data/AccessReferenceBuilder.py,f\3\f3f87427e112796bbbbfa610c21384d8e15d101b
-I
-data/AccessDataBuilder.py,2\1\21efd30a5018aeb6fcfcec76d631b9801d3c46a0
 7
 main.py,f\1\f1bdda93d9a278e358509d498e17d97764c1fb29
