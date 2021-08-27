@@ -42,3 +42,7 @@ class Account():
         self._objective = list( code )[ 1:3 ]
         self._npm = list( code )[ 3 ]
         self._program_project = list( code )[ 4:6 ]
+
+    def __str__( self ):
+        if not self._code == '':
+            return self._code

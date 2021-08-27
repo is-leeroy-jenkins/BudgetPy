@@ -1,15 +1,15 @@
 import sqlite3
 class SQLiteDataBuilder():
     '''Builds the budget execution data classes'''
-    _connection = None
-    _cursor = None
-    _data = None
+    __connection = None
+    __cursor = None
+    __data = None
 
     def __init__( self ):
-        self._connection = sqlite3.connect('Data.db')
-        self._cursor = self._connection.cursor()
-        self._data = ''
+        self.__connection = sqlite3.connect( 'Data.db' )
+        self.__cursor = self.__connection.cursor()
+        self.__data = ''
 
     def get_data( self, table ):
-        if self._data == '':
-            self._data = self._cursor.execute(f'SELECT * FROM {0}', table)
+        if self.__data == '':
+            self.__data = self.__cursor.execute( f'SELECT * FROM {0}', table )

@@ -1,21 +1,24 @@
 import datetime
 class BudgetFiscalYear():
     '''Class to describe the federal fiscal year'''
-    _fiscal_year = ''
-    _today = ''
-    _date = None
-    _year = ''
-    _start_date = ''
-    _end_date = ''
-    _expiration = ''
-    _weekends = 0
-    _workdays = 0
-    _day = ''
-    _month = ''
-    _federal_holidays = { }
+    __fiscal_year = ''
+    __today = ''
+    __date = None
+    __year = ''
+    __start_date = ''
+    __end_date = ''
+    __expiration = ''
+    __weekends = 0
+    __workdays = 0
+    __day = ''
+    __month = ''
+    __federal_holidays = { }
 
     def __init__( self, year ):
-        self._year = year
-        self._today = datetime.date
-        self._day = self._today.day
-        self._month = self._today.month
+        self.__year = year
+        self.__today = datetime.date
+        self.__day = self.__today.day
+        self.__month = self.__today.month
+
+    def __str__( self ):
+        return self.__fiscal_year

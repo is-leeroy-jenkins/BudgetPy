@@ -1,18 +1,21 @@
 class Organization():
     '''Defines the Organization Class'''
-    _code = ''
-    _name = ''
+    __code = ''
+    __name = ''
 
     @property
     def code( self ):
-        if not self._code == '':
-            return self._code
+        if not self.__code == '':
+            return self.__code
 
     @property
     def name( self ):
-        if not self._name == '':
-            return self._name
+        if not self.__name == '':
+            return self.__name
 
     def __init__(self, code, name=''):
-        self._code = code
-        self._name = name
+        self.__code = code
+        self.__name = name
+
+    def __str__( self ):
+        return self.__code
