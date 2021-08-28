@@ -27,12 +27,5 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="Data" uuid="cf20d1d3-a146-4c1f-8ef1-e89cfdececc6">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
-      <auth-provider>ms-sso</auth-provider>
-      <user-name>teppler</user-name>
-      <schema-mapping />
-    </data-source>
   </component>
 </project>
