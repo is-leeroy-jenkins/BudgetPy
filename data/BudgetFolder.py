@@ -1,13 +1,12 @@
 import os
 
-class BudgetFile():
-    '''Defines the BudgetFile Class'''
+class BudgetFolder():
+    '''Defines the BudgetFolder Class'''
     # pseudo-private backing fields
     __base = None
     __name = None
     __path = None
     __size = None
-    __extension = None
     __parent_folder = None
     __drive = None
     __created = None
@@ -32,11 +31,6 @@ class BudgetFile():
     def size( self ):
         if self.__parent_folder is not None:
             return self.__size
-
-    @property
-    def extension( self ):
-        if self.__extension is not None:
-            return self.__extension
 
     @property
     def parent_folder( self ):
@@ -90,19 +84,18 @@ class BudgetFile():
 
     def exists( self ):
         '''determines if the base file exists'''
-        if os.path.isfile( self.__base ):
+        if os.path.isdir( self.__base ):
             return True
 
     def get_drive( self ):
         '''get the file's drive'''
         return list(os.path.splitdrive( self.__path ))[0]
 
-    def verify( self, other_filepath ):
+    def verify( self, other_path ):
         '''determines if an external file exists'''
-        if other_filepath != '':
-            return os.path.exists( other_filepath )
+        if other_path != '':
+            return os.path.isdir( other_path )
 
     def get_size( self ):
         '''gets the size of the base file'''
         return os.path.getsize( self.__name )
-
