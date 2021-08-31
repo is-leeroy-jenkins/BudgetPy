@@ -46,5 +46,6 @@ class DataColumn():
         self.__name = name
         self.__type = data_type
         self.__caption = caption
-        self.__data = [ self.__name, self.__type, self.__ordinal ]
+        self.__data = { 'name': self.__name, 'type': self.__type, 'ordinal': self.__ordinal }
         self.__source = source
+        self.__table = self.__source
