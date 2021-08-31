@@ -636,7 +636,3 @@ G
 ninja/ProgramProject.py,e\4\e497f3f1f9da804e10faddd4b069c7493972fb64
 B
 data/BudgetFile.py,8\7\87d37b9bce350b59f8fe436ecd20bc2d163f40ab
-?
-data/DataRow.py,1\8\18ea5a3d5a4872b49e1de8b66d6ec00cd74ac89c
-A
-data/DataTable.py,3\9\392da914fbd6980710dff077b5f0cff63c5c589c
