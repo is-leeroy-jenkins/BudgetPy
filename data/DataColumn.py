@@ -41,6 +41,16 @@ class DataColumn():
     def data( self ):
         return self.__data
 
+    @property
+    def is_numeric( self ):
+        if self.__type ==  'Number':
+            return True
+
+    @property
+    def is_text( self ):
+        if not self.__type ==  'Number':
+            return True
+
     def __init__( self, name, data_type = 'string', source = '',
                   caption = '' ):
         self.__name = name
