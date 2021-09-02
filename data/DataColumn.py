@@ -43,12 +43,12 @@ class DataColumn():
 
     @property
     def is_numeric( self ):
-        if self.__type ==  'Number':
+        if not self.__type ==  type(''):
             return True
 
     @property
     def is_text( self ):
-        if not self.__type ==  'Number':
+        if self.__type ==  type(''):
             return True
 
     def __init__( self, name, data_type = 'string', source = '',
