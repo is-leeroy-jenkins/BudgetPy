@@ -51,11 +51,14 @@ class DataColumn():
         if self.__type ==  type(''):
             return True
 
-    def __init__( self, name, data_type = 'string', source = '',
-                  caption = '' ):
+    def __init__( self, name, data_type = None,
+                  source = None, caption = None):
         self.__name = name
         self.__type = data_type
         self.__caption = caption
         self.__data = { 'name': self.__name, 'type': self.__type, 'caption': self.__caption }
         self.__source = source
         self.__table = self.__source
+
+    def __str__(self):
+        return self.__name

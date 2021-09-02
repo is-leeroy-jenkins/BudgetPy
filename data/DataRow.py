@@ -26,10 +26,6 @@ class DataRow():
     def value( self ):
         return self.__value
 
-    @property
-    def id( self ):
-        return self.__id
-
     def __init__( self, items ):
         self.__items = dict( items )
         self.__columns = dict.fromkeys( self.__items )
