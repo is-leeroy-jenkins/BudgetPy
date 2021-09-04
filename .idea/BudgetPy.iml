@@ -23,5 +23,6 @@
     <orderEntry type="library" name="MicroPython" level="project" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
     <orderEntry type="library" name="MicroPython" level="project" />
+    <orderEntry type="library" name="MicroPython" level="project" />
   </component>
 </module>
