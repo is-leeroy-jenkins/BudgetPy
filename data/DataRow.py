@@ -1,9 +1,11 @@
+import pandas as pd
+
 class DataRow():
     '''Defines the DataRow Class'''
     __items = { }
     __value = None
     __values = []
-    __columns = { }
+    __columns = pd.Series
     __id = -1
 
     @property
@@ -35,4 +37,3 @@ class DataRow():
 
     def __str__( self ):
         return self.__id + ' ' + self.__value
-
