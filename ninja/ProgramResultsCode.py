@@ -1,3 +1,7 @@
+from ninja.AllowanceHolder import AllowanceHolder
+from ninja.BudgetFiscalYear import BudgetFiscalYear
+from ninja.ResponsiblePlanningOffice import ResponsiblePlanningOffice
+
 class ProgramResultsCode():
     '''Defines the PRC class'''
     __id = -1
@@ -21,10 +25,23 @@ class ProgramResultsCode():
     @property
     def rpio( self ):
         if self.__rpio_code is not None:
-            return self.__rpio_code
-
+            return ResponsiblePlanningOffice( self.__rpio_code )
         else:
-            return - 1
+            return 'NS'
+
+    @property
+    def bfy( self ):
+        if self.__fiscal_year is not None:
+            return BudgetFiscalYear( self.__fiscal_year )
+        else:
+            return 'NS'
+
+    @property
+    def ah( self ):
+        if self.__ah_code is not None:
+            return AllowanceHolder( self.__ah_code )
+        else:
+            return 'NS'
 
     def __init__( self, rpio = None, bfy = None,
                   ah = None, fund = None, code = None,
