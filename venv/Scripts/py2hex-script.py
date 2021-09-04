@@ -1,5 +1,5 @@
 #!C:\Users\terry\source\repos\budgetpy\venv\Scripts\python.exe
-# EASY-INSTALL-ENTRY-SCRIPT: 'uflash==2.0.0','console_scripts','uflash'
+# EASY-INSTALL-ENTRY-SCRIPT: 'uflash==2.0.0','console_scripts','py2hex'
 import re
 import sys
 
@@ -30,4 +30,4 @@ globals().setdefault('load_entry_point', importlib_load_entry_point)
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
-    sys.exit(load_entry_point('uflash==2.0.0', 'console_scripts', 'uflash')())
+    sys.exit(load_entry_point('uflash==2.0.0', 'console_scripts', 'py2hex')())
