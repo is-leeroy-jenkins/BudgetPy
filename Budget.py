@@ -1,5 +1,39 @@
 import datetime
 
+class Unit():
+    '''Defines the Data class'''
+    __code = None
+
+    def __init__( self, code ):
+        self.__code = code
+
+    def __str__(self):
+        if self.__code is not None:
+            return self.__code
+
+class Data( Unit ):
+    '''Defines the basic budget data unit'''
+    __name = ''
+    __value = ''
+
+    @property
+    def name( self ):
+        if self.__name != '':
+            return self.__name
+
+    @property
+    def value( self ):
+        if self.__value != '':
+            return self.__value
+
+    def __init__( self, code, name, value ):
+        super().__init__( code )
+        self.__name = name
+        self.__value = value
+
+    def __str__( self ):
+        return self.__name
+
 class Account():
     '''defines the Account Code class'''
     __code = ''
@@ -228,7 +262,7 @@ class Fund():
         if not self.__name == '':
             return self.__name
 
-    def __init__( self, code, name='' ):
+    def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
 
@@ -250,7 +284,7 @@ class Goal():
         if not self.__name == '':
             return self.__name
 
-    def __init__(self, code, name=''):
+    def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
 
@@ -274,7 +308,7 @@ class NationalProgram():
         if not self.__name == '':
             return self.__name
 
-    def __init__(self, code, name=''):
+    def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
 
@@ -318,7 +352,7 @@ class Organization():
         if not self.__name == '':
             return self.__name
 
-    def __init__(self, code, name=''):
+    def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
 
@@ -340,7 +374,7 @@ class ProgramArea():
         if not self.__name == '':
             return self.__name
 
-    def __init__(self, code, name = ''):
+    def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
 
@@ -362,7 +396,7 @@ class ProgramProject():
         if not self.__name == '':
             return self.__name
 
-    def __init__(self, code, name = ''):
+    def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
 
@@ -384,7 +418,7 @@ class ResponsibilityCenter():
         if not self.__name == '':
             return self.__name
 
-    def __init__(self, code, name = ''):
+    def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
 
@@ -406,7 +440,7 @@ class ResourceImplementationPlanningOffice():
         if not self.__name == '':
             return self.__name
 
-    def __init__(self, code, name = ''):
+    def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
 

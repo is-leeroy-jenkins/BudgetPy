@@ -3,28 +3,6 @@ import pandas as pd
 import pyodbc as access
 import sqlite3
 
-class Unit:
-    '''Defines the basic budget data unit'''
-    __name = ''
-    __value = ''
-
-    @property
-    def name( self ):
-        if self.__name != '':
-            return self.__name
-
-    @property
-    def value( self ):
-        if self.__value != '':
-            return self.__value
-
-    def __init__(self, name, value):
-        self.__name = name
-        self.__value = value
-
-    def __str__(self):
-        return self.__name
-
 class BudgetFile():
     '''Defines the BudgetFile Class'''
     __base = None
@@ -340,12 +318,12 @@ class DataColumn():
 
     @property
     def is_numeric( self ):
-        if not self.__type ==  type(''):
+        if not isinstance( str, self.__type ):
             return True
 
     @property
     def is_text( self ):
-        if self.__type ==  type(''):
+        if isinstance( str, self.__type ):
             return True
 
     def __init__( self, name, data_type = None,
