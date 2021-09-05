@@ -1,2 +1,2 @@
 # BudgetPy
-Python prototyping for Budget Execution.
+Python prototyping, scripting, and for the Budget Execution application with jupyter lab/notebooks.
