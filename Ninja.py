@@ -3,6 +3,39 @@ import pandas as pd
 import pyodbc as access
 import sqlite3
 
+class BudgetPath():
+    '''Defines the BudgetPath class'''
+    __path = None
+    __ext = None
+
+    @property
+    def path( self ):
+        if self.__path != '':
+            return self.__path
+
+    @property
+    def exists( self ):
+        if os.path.exists( self.__path ):
+            return True
+
+    @property
+    def isfolder( self ):
+        if os.path.exists( self.__path ) and os.path.isdir( self.__path ):
+            return True
+
+    @property
+    def isfile( self ):
+        if os.path.exists( self.__path ) and os.path.isfile( self.__path ):
+            return True
+
+    @property
+    def extension( self ):
+        if self.__path != '':
+            return os.path.split( self.__path )
+
+    def __init__( self, path ):
+        self.__path = path
+
 class BudgetFile():
     '''Defines the BudgetFile Class'''
     __base = None
