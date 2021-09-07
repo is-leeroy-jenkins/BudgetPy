@@ -1,2 +1,2 @@
 # BudgetPy
-Python prototyping, scripting, and integrating the Budget Execution SQLite, Access, and Jupyter.
+Prototyping/scripting for Budget Execution and jupyter lab/notebooks integration.
