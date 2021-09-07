@@ -455,13 +455,13 @@ class SQLiteDataBuilder():
     __data = None
 
     def __init__( self ):
-        self.__connection = sqlite3.connect( 'Data.db' )
+        self.__connection = sqlite3.connect( r'db\sqlite\datamodels\Data.db' )
         self.__cursor = self.__connection.cursor()
         self.__data = ''
 
     def get_data( self, table ):
         if self.__data == '':
-            self.__data = self.__cursor.execute( f'SELECT * FROM {0}', table )
+            self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
 
 class SQLiteReferenceBuilder():
     '''Builds the budget execution reference models'''
@@ -470,7 +470,7 @@ class SQLiteReferenceBuilder():
     __data = None
 
     def __init__( self ):
-        self.__connection = sqlite3.connect( 'References.db' )
+        self.__connection = sqlite3.connect( r'db\sqlite\referencemodels\References.db' )
         self.__cursor = self.__connection.cursor()
         self.__data = ''
 
