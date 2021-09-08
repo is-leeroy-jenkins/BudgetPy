@@ -131,53 +131,48 @@ class BudgetFile():
         self.__drive = str(list( os.path.splitdrive( self.__path ) )[ 0 ] )
         self.__content = list()
 
-    def rename( self, new_name ):
+    def rename( self, filename ):
         '''renames current file'''
         if self.__base is not None and self.__name is not None:
-            return os.rename( self.__name, new_name )
+            return os.rename( self.__name, filename )
 
-    def move( self, destination_path ):
+    def move( self, destination ):
         '''renames current file'''
         if self.__base is not None and os.path.exists( self.__base ):
-            return os.path.join( self.__name, destination_path )
-
-    def exists( self ):
-        '''determines if the base file exists'''
-        if os.path.isfile( self.__base ):
-            return True
+            return os.path.join( self.__name, destination )
 
     def create( self, other ):
-        ''' creates and returns 'other' file '''
+        ''' creates and returns 'path' file '''
         if other is not None:
             os.mkfifo( other )
 
-    def verify( self, other ):
+    def exists( self, path ):
         '''determines if an external file exists'''
-        if other is not None and os.path.exists( self.__base ):
-            return os.path.exists( other )
+        if path is not None:
+            return os.path.exists( path )
 
-    def delete( self ):
+    def delete( self, path ):
         ''' deletes file at 'self.__path'   '''
-        if self.__path is not None and os.path.isfile( self.__path ):
-            os.remove( self.__path )
+        if path is not None and os.path.isfile( path ):
+            os.remove( path )
 
-    def getsize( self, other ):
+    def getsize( self, path ):
         '''gets the size of another file'''
-        if self.__base is not None and os.path.exists( other ):
-            return os.path.getsize( other )
+        if self.__base is not None and os.path.exists( path ):
+            return os.path.getsize( path )
 
-    def getdrive( self, other ):
+    def getdrive( self, path ):
         '''gets the drive of another file'''
-        if self.__base is not None and os.path.exists( other ):
-            return list( os.path.splitdrive( other ) )[ 0 ]
+        if self.__base is not None and os.path.exists( path ):
+            return list( os.path.splitdrive( path ) )[ 0 ]
 
-    def getextension( self, other ):
-        ''' gets and returns extension of 'other' 'file' '''
-        if other is not None and os.path.isfile( other ):
-            return list( os.path.splitext( other ) )[ 1 ]
+    def getextension( self, path ):
+        ''' gets and returns extension of 'path' 'file' '''
+        if path is not None and os.path.isfile( path ):
+            return list( os.path.splitext( path ) )[ 1 ]
 
     def readlines( self, other ):
-        '''reads all lines in 'other' into a list
+        '''reads all lines in 'path' into a list
             then returns the list '''
         lines = [ ]
         count = len( self.__content )
@@ -290,39 +285,29 @@ class BudgetFolder():
         if self.__name is not None and destination is not None:
             return os.path.join( self.__name, destination )
 
-    def exists( self ):
+    def exists( self, path ):
         '''determines if the base file exists'''
-        if os.path.isdir( self.__base ):
+        if path is not None and os.path.isdir( path ):
             return True
 
-    def verify( self, other ):
-        '''determines if an external file exists'''
-        if other != '':
-            return os.path.isdir( other )
+    def create( self, path ):
+        if path is not None:
+            os.mkdir( path )
 
-    def create( self, other ):
-        if other is not None:
-            os.mkdir( other )
+    def delete( self, path ):
+        ''' deletes 'path' directory '''
+        if path is not None and os.path.isdir( path ):
+            os.rmdir( path )
 
-    def kill( self, other ):
-        ''' deletes 'other' directory '''
-        if other is not None and os.path.isdir( other ):
-            os.rmdir( other )
+    def getsize( self, path ):
+        ''' gets and returns size of 'path' '''
+        if path is not None and os.path.isdir( path ):
+            return os.path.getsize( path )
 
-    def delete( self ):
-        ''' deletes directory at self.__path '''
-        if self.__base is not None and os.path.isdir( self.__path ):
-            os.rmdir( self.__path )
-
-    def getsize( self, other ):
-        ''' gets and returns size of 'other' '''
-        if other is not None and os.path.isdir( other ):
-            return os.path.getsize( other )
-
-    def getdrive( self, other ):
-        ''' gets and returns parent directory of 'other' '''
-        if other is not None and os.path.isdir( other ):
-            return os.path.splitdrive( other )[ 0 ]
+    def getdrive( self, path ):
+        ''' gets and returns parent directory of 'path' '''
+        if path is not None and os.path.isdir( path ):
+            return os.path.splitdrive( path )[ 0 ]
 
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
@@ -331,7 +316,7 @@ class CriteriaBuilder():
     __where = None
     __database = None
     __datatable = None
-    __commandtype = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'ALTER', 'DROP']
+    __command = [ 'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'ALTER', 'DROP' ]
     __criteria = { }
 
     @property
@@ -344,11 +329,13 @@ class CriteriaBuilder():
 
     @property
     def criteria( self ):
-        return self.__criteria
+        if self.__criteria is not None:
+            return self.__criteria
 
     @criteria.setter
-    def criteria( self, name_value_pairs = None ):
-        self.__criteria = dict( name_value_pairs )
+    def criteria( self, namevaluepairs  ):
+        if namevaluepairs is not None:
+            self.__criteria = dict( namevaluepairs )
 
     def __init__( self ):
         self.__and = ' AND '
