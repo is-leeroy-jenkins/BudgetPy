@@ -195,13 +195,13 @@ class BudgetFile():
 
     def getdrive( self, path ):
         '''gets the drive of another file'''
-        if self.__base is not None and os.path.exists( path ):
-            return list( os.path.splitdrive( path ) )[ 0 ]
+        if os.path.exists( path ):
+            return str( list( os.path.splitdrive( path ) )[ 0 ] )
 
     def getextension( self, path ):
         ''' gets and returns extension of 'path' 'file' '''
         if path is not None and os.path.isfile( path ):
-            return list( os.path.splitext( path ) )[ 1 ]
+            return str( list( os.path.splitext( path ) )[ 1 ] )
 
     def readlines( self, other ):
         '''reads all lines in 'path' into a list
@@ -376,7 +376,6 @@ class CriteriaBuilder():
     def __init__( self ):
         self.__and = ' AND '
         self.__where = ' WHERE '
-
 
 class DataRow():
     '''Defines the DataRow Class'''
