@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import pyodbc as access
 import sqlite3
+import datetime as dt
 
 
 class BudgetPath():
@@ -125,9 +126,9 @@ class BudgetFile():
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
         self.__modified = os.path.getmtime( base )
-        self.__parentfolder = os.path.dirname( base )
+        self.__parentfolder = str( list( os.path.dirname( base ) )[ 0 ] )
         self.__current = os.getcwd()
-        self.__drive = list( os.path.splitdrive( self.__path ) )[ 0 ]
+        self.__drive = str(list( os.path.splitdrive( self.__path ) )[ 0 ] )
         self.__content = list()
 
     def rename( self, new_name ):
