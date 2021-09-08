@@ -600,8 +600,6 @@ K
 etc/img/BudgetExecution.svg,8\8\8893d0127d7f9690c2e5270f0a9529fa4bca7284
 G
 db/sqlite/gui/help.html,2\6\26cd554bb7d2da5a604238c1cf9d3eb9ccea7f8d
-^
-.db/sqlite/gui/Other/Source/LauncherLicense.txt,4\9\493d7058e9afae9a56535e21d29c6f675040ddf0
 j
 :db/sqlite/gui/App/SQLiteDatabaseBrowser32/licenses/LICENSE,4\b\4b8393d8324f2fe99fdf853b4e66f670b53827a7
 j

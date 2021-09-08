@@ -1,9 +1,7 @@
 import os
+import sqlite3
 import pandas as pd
 import pyodbc as access
-import sqlite3
-import datetime as dt
-
 
 class BudgetPath():
     '''Defines the BudgetPath class'''
@@ -519,11 +517,11 @@ class DataColumn():
 
 class DataTable():
     '''Defines the DataTable Class'''
+    __base = None
+    __source = None
     __name = None
-    __data = { }
-    __rows = pd.DataFrame
-    __columns = pd.Series
-    __schema = { }
+    __data = None
+    __schema = None
     __query = None
 
     @property
@@ -531,60 +529,75 @@ class DataTable():
         return self.__name
 
     @property
-    def data( self ):
-        return self.__data
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
 
-    def __init__( self, name, sql = '' ):
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def schema( self ):
+        if self.__schema is not None:
+            return self.__schema
+
+    @property
+    def rows( self ):
+        if self.__source is not None:
+            return self.__source.iterrows()
+
+    def __init__( self, name, sql = None ):
         self.__name = name
-        self.__query = sql
+        self.__base = self.__name
+        self.__source = pd.DataFrame( self.__base )
+        self.__data = self.__source[ 0: ].iterrows()
+        self.__schema = self.__source.columns.names
+        self.__query = str( sql )
 
     def __str__( self ):
         return self.__name
 
-    def get_sql( self ):
-        return self.__query
-
-    def get_source( self ):
-        return self.__name
-
-    def get_datarows( self ):
-        return self.__rows
-
-    def get_datacolumns( self ):
-        return self.__columns
-
-    def get_schema( self ):
-        return self.__schema
+    def getsql( self ):
+        if self.__query is not None:
+            return self.__query
 
 class AccessDataBuilder():
     '''Builds the budget execution data classes'''
-    __connector = ''
+    __connector = None
     __connection = None
     __cursor = None
     __data = None
+    __budget = None
+    __sqlpath = None
 
     def __init__( self ):
         self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                            r'DBQ=accdb\Data.accdb;')
+                            r'DBQ=db\access\datamodels\Data.accdb;')
         self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
+        self.__budget = BudgetPath
+        self.__sqlpath = self.__budget.sqlite_datamodels
         self.__cursor = self.__connection.cursor()
         self.__data = ''
 
     def get_data( self, table ):
-        if self.__data == '':
+        if self.__data is None:
             self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
 
 class AccessReferenceBuilder():
     '''Builds the budget execution data classes'''
-    __connector = ''
+    __connector = None
     __connection = None
     __cursor = None
     __data = None
+    __budget = BudgetPath
+    __sqlpath = None
 
     def __init__( self ):
         self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                            r'DBQ=accdb\References.accdb;')
+                            r'DBQ=db\access\referencemodels\References.accdb;')
         self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
