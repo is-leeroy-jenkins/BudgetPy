@@ -2,137 +2,183 @@ import datetime
 
 class Unit():
     '''Defines the Data class'''
+    __id = None
     __code = None
 
-    def __init__( self, code ):
-        self.__code = code
+    def __init__( self, code, index = None ):
+        self.__id = int( index )
+        self.__code = str( code )
 
-    def __str__(self):
+    def __str__( self ):
         if self.__code is not None:
             return self.__code
+        else:
+            return 'NS'
 
 class Data( Unit ):
     '''Defines the basic budget data unit'''
-    __name = ''
-    __value = ''
+    __name = None
+    __value = None
 
     @property
     def name( self ):
-        if self.__name != '':
+        if self.__name is not None:
             return self.__name
+        else:
+            return 'NS'
 
     @property
     def value( self ):
-        if self.__value != '':
+        if self.__value is not None:
             return self.__value
+        else:
+            return 'NS'
 
-    def __init__( self, code, name, value ):
-        super().__init__( code )
-        self.__name = name
-        self.__value = value
+    def __init__( self, code, name ):
+        super().__init__( str( code ) )
+        self.__code = str( code )
+        self.__name = str( name )
+        self.__value = self.__code
 
     def __str__( self ):
-        return self.__name
+        if self.__name is not None:
+            return self.__name
 
 class Account():
     '''defines the Account Code class'''
-    __code = ''
+    __index = None
+    __code = None
     __name = None
-    __goal = ''
-    __objective = ''
-    __npm = ''
-    __program_project = ''
+    __goal = None
+    __objective = None
+    __npm = None
+    __programproject = None
+
+    @property
+    def id( self ):
+        if not self.__index < 0:
+            return int( self.__index )
+        else:
+            return -1
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
         else:
             return 'NS'
 
     @property
     def name( self ):
-        if not self.__name == '':
-            return self.__code
+        if self.__name is not None:
+            return self.__name
         else:
             return 'NS'
 
     @property
     def goal( self ):
-        if not self.__goal == '':
+        if self.__goal is not None:
             return self.__goal
         else:
             return 'NS'
 
     @property
     def npm( self ):
-        if not self.__npm == '':
+        if self.__npm is not None:
             return self.__npm
         else:
             return 'NS'
 
     @property
-    def program_project( self ):
-        if not self.__program_project == '':
-            return self.__program_project
+    def programproject( self ):
+        if self.__programproject is not None:
+            return self.__programproject
         else:
             return 'NS'
 
-    def __init__( self, code, name = None ):
-        self.__code = code
-        self.__name = name
+    def __init__( self, code, name = None, index = None ):
+        self.__index = int( index )
+        self.__code = str( code )
+        self.__name = str( name )
         self.__goal = list( code )[ 0 ]
         self.__objective = list( code )[ 1:3 ]
         self.__npm = list( code )[ 3 ]
-        self.__program_project = list( code )[ 4:6 ]
+        self.__programproject = list( code )[ 4:6 ]
 
     def __str__( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
 class Activity():
     '''Defines the Activity Class'''
-    __code = ''
-    __name = ''
+    __id = None
+    __code = None
+    __name = None
+
+    @property
+    def id( self ):
+        if self.__id is not None:
+            return self.__id
+        else:
+            return -1
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
+        else:
+            return 'NS'
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
+        else:
+            return 'NS'
 
-    def __init__( self, code, name = '' ):
-        self.__code = code
-        self.__name = name
+    def __init__( self, code, name = None, index = None ):
+        self.__id = int( index )
+        self.__code = str( code )
+        self.__name = str( name )
 
     def __str__( self ):
         return self.__code
 
 class AllowanceHolder():
     '''Defines the AllowanceHolder Class'''
-    __code = ''
-    __name = ''
+    __id = None
+    __code = None
+    __name = None
+
+    @property
+    def id( self ):
+        if self.__id is not None:
+            return self.__id
+        else:
+            return -1
 
     @property
     def code( self ):
         if not self.__code == '':
             return self.__code
+        else:
+            return 'NS'
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
+        else:
+            return 'NS'
 
-    def __init__( self, code, name = '' ):
-        self.__ah_code = code
-        self.__a_name = name
+    def __init__( self, code, name = None, index = None ):
+        self.__id = int( index )
+        self.__code = code
+        self.__name = name
 
     def __str__( self ):
-        return self.__ah_code
+        if self.__code is not None:
+            return self.__code
 
 class Appropriation():
     '''Defines the Appropriation Class'''
@@ -140,31 +186,52 @@ class Appropriation():
     __name = ''
 
     @property
+    def id( self ):
+        if self.__id > 0:
+            return self.__id
+        else:
+            return -1
+
+    @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
+        else:
+            return 'NS'
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
+        else:
+            return 'NS'
 
-    def __init__( self, code, name = '' ):
-        self.__code = code
-        self.__name = name
+    @property
+    def fiscalyear( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+        else:
+            return 'NS'
+
+    def __init__( self, code, name = None, bfy = None, index = None ):
+        self.__id = int( index )
+        self.__bfy = str( bfy )
+        self.__code = str( code )
+        self.__name = str( name )
 
     def __str__( self ):
         return self.__code
 
 class BudgetFiscalYear():
     '''Class to describe the federal fiscal year'''
-    __fiscal_year = ''
-    __today = ''
+    __base = None
+    __fiscalyear = None
+    __today = None
     __date = None
-    __year = ''
-    __start_date = ''
-    __end_date = ''
-    __expiration = ''
+    __year = None
+    __start_date = None
+    __end_date = None
+    __expiration = None
     __weekends = 0
     __workdays = 0
     __day = ''
@@ -172,30 +239,32 @@ class BudgetFiscalYear():
     __federal_holidays = { }
 
     def __init__( self, year ):
-        self.__year = year
+        self.__base = str( year )
+        self.__fiscalyear = self.__base[ 3: ]
+        self.__year = int( year )
         self.__today = datetime.date
         self.__day = self.__today.day
         self.__month = self.__today.month
 
     def __str__( self ):
-        return self.__fiscal_year
+        return str( self.__year )
 
 class BudgetObjectClass():
     '''Defines the BudgetObjectClass Class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
-    def __init__( self, code, name = '' ):
+    def __init__( self, code, name = None ):
         self.__code = code
         self.__name = name
 
@@ -204,20 +273,20 @@ class BudgetObjectClass():
 
 class Division():
     '''Defines the Division Class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
-    def __init__( self, code, name = '' ):
+    def __init__( self, code, name = None ):
         self.__code = code
         self.__name = name
 
@@ -226,20 +295,20 @@ class Division():
 
 class FinanceObjectClass():
     '''Defines the FinanceObjectClass Class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
-    def __init__( self, code, name = '' ):
+    def __init__( self, code, name = None ):
         self.__code = code
         self.__name = name
 
@@ -248,21 +317,21 @@ class FinanceObjectClass():
 
 class Fund():
     '''Defines the Fund Class'''
-    __code = ''
-    __name = ''
-    __title = ''
+    __code = None
+    __name = None
+    __title = None
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
-    def __init__( self, code, name = '' ):
+    def __init__( self, code, name = None ):
         self.__code = code
         self.__name = name
 

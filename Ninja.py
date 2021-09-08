@@ -3,14 +3,21 @@ import pandas as pd
 import pyodbc as access
 import sqlite3
 
+
 class BudgetPath():
     '''Defines the BudgetPath class'''
+    __base = None
     __path = None
     __ext = None
 
     @property
+    def base( self ):
+        if self.__base is not None:
+            return self.__base
+
+    @property
     def path( self ):
-        if self.__path != '':
+        if self.__path is not None:
             return self.__path
 
     @property
@@ -30,11 +37,12 @@ class BudgetPath():
 
     @property
     def extension( self ):
-        if self.__path != '':
+        if self.__path is not None:
             return os.path.split( self.__path )
 
-    def __init__( self, path ):
-        self.__path = path
+    def __init__( self, filepath ):
+        self.__base = str( filepath )
+        self.__path = self.__base
 
 class BudgetFile():
     '''Defines the BudgetFile Class'''
@@ -43,20 +51,23 @@ class BudgetFile():
     __path = None
     __size = None
     __extension = None
-    __parent_folder = None
+    __parentfolder = None
     __drive = None
     __created = None
     __modified = None
     __accessed = None
     __current = None
+    __content = [ ]
 
     @property
     def base( self ):
-        return self.__base
+        if self.__base is not None:
+            return self.__base
 
     @property
     def name( self ):
-        return os.path.basename( self.__base )
+        if self.__name is not None:
+            return self.__name
 
     @property
     def path( self ):
@@ -65,7 +76,7 @@ class BudgetFile():
 
     @property
     def size( self ):
-        if self.__parent_folder is not None:
+        if self.__parentfolder is not None:
             return self.__size
 
     @property
@@ -74,9 +85,9 @@ class BudgetFile():
             return self.__extension
 
     @property
-    def parent_folder( self ):
-        if self.__parent_folder is not None:
-            return self.__parent_folder
+    def parentfolder( self ):
+        if self.__parentfolder is not None:
+            return self.__parentfolder
 
     @property
     def drive( self ):
@@ -98,48 +109,74 @@ class BudgetFile():
         if self.__created is not None:
             return self.__created
 
+    @property
+    def currentdirectory( self ):
+        if self.__current is not None:
+            return self.__current
+
     # Constructor
     def __init__( self, base ):
-        self.__base = base
+        self.__base = str( base )
         self.__name = os.path.basename( base )
         self.__path = os.path.abspath( base )
         self.__size = os.path.getsize( base )
-        self.__extension = list( os.path.splitext( base ) )[ 1 ]
+        self.__extension = str( list( os.path.splitext( base ) )[ 1 ] )
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
         self.__modified = os.path.getmtime( base )
-        self.__parent_folder = os.path.dirname( base )
-
-    def get_current_directory( self ):
-        '''gets the current directory'''
+        self.__parentfolder = os.path.dirname( base )
         self.__current = os.getcwd()
-        return self.__current
+        self.__drive = os.path.splitdrive( self.__path )
 
     def rename( self, new_name ):
         '''renames current file'''
-        return os.rename( self.__name, new_name )
+        if self.__base is not None and self.__name is not None:
+            return os.rename( self.__name, new_name )
 
     def move( self, destination_path ):
         '''renames current file'''
-        return os.path.join( self.__name, destination_path )
+        if self.__base is not None and os.path.exists( self.__base ):
+            return os.path.join( self.__name, destination_path )
 
     def exists( self ):
         '''determines if the base file exists'''
         if os.path.isfile( self.__base ):
             return True
 
-    def get_drive( self ):
-        '''get the file's drive'''
-        return list(os.path.splitdrive( self.__path ))[0]
-
-    def verify( self, other_filepath ):
+    def verify_exists( self, other ):
         '''determines if an external file exists'''
-        if other_filepath != '':
-            return os.path.exists( other_filepath )
+        if other is not None and os.path.exists( self.__base ):
+            return os.path.exists( other )
 
-    def get_size( self ):
-        '''gets the size of the base file'''
-        return os.path.getsize( self.__name )
+    def get_size( self, other ):
+        '''gets the size of another file'''
+        if self.__base is not None and os.path.exists( other ):
+            return os.path.getsize( other )
+
+    def get_drive( self, other ):
+        '''gets the drive of another file'''
+        if self.__base is not None and os.path.exists( other ):
+            return os.path.splitdrive( other )
+
+    def readlines( self ):
+        '''reads the content of the file into a list'''
+        if os.path.isfile( self.__base ):
+            for line in open( self.__path, 'r' ):
+                self.__content.append( line )
+            if len( self.__content ) > 0:
+                return self.__content
+
+    def readline( self ):
+        '''reads a single line from the file into a string'''
+        if os.path.isfile( self.__path ):
+            __line = open( self.__path, 'r' ).readline()
+            if len( __line ) > 0:
+                return str( __line )
+
+    def writelines( self, lines = None ):
+        ''' writes the contents of 'lines' to self.__content '''
+        if os.path.isfile( self.__path ) and isinstance( lines, list ):
+            open( self.__path, 'w' ).writelines( lines )
 
 class BudgetFolder():
     '''Defines the BudgetFolder Class'''
@@ -148,7 +185,7 @@ class BudgetFolder():
     __name = None
     __path = None
     __size = None
-    __parent_folder = None
+    __parent = None
     __drive = None
     __created = None
     __modified = None
@@ -170,13 +207,18 @@ class BudgetFolder():
 
     @property
     def size( self ):
-        if self.__parent_folder is not None:
+        if self.__parent is not None:
             return self.__size
 
     @property
-    def parent_folder( self ):
-        if self.__parent_folder is not None:
-            return self.__parent_folder
+    def currentdirectory( self ):
+        if self.__current is not None:
+            return self.__current
+
+    @property
+    def parentfolder( self ):
+        if self.__parent is not None:
+            return self.__parent
 
     @property
     def drive( self ):
@@ -208,38 +250,25 @@ class BudgetFolder():
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
         self.__modified = os.path.getmtime( base )
-        self.__parent_folder = os.path.dirname( base )
-
-    def get_current_directory( self ):
-        '''gets the current directory'''
-        self.__current = os.getcwd()
-        return self.__current
+        self.__parent = os.path.dirname( base )
 
     def rename( self, new_name ):
         '''renames current file'''
         return os.rename( self.__name, new_name )
 
-    def move( self, destination_path ):
+    def move( self, destination ):
         '''renames current file'''
-        return os.path.join( self.__name, destination_path )
+        return os.path.join( self.__name, destination )
 
     def exists( self ):
         '''determines if the base file exists'''
         if os.path.isdir( self.__base ):
             return True
 
-    def get_drive( self ):
-        '''get the file's drive'''
-        return list(os.path.splitdrive( self.__path ))[0]
-
-    def verify( self, other_path ):
+    def verify( self, other ):
         '''determines if an external file exists'''
-        if other_path != '':
-            return os.path.isdir( other_path )
-
-    def get_size( self ):
-        '''gets the size of the base file'''
-        return os.path.getsize( self.__name )
+        if other != '':
+            return os.path.isdir( other )
 
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
@@ -272,7 +301,7 @@ class DataRow():
     '''Defines the DataRow Class'''
     __items = { }
     __value = None
-    __values = []
+    __values = [ ]
     __columns = pd.Series
     __id = -1
 
@@ -351,24 +380,26 @@ class DataColumn():
 
     @property
     def is_numeric( self ):
-        if not isinstance( str, self.__type ):
+        if not isinstance( str, type( self.__type ) ):
             return True
 
     @property
     def is_text( self ):
-        if isinstance( str, self.__type ):
+        if isinstance( str, type( self.__type ) ):
             return True
 
     def __init__( self, name, data_type = None,
-                  source = None, caption = None):
+                  caption = None, source = None, ordinal = None ):
         self.__name = name
         self.__type = data_type
         self.__caption = caption
-        self.__data = { 'name': self.__name, 'type': self.__type, 'caption': self.__caption }
+        self.__data = { 'ordinal': self.__ordinal, 'name': self.__name,
+                        'type': self.__type, 'caption': self.__caption }
         self.__source = source
+        self.__ordinal = int( ordinal )
         self.__table = self.__source
 
-    def __str__(self):
+    def __str__( self ):
         return self.__name
 
 class DataTable():
@@ -388,11 +419,11 @@ class DataTable():
     def data( self ):
         return self.__data
 
-    def __init__( self, name, sql = ''  ):
+    def __init__( self, name, sql = '' ):
         self.__name = name
         self.__query = sql
 
-    def __str__(self):
+    def __str__( self ):
         return self.__name
 
     def get_sql( self ):
@@ -419,7 +450,7 @@ class AccessDataBuilder():
 
     def __init__( self ):
         self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-            r'DBQ=accdb\Data.accdb;')
+                            r'DBQ=accdb\Data.accdb;')
         self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
@@ -438,7 +469,7 @@ class AccessReferenceBuilder():
 
     def __init__( self ):
         self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-            r'DBQ=accdb\References.accdb;')
+                            r'DBQ=accdb\References.accdb;')
         self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
