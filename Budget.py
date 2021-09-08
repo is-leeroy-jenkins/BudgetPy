@@ -57,7 +57,7 @@ class Account():
     @property
     def id( self ):
         if not self.__index < 0:
-            return int( self.__index )
+            return self.__index
         else:
             return -1
 
@@ -83,6 +83,13 @@ class Account():
             return 'NS'
 
     @property
+    def objective( self ):
+        if self.__objective is not None:
+            return self.__objective
+        else:
+            return 'NS'
+
+    @property
     def npm( self ):
         if self.__npm is not None:
             return self.__npm
@@ -101,9 +108,9 @@ class Account():
         self.__code = str( code )
         self.__name = str( name )
         self.__goal = list( code )[ 0 ]
-        self.__objective = list( code )[ 1:3 ]
+        self.__objective = str( list( code )[ 1:3 ] )
         self.__npm = list( code )[ 3 ]
-        self.__programproject = list( code )[ 4:6 ]
+        self.__programproject = str( list( code )[ 4:6 ] )
 
     def __str__( self ):
         if self.__code is not None:
@@ -457,7 +464,7 @@ class ProgramProject():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
@@ -465,9 +472,9 @@ class ProgramProject():
         if not self.__name == '':
             return self.__name
 
-    def __init__( self, code, name = '' ):
-        self.__code = code
-        self.__name = name
+    def __init__( self, code, name = None ):
+        self.__code = str( code )
+        self.__name = str( name )
 
     def __str__( self ):
         return self.__code
