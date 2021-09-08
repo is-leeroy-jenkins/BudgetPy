@@ -10,6 +10,20 @@ class BudgetPath():
     __base = None
     __path = None
     __ext = None
+    __access_datamodels = r'db\access\datamodels\Data.accdb'
+    __access_data_sql = r'db\access\datamodels\sql'
+    __access_referencemodels = r'db\access\referencemodels\References.accdb'
+    __access_reference_sql = r'db\access\referencemodels\sql'
+    __sqlite_datamodels = r'db\sqlite\datamodels\Data.db'
+    __sqlite_data_sql = r'db\sqlite\datamodels\sql'
+    __sqlite_referencemodels = r'db\sqlite\referencemodels\Reference.accdb'
+    __sqlite_reference_sql = r'db\sqlite\referencemodels\sql'
+    __sqlserver_datamodels = r''
+    __sqlserver_referencemodels = r''
+    __sqlserver_data_sql = r''
+    __sqlserver_reference_sql = r''
+    __excelreport = r'etc\templates\report\ReportBase.xlsx'
+    __excelbudget = r'etc\templates\budget\BudgetBase.xlsx'
 
     @property
     def base( self ):
@@ -25,6 +39,26 @@ class BudgetPath():
     def exists( self ):
         if os.path.exists( self.__path ):
             return True
+
+    @property
+    def access_datamodels( self ):
+        if os.path.exists( self.__access_datamodels ):
+            return self.__access_datamodels
+
+    @property
+    def access_referencemodels( self ):
+        if os.path.exists( self.__access_referencemodels ):
+            return self.__access_referencemodels
+
+    @property
+    def sqlite_datamodels( self ):
+        if os.path.exists( self.__sqlite_datamodels ):
+            return self.__sqlite_referencemodels
+
+    @property
+    def sqlite_referencemodels( self ):
+        if os.path.exists( self.__sqlite_referencemodels ):
+            return self.__sqlite_referencemodels
 
     @property
     def isfolder( self ):
@@ -316,16 +350,20 @@ class CriteriaBuilder():
     __where = None
     __database = None
     __datatable = None
-    __command = [ 'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'ALTER', 'DROP' ]
-    __criteria = { }
+    __criteria = None
+    __command = [ 'SELECT', 'INSERT', 'UPDATE',
+                  'DELETE', 'CREATE', 'ALTER',
+                  'DROP', 'DETACH' ]
 
     @property
     def AND( self ):
-        return self.__and
+        if self.__and is not None:
+            return self.__and
 
     @property
     def WHERE( self ):
-        return self.__where
+        if self.__where is not None:
+            return self.__where
 
     @property
     def criteria( self ):
@@ -341,25 +379,28 @@ class CriteriaBuilder():
         self.__and = ' AND '
         self.__where = ' WHERE '
 
+
 class DataRow():
     '''Defines the DataRow Class'''
     __base = None
     __source = None
-    __items = { }
+    __name = None
+    __items = None
+    __date = None
     __value = None
     __values = [ ]
     __columns = pd.Series
     __id = -1
 
     @property
-    def items( self ):
+    def data( self ):
         if self.__items is not None:
-            return self.__items
+            return self.__items.items()
 
     @property
     def columns( self ):
         if self.__columns is not None:
-            return self.__columns
+            return self.__columns.keys()
 
     @property
     def values( self ):
@@ -367,8 +408,8 @@ class DataRow():
             return self.__values
 
     @property
-    def id( self ):
-        if self.__id is not None:
+    def index( self ):
+        if self.__id is not None and isinstance( self.__id, int ):
             return self.__id
 
     @property
@@ -381,13 +422,14 @@ class DataRow():
         self.__base = base
         self.__source = source
         self.__items = dict( items )
+        self.__data = self.__items
         self.__columns = dict.fromkeys( self.__items )
         self.__values = list( self.__items.values() )
-        self.__id = self.__values[ 0 ]
+        self.__id = int( self.__values[ 0 ] )
         self.__value = self.__items.setdefault( 'Amount', 0 )
 
     def __str__( self ):
-        return 'ID: ' + self.__id + ' ' + 'Value: ' + self.__value
+        return 'Row ID: ' + str( self.__id )
 
 class DataColumn():
     '''Defines the DataColumn Class'''
@@ -410,6 +452,8 @@ class DataColumn():
     def type( self ):
         if self.__type is not None:
             return self.__type
+        else:
+            return 'NS'
 
     @property
     def caption( self ):
@@ -458,17 +502,17 @@ class DataColumn():
         if isinstance( str, type( self.__type ) ):
             return True
 
-    def __init__( self, name, data_type = None,
-                  caption = None, source = None, ordinal = None ):
+    def __init__( self, name, datatype = None,
+                  caption = None, source = None, ordinal = None):
         self.__name = name
-        self.__type = data_type
+        self.__type = datatype
         self.__caption = caption
-        self.__data = { 'ordinal': self.__ordinal, 'name': self.__name,
-                        'caption': self.__caption, 'type': self.__type,
-                        'table': self.__table }
         self.__source = source
         self.__ordinal = int( ordinal )
         self.__table = self.__source
+        self.__data = { 'ordinal': self.__ordinal, 'name': self.__name,
+                        'caption': self.__caption, 'datatype': self.__type,
+                        'table': self.__table }
 
     def __str__( self ):
         return self.__name
