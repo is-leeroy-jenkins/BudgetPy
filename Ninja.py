@@ -66,12 +66,12 @@ class BudgetFile():
 
     @property
     def name( self ):
-        if self.__name is not None:
-            return self.__name
+        if os.path.isdir( self.__name ):
+            return os.path.dirname( self.__path )
 
     @property
     def path( self ):
-        if self.__path is not None:
+        if os.path.isdir( self.__path ):
             return self.__path
 
     @property
@@ -120,13 +120,15 @@ class BudgetFile():
         self.__name = os.path.basename( base )
         self.__path = os.path.abspath( base )
         self.__size = os.path.getsize( base )
+        self.__directory = os.path.dirname( self.__path )
         self.__extension = str( list( os.path.splitext( base ) )[ 1 ] )
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
         self.__modified = os.path.getmtime( base )
         self.__parentfolder = os.path.dirname( base )
         self.__current = os.getcwd()
-        self.__drive = os.path.splitdrive( self.__path )
+        self.__drive = list( os.path.splitdrive( self.__path ) )[ 0 ]
+        self.__content = list()
 
     def rename( self, new_name ):
         '''renames current file'''
@@ -143,40 +145,63 @@ class BudgetFile():
         if os.path.isfile( self.__base ):
             return True
 
-    def verify_exists( self, other ):
+    def create( self, other ):
+        ''' creates and returns 'other' file '''
+        if other is not None:
+            os.mkfifo( other )
+
+    def verify( self, other ):
         '''determines if an external file exists'''
         if other is not None and os.path.exists( self.__base ):
             return os.path.exists( other )
 
-    def get_size( self, other ):
+    def delete( self ):
+        ''' deletes file at 'self.__path'   '''
+        if self.__path is not None and os.path.isfile( self.__path ):
+            os.remove( self.__path )
+
+    def getsize( self, other ):
         '''gets the size of another file'''
         if self.__base is not None and os.path.exists( other ):
             return os.path.getsize( other )
 
-    def get_drive( self, other ):
+    def getdrive( self, other ):
         '''gets the drive of another file'''
         if self.__base is not None and os.path.exists( other ):
-            return os.path.splitdrive( other )
+            return list( os.path.splitdrive( other ) )[ 0 ]
 
-    def readlines( self ):
-        '''reads the content of the file into a list'''
-        if os.path.isfile( self.__base ):
-            for line in open( self.__path, 'r' ):
-                self.__content.append( line )
-            if len( self.__content ) > 0:
-                return self.__content
+    def getextension( self, other ):
+        ''' gets and returns extension of 'other' 'file' '''
+        if other is not None and os.path.isfile( other ):
+            return list( os.path.splitext( other ) )[ 1 ]
 
-    def readline( self ):
-        '''reads a single line from the file into a string'''
-        if os.path.isfile( self.__path ):
-            __line = open( self.__path, 'r' ).readline()
-            if len( __line ) > 0:
-                return str( __line )
+    def readlines( self, other ):
+        '''reads all lines in 'other' into a list
+            then returns the list '''
+        lines = [ ]
+        count = len( self.__content )
+        if other is not None and os.path.isfile( other ):
+            for line in open( other, 'r' ):
+                lines.append( line )
+            self.__content.append( lines )
+        if len( lines ) > 0 and len( self.__content ) > count:
+            return lines
+
+    def readline( self, other ):
+        '''reads a single line from the file into a string
+            then returns the string'''
+        count = len( self.__content )
+        if other is not None and os.path.isfile( other ):
+            line = open( self.__path, 'r' ).readline()
+            self.__content.append( line )
+            if len( self.__content ) > count:
+                return line
 
     def writelines( self, lines = None ):
         ''' writes the contents of 'lines' to self.__content '''
         if os.path.isfile( self.__path ) and isinstance( lines, list ):
-            open( self.__path, 'w' ).writelines( lines )
+            for line in lines:
+                self.__content.append( open( self.__path, 'w' ).write( line ) )
 
 class BudgetFolder():
     '''Defines the BudgetFolder Class'''
@@ -274,11 +299,38 @@ class BudgetFolder():
         if other != '':
             return os.path.isdir( other )
 
+    def create( self, other ):
+        if other is not None:
+            os.mkdir( other )
+
+    def kill( self, other ):
+        ''' deletes 'other' directory '''
+        if other is not None and os.path.isdir( other ):
+            os.rmdir( other )
+
+    def delete( self ):
+        ''' deletes directory at self.__path '''
+        if self.__base is not None and os.path.isdir( self.__path ):
+            os.rmdir( self.__path )
+
+    def getsize( self, other ):
+        ''' gets and returns size of 'other' '''
+        if other is not None and os.path.isdir( other ):
+            return os.path.getsize( other )
+
+    def getdrive( self, other ):
+        ''' gets and returns parent directory of 'other' '''
+        if other is not None and os.path.isdir( other ):
+            return os.path.splitdrive( other )[ 0 ]
+
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
-    __sql = ''
-    __and = ''
-    __where = ''
+    __sql = None
+    __and = None
+    __where = None
+    __database = None
+    __datatable = None
+    __commandtype = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'ALTER', 'DROP']
     __criteria = { }
 
     @property
@@ -295,7 +347,7 @@ class CriteriaBuilder():
 
     @criteria.setter
     def criteria( self, name_value_pairs = None ):
-        self.__criteria = name_value_pairs
+        self.__criteria = dict( name_value_pairs )
 
     def __init__( self ):
         self.__and = ' AND '
@@ -303,6 +355,8 @@ class CriteriaBuilder():
 
 class DataRow():
     '''Defines the DataRow Class'''
+    __base = None
+    __source = None
     __items = { }
     __value = None
     __values = [ ]
@@ -311,25 +365,33 @@ class DataRow():
 
     @property
     def items( self ):
-        return self.__items
+        if self.__items is not None:
+            return self.__items
 
     @property
     def columns( self ):
-        return self.__columns
+        if self.__columns is not None:
+            return self.__columns
 
     @property
     def values( self ):
-        return self.__values
+        if self.__values is not None:
+            return self.__values
 
     @property
     def id( self ):
-        return self.__id
+        if self.__id is not None:
+            return self.__id
 
     @property
     def value( self ):
-        return self.__value
+        if self.__values is not None:
+            return self.__value
 
-    def __init__( self, items ):
+    def __init__( self, base, source = None,
+                  items = None ):
+        self.__base = base
+        self.__source = source
         self.__items = dict( items )
         self.__columns = dict.fromkeys( self.__items )
         self.__values = list( self.__items.values() )
@@ -337,58 +399,74 @@ class DataRow():
         self.__value = self.__items.setdefault( 'Amount', 0 )
 
     def __str__( self ):
-        return self.__id + ' ' + self.__value
+        return 'ID: ' + self.__id + ' ' + 'Value: ' + self.__value
 
 class DataColumn():
     '''Defines the DataColumn Class'''
+    __base = None
+    __source = None
+    __row = None
     __name = None
     __type = None
     __caption = None
     __ordinal = -1
     __table = None
-    __row = None
-    __source = None
     __data = { }
 
     @property
     def name( self ):
-        return self.__name
+        if self.__name is not None:
+            return self.__name
 
     @property
     def type( self ):
-        return self.__type
+        if self.__type is not None:
+            return self.__type
 
     @property
     def caption( self ):
-        return self.__caption
+        if self.__caption is not None:
+            return self.__caption
 
     @property
     def ordinal( self ):
-        return self.__ordinal
+        if self.__ordinal > -1:
+            return self.__ordinal
+        else:
+            return -1
 
     @property
     def table( self ):
-        return self.__table
+        if self.__table is not None:
+            return self.__table
+        else:
+            return 'NS'
 
     @property
     def row( self ):
-        return self.__row
+        if self.__row is not None:
+            return self.__row
+        else:
+            return 'NS'
 
     @property
     def source( self ):
-        return self.__source
+        if self.__source is not None:
+            return self.__source
+        else:
+            return 'NS'
 
     @property
     def data( self ):
         return self.__data
 
     @property
-    def is_numeric( self ):
+    def isnumeric( self ):
         if not isinstance( str, type( self.__type ) ):
             return True
 
     @property
-    def is_text( self ):
+    def istext( self ):
         if isinstance( str, type( self.__type ) ):
             return True
 
@@ -398,7 +476,8 @@ class DataColumn():
         self.__type = data_type
         self.__caption = caption
         self.__data = { 'ordinal': self.__ordinal, 'name': self.__name,
-                        'type': self.__type, 'caption': self.__caption }
+                        'caption': self.__caption, 'type': self.__type,
+                        'table': self.__table }
         self.__source = source
         self.__ordinal = int( ordinal )
         self.__table = self.__source
