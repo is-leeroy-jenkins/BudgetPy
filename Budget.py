@@ -189,8 +189,9 @@ class AllowanceHolder():
 
 class Appropriation():
     '''Defines the Appropriation Class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
+    __title = None
 
     @property
     def id( self ):
@@ -369,10 +370,10 @@ class Goal():
 
 class NationalProgram():
     '''Defines the NationalProgram Class'''
-    __code = ''
-    __name = ''
-    __rpio = ''
-    __title = ''
+    __code = None
+    __name = None
+    __rpio = None
+    __title = None
 
     @property
     def code( self ):
@@ -393,8 +394,8 @@ class NationalProgram():
 
 class Objective():
     '''Defines the Objective Class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
@@ -415,8 +416,8 @@ class Objective():
 
 class Organization():
     '''Defines the Organization Class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
@@ -437,8 +438,8 @@ class Organization():
 
 class ProgramArea():
     '''defines the ProgramArea class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
@@ -459,8 +460,8 @@ class ProgramArea():
 
 class ProgramProject():
     '''Defines the ProgramProject Class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
@@ -481,8 +482,8 @@ class ProgramProject():
 
 class ResponsibilityCenter():
     '''Defines the ResponsibilityCenter Class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
@@ -503,8 +504,8 @@ class ResponsibilityCenter():
 
 class ResourceImplementationPlanningOffice():
     '''defines the ResponsiblePlanningOffice class'''
-    __code = ''
-    __name = ''
+    __code = None
+    __name = None
 
     @property
     def code( self ):
