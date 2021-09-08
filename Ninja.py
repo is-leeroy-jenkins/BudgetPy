@@ -194,11 +194,13 @@ class BudgetFolder():
 
     @property
     def base( self ):
-        return self.__base
+        if self.__base is not None:
+            return self.__base
 
     @property
     def name( self ):
-        return os.path.basename( self.__base )
+        if self.__name is not None:
+            return self.__name
 
     @property
     def path( self ):
@@ -254,11 +256,13 @@ class BudgetFolder():
 
     def rename( self, new_name ):
         '''renames current file'''
-        return os.rename( self.__name, new_name )
+        if self.__name is not None and new_name is not None:
+            return os.rename( self.__name, new_name )
 
     def move( self, destination ):
         '''renames current file'''
-        return os.path.join( self.__name, destination )
+        if self.__name is not None and destination is not None:
+            return os.path.join( self.__name, destination )
 
     def exists( self ):
         '''determines if the base file exists'''
