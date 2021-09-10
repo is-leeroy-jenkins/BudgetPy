@@ -8,18 +8,18 @@ class BudgetPath():
     __base = None
     __path = None
     __ext = None
-    __access_datamodels = r'db\access\datamodels\Data.accdb'
-    __access_data_sql = r'db\access\datamodels\sql'
-    __access_referencemodels = r'db\access\referencemodels\References.accdb'
-    __access_reference_sql = r'db\access\referencemodels\sql'
-    __sqlite_datamodels = r'db\sqlite\datamodels\Data.db'
-    __sqlite_data_sql = r'db\sqlite\datamodels\sql'
-    __sqlite_referencemodels = r'db\sqlite\referencemodels\Reference.accdb'
-    __sqlite_reference_sql = r'db\sqlite\referencemodels\sql'
-    __sqlserver_datamodels = r''
-    __sqlserver_referencemodels = r''
-    __sqlserver_data_sql = r''
-    __sqlserver_reference_sql = r''
+    __accessdata = r'db\access\datamodels\Data.accdb'
+    __accessdatasql = r'db\access\datamodels\sql'
+    __accessreferences = r'db\access\referencemodels\References.accdb'
+    __accessreferencesql = r'db\access\referencemodels\sql'
+    __sqlitedata = r'db\sqlite\datamodels\Data.db'
+    __sqlitedatasql = r'db\sqlite\datamodels\sql'
+    __sqlitereferences = r'db\sqlite\referencemodels\Reference.accdb'
+    __sqlitereferencesql = r'db\sqlite\referencemodels\sql'
+    __sqlserverdata = r''
+    __sqlserverreference = r''
+    __sqlserverdatasql = r''
+    __sqlserverreferencesql = r''
     __excelreport = r'etc\templates\report\ReportBase.xlsx'
     __excelbudget = r'etc\templates\budget\BudgetBase.xlsx'
 
@@ -39,24 +39,24 @@ class BudgetPath():
             return True
 
     @property
-    def access_datamodels( self ):
-        if os.path.exists( self.__access_datamodels ):
-            return self.__access_datamodels
+    def accessdata( self ):
+        if os.path.exists( self.__accessdata ):
+            return self.__accessdata
 
     @property
-    def access_referencemodels( self ):
-        if os.path.exists( self.__access_referencemodels ):
-            return self.__access_referencemodels
+    def accessreferences( self ):
+        if os.path.exists( self.__accessreferences ):
+            return self.__accessreferences
 
     @property
-    def sqlite_datamodels( self ):
-        if os.path.exists( self.__sqlite_datamodels ):
-            return self.__sqlite_referencemodels
+    def sqlitedata( self ):
+        if os.path.exists( self.__sqlitedata ):
+            return self.__sqlitereferences
 
     @property
-    def sqlite_referencemodels( self ):
-        if os.path.exists( self.__sqlite_referencemodels ):
-            return self.__sqlite_referencemodels
+    def sqlitereferences( self ):
+        if os.path.exists( self.__sqlitereferences ):
+            return self.__sqlitereferences
 
     @property
     def isfolder( self ):
@@ -76,6 +76,20 @@ class BudgetPath():
     def __init__( self, filepath ):
         self.__base = str( filepath )
         self.__path = self.__base
+        self.__accessdata = r'db\access\datamodels\Data.accdb'
+        self.__accessdatasql = r'db\access\datamodels\sql'
+        self.__accessreferences = r'db\access\referencemodels\References.accdb'
+        self.__accessreferencesql = r'db\access\referencemodels\sql'
+        self.__sqlitedata = r'db\sqlite\datamodels\Data.db'
+        self.__sqlitedatasql = r'db\sqlite\datamodels\sql'
+        self.__sqlitereferences = r'db\sqlite\referencemodels\Reference.accdb'
+        self.__sqlitereferencesql = r'db\sqlite\referencemodels\sql'
+        self.__sqlserverdata = r''
+        self.__sqlserverreference = r''
+        self.__sqlserverdatasql = r''
+        self.__sqlserverreferencesql = r''
+        self.__excelreport = r'etc\templates\report\ReportBase.xlsx'
+        self.__excelbudget = r'etc\templates\budget\BudgetBase.xlsx'
 
 class BudgetFile():
     '''Defines the BudgetFile Class'''
@@ -577,7 +591,7 @@ class AccessDataBuilder():
         self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
         self.__budget = BudgetPath
-        self.__sqlpath = self.__budget.sqlite_datamodels
+        self.__sqlpath = self.__budget.sqlitedata
         self.__cursor = self.__connection.cursor()
         self.__data = ''
 
