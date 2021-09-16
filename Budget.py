@@ -518,12 +518,12 @@ class Organization():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
     def __init__( self, code, name = '' ):
@@ -540,12 +540,12 @@ class ProgramArea():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
     def __init__( self, code, name = '' ):
@@ -567,7 +567,7 @@ class ProgramProject():
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
     def __init__( self, code, name = None ):
@@ -584,12 +584,12 @@ class ResponsibilityCenter():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
     def __init__( self, code, name = '' ):
@@ -606,12 +606,12 @@ class ResourcePlanningImplementationOffice():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
     def __init__( self, code, name = '' ):
@@ -711,3 +711,154 @@ class ProgramResultsCode():
     def __str__( self ):
         if self.__account.code is not None:
             return self.__account.code
+
+class Region():
+    '''Defines a regional RPIO'''
+    __rpio = None
+    __name = None
+
+    @property
+    def rpio( self ):
+        if self.__rpio is not None:
+            return self.__rpio
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    def __init__( self, rpio, name = None ):
+        self.__rpio = rpio
+        self.__name = name
+
+    def __str__(self):
+        if self.__rpio is not None:
+            return str( self.__rpio )
+
+class HeadQuarters():
+    '''Defines the HQ class'''
+    __rpio = None
+    __name = None
+    __title = None
+
+    @property
+    def rpio( self ):
+        if self.__rpio is not None:
+            return self.__rpio
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    @property
+    def title( self ):
+        if self.__title is not None:
+            return self.__title
+
+    def __init__( self, rpio, name = None,
+                  title = None):
+        self.__rpio = rpio
+        self.__name = name
+        self.__title = title
+
+    def __str__( self ):
+        if self.__name is not None:
+            return str( self.__name )
+
+class Holiday():
+    '''Defines the Holiday class'''
+    __bfy = None
+    __name = None
+    __date = None
+    __day = None
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @property
+    def date( self ):
+        if self.__date is not None:
+            return self.__date
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    @property
+    def day( self ):
+        if self.__day is not None:
+            return self.__day
+
+    def __init__( self, bfy, date = None,
+                  name = None, day = None ):
+        self.__bfy = bfy
+        self.__name = name
+        self.__day = day
+        self.__date = date
+
+    def __str__(self):
+        if self.__name is not None:
+            return str( self.__name )
+
+class Commitment:
+    '''Defines the commitment class.'''
+    __amount = None
+    __account = None
+    __document = None
+    __bfy = None
+    __fund = None
+    __org = None
+    __boc = None
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @property
+    def account( self ):
+        if self.__account is not None:
+            return Account( self.__account )
+
+    @property
+    def dcn( self ):
+        if self.__document is not None:
+            return self.__document
+
+    @property
+    def org( self ):
+        if self.__org is not None:
+            return Organization( self.__org )
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return BudgetFiscalYear( self.__bfy )
+
+    @property
+    def fund( self ):
+        if self.__fund is not None:
+            return Fund( self.__fund )
+
+    @property
+    def boc( self ):
+        if self.__boc is not None:
+            return BudgetObjectClass( self.__boc )
+
+    def __init__(self, amount, account = None,
+                 document = None, bfy = None,
+                 org = None, boc = None):
+        self.__amount = amount
+        self.__account = account
+        self.__document = document
+        self.__boc = boc
+        self.__org = org
+        self.__bfy = bfy
+
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
