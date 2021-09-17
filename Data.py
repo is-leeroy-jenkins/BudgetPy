@@ -27,7 +27,7 @@ class Unit():
         else:
             return 'NS'
 
-class Data( Unit ):
+class Element( Unit ):
     '''Defines the basic budget data unit'''
     __name = None
     __value = None
@@ -533,6 +533,116 @@ class Organization():
     def __str__( self ):
         return self.__code
 
+class Project():
+    '''Defines the Organization Class'''
+    __code = None
+    __name = None
+
+    @property
+    def code( self ):
+        if self.__code is not None:
+            return self.__code
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    def __init__( self, code, name = '' ):
+        self.__code = code
+        self.__name = name
+
+    def __str__( self ):
+        return self.__code
+
+class ItProjectCode():
+    '''Defines the Organization Class'''
+    __code = None
+    __name = None
+
+    @property
+    def code( self ):
+        if self.__code is not None:
+            return self.__code
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    def __init__( self, code, name = '' ):
+        self.__code = code
+        self.__name = name
+
+    def __str__( self ):
+        return self.__code
+
+class SiteProjectCode():
+    '''Defines the Organization Class'''
+    __code = None
+    __name = None
+
+    @property
+    def code( self ):
+        if self.__code is not None:
+            return self.__code
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    def __init__( self, code, name = '' ):
+        self.__code = code
+        self.__name = name
+
+    def __str__( self ):
+        return self.__code
+
+class HumanResourceOrganization():
+    '''Defines the Organization Class'''
+    __code = None
+    __name = None
+
+    @property
+    def code( self ):
+        if self.__code is not None:
+            return self.__code
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    def __init__( self, code, name = '' ):
+        self.__code = code
+        self.__name = name
+
+    def __str__( self ):
+        return self.__code
+
+class WorkCode():
+    '''Defines the Organization Class'''
+    __code = None
+    __name = None
+
+    @property
+    def code( self ):
+        if self.__code is not None:
+            return self.__code
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    def __init__( self, code, name = '' ):
+        self.__code = code
+        self.__name = name
+
+    def __str__( self ):
+        return self.__code
+
 class ProgramArea():
     '''defines the ProgramArea class'''
     __code = None
@@ -712,7 +822,7 @@ class ProgramResultsCode():
         if self.__account.code is not None:
             return self.__account.code
 
-class Region():
+class RegionalOffice():
     '''Defines a regional RPIO'''
     __rpio = None
     __name = None
@@ -735,7 +845,7 @@ class Region():
         if self.__rpio is not None:
             return str( self.__rpio )
 
-class HeadQuarters():
+class HeadQuartersOffice():
     '''Defines the HQ class'''
     __rpio = None
     __name = None
@@ -825,7 +935,7 @@ class Commitment:
             return Account( self.__account )
 
     @property
-    def dcn( self ):
+    def document( self ):
         if self.__document is not None:
             return self.__document
 
@@ -855,6 +965,301 @@ class Commitment:
         self.__amount = amount
         self.__account = account
         self.__document = document
+        self.__boc = boc
+        self.__org = org
+        self.__bfy = bfy
+
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
+class OpenCommitment:
+    '''Defines the commitment class.'''
+    __amount = None
+    __account = None
+    __document = None
+    __bfy = None
+    __fund = None
+    __org = None
+    __boc = None
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @property
+    def account( self ):
+        if self.__account is not None:
+            return Account( self.__account )
+
+    @property
+    def document( self ):
+        if self.__document is not None:
+            return self.__document
+
+    @property
+    def org( self ):
+        if self.__org is not None:
+            return Organization( self.__org )
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return BudgetFiscalYear( self.__bfy )
+
+    @property
+    def fund( self ):
+        if self.__fund is not None:
+            return Fund( self.__fund )
+
+    @property
+    def boc( self ):
+        if self.__boc is not None:
+            return BudgetObjectClass( self.__boc )
+
+    def __init__( self, amount, account = None,
+                  doc = None, bfy = None,
+                  org = None, boc = None ):
+        self.__amount = amount
+        self.__account = account
+        self.__document = doc
+        self.__boc = boc
+        self.__org = org
+        self.__bfy = bfy
+
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
+class Obligation:
+    '''Defines the commitment class.'''
+    __amount = None
+    __account = None
+    __document = None
+    __bfy = None
+    __fund = None
+    __org = None
+    __boc = None
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @property
+    def account( self ):
+        if self.__account is not None:
+            return Account( self.__account )
+
+    @property
+    def dcn( self ):
+        if self.__document is not None:
+            return self.__document
+
+    @property
+    def org( self ):
+        if self.__org is not None:
+            return Organization( self.__org )
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return BudgetFiscalYear( self.__bfy )
+
+    @property
+    def fund( self ):
+        if self.__fund is not None:
+            return Fund( self.__fund )
+
+    @property
+    def boc( self ):
+        if self.__boc is not None:
+            return BudgetObjectClass( self.__boc )
+
+    def __init__( self, amount, account = None,
+                  dcn = None, bfy = None,
+                  org = None, boc = None ):
+        self.__amount = amount
+        self.__account = account
+        self.__document = dcn
+        self.__boc = boc
+        self.__org = org
+        self.__bfy = bfy
+
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
+class DeObligation:
+    '''Defines the commitment class.'''
+    __amount = None
+    __account = None
+    __document = None
+    __bfy = None
+    __fund = None
+    __org = None
+    __boc = None
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @property
+    def account( self ):
+        if self.__account is not None:
+            return Account( self.__account )
+
+    @property
+    def dcn( self ):
+        if self.__document is not None:
+            return self.__document
+
+    @property
+    def org( self ):
+        if self.__org is not None:
+            return Organization( self.__org )
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return BudgetFiscalYear( self.__bfy )
+
+    @property
+    def fund( self ):
+        if self.__fund is not None:
+            return Fund( self.__fund )
+
+    @property
+    def boc( self ):
+        if self.__boc is not None:
+            return BudgetObjectClass( self.__boc )
+
+    def __init__( self, amount, account = None,
+                  dcn = None, bfy = None,
+                  org = None, boc = None ):
+        self.__amount = amount
+        self.__account = account
+        self.__document = dcn
+        self.__boc = boc
+        self.__org = org
+        self.__bfy = bfy
+
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
+class ULO:
+    '''Defines the commitment class.'''
+    __amount = None
+    __account = None
+    __document = None
+    __bfy = None
+    __fund = None
+    __org = None
+    __boc = None
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @property
+    def account( self ):
+        if self.__account is not None:
+            return Account( self.__account )
+
+    @property
+    def dcn( self ):
+        if self.__document is not None:
+            return self.__document
+
+    @property
+    def org( self ):
+        if self.__org is not None:
+            return Organization( self.__org )
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return BudgetFiscalYear( self.__bfy )
+
+    @property
+    def fund( self ):
+        if self.__fund is not None:
+            return Fund( self.__fund )
+
+    @property
+    def boc( self ):
+        if self.__boc is not None:
+            return BudgetObjectClass( self.__boc )
+
+    def __init__( self, amount, account = None,
+                  dcn = None, bfy = None,
+                  org = None, boc = None ):
+        self.__amount = amount
+        self.__account = account
+        self.__document = dcn
+        self.__boc = boc
+        self.__org = org
+        self.__bfy = bfy
+
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
+class Expenditure:
+    '''Defines the commitment class.'''
+    __amount = None
+    __account = None
+    __document = None
+    __bfy = None
+    __fund = None
+    __org = None
+    __boc = None
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @property
+    def account( self ):
+        if self.__account is not None:
+            return Account( self.__account )
+
+    @property
+    def dcn( self ):
+        if self.__document is not None:
+            return self.__document
+
+    @property
+    def org( self ):
+        if self.__org is not None:
+            return Organization( self.__org )
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return BudgetFiscalYear( self.__bfy )
+
+    @property
+    def fund( self ):
+        if self.__fund is not None:
+            return Fund( self.__fund )
+
+    @property
+    def boc( self ):
+        if self.__boc is not None:
+            return BudgetObjectClass( self.__boc )
+
+    def __init__( self, amount, account = None,
+                  dcn = None, bfy = None,
+                  org = None, boc = None ):
+        self.__amount = amount
+        self.__account = account
+        self.__document = dcn
         self.__boc = boc
         self.__org = org
         self.__bfy = bfy
