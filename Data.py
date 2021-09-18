@@ -305,22 +305,23 @@ class BudgetFiscalYear():
     @property
     def workdays( self ):
         if self.__workdays is not None:
-            return self.__workdays
+            return float( self.__workdays )
 
     @property
     def date( self ):
-        if self.__date is not None:
-            return self.__date
+        if isinstance( self.__date, datetime.datetime):
+            return datetime.date( self.__date.year, self.__month,
+                self.__date.day )
 
     @property
     def day( self ):
         if self.__day is not None:
-            return self.__day
+            return str( self.__day )
 
     @property
     def month( self ):
         if self.__month is not None:
-            return self.__month
+            return str( self.__month )
 
     @property
     def holidays( self ):
