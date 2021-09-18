@@ -35,7 +35,7 @@ class Element( Unit ):
     @property
     def name( self ):
         if self.__name is not None:
-            return self.__name
+            return str( self.__name )
         else:
             return 'NS'
 
@@ -69,21 +69,21 @@ class Account():
     @property
     def id( self ):
         if not self.__index < 0:
-            return self.__index
+            return int( self.__index )
         else:
             return -1
 
     @property
     def code( self ):
-        if self.__code is not None:
-            return self.__code
+        if self.__code:
+            return str( self.__code )
         else:
             return 'NS'
 
     @property
     def name( self ):
-        if self.__name is not None:
-            return self.__name
+        if self.__name:
+            return str( self.__name )
         else:
             return 'NS'
 
@@ -276,23 +276,26 @@ class BudgetFiscalYear():
 
     @property
     def calendaryear( self ):
-        if self.__year is not None:
-            return self.__year
+        if self.__year:
+            return str( self.__year )
 
     @property
     def startdate( self ):
-        if self.__startdate is not None:
-            return self.__startdate
+        if isinstance( self.__startdate, datetime.datetime ):
+            return datetime.date( self.__startdate.year, self.__startdate.month,
+                self.__startdate.day )
 
     @property
     def enddate( self ):
-        if self.__enddate is not None:
-            return self.__enddate
+        if isinstance( self.__enddate, datetime.datetime ):
+            return datetime.datetime( self.__enddate.year, self.__enddate.month,
+                self.__enddate.day )
 
     @property
     def expiration( self ):
-        if self.__expiration is not None:
-            return self.__expiration
+        if isinstance( self.__expiration, datetime.datetime ):
+            return datetime.datetime( self.__expiration.year, self.__expiration.month,
+                self.__expiration.day )
 
     @property
     def weekends( self ):
@@ -519,7 +522,7 @@ class Organization():
     @property
     def code( self ):
         if self.__code is not None:
-            return self.__code
+            return str( self.__code )
 
     @property
     def name( self ):
@@ -553,7 +556,8 @@ class Project():
         self.__name = name
 
     def __str__( self ):
-        return self.__code
+        if self.__code:
+            return self.__code
 
 class ItProjectCode():
     '''Defines the Organization Class'''
