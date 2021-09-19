@@ -1,4 +1,5 @@
 import datetime
+import pandas as pd
 
 class Account():
     '''defines the Account Code class'''
@@ -10,6 +11,7 @@ class Account():
     __npm = None
     __programproject = None
     __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def id( self ):
@@ -73,6 +75,8 @@ class Activity():
     __id = None
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def id( self ):
@@ -94,6 +98,10 @@ class Activity():
             return self.__name
         else:
             return 'NS'
+
+    @property
+    def data( self ):
+        return [ self.__id, self.__code, self.__name ]
 
     def __init__( self, code, name = None, index = None ):
         self.__id = int( index )
@@ -108,27 +116,27 @@ class AllowanceHolder():
     __id = None
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def id( self ):
         if self.__id is not None:
             return self.__id
-        else:
-            return -1
 
     @property
     def code( self ):
         if not self.__code == '':
             return self.__code
-        else:
-            return 'NS'
 
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
-        else:
-            return 'NS'
+
+    @property
+    def data( self ):
+        return [ self.__id, self.__code, self.__name ]
 
     def __init__( self, code, name = None, index = None ):
         self.__id = int( index )
@@ -141,6 +149,7 @@ class AllowanceHolder():
 
 class Appropriation():
     '''Defines the Appropriation Class'''
+    __id = None
     __code = None
     __name = None
     __title = None
@@ -181,6 +190,11 @@ class Appropriation():
         else:
             return 'NS'
 
+    @property
+    def data( self ):
+        return [ self.__id, self.__code, self.__name,
+                 self.__bfy, self.__title ]
+
     def __init__( self, code, name = None,
                   bfy = None, title = None,
                   index = None ):
@@ -195,6 +209,7 @@ class Appropriation():
 
 class BudgetFiscalYear():
     '''Class to describe the federal fiscal year'''
+    __id = None
     __base = None
     __fiscalyear = None
     __today = None
@@ -208,10 +223,17 @@ class BudgetFiscalYear():
     __month = ''
     __day = ''
     __holidays = { }
+    __data = [ ]
+    __dataframe = pd.DataFrame
+
+    @property
+    def id( self ):
+        if self.__id is not None:
+            return int( self.__id )
 
     @property
     def fiscalyear( self ):
-        if self.__fiscalyear is not None:
+        if self.__base is not None:
             return self.__fiscalyear
 
     @property
@@ -268,14 +290,15 @@ class BudgetFiscalYear():
         if self.__holidays is not None:
             return self.__holidays
 
-    def __init__( self, year ):
+    def __init__( self, year, index = None ):
+        self.__id = index
         self.__base = str( year )
-        self.__fiscalyear = self.__base[ 3: ]
         self.__date = datetime.date
         self.__year = int( year )
         self.__today = datetime.date
         self.__day = self.__today.day
         self.__month = self.__today.month
+        self.__fiscalyear = self.__year
 
     def __str__( self ):
         return str( self.__year )
@@ -284,6 +307,8 @@ class BudgetObjectClass():
     '''Defines the BudgetObjectClass Class'''
     __code = None
     __name = None
+    __value = None
+    __data = [ ]
 
     @property
     def code( self ):
@@ -295,9 +320,14 @@ class BudgetObjectClass():
         if self.__name is not None:
             return self.__name
 
-    def __init__( self, code, name = None ):
+    @property
+    def data( self ):
+        return [ self.__code, self.__name, self.__value ]
+
+    def __init__( self, code, name = None, value = None ):
         self.__code = code
         self.__name = name
+        self.__value = value
 
     def __str__( self ):
         return self.__code
@@ -328,6 +358,8 @@ class FinanceObjectClass():
     '''Defines the FinanceObjectClass Class'''
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -351,6 +383,8 @@ class Fund():
     __code = None
     __name = None
     __title = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -378,6 +412,7 @@ class Goal():
     '''Defines the Goal Class'''
     __code = ''
     __name = ''
+    __data = [ ]
 
     @property
     def code( self ):
@@ -402,6 +437,8 @@ class NationalProgram():
     __name = None
     __rpio = None
     __title = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -437,6 +474,7 @@ class Objective():
     '''Defines the Objective Class'''
     __code = None
     __name = None
+    __data = [ ]
 
     @property
     def code( self ):
@@ -459,6 +497,8 @@ class Organization():
     '''Defines the Organization Class'''
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -481,6 +521,8 @@ class Project():
     '''Defines the Organization Class'''
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -504,6 +546,8 @@ class ItProjectCode():
     '''Defines the Organization Class'''
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -526,6 +570,8 @@ class SiteProjectCode():
     '''Defines the Organization Class'''
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -548,6 +594,8 @@ class HumanResourceOrganization():
     '''Defines the Organization Class'''
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -570,6 +618,8 @@ class WorkCode():
     '''Defines the Organization Class'''
     __code = None
     __name = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -614,6 +664,9 @@ class ProgramProject():
     '''Defines the ProgramProject Class'''
     __code = None
     __name = None
+    __description = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def code( self ):
@@ -678,7 +731,7 @@ class ResourcePlanningImplementationOffice():
 
 class ProgramResultsCode():
     '''Defines the PRC class'''
-    __id = -1
+    __id = None
     __rpio = None
     __bfy = None
     __ah = None
@@ -688,7 +741,9 @@ class ProgramResultsCode():
     __activity = None
     __rc = None
     __boc = None
-    __amount = 0
+    __amount = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def id( self ):
@@ -827,6 +882,8 @@ class Holiday():
     __name = None
     __date = None
     __day = None
+    __data = { }
+    __dataframe = pd.DataFrame
 
     @property
     def bfy( self ):
@@ -868,6 +925,8 @@ class Commitment:
     __fund = None
     __org = None
     __boc = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def amount( self ):
@@ -927,6 +986,8 @@ class OpenCommitment:
     __fund = None
     __org = None
     __boc = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def amount( self ):
@@ -986,6 +1047,8 @@ class Obligation:
     __fund = None
     __org = None
     __boc = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def amount( self ):
@@ -1036,7 +1099,7 @@ class Obligation:
         if self.__amount is not None:
             return str( self.__amount )
 
-class DeObligation:
+class Deobligation:
     '''Defines the commitment class.'''
     __amount = None
     __account = None
@@ -1045,6 +1108,8 @@ class DeObligation:
     __fund = None
     __org = None
     __boc = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def amount( self ):
@@ -1104,6 +1169,8 @@ class ULO:
     __fund = None
     __org = None
     __boc = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def amount( self ):
@@ -1163,6 +1230,8 @@ class Expenditure:
     __fund = None
     __org = None
     __boc = None
+    __data = [ ]
+    __dataframe = pd.DataFrame
 
     @property
     def amount( self ):
