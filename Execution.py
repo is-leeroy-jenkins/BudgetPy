@@ -1,54 +1,5 @@
 import datetime
 
-class Unit():
-    '''Defines the Data class'''
-    __id = None
-    __code = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__id, int ):
-            return self.__id
-
-    @property
-    def code( self ):
-        if self.__code is not None:
-            return self.__code
-
-    def __init__( self, code = None, index = None ):
-        self.__id = int( index )
-        self.__code = str( code )
-
-    def __str__( self ):
-        if self.__id is not None:
-            return self.__code
-
-class Data( Unit ):
-    '''Defines the basic budget data unit'''
-    __name = None
-    __value = None
-
-    @property
-    def name( self ):
-        if isinstance( self.__name, str ):
-            return self.__name
-
-    @property
-    def value( self ):
-        if self.__value is not None:
-            return self.__value
-
-    def __init__( self, code = None, name = None,
-                  index = None ):
-        super().__init__(code, index, )
-        self.__code = str( code )
-        self.__name = str( name )
-        self.__value = self.__code
-
-    def __str__( self ):
-        if self.__name is not None:
-            return self.__name
-
 class Account():
     '''defines the Account Code class'''
     __id = None
@@ -58,6 +9,7 @@ class Account():
     __objective = None
     __npm = None
     __programproject = None
+    __data = [ ]
 
     @property
     def id( self ):
@@ -70,43 +22,38 @@ class Account():
     def code( self ):
         if self.__code:
             return str( self.__code )
-        else:
-            return 'NS'
 
     @property
     def name( self ):
         if self.__name:
             return str( self.__name )
-        else:
-            return 'NS'
+        elif self.__programproject:
+            return ProgramProject( self.__programproject ).name
 
     @property
     def goal( self ):
         if self.__goal is not None:
-            return self.__goal
-        else:
-            return 'NS'
+            return Goal( self.__goal )
 
     @property
     def objective( self ):
         if self.__objective is not None:
-            return self.__objective
-        else:
-            return 'NS'
+            return Objective( self.__objective )
 
     @property
     def npm( self ):
         if self.__npm is not None:
-            return self.__npm
-        else:
-            return 'NS'
+            return NationalProgram( self.__npm )
 
     @property
     def programproject( self ):
         if self.__programproject is not None:
-            return self.__programproject
-        else:
-            return 'NS'
+            return ProgramProject( self.__programproject )
+
+    @property
+    def data( self ):
+        return [ self.__id, self.__code, self.__name,
+                 self.__programproject, self.__goal, self.__objective ]
 
     def __init__( self, code, name = None, index = None ):
         self.__id = int( index )
