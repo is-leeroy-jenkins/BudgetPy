@@ -1,10 +1,10 @@
 #!C:\Users\terry\source\repos\BudgetPy\venv\Scripts\python.exe
-# EASY-INSTALL-ENTRY-SCRIPT: 'uflash==2.0.0','console_scripts','uflash'
+# EASY-INSTALL-ENTRY-SCRIPT: 'uflash==1.2.4','console_scripts','uflash'
 import re
 import sys
 
 # for compatibility with easy_install; see #2198
-__requires__ = 'uflash==2.0.0'
+__requires__ = 'uflash==1.2.4'
 
 try:
     from importlib.metadata import distribution
@@ -30,4 +30,4 @@ globals().setdefault('load_entry_point', importlib_load_entry_point)
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
-    sys.exit(load_entry_point('uflash==2.0.0', 'console_scripts', 'uflash')())
+    sys.exit(load_entry_point('uflash==1.2.4', 'console_scripts', 'uflash')())
