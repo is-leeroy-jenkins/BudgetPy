@@ -10,8 +10,8 @@ class Account():
     __objective = None
     __npm = None
     __programproject = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def id( self ):
@@ -54,8 +54,13 @@ class Account():
 
     @property
     def data( self ):
-        return [ self.__id, self.__code, self.__name,
-                 self.__programproject, self.__goal, self.__objective ]
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
 
     def __init__( self, code, name = None, index = None ):
         self.__id = int( index )
@@ -65,6 +70,9 @@ class Account():
         self.__objective = str( list( code )[ 1:3 ] )
         self.__npm = list( code )[ 3 ]
         self.__programproject = str( list( code )[ 4:6 ] )
+        self.__data = [ self.__id, self.__code, self.__name,
+                 self.__programproject, self.__goal, self.__objective ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__code is not None:
@@ -75,8 +83,8 @@ class Activity():
     __id = None
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def id( self ):
@@ -101,12 +109,20 @@ class Activity():
 
     @property
     def data( self ):
-        return [ self.__id, self.__code, self.__name ]
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
 
     def __init__( self, code, name = None, index = None ):
         self.__id = int( index )
         self.__code = str( code )
         self.__name = str( name )
+        self.__data = [ self.__id, self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -116,8 +132,8 @@ class AllowanceHolder():
     __id = None
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def id( self ):
@@ -136,12 +152,20 @@ class AllowanceHolder():
 
     @property
     def data( self ):
-        return [ self.__id, self.__code, self.__name ]
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
 
     def __init__( self, code, name = None, index = None ):
         self.__id = int( index )
         self.__code = code
         self.__name = name
+        self.__data = [ self.__id, self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__code is not None:
@@ -223,8 +247,8 @@ class BudgetFiscalYear():
     __month = ''
     __day = ''
     __holidays = { }
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def id( self ):
@@ -290,6 +314,16 @@ class BudgetFiscalYear():
         if self.__holidays is not None:
             return self.__holidays
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, year, index = None ):
         self.__id = index
         self.__base = str( year )
@@ -299,6 +333,9 @@ class BudgetFiscalYear():
         self.__day = self.__today.day
         self.__month = self.__today.month
         self.__fiscalyear = self.__year
+        self.__data = [ self.__id, self.__year, self.__month,
+                        self.__day, self.__startdate, self.__enddate ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return str( self.__year )
@@ -308,7 +345,8 @@ class BudgetObjectClass():
     __code = None
     __name = None
     __value = None
-    __data = [ ]
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -321,13 +359,26 @@ class BudgetObjectClass():
             return self.__name
 
     @property
+    def value( self ):
+        if self.__value is not None:
+            return self.__value
+
+    @property
     def data( self ):
-        return [ self.__code, self.__name, self.__value ]
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
 
     def __init__( self, code, name = None, value = None ):
         self.__code = code
         self.__name = name
         self.__value = value
+        self.__data = [ self.__code, self.__name, self.__value ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -358,8 +409,8 @@ class FinanceObjectClass():
     '''Defines the FinanceObjectClass Class'''
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -371,9 +422,21 @@ class FinanceObjectClass():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = None ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -383,8 +446,8 @@ class Fund():
     __code = None
     __name = None
     __title = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -401,18 +464,32 @@ class Fund():
         if self.__title is not None:
             return self.__title
 
-    def __init__( self, code, name = None ):
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
+    def __init__( self, code, name = None,
+                  title = None ):
         self.__code = code
         self.__name = name
+        self.__title = title
+        self.__data = [ self.__code, self.__name, self.__title ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
 
 class Goal():
     '''Defines the Goal Class'''
-    __code = ''
-    __name = ''
-    __data = [ ]
+    __code = None
+    __name = None
+    __data = None
 
     @property
     def code( self ):
@@ -424,9 +501,15 @@ class Goal():
         if not self.__name == '':
             return self.__name
 
-    def __init__( self, code, name = '' ):
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    def __init__( self, code, name = None ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
 
     def __str__( self ):
         return self.__code
@@ -437,8 +520,8 @@ class NationalProgram():
     __name = None
     __rpio = None
     __title = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -460,12 +543,25 @@ class NationalProgram():
         if self.__title is not None:
             return self.__title
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = None,
                  rpio = None, title = None):
         self.__code = code
         self.__name = name
         self.__rpio = rpio
         self.__title = title
+        self.__data = [ self.__code, self.__name, self.__rpio,
+                        self.__rpio, self.__title ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -474,7 +570,7 @@ class Objective():
     '''Defines the Objective Class'''
     __code = None
     __name = None
-    __data = [ ]
+    __data = None
 
     @property
     def code( self ):
@@ -486,9 +582,15 @@ class Objective():
         if not self.__name == '':
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
 
     def __str__( self ):
         return self.__code
@@ -497,8 +599,8 @@ class Organization():
     '''Defines the Organization Class'''
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -510,9 +612,21 @@ class Organization():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -521,8 +635,8 @@ class Project():
     '''Defines the Organization Class'''
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -534,9 +648,21 @@ class Project():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__code:
@@ -546,8 +672,8 @@ class ItProjectCode():
     '''Defines the Organization Class'''
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -559,9 +685,21 @@ class ItProjectCode():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -570,8 +708,8 @@ class SiteProjectCode():
     '''Defines the Organization Class'''
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -583,9 +721,21 @@ class SiteProjectCode():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -594,8 +744,8 @@ class HumanResourceOrganization():
     '''Defines the Organization Class'''
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -607,9 +757,21 @@ class HumanResourceOrganization():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -618,8 +780,8 @@ class WorkCode():
     '''Defines the Organization Class'''
     __code = None
     __name = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -631,9 +793,21 @@ class WorkCode():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -642,6 +816,8 @@ class ProgramArea():
     '''defines the ProgramArea class'''
     __code = None
     __name = None
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -653,9 +829,21 @@ class ProgramArea():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -665,8 +853,8 @@ class ProgramProject():
     __code = None
     __name = None
     __description = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -678,9 +866,23 @@ class ProgramProject():
         if self.__name is not None:
             return self.__name
 
-    def __init__( self, code, name = None ):
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
+    def __init__( self, code, name = None,
+                  description = None ):
         self.__code = str( code )
         self.__name = str( name )
+        self.__description = str( description )
+        self.__data = [ self.__code, self.__name, self.__description ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -689,6 +891,8 @@ class ResponsibilityCenter():
     '''Defines the ResponsibilityCenter Class'''
     __code = None
     __name = None
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -700,9 +904,21 @@ class ResponsibilityCenter():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -711,6 +927,8 @@ class ResourcePlanningImplementationOffice():
     '''defines the ResponsiblePlanningOffice class'''
     __code = None
     __name = None
+    __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -722,9 +940,21 @@ class ResourcePlanningImplementationOffice():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code, name = '' ):
         self.__code = code
         self.__name = name
+        self.__data = [ self.__code, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -742,15 +972,13 @@ class ProgramResultsCode():
     __rc = None
     __boc = None
     __amount = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def id( self ):
         if self.__id is not None:
             return self.__id
-        else:
-            return - 1
 
     @property
     def rpio( self ):
@@ -760,7 +988,7 @@ class ProgramResultsCode():
     @property
     def bfy( self ):
         if self.__bfy is not None:
-            return self.__bfy
+            return BudgetFiscalYear( self.__bfy )
 
     @property
     def fund( self ):
@@ -786,22 +1014,32 @@ class ProgramResultsCode():
     @property
     def org( self ):
         if self.__org is not None:
-            return self.__org
+            return Organization( self.__org )
 
     @property
     def rc( self ):
         if self.__rc is not None:
-            return self.__rc
+            return ResponsibilityCenter( self.__rc )
 
     @property
     def boc( self ):
         if self.__boc is not None:
-            return self.__boc
+            return BudgetObjectClass( self.__boc )
 
     @property
     def amount( self ):
         if self.__amount is not None:
             return self.__amount
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
 
     def __init__( self, code, rpio = None, bfy = None,
                   ah = None, fund = None,
@@ -817,6 +1055,10 @@ class ProgramResultsCode():
         self.__org = Organization( org )
         self.__boc = BudgetObjectClass( boc )
         self.__amount = amount
+        self.__data = [ self.__rpio.code, self.__bfy.fiscalyear, self.__ah.code,
+                        self.__fund.code, self.__account.code, self.__org.code,
+                        self.__boc.code, self.__amount ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__account.code is not None:
@@ -826,6 +1068,8 @@ class RegionalOffice():
     '''Defines a regional RPIO'''
     __rpio = None
     __name = None
+    __data = None
+    __dataframe = None
 
     @property
     def rpio( self ):
@@ -837,9 +1081,21 @@ class RegionalOffice():
         if self.__name is not None:
             return self.__name
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, rpio, name = None ):
         self.__rpio = rpio
         self.__name = name
+        self.__data = [ self.__rpio, self.__name ]
+        self.__dataframe = pd.DataFrame
 
     def __str__(self):
         if self.__rpio is not None:
@@ -850,6 +1106,8 @@ class HeadQuartersOffice():
     __rpio = None
     __name = None
     __title = None
+    __data = None
+    __dataframe = None
 
     @property
     def rpio( self ):
@@ -866,11 +1124,23 @@ class HeadQuartersOffice():
         if self.__title is not None:
             return self.__title
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, rpio, name = None,
                   title = None):
         self.__rpio = rpio
         self.__name = name
         self.__title = title
+        self.__data = [ self.__rpio, self.__name, self.__title ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__name is not None:
@@ -882,8 +1152,8 @@ class Holiday():
     __name = None
     __date = None
     __day = None
-    __data = { }
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def bfy( self ):
@@ -905,12 +1175,25 @@ class Holiday():
         if self.__day is not None:
             return self.__day
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, bfy, date = None,
                   name = None, day = None ):
         self.__bfy = bfy
         self.__name = name
         self.__day = day
         self.__date = date
+        self.__data = [ self.__bfy, self.__name, self.__date,
+                        self.__day ]
+        self.__dataframe = pd.DataFrame
 
     def __str__(self):
         if self.__name is not None:
@@ -925,8 +1208,8 @@ class Commitment:
     __fund = None
     __org = None
     __boc = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def amount( self ):
@@ -963,6 +1246,16 @@ class Commitment:
         if self.__boc is not None:
             return BudgetObjectClass( self.__boc )
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__(self, amount, account = None,
                  document = None, bfy = None,
                  org = None, boc = None):
@@ -972,6 +1265,9 @@ class Commitment:
         self.__boc = boc
         self.__org = org
         self.__bfy = bfy
+        self.__data = [ self.__amount, self.__account, self.__document,
+                        self.__boc.code, self.__bfy.fiscalyear, self.__org.code ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__amount is not None:
@@ -986,8 +1282,8 @@ class OpenCommitment:
     __fund = None
     __org = None
     __boc = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def amount( self ):
@@ -1024,6 +1320,16 @@ class OpenCommitment:
         if self.__boc is not None:
             return BudgetObjectClass( self.__boc )
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, amount, account = None,
                   doc = None, bfy = None,
                   org = None, boc = None ):
@@ -1033,6 +1339,9 @@ class OpenCommitment:
         self.__boc = boc
         self.__org = org
         self.__bfy = bfy
+        self.__data = [ self.__amount, self.__account, self.__document,
+                        self.__boc.code, self.__org.code, self.__bfy.fiscalyear ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__amount is not None:
@@ -1047,8 +1356,8 @@ class Obligation:
     __fund = None
     __org = None
     __boc = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def amount( self ):
@@ -1084,6 +1393,16 @@ class Obligation:
     def boc( self ):
         if self.__boc is not None:
             return BudgetObjectClass( self.__boc )
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
 
     def __init__( self, amount, account = None,
                   dcn = None, bfy = None,
@@ -1108,8 +1427,8 @@ class Deobligation:
     __fund = None
     __org = None
     __boc = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def amount( self ):
@@ -1146,6 +1465,16 @@ class Deobligation:
         if self.__boc is not None:
             return BudgetObjectClass( self.__boc )
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, amount, account = None,
                   dcn = None, bfy = None,
                   org = None, boc = None ):
@@ -1155,6 +1484,9 @@ class Deobligation:
         self.__boc = boc
         self.__org = org
         self.__bfy = bfy
+        self.__data = [ self.__amount, self.__account, self.__document,
+                        self.__bfy, self.__org ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__amount is not None:
@@ -1169,8 +1501,8 @@ class ULO:
     __fund = None
     __org = None
     __boc = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def amount( self ):
@@ -1207,6 +1539,16 @@ class ULO:
         if self.__boc is not None:
             return BudgetObjectClass( self.__boc )
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, amount, account = None,
                   dcn = None, bfy = None,
                   org = None, boc = None ):
@@ -1216,6 +1558,9 @@ class ULO:
         self.__boc = boc
         self.__org = org
         self.__bfy = bfy
+        self.__data = [ self.__amount, self.__account, self.__document,
+                        self.__boc, self.__org, self.__bfy ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__amount is not None:
@@ -1230,8 +1575,8 @@ class Expenditure:
     __fund = None
     __org = None
     __boc = None
-    __data = [ ]
-    __dataframe = pd.DataFrame
+    __data = None
+    __dataframe = None
 
     @property
     def amount( self ):
@@ -1268,6 +1613,16 @@ class Expenditure:
         if self.__boc is not None:
             return BudgetObjectClass( self.__boc )
 
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, amount, account = None,
                   dcn = None, bfy = None,
                   org = None, boc = None ):
@@ -1277,6 +1632,9 @@ class Expenditure:
         self.__boc = boc
         self.__org = org
         self.__bfy = bfy
+        self.__data = [ self.__amount, self.__account, self.__document,
+                        self.__boc, self.__org, self.__bfy ]
+        self.__dataframe = pd.DataFrame
 
     def __str__( self ):
         if self.__amount is not None:

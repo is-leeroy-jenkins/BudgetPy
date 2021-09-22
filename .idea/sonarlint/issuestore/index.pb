@@ -1022,7 +1022,3 @@ i
 9db/sqlite/datamodels/sql/CREATE/TABLE/logs/xvba_debug.log,8\4\84a61424ac9e01db23a86d59d9d4fdbddd11e9ca
 n
 >db/sqlite/referencemodels/sql/CREATE/TABLE/logs/xvba_debug.log,6\2\62485b872c51630e15cdde285918596463f94b25
-8
-Ninja.py,8\b\8bd840fba2dbdab27f36c7587e14a47f48cdbb59
-7
-Data.py,4\2\423d783bb445069e91a7815f4d33810b21e506a3

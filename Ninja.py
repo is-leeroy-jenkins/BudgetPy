@@ -70,12 +70,13 @@ class BudgetPath():
 
     @property
     def extension( self ):
-        if self.__path is not None:
-            return os.path.split( self.__path )
+        if self.__ext is not None:
+            return str( self.__ext )
 
     def __init__( self, filepath ):
         self.__base = str( filepath )
         self.__path = self.__base
+        self.__ext = os.path.split( self.__path )
         self.__accessdata = r'db\access\datamodels\Data.accdb'
         self.__accessdatasql = r'db\access\datamodels\sql'
         self.__accessreferences = r'db\access\referencemodels\References.accdb'
@@ -127,6 +128,11 @@ class BudgetFile():
             return self.__size
 
     @property
+    def directory( self ):
+        if self.__directory is not None:
+            return self.__directory
+
+    @property
     def extension( self ):
         if self.__extension is not None:
             return self.__extension
@@ -167,7 +173,7 @@ class BudgetFile():
         self.__name = os.path.basename( base )
         self.__path = os.path.abspath( base )
         self.__size = os.path.getsize( base )
-        self.__directory = os.path.dirname( self.__path )
+        self.__directory = str( os.path.dirname( self.__path ) )
         self.__extension = str( list( os.path.splitext( base ) )[ 1 ] )
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
@@ -177,10 +183,10 @@ class BudgetFile():
         self.__drive = str(list( os.path.splitdrive( self.__path ) )[ 0 ] )
         self.__content = list()
 
-    def rename( self, filename ):
+    def rename( self, newname ):
         '''renames current file'''
         if self.__base is not None and self.__name is not None:
-            return os.rename( self.__name, filename )
+            return os.rename( self.__name, newname )
 
     def move( self, destination ):
         '''renames current file'''
@@ -192,30 +198,30 @@ class BudgetFile():
         if other is not None:
             os.mkfifo( other )
 
-    def exists( self, path ):
+    def exists( self, other ):
         '''determines if an external file exists'''
-        if path is not None:
-            return os.path.exists( path )
+        if other is not None:
+            return os.path.exists( other )
 
-    def delete( self, path ):
+    def delete( self, other ):
         ''' deletes file at 'self.__path'   '''
-        if path is not None and os.path.isfile( path ):
-            os.remove( path )
+        if other is not None and os.path.isfile( other ):
+            os.remove( other )
 
-    def getsize( self, path ):
+    def getsize( self, other ):
         '''gets the size of another file'''
-        if self.__base is not None and os.path.exists( path ):
-            return os.path.getsize( path )
+        if self.__base is not None and os.path.exists( other ):
+            return os.path.getsize( other )
 
-    def getdrive( self, path ):
+    def getdrive( self, other ):
         '''gets the drive of another file'''
-        if os.path.exists( path ):
-            return str( list( os.path.splitdrive( path ) )[ 0 ] )
+        if os.path.exists( other ):
+            return str( list( os.path.splitdrive( other ) )[ 0 ] )
 
-    def getextension( self, path ):
+    def getextension( self, other ):
         ''' gets and returns extension of 'path' 'file' '''
-        if path is not None and os.path.isfile( path ):
-            return str( list( os.path.splitext( path ) )[ 1 ] )
+        if other is not None and os.path.isfile( other ):
+            return str( list( os.path.splitext( other ) )[ 1 ] )
 
     def readlines( self, other ):
         '''reads all lines in 'path' into a list
@@ -280,12 +286,12 @@ class BudgetFolder():
             return self.__size
 
     @property
-    def currentdirectory( self ):
+    def current( self ):
         if self.__current is not None:
             return self.__current
 
     @property
-    def parentfolder( self ):
+    def parent( self ):
         if self.__parent is not None:
             return self.__parent
 
@@ -331,39 +337,38 @@ class BudgetFolder():
         if self.__name is not None and destination is not None:
             return os.path.join( self.__name, destination )
 
-    def exists( self, path ):
+    def exists( self, other ):
         '''determines if the base file exists'''
-        if path is not None and os.path.isdir( path ):
+        if other is not None and os.path.isdir( other ):
             return True
 
-    def create( self, path ):
-        if path is not None:
-            os.mkdir( path )
+    def create( self, other ):
+        if other is not None:
+            os.mkdir( other )
 
-    def delete( self, path ):
+    def delete( self, other ):
         ''' deletes 'path' directory '''
-        if path is not None and os.path.isdir( path ):
-            os.rmdir( path )
+        if other is not None and os.path.isdir( other ):
+            os.rmdir( other )
 
-    def getsize( self, path ):
+    def getsize( self, other ):
         ''' gets and returns size of 'path' '''
-        if path is not None and os.path.isdir( path ):
-            return os.path.getsize( path )
+        if other is not None and os.path.isdir( other ):
+            return os.path.getsize( other )
 
-    def getdrive( self, path ):
+    def getdrive( self, other ):
         ''' gets and returns parent directory of 'path' '''
-        if path is not None and os.path.isdir( path ):
-            return os.path.splitdrive( path )[ 0 ]
+        if other is not None and os.path.isdir( other ):
+            return os.path.splitdrive( other )[ 0 ]
 
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
-    __sql = None
     __and = None
     __where = None
-    __database = None
-    __datatable = None
+    __db = None
+    __table = None
     __criteria = None
-    __command = [ 'SELECT', 'INSERT', 'UPDATE',
+    __sql = [ 'SELECT', 'INSERT', 'UPDATE',
                   'DELETE', 'CREATE', 'ALTER',
                   'DROP', 'DETACH' ]
 
@@ -399,9 +404,14 @@ class DataRow():
     __items = None
     __date = None
     __value = None
-    __values = [ ]
+    __values = None
     __columns = pd.Series
     __id = -1
+
+    @property
+    def index( self ):
+        if self.__id is not None and isinstance( self.__id, int ):
+            return self.__id
 
     @property
     def data( self ):
@@ -411,17 +421,12 @@ class DataRow():
     @property
     def columns( self ):
         if self.__columns is not None:
-            return self.__columns.keys()
+            return self.__columns
 
     @property
     def values( self ):
         if self.__values is not None:
             return self.__values
-
-    @property
-    def index( self ):
-        if self.__id is not None and isinstance( self.__id, int ):
-            return self.__id
 
     @property
     def value( self ):
@@ -430,13 +435,13 @@ class DataRow():
 
     def __init__( self, base, source = None,
                   items = None ):
-        self.__base = base
-        self.__source = source
-        self.__items = dict( items )
-        self.__data = self.__items
-        self.__columns = dict.fromkeys( self.__items )
-        self.__values = list( self.__items.values() )
         self.__id = int( self.__values[ 0 ] )
+        self.__base = pd.DataFrame( base )
+        self.__source = DataTable( source )
+        self.__items = dict( items )
+        self.__data = self.__items.keys()
+        self.__columns = pd.Series( self.__data, self.__items )
+        self.__values = list( self.__items.values() )
         self.__value = self.__items.setdefault( 'Amount', 0 )
 
     def __str__( self ):
@@ -448,9 +453,10 @@ class DataColumn():
     __source = None
     __row = None
     __name = None
+    __values = None
     __type = None
     __caption = None
-    __ordinal = -1
+    __id = -1
     __table = None
     __data = { }
 
@@ -473,8 +479,8 @@ class DataColumn():
 
     @property
     def ordinal( self ):
-        if self.__ordinal > -1:
-            return self.__ordinal
+        if self.__id > -1:
+            return self.__id
         else:
             return -1
 
@@ -513,15 +519,18 @@ class DataColumn():
         if isinstance( str, type( self.__type ) ):
             return True
 
-    def __init__( self, name, datatype = None,
-                  caption = None, source = None, ordinal = None):
+    def __init__( self, name, ordinal = None,
+                  datatype = None, caption = None, values = None,
+                  source = None):
         self.__name = name
+        self.__values = list( values )
+        self.__base = pd.Series( { self.__name: self.__values } )
         self.__type = datatype
-        self.__caption = caption
-        self.__source = source
-        self.__ordinal = int( ordinal )
+        self.__caption = str( caption )
+        self.__source = str( source )
+        self.__id = int( ordinal )
         self.__table = self.__source
-        self.__data = { 'ordinal': self.__ordinal, 'name': self.__name,
+        self.__data = { 'ordinal': self.__id, 'name': self.__name,
                         'caption': self.__caption, 'datatype': self.__type,
                         'table': self.__table }
 
