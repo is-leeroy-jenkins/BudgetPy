@@ -2,6 +2,7 @@ import os
 import sqlite3 as sqlite
 import pandas as pd
 import pyodbc as access
+import openpyxl as excel
 
 class BudgetPath():
     '''Defines the BudgetPath class'''
@@ -554,7 +555,43 @@ class DataTable():
     def __str__( self ):
         return self.__name
 
-class AccessDataBuilder():
+class DataModel():
+    __access = None
+    __sqlite = None
+
+    @property
+    def access( self ):
+        if self.__access is not None:
+            return self.__access
+
+    @property
+    def sqlite( self ):
+        if self.__sqlite is not None:
+            return self.__sqlite
+
+    def __init__(self):
+        self.__access = r'db\sqlite\datamodels\Data.db'
+        self.__sqlite = r'db\sqlite\datamodels\References.db'
+
+class ReferenceModel():
+    __access = None
+    __sqlite = None
+
+    @property
+    def access( self ):
+        if self.__access is not None:
+            return self.__access
+
+    @property
+    def sqlite( self ):
+        if self.__sqlite is not None:
+            return self.__sqlite
+
+    def __init__(self):
+        self.__access = ReferenceModel.access
+        self.__sqlite = ReferenceModel.sqlite
+
+class AccessData():
     '''Builds the budget execution data classes'''
     __connector = None
     __connection = None
@@ -563,7 +600,7 @@ class AccessDataBuilder():
     __dbpath = None
 
     def __init__( self ):
-        self.__dbpath = r'db\access\datamodels\Data.accdb'
+        self.__dbpath = DataModel.access
         self.__cursor = self.__connection.cursor()
         self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
                             f'DBQ={self.__dbpath}')
@@ -575,7 +612,7 @@ class AccessDataBuilder():
         if self.__data is None:
             self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
 
-class AccessReferenceBuilder():
+class AccessReference():
     '''Builds the budget execution data classes'''
     __connector = None
     __connection = None
@@ -596,7 +633,7 @@ class AccessReferenceBuilder():
         if self.__data == '':
             self.__data = self.__cursor.execute( f'SELECT * FROM {0}', table )
 
-class SQLiteDataBuilder():
+class SQLiteData():
     '''Builds the budget execution data classes'''
     __dbpath = None
     __connection = None
@@ -604,16 +641,16 @@ class SQLiteDataBuilder():
     __data = None
 
     def __init__( self ):
-        self.__dbpath = r'db\sqlite\datamodels\Data.db'
+        self.__dbpath = DataModel.sqlite
         self.__connection = sqlite.connect( f'{self.__dbpath}' )
         self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
     def get_data( self, table ):
-        if self.__data == '':
+        if self.__data is None:
             self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
 
-class SQLiteReferenceBuilder():
+class SQLiteReference():
     '''Builds the budget execution reference models'''
     __dbpath = None
     __connection = None
@@ -629,3 +666,114 @@ class SQLiteReferenceBuilder():
     def get_data( self, table ):
         if self.__data == '':
             self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
+
+class EmailBuilder():
+    ''' Helper class for generating email messages '''
+    __from = None
+    __to = None
+    __subject = None
+    __message = None
+    __others = None
+
+    @property
+    def sender( self ):
+        ''' Gets the sender's email address '''
+        if self.__from is not None:
+            return self.__from
+
+    @sender.setter
+    def sender( self, frm ):
+        ''' Set the sender's email address '''
+        if frm is not None:
+            self.__from = str( frm )
+
+    @property
+    def receiver( self ):
+        ''' Gets the sender's email address '''
+        if self.__to is not None:
+            return self.__to
+
+    @receiver.setter
+    def receiver( self, rec ):
+        ''' Sets the receiver's email address '''
+        if rec is not None:
+            self.__to = str( rec )
+
+    @property
+    def subject( self ):
+        ''' Gets the email's subject line '''
+        if self.__subject is not None:
+            return self.__subject
+
+    @subject.setter
+    def subject( self, sub ):
+        ''' Sets the email's subject line '''
+        if sub is not None:
+            self.__to = str( sub )
+
+    @property
+    def body( self ):
+        ''' Gets the email's subject line '''
+        if self.__message is not None:
+            return self.__message
+
+    @body.setter
+    def body( self, msg ):
+        ''' Sets the email's subject line '''
+        if msg is not None:
+            self.__to = str( msg )
+
+    @property
+    def copy( self ):
+        ''' Gets the addresses to send copies  '''
+        if self.__others is not None:
+            return self.__others
+
+    @copy.setter
+    def copy( self, copy ):
+        ''' Sets the address's to send copies  '''
+        if copy is not None:
+            self.__others = list( copy )
+
+    def __init__( self, frm = None, to = None,
+                  body = None, sub = None, copy = None ):
+        self.__from = str( frm )
+        self.__to = str( to )
+        self.__message = str( body )
+        self.__others = list( copy )
+        self.__subject = str( sub )
+
+    def __str__(self):
+        if self.__message is not None:
+            return self.__message
+
+class ExcelFile():
+    ''' Provides the spreadsheet for Budget Py reports '''
+    __path = None
+    __workbook = None
+    __worksheet = None
+    __name = None
+
+    @property
+    def name( self ):
+        ''' Get the name of the workbook '''
+        if self.__name is not None:
+            return self.__name
+
+    @property
+    def workbook( self ):
+        ''' Gets the report template '''
+        if self.__path is not None:
+            self.__workbook = excel.open( self.__path )
+            return self.__workbook
+
+    @property
+    def worksheet( self ):
+        ''' Gets the workbooks worksheet '''
+        if self.__workbook is not None:
+            self.__worksheet = self.__workbook.active
+            return self.__worksheet
+
+    def __init__(self, name ):
+        self.__path = r'etc\templates\report\ReportBase.xlsx'
+        self.__name = str( name )
