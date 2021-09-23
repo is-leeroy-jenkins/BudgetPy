@@ -1,5 +1,5 @@
 import os
-import sqlite3
+import sqlite3 as sqlite
 import pandas as pd
 import pyodbc as access
 
@@ -8,25 +8,18 @@ class BudgetPath():
     __base = None
     __path = None
     __ext = None
-    __accessdata = r'db\access\datamodels\Data.accdb'
-    __accessdatasql = r'db\access\datamodels\sql'
-    __accessreferences = r'db\access\referencemodels\References.accdb'
-    __accessreferencesql = r'db\access\referencemodels\sql'
-    __sqlitedata = r'db\sqlite\datamodels\Data.db'
-    __sqlitedatasql = r'db\sqlite\datamodels\sql'
-    __sqlitereferences = r'db\sqlite\referencemodels\Reference.accdb'
-    __sqlitereferencesql = r'db\sqlite\referencemodels\sql'
-    __sqlserverdata = r''
-    __sqlserverreference = r''
-    __sqlserverdatasql = r''
-    __sqlserverreferencesql = r''
-    __excelreport = r'etc\templates\report\ReportBase.xlsx'
-    __excelbudget = r'etc\templates\budget\BudgetBase.xlsx'
+    __report = None
 
     @property
     def base( self ):
         if self.__base is not None:
             return self.__base
+
+    @property
+    def name( self ):
+        '''Returns string representing the name of the path 'base' '''
+        if os.path.exists( self.__base ):
+            return str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @property
     def path( self ):
@@ -39,28 +32,8 @@ class BudgetPath():
             return True
 
     @property
-    def accessdata( self ):
-        if os.path.exists( self.__accessdata ):
-            return self.__accessdata
-
-    @property
-    def accessreferences( self ):
-        if os.path.exists( self.__accessreferences ):
-            return self.__accessreferences
-
-    @property
-    def sqlitedata( self ):
-        if os.path.exists( self.__sqlitedata ):
-            return self.__sqlitereferences
-
-    @property
-    def sqlitereferences( self ):
-        if os.path.exists( self.__sqlitereferences ):
-            return self.__sqlitereferences
-
-    @property
     def isfolder( self ):
-        if os.path.exists( self.__path ) and os.path.isdir( self.__path ):
+        if os.path.isdir( self.__path ):
             return True
 
     @property
@@ -73,24 +46,39 @@ class BudgetPath():
         if self.__ext is not None:
             return str( self.__ext )
 
+    def verify( self, other ):
+        '''Verifies if the parameter 'other' exists'''
+        if os.path.exists( other ):
+            return True
+
+    def is_file( self, other ):
+        if os.path.isfile( other ):
+            return True
+
+    def is_folder( self, other ):
+        if os.path.isdir( other ):
+            return True
+
+    def get_extension( self, other ):
+        '''Returns string representing the file extension of 'other' '''
+        if os.path.exists( other ):
+            return list( os.path.splitext( other ) )[ 1 ]
+
+    def get_report( self ):
+        if self.__report is not None:
+            return self.__report
+
+    def join( self, first, second ):
+        ''' Concatenates 'first' to 'second' '''
+        if os.path.exists( first ) \
+                and os.path.exists( second ):
+            return os.path.join( first, second )
+
     def __init__( self, filepath ):
         self.__base = str( filepath )
         self.__path = self.__base
         self.__ext = os.path.split( self.__path )
-        self.__accessdata = r'db\access\datamodels\Data.accdb'
-        self.__accessdatasql = r'db\access\datamodels\sql'
-        self.__accessreferences = r'db\access\referencemodels\References.accdb'
-        self.__accessreferencesql = r'db\access\referencemodels\sql'
-        self.__sqlitedata = r'db\sqlite\datamodels\Data.db'
-        self.__sqlitedatasql = r'db\sqlite\datamodels\sql'
-        self.__sqlitereferences = r'db\sqlite\referencemodels\Reference.accdb'
-        self.__sqlitereferencesql = r'db\sqlite\referencemodels\sql'
-        self.__sqlserverdata = r''
-        self.__sqlserverreference = r''
-        self.__sqlserverdatasql = r''
-        self.__sqlserverreferencesql = r''
-        self.__excelreport = r'etc\templates\report\ReportBase.xlsx'
-        self.__excelbudget = r'etc\templates\budget\BudgetBase.xlsx'
+        self.__report = r'etc\templates\report\ReportBase.xlsx'
 
 class BudgetFile():
     '''Defines the BudgetFile Class'''
@@ -99,7 +87,7 @@ class BudgetFile():
     __path = None
     __size = None
     __extension = None
-    __parentfolder = None
+    __directory = None
     __drive = None
     __created = None
     __modified = None
@@ -115,17 +103,17 @@ class BudgetFile():
     @property
     def name( self ):
         if os.path.isdir( self.__name ):
-            return os.path.dirname( self.__path )
+            return str( os.path.dirname( self.__path ) )
 
     @property
     def path( self ):
         if os.path.isdir( self.__path ):
-            return self.__path
+            return str( self.__path )
 
     @property
     def size( self ):
-        if self.__parentfolder is not None:
-            return self.__size
+        if self.__base is not None:
+            return float( self.__size )
 
     @property
     def directory( self ):
@@ -136,11 +124,6 @@ class BudgetFile():
     def extension( self ):
         if self.__extension is not None:
             return self.__extension
-
-    @property
-    def parentfolder( self ):
-        if self.__parentfolder is not None:
-            return self.__parentfolder
 
     @property
     def drive( self ):
@@ -163,7 +146,7 @@ class BudgetFile():
             return self.__created
 
     @property
-    def currentdirectory( self ):
+    def current( self ):
         if self.__current is not None:
             return self.__current
 
@@ -178,9 +161,8 @@ class BudgetFile():
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
         self.__modified = os.path.getmtime( base )
-        self.__parentfolder = str( list( os.path.dirname( base ) )[ 0 ] )
         self.__current = os.getcwd()
-        self.__drive = str(list( os.path.splitdrive( self.__path ) )[ 0 ] )
+        self.__drive = str( list( os.path.splitdrive( self.__path ) )[ 0 ] )
         self.__content = list()
 
     def rename( self, newname ):
@@ -321,7 +303,6 @@ class BudgetFolder():
         self.__name = os.path.basename( base )
         self.__path = os.path.abspath( base )
         self.__size = os.path.getsize( base )
-        self.__extension = list( os.path.splitext( base ) )[ 1 ]
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
         self.__modified = os.path.getmtime( base )
@@ -365,12 +346,8 @@ class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
     __and = None
     __where = None
-    __db = None
-    __table = None
     __criteria = None
-    __sql = [ 'SELECT', 'INSERT', 'UPDATE',
-                  'DELETE', 'CREATE', 'ALTER',
-                  'DROP', 'DETACH' ]
+    __sql = None
 
     @property
     def AND( self ):
@@ -383,34 +360,39 @@ class CriteriaBuilder():
             return self.__where
 
     @property
-    def criteria( self ):
+    def commandtype( self ):
+        if self.__sql is not None:
+            return self.__sql[ 0 ]
+
+    @property
+    def namevaluepairs( self ):
         if self.__criteria is not None:
             return self.__criteria
 
-    @criteria.setter
-    def criteria( self, namevaluepairs  ):
-        if namevaluepairs is not None:
-            self.__criteria = dict( namevaluepairs )
+    @namevaluepairs.setter
+    def namevaluepairs( self, pairs ):
+        if isinstance( pairs, dict ):
+            self.__criteria = pairs
 
     def __init__( self ):
         self.__and = ' AND '
         self.__where = ' WHERE '
+        self.__sql = [ 'SELECT', 'INSERT', 'UPDATE',
+                       'DELETE', 'CREATE', 'ALTER',
+                       'DROP', 'DETACH' ]
 
 class DataRow():
     '''Defines the DataRow Class'''
     __base = None
     __source = None
-    __name = None
+    __names = None
     __items = None
-    __date = None
-    __value = None
     __values = None
-    __columns = pd.Series
-    __id = -1
+    __id = None
 
     @property
     def index( self ):
-        if self.__id is not None and isinstance( self.__id, int ):
+        if isinstance( self.__id, int ):
             return self.__id
 
     @property
@@ -419,30 +401,27 @@ class DataRow():
             return self.__items.items()
 
     @property
-    def columns( self ):
-        if self.__columns is not None:
-            return self.__columns
+    def names( self ):
+        if self.__names is not None:
+            return self.__names
 
     @property
     def values( self ):
         if self.__values is not None:
-            return self.__values
+            return list( self.__values )
 
     @property
-    def value( self ):
-        if self.__values is not None:
-            return self.__value
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
 
-    def __init__( self, base, source = None,
-                  items = None ):
+    def __init__( self, base, items = None ):
         self.__id = int( self.__values[ 0 ] )
-        self.__base = pd.DataFrame( base )
-        self.__source = DataTable( source )
+        self.__base = str( base )
+        self.__source = DataTable( self.__base )
         self.__items = dict( items )
-        self.__data = self.__items.keys()
-        self.__columns = pd.Series( self.__data, self.__items )
-        self.__values = list( self.__items.values() )
-        self.__value = self.__items.setdefault( 'Amount', 0 )
+        self.__names = list( self.__items.keys() )
+        self.__values = self.__items.values()
 
     def __str__( self ):
         return 'Row ID: ' + str( self.__id )
@@ -453,17 +432,22 @@ class DataColumn():
     __source = None
     __row = None
     __name = None
-    __values = None
+    __value = None
     __type = None
     __caption = None
-    __id = -1
+    __id = None
     __table = None
-    __data = { }
+    __data = None
 
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @property
+    def value( self ):
+        if self.__value is not None:
+            return self.__value
 
     @property
     def type( self ):
@@ -481,15 +465,11 @@ class DataColumn():
     def ordinal( self ):
         if self.__id > -1:
             return self.__id
-        else:
-            return -1
 
     @property
     def table( self ):
         if self.__table is not None:
             return self.__table
-        else:
-            return 'NS'
 
     @property
     def row( self ):
@@ -502,12 +482,11 @@ class DataColumn():
     def source( self ):
         if self.__source is not None:
             return self.__source
-        else:
-            return 'NS'
 
     @property
     def data( self ):
-        return self.__data
+        if self.__data is not None:
+            return self.__data
 
     @property
     def isnumeric( self ):
@@ -519,12 +498,13 @@ class DataColumn():
         if isinstance( str, type( self.__type ) ):
             return True
 
-    def __init__( self, name, ordinal = None,
-                  datatype = None, caption = None, values = None,
-                  source = None):
-        self.__name = name
-        self.__values = list( values )
-        self.__base = pd.Series( { self.__name: self.__values } )
+    def __init__( self, name, value = None,
+                  ordinal = None, datatype = None, caption = None,
+                  source = None ):
+        self.__base = name
+        self.__name = str( self.__base )
+        self.__value = value
+        self.__base = pd.Series( { self.__name: self.__value } )
         self.__type = datatype
         self.__caption = str( caption )
         self.__source = str( source )
@@ -540,20 +520,14 @@ class DataColumn():
 class DataTable():
     '''Defines the DataTable Class'''
     __base = None
-    __source = None
     __name = None
     __data = None
-    __schema = None
-    __query = None
+    __columns = None
 
     @property
     def name( self ):
-        return self.__name
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
+        if self.__name is not None:
+            return self.__name
 
     @property
     def data( self ):
@@ -562,28 +536,23 @@ class DataTable():
 
     @property
     def schema( self ):
-        if self.__schema is not None:
-            return self.__schema
+        if self.__columns is not None:
+            return self.__columns
 
     @property
     def rows( self ):
-        if self.__source is not None:
-            return self.__source.iterrows()
+        if self.__rows is not None:
+            return self.__rows
 
-    def __init__( self, name, sql = None ):
+    def __init__( self, name ):
         self.__name = name
         self.__base = self.__name
-        self.__source = pd.DataFrame( self.__base )
-        self.__data = self.__source[ 0: ].iterrows()
-        self.__schema = self.__source.columns.names
-        self.__query = str( sql )
+        self.__data = pd.DataFrame( self.__base )
+        self.__columns = self.__data.columns
+        self.__rows = self.__data.iterrows()
 
     def __str__( self ):
         return self.__name
-
-    def getsql( self ):
-        if self.__query is not None:
-            return self.__query
 
 class AccessDataBuilder():
     '''Builds the budget execution data classes'''
@@ -591,18 +560,16 @@ class AccessDataBuilder():
     __connection = None
     __cursor = None
     __data = None
-    __budget = None
-    __sqlpath = None
+    __dbpath = None
 
     def __init__( self ):
+        self.__dbpath = r'db\access\datamodels\Data.accdb'
+        self.__cursor = self.__connection.cursor()
         self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                            r'DBQ=db\access\datamodels\Data.accdb;')
+                            f'DBQ={self.__dbpath}')
         self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
-        self.__budget = BudgetPath
-        self.__sqlpath = self.__budget.sqlitedata
-        self.__cursor = self.__connection.cursor()
-        self.__data = ''
+        self.__data = pd.DataFrame
 
     def get_data( self, table ):
         if self.__data is None:
@@ -614,16 +581,16 @@ class AccessReferenceBuilder():
     __connection = None
     __cursor = None
     __data = None
-    __budget = BudgetPath
-    __sqlpath = None
+    __dbpath = None
 
     def __init__( self ):
+        self.__dbpath = r'db\access\referencemodels\References.accdb;'
+        self.__cursor = self.__connection.cursor()
+        self.__data = pd.DataFrame
         self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                            r'DBQ=db\access\referencemodels\References.accdb;')
+                            f'DBQ={self.__dbpath}')
         self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
-        self.__cursor = self.__connection.cursor()
-        self.__data = ''
 
     def get_data( self, table ):
         if self.__data == '':
@@ -631,14 +598,16 @@ class AccessReferenceBuilder():
 
 class SQLiteDataBuilder():
     '''Builds the budget execution data classes'''
+    __dbpath = None
     __connection = None
     __cursor = None
     __data = None
 
     def __init__( self ):
-        self.__connection = sqlite3.connect( r'db\sqlite\datamodels\Data.db' )
+        self.__dbpath = r'db\sqlite\datamodels\Data.db'
+        self.__connection = sqlite.connect( f'{self.__dbpath}' )
         self.__cursor = self.__connection.cursor()
-        self.__data = ''
+        self.__data = pd.DataFrame
 
     def get_data( self, table ):
         if self.__data == '':
@@ -646,12 +615,14 @@ class SQLiteDataBuilder():
 
 class SQLiteReferenceBuilder():
     '''Builds the budget execution reference models'''
+    __dbpath = None
     __connection = None
     __cursor = None
     __data = None
 
     def __init__( self ):
-        self.__connection = sqlite3.connect( r'db\sqlite\referencemodels\References.db' )
+        self.__dbpath = r'db\sqlite\datamodels\Data.db'
+        self.__connection = sqlite.connect( self.__dbpath )
         self.__cursor = self.__connection.cursor()
         self.__data = ''
 
