@@ -301,13 +301,13 @@ class BudgetFolder():
     # Constructor
     def __init__( self, base ):
         self.__base = base
-        self.__name = os.path.basename( base )
-        self.__path = os.path.abspath( base )
-        self.__size = os.path.getsize( base )
-        self.__created = os.path.getctime( base )
-        self.__accessed = os.path.getatime( base )
-        self.__modified = os.path.getmtime( base )
-        self.__parent = os.path.dirname( base )
+        self.__name = str( os.path.basename( base ) )
+        self.__path = str( os.path.abspath( base ) )
+        self.__size = int( os.path.getsize( base ) )
+        self.__created = float( os.path.getctime( base ) )
+        self.__accessed = float( os.path.getatime( base ) )
+        self.__modified = float( os.path.getmtime( base ) )
+        self.__parent = str( os.path.dirname( base ) )
 
     def rename( self, new_name ):
         '''renames current file'''
@@ -361,7 +361,7 @@ class CriteriaBuilder():
             return self.__where
 
     @property
-    def commandtype( self ):
+    def sqlcommand( self ):
         if self.__sql is not None:
             return self.__sql[ 0 ]
 
@@ -556,16 +556,17 @@ class DataTable():
         return self.__name
 
 class DataModel():
+    ''' Defines object used to provide the path to data model databases '''
     __access = None
     __sqlite = None
 
     @property
-    def access( self ):
+    def accesspath( self ):
         if self.__access is not None:
             return self.__access
 
     @property
-    def sqlite( self ):
+    def sqlitepath( self ):
         if self.__sqlite is not None:
             return self.__sqlite
 
@@ -574,76 +575,143 @@ class DataModel():
         self.__sqlite = r'db\sqlite\datamodels\References.db'
 
 class ReferenceModel():
+    '''Defines object used to provide paths to the reference model databases '''
     __access = None
     __sqlite = None
 
     @property
-    def access( self ):
+    def accesspath( self ):
         if self.__access is not None:
             return self.__access
 
     @property
-    def sqlite( self ):
+    def sqlitepath( self ):
         if self.__sqlite is not None:
             return self.__sqlite
 
     def __init__(self):
-        self.__access = ReferenceModel.access
-        self.__sqlite = ReferenceModel.sqlite
+        self.__access = ReferenceModel.accesspath
+        self.__sqlite = ReferenceModel.sqlitepath
 
 class AccessData():
     '''Builds the budget execution data classes'''
-    __connector = None
-    __connection = None
+    __source = None
+    __connectionstring = None
+    __dataconnection = None
     __cursor = None
     __data = None
     __dbpath = None
 
-    def __init__( self ):
-        self.__dbpath = DataModel.access
-        self.__cursor = self.__connection.cursor()
-        self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+    @property
+    def datapath( self ):
+        if self.__dbpath is not None:
+            return self.__dbpath
+
+    @property
+    def datasource( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @property
+    def connectionstring( self ):
+        if self.__connectionstring is not None:
+            return self.__connectionstring
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return iter( self.__data[ 0: ] )
+
+    def __init__( self, tablename = None ):
+        self.__source = tablename
+        self.__dbpath = DataModel.accesspath
+        self.__connectionstring = (r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };'
                             f'DBQ={self.__dbpath}')
-        self.__connection = access.connect( self.__connector,
+        self.__dataconnection = access.connect( self.__connectionstring,
             timeout = 3, attrs_before = dict() )
+        self.__cursor = self.__dataconnection.cursor()
         self.__data = pd.DataFrame
 
-    def get_data( self, table ):
+    def query_table( self, table ):
         if self.__data is None:
             self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
 
 class AccessReference():
     '''Builds the budget execution data classes'''
-    __connector = None
-    __connection = None
+    __dbpath = None
+    __connectionstring = None
+    __dataconnection = None
     __cursor = None
     __data = None
-    __dbpath = None
+    __source = None
 
-    def __init__( self ):
+    @property
+    def datapath( self ):
+        if self.__dbpath is not None:
+            return self.__dbpath
+
+    @property
+    def datasource( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @property
+    def connectionstring( self ):
+        if self.__connectionstring is not None:
+            return self.__connectionstring
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return iter( self.__data[ 0: ] )
+
+    def __init__( self, tablename = None ):
+        self.__source = tablename
         self.__dbpath = r'db\access\referencemodels\References.accdb;'
-        self.__cursor = self.__connection.cursor()
-        self.__data = pd.DataFrame
-        self.__connector = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+        self.__connectionstring = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
                             f'DBQ={self.__dbpath}')
-        self.__connection = access.connect( self.__connector,
+        self.__dataconnection = access.connect( self.__connectionstring,
             timeout = 3, attrs_before = dict() )
+        self.__cursor = self.__dataconnection.cursor()
+        self.__data = pd.DataFrame
 
-    def get_data( self, table ):
+    def query_table( self, table ):
         if self.__data == '':
             self.__data = self.__cursor.execute( f'SELECT * FROM {0}', table )
 
 class SQLiteData():
     '''Builds the budget execution data classes'''
+    __source = None
     __dbpath = None
-    __connection = None
+    __dataconnection = None
     __cursor = None
     __data = None
 
-    def __init__( self ):
-        self.__dbpath = DataModel.sqlite
-        self.__connection = sqlite.connect( f'{self.__dbpath}' )
-        self.__cursor = self.__connection.cursor()
+    @property
+    def datapath( self ):
+        if self.__dbpath is not None:
+            return self.__dbpath
+
+    @property
+    def datasource( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @property
+    def connectionstring( self ):
+        if self.__dataconnection is not None:
+            return self.__dataconnection
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return iter( self.__data[ 0: ] )
+
+    def __init__( self, tablename = None ):
+        self.__source = tablename
+        self.__dbpath = DataModel.sqlitepath
+        self.__dataconnection = sqlite.connect( f'{self.__dbpath}' )
+        self.__cursor = self.__dataconnection.cursor()
         self.__data = pd.DataFrame
 
     def get_data( self, table ):
@@ -652,15 +720,32 @@ class SQLiteData():
 
 class SQLiteReference():
     '''Builds the budget execution reference models'''
+    __source = None
     __dbpath = None
-    __connection = None
+    __dataconnection = None
     __cursor = None
     __data = None
 
-    def __init__( self ):
+    @property
+    def datapath( self ):
+        if self.__dbpath is not None:
+            return self.__dbpath
+
+    @property
+    def datasource( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return iter( self.__data[ 0: ] )
+
+    def __init__( self, tablename = None ):
+        self.__source = tablename
         self.__dbpath = r'db\sqlite\datamodels\Data.db'
-        self.__connection = sqlite.connect( self.__dbpath )
-        self.__cursor = self.__connection.cursor()
+        self.__dataconnection = sqlite.connect( self.__dbpath )
+        self.__cursor = self.__dataconnection.cursor()
         self.__data = ''
 
     def get_data( self, table ):

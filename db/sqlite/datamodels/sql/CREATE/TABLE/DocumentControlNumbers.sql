@@ -1,20 +1,10 @@
-CREATE TABLE ExternalUpdates (
- ExternalUpdateId INTEGER NOT NULL UNIQUE,
- ExtId INTEGER NOT NULL UNIQUE,
- BudgetLevel  TEXT(255),
- BFY  TEXT(255),
- FundCode  TEXT(255),
- FundName  TEXT(255),
- AhCode  TEXT(255),
- OrgCode  TEXT(255),
- AccountCode  TEXT(255),
- ProgramProjectCode  TEXT(255),
- ActivityCode  TEXT(255),
- ProgramProjectName  TEXT(255),
- BocCode  TEXT(255),
- BocName  TEXT(255),
- RcCode  TEXT(255),
- DivisionName  TEXT(255),
- Amount NUMERIC,
- PRIMARY KEY(ExternalUpdateId AUTOINCREMENT)
-)
+CREATE TABLE "DocumentControlNumbers" (
+	"DocumentControlNumberId"	INTEGER NOT NULL,
+	"RpioCode"	TEXT NOT NULL DEFAULT 'NS',
+	"RpioName"	TEXT NOT NULL DEFAULT 'NS',
+	"DocumentType"	TEXT NOT NULL DEFAULT 'NS',
+	"DocumentNumber"	TEXT NOT NULL DEFAULT 'NS',
+	"DocumentPrefix"	TEXT NOT NULL DEFAULT 'NS',
+	"DocumentControlNumber"	TEXT NOT NULL DEFAULT 'NS',
+	PRIMARY KEY("DocumentControlNumberId")
+);
