@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="data">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.23">
-    <root id="1"/>
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.21">
+    <root id="1">
+      <ServerVersion>3.34.0</ServerVersion>
+    </root>
     <schema id="2" parent="1" name="main">
       <Current>1</Current>
     </schema>
@@ -2845,7 +2847,7 @@
       <ColNames>PrcId</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_DivisionRescissionAuthority_3</UnderlyingIndexName>
     </key>
-    <foreign-key id="893" parent="186" name="ForeignKeyDivisionRescission">
+    <foreign-key id="893" parent="186">
       <ColNames>RescissionId</ColNames>
       <RefTableName>Rescission</RefTableName>
       <RefKeyName>PrimaryKeyRescission</RefKeyName>
@@ -5200,7 +5202,7 @@
       <ColNames>TransferId</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_RecoveryFundTransfers_2</UnderlyingIndexName>
     </key>
-    <foreign-key id="1447" parent="213" name="ForeignKeyRecoveryFundTransfers">
+    <foreign-key id="1447" parent="213">
       <ColNames>TransferId</ColNames>
       <RefTableName>Transfers</RefTableName>
       <RefKeyName>PrimaryKeyTransfers</RefKeyName>
@@ -5388,7 +5390,7 @@
       <ColNames>PrcId</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_RegionalAuthority_3</UnderlyingIndexName>
     </key>
-    <foreign-key id="1490" parent="215" name="ForeignKeyRegionalAuthorityRescissions">
+    <foreign-key id="1490" parent="215">
       <ColNames>RescissionId</ColNames>
       <RefTableName>Rescission</RefTableName>
       <RefKeyName>PrimaryKeyRescission</RefKeyName>
@@ -5667,7 +5669,7 @@
       <ColNames>TransferId</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_RegionalTransfers_2</UnderlyingIndexName>
     </key>
-    <foreign-key id="1554" parent="217" name="ForeignKeyRegionalTransfers">
+    <foreign-key id="1554" parent="217">
       <ColNames>TransferId</ColNames>
       <RefTableName>Transfers</RefTableName>
       <RefKeyName>PrimaryKeyTransfers</RefKeyName>
