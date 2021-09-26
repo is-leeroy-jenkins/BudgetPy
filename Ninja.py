@@ -420,7 +420,7 @@ class DataRow():
     def __init__( self, base, items = None ):
         self.__id = int( self.__values[ 0 ] )
         self.__base = str( base )
-        self.__source = DataTable( self.__base )
+        self.__source = sqlite.Row
         self.__items = dict( items )
         self.__names = list( self.__items.keys() )
         self.__values = self.__items.values()
