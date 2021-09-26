@@ -166,10 +166,10 @@ class BudgetFile():
         self.__drive = str( list( os.path.splitdrive( self.__path ) )[ 0 ] )
         self.__content = list()
 
-    def rename( self, newname ):
+    def rename( self, other ):
         '''renames current file'''
         if self.__base is not None and self.__name is not None:
-            return os.rename( self.__name, newname )
+            return os.rename( self.__name, other )
 
     def move( self, destination ):
         '''renames current file'''
@@ -179,7 +179,7 @@ class BudgetFile():
     def create( self, other ):
         ''' creates and returns 'path' file '''
         if other is not None:
-            os.mkfifo( other )
+            os.mkdir( other )
 
     def exists( self, other ):
         '''determines if an external file exists'''
@@ -212,7 +212,8 @@ class BudgetFile():
         lines = [ ]
         count = len( self.__content )
         if other is not None and os.path.isfile( other ):
-            for line in open( other, 'r' ):
+            file = open( other, 'r' )
+            for line in file.readlines():
                 lines.append( line )
             self.__content.append( lines )
         if len( lines ) > 0 and len( self.__content ) > count:
@@ -555,6 +556,38 @@ class DataTable():
     def __str__( self ):
         return self.__name
 
+class Source():
+    '''Defines the Budget Execution source tables '''
+    __table = None
+
+    @property
+    def data( self ):
+        ''' Property used to store table names in a list '''
+        if self.__table is not None:
+            return self.__table
+
+    def __init__(self):
+        self.__table = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
+                         'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
+                         'Deobligations',
+                         'DocumentControlNumbers', 'HeadquartersAuthority', 'Obligations',
+                         'OperatingPlans', 'OperatingPlanUpdates', 'QueryDefinitions',
+                         'Recoveries', 'RegionalAuthority', 'ReimbursableAgreements',
+                         'ReimbursableFunds', 'ReimbursableSurvey', 'Reports',
+                         'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
+                         'StatusOfFunds', 'Supplementals', 'Transfers',
+                         'TravelObligations', 'Accounts', 'ActivityCodes',
+                         'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
+                         'CostAreas', 'CPIC', 'Divisions',
+                         'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                         'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                         'Goals', 'GsPayScale', 'Images',
+                         'Messages', 'NationalPrograms', 'Objectives',
+                         'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                         'ProgramProjects', 'Projects', 'Providers',
+                         'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                         'SchemaTypes', 'Sources' ]
+
 class DataModel():
     ''' Defines object used to provide the path to data model databases '''
     __access = None
@@ -596,8 +629,8 @@ class ReferenceModel():
 class AccessData():
     '''Builds the budget execution data classes'''
     __source = None
-    __connectionstring = None
-    __dataconnection = None
+    __connector = None
+    __connection = None
     __cursor = None
     __data = None
     __dbpath = None
@@ -614,22 +647,22 @@ class AccessData():
 
     @property
     def connectionstring( self ):
-        if self.__connectionstring is not None:
-            return self.__connectionstring
+        if self.__connector is not None:
+            return self.__connector
 
     @property
     def data( self ):
         if self.__data is not None:
             return iter( self.__data[ 0: ] )
 
-    def __init__( self, tablename = None ):
-        self.__source = tablename
+    def __init__( self, table = None ):
+        self.__source = table
         self.__dbpath = DataModel.accesspath
-        self.__connectionstring = (r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };'
+        self.__connector = (r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };'
                             f'DBQ={self.__dbpath}')
-        self.__dataconnection = access.connect( self.__connectionstring,
+        self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
-        self.__cursor = self.__dataconnection.cursor()
+        self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
     def query_table( self, table ):
@@ -640,7 +673,7 @@ class AccessReference():
     '''Builds the budget execution data classes'''
     __dbpath = None
     __connectionstring = None
-    __dataconnection = None
+    __connection = None
     __cursor = None
     __data = None
     __source = None
@@ -665,14 +698,14 @@ class AccessReference():
         if self.__data is not None:
             return iter( self.__data[ 0: ] )
 
-    def __init__( self, tablename = None ):
-        self.__source = tablename
+    def __init__( self, table = None ):
+        self.__source = table
         self.__dbpath = r'db\access\referencemodels\References.accdb;'
         self.__connectionstring = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
                             f'DBQ={self.__dbpath}')
-        self.__dataconnection = access.connect( self.__connectionstring,
+        self.__connection = access.connect( self.__connectionstring,
             timeout = 3, attrs_before = dict() )
-        self.__cursor = self.__dataconnection.cursor()
+        self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
     def query_table( self, table ):
@@ -683,7 +716,7 @@ class SQLiteData():
     '''Builds the budget execution data classes'''
     __source = None
     __dbpath = None
-    __dataconnection = None
+    __connection = None
     __cursor = None
     __data = None
 
@@ -699,19 +732,19 @@ class SQLiteData():
 
     @property
     def connectionstring( self ):
-        if self.__dataconnection is not None:
-            return self.__dataconnection
+        if self.__connection is not None:
+            return self.__connection
 
     @property
     def data( self ):
         if self.__data is not None:
             return iter( self.__data[ 0: ] )
 
-    def __init__( self, tablename = None ):
-        self.__source = tablename
+    def __init__( self, table = None ):
+        self.__source = table
         self.__dbpath = DataModel.sqlitepath
-        self.__dataconnection = sqlite.connect( f'{self.__dbpath}' )
-        self.__cursor = self.__dataconnection.cursor()
+        self.__connection = sqlite.connect( f'{self.__dbpath}' )
+        self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
     def get_data( self, table ):
@@ -722,7 +755,7 @@ class SQLiteReference():
     '''Builds the budget execution reference models'''
     __source = None
     __dbpath = None
-    __dataconnection = None
+    __connection = None
     __cursor = None
     __data = None
 
@@ -741,11 +774,11 @@ class SQLiteReference():
         if self.__data is not None:
             return iter( self.__data[ 0: ] )
 
-    def __init__( self, tablename = None ):
-        self.__source = tablename
+    def __init__( self, table = None ):
+        self.__source = table
         self.__dbpath = r'db\sqlite\datamodels\Data.db'
-        self.__dataconnection = sqlite.connect( self.__dbpath )
-        self.__cursor = self.__dataconnection.cursor()
+        self.__connection = sqlite.connect( self.__dbpath )
+        self.__cursor = self.__connection.cursor()
         self.__data = ''
 
     def get_data( self, table ):
