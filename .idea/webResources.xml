@@ -6,7 +6,6 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/etc/img" />
-            <path value="file://$PROJECT_DIR$/venv" />
           </resourceRoots>
         </entryData>
       </entry>

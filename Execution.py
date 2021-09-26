@@ -235,7 +235,8 @@ class BudgetFiscalYear():
     '''Class to describe the federal fiscal year'''
     __id = None
     __base = None
-    __fiscalyear = None
+    __beginyear = None
+    __endyear = None
     __today = None
     __date = None
     __startdate = None
@@ -256,9 +257,14 @@ class BudgetFiscalYear():
             return int( self.__id )
 
     @property
-    def fiscalyear( self ):
+    def beginyear( self ):
         if self.__base is not None:
-            return self.__fiscalyear
+            return self.__beginyear
+
+    @property
+    def endyear( self ):
+        if self.__endyear is not None:
+            return self.__endyear
 
     @property
     def calendaryear( self ):
@@ -324,15 +330,19 @@ class BudgetFiscalYear():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, year, index = None ):
+    def __init__( self, bfy, efy = None,
+                  index = None ):
+        self.__today = datetime.date.today()
         self.__id = index
-        self.__base = str( year )
+        self.__base = str( bfy )
         self.__date = datetime.date
-        self.__year = int( year )
-        self.__today = datetime.date
+        self.__year = int( bfy )
+        self.__startdate = datetime.date( self.__year, 10, 1 )
+        self.__enddate = datetime.date( ( self.__year + 1 ), 9, 30 )
         self.__day = self.__today.day
         self.__month = self.__today.month
-        self.__fiscalyear = self.__year
+        self.__beginyear = self.__year
+        self.__endyear = int( efy )
         self.__data = [ self.__id, self.__year, self.__month,
                         self.__day, self.__startdate, self.__enddate ]
         self.__dataframe = pd.DataFrame
@@ -1055,7 +1065,7 @@ class ProgramResultsCode():
         self.__org = Organization( org )
         self.__boc = BudgetObjectClass( boc )
         self.__amount = amount
-        self.__data = [ self.__rpio.code, self.__bfy.fiscalyear, self.__ah.code,
+        self.__data = [ self.__rpio.code, self.__bfy.beginyear, self.__ah.code,
                         self.__fund.code, self.__account.code, self.__org.code,
                         self.__boc.code, self.__amount ]
         self.__dataframe = pd.DataFrame
@@ -1091,9 +1101,9 @@ class RegionalOffice():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, rpio, name = None ):
-        self.__rpio = rpio
-        self.__name = name
+    def __init__( self, rpio ):
+        self.__rpio = ResourcePlanningImplementationOffice( str( rpio ) )
+        self.__name = self.__rpio.name
         self.__data = [ self.__rpio, self.__name ]
         self.__dataframe = pd.DataFrame
 
@@ -1266,7 +1276,7 @@ class Commitment:
         self.__org = org
         self.__bfy = bfy
         self.__data = [ self.__amount, self.__account, self.__document,
-                        self.__boc.code, self.__bfy.fiscalyear, self.__org.code ]
+                        self.__boc.code, self.__bfy.beginyear, self.__org.code ]
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -1333,14 +1343,14 @@ class OpenCommitment:
     def __init__( self, amount, account = None,
                   doc = None, bfy = None,
                   org = None, boc = None ):
-        self.__amount = amount
-        self.__account = account
-        self.__document = doc
+        self.__amount = float( amount )
+        self.__account = str( account )
+        self.__document = str( doc )
         self.__boc = boc
         self.__org = org
         self.__bfy = bfy
         self.__data = [ self.__amount, self.__account, self.__document,
-                        self.__boc.code, self.__org.code, self.__bfy.fiscalyear ]
+                        self.__boc.code, self.__org.code, self.__bfy.beginyear ]
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
