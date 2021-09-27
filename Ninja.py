@@ -385,7 +385,6 @@ class CriteriaBuilder():
 
 class DataRow():
     '''Defines the DataRow Class'''
-    __base = None
     __source = None
     __names = None
     __items = None
@@ -417,9 +416,8 @@ class DataRow():
         if self.__source is not None:
             return self.__source
 
-    def __init__( self, base, items = None ):
+    def __init__( self, items = None ):
         self.__id = int( self.__values[ 0 ] )
-        self.__base = str( base )
         self.__source = sqlite.Row
         self.__items = dict( items )
         self.__names = list( self.__items.keys() )

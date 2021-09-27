@@ -331,13 +331,13 @@ class BudgetFiscalYear():
         self.__id = int( index )
         self.__base = str( bfy )
         self.__date = self.__today
-        self.__year = int( self.__base )
-        self.__day = int( self.__date.day )
-        self.__month = int( self.__today.month )
+        self.__year = list( self.__date )[ 0 ]
+        self.__day = list( self.__date )[ 2 ]
+        self.__month = list( self.__date )[ 1 ]
         self.__startdate = dt.date( self.__year, 10, 1 )
-        self.__beginyear = self.__startdate.year
+        self.__beginyear = str( self.__startdate.year )
         self.__enddate = dt.date( self.__year + 1, 9, 30 )
-        self.__endyear = self.__enddate.year
+        self.__endyear = str( self.__enddate.year )
         self.__data = ( self.__id, self.__base )
         self.__dataframe = pd.DataFrame
 
@@ -1312,6 +1312,11 @@ class Holiday():
     __dataframe = None
 
     @property
+    def id( self ):
+        if self.__id is not None:
+            return int( self.__id )
+
+    @property
     def bfy( self ):
         if self.__bfy is not None:
             return self.__bfy
@@ -1341,12 +1346,12 @@ class Holiday():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, bfy, date = None,
-                  index = None, name = None ):
+    def __init__( self, bfy, index = None,
+                  name = None ):
         self.__id = int( index )
         self.__bfy = int( bfy )
         self.__name = str( name )
-        self.__date = dt.date( date )
+        self.__date = dt.date.today()
         self.__day = self.__date.day
         self.__data = ( self.__id, self.__bfy, self.__name, self.__date,
                         self.__day )
@@ -1368,6 +1373,11 @@ class Commitment:
     __boc = None
     __data = None
     __dataframe = None
+
+    @property
+    def id( self ):
+        if self.__id is not None:
+            return int( self.__id )
 
     @property
     def amount( self ):
@@ -1415,8 +1425,9 @@ class Commitment:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  document = None, bfy = None,
+                  index = None, document = None, bfy = None,
                   org = None, boc = None ):
+        self.__id = int( index )
         self.__amount = amount
         self.__account = account
         self.__document = document
@@ -1445,6 +1456,11 @@ class OpenCommitment:
     __dataframe = None
 
     @property
+    def id( self ):
+        if self.__id is not None:
+            return int( self.__id )
+
+    @property
     def amount( self ):
         if self.__amount is not None:
             return self.__amount
@@ -1490,8 +1506,9 @@ class OpenCommitment:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  doc = None, bfy = None,
+                  index = None, doc = None, bfy = None,
                   org = None, boc = None ):
+        self.__id = int( index )
         self.__amount = float( amount )
         self.__account = str( account )
         self.__document = str( doc )
@@ -1520,6 +1537,11 @@ class Obligation:
     __dataframe = None
 
     @property
+    def id( self ):
+        if self.__id is not None:
+            return int( self.__id )
+
+    @property
     def amount( self ):
         if self.__amount is not None:
             return self.__amount
@@ -1565,8 +1587,9 @@ class Obligation:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  dcn = None, bfy = None,
+                  index = None, dcn = None, bfy = None,
                   org = None, boc = None ):
+        self.__id = int( index )
         self.__amount = amount
         self.__account = account
         self.__document = dcn
@@ -1592,6 +1615,11 @@ class Deobligation:
     __dataframe = None
 
     @property
+    def id( self ):
+        if self.__id is not None:
+            return int( self.__id )
+
+    @property
     def amount( self ):
         if self.__amount is not None:
             return self.__amount
@@ -1637,8 +1665,9 @@ class Deobligation:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  dcn = None, bfy = None,
+                  index = None, dcn = None, bfy = None,
                   org = None, boc = None ):
+        self.__id = int( index )
         self.__amount = amount
         self.__account = account
         self.__document = dcn
@@ -1667,6 +1696,11 @@ class ULO:
     __dataframe = None
 
     @property
+    def id( self ):
+        if self.__id is not None:
+            return int( self.__id )
+
+    @property
     def amount( self ):
         if self.__amount is not None:
             return self.__amount
@@ -1712,8 +1746,9 @@ class ULO:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  dcn = None, bfy = None,
+                  index = None, dcn = None, bfy = None,
                   org = None, boc = None ):
+        self.__id = int( index )
         self.__amount = amount
         self.__account = account
         self.__document = dcn
@@ -1742,6 +1777,11 @@ class Expenditure:
     __dataframe = None
 
     @property
+    def id( self ):
+        if self.__id is not None:
+            return int( self.__id )
+
+    @property
     def amount( self ):
         if self.__amount is not None:
             return self.__amount
@@ -1787,8 +1827,9 @@ class Expenditure:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  dcn = None, bfy = None,
+                  index = None, dcn = None, bfy = None,
                   org = None, boc = None ):
+        self.__id = int( index )
         self.__amount = amount
         self.__account = account
         self.__document = dcn
