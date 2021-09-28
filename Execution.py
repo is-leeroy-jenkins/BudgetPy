@@ -1250,7 +1250,7 @@ class Commitment:
     @property
     def account( self ):
         if self.__account is not None:
-            return Account( self.__account )
+            return self.__account
 
     @property
     def document( self ):
@@ -1260,22 +1260,22 @@ class Commitment:
     @property
     def org( self ):
         if self.__org is not None:
-            return Organization( self.__org )
+            return self.__org
 
     @property
     def bfy( self ):
         if self.__bfy is not None:
-            return BudgetFiscalYear( self.__bfy )
+            return self.__bfy
 
     @property
     def fund( self ):
         if self.__fund is not None:
-            return Fund( self.__fund )
+            return self.__fund
 
     @property
     def boc( self ):
         if self.__boc is not None:
-            return BudgetObjectClass( self.__boc )
+            return self.__boc
 
     @property
     def data( self ):
@@ -1288,10 +1288,11 @@ class Commitment:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  document = None, bfy = None,
+                  fund = None, document = None, bfy = None,
                   org = None, boc = None ):
         self.__amount = float( amount )
         self.__account = Account( str( account ) )
+        self.__fund = Fund( str( fund ) )
         self.__document = str( document )
         self.__boc = BudgetObjectClass( str( boc ) )
         self.__org = Organization( str( org ) )
@@ -1324,7 +1325,7 @@ class OpenCommitment:
     @property
     def account( self ):
         if self.__account is not None:
-            return Account( self.__account )
+            return self.__account
 
     @property
     def document( self ):
@@ -1334,22 +1335,22 @@ class OpenCommitment:
     @property
     def org( self ):
         if self.__org is not None:
-            return Organization( self.__org )
+            return self.__org
 
     @property
     def bfy( self ):
         if self.__bfy is not None:
-            return BudgetFiscalYear( self.__bfy )
+            return self.__bfy
 
     @property
     def fund( self ):
         if self.__fund is not None:
-            return Fund( self.__fund )
+            return self.__fund
 
     @property
     def boc( self ):
         if self.__boc is not None:
-            return BudgetObjectClass( self.__boc )
+            return self.__boc
 
     @property
     def data( self ):
@@ -1362,10 +1363,11 @@ class OpenCommitment:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  doc = None, bfy = None,
+                  fund = None, doc = None, bfy = None,
                   org = None, boc = None ):
         self.__amount = float( amount )
         self.__account = Account( str( account ) )
+        self.__fund = Fund( str( fund ) )
         self.__document = str( doc )
         self.__boc = BudgetObjectClass( str( boc ) )
         self.__org = Organization( str( org ) )
@@ -1398,7 +1400,7 @@ class Obligation:
     @property
     def account( self ):
         if self.__account is not None:
-            return Account( self.__account )
+            return self.__account
 
     @property
     def dcn( self ):
@@ -1408,22 +1410,22 @@ class Obligation:
     @property
     def org( self ):
         if self.__org is not None:
-            return Organization( self.__org )
+            return self.__org
 
     @property
     def bfy( self ):
         if self.__bfy is not None:
-            return BudgetFiscalYear( self.__bfy )
+            return self.__bfy
 
     @property
     def fund( self ):
         if self.__fund is not None:
-            return Fund( self.__fund )
+            return self.__fund
 
     @property
     def boc( self ):
         if self.__boc is not None:
-            return BudgetObjectClass( self.__boc )
+            return self.__boc
 
     @property
     def data( self ):
@@ -1436,10 +1438,11 @@ class Obligation:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                  dcn = None, bfy = None,
+                  fund = None, dcn = None, bfy = None,
                   org = None, boc = None ):
         self.__amount = float( amount )
         self.__account = Account( str( account ) )
+        self.__fund = Fund( str( fund ) )
         self.__document = str( dcn )
         self.__boc = BudgetObjectClass( str( boc ) )
         self.__org = Organization( str( org ) )
@@ -1469,7 +1472,7 @@ class Deobligation:
     @property
     def account( self ):
         if self.__account is not None:
-            return Account( self.__account )
+            return self.__account
 
     @property
     def dcn( self ):
@@ -1479,22 +1482,22 @@ class Deobligation:
     @property
     def org( self ):
         if self.__org is not None:
-            return Organization( self.__org )
+            return self.__org
 
     @property
     def bfy( self ):
         if self.__bfy is not None:
-            return BudgetFiscalYear( self.__bfy )
+            return self.__bfy
 
     @property
     def fund( self ):
         if self.__fund is not None:
-            return Fund( self.__fund )
+            return self.__fund
 
     @property
     def boc( self ):
         if self.__boc is not None:
-            return BudgetObjectClass( self.__boc )
+            return self.__boc
 
     @property
     def data( self ):
@@ -1507,10 +1510,11 @@ class Deobligation:
             return self.__dataframe
 
     def __init__( self, amount, account = None,
-                dcn = None, bfy = None,
+                  fund = None, dcn = None, bfy = None,
                   org = None, boc = None ):
         self.__amount = float( amount )
         self.__account = Account( str( account ) )
+        self.__fund = Fund( str( fund ) )
         self.__document = str( dcn )
         self.__boc = BudgetObjectClass( str( boc ) )
         self.__org = Organization( str( org ) )
@@ -1543,7 +1547,7 @@ class ULO:
     @property
     def account( self ):
         if self.__account is not None:
-            return Account( self.__account )
+            return self.__account
 
     @property
     def dcn( self ):
@@ -1553,22 +1557,22 @@ class ULO:
     @property
     def org( self ):
         if self.__org is not None:
-            return Organization( self.__org )
+            return self.__org
 
     @property
     def bfy( self ):
         if self.__bfy is not None:
-            return BudgetFiscalYear( self.__bfy )
+            return self.__bfy
 
     @property
     def fund( self ):
         if self.__fund is not None:
-            return Fund( self.__fund )
+            return self.__fund
 
     @property
     def boc( self ):
         if self.__boc is not None:
-            return BudgetObjectClass( self.__boc )
+            return self.__boc
 
     @property
     def data( self ):
