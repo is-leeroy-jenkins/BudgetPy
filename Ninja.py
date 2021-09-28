@@ -555,7 +555,7 @@ class DataTable():
         return self.__name
 
 class Source():
-    '''Defines the Budget Execution source tables '''
+    '''Provides iterator for the Budget Execution source tables '''
     __table = None
 
     @property
@@ -564,7 +564,7 @@ class Source():
         if self.__table is not None:
             return self.__table
 
-    def __init__(self):
+    def __init__( self ):
         self.__table = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
                          'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
                          'Deobligations',
@@ -586,6 +586,11 @@ class Source():
                          'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                          'SchemaTypes', 'Sources' ]
 
+    def __iter__( self ):
+        if len( self.__table ) > 0:
+            for table in self.__table:
+                yield table
+
 class DataModel():
     ''' Defines object used to provide the path to data model databases '''
     __access = None
@@ -601,7 +606,7 @@ class DataModel():
         if self.__sqlite is not None:
             return self.__sqlite
 
-    def __init__(self):
+    def __init__( self ):
         self.__access = r'db\sqlite\datamodels\Data.db'
         self.__sqlite = r'db\sqlite\datamodels\References.db'
 
@@ -620,7 +625,7 @@ class ReferenceModel():
         if self.__sqlite is not None:
             return self.__sqlite
 
-    def __init__(self):
+    def __init__( self ):
         self.__access = ReferenceModel.accesspath
         self.__sqlite = ReferenceModel.sqlitepath
 
@@ -700,7 +705,7 @@ class AccessReference():
         self.__source = table
         self.__dbpath = r'db\access\referencemodels\References.accdb;'
         self.__connectionstring = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                            f'DBQ={self.__dbpath}')
+                                   f'DBQ={self.__dbpath}')
         self.__connection = access.connect( self.__connectionstring,
             timeout = 3, attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
@@ -859,7 +864,7 @@ class EmailBuilder():
         self.__others = list( copy )
         self.__subject = str( sub )
 
-    def __str__(self):
+    def __str__( self ):
         if self.__message is not None:
             return self.__message
 
@@ -869,12 +874,45 @@ class ExcelFile():
     __workbook = None
     __worksheet = None
     __name = None
+    __rows = None
+    __columns = None
+    __dimensions = None
 
     @property
     def name( self ):
         ''' Get the name of the workbook '''
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, filename ):
+        if filename is not None and len( filename ) > 0:
+            self.__name = str( filename )
+
+    @property
+    def rows( self ):
+        if self.__rows is not None:
+            return self.__rows
+
+    @rows.setter
+    def rows( self, count ):
+        if isinstance( count, int ) and count > 0:
+            self.__rows = count
+
+    @property
+    def columns( self ):
+        if self.__columns is not None:
+            return self.__columns
+
+    @columns.setter
+    def columns( self, count ):
+        if isinstance( count, int ) and count > 0:
+            self.__columns = count
+
+    @property
+    def dimensions( self ):
+        if self.__dimensions is not None:
+            return self.__dimensions
 
     @property
     def workbook( self ):
@@ -890,6 +928,10 @@ class ExcelFile():
             self.__worksheet = self.__workbook.active
             return self.__worksheet
 
-    def __init__(self, name ):
+    def __init__( self, name, rows = None,
+                  cols = None ):
         self.__path = r'etc\templates\report\ReportBase.xlsx'
         self.__name = str( name )
+        self.__rows = int( rows )
+        self.__columns = int( cols )
+        self.__dimensions = (self.__rows, self.__columns)
