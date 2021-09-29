@@ -125,8 +125,8 @@ class Activity():
 
     @property
     def data( self ):
-        if self.__data is not None:
-            return self.__data
+        if self.__name is not None:
+            return ( self.__code, self.__name )
 
     @property
     def table( self ):
@@ -135,7 +135,6 @@ class Activity():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = (self.__code, self.__name)
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -170,8 +169,8 @@ class AllowanceHolder():
 
     @property
     def data( self ):
-        if self.__data is not None:
-            return self.__data
+        if self.__name is not None:
+            return ( self.__code, self.__name )
 
     @property
     def table( self ):
@@ -180,7 +179,6 @@ class AllowanceHolder():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = [ self.__code, self.__name ]
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -209,8 +207,6 @@ class Appropriation():
     def name( self ):
         if self.__name is not None:
             return self.__name
-        else:
-            return 'NS'
 
     @name.setter
     def name( self, name ):
@@ -249,12 +245,14 @@ class Appropriation():
 
     @property
     def data( self ):
-        return [ self.__code, self.__name,
+        if self.__fund is not None:
+            return [ self.__code, self.__fund.name,
                  self.__bfy, self.__title ]
 
-    def __init__( self, code ):
+    def __init__( self, code, bfy = None ):
         self.__code = str( code )
         self.__fund = Fund( self.__code )
+        self.__bfy = bfy
 
     def __str__( self ):
         return self.__code
