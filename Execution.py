@@ -1,3 +1,4 @@
+import datetime
 import datetime as dt
 import pandas as pd
 
@@ -21,6 +22,7 @@ class Account():
     def code( self, code ):
         if code is not None:
             self.__code = str( code )
+            self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
@@ -31,6 +33,7 @@ class Account():
     def name( self, name ):
         if name is not None:
             self.__name = str( name )
+            self.__data[ 'name' ] = self.__name
 
     @property
     def goal( self ):
@@ -41,6 +44,7 @@ class Account():
     def goal( self, goal ):
         if goal is not None:
             self.__goal = str( goal )
+            self.__data[ 'goal' ] = self.__goal
 
     @property
     def objective( self ):
@@ -51,6 +55,7 @@ class Account():
     def objective( self, obj ):
         if obj is not None:
             self.__objective = str( obj )
+            self.__data[ 'objective' ] = self.__objective
 
     @property
     def npm( self ):
@@ -61,6 +66,7 @@ class Account():
     def npm( self, code ):
         if code is not None:
             self.__npm = str( code )
+            self.__data[ 'npm' ] = self.__npm
 
     @property
     def programproject( self ):
@@ -71,6 +77,7 @@ class Account():
     def programproject( self, code ):
         if code is not None:
             self.__programproject = str( code )
+            self.__data[ 'programproject' ] = self.__programproject
 
     @property
     def data( self ):
@@ -83,13 +90,12 @@ class Account():
             return self.__dataframe
 
     def __init__( self, code ):
+        self.__data = { }
         self.__code = str( code )
         self.__goal = str( self.__code[ 0 ] )
         self.__objective = str( self.__code[ 1:3 ] )
         self.__npm = str( self.__code[ 3 ] )
         self.__programproject = str( self.__code[ 4:6 ] )
-        self.__data = (self.__goal, self.__objective,
-                       self.__npm, self.__programproject)
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -112,6 +118,7 @@ class Activity():
     def code( self, code ):
         if code is not None:
             self.__code = str( code )
+            self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
@@ -122,11 +129,12 @@ class Activity():
     def name( self, name ):
         if name is not None:
             self.__name = str( name )
+            self.__data[ 'name' ] = self.__name
 
     @property
     def data( self ):
-        if self.__name is not None:
-            return ( self.__code, self.__name )
+        if self.__data is not None:
+            return self.__data
 
     @property
     def table( self ):
@@ -134,6 +142,7 @@ class Activity():
             return self.__dataframe
 
     def __init__( self, code ):
+        self.__data = { }
         self.__code = str( code )
         self.__dataframe = pd.DataFrame
 
@@ -156,6 +165,7 @@ class AllowanceHolder():
     def code( self, code ):
         if code is not None:
             self.__code = str( code )
+            self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
@@ -166,11 +176,12 @@ class AllowanceHolder():
     def name( self, name ):
         if name is not None:
             self.__name = str( name )
+            self.__data[ 'name' ] = self.__name
 
     @property
     def data( self ):
-        if self.__name is not None:
-            return ( self.__code, self.__name )
+        if self.__data is not None:
+            return self.__data
 
     @property
     def table( self ):
@@ -178,6 +189,7 @@ class AllowanceHolder():
             return self.__dataframe
 
     def __init__( self, code ):
+        self.__data = { }
         self.__code = str( code )
         self.__dataframe = pd.DataFrame
 
@@ -192,6 +204,7 @@ class Appropriation():
     __name = None
     __title = None
     __bfy = None
+    __data = None
 
     @property
     def code( self ):
@@ -212,6 +225,7 @@ class Appropriation():
     def name( self, name ):
         if name is not None:
             self.__name = str( name )
+            self.__data[ 'name' ] = self.__name
 
     @property
     def fiscalyear( self ):
@@ -222,6 +236,7 @@ class Appropriation():
     def fiscalyear( self, bfy ):
         if bfy is not None:
             self.__bfy = str( bfy )
+            self.__data[ 'bfy' ] = self.__bfy
 
     @property
     def fund( self ):
@@ -232,6 +247,7 @@ class Appropriation():
     def fund( self, code ):
         if code is not None:
             self.__fund = Fund( str( code ) )
+            self.__data[ 'fund' ] = self.__fund
 
     @property
     def title( self ):
@@ -242,17 +258,18 @@ class Appropriation():
     def title( self, title ):
         if title is not None:
             self.__title = str( title )
+            self.__data[ 'title' ] = self.__title
 
     @property
     def data( self ):
-        if self.__fund is not None:
-            return [ self.__code, self.__fund.name,
-                 self.__bfy, self.__title ]
+        if self.__data is not None:
+            return self.__data
 
-    def __init__( self, code, bfy = None ):
+    def __init__( self, code ):
         self.__code = str( code )
         self.__fund = Fund( self.__code )
-        self.__bfy = bfy
+        self.__data = { 'code': self.__code,
+                        'fund': self.__fund }
 
     def __str__( self ):
         return self.__code
@@ -281,52 +298,110 @@ class BudgetFiscalYear():
         if self.__base is not None:
             return self.__beginyear
 
+    @beginyear.setter
+    def beginyear( self, yr ):
+        if yr is not None:
+            self.__beginyear = str( yr )
+            self.__data[ 'beginyear' ] = self.__beginyear
+
     @property
     def endyear( self ):
         if self.__endyear is not None:
             return self.__endyear
+
+    @endyear.setter
+    def endyear( self, yr ):
+        if yr is not None:
+            self.__endyear = str( yr )
+            self.__data[ 'endyear' ] = self.__endyear
 
     @property
     def calendaryear( self ):
         if self.__year:
             return self.__year
 
+    @calendaryear.setter
+    def calendaryear( self, yr ):
+        if yr is not None:
+            self.__year = str( yr )
+            self.__data[ 'calendaryear' ] = self.__year
+
     @property
     def startdate( self ):
         if isinstance( self.__startdate, dt.date ):
             return self.__startdate
+
+    @startdate.setter
+    def startdate( self, start ):
+        if isinstance( start, dt.date ):
+            self.__startdate = start
+            self.__data[ 'startdate' ] = self.__startdate
 
     @property
     def enddate( self ):
         if isinstance( self.__enddate, dt.date ):
             return self.__enddate
 
+    @enddate.setter
+    def enddate( self, end ):
+        if isinstance( end, dt.date ):
+            self.__enddate = end
+            self.__data[ 'enddate' ] = self.__enddate
+
     @property
     def expiration( self ):
         if isinstance( self.__expiration, dt.date ):
-            return (self.__expiration.year, self.__expiration.month,
-                    self.__expiration.day)
+            return self.__expiration
+
+    @expiration.setter
+    def expiration( self, exp ):
+        if isinstance( exp, dt.date ):
+            self.__expiration = exp
+            self.__data[ 'expiration' ] = self.__expiration
 
     @property
     def weekends( self ):
         if self.__weekends is not None:
             return self.__weekends
 
+    @weekends.setter
+    def weekends( self, end ):
+        if isinstance( end, int ):
+            self.__weekends = end
+            self.__data[ 'weekends' ] = self.__weekends
+
     @property
     def workdays( self ):
         if self.__workdays is not None:
             return float( self.__workdays )
 
+    @workdays.setter
+    def workdays( self, work ):
+        if isinstance( work, int ):
+            self.__workdays = work
+            self.__data[ 'workdays' ] = self.__workdays
+
     @property
     def date( self ):
         if isinstance( self.__date, dt.date ):
-            return (self.__date.year, self.__month,
-                    self.__date.day)
+            return self.__date
+
+    @date.setter
+    def date( self, today ):
+        if isinstance( today, dt.date ):
+            self.__date = today
+            self.__data[ 'date' ] = self.__date
 
     @property
     def day( self ):
         if self.__day is not None:
             return self.__day
+
+    @day.setter
+    def day( self, today ):
+        if isinstance( today, dt.date ):
+            self.__day = today
+            self.__data[ 'day' ] = self.__day
 
     @property
     def month( self ):
@@ -349,18 +424,23 @@ class BudgetFiscalYear():
             return self.__dataframe
 
     def __init__( self, bfy ):
-        self.__today = (dt.date.today().year, dt.date.today().month,
-                        dt.date.today().day)
+        self.__today = dt.date.today()
         self.__base = str( bfy )
         self.__date = self.__today
-        self.__year = list( self.__date )[ 0 ]
-        self.__day = list( self.__date )[ 2 ]
-        self.__month = list( self.__date )[ 1 ]
+        self.__year = int( self.__base )
+        self.__day = self.__date.day
+        self.__month = self.__date.month
         self.__startdate = dt.date( self.__year, 10, 1 )
         self.__beginyear = str( self.__startdate.year )
         self.__enddate = dt.date( self.__year + 1, 9, 30 )
         self.__endyear = str( self.__enddate.year )
-        self.__data = (self.__base,)
+        self.__data = { 'base': self.__base, 
+                        'date': self.__date,
+                        'calendaryear': self.__year,
+                        'day': self.__day,
+                        'month': self.__month,
+                        'startdate': self.__startdate,
+                        'enddate': self.__enddate }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -393,6 +473,7 @@ class BudgetObjectClass():
     def name( self, name ):
         if name is not None:
             self.__name = str( name )
+            self.__data[ 'name' ] = self.__name
 
     @property
     def value( self ):
@@ -403,6 +484,7 @@ class BudgetObjectClass():
     def value( self, val ):
         if val is not None:
             self.__value = str( val )
+            self.__data[ 'value' ] = self.__value
 
     @property
     def data( self ):
@@ -416,7 +498,7 @@ class BudgetObjectClass():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = [ self.__code, self.__name, self.__value ]
+        self.__data = { 'code': self.__code  }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -447,6 +529,7 @@ class Division():
     def name( self, name ):
         if name is not None:
             self.__name = str( name )
+            self.__data[ 'name' ] = self.__name
 
     @property
     def data( self ):
@@ -456,7 +539,7 @@ class Division():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = (self.__code, self.__name)
+        self.__data = { 'code': self.__code }
 
     def __str__( self ):
         if self.__code is not None:
@@ -488,6 +571,7 @@ class FinanceObjectClass():
     def name( self, name ):
         if name is not None:
             self.__name = str( name )
+            self.__data[ 'name' ] = self.__name
 
     @property
     def data( self ):
@@ -501,7 +585,7 @@ class FinanceObjectClass():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = (self.__code, self.__name)
+        self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
