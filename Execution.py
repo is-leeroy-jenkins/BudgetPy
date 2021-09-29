@@ -1126,7 +1126,7 @@ class ProgramArea():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = { 'code' : self.__code }
+        self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -1182,7 +1182,7 @@ class ProgramProject():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = { 'code' : self.__code }
+        self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -1227,7 +1227,7 @@ class ResponsibilityCenter():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = { 'code' : self.__code }
+        self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -1272,7 +1272,7 @@ class ResourcePlanningImplementationOffice():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__data = { 'code' : self.__code }
+        self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -1593,6 +1593,7 @@ class HeadQuartersOffice():
         if code is not None:
             self.__rpio = str( code )
             self.__data[ 'rpio' ] = self.__rpio
+
     @property
     def name( self ):
         if self.__name is not None:
@@ -1634,7 +1635,7 @@ class HeadQuartersOffice():
 
     def __str__( self ):
         if self.__name is not None:
-            return  self.__name
+            return self.__name
 
 class Holiday():
     '''Defines the Holiday class'''
@@ -1785,7 +1786,7 @@ class Commitment:
             return self.__fund
 
     @fund.setter
-    def org( self, code ):
+    def fund( self, code ):
         if code is not None:
             self.__fund = Fund( str( code ) )
             self.__data[ 'fund' ] = self.__fund
@@ -2381,9 +2382,7 @@ class Expenditure:
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, amount, account = None,
-                  dcn = None, bfy = None,
-                  org = None, boc = None ):
+    def __init__( self, amount ):
         self.__amount = float( amount )
         self.__data = { 'amount': self.__amount,
                         'account': None,
