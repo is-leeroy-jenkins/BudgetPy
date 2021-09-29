@@ -15,34 +15,62 @@ class Account():
     @property
     def code( self ):
         if self.__code:
-            return str( self.__code )
+            return self.__code
+
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
 
     @property
     def name( self ):
         if self.__name:
-            return str( self.__name )
-        elif self.__programproject:
-            return ProgramProject( self.__programproject ).name
+            return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def goal( self ):
         if self.__goal is not None:
-            return Goal( self.__goal )
+            return self.__goal
+
+    @goal.setter
+    def goal( self, goal ):
+        if goal is not None:
+            self.__goal = str( goal )
 
     @property
     def objective( self ):
         if self.__objective is not None:
-            return Objective( self.__objective )
+            return self.__objective
+
+    @objective.setter
+    def objective( self, obj ):
+        if obj is not None:
+            self.__objective = str( obj )
 
     @property
     def npm( self ):
         if self.__npm is not None:
-            return NationalProgram( self.__npm )
+            return self.__npm
+
+    @npm.setter
+    def npm( self, code ):
+        if code is not None:
+            self.__npm = str( code )
 
     @property
     def programproject( self ):
         if self.__programproject is not None:
-            return ProgramProject( self.__programproject )
+            return self.__programproject
+
+    @programproject.setter
+    def programproject( self, code ):
+        if code is not None:
+            self.__programproject = str( code )
 
     @property
     def data( self ):
@@ -56,13 +84,12 @@ class Account():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__goal = Goal( str( self.__code[ 0 ] ) )
-        self.__objective = Objective( str( str( self.__code[ 1:3 ] ) ) )
-        self.__npm = NationalProgram( str( self.__code[ 3 ] ) )
-        self.__programproject = ProgramProject( str( self.__code[ 4:6 ] ) )
+        self.__goal = str( self.__code[ 0 ] )
+        self.__objective = str( self.__code[ 1:3 ] )
+        self.__npm = str( self.__code[ 3 ] )
+        self.__programproject = str( self.__code[ 4:6 ] )
         self.__data = ( self.__goal, self.__objective,
                        self.__npm, self.__programproject )
-        self.__name = self.__programproject.name
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -80,15 +107,21 @@ class Activity():
     def code( self ):
         if self.__code is not None:
             return self.__code
-        else:
-            return 'NS'
+
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
 
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
-        else:
-            return 'NS'
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -118,13 +151,23 @@ class AllowanceHolder():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
+
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
 
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -158,8 +201,11 @@ class Appropriation():
     def code( self ):
         if self.__code is not None:
             return self.__code
-        else:
-            return 'NS'
+
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
 
     @property
     def name( self ):
@@ -167,6 +213,11 @@ class Appropriation():
             return self.__name
         else:
             return 'NS'
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def fiscalyear( self ):
@@ -319,10 +370,20 @@ class BudgetObjectClass():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def value( self ):
@@ -361,10 +422,20 @@ class Division():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -378,7 +449,8 @@ class Division():
         self.__data = ( self.__code, self.__name )
 
     def __str__( self ):
-        return self.__code
+        if self.__code is not None:
+            return self.__code
 
 class FinanceObjectClass():
     '''Defines the FinanceObjectClass Class'''
@@ -392,10 +464,20 @@ class FinanceObjectClass():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -429,15 +511,30 @@ class Fund():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
 
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
+
     @property
     def title( self ):
         if self.__title is not None:
             return self.__title
+
+    @title.setter
+    def title( self, title ):
+        if title is not None:
+            self.__title = str( title )
 
     @property
     def data( self ):
@@ -468,13 +565,23 @@ class Goal():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
+
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -500,13 +607,23 @@ class NationalProgram():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
+
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def rpio( self ):
@@ -549,22 +666,32 @@ class Objective():
 
     @property
     def code( self ):
-        if not self.__code == '':
+        if self.__code is not None:
             return self.__code
+
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
 
     @property
     def name( self ):
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
         if self.__data is not None:
             return self.__data
 
-    def __init__( self, code, name = None ):
+    def __init__( self, code ):
         self.__code = str( code )
-        self.__name = str( name )
+        self.__name = None
         self.__data = ( self.__code, self.__name)
 
     def __str__( self ):
@@ -582,10 +709,20 @@ class Organization():
         if self.__code is not None:
             return str( self.__code )
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -618,10 +755,20 @@ class Project():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -655,10 +802,20 @@ class ItProjectCode():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -691,10 +848,20 @@ class SiteProjectCode():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -727,10 +894,20 @@ class HumanResourceOrganization():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -763,10 +940,20 @@ class WorkCode():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -799,10 +986,20 @@ class ProgramArea():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -836,10 +1033,20 @@ class ProgramProject():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -874,10 +1081,20 @@ class ResponsibilityCenter():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -910,10 +1127,20 @@ class ResourcePlanningImplementationOffice():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -1048,6 +1275,11 @@ class RegionalOffice():
         if self.__name is not None:
             return self.__name
 
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
+
     @property
     def data( self ):
         if self.__data is not None:
@@ -1104,10 +1336,20 @@ class SiteProject():
         if self.__code is not None:
             return self.__code
 
+    @code.setter
+    def code( self, code ):
+        if code is not None:
+            self.__code = str( code )
+
     @property
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def data( self ):
@@ -1150,6 +1392,11 @@ class HeadQuartersOffice():
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def title( self ):
@@ -1200,6 +1447,11 @@ class Holiday():
     def name( self ):
         if self.__name is not None:
             return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
 
     @property
     def day( self ):
