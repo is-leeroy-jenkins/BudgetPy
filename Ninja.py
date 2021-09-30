@@ -154,8 +154,8 @@ class BudgetFile():
     # Constructor
     def __init__( self, base ):
         self.__base = str( base )
+        self.__path = self.__base
         self.__name = os.path.basename( base )
-        self.__path = os.path.abspath( base )
         self.__size = os.path.getsize( base )
         self.__directory = str( os.path.dirname( self.__path ) )
         self.__extension = str( list( os.path.splitext( base ) )[ 1 ] )
@@ -396,25 +396,50 @@ class DataRow():
         if isinstance( self.__id, int ):
             return self.__id
 
+    @index.setter
+    def index( self, ordinal ):
+        if isinstance( ordinal, int ):
+            self.__id = ordinal
+
     @property
     def data( self ):
         if self.__items is not None:
             return self.__items.items()
+
+    @data.setter
+    def data( self, items ):
+        if isinstance( items, dict ):
+            self.__items = items.items()
 
     @property
     def names( self ):
         if self.__names is not None:
             return self.__names
 
+    @names.setter
+    def names( self, items ):
+        if isinstance( items, dict ):
+            self.__names = items.keys()
+
     @property
     def values( self ):
         if self.__values is not None:
             return list( self.__values )
 
+    @values.setter
+    def values( self, items ):
+        if isinstance( items, dict ):
+            self.__values = items.values()
+
     @property
     def source( self ):
         if self.__source is not None:
             return self.__source
+
+    @source.setter
+    def source( self, row ):
+        if isinstance( row, sqlite.Row ):
+            self.__source = row
 
     def __init__( self, items = None ):
         self.__id = int( self.__values[ 0 ] )
@@ -444,10 +469,20 @@ class DataColumn():
         if self.__name is not None:
             return self.__name
 
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
+
     @property
     def value( self ):
         if self.__value is not None:
             return self.__value
+
+    @value.setter
+    def value( self, value ):
+        if value is not None:
+            self.__value = value
 
     @property
     def type( self ):
@@ -456,32 +491,61 @@ class DataColumn():
         else:
             return 'NS'
 
+    @type.setter
+    def type( self, typ ):
+        if typ is not None:
+            self.__type = str( type( typ ) )
+
     @property
     def caption( self ):
         if self.__caption is not None:
             return self.__caption
+
+    @caption.setter
+    def caption( self, text ):
+        if text is not None:
+            self.__caption = str( text )
 
     @property
     def ordinal( self ):
         if self.__id > -1:
             return self.__id
 
+    @ordinal.setter
+    def ordinal( self, index ):
+        if isinstance( index, int ):
+            self.__id = index
+
     @property
     def table( self ):
         if self.__table is not None:
             return self.__table
 
+    @table.setter
+    def table( self, name ):
+        if name is not None:
+            self.__table = str( name )
+
     @property
     def row( self ):
         if self.__row is not None:
             return self.__row
-        else:
-            return 'NS'
+
+    @row.setter
+    def row( self, items ):
+        if isinstance( items, dict ):
+            self.__base = items
+            self.__row = self.__base
 
     @property
     def source( self ):
         if self.__source is not None:
             return self.__source
+
+    @source.setter
+    def source( self, table ):
+        if table is not None:
+            self.__source = str( table )
 
     @property
     def data( self ):
@@ -490,29 +554,21 @@ class DataColumn():
 
     @property
     def isnumeric( self ):
-        if not isinstance( str, type( self.__type ) ):
+        if not isinstance( self.__value, str ):
             return True
 
     @property
     def istext( self ):
-        if isinstance( str, type( self.__type ) ):
+        if isinstance( self.__value, str ):
             return True
 
-    def __init__( self, name, value = None,
-                  ordinal = None, datatype = None, caption = None,
-                  source = None ):
-        self.__base = name
-        self.__name = str( self.__base )
+    def __init__( self, name, value ):
+        self.__name = str( name )
         self.__value = value
-        self.__base = pd.Series( { self.__name: self.__value } )
-        self.__type = datatype
-        self.__caption = str( caption )
-        self.__source = str( source )
-        self.__id = int( ordinal )
-        self.__table = self.__source
+        self.__base = { self.__name: self.__value }
         self.__data = { 'ordinal': self.__id, 'name': self.__name,
-                        'caption': self.__caption, 'datatype': self.__type,
-                        'table': self.__table }
+                        'caption': self.__caption, 'value': self.__value,
+                        'datatype': self.__type, 'table': self.__table }
 
     def __str__( self ):
         return self.__name
@@ -529,15 +585,30 @@ class DataTable():
         if self.__name is not None:
             return self.__name
 
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
+
     @property
     def data( self ):
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, dataframe ):
+        if isinstance( dataframe, pd.DataFrame ):
+            self.__data = pd.DataFrame( dataframe )
+
     @property
     def schema( self ):
         if self.__columns is not None:
             return self.__columns
+
+    @schema.setter
+    def schema( self, columns ):
+        if isinstance( columns, dict ):
+            self.__columns = pd.Series( columns ).index
 
     @property
     def rows( self ):
@@ -545,51 +616,52 @@ class DataTable():
             return self.__rows
 
     def __init__( self, name ):
-        self.__name = name
-        self.__base = self.__name
-        self.__data = pd.DataFrame( self.__base )
+        self.__base = str( name )
+        self.__name = self.__base
+        self.__data = pd.DataFrame( self.__name )
         self.__columns = self.__data.columns
-        self.__rows = self.__data.iterrows()
+        self.__rows = self.__data.items
 
     def __str__( self ):
-        return self.__name
+        if self.__name is not None:
+            return self.__name
 
 class Source():
     '''Provides iterator for the Budget Execution source tables '''
-    __table = None
+    __data = None
 
     @property
     def data( self ):
         ''' Property used to store table names in a list '''
-        if self.__table is not None:
-            return self.__table
+        if self.__data is not None:
+            return self.__data
 
     def __init__( self ):
-        self.__table = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
-                         'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
-                         'Deobligations',
-                         'DocumentControlNumbers', 'HeadquartersAuthority', 'Obligations',
-                         'OperatingPlans', 'OperatingPlanUpdates', 'QueryDefinitions',
-                         'Recoveries', 'RegionalAuthority', 'ReimbursableAgreements',
-                         'ReimbursableFunds', 'ReimbursableSurvey', 'Reports',
-                         'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
-                         'StatusOfFunds', 'Supplementals', 'Transfers',
-                         'TravelObligations', 'Accounts', 'ActivityCodes',
-                         'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
-                         'CostAreas', 'CPIC', 'Divisions',
-                         'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                         'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                         'Goals', 'GsPayScale', 'Images',
-                         'Messages', 'NationalPrograms', 'Objectives',
-                         'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                         'ProgramProjects', 'Projects', 'Providers',
-                         'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                         'SchemaTypes', 'Sources' ]
+        self.__data = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
+                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
+                        'Deobligations', 'DocumentControlNumbers', 'HeadquartersAuthority',
+                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
+                        'QueryDefinitions', 'Recoveries', 'RegionalAuthority',
+                        'ReimbursableAgreements', 'ReimbursableFunds',
+                        'ReimbursableSurvey', 'Reports',
+                        'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
+                        'StatusOfFunds', 'Supplementals', 'Transfers',
+                        'TravelObligations', 'Accounts', 'ActivityCodes',
+                        'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
+                        'CostAreas', 'CPIC', 'Divisions',
+                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                        'Goals', 'GsPayScale', 'Images',
+                        'Messages', 'NationalPrograms', 'Objectives',
+                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                        'ProgramProjects', 'Projects', 'Providers',
+                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                        'SchemaTypes', 'Sources' ]
 
     def __iter__( self ):
-        if len( self.__table ) > 0:
-            for table in self.__table:
-                yield table
+        if len( self.__data ) > 0:
+            for i in self.__data:
+                yield i
 
 class DataModel():
     ''' Defines object used to provide the path to data model databases '''
@@ -686,15 +758,30 @@ class AccessReference():
         if self.__dbpath is not None:
             return self.__dbpath
 
+    @datapath.setter
+    def datapath( self, path ):
+        if path is not None:
+            self.__dbpath = str( path )
+
     @property
     def datasource( self ):
         if self.__source is not None:
             return self.__source
 
+    @datasource.setter
+    def datasource( self, source ):
+        if source is not None:
+            self.__source = str( source )
+
     @property
     def connectionstring( self ):
-        if self.__connectionstring is not None:
-            return self.__connectionstring
+        if self.__connection is not None:
+            return self.__connection
+
+    @connectionstring.setter
+    def connectionstring( self, conn ):
+        if conn is not None:
+            self.__connection = str( conn )
 
     @property
     def data( self ):
@@ -703,17 +790,19 @@ class AccessReference():
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = r'db\access\referencemodels\References.accdb;'
-        self.__connectionstring = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                                   f'DBQ={self.__dbpath}')
-        self.__connection = access.connect( self.__connectionstring,
-            timeout = 3, attrs_before = dict() )
+        self.__dbpath = 'db\\access\\referencemodels\\References.accdb;'
+        self.__connectionstring = ( r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+                                   f'DBQ={ self.__dbpath }' )
+        self.__connection = access.connect( self.__connectionstring, timeout = 3,
+            attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
-    def query_table( self, table ):
-        if self.__data == '':
-            self.__data = self.__cursor.execute( f'SELECT * FROM {0}', table )
+    def get_data( self, table ):
+        '''Method to retrieve data from source 'table' '''
+        if table is not None:
+            __sql = f'SELECT * FROM { str( table ) }'
+            self.__data = self.__cursor.execute( __sql )
 
 class SQLiteData():
     '''Builds the budget execution data classes'''
@@ -728,34 +817,55 @@ class SQLiteData():
         if self.__dbpath is not None:
             return self.__dbpath
 
+    @datapath.setter
+    def datapath( self, path ):
+        if path is not None:
+            self.__dbpath = str( path )
+
     @property
     def datasource( self ):
         if self.__source is not None:
             return self.__source
+
+    @datasource.setter
+    def datasource( self, source ):
+        if source is not None:
+            self.__source = str( source )
 
     @property
     def connectionstring( self ):
         if self.__connection is not None:
             return self.__connection
 
+    @connectionstring.setter
+    def connectionstring( self, conn ):
+        if conn is not None:
+            self.__connection = str( conn )
+
     @property
     def data( self ):
         if self.__data is not None:
             return iter( self.__data[ 0: ] )
 
+    def __str__(self):
+        if self.__dbpath is not None:
+            return self.__dbpath
+
     def __init__( self, table = None ):
-        self.__source = table
-        self.__dbpath = DataModel.sqlitepath
-        self.__connection = sqlite.connect( f'{self.__dbpath}' )
+        self.__source = str( table )
+        self.__dbpath = 'db\\sqlite\\datamodels\\Data.db'
+        self.__connection = sqlite.connect( f'{ self.__dbpath }' )
         self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
     def get_data( self, table ):
-        if self.__data is None:
-            self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
+        '''Creates connection and cursor to query the source 'table' '''
+        if table is None:
+            __sql = f'SELECT * FROM { str( table ) }'
+            self.__data = self.__cursor.execute( f'SELECT * FROM { __sql }' )
 
 class SQLiteReference():
-    '''Builds the budget execution reference models'''
+    '''Class representing the budget execution reference models'''
     __source = None
     __dbpath = None
     __connection = None
@@ -767,10 +877,20 @@ class SQLiteReference():
         if self.__dbpath is not None:
             return self.__dbpath
 
+    @datapath.setter
+    def datapath( self, path ):
+        if path is not None:
+            self.__dbpath = str( path )
+
     @property
     def datasource( self ):
         if self.__source is not None:
             return self.__source
+
+    @datasource.setter
+    def datasource( self, source ):
+        if source is not None:
+            self.__source = str( source )
 
     @property
     def data( self ):
@@ -778,11 +898,11 @@ class SQLiteReference():
             return iter( self.__data[ 0: ] )
 
     def __init__( self, table = None ):
-        self.__source = table
-        self.__dbpath = r'db\sqlite\datamodels\Data.db'
+        self.__source = str( table )
+        self.__dbpath = 'db\\sqlite\\datamodels\\References.db'
         self.__connection = sqlite.connect( self.__dbpath )
         self.__cursor = self.__connection.cursor()
-        self.__data = ''
+        self.__data = [ ]
 
     def get_data( self, table ):
         if self.__data == '':
