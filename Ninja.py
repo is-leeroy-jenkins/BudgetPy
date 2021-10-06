@@ -442,9 +442,9 @@ class DataRow():
             self.__source = row
 
     def __init__( self, items = None ):
-        self.__id = int( self.__values[ 0 ] )
         self.__source = sqlite.Row
         self.__items = dict( items )
+        self.__id = int( items[ 0 ] )
         self.__names = list( self.__items.keys() )
         self.__values = self.__items.values()
 
