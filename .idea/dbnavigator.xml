@@ -28,6 +28,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="385f0c55-7f53-42ff-80f2-bf9649b6e5f0">
+      <console name="BudgetPy SQLite" type="STANDARD" schema="" session="Main" />
       <console name="SQLite" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="68a23cd3-749f-401d-9c8a-108dd1afdaa8">

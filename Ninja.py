@@ -679,8 +679,8 @@ class DataModel():
             return self.__sqlite
 
     def __init__( self ):
-        self.__access = r'db\sqlite\datamodels\Data.db'
-        self.__sqlite = r'db\sqlite\datamodels\References.db'
+        self.__access = r'db\sqlite\datamodels\Data.accdb'
+        self.__sqlite = r'db\sqlite\datamodels\Data.db'
 
 class ReferenceModel():
     '''Defines object used to provide paths to the reference model databases '''
@@ -730,19 +730,19 @@ class AccessData():
         if self.__data is not None:
             return iter( self.__data[ 0: ] )
 
+    def query_table( self, table ):
+        if self.__data is None:
+            self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
+
     def __init__( self, table = None ):
         self.__source = table
         self.__dbpath = DataModel.accesspath
-        self.__connector = (r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };'
-                            f'DBQ={self.__dbpath}')
+        self.__connector = ( r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };'
+                            f'DBQ={ self.__dbpath }' )
         self.__connection = access.connect( self.__connector,
             timeout = 3, attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
-
-    def query_table( self, table ):
-        if self.__data is None:
-            self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
 
 class AccessReference():
     '''Builds the budget execution data classes'''

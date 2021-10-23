@@ -276,8 +276,8 @@ class Appropriation():
 class BudgetFiscalYear():
     '''Class to describe the federal fiscal year'''
     __base = None
-    __beginyear = None
-    __endyear = None
+    __bfy = None
+    __efy = None
     __today = None
     __date = None
     __startdate = None
@@ -295,24 +295,24 @@ class BudgetFiscalYear():
     @property
     def beginyear( self ):
         if self.__base is not None:
-            return self.__beginyear
+            return self.__bfy
 
     @beginyear.setter
     def beginyear( self, yr ):
         if yr is not None:
-            self.__beginyear = str( yr )
-            self.__data[ 'beginyear' ] = self.__beginyear
+            self.__bfy = str( yr )
+            self.__data[ 'beginyear' ] = self.__bfy
 
     @property
     def endyear( self ):
-        if self.__endyear is not None:
-            return self.__endyear
+        if self.__efy is not None:
+            return self.__efy
 
     @endyear.setter
     def endyear( self, yr ):
         if yr is not None:
-            self.__endyear = str( yr )
-            self.__data[ 'endyear' ] = self.__endyear
+            self.__efy = str( yr )
+            self.__data[ 'endyear' ] = self.__efy
 
     @property
     def calendaryear( self ):
@@ -430,9 +430,9 @@ class BudgetFiscalYear():
         self.__day = self.__date.day
         self.__month = self.__date.month
         self.__startdate = dt.date( self.__year, 10, 1 )
-        self.__beginyear = str( self.__startdate.year )
+        self.__bfy = str( self.__startdate.year )
         self.__enddate = dt.date( self.__year + 1, 9, 30 )
-        self.__endyear = str( self.__enddate.year )
+        self.__efy = str( self.__enddate.year )
         self.__data = { 'base': self.__base,
                         'date': self.__date,
                         'calendaryear': self.__year,
