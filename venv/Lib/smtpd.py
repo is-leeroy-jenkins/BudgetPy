@@ -254,12 +254,12 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __data(self):
-        warn("Access to __data attribute on SMTPChannel is deprecated, "
+        warn("Access to data attribute on SMTPChannel is deprecated, "
             "use 'received_data' instead", DeprecationWarning, 2)
         return self.received_data
     @__data.setter
     def __data(self, value):
-        warn("Setting __data attribute on SMTPChannel is deprecated, "
+        warn("Setting data attribute on SMTPChannel is deprecated, "
             "set 'received_data' instead", DeprecationWarning, 2)
         self.received_data = value
 
