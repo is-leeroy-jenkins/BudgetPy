@@ -24,15 +24,38 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="d0d5b611-7580-4105-b843-21ff32225a16">
-        <schema name="main" object-types="table, view, index" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="385f0c55-7f53-42ff-80f2-bf9649b6e5f0">
-      <console name="BudgetPy SQLite" type="STANDARD" schema="" session="Main" />
+      <console name="BudgetPy SQLite" type="STANDARD" schema="" session="Main"><![CDATA[SELECT
+    a."AccountCode",
+    a."AhCode",
+    a."AhName",
+    a."AllocationsId",
+    a."Amount",
+    a.BFY,
+    a."BocCode",
+    a."BocName",
+    a."BudgetLevel",
+    a.EFY,
+    a."FundCode",
+    a."FundName",
+    a."NpmCode",
+    a."NpmName",
+    a."OrgCode",
+    a."OrgName",
+    a."ProgramAreaCode",
+    a."ProgramAreaName",
+    a."ProgramProjectCode",
+    a."ProgramProjectName",
+    a."RcCode",
+    a."RcName",
+    a."RpioCode",
+    a."RpioName",
+    a."StatusOfFundsId"
+FROM
+    "Allocations" a;]]></console>
     </connection>
     <connection id="68a23cd3-749f-401d-9c8a-108dd1afdaa8">
       <console name="Connection" type="STANDARD" schema="" session="Main" />
@@ -50,7 +73,9 @@
     <connection id="d0d5b611-7580-4105-b843-21ff32225a16" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="385f0c55-7f53-42ff-80f2-bf9649b6e5f0" dataset="main.Allocations" active-filter-id="" />
     <filter-actions connection-id="385f0c55-7f53-42ff-80f2-bf9649b6e5f0" dataset="main.AgencyTransfers" active-filter-id="" />
+    <filter-actions connection-id="d0d5b611-7580-4105-b843-21ff32225a16" dataset="main.Allocations" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -93,8 +118,8 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="C:\Users\terry\source\repos\budgetpy\db\sqlite\datamodels\Data.db" schema="main" />
-            <file path="C:\Users\terry\source\repos\budgetpy\db\sqlite\referencemodels\References.db" schema="" />
+            <file path="C:\Users\teppler\source\repos\budgetpy\db\sqlite\datamodels\Data.db" schema="main" />
+            <file path="C:\Users\teppler\source\repos\budgetpy\db\sqlite\referencemodels\References.db" schema="" />
           </files>
           <type value="NONE" />
           <user value="" />
