@@ -28,34 +28,34 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="385f0c55-7f53-42ff-80f2-bf9649b6e5f0">
-      <console name="BudgetPy SQLite" type="STANDARD" schema="" session="Main"><![CDATA[SELECT
-    a."AccountCode",
-    a."AhCode",
-    a."AhName",
-    a."AllocationsId",
-    a."Amount",
+      <console name="BudgetPy SQLite" type="STANDARD" schema="" session="Main">SELECT
+    a.&quot;AccountCode&quot;,
+    a.&quot;AhCode&quot;,
+    a.&quot;AhName&quot;,
+    a.&quot;AllocationsId&quot;,
+    a.&quot;Amount&quot;,
     a.BFY,
-    a."BocCode",
-    a."BocName",
-    a."BudgetLevel",
+    a.&quot;BocCode&quot;,
+    a.&quot;BocName&quot;,
+    a.&quot;BudgetLevel&quot;,
     a.EFY,
-    a."FundCode",
-    a."FundName",
-    a."NpmCode",
-    a."NpmName",
-    a."OrgCode",
-    a."OrgName",
-    a."ProgramAreaCode",
-    a."ProgramAreaName",
-    a."ProgramProjectCode",
-    a."ProgramProjectName",
-    a."RcCode",
-    a."RcName",
-    a."RpioCode",
-    a."RpioName",
-    a."StatusOfFundsId"
+    a.&quot;FundCode&quot;,
+    a.&quot;FundName&quot;,
+    a.&quot;NpmCode&quot;,
+    a.&quot;NpmName&quot;,
+    a.&quot;OrgCode&quot;,
+    a.&quot;OrgName&quot;,
+    a.&quot;ProgramAreaCode&quot;,
+    a.&quot;ProgramAreaName&quot;,
+    a.&quot;ProgramProjectCode&quot;,
+    a.&quot;ProgramProjectName&quot;,
+    a.&quot;RcCode&quot;,
+    a.&quot;RcName&quot;,
+    a.&quot;RpioCode&quot;,
+    a.&quot;RpioName&quot;,
+    a.&quot;StatusOfFundsId&quot;
 FROM
-    "Allocations" a;]]></console>
+    &quot;Allocations&quot; a;</console>
     </connection>
     <connection id="68a23cd3-749f-401d-9c8a-108dd1afdaa8">
       <console name="Connection" type="STANDARD" schema="" session="Main" />
@@ -193,15 +193,15 @@ FROM
       </connection>
       <connection id="68a23cd3-749f-401d-9c8a-108dd1afdaa8" active="true">
         <database>
-          <name value="Connection" />
+          <name value="SqlServer" />
           <description value="" />
-          <database-type value="SQLITE" />
+          <database-type value="GENERIC" />
           <config-type value="CUSTOM" />
           <database-version value="9999.0" />
-          <driver-source value="BUILTIN" />
-          <driver-library value="C:\Users\teppler\AppData\Roaming\JetBrains\PyCharm2021.1\jdbc-drivers\Xerial SQLiteJDBC\3.34.0\sqlite-jdbc-3.34.0.jar" />
-          <driver value="org.sqlite.JDBC" />
-          <url value="C:\Users\teppler\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" />
+          <driver-source value="EXTERNAL" />
+          <driver-library value="C:\Users\terry\AppData\Roaming\JetBrains\PyCharm2021.1\jdbc-drivers\SQL Server\9.2.0\mssql-jdbc-9.2.0.jre8.jar" />
+          <driver value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+          <url value="db\mssql\datamodels\Data.mdf" />
           <type value="NONE" />
           <user value="" />
           <deprecated-pwd value="" />

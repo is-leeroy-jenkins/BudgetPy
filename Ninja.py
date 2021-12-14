@@ -348,6 +348,7 @@ class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
     __and = None
     __where = None
+    __or = None
     __criteria = None
     __sql = None
 
@@ -367,12 +368,12 @@ class CriteriaBuilder():
             return self.__sql[ 0 ]
 
     @property
-    def namevaluepairs( self ):
+    def name_value_pairs( self ):
         if self.__criteria is not None:
             return self.__criteria
 
-    @namevaluepairs.setter
-    def namevaluepairs( self, pairs ):
+    @name_value_pairs.setter
+    def name_value_pairs( self, pairs ):
         if isinstance( pairs, dict ):
             self.__criteria = pairs
 
@@ -676,7 +677,7 @@ class DataModel():
     @property
     def sqlitepath( self ):
         if self.__sqlite is not None:
-            return self.__sqlite
+            return str( self.__sqlite )
 
     def __init__( self ):
         self.__access = r'db\access\datamodels\Data.accdb'
@@ -690,12 +691,12 @@ class ReferenceModel():
     @property
     def accesspath( self ):
         if self.__access is not None:
-            return self.__access
+            return str( self.__access )
 
     @property
     def sqlitepath( self ):
         if self.__sqlite is not None:
-            return self.__sqlite
+            return str( self.__sqlite )
 
     def __init__( self ):
         self.__access = ReferenceModel.accesspath
