@@ -16,16 +16,32 @@ class BudgetPath():
         if self.__base is not None:
             return self.__base
 
+    @base.setter
+    def base( self, path ):
+        if path is not None:
+            self.__base = str( path )
+
     @property
     def name( self ):
         '''Returns string representing the name of the path 'base' '''
         if os.path.exists( self.__base ):
             return str( list( os.path.split( self.__base ) )[ 1 ] )
 
+    @name.setter
+    def name( self, path ):
+        '''Returns string representing the name of the path 'base' '''
+        if path is not None:
+            self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
+
     @property
     def path( self ):
         if self.__path is not None:
             return self.__path
+
+    @path.setter
+    def path( self, base ):
+        if os.path.exists( base ) is not None:
+            self.__path = str( base )
 
     @property
     def exists( self ):
@@ -45,7 +61,12 @@ class BudgetPath():
     @property
     def extension( self ):
         if self.__ext is not None:
-            return str( self.__ext )
+            return str( self.__ext  )
+
+    @extension.setter
+    def extension( self, ext ):
+        if ext is not None:
+            self.__ext = str( ext )
 
     def verify( self, other ):
         '''Verifies if the parameter 'other' exists'''
