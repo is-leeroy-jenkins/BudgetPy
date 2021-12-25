@@ -1,5 +1,5 @@
-#ifndef _NPY_COMMON_H_
-#define _NPY_COMMON_H_
+#ifndef NUMPY_CORE_INCLUDE_NUMPY_NPY_COMMON_H_
+#define NUMPY_CORE_INCLUDE_NUMPY_NPY_COMMON_H_
 
 /* need Python.h for npy_intp, npy_uintp */
 #include <Python.h>
@@ -356,14 +356,31 @@ typedef unsigned long npy_ulonglong;
 typedef unsigned char npy_bool;
 #define NPY_FALSE 0
 #define NPY_TRUE 1
-
-
+/*
+ * `NPY_SIZEOF_LONGDOUBLE` isn't usually equal to sizeof(long double).
+ * In some certain cases, it may forced to be equal to sizeof(double)
+ * even against the compiler implementation and the same goes for
+ * `complex long double`.
+ *
+ * Therefore, avoid `long double`, use `npy_longdouble` instead,
+ * and when it comes to standard math functions make sure of using
+ * the double version when `NPY_SIZEOF_LONGDOUBLE` == `NPY_SIZEOF_DOUBLE`.
+ * For example:
+ *   npy_longdouble *ptr, x;
+ *   #if NPY_SIZEOF_LONGDOUBLE == NPY_SIZEOF_DOUBLE
+ *       npy_longdouble r = modf(x, ptr);
+ *   #else
+ *       npy_longdouble r = modfl(x, ptr);
+ *   #endif
+ *
+ * See https://github.com/numpy/numpy/issues/20348
+ */
 #if NPY_SIZEOF_LONGDOUBLE == NPY_SIZEOF_DOUBLE
-        typedef double npy_longdouble;
-        #define NPY_LONGDOUBLE_FMT "g"
+    #define NPY_LONGDOUBLE_FMT "g"
+    typedef double npy_longdouble;
 #else
-        typedef long double npy_longdouble;
-        #define NPY_LONGDOUBLE_FMT "Lg"
+    #define NPY_LONGDOUBLE_FMT "Lg"
+    typedef long double npy_longdouble;
 #endif
 
 #ifndef Py_USING_UNICODE
@@ -1107,4 +1124,4 @@ typedef npy_int64 npy_datetime;
 
 /* End of typedefs for numarray style bit-width names */
 
-#endif
+#endif  /* NUMPY_CORE_INCLUDE_NUMPY_NPY_COMMON_H_ */

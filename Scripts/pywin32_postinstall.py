@@ -148,7 +148,7 @@ def CopyTo(desc, src, dest):
             win32api.CopyFile(src, dest, 0)
             return
         except win32api.error as details:
-            if details.winerror == 5:  # db denied - user not admin.
+            if details.winerror == 5:  # access denied - user not admin.
                 raise
             if silent:
                 # Running silent mode - just re-raise the error.
@@ -434,7 +434,7 @@ def install(lib_dir):
     files = glob.glob(os.path.join(lib_dir, "pywin32_system32\\*.*"))
     if not files:
         raise RuntimeError("No system files to copy!!")
-    # Try the system32 directory first - if that fails due to "db denied",
+    # Try the system32 directory first - if that fails due to "access denied",
     # it implies a non-admin user, and we use sys.prefix
     for dest_dir in [get_system_dir(), sys.prefix]:
         # and copy some files over there
@@ -466,7 +466,7 @@ def install(lib_dir):
                 break
         except win32api.error as details:
             if details.winerror == 5:
-                # db denied - user not admin - try sys.prefix dir,
+                # access denied - user not admin - try sys.prefix dir,
                 # but first check that a version doesn't already exist
                 # in that place - otherwise that one will still get used!
                 if os.path.exists(dst):
@@ -645,7 +645,7 @@ def uninstall(lib_dir):
         print("Failed to remove shortcuts: %s" % (why,))
     # Now remove the system32 files.
     files = glob.glob(os.path.join(lib_dir, "pywin32_system32\\*.*"))
-    # Try the system32 directory first - if that fails due to "db denied",
+    # Try the system32 directory first - if that fails due to "access denied",
     # it implies a non-admin user, and we use sys.prefix
     try:
         for dest_dir in [get_system_dir(), sys.prefix]:
