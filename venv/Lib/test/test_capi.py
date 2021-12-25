@@ -814,7 +814,7 @@ class PyMemDefaultTests(PyMemDebugTests):
 
 
 class Test_ModuleStateAccess(unittest.TestCase):
-    """Test access to module start (PEP 573)"""
+    """Test db to module start (PEP 573)"""
 
     # The C part of the tests lives in _testmultiphase, in a module called
     # _testmultiphase_meth_state_access.

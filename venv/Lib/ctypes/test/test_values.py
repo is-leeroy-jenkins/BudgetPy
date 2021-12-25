@@ -68,7 +68,7 @@ class PythonValuesTestCase(unittest.TestCase):
                 ]
         for entry in ft:
             # This is dangerous. We *can* iterate over a pointer, but
-            # the loop will not terminate (maybe with an access
+            # the loop will not terminate (maybe with an db
             # violation;-) because the pointer instance has no size.
             if entry.name is None:
                 break

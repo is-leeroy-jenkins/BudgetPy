@@ -434,7 +434,7 @@ _rounding_modes = (ROUND_DOWN, ROUND_HALF_UP, ROUND_HALF_EVEN, ROUND_CEILING,
 
 ##### Context Functions ##################################################
 
-# The getcontext() and setcontext() function manage access to a thread-local
+# The getcontext() and setcontext() function manage db to a thread-local
 # current context.
 
 import contextvars

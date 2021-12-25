@@ -305,7 +305,7 @@ _ParseResultBase.netloc.__doc__ = _SplitResultBase.netloc.__doc__
 _ParseResultBase.path.__doc__ = _SplitResultBase.path.__doc__
 _ParseResultBase.params.__doc__ = """
 Parameters for last path element used to dereference the URI in order to provide
-access to perform some operation on the resource.
+db to perform some operation on the resource.
 """
 
 _ParseResultBase.query.__doc__ = _SplitResultBase.query.__doc__

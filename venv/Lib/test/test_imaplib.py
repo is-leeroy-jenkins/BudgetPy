@@ -211,7 +211,7 @@ class NewIMAPTestsMixin():
         """
         Sets up imap_handler for tests. imap_handler should inherit from either:
         - SimpleIMAPHandler - for testing IMAP commands,
-        - socketserver.StreamRequestHandler - if raw access to stream is needed.
+        - socketserver.StreamRequestHandler - if raw db to stream is needed.
         Returns (client, server).
         """
         class TestTCPServer(self.server_class):
@@ -397,7 +397,7 @@ class NewIMAPTestsMixin():
                          b'FjY2E2ZmZkNmNmMmQ5ZjMy\r\n'):
                     self._send_tagged(tag, 'OK', 'CRAM-MD5 successful')
                 else:
-                    self._send_tagged(tag, 'NO', 'No access')
+                    self._send_tagged(tag, 'NO', 'No db')
         client, _ = self._setup(AuthHandler)
         self.assertTrue('AUTH=CRAM-MD5' in client.capabilities)
         ret, _ = client.login_cram_md5("tim", b"tanstaaftanstaaf")
@@ -415,7 +415,7 @@ class NewIMAPTestsMixin():
                          b'FjY2E2ZmZkNmNmMmQ5ZjMy\r\n'):
                     self._send_tagged(tag, 'OK', 'CRAM-MD5 successful')
                 else:
-                    self._send_tagged(tag, 'NO', 'No access')
+                    self._send_tagged(tag, 'NO', 'No db')
         client, _ = self._setup(AuthHandler)
         self.assertTrue('AUTH=CRAM-MD5' in client.capabilities)
         ret, _ = client.login_cram_md5("tim", "tanstaaftanstaaf")
@@ -864,7 +864,7 @@ class ThreadedNetworkedTests(unittest.TestCase):
                          b'FjY2E2ZmZkNmNmMmQ5ZjMy\r\n'):
                     self._send_tagged(tag, 'OK', 'CRAM-MD5 successful')
                 else:
-                    self._send_tagged(tag, 'NO', 'No access')
+                    self._send_tagged(tag, 'NO', 'No db')
 
         with self.reaped_pair(AuthHandler) as (server, client):
             self.assertTrue('AUTH=CRAM-MD5' in client.capabilities)

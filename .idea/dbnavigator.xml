@@ -28,34 +28,34 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="385f0c55-7f53-42ff-80f2-bf9649b6e5f0">
-      <console name="BudgetPy SQLite" type="STANDARD" schema="" session="Main">SELECT
-    a.&quot;AccountCode&quot;,
-    a.&quot;AhCode&quot;,
-    a.&quot;AhName&quot;,
-    a.&quot;AllocationsId&quot;,
-    a.&quot;Amount&quot;,
+      <console name="BudgetPy SQLite" type="STANDARD" schema="" session="Main"><![CDATA[SELECT
+    a."AccountCode",
+    a."AhCode",
+    a."AhName",
+    a."AllocationsId",
+    a."Amount",
     a.BFY,
-    a.&quot;BocCode&quot;,
-    a.&quot;BocName&quot;,
-    a.&quot;BudgetLevel&quot;,
+    a."BocCode",
+    a."BocName",
+    a."BudgetLevel",
     a.EFY,
-    a.&quot;FundCode&quot;,
-    a.&quot;FundName&quot;,
-    a.&quot;NpmCode&quot;,
-    a.&quot;NpmName&quot;,
-    a.&quot;OrgCode&quot;,
-    a.&quot;OrgName&quot;,
-    a.&quot;ProgramAreaCode&quot;,
-    a.&quot;ProgramAreaName&quot;,
-    a.&quot;ProgramProjectCode&quot;,
-    a.&quot;ProgramProjectName&quot;,
-    a.&quot;RcCode&quot;,
-    a.&quot;RcName&quot;,
-    a.&quot;RpioCode&quot;,
-    a.&quot;RpioName&quot;,
-    a.&quot;StatusOfFundsId&quot;
+    a."FundCode",
+    a."FundName",
+    a."NpmCode",
+    a."NpmName",
+    a."OrgCode",
+    a."OrgName",
+    a."ProgramAreaCode",
+    a."ProgramAreaName",
+    a."ProgramProjectCode",
+    a."ProgramProjectName",
+    a."RcCode",
+    a."RcName",
+    a."RpioCode",
+    a."RpioName",
+    a."StatusOfFundsId"
 FROM
-    &quot;Allocations&quot; a;</console>
+    "Allocations" a;]]></console>
     </connection>
     <connection id="68a23cd3-749f-401d-9c8a-108dd1afdaa8">
       <console name="Connection" type="STANDARD" schema="" session="Main" />

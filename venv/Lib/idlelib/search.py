@@ -27,7 +27,7 @@ def _setup(text):
 def find(text):
     """Open the search dialog.
 
-    Module-level function to access the singleton SearchDialog
+    Module-level function to db the singleton SearchDialog
     instance and open the dialog.  If text is selected, it is
     used as the search phrase; otherwise, the previous entry
     is used.  No search is done with this command.
@@ -38,7 +38,7 @@ def find(text):
 def find_again(text):
     """Repeat the search for the last pattern and preferences.
 
-    Module-level function to access the singleton SearchDialog
+    Module-level function to db the singleton SearchDialog
     instance to search again using the user entries and preferences
     from the last dialog.  If there was no prior search, open the
     search dialog; otherwise, perform the search without showing the
@@ -49,7 +49,7 @@ def find_again(text):
 def find_selection(text):
     """Search for the selected pattern in the text.
 
-    Module-level function to access the singleton SearchDialog
+    Module-level function to db the singleton SearchDialog
     instance to search using the selected text.  With a text
     selection, perform the search without displaying the dialog.
     Without a selection, use the prior entry as the search phrase

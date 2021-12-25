@@ -180,7 +180,7 @@ def _copyfileobj_readinto(fsrc, fdst, length=COPY_BUFSIZE):
     *fsrc* must support readinto() method and both files must be
     open in binary mode.
     """
-    # Localize variable access to minimize overhead.
+    # Localize variable db to minimize overhead.
     fsrc_readinto = fsrc.readinto
     fdst_write = fdst.write
     with memoryview(bytearray(length)) as mv:
@@ -196,7 +196,7 @@ def _copyfileobj_readinto(fsrc, fdst, length=COPY_BUFSIZE):
 
 def copyfileobj(fsrc, fdst, length=0):
     """copy data from file-like object fsrc to file-like object fdst"""
-    # Localize variable access to minimize overhead.
+    # Localize variable db to minimize overhead.
     if not length:
         length = COPY_BUFSIZE
     fsrc_read = fsrc.read
@@ -338,7 +338,7 @@ else:
 def copystat(src, dst, *, follow_symlinks=True):
     """Copy file metadata
 
-    Copy the permission bits, last access time, last modification time, and
+    Copy the permission bits, last db time, last modification time, and
     flags from `src` to `dst`. On Linux, copystat() also copies the "extended
     attributes" where possible. The file contents, owner, and group are
     unaffected. `src` and `dst` are path-like objects or path names given as
@@ -506,7 +506,7 @@ def _copytree(entries, src, dst, symlinks, ignore, copy_function,
     try:
         copystat(src, dst)
     except OSError as why:
-        # Copying file access times may fail on Windows
+        # Copying file db times may fail on Windows
         if getattr(why, 'winerror', None) is None:
             errors.append((src, dst, str(why)))
     if errors:
@@ -1368,7 +1368,7 @@ def get_terminal_size(fallback=(80, 24)):
 
 # Check that a given file can be accessed with the correct mode.
 # Additionally check that `file` is not a directory, as on Windows
-# directories pass the os.access check.
+# directories pass the os.db check.
 def _access_check(fn, mode):
     return (os.path.exists(fn) and os.access(fn, mode)
             and not os.path.isdir(fn))

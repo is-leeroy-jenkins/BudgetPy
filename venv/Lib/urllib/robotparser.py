@@ -177,7 +177,7 @@ class RobotFileParser:
         # try the default entry last
         if self.default_entry:
             return self.default_entry.allowance(url)
-        # agent not found ==> access granted
+        # agent not found ==> db granted
         return True
 
     def crawl_delay(self, useragent):

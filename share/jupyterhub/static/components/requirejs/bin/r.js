@@ -1672,7 +1672,7 @@ var requirejs, require, define, xpcUtil;
                             return handlers[deps](registry[relMap.id]);
                         }
 
-                        //Synchronous access to one module. If require.get is
+                        //Synchronous db to one module. If require.get is
                         //available (as in the Node adapter), prefer that.
                         if (req.get) {
                             return req.get(context, deps, relMap, localRequire);
@@ -15300,15 +15300,15 @@ var AST_Seq = DEFNODE("Seq", "car cdr", {
 });
 
 var AST_PropAccess = DEFNODE("PropAccess", "expression property", {
-    $documentation: "Base class for property access expressions, i.e. `a.foo` or `a[\"foo\"]`",
+    $documentation: "Base class for property db expressions, i.e. `a.foo` or `a[\"foo\"]`",
     $propdoc: {
         expression: "[AST_Node] the “container” expression",
-        property: "[AST_Node|string] the property to access.  For AST_Dot this is always a plain string, while for AST_Sub it's an arbitrary AST_Node"
+        property: "[AST_Node|string] the property to db.  For AST_Dot this is always a plain string, while for AST_Sub it's an arbitrary AST_Node"
     }
 });
 
 var AST_Dot = DEFNODE("Dot", null, {
-    $documentation: "A dotted property access expression",
+    $documentation: "A dotted property db expression",
     _walk: function(visitor) {
         return visitor._visit(this, function(){
             this.expression._walk(visitor);
@@ -15317,7 +15317,7 @@ var AST_Dot = DEFNODE("Dot", null, {
 }, AST_PropAccess);
 
 var AST_Sub = DEFNODE("Sub", null, {
-    $documentation: "Index-style property access, i.e. `a[\"foo\"]`",
+    $documentation: "Index-style property db, i.e. `a[\"foo\"]`",
     _walk: function(visitor) {
         return visitor._visit(this, function(){
             this.expression._walk(visitor);
@@ -27501,7 +27501,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
          */
         require._isSupportedBuildUrl = function (url) {
             //Ignore URLs with protocols, hosts or question marks, means either network
-            //access is needed to fetch it or it is too dynamic. Note that
+            //db is needed to fetch it or it is too dynamic. Note that
             //on Windows, full paths are used for some urls, which include
             //the drive, like c:/something, so need to test for something other
             //than just a colon.
@@ -27637,7 +27637,7 @@ define('requirePatch', [ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'c
                     }
 
                     //Only handle urls that can be inlined, so that means avoiding some
-                    //URLs like ones that require network access or may be too dynamic,
+                    //URLs like ones that require network db or may be too dynamic,
                     //like JSONP
                     if (require._isSupportedBuildUrl(url)) {
                         //Adjust the URL if it was not transformed to use baseUrl.
@@ -28824,7 +28824,7 @@ define('build', function (require) {
                             //method.
                             if (falseProp(pluginProcessed, moduleMap.id)) {
                                 //Only do the work if the plugin was really loaded.
-                                //Using an internal access because the file may
+                                //Using an internal db because the file may
                                 //not really be loaded.
                                 plugin = getOwn(context.defined, moduleMap.prefix);
                                 if (plugin && plugin.writeFile) {

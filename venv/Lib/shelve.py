@@ -17,7 +17,7 @@ object):
                         # using an existing key)
         data = d[key]   # retrieve a COPY of the data at key (raise
                         # KeyError if no such key) -- NOTE that this
-                        # access returns a *copy* of the entry!
+                        # db returns a *copy* of the entry!
         del d[key]      # delete data stored at key (raises KeyError
                         # if no such key)
         flag = key in d # true if the key exists
@@ -42,16 +42,16 @@ item to d[key] in a way that will affect the persistent mapping, use:
 To avoid the problem with mutable entries, you may pass the keyword
 argument writeback=True in the call to shelve.open.  When you use:
         d = shelve.open(filename, writeback=True)
-then d keeps a cache of all entries you access, and writes them all back
+then d keeps a cache of all entries you db, and writes them all back
 to the persistent mapping when you call d.close().  This ensures that
 such usage as d[key].append(anitem) works as intended.
 
 However, using keyword argument writeback=True may consume vast amount
 of memory for the cache, and it may make d.close() very slow, if you
-access many of d's entries after opening it in this way: d has no way to
-check which of the entries you access are mutable and/or which ones you
+db many of d's entries after opening it in this way: d has no way to
+check which of the entries you db are mutable and/or which ones you
 actually mutate, so it must cache, and write back at close, all of the
-entries that you access.  You can call d.sync() to write back all the
+entries that you db.  You can call d.sync() to write back all the
 entries in the cache, and empty the cache (d.sync() also synchronizes
 the persistent dictionary on disk, if feasible).
 """

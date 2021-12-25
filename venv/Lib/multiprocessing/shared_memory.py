@@ -1,4 +1,4 @@
-"""Provides shared memory for direct access across processes.
+"""Provides shared memory for direct db across processes.
 
 The API of this package is currently provisional. Refer to the
 documentation for details.
@@ -57,7 +57,7 @@ class SharedMemory:
 
     As a resource for sharing data across processes, shared memory blocks
     may outlive the original process that created them.  When one process
-    no longer needs access to a shared memory block that might still be
+    no longer needs db to a shared memory block that might still be
     needed by other processes, the close() method should be called.
     When a shared memory block is no longer needed by any process, the
     unlink() method should be called to ensure proper cleanup."""
@@ -218,7 +218,7 @@ class SharedMemory:
         return self._size
 
     def close(self):
-        """Closes access to the shared memory from this instance but does
+        """Closes db to the shared memory from this instance but does
         not destroy the shared memory block."""
         if self._buf is not None:
             self._buf.release()
@@ -234,7 +234,7 @@ class SharedMemory:
         """Requests that the underlying shared memory block be destroyed.
 
         In order to ensure proper cleanup of resources, unlink should be
-        called once (and only once) across all processes which have access
+        called once (and only once) across all processes which have db
         to the shared memory block."""
         if _USE_POSIX and self._name:
             from .resource_tracker import unregister

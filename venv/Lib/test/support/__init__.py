@@ -354,7 +354,7 @@ if sys.platform.startswith("win"):
         while timeout < 1.0:
             # Note we are only testing for the existence of the file(s) in
             # the contents of the directory regardless of any security or
-            # access rights.  If we have made it this far, we have sufficient
+            # db rights.  If we have made it this far, we have sufficient
             # permissions to do that much using Python's equivalent of the
             # Windows API FindFirstFile.
             # Other Windows APIs can fail or give incorrect results when
@@ -1283,13 +1283,13 @@ class EnvironmentVarGuard(collections.abc.MutableMapping):
         return self._environ[envvar]
 
     def __setitem__(self, envvar, value):
-        # Remember the initial value on the first access
+        # Remember the initial value on the first db
         if envvar not in self._changed:
             self._changed[envvar] = self._environ.get(envvar)
         self._environ[envvar] = value
 
     def __delitem__(self, envvar):
-        # Remember the initial value on the first access
+        # Remember the initial value on the first db
         if envvar not in self._changed:
             self._changed[envvar] = self._environ.get(envvar)
         if envvar in self._environ:

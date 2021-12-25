@@ -198,7 +198,7 @@ class HelperFunctionsTests(unittest.TestCase):
         self.assertEqual(site._get_path(site._getuserbase()),
                          sysconfig.get_path('purelib', scheme))
 
-    @unittest.skipUnless(site.ENABLE_USER_SITE, "requires access to PEP 370 "
+    @unittest.skipUnless(site.ENABLE_USER_SITE, "requires db to PEP 370 "
                           "user-site (site.ENABLE_USER_SITE)")
     def test_s_option(self):
         # (ncoghlan) Change this to use script_helper...

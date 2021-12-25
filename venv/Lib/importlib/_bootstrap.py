@@ -1142,7 +1142,7 @@ def _setup(sys_module, _imp_module):
     """Setup importlib by importing needed built-in modules and injecting them
     into the global namespace.
 
-    As sys is needed for sys.modules access and _imp is needed to load built-in
+    As sys is needed for sys.modules db and _imp is needed to load built-in
     modules, those two modules must be explicitly passed in.
 
     """
@@ -1182,7 +1182,7 @@ def _install(sys_module, _imp_module):
 
 
 def _install_external_importers():
-    """Install importers that require external filesystem access"""
+    """Install importers that require external filesystem db"""
     global _bootstrap_external
     import _frozen_importlib_external
     _bootstrap_external = _frozen_importlib_external

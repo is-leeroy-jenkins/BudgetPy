@@ -14,7 +14,7 @@ class StringPtrTestCase(unittest.TestCase):
             _fields_ = [("str", POINTER(c_char))]
         x = X()
 
-        # NULL pointer access
+        # NULL pointer db
         self.assertRaises(ValueError, getattr, x.str, "contents")
         b = c_buffer(b"Hello, World")
         from sys import getrefcount as grc

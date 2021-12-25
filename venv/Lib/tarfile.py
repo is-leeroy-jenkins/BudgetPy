@@ -303,7 +303,7 @@ class SubsequentHeaderError(HeaderError):
 class _LowLevelFile:
     """Low-level file object. Supports reading and writing.
        It is used instead of a regular file object for streaming
-       access.
+       db.
     """
 
     def __init__(self, name, mode):

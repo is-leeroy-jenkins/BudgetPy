@@ -60,7 +60,7 @@ class HTTPStatus(IntEnum):
     NOT_MODIFIED = (304, 'Not Modified',
         'Document has not changed since given time')
     USE_PROXY = (305, 'Use Proxy',
-        'You must use proxy specified in Location to access this resource')
+        'You must use proxy specified in Location to db this resource')
     TEMPORARY_REDIRECT = (307, 'Temporary Redirect',
         'Object moved temporarily -- see URI list')
     PERMANENT_REDIRECT = (308, 'Permanent Redirect',
@@ -124,7 +124,7 @@ class HTTPStatus(IntEnum):
         'fields are too large')
     UNAVAILABLE_FOR_LEGAL_REASONS = (451,
         'Unavailable For Legal Reasons',
-        'The server is denying access to the '
+        'The server is denying db to the '
         'resource as a consequence of a legal demand')
 
     # server errors
@@ -146,4 +146,4 @@ class HTTPStatus(IntEnum):
     NOT_EXTENDED = 510, 'Not Extended'
     NETWORK_AUTHENTICATION_REQUIRED = (511,
         'Network Authentication Required',
-        'The client needs to authenticate to gain network access')
+        'The client needs to authenticate to gain network db')

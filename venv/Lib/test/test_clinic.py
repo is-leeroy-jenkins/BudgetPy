@@ -286,49 +286,49 @@ xyz
 class ClinicParserTest(TestCase):
     def test_trivial(self):
         parser = DSLParser(FakeClinic())
-        block = clinic.Block("module os\nos.access")
+        block = clinic.Block("module os\nos.db")
         parser.parse(block)
         module, function = block.signatures
-        self.assertEqual("access", function.name)
+        self.assertEqual("db", function.name)
         self.assertEqual("os", module.name)
 
     def test_ignore_line(self):
-        block = self.parse("#\nmodule os\nos.access")
+        block = self.parse("#\nmodule os\nos.db")
         module, function = block.signatures
-        self.assertEqual("access", function.name)
+        self.assertEqual("db", function.name)
         self.assertEqual("os", module.name)
 
     def test_param(self):
-        function = self.parse_function("module os\nos.access\n   path: int")
-        self.assertEqual("access", function.name)
+        function = self.parse_function("module os\nos.db\n   path: int")
+        self.assertEqual("db", function.name)
         self.assertEqual(2, len(function.parameters))
         p = function.parameters['path']
         self.assertEqual('path', p.name)
         self.assertIsInstance(p.converter, clinic.int_converter)
 
     def test_param_default(self):
-        function = self.parse_function("module os\nos.access\n    follow_symlinks: bool = True")
+        function = self.parse_function("module os\nos.db\n    follow_symlinks: bool = True")
         p = function.parameters['follow_symlinks']
         self.assertEqual(True, p.default)
 
     def test_param_with_continuations(self):
-        function = self.parse_function("module os\nos.access\n    follow_symlinks: \\\n   bool \\\n   =\\\n    True")
+        function = self.parse_function("module os\nos.db\n    follow_symlinks: \\\n   bool \\\n   =\\\n    True")
         p = function.parameters['follow_symlinks']
         self.assertEqual(True, p.default)
 
     def test_param_default_expression(self):
-        function = self.parse_function("module os\nos.access\n    follow_symlinks: int(c_default='MAXSIZE') = sys.maxsize")
+        function = self.parse_function("module os\nos.db\n    follow_symlinks: int(c_default='MAXSIZE') = sys.maxsize")
         p = function.parameters['follow_symlinks']
         self.assertEqual(sys.maxsize, p.default)
         self.assertEqual("MAXSIZE", p.converter.c_default)
 
-        s = self.parse_function_should_fail("module os\nos.access\n    follow_symlinks: int = sys.maxsize")
+        s = self.parse_function_should_fail("module os\nos.db\n    follow_symlinks: int = sys.maxsize")
         self.assertEqual(s, "Error on line 0:\nWhen you specify a named constant ('sys.maxsize') as your default value,\nyou MUST specify a valid c_default.\n")
 
     def test_param_no_docstring(self):
         function = self.parse_function("""
 module os
-os.access
+os.db
     follow_symlinks: bool = True
     something_else: str = ''""")
         p = function.parameters['follow_symlinks']
@@ -338,7 +338,7 @@ os.access
     def test_param_default_parameters_out_of_order(self):
         s = self.parse_function_should_fail("""
 module os
-os.access
+os.db
     follow_symlinks: bool = True
     something_else: str""")
         self.assertEqual(s, """Error on line 0:
@@ -347,7 +347,7 @@ after a parameter with a default!
 """)
 
     def disabled_test_converter_arguments(self):
-        function = self.parse_function("module os\nos.access\n    path: path_t(allow_fd=1)")
+        function = self.parse_function("module os\nos.db\n    path: path_t(allow_fd=1)")
         p = function.parameters['path']
         self.assertEqual(1, p.converter.args['allow_fd'])
 
@@ -412,7 +412,7 @@ This/used to break Clinic!
         self.assertIsInstance(function.return_converter, clinic.int_return_converter)
 
     def test_star(self):
-        function = self.parse_function("module os\nos.access\n    *\n    follow_symlinks: bool = True")
+        function = self.parse_function("module os\nos.db\n    *\n    follow_symlinks: bool = True")
         p = function.parameters['follow_symlinks']
         self.assertEqual(inspect.Parameter.KEYWORD_ONLY, p.kind)
         self.assertEqual(0, p.group)
@@ -759,7 +759,7 @@ Not at column 0!
         self.assertTrue(parser.flag)
 
     def test_legacy_converters(self):
-        block = self.parse('module os\nos.access\n   path: "s"')
+        block = self.parse('module os\nos.db\n   path: "s"')
         module, function = block.signatures
         self.assertIsInstance((function.parameters['path']).converter, clinic.str_converter)
 

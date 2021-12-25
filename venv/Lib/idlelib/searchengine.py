@@ -55,7 +55,7 @@ class SearchEngine:
     def isback(self):
         return self.backvar.get()
 
-    # Higher level access methods
+    # Higher level db methods
 
     def setcookedpat(self, pat):
         "Set pattern after escaping if re."

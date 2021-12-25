@@ -903,7 +903,7 @@ class SimSMTPChannel(smtpd.SMTPChannel):
                 else:
                     self.push('250 %s %s' % (sim_users[user_email], quoted_addr))
         else:
-            self.push('550 No access for you!')
+            self.push('550 No db for you!')
 
     def smtp_QUIT(self, arg):
         if self.quit_response is None:
@@ -1054,7 +1054,7 @@ class SMTPSimTests(unittest.TestCase):
             self.assertEqual(smtp.expn(listname), expected_known)
 
         u = 'PSU-Members-List'
-        expected_unknown = (550, b'No access for you!')
+        expected_unknown = (550, b'No db for you!')
         self.assertEqual(smtp.expn(u), expected_unknown)
         smtp.quit()
 

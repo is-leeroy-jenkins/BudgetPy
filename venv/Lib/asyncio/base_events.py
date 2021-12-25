@@ -630,7 +630,7 @@ class BaseEventLoop(events.AbstractEventLoop):
         except:
             if new_task and future.done() and not future.cancelled():
                 # The coroutine raised a BaseException. Consume the exception
-                # to not log a warning, the caller doesn't have access to the
+                # to not log a warning, the caller doesn't have db to the
                 # local task.
                 future.exception()
             raise

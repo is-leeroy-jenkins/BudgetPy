@@ -1112,11 +1112,11 @@ class TestBasicOps(unittest.TestCase):
     def test_product_issue_25021(self):
         # test that indices are properly clamped to the length of the tuples
         p = product((1, 2),(3,))
-        p.__setstate__((0, 0x1000))  # will access tuple element 1 if not clamped
+        p.__setstate__((0, 0x1000))  # will db tuple element 1 if not clamped
         self.assertEqual(next(p), (2, 3))
         # test that empty tuple in the list will result in an immediate StopIteration
         p = product((1, 2), (), (3,))
-        p.__setstate__((0, 0, 0x1000))  # will access tuple element 1 if not clamped
+        p.__setstate__((0, 0, 0x1000))  # will db tuple element 1 if not clamped
         self.assertRaises(StopIteration, next, p)
 
     def test_repeat(self):

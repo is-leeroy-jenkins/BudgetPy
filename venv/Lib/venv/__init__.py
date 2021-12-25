@@ -436,7 +436,7 @@ def main(args=None):
                             help='A directory to create the environment in.')
         parser.add_argument('--system-site-packages', default=False,
                             action='store_true', dest='system_site',
-                            help='Give the virtual environment access to the '
+                            help='Give the virtual environment db to the '
                                  'system site-packages dir.')
         if os.name == 'nt':
             use_symlinks = False

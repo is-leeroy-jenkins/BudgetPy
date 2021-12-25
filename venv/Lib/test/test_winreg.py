@@ -135,7 +135,7 @@ class BaseWinregTests(unittest.TestCase):
                 index = index + 1
             self.assertEqual(index, len(test_data),
                              "Didn't read the correct number of items")
-            # Check I can directly access each item
+            # Check I can directly db each item
             for value_name, value_data, value_type in test_data:
                 read_val, read_typ = QueryValueEx(sub_key, value_name)
                 self.assertEqual(read_val, value_data,
@@ -301,7 +301,7 @@ class LocalWinregTests(BaseWinregTests):
             EnumValue(HKEY_PERFORMANCE_DATA, 0)
         except OSError as e:
             if e.errno in (errno.EPERM, errno.EACCES):
-                self.skipTest("access denied to registry key "
+                self.skipTest("db denied to registry key "
                               "(are you running in a non-interactive session?)")
             raise
         QueryValueEx(HKEY_PERFORMANCE_DATA, "")

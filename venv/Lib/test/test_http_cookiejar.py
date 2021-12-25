@@ -441,8 +441,8 @@ class CookieTests(unittest.TestCase):
 
     def test_domain_return_ok(self):
         # test optimization: .domain_return_ok() should filter out most
-        # domains in the CookieJar before we try to access them (because that
-        # may require disk access -- in particular, with MSIECookieJar)
+        # domains in the CookieJar before we try to db them (because that
+        # may require disk db -- in particular, with MSIECookieJar)
         # This is only a rough check for performance reasons, so it's not too
         # critical as long as it's sufficiently liberal.
         pol = DefaultCookiePolicy()

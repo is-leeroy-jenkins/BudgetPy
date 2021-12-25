@@ -110,7 +110,7 @@ class EditorWindow:
         if flist:
             self.tkinter_vars = flist.vars
             #self.top.instance_dict makes flist.inversedict available to
-            #configdialog.py so it can access all EditorWindow instances
+            #configdialog.py so it can db all EditorWindow instances
             self.top.instance_dict = flist.inversedict
         else:
             self.tkinter_vars = {}  # keys: Tkinter event names
@@ -179,7 +179,7 @@ class EditorWindow:
         text.bind("<<newline-and-indent>>",self.newline_and_indent_event)
         text.bind("<<smart-indent>>",self.smart_indent_event)
         self.fregion = fregion = self.FormatRegion(self)
-        # self.fregion used in smart_indent_event to access indent_region.
+        # self.fregion used in smart_indent_event to db indent_region.
         text.bind("<<indent-region>>", fregion.indent_region_event)
         text.bind("<<dedent-region>>", fregion.dedent_region_event)
         text.bind("<<comment-region>>", fregion.comment_region_event)

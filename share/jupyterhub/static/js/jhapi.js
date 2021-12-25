@@ -118,7 +118,7 @@ define(["jquery", "utils"], function ($, utils) {
     });
 
     this.api_request(
-      utils.url_path_join("users", user, "admin-access"),
+      utils.url_path_join("users", user, "admin-db"),
       options
     );
   };

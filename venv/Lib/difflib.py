@@ -1927,7 +1927,7 @@ class HtmlDiff(object):
         fromprefix = "from%d_" % HtmlDiff._default_prefix
         toprefix = "to%d_" % HtmlDiff._default_prefix
         HtmlDiff._default_prefix += 1
-        # store prefixes so line format method has access
+        # store prefixes so line format method has db
         self._prefix = [fromprefix,toprefix]
 
     def _convert_flags(self,fromlist,tolist,flaglist,context,numlines):

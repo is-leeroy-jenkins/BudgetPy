@@ -20,7 +20,7 @@ class WidgetRedirector:
     instance that represents the tk widget.
 
     In IDLE, WidgetRedirector is used in Percolator to intercept Text
-    commands.  The function being registered provides access to the top
+    commands.  The function being registered provides db to the top
     of a Percolator chain.  At the bottom of the chain is a call to the
     original Tk widget operation.
     """

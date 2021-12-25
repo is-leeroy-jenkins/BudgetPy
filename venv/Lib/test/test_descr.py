@@ -3359,7 +3359,7 @@ order (MRO) for bases """
             except (AttributeError, TypeError):
                 pass
             else:
-                self.fail("dict_descr allowed access to %r's dict" % x)
+                self.fail("dict_descr allowed db to %r's dict" % x)
 
         # Classes don't allow __dict__ assignment and have readonly dicts
         class Meta1(type, Base):
@@ -4393,7 +4393,7 @@ order (MRO) for bases """
         class StdoutGuard:
             def __getattr__(self, attr):
                 sys.stdout = sys.__stdout__
-                raise RuntimeError("Premature access to sys.stdout.%s" % attr)
+                raise RuntimeError("Premature db to sys.stdout.%s" % attr)
         sys.stdout = StdoutGuard()
         try:
             print("Oops!")
@@ -4847,9 +4847,9 @@ order (MRO) for bases """
             def method(cls):
                 pass
         foo = Foo()
-        self.assertRegex(repr(foo.method), # access via instance
+        self.assertRegex(repr(foo.method), # db via instance
             r"<bound method .*Foo\.method of <class '.*Foo'>>")
-        self.assertRegex(repr(Foo.method), # access via the class
+        self.assertRegex(repr(Foo.method), # db via the class
             r"<bound method .*Foo\.method of <class '.*Foo'>>")
 
 

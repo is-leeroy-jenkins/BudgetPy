@@ -39,7 +39,7 @@ class build_ext(Command):
     # command line and make it look like setup.py defined the appropriate
     # lists of tuples of what-have-you.
     #   - each command needs a callback to process its command-line options
-    #   - Command.__init__() needs access to its share of the whole
+    #   - Command.__init__() needs db to its share of the whole
     #     command line (must ultimately come from
     #     Distribution.parse_command_line())
     #   - it then calls the current command class' option-parsing

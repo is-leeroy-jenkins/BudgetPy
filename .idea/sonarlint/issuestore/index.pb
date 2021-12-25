@@ -5,12 +5,8 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 L
 db/mssql/datamodels/Data.sql,b\6\b6d85d14a7702c6ed013e2f54615ce8fd9ae813e
-Y
-).idea/libraries/Google_App_Engine_SDK.xml,5\d\5dfc1c3e3dbc087bf6b07f1a716d592c6d9da32a
 W
 'db/mssql/referencemodels/References.sql,9\f\9f1379400dc7a357cf99f201fa3dbb99a24cab67
-O
-.idea/libraries/MicroPython.xml,e\e\eee71aa3624eddb5dc3b32c41d696ef86df59483
 U
 %db/sqlite/gui/App/AppInfo/appinfo.ini,4\7\4709a42a7db508df5a268abdfcbb3b97bd802aed
 ^
@@ -33,12 +29,8 @@ U
 %db/sqlite/gui/Other/Source/Readme.txt,b\c\bc09402573e56131a6ba4731e231341146138546
 h
 8db/sqlite/gui/App/DefaultData/settings/sqlitebrowser.reg,f\7\f79bdd3794de1b92be3c3bbfd14e1b3399f44da4
-]
--db/sqlite/gui/Data/settings/sqlitebrowser.reg,3\f\3f04b5036022dc8359ca607ab96c73711d41717b
 t
 Ddb/sqlite/gui/App/AppInfo/Launcher/SQLiteDatabaseBrowserPortable.ini,d\2\d2e00109bbdb9237868b4d1b2f6c0ba64da33a94
-u
-Edb/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini,c\4\c4f4671d630c2d3068aa32728c80bb48877a4415
 g
 7db/access/referencemodels/sql/CREATE/TABLE/Accounts.sql,e\1\e1873cd5972bfb057b36de6f2329a04653fe25c6
 g
@@ -899,5 +891,3 @@ j
 :.idea/dataSources/b2c091cd-8c0c-4088-bbd4-d884222ff2d5.xml,6\1\61ca322742c65f6908528fa2514e10eb8694452e
 <
 Execution.py,2\d\2df21b90c8ea48d7cc2f85009a182200e6888db7
-8
-Ninja.py,8\b\8bd840fba2dbdab27f36c7587e14a47f48cdbb59

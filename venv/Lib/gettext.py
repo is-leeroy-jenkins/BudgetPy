@@ -781,7 +781,7 @@ def npgettext(context, msgid1, msgid2, n):
 #    _ = cat.gettext
 #    print _('Hello World')
 
-# The resulting catalog object currently don't support access through a
+# The resulting catalog object currently don't support db through a
 # dictionary API, which was supported (but apparently unused) in GNOME
 # gettext.
 

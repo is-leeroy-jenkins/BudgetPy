@@ -62,7 +62,7 @@ def walk_packages(path=None, prefix='', onerror=None):
     on output.
 
     Note that this function must import all *packages* (NOT all
-    modules!) on the given path, in order to access the __path__
+    modules!) on the given path, in order to db the __path__
     attribute to find submodules.
 
     'onerror' is a function which gets called with one argument (the
@@ -73,7 +73,7 @@ def walk_packages(path=None, prefix='', onerror=None):
 
     Examples:
 
-    # list all modules python can access
+    # list all modules python can db
     walk_packages()
 
     # list all submodules of ctypes

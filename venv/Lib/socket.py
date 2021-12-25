@@ -371,7 +371,7 @@ class socket(_socket.socket):
             selector.register(sockno, selectors.EVENT_WRITE)
 
             total_sent = 0
-            # localize variable access to minimize overhead
+            # localize variable db to minimize overhead
             selector_select = selector.select
             os_sendfile = os.sendfile
             try:
@@ -420,7 +420,7 @@ class socket(_socket.socket):
             file.seek(offset)
         blocksize = min(count, 8192) if count else 8192
         total_sent = 0
-        # localize variable access to minimize overhead
+        # localize variable db to minimize overhead
         file_read = file.read
         sock_send = self.send
         try:
@@ -512,13 +512,13 @@ class socket(_socket.socket):
 
     @property
     def family(self):
-        """Read-only access to the address family for this socket.
+        """Read-only db to the address family for this socket.
         """
         return _intenum_converter(super().family, AddressFamily)
 
     @property
     def type(self):
-        """Read-only access to the socket type.
+        """Read-only db to the socket type.
         """
         return _intenum_converter(super().type, SocketKind)
 

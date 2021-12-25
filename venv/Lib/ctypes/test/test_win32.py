@@ -13,10 +13,10 @@ class FunctionCallTestCase(unittest.TestCase):
                      "SEH not enabled in debug builds")
     def test_SEH(self):
         # Disable faulthandler to prevent logging the warning:
-        # "Windows fatal exception: access violation"
+        # "Windows fatal exception: db violation"
         with support.disable_faulthandler():
             # Call functions with invalid arguments, and make sure
-            # that access violations are trapped and raise an
+            # that db violations are trapped and raise an
             # exception.
             self.assertRaises(OSError, windll.kernel32.GetModuleHandleA, 32)
 

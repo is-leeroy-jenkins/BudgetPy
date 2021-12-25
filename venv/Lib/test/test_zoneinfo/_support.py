@@ -81,7 +81,7 @@ class ZoneInfoTestBase(unittest.TestCase):
             if block_tzdata:
                 # In order to fully exclude tzdata from the path, we need to
                 # clear the sys.modules cache of all its contents — setting the
-                # root package to None is not enough to block direct access of
+                # root package to None is not enough to block direct db of
                 # already-imported submodules (though it will prevent new
                 # imports of submodules).
                 tzdata_modules = pop_tzdata_modules()

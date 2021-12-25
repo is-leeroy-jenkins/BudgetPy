@@ -1,8 +1,8 @@
 import os
-import sqlite3 as sqlite
+import sqlite3 as sl
 import pandas as pd
-import pyodbc as access
-import openpyxl as excel
+import pyodbc as db
+import openpyxl as xl
 
 class BudgetPath():
     '''Defines the BudgetPath class'''
@@ -439,11 +439,11 @@ class DataRow():
 
     @source.setter
     def source( self, row ):
-        if isinstance( row, sqlite.Row ):
+        if isinstance( row, sl.Row ):
             self.__source = row
 
     def __init__( self, items = None ):
-        self.__source = sqlite.Row
+        self.__source = sl.Row
         self.__items = dict( items )
         self.__id = int( items[ 0 ] )
         self.__names = list( self.__items.keys() )
@@ -699,8 +699,8 @@ class ReferenceModel():
             return str( self.__sqlite )
 
     def __init__( self ):
-        self.__access = ReferenceModel.accesspath
-        self.__sqlite = ReferenceModel.sqlitepath
+        self.__access = r'db\access\referencemodels\References.accdb'
+        self.__sqlite = r'db\sqlite\referencemodels\References.db'
 
 class AccessData():
     '''Builds the budget execution data classes'''
@@ -719,7 +719,7 @@ class AccessData():
     @property
     def datasource( self ):
         if self.__source is not None:
-            return self.__source
+            return str( self.__source )
 
     @property
     def connectionstring( self ):
@@ -737,11 +737,11 @@ class AccessData():
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = DataModel.accesspath
-        self.__connector = ( r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };'
-                            f'DBQ={ self.__dbpath }' )
-        self.__connection = access.connect( self.__connector,
-            timeout = 3, attrs_before = dict() )
+        self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\access\\datamodels\\Data.accdb;'
+        self.__connector = ( (r'DRIVER={Microsoft Access Driver(*.mdb, *.accdb)};'
+            r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access\datamodels\Data.accdb;') )
+        self.__connection = db.connect( r'Driver={Microsoft Access Driver(*.mdb, *.accdb)};'
+            f'DBQ={self.__dbpath};', timeout = 3, attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
@@ -757,7 +757,7 @@ class AccessReference():
     @property
     def datapath( self ):
         if self.__dbpath is not None:
-            return self.__dbpath
+            return str( self.__dbpath )
 
     @datapath.setter
     def datapath( self, path ):
@@ -767,7 +767,7 @@ class AccessReference():
     @property
     def datasource( self ):
         if self.__source is not None:
-            return self.__source
+            return str( self.__source )
 
     @datasource.setter
     def datasource( self, source ):
@@ -777,7 +777,7 @@ class AccessReference():
     @property
     def connectionstring( self ):
         if self.__connection is not None:
-            return self.__connection
+            return str( self.__connection )
 
     @connectionstring.setter
     def connectionstring( self, conn ):
@@ -791,10 +791,10 @@ class AccessReference():
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = 'db\\access\\referencemodels\\References.accdb;'
+        self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\access\\referencemodels\\References.accdb;'
         self.__connectionstring = ( r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                                   f'DBQ={ self.__dbpath }' )
-        self.__connection = access.connect( self.__connectionstring, timeout = 3,
+                                   r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access\referencemodels\References.accdb;' )
+        self.__connection = db.connect( self.__connectionstring, timeout = 3,
             attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
@@ -816,7 +816,7 @@ class SQLiteData():
     @property
     def datapath( self ):
         if self.__dbpath is not None:
-            return self.__dbpath
+            return str( self.__dbpath )
 
     @datapath.setter
     def datapath( self, path ):
@@ -826,7 +826,7 @@ class SQLiteData():
     @property
     def datasource( self ):
         if self.__source is not None:
-            return self.__source
+            return str( self.__source )
 
     @datasource.setter
     def datasource( self, source ):
@@ -836,7 +836,7 @@ class SQLiteData():
     @property
     def connectionstring( self ):
         if self.__connection is not None:
-            return self.__connection
+            return str( self.__connection )
 
     @connectionstring.setter
     def connectionstring( self, conn ):
@@ -854,8 +854,8 @@ class SQLiteData():
 
     def __init__( self, table = None ):
         self.__source = str( table )
-        self.__dbpath = 'db\\sqlite\\datamodels\\Data.db'
-        self.__connection = sqlite.connect( f'{ self.__dbpath }' )
+        self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\sqlite\\datamodels\\Data.db'
+        self.__connection = sl.connect( f'{ self.__dbpath }' )
         self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
@@ -900,8 +900,8 @@ class SQLiteReference():
 
     def __init__( self, table = None ):
         self.__source = str( table )
-        self.__dbpath = 'db\\sqlite\\datamodels\\References.db'
-        self.__connection = sqlite.connect( self.__dbpath )
+        self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\sqlite\\referencemodels\\References.db'
+        self.__connection = sl.connect( self.__dbpath )
         self.__cursor = self.__connection.cursor()
         self.__data = [ ]
 
@@ -1039,7 +1039,7 @@ class ExcelFile():
     def workbook( self ):
         ''' Gets the report template '''
         if self.__path is not None:
-            self.__workbook = excel.open( self.__path )
+            self.__workbook = xl.open( self.__path )
             return self.__workbook
 
     @property

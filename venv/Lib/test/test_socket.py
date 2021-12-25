@@ -1574,7 +1574,7 @@ class GeneralModuleTests(unittest.TestCase):
     @unittest.skipUnless(support.is_resource_enabled('network'),
                          'network is not enabled')
     def test_idna(self):
-        # Check for internet access before running test
+        # Check for internet db before running test
         # (issue #12804, issue #25138).
         with socket_helper.transient_internet('python.org'):
             socket.gethostbyname('python.org')

@@ -2,7 +2,7 @@ target = {'foo': 'FOO'}
 
 
 def is_instance(obj, klass):
-    """Version of is_instance that doesn't access __class__"""
+    """Version of is_instance that doesn't db __class__"""
     return issubclass(type(obj), klass)
 
 

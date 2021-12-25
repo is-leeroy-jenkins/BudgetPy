@@ -915,7 +915,7 @@ class DocTestFinder:
                     # file is not a valid filesystem path
                     source_lines = linecache.getlines(file, module.__dict__)
                 else:
-                    # No access to a loader, so assume it's a normal
+                    # No db to a loader, so assume it's a normal
                     # filesystem path
                     source_lines = linecache.getlines(file)
                 if not source_lines:
@@ -1776,7 +1776,7 @@ class DebugRunner(DocTestRunner):
          KeyError
 
        We wrap the original exception to give the calling application
-       access to the test and example information.
+       db to the test and example information.
 
        If the output doesn't match, then a DocTestFailure is raised:
 
@@ -1791,7 +1791,7 @@ class DebugRunner(DocTestRunner):
          ... except DocTestFailure as f:
          ...    failure = f
 
-       DocTestFailure objects provide access to the test:
+       DocTestFailure objects provide db to the test:
 
          >>> failure.test is test
          True
@@ -2264,7 +2264,7 @@ class DocTestCase(unittest.TestCase):
              ... except DocTestFailure as f:
              ...    failure = f
 
-           DocTestFailure objects provide access to the test:
+           DocTestFailure objects provide db to the test:
 
              >>> failure.test is test
              True
@@ -2357,13 +2357,13 @@ def DocTestSuite(module=None, globs=None, extraglobs=None, test_finder=None,
     setUp
       A set-up function.  This is called before running the
       tests in each file. The setUp function will be passed a DocTest
-      object.  The setUp function can access the test globals as the
+      object.  The setUp function can db the test globals as the
       globs attribute of the test passed.
 
     tearDown
       A tear-down function.  This is called after running the
       tests in each file.  The tearDown function will be passed a DocTest
-      object.  The tearDown function can access the test globals as the
+      object.  The tearDown function can db the test globals as the
       globs attribute of the test passed.
 
     globs
@@ -2473,13 +2473,13 @@ def DocFileSuite(*paths, **kw):
     setUp
       A set-up function.  This is called before running the
       tests in each file. The setUp function will be passed a DocTest
-      object.  The setUp function can access the test globals as the
+      object.  The setUp function can db the test globals as the
       globs attribute of the test passed.
 
     tearDown
       A tear-down function.  This is called after running the
       tests in each file.  The tearDown function will be passed a DocTest
-      object.  The tearDown function can access the test globals as the
+      object.  The tearDown function can db the test globals as the
       globs attribute of the test passed.
 
     globs

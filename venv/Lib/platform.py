@@ -41,7 +41,7 @@
 #    1.0.2 - added more Windows support
 #    1.0.1 - reformatted to make doc.py happy
 #    1.0.0 - reformatted a bit and checked into Python CVS
-#    0.8.0 - added sys.version parser and various new access
+#    0.8.0 - added sys.version parser and various new db
 #            APIs (python_version(), python_compiler(), etc.)
 #    0.7.2 - fixed architecture() to use sizeof(pointer) where available
 #    0.7.1 - added support for Caldera OpenLinux

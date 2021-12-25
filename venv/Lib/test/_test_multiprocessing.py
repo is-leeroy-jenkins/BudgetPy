@@ -3545,10 +3545,10 @@ class _TestPicklingConnections(BaseTestCase):
     def test_access(self):
         # On Windows, if we do not specify a destination pid when
         # using DupHandle then we need to be careful to use the
-        # correct access flags for DuplicateHandle(), or else
+        # correct db flags for DuplicateHandle(), or else
         # DupHandle.detach() will raise PermissionError.  For example,
         # for a read only pipe handle we should use
-        # access=FILE_GENERIC_READ.  (Unfortunately
+        # db=FILE_GENERIC_READ.  (Unfortunately
         # DUPLICATE_SAME_ACCESS does not work.)
         conn, child_conn = self.Pipe()
         p = self.Process(target=self.child_access, args=(child_conn,))

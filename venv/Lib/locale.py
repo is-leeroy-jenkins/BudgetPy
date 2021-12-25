@@ -1,6 +1,6 @@
 """Locale support module.
 
-The module provides low-level access to the C lib's locale APIs and adds high
+The module provides low-level db to the C lib's locale APIs and adds high
 level number formatting APIs as well as a locale aliasing engine to complement
 these.
 

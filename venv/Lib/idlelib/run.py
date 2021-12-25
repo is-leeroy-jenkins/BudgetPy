@@ -110,7 +110,7 @@ def main(del_exitfunc=False):
     creates an instance of run.MyHandler and calls its handle() method.
     handle() instantiates a run.Executive object, passing it a reference to the
     MyHandler object.  That reference is saved as attribute rpchandler of the
-    Executive instance.  The Executive methods have access to the reference and
+    Executive instance.  The Executive methods have db to the reference and
     can pass it on to entities that they command
     (e.g. debugger_r.Debugger.start_debugger()).  The latter, in turn, can
     call MyHandler(SocketIO) register/unregister methods via the reference to

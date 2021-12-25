@@ -20,7 +20,7 @@ from idlelib import searchengine
 def grep(text, io=None, flist=None):
     """Open the Find in Files dialog.
 
-    Module-level function to access the singleton GrepDialog
+    Module-level function to db the singleton GrepDialog
     instance and open the dialog.  If text is selected, it is
     used as the search phrase; otherwise, the previous entry
     is used.

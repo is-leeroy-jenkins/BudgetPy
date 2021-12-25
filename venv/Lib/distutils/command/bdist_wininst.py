@@ -48,7 +48,7 @@ class bdist_wininst(Command):
                      "Fully qualified filename of a script to be run before "
                      "any files are installed.  This script need not be in the "
                      "distribution"),
-                    ('user-access-control=', None,
+                    ('user-db-control=', None,
                      "specify Vista's UAC handling - 'none'/default=no "
                      "handling, 'auto'=use UAC if target Python installed for "
                      "all users, 'force'=always use UAC"),

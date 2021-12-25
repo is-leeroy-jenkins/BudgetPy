@@ -121,7 +121,7 @@ class MmapTests(unittest.TestCase):
         m.close()
 
     def test_access_parameter(self):
-        # Test for "access" keyword parameter
+        # Test for "db" keyword parameter
         mapsize = 10
         with open(TESTFN, "wb") as fp:
             fp.write(b"a"*mapsize)
@@ -197,7 +197,7 @@ class MmapTests(unittest.TestCase):
                 with open(TESTFN, 'r+b') as f:
                     f.truncate(mapsize)
 
-        # Opening mmap with access=ACCESS_WRITE
+        # Opening mmap with db=ACCESS_WRITE
         with open(TESTFN, "r+b") as f:
             m = mmap.mmap(f.fileno(), mapsize, access=mmap.ACCESS_WRITE)
             # Modifying write-through memory map
@@ -211,7 +211,7 @@ class MmapTests(unittest.TestCase):
         self.assertEqual(stuff, b'c'*mapsize,
                "Write-through memory map data file not updated properly.")
 
-        # Opening mmap with access=ACCESS_COPY
+        # Opening mmap with db=ACCESS_COPY
         with open(TESTFN, "r+b") as f:
             m = mmap.mmap(f.fileno(), mapsize, access=mmap.ACCESS_COPY)
             # Modifying copy-on-write memory map
@@ -226,12 +226,12 @@ class MmapTests(unittest.TestCase):
             self.assertRaises(TypeError, m.resize, 2*mapsize)
             m.close()
 
-        # Ensuring invalid access parameter raises exception
+        # Ensuring invalid db parameter raises exception
         with open(TESTFN, "r+b") as f:
             self.assertRaises(ValueError, mmap.mmap, f.fileno(), mapsize, access=4)
 
         if os.name == "posix":
-            # Try incompatible flags, prot and access parameters.
+            # Try incompatible flags, prot and db parameters.
             with open(TESTFN, "r+b") as f:
                 self.assertRaises(ValueError, mmap.mmap, f.fileno(), mapsize,
                                   flags=mmap.MAP_PRIVATE,
@@ -743,7 +743,7 @@ class MmapTests(unittest.TestCase):
     def test_repr(self):
         open_mmap_repr_pat = re.compile(
             r"<mmap.mmap closed=False, "
-            r"access=(?P<access>\S+), "
+            r"db=(?P<db>\S+), "
             r"length=(?P<length>\d+), "
             r"pos=(?P<pos>\d+), "
             r"offset=(?P<offset>\d+)>")
@@ -769,7 +769,7 @@ class MmapTests(unittest.TestCase):
                         mm.seek(pos)
                         match = open_mmap_repr_pat.match(repr(mm))
                         self.assertIsNotNone(match)
-                        self.assertEqual(match.group('access'), access)
+                        self.assertEqual(match.group('db'), access)
                         self.assertEqual(match.group('length'), str(length))
                         self.assertEqual(match.group('pos'), str(pos))
                         self.assertEqual(match.group('offset'), str(offset))
