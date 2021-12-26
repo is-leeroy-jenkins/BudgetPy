@@ -479,6 +479,7 @@ class CriteriaBuilder():
     __where = None
     __or = None
     __criteria = None
+    __cmd = None
     __sql = None
 
     @property
@@ -492,23 +493,24 @@ class CriteriaBuilder():
             return self.__where
 
     @property
-    def sqlcommand( self ):
-        if self.__sql is not None:
-            return self.__sql[ 0 ]
+    def command( self ):
+        if self.__cmd is not None:
+            return str( self.__sql[ self.__cmd ] )
 
-    @property
-    def name_value_pairs( self ):
-        if self.__criteria is not None:
-            return self.__criteria
+    @command.setter
+    def command( self, cmd ):
+        if not cmd is None and cmd in self.__sql:
+            self.__cmd = str( self.__sql[ cmd ] )
 
-    @name_value_pairs.setter
-    def name_value_pairs( self, pairs ):
+    def create( self, pairs ):
+        ''' builds criteria from dictionary of name value pairs'''
         if isinstance( pairs, dict ):
             self.__criteria = pairs
 
-    def __init__( self ):
+    def __init__( self, cmd = 'SELECT' ):
         self.__and = ' AND '
         self.__where = ' WHERE '
+        self.__cmd = str( cmd )
         self.__sql = [ 'SELECT', 'INSERT', 'UPDATE',
                        'DELETE', 'CREATE', 'ALTER',
                        'DROP', 'DETACH' ]
