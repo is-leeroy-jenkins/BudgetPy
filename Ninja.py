@@ -145,7 +145,7 @@ class BudgetFile():
     @path.setter
     def path( self, base ):
         if os.path.exists( base ):
-            self.__path = str( path )
+            self.__path = str( base )
 
     @property
     def size( self ):
