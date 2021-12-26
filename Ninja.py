@@ -795,41 +795,51 @@ class Source():
 
 class DataModel():
     ''' Defines object used to provide the path to data model databases '''
-    __access = None
-    __sqlite = None
+    __accesspath = None
+    __sqlitepath = None
 
     @property
     def accesspath( self ):
-        if self.__access is not None:
-            return self.__access
+        if self.__accesspath is not None:
+            return str( self.__accesspath )
 
     @property
     def sqlitepath( self ):
-        if self.__sqlite is not None:
-            return str( self.__sqlite )
+        if self.__sqlitepath is not None:
+            return str( self.__sqlitepath )
 
     def __init__( self ):
-        self.__access = r'db\access\datamodels\Data.accdb'
-        self.__sqlite = r'db\sqlite\datamodels\Data.db'
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy\db\access\datamodels\Data.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy\db\sqlite\datamodels\Data.db'
 
 class ReferenceModel():
     '''Defines object used to provide paths to the reference model databases '''
-    __access = None
-    __sqlite = None
+    __accesspath = None
+    __sqlitepath = None
 
     @property
     def accesspath( self ):
-        if self.__access is not None:
-            return str( self.__access )
+        if self.__accesspath is not None:
+            return str( self.__accesspath )
+
+    @accesspath.setter
+    def accesspath( self, path ):
+        if os.path.exists( path ):
+            self.__accesspath = str( path )
 
     @property
     def sqlitepath( self ):
-        if self.__sqlite is not None:
-            return str( self.__sqlite )
+        if self.__sqlitepath is not None:
+            return str( self.__sqlitepath )
+
+    @sqlitepath.setter
+    def sqlitepath( self, path ):
+        if os.path.exists( path ):
+            self.__sqlitepath = str( path )
 
     def __init__( self ):
-        self.__access = r'db\access\referencemodels\References.accdb'
-        self.__sqlite = r'db\sqlite\referencemodels\References.db'
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy\db\access\referencemodels\References.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy\db\sqlite\referencemodels\References.db'
 
 class AccessData():
     '''Builds the budget execution data classes'''
