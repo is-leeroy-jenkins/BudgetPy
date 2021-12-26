@@ -122,15 +122,30 @@ class BudgetFile():
         if self.__base is not None:
             return self.__base
 
+    @base.setter
+    def base( self, path ):
+        if path is not None:
+            self.__base = str( path )
+
     @property
     def name( self ):
         if os.path.isdir( self.__name ):
             return str( os.path.dirname( self.__path ) )
 
+    @name.setter
+    def name( self, path ):
+        if not os.path.exists( path ):
+            self.__name = str( os.path.basename( path ) )
+
     @property
     def path( self ):
         if os.path.isdir( self.__path ):
             return str( self.__path )
+
+    @path.setter
+    def path( self, base ):
+        if os.path.exists( base ):
+            self.__path = str( path )
 
     @property
     def size( self ):
