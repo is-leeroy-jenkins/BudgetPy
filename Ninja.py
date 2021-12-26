@@ -1,4 +1,5 @@
 import os
+import datetime as dt
 import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
@@ -152,40 +153,80 @@ class BudgetFile():
         if self.__base is not None:
             return float( self.__size )
 
+    @size.setter
+    def size( self, num ):
+        if num is not None:
+            self.__size = float( num )
+
     @property
     def directory( self ):
         if self.__directory is not None:
             return self.__directory
+
+    @directory.setter
+    def directory( self, path ):
+        if os.path.isdir( path ):
+            self.__directory = str( os.path.dirname( path ) )
 
     @property
     def extension( self ):
         if self.__extension is not None:
             return self.__extension
 
+    @extension.setter
+    def extension( self, ext ):
+        if ext is not None:
+            self.__extension = str( ext )
+
     @property
     def drive( self ):
         if self.__drive is not None:
             return self.__drive
+
+    @drive.setter
+    def drive( self, path ):
+        if os.path.ismount( path ):
+            self.__drive = str( path )
 
     @property
     def modified( self ):
         if self.__modified is not None:
             return self.__modified
 
+    @modified.setter
+    def modified( self, yr, mo = 1, dy = 1 ):
+        if dt.date( yr, mo, dy ):
+            self.__modified = dt.date( yr, mo, dy )
+
     @property
     def accessed( self ):
         if self.__accessed is not None:
             return self.__accessed
+
+    @accessed.setter
+    def accessed( self, yr, mo = 1, dy = 1  ):
+        if dt.date( yr, mo, dy ):
+            self.__accessed = dt.date( yr, mo, dy )
 
     @property
     def created( self ):
         if self.__created is not None:
             return self.__created
 
+    @created.setter
+    def created( self, yr, mo = 1, dy = 1 ):
+        if dt.date( yr, mo, dy ):
+            self.__created = dt.date( yr, mo, dy )
+
     @property
     def current( self ):
         if self.__current is not None:
             return self.__current
+
+    @current.setter
+    def current( self, path ):
+        if os.path.exists( path ):
+            self.__current = os.chdir( path )
 
     # Constructor
     def __init__( self, base ):
@@ -290,50 +331,102 @@ class BudgetFolder():
         if self.__base is not None:
             return self.__base
 
+    @base.setter
+    def base( self, path ):
+        if path is not None:
+            self.__base = str( path )
+
     @property
     def name( self ):
-        if self.__name is not None:
-            return self.__name
+        '''Returns string representing the name of the path 'base' '''
+        if os.path.exists( self.__base ):
+            return str( list( os.path.split( self.__base ) )[ 1 ] )
+
+    @name.setter
+    def name( self, path ):
+        '''Returns string representing the name of the path 'base' '''
+        if path is not None:
+            self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @property
     def path( self ):
-        if self.__path is not None:
-            return self.__path
+        if os.path.isdir( self.__path ):
+            return str( self.__path )
+
+    @path.setter
+    def path( self, base ):
+        if os.path.exists( base ):
+            self.__path = str( base )
 
     @property
     def size( self ):
-        if self.__parent is not None:
-            return self.__size
+        if self.__base is not None:
+            return float( self.__size )
 
-    @property
-    def current( self ):
-        if self.__current is not None:
-            return self.__current
+    @size.setter
+    def size( self, num ):
+        if num is not None:
+            self.__size = float( num )
 
     @property
     def parent( self ):
         if self.__parent is not None:
             return self.__parent
 
+    @parent.setter
+    def parent( self, path ):
+        if os.path.isdir( path ):
+            self.__parent = str( path )
+
     @property
     def drive( self ):
         if self.__drive is not None:
             return self.__drive
+
+    @drive.setter
+    def drive( self, path ):
+        if os.path.ismount( path ):
+            self.__drive = str( path )
 
     @property
     def modified( self ):
         if self.__modified is not None:
             return self.__modified
 
+    @modified.setter
+    def modified( self, yr, mo = 1, dy = 1 ):
+        if dt.date( yr, mo, dy ):
+            self.__modified = dt.date( yr, mo, dy )
+
     @property
     def accessed( self ):
         if self.__accessed is not None:
             return self.__accessed
 
+    @accessed.setter
+    def accessed( self, yr, mo = 1, dy = 1  ):
+        if dt.date( yr, mo, dy ):
+            self.__accessed = dt.date( yr, mo, dy )
+
     @property
     def created( self ):
         if self.__created is not None:
             return self.__created
+
+    @created.setter
+    def created( self, yr, mo = 1, dy = 1 ):
+        if dt.date( yr, mo, dy ):
+            self.__created = dt.date( yr, mo, dy )
+
+    @property
+    def current( self ):
+        if self.__current is not None:
+            return self.__current
+
+    @current.setter
+    def current( self, path ):
+        if os.path.exists( path ):
+            self.__current = os.chdir( path )
 
     # Constructor
     def __init__( self, base ):
@@ -370,12 +463,12 @@ class BudgetFolder():
         if other is not None and os.path.isdir( other ):
             os.rmdir( other )
 
-    def getsize( self, other ):
+    def get_size( self, other ):
         ''' gets and returns size of 'path' '''
         if other is not None and os.path.isdir( other ):
             return os.path.getsize( other )
 
-    def getdrive( self, other ):
+    def get_drive( self, other ):
         ''' gets and returns parent directory of 'path' '''
         if other is not None and os.path.isdir( other ):
             return os.path.splitdrive( other )[ 0 ]
@@ -440,13 +533,13 @@ class DataRow():
 
     @property
     def data( self ):
-        if self.__items is not None:
-            return self.__items.items()
+        if self.__items.items() is not None:
+            return list( self.__items.items() )
 
     @data.setter
     def data( self, items ):
-        if isinstance( items, dict ):
-            self.__items = items.items()
+        if isinstance( items, dict ) and len( items.items() ) > 0:
+            self.__items = list( items.items() )
 
     @property
     def names( self ):
@@ -465,8 +558,8 @@ class DataRow():
 
     @values.setter
     def values( self, items ):
-        if isinstance( items, dict ):
-            self.__values = items.values()
+        if isinstance( items, list ):
+            self.__values = items
 
     @property
     def source( self ):
