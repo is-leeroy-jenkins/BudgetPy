@@ -62,7 +62,7 @@ class BudgetPath():
     @property
     def extension( self ):
         if self.__ext is not None:
-            return str( self.__ext  )
+            return str( self.__ext )
 
     @extension.setter
     def extension( self, ext ):
@@ -204,7 +204,7 @@ class BudgetFile():
             return self.__accessed
 
     @accessed.setter
-    def accessed( self, yr, mo = 1, dy = 1  ):
+    def accessed( self, yr, mo = 1, dy = 1 ):
         if dt.date( yr, mo, dy ):
             self.__accessed = dt.date( yr, mo, dy )
 
@@ -226,7 +226,7 @@ class BudgetFile():
     @current.setter
     def current( self, path ):
         if os.path.exists( path ):
-            self.__current = os.chdir( path )
+            os.chdir( path )
 
     # Constructor
     def __init__( self, base ):
@@ -404,7 +404,7 @@ class BudgetFolder():
             return self.__accessed
 
     @accessed.setter
-    def accessed( self, yr, mo = 1, dy = 1  ):
+    def accessed( self, yr, mo = 1, dy = 1 ):
         if dt.date( yr, mo, dy ):
             self.__accessed = dt.date( yr, mo, dy )
 
@@ -426,7 +426,7 @@ class BudgetFolder():
     @current.setter
     def current( self, path ):
         if os.path.exists( path ):
-            self.__current = os.chdir( path )
+            os.chdir( path )
 
     # Constructor
     def __init__( self, base ):
@@ -499,7 +499,7 @@ class CriteriaBuilder():
 
     @command.setter
     def command( self, cmd ):
-        if not cmd is None and cmd in self.__sql:
+        if cmd is not None and cmd in self.__sql:
             self.__cmd = str( self.__sql[ cmd ] )
 
     def create( self, pairs ):
@@ -840,8 +840,10 @@ class ReferenceModel():
             self.__sqlitepath = str( path )
 
     def __init__( self ):
-        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy\db\access\referencemodels\References.accdb'
-        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy\db\sqlite\referencemodels\References.db'
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy\db\access\referencemodels' \
+                            r'\References.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy\db\sqlite\referencemodels' \
+                            r'\References.db'
 
 class AccessData():
     '''Builds the budget execution data classes'''
@@ -850,12 +852,11 @@ class AccessData():
     __connection = None
     __cursor = None
     __data = None
-    __dbpath = None
 
     @property
     def datapath( self ):
         if self.__dbpath is not None:
-            return self.__dbpath
+            return str( self.__dbpath )
 
     @property
     def datasource( self ):
@@ -864,8 +865,8 @@ class AccessData():
 
     @property
     def connectionstring( self ):
-        if self.__connector is not None:
-            return self.__connector
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
 
     @property
     def data( self ):
@@ -876,14 +877,15 @@ class AccessData():
         if self.__data is None:
             self.__data = self.__cursor.execute( f'SELECT * FROM {table}' )
 
+    def connect( self ):
+        if self.__dbpath is not None:
+            db.connect( r'Driver={Microsoft Access Driver(*.mdb, *.accdb)};'
+                        r'DBQ=C:\Users\teppler\source\repos\BudgetPy\db\access\datamodels\Data'
+                        r'.accdb;' )
+
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\access\\datamodels\\Data.accdb;'
-        self.__connector = ( (r'DRIVER={Microsoft Access Driver(*.mdb, *.accdb)};'
-            r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access\datamodels\Data.accdb;') )
-        self.__connection = db.connect( r'Driver={Microsoft Access Driver(*.mdb, *.accdb)};'
-            f'DBQ={self.__dbpath};', timeout = 3, attrs_before = dict() )
-        self.__cursor = self.__connection.cursor()
+        self.__dbpath = r'C:\Users\teppler\source\repos\BudgetPy\db\access\datamodels\Data.accdb;'
         self.__data = pd.DataFrame
 
 class AccessReference():
@@ -932,9 +934,11 @@ class AccessReference():
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\access\\referencemodels\\References.accdb;'
-        self.__connectionstring = ( r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                                   r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access\referencemodels\References.accdb;' )
+        self.__dbpath = 'C:\\Users\\teppler\\source\\repos\\BudgetPy\\db\\access\\referencemodels' \
+                        '\\References.accdb;'
+        self.__connectionstring = (r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+                                   r'DBQ=C:\Users\teppler\source\repos\BudgetPy\db\access'
+                                   r'\referencemodels\References.accdb;')
         self.__connection = db.connect( self.__connectionstring, timeout = 3,
             attrs_before = dict() )
         self.__cursor = self.__connection.cursor()
@@ -943,7 +947,7 @@ class AccessReference():
     def get_data( self, table ):
         '''Method to retrieve data from source 'table' '''
         if table is not None:
-            __sql = f'SELECT * FROM { str( table ) }'
+            __sql = f'SELECT * FROM {str( table )}'
             self.__data = self.__cursor.execute( __sql )
 
 class SQLiteData():
@@ -989,22 +993,22 @@ class SQLiteData():
         if self.__data is not None:
             return iter( self.__data[ 0: ] )
 
-    def __str__(self):
+    def __str__( self ):
         if self.__dbpath is not None:
             return self.__dbpath
 
     def __init__( self, table = None ):
         self.__source = str( table )
         self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\sqlite\\datamodels\\Data.db'
-        self.__connection = sl.connect( f'{ self.__dbpath }' )
+        self.__connection = sl.connect( f'{self.__dbpath}' )
         self.__cursor = self.__connection.cursor()
         self.__data = pd.DataFrame
 
     def get_data( self, table ):
         '''Creates connection and cursor to query the source 'table' '''
         if table is None:
-            __sql = f'SELECT * FROM { str( table ) }'
-            self.__data = self.__cursor.execute( f'SELECT * FROM { __sql }' )
+            __sql = f'SELECT * FROM {str( table )}'
+            self.__data = self.__cursor.execute( f'SELECT * FROM {__sql}' )
 
 class SQLiteReference():
     '''Class representing the budget execution reference models'''
@@ -1041,7 +1045,8 @@ class SQLiteReference():
 
     def __init__( self, table = None ):
         self.__source = str( table )
-        self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\sqlite\\referencemodels\\References.db'
+        self.__dbpath = 'C:\\Users\\terry\\source\\repos\\BudgetPy\\db\\sqlite\\referencemodels' \
+                        '\\References.db'
         self.__connection = sl.connect( self.__dbpath )
         self.__cursor = self.__connection.cursor()
         self.__data = [ ]

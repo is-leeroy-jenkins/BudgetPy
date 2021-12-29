@@ -5,7 +5,7 @@
     <option name="ignoredPattern" value="" />
     <option name="additionalUIScale" value="1.0" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (BudgetPy)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python (venv)" project-jdk-type="Python SDK" />
   <component name="PyPackaging">
     <option name="earlyReleasesAsUpgrades" value="true" />
   </component>
