@@ -135,6 +135,11 @@ class Activity():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
     @property
     def table( self ):
         if self.__dataframe is not None:
@@ -182,6 +187,11 @@ class AllowanceHolder():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
     @property
     def table( self ):
         if self.__dataframe is not None:
@@ -204,6 +214,7 @@ class Appropriation():
     __title = None
     __bfy = None
     __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -264,6 +275,16 @@ class Appropriation():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__fund = Fund( self.__code )
@@ -293,26 +314,26 @@ class BudgetFiscalYear():
     __dataframe = None
 
     @property
-    def beginyear( self ):
+    def firstyear( self ):
         if self.__base is not None:
             return self.__bfy
 
-    @beginyear.setter
-    def beginyear( self, yr ):
+    @firstyear.setter
+    def firstyear( self, yr ):
         if yr is not None:
             self.__bfy = str( yr )
-            self.__data[ 'beginyear' ] = self.__bfy
+            self.__data[ 'firstyear' ] = self.__bfy
 
     @property
-    def endyear( self ):
+    def lastyear( self ):
         if self.__efy is not None:
             return self.__efy
 
-    @endyear.setter
-    def endyear( self, yr ):
+    @lastyear.setter
+    def lastyear( self, yr ):
         if yr is not None:
             self.__efy = str( yr )
-            self.__data[ 'endyear' ] = self.__efy
+            self.__data[ 'lastyear' ] = self.__efy
 
     @property
     def calendaryear( self ):
@@ -417,6 +438,11 @@ class BudgetFiscalYear():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
     @property
     def table( self ):
         if self.__dataframe is not None:
@@ -490,6 +516,11 @@ class BudgetObjectClass():
     def data( self ):
         if self.__data is not None:
             return self.__data
+
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
 
     @property
     def table( self ):
@@ -580,6 +611,11 @@ class FinanceObjectClass():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
     @property
     def table( self ):
         if self.__dataframe is not None:
@@ -640,6 +676,11 @@ class Fund():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
     @property
     def table( self ):
         if self.__dataframe is not None:
@@ -658,6 +699,7 @@ class Goal():
     __code = None
     __name = None
     __data = None
+    __dataframe = None
 
     @property
     def code( self ):
@@ -685,6 +727,16 @@ class Goal():
     def data( self ):
         if self.__data is not None:
             return self.__data
+
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
+    @property
+    def table( self ):
+        if self.__dataframe is not None:
+            return self.__dataframe
 
     def __init__( self, code ):
         self.__code = str( code )
@@ -750,6 +802,11 @@ class NationalProgram():
     def data( self ):
         if self.__data is not None:
             return self.__data
+
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
 
     @property
     def table( self ):
@@ -838,6 +895,11 @@ class Organization():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
     @property
     def table( self ):
         if self.__dataframe is not None:
@@ -884,6 +946,11 @@ class Project():
     def data( self ):
         if self.__data is not None:
             return self.__data
+
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
 
     @property
     def table( self ):
@@ -933,6 +1000,11 @@ class ItProjectCode():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
     @property
     def table( self ):
         if self.__dataframe is not None:
@@ -980,6 +1052,11 @@ class SiteProjectCode():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
+
     @property
     def table( self ):
         if self.__dataframe is not None:
@@ -1026,6 +1103,11 @@ class HumanResourceOrganization():
     def data( self ):
         if self.__data is not None:
             return self.__data
+
+    @data.setter
+    def data( self, src ):
+        if isinstance( src, pd.DataFrame ):
+            self.__data = src
 
     @property
     def table( self ):
@@ -1233,7 +1315,7 @@ class ResponsibilityCenter():
     def __str__( self ):
         return self.__code
 
-class ResourcePlanningImplementationOffice():
+class ResourcePlanningOffice():
     '''defines the ResponsiblePlanningOffice class'''
     __code = None
     __name = None
@@ -1301,7 +1383,7 @@ class ProgramResultsCode():
     @rpio.setter
     def rpio( self, code ):
         if code is not None:
-            self.__rpio = ResourcePlanningImplementationOffice( code )
+            self.__rpio = ResourcePlanningOffice( code )
             self.__data[ 'RPIO' ] = self.__rpio.code
 
     @property
@@ -1313,7 +1395,7 @@ class ProgramResultsCode():
     def bfy( self, year ):
         if year is not None:
             self.__rpio = BudgetFiscalYear( year )
-            self.__data[ 'BFY' ] = self.__bfy.beginyear
+            self.__data[ 'BFY' ] = self.__bfy.firstyear
 
     @property
     def fund( self ):
@@ -1323,7 +1405,7 @@ class ProgramResultsCode():
     @fund.setter
     def fund( self, code ):
         if code is not None:
-            self.__fund = ResourcePlanningImplementationOffice( str( code) )
+            self.__fund = ResourcePlanningOffice( str( code ) )
             self.__data[ 'Fund' ] = self.__fund.code
 
     @property
@@ -1442,7 +1524,7 @@ class RegionalOffice():
     @rpio.setter
     def rpio( self, code ):
         if code is not None:
-            self.__rpio = ResourcePlanningImplementationOffice( code )
+            self.__rpio = ResourcePlanningOffice( code )
             self.__data[ 'rpio' ] = self.__rpio
 
     @property
@@ -1467,7 +1549,7 @@ class RegionalOffice():
             return self.__dataframe
 
     def __init__( self, rpio ):
-        self.__rpio = ResourcePlanningImplementationOffice( str( rpio ) )
+        self.__rpio = ResourcePlanningOffice( str( rpio ) )
         self.__name = self.__rpio.name
         self.__data = { 'rpio': self.__rpio,
                         'name': self.__name }
@@ -1627,7 +1709,7 @@ class HeadQuartersOffice():
             return self.__dataframe
 
     def __init__( self, rpio ):
-        self.__rpio = ResourcePlanningImplementationOffice( str( rpio ) )
+        self.__rpio = ResourcePlanningOffice( str( rpio ) )
         self.__name = self.__rpio.name
         self.__data = { 'rpio': self.__rpio,
                         'name': self.__name }
