@@ -861,7 +861,7 @@ class ReferenceModel():
 class AccessData():
     '''Builds the budget execution data classes'''
     __dbpath = None
-    __connectionstring = None
+    __connstring = None
     __data = None
     __source = None
     __query = None
@@ -894,7 +894,7 @@ class AccessData():
     @connstring.setter
     def connstring( self, conn ):
         if conn is not None:
-            self.__connectionstring = str( conn )
+            self.__connstring = str( conn )
 
     @property
     def data( self ):
@@ -908,18 +908,19 @@ class AccessData():
 
     def connect( self ):
         if self.__dbpath is not None:
-            db.connect( r'Driver={Microsoft Access Driver(*.mdb, *.accdb)};'
-                r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access\datamodels\Data.accdb;' )
+            db.connect( self.__dbpath, timeout = 3,
+            attrs_before = dict() )
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy\db\access\datamodels\Data.accdb;'
+        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy\db' \
+            r'\access\datamodels\Data.accdb;'
         self.__data = pd.DataFrame
 
 class AccessReference():
     '''Builds the budget execution data classes'''
     __dbpath = None
-    __connectionstring = None
+    __connstring = None
     __data = None
     __source = None
     __query = None
@@ -946,13 +947,13 @@ class AccessReference():
 
     @property
     def connstring( self ):
-        if self.__connection is not None:
-            return str( self.__connection )
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
 
     @connstring.setter
     def connstring( self, conn ):
         if conn is not None:
-            self.__connection = str( conn )
+            self.__dbpath = str( conn )
 
     @property
     def data( self ):
@@ -966,16 +967,13 @@ class AccessReference():
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy\db' \
-                        r'\access\referencemodels\References.accdb;'
-        self.__connectionstring = ( r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                                   r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access'
-                                   r'\referencemodels\References.accdb;' )
+        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy\db\access' \
+            r'\referencemodels\References.accdb;'
         self.__data = pd.DataFrame
 
     def connect( self ):
         if self.__dbpath is not None:
-            db.connect( self.__connectionstring, timeout = 3,
+            db.connect( self.__dbpath, timeout = 3,
                 attrs_before = dict() )
 
 class SQLiteData():
