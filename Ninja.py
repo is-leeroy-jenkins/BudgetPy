@@ -775,6 +775,7 @@ class DataTable( pd.DataFrame ):
 class Source():
     '''Provides iterator for the Budget Execution table tables '''
     __data = None
+    __reference = None
 
     @property
     def data( self ):
@@ -795,7 +796,8 @@ class Source():
                         'Apportionments', 'BudgetOutlays', 'SF133',
                         'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
                         'StatusOfFunds', 'Supplementals', 'Transfers',
-                        'TravelObligations', 'Accounts', 'ActivityCodes',
+                        'TravelObligations' ]
+        self.__reference = [ 'Accounts', 'ActivityCodes',
                         'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
                         'CostAreas', 'CPIC', 'Divisions',
                         'Documents', 'FederalHolidays', 'FinanceObjectClasses',
