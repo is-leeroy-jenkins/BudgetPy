@@ -1,0 +1,42 @@
+
+ipython:S1192ò"QDefine a constant instead of duplicating this literal 'dt: %s, rem: %s' 14 times.(æ‚ëe
+jpython:S1192£"QDefine a constant instead of duplicating this literal 'dt: %s, fmod: %s' 6 times.(«öœÛ
+npython:S1192Ù"PDefine a constant instead of duplicating this literal "dt: %s, div: %s" 3 times.(Œ¿¹üÿÿÿÿ
+npython:S1192–"UDefine a constant instead of duplicating this literal r"How unexpected :\)!" 8 times.(¹òÖÉ
+ipython:S1192ı"PDefine a constant instead of duplicating this literal "dt: %s, rem: %s" 6 times.(æİÜ©
+Mpython:S1066û"/Merge this if statement with the enclosing one.(²š™¹şÿÿÿÿ
+@python:S1481"(Remove the unused local variable "inst".(ËŞü
+lpython:S3776y"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(œ±Î
+Bpython:S1481¡")Remove the unused local variable "lsize".(šÒÜğ
+Epython:S1481Ÿ"'Remove the unused local variable "neg".(Ä©Èúÿÿÿÿ
+Wpython:S905Á":Remove or refactor this statement; it has no side effects.(ûŒ¥çúÿÿÿÿ
+Wpython:S905Ã":Remove or refactor this statement; it has no side effects.(ûŒ¥çúÿÿÿÿ
+Rpython:S905Æ":Remove or refactor this statement; it has no side effects.(øª¸•
+Rpython:S905È":Remove or refactor this statement; it has no side effects.(øª¸•
+Wpython:S905Ê":Remove or refactor this statement; it has no side effects.(ìû ïÿÿÿÿÿ
+Wpython:S905Ï":Remove or refactor this statement; it has no side effects.(ÁØŞØùÿÿÿÿ
+Wpython:S905":Remove or refactor this statement; it has no side effects.(‡šàÿùÿÿÿÿ
+Wpython:S905­":Remove or refactor this statement; it has no side effects.(›’’Åúÿÿÿÿ
+Apython:S1481¿"(Remove the unused local variable "finf".( ‚¨Ò
+Apython:S1481Õ"(Remove the unused local variable "finf".( ‚¨Ò
+Fpython:S1481µ"(Remove the unused local variable "fnan".(®Ğîºüÿÿÿÿ
+Apython:S1481Î"(Remove the unused local variable "finf".( ‚¨Ò
+Wpython:S905õ":Remove or refactor this statement; it has no side effects.(£şÁşùÿÿÿÿ
+gpython:S1854‹"IRemove this assignment to local variable 'fnan'; the value is never used.(òÍüÇÿÿÿÿÿ
+bpython:S1854Š"IRemove this assignment to local variable 'fzer'; the value is never used.(åóçÛ
+apython:S1854‰"IRemove this assignment to local variable 'fone'; the value is never used.(º²çb
+jpython:S1134‡"LTake the required action to fix the issue indicated by this "FIXME" comment.(¼‰²ßÿÿÿÿÿ
+†python:S101Ó"iRename class "TestFloat_power" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(˜ì©ışÿÿÿÿ
+<python:S125Ó"Remove this commented out code.(î’Å¦ıÿÿÿÿ
+Cpython:S1481§"%Remove the unused local variable "i".(Øáœÿÿÿÿÿ
+Cpython:S1481î"%Remove the unused local variable "i".(Øáœÿÿÿÿÿ
+Fpython:S1481Á"(Remove the unused local variable "ones".(ã‚€ñüÿÿÿÿ
+>python:S1481Ã"%Remove the unused local variable "a".(õ ™
+jpython:S1134Â"LTake the required action to fix the issue indicated by this "FIXME" comment.(¥û¬°şÿÿÿÿ
+>python:S1481å"%Remove the unused local variable "e".(¿‹Åï
+>python:S1481ò"%Remove the unused local variable "i".(éŠ‰£
+apython:S1854"HRemove this assignment to local variable 'res'; the value is never used.(Õ°›•
+mpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(¸³²
+_python:S1854û"FRemove this assignment to local variable 'a'; the value is never used.(ÎœÒ¾
+mpython:S2710¸"TRename "subtype" to a valid class parameter name or add the missing class parameter.(ò°³
+Cpython:S1481ƒ"%Remove the unused local variable "a".(üğ—ûúÿÿÿÿ

@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[Allocations]
 (
-	[PrcId] [int] IDENTITY(1,1) NOT NULL,
+	[AllocationsId] [int] IDENTITY(1,1) NOT NULL,
 	[BudgetLevel] [nvarchar](50) NOT NULL,
 	[RPIO] [nvarchar](50) NOT NULL,
 	[BFY] [nvarchar](50) NOT NULL,

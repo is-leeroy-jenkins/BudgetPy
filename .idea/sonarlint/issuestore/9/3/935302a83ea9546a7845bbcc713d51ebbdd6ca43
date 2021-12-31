@@ -1,0 +1,10 @@
+
+Apython:S108³")Either remove or fill this block of code.(ã‘Û¾
+rpython:S2710¢"TRename "subtype" to a valid class parameter name or add the missing class parameter.(ÕÐ›ìùÿÿÿÿ
+Hpython:S1656·"/Remove or correct this useless self-assignment.(€¸‡Û
+rpython:S3776Û"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(†²„®ýÿÿÿÿ
+~python:S1542À"`Rename function "_deprecate_shape_0_as_None" to match the regular expression ^[a-z_][a-z0-9_]*$.(žÍÐùøÿÿÿÿ
+rpython:S117Í"URename this parameter "arrayList" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û™âÒùÿÿÿÿ
+ppython:S117¬"SRename this parameter "recList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÈÝÅüÿÿÿÿ
+rpython:S3776¬"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÚÈÝÅüÿÿÿÿ
+mpython:S3776º"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(ñ²ÏÙ

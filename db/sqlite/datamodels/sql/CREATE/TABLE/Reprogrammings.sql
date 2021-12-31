@@ -1,23 +1,25 @@
-CREATE TABLE UpperReconcilliation (
-	ReconcilliationId	INTEGER NOT NULL UNIQUE,
-	ExtId	INTEGER NOT NULL,
-	PrcId	INTEGER NOT NULL UNIQUE,
-	BFY	TEXT,
-	BudgetLevel	TEXT,
-	AhCode	TEXT,
-	FundName	TEXT,
-	FundCode	TEXT,
-	OrgCode	TEXT,
-	AccountCode	TEXT,
-	BocCode	TEXT,
-	RcCode	TEXT,
-	BocName	TEXT,
-	DivisionName	TEXT,
-	ProgramProjectCode	TEXT,
-	ProgramProjectName	TEXT,
-	System	NUMERIC,
-	Budget	NUMERIC,
-	Delta	NUMERIC,
-	NET	TEXT,
-	PRIMARY KEY(ReconcilliationId AUTOINCREMENT)
-)
+CREATE TABLE Reprogrammings
+(
+	ReprogrammingId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyReprogrammings PRIMARY KEY,
+	TransferId INTEGER NOT NULL UNIQUE,
+	ReprogrammingNumber TEXT(255) NULL,
+	ProcessedDate DATETIME NULL,
+	RPIO TEXT(255) NULL,
+	AhCode TEXT(255) NULL,
+	BFY TEXT(255) NULL,
+	FundCode TEXT(255) NULL,
+	OrgCode TEXT(255) NULL,
+	AccountCode TEXT(255) NULL,
+	FromTo TEXT(255) NULL,
+	BocCode TEXT(255) NULL,
+	RcCode TEXT(255) NULL,
+	Amount DOUBLE NULL,
+	FundName TEXT(255) NULL,
+	ProgramProjectCode TEXT(255) NULL,
+	ProgramProjectName TEXT(255) NULL,
+	ProgramAreaCode TEXT(255) NULL,
+	ProgramAreaName TEXT(255) NULL,
+	BocName TEXT(255) NULL,
+	DocPrefix TEXT(255) NULL
+);
+

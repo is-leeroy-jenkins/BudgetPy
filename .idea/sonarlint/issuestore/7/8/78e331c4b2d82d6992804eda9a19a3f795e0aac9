@@ -1,0 +1,14 @@
+
+Hpython:S1066"/Merge this if statement with the enclosing one.(èîàÏ
+Hpython:S1066°"/Merge this if statement with the enclosing one.(‹¬º
+Vpython:S57220">Add 1 parameters. Method __getitem__ should have 2 parameters.(¯æé
+>python:S1481Ô"%Remove the unused local variable "i".(»°èë
+Cpython:S1481ı"%Remove the unused local variable "e".(¡¹‰áûÿÿÿÿ
+Cpython:S1481ä"%Remove the unused local variable "i".(×‚îğùÿÿÿÿ
+Cpython:S1481Š"%Remove the unused local variable "i".(×‚îğùÿÿÿÿ
+Wpython:S5722ô">Add 1 parameters. Method __getitem__ should have 2 parameters.(¯æé
+wpython:S1186°"YAdd a nested comment explaining why this method is empty, or complete the implementation.(úÆÖûÿÿÿÿ
+wpython:S1186´"YAdd a nested comment explaining why this method is empty, or complete the implementation.(É…¯áøÿÿÿÿ
+rpython:S1186·"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¢ÄŞ‰
+Cpython:S1481Ç"%Remove the unused local variable "i".(Ïµõ¢ıÿÿÿÿ
+Wpython:S5722æ">Add 1 parameters. Method __getitem__ should have 2 parameters.(¯æé

@@ -1,0 +1,5 @@
+
+Mpython:S1481"5Remove the unused local variable "__tracebackhide__".(äÒµ
+‡python:S101q"kRename class "Test_X86_Features" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ª‚ÕÄúÿÿÿÿ
+Špython:S101"mRename class "Test_POWER_Features" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(×çğšûÿÿÿÿ
+ˆpython:S101—"kRename class "Test_ARM_Features" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(û·÷™ûÿÿÿÿ

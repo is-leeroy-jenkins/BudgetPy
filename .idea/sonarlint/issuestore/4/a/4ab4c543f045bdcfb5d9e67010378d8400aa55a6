@@ -1,0 +1,8 @@
+
+lpython:S1192‡"SDefine a constant instead of duplicating this literal "...ij,...jk->...ik" 3 times.(ëÎÄª
+ipython:S1192¬"PDefine a constant instead of duplicating this literal '...ft,mf->...mt' 7 times.(€òž”
+gpython:S1192÷"IDefine a constant instead of duplicating this literal 'ij,ij->j' 3 times.(¾™õ øÿÿÿÿ
+qpython:S1192é"SDefine a constant instead of duplicating this literal 'dcc,fce,ea,dbf->ab' 3 times.(­ºç”úÿÿÿÿ
+hpython:S1192ê"JDefine a constant instead of duplicating this literal 'ij,jk->ik' 3 times.(ãð¨µÿÿÿÿÿ
+ƒpython:S1192É"eDefine a constant instead of duplicating this literal 'acdf,jbje,gihb,hfac,gfac,gifabc,hfac' 3 times.(ÂéÂËúÿÿÿÿ
+rpython:S3776ò"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ä”â“ÿÿÿÿÿ

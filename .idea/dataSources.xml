@@ -15,5 +15,16 @@
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/sqlite/referencemodels/References.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Microsoft SQL Server (jTds)" uuid="db75711a-2767-44c9-afc1-e04a9f5470b6">
+      <driver-ref>sqlserver.jtds</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:jtds:sqlserver://LocalDB/;instance=C:\Users\terry\source\repos\BudgetPy\db\mssql\datamodels\Data.mdf;namedPipe=true</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="LOCAL_DB_INSTANCE" value="MSSQLLocalDB" />
+        <property name="LOCAL_DB_EXECUTABLE" value="$PROJECT_DIR$/../../../../../Program Files/Microsoft SQL Server/130/Tools/Binn/SqlLocalDB.exe" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

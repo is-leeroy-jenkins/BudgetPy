@@ -4,6 +4,7 @@ import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
 import openpyxl as xl
+import namedtupled as tp
 
 class BudgetPath():
     '''Defines the BudgetPath class'''
@@ -522,6 +523,7 @@ class DataRow():
     __items = None
     __values = None
     __id = None
+    __record = None
 
     @property
     def index( self ):
@@ -705,12 +707,13 @@ class DataColumn():
     def __str__( self ):
         return self.__name
 
-class DataTable():
+class DataTable( pd ):
     '''Defines the DataTable Class'''
     __base = None
     __name = None
     __data = None
     __columns = None
+    __records = None
 
     @property
     def name( self ):

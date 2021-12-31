@@ -1,0 +1,31 @@
+
+cpython:S1192"FDefine a constant instead of duplicating this literal 'ii->i' 8 times.(´Ùşÿÿÿÿ
+bpython:S1192ÿ"IDefine a constant instead of duplicating this literal 'u8,u8,u8' 3 times.(ŞçÍ™
+epython:S1192³"LDefine a constant instead of duplicating this literal "(i),(i)->()" 3 times.(•¬§Î
+Ppython:S5720m"9Rename "x" to "self" or add the missing "self" parameter.(Ø¦‚
+tpython:S1186¶"[Add a nested comment explaining why this function is empty, or complete the implementation.(¨¦ ›
+fpython:S1854½"HRemove this assignment to local variable 'tgt'; the value is never used.(Çåœÿûÿÿÿÿ
+mpython:S3776º"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(…é§È
+ppython:S117·"SRename this local variable "Ba" to match the regular expression ^[_a-z][a-z0-9_]*$.(óö›ÿÿÿÿÿ
+kpython:S117¸"SRename this local variable "La" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õæÿ 
+mpython:S3776Á	"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(ÿ„Ò
+epython:S1764¦
+"LCorrect one of the identical sub-expressions on both sides of operator "==".(ƒ¸À
+jpython:S1764ª
+"LCorrect one of the identical sub-expressions on both sides of operator "==".(ÅÂšìùÿÿÿÿ
+Cpython:S1481Ä
+"%Remove the unused local variable "i".(º¢ä©ÿÿÿÿÿ
+Cpython:S1481Î
+"%Remove the unused local variable "i".( Åş®úÿÿÿÿ
+Cpython:S1481à
+"%Remove the unused local variable "i".(º¢ä©ÿÿÿÿÿ
+>python:S1481â
+"%Remove the unused local variable "i".(¢Û¶î
+Cpython:S1481é
+"%Remove the unused local variable "i".( Åş®úÿÿÿÿ
+>python:S1481ë
+"%Remove the unused local variable "i".(³ßôµ
+Bpython:S1481ä"*Remove the unused local variable "a_copy".(¿šŞ'
+=python:S1481Ì"%Remove the unused local variable "a".(üú{
+Wpython:S905»":Remove or refactor this statement; it has no side effects.(–™º³üÿÿÿÿ
+6python:S125Ï"Remove this commented out code.(ß“á

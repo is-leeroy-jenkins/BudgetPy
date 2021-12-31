@@ -1,4 +1,4 @@
-#!C:\Users\terry\source\compilers\py\python\python.exe
+#!C:\Users\terry\source\repos\BudgetPy\venv\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'uflash==2.0.0','console_scripts','py2hex'
 import re
 import sys

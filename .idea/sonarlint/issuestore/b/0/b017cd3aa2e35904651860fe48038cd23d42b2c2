@@ -1,0 +1,11 @@
+
+npython:S1192!"VDefine a constant instead of duplicating this literal "error with %r: got %r" 3 times.(Ÿ›É
+hpython:S1192Ï"ODefine a constant instead of duplicating this literal "type %s failed" 8 times.(ùè£¨
+`python:S1192“"GDefine a constant instead of duplicating this literal 'dt: %s' 5 times.(È´°ü
+opython:S1192Ô"VDefine a constant instead of duplicating this literal "type %s and %s failed" 8 times.(âüøÝ
+apython:S5797¹"HReplace this expression; used as a condition it will always be constant.(ø…ª’
+Bpython:S1481@"%Remove the unused local variable "i".(Þˆ™·þÿÿÿÿ
+Jpython:S1481¼",Remove the unused local variable "expected".(œ­ýùÿÿÿÿ
+Cpython:S1481´"%Remove the unused local variable "a".(º£ØÚúÿÿÿÿ
+>python:S1481¸"%Remove the unused local variable "a".(´ª¹Ã
+7python:S125‹"Remove this commented out code.(‡Ùå·

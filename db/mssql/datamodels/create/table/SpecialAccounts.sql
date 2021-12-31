@@ -1,0 +1,38 @@
+CREATE TABLE [dbo].[SpecialAccounts]
+(
+	[SpecialAccountsId] [int] IDENTITY(1,1) NOT NULL,
+	[BFY] [nvarchar](50) NULL,
+	[RpioCode] [nvarchar](50) NULL,
+	[FundCode] [nvarchar](50) NULL,
+	[SpecialAccountFund] [nvarchar](50) NULL,
+	[SpecialAccountNumber] [nvarchar](50) NULL,
+	[SpecialAccountName] [nvarchar](100) NULL,
+	[AccountStatus] [nvarchar](50) NULL,
+	[NplStatusCode] [nvarchar](50) NULL,
+	[NplStatusName] [nvarchar](50) NULL,
+	[SiteId] [nvarchar](50) NULL,
+	[CerclisId] [nvarchar](50) NULL,
+	[SiteCode] [nvarchar](50) NULL,
+	[SiteName] [nvarchar](100) NULL,
+	[OperableUnit] [nvarchar](50) NULL,
+	[PipelineCode] [nvarchar](50) NULL,
+	[PipelineDescription] [nvarchar](50) NULL,
+	[AccountCode] [nvarchar](50) NULL,
+	[BocCode] [nvarchar](50) NULL,
+	[BocName] [nvarchar](50) NULL,
+	[TransactionType] [nvarchar](50) NULL,
+	[TransactionTypeName] [nvarchar](50) NULL,
+	[FocCode] [nvarchar](50) NULL,
+	[FocName] [nvarchar](50) NULL,
+	[TransactionDate] [date] NULL,
+	[AvailableBalance] [float] NULL,
+	[OpenCommitments] [float] NULL,
+	[Obligations] [float] NULL,
+	[ULO] [float] NULL,
+	[Disbursements] [float] NULL,
+	[UnpaidBalances] [float] NULL,
+	[Collections] [float] NULL,
+	[CumulativeReceipts] [float] NULL
+);
+
+

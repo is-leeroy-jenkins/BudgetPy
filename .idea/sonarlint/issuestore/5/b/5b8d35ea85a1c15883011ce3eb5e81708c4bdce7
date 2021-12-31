@@ -1,0 +1,3 @@
+
+qpython:S3776F"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¯—«¿ýÿÿÿÿ
+‡python:S101×"jRename class "Test_sctype2char" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(š¨Þšüÿÿÿÿ
