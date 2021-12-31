@@ -761,6 +761,7 @@ class DataTable( pd.DataFrame ):
             return self.__rows
 
     def __init__( self, name ):
+        super().__init__()
         self.__base = str( name )
         self.__name = self.__base
         self.__data = pd.DataFrame( self.__name )
@@ -980,7 +981,6 @@ class SQLiteData():
     '''Builds the budget execution data classes'''
     __source = None
     __dbpath = None
-    __connection = None
     __cursor = None
     __data = None
     __query = None
@@ -1006,14 +1006,14 @@ class SQLiteData():
             self.__source = str( source )
 
     @property
-    def connectionstring( self ):
-        if self.__connection is not None:
-            return str( self.__connection )
+    def connstring( self ):
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
 
-    @connectionstring.setter
-    def connectionstring( self, conn ):
+    @connstring.setter
+    def connstring( self, conn ):
         if conn is not None:
-            self.__connection = str( conn )
+            self.__dbpath = str( conn )
 
     @property
     def data( self ):
@@ -1031,15 +1031,14 @@ class SQLiteData():
 
     def __init__( self, table = None ):
         self.__source = str( table )
-        self.__dbpath = r'C:\Users\terry\table\repos\BudgetPy' \
-                        r'\db\\sqlite\\datamodels\\Data.db'
+        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
+                        r'\db\sqlite\datamodels\\Data.db'
         self.__data = pd.DataFrame
 
 class SQLiteReference():
     '''Class representing the budget execution reference models'''
     __source = None
     __dbpath = None
-    __connection = None
     __cursor = None
     __data = None
     __query = None
@@ -1076,10 +1075,9 @@ class SQLiteReference():
 
     def __init__( self, table = None ):
         self.__source = str( table )
-        self.__dbpath = 'C:\\Users\\terry\\table\\repos\\BudgetPy\\db\\sqlite\\referencemodels' \
-                        '\\References.db'
-        self.__connection = sl.connect( self.__dbpath )
-        self.__cursor = self.__connection.cursor()
+        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\References.db'
+        self.__cursor = self.__dbpath.cursor()
         self.__data = [ ]
 
 class EmailBuilder():
