@@ -4,7 +4,6 @@ import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
 import openpyxl as xl
-import namedtupled as tp
 
 class BudgetPath():
     '''Defines the BudgetPath class'''
@@ -521,6 +520,7 @@ class DataRow():
     __source = None
     __names = None
     __items = None
+    __data = None
     __values = None
     __id = None
     __record = None
@@ -537,13 +537,23 @@ class DataRow():
 
     @property
     def data( self ):
-        if self.__items.items() is not None:
-            return list( self.__items.items() )
+        if self.__data is not None:
+            return dict( self.__data )
 
     @data.setter
     def data( self, items ):
-        if isinstance( items, dict ) and len( items.items() ) > 0:
-            self.__items = list( items.items() )
+        if isinstance( items, dict ):
+            self.__items = items
+
+    @property
+    def items( self ):
+        if isinstance( self.__items, tuple ):
+            return self.__items
+
+    @items.setter
+    def items( self, data ):
+        if isinstance( data, tuple ):
+            self.__items = data
 
     @property
     def names( self ):
@@ -551,9 +561,9 @@ class DataRow():
             return self.__names
 
     @names.setter
-    def names( self, items ):
-        if isinstance( items, dict ):
-            self.__names = items.keys()
+    def names( self, data ):
+        if isinstance( data, dict ):
+            self.__names = data.keys()
 
     @property
     def values( self ):
@@ -577,7 +587,7 @@ class DataRow():
 
     def __init__( self, items = None ):
         self.__source = sl.Row
-        self.__items = dict( items )
+        self.__items = tuple( items )
         self.__id = int( items[ 0 ] )
         self.__names = list( self.__items.keys() )
         self.__values = self.__items.values()
@@ -707,7 +717,7 @@ class DataColumn():
     def __str__( self ):
         return self.__name
 
-class DataTable( pd ):
+class DataTable( pd.DataFrame ):
     '''Defines the DataTable Class'''
     __base = None
     __name = None
@@ -857,32 +867,32 @@ class AccessData():
     __query = None
 
     @property
-    def datapath( self ):
+    def path( self ):
         if self.__dbpath is not None:
             return str( self.__dbpath )
 
-    @datapath.setter
-    def datapath( self, path ):
+    @path.setter
+    def path( self, path ):
         if path is not None:
             self.__dbpath = str( path )
 
     @property
-    def datasource( self ):
+    def source( self ):
         if self.__source is not None:
             return str( self.__source )
 
-    @datasource.setter
-    def datasource( self, table ):
+    @source.setter
+    def source( self, table ):
         if table is not None:
             self.__source = str( table )
 
     @property
-    def connectionstring( self ):
+    def connstring( self ):
         if self.__dbpath is not None:
             return str( self.__dbpath )
 
-    @connectionstring.setter
-    def connectionstring( self, conn ):
+    @connstring.setter
+    def connstring( self, conn ):
         if conn is not None:
             self.__connectionstring = str( conn )
 
@@ -899,48 +909,48 @@ class AccessData():
     def connect( self ):
         if self.__dbpath is not None:
             db.connect( r'Driver={Microsoft Access Driver(*.mdb, *.accdb)};'
-                r'DBQ=C:\Users\teppler\source\repos\BudgetPy\db\access\datamodels\Data.accdb;' )
+                r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access\datamodels\Data.accdb;' )
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = r'C:\Users\teppler\source\repos\BudgetPy\db\access\datamodels\Data.accdb;'
+        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy\db\access\datamodels\Data.accdb;'
         self.__data = pd.DataFrame
 
 class AccessReference():
     '''Builds the budget execution data classes'''
     __dbpath = None
     __connectionstring = None
-    __data = [ ]
+    __data = None
     __source = None
     __query = None
 
     @property
-    def datapath( self ):
+    def path( self ):
         if self.__dbpath is not None:
             return str( self.__dbpath )
 
-    @datapath.setter
-    def datapath( self, path ):
+    @path.setter
+    def path( self, path ):
         if path is not None:
             self.__dbpath = str( path )
 
     @property
-    def datasource( self ):
+    def source( self ):
         if self.__source is not None:
             return str( self.__source )
 
-    @datasource.setter
-    def datasource( self, source ):
+    @source.setter
+    def source( self, source ):
         if source is not None:
             self.__source = str( source )
 
     @property
-    def connectionstring( self ):
+    def connstring( self ):
         if self.__connection is not None:
             return str( self.__connection )
 
-    @connectionstring.setter
-    def connectionstring( self, conn ):
+    @connstring.setter
+    def connstring( self, conn ):
         if conn is not None:
             self.__connection = str( conn )
 
@@ -956,10 +966,10 @@ class AccessReference():
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = r'C:\Users\teppler\source\repos\BudgetPy\db' \
+        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy\db' \
                         r'\access\referencemodels\References.accdb;'
         self.__connectionstring = ( r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
-                                   r'DBQ=C:\Users\teppler\source\repos\BudgetPy\db\access'
+                                   r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access'
                                    r'\referencemodels\References.accdb;' )
         self.__data = pd.DataFrame
 
