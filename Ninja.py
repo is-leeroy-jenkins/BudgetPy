@@ -1055,7 +1055,7 @@ class SQLiteReference():
     @property
     def path( self ):
         if self.__dbpath is not None:
-            return self.__dbpath
+            return str( self.__dbpath )
 
     @path.setter
     def path( self, path ):
@@ -1065,12 +1065,12 @@ class SQLiteReference():
     @property
     def source( self ):
         if self.__source is not None:
-            return self.__source
+            return str( self.__source )
 
     @source.setter
-    def source( self, source ):
-        if source is not None:
-            self.__source = str( source )
+    def source( self, src ):
+        if src is not None:
+            self.__source = str( src )
 
     @property
     def connstring( self ):
