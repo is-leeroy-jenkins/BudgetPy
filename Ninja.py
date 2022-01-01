@@ -135,7 +135,7 @@ class BudgetFile():
 
     @name.setter
     def name( self, path ):
-        if not os.path.exists( path ):
+        if os.path.exists( path ):
             self.__name = str( os.path.basename( path ) )
 
     @property
@@ -783,6 +783,12 @@ class Source():
         if self.__data is not None:
             return self.__data
 
+    @property
+    def reference( self ):
+        ''' Property used to store table names in a list '''
+        if self.__reference is not None:
+            return self.__reference
+
     def __init__( self ):
         self.__data = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
                         'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
@@ -830,8 +836,10 @@ class DataModel():
             return str( self.__sqlitepath )
 
     def __init__( self ):
-        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy\db\access\datamodels\Data.accdb'
-        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy\db\sqlite\datamodels\Data.db'
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\Data.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\Data.db'
 
 class ReferenceModel():
     '''Defines object used to provide paths to the reference model databases '''
@@ -867,7 +875,6 @@ class ReferenceModel():
 class AccessData():
     '''Builds the budget execution data classes'''
     __dbpath = None
-    __connstring = None
     __data = None
     __source = None
     __query = None
@@ -900,7 +907,7 @@ class AccessData():
     @connstring.setter
     def connstring( self, conn ):
         if conn is not None:
-            self.__connstring = str( conn )
+            self.__dbpath = str( conn )
 
     @property
     def data( self ):
@@ -926,7 +933,6 @@ class AccessData():
 class AccessReference():
     '''Builds the budget execution data classes'''
     __dbpath = None
-    __connstring = None
     __data = None
     __source = None
     __query = None
@@ -986,27 +992,26 @@ class SQLiteData():
     '''Builds the budget execution data classes'''
     __source = None
     __dbpath = None
-    __cursor = None
     __data = None
     __query = None
 
     @property
-    def datapath( self ):
+    def path( self ):
         if self.__dbpath is not None:
             return str( self.__dbpath )
 
-    @datapath.setter
-    def datapath( self, path ):
+    @path.setter
+    def path( self, path ):
         if path is not None:
             self.__dbpath = str( path )
 
     @property
-    def datasource( self ):
+    def source( self ):
         if self.__source is not None:
             return str( self.__source )
 
-    @datasource.setter
-    def datasource( self, source ):
+    @source.setter
+    def source( self, source ):
         if source is not None:
             self.__source = str( source )
 
@@ -1044,29 +1049,38 @@ class SQLiteReference():
     '''Class representing the budget execution reference models'''
     __source = None
     __dbpath = None
-    __cursor = None
     __data = None
     __query = None
 
     @property
-    def datapath( self ):
+    def path( self ):
         if self.__dbpath is not None:
             return self.__dbpath
 
-    @datapath.setter
-    def datapath( self, path ):
+    @path.setter
+    def path( self, path ):
         if path is not None:
             self.__dbpath = str( path )
 
     @property
-    def datasource( self ):
+    def source( self ):
         if self.__source is not None:
             return self.__source
 
-    @datasource.setter
-    def datasource( self, source ):
+    @source.setter
+    def source( self, source ):
         if source is not None:
             self.__source = str( source )
+
+    @property
+    def connstring( self ):
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
+
+    @connstring.setter
+    def connstring( self, conn ):
+        if conn is not None:
+            self.__dbpath = str( conn )
 
     @property
     def data( self ):
@@ -1082,8 +1096,7 @@ class SQLiteReference():
         self.__source = str( table )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\sqlite\referencemodels\References.db'
-        self.__cursor = self.__dbpath.cursor()
-        self.__data = [ ]
+        self.__data = pd.DataFrame
 
 class EmailBuilder():
     ''' Helper class for generating email messages '''
