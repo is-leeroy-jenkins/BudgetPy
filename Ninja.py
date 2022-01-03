@@ -1,9 +1,12 @@
 import os
+import io
 import datetime as dt
 import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
 import openpyxl as xl
+import namedtuple as nt
+import sqlite3.Row as dr
 
 class BudgetPath():
     '''Defines the BudgetPath class'''
@@ -19,7 +22,7 @@ class BudgetPath():
 
     @base.setter
     def base( self, path ):
-        if path is not None:
+        if path is not None and os.path.exists( path ):
             self.__base = str( path )
 
     @property
@@ -31,7 +34,7 @@ class BudgetPath():
     @name.setter
     def name( self, path ):
         '''Returns string representing the name of the path 'base' '''
-        if path is not None:
+        if path is not None and os.path.exists( path ):
             self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @property
@@ -74,11 +77,11 @@ class BudgetPath():
         if os.path.exists( other ):
             return True
 
-    def is_file( self, other ):
+    def verify_file( self, other ):
         if os.path.isfile( other ):
             return True
 
-    def is_folder( self, other ):
+    def verify_folder( self, other ):
         if os.path.isdir( other ):
             return True
 
@@ -93,8 +96,7 @@ class BudgetPath():
 
     def join( self, first, second ):
         ''' Concatenates 'first' to 'second' '''
-        if os.path.exists( first ) \
-                and os.path.exists( second ):
+        if os.path.exists( first ) and os.path.exists( second ):
             return os.path.join( first, second )
 
     def __init__( self, filepath ):
@@ -836,9 +838,15 @@ class DataModel():
             return str( self.__sqlitepath )
 
     def __init__( self ):
+<<<<<<< Updated upstream
         self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\access\datamodels\Data.accdb'
         self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+=======
+        self.__accesspath = r'C:\Users\teppler\source\repos\BudgetPy' \
+            r'\db\access\datamodels\Data.accdb'
+        self.__sqlitepath = r'C:\Users\teppler\source\repos\BudgetPy' \
+>>>>>>> Stashed changes
             r'\db\sqlite\datamodels\Data.db'
 
 class ReferenceModel():
@@ -869,7 +877,11 @@ class ReferenceModel():
     def __init__( self ):
         self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\access\referencemodels\References.accdb'
+<<<<<<< Updated upstream
         self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+=======
+        self.__sqlitepath = r'C:\Users\teppler\source\repos\BudgetPy' \
+>>>>>>> Stashed changes
             r'\db\sqlite\referencemodels\References.db'
 
 class AccessData():
@@ -958,14 +970,24 @@ class AccessReference():
             self.__source = str( source )
 
     @property
+<<<<<<< Updated upstream
     def connstring( self ):
         if self.__dbpath is not None:
             return str( self.__dbpath )
+=======
+    def connectionstring( self ):
+        if self.__connectionstring is not None:
+            return str( self.__connectionstring )
+>>>>>>> Stashed changes
 
     @connstring.setter
     def connstring( self, conn ):
         if conn is not None:
+<<<<<<< Updated upstream
             self.__dbpath = str( conn )
+=======
+            self.__connectionstring = str( conn )
+>>>>>>> Stashed changes
 
     @property
     def data( self ):
@@ -1041,8 +1063,13 @@ class SQLiteData():
 
     def __init__( self, table = None ):
         self.__source = str( table )
+<<<<<<< Updated upstream
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\sqlite\datamodels\\Data.db'
+=======
+        self.__dbpath = r'C:\Users\teppler\source\repos\BudgetPy' \
+                        r'\db\\sqlite\\datamodels\\Data.db'
+>>>>>>> Stashed changes
         self.__data = pd.DataFrame
 
 class SQLiteReference():
@@ -1094,9 +1121,17 @@ class SQLiteReference():
 
     def __init__( self, table = None ):
         self.__source = str( table )
+<<<<<<< Updated upstream
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\sqlite\referencemodels\References.db'
         self.__data = pd.DataFrame
+=======
+        self.__dbpath = r'C:\Users\teppler\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\References.db'
+        self.__connection = sl.connect( self.__dbpath )
+        self.__cursor = self.__connection.cursor()
+        self.__data = [ ]
+>>>>>>> Stashed changes
 
 class EmailBuilder():
     ''' Helper class for generating email messages '''
