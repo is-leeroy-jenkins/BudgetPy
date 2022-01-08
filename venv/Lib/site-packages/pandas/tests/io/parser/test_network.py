@@ -16,19 +16,17 @@ import pandas.util._test_decorators as td
 from pandas import DataFrame
 import pandas._testing as tm
 
+import pandas.io.common as icom
 from pandas.io.feather_format import read_feather
 from pandas.io.parsers import read_csv
 
 
 @pytest.mark.network
-@pytest.mark.parametrize(
-    "compress_type, extension",
-    [("gzip", ".gz"), ("bz2", ".bz2"), ("zip", ".zip"), ("xz", ".xz")],
-)
 @pytest.mark.parametrize("mode", ["explicit", "infer"])
 @pytest.mark.parametrize("engine", ["python", "c"])
-def test_compressed_urls(salaries_table, compress_type, extension, mode, engine):
-    check_compressed_urls(salaries_table, compress_type, extension, mode, engine)
+def test_compressed_urls(salaries_table, mode, engine, compression_only):
+    extension = icom._compression_to_extension[compression_only]
+    check_compressed_urls(salaries_table, compression_only, extension, mode, engine)
 
 
 @tm.network
@@ -204,12 +202,12 @@ class TestS3:
 
     def test_read_s3_fails(self, s3so):
         msg = "The specified bucket does not exist"
-        with pytest.raises(IOError, match=msg):
+        with pytest.raises(OSError, match=msg):
             read_csv("s3://nyqpug/asdf.csv", storage_options=s3so)
 
         # Receive a permission error when trying to read a private bucket.
         # It's irrelevant here that this isn't actually a table.
-        with pytest.raises(IOError, match=msg):
+        with pytest.raises(OSError, match=msg):
             read_csv("s3://cant_get_it/file.csv")
 
     @pytest.mark.xfail(reason="GH#39155 s3fs upgrade", strict=False)

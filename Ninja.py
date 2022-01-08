@@ -5,8 +5,6 @@ import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
 import openpyxl as xl
-import namedtuple as nt
-import sqlite3.Row as dr
 
 class BudgetPath():
     '''Defines the BudgetPath class'''
@@ -776,35 +774,35 @@ class DataTable( pd.DataFrame ):
 
 class Source():
     '''Provides iterator for the Budget Execution table tables '''
-    __data = None
-    __reference = None
+    __data = [ ]
+    __reference = [ ]
 
     @property
     def data( self ):
         ''' Property used to store table names in a list '''
         if self.__data is not None:
-            return self.__data
+            return iter( self.__data )
 
     @property
     def reference( self ):
         ''' Property used to store table names in a list '''
         if self.__reference is not None:
-            return self.__reference
+            return iter( self.__reference )
 
     def __init__( self ):
         self.__data = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
                         'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
-                        'Deobligations', 'Defactos', 'DocumentControlNumbers', 'HeadquartersAuthority',
+                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
                         'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
                         'ObjectClassOutlays', 'CarryoverOutlays', 'UnobligatedBalances',
-                        'QueryDefinitions',  'RegionalAuthority', 'SpendingRates', 'GrowthRates',
-                        'ReimbursableAgreements', 'ReimbursableFunds',
+                        'QueryDefinitions',  'RegionalAuthority', 'SpendingRates',
+                        'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
                         'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations',
                         'BudgetControls', 'AppropriationDocuments', 'BudgetDocuments',
                         'Apportionments', 'BudgetOutlays', 'SF133',
                         'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
                         'StatusOfFunds', 'Supplementals', 'Transfers',
-                        'TravelObligations' ]
+                        'HeadquartersAuthority', 'TravelObligations' ]
         self.__reference = [ 'Accounts', 'ActivityCodes',
                         'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
                         'CostAreas', 'CPIC', 'Divisions',
@@ -826,67 +824,88 @@ class DataModel():
     ''' Defines object used to provide the path to data model databases '''
     __accesspath = None
     __sqlitepath = None
+    __mssqlpath = None
 
     @property
-    def accesspath( self ):
+    def access( self ):
         if self.__accesspath is not None:
             return str( self.__accesspath )
 
+    @access.setter
+    def access( self, path ):
+        if path is not None:
+            self.__accesspath = str( path )
+
     @property
-    def sqlitepath( self ):
+    def sqlite( self ):
         if self.__sqlitepath is not None:
             return str( self.__sqlitepath )
 
+    @sqlite.setter
+    def sqlite( self, path ):
+        if path is not None:
+            self.__sqlitepath = str( path )
+
+    @property
+    def sqlserver( self ):
+        if self.__mssqlpath is not None:
+            return str( self.__mssqlpath )
+
+    @sqlserver.setter
+    def sqlserver( self, path ):
+        if path is not None:
+            self.__mssqlpath = str( path )
+
     def __init__( self ):
-<<<<<<< Updated upstream
         self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\access\datamodels\Data.accdb'
         self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
-=======
-        self.__accesspath = r'C:\Users\teppler\source\repos\BudgetPy' \
-            r'\db\access\datamodels\Data.accdb'
-        self.__sqlitepath = r'C:\Users\teppler\source\repos\BudgetPy' \
->>>>>>> Stashed changes
             r'\db\sqlite\datamodels\Data.db'
 
 class ReferenceModel():
     '''Defines object used to provide paths to the reference model databases '''
     __accesspath = None
     __sqlitepath = None
+    __mssqlpath = None
 
     @property
-    def accesspath( self ):
+    def access( self ):
         if self.__accesspath is not None:
             return str( self.__accesspath )
 
-    @accesspath.setter
-    def accesspath( self, path ):
+    @access.setter
+    def access( self, path ):
         if os.path.exists( path ):
             self.__accesspath = str( path )
 
     @property
-    def sqlitepath( self ):
+    def sqlite( self ):
         if self.__sqlitepath is not None:
             return str( self.__sqlitepath )
 
-    @sqlitepath.setter
-    def sqlitepath( self, path ):
+    @sqlite.setter
+    def sqlite( self, path ):
         if os.path.exists( path ):
             self.__sqlitepath = str( path )
+
+    @property
+    def sqlserver( self ):
+        if self.__mssqlpath is not None:
+            return str( self.__mssqlpath )
 
     def __init__( self ):
         self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\access\referencemodels\References.accdb'
-<<<<<<< Updated upstream
         self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
-=======
-        self.__sqlitepath = r'C:\Users\teppler\source\repos\BudgetPy' \
->>>>>>> Stashed changes
             r'\db\sqlite\referencemodels\References.db'
+        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\References.mdf'
 
 class AccessData():
     '''Builds the budget execution data classes'''
     __dbpath = None
+    __driver = None
+    __connstr = None
     __data = None
     __source = None
     __query = None
@@ -912,14 +931,14 @@ class AccessData():
             self.__source = str( table )
 
     @property
-    def connstring( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
+    def connstr( self ):
+        if self.__connstr is not None:
+            return str( self.__connstr )
 
-    @connstring.setter
-    def connstring( self, conn ):
+    @connstr.setter
+    def connstr( self, conn ):
         if conn is not None:
-            self.__dbpath = str( conn )
+            self.__connstr = str( conn )
 
     @property
     def data( self ):
@@ -931,20 +950,33 @@ class AccessData():
         if dframe is not None and isinstance( dframe, pd.DataFrame ):
             self.__data = dframe
 
-    def connect( self ):
-        if self.__dbpath is not None:
-            db.connect( self.__dbpath, timeout = 3,
-            attrs_before = dict() )
+    @property
+    def driver( self ):
+        if self.__driver is not None:
+            return str( self.__driver )
+
+    @driver.setter
+    def driver( self, name ):
+        if name is not None:
+            self.__driver = name
+
+    def get_connection( self ):
+        if self.__connstr is not None:
+            return db.connect( self.__connstr )
 
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy\db' \
+        self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+        self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
             r'\access\datamodels\Data.accdb;'
+        self.__connstr = f'{ self.__driver } { self.__dbpath }'
         self.__data = pd.DataFrame
 
 class AccessReference():
     '''Builds the budget execution data classes'''
     __dbpath = None
+    __driver = None
+    __connstr = None
     __data = None
     __source = None
     __query = None
@@ -970,24 +1002,14 @@ class AccessReference():
             self.__source = str( source )
 
     @property
-<<<<<<< Updated upstream
-    def connstring( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
-=======
-    def connectionstring( self ):
-        if self.__connectionstring is not None:
-            return str( self.__connectionstring )
->>>>>>> Stashed changes
+    def connstr( self ):
+        if self.__connstr is not None:
+            return str( self.__connstr )
 
-    @connstring.setter
-    def connstring( self, conn ):
+    @connstr.setter
+    def connstr( self, conn ):
         if conn is not None:
-<<<<<<< Updated upstream
-            self.__dbpath = str( conn )
-=======
-            self.__connectionstring = str( conn )
->>>>>>> Stashed changes
+            self.__connstr = str( conn )
 
     @property
     def data( self ):
@@ -999,18 +1021,152 @@ class AccessReference():
         if dframe is not None and isinstance( dframe, pd.DataFrame ):
             self.__data[ 0: ] = dframe
 
+    @property
+    def driver( self ):
+        if self.__driver is not None:
+            return str( self.__driver )
+
+    @driver.setter
+    def driver( self, name ):
+        if name is not None:
+            self.__driver = name
+
     def __init__( self, table = None ):
         self.__source = table
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy\db\access' \
+        self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+        self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access' \
             r'\referencemodels\References.accdb;'
+        self.__connstr = f'{ self.__driver } { self.__dbpath }'
         self.__data = pd.DataFrame
 
-    def connect( self ):
-        if self.__dbpath is not None:
-            db.connect( self.__dbpath, timeout = 3,
-                attrs_before = dict() )
+    def get_connection( self ):
+        if self.__connstr is not None:
+            return db.connect( self.__connstr )
 
 class SQLiteData():
+    '''Builds the budget execution data classes'''
+    __dbpath = None
+    __connstr = None
+    __data = None
+    __source = None
+    __query = None
+
+    @property
+    def path( self ):
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
+
+    @path.setter
+    def path( self, path ):
+        if path is not None:
+            self.__dbpath = str( path )
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return str( self.__source )
+
+    @source.setter
+    def source( self, source ):
+        if source is not None:
+            self.__source = str( source )
+
+    @property
+    def connstr( self ):
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
+
+    @connstr.setter
+    def connstr( self, conn ):
+        if conn is not None:
+            self.__dbpath = str( conn )
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, pd.DataFrame ):
+            return self.__data
+
+    @data.setter
+    def data( self, dframe ):
+        if isinstance( dframe, pd.DataFrame ):
+            self.__data = dframe
+
+    def __init__( self, table = None ):
+        self.__source = str( table )
+        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
+                        r'\db\\sqlite\\datamodels\Data.db'
+        self.__connstr = self.__dbpath
+        self.__data = pd.DataFrame
+
+    def __str__( self ):
+        if self.__dbpath is not None:
+            return self.__dbpath
+
+    def get_connection( self ):
+        if self.__connstr is not None:
+            return sl.connect( self.__connstr )
+
+class SQLiteReference():
+    '''Class representing the budget execution reference models'''
+    __source = None
+    __dbpath = None
+    __connstr = None
+    __data = None
+    __query = None
+
+    @property
+    def path( self ):
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
+
+    @path.setter
+    def path( self, path ):
+        if path is not None:
+            self.__dbpath = str( path )
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return str( self.__source )
+
+    @source.setter
+    def source( self, src ):
+        if src is not None:
+            self.__source = str( src )
+
+    @property
+    def connstr( self ):
+        if self.__connstr is not None:
+            return str( self.__connstr )
+
+    @connstr.setter
+    def connstr( self, conn ):
+        if conn is not None:
+            self.__connstr = str( conn )
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return iter( self.__data[ 0: ] )
+
+    @data.setter
+    def data( self, dframe ):
+        if dframe is not None:
+            self.__data = dframe
+
+    def __init__( self, table = None ):
+        self.__source = str( table )
+        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\References.db'
+        self.__connstr = self.__dbpath
+        self.__data = pd.DataFrame
+        self.__data = [ ]
+
+    def get_connection( self ):
+        if self.__connstr is not None:
+            return sl.connect( self.__connstr )
+
+class SqlData():
     '''Builds the budget execution data classes'''
     __source = None
     __dbpath = None
@@ -1063,16 +1219,11 @@ class SQLiteData():
 
     def __init__( self, table = None ):
         self.__source = str( table )
-<<<<<<< Updated upstream
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                        r'\db\sqlite\datamodels\\Data.db'
-=======
-        self.__dbpath = r'C:\Users\teppler\source\repos\BudgetPy' \
-                        r'\db\\sqlite\\datamodels\\Data.db'
->>>>>>> Stashed changes
+            r'\db\mssql\datamodels\Data.mdf'
         self.__data = pd.DataFrame
 
-class SQLiteReference():
+class SqlReference():
     '''Class representing the budget execution reference models'''
     __source = None
     __dbpath = None
@@ -1121,17 +1272,9 @@ class SQLiteReference():
 
     def __init__( self, table = None ):
         self.__source = str( table )
-<<<<<<< Updated upstream
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\References.db'
+            r'\db\mssql\referencemodels\References.mdf'
         self.__data = pd.DataFrame
-=======
-        self.__dbpath = r'C:\Users\teppler\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\References.db'
-        self.__connection = sl.connect( self.__dbpath )
-        self.__cursor = self.__connection.cursor()
-        self.__data = [ ]
->>>>>>> Stashed changes
 
 class EmailBuilder():
     ''' Helper class for generating email messages '''
@@ -1259,6 +1402,11 @@ class ExcelFile():
         if self.__dimensions is not None:
             return self.__dimensions
 
+    @dimensions.setter
+    def dimensions( self, grid = () ):
+        if isinstance( grid, tuple ) and len( grid ) < 3:
+            self.__dimensions = grid
+
     @property
     def workbook( self ):
         ''' Gets the report template '''
@@ -1266,17 +1414,28 @@ class ExcelFile():
             self.__workbook = xl.open( self.__path )
             return self.__workbook
 
+    @workbook.setter
+    def workbook( self, path ):
+        ''' Gets the report template '''
+        if path is not None and os.path.exists( path ):
+            self.__workbook = xl.open( path )
+
     @property
     def worksheet( self ):
         ''' Gets the workbooks worksheet '''
-        if self.__workbook is not None:
-            self.__worksheet = self.__workbook.active
+        if self.__worksheet is not None:
             return self.__worksheet
 
-    def __init__( self, name, rows = None,
-                  cols = None ):
-        self.__path = r'etc\templates\report\ReportBase.xlsx'
+    @worksheet.setter
+    def worksheet( self, name ):
+        ''' Gets the workbooks worksheet '''
+        if self.__workbook is not None and name is not None:
+            self.__workbook.worksheets.clear()
+            self.__worksheet = self.__workbook.create_sheet( title = name, index = 1 )
+
+    def __init__( self, name, rows = 46, cols = 12 ):
+        self.__path = r'etc\templates\report\Excel.xlsx'
         self.__name = str( name )
         self.__rows = int( rows )
         self.__columns = int( cols )
-        self.__dimensions = (self.__rows, self.__columns)
+        self.__dimensions = ( self.__rows, self.__columns )
