@@ -1,0 +1,8 @@
+
+dpython:S1192w"LDefine a constant instead of duplicating this literal 'numpy.ma   ' 4 times.(ïãÈ©
+apython:S1192="IDefine a constant instead of duplicating this literal "numpy.ma" 4 times.(‚ö”ó
+zpython:S1192>"bDefine a constant instead of duplicating this literal "%(module)s.%(funcname)s(%(data)s)" 4 times.(ˆ◊º¨
+mpython:S117,"VRename this local variable "Timer" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àﬁ®È
+5python:S3626C"Remove this redundant return.(Ÿ„ﬁü
+5python:S3626O"Remove this redundant return.(Ÿ„ﬁü
+5python:S3626_"Remove this redundant return.(Ÿ„ﬁü

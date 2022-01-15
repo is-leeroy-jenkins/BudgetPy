@@ -1,0 +1,5 @@
+
+dpython:S1854-"GRemove this assignment to local variable 'ub'; the value is never used.(зб–©ш€€€€
+_python:S1854,"GRemove this assignment to local variable 'lb'; the value is never used.(љК°г
+epython:S1854В"GRemove this assignment to local variable 'ub'; the value is never used.(зб–©ш€€€€
+`python:S1854Б"GRemove this assignment to local variable 'lb'; the value is never used.(љК°г

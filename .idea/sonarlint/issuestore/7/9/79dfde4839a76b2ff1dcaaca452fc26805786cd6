@@ -1,0 +1,5 @@
+
+kpython:S1192"NDefine a constant instead of duplicating this literal "Europe/Berlin" 7 times.(ÀÎ“‚ýÿÿÿÿ
+cpython:S1192"KDefine a constant instead of duplicating this literal "US/Eastern" 3 times.(êÜÆŸ
+cpython:S1192?"KDefine a constant instead of duplicating this literal "US/Pacific" 9 times.(ÚÆÙö
+>python:S1481_"'Remove the unused local variable "df5".(³íè+

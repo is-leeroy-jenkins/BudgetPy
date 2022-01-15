@@ -1,0 +1,5 @@
+
+fpython:S1192¨"NDefine a constant instead of duplicating this literal '?bBhHiIlLqQpP' 3 times.(¯‡„A
+Cpython:S1481æ"%Remove the unused local variable "i".(í¹ëÝùÿÿÿÿ
+>python:S1481¸"%Remove the unused local variable "i".(æ¥òÿ
+rpython:S3776Ç"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(êòŸ ÿÿÿÿÿ

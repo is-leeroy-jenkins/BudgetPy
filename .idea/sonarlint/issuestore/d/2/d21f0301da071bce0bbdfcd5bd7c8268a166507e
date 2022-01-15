@@ -1,0 +1,15 @@
+
+lpython:S1192Ÿ"GDefine a constant instead of duplicating this literal "M8[ns]" 3 times.(§¶ëıÿÿÿÿ8µêæÚã/
+Hpython:S1066»"/Merge this if statement with the enclosing one.(®ƒ¾ú
+Mpython:S1066Õ"/Merge this if statement with the enclosing one.(ÒäÏÄúÿÿÿÿ
+rpython:S3776”"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Şú¦­úÿÿÿÿ
+|python:S1871‹"cEither merge this branch with the identical one on line "644" or change one of the implementations.(—Ÿ˜ç
+Apython:S108ó")Either remove or fill this block of code.(ã‘Û¾
+rpython:S3776°"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(û–ğöüÿÿÿÿ
+Apython:S108Û")Either remove or fill this block of code.(ã‘Û¾
+tpython:S3776‘"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(¦Êö8µêæÚã/
+Hpython:S108²")Either remove or fill this block of code.(ã‘Û¾8µêæÚã/
+mpython:S3776ì	"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(æàá
+mpython:S3776£
+"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(‘ßÅˆ
+jpython:S1134º"LTake the required action to fix the issue indicated by this "FIXME" comment.(ä’Š‘ùÿÿÿÿ

@@ -1,0 +1,11 @@
+
+Hpython:S1066ç"/Merge this if statement with the enclosing one.(í×ç½
+ipython:S107ä"QFunction "read_excel" has 27 parameters, which is greater than the 13 authorized.(µ…î×
+ppython:S107†"QFunction "read_excel" has 27 parameters, which is greater than the 13 authorized.(µ…î×8êºäÚã/
+ppython:S107©"QFunction "read_excel" has 27 parameters, which is greater than the 13 authorized.(µ…î×8êºäÚã/
+gpython:S107½"JMethod "parse" has 22 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+rpython:S3776¼"TRefactor this function to reduce its Cognitive Complexity from 78 to the 15 allowed.(ÿ¬úùÿÿÿÿ
+mpython:S3776È"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(ãØ¼±
+rpython:S3776À
+"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(ú„Úüùÿÿÿÿ
+gpython:S107‘"JMethod "parse" has 20 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ

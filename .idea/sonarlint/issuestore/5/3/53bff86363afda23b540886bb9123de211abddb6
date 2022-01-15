@@ -1,0 +1,27 @@
+
+spython:S1192b"VDefine a constant instead of duplicating this literal "builtins.staticmethod" 3 times.(’“Á„ÿÿÿÿÿ
+rpython:S1192b"UDefine a constant instead of duplicating this literal "builtins.classmethod" 3 times.(’“Á„ÿÿÿÿÿ
+Mpython:S1066ÿ	"/Merge this if statement with the enclosing one.(Ê¨‚›ùÿÿÿÿ
+Hpython:S1066¥
+"/Merge this if statement with the enclosing one.(ÏÂ¿³
+Mpython:S1066®"/Merge this if statement with the enclosing one.(°†—àýÿÿÿÿ
+qpython:S3776h"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ŒÖ¥ëúÿÿÿÿ
+<python:S125÷"Remove this commented out code.(Æ”Ôøÿÿÿÿ
+7python:S125£"Remove this commented out code.(ç¹¹¸
+mpython:S3776ë"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(™ÆŠ¯
+rpython:S3776›"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÂÇïúÿÿÿÿ
+mpython:S3776æ	"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(µ»ž€
+mpython:S3776å"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(å§±–
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 53 to the 15 allowed.(úàêß
+mpython:S3776À"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(â•ÊÃ
+rpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ù²·øÿÿÿÿ
+rpython:S3776†"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(´À”·úÿÿÿÿ
+rpython:S3776¨"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(€žÇÑýÿÿÿÿ
+epython:S5799¦"GMerge these implicitly concatenated strings; or did you forget a comma?(ŠÝŠ­ûÿÿÿÿ
+rpython:S3776ê"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(¯Ñüÿÿÿÿ
+lpython:S3776ï"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(ÒÒ´e
+epython:S1134ø"LTake the required action to fix the issue indicated by this "FIXME" comment.(íÂî¾
+epython:S1134ù"LTake the required action to fix the issue indicated by this "FIXME" comment.(¾ýŠÉ
+mpython:S3776è"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(Õ’Å´
+‚python:S1871Ÿ"dEither merge this branch with the identical one on line "2836" or change one of the implementations.(æ‹±ýúÿÿÿÿ
+mpython:S3776è"TRefactor this function to reduce its Cognitive Complexity from 43 to the 15 allowed.(ÙÃÛþ

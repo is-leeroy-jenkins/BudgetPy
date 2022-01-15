@@ -1,0 +1,5 @@
+
+qpython:S3776:"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(åÂÏÿÿÿÿÿ
+ipython:S117‰"QRename this parameter "setUp" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼®Ï‚
+lpython:S117‰"TRename this parameter "tearDown" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼®Ï‚
+wpython:S1186™"YAdd a nested comment explaining why this method is empty, or complete the implementation.(‹Î¢Ñüÿÿÿÿ

@@ -1,0 +1,7 @@
+
+5python:S3626"Remove this redundant return.(ÙãŞŸ
+?python:S2201'"'The return value of "str" must be used.(ÿïÂ
+Epython:S2201("(The return value of "repr" must be used.(Î¥éùÿÿÿÿ
+kpython:S117€"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÇÜäı
+npython:S117"VRename this local variable "mXbig" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖæÌë
+upython:S117‚"XRename this local variable "mXsmall" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼«àúÿÿÿÿ

@@ -1,0 +1,8 @@
+
+epython:S1192†"LDefine a constant instead of duplicating this literal "US/Eastern" 10 times.(ζ‘‹Ω
+`python:S1192ί"GDefine a constant instead of duplicating this literal "1 hour" 5 times.(€θω²
+epython:S1854’"GRemove this assignment to local variable 'i2'; the value is never used.(›¬Λΐωÿÿÿÿ
+epython:S1854"GRemove this assignment to local variable 'i2'; the value is never used.(›¬Λΐωÿÿÿÿ
+epython:S1854Σ"GRemove this assignment to local variable 'i2'; the value is never used.(›¬Λΐωÿÿÿÿ
+7python:S125Ξ"Remove this commented out code.(έ†Τ
+7python:S125ρ"Remove this commented out code.(έ†Τ

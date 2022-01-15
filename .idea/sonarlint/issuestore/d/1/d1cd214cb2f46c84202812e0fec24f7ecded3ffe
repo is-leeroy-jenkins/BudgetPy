@@ -1,0 +1,5 @@
+
+kpython:S1192”"RDefine a constant instead of duplicating this literal "Royal Dutch Shell" 4 times.(œ¨¥‚
+ipython:S1226`"LIntroduce a new variable or use its initial value before reassigning 'left'.(ú†Ÿøÿÿÿÿ
+jpython:S1226`"MIntroduce a new variable or use its initial value before reassigning 'right'.(ú†Ÿøÿÿÿÿ
+dpython:S1764d"LCorrect one of the identical sub-expressions on both sides of operator "!=".(™ûØå

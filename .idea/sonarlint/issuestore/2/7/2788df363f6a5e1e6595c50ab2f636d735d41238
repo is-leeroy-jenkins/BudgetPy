@@ -1,0 +1,18 @@
+
+Qpython:S9054":Remove or refactor this statement; it has no side effects.(œÃŠ‚
+Vpython:S9057":Remove or refactor this statement; it has no side effects.(İèİışÿÿÿÿ
+Qpython:S905:":Remove or refactor this statement; it has no side effects.(Éâú
+Qpython:S905C":Remove or refactor this statement; it has no side effects.(œÃŠ‚
+Vpython:S905F":Remove or refactor this statement; it has no side effects.(İèİışÿÿÿÿ
+Qpython:S905I":Remove or refactor this statement; it has no side effects.(Éâú
+Vpython:S905R":Remove or refactor this statement; it has no side effects.(÷‰ôäûÿÿÿÿ
+Vpython:S905i":Remove or refactor this statement; it has no side effects.(Ñ¦âùÿÿÿÿ
+upython:S117’"VRename this local variable "t_UTC" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¸´8‚³äÚã/
+Wpython:S905¨":Remove or refactor this statement; it has no side effects.(¸ş‘“ÿÿÿÿÿ
+Rpython:S905ª":Remove or refactor this statement; it has no side effects.(÷ÃßÓ
+Wpython:S905ş":Remove or refactor this statement; it has no side effects.(á–µ£ùÿÿÿÿ
+Rpython:S905€":Remove or refactor this statement; it has no side effects.(å­¨‰
+Wpython:S905ƒ":Remove or refactor this statement; it has no side effects.(‡¨ÓÌùÿÿÿÿ
+Rpython:S905‡":Remove or refactor this statement; it has no side effects.(¥èª©
+Rpython:S905Ÿ":Remove or refactor this statement; it has no side effects.(¥èª©
+Rpython:S905¸":Remove or refactor this statement; it has no side effects.(¥èª©

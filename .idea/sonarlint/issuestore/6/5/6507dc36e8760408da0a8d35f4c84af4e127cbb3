@@ -1,0 +1,8 @@
+
+_python:S1192¢"FDefine a constant instead of duplicating this literal "a,b,c" 5 times.(¥õ‡
+gpython:S1192»"NDefine a constant instead of duplicating this literal "crlf_test.csv" 3 times.(²‡ç
+npython:S1192ı"PDefine a constant instead of duplicating this literal "manual header\n" 3 times.(“£Úåúÿÿÿÿ
+bpython:S1192„"IDefine a constant instead of duplicating this literal "%Y-%m-%d" 5 times.(¥ÇãÈ
+bpython:S1192""JDefine a constant instead of duplicating this literal "test.csv" 11 times.(å›²­
+jpython:S1192™"LDefine a constant instead of duplicating this literal "lf_test.csv" 3 times.(®Š¬ìúÿÿÿÿ
+;python:S125C"Remove this commented out code.(ÆşÃ†üÿÿÿÿ

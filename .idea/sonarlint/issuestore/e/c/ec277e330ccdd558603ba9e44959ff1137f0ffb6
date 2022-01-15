@@ -1,0 +1,13 @@
+
+python:S1192é"aDefine a constant instead of duplicating this literal "out of bounds value in 'indices'" 3 times.(ßÜˆùÿÿÿÿ
+…python:S1192Ê"gDefine a constant instead of duplicating this literal "the 'dtype' parameter is not supported" 3 times.(Ïõè¡ùÿÿÿÿ
+ƒpython:S1192ä"eDefine a constant instead of duplicating this literal "the 'out' parameter is not supported" 5 times.(²¼’Òúÿÿÿÿ
+7python:S125İ"Remove this commented out code.(İ†ŠÔ
+7python:S125€"Remove this commented out code.(İ†ŠÔ
+hpython:S1854š"HRemove this assignment to local variable 'exp'; the value is never used.(õ‰¤ü8îõãÚã/
+hpython:S1854™"HRemove this assignment to local variable 'res'; the value is never used.(íÆ–¯8şõãÚã/
+hpython:S1854‘"HRemove this assignment to local variable 'res'; the value is never used.(íÆ–¯8şõãÚã/
+Apython:S108Ü")Either remove or fill this block of code.(ã‘Û¾
+6python:S125Ñ	"Remove this commented out code.(·¡â*
+python:S117 
+"[Rename this local variable "expected_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒÒÜıøÿÿÿÿ8şõãÚã/

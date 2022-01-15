@@ -1,0 +1,14 @@
+
+Hpython:S1066š"/Merge this if statement with the enclosing one.(¾æÆ²
+Opython:S1066¼"/Merge this if statement with the enclosing one.(Õœ–8¸šãÚã/
+Hpython:S1066¹"/Merge this if statement with the enclosing one.(ù‚í¢
+lpython:S3776é"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(‹ŒÚ
+mpython:S3776’"TRefactor this function to reduce its Cognitive Complexity from 51 to the 15 allowed.(™âŞç
+Ypython:S3827¸"@Series is used before it is defined. Move the definition before.(ò­­
+rpython:S3776©"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(¾§òÉûÿÿÿÿ
+mpython:S3776Ÿ"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¦’¤±
+mpython:S3776Î"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÿéğä
+rpython:S3776õ"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(âµ¢øúÿÿÿÿ
+jpython:S117æ"MRename this parameter "K" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìâôışÿÿÿÿ
+jpython:S117æ"MRename this parameter "N" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìâôışÿÿÿÿ
+rpython:S3776˜"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(ï¯ãŸşÿÿÿÿ

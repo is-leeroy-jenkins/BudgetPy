@@ -1,0 +1,36 @@
+
+bpython:S1542"JRename function "Poly" to match the regular expression ^[a-z_][a-z0-9_]*$.(Á¹ø
+bpython:S1226&"KIntroduce a new variable or use its initial value before reassigning 'msg'.(â‡¨Z
+hpython:S1178"QRename this parameter "Poly1" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎŸù
+hpython:S1178"QRename this parameter "Poly2" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎŸù
+gpython:S117I"QRename this parameter "Poly1" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡…ÜM
+gpython:S117I"QRename this parameter "Poly2" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡…ÜM
+lpython:S117_"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹ºÖòøÿÿÿÿ
+gpython:S117i"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(Âï¾³
+gpython:S117r"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÀêüÃ
+hpython:S117…"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾‰æø
+hpython:S117"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹Ø‘ï
+gpython:S117¼"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.( Ğ
+jpython:S1764Á"LCorrect one of the identical sub-expressions on both sides of operator "==".(ôº«ÿÿÿÿÿÿ
+mpython:S117Ç"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ï´€úÿÿÿÿ
+jpython:S1764Ì"LCorrect one of the identical sub-expressions on both sides of operator "!=".(ãÅŞšûÿÿÿÿ
+mpython:S117Ò"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾½Ä´ÿÿÿÿÿ
+hpython:S117è"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(—ÉÀÕ
+mpython:S117ş"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ë„€Àúÿÿÿÿ
+mpython:S117•"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(İã ‡øÿÿÿÿ
+mpython:S117±"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿åÄøÿÿÿÿ
+hpython:S117Ì"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹á¤Ê
+mpython:S117ç"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¾Æúÿÿÿÿ
+mpython:S117”"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚÷İÕúÿÿÿÿ
+mpython:S117Ÿ"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(—•–ÿøÿÿÿÿ
+gpython:S117¤"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚ëŞh
+hpython:S117®"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(À„»÷
+mpython:S117Ë"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ¥¡ÿÿÿÿÿ
+mpython:S117İ"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(°•ï™üÿÿÿÿ
+mpython:S117ï"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹Ê£üÿÿÿÿ
+mpython:S117‚"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ú³ªşÿÿÿÿ
+hpython:S117"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÀ¯É
+mpython:S117˜"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûû•Óûÿÿÿÿ
+mpython:S117¢"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç˜ÃÌøÿÿÿÿ
+mpython:S117ª"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìÿˆæıÿÿÿÿ
+hpython:S117¶"PRename this parameter "Poly" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎÏ¾Ê

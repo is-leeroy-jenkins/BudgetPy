@@ -1,0 +1,3 @@
+
+qpython:S3776b"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(κβλτϊÿÿÿÿ
+opython:S1045v"RCatch this exception only once; it is already handled by a previous except clause.(ΓΉ©Σωÿÿÿÿ

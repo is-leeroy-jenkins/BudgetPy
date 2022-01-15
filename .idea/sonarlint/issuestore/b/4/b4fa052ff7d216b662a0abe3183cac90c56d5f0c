@@ -1,0 +1,4 @@
+
+rpython:S1192Î"ZDefine a constant instead of duplicating this literal "not a valid function name" 3 times.(ÀÎ
+wpython:S1192¡"YDefine a constant instead of duplicating this literal "Dropping invalid columns" 9 times.(¼ÜÎşÿÿÿÿ
+mpython:S3776³"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(–€‚ø

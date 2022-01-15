@@ -1,0 +1,13 @@
+
+upython:S1192ü"WDefine a constant instead of duplicating this literal "interval[int64, right]" 5 times.(ï¾ø§ÿÿÿÿÿ
+dpython:S1192™"KDefine a constant instead of duplicating this literal "period[D]" 12 times.(–ÅËğ
+ypython:S1192"[Define a constant instead of duplicating this literal "datetime64[ns, US/Eastern]" 9 times.(œÚåİıÿÿÿÿ
+jpython:S1192í"LDefine a constant instead of duplicating this literal "US/Eastern" 10 times.(ŸÎÓèşÿÿÿÿ
+qpython:S1192½"SDefine a constant instead of duplicating this literal "M8[ns, US/Eastern]" 3 times.(ùºúøÿÿÿÿ
+ipython:S1192"KDefine a constant instead of duplicating this literal "period[3D]" 7 times.(ÊÎµ¹üÿÿÿÿ
+@python:S2201"'The return value of "str" must be used.(óÔĞè
+epython:S1764®"LCorrect one of the identical sub-expressions on both sides of operator "==".( åÍÆ
+epython:S1764±"LCorrect one of the identical sub-expressions on both sides of operator "is".(Ñ†Ó¡
+jpython:S1764˜"LCorrect one of the identical sub-expressions on both sides of operator "==".(öÃ‚Œıÿÿÿÿ
+epython:S1764™"LCorrect one of the identical sub-expressions on both sides of operator "==".(˜Á¢°
+Xpython:S905Ò":Remove or refactor this statement; it has no side effects.(´İáz8¯­åÚã/

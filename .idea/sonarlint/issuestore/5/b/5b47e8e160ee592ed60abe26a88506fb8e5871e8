@@ -1,0 +1,6 @@
+
+mpython:S117"VRename this local variable "Ncols" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ÀäÍ
+qpython:S3776s"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(ÐŠÏõýÿÿÿÿ
+qpython:S2710s"TRename "subtype" to a valid class parameter name or add the missing class parameter.(ÐŠÏõýÿÿÿÿ
+6python:S3626»"Remove this redundant return.(ÙãÞŸ
+>python:S1481ƒ"%Remove the unused local variable "e".(¨šý®

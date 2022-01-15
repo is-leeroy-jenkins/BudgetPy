@@ -1,0 +1,8 @@
+
+kpython:S1192‹"MDefine a constant instead of duplicating this literal "not in index" 5 times.(Éûºèùÿÿÿÿ
+epython:S1192"GDefine a constant instead of duplicating this literal "'2011'" 3 times.(ĞÀÙûşÿÿÿÿ
+ypython:S1192_"aDefine a constant instead of duplicating this literal "Index data must be 1-dimensional" 3 times.(©µÇ
+lpython:S3776I"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(¬ÀÆ
+@python:S2201ğ"'The return value of "str" must be used.(Ïì…Í
+zpython:S4143ƒ"\Verify this is the key that was intended; a value has already been saved for it on line 514.(ïıÉÖøÿÿÿÿ
+Mpython:S1656’"/Remove or correct this useless self-assignment.(­èÜşÿÿÿÿ

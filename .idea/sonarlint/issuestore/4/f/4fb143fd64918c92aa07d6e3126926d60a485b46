@@ -1,0 +1,27 @@
+
+gpython:S1192"IDefine a constant instead of duplicating this literal 'removed ' 4 times.(ığÌµüÿÿÿÿ
+Mpython:S1066á"/Merge this if statement with the enclosing one.(åŞÉÌøÿÿÿÿ
+Mpython:S1066ğ"/Merge this if statement with the enclosing one.(ü¥§úÿÿÿÿ
+rpython:S3776Š"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(Õó¤äùÿÿÿÿ
+|python:S1871¤"cEither merge this branch with the identical one on line "290" or change one of the implementations.(„±¥
+Qpython:S5727Ô"3Remove this identity check; it will always be True.(´½“öùÿÿÿÿ
+opython:S5795Ô"QReplace this "is not" operator with "!="; identity operator is not reliable here.(´½“öùÿÿÿÿ
+Lpython:S5727Õ"3Remove this identity check; it will always be True.(‰—¬¹
+jpython:S5795Õ"QReplace this "is not" operator with "!="; identity operator is not reliable here.(‰—¬¹
+Kpython:S5727Ö"3Remove this identity check; it will always be True.(¾j
+ipython:S5795Ö"QReplace this "is not" operator with "!="; identity operator is not reliable here.(¾j
+Qpython:S5727×"3Remove this identity check; it will always be True.(¦¯Üšÿÿÿÿÿ
+opython:S5795×"QReplace this "is not" operator with "!="; identity operator is not reliable here.(¦¯Üšÿÿÿÿÿ
+Qpython:S5727Ø"3Remove this identity check; it will always be True.(‚ş®½ùÿÿÿÿ
+opython:S5795Ø"QReplace this "is not" operator with "!="; identity operator is not reliable here.(‚ş®½ùÿÿÿÿ
+<python:S125ä"Remove this commented out code.(Ø¤œ»ûÿÿÿÿ
+rpython:S3776…"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(ÄÁšÃşÿÿÿÿ
+mpython:S3776Ê"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ëÇÂœ
+rpython:S3776²"TRefactor this function to reduce its Cognitive Complexity from 54 to the 15 allowed.(¹ˆÊºûÿÿÿÿ
+rpython:S3776´	"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(ñ½–ôıÿÿÿÿ
+rpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(é¸ûÿÿÿÿ
+rpython:S3776à"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ú˜Í‡ûÿÿÿÿ
+Apython:S1481Æ"(Remove the unused local variable "info".(Èû¹Œ
+rpython:S3776£"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(›Æßúÿÿÿÿ
+mpython:S3776ï"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(Øı’Í
+mpython:S3776˜"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(‰Ç

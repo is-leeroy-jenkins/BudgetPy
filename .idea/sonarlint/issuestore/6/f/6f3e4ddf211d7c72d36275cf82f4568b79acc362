@@ -1,0 +1,15 @@
+
+npython:S1192÷"ODefine a constant instead of duplicating this literal "datetime64[ns]" 5 times.(²¾H8ñ…çÚã/
+ãpython:S1192°"ÄDefine a constant instead of duplicating this literal """\
+ID,date,nominalTime,actualTime,A,B,C,D,E
+KORD,19990127, 19:00:00, 18:56:00, 0.8100, 2.8100, 7.2000, 0.0000, 280.0000
+KORD,19990127, 20:00:00, 19:56:00, 0.0100, 2.2100, 7.2000, 0.0000, 260.0000
+KORD,19990127, 21:00:00, 20:56:00, -0.5900, 2.2100, 5.7000, 0.0000, 280.0000
+KORD,19990127, 21:00:00, 21:18:00, -0.9900, 2.0100, 3.6000, 0.0000, 270.0000
+KORD,19990127, 22:00:00, 21:56:00, -0.5900, 1.7100, 5.1000, 0.0000, 290.0000
+KORD,19990127, 23:00:00, 22:56:00, -0.5900, 1.7100, 4.6000, 0.0000, 280.0000
+""" 3 times.(‡Ëˆ§şÿÿÿÿ
+‰python:S1192¶"iDefine a constant instead of duplicating this literal "The prefix argument has been deprecated " 4 times.(ú¶ã8€†çÚã/
+Apython:S5781Æ	"(Change or remove duplicates of this key.(†ÕÏ
+5python:S2772"Remove this unneeded "pass".(ã‘Û¾
+Kpython:S5806À"+Rename this variable; it shadows a builtin.(¬Æô±8€†çÚã/

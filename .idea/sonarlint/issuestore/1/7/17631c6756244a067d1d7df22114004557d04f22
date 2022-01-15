@@ -1,0 +1,18 @@
+
+fpython:S1192Ê"HDefine a constant instead of duplicating this literal 'linux.*' 4 times.(§Üç‰üÿÿÿÿ
+}python:S1542b"`Rename function "CCompiler_find_executables" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸øŸüÿÿÿÿ
+rpython:S1542p"URename function "CCompiler_spawn" to match the regular expression ^[a-z_][a-z0-9_]*$.(ì©Íêûÿÿÿÿ
+Dpython:S5806‰"+Rename this variable; it shadows a builtin.(àïÜ
+ypython:S1542¹"`Rename function "CCompiler_object_filenames" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡­•Å
+ppython:S1542è"WRename function "CCompiler_compile" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹”Ğ†
+mpython:S3776è"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(¹”Ğ†
+Ipython:S5806"+Rename this variable; it shadows a builtin.(ºáÅ—üÿÿÿÿ
+{python:S1542ô"]Rename function "CCompiler_customize_cmd" to match the regular expression ^[a-z_][a-z0-9_]*$.(é†Ñšøÿÿÿÿ
+{python:S1542¸"bRename function "CCompiler_show_customization" to match the regular expression ^[a-z_][a-z0-9_]*$.(Á×ûÆ
+6python:S3626¤"Remove this redundant return.(ÙãŞŸ
+wpython:S1542Õ"YRename function "CCompiler_customize" to match the regular expression ^[a-z_][a-z0-9_]*$.(®‚€€şÿÿÿÿ
+rpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(®‚€€şÿÿÿÿ
+ypython:S1542×"[Rename function "CCompiler_get_version" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÛÅªûşÿÿÿÿ
+rpython:S3776×"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÛÅªûşÿÿÿÿ
+zpython:S1542œ"\Rename function "CCompiler_cxx_compiler" to match the regular expression ^[a-z_][a-z0-9_]*$.(²ìëéúÿÿÿÿ
+Hpython:S1656®"/Remove or correct this useless self-assignment.(Öª¸æ

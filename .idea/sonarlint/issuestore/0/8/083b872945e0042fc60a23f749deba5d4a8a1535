@@ -1,0 +1,8 @@
+
+fpython:S1192Ö"MDefine a constant instead of duplicating this literal "Hello Friend" 3 times.(ôõ‡”
+Epython:S2201/"(The return value of "repr" must be used.(ˆŽÿþøÿÿÿÿ
+@python:S2201×"'The return value of "str" must be used.(Ïì…Í
+@python:S2201Ú"'The return value of "str" must be used.(Ïì…Í
+@python:S2201Ý"'The return value of "str" must be used.(Ïì…Í
+@python:S2201à"'The return value of "str" must be used.(Ïì…Í
+upython:S4143ä"\Verify this is the key that was intended; a value has already been saved for it on line 482.(„ˆ²ì

@@ -1,0 +1,9 @@
+
+vpython:S117/"_Rename this local variable "nonContigIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸É¬
+xpython:S117*"\Rename this local variable "stuffSeries" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú¹©Òüÿÿÿÿ
+upython:S117"YRename this local variable "subIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑÆ©üÿÿÿÿ
+vpython:S117%"ZRename this local variable "subIndex2" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚŸ” şÿÿÿÿ
+tpython:S1170"]Rename this local variable "subNonContig" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ó„«Ò
+qpython:S117 "ZRename this local variable "subSeries" to match the regular expression ^[_a-z][a-z0-9_]*$.(³Ç
+rpython:S117&"VRename this local variable "subTS" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿøÀÖûÿÿÿÿ
+fpython:S1854d"NRemove this assignment to local variable 'reindexed'; the value is never used.(ÿøÖ

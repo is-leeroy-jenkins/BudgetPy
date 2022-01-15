@@ -1,0 +1,16 @@
+
+lpython:S1192â"NDefine a constant instead of duplicating this literal "1990-01-01 07" 4 times.(‘öìüÿÿÿÿ
+opython:S1192Á"QDefine a constant instead of duplicating this literal "2013-05-31 00:00" 3 times.(¥ƒÌ÷ûÿÿÿÿ
+qpython:S1192l"TDefine a constant instead of duplicating this literal "1990-01-01 04:00:00" 7 times.(¾“»ùÿÿÿÿ
+qpython:S1192u"TDefine a constant instead of duplicating this literal "1990-01-01 07:00:00" 4 times.(Å‚¢Ùşÿÿÿÿ
+lpython:S1192Ù"NDefine a constant instead of duplicating this literal "1990-01-01 04" 7 times.(Ò¯Äñùÿÿÿÿ
+spython:S4143P"[Verify this is the key that was intended; a value has already been saved for it on line 79.(˜Ğ¢
+spython:S4143U"[Verify this is the key that was intended; a value has already been saved for it on line 84.(ÌöÎŸ
+xpython:S4143b"[Verify this is the key that was intended; a value has already been saved for it on line 97.(Ê˜šßıÿÿÿÿ
+fpython:S1854Œ"HRemove this assignment to local variable 'msg'; the value is never used.(‚«Æ¸ıÿÿÿÿ
+tpython:S4143r"\Verify this is the key that was intended; a value has already been saved for it on line 113.(¥îëö
+ypython:S4143{"\Verify this is the key that was intended; a value has already been saved for it on line 122.(’»úÒüÿÿÿÿ
+upython:S4143Ï"\Verify this is the key that was intended; a value has already been saved for it on line 206.(ÒõÇÁ
+upython:S4143ß"\Verify this is the key that was intended; a value has already been saved for it on line 222.(ùşÎè
+zpython:S4143è"\Verify this is the key that was intended; a value has already been saved for it on line 231.(›ÎÒğşÿÿÿÿ
+Cpython:S1481Æ"%Remove the unused local variable "i".(ñğ‹®úÿÿÿÿ

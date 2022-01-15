@@ -1,0 +1,40 @@
+
+python:S1192ˆ"cDefine a constant instead of duplicating this literal "Columns must be same length as key" 3 times.(œšŠ¶şÿÿÿÿ
+opython:S1192©"QDefine a constant instead of duplicating this literal "display.max_rows" 3 times.(¶Ï€öıÿÿÿÿ
+kpython:S1192å"RDefine a constant instead of duplicating this literal "mode.data_manager" 3 times.(çÚïß
+Mpython:S1066à"/Merge this if statement with the enclosing one.(Å¼ûİúÿÿÿÿ
+Mpython:S1066"/Merge this if statement with the enclosing one.(Ë‹½Üÿÿÿÿÿ
+Mpython:S1066Ã"/Merge this if statement with the enclosing one.(¨´Ò‚øÿÿÿÿ
+Hpython:S1066ÿ"/Merge this if statement with the enclosing one.(Ò­ã¸
+Opython:S1066""/Merge this if statement with the enclosing one.(¸¼ûõ8€çÚã/
+Opython:S1066‘""/Merge this if statement with the enclosing one.(‡£ü¾8€çÚã/
+rpython:S3776Ì"TRefactor this function to reduce its Cognitive Complexity from 55 to the 15 allowed.(ú„Úüùÿÿÿÿ
+kpython:S107¤"NMethod "to_string" has 19 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+kpython:S107½"NMethod "to_string" has 19 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+kpython:S107à"NMethod "to_string" has 19 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+ypython:S3776¥"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(«ˆ»øÿÿÿÿ8€çÚã/
+rpython:S3776ã"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÂÕ×üÿÿÿÿ
+rpython:S3776–"TRefactor this function to reduce its Cognitive Complexity from 62 to the 15 allowed.(È¡æèûÿÿÿÿ
+rpython:S3776æ"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(—Î·üøÿÿÿÿ
+ppython:S107¨"LMethod "to_html" has 23 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ8€çÚã/
+ypython:S117¥"\Rename this local variable "TreeBuilder" to match the regular expression ^[_a-z][a-z0-9_]*$.(É¨õîüÿÿÿÿ
+opython:S107‚"KMethod "to_xml" has 16 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ8€çÚã/
+rpython:S3776†"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(şâæ«ÿÿÿÿÿ
+mpython:S3776à"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(«Ëçğ
+rpython:S3776Ï"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ıÀ•—ÿÿÿÿÿ
+lpython:S3776!"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(º°ùA
+Epython:S1481Ü)"'Remove the unused local variable "col".(œÈ´Õûÿÿÿÿ
+Epython:S1481ã)"'Remove the unused local variable "col".(œÈ´Õûÿÿÿÿ
+mpython:S3776ò)"TRefactor this function to reduce its Cognitive Complexity from 45 to the 15 allowed.(ãˆØ
+mpython:S3776ı+"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(˜ëÃ˜
+ypython:S3776î-"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ñÑ‹°şÿÿÿÿ8€çÚã/
+tpython:S117˜9"\Rename this local variable "otherSeries" to match the regular expression ^[_a-z][a-z0-9_]*$.(°«á
+rpython:S3776œ8"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(µÇºşÿÿÿÿ
+mpython:S3776:"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ØÎ‘Ë
+mpython:S3776—@"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÒĞİó
+ypython:S3776»F"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(¿Ïƒâûÿÿÿÿ8çÚã/
+Apython:S108×F")Either remove or fill this block of code.(ã‘Û¾
+rpython:S3776”H"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ëñ°Îıÿÿÿÿ
+rpython:S3776ûH"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(”¥Óıÿÿÿÿ
+rpython:S3776òI"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(¤ÀÉùÿÿÿÿ
+rpython:S3776µM"TRefactor this function to reduce its Cognitive Complexity from 45 to the 15 allowed.(åµºÃúÿÿÿÿ

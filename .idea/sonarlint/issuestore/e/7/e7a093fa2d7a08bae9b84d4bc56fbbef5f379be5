@@ -1,0 +1,19 @@
+
+jpython:S1542t"SRename function "isComplexType" to match the regular expression ^[a-z_][a-z0-9_]*$.(ô‰şZ
+hpython:S1542"ORename function "_realType" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÉÊºê
+ppython:S1542„"RRename function "_complexType" to match the regular expression ^[a-z_][a-z0-9_]*$.(ºï¿úÿÿÿÿ
+opython:S1542‡"QRename function "_commonType" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ø„˜‹úÿÿÿÿ
+ypython:S1542°"[Rename function "_fastCopyAndTranspose" to match the regular expression ^[a-z_][a-z0-9_]*$.(›Ï€Şşÿÿÿÿ
+rpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÈıØ‡ùÿÿÿÿ
+mpython:S117¬"PRename this parameter "UPLO" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö­øøÿÿÿÿ
+gpython:S117±"PRename this parameter "UPLO" to match the regular expression ^[_a-z][a-z0-9_]*$.(…‘©
+mpython:S117­
+"PRename this parameter "UPLO" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü˜ƒèúÿÿÿÿ
+mpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(ö’óŸ
+qpython:S117ü"MRename this parameter "A" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÀ²Íøÿÿÿÿ8˜ÍË—á/
+lpython:S117"MRename this parameter "A" to match the regular expression ^[_a-z][a-z0-9_]*$.(™²Ê»8˜ÍË—á/
+rpython:S3776®"TRefactor this function to reduce its Cognitive Complexity from 56 to the 15 allowed.(šŠûşÿÿÿÿ
+epython:S117¨"MRename this parameter "A" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿«Ğ•
+epython:S117¨"MRename this parameter "B" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿«Ğ•
+epython:S117¨"MRename this parameter "C" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿«Ğ•
+7python:S125´"Remove this commented out code.(¥Óÿü

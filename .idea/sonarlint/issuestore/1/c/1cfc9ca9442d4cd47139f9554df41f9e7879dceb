@@ -1,0 +1,7 @@
+
+Cpython:S1481û"%Remove the unused local variable "i".(ËŒºÙýÿÿÿÿ
+fpython:S116û"NRename this field "argTwo" to match the regular expression ^[_a-z][_a-z0-9]*$.(ï€ðæ
+mpython:S116ü"PRename this field "argThree" to match the regular expression ^[_a-z][_a-z0-9]*$.(¡Ñ…Ìüÿÿÿÿ
+kpython:S116ú"NRename this field "argOne" to match the regular expression ^[_a-z][_a-z0-9]*$.(ˆÜ¶¢üÿÿÿÿ
+mpython:S116ý"PRename this field "tgtShape" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷èº»øÿÿÿÿ
+opython:S117Ÿ"WRename this local variable "argTwo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÇðÍ

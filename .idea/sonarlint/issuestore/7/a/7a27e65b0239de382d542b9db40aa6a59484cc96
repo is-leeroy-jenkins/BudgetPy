@@ -1,0 +1,9 @@
+
+Dpython:S2201"'The return value of "str" must be used.(×Ú¬ûÿÿÿÿ
+Fpython:S5780°"(Change or remove duplicates of this key.(ãíáíúÿÿÿÿ
+Wpython:S905Î":Remove or refactor this statement; it has no side effects.(£áÅ·ÿÿÿÿÿ
+@python:S2201€"'The return value of "str" must be used.(Ïì…Í
+@python:S2201†"'The return value of "str" must be used.(Ïì…Í
+@python:S2201"'The return value of "str" must be used.(Ïì…Í
+@python:S2201™"'The return value of "str" must be used.(Ïì…Í
+@python:S2201¢"'The return value of "str" must be used.(Ïì…Í

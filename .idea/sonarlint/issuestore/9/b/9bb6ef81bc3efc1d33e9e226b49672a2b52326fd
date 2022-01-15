@@ -1,0 +1,3 @@
+
+–python:S1192;"~Define a constant instead of duplicating this literal r"If `others` contains arrays or lists \(or other list-likes.*" 3 times.(ÔÖÁ
+ipython:S3358›"IExtract this nested conditional expression into an independent statement.(¾®©’8©÷ãÚã/

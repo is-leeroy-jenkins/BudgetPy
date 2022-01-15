@@ -1,0 +1,5 @@
+
+rpython:S1192«"YDefine a constant instead of duplicating this literal "Pirates of the Caribbean" 3 times.(ñÃº¥
+fpython:S1192Õ"MDefine a constant instead of duplicating this literal "B(quarterly)" 3 times.(Ä±…‹
+fpython:S1192Ô"MDefine a constant instead of duplicating this literal "A(quarterly)" 3 times.(é¶ôÜ
+dpython:S1854ü"KRemove this assignment to local variable 'result'; the value is never used.(·‰œü

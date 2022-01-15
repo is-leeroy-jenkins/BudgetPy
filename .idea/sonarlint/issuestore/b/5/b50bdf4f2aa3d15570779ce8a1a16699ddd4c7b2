@@ -1,0 +1,10 @@
+
+rpython:S1192û"TDefine a constant instead of duplicating this literal "2000-01-01 00:00:00" 5 times.(å˜ºÃûÿÿÿÿ
+opython:S1192±"QDefine a constant instead of duplicating this literal "Europe/Amsterdam" 4 times.(¦”Çúÿÿÿÿ
+rpython:S1192â"TDefine a constant instead of duplicating this literal "1970-01-01 00:00:02" 3 times.(·„åúÿÿÿÿ
+mpython:S1192ß"TDefine a constant instead of duplicating this literal "1970-01-01 00:00:00" 4 times.(œÌÔ™
+opython:S1192û"QDefine a constant instead of duplicating this literal "2000-01-01 02:00" 5 times.(å˜ºÃûÿÿÿÿ
+epython:S1192Ë"MDefine a constant instead of duplicating this literal "Europe/Paris" 7 times.(üı¥t
+ipython:S1192‚"PDefine a constant instead of duplicating this literal "America/Chicago" 3 times.(©úõâ
+rpython:S1192ş"TDefine a constant instead of duplicating this literal "1999-12-31 23:57:00" 3 times.(˜šÏÆüÿÿÿÿ
+ipython:S1854µ"KRemove this assignment to local variable 'result'; the value is never used.(¹üŸÌÿÿÿÿÿ

@@ -1,0 +1,23 @@
+
+`python:S1192"HDefine a constant instead of duplicating this literal "A,A;A,A" 5 times.(ùëš­
+ppython:S117"YRename this local variable "AEresult" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯…×Ñ
+opython:S117"SRename this local variable "mA" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÓÃ™ùÿÿÿÿ
+tpython:S117*"XRename this local variable "Aresult" to match the regular expression ^[_a-z][a-z0-9_]*$.(î§ºµøÿÿÿÿ
+ppython:S117"SRename this local variable "mA" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÓÃ™ùÿÿÿÿ
+ppython:S117ˆ"SRename this local variable "mB" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬æßÅúÿÿÿÿ
+ppython:S117–"SRename this local variable "mA" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÓÃ™ùÿÿÿÿ
+kpython:S117—"SRename this local variable "mB" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯Ùÿª
+dpython:S1764"LCorrect one of the identical sub-expressions on both sides of operator "<=".(í‘¤9
+dpython:S1764"KCorrect one of the identical sub-expressions on both sides of operator "<".(Æİ•æ
+jpython:S1764¢"LCorrect one of the identical sub-expressions on both sides of operator ">=".(½ŒÇ´øÿÿÿÿ
+ipython:S1764£"KCorrect one of the identical sub-expressions on both sides of operator ">".(üÌÆÀúÿÿÿÿ
+dpython:S1764¥"LCorrect one of the identical sub-expressions on both sides of operator "==".(‰Áì
+ppython:S117®"SRename this local variable "mA" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ëñúÿÿÿÿ
+ppython:S117Ã"SRename this local variable "mA" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÓÃ™ùÿÿÿÿ
+ppython:S117Å"SRename this local variable "mB" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ±¿¿şÿÿÿÿ
+kpython:S117Ì"SRename this local variable "mC" to match the regular expression ^[_a-z][a-z0-9_]*$.(äÈ”ü
+mpython:S117ß"URename this local variable "Ainv" to match the regular expression ^[_a-z][a-z0-9_]*$.(µÂØ¸
+ppython:S117Ø"SRename this local variable "mA" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÓÃ™ùÿÿÿÿ
+qpython:S117é"TRename this local variable "mA2" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÇÑøûÿÿÿÿ
+Rpython:S905‡":Remove or refactor this statement; it has no side effects.(‘ä¢‰
+Rpython:S905‹":Remove or refactor this statement; it has no side effects.(˜©Äç

@@ -1,0 +1,4 @@
+
+hpython:S1542Š"JRename function "_UTC" to match the regular expression ^[a-z_][a-z0-9_]*$.(ó‹Âýÿÿÿÿÿ
+opython:S1542¶"QRename function "FixedOffset" to match the regular expression ^[a-z_][a-z0-9_]*$.(²æØÒþÿÿÿÿ
+{python:S5717¶"]Change this default value to "None" and initialize this parameter inside the function/method.(²æØÒþÿÿÿÿ

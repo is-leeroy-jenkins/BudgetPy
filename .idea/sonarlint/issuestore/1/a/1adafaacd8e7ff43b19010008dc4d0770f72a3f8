@@ -1,0 +1,7 @@
+
+kpython:S1192õ"KDefine a constant instead of duplicating this literal "US/Pacific" 7 times.(ð–Žî8³ÇäÚã/
+ipython:S1192™"KDefine a constant instead of duplicating this literal "US/Eastern" 3 times.(¼•æ‹úÿÿÿÿ
+Jpython:S1481°"%Remove the unused local variable "i".(ëç¢šüÿÿÿÿ8³ÇäÚã/
+Rpython:S5727ß"4Remove this identity check; it will always be False.(Ü·ü¾øÿÿÿÿ
+Ppython:S5727ß"2Remove this != comparison; it will always be True.(Ü·ü¾øÿÿÿÿ
+jpython:S5655á"LChange this argument; Function "setdefaultencoding" expects a different type(ØòÝ„ýÿÿÿÿ

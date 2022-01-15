@@ -1,0 +1,24 @@
+
+epython:S1192Õ"GDefine a constant instead of duplicating this literal '()->()' 5 times.(È¸ûùÿÿÿÿÿ
+gpython:S1192Þ"ODefine a constant instead of duplicating this literal 'timedelta64[D]' 8 times.(íÌÛX
+gpython:S1192­"IDefine a constant instead of duplicating this literal '(n)->(n)' 5 times.(ÌÜ§ôûÿÿÿÿ
+upython:S1192’"WDefine a constant instead of duplicating this literal "Percentiles must be in" 3 times.(¼Ê¥Çûÿÿÿÿ
+opython:S117Ä"WRename this local variable "A_func" to match the regular expression ^[_a-z][a-z0-9_]*$.(âó È
+=python:S1481È"%Remove the unused local variable "i".(ªºðz
+Cpython:S1481Ï"%Remove the unused local variable "i".(Ïµõ¢ýÿÿÿÿ
+@python:S1481Ë"'Remove the unused local variable "out".(õ­»ä
+Dpython:S5806ã"+Rename this variable; it shadows a builtin.(ß©ò´
+qpython:S117Ë"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÎ øÿÿÿÿ8ŽÌ—á/
+lpython:S117à"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(°¢„8ŽÌ—á/
+qpython:S117õ"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëË±úÿÿÿÿ8ŽÌ—á/
+lpython:S117Š"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(à ½º8ŽÌ—á/
+qpython:S117Ÿ"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ†Çõùÿÿÿÿ8ŽÌ—á/
+tpython:S117÷"WRename this local variable "cast_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú°žÚýÿÿÿÿ
+ypython:S101æ"aRename class "Test_I0" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ñÓ¼•
+Epython:S1481—"'Remove the unused local variable "res".(¿Õçàüÿÿÿÿ
+>python:S1481×"%Remove the unused local variable "j".(ø—™ê
+>python:S1481Ü"%Remove the unused local variable "j".(ø—™ê
+‹python:S101³"nRename class "TestAdd_newdoc_ufunc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(÷ Ÿèþÿÿÿÿ
+…python:S101½"hRename class "TestAdd_newdoc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.( Ì¬‹úÿÿÿÿ
+6python:S3626Ü"Remove this redundant return.(ÙãÞŸ
+6python:S3626è"Remove this redundant return.(ÙãÞŸ

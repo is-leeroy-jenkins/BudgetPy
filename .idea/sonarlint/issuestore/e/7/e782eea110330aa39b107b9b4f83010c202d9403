@@ -1,0 +1,6 @@
+
+tpython:S1192÷"[Define a constant instead of duplicating this literal "a  b  c\n1 -2 -3\n4  5   6" 3 times.(ªöŞº
+gpython:S1192"IDefine a constant instead of duplicating this literal "a,b\n1,2" 4 times.(Øçëñùÿÿÿÿ
+8python:S3626˜"Remove this redundant continue.(À–¬ˆ
+‰python:S1542Ä"kRename function "test_names_and_prefix_not_None_raises" to match the regular expression ^[a-z_][a-z0-9_]*$.(Í£ÜŞúÿÿÿÿ
+‚python:S1542Ğ"iRename function "test_names_and_prefix_explicit_None" to match the regular expression ^[a-z_][a-z0-9_]*$.(»‚Œö

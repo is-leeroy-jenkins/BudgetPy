@@ -1,0 +1,7 @@
+
+tpython:S1542"\Rename function "UnixCCompiler__compile" to match the regular expression ^[a-z_][a-z0-9_]*$.(ßş²
+lpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ßş²
+Cpython:S5806,"+Rename this variable; it shadows a builtin.(ÊëÙÿ
+6python:S3626Š"Remove this redundant return.(ÙãŞŸ
+‚python:S1542I"eRename function "UnixCCompiler_create_static_lib" to match the regular expression ^[a-z_][a-z0-9_]*$.(é‰ÓÆıÿÿÿÿ
+Hpython:S5806t"+Rename this variable; it shadows a builtin.(¬…¤Ùşÿÿÿÿ

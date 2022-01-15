@@ -1,0 +1,15 @@
+
+epython:S1192Õ"LDefine a constant instead of duplicating this literal '#varname_i#' 3 times.(À†Õ•
+dpython:S1192ç"KDefine a constant instead of duplicating this literal '--- #note#' 5 times.(Þ¼’É
+bpython:S1192ÿ"IDefine a constant instead of duplicating this literal 'string.h' 3 times.(¯òüÔ
+apython:S1192²"HDefine a constant instead of duplicating this literal '#ctype#' 7 times.(“¼öÅ
+qpython:S1192ï"SDefine a constant instead of duplicating this literal '#ctype#_from_pyobj' 4 times.(¡ìº—úÿÿÿÿ
+dpython:S1192É"KDefine a constant instead of duplicating this literal '#varname#,' 3 times.(Ú¶úÜ
+Špython:S1192£"qDefine a constant instead of duplicating this literal """
+#ifndef F2PY_CB_RETURNCOMPLEX
+,
+#endif
+""" 3 times.(Î´æ›
+Hpython:S1066¢"/Merge this if statement with the enclosing one.(¬±•…
+6python:S3626è"Remove this redundant return.(ÙãÞŸ
+mpython:S3776ì"TRefactor this function to reduce its Cognitive Complexity from 86 to the 15 allowed.(§”â•

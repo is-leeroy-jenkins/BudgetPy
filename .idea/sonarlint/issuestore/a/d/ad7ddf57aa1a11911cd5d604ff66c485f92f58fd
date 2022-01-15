@@ -1,0 +1,37 @@
+
+Opython:S1066¿"/Merge this if statement with the enclosing one.(ë–¬8ì£åÚã/
+lpython:S1542ä"SRename function "equalContents" to match the regular expression ^[a-z_][a-z0-9_]*$.(ã«Óæ
+kpython:S1542¥"MRename function "getCols" to match the regular expression ^[a-z_][a-z0-9_]*$.(ë’Í›ûÿÿÿÿ
+spython:S1542ª"URename function "makeStringIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(Œ¶²Áşÿÿÿÿ
+tpython:S1542®"VRename function "makeUnicodeIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÒÜ¦›ùÿÿÿÿ
+xpython:S1542²"ZRename function "makeCategoricalIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(Òßöüÿÿÿÿ
+upython:S1542º"WRename function "makeIntervalIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÎéÎëşÿÿÿÿ
+lpython:S1542À"SRename function "makeBoolIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ãß¤
+tpython:S1542È"VRename function "makeNumericIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(ıøèÃûÿÿÿÿ
+kpython:S1542Ú"RRename function "makeIntIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰º–Ø
+lpython:S1542ß"SRename function "makeUIntIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(Â«“¥
+rpython:S1542ä"TRename function "makeRangeIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŠÄÌşüÿÿÿÿ
+rpython:S1542è"TRename function "makeFloatIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÚúÛ÷ùÿÿÿÿ
+qpython:S1542í"SRename function "makeDateIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(ù“Ìêıÿÿÿÿ
+qpython:S1542ó"XRename function "makeTimedeltaIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(ËÌÂÊ
+spython:S1542÷"URename function "makePeriodIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(òµˆ°ûÿÿÿÿ
+mpython:S1542ü"TRename function "makeMultiIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(îçÉ
+spython:S1542ñ"URename function "makeFloatSeries" to match the regular expression ^[a-z_][a-z0-9_]*$.(áïÀøÿÿÿÿ
+tpython:S1542ö"VRename function "makeStringSeries" to match the regular expression ^[a-z_][a-z0-9_]*$.(äÆİÿÿÿÿÿ
+opython:S1542û"VRename function "makeObjectSeries" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÂáŒ¥
+lpython:S1542‚"SRename function "getSeriesData" to match the regular expression ^[a-z_][a-z0-9_]*$.(³ÈÓ
+lpython:S1542‡"TRename function "makeTimeSeries" to match the regular expression ^[a-z_][a-z0-9_]*$.(ìÕ©f
+tpython:S1542"VRename function "makePeriodSeries" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÈÑòóıÿÿÿÿ
+upython:S1542•"WRename function "getTimeSeriesData" to match the regular expression ^[a-z_][a-z0-9_]*$.(Áïÿşşÿÿÿÿ
+qpython:S1542™"SRename function "getPeriodData" to match the regular expression ^[a-z_][a-z0-9_]*$.(‚° şÿÿÿÿ
+ppython:S1542"WRename function "makeTimeDataFrame" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÁÃ£ñ
+lpython:S1542£"SRename function "makeDataFrame" to match the regular expression ^[a-z_][a-z0-9_]*$.(İàùƒ
+tpython:S1542¨"VRename function "getMixedTypeDict" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÏŸ°€şÿÿÿÿ
+qpython:S1542µ"XRename function "makeMixedDataFrame" to match the regular expression ^[a-z_][a-z0-9_]*$.(Â¯êÄ
+npython:S1542¹"URename function "makePeriodFrame" to match the regular expression ^[a-z_][a-z0-9_]*$.(˜­Ğş
+npython:S1542¾"URename function "makeCustomIndex" to match the regular expression ^[a-z_][a-z0-9_]*$.(ùÉ¿”
+mpython:S3776¾"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ùÉ¿”
+fpython:S5795Ú"MReplace this "is" operator with "=="; identity operator is not reliable here.(ö•”§
+wpython:S1542«"YRename function "makeCustomDataframe" to match the regular expression ^[a-z_][a-z0-9_]*$.( Ä¨ıÿÿÿÿ
+xpython:S1542±"ZRename function "makeMissingDataframe" to match the regular expression ^[a-z_][a-z0-9_]*$.(±â‰ıÿÿÿÿ
+ypython:S3776¥"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(™îòûüÿÿÿÿ8ì£åÚã/

@@ -1,0 +1,6 @@
+
+Epython:S2201,"(The return value of "repr" must be used.(ˆÿşøÿÿÿÿ
+;python:S125N"Remove this commented out code.(­Ùû–ıÿÿÿÿ
+kpython:S1854±"MRemove this assignment to local variable 'expected'; the value is never used.(ÕÄ¸×ùÿÿÿÿ
+Epython:S2201Ç"'The return value of "str" must be used.(×Ú¬ûÿÿÿÿ
+Epython:S2201Ø"'The return value of "str" must be used.(×Ú¬ûÿÿÿÿ

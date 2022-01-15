@@ -1,0 +1,12 @@
+
+hpython:S1192Ğ"ODefine a constant instead of duplicating this literal '123 \t 345 \0 ' 4 times.(ïËµÍ
+ipython:S1192Ã"PDefine a constant instead of duplicating this literal b'123 \t 345 \0 ' 6 times.(¡û«í
+ipython:S1192Ó"PDefine a constant instead of duplicating this literal u'123 \t 345 \0 ' 6 times.(‡ûâó
+fpython:S1192"NDefine a constant instead of duplicating this literal u'Sigma \u03a3' 3 times.(‘µ½
+epython:S1192"HDefine a constant instead of duplicating this literal 'long   ' 3 times.(õş¾Ğøÿÿÿÿ
+`python:S1192Á"GDefine a constant instead of duplicating this literal b' abc ' 9 times.(ÒÁ»•
+ppython:S117Ü"SRename this local variable "Ar" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾úƒòùÿÿÿÿ
+Wpython:S905ä":Remove or refactor this statement; it has no side effects.(›İÿ”øÿÿÿÿ
+ppython:S117é"SRename this local variable "Ar" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾úƒòùÿÿÿÿ
+Wpython:S905ğ":Remove or refactor this statement; it has no side effects.(ãÍõ«ÿÿÿÿÿ
+Rpython:S905ˆ":Remove or refactor this statement; it has no side effects.(™®ÕØ

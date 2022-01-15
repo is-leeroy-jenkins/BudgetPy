@@ -1,0 +1,7 @@
+
+zpython:S1192ñ"ZDefine a constant instead of duplicating this literal """0
+NaN
+True
+False
+""" 3 times.(¹»’8¹çÚã/
+…python:S1542ª"gRename function "test_cast_NA_to_bool_raises_error" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸àÕíûÿÿÿÿ

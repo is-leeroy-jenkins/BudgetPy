@@ -1,0 +1,7 @@
+
+opython:S1192£"QDefine a constant instead of duplicating this literal 'simple finalized' 3 times.(‚×ûãýÿÿÿÿ
+Çpython:S1515”"¨Add a parameter to the parent lambda function and use variable "target_shape" as its default value; The value of "target_shape" might change at the next loop iteration.(£Œí¢ûÿÿÿÿ
+µpython:S1515”"–Add a parameter to the parent lambda function and use variable "arr" as its default value; The value of "arr" might change at the next loop iteration.(£Œí¢ûÿÿÿÿ
+Âpython:S1515Ü"¨Add a parameter to the parent lambda function and use variable "input_shapes" as its default value; The value of "input_shapes" might change at the next loop iteration.(¸û—•
+fpython:S1854å"MRemove this assignment to local variable 'expected'; the value is never used.(‘‰¿×
+bpython:S1854ƒ"IRemove this assignment to local variable 'view'; the value is never used.(žê¹î

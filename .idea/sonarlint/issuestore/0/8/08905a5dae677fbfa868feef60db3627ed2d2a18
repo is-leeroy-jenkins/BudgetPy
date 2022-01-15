@@ -1,0 +1,26 @@
+
+Mpython:S1066·"/Merge this if statement with the enclosing one.(ĞÈ®ıÿÿÿÿ
+Mpython:S1066Â"/Merge this if statement with the enclosing one.(­íÇ¡üÿÿÿÿ
+Hpython:S1066³"/Merge this if statement with the enclosing one.(µàù”
+Hpython:S1066Ê"/Merge this if statement with the enclosing one.(µàù”
+Mpython:S1066½
+"/Merge this if statement with the enclosing one.(ç¬¥ÿÿÿÿÿ
+Mpython:S1066À"/Merge this if statement with the enclosing one.(ÀØĞÿÿÿÿÿ
+rpython:S3776¢"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(âıú†üÿÿÿÿ
+Kpython:S5727¾"3Remove this identity check; it will always be True.(Ñ‰şc
+ipython:S5795¾"QReplace this "is not" operator with "!="; identity operator is not reliable here.(Ñ‰şc
+Qpython:S5727Ì"3Remove this identity check; it will always be True.(Ëó¾Øüÿÿÿÿ
+opython:S5795Ì"QReplace this "is not" operator with "!="; identity operator is not reliable here.(Ëó¾Øüÿÿÿÿ
+Qpython:S5727Ó"3Remove this identity check; it will always be True.(Ëó¾Øüÿÿÿÿ
+opython:S5795Ó"QReplace this "is not" operator with "!="; identity operator is not reliable here.(Ëó¾Øüÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 79 to the 15 allowed.(óèˆîüÿÿÿÿ
+mpython:S3776¥"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(æàá
+rpython:S3776Î"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(›šîÿÿÿÿÿ
+rpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(×°Úıùÿÿÿÿ
+rpython:S3776Â"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(¶¶óíÿÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(Ë×ôùÿÿÿÿ
+rpython:S3776â"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(‘ô®øûÿÿÿÿ
+spython:S3776"URefactor this function to reduce its Cognitive Complexity from 109 to the 15 allowed.(€ö†§øÿÿÿÿ
+mpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(Í©üÄ
+rpython:S3776
+"TRefactor this function to reduce its Cognitive Complexity from 79 to the 15 allowed.(Õƒš¾ûÿÿÿÿ

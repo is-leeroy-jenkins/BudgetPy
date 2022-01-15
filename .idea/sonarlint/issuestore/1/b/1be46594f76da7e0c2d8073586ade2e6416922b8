@@ -1,0 +1,15 @@
+
+vpython:S1192ş"QDefine a constant instead of duplicating this literal "2011-01-01 09:00" 3 times.(åè’øÿÿÿÿ8§øäÚã/
+npython:S1192®"UDefine a constant instead of duplicating this literal "2011-01-01 00:00:00" 10 times.(Æ‡Óû
+zpython:S1192‘"\Define a constant instead of duplicating this literal "argument must be an integer" 5 times.(–ò ‚ıÿÿÿÿ
+mpython:S1192Æ"TDefine a constant instead of duplicating this literal "2010-12-01 09:00:00" 4 times.(óÉáª
+spython:S1192Ã"UDefine a constant instead of duplicating this literal "2010-12-31 09:00:00" 10 times.(¢¼€–şÿÿÿÿ
+lpython:S1192H"TDefine a constant instead of duplicating this literal "2011-01-03 09:00:00" 7 times.(²Óõ±
+lpython:S1192J"TDefine a constant instead of duplicating this literal "2011-01-31 09:00:00" 3 times.(åŸİö
+rpython:S3776§"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(İ÷üœıÿÿÿÿ
+Lpython:S5727˜"3Remove this identity check; it will always be True.(Áæµ‡
+jpython:S5795˜"QReplace this "is not" operator with "!="; identity operator is not reliable here.(Áæµ‡
+Apython:S2201¡"(The return value of "repr" must be used.(×õ›é
+Fpython:S2201¢"(The return value of "repr" must be used.(­ƒ«ïúÿÿÿÿ
+Apython:S2201£"(The return value of "repr" must be used.(…êƒè
+Fpython:S2201¤"(The return value of "repr" must be used.(§ßşøÿÿÿÿ

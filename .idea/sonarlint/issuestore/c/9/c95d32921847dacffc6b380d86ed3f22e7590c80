@@ -1,0 +1,22 @@
+
+lpython:S1192ã"SDefine a constant instead of duplicating this literal "Lengths must match" 4 times.(şÿß°
+Rpython:S905£":Remove or refactor this statement; it has no side effects.(Ì­ü
+Wpython:S905¬":Remove or refactor this statement; it has no side effects.(à¯ó›úÿÿÿÿ
+Wpython:S905°":Remove or refactor this statement; it has no side effects.(ÌÇ™®şÿÿÿÿ
+Rpython:S905³":Remove or refactor this statement; it has no side effects.(‹–é²
+Wpython:S905·":Remove or refactor this statement; it has no side effects.(Ñ§»øÿÿÿÿ
+Rpython:S905º":Remove or refactor this statement; it has no side effects.(º‘
+Fpython:S2201Í"(The return value of "repr" must be used.(„´Ë¹ûÿÿÿÿ
+Qpython:S905Ç":Remove or refactor this statement; it has no side effects.(âä—p
+epython:S1764Ê"LCorrect one of the identical sub-expressions on both sides of operator "==".(û„›‹
+Rpython:S905Ó":Remove or refactor this statement; it has no side effects.(Õ½•î
+Rpython:S905İ":Remove or refactor this statement; it has no side effects.(Æ“Šô
+Wpython:S905ä":Remove or refactor this statement; it has no side effects.(âÎ²Îÿÿÿÿÿ
+Rpython:S905æ":Remove or refactor this statement; it has no side effects.(ì–›“
+Wpython:S905è":Remove or refactor this statement; it has no side effects.(¨×ïÿüÿÿÿÿ
+Wpython:S905ë":Remove or refactor this statement; it has no side effects.(¶¹í¾úÿÿÿÿ
+Wpython:S905í":Remove or refactor this statement; it has no side effects.(ùÃİ†øÿÿÿÿ
+^python:S905•":Remove or refactor this statement; it has no side effects.(³ıÃÍûÿÿÿÿ8™µæÚã/
+^python:S905™":Remove or refactor this statement; it has no side effects.(´¾ÒÃÿÿÿÿÿ8™µæÚã/
+Qpython:S2638©"1Add missing parameters listlike_box simple_index.(Úù÷ÿ8™µæÚã/
+Bpython:S2638¹"$Add missing parameters simple_index.(Ê³ áúÿÿÿÿ

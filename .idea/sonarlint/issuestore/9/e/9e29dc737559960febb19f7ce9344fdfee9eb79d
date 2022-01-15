@@ -1,0 +1,4 @@
+
+gpython:S1192Í"IDefine a constant instead of duplicating this literal 'u4,u4,u4' 4 times.(øßÍŒøÿÿÿÿ
+=python:S1481b"%Remove the unused local variable "i".(€‰¬š
+xpython:S1542œ"_Rename function "test_fastCopyAndTranspose" to match the regular expression ^[a-z_][a-z0-9_]*$.(ØÌâ

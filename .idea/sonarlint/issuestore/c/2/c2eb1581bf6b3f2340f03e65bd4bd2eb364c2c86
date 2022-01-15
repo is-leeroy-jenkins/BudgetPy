@@ -1,0 +1,14 @@
+
+ppython:S117ü"SRename this parameter "from_Dt" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠòÍ¤şÿÿÿÿ
+spython:S117ı"VRename this local variable "to_Dt" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡çõ´úÿÿÿÿ
+rpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ŠòÍ¤şÿÿÿÿ
+Apython:S1481¶"(Remove the unused local variable "safe".(‚Ö÷›
+ppython:S117Ü"SRename this parameter "from_Dt" to match the regular expression ^[_a-z][a-z0-9_]*$.(«Òâ³ûÿÿÿÿ
+@python:S2201û"'The return value of "str" must be used.(Ø®ß€
+spython:S117­"VRename this local variable "DType" to match the regular expression ^[_a-z][a-z0-9_]*$.(£²½øÿÿÿÿ
+lpython:S117Õ"TRename this parameter "other_DT" to match the regular expression ^[_a-z][a-z0-9_]*$.(—Œç‰
+wpython:S117Ø"ZRename this local variable "string_DT" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¸şÿÿÿÿ
+wpython:S117ˆ"ZRename this local variable "string_DT" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¸şÿÿÿÿ
+wpython:S117Á"ZRename this local variable "string_DT" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¸şÿÿÿÿ
+Fpython:S1481ö"(Remove the unused local variable "data".(®‚ˆùüÿÿÿÿ
+rpython:S117±"ZRename this local variable "arr_NULLs" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñªºã

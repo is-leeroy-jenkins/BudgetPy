@@ -1,0 +1,8 @@
+
+_python:S1192â"FDefine a constant instead of duplicating this literal "1 day" 6 times.(‡‚¦»
+jpython:S1192¸"QDefine a constant instead of duplicating this literal "2016-01-01 03:00" 4 times.(·«Š…
+epython:S1192÷"GDefine a constant instead of duplicating this literal "1 hour" 5 times.(ÎÐŒƒüÿÿÿÿ
+epython:S1854ë"GRemove this assignment to local variable 'i2'; the value is never used.(›¬ËÀùÿÿÿÿ
+epython:S1854æ"GRemove this assignment to local variable 'i2'; the value is never used.(›¬ËÀùÿÿÿÿ
+7python:S125ó"Remove this commented out code.(Ý†ŠÔ
+ipython:S1764ž"KCorrect one of the identical sub-expressions on both sides of operator "-".(‚–Š¬ûÿÿÿÿ

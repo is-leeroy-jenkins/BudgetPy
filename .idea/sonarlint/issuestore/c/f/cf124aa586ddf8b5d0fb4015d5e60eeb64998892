@@ -1,0 +1,16 @@
+
+python:S1192µ"cDefine a constant instead of duplicating this literal "Out of bounds nanosecond timestamp" 4 times.(ÌÉúÿÿÿÿ
+`python:S1192˜"GDefine a constant instead of duplicating this literal "M8[ns]" 3 times.(µŠÉê
+ipython:S1192Ø"PDefine a constant instead of duplicating this literal "datetime64[ns]" 11 times.(»™÷ß
+mpython:S1192æ
+"TDefine a constant instead of duplicating this literal "2013-06-09 02:42:28" 3 times.(ãÒ¢”
+zpython:S1192İ"\Define a constant instead of duplicating this literal "March 1, 2018 12:00:00+0400" 3 times.(Ûüàµøÿÿÿÿ
+ipython:S1192Ä"KDefine a constant instead of duplicating this literal "US/Pacific" 4 times.(½ï”ÿüÿÿÿÿ
+_python:S1192¥"FDefine a constant instead of duplicating this literal "%b %y" 6 times.(êÊ›İ
+dpython:S1192Ñ"KDefine a constant instead of duplicating this literal "US/Eastern" 3 times.(ŒÎ¤Ñ
+zpython:S1192Æ"ZDefine a constant instead of duplicating this literal "2015-11-18 15:30:00+05:30" 3 times.(ûë¼É8úñãÚã/
+mpython:S1192î"TDefine a constant instead of duplicating this literal "2018-11-28T00:00:00" 7 times.(ã¹×Ü
+spython:S1192¯"UDefine a constant instead of duplicating this literal "%Y-%m-%d %H:%M:%S %z" 3 times.(¾Ğƒ‘ùÿÿÿÿ
+mpython:S1192õ"TDefine a constant instead of duplicating this literal "datetime64[ns, UTC]" 3 times.(í½ùğ
+Ipython:S5806"+Rename this variable; it shadows a builtin.(¼°ˆüıÿÿÿÿ
+Dpython:S5806ç"+Rename this variable; it shadows a builtin.(ÊƒÉ 

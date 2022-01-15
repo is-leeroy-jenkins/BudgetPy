@@ -1,0 +1,13 @@
+
+gpython:S1192·"NDefine a constant instead of duplicating this literal 'python module' 3 times.(Œ‘Ž²
+Hpython:S1066¸"/Merge this if statement with the enclosing one.(á‘™˜
+6python:S125""Remove this commented out code.(È¨ô¨
+rpython:S3776®"TRefactor this function to reduce its Cognitive Complexity from 59 to the 15 allowed.(‰ûå†üÿÿÿÿ
+Apython:S108¾")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108”")Either remove or fill this block of code.(ã‘Û¾
+lpython:S3776Á"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(šâ­
+rpython:S3776å"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(© ‹úùÿÿÿÿ
+rpython:S3776’"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(Ñ‹üØýÿÿÿÿ
+8python:S3626·"Remove this redundant continue.(À–¬ˆ
+rpython:S3776î"TRefactor this function to reduce its Cognitive Complexity from 57 to the 15 allowed.(È…î¿ùÿÿÿÿ
+Apython:S108°")Either remove or fill this block of code.(ã‘Û¾

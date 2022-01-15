@@ -1,0 +1,10 @@
+
+python:S1192	"hDefine a constant instead of duplicating this literal r"\['D'\] did not aggregate successfully" 3 times.(Ù«¯úÿÿÿÿ8ò»åÚã/
+wpython:S1542İ"^Rename function "test_apply_reduce_Series" to match the regular expression ^[a-z_][a-z0-9_]*$.(³Œ¿Û
+Cpython:S1481±"%Remove the unused local variable "t".(â—Èüşÿÿÿÿ
+Cpython:S1481’"%Remove the unused local variable "t".(İáõÄøÿÿÿÿ
+>python:S1481–"%Remove the unused local variable "t".(ÿšå›
+Epython:S1481 "%Remove the unused local variable "t".(í¡¾¬8ò»åÚã/
+>python:S1481¸"%Remove the unused local variable "t".(×Ï£
+Jpython:S1481Ã"%Remove the unused local variable "t".(Ê¯¿Ûûÿÿÿÿ8ò»åÚã/
+Cpython:S1481£"%Remove the unused local variable "t".(±¯œ şÿÿÿÿ

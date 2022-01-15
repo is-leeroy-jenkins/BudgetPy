@@ -1,0 +1,12 @@
+
+epython:S1192õ"GDefine a constant instead of duplicating this literal "3 days" 3 times.(é¤ÔÎûÿÿÿÿ
+npython:S1192ğ
+"PDefine a constant instead of duplicating this literal "timedelta64[ns]" 4 times.(ïîê…ùÿÿÿÿ
+dpython:S1192B"GDefine a constant instead of duplicating this literal "M8[ns]" 6 times.(‘¦ÜÕúÿÿÿÿ
+epython:S1192õ"GDefine a constant instead of duplicating this literal "1 days" 5 times.(é¤ÔÎûÿÿÿÿ
+python:S1192”"fDefine a constant instead of duplicating this literal "the 'out' parameter is not supported" 11 times.(İˆ‡é
+`python:S1192Ò"GDefine a constant instead of duplicating this literal "m8[ns]" 3 times.(ïó
+Rpython:S905Ğ":Remove or refactor this statement; it has no side effects.(Ë´ò¾
+Rpython:S905î":Remove or refactor this statement; it has no side effects.(Ë´ò¾
+<python:S125ª"Remove this commented out code.(Õ‘º…ıÿÿÿÿ
+7python:S125°"Remove this commented out code.(”˜’…

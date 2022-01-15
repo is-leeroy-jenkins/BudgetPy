@@ -1,0 +1,8 @@
+
+Hpython:S1066Ñ"/Merge this if statement with the enclosing one.(ŸÃ¹‹
+ˆpython:S5886ú"hReturn a value of type "SparseArray" instead of "tuple" or update function "_sparse_array_op" type hint.(œâ•À8ìºçÚã/
+mpython:S3776™"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(ûÛÒµ
+rpython:S3776í"TRefactor this function to reduce its Cognitive Complexity from 57 to the 15 allowed.(ú„Úüùÿÿÿÿ
+[python:S112Ÿ">Replace this generic exception class with a more specific one.(¥˜üÿÿÿÿ
+ypython:S3776"TRefactor this function to reduce its Cognitive Complexity from 45 to the 15 allowed.(”ò»¸ùÿÿÿÿ8ìºçÚã/
+ypython:S3776²"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ñÔÏªùÿÿÿÿ8ìºçÚã/

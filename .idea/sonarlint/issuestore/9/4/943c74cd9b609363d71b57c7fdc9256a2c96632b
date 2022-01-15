@@ -1,0 +1,36 @@
+
+dpython:S1192ò"FDefine a constant instead of duplicating this literal '*.cpp' 3 times.(¶èªÛûÿÿÿÿ
+apython:S1192ö
+"HDefine a constant instead of duplicating this literal 'cblas.h' 3 times.(÷ÁËª
+gpython:S1192È"HDefine a constant instead of duplicating this literal 'fftw3.h' 3 times.(ğ¶í`8ƒÙË—á/
+bpython:S1192"IDefine a constant instead of duplicating this literal 'source.c' 3 times.(ÿÜ²Ï
+Mpython:S1066æ"/Merge this if statement with the enclosing one.(±‡œ‡şÿÿÿÿ
+Mpython:S1066Ï"/Merge this if statement with the enclosing one.(¶ÚŞŸÿÿÿÿÿ
+Hpython:S1066ì"/Merge this if statement with the enclosing one.(èûç®
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(Ï¾ûœ
+mpython:S3776Ä"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(œ¶½³
+mpython:S3776è"TRefactor this function to reduce its Cognitive Complexity from 51 to the 15 allowed.(¦äÁÏ
+rpython:S3776ñ"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ş¸ßªÿÿÿÿÿ
+6python:S3626¾"Remove this redundant return.(ÙãŞŸ
+6python:S3626à	"Remove this redundant return.(ÙãŞŸ
+rpython:S3776è	"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÆµÁÏúÿÿÿÿ
+rpython:S3776Ş
+"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(¨ÑéĞùÿÿÿÿ
+6python:S3626Ğ"Remove this redundant return.(ÙãŞŸ
+6python:S3626…"Remove this redundant return.(ÙãŞŸ
+rpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(×‚Ğûÿÿÿÿ
+Apython:S108‹")Either remove or fill this block of code.(ã‘Û¾
+6python:S3626ü"Remove this redundant return.(ÙãŞŸ
+rpython:S3776Ñ"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(¨ÑéĞùÿÿÿÿ
+6python:S3626•"Remove this redundant return.(ÙãŞŸ
+ƒpython:S101"fRename class "Numeric_info" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(²³Ê›úÿÿÿÿ
+6python:S3626Õ"Remove this redundant return.(ÙãŞŸ
+6python:S3626ü"Remove this redundant return.(ÙãŞŸ
+6python:S3626¦"Remove this redundant return.(ÙãŞŸ
+6python:S3626ÿ"Remove this redundant return.(ÙãŞŸ
+rpython:S3776Â"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(¨ÑéĞùÿÿÿÿ
+6python:S3626ß"Remove this redundant return.(ÙãŞŸ
+6python:S3626"Remove this redundant return.(ÙãŞŸ
+6python:S3626´"Remove this redundant return.(ÙãŞŸ
+ppython:S1542·"RRename function "parseCmdLine" to match the regular expression ^[a-z_][a-z0-9_]*$.(°•‡·úÿÿÿÿ
+lpython:S3776Â"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Åÿˆ

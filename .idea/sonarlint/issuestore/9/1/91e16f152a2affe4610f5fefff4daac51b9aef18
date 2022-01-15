@@ -1,0 +1,6 @@
+
+kpython:S1854—"KRemove this assignment to local variable 'result'; the value is never used.(âÏ–Š8Ó½çÚã/
+fpython:S1854–"MRemove this assignment to local variable 'expected'; the value is never used.(›¶øÕ
+7python:S125¿"Remove this commented out code.(Ý†ŠÔ
+<python:S125Ü"Remove this commented out code.(‹á¨þÿÿÿÿ
+7python:S125à"Remove this commented out code.(Ý†ŠÔ

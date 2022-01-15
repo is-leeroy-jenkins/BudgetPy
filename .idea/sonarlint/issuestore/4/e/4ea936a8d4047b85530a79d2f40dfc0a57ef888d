@@ -1,0 +1,103 @@
+
+rpython:S1192²""TDefine a constant instead of duplicating this literal '2015-09-23T10:10:13' 3 times.(ßîÂşÿÿÿÿ
+_python:S1192ö"FDefine a constant instead of duplicating this literal 'ii->i' 4 times.(íŞôğ
+dpython:S1192õ+"FDefine a constant instead of duplicating this literal 'i1,i2' 3 times.(Ä±«âşÿÿÿÿ
+mpython:S1192³""TDefine a constant instead of duplicating this literal '1932-10-10T03:50:30' 3 times.(Êê®·
+opython:S1192º@"VDefine a constant instead of duplicating this literal "type %s and %s failed" 8 times.(âüøİ
+apython:S1192à("IDefine a constant instead of duplicating this literal b'1,2,3,4' 6 times.(éÉ¤\
+apython:S1192˜"HDefine a constant instead of duplicating this literal "kind=%s" 5 times.(½åá¾
+mpython:S1192µ@"ODefine a constant instead of duplicating this literal "type %s failed" 8 times.(Åû£¾şÿÿÿÿ
+rpython:S1192©""TDefine a constant instead of duplicating this literal '2010-01-03T05:14:12' 4 times.(˜á»°üÿÿÿÿ
+hpython:S1192¸"ODefine a constant instead of duplicating this literal 'timedelta64[D]' 3 times.(®¸ÒÉ
+lpython:S1192®"NDefine a constant instead of duplicating this literal 'datetime64[D]' 4 times.(ÔÉ¼æúÿÿÿÿ
+spython:S4143U"[Verify this is the key that was intended; a value has already been saved for it on line 84.(ÙÅÃÈ
+`python:S1854f"HRemove this assignment to local variable 'arr'; the value is never used.(ß™¿¤
+\python:S5722Å">Add 1 parameters. Method __getitem__ should have 2 parameters.(ĞöÔ±ùÿÿÿÿ
+wpython:S1186Å"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ĞöÔ±ùÿÿÿÿ
+<python:S125Û"Remove this commented out code.(Ú·†üÿÿÿÿ
+wpython:S1186Û"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ø½ãëşÿÿÿÿ
+@python:S2201ò"'The return value of "str" must be used.(­äÆÚ
+wpython:S1186œ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Áû¹Çûÿÿÿÿ
+Upython:S112¶">Replace this generic exception class with a more specific one.(Œåß%
+Rpython:S905À":Remove or refactor this statement; it has no side effects.(¹Ó„á
+Cpython:S1481’	"%Remove the unused local variable "a".(¹±âïşÿÿÿÿ
+Cpython:S1481“	"%Remove the unused local variable "a".(‰›¹×üÿÿÿÿ
+Cpython:S1481”	"%Remove the unused local variable "a".(°îäàúÿÿÿÿ
+>python:S1481ô"%Remove the unused local variable "i".(¨ùÇ
+>python:S1481ú"%Remove the unused local variable "i".(¨ùÇ
+>python:S1481Ş"%Remove the unused local variable "i".(Ğíšˆ
+>python:S1481á"%Remove the unused local variable "i".(Èû‰ÿ
+>python:S1481í"%Remove the unused local variable "s".(Â¹ªê
+mpython:S3776Œ"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(‘õ¬Ó
+=python:S1481ï"%Remove the unused local variable "c".(ÕÜÿ"
+>python:S1481Ò"%Remove the unused local variable "i".(úÌŞÛ
+dpython:S1854"FRemove this assignment to local variable 'c'; the value is never used.(­Øúòşÿÿÿÿ
+_python:S1854œ"FRemove this assignment to local variable 'c'; the value is never used.(‹ØÉ
+kpython:S1854›"FRemove this assignment to local variable 'c'; the value is never used.(³ç°ªùÿÿÿÿ8ÃÊ—á/
+mpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 90 to the 15 allowed.(îÔ¶°
+opython:S117ó"WRename this local variable "MyType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô…İù
+Rpython:S905Í":Remove or refactor this statement; it has no side effects.(•å…¤
+Rpython:S905Ï":Remove or refactor this statement; it has no side effects.(…ì¾Ê
+Rpython:S905Ñ":Remove or refactor this statement; it has no side effects.(æå÷º
+Rpython:S905Ó":Remove or refactor this statement; it has no side effects.(×É­ƒ
+Wpython:S905Õ":Remove or refactor this statement; it has no side effects.(¶˜»áşÿÿÿÿ
+Rpython:S905ÿ":Remove or refactor this statement; it has no side effects.(¯½àÎ
+Wpython:S905":Remove or refactor this statement; it has no side effects.(äè¼Øüÿÿÿÿ
+ipython:S1764Ñ"KCorrect one of the identical sub-expressions on both sides of operator "&".(ÅÉÓµûÿÿÿÿ
+Wpython:S905Ú":Remove or refactor this statement; it has no side effects.(¦Éè‘ıÿÿÿÿ
+jpython:S117È$"MRename this parameter "T" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ò•ùÿÿÿÿ
+Cpython:S1481°&"%Remove the unused local variable "f".(³˜Ùßùÿÿÿÿ
+Apython:S108±&")Either remove or fill this block of code.(ã‘Û¾
+>python:S1481¶&"%Remove the unused local variable "f".(òÓåÄ
+Apython:S108·&")Either remove or fill this block of code.(ã‘Û¾
+Dpython:S1481¾)",Remove the unused local variable "expected".(Øô·)
+Apython:S108°*")Either remove or fill this block of code.(ã‘Û¾
+>python:S1481Û*"%Remove the unused local variable "i".(éŠ‰£
+7python:S125-"Remove this commented out code.(˜´Î
+jpython:S1134Œ-"LTake the required action to fix the issue indicated by this "FIXME" comment.(µòĞşÿÿÿÿ
+fpython:S1854¨-"HRemove this assignment to local variable 'res'; the value is never used.(Ø¢‚úÿÿÿÿ
+apython:S1854§-"HRemove this assignment to local variable 'tgt'; the value is never used.(¬—á—
+Cpython:S1481ü-"%Remove the unused local variable "w".(ô‘ÄÚşÿÿÿÿ
+Cpython:S1481ÿ-"%Remove the unused local variable "w".(ô‘ÄÚşÿÿÿÿ
+Cpython:S1481."%Remove the unused local variable "w".(ô‘ÄÚşÿÿÿÿ
+Cpython:S1481Ô."%Remove the unused local variable "w".(ô‘ÄÚşÿÿÿÿ
+Cpython:S1481Ö."%Remove the unused local variable "w".(ô‘ÄÚşÿÿÿÿ
+Cpython:S1481‡/"%Remove the unused local variable "w".(ô‘ÄÚşÿÿÿÿ
+Cpython:S1481‰/"%Remove the unused local variable "w".(ô‘ÄÚşÿÿÿÿ
+opython:S117Û0"WRename this local variable "U_cont" to match the regular expression ^[_a-z][a-z0-9_]*$.(®¾å·
+xpython:S117Ú0"[Rename this local variable "U_non_cont" to match the regular expression ^[_a-z][a-z0-9_]*$.(àğœŞûÿÿÿÿ
+Cpython:S1481ô0"%Remove the unused local variable "i".(¢å°æşÿÿÿÿ
+qpython:S117Æ1"TRename this local variable "A_d" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ëöäüÿÿÿÿ
+tpython:S117ã1"WRename this local variable "A_d_12" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦Äğıÿÿÿÿ
+spython:S117Î1"VRename this local variable "A_d_2" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞÂÎ¯øÿÿÿÿ
+opython:S117Ó1"WRename this local variable "A_d_22" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÌ„
+qpython:S117Ê1"TRename this local variable "A_f" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÜıñËùÿÿÿÿ
+npython:S117å1"WRename this local variable "A_f_12" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò'
+spython:S117Ğ1"VRename this local variable "A_f_2" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õçğøÿÿÿÿ
+tpython:S117Ö1"WRename this local variable "A_f_22" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÜİ€şÿÿÿÿ
+qpython:S117Ç1"TRename this local variable "X_d" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÁõıÿÿÿÿ
+spython:S117Ô1"VRename this local variable "X_d_2" to match the regular expression ^[_a-z][a-z0-9_]*$.(æßãˆúÿÿÿÿ
+lpython:S117Ë1"TRename this local variable "X_f" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÇ°©
+npython:S117×1"VRename this local variable "X_f_2" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú×‰Ê
+tpython:S117à1"WRename this local variable "X_f_2c" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë•÷ğıÿÿÿÿ
+epython:S117¼1"MRename this parameter "A" to match the regular expression ^[_a-z][a-z0-9_]*$.(Äò«ä
+epython:S117¼1"MRename this parameter "X" to match the regular expression ^[_a-z][a-z0-9_]*$.(Äò«ä
+_python:S1854‰4"FRemove this assignment to local variable 'c'; the value is never used.(“ì±ê
+>python:S1481Ï4"%Remove the unused local variable "b".(¾ÇÈ
+>python:S1481Ø4"%Remove the unused local variable "b".(¾ÇÈ
+{python:S5717ò;"]Change this default value to "None" and initialize this parameter inside the function/method.(¢ùš‘ûÿÿÿÿ
+>python:S1481˜<"%Remove the unused local variable "i".(éŠ‰£
+Lpython:S2201©<".The return value of "memoryview" must be used.(§›øÿÿÿÿ
+=python:S1481Ã<"%Remove the unused local variable "i".(üĞ
+Lpython:S2201„=".The return value of "memoryview" must be used.(ÈöÈóşÿÿÿÿ
+tpython:S3776§="TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(èÒô¥8­ÃÊ—á/
+tpython:S3776”>"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(ó×È¢8­ÃÊ—á/
+spython:S117í@"VRename this local variable "Error" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞİŞûûÿÿÿÿ
+>python:S1481¯B"%Remove the unused local variable "i".(éŠ‰£
+Qpython:S5720®D"9Rename "x" to "self" or add the missing "self" parameter.(ÓùÀg
+Upython:S112§F">Replace this generic exception class with a more specific one.(§ö£K
+‘python:S1542ÅF"xRename function "test_orderconverter_with_nonASCII_unicode_ordering" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÂóÊÃ
+rpython:S3776ËG"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(–Óÿÿÿÿÿ
+Apython:S1481åG"(Remove the unused local variable "test".(Üµ—Ï
+Fpython:S1481éG"(Remove the unused local variable "test".(Â“óùùÿÿÿÿ
+Apython:S1481ëG"(Remove the unused local variable "test".(§á§Æ

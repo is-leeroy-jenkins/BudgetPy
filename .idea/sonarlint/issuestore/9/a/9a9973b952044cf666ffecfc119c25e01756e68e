@@ -1,0 +1,8 @@
+
+dpython:S1192û"FDefine a constant instead of duplicating this literal "b/foo" 3 times.(ƒ·æÛûÿÿÿÿ
+@python:S2201r"(The return value of "repr" must be used.(ÂÓ
+Fpython:S2201™"(The return value of "repr" must be used.(Š¦·¦üÿÿÿÿ
+Epython:S2201š"'The return value of "str" must be used.(ôæœ—øÿÿÿÿ
+jpython:S1134Œ"LTake the required action to fix the issue indicated by this "FIXME" comment.(ş‹Üæÿÿÿÿÿ
+<python:S125”"Remove this commented out code.(ç—­úşÿÿÿÿ
+rpython:S3776ì"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(¦“ì¸şÿÿÿÿ

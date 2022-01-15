@@ -1,0 +1,5 @@
+
+epython:S1854¹"LRemove this assignment to local variable 'columns'; the value is never used.(Ã„ø
+mpython:S3776Î"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(©É¥‚
+rpython:S3776Ö"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(¢®¥¿ıÿÿÿÿ
+rpython:S3776Œ"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÆıŸ›ùÿÿÿÿ

@@ -1,0 +1,8 @@
+
+€python:S1542û"gRename function "test_get_labels_groupby_for_Int64" to match the regular expression ^[a-z_][a-z0-9_]*$.(æ­‘
+‰python:S1542†"pRename function "test_tracemalloc_works_for_StringHashTable" to match the regular expression ^[a-z_][a-z0-9_]*$.(Àğ™ñ
+‰python:S1542“"pRename function "test_tracemalloc_for_empty_StringHashTable" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÎÉô
+ˆpython:S1542"jRename function "test_no_reallocation_StringHashTable" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹ö½ïùÿÿÿÿ
+>python:S1481à"%Remove the unused local variable "i".(ÿ“¦·
+=python:S1481ç"%Remove the unused local variable "i".(µüÓm
+Cpython:S1481ï"%Remove the unused local variable "i".(ıîşşÿÿÿÿ

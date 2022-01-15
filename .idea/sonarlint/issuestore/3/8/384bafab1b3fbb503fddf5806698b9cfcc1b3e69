@@ -1,0 +1,45 @@
+
+epython:S1192Ý"MDefine a constant instead of duplicating this literal 'out of place' 7 times.(‹­å}
+Hpython:S1066 "/Merge this if statement with the enclosing one.(¶óö“
+Mpython:S1066Œ"/Merge this if statement with the enclosing one.(ì²Ç‡ýÿÿÿÿ
+Mpython:S1481Y"5Remove the unused local variable "__tracebackhide__".(äÒµ
+wpython:S1542œ"^Rename function "GetPerformanceAttributes" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤´³å
+Ipython:S5806¨"+Rename this variable; it shadows a builtin.(„Ï¡¡øÿÿÿÿ
+Ipython:S5806°"+Rename this variable; it shadows a builtin.(ý Î¹þÿÿÿÿ
+tpython:S117·"WRename this parameter "processName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÜê±þÿÿÿÿ
+vpython:S5717Ô"]Change this default value to "None" and initialize this parameter inside the function/method.(€ƒ’ÿ
+{python:S5717é"]Change this default value to "None" and initialize this parameter inside the function/method.(–éÔÙùÿÿÿÿ
+rpython:S3776÷"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(’ùºøÿÿÿÿ
+Npython:S1481Å"5Remove the unused local variable "__tracebackhide__".(äÒµ
+rpython:S3776“"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(ŽŸð«þÿÿÿÿ
+Npython:S1481Ï"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481¡"5Remove the unused local variable "__tracebackhide__".(äÒµ
+rpython:S3776Ü"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(ŠÚüüÿÿÿÿ
+Npython:S1481”"5Remove the unused local variable "__tracebackhide__".(äÒµ
+rpython:S3776Ú"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(½Ç‹Œøÿÿÿÿ
+Npython:S1481¿"5Remove the unused local variable "__tracebackhide__".(äÒµ
+rpython:S3776½"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(ý®ïýÿÿÿÿ
+Npython:S1481Õ"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481¥"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481÷"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481ç"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481	"5Remove the unused local variable "__tracebackhide__".(äÒµ
+mpython:S3776ò"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(Ž–¸ú
+rpython:S1186“
+"YAdd a nested comment explaining why this method is empty, or complete the implementation.(…ñÚš
+Npython:S1481±
+"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481É
+"5Remove the unused local variable "__tracebackhide__".(äÒµ
+6python:S3626ù
+"Remove this redundant return.(ÙãÞŸ
+Cpython:S1481¼"%Remove the unused local variable "j".(á–Ÿßùÿÿÿÿ
+Npython:S1481ñ"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481¯"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481ç"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481Ï"5Remove the unused local variable "__tracebackhide__".(äÒµ
+Npython:S1481"5Remove the unused local variable "__tracebackhide__".(äÒµ
+rpython:S3776Ä"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(Æàºÿÿÿÿÿ
+|python:S1871Ö"dEither merge this branch with the identical one on line "2252" or change one of the implementations.(ŒîÜ
+Npython:S1481†"5Remove the unused local variable "__tracebackhide__".(äÒµ
+>python:S1481‘"%Remove the unused local variable "i".(úÌÞÛ

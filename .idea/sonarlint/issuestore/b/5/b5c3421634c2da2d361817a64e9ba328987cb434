@@ -1,0 +1,10 @@
+
+qpython:S1192À"XDefine a constant instead of duplicating this literal 'no implementation found' 3 times.(ôëúĞ
+ypython:S1186—"[Add a nested comment explaining why this function is empty, or complete the implementation.(Ã÷ì‰ÿÿÿÿÿ
+ppython:S117µ"XRename this local variable "MyArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ûˆ£
+ppython:S117¿"XRename this local variable "MyArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ûˆ£
+ppython:S117Ø"XRename this local variable "MyArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ûˆ£
+ppython:S117„"XRename this local variable "MyArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ûˆ£
+{python:S116Ä"^Rename this field "MyNoArrayFunctionArray" to match the regular expression ^[_a-z][_a-z0-9]*$.(³›’Àıÿÿÿÿ
+fpython:S116¾"ORename this field "MyArray" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ìäâ`
+Lpython:S1481Û".Remove the unused local variable "array_like".(öïúáüÿÿÿÿ

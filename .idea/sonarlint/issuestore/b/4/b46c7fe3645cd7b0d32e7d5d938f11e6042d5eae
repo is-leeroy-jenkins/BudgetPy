@@ -1,0 +1,5 @@
+
+python:S1192’"fDefine a constant instead of duplicating this literal "Categorical categories must be unique" 3 times.(Ğ‚å
+ƒpython:S1192œ"eDefine a constant instead of duplicating this literal "codes need to be array-like integers" 4 times.(‰µÒ‚ÿÿÿÿÿ
+apython:S1854÷"HRemove this assignment to local variable 'cat'; the value is never used.(ôÍë†
+7python:S125Ô"Remove this commented out code.(ğ£ˆª

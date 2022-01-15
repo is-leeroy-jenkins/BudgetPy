@@ -1,0 +1,6 @@
+
+ƒpython:S1192è"dDefine a constant instead of duplicating this literal "Value is too big|Value is too small" 3 times.(Ø¯Æ
+8€ÍæÚã/
+5python:S2772Ô"Remove this unneeded "pass".(ã‘Û¾
+5python:S2772Ø"Remove this unneeded "pass".(ã‘Û¾
+jpython:S117â"RRename this parameter "bigNum" to match the regular expression ^[_a-z][a-z0-9_]*$.( –®

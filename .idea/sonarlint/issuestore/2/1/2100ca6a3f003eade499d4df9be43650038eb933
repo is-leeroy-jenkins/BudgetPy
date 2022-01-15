@@ -1,0 +1,8 @@
+
+mpython:S1192ı"TDefine a constant instead of duplicating this literal "2017-01-01T00:00:00" 3 times.(ò«ÅÒ
+_python:S1192l"GDefine a constant instead of duplicating this literal "M8[ns]" 4 times.(éô×î
+lpython:S1192D"ODefine a constant instead of duplicating this literal "datetime64[ns]" 3 times.(ãÿ¾´ûÿÿÿÿ
+dpython:S1192Î"KDefine a constant instead of duplicating this literal "US/Pacific" 4 times.(Ò‘Æ€
+ipython:S11925"LDefine a constant instead of duplicating this literal "US/Central" 13 times.(‡ÁÛıÿÿÿÿ
+rpython:S1192ş"TDefine a constant instead of duplicating this literal "2017-01-02T00:00:00" 3 times.(¼ªÙöüÿÿÿÿ
+lpython:S1854Ù"NRemove this assignment to local variable 'expected2'; the value is never used.(Èª„ÿÿÿÿÿ

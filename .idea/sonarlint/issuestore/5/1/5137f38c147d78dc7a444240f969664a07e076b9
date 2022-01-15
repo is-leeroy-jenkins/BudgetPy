@@ -1,0 +1,6 @@
+
+lpython:S1192€"TDefine a constant instead of duplicating this literal "America/Los_Angeles" 3 times.(¡Ä¿t
+ipython:S1192–"KDefine a constant instead of duplicating this literal "US/Eastern" 3 times.(šüèŒùÿÿÿÿ
+dpython:S1854ì"KRemove this assignment to local variable 'result'; the value is never used.(Ý€£²
+<python:S125æ"Remove this commented out code.(“Ÿé«ÿÿÿÿÿ
+<python:S125ï"Remove this commented out code.(áÏ¹¼ûÿÿÿÿ

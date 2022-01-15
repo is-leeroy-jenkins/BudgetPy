@@ -1,0 +1,13 @@
+
+‚python:S1192²"dDefine a constant instead of duplicating this literal "Character %s is not a valid symbol." 3 times.(¦í©‡øÿÿÿÿ
+Kpython:S1481í"-Remove the unused local variable "iteration".(ØÊ´Ôøÿÿÿÿ
+mpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(‰ºØà
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¹øŠıÿÿÿÿÿ
+=python:S1481¸"%Remove the unused local variable "p".(±¯ñ
+
+spython:S3776‹"URefactor this function to reduce its Cognitive Complexity from 114 to the 15 allowed.(Šì××şÿÿÿÿ
+mpython:S3776Ã"TRefactor this function to reduce its Cognitive Complexity from 45 to the 15 allowed.(ÑÛ°¸
+Apython:S108¼")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108À")Either remove or fill this block of code.(ã‘Û¾
+Cpython:S1481Ù"%Remove the unused local variable "x".(ÆÜËéÿÿÿÿÿ
+rpython:S3776æ"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÖÒí€ûÿÿÿÿ

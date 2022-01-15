@@ -1,0 +1,17 @@
+
+rpython:S117`"VRename this local variable "A_max" to match the regular expression ^[_a-z][a-z0-9_]*$.(—™„ùÿÿÿÿ
+lpython:S117a"VRename this local variable "U_max" to match the regular expression ^[_a-z][a-z0-9_]*$.(’÷âd
+tpython:S117u"]Rename this local variable "X_simplified" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îßó
+lpython:S3776R"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(øİ¤
+=python:S1481g"%Remove the unused local variable "j".(†íí°
+=python:S1481i"%Remove the unused local variable "j".(†íí°
+rpython:S3776ê"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(ëÖôÜıÿÿÿÿ
+>python:S1481›"%Remove the unused local variable "j".(¦’¡
+>python:S1481·"%Remove the unused local variable "j".(¦’¡
+jpython:S117"MRename this parameter "A" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ä©ıÿÿÿÿ
+jpython:S117"MRename this parameter "U" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ä©ıÿÿÿÿ
+>python:S1481¸"%Remove the unused local variable "j".(¦’¡
+>python:S1481"%Remove the unused local variable "j".(†íí°
+>python:S1481"%Remove the unused local variable "j".(†íí°
+mpython:S3776Ú"TRefactor this function to reduce its Cognitive Complexity from 58 to the 15 allowed.(µ‹é·
+rpython:S3776Ü"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¿€Òãşÿÿÿÿ

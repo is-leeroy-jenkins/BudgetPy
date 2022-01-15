@@ -1,0 +1,18 @@
+
+gpython:S1192ç"NDefine a constant instead of duplicating this literal "Europe/Madrid" 3 times.(÷Ø¥¼
+lpython:S1192Ã"NDefine a constant instead of duplicating this literal "Europe/Berlin" 3 times.(Ì«šËøÿÿÿÿ
+kpython:S1192ä"MDefine a constant instead of duplicating this literal "not in index" 8 times.(Éûºèùÿÿÿÿ
+ypython:S1192Ÿ"TDefine a constant instead of duplicating this literal "2019-06-11 12:00:00" 4 times.(çº¾êşÿÿÿÿ8°‹çÚã/
+ipython:S1854Ö"KRemove this assignment to local variable 'result'; the value is never used.(îİ¤Æúÿÿÿÿ
+>python:S1481´"%Remove the unused local variable "q".(Øûâ¼
+>python:S1481µ"%Remove the unused local variable "q".(ÍíÈ
+Cpython:S1481º"%Remove the unused local variable "q".(½’ÖÇÿÿÿÿÿ
+>python:S1481»"%Remove the unused local variable "q".(ÍíÈ
+vpython:S4143‹"]Verify this is the key that was intended; a value has already been saved for it on line 1418.(©®– 
+{python:S4143š"]Verify this is the key that was intended; a value has already been saved for it on line 1433.(í°åúÿÿÿÿ
+rpython:S117ô"ZRename this local variable "IndexType" to match the regular expression ^[_a-z][a-z0-9_]*$.(òç‡Â
+ppython:S1854º"KRemove this assignment to local variable 'result'; the value is never used.(Ÿ ÒÙüÿÿÿÿ8°‹çÚã/
+7python:S125‡"Remove this commented out code.(µŸ¼¡
+7python:S125¥"Remove this commented out code.(µŸ¼¡
+Mpython:S1656«"/Remove or correct this useless self-assignment.(‡ˆëÏúÿÿÿÿ
+vpython:S4143"]Verify this is the key that was intended; a value has already been saved for it on line 2958.(¤¿×À

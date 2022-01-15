@@ -1,0 +1,15 @@
+
+—python:S1192›
+"~Define a constant instead of duplicating this literal "boolean index did not match indexed array along dimension 0; " 3 times.(àæ£×
+Mpython:S1066Ù"/Merge this if statement with the enclosing one.(¢±ã³ÿÿÿÿÿ
+Mpython:S1066à"/Merge this if statement with the enclosing one.(¢±ã³ÿÿÿÿÿ
+_python:S1854€"FRemove this assignment to local variable 'b'; the value is never used.(ÒÓ¦¦
+dpython:S1854œ"FRemove this assignment to local variable 'a'; the value is never used.(±Š¸×ÿÿÿÿÿ
+Fpython:S1481ó"-Remove the unused local variable "fancy_dim".(É¯ì¤
+Kpython:S1481‡"-Remove the unused local variable "fancy_dim".(Òåµşÿÿÿÿ
+Fpython:S1481¢"-Remove the unused local variable "fancy_dim".(Ù°ûé
+spython:S3776Ô"URefactor this function to reduce its Cognitive Complexity from 121 to the 15 allowed.(–ªşòúÿÿÿÿ
+Qpython:S905
+":Remove or refactor this statement; it has no side effects.(¨µøe
+Qpython:S905
+":Remove or refactor this statement; it has no side effects.(ªÅ™d

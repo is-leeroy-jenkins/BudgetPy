@@ -1,0 +1,5 @@
+
+ppython:S1192""SDefine a constant instead of duplicating this literal "integer or boolean" 4 times.(—àŒ¬ýÿÿÿÿ
+qpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(Ó•Õ…þÿÿÿÿ
+«python:S1515b"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(ÜÊ®é
+¶python:S1515e"˜Add a parameter to the parent lambda function and use variable "func" as its default value; The value of "func" might change at the next loop iteration.(ˆ¡ñ þÿÿÿÿ

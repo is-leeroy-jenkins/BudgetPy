@@ -1,0 +1,9 @@
+
+gpython:S116)"PRename this field "MaskType" to match the regular expression ^[_a-z][_a-z0-9]*$.(£½£Ô
+qpython:S37760"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(òœÁöıÿÿÿÿ
+`python:S1854²"GRemove this assignment to local variable 'x2'; the value is never used.(²ÔæÒ
+zpython:S4143®"\Verify this is the key that was intended; a value has already been saved for it on line 171.(µ›ã–ùÿÿÿÿ
+zpython:S4143¬"\Verify this is the key that was intended; a value has already been saved for it on line 170.(ÕùÅıÿÿÿÿ
+@python:S2201¡"'The return value of "str" must be used.(ñŞÏø
+Apython:S2201¢"(The return value of "repr" must be used.(×¸‰
+dpython:S1854Ğ"FRemove this assignment to local variable 'm'; the value is never used.(„–è¾ùÿÿÿÿ

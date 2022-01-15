@@ -1,0 +1,9 @@
+
+cpython:S1192‚"JDefine a constant instead of duplicating this literal "test.json" 3 times.(¾ï—
+ipython:S1192ü"PDefine a constant instead of duplicating this literal "timedelta64[ns]" 3 times.(áŒš™
+mpython:S1192y"ODefine a constant instead of duplicating this literal "datetime64[ns]" 4 times.(ê³€8¤ÁæÚã/
+ipython:S1192²
+"KDefine a constant instead of duplicating this literal b"E\xc9, 17" 3 times.(ùı‰¯ùÿÿÿÿ
+opython:S117ó	"RRename this parameter "bigNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ïäùºşÿÿÿÿ
+opython:S117€
+"RRename this parameter "bigNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(°é «ÿÿÿÿÿ

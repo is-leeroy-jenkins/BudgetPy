@@ -1,0 +1,13 @@
+
+zpython:S1192“"ZDefine a constant instead of duplicating this literal "Downcasting integer-dtype" 3 times.(—Şğ¸8î¢ãÚã/
+”python:S1192D"wDefine a constant instead of duplicating this literal "'>' not supported between instances of 'str' and 'int'" 3 times.(“ƒÙÉüÿÿÿÿ
+Qpython:S905F":Remove or refactor this statement; it has no side effects.(®úì€
+rpython:S3776e"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(õ¡Å08î¢ãÚã/
+Rpython:S905‡":Remove or refactor this statement; it has no side effects.(®úì€
+Rpython:S905Ç":Remove or refactor this statement; it has no side effects.(®úì€
+Rpython:S905„":Remove or refactor this statement; it has no side effects.(„äÄï
+7python:S125Ú"Remove this commented out code.(²´Ç
+Fpython:S1481‹"-Remove the unused local variable "where_res".(êàÎ
+Fpython:S1481Œ"-Remove the unused local variable "where_res".(õƒŠÕ
+Kpython:S1481"-Remove the unused local variable "where_res".(šÃ¢Ìøÿÿÿÿ
+Fpython:S1481‘"-Remove the unused local variable "where_res".(õƒŠÕ

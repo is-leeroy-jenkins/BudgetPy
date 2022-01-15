@@ -1,0 +1,12 @@
+
+epython:S1192ö"GDefine a constant instead of duplicating this literal 'i4, i1' 3 times.(ËæÆ´ùÿÿÿÿ
+jpython:S1192Ê"LDefine a constant instead of duplicating this literal 'Blue pixel' 10 times.(ë•şÑøÿÿÿÿ
+epython:S1192"LDefine a constant instead of duplicating this literal 'Green pixel' 4 times.(ş¨ßŞ
+hpython:S1192Ê"JDefine a constant instead of duplicating this literal 'Red pixel' 9 times.(ë•şÑøÿÿÿÿ
+`python:S1854Õ"GRemove this assignment to local variable 'dt'; the value is never used.(ÑòÜâ
+>python:S1481æ"%Remove the unused local variable "i".(ş…®ƒ
+@python:S1481„"'Remove the unused local variable "new".(ßº´Â
+Cpython:S1481Â"%Remove the unused local variable "i".(Ù†„ûÿÿÿÿ
+ipython:S117ë"QRename this parameter "DType" to match the regular expression ^[_a-z][a-z0-9_]*$.(…‘ŒÂ
+}python:S117î"`Rename this local variable "roundtrip_DType" to match the regular expression ^[_a-z][a-z0-9_]*$.(”Ãé¶ÿÿÿÿÿ
+_python:S5644±":Fix this code; "cls" does not have a "__getitem__" method.(Ü­û€ùÿÿÿÿ8àîË—á/

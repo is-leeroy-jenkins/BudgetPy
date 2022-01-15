@@ -1,0 +1,7 @@
+
+spython:S1173"WRename this local variable "maxLen" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï¨§÷ùÿÿÿÿ
+upython:S117/"YRename this local variable "newLists" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úâ­œøÿÿÿÿ
+npython:S1178"WRename this local variable "toJoin" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑÒ‘Æ
+<python:S1481y"%Remove the unused local variable "i".(¦ŠˆG
+rpython:S3776¤"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(‚‡¶’þÿÿÿÿ
+mpython:S3776ž"TRefactor this function to reduce its Cognitive Complexity from 50 to the 15 allowed.(Ö¥µé

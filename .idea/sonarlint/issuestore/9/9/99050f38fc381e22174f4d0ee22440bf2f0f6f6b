@@ -1,0 +1,13 @@
+
+cpython:S1192+"KDefine a constant instead of duplicating this literal "US/Eastern" 3 times.(¯©Õ˜
+Apython:S1481S")Remove the unused local variable "frame".(Ú×ºß
+fpython:S1854Å"MRemove this assignment to local variable 'expected'; the value is never used.(®•åœ
+dpython:S1854Ä"KRemove this assignment to local variable 'result'; the value is never used.(©¶Ÿ
+<python:S125ò"Remove this commented out code.(Íà¸Çşÿÿÿÿ
+Apython:S2201š"(The return value of "repr" must be used.(©áğÙ
+@python:S1481ß"'Remove the unused local variable "exp".(ºĞÑå
+Bpython:S1481Ş"*Remove the unused local variable "result".(Çè
+Apython:S2201Ú"(The return value of "repr" must be used.(¬±Û
+Apython:S2201İ"(The return value of "repr" must be used.(¬±Û
+opython:S117æ"WRename this local variable "wasCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(´¡°¹
+Qpython:S905¦":Remove or refactor this statement; it has no side effects.(“¹

@@ -1,0 +1,6 @@
+
+cpython:S1192“"JDefine a constant instead of duplicating this literal "same name" 3 times.(Σ–ε²
+xpython:S37761"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ΎΚ΄“ύÿÿÿÿ8η΅δΪγ/
+;python:S125`"Remove this commented out code.(΅‰³ύÿÿÿÿ
+6python:S125p"Remove this commented out code.(Φ­έθ
+Cpython:S1481Χ"%Remove the unused local variable "i".(¨Ζζχωÿÿÿÿ

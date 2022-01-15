@@ -1,0 +1,9 @@
+
+lpython:S1192é"NDefine a constant instead of duplicating this literal "Europe/Madrid" 3 times.(ÉÿøŒùÿÿÿÿ
+mpython:S1192Ø"TDefine a constant instead of duplicating this literal "um... weasel noise?" 6 times.(ˆÕ†Û
+hpython:S1192Ü"ODefine a constant instead of duplicating this literal "datetime64[ns]" 3 times.(»‘ü²
+cpython:S1192C"KDefine a constant instead of duplicating this literal "US/Eastern" 8 times.(’Ã¡Â
+ipython:S1854á"KRemove this assignment to local variable 'result'; the value is never used.(ßò›åøÿÿÿÿ
+<python:S125ì"Remove this commented out code.(×úþ“ÿÿÿÿÿ
+ipython:S1854á"KRemove this assignment to local variable 'result'; the value is never used.(ƒÈÝêüÿÿÿÿ
+}python:S1542¥"_Rename function "test_merge_outer_with_NaN" to match the regular expression ^[a-z_][a-z0-9_]*$.(Š¹µ¦øÿÿÿÿ

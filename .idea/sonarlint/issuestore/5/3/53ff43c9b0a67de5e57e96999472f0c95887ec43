@@ -1,0 +1,14 @@
+
+epython:S1192¾"GDefine a constant instead of duplicating this literal "3 days" 3 times.(½ƒ½±ùÿÿÿÿ
+lpython:S1192£"SDefine a constant instead of duplicating this literal "captain tightpants" 3 times.(Ãã¹—
+rpython:S1192‚"TDefine a constant instead of duplicating this literal "2010-07-02 12:00:00" 4 times.(ÏÉ•ûşÿÿÿÿ
+epython:S1192·"LDefine a constant instead of duplicating this literal "US/Eastern" 15 times.(àİÏº
+`python:S1192¼"GDefine a constant instead of duplicating this literal "1 days" 3 times.(ìø”Ó
+`python:S1192½"GDefine a constant instead of duplicating this literal "2 days" 9 times.(Ë²ìÜ
+6python:S125$"Remove this commented out code.(¾âÙ¿
+fpython:S1854í"MRemove this assignment to local variable 'expected'; the value is never used.(ö¬îÖ
+dpython:S1854ì"KRemove this assignment to local variable 'result'; the value is never used.(Ğ×œå
+7python:S125ë"Remove this commented out code.(Ö­İè
+kpython:S1854ı"MRemove this assignment to local variable 'expected'; the value is never used.(Ë§¥¢şÿÿÿÿ
+ipython:S1854ü"KRemove this assignment to local variable 'result'; the value is never used.(îüÎúÿÿÿÿ
+7python:S125"Remove this commented out code.(Ö­İè

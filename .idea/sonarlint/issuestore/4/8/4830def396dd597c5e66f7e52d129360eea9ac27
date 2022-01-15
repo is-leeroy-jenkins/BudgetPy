@@ -1,0 +1,4 @@
+
+dpython:S1192‰"KDefine a constant instead of duplicating this literal "US/Eastern" 7 times.(¤¬„Ç
+lpython:S1192ù"TDefine a constant instead of duplicating this literal "datetime64[ns, UTC]" 3 times.(Á°§
+ˆpython:S1542¯"jRename function "test_combine_first_timestamp_bug_NaT" to match the regular expression ^[a-z_][a-z0-9_]*$.(‘Ø€ùÿÿÿÿ

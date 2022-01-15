@@ -1,0 +1,9 @@
+
+rpython:S1192"TDefine a constant instead of duplicating this literal "2010-02-08 15:00:00" 3 times.(ÛĞ‹¯úÿÿÿÿ
+opython:S1192ß"QDefine a constant instead of duplicating this literal "2014-07-08 10:00" 3 times.(ñ‹‚Ÿşÿÿÿÿ
+jpython:S1192À"QDefine a constant instead of duplicating this literal "2014-07-04 16:00" 4 times.(—ÕÀƒ
+rpython:S1192Œ"TDefine a constant instead of duplicating this literal "2010-02-08 03:00:00" 3 times.(éş²¬øÿÿÿÿ
+jpython:S1192¿"QDefine a constant instead of duplicating this literal "2014-07-04 15:00" 5 times.(¨¤Ê
+epython:S1764€"LCorrect one of the identical sub-expressions on both sides of operator "==".(ƒ½÷
+epython:S1764§"LCorrect one of the identical sub-expressions on both sides of operator "==".(ƒ½÷
+Wpython:S905º":Remove or refactor this statement; it has no side effects.(ÅæÙ ıÿÿÿÿ

@@ -1,0 +1,16 @@
+
+rpython:S1192ã"TDefine a constant instead of duplicating this literal "America/Los_Angeles" 4 times.(üú¤ÿıÿÿÿÿ
+jpython:S1192Æ"RDefine a constant instead of duplicating this literal "2011-01-01 10:00" 26 times.(“ÙéS
+ipython:S1192š"KDefine a constant instead of duplicating this literal "US/Central" 4 times.(ÂšÕùÿÿÿÿ
+dpython:S1192I"LDefine a constant instead of duplicating this literal "US/Eastern" 27 times.(˜¬è
+mpython:S1192æ"TDefine a constant instead of duplicating this literal "2016-01-01T23:59:59" 8 times.(”Ÿ×Í
+dpython:S1192Æ"LDefine a constant instead of duplicating this literal "Asia/Tokyo" 24 times.(“ÙéS
+rpython:S1192å"TDefine a constant instead of duplicating this literal "2013-01-01T00:00:00" 8 times.(ÌçÛ‡üÿÿÿÿ
+spython:S1192["\Define a constant instead of duplicating this literal "PeriodDtype data is invalid" 4 times.(ã„ºI
+kpython:S1192Ç"RDefine a constant instead of duplicating this literal "2011-01-02 10:00" 18 times.(­ˆåÿ
+dpython:S1192·"KDefine a constant instead of duplicating this literal "US/Pacific" 4 times.(Î©ï¶
+ypython:S1192 "[Define a constant instead of duplicating this literal "datetime64[ns, US/Eastern]" 4 times.(àâóèşÿÿÿÿ
+opython:S1192Ù"QDefine a constant instead of duplicating this literal "2011-08-01 10:00" 6 times.(È¸†çøÿÿÿÿ
+<python:S125Œ"Remove this commented out code.(öÿÀÓıÿÿÿÿ
+epython:S1854¢"MRemove this assignment to local variable 'expected'; the value is never used.(‚êØ|
+dpython:S1854¡"KRemove this assignment to local variable 'result'; the value is never used.(ğ¥Ã
