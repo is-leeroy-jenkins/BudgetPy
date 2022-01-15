@@ -1,6 +1,6 @@
 import pandas as pd
 
-class Account():
+class Account( ):
     '''defines the Account Code class'''
     __code = None
     __name = None
@@ -25,7 +25,7 @@ class Account():
     @property
     def name( self ):
         if self.__name:
-            return self.__name
+            return str( self.__name )
 
     @name.setter
     def name( self, name ):

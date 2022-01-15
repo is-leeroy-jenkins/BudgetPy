@@ -1,4 +1,7 @@
-class BudgetFiscalYear():
+import datetime as dt
+import pandas as pd
+
+class BudgetFiscalYear( object ):
     '''Class to describe the federal fiscal year'''
     __base = None
     __bfy = None

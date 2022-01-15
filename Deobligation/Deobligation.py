@@ -1,3 +1,6 @@
+import pandas as pd
+import Organization, Account, BudgetFiscalYear, Fund, BudgetObjectClass
+
 class Deobligation:
     '''Defines the commitment class.'''
     __amount = None
