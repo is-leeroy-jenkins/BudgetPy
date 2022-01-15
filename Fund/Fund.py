@@ -1,3 +1,5 @@
+import pandas as pd
+
 class Fund():
     '''Defines the Fund Class'''
     __code = None

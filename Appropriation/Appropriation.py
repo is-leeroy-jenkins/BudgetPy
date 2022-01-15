@@ -1,3 +1,5 @@
+import pandas as pd
+import Fund
 
 class Appropriation():
     '''Defines the Appropriation Class'''
@@ -80,7 +82,7 @@ class Appropriation():
 
     def __init__( self, code ):
         self.__code = str( code )
-        self.__fund = Fund( self.__code )
+        self.__fund = Fund( code )
         self.__data = { 'code': self.__code,
                         'fund': self.__fund }
 

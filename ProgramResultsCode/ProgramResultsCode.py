@@ -1,3 +1,7 @@
+import BudgetFiscalYear, Fund, ResourcePlanningOffice, AllowanceHolder
+import Account, Activity, Organization, ResponsibilityCenter, BudgetObjectClass
+import pandas as pd
+
 class ProgramResultsCode():
     '''Defines the PRC class'''
     __rpio = None
