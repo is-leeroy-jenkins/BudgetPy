@@ -22,7 +22,7 @@ class Account():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -33,7 +33,7 @@ class Account():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def goal( self ):
@@ -118,7 +118,7 @@ class Activity():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -297,9 +297,9 @@ class Appropriation():
 
 class BudgetFiscalYear():
     '''Class to describe the federal fiscal year'''
-    __base = None
-    __bfy = None
-    __efy = None
+    __base = ''
+    __bfy = ''
+    __efy = ''
     __today = None
     __date = None
     __startdate = None
@@ -316,36 +316,36 @@ class BudgetFiscalYear():
 
     @property
     def firstyear( self ):
-        if self.__base is not None:
+        if not self.__bfy == '':
             return self.__bfy
 
     @firstyear.setter
     def firstyear( self, yr ):
-        if yr is not None:
-            self.__bfy = str( yr )
-            self.__data[ 'firstyear' ] = self.__bfy
+        if not yr == '':
+            self.__bfy = yr
+            self.__data[ 'firstyear' ] = yr
 
     @property
     def lastyear( self ):
-        if self.__efy is not None:
+        if not self.__efy == '':
             return self.__efy
 
     @lastyear.setter
     def lastyear( self, yr ):
-        if yr is not None:
-            self.__efy = str( yr )
-            self.__data[ 'lastyear' ] = self.__efy
+        if not yr == '':
+            self.__efy = yr
+            self.__data[ 'lastyear' ] = yr
 
     @property
     def calendaryear( self ):
-        if self.__year:
+        if not self.__year == '':
             return self.__year
 
     @calendaryear.setter
     def calendaryear( self, yr ):
-        if yr is not None:
-            self.__year = str( yr )
-            self.__data[ 'calendaryear' ] = self.__year
+        if not yr == '':
+            self.__year = yr
+            self.__data[ 'calendaryear' ] = yr
 
     @property
     def startdate( self ):
@@ -382,25 +382,25 @@ class BudgetFiscalYear():
 
     @property
     def weekends( self ):
-        if self.__weekends is not None:
+        if self.__weekends > 0:
             return self.__weekends
 
     @weekends.setter
     def weekends( self, end ):
-        if isinstance( end, int ):
+        if isinstance( end, int ) and end > 0:
             self.__weekends = end
-            self.__data[ 'weekends' ] = self.__weekends
+            self.__data[ 'weekends' ] = end
 
     @property
     def workdays( self ):
-        if self.__workdays is not None:
-            return float( self.__workdays )
+        if self.__workdays > 0:
+            return self.__workdays
 
     @workdays.setter
     def workdays( self, work ):
-        if isinstance( work, int ):
+        if isinstance( work, int ) and work > 0:
             self.__workdays = work
-            self.__data[ 'workdays' ] = self.__workdays
+            self.__data[ 'workdays' ] = work
 
     @property
     def date( self ):
@@ -489,7 +489,7 @@ class BudgetObjectClass():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -500,7 +500,7 @@ class BudgetObjectClass():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def value( self ):
@@ -551,7 +551,7 @@ class Division():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -562,7 +562,7 @@ class Division():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -594,7 +594,7 @@ class FinanceObjectClass():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -605,7 +605,7 @@ class FinanceObjectClass():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -635,7 +635,7 @@ class Fund():
     '''Defines the Fund Class'''
     __code = ''
     __name = ''
-    __title = None
+    __title = ''
     __data = None
     __dataframe = None
 
@@ -648,7 +648,7 @@ class Fund():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -659,7 +659,7 @@ class Fund():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def title( self ):
@@ -668,9 +668,9 @@ class Fund():
 
     @title.setter
     def title( self, title ):
-        if title is not None:
-            self.__title = str( title )
-            self.__data[ 'title' ] = self.__title
+        if not title == '':
+            self.__title = title
+            self.__data[ 'title' ] = title
 
     @property
     def data( self ):
@@ -711,7 +711,7 @@ class Goal():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -722,7 +722,7 @@ class Goal():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -750,8 +750,8 @@ class NationalProgram():
     '''Defines the NationalProgram Class'''
     __code = ''
     __name = ''
-    __rpio = None
-    __title = None
+    __rpio = ''
+    __title = ''
     __data = None
     __dataframe = None
 
@@ -764,7 +764,7 @@ class NationalProgram():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -775,7 +775,7 @@ class NationalProgram():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def rpio( self ):
@@ -786,7 +786,7 @@ class NationalProgram():
     def rpio( self, code ):
         if not code == '':
             self.__rpio = code
-            self.__data[ 'rpio' ] = self.__rpio
+            self.__data[ 'rpio' ] = code
 
     @property
     def title( self ):
@@ -797,7 +797,7 @@ class NationalProgram():
     def title( self, name ):
         if not name == '':
             self.__title = name
-            self.__data[ 'title' ] = self.__title
+            self.__data[ 'title' ] = name
 
     @property
     def data( self ):
@@ -837,7 +837,7 @@ class Objective():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -848,7 +848,7 @@ class Objective():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -878,7 +878,7 @@ class Organization():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -889,7 +889,7 @@ class Organization():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -908,7 +908,7 @@ class Organization():
 
     def __init__( self, code ):
         self.__code = code
-        self.__data = { 'code': self.__code }
+        self.__data = { 'code': code }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -930,7 +930,7 @@ class Project():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -941,7 +941,7 @@ class Project():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -983,7 +983,7 @@ class ItProjectCode():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -994,7 +994,7 @@ class ItProjectCode():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -1035,7 +1035,7 @@ class SiteProjectCode():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -1046,7 +1046,7 @@ class SiteProjectCode():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -1087,7 +1087,7 @@ class HumanResourceOrganization():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -1098,7 +1098,7 @@ class HumanResourceOrganization():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -1139,7 +1139,7 @@ class WorkCode():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -1150,7 +1150,7 @@ class WorkCode():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -1538,7 +1538,7 @@ class RegionalOffice():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -1625,7 +1625,7 @@ class SiteProject():
     def code( self, code ):
         if not code == '':
             self.__code = code
-            self.__data[ 'code' ] = self.__code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
@@ -1636,7 +1636,7 @@ class SiteProject():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -1687,7 +1687,7 @@ class HeadQuartersOffice():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def title( self ):
@@ -1750,7 +1750,7 @@ class Holiday():
     def name( self, name ):
         if not name == '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
+            self.__data[ 'name' ] = name
 
     @property
     def date( self ):
@@ -1829,7 +1829,7 @@ class Commitment:
     def account( self, code ):
         if not code == '':
             self.__account = Account( code )
-            self.__data[ 'account' ] = self.__account
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):
@@ -1851,7 +1851,7 @@ class Commitment:
     def org( self, code ):
         if not code == '':
             self.__org = Organization( code )
-            self.__data[ 'org' ] = self.__org
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
@@ -1860,9 +1860,9 @@ class Commitment:
 
     @bfy.setter
     def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+        if not year == '':
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
@@ -1873,7 +1873,7 @@ class Commitment:
     def fund( self, code ):
         if not code == '':
             self.__fund = Fund( code )
-            self.__data[ 'fund' ] = self.__fund
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -1884,7 +1884,7 @@ class Commitment:
     def boc( self, code ):
         if not code == '':
             self.__boc = BudgetObjectClass( code )
-            self.__data[ 'boc' ] = self.__boc
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -1943,7 +1943,7 @@ class OpenCommitment:
     def account( self, code ):
         if not code == '':
             self.__account = Account( code )
-            self.__data[ 'account' ] = self.__account
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):
@@ -2057,7 +2057,7 @@ class Obligation:
     def account( self, code ):
         if not code == '':
             self.__account = Account( code )
-            self.__data[ 'account' ] = self.__account
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):
@@ -2171,7 +2171,7 @@ class Deobligation:
     def account( self, code ):
         if not code == '':
             self.__account = Account( code )
-            self.__data[ 'account' ] = self.__account
+            self.__data[ 'account' ] = code
 
     @property
     def dcn( self ):
@@ -2193,7 +2193,7 @@ class Deobligation:
     def org( self, code ):
         if not code == '':
             self.__org = Organization( code )
-            self.__data[ 'org' ] = self.__org
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
@@ -2202,9 +2202,9 @@ class Deobligation:
 
     @bfy.setter
     def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+        if not year == '':
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
@@ -2215,7 +2215,7 @@ class Deobligation:
     def fund( self, code ):
         if not code == '':
             self.__fund = Fund( code )
-            self.__data[ 'fund' ] = self.__fund
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -2226,7 +2226,7 @@ class Deobligation:
     def boc( self, code ):
         if not code == '':
             self.__boc = BudgetObjectClass( code )
-            self.__data[ 'boc' ] = self.__boc
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -2285,51 +2285,51 @@ class ULO:
     def account( self, code ):
         if not code == '':
             self.__account = Account( code )
-            self.__data[ 'account' ] = self.__account
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):
-        if self.__document is not None:
+        if not self.__document == '':
             return self.__document
 
     @document.setter
     def document( self, doc ):
-        if doc is not None:
-            self.__document = str( doc )
-            self.__data[ 'document' ] = self.__document
+        if not doc == '':
+            self.__document = doc
+            self.__data[ 'document' ] = doc
 
     @property
     def org( self ):
-        if self.__org is not None:
+        if not self.__org == '':
             return self.__org
 
     @org.setter
     def org( self, code ):
         if not code == '':
             self.__org = Organization( code )
-            self.__data[ 'org' ] = self.__org
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
-        if self.__bfy is not None:
+        if not self.__bfy == '':
             return self.__bfy
 
     @bfy.setter
     def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+        if not year == '':
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
-        if self.__fund is not None:
+        if not self.__fund == '':
             return self.__fund
 
     @fund.setter
     def fund( self, code ):
         if not code == '':
             self.__fund = Fund( code )
-            self.__data[ 'fund' ] = self.__fund
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -2340,7 +2340,7 @@ class ULO:
     def boc( self, code ):
         if not code == '':
             self.__boc = BudgetObjectClass( code )
-            self.__data[ 'boc' ] = self.__boc
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
