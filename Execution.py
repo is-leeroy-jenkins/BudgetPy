@@ -4,12 +4,12 @@ import sqlite3 as sl
 
 class Account():
     '''defines the Account Code class'''
-    __code = None
-    __name = None
-    __goal = None
-    __objective = None
-    __npm = None
-    __programproject = None
+    __code = ''
+    __name = ''
+    __goal = ''
+    __objective = ''
+    __npm = ''
+    __programproject = ''
     __data = None
     __dataframe = None
 
@@ -20,8 +20,8 @@ class Account():
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
@@ -31,8 +31,8 @@ class Account():
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -64,8 +64,8 @@ class Account():
 
     @npm.setter
     def npm( self, code ):
-        if code is not None:
-            self.__npm = str( code )
+        if not code == '':
+            self.__npm = code
             self.__data[ 'npm' ] = self.__npm
 
     @property
@@ -75,8 +75,8 @@ class Account():
 
     @programproject.setter
     def programproject( self, code ):
-        if code is not None:
-            self.__programproject = str( code )
+        if not code == '':
+            self.__programproject = code
             self.__data[ 'programproject' ] = self.__programproject
 
     @property
@@ -91,7 +91,7 @@ class Account():
 
     def __init__( self, code ):
         self.__data = { }
-        self.__code = str( code )
+        self.__code = code
         self.__goal = str( self.__code[ 0 ] )
         self.__objective = str( self.__code[ 1:3 ] )
         self.__npm = str( self.__code[ 3 ] )
@@ -99,37 +99,37 @@ class Account():
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
 class Activity():
     '''Defines the Activity Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
+        if not name == '':
+            self.__name = name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -148,7 +148,7 @@ class Activity():
 
     def __init__( self, code ):
         self.__data = { }
-        self.__code = str( code )
+        self.__code = code
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -156,32 +156,32 @@ class Activity():
 
 class AllowanceHolder():
     '''Defines the AllowanceHolder Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
-            self.__data[ 'code' ] = self.__code
+        if not code == '':
+            self.__code = code
+            self.__data[ 'code' ] = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
+        if not name == '':
+            self.__name = name
+            self.__data[ 'name' ] = name
 
     @property
     def data( self ):
@@ -200,18 +200,18 @@ class AllowanceHolder():
 
     def __init__( self, code ):
         self.__data = { }
-        self.__code = str( code )
+        self.__code = code
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
 class Appropriation():
     '''Defines the Appropriation Class'''
     __fund = None
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __title = None
     __bfy = None
     __data = None
@@ -219,24 +219,24 @@ class Appropriation():
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
+        if not name == '':
+            self.__name = name
+            self.__data[ 'name' ] = name
 
     @property
     def fiscalyear( self ):
@@ -256,8 +256,8 @@ class Appropriation():
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( str( code ) )
+        if not code == '':
+            self.__fund = Fund( code )
             self.__data[ 'fund' ] = self.__fund
 
     @property
@@ -287,7 +287,7 @@ class Appropriation():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__fund = Fund( self.__code )
         self.__data = { 'code': self.__code,
                         'fund': self.__fund }
@@ -474,32 +474,32 @@ class BudgetFiscalYear():
 
 class BudgetObjectClass():
     '''Defines the BudgetObjectClass Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __value = None
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -529,7 +529,7 @@ class BudgetObjectClass():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code  }
         self.__dataframe = pd.DataFrame
 
@@ -538,30 +538,30 @@ class BudgetObjectClass():
 
 class Division():
     '''Defines the Division Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -571,40 +571,40 @@ class Division():
             return self.__data
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
 
     def __str__( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
 class FinanceObjectClass():
     '''Defines the FinanceObjectClass Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -623,42 +623,42 @@ class FinanceObjectClass():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
 class Fund():
     '''Defines the Fund Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __title = None
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -688,7 +688,7 @@ class Fund():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -697,31 +697,31 @@ class Fund():
 
 class Goal():
     '''Defines the Goal Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -740,7 +740,7 @@ class Goal():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
 
     def __str__( self ):
@@ -748,8 +748,8 @@ class Goal():
 
 class NationalProgram():
     '''Defines the NationalProgram Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __rpio = None
     __title = None
     __data = None
@@ -757,24 +757,24 @@ class NationalProgram():
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -784,8 +784,8 @@ class NationalProgram():
 
     @rpio.setter
     def rpio( self, code ):
-        if code is not None:
-            self.__rpio = str( code )
+        if not code == '':
+            self.__rpio = code
             self.__data[ 'rpio' ] = self.__rpio
 
     @property
@@ -795,8 +795,8 @@ class NationalProgram():
 
     @title.setter
     def title( self, name ):
-        if name is not None:
-            self.__title = str( name )
+        if not name == '':
+            self.__title = name
             self.__data[ 'title' ] = self.__title
 
     @property
@@ -815,7 +815,7 @@ class NationalProgram():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -824,30 +824,30 @@ class NationalProgram():
 
 class Objective():
     '''Defines the Objective Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -856,7 +856,7 @@ class Objective():
             return self.__data
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
 
     def __str__( self ):
@@ -864,31 +864,31 @@ class Objective():
 
 class Organization():
     '''Defines the Organization Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -916,31 +916,31 @@ class Organization():
 
 class Project():
     '''Defines the Organization Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -959,7 +959,7 @@ class Project():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -969,31 +969,31 @@ class Project():
 
 class ItProjectCode():
     '''Defines the Organization Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -1012,7 +1012,7 @@ class ItProjectCode():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -1021,31 +1021,31 @@ class ItProjectCode():
 
 class SiteProjectCode():
     '''Defines the Organization Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -1064,7 +1064,7 @@ class SiteProjectCode():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -1073,31 +1073,31 @@ class SiteProjectCode():
 
 class HumanResourceOrganization():
     '''Defines the Organization Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -1116,7 +1116,7 @@ class HumanResourceOrganization():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -1125,31 +1125,31 @@ class HumanResourceOrganization():
 
 class WorkCode():
     '''Defines the Organization Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -1163,7 +1163,7 @@ class WorkCode():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -1172,30 +1172,30 @@ class WorkCode():
 
 class ProgramArea():
     '''defines the ProgramArea class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
 
     @property
     def data( self ):
@@ -1208,7 +1208,7 @@ class ProgramArea():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -1217,31 +1217,31 @@ class ProgramArea():
 
 class ProgramProject():
     '''Defines the ProgramProject Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __description = None
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
 
     @property
     def description( self ):
@@ -1264,7 +1264,7 @@ class ProgramProject():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -1273,30 +1273,30 @@ class ProgramProject():
 
 class ResponsibilityCenter():
     '''Defines the ResponsibilityCenter Class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
 
     @property
     def data( self ):
@@ -1309,7 +1309,7 @@ class ResponsibilityCenter():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -1318,30 +1318,30 @@ class ResponsibilityCenter():
 
 class ResourcePlanningOffice():
     '''defines the ResponsiblePlanningOffice class'''
-    __code = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
 
     @property
     def data( self ):
@@ -1354,7 +1354,7 @@ class ResourcePlanningOffice():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__data = { 'code': self.__code }
         self.__dataframe = pd.DataFrame
 
@@ -1383,7 +1383,7 @@ class ProgramResultsCode():
 
     @rpio.setter
     def rpio( self, code ):
-        if code is not None:
+        if not code == '':
             self.__rpio = ResourcePlanningOffice( code )
             self.__data[ 'RPIO' ] = self.__rpio.code
 
@@ -1405,8 +1405,8 @@ class ProgramResultsCode():
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = ResourcePlanningOffice( str( code ) )
+        if not code == '':
+            self.__fund = ResourcePlanningOffice( code )
             self.__data[ 'Fund' ] = self.__fund.code
 
     @property
@@ -1416,8 +1416,8 @@ class ProgramResultsCode():
 
     @ah.setter
     def ah( self, code ):
-        if code is not None:
-            self.__ah = AllowanceHolder( str( code ) )
+        if not code == '':
+            self.__ah = AllowanceHolder( code )
             self.__data[ 'AH' ] = self.__ah.code
 
     @property
@@ -1427,8 +1427,8 @@ class ProgramResultsCode():
 
     @account.setter
     def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
+        if not code == '':
+            self.__account = Account( code )
             self.__data[ 'Account' ] = self.__account.code
 
     @property
@@ -1439,8 +1439,8 @@ class ProgramResultsCode():
 
     @activity.setter
     def activity( self, code ):
-        if code is not None:
-            self.__activity = Activity( str( code ) )
+        if not code == '':
+            self.__activity = Activity( code )
             self.__data[ 'Activity' ] = self.__activity.code
 
     @property
@@ -1450,8 +1450,8 @@ class ProgramResultsCode():
 
     @org.setter
     def org( self, code ):
-        if code is not None:
-            self.__org = Organization( str( code ) )
+        if not code == '':
+            self.__org = Organization( code )
             self.__data[ 'ORG' ] = self.__org.code
 
     @property
@@ -1461,8 +1461,8 @@ class ProgramResultsCode():
 
     @rc.setter
     def rc( self, code ):
-        if code is not None:
-            self.__rc = ResponsibilityCenter( str( code ) )
+        if not code == '':
+            self.__rc = ResponsibilityCenter( code )
             self.__data[ 'RC' ] = self.__rc.code
 
     @property
@@ -1472,8 +1472,8 @@ class ProgramResultsCode():
 
     @boc.setter
     def boc( self, code ):
-        if code is not None:
-            self.__rpio = BudgetObjectClass( str( code ) )
+        if not code == '':
+            self.__rpio = BudgetObjectClass( code )
             self.__data[ 'BOC' ] = self.__boc.code
 
     @property
@@ -1499,7 +1499,7 @@ class ProgramResultsCode():
 
     def __init__( self, code, amount = 0 ):
         '''Initializes the PRC class'''
-        self.__account = Account( str( code ) )
+        self.__account = Account( code )
         self.__amount = amount
         self.__data = { 'code': self.__account.code,
                         'account': self.__account,
@@ -1513,7 +1513,8 @@ class ProgramResultsCode():
 class RegionalOffice():
     '''Defines a regional RPIO'''
     __rpio = None
-    __name = None
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
@@ -1524,19 +1525,19 @@ class RegionalOffice():
 
     @rpio.setter
     def rpio( self, code ):
-        if code is not None:
+        if not code == '':
             self.__rpio = ResourcePlanningOffice( code )
             self.__data[ 'rpio' ] = self.__rpio
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -1562,12 +1563,12 @@ class RegionalOffice():
 
 class SiteProject():
     '''Defines the Site Project Code Class'''
-    __epaid = None
-    __ssid = None
-    __actioncode = None
-    __operableunit = None
-    __code = None
-    __name = None
+    __epaid = ''
+    __ssid = ''
+    __actioncode = ''
+    __operableunit = ''
+    __code = ''
+    __name = ''
     __data = None
     __dataframe = None
 
@@ -1589,8 +1590,8 @@ class SiteProject():
 
     @actioncode.setter
     def actioncode( self, code ):
-        if code is not None:
-            self.__actioncode = str( code )
+        if not code == '':
+            self.__actioncode = code
             self.__data[ 'actioncode' ] = self.__actioncode
 
     @property
@@ -1617,24 +1618,24 @@ class SiteProject():
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if not self.__code == '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
+        if not code == '':
+            self.__code = code
             self.__data[ 'code' ] = self.__code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -1648,7 +1649,7 @@ class SiteProject():
             return self.__dataframe
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code
         self.__ssid = self.__code[ 0: 4 ]
         self.__actioncode = self.__code[ 4:6 ]
         self.__operableunit = self.__code[ 6:9 ]
@@ -1661,7 +1662,7 @@ class SiteProject():
 class HeadQuartersOffice():
     '''Defines the HQ class'''
     __rpio = None
-    __name = None
+    __name = ''
     __title = None
     __data = None
     __dataframe = None
@@ -1673,19 +1674,19 @@ class HeadQuartersOffice():
 
     @rpio.setter
     def rpio( self, code ):
-        if code is not None:
-            self.__rpio = str( code )
+        if not code == '':
+            self.__rpio = code
             self.__data[ 'rpio' ] = self.__rpio
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -1717,13 +1718,13 @@ class HeadQuartersOffice():
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
 class Holiday():
     '''Defines the Holiday class'''
     __bfy = None
-    __name = None
+    __name = ''
     __date = None
     __day = None
     __data = None
@@ -1742,13 +1743,13 @@ class Holiday():
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if not name == '':
+            self.__name = name
             self.__data[ 'name' ] = self.__name
 
     @property
@@ -1785,7 +1786,7 @@ class Holiday():
 
     def __init__( self, bfy, name ):
         self.__bfy = str( bfy )
-        self.__name = str( name )
+        self.__name = name
         self.__date = dt.date.today()
         self.__day = self.__date.day
         self.__data = { 'bfy': self.__bfy,
@@ -1793,7 +1794,7 @@ class Holiday():
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
 class Commitment:
@@ -1826,8 +1827,8 @@ class Commitment:
 
     @account.setter
     def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
+        if not code == '':
+            self.__account = Account( code )
             self.__data[ 'account' ] = self.__account
 
     @property
@@ -1848,8 +1849,8 @@ class Commitment:
 
     @org.setter
     def org( self, code ):
-        if code is not None:
-            self.__org = Organization( str( code ) )
+        if not code == '':
+            self.__org = Organization( code )
             self.__data[ 'org' ] = self.__org
 
     @property
@@ -1870,8 +1871,8 @@ class Commitment:
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( str( code ) )
+        if not code == '':
+            self.__fund = Fund( code )
             self.__data[ 'fund' ] = self.__fund
 
     @property
@@ -1881,8 +1882,8 @@ class Commitment:
 
     @boc.setter
     def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
+        if not code == '':
+            self.__boc = BudgetObjectClass( code )
             self.__data[ 'boc' ] = self.__boc
 
     @property
@@ -1940,8 +1941,8 @@ class OpenCommitment:
 
     @account.setter
     def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
+        if not code == '':
+            self.__account = Account( code )
             self.__data[ 'account' ] = self.__account
 
     @property
@@ -1962,9 +1963,9 @@ class OpenCommitment:
 
     @org.setter
     def org( self, code ):
-        if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+        if not code == '':
+            self.__org = Organization( code )
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
@@ -1973,9 +1974,9 @@ class OpenCommitment:
 
     @bfy.setter
     def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+        if not year == '':
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
@@ -1984,9 +1985,9 @@ class OpenCommitment:
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( str( code ) )
-            self.__data[ 'fund' ] = self.__fund
+        if not code == '':
+            self.__fund = Fund( code )
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -1995,9 +1996,9 @@ class OpenCommitment:
 
     @boc.setter
     def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
-            self.__data[ 'boc' ] = self.__boc
+        if not code == '':
+            self.__boc = BudgetObjectClass( code )
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -2054,8 +2055,8 @@ class Obligation:
 
     @account.setter
     def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
+        if not code == '':
+            self.__account = Account( code )
             self.__data[ 'account' ] = self.__account
 
     @property
@@ -2076,9 +2077,9 @@ class Obligation:
 
     @org.setter
     def org( self, code ):
-        if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+        if not code == '':
+            self.__org = Organization( code )
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
@@ -2087,9 +2088,9 @@ class Obligation:
 
     @bfy.setter
     def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+        if not year == '':
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
@@ -2098,9 +2099,9 @@ class Obligation:
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( str( code ) )
-            self.__data[ 'fund' ] = self.__fund
+        if not code == '':
+            self.__fund = Fund( code )
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -2109,9 +2110,9 @@ class Obligation:
 
     @boc.setter
     def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
-            self.__data[ 'boc' ] = self.__boc
+        if not code == '':
+            self.__boc = BudgetObjectClass( code )
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -2168,8 +2169,8 @@ class Deobligation:
 
     @account.setter
     def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
+        if not code == '':
+            self.__account = Account( code )
             self.__data[ 'account' ] = self.__account
 
     @property
@@ -2190,8 +2191,8 @@ class Deobligation:
 
     @org.setter
     def org( self, code ):
-        if code is not None:
-            self.__org = Organization( str( code ) )
+        if not code == '':
+            self.__org = Organization( code )
             self.__data[ 'org' ] = self.__org
 
     @property
@@ -2212,8 +2213,8 @@ class Deobligation:
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( str( code ) )
+        if not code == '':
+            self.__fund = Fund( code )
             self.__data[ 'fund' ] = self.__fund
 
     @property
@@ -2223,8 +2224,8 @@ class Deobligation:
 
     @boc.setter
     def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
+        if not code == '':
+            self.__boc = BudgetObjectClass( code )
             self.__data[ 'boc' ] = self.__boc
 
     @property
@@ -2282,8 +2283,8 @@ class ULO:
 
     @account.setter
     def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
+        if not code == '':
+            self.__account = Account( code )
             self.__data[ 'account' ] = self.__account
 
     @property
@@ -2304,8 +2305,8 @@ class ULO:
 
     @org.setter
     def org( self, code ):
-        if code is not None:
-            self.__org = Organization( str( code ) )
+        if not code == '':
+            self.__org = Organization( code )
             self.__data[ 'org' ] = self.__org
 
     @property
@@ -2326,8 +2327,8 @@ class ULO:
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( str( code ) )
+        if not code == '':
+            self.__fund = Fund( code )
             self.__data[ 'fund' ] = self.__fund
 
     @property
@@ -2337,8 +2338,8 @@ class ULO:
 
     @boc.setter
     def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
+        if not code == '':
+            self.__boc = BudgetObjectClass( code )
             self.__data[ 'boc' ] = self.__boc
 
     @property
@@ -2396,9 +2397,9 @@ class Expenditure:
 
     @account.setter
     def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
-            self.__data[ 'account' ] = self.__account
+        if not code == '':
+            self.__account = Account( code )
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):
@@ -2418,9 +2419,9 @@ class Expenditure:
 
     @org.setter
     def org( self, code ):
-        if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+        if not code == '':
+            self.__org = Organization( code )
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
@@ -2429,9 +2430,9 @@ class Expenditure:
 
     @bfy.setter
     def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+        if not year == '':
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
@@ -2440,9 +2441,9 @@ class Expenditure:
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( str( code ) )
-            self.__data[ 'fund' ] = self.__fund
+        if not code == '':
+            self.__fund = Fund( code )
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -2451,9 +2452,9 @@ class Expenditure:
 
     @boc.setter
     def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
-            self.__data[ 'boc' ] = self.__boc
+        if not code == '':
+            self.__boc = BudgetObjectClass( code )
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
