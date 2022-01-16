@@ -92,7 +92,7 @@ class BudgetPath():
             return self.__report
 
     def join( self, first, second ):
-        ''' Concatenates 'first' to 'second' '''
+        ''' Concatenates 'first' receiver 'second' '''
         if os.path.exists( first ) and os.path.exists( second ):
             return os.path.join( first, second )
 
@@ -310,7 +310,7 @@ class BudgetFile():
                 return line
 
     def writelines( self, lines = None ):
-        ''' writes the contents of 'lines' to self.__content '''
+        ''' writes the contents of 'lines' receiver self.__content '''
         if os.path.isfile( self.__path ) and isinstance( lines, list ):
             for line in lines:
                 self.__content.append( open( self.__path, 'w' ).write( line ) )
@@ -478,27 +478,35 @@ class BudgetFolder():
 
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
-    __and = None
-    __where = None
-    __or = None
+    __and = ''
+    __where = ''
+    __or = ''
+    __equals = ''
     __criteria = None
     __cmd = None
     __sql = None
+    __names = None
+    __values = None
 
     @property
     def AND( self ):
-        if self.__and is not None:
+        if not self.__and == '':
             return self.__and
 
     @property
     def OR( self ):
-        if self.__or is not None:
+        if not self.__or == '':
             return self.__or
 
     @property
     def where( self ):
-        if self.__where is not None:
+        if not self.__where == '':
             return self.__where
+
+    @property
+    def equals( self ):
+        if not self.__equals == '':
+            return self.__equals
 
     @property
     def command( self ):
@@ -510,19 +518,43 @@ class CriteriaBuilder():
         if cmd is not None and cmd in self.__sql:
             self.__cmd = str( self.__sql[ cmd ] )
 
+    @property
+    def names( self ):
+        if self.__names is not None:
+            return  self.__names
+
+    @names.setter
+    def names( self, cols ):
+        if isinstance( cols, [ ] ):
+            self.__names = cols
+
+    @property
+    def values( self ):
+        if self.__values is not None:
+            return self.__values
+
+    @values.setter
+    def values( self, vals ):
+        if isinstance( vals, [ ] ):
+            self.__values = vals
+
     def create( self, pairs ):
         ''' builds criteria from dictionary of name value pairs'''
         if isinstance( pairs, dict ):
             self.__criteria = pairs
 
-    def __init__( self, cmd = 'SELECT' ):
+    def __init__( self, cmd = 'SELECT', names = None,
+                  values = None ):
         self.__and = ' AND '
         self.__or = ' OR '
         self.__where = ' WHERE '
+        self.__equals = ' = '
         self.__cmd = str( cmd )
         self.__sql = [ 'SELECT', 'INSERT', 'UPDATE',
                        'DELETE', 'CREATE', 'ALTER',
                        'DROP', 'DETACH' ]
+        self.__names = names
+        self.__values = values
 
 class SqlBuilder():
     '''Defines the SQL Builder class.'''
@@ -881,13 +913,13 @@ class Source():
 
     @property
     def datamodels( self ):
-        ''' Property used to store table names in a list '''
+        ''' Property used receiver store table names in a list '''
         if self.__data is not None:
             return iter( self.__data )
 
     @property
     def referencemodels( self ):
-        ''' Property used to store table names in a list '''
+        ''' Property used receiver store table names in a list '''
         if self.__reference is not None:
             return iter( self.__reference )
 
@@ -923,7 +955,7 @@ class Source():
                 yield i
 
 class Database():
-    ''' Defines object used to provide the path to datamodels model databases '''
+    ''' Defines object used receiver provide the path receiver datamodels model databases '''
     __accesspath = ''
     __sqlitepath = ''
     __mssqlpath = ''
@@ -967,7 +999,7 @@ class Database():
             r'\db\mssql\datamodels\Data.mdf'
 
 class ReferenceModel():
-    '''Defines object used to provide paths to the referencemodels model databases '''
+    '''Defines object used receiver provide paths receiver the referencemodels model databases '''
     __accesspath = None
     __sqlitepath = None
     __mssqlpath = None
@@ -1439,25 +1471,25 @@ class EmailBuilder():
     @body.setter
     def body( self, msg ):
         ''' Sets the email's subject line '''
-        if msg is not None:
-            self.__message = str( msg )
+        if not msg == '':
+            self.__message = msg
 
     @property
     def copy( self ):
-        ''' Gets the addresses to send copies  '''
+        ''' Gets the addresses receiver send copies  '''
         if not self.__others == '':
             return self.__others
 
     @copy.setter
     def copy( self, copy ):
-        ''' Sets the address's to send copies  '''
+        ''' Sets the address's receiver send copies  '''
         if copy is not None:
             self.__others = list( copy )
 
-    def __init__( self, frm = '', to = '',
+    def __init__( self, sender = '', receiver = '',
                   body = '', sub = '', copy = '' ):
-        self.__from = frm
-        self.__to = to
+        self.__from = sender
+        self.__to = receiver
         self.__message = body
         self.__others = copy
         self.__subject = sub
@@ -1468,24 +1500,24 @@ class EmailBuilder():
 
 class ExcelFile():
     ''' Provides the spreadsheet for Budget Py reports '''
-    __path = None
+    __path = ''
     __workbook = None
-    __worksheet = None
-    __name = None
-    __rows = None
-    __columns = None
-    __dimensions = None
+    __worksheet = ''
+    __name = ''
+    __rows = 46
+    __columns = 12
+    __dimensions = ( __rows, __columns )
 
     @property
     def name( self ):
         ''' Get the name of the workbook '''
-        if self.__name is not None:
+        if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, filename ):
-        if filename is not None and len( filename ) > 0:
-            self.__name = str( filename )
+        if not filename == '':
+            self.__name = filename
 
     @property
     def rows( self ):
@@ -1533,13 +1565,13 @@ class ExcelFile():
     @property
     def worksheet( self ):
         ''' Gets the workbooks worksheet '''
-        if self.__worksheet is not None:
+        if not self.__worksheet == '':
             return self.__worksheet
 
     @worksheet.setter
     def worksheet( self, name ):
         ''' Gets the workbooks worksheet '''
-        if self.__workbook is not None and name is not None:
+        if self.__workbook is not None and not name == '':
             self.__workbook.worksheets.clear()
             self.__worksheet = self.__workbook.create_sheet( title = name, index = 1 )
 
