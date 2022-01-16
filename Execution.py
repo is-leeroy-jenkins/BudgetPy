@@ -1263,9 +1263,10 @@ class ProgramProject():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, code ):
+    def __init__( self, code, name = ''  ):
         self.__code = code
-        self.__data = { 'code': self.__code }
+        self.__name = name
+        self.__data = { 'code': self.__code, 'name': name }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -1308,9 +1309,10 @@ class ResponsibilityCenter():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, code ):
+    def __init__( self, code, name = ''  ):
         self.__code = code
-        self.__data = { 'code': self.__code }
+        self.__name = name
+        self.__data = { 'code': code, 'name': name }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -1353,9 +1355,10 @@ class ResourcePlanningOffice():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, code ):
+    def __init__( self, code, name = '' ):
         self.__code = code
-        self.__data = { 'code': code }
+        self.__name = name
+        self.__data = { 'code': code, 'name': name }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
@@ -1550,11 +1553,11 @@ class RegionalOffice():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, rpio ):
-        self.__rpio = ResourcePlanningOffice( str( rpio ) )
-        self.__name = self.__rpio.name
-        self.__data = { 'rpio': self.__rpio,
-                        'name': self.__name }
+    def __init__( self, rpio, name = ''  ):
+        self.__rpio = ResourcePlanningOffice( rpio )
+        self.__name = name
+        self.__data = { 'rpio': rpio,
+                        'name': name }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
