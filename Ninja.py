@@ -1,5 +1,4 @@
 import os
-import io
 import datetime as dt
 import sqlite3 as sl
 import pandas as pd
@@ -8,14 +7,14 @@ import openpyxl as xl
 
 class BudgetPath():
     '''Defines the BudgetPath class'''
-    __base = None
-    __path = None
-    __ext = None
-    __report = None
+    __base = ''
+    __path = ''
+    __ext = ''
+    __report = ''
 
     @property
     def base( self ):
-        if self.__base is not None:
+        if not self.__base == '':
             return self.__base
 
     @base.setter
@@ -37,7 +36,7 @@ class BudgetPath():
 
     @property
     def path( self ):
-        if self.__path is not None:
+        if not self.__path == '':
             return self.__path
 
     @path.setter
@@ -75,11 +74,11 @@ class BudgetPath():
         if os.path.exists( other ):
             return True
 
-    def verify_file( self, other ):
+    def verify_isfile( self, other ):
         if os.path.isfile( other ):
             return True
 
-    def verify_folder( self, other ):
+    def verify_isfolder( self, other ):
         if os.path.isdir( other ):
             return True
 
@@ -88,8 +87,8 @@ class BudgetPath():
         if os.path.exists( other ):
             return list( os.path.splitext( other ) )[ 1 ]
 
-    def get_report( self ):
-        if self.__report is not None:
+    def reportpath( self ):
+        if not self.__report == '':
             return self.__report
 
     def join( self, first, second ):
@@ -97,15 +96,19 @@ class BudgetPath():
         if os.path.exists( first ) and os.path.exists( second ):
             return os.path.join( first, second )
 
-    def __init__( self, filepath ):
-        self.__base = str( filepath )
+    def __init__( self, base = '' ):
+        self.__base = base
         self.__path = self.__base
         self.__ext = os.path.split( self.__path )
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
+    def __str__(self):
+        if not self.__base == '':
+            return self.__base
+
 class BudgetFile():
     '''Defines the BudgetFile Class'''
-    __base = None
+    __base = ''
     __name = None
     __path = None
     __size = None
@@ -120,7 +123,7 @@ class BudgetFile():
 
     @property
     def base( self ):
-        if self.__base is not None:
+        if not self.__base == '':
             return self.__base
 
     @base.setter
@@ -229,8 +232,8 @@ class BudgetFile():
             os.chdir( path )
 
     # Constructor
-    def __init__( self, base ):
-        self.__base = str( base )
+    def __init__( self, base = '' ):
+        self.__base = base
         self.__path = self.__base
         self.__name = os.path.basename( base )
         self.__size = os.path.getsize( base )
@@ -523,7 +526,6 @@ class CriteriaBuilder():
 
 class SqlBuilder():
     '''Defines the SQL Builder class.'''
-    __db = ''
     __table = ''
     __create = ''
     __select = ''
@@ -532,7 +534,6 @@ class SqlBuilder():
     __update = ''
     __alter = ''
     __drop = ''
-    __crit = dict()
 
     @property
     def select( self ):
@@ -604,25 +605,17 @@ class SqlBuilder():
         if name is not None:
             self.__table = str( name )
 
-    @property
-    def database( self ):
-        if not self.__db == '':
-            return self.__db
-
-    @database.setter
-    def database( self, name ):
-        if name is not None:
-            self.__db = str( name )
-
-    def __init__( self ):
-        self.__db = ''
-        self.__table = ''
-        self.__select = ''
-        self.__insert = ''
-        self.__update = ''
-        self.__delete = ''
-        self.__drop = ''
-        self.__create = ''
+    def __init__( self, table = '', select = '',
+                  insert = '', update = '', delete = '',
+                  drop = '', create = '', alter = ''):
+        self.__table = table
+        self.__select = select
+        self.__insert = insert
+        self.__update = update
+        self.__delete = delete
+        self.__drop = drop
+        self.__create = create
+        self.__alter = alter
 
 class DataRow():
     '''Defines the DataRow Class'''
@@ -887,13 +880,13 @@ class Source():
     __reference = [ ]
 
     @property
-    def data( self ):
+    def datamodels( self ):
         ''' Property used to store table names in a list '''
         if self.__data is not None:
             return iter( self.__data )
 
     @property
-    def reference( self ):
+    def referencemodels( self ):
         ''' Property used to store table names in a list '''
         if self.__reference is not None:
             return iter( self.__reference )
@@ -929,16 +922,16 @@ class Source():
             for i in self.__data:
                 yield i
 
-class DataModel():
-    ''' Defines object used to provide the path to data model databases '''
-    __accesspath = None
-    __sqlitepath = None
-    __mssqlpath = None
+class Database():
+    ''' Defines object used to provide the path to datamodels model databases '''
+    __accesspath = ''
+    __sqlitepath = ''
+    __mssqlpath = ''
 
     @property
     def access( self ):
-        if self.__accesspath is not None:
-            return str( self.__accesspath )
+        if not self.__accesspath == '':
+            return self.__accesspath
 
     @access.setter
     def access( self, path ):
@@ -947,8 +940,8 @@ class DataModel():
 
     @property
     def sqlite( self ):
-        if self.__sqlitepath is not None:
-            return str( self.__sqlitepath )
+        if not self.__sqlitepath == '':
+            return self.__sqlitepath
 
     @sqlite.setter
     def sqlite( self, path ):
@@ -957,8 +950,8 @@ class DataModel():
 
     @property
     def sqlserver( self ):
-        if self.__mssqlpath is not None:
-            return str( self.__mssqlpath )
+        if not self.__mssqlpath == '':
+            return self.__mssqlpath
 
     @sqlserver.setter
     def sqlserver( self, path ):
@@ -970,9 +963,11 @@ class DataModel():
             r'\db\access\datamodels\Data.accdb'
         self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\sqlite\datamodels\Data.db'
+        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\Data.mdf'
 
 class ReferenceModel():
-    '''Defines object used to provide paths to the reference model databases '''
+    '''Defines object used to provide paths to the referencemodels model databases '''
     __accesspath = None
     __sqlitepath = None
     __mssqlpath = None
@@ -1011,7 +1006,7 @@ class ReferenceModel():
             r'\db\mssql\referencemodels\References.mdf'
 
 class AccessData():
-    '''Builds the budget execution data classes'''
+    '''Builds the budget execution datamodels classes'''
     __dbpath = None
     __driver = None
     __connstr = None
@@ -1040,12 +1035,12 @@ class AccessData():
             self.__source = str( table )
 
     @property
-    def connstr( self ):
-        if self.__connstr is not None:
-            return str( self.__connstr )
+    def connectionstring( self ):
+        if not self.__connstr == '':
+            return self.__connstr
 
-    @connstr.setter
-    def connstr( self, conn ):
+    @connectionstring.setter
+    def connectionstring( self, conn ):
         if conn is not None:
             self.__connstr = str( conn )
 
@@ -1073,7 +1068,7 @@ class AccessData():
         if self.__connstr is not None:
             return db.connect( self.__connstr )
 
-    def __init__( self, table = None ):
+    def __init__( self, table = '' ):
         self.__source = table
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
@@ -1082,7 +1077,7 @@ class AccessData():
         self.__data = pd.DataFrame
 
 class AccessReference():
-    '''Builds the budget execution data classes'''
+    '''Builds the budget execution datamodels classes'''
     __dbpath = None
     __driver = None
     __connstr = None
@@ -1111,12 +1106,12 @@ class AccessReference():
             self.__source = str( source )
 
     @property
-    def connstr( self ):
+    def connectionstring( self ):
         if self.__connstr is not None:
             return str( self.__connstr )
 
-    @connstr.setter
-    def connstr( self, conn ):
+    @connectionstring.setter
+    def connectionstring( self, conn ):
         if conn is not None:
             self.__connstr = str( conn )
 
@@ -1140,7 +1135,7 @@ class AccessReference():
         if name is not None:
             self.__driver = name
 
-    def __init__( self, table = None ):
+    def __init__( self, table = '' ):
         self.__source = table
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access' \
@@ -1153,7 +1148,7 @@ class AccessReference():
             return db.connect( self.__connstr )
 
 class SQLiteData():
-    '''Builds the budget execution data classes'''
+    '''Builds the budget execution datamodels classes'''
     __dbpath = None
     __connstr = None
     __data = None
@@ -1181,12 +1176,12 @@ class SQLiteData():
             self.__source = str( source )
 
     @property
-    def connstr( self ):
+    def connectionstring( self ):
         if self.__dbpath is not None:
             return str( self.__dbpath )
 
-    @connstr.setter
-    def connstr( self, conn ):
+    @connectionstring.setter
+    def connectionstring( self, conn ):
         if conn is not None:
             self.__dbpath = str( conn )
 
@@ -1200,8 +1195,8 @@ class SQLiteData():
         if isinstance( dframe, pd.DataFrame ):
             self.__data = dframe
 
-    def __init__( self, table = None ):
-        self.__source = str( table )
+    def __init__( self, table = '' ):
+        self.__source = table
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\\sqlite\\datamodels\Data.db'
         self.__connstr = self.__dbpath
@@ -1216,7 +1211,7 @@ class SQLiteData():
             return sl.connect( self.__connstr )
 
 class SQLiteReference():
-    '''Class representing the budget execution reference models'''
+    '''Class representing the budget execution referencemodels models'''
     __source = None
     __dbpath = None
     __connstr = None
@@ -1244,12 +1239,12 @@ class SQLiteReference():
             self.__source = str( src )
 
     @property
-    def connstr( self ):
+    def connectionstring( self ):
         if self.__connstr is not None:
             return str( self.__connstr )
 
-    @connstr.setter
-    def connstr( self, conn ):
+    @connectionstring.setter
+    def connectionstring( self, conn ):
         if conn is not None:
             self.__connstr = str( conn )
 
@@ -1263,8 +1258,8 @@ class SQLiteReference():
         if dframe is not None:
             self.__data = dframe
 
-    def __init__( self, table = None ):
-        self.__source = str( table )
+    def __init__( self, table = '' ):
+        self.__source = table
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\sqlite\referencemodels\References.db'
         self.__connstr = self.__dbpath
@@ -1275,8 +1270,8 @@ class SQLiteReference():
         if self.__connstr is not None:
             return sl.connect( self.__connstr )
 
-class SqlData():
-    '''Builds the budget execution data classes'''
+class SqlServerData():
+    '''Builds the budget execution datamodels classes'''
     __dbpath = None
     __driver = None
     __server = None
@@ -1329,15 +1324,15 @@ class SqlData():
         if self.__dbpath is not None:
             return self.__dbpath
 
-    def __init__( self, table = None ):
-        self.__source = str( table )
+    def __init__( self, table = '' ):
+        self.__source = table
         self.__driver = r'DRIVER={ODBC Driver 17 for SQL Server};'
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\mssql\datamodels\Data.mdf'
         self.__data = pd.DataFrame
 
-class SqlReference():
-    '''Class representing the budget execution reference models'''
+class SqlServerReference():
+    '''Class representing the budget execution referencemodels models'''
     __source = None
     __driver = None
     __server = None
@@ -1385,24 +1380,24 @@ class SqlReference():
         if dframe is not None:
             self.__data = dframe
 
-    def __init__( self, table = None ):
-        self.__source = str( table )
+    def __init__( self, table = '' ):
+        self.__source = table
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\mssql\referencemodels\References.mdf'
         self.__data = pd.DataFrame
 
 class EmailBuilder():
     ''' Helper class for generating email messages '''
-    __from = None
-    __to = None
-    __subject = None
-    __message = None
-    __others = None
+    __from = ''
+    __to = ''
+    __subject = ''
+    __message = ''
+    __others = ''
 
     @property
     def sender( self ):
         ''' Gets the sender's email address '''
-        if self.__from is not None:
+        if not self.__from == '':
             return self.__from
 
     @sender.setter
@@ -1414,7 +1409,7 @@ class EmailBuilder():
     @property
     def receiver( self ):
         ''' Gets the sender's email address '''
-        if self.__to is not None:
+        if not self.__to == '':
             return self.__to
 
     @receiver.setter
@@ -1426,7 +1421,7 @@ class EmailBuilder():
     @property
     def subject( self ):
         ''' Gets the email's subject line '''
-        if self.__subject is not None:
+        if not self.__subject == '':
             return self.__subject
 
     @subject.setter
@@ -1438,19 +1433,19 @@ class EmailBuilder():
     @property
     def body( self ):
         ''' Gets the email's subject line '''
-        if self.__message is not None:
+        if not self.__message == '':
             return self.__message
 
     @body.setter
     def body( self, msg ):
         ''' Sets the email's subject line '''
         if msg is not None:
-            self.__to = str( msg )
+            self.__message = str( msg )
 
     @property
     def copy( self ):
         ''' Gets the addresses to send copies  '''
-        if self.__others is not None:
+        if not self.__others == '':
             return self.__others
 
     @copy.setter
@@ -1459,13 +1454,13 @@ class EmailBuilder():
         if copy is not None:
             self.__others = list( copy )
 
-    def __init__( self, frm = None, to = None,
-                  body = None, sub = None, copy = None ):
-        self.__from = str( frm )
-        self.__to = str( to )
-        self.__message = str( body )
-        self.__others = list( copy )
-        self.__subject = str( sub )
+    def __init__( self, frm = '', to = '',
+                  body = '', sub = '', copy = '' ):
+        self.__from = frm
+        self.__to = to
+        self.__message = body
+        self.__others = copy
+        self.__subject = sub
 
     def __str__( self ):
         if self.__message is not None:
