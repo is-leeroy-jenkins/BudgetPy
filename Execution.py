@@ -1355,7 +1355,7 @@ class ResourcePlanningOffice():
 
     def __init__( self, code ):
         self.__code = code
-        self.__data = { 'code': self.__code }
+        self.__data = { 'code': code }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
