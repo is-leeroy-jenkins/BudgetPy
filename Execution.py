@@ -1162,20 +1162,22 @@ class WorkCode():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, code ):
+    def __init__( self, code, name = '' ):
         self.__code = code
-        self.__data = { 'code': self.__code }
+        self.__name = name
+        self.__data = { 'code': code,
+                        'name': name }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
-        return self.__code
+        return self.__name
 
 class ProgramArea():
     '''defines the ProgramArea class'''
     __code = ''
     __name = ''
     __data = None
-    __dataframe = None
+    __dframe = None
 
     @property
     def code( self ):
@@ -1204,13 +1206,13 @@ class ProgramArea():
 
     @property
     def table( self ):
-        if self.__dataframe is not None:
-            return self.__dataframe
+        if self.__dframe is not None:
+            return self.__dframe
 
     def __init__( self, code ):
         self.__code = code
         self.__data = { 'code': self.__code }
-        self.__dataframe = pd.DataFrame
+        self.__dframe = pd.DataFrame
 
     def __str__( self ):
         return self.__code
@@ -1729,7 +1731,9 @@ class Holiday():
     __bfy = None
     __name = ''
     __date = None
-    __day = None
+    __yr = ''
+    __mo = ''
+    __dy = ''
     __data = None
     __dataframe = None
 
@@ -1768,14 +1772,14 @@ class Holiday():
 
     @property
     def day( self ):
-        if self.__day is not None:
-            return self.__day
+        if self.__dy is not None:
+            return self.__dy
 
     @day.setter
     def day( self, day ):
         if isinstance( day, int ):
-            self.__day = day
-            self.__data[ 'day' ] = str( self.__day )
+            self.__dy = day
+            self.__data[ 'day' ] = str( self.__dy )
 
     @property
     def data( self ):
@@ -1787,13 +1791,19 @@ class Holiday():
         if self.__dataframe is not None:
             return self.__dataframe
 
-    def __init__( self, bfy, name ):
-        self.__bfy = str( bfy )
+    def __init__( self, bfy, name,
+                  year = '', month = '', day = ''):
+        self.__bfy = bfy
+        self.__yr = year
+        self.__mo = month
         self.__name = name
-        self.__date = dt.date.today()
-        self.__day = self.__date.day
-        self.__data = { 'bfy': self.__bfy,
-                        'name': self.__name }
+        self.__dy = day
+        self.__date = dt.date( bfy )
+        self.__data = { 'bfy': bfy,
+                        'name': name,
+                        'year': year,
+                        'month': month,
+                        'day' : day }
         self.__dataframe = pd.DataFrame
 
     def __str__( self ):
