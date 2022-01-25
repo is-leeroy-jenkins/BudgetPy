@@ -1827,7 +1827,7 @@ class Commitment:
     @account.setter
     def account( self, code ):
         if code is not None:
-            self.__account = Account( str( code ) )
+            self.__account = code
             self.__data[ 'account' ] = self.__account
 
     @property
@@ -1838,7 +1838,7 @@ class Commitment:
     @document.setter
     def document( self, doc ):
         if doc is not None:
-            self.__document = str( doc )
+            self.__document = doc
             self.__data[ 'document' ] = self.__document
 
     @property
@@ -1849,8 +1849,8 @@ class Commitment:
     @org.setter
     def org( self, code ):
         if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+            self.__org = Organization( code  )
+            self.__data[ 'org' ] = self.__org.code
 
     @property
     def bfy( self ):
@@ -1860,8 +1860,8 @@ class Commitment:
     @bfy.setter
     def bfy( self, year ):
         if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+            self.__bfy = BudgetFiscalYear( year  )
+            self.__data[ 'bfy' ] =  self.__bfy.calendaryear
 
     @property
     def fund( self ):
@@ -1871,8 +1871,8 @@ class Commitment:
     @fund.setter
     def fund( self, code ):
         if code is not None:
-            self.__fund = Fund( str( code ) )
-            self.__data[ 'fund' ] = self.__fund
+            self.__fund = Fund(  code  )
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -1882,8 +1882,8 @@ class Commitment:
     @boc.setter
     def boc( self, code ):
         if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
-            self.__data[ 'boc' ] = self.__boc
+            self.__boc = BudgetObjectClass(  code  )
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -1941,8 +1941,8 @@ class OpenCommitment:
     @account.setter
     def account( self, code ):
         if code is not None:
-            self.__account = Account( str( code ) )
-            self.__data[ 'account' ] = self.__account
+            self.__account = Account( code )
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):
@@ -1952,8 +1952,8 @@ class OpenCommitment:
     @document.setter
     def document( self, doc ):
         if doc is not None:
-            self.__document = str( doc )
-            self.__data[ 'document' ] = self.__document
+            self.__document =  doc
+            self.__data[ 'document' ] = doc
 
     @property
     def org( self ):
@@ -1963,8 +1963,8 @@ class OpenCommitment:
     @org.setter
     def org( self, code ):
         if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+            self.__org = Organization( code )
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
@@ -1974,8 +1974,8 @@ class OpenCommitment:
     @bfy.setter
     def bfy( self, year ):
         if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
@@ -1985,8 +1985,8 @@ class OpenCommitment:
     @fund.setter
     def fund( self, code ):
         if code is not None:
-            self.__fund = Fund( str( code ) )
-            self.__data[ 'fund' ] = self.__fund
+            self.__fund = Fund( code )
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -1996,8 +1996,8 @@ class OpenCommitment:
     @boc.setter
     def boc( self, code ):
         if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
-            self.__data[ 'boc' ] = self.__boc
+            self.__boc = BudgetObjectClass( code )
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -2055,8 +2055,8 @@ class Obligation:
     @account.setter
     def account( self, code ):
         if code is not None:
-            self.__account = Account( str( code ) )
-            self.__data[ 'account' ] = self.__account
+            self.__account = Account( code )
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):
@@ -2066,8 +2066,8 @@ class Obligation:
     @document.setter
     def document( self, doc ):
         if doc is not None:
-            self.__document = str( doc )
-            self.__data[ 'document' ] = self.__document
+            self.__document = doc
+            self.__data[ 'document' ] = doc
 
     @property
     def org( self ):
@@ -2077,8 +2077,8 @@ class Obligation:
     @org.setter
     def org( self, code ):
         if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+            self.__org = Organization( code )
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
@@ -2088,8 +2088,8 @@ class Obligation:
     @bfy.setter
     def bfy( self, year ):
         if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
@@ -2099,8 +2099,8 @@ class Obligation:
     @fund.setter
     def fund( self, code ):
         if code is not None:
-            self.__fund = Fund( str( code ) )
-            self.__data[ 'fund' ] = self.__fund
+            self.__fund = Fund( code )
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -2110,8 +2110,8 @@ class Obligation:
     @boc.setter
     def boc( self, code ):
         if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
-            self.__data[ 'boc' ] = self.__boc
+            self.__boc = BudgetObjectClass( code )
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -2169,8 +2169,8 @@ class Deobligation:
     @account.setter
     def account( self, code ):
         if code is not None:
-            self.__account = Account( str( code ) )
-            self.__data[ 'account' ] = self.__account
+            self.__account = Account( code )
+            self.__data[ 'account' ] = code
 
     @property
     def dcn( self ):
@@ -2180,8 +2180,8 @@ class Deobligation:
     @dcn.setter
     def dcn( self, doc ):
         if doc is not None:
-            self.__document = str( doc )
-            self.__data[ 'document' ] = self.__document
+            self.__document = doc
+            self.__data[ 'document' ] = doc
 
     @property
     def org( self ):
@@ -2191,8 +2191,8 @@ class Deobligation:
     @org.setter
     def org( self, code ):
         if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+            self.__org = Organization( code )
+            self.__data[ 'org' ] = code
 
     @property
     def bfy( self ):
@@ -2202,8 +2202,8 @@ class Deobligation:
     @bfy.setter
     def bfy( self, year ):
         if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] = year
 
     @property
     def fund( self ):
@@ -2213,8 +2213,8 @@ class Deobligation:
     @fund.setter
     def fund( self, code ):
         if code is not None:
-            self.__fund = Fund( str( code ) )
-            self.__data[ 'fund' ] = self.__fund
+            self.__fund = Fund( code )
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -2224,8 +2224,8 @@ class Deobligation:
     @boc.setter
     def boc( self, code ):
         if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
-            self.__data[ 'boc' ] = self.__boc
+            self.__boc = BudgetObjectClass( code )
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -2293,9 +2293,9 @@ class ULO:
 
     @document.setter
     def document( self, doc ):
-        if doc is not None:
-            self.__document = str( doc )
-            self.__data[ 'document' ] = self.__document
+        if doc is not None and isinstance( doc, str ):
+            self.__document =  doc
+            self.__data[ 'document' ] =  doc
 
     @property
     def org( self ):
@@ -2305,19 +2305,19 @@ class ULO:
     @org.setter
     def org( self, code ):
         if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+            self.__org = Organization( code  )
+            self.__data[ 'org' ] = self.__org.code
 
     @property
     def bfy( self ):
         if self.__bfy is not None:
-            return self.__bfy
+            return self.__bfy.firstyear
 
     @bfy.setter
     def bfy( self, year ):
         if year is not None:
-            self.__bfy = BudgetFiscalYear( str( year ) )
-            self.__data[ 'bfy' ] = self.__bfy
+            self.__bfy = BudgetFiscalYear( year )
+            self.__data[ 'bfy' ] =  year
 
     @property
     def fund( self ):
@@ -2326,9 +2326,9 @@ class ULO:
 
     @fund.setter
     def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( str( code ) )
-            self.__data[ 'fund' ] = self.__fund
+        if code is not None and isinstance( code, str ):
+            self.__fund = Fund(  code )
+            self.__data[ 'fund' ] = code
 
     @property
     def boc( self ):
@@ -2337,9 +2337,9 @@ class ULO:
 
     @boc.setter
     def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( str( code ) )
-            self.__data[ 'boc' ] = self.__boc
+        if code is not None and isinstance( code, str ):
+            self.__boc = BudgetObjectClass( code )
+            self.__data[ 'boc' ] = code
 
     @property
     def data( self ):
@@ -2397,8 +2397,8 @@ class Expenditure:
     @account.setter
     def account( self, code ):
         if code is not None:
-            self.__account = Account( str( code ) )
-            self.__data[ 'account' ] = self.__account
+            self.__account = Account( code )
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):
@@ -2409,7 +2409,7 @@ class Expenditure:
     def document( self, doc ):
         if doc is not None:
             self.__document = str( doc )
-            self.__data[ 'document' ] = self.__document
+            self.__data[ 'document' ] = str( doc )
 
     @property
     def org( self ):
@@ -2419,8 +2419,8 @@ class Expenditure:
     @org.setter
     def org( self, code ):
         if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'org' ] = self.__org
+            self.__org = Organization(  code )
+            self.__data[ 'org' ] = self.__org.code
 
     @property
     def bfy( self ):

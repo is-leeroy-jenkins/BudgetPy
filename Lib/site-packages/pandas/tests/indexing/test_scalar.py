@@ -47,35 +47,50 @@ class TestScalar(Base):
             _check(f, "at")
 
     @pytest.mark.parametrize("kind", ["series", "frame"])
-    def test_at_and_iat_set(self, kind):
-        def _check(f, func, values=False):
+    @pytest.mark.parametrize("col", ["ints", "uints"])
+    def test_iat_set_ints(self, kind, col):
+        f = getattr(self, kind)[col]
+        if f is not None:
+            indices = self.generate_indices(f, True)
+            for i in indices:
+                f.iat[i] = 1
+                expected = self.get_value("iat", f, i, True)
+                tm.assert_almost_equal(expected, 1)
 
-            if f is not None:
-                indices = self.generate_indices(f, values)
+    @pytest.mark.parametrize("kind", ["series", "frame"])
+    @pytest.mark.parametrize("col", ["labels", "ts", "floats"])
+    def test_iat_set_other(self, kind, col):
+        f = getattr(self, kind)[col]
+        if f is not None:
+            msg = "iAt based indexing can only have integer indexers"
+            with pytest.raises(ValueError, match=msg):
+                indices = self.generate_indices(f, False)
                 for i in indices:
-                    getattr(f, func)[i] = 1
-                    expected = self.get_value(func, f, i, values)
+                    f.iat[i] = 1
+                    expected = self.get_value("iat", f, i, False)
                     tm.assert_almost_equal(expected, 1)
 
-        d = getattr(self, kind)
-
-        # iat
-        for f in [d["ints"], d["uints"]]:
-            _check(f, "iat", values=True)
-
-        for f in [d["labels"], d["ts"], d["floats"]]:
-            if f is not None:
-                msg = "iAt based indexing can only have integer indexers"
-                with pytest.raises(ValueError, match=msg):
-                    _check(f, "iat")
-
-        # at
-        for f in [d["ints"], d["uints"], d["labels"], d["ts"], d["floats"]]:
-            _check(f, "at")
+    @pytest.mark.parametrize("kind", ["series", "frame"])
+    @pytest.mark.parametrize("col", ["ints", "uints", "labels", "ts", "floats"])
+    def test_at_set_ints_other(self, kind, col):
+        f = getattr(self, kind)[col]
+        if f is not None:
+            indices = self.generate_indices(f, False)
+            for i in indices:
+                f.at[i] = 1
+                expected = self.get_value("at", f, i, False)
+                tm.assert_almost_equal(expected, 1)
 
 
-class TestScalar2:
-    # TODO: Better name, just separating things that dont need Base class
+class TestAtAndiAT:
+    # at and iat tests that don't need Base class
+
+    def test_float_index_at_iat(self):
+        ser = Series([1, 2, 3], index=[0.1, 0.2, 0.3])
+        for el, item in ser.items():
+            assert ser.at[el] == item
+        for i in range(len(ser)):
+            assert ser.iat[i] == i + 1
 
     def test_at_iat_coercion(self):
 
@@ -213,19 +228,6 @@ class TestScalar2:
         result.iat[0, 0] = None
         expected = DataFrame({"a": [None, 1], "b": [4, 5]})
         tm.assert_frame_equal(result, expected)
-
-    def test_getitem_zerodim_np_array(self):
-        # GH24924
-        # dataframe __getitem__
-        df = DataFrame([[1, 2], [3, 4]])
-        result = df[np.array(0)]
-        expected = Series([1, 3], name=0)
-        tm.assert_series_equal(result, expected)
-
-        # series __getitem__
-        s = Series([1, 2])
-        result = s[np.array(0)]
-        assert result == 1
 
 
 def test_iat_dont_wrap_object_datetimelike():
