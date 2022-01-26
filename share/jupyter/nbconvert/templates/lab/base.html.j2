@@ -15,6 +15,8 @@
 
 {% block input_group -%}
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 {{ super() }}
 </div>
@@ -31,6 +33,8 @@
 
 {% block output_group %}
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 {{ super() }}
 </div>
 {% endblock output_group %}
@@ -86,11 +90,13 @@
 
 {% block markdowncell scoped %}
 <div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
 {%- if resources.global_content_filter.include_input_prompt-%}
     {{ self.empty_in_prompt() }}
 {%- endif -%}
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput {{ celltags(cell) }}" data-mime-type="text/markdown">
 {{ cell.source  | markdown2html | strip_files_prefix }}
+</div>
 </div>
 </div>
 {%- endblock markdowncell %}

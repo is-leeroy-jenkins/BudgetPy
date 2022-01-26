@@ -7,11 +7,6 @@
         <option name="sdkFolder" value="" />
       </configuration>
     </facet>
-    <facet type="MicroPython" name="MicroPython">
-      <configuration>
-        <device name="Micro:bit" />
-      </configuration>
-    </facet>
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
@@ -23,7 +18,6 @@
     <orderEntry type="jdk" jdkName="Python 3.9 (BudgetPy)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
-    <orderEntry type="library" name="MicroPython" level="project" />
     <orderEntry type="library" name="MicroPython" level="project" />
     <orderEntry type="library" name="MicroPython" level="project" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
