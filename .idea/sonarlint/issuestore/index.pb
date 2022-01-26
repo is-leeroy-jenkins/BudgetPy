@@ -5565,3 +5565,9 @@ y
 Ivenv/Lib/site-packages/pandas/tests/arrays/datetimes/test_constructors.py,5\c\5c454d346806e721e3839534a57835e37f6d43ef
 f
 6venv/Lib/site-packages/pandas/core/internals/blocks.py,e\9\e9b2e4fb01b9dba21e0f157b22abbf52c65bc0e2
+i
+9venv/Lib/site-packages/setuptools-60.5.0.dist-info/RECORD,f\d\fd7cea69006fe62db47725f595bd41119ec4dced
+G
+venv/Scripts/pyvenv.cfg,0\4\04179f27c1ba852230474367a5f4a43edb3ffeeb
+b
+2venv/Lib/site-packages/pip-21.3.1.dist-info/RECORD,0\a\0a0d755948c7a047bedaf09f62a97de2c75415be

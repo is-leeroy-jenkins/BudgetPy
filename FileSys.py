@@ -1,3 +1,4 @@
+import io
 import os as os
 import io as fi
 import datetime as dt
@@ -11,33 +12,39 @@ class DataModel():
 
     @property
     def access( self ):
-        if self.__accesspath is not None:
-            return str( self.__accesspath )
+        '''Gets the path to the access database'''
+        if os.path.exists( self.__accesspath ):
+            return  self.__accesspath
 
     @access.setter
     def access( self, path ):
-        if path is not None:
-            self.__accesspath = str( path )
+        '''Set the access database path property'''
+        if not path == '':
+            self.__accesspath = path
 
     @property
     def sqlite( self ):
-        if self.__sqlitepath is not None:
-            return str( self.__sqlitepath )
+        '''Gets the path to the sqlite database'''
+        if os.path.exists( self.__sqlitepath ):
+            return self.__sqlitepath
 
     @sqlite.setter
     def sqlite( self, path ):
-        if path is not None:
+        '''Set the path of the sqlite database'''
+        if not path == '':
             self.__sqlitepath = str( path )
 
     @property
     def sqlserver( self ):
-        if self.__mssqlpath is not None:
-            return str( self.__mssqlpath )
+        '''Gets the path to the sql server database'''
+        if os.path.exists( self.__mssqlpath ):
+            return  self.__mssqlpath
 
     @sqlserver.setter
     def sqlserver( self, path ):
-        if path is not None:
-            self.__mssqlpath = str( path )
+        '''Set the sql server database path'''
+        if os.path.exists( path ):
+            self.__mssqlpath = path
 
     def __init__( self ):
         self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -185,7 +192,7 @@ class BudgetPath():
         self.__ext = os.path.split( self.__path )
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
-class BudgetFile():
+class BudgetFile( io.FileIO ):
     '''Defines the BudgetFile Class'''
     __base = None
     __name = None
@@ -383,19 +390,20 @@ class BudgetFile():
         if os.path.isfile( self.__path ) and isinstance( lines, list ):
             for line in lines:
                 self.__content.append( open( self.__path, 'w' ).write( line ) )
-    # Constructor
-    def __init__( self, base = '' ):
+
+    def __init__( self, base ):
+        super().__init__()
         self.__base =  base
         self.__path = self.__base
         self.__name = os.path.basename( base )
-        self.__size = os.path.getsize( base )
         self.__directory = str( os.path.dirname( self.__path ) )
+        self.__size = os.path.getsize( base )
         self.__extension = list( os.path.splitext( base ) )[ 1 ]
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
         self.__modified = os.path.getmtime( base )
         self.__current = os.getcwd()
-        self.__drive = str( list( os.path.splitdrive( self.__path ) )[ 0 ] )
+        self.__drive =  str( os.path.splitdrive( self.__path )[ 0 ] )
         self.__content = list()
 
 class BudgetFolder():
@@ -638,8 +646,8 @@ class EmailBuilder():
         if copy is not None:
             self.__others = list( copy )
 
-    def __init__( self, frm = None, to = None,
-                  body = None, sub = None, copy = None ):
+    def __init__( self, frm, to,
+                  body, sub, copy = None ):
         self.__from = str( frm )
         self.__to = str( to )
         self.__message = str( body )
