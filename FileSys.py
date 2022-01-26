@@ -212,13 +212,15 @@ class BudgetFile():
 
     @property
     def name( self ):
-        if os.path.isdir( self.__name ):
-            return str( os.path.n )
+        '''Get the name property'''
+        if not self.__name == '':
+            return self.__name
 
     @name.setter
     def name( self, path ):
-        if os.path.exists( path ):
-            self.__name = str( os.path.basename( path ) )
+        '''Set the name property'''
+        if isinstance( path, str ) and not path == '':
+            self.__name = path
 
     @property
     def path( self ):
