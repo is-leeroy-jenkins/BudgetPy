@@ -304,22 +304,25 @@ class BudgetFile():
 
     @property
     def current( self ):
-        if self.__current is not None:
+        if isinstance( self.__current, str ) and not self.__current == '':
             return self.__current
 
     @current.setter
     def current( self, path ):
-        if os.path.exists( path ):
+        if not path == '' and os.path.exists( path ):
             os.chdir( path )
+            self.__current = path
 
     def rename( self, other ):
-        '''renames current file'''
-        if self.__base is not None and self.__name is not None:
-            return os.rename( self.__name, other )
+        '''Renames the current file to 'other' '''
+        if isinstance( other, str ) and not other == '':
+            os.rename( self.__name, other )
+            self.__name = other
+            return self.__name
 
     def move( self, destination ):
         '''renames current file'''
-        if self.__base is not None and os.path.exists( self.__base ):
+        if os.path.exists( self.__base ):
             return os.path.join( self.__name, destination )
 
     def create( self, other ):
@@ -334,7 +337,7 @@ class BudgetFile():
 
     def delete( self, other ):
         ''' deletes file at 'self.__path'   '''
-        if other is not None and os.path.isfile( other ):
+        if os.path.isfile( other ):
             os.remove( other )
 
     def getsize( self, other ):
