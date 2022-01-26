@@ -1,5 +1,5 @@
 import os as os
-import io as io
+import io as fi
 import datetime as dt
 import openpyxl as xl
 
@@ -395,7 +395,6 @@ class BudgetFile():
 
 class BudgetFolder():
     '''Defines the BudgetFolder Class'''
-    # pseudo-private backing fields
     __base = None
     __name = None
     __path = None
@@ -409,11 +408,13 @@ class BudgetFolder():
 
     @property
     def base( self ):
+        '''Get the base property'''
         if self.__base is not None:
             return self.__base
 
     @base.setter
     def base( self, path ):
+        '''Set the base property'''
         if path is not None:
             self.__base = str( path )
 
@@ -544,16 +545,15 @@ class BudgetFolder():
             return os.path.splitdrive( other )[ 0 ]
 
     def iterfiles( self ):
-        '''iterates files in the base directory'''
+        '''Iterates files in the base directory'''
         if os.path.isdir( self.__base ):
-            for i in io.open( self.__base ):
-                yield i
+            yield from fi.open( self.__base )
 
     def iterfolder( self, other ):
         '''iterates files in the directory provided by 'other' '''
         if os.path.exists( other ) and os.path.isdir( other ):
-            for i in io.open( self.__base ):
-                yield i
+            yield from fi.open( self.__base )
+
     # Constructor
     def __init__( self, base ):
         self.__base = base
