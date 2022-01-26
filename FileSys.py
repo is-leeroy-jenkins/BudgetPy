@@ -204,8 +204,8 @@ class BudgetFile( io.FileIO ):
     __created = None
     __modified = None
     __accessed = None
-    __current = None
-    __content = [ ]
+    __currdir = None
+    __contents = [ ]
 
     @property
     def base( self ):
@@ -311,14 +311,15 @@ class BudgetFile( io.FileIO ):
 
     @property
     def current( self ):
-        if isinstance( self.__current, str ) and not self.__current == '':
-            return self.__current
+        if isinstance( self.__currdir, str ) and not self.__currdir == '':
+            return self.__currdir
 
     @current.setter
     def current( self, path ):
-        if not path == '' and os.path.exists( path ):
+        '''Set the current directory to 'path' '''
+        if os.path.exists( path ) and os.path.isdir( path ):
             os.chdir( path )
-            self.__current = path
+            self.__currdir = path
 
     def rename( self, other ):
         '''Renames the current file to 'other' '''
@@ -366,30 +367,30 @@ class BudgetFile( io.FileIO ):
         '''reads all lines in 'path' into a list
             then returns the list '''
         lines = [ ]
-        count = len( self.__content )
+        count = len( self.__contents )
         if other is not None and os.path.isfile( other ):
             file = open( other, 'r' )
             for line in file.readlines():
                 lines.append( line )
-            self.__content.append( lines )
-        if len( lines ) > 0 and len( self.__content ) > count:
+            self.__contents.append( lines )
+        if len( lines ) > 0 and len( self.__contents ) > count:
             return lines
 
     def readline( self, other ):
         '''reads a single line from the file into a string
             then returns the string'''
-        count = len( self.__content )
+        count = len( self.__contents )
         if other is not None and os.path.isfile( other ):
             line = open( self.__path, 'r' ).readline()
-            self.__content.append( line )
-            if len( self.__content ) > count:
+            self.__contents.append( line )
+            if len( self.__contents ) > count:
                 return line
 
     def writelines( self, lines = None ):
-        ''' writes the contents of 'lines' to self.__content '''
+        ''' writes the contents of 'lines' to self.__contents '''
         if os.path.isfile( self.__path ) and isinstance( lines, list ):
             for line in lines:
-                self.__content.append( open( self.__path, 'w' ).write( line ) )
+                self.__contents.append( open( self.__path, 'w' ).write( line ) )
 
     def __init__( self, base ):
         super().__init__()
@@ -402,9 +403,9 @@ class BudgetFile( io.FileIO ):
         self.__created = os.path.getctime( base )
         self.__accessed = os.path.getatime( base )
         self.__modified = os.path.getmtime( base )
-        self.__current = os.getcwd()
+        self.__currdir = os.getcwd()
         self.__drive =  str( os.path.splitdrive( self.__path )[ 0 ] )
-        self.__content = list()
+        self.__contents = list()
 
 class BudgetFolder():
     '''Defines the BudgetFolder Class'''
