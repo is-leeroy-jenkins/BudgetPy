@@ -1,6 +1,90 @@
 import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
+import os as os
+
+class DataModel():
+    ''' Defines object used to provide the path to data model databases '''
+    __accesspath = None
+    __sqlitepath = None
+    __mssqlpath = None
+
+    @property
+    def access( self ):
+        if self.__accesspath is not None:
+            return str( self.__accesspath )
+
+    @access.setter
+    def access( self, path ):
+        if path is not None:
+            self.__accesspath = str( path )
+
+    @property
+    def sqlite( self ):
+        if self.__sqlitepath is not None:
+            return str( self.__sqlitepath )
+
+    @sqlite.setter
+    def sqlite( self, path ):
+        if path is not None:
+            self.__sqlitepath = str( path )
+
+    @property
+    def sqlserver( self ):
+        if self.__mssqlpath is not None:
+            return str( self.__mssqlpath )
+
+    @sqlserver.setter
+    def sqlserver( self, path ):
+        if path is not None:
+            self.__mssqlpath = str( path )
+
+    def __init__( self ):
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\Data.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\Data.db'
+        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\Data.mdf'
+
+class ReferenceModel():
+    '''Defines object used to provide paths to the references model databases '''
+    __accesspath = None
+    __sqlitepath = None
+    __mssqlpath = None
+
+    @property
+    def access( self ):
+        if self.__accesspath is not None:
+            return str( self.__accesspath )
+
+    @access.setter
+    def access( self, path ):
+        if os.path.exists( path ):
+            self.__accesspath = str( path )
+
+    @property
+    def sqlite( self ):
+        if self.__sqlitepath is not None:
+            return str( self.__sqlitepath )
+
+    @sqlite.setter
+    def sqlite( self, path ):
+        if os.path.exists( path ):
+            self.__sqlitepath = str( path )
+
+    @property
+    def sqlserver( self ):
+        if self.__mssqlpath is not None:
+            return str( self.__mssqlpath )
+
+    def __init__( self ):
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\References.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\References.db'
+        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\References.mdf'
 
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
@@ -309,7 +393,8 @@ class DataTable( pd.DataFrame ):
             return self.__name
 
 class Source():
-    '''Provides iterator for the Budget Execution table tables '''
+    '''Provides iterator for the
+    Budget Execution table tables '''
     __data = [ ]
     __references = [ ]
 
@@ -419,11 +504,11 @@ class AccessData():
         if name is not None:
             self.__driver = name
 
-    def get_connection( self ):
-        if self.__connstr is not None:
+    def getconnection( self ):
+        if not self.__connstr == '':
             return db.connect( self.__connstr )
 
-    def __init__( self, table = None ):
+    def __init__( self, table ):
         self.__source = table
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \

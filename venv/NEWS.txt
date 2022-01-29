@@ -25914,7 +25914,7 @@ Library
 - bpo-8797: Raise HTTPError on failed Basic Authentication immediately.
   Initial patch by Sam Bull.
 
-- bpo-20729: Restored the use of lazy iterkeys()/itervalues()/iteritems() in
+- bpo-20729: Restored the use of lazy iterkeys()/itervalues()/iterate() in
   the mailbox module.
 
 - bpo-21448: Changed FeedParser feed() to avoid O(N**2) behavior when

@@ -528,7 +528,7 @@ class AsyncExitStack(_BaseExitStack, AbstractAsyncContextManager):
 
     For example:
         async with AsyncExitStack() as stack:
-            connections = [await stack.enter_async_context(get_connection())
+            connections = [await stack.enter_async_context(getconnection())
                 for i in range(5)]
             # All opened connections will automatically be released at the
             # end of the async with statement, even if attempts to open a

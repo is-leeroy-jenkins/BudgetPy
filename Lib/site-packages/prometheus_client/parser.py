@@ -1,15 +1,8 @@
-from __future__ import unicode_literals
-
+import io as StringIO
 import re
 
 from .metrics_core import Metric
 from .samples import Sample
-
-try:
-    import StringIO
-except ImportError:
-    # Python 3
-    import io as StringIO
 
 
 def text_string_to_metric_families(text):
@@ -17,8 +10,7 @@ def text_string_to_metric_families(text):
 
     See text_fd_to_metric_families.
     """
-    for metric_family in text_fd_to_metric_families(StringIO.StringIO(text)):
-        yield metric_family
+    yield from text_fd_to_metric_families(StringIO.StringIO(text))
 
 
 ESCAPE_SEQUENCES = {

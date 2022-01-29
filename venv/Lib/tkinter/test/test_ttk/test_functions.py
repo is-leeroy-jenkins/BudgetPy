@@ -271,7 +271,7 @@ class InternalFunctionsTest(unittest.TestCase):
         # plain wrong format
         self.assertRaises(ValueError, ttk._format_layoutlist,
             ['bad', 'format'])
-        # will try to use iteritems in the 'bad' string
+        # will try to use iterate in the 'bad' string
         self.assertRaises(AttributeError, ttk._format_layoutlist,
            [('name', 'bad')])
         # bad children formatting

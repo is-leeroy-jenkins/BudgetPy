@@ -101,11 +101,11 @@ class GenericTest:
         self.addCleanup(support.unlink, filename)
 
         create_file(filename, b'Hello')
-        self.assertEqual(self.pathmodule.get_size(filename ), 5 )
+        self.assertEqual(self.pathmodule.getsize(filename ), 5 )
         os.remove(filename)
 
         create_file(filename, b'Hello World!')
-        self.assertEqual(self.pathmodule.get_size(filename ), 12 )
+        self.assertEqual(self.pathmodule.getsize(filename ), 12 )
 
     def test_filetime(self):
         filename = support.TESTFN

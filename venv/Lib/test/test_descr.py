@@ -4915,7 +4915,7 @@ class DictProxyTests(unittest.TestCase):
     @unittest.skipIf(hasattr(sys, 'gettrace') and sys.gettrace(),
                         'trace function introduces __local__')
     def test_iter_items(self):
-        # Testing dict-proxy iteritems...
+        # Testing dict-proxy iterate...
         it = self.C.__dict__.items()
         self.assertNotIsInstance(it, list)
         keys = [item[0] for item in it]
