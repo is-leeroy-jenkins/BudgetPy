@@ -1,6 +1,4 @@
 
-=
-.editorconfig,6\2\626a747c8694eaae66f2afb3d1a745b045782c70
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 L
@@ -5331,9 +5329,21 @@ f
 6venv/Lib/site-packages/pandas/io/clipboard/__init__.py,2\f\2f91a200859b9ff8f10b01d25f36be54c38c2edf
 y
 Ivenv/Lib/site-packages/pandas/tests/arrays/datetimes/test_constructors.py,5\c\5c454d346806e721e3839534a57835e37f6d43ef
+<<<<<<< Updated upstream
 i
 9venv/Lib/site-packages/setuptools-60.5.0.dist-info/RECORD,f\d\fd7cea69006fe62db47725f595bd41119ec4dced
 G
 venv/Scripts/pyvenv.cfg,0\4\04179f27c1ba852230474367a5f4a43edb3ffeeb
 b
 2venv/Lib/site-packages/pip-21.3.1.dist-info/RECORD,0\a\0a0d755948c7a047bedaf09f62a97de2c75415be
+=======
+f
+6venv/Lib/site-packages/pandas/core/internals/blocks.py,e\9\e9b2e4fb01b9dba21e0f157b22abbf52c65bc0e2
+:
+
+FileSys.py,2\5\25e320b55d443630a1ce03c213804f01e7f09c7e
+<
+Execution.py,2\d\2df21b90c8ea48d7cc2f85009a182200e6888db7
+8
+Ninja.py,8\b\8bd840fba2dbdab27f36c7587e14a47f48cdbb59
+>>>>>>> Stashed changes
