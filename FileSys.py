@@ -1,3 +1,5 @@
+import os
+
 import os as fp
 import io as fi
 import datetime as dt
@@ -892,8 +894,8 @@ class ZipFile():
 
     @property
     def path( self ):
-        if fp.path.exists( self.__opath ):
-            return self.__opath
+        if not self.__zpath == '':
+            return self.__zpath
 
     @path.setter
     def path( self, pt ):
@@ -912,8 +914,8 @@ class ZipFile():
 
     def create( self ):
         ''' Creates zip file'''
-        if fp.path.exists( self.__zpath ):
-            zp.ZipFile( self.__zpath, 'w' )
+        if not self.__opath == '':
+            zp.ZipFile( self.__zpath, 'w' ).write( self.__opath, self.__name )
 
     def unzip( self ):
         ''' Extracts zip file contents '''
@@ -927,4 +929,4 @@ class ZipFile():
         self.__bfile = BudgetFile( self.__opath )
         self.__oext = self.__bfile.extension
         self.__zpath = self.__opath.replace( self.__oext, self.__zext )
-        self.__name = self.__zpath
+        self.__name = os.path.basename( self.__opath )
