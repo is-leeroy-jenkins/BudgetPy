@@ -883,7 +883,7 @@ class ExcelReport():
         self.__columns = int( cols )
         self.__dimensions = ( self.__rows, self.__columns )
 
-class FileZipper( zp ):
+class ZipFile( zp.ZipFile ):
     __name = None
     __path = None
 
@@ -912,13 +912,13 @@ class FileZipper( zp ):
         file = zp.ZipFile( self.__path )
         file.write( self, self.__path, self.__name )
 
-    def extract( self ):
+    def unzip( self ):
         ''' Extracts zip file contents '''
         if fp.path.exists( self.__path ):
             file = zp.ZipFile( self.__path )
             file.extractall( self, self.__path )
 
     def __init__(self, path ):
-        super.__init__( self )
+        super().__init__( path )
         self.__path = path
         self.__name = fp.path.basename( path )
