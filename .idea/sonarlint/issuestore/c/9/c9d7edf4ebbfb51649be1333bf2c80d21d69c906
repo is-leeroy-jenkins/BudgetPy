@@ -1,13 +1,0 @@
-
-lpython:S1192Ì"GDefine a constant instead of duplicating this literal "&nbsp;" 4 times.(àô¨¼ùÿÿÿÿ8¢âçÚã/
-spython:S1192à"UDefine a constant instead of duplicating this literal 'class="foo" data-bar' 3 times.(«±äÙûÿÿÿÿ
-opython:S1192”"JDefine a constant instead of duplicating this literal "attr: val" 3 times.(×Ø—ƒýÿÿÿÿ8¢âçÚã/
-kpython:S1192ø"LDefine a constant instead of duplicating this literal "color: red;" 5 times.(ÊáŠ8¢âçÚã/
-dpython:S1192Å"KDefine a constant instead of duplicating this literal "color: red" 4 times.(Ø’‘ì
-epython:S1192Å"LDefine a constant instead of duplicating this literal "color: blue" 3 times.(Ø’‘ì
-ppython:S1192É"PDefine a constant instead of duplicating this literal "2px solid black" 3 times.(Æî‘†8¢âçÚã/
-rpython:S3776ð"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(¢ê©Öøÿÿÿÿ
->python:S1481É"%Remove the unused local variable "v".(ýÓŸð
-ƒpython:S1871Ñ"cEither merge this branch with the identical one on line "715" or change one of the implementations.(‹Ùƒ¾8¢âçÚã/
->python:S125ô"Remove this commented out code.(€ûŽÖ8¢âçÚã/
-|python:S3923ü"^This conditional expression returns the same value whether the condition is "true" or "false".(Œ†Œìþÿÿÿÿ

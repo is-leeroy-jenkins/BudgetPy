@@ -1,254 +1,0 @@
-
-Vpython:S905'":Remove or refactor this statement; it has no side effects.(óÑå¿ûÿÿÿÿ
-hpython:S1764'"KCorrect one of the identical sub-expressions on both sides of operator ">".(óÑå¿ûÿÿÿÿ
-Vpython:S905(":Remove or refactor this statement; it has no side effects.(ÇûÜ¯ûÿÿÿÿ
-Vpython:S905)":Remove or refactor this statement; it has no side effects.(¹“Ô…ûÿÿÿÿ
-Qpython:S905*":Remove or refactor this statement; it has no side effects.(º„­
-Vpython:S905+":Remove or refactor this statement; it has no side effects.(ü¤Ú¿ÿÿÿÿÿ
-Vpython:S905-":Remove or refactor this statement; it has no side effects.(”şÔşÿÿÿÿ
-Vpython:S905.":Remove or refactor this statement; it has no side effects.(èã¸±ÿÿÿÿÿ
-hpython:S1764."KCorrect one of the identical sub-expressions on both sides of operator ">".(èã¸±ÿÿÿÿÿ
-Vpython:S905/":Remove or refactor this statement; it has no side effects.(°Î€òûÿÿÿÿ
-Vpython:S9050":Remove or refactor this statement; it has no side effects.(ïÿ©íúÿÿÿÿ
-Qpython:S9051":Remove or refactor this statement; it has no side effects.(ÙÀù
-Vpython:S9053":Remove or refactor this statement; it has no side effects.(–õ¿›øÿÿÿÿ
-Vpython:S9054":Remove or refactor this statement; it has no side effects.(«€Áæùÿÿÿÿ
-Qpython:S9055":Remove or refactor this statement; it has no side effects.(¿×Ûí
-cpython:S17645"KCorrect one of the identical sub-expressions on both sides of operator ">".(¿×Ûí
-Qpython:S9056":Remove or refactor this statement; it has no side effects.(Ëİ†
-Vpython:S9057":Remove or refactor this statement; it has no side effects.(„Şöùÿÿÿÿ
-Vpython:S9059":Remove or refactor this statement; it has no side effects.(œìºîşÿÿÿÿ
-Qpython:S905:":Remove or refactor this statement; it has no side effects.(İ‰ˆ
-Vpython:S905;":Remove or refactor this statement; it has no side effects.(‡µ‡íÿÿÿÿÿ
-Ppython:S905<":Remove or refactor this statement; it has no side effects.(®£P
-bpython:S1764<"KCorrect one of the identical sub-expressions on both sides of operator ">".(®£P
-Vpython:S905=":Remove or refactor this statement; it has no side effects.(ÂêáÈùÿÿÿÿ
-Ppython:S905?":Remove or refactor this statement; it has no side effects.(œˆ[
-Qpython:S905@":Remove or refactor this statement; it has no side effects.(©åÔÆ
-Qpython:S905A":Remove or refactor this statement; it has no side effects.(õÿÛº
-Qpython:S905B":Remove or refactor this statement; it has no side effects.(‡ªß
-Qpython:S905C":Remove or refactor this statement; it has no side effects.(‘Õ¿Â
-cpython:S1764C"KCorrect one of the identical sub-expressions on both sides of operator ">".(‘Õ¿Â
-Qpython:S905E":Remove or refactor this statement; it has no side effects.(çúƒ¦
-Qpython:S905F":Remove or refactor this statement; it has no side effects.(˜Ïö 
-Vpython:S905G":Remove or refactor this statement; it has no side effects.(­Œ¶˜şÿÿÿÿ
-Qpython:S905H":Remove or refactor this statement; it has no side effects.(¾†ü
-Ppython:S905I":Remove or refactor this statement; it has no side effects.(½íØg
-Vpython:S905J":Remove or refactor this statement; it has no side effects.(ãæ²Üüÿÿÿÿ
-Vpython:S905L":Remove or refactor this statement; it has no side effects.(µëŞ…ûÿÿÿÿ
-hpython:S1764L"KCorrect one of the identical sub-expressions on both sides of operator ">".(µëŞ…ûÿÿÿÿ
-Vpython:S905N":Remove or refactor this statement; it has no side effects.(ˆÀ›ñøÿÿÿÿ
-hpython:S1764N"KCorrect one of the identical sub-expressions on both sides of operator ">".(ˆÀ›ñøÿÿÿÿ
-Vpython:S905O":Remove or refactor this statement; it has no side effects.(ğº®÷ıÿÿÿÿ
-Qpython:S905P":Remove or refactor this statement; it has no side effects.(€–õ£
-Qpython:S905T":Remove or refactor this statement; it has no side effects.(Ää»´
-cpython:S1764T"KCorrect one of the identical sub-expressions on both sides of operator ">".(Ää»´
-Vpython:S905V":Remove or refactor this statement; it has no side effects.(æÚŸßøÿÿÿÿ
-hpython:S1764V"KCorrect one of the identical sub-expressions on both sides of operator ">".(æÚŸßøÿÿÿÿ
-Vpython:S905W":Remove or refactor this statement; it has no side effects.(±Ï°†ıÿÿÿÿ
-Vpython:S905X":Remove or refactor this statement; it has no side effects.(Ã®î³ùÿÿÿÿ
-Qpython:S905Y":Remove or refactor this statement; it has no side effects.(¸¾¡ª
-Qpython:S905Z":Remove or refactor this statement; it has no side effects.(¶øùº
-Vpython:S905[":Remove or refactor this statement; it has no side effects.(¸§’ûÿÿÿÿ
-Qpython:S905_":Remove or refactor this statement; it has no side effects.(üÁËì
-Qpython:S905`":Remove or refactor this statement; it has no side effects.(ØÃò˜
-cpython:S1764`"KCorrect one of the identical sub-expressions on both sides of operator ">".(ØÃò˜
-Vpython:S905a":Remove or refactor this statement; it has no side effects.(¨Æ²ûÿÿÿÿ
-Vpython:S905b":Remove or refactor this statement; it has no side effects.(²ÙßÍøÿÿÿÿ
-Qpython:S905c":Remove or refactor this statement; it has no side effects.(¹Ä¼ó
-Ppython:S905d":Remove or refactor this statement; it has no side effects.(¥Ğa
-Vpython:S905e":Remove or refactor this statement; it has no side effects.(ë€à™üÿÿÿÿ
-Qpython:S905f":Remove or refactor this statement; it has no side effects.(´©î
-Vpython:S905g":Remove or refactor this statement; it has no side effects.(èõ‘äùÿÿÿÿ
-Vpython:S905h":Remove or refactor this statement; it has no side effects.(Ü¢šüÿÿÿÿ
-Qpython:S905i":Remove or refactor this statement; it has no side effects.(óÄá¿
-Vpython:S905j":Remove or refactor this statement; it has no side effects.(¨˜Âòÿÿÿÿÿ
-Vpython:S905k":Remove or refactor this statement; it has no side effects.(×Óùíúÿÿÿÿ
-Vpython:S905l":Remove or refactor this statement; it has no side effects.(¬­ß³øÿÿÿÿ
-Vpython:S905m":Remove or refactor this statement; it has no side effects.(–ßŸ„şÿÿÿÿ
-Qpython:S905q":Remove or refactor this statement; it has no side effects.(ËûÛÔ
-cpython:S1764q"KCorrect one of the identical sub-expressions on both sides of operator ">".(ËûÛÔ
-Vpython:S905r":Remove or refactor this statement; it has no side effects.(­©°†ıÿÿÿÿ
-Ppython:S905s":Remove or refactor this statement; it has no side effects.(Şş'
-Qpython:S905t":Remove or refactor this statement; it has no side effects.(µê ‚
-Vpython:S905u":Remove or refactor this statement; it has no side effects.(¸£üòÿÿÿÿÿ
-Vpython:S905v":Remove or refactor this statement; it has no side effects.(»¤„ïÿÿÿÿÿ
-Qpython:S905w":Remove or refactor this statement; it has no side effects.(ÜÛÊ·
-Vpython:S905x":Remove or refactor this statement; it has no side effects.(ı³•øÿÿÿÿ
-Qpython:S905y":Remove or refactor this statement; it has no side effects.(¯’ãš
-Qpython:S905z":Remove or refactor this statement; it has no side effects.(ÅÎ
-Vpython:S905{":Remove or refactor this statement; it has no side effects.(øæĞşÿÿÿÿ
-Opython:S905|":Remove or refactor this statement; it has no side effects.(ìı
-Vpython:S905}":Remove or refactor this statement; it has no side effects.(›ı ºşÿÿÿÿ
-Qpython:S905":Remove or refactor this statement; it has no side effects.(ËûÛÔ
-cpython:S1764"KCorrect one of the identical sub-expressions on both sides of operator ">".(ËûÛÔ
-Wpython:S905€":Remove or refactor this statement; it has no side effects.(¶„ĞÓşÿÿÿÿ
-Rpython:S905":Remove or refactor this statement; it has no side effects.(üôÏÿ
-Wpython:S905‚":Remove or refactor this statement; it has no side effects.(ûäĞÔüÿÿÿÿ
-Rpython:S905ƒ":Remove or refactor this statement; it has no side effects.(ú¢‡¡
-Wpython:S905„":Remove or refactor this statement; it has no side effects.(İÑßıÿÿÿÿ
-Wpython:S905…":Remove or refactor this statement; it has no side effects.(¨˜Âòÿÿÿÿÿ
-Rpython:S905†":Remove or refactor this statement; it has no side effects.(äŒ£­
-Wpython:S905‡":Remove or refactor this statement; it has no side effects.(±¨‹ªıÿÿÿÿ
-Rpython:S905ˆ":Remove or refactor this statement; it has no side effects.(Ì†Ïó
-Wpython:S905‰":Remove or refactor this statement; it has no side effects.(Áó£Íúÿÿÿÿ
-Rpython:S905Š":Remove or refactor this statement; it has no side effects.(Ìåö¼
-Wpython:S905‹":Remove or refactor this statement; it has no side effects.(ÀÉ‰¦ıÿÿÿÿ
-Wpython:S905":Remove or refactor this statement; it has no side effects.(ûäĞÔüÿÿÿÿ
-Rpython:S905":Remove or refactor this statement; it has no side effects.(İÆ÷˜
-Rpython:S905":Remove or refactor this statement; it has no side effects.(İÕ ‘
-Wpython:S905":Remove or refactor this statement; it has no side effects.(öìîıÿÿÿÿ
-ipython:S1764"KCorrect one of the identical sub-expressions on both sides of operator ">".(öìîıÿÿÿÿ
-Wpython:S905‘":Remove or refactor this statement; it has no side effects.(€‚²²ùÿÿÿÿ
-Qpython:S905’":Remove or refactor this statement; it has no side effects.(’Ÿ½]
-Rpython:S905“":Remove or refactor this statement; it has no side effects.(µ·¦È
-Wpython:S905”":Remove or refactor this statement; it has no side effects.(äÛš¬ıÿÿÿÿ
-Rpython:S905•":Remove or refactor this statement; it has no side effects.(ÔñĞÈ
-Rpython:S905–":Remove or refactor this statement; it has no side effects.(á™ÄÉ
-Rpython:S905—":Remove or refactor this statement; it has no side effects.(²â·Ó
-Wpython:S905˜":Remove or refactor this statement; it has no side effects.(Ó–ä¬øÿÿÿÿ
-Wpython:S905™":Remove or refactor this statement; it has no side effects.(Ø‹ˆ¦øÿÿÿÿ
-Rpython:S905›":Remove or refactor this statement; it has no side effects.(µê ‚
-Wpython:S905œ":Remove or refactor this statement; it has no side effects.(¶ó‹©úÿÿÿÿ
-Wpython:S905":Remove or refactor this statement; it has no side effects.(æè¡ııÿÿÿÿ
-Wpython:S905":Remove or refactor this statement; it has no side effects.(öìîıÿÿÿÿ
-ipython:S1764"KCorrect one of the identical sub-expressions on both sides of operator ">".(öìîıÿÿÿÿ
-Rpython:S905Ÿ":Remove or refactor this statement; it has no side effects.(ŠÊš²
-Rpython:S905 ":Remove or refactor this statement; it has no side effects.(†¨ÉÔ
-Wpython:S905¡":Remove or refactor this statement; it has no side effects.(×Óùíúÿÿÿÿ
-Rpython:S905¢":Remove or refactor this statement; it has no side effects.(¨éôŒ
-Wpython:S905£":Remove or refactor this statement; it has no side effects.(ø¯€”ıÿÿÿÿ
-Wpython:S905¤":Remove or refactor this statement; it has no side effects.(“‹–™úÿÿÿÿ
-Rpython:S905¥":Remove or refactor this statement; it has no side effects.(‡ÊíŠ
-Wpython:S905¦":Remove or refactor this statement; it has no side effects.(€‹”æıÿÿÿÿ
-Wpython:S905§":Remove or refactor this statement; it has no side effects.(ëØş±ÿÿÿÿÿ
-Rpython:S905«":Remove or refactor this statement; it has no side effects.(ãß—›
-dpython:S1764«"KCorrect one of the identical sub-expressions on both sides of operator ">".(ãß—›
-Rpython:S905¬":Remove or refactor this statement; it has no side effects.(úŒš‹
-Rpython:S905­":Remove or refactor this statement; it has no side effects.(÷­ü‹
-Wpython:S905®":Remove or refactor this statement; it has no side effects.(ÀÑÿšıÿÿÿÿ
-Wpython:S905¯":Remove or refactor this statement; it has no side effects.(„ß•ÿÿÿÿÿ
-Rpython:S905°":Remove or refactor this statement; it has no side effects.(»İã
-Wpython:S905±":Remove or refactor this statement; it has no side effects.(šø…•ıÿÿÿÿ
-Wpython:S905²":Remove or refactor this statement; it has no side effects.(ÓúŠŞùÿÿÿÿ
-Rpython:S905³":Remove or refactor this statement; it has no side effects.(ÿƒ¬
-Rpython:S905´":Remove or refactor this statement; it has no side effects.(±çäË
-Qpython:S905µ":Remove or refactor this statement; it has no side effects.(óÓú}
-Rpython:S905·":Remove or refactor this statement; it has no side effects.(ãß—›
-dpython:S1764·"KCorrect one of the identical sub-expressions on both sides of operator ">".(ãß—›
-Wpython:S905¸":Remove or refactor this statement; it has no side effects.(‚Ëî·ùÿÿÿÿ
-Qpython:S905¹":Remove or refactor this statement; it has no side effects.(…ò—
-Wpython:S905º":Remove or refactor this statement; it has no side effects.(Äğ¥’ùÿÿÿÿ
-Wpython:S905»":Remove or refactor this statement; it has no side effects.(èõ‘äùÿÿÿÿ
-Wpython:S905¼":Remove or refactor this statement; it has no side effects.(ãŞµùÿÿÿÿ
-Rpython:S905½":Remove or refactor this statement; it has no side effects.(âé–À
-Rpython:S905¾":Remove or refactor this statement; it has no side effects.(“Æ±˜
-Rpython:S905¿":Remove or refactor this statement; it has no side effects.(Ïå¸¢
-Wpython:S905À":Remove or refactor this statement; it has no side effects.(Ç§Ø¶üÿÿÿÿ
-Wpython:S905Á":Remove or refactor this statement; it has no side effects.(ÆŠ±Šùÿÿÿÿ
-Qpython:S905Ã":Remove or refactor this statement; it has no side effects.(…ò—
-Wpython:S905Ä":Remove or refactor this statement; it has no side effects.(×÷ïğùÿÿÿÿ
-Wpython:S905Å":Remove or refactor this statement; it has no side effects.(ß¬±Çøÿÿÿÿ
-ipython:S1764Å"KCorrect one of the identical sub-expressions on both sides of operator ">".(ß¬±Çøÿÿÿÿ
-Rpython:S905Æ":Remove or refactor this statement; it has no side effects.(¼‡œæ
-Rpython:S905Ç":Remove or refactor this statement; it has no side effects.(­íÆù
-Rpython:S905È":Remove or refactor this statement; it has no side effects.(ë½Ø—
-Wpython:S905É":Remove or refactor this statement; it has no side effects.(ØÅ›Ìıÿÿÿÿ
-Wpython:S905Ê":Remove or refactor this statement; it has no side effects.(ä¤›Ûıÿÿÿÿ
-Wpython:S905Ë":Remove or refactor this statement; it has no side effects.(ã‘Éáúÿÿÿÿ
-Rpython:S905Ì":Remove or refactor this statement; it has no side effects.(¾ÃŸâ
-Wpython:S905Í":Remove or refactor this statement; it has no side effects.( è–¼ùÿÿÿÿ
-Rpython:S905Ï":Remove or refactor this statement; it has no side effects.(÷­ü‹
-Wpython:S905Ğ":Remove or refactor this statement; it has no side effects.(°Õ ¬şÿÿÿÿ
-Wpython:S905Ñ":Remove or refactor this statement; it has no side effects.(ß¬±Çøÿÿÿÿ
-ipython:S1764Ñ"KCorrect one of the identical sub-expressions on both sides of operator ">".(ß¬±Çøÿÿÿÿ
-Rpython:S905Ò":Remove or refactor this statement; it has no side effects.(¬£ä¥
-Wpython:S905Ó":Remove or refactor this statement; it has no side effects.(Ü¢šüÿÿÿÿ
-Wpython:S905Ô":Remove or refactor this statement; it has no side effects.(ùøÚºûÿÿÿÿ
-Wpython:S905Õ":Remove or refactor this statement; it has no side effects.(ä•óúÿÿÿÿ
-Wpython:S905Ö":Remove or refactor this statement; it has no side effects.(­ûáÙşÿÿÿÿ
-Rpython:S905×":Remove or refactor this statement; it has no side effects.(”ÃñÚ
-Rpython:S905Ø":Remove or refactor this statement; it has no side effects.(û›ÍÏ
-Wpython:S905Ù":Remove or refactor this statement; it has no side effects.(¨“×µøÿÿÿÿ
-Wpython:S905İ":Remove or refactor this statement; it has no side effects.(šø‚áùÿÿÿÿ
-ipython:S1764İ"KCorrect one of the identical sub-expressions on both sides of operator ">".(šø‚áùÿÿÿÿ
-Wpython:S905Ş":Remove or refactor this statement; it has no side effects.(ñË¡ÿÿÿÿÿ
-Wpython:S905ß":Remove or refactor this statement; it has no side effects.(ª…•€ıÿÿÿÿ
-Wpython:S905à":Remove or refactor this statement; it has no side effects.(¯ìÅÃüÿÿÿÿ
-Qpython:S905á":Remove or refactor this statement; it has no side effects.(ä—{
-Rpython:S905â":Remove or refactor this statement; it has no side effects.(Éõ…ú
-Rpython:S905ã":Remove or refactor this statement; it has no side effects.(ù§Å¢
-Rpython:S905ä":Remove or refactor this statement; it has no side effects.(Ÿê‘á
-Rpython:S905å":Remove or refactor this statement; it has no side effects.(¹ Ï•
-Wpython:S905æ":Remove or refactor this statement; it has no side effects.(­‹Ü½úÿÿÿÿ
-Rpython:S905ç":Remove or refactor this statement; it has no side effects.(å¾«
-Rpython:S905é":Remove or refactor this statement; it has no side effects.(÷ÅÍœ
-dpython:S1764é"KCorrect one of the identical sub-expressions on both sides of operator ">".(÷ÅÍœ
-Qpython:S905ê":Remove or refactor this statement; it has no side effects.(áŒ£Q
-Rpython:S905ë":Remove or refactor this statement; it has no side effects.(¢•ğ¬
-Wpython:S905ì":Remove or refactor this statement; it has no side effects.(ØÉø–ùÿÿÿÿ
-Rpython:S905í":Remove or refactor this statement; it has no side effects.(òäÏ
-Wpython:S905î":Remove or refactor this statement; it has no side effects.(ôˆ‚Îúÿÿÿÿ
-Rpython:S905ï":Remove or refactor this statement; it has no side effects.(çÒ£¥
-Rpython:S905ğ":Remove or refactor this statement; it has no side effects.(±‚
-Rpython:S905ñ":Remove or refactor this statement; it has no side effects.(¢Ğ•†
-Wpython:S905ò":Remove or refactor this statement; it has no side effects.(Şş®Óùÿÿÿÿ
-Wpython:S905ô":Remove or refactor this statement; it has no side effects.(šø‚áùÿÿÿÿ
-ipython:S1764ô"KCorrect one of the identical sub-expressions on both sides of operator ">".(šø‚áùÿÿÿÿ
-Wpython:S905õ":Remove or refactor this statement; it has no side effects.(×¥÷€ûÿÿÿÿ
-Rpython:S905ö":Remove or refactor this statement; it has no side effects.(Ö¨¾Í
-Rpython:S905÷":Remove or refactor this statement; it has no side effects.(ÁÇÌ¼
-Wpython:S905ø":Remove or refactor this statement; it has no side effects.(²ÙßÍøÿÿÿÿ
-Wpython:S905ù":Remove or refactor this statement; it has no side effects.(ÿ›üØùÿÿÿÿ
-Rpython:S905ú":Remove or refactor this statement; it has no side effects.(Œûœ×
-Wpython:S905û":Remove or refactor this statement; it has no side effects.(¬¢Ôßşÿÿÿÿ
-Qpython:S905ü":Remove or refactor this statement; it has no side effects.(¿À½D
-Rpython:S905ı":Remove or refactor this statement; it has no side effects.(±éÌâ
-Wpython:S905ş":Remove or refactor this statement; it has no side effects.(Å´ê„úÿÿÿÿ
-Rpython:S905€":Remove or refactor this statement; it has no side effects.(÷ÅÍœ
-dpython:S1764€"KCorrect one of the identical sub-expressions on both sides of operator ">".(÷ÅÍœ
-Rpython:S905":Remove or refactor this statement; it has no side effects.(¿ã’Ô
-Wpython:S905‚":Remove or refactor this statement; it has no side effects.(Êºã«øÿÿÿÿ
-Qpython:S905ƒ":Remove or refactor this statement; it has no side effects.(¥Ğa
-Rpython:S905„":Remove or refactor this statement; it has no side effects.(šèÖ¬
-Wpython:S905…":Remove or refactor this statement; it has no side effects.(çàÒÇùÿÿÿÿ
-Rpython:S905†":Remove or refactor this statement; it has no side effects.(ÒÙìç
-Wpython:S905‡":Remove or refactor this statement; it has no side effects.(å½×Ïúÿÿÿÿ
-Rpython:S905ˆ":Remove or refactor this statement; it has no side effects.(Ï”­
-Wpython:S905‰":Remove or refactor this statement; it has no side effects.(¥Ô×úÿÿÿÿ
-Rpython:S905‹":Remove or refactor this statement; it has no side effects.(Ö¨¾Í
-Rpython:S905Œ":Remove or refactor this statement; it has no side effects.(È®Ùü
-dpython:S1764Œ"KCorrect one of the identical sub-expressions on both sides of operator ">".(È®Ùü
-Rpython:S905":Remove or refactor this statement; it has no side effects.(“ÑŠ‡
-Wpython:S905":Remove or refactor this statement; it has no side effects.(âüûÿÿÿÿ
-Rpython:S905":Remove or refactor this statement; it has no side effects.(•şË˜
-Wpython:S905":Remove or refactor this statement; it has no side effects.(÷Æê“ùÿÿÿÿ
-Wpython:S905‘":Remove or refactor this statement; it has no side effects.(¦®—Âøÿÿÿÿ
-Rpython:S905“":Remove or refactor this statement; it has no side effects.(ÁÇÌ¼
-Wpython:S905”":Remove or refactor this statement; it has no side effects.(àôÀ‚ûÿÿÿÿ
-Wpython:S905•":Remove or refactor this statement; it has no side effects.(Êºã«øÿÿÿÿ
-Rpython:S905–":Remove or refactor this statement; it has no side effects.(ƒÆĞÆ
-dpython:S1764–"KCorrect one of the identical sub-expressions on both sides of operator ">".(ƒÆĞÆ
-Rpython:S905—":Remove or refactor this statement; it has no side effects.(¤³ô¢
-Wpython:S905˜":Remove or refactor this statement; it has no side effects.(ÍØëÿÿÿÿÿ
-Wpython:S905™":Remove or refactor this statement; it has no side effects.(ŠÚŠ¼üÿÿÿÿ
-Rpython:S905š":Remove or refactor this statement; it has no side effects.(Ù¦ô…
-Wpython:S905›":Remove or refactor this statement; it has no side effects.(ÿ€é‚øÿÿÿÿ
-Wpython:S905":Remove or refactor this statement; it has no side effects.(ª…•€ıÿÿÿÿ
-Rpython:S905":Remove or refactor this statement; it has no side effects.(È®Ùü
-dpython:S1764"KCorrect one of the identical sub-expressions on both sides of operator ">".(È®Ùü
-Wpython:S905Ÿ":Remove or refactor this statement; it has no side effects.(¡•ë¾ıÿÿÿÿ
-Rpython:S905 ":Remove or refactor this statement; it has no side effects.(¹Ä¼ó
-Wpython:S905¡":Remove or refactor this statement; it has no side effects.(´»Ş×ûÿÿÿÿ
-Qpython:S905¢":Remove or refactor this statement; it has no side effects.(œòµ;
-Rpython:S905£":Remove or refactor this statement; it has no side effects.(Ø©óí
-Wpython:S905¥":Remove or refactor this statement; it has no side effects.(¯ìÅÃüÿÿÿÿ
-Rpython:S905¦":Remove or refactor this statement; it has no side effects.(‹èá
-Rpython:S905§":Remove or refactor this statement; it has no side effects.(¢•ğ¬
-Rpython:S905¨":Remove or refactor this statement; it has no side effects.(ƒÆĞÆ
-dpython:S1764¨"KCorrect one of the identical sub-expressions on both sides of operator ">".(ƒÆĞÆ
-Wpython:S905©":Remove or refactor this statement; it has no side effects.(ë€à™üÿÿÿÿ
-Qpython:S905ª":Remove or refactor this statement; it has no side effects.(Ø¼íc
-Wpython:S905«":Remove or refactor this statement; it has no side effects.(ùôèåşÿÿÿÿ
-Rpython:S905¬":Remove or refactor this statement; it has no side effects.(¢ÙèØ
-Wpython:S905­":Remove or refactor this statement; it has no side effects.(±±à½ûÿÿÿÿ

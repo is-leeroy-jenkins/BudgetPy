@@ -1,7 +1,0 @@
-
-apython:S1192”"HDefine a constant instead of duplicating this literal "stdio.h" 5 times.(¸¯êÆ
-ipython:S1192x"LDefine a constant instead of duplicating this literal "xmmintrin.h" 3 times.(ÇÆÔ±ıÿÿÿÿ
-ipython:S1192y"LDefine a constant instead of duplicating this literal "emmintrin.h" 3 times.(îİçàøÿÿÿÿ
-jpython:S1192¿"LDefine a constant instead of duplicating this literal 'immintrin.h' 3 times.(ĞƒÅØüÿÿÿÿ
-ipython:S1192“"QDefine a constant instead of duplicating this literal "__asm__ volatile" 5 times.(«ŞÃy
-lpython:S3776æ"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(ºöİ

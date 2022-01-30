@@ -1,16 +1,0 @@
-
-spython:S1192 "UDefine a constant instead of duplicating this literal "display.float_format" 4 times.(Šâ–Äıÿÿÿÿ
-qpython:S1192û"QDefine a constant instead of duplicating this literal "display.max_rows" 4 times.(Ä™ëÉ8öÆçÚã/
-Mpython:S1066ô"/Merge this if statement with the enclosing one.(Â‘îÂÿÿÿÿÿ
-Mpython:S1066ö"/Merge this if statement with the enclosing one.(¬ØÆÂşÿÿÿÿ
-rpython:S3776Â"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ı’Äûÿÿÿÿ
-jpython:S107±"MMethod "__init__" has 18 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
-7python:S125µ"Remove this commented out code.(ø´¯
-npython:S117Å"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿’„è
-hpython:S107ì"KMethod "to_csv" has 16 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
-rpython:S3776Æ
-"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ÿ—şàúÿÿÿÿ
-lpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(½ààH
-mpython:S3776Ö"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(‡Áğ
-Ipython:S5806Ê"+Rename this variable; it shadows a builtin.(¾î®øÿÿÿÿ
-Apython:S108Ø")Either remove or fill this block of code.(ã‘Û¾

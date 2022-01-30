@@ -43,7 +43,7 @@ class ReturnFuncPtrTestCase(unittest.TestCase):
         self.assertRaises(ArgumentError, strchr, b"abcdef", 3.0)
         self.assertRaises(TypeError, strchr, b"abcdef")
 
-    # Issue 6083: Reference counting bug
+    # Issue 6083: Source counting bug
     def test_from_dll_refcount(self):
         class BadSequence(tuple):
             def __getitem__(self, key):

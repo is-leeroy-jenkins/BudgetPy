@@ -1,6 +1,0 @@
-
-epython:S1192ê"GDefine a constant instead of duplicating this literal "1 days" 3 times.(èÌÕ¼úÿÿÿÿ
-vpython:S117Ò"YRename this local variable "numSlice" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å–Ž±üÿÿÿÿ
-tpython:S117Ó"\Rename this local variable "numSliceEnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢ðÑ„
-vpython:S117Ô"YRename this local variable "objSlice" to match the regular expression ^[_a-z][a-z0-9_]*$.(ØŸ¨òÿÿÿÿÿ
-Rpython:S905û":Remove or refactor this statement; it has no side effects.(žÒÙØ

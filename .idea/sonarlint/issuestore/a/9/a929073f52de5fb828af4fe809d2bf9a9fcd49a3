@@ -1,200 +1,0 @@
-
-npython:S117:"WRename this local variable "ival_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı’ãŠ
-qpython:S117<"ZRename this local variable "ival_AJAN" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¤Õ
-zpython:S117Y"cRename this local variable "ival_AJAN_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÒˆš
-|python:S117Z"eRename this local variable "ival_AJAN_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Óµ
-qpython:S117="ZRename this local variable "ival_AJUN" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑñªÎ
-python:S117["cRename this local variable "ival_AJUN_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ü“¥ûÿÿÿÿ
-|python:S117\"eRename this local variable "ival_AJUN_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(é”¤Ñ
-vpython:S117>"ZRename this local variable "ival_ANOV" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘˜¦şÿÿÿÿ
-python:S117]"cRename this local variable "ival_ANOV_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(“¢üÇüÿÿÿÿ
-|python:S117^"eRename this local variable "ival_ANOV_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(µÌ‹æ
-|python:S117G"`Rename this local variable "ival_A_to_B_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÏÑíøÿÿÿÿ
-ypython:S117F"bRename this local variable "ival_A_to_B_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(£Šèğ
-wpython:S117I"`Rename this local variable "ival_A_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÉœâÅ
-ypython:S117H"bRename this local variable "ival_A_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(İÉÕ
-wpython:S117K"`Rename this local variable "ival_A_to_H_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ¯¸Ü
-ypython:S117J"bRename this local variable "ival_A_to_H_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú¹©İ
-|python:S117C"`Rename this local variable "ival_A_to_M_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ìğ€ùÿÿÿÿ
-ypython:S117B"bRename this local variable "ival_A_to_M_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹–œª
-|python:S117A"`Rename this local variable "ival_A_to_Q_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾Ò‰øÿÿÿÿ
-~python:S117@"bRename this local variable "ival_A_to_Q_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûı öûÿÿÿÿ
-|python:S117U"`Rename this local variable "ival_A_to_S_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(œŒåùÿÿÿÿ
-~python:S117R"bRename this local variable "ival_A_to_S_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒĞâ¼ùÿÿÿÿ
-wpython:S117O"`Rename this local variable "ival_A_to_T_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(İéïİ
-~python:S117L"bRename this local variable "ival_A_to_T_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì­Ğûÿÿÿÿ
-|python:S117E"`Rename this local variable "ival_A_to_W_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ´…–úÿÿÿÿ
-ypython:S117D"bRename this local variable "ival_A_to_W_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(«öã
-opython:S117"WRename this local variable "ival_Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(°¶Ü¿
-xpython:S117„"[Rename this local variable "ival_QEJAN" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÌìÆúÿÿÿÿ
-python:S117 "dRename this local variable "ival_QEJAN_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(º±Öÿÿÿÿÿ
-ƒpython:S117Ÿ"fRename this local variable "ival_QEJAN_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨Ñò§ùÿÿÿÿ
-xpython:S117…"[Rename this local variable "ival_QEJUN" to match the regular expression ^[_a-z][a-z0-9_]*$.(Áá¡øÿÿÿÿ
-python:S117£"dRename this local variable "ival_QEJUN_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿äÆ›ıÿÿÿÿ
-~python:S117¢"fRename this local variable "ival_QEJUN_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(§¬ÈÅ
-€python:S117‚"cRename this local variable "ival_Q_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(È²¨Šşÿÿÿÿ
-ypython:S117‡"\Rename this local variable "ival_Q_to_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô‚°Æüÿÿÿÿ
-xpython:S117"`Rename this local variable "ival_Q_to_B_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÜ¡á
-python:S117Œ"bRename this local variable "ival_Q_to_B_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(›Àé·ıÿÿÿÿ
-}python:S117"`Rename this local variable "ival_Q_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦Î üÿÿÿÿ
-python:S117"bRename this local variable "ival_Q_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(´¥Œ¿şÿÿÿÿ
-}python:S117‘"`Rename this local variable "ival_Q_to_H_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¹™áÿÿÿÿÿ
-ypython:S117"bRename this local variable "ival_Q_to_H_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(àçˆr
-xpython:S117‰"`Rename this local variable "ival_Q_to_M_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡ãº
-zpython:S117ˆ"bRename this local variable "ival_Q_to_M_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(ï¸í¤
-}python:S117›"`Rename this local variable "ival_Q_to_S_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æõà¾ùÿÿÿÿ
-zpython:S117˜"bRename this local variable "ival_Q_to_S_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁïÃÍ
-}python:S117•"`Rename this local variable "ival_Q_to_T_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡„ÙÒûÿÿÿÿ
-zpython:S117’"bRename this local variable "ival_Q_to_T_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(²úœÃ
-}python:S117‹"`Rename this local variable "ival_Q_to_W_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ë•Å›øÿÿÿÿ
-zpython:S117Š"bRename this local variable "ival_Q_to_W_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãşº¨
-tpython:S117Á"WRename this local variable "ival_M" to match the regular expression ^[_a-z][a-z0-9_]*$.(õÛ„şÿÿÿÿ
-ƒpython:S117Ã"fRename this local variable "ival_M_end_of_quarter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÚ´¯úÿÿÿÿ
-€python:S117Â"cRename this local variable "ival_M_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(çüÖİşÿÿÿÿ
-tpython:S117Ä"\Rename this local variable "ival_M_to_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔÈŠ
-xpython:S117É"`Rename this local variable "ival_M_to_B_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª¼’î
-zpython:S117È"bRename this local variable "ival_M_to_B_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜Ëê
-xpython:S117Ë"`Rename this local variable "ival_M_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾õÛ×
-python:S117Ê"bRename this local variable "ival_M_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(½—Ü’ùÿÿÿÿ
-xpython:S117Í"`Rename this local variable "ival_M_to_H_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÛÛ—
-zpython:S117Ì"bRename this local variable "ival_M_to_H_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(’íè¨
-ypython:S117Å"\Rename this local variable "ival_M_to_Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ’Şùÿÿÿÿ
-xpython:S117×"`Rename this local variable "ival_M_to_S_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÅ÷
-zpython:S117Ô"bRename this local variable "ival_M_to_S_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú•ûˆ
-}python:S117Ñ"`Rename this local variable "ival_M_to_T_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿÆ¥Àÿÿÿÿÿ
-ypython:S117Î"bRename this local variable "ival_M_to_T_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(äµ¬u
-xpython:S117Ç"`Rename this local variable "ival_M_to_W_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(®•¹ê
-python:S117Æ"bRename this local variable "ival_M_to_W_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿‚Ô€øÿÿÿÿ
-opython:S117ñ"WRename this local variable "ival_W" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¶¢ˆ
-wpython:S117õ"ZRename this local variable "ival_WFRI" to match the regular expression ^[_a-z][a-z0-9_]*$.(×·Ğáüÿÿÿÿ
-{python:S117€"cRename this local variable "ival_WFRI_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(æ¬Ç±
-‚python:S117ÿ"eRename this local variable "ival_WFRI_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(é¶éşÿÿÿÿ
-wpython:S117ù"ZRename this local variable "ival_WMON" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿èèÿıÿÿÿÿ
-€python:S117ˆ"cRename this local variable "ival_WMON_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ Ïãûÿÿÿÿ
-}python:S117‡"eRename this local variable "ival_WMON_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÊ 
-wpython:S117ô"ZRename this local variable "ival_WSAT" to match the regular expression ^[_a-z][a-z0-9_]*$.(®†“Óüÿÿÿÿ
-€python:S117ş"cRename this local variable "ival_WSAT_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ó”¤“ùÿÿÿÿ
-|python:S117ı"eRename this local variable "ival_WSAT_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(İôˆ
-wpython:S117ó"ZRename this local variable "ival_WSUN" to match the regular expression ^[_a-z][a-z0-9_]*$.(•ÑÜÇøÿÿÿÿ
-{python:S117ü"cRename this local variable "ival_WSUN_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô€¥Ù
-}python:S117û"eRename this local variable "ival_WSUN_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ°µñ
-rpython:S117ö"ZRename this local variable "ival_WTHU" to match the regular expression ^[_a-z][a-z0-9_]*$.(·„Êº
-{python:S117‚"cRename this local variable "ival_WTHU_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÈË°
-}python:S117"eRename this local variable "ival_WTHU_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(À„‘
-wpython:S117ø"ZRename this local variable "ival_WTUE" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß´¾ôúÿÿÿÿ
-€python:S117†"cRename this local variable "ival_WTUE_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(î‹şúÿÿÿÿ
-‚python:S117…"eRename this local variable "ival_WTUE_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(…©´ƒûÿÿÿÿ
-rpython:S117÷"ZRename this local variable "ival_WWED" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôµÁê
-{python:S117„"cRename this local variable "ival_WWED_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÊÄ”
-‚python:S117ƒ"eRename this local variable "ival_WWED_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨½Éšúÿÿÿÿ
-python:S117Œ"dRename this local variable "ival_W_end_of_month" to match the regular expression ^[_a-z][a-z0-9_]*$.(”°åÕûÿÿÿÿ
-ƒpython:S117‹"fRename this local variable "ival_W_end_of_quarter" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚©ÑÕÿÿÿÿÿ
-€python:S117Š"cRename this local variable "ival_W_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ÖŸøÿÿÿÿ
-tpython:S117"\Rename this local variable "ival_W_to_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤¹şæ
-€python:S117’"hRename this local variable "ival_W_to_A_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯¾ö“
-xpython:S117¡"`Rename this local variable "ival_W_to_B_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(’†‹ª
-zpython:S117 "bRename this local variable "ival_W_to_B_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘Ïœ‚
-xpython:S117£"`Rename this local variable "ival_W_to_D_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÇÚüã
-python:S117¢"bRename this local variable "ival_W_to_D_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(õ­ªíüÿÿÿÿ
-}python:S117¥"`Rename this local variable "ival_W_to_H_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(á¿·§úÿÿÿÿ
-python:S117¤"bRename this local variable "ival_W_to_H_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ ì†øÿÿÿÿ
-ypython:S117"\Rename this local variable "ival_W_to_M" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ùâ×øÿÿÿÿ
-†python:S117œ"iRename this local variable "ival_W_to_M_end_of_month" to match the regular expression ^[_a-z][a-z0-9_]*$.(àÄÄºûÿÿÿÿ
-tpython:S117"\Rename this local variable "ival_W_to_Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éç½ò
-ƒpython:S117—"kRename this local variable "ival_W_to_Q_end_of_quarter" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç›âØ
-xpython:S117¯"`Rename this local variable "ival_W_to_S_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì÷ğ²
-zpython:S117¬"bRename this local variable "ival_W_to_S_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(å¥¨
-xpython:S117©"`Rename this local variable "ival_W_to_T_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïô’À
-ypython:S117¦"bRename this local variable "ival_W_to_T_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘˜ï=
-opython:S117ô"WRename this local variable "ival_B" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÌØ÷Û
-|python:S117÷"dRename this local variable "ival_B_end_of_month" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úû’¡
-~python:S117ö"fRename this local variable "ival_B_end_of_quarter" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘¤ ñ
-€python:S117ø"cRename this local variable "ival_B_end_of_week" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘š³£şÿÿÿÿ
-€python:S117õ"cRename this local variable "ival_B_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹¦È¤üÿÿÿÿ
-ypython:S117ú"\Rename this local variable "ival_B_to_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(½ÈñŒÿÿÿÿÿ
-tpython:S117ş"\Rename this local variable "ival_B_to_D" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıŒıÓ
-xpython:S117€"`Rename this local variable "ival_B_to_H_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(´–¡„
-python:S117ÿ"bRename this local variable "ival_B_to_H_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û³¸ûÿÿÿÿÿ
-spython:S117ü"\Rename this local variable "ival_B_to_M" to match the regular expression ^[_a-z][a-z0-9_]*$.(—¯ôm
-ypython:S117û"\Rename this local variable "ival_B_to_Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(£‡Öíıÿÿÿÿ
-}python:S117Š"`Rename this local variable "ival_B_to_S_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÔ­ÿÿÿÿÿ
-zpython:S117‡"bRename this local variable "ival_B_to_S_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Â“ÿÍ
-}python:S117„"`Rename this local variable "ival_B_to_T_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹š™ıÿÿÿÿ
-python:S117"bRename this local variable "ival_B_to_T_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç€ùÊşÿÿÿÿ
-tpython:S117ı"\Rename this local variable "ival_B_to_W" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾›ìÉ
-vpython:S117¯"^Rename this local variable "ival_B_friday" to match the regular expression ^[_a-z][a-z0-9_]*$.(µåôÔ
-vpython:S117°"^Rename this local variable "ival_B_monday" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôî­£
-opython:S117¥"WRename this local variable "ival_D" to match the regular expression ^[_a-z][a-z0-9_]*$.(èµ§à
-{python:S117¨"dRename this local variable "ival_D_end_of_month" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ëªà
-ƒpython:S117§"fRename this local variable "ival_D_end_of_quarter" to match the regular expression ^[_a-z][a-z0-9_]*$.(éÊÙÛıÿÿÿÿ
-{python:S117©"cRename this local variable "ival_D_end_of_week" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤òúª
-€python:S117¦"cRename this local variable "ival_D_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(´ŞÖùÿÿÿÿ
-{python:S117«"^Rename this local variable "ival_D_friday" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìİ¹ùÿÿÿÿ
-}python:S117¬"`Rename this local variable "ival_D_saturday" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸ˆËÿÿÿÿÿ
-{python:S117­"^Rename this local variable "ival_D_sunday" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôıÅ¤üÿÿÿÿ
-ypython:S117²"\Rename this local variable "ival_D_to_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(½£Ûáúÿÿÿÿ
-}python:S117À"`Rename this local variable "ival_D_to_H_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(†ŞÊûÿÿÿÿ
-python:S117¿"bRename this local variable "ival_D_to_H_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Âªˆ¾úÿÿÿÿ
-tpython:S117¼"\Rename this local variable "ival_D_to_M" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë”¥‘
-wpython:S117º"`Rename this local variable "ival_D_to_QEDEC" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ùø‚
-wpython:S117¸"`Rename this local variable "ival_D_to_QEJAN" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶®Â
-}python:S117¹"`Rename this local variable "ival_D_to_QEJUN" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ×§ìÿÿÿÿÿ
-}python:S117Ê"`Rename this local variable "ival_D_to_S_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú úßúÿÿÿÿ
-zpython:S117Ç"bRename this local variable "ival_D_to_S_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(éÑíí
-wpython:S117Ä"`Rename this local variable "ival_D_to_T_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶ÿ€+
-zpython:S117Á"bRename this local variable "ival_D_to_T_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Äî¹Í
-tpython:S117½"\Rename this local variable "ival_D_to_W" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¹ß„
-python:S117¶"bRename this local variable "ival_Deoq_to_ADEC" to match the regular expression ^[_a-z][a-z0-9_]*$.(»øûÓùÿÿÿÿ
-zpython:S117´"bRename this local variable "ival_Deoq_to_AJAN" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÏ‚ö
-python:S117µ"bRename this local variable "ival_Deoq_to_AJUN" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š÷›Ùüÿÿÿÿ
-tpython:S117ğ"WRename this local variable "ival_H" to match the regular expression ^[_a-z][a-z0-9_]*$.(»à†Ïüÿÿÿÿ
-python:S117ö"bRename this local variable "ival_H_end_of_bus" to match the regular expression ^[_a-z][a-z0-9_]*$.(™¥¢şÿÿÿÿ
-python:S117õ"bRename this local variable "ival_H_end_of_day" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷µã˜ûÿÿÿÿ
-|python:S117ó"dRename this local variable "ival_H_end_of_month" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞËîù
-~python:S117ò"fRename this local variable "ival_H_end_of_quarter" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úñºã
-{python:S117ô"cRename this local variable "ival_H_end_of_week" to match the regular expression ^[_a-z][a-z0-9_]*$.(«»ô¡
-{python:S117ñ"cRename this local variable "ival_H_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(É†úë
-tpython:S117ø"\Rename this local variable "ival_H_to_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(õŠÌØ
-ypython:S117ı"\Rename this local variable "ival_H_to_B" to match the regular expression ^[_a-z][a-z0-9_]*$.(•âÊæıÿÿÿÿ
-ypython:S117ü"\Rename this local variable "ival_H_to_D" to match the regular expression ^[_a-z][a-z0-9_]*$.(°É»Óüÿÿÿÿ
-tpython:S117ú"\Rename this local variable "ival_H_to_M" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÙ‡×
-tpython:S117ù"\Rename this local variable "ival_H_to_Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û¸’ª
-xpython:S117ˆ"`Rename this local variable "ival_H_to_S_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢ Ë®
-zpython:S117…"bRename this local variable "ival_H_to_S_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(²Ù¯
-}python:S117‚"`Rename this local variable "ival_H_to_T_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(œÿÉñüÿÿÿÿ
-python:S117ÿ"bRename this local variable "ival_H_to_T_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñÊ¸³ÿÿÿÿÿ
-ypython:S117û"\Rename this local variable "ival_H_to_W" to match the regular expression ^[_a-z][a-z0-9_]*$.(á¾Ğàşÿÿÿÿ
-opython:S117£"WRename this local variable "ival_T" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÃâÆÔ
-python:S117³"bRename this local variable "ival_T_end_of_bus" to match the regular expression ^[_a-z][a-z0-9_]*$.(«ïÖäüÿÿÿÿ
-zpython:S117°"bRename this local variable "ival_T_end_of_day" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì×µ‡
-{python:S117¶"cRename this local variable "ival_T_end_of_hour" to match the regular expression ^[_a-z][a-z0-9_]*$.(öòŒî
-{python:S117ª"dRename this local variable "ival_T_end_of_month" to match the regular expression ^[_a-z][a-z0-9_]*$.(µö1
-ƒpython:S117§"fRename this local variable "ival_T_end_of_quarter" to match the regular expression ^[_a-z][a-z0-9_]*$.(öÿ´ıÿÿÿÿ
-€python:S117­"cRename this local variable "ival_T_end_of_week" to match the regular expression ^[_a-z][a-z0-9_]*$.(„ûØŠûÿÿÿÿ
-€python:S117¤"cRename this local variable "ival_T_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘šÏşÿÿÿÿ
-tpython:S117º"\Rename this local variable "ival_T_to_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(’øıñ
-ypython:S117¿"\Rename this local variable "ival_T_to_B" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ¥ÕÎüÿÿÿÿ
-tpython:S117¾"\Rename this local variable "ival_T_to_D" to match the regular expression ^[_a-z][a-z0-9_]*$.(€Êä¾
-tpython:S117À"\Rename this local variable "ival_T_to_H" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿàø–
-ypython:S117¼"\Rename this local variable "ival_T_to_M" to match the regular expression ^[_a-z][a-z0-9_]*$.(™øÙøøÿÿÿÿ
-tpython:S117»"\Rename this local variable "ival_T_to_Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(üåçù
-}python:S117Å"`Rename this local variable "ival_T_to_S_end" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ÓÉàûÿÿÿÿ
-zpython:S117Â"bRename this local variable "ival_T_to_S_start" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï‘Åˆ
-ypython:S117½"\Rename this local variable "ival_T_to_W" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÜÂå×ùÿÿÿÿ
-tpython:S117à"WRename this local variable "ival_S" to match the regular expression ^[_a-z][a-z0-9_]*$.(±®Ç’ûÿÿÿÿ
-zpython:S117ğ"bRename this local variable "ival_S_end_of_bus" to match the regular expression ^[_a-z][a-z0-9_]*$.(í¦·
-python:S117í"bRename this local variable "ival_S_end_of_day" to match the regular expression ^[_a-z][a-z0-9_]*$.(±²İùÿÿÿÿ
-{python:S117ó"cRename this local variable "ival_S_end_of_hour" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÎé
-‚python:S117ö"eRename this local variable "ival_S_end_of_minute" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù ÇÔüÿÿÿÿ
-python:S117ç"dRename this local variable "ival_S_end_of_month" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùˆ¥ıÿÿÿÿ
-ƒpython:S117ä"fRename this local variable "ival_S_end_of_quarter" to match the regular expression ^[_a-z][a-z0-9_]*$.(©àŒøÿÿÿÿ
-€python:S117ê"cRename this local variable "ival_S_end_of_week" to match the regular expression ^[_a-z][a-z0-9_]*$.(èùÉÕÿÿÿÿÿ
-{python:S117á"cRename this local variable "ival_S_end_of_year" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ªõı
-ypython:S117ú"\Rename this local variable "ival_S_to_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ÍÌüşÿÿÿÿ
-spython:S117ÿ"\Rename this local variable "ival_S_to_B" to match the regular expression ^[_a-z][a-z0-9_]*$.(ËùŠY
-tpython:S117ş"\Rename this local variable "ival_S_to_D" to match the regular expression ^[_a-z][a-z0-9_]*$.(í§‚
-tpython:S117€"\Rename this local variable "ival_S_to_H" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤šÉí
-tpython:S117ü"\Rename this local variable "ival_S_to_M" to match the regular expression ^[_a-z][a-z0-9_]*$.(£²ò
-tpython:S117û"\Rename this local variable "ival_S_to_Q" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ò©â
-ypython:S117"\Rename this local variable "ival_S_to_T" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àäƒßşÿÿÿÿ
-ypython:S117ı"\Rename this local variable "ival_S_to_W" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘³‚ªüÿÿÿÿ

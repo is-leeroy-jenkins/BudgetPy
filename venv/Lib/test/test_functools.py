@@ -364,7 +364,7 @@ class TestPartial:
             finally:
                 f.__setstate__((capture, (), {}, {}))
 
-    # Issue 6083: Reference counting bug
+    # Issue 6083: Source counting bug
     def test_setstate_refcount(self):
         class BadSequence:
             def __len__(self):

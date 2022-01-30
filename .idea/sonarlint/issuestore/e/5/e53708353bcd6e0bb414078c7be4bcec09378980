@@ -1,8 +1,0 @@
-
->python:S1481χ"%Remove the unused local variable "e".(Δ¥ξ·
-python:S1871Ϋ"cEither merge this branch with the identical one on line "729" or change one of the implementations.(κεύÿÿÿÿ
-{python:S117‹"^Rename this local variable "Neach_section" to match the regular expression ^[_a-z][a-z0-9_]*$.(τσδξωÿÿÿÿ
-wpython:S117„"ZRename this local variable "Nsections" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹άξΓύÿÿÿÿ
-npython:S117ÿ"WRename this local variable "Ntotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ύ=
-epython:S117	"MRename this parameter "A" to match the regular expression ^[_a-z][a-z0-9_]*$.(›½ς
-epython:S117”	"MRename this parameter "A" to match the regular expression ^[_a-z][a-z0-9_]*$.(ητΰα

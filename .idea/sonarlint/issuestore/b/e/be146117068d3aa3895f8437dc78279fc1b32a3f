@@ -1,11 +1,0 @@
-
-mpython:S3776ı"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(óÏİ
-epython:S1134­"LTake the required action to fix the issue indicated by this "FIXME" comment.(©„ş
-rpython:S3776É"TRefactor this function to reduce its Cognitive Complexity from 47 to the 15 allowed.(é˜ëëúÿÿÿÿ
-ypython:S3776¥"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(¬Ö÷ÿÿÿÿÿ8ä ãÚã/
-jpython:S1134­"LTake the required action to fix the issue indicated by this "FIXME" comment.(É®Æµıÿÿÿÿ
-=python:S3626Ã	"Remove this redundant return.(ÙãŞŸ8ä ãÚã/
-rpython:S3776¥
-"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(€’¥‹ıÿÿÿÿ
-zpython:S117Ë"[Rename this local variable "new_mask2D" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü§’¤8ä ãÚã/
-wpython:S1186ÿ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ë‘ÈÇÿÿÿÿÿ

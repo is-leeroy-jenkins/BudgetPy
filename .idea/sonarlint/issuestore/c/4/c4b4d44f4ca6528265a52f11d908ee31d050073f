@@ -1,9 +1,0 @@
-
-bpython:S1854p"JRemove this assignment to local variable 'index'; the value is never used.(¿°àœ
-tpython:S1186"[Add a nested comment explaining why this function is empty, or complete the implementation.(¥¨ş¥
-Hpython:S1656Ô"/Remove or correct this useless self-assignment.(÷ìÈÂ
-Mpython:S1656Ö"/Remove or correct this useless self-assignment.(€õ¡‰ıÿÿÿÿ
-Hpython:S1656Ù"/Remove or correct this useless self-assignment.(ƒªÛ
-Hpython:S1656Û"/Remove or correct this useless self-assignment.(¡å÷à
-Hpython:S1656ß"/Remove or correct this useless self-assignment.(Ûåƒ…
-@python:S2201ò"'The return value of "str" must be used.(Ïì…Í

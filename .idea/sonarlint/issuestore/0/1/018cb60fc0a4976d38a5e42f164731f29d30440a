@@ -1,40 +1,0 @@
-
-ƒpython:S1192¢"^Define a constant instead of duplicating this literal "2015-01-01T00:00:00.000000000" 3 times.(—òÇŒÿÿÿÿÿ8™äæÚã/
-dpython:S1192³"FDefine a constant instead of duplicating this literal "1 day" 7 times.(«‚Šıÿÿÿÿ
-_python:S1192­"FDefine a constant instead of duplicating this literal "2 min" 5 times.(Î†¾
-ipython:S1192Å"PDefine a constant instead of duplicating this literal "timedelta64[ns]" 8 times.(¼ö
-epython:S1192¤"GDefine a constant instead of duplicating this literal "M8[ns]" 5 times.(Ÿ ç˜úÿÿÿÿ
-mpython:S1192º"ODefine a constant instead of duplicating this literal "datetime64[ns]" 3 times.(ÛğøÇıÿÿÿÿ
-rpython:S1192§"TDefine a constant instead of duplicating this literal "2016-01-01 00:00:00" 3 times.(ùª–‹ÿÿÿÿÿ
-ypython:S1192§"[Define a constant instead of duplicating this literal "datetime64[ns, US/Eastern]" 3 times.(ùª–‹ÿÿÿÿÿ
-epython:S1192–"LDefine a constant instead of duplicating this literal "US/Eastern" 13 times.(ˆÌıÔ
-epython:S1192ˆ"GDefine a constant instead of duplicating this literal "1 days" 5 times.(½Øêúÿÿÿÿ
-Epython:S1481Æ"'Remove the unused local variable "ids".(Ñöºıÿÿÿÿ
-Epython:S1481Ğ"'Remove the unused local variable "ids".(ÆñéËùÿÿÿÿ
-hpython:S1226"OIntroduce a new variable or use its initial value before reassigning 'uniques'.(ş¿â
-Cpython:S1481ê"%Remove the unused local variable "i".(ğ‹ƒÏøÿÿÿÿ
-|python:S1871‚"cEither merge this branch with the identical one on line "511" or change one of the implementations.(Á™â‡
-ƒpython:S1871’"cEither merge this branch with the identical one on line "511" or change one of the implementations.(Á™â‡8™äæÚã/
-epython:S1764Š"LCorrect one of the identical sub-expressions on both sides of operator "!=".(”şÚÇ
-epython:S1764‹"LCorrect one of the identical sub-expressions on both sides of operator "!=".(¾ä
-epython:S1764™"LCorrect one of the identical sub-expressions on both sides of operator "!=".(”şÚÇ
-epython:S1764š"LCorrect one of the identical sub-expressions on both sides of operator "!=".(¾ä
-ppython:S117"SRename this local variable "Sd" to match the regular expression ^[_a-z][a-z0-9_]*$.(èŸ ğûÿÿÿÿ
-ppython:S117Ÿ"SRename this local variable "St" to match the regular expression ^[_a-z][a-z0-9_]*$.(šêÎõıÿÿÿÿ
-epython:S1764—"LCorrect one of the identical sub-expressions on both sides of operator "!=".(”şÚÇ
-epython:S1764˜"LCorrect one of the identical sub-expressions on both sides of operator "!=".(¾ä
-6python:S125Ç"Remove this commented out code.(¼òa
-epython:S1764"LCorrect one of the identical sub-expressions on both sides of operator "!=".(”şÚÇ
-epython:S1764"LCorrect one of the identical sub-expressions on both sides of operator "!=".(¾ä
-lpython:S117ì"TRename this local variable "Inf" to match the regular expression ^[_a-z][a-z0-9_]*$.(á Š
-tpython:S117í"WRename this local variable "NegInf" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŸŠ²¨şÿÿÿÿ
-jpython:S1764ó"LCorrect one of the identical sub-expressions on both sides of operator ">=".(îŸ…•øÿÿÿÿ
-jpython:S1764ó"LCorrect one of the identical sub-expressions on both sides of operator "==".(îŸ…•øÿÿÿÿ
-ipython:S1764ô"KCorrect one of the identical sub-expressions on both sides of operator "<".(“¿º™úÿÿÿÿ
-ipython:S1764ô"KCorrect one of the identical sub-expressions on both sides of operator ">".(“¿º™úÿÿÿÿ
-epython:S1764ú"LCorrect one of the identical sub-expressions on both sides of operator "<=".(Ş¼¢‰
-epython:S1764ú"LCorrect one of the identical sub-expressions on both sides of operator "==".(Ş¼¢‰
-dpython:S1764û"KCorrect one of the identical sub-expressions on both sides of operator "<".(ËÙ°
-dpython:S1764û"KCorrect one of the identical sub-expressions on both sides of operator ">".(ËÙ°
-lpython:S117ˆ"TRename this local variable "Inf" to match the regular expression ^[_a-z][a-z0-9_]*$.(á Š
-tpython:S117‰"WRename this local variable "NegInf" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŸŠ²¨şÿÿÿÿ

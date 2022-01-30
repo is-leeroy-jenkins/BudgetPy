@@ -1,12 +1,0 @@
-
-qpython:S1186"YAdd a nested comment explaining why this method is empty, or complete the implementation.(–Áûÿ
-qpython:S1186"YAdd a nested comment explaining why this method is empty, or complete the implementation.(‡î¡
-=python:S1481£"%Remove the unused local variable "i".(İÉÈl
->python:S1481¥"%Remove the unused local variable "i".(íƒ¡¡
-Cpython:S1481¨"%Remove the unused local variable "i".(•¶œ¼øÿÿÿÿ
-Cpython:S1481©"%Remove the unused local variable "i".(æ±Œ›şÿÿÿÿ
-Dpython:S5806ï"+Rename this variable; it shadows a builtin.(öó…„
-Ipython:S5806€"+Rename this variable; it shadows a builtin.(Íìéÿÿÿÿÿ
-}python:S117Ç"`Rename this local variable "expectedResults" to match the regular expression ^[_a-z][a-z0-9_]*$.(û©ééøÿÿÿÿ
-xpython:S117ß"`Rename this local variable "expectedResults" to match the regular expression ^[_a-z][a-z0-9_]*$.(£È£ù
-}python:S117Ä"`Rename this local variable "expectedResults" to match the regular expression ^[_a-z][a-z0-9_]*$.(û©ééøÿÿÿÿ

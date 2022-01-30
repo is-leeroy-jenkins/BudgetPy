@@ -1,51 +1,0 @@
-
-|python:S1192Z"XDefine a constant instead of duplicating this literal "2007-01-01 09:00:00.001" 4 times.(«ñ’­ûÿÿÿÿ8¶¬äÚã/
-ypython:S1192a"ZDefine a constant instead of duplicating this literal "2007-01-01 09:00:00.00101" 4 times.(ÛŒ¸Œ8¶¬äÚã/
-‚python:S1192®
-"dDefine a constant instead of duplicating this literal "Input cannot be converted to Period" 4 times.(å«Ëşÿÿÿÿ
-qpython:S1192­
-"YDefine a constant instead of duplicating this literal "Input has different freq" 4 times.(³Íq
-[python:S5720º"=Rename "bound" to "self" or add the missing "self" parameter.(èŞÓ±øÿÿÿÿ
-Wpython:S905Ô":Remove or refactor this statement; it has no side effects.(Ã â•ùÿÿÿÿ
-Wpython:S905Ö":Remove or refactor this statement; it has no side effects.(Ú•…Óùÿÿÿÿ
-Wpython:S905Ø":Remove or refactor this statement; it has no side effects.(³É²Ãşÿÿÿÿ
-Rpython:S905Ú":Remove or refactor this statement; it has no side effects.(®¾îÇ
-Wpython:S905ç":Remove or refactor this statement; it has no side effects.( Ì÷“ıÿÿÿÿ
-Wpython:S905é":Remove or refactor this statement; it has no side effects.(ø‹õûûÿÿÿÿ
-Wpython:S905ë":Remove or refactor this statement; it has no side effects.(–Ñ•‹şÿÿÿÿ
-Rpython:S905í":Remove or refactor this statement; it has no side effects.(Øüÿ×
-|python:S117ô"_Rename this local variable "correctPeriods" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê§ÍŸşÿÿÿÿ
-Wpython:S905œ	":Remove or refactor this statement; it has no side effects.(Ù„Æúÿÿÿÿ
-Wpython:S905¹	":Remove or refactor this statement; it has no side effects.(Åç™ºûÿÿÿÿ
-Wpython:S905»	":Remove or refactor this statement; it has no side effects.(åÍïóüÿÿÿÿ
-Wpython:S905½	":Remove or refactor this statement; it has no side effects.(÷õŞÿşÿÿÿÿ
-Rpython:S905Õ	":Remove or refactor this statement; it has no side effects.(ÆñÖ‹
-Wpython:S905Ø	":Remove or refactor this statement; it has no side effects.(üö¥áûÿÿÿÿ
-Rpython:S905Û	":Remove or refactor this statement; it has no side effects.(¯öáÔ
-Wpython:S905ç	":Remove or refactor this statement; it has no side effects.(¤‰´•øÿÿÿÿ
-mpython:S1854ù
-"HRemove this assignment to local variable 'msg'; the value is never used.(³‚êúÿÿÿÿ8Æ¬äÚã/
-Wpython:S905
-":Remove or refactor this statement; it has no side effects.(¢–Èøÿÿÿÿ
-Wpython:S905Ÿ
-":Remove or refactor this statement; it has no side effects.(¦èéĞûÿÿÿÿ
-Wpython:S905»
-":Remove or refactor this statement; it has no side effects.(¢–Èøÿÿÿÿ
-Wpython:S905½
-":Remove or refactor this statement; it has no side effects.(¦èéĞûÿÿÿÿ
-Wpython:S905ê
-":Remove or refactor this statement; it has no side effects.(¢–Èøÿÿÿÿ
-Wpython:S905ì
-":Remove or refactor this statement; it has no side effects.(¦èéĞûÿÿÿÿ
-Wpython:S905™":Remove or refactor this statement; it has no side effects.(¢–Èøÿÿÿÿ
-Wpython:S905›":Remove or refactor this statement; it has no side effects.(¦èéĞûÿÿÿÿ
-Wpython:S905²":Remove or refactor this statement; it has no side effects.(ÁïÒòÿÿÿÿÿ
-Wpython:S905Á":Remove or refactor this statement; it has no side effects.(ÁïÒòÿÿÿÿÿ
-Wpython:S905Õ":Remove or refactor this statement; it has no side effects.(ÁïÒòÿÿÿÿÿ
-Wpython:S905ì":Remove or refactor this statement; it has no side effects.(ÁïÒòÿÿÿÿÿ
-Rpython:S905†":Remove or refactor this statement; it has no side effects.(ş°šª
-Rpython:S905‰":Remove or refactor this statement; it has no side effects.(Ù€Ñ
-Apython:S2201¤"(The return value of "repr" must be used.(ÿ¥µ¡
-Apython:S2201¨"(The return value of "repr" must be used.(ˆÂöé
-Apython:S2201¬"(The return value of "repr" must be used.(ˆÂöé
-Apython:S2201®"(The return value of "repr" must be used.(ˆÂöé

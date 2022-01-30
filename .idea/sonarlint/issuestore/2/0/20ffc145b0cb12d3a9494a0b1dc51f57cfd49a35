@@ -1,6 +1,0 @@
-
-hpython:S1192Ï"JDefine a constant instead of duplicating this literal "period[M]" 5 times.(äó¹õÿÿÿÿÿ
-qpython:S1192ð"SDefine a constant instead of duplicating this literal "freq not specified" 5 times.(ê†ŽÄúÿÿÿÿ
-fpython:S1854 "MRemove this assignment to local variable 'expected'; the value is never used.(Ä‹§í
-gpython:S1854Ÿ"IRemove this assignment to local variable 'pidx'; the value is never used.(ŽŸûÌûÿÿÿÿ
-`python:S1854Ò"GRemove this assignment to local variable 'i1'; the value is never used.(½†Þ»

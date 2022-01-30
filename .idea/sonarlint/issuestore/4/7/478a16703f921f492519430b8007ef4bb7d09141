@@ -1,7 +1,0 @@
-
-jpython:S1192"MDefine a constant instead of duplicating this literal r'path to/exe' 4 times.(¿éü®ûÿÿÿÿ
-jpython:S1192"MDefine a constant instead of duplicating this literal r'path to\exe' 4 times.(üß¶úÿÿÿÿ
-dpython:S1542""LRename function "Parser" to match the regular expression ^[a-z_][a-z0-9_]*$.(²¤×Ÿ
-ipython:S117'"RRename this parameter "Parser" to match the regular expression ^[_a-z][a-z0-9_]*$.(®Ç‘
-npython:S1175"RRename this parameter "Parser" to match the regular expression ^[_a-z][a-z0-9_]*$.(İâ¢úøÿÿÿÿ
-ipython:S117D"RRename this parameter "Parser" to match the regular expression ^[_a-z][a-z0-9_]*$.(”Ëú…

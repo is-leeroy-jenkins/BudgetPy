@@ -1,37 +1,0 @@
-
-dpython:S1192Ü"FDefine a constant instead of duplicating this literal 'i4,i4' 6 times.(úÂÿ¢ÿÿÿÿÿ
-lpython:S1192¤"NDefine a constant instead of duplicating this literal "array type %s" 9 times.(“ËÎŠøÿÿÿÿ
-kpython:S117"TRename this local variable "Ar1" to match the regular expression ^[_a-z][a-z0-9_]*$.(£¿ 
-kpython:S117"TRename this local variable "Ar2" to match the regular expression ^[_a-z][a-z0-9_]*$.(í‹åÄ
-kpython:S117 "TRename this local variable "Ar3" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û”“ƒ
-kpython:S117%"TRename this local variable "Ar1" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ëµ¤æ
-ppython:S117("TRename this local variable "Ar2" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜É°üÿÿÿÿ
-kpython:S117+"TRename this local variable "Ar3" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆ¡¢¸
-jpython:S1170"SRename this local variable "Ar" to match the regular expression ^[_a-z][a-z0-9_]*$.(ØËğŠ
-opython:S117="SRename this local variable "Ar" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿¸Ãßşÿÿÿÿ
-ipython:S1764Ç"KCorrect one of the identical sub-expressions on both sides of operator "|".(ÂÙÍíúÿÿÿÿ
-cpython:S1764Ê"KCorrect one of the identical sub-expressions on both sides of operator "|".(‡’÷$
-ipython:S1764Ï"KCorrect one of the identical sub-expressions on both sides of operator "&".(öãàüúÿÿÿÿ
-ipython:S1764Ò"KCorrect one of the identical sub-expressions on both sides of operator "&".(…ş÷Ûüÿÿÿÿ
-dpython:S1764×"KCorrect one of the identical sub-expressions on both sides of operator "^".(êäÖâ
-dpython:S1764Ú"KCorrect one of the identical sub-expressions on both sides of operator "^".(Ÿ÷ñü
-dpython:S1764“"KCorrect one of the identical sub-expressions on both sides of operator "|".(ìé÷ğ
-ipython:S1764”"KCorrect one of the identical sub-expressions on both sides of operator "|".(Ï„˜Òşÿÿÿÿ
-ipython:S1764™"KCorrect one of the identical sub-expressions on both sides of operator "&".(²Í²›ıÿÿÿÿ
-dpython:S1764š"KCorrect one of the identical sub-expressions on both sides of operator "&".(õ›ºÊ
-dpython:S1764Ÿ"KCorrect one of the identical sub-expressions on both sides of operator "^".(ò±ïæ
-ipython:S1764 "KCorrect one of the identical sub-expressions on both sides of operator "^".(îÁÁ¼ûÿÿÿÿ
-Wpython:S905³":Remove or refactor this statement; it has no side effects.(‚±Æùÿÿÿÿ
-Wpython:S905¶":Remove or refactor this statement; it has no side effects.(‚±Æùÿÿÿÿ
->python:S1481á"%Remove the unused local variable "i".(âÀ§¨
-Rpython:S905Ä":Remove or refactor this statement; it has no side effects.(Ê×È¶
-Rpython:S905Ç":Remove or refactor this statement; it has no side effects.(ÓßŠĞ
-Ypython:S905Ê":Remove or refactor this statement; it has no side effects.(ÉèÙ8¨éÊ—á/
-Rpython:S905ë":Remove or refactor this statement; it has no side effects.(ÏÂùÉ
-7python:S125â	"Remove this commented out code.(Ÿ¦µª
-jpython:S1764Ã"LCorrect one of the identical sub-expressions on both sides of operator "!=".(ú“¬©øÿÿÿÿ
-epython:S117å"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(ØÑŸ
-epython:S117ñ"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(•ŠÑË
-ppython:S117ì"SRename this local variable "aM" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹‡€Éıÿÿÿÿ
-rpython:S3776İ"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(¸½Îêùÿÿÿÿ
-Ipython:S5806Ù"+Rename this variable; it shadows a builtin.(Œçéøÿÿÿÿ

@@ -1,33 +1,0 @@
-
-mpython:S1192Ø"TDefine a constant instead of duplicating this literal 'There is a mismatch' 4 times.(”†Üİ
-upython:S1192¢"\Define a constant instead of duplicating this literal 'Max absolute difference: 1.' 3 times.(ÌìÇ¤
-gpython:S1192“
-"NDefine a constant instead of duplicating this literal 'Some warning' 17 times.(À«Ñ
-kpython:S1192½
-"MDefine a constant instead of duplicating this literal "Some warning" 9 times.(¦Ô˜ôıÿÿÿÿ
-npython:S1192ˆ"UDefine a constant instead of duplicating this literal 'Some other warning 2' 6 times.(¢à¹›
-lpython:S1192‹"SDefine a constant instead of duplicating this literal 'Some other warning' 3 times.(‰†Ïå
-epython:S1764¼"LCorrect one of the identical sub-expressions on both sides of operator "==".(¶ÿÎà
-epython:S1764½"LCorrect one of the identical sub-expressions on both sides of operator "==".(½óÏ
-wpython:S1186ü"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¿É¨Ëşÿÿÿÿ
-µpython:S1515Ÿ	"–Add a parameter to the parent lambda function and use variable "nan" as its default value; The value of "nan" might change at the next loop iteration.(„½ª„ùÿÿÿÿ
-µpython:S1515Ÿ	"–Add a parameter to the parent lambda function and use variable "inf" as its default value; The value of "inf" might change at the next loop iteration.(„½ª„ùÿÿÿÿ
-µpython:S1515 	"œAdd a parameter to the parent lambda function and use variable "maxulp" as its default value; The value of "maxulp" might change at the next loop iteration.(öS
-°python:S1515¢	"–Add a parameter to the parent lambda function and use variable "nan" as its default value; The value of "nan" might change at the next loop iteration.(¯·ÌÅ
-°python:S1515¢	"–Add a parameter to the parent lambda function and use variable "big" as its default value; The value of "big" might change at the next loop iteration.(¯·ÌÅ
-µpython:S1515£	"œAdd a parameter to the parent lambda function and use variable "maxulp" as its default value; The value of "maxulp" might change at the next loop iteration.(öS
-°python:S1515¥	"–Add a parameter to the parent lambda function and use variable "nan" as its default value; The value of "nan" might change at the next loop iteration.(ØåûÓ
-²python:S1515¥	"˜Add a parameter to the parent lambda function and use variable "tiny" as its default value; The value of "tiny" might change at the next loop iteration.(ØåûÓ
-µpython:S1515¦	"œAdd a parameter to the parent lambda function and use variable "maxulp" as its default value; The value of "maxulp" might change at the next loop iteration.(öS
-°python:S1515¨	"–Add a parameter to the parent lambda function and use variable "nan" as its default value; The value of "nan" might change at the next loop iteration.(œÌˆá
-²python:S1515¨	"˜Add a parameter to the parent lambda function and use variable "zero" as its default value; The value of "zero" might change at the next loop iteration.(œÌˆá
-µpython:S1515©	"œAdd a parameter to the parent lambda function and use variable "maxulp" as its default value; The value of "maxulp" might change at the next loop iteration.(öS
-µpython:S1515«	"–Add a parameter to the parent lambda function and use variable "nan" as its default value; The value of "nan" might change at the next loop iteration.(ş¶Ê³øÿÿÿÿ
-¹python:S1515«	"šAdd a parameter to the parent lambda function and use variable "nzero" as its default value; The value of "nzero" might change at the next loop iteration.(ş¶Ê³øÿÿÿÿ
-µpython:S1515¬	"œAdd a parameter to the parent lambda function and use variable "maxulp" as its default value; The value of "maxulp" might change at the next loop iteration.(öS
-Cpython:S1481·"%Remove the unused local variable "i".(€•ãøøÿÿÿÿ
-Cpython:S1481¿"%Remove the unused local variable "i".(€•ãøøÿÿÿÿ
-Cpython:S1481È"%Remove the unused local variable "i".(€•ãøøÿÿÿÿ
-Cpython:S1481Ò"%Remove the unused local variable "i".(€•ãøøÿÿÿÿ
-Apython:S108Ş")Either remove or fill this block of code.(ã‘Û¾
-Apython:S108î")Either remove or fill this block of code.(ã‘Û¾

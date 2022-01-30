@@ -1,20 +1,0 @@
-
-mpython:S1192œ"ODefine a constant instead of duplicating this literal "/dev/clipboard" 3 times.(ßÌßšøÿÿÿÿ
-Mpython:S1066—"/Merge this if statement with the enclosing one.(µıöİıÿÿÿÿ
-zpython:S117f"^Rename this local variable "acceptedTypes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÜÓìùÿÿÿÿ
-qpython:S1542e"TRename function "_stringifyText" to match the regular expression ^[a-z_][a-z0-9_]*$.(“Ôˆ¤úÿÿÿÿ
-ppython:S117†"XRename this local variable "newData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÜÍí¢
-tpython:S117…"WRename this local variable "newStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼„˜Ùûÿÿÿÿ
-zpython:S117…"bRename this local variable "clipboardContents" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿã´Õ
-{python:S117ê"^Rename this local variable "OpenClipboard" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ıÚøÿÿÿÿ
-{python:S117î"cRename this local variable "safeCloseClipboard" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷öÿ¯
-python:S117Õ"dRename this local variable "safeCreateWindowExA" to match the regular expression ^[_a-z][a-z0-9_]*$.(“åäôùÿÿÿÿ
-python:S117æ"bRename this local variable "safeDestroyWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì®Æ·şÿÿÿÿ
-€python:S117ò"cRename this local variable "safeEmptyClipboard" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜¯ñùøÿÿÿÿ
-‚python:S117ö"eRename this local variable "safeGetClipboardData" to match the regular expression ^[_a-z][a-z0-9_]*$.(šÒ‘Îÿÿÿÿÿ
-xpython:S117ş"`Rename this local variable "safeGlobalAlloc" to match the regular expression ^[_a-z][a-z0-9_]*$.(§åô§
-|python:S117‚"_Rename this local variable "safeGlobalLock" to match the regular expression ^[_a-z][a-z0-9_]*$.(§œ…‘úÿÿÿÿ
-~python:S117†"aRename this local variable "safeGlobalUnlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÏ¹İøÿÿÿÿ
-‚python:S117ú"eRename this local variable "safeSetClipboardData" to match the regular expression ^[_a-z][a-z0-9_]*$.(øæ”Áüÿÿÿÿ
-rpython:S3776ı"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ÑŒ©§ûÿÿÿÿ
-qpython:S1134‰"LTake the required action to fix the issue indicated by this "FIXME" comment.(ßŒÎ•ıÿÿÿÿ8×„éÚã/

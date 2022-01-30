@@ -1,19 +1,0 @@
-
-\python:S112-">Replace this generic exception class with a more specific one.(áüä”8¥ôåÚã/
-Epython:S2201o"(The return value of "bool" must be used.(Å¥‘üÿÿÿÿ
-@python:S2201q"(The return value of "bool" must be used.(û·®Ğ
-Epython:S2201s"(The return value of "bool" must be used.(óØÏÑúÿÿÿÿ
-Epython:S2201w"(The return value of "bool" must be used.(Å¥‘üÿÿÿÿ
-@python:S2201y"(The return value of "bool" must be used.(û·®Ğ
-Epython:S2201{"(The return value of "bool" must be used.(óØÏÑúÿÿÿÿ
-Epython:S2201"(The return value of "bool" must be used.(Å¥‘üÿÿÿÿ
-Apython:S2201"(The return value of "bool" must be used.(û·®Ğ
-Fpython:S2201ƒ"(The return value of "bool" must be used.(óØÏÑúÿÿÿÿ
-Fpython:S2201ˆ"(The return value of "bool" must be used.(óØÏÑúÿÿÿÿ
-Apython:S108‘")Either remove or fill this block of code.(ã‘Û¾
-Rpython:S905”":Remove or refactor this statement; it has no side effects.(â‘Â¯
-Rpython:S905–":Remove or refactor this statement; it has no side effects.(éµ‹Ô
-Rpython:S905˜":Remove or refactor this statement; it has no side effects.(ĞêìÔ
-ppython:S1764È"KCorrect one of the identical sub-expressions on both sides of operator "&".(ïĞóûÿÿÿÿ8¥ôåÚã/
-ppython:S1764É"KCorrect one of the identical sub-expressions on both sides of operator "|".(•““Èÿÿÿÿÿ8¥ôåÚã/
-epython:S1764É"LCorrect one of the identical sub-expressions on both sides of operator "is".(ÂšûÖ

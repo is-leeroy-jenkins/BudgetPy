@@ -1,13 +1,0 @@
-
-•python:S1192"pDefine a constant instead of duplicating this literal "cannot reindex on an axis with duplicate labels" 3 times.(Ë„©øûÿÿÿÿ8ÃèÚã/
-hpython:S1192""KDefine a constant instead of duplicating this literal "US/Eastern" 3 times.(£–Åùÿÿÿÿ
-ypython:S1192»"[Define a constant instead of duplicating this literal "Cannot specify both 'axis'" 8 times.(ïëŸşÿÿÿÿ
-bpython:S3358ˆ"IExtract this nested conditional expression into an independent statement.(ˆÖæ£
-xpython:S117©"[Rename this local variable "emptyFrame" to match the regular expression ^[_a-z][a-z0-9_]*$.(±€¶ãüÿÿÿÿ
-qpython:S117›"YRename this local variable "newFrame" to match the regular expression ^[_a-z][a-z0-9_]*$.(şà¹Å
-|python:S117­"_Rename this local variable "nonContigFrame" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÄ­ıÿÿÿÿ
-rpython:S3776˜"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(àÖ¸ôûÿÿÿÿ
-7python:S125³"Remove this commented out code.(—è±á
-<python:S125Á"Remove this commented out code.(–ò¦¶üÿÿÿÿ
-<python:S125â"Remove this commented out code.(¡‰³ıÿÿÿÿ
-7python:S125ê"Remove this commented out code.(Ö­İè

@@ -1,6 +1,0 @@
-
-Gpython:S1066”"/Merge this if statement with the enclosing one.(ÿã·
-Gpython:S1066•"/Merge this if statement with the enclosing one.(ÄÄù
-ppython:S1542h"XRename function "test_NPY_NO_EXPORT" to match the regular expression ^[a-z_][a-z0-9_]*$.(Öÿ¡Ê
-mpython:S3776ï"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(öı÷
-Cpython:S1481Æ"%Remove the unused local variable "w".(Úî¢©ûÿÿÿÿ

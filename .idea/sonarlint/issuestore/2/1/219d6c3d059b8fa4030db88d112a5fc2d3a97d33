@@ -1,7 +1,0 @@
-
-`python:S1192¡"HDefine a constant instead of duplicating this literal "23 days" 3 times.(Îö·
-bpython:S1192«"JDefine a constant instead of duplicating this literal "Max Speed" 3 times.(ä¶„H
-|python:S117‚"_Rename this local variable "grp_A_expected" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾™—Šùÿÿÿÿ
-xpython:S117ý"[Rename this local variable "grp_A_mean" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÃÈñþÿÿÿÿ
-wpython:S117ƒ"_Rename this local variable "grp_B_expected" to match the regular expression ^[_a-z][a-z0-9_]*$.(½èö›
-spython:S117þ"[Rename this local variable "grp_B_mean" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éê º

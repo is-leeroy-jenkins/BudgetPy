@@ -1,14 +1,0 @@
-
-cpython:S1192L"FDefine a constant instead of duplicating this literal "1 Day" 3 times.(ÏÄ©şÿÿÿÿ
-ipython:S1192ñ"PDefine a constant instead of duplicating this literal "timedelta64[ns]" 3 times.(ò§ õ
-fpython:S1192ú"HDefine a constant instead of duplicating this literal "M8[ns]" 13 times.(Ä‡Õıùÿÿÿÿ
-hpython:S1192"ODefine a constant instead of duplicating this literal "datetime64[ns]" 5 times.(ñÍÁ£
-dpython:S1192"KDefine a constant instead of duplicating this literal "US/Central" 3 times.(¾Äõ‰
-epython:S1192L"HDefine a constant instead of duplicating this literal "3 Hours" 3 times.(ÏÄ©şÿÿÿÿ
-epython:S1192´"GDefine a constant instead of duplicating this literal "m8[ns]" 9 times.(Ãò¢³øÿÿÿÿ
-Qpython:S905_":Remove or refactor this statement; it has no side effects.(ÖÒŠ§
-Ppython:S905c":Remove or refactor this statement; it has no side effects.(à•û~
-Apython:S108´")Either remove or fill this block of code.(ã‘Û¾
-ppython:S1854û"KRemove this assignment to local variable 'result'; the value is never used.(’²¨”ÿÿÿÿÿ8ÉĞãÚã/
-dpython:S1764Ù"KCorrect one of the identical sub-expressions on both sides of operator "-".(²«Íí
-qpython:S1134›"LTake the required action to fix the issue indicated by this "FIXME" comment.(¥šİøÿÿÿÿ8ÙĞãÚã/

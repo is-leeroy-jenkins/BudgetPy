@@ -1,18 +1,0 @@
-
-}python:S1192"eDefine a constant instead of duplicating this literal 'Should have raised a broadcast error' 3 times.(ß»?
-epython:S1854D"HRemove this assignment to local variable 'it2'; the value is never used.(„ˆğšÿÿÿÿÿ
-;python:S1255"Remove this commented out code.( Øøšøÿÿÿÿ
-dpython:S1854ü"FRemove this assignment to local variable 'i'; the value is never used.(Ç›ùÁıÿÿÿÿ
-upython:S4143Ñ"\Verify this is the key that was intended; a value has already been saved for it on line 848.(êİŒÑ
-Gpython:S1481ú")Remove the unused local variable "b2_in".(–™‰·ıÿÿÿÿ
-Gpython:S1481ˆ")Remove the unused local variable "b1_in".(±Èäáÿÿÿÿÿ
-rpython:S3776Û"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(àÖù®úÿÿÿÿ
-Cpython:S1481"%Remove the unused local variable "x".(¶Áä€şÿÿÿÿ
-Cpython:S1481š"%Remove the unused local variable "x".(¶Áä€şÿÿÿÿ
-Cpython:S1481¬"%Remove the unused local variable "x".(¶Áä€şÿÿÿÿ
-Cpython:S1481½"%Remove the unused local variable "x".(¶Áä€şÿÿÿÿ
-Cpython:S1481¾"%Remove the unused local variable "y".(™Ğ¥üÿÿÿÿ
-Cpython:S1481Í"%Remove the unused local variable "x".(¶Áä€şÿÿÿÿ
-Upython:S5754Ú"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Fpython:S1481Ë"(Remove the unused local variable "step".(ÍËëüÿÿÿÿ
-Fpython:S1481Ø"(Remove the unused local variable "step".(ÍËëüÿÿÿÿ

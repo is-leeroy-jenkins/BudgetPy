@@ -1,13 +1,0 @@
-
-gpython:S1192è"IDefine a constant instead of duplicating this literal 'module.c' 4 times.(ìàêûÿÿÿÿ
-spython:S1192ş"ZDefine a constant instead of duplicating this literal "  adding '%s' to sources." 4 times.(‹ö­Ú
-kpython:S3776R"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(Â¬Ó
-mpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(ÌåÇê
-rpython:S3776ş"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(˜æØÈúÿÿÿÿ
-6python:S3626®"Remove this redundant return.(ÙãŞŸ
-7python:S125ª"Remove this commented out code.(™½Ú
-7python:S125Ó"Remove this commented out code.(™½Ú
-rpython:S3776Ø"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(©¹ùøûÿÿÿÿ
-mpython:S3776—"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ğ®Ã’
-mpython:S3776Ò"TRefactor this function to reduce its Cognitive Complexity from 67 to the 15 allowed.(×ÓøÔ
-rpython:S3776Ü"TRefactor this function to reduce its Cognitive Complexity from 63 to the 15 allowed.(£¾Àâüÿÿÿÿ

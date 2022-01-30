@@ -96,7 +96,7 @@ class Account():
         self.__objective = str( self.__code[ 1:3 ] )
         self.__npm = str( self.__code[ 3 ] )
         self.__programproject = str( self.__code[ 4:6 ] )
-        self.__dataframe = pd.DataFrame
+        self.__dataframe = pd.DataFrame( self.__data )
 
     def __str__( self ):
         if self.__code is not None:
@@ -2282,9 +2282,9 @@ class ULO:
 
     @account.setter
     def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
-            self.__data[ 'account' ] = self.__account
+        if not code == '':
+            self.__account = Account( code )
+            self.__data[ 'account' ] = code
 
     @property
     def document( self ):

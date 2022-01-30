@@ -1,11 +1,0 @@
-
-Îpython:S1192"µDefine a constant instead of duplicating this literal """index,A,B,C,D
-foo,2,3,4,5
-bar,7,8,9,10
-baz,12,13,14,15
-qux,12,13,14,15
-foo2,12,13,14,15
-bar2,12,13,14,15
-""" 5 times.(á‚«È
-@python:S108D")Either remove or fill this block of code.(ã‘Û¾
-Apython:S108é")Either remove or fill this block of code.(ã‘Û¾

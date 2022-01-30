@@ -1,10 +1,0 @@
-
-dpython:S1192Ά"KDefine a constant instead of duplicating this literal "Asia/Tokyo" 5 times.(µ«λ
-mpython:S1192Τ"TDefine a constant instead of duplicating this literal "2013-01-01 15:00:00" 7 times.(έ‚εμ
-mpython:S1192Μ"TDefine a constant instead of duplicating this literal "2011-07-19 07:00:00" 5 times.(ζ•
-mpython:S1192Ν"TDefine a constant instead of duplicating this literal "2011-07-19 08:00:00" 5 times.(υγωα
-jpython:S1192΅"LDefine a constant instead of duplicating this literal "US/Pacific" 14 times.(Ψ„ψÿÿÿÿ
-mpython:S1192Ξ"TDefine a constant instead of duplicating this literal "2011-07-19 09:00:00" 5 times.(½
-rpython:S1192Χ"TDefine a constant instead of duplicating this literal "2013-02-01 15:00:00" 7 times.(¬Ψªάώÿÿÿÿ
-]python:S112Ò">Replace this generic exception class with a more specific one.(‘ίζύ8³“δΪγ/
-Fpython:S2201Ό"(The return value of "repr" must be used.(νΟδώÿÿÿÿ

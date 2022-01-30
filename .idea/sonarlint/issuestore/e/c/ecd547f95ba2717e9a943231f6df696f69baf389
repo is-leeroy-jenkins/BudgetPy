@@ -1,12 +1,0 @@
-
-Êpython:S1192Í"°Define a constant instead of duplicating this literal """
-    IEEE 754 floating point representation of (positive) infinity.
-
-    Use `inf` because `Inf`, `Infinity`, `PINF` and `infty` are aliases for
-    `inf`. For more details, see `inf`.
-
-    See Also
-    --------
-    inf
-
-    """ 4 times.(…Óµ•

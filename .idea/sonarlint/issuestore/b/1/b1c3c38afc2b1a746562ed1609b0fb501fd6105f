@@ -1,10 +1,0 @@
-
-bpython:S1192þ"IDefine a constant instead of duplicating this literal r"([a-z])" 3 times.(þ’Ë¾
-kpython:S1192"SDefine a constant instead of duplicating this literal ".*(BAD[_]+).*(BAD)" 5 times.(ƒšâ¼
-qpython:S1192Ï"SDefine a constant instead of duplicating this literal r"[ab](?P<digit>\d)" 3 times.(—÷àÕþÿÿÿÿ
-kpython:S1192B"NDefine a constant instead of duplicating this literal "([AB])([123])" 3 times.(³°ÇÍúÿÿÿÿ
-‰python:S1542("lRename function "test_extract_expand_False_mixed_object" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÑœÎ¿üÿÿÿÿ
-wpython:S1542Ñ"^Rename function "test_extract_expand_True" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ã­½Å
-„python:S1542Ü"kRename function "test_extract_expand_True_mixed_object" to match the regular expression ^[a-z_][a-z0-9_]*$.(”÷ô·
-˜python:S1542ñ"zRename function "test_extract_expand_True_single_capture_group_raises" to match the regular expression ^[a-z_][a-z0-9_]*$.(â˜Éñøÿÿÿÿ
-Œpython:S1542€"sRename function "test_extract_expand_True_single_capture_group" to match the regular expression ^[a-z_][a-z0-9_]*$.(’ðúø

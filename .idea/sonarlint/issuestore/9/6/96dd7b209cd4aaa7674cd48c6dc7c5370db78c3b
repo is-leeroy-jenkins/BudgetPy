@@ -1,49 +1,0 @@
-
-Vpython:S905":Remove or refactor this statement; it has no side effects.(†á°òûÿÿÿÿ
-Vpython:S905":Remove or refactor this statement; it has no side effects.(š üÿÿÿÿ
-Qpython:S9053":Remove or refactor this statement; it has no side effects.(ÓÖ½
-Qpython:S9054":Remove or refactor this statement; it has no side effects.(›Ù„©
-Vpython:S9055":Remove or refactor this statement; it has no side effects.(ƒáàòşÿÿÿÿ
-Vpython:S9056":Remove or refactor this statement; it has no side effects.(ÿñó¾ıÿÿÿÿ
-Vpython:S9057":Remove or refactor this statement; it has no side effects.(™Õî½ıÿÿÿÿ
-Qpython:S9058":Remove or refactor this statement; it has no side effects.(ÓÀ¯¢
-Dpython:S2201C"'The return value of "zip" must be used.(¶ŒÇ¹şÿÿÿÿ
-Dpython:S2201P"'The return value of "str" must be used.(ôÿÿÿÿÿ
-Fpython:S2201V")The return value of "bytes" must be used.(äôÇúÿÿÿÿ
-@python:S2201X"(The return value of "bool" must be used.(Íİ¹î
-Qpython:S905[":Remove or refactor this statement; it has no side effects.(¼ÎªÊ
-Qpython:S905\":Remove or refactor this statement; it has no side effects.(­¬”â
-Vpython:S905]":Remove or refactor this statement; it has no side effects.(†á°òûÿÿÿÿ
-Vpython:S905^":Remove or refactor this statement; it has no side effects.(½ãûøÿÿÿÿ
-Qpython:S905_":Remove or refactor this statement; it has no side effects.(Ó¦ï–
-Ppython:S905`":Remove or refactor this statement; it has no side effects.(ğ÷Ó
-Qpython:S905a":Remove or refactor this statement; it has no side effects.(ÏÅÎÿ
-Qpython:S905b":Remove or refactor this statement; it has no side effects.(ïÂĞï
-Vpython:S905c":Remove or refactor this statement; it has no side effects.(äœÔ÷øÿÿÿÿ
-Vpython:S905d":Remove or refactor this statement; it has no side effects.(±šÔ·ûÿÿÿÿ
-Qpython:S905e":Remove or refactor this statement; it has no side effects.(ùã´Ë
-Qpython:S905f":Remove or refactor this statement; it has no side effects.(ºÉÍ…
-Vpython:S905i":Remove or refactor this statement; it has no side effects.(‘¹©ÿıÿÿÿÿ
-Qpython:S905j":Remove or refactor this statement; it has no side effects.(İÔîÒ
-Ppython:S905m":Remove or refactor this statement; it has no side effects.(“÷”
-Vpython:S905n":Remove or refactor this statement; it has no side effects.(”Š“Ãÿÿÿÿÿ
-Qpython:S905q":Remove or refactor this statement; it has no side effects.(”®ë‘
-Vpython:S905r":Remove or refactor this statement; it has no side effects.(†§Ê½ùÿÿÿÿ
-Vpython:S905v":Remove or refactor this statement; it has no side effects.(Èûüäşÿÿÿÿ
-Vpython:S905w":Remove or refactor this statement; it has no side effects.(§áî›ûÿÿÿÿ
-Vpython:S905{":Remove or refactor this statement; it has no side effects.(ÖÃ½¾üÿÿÿÿ
-Vpython:S905|":Remove or refactor this statement; it has no side effects.(àòî‘úÿÿÿÿ
-Qpython:S905":Remove or refactor this statement; it has no side effects.(şĞĞ˜
-Wpython:S905€":Remove or refactor this statement; it has no side effects.(Îîşÿÿÿÿ
-Cpython:S2201ƒ"*The return value of "divmod" must be used.(»—ÇÌ
-Hpython:S2201„"*The return value of "divmod" must be used.(¡ÿ“şøÿÿÿÿ
-Wpython:S905†":Remove or refactor this statement; it has no side effects.(§êèÎøÿÿÿÿ
-Wpython:S905‡":Remove or refactor this statement; it has no side effects.(È½øâüÿÿÿÿ
-Wpython:S905’":Remove or refactor this statement; it has no side effects.(ß²şúÿÿÿÿ
-Wpython:S905“":Remove or refactor this statement; it has no side effects.(àÌ€òúÿÿÿÿ
-Rpython:S905–":Remove or refactor this statement; it has no side effects.(êäïñ
-Wpython:S905—":Remove or refactor this statement; it has no side effects.(º¡¨¤ûÿÿÿÿ
-Rpython:S905Ÿ":Remove or refactor this statement; it has no side effects.(ÿÜ³É
-Wpython:S905 ":Remove or refactor this statement; it has no side effects.(Û°èŠÿÿÿÿÿ
-@python:S2201¡"'The return value of "abs" must be used.(ıªÑ±
-Rpython:S905¢":Remove or refactor this statement; it has no side effects.(‚’³ì

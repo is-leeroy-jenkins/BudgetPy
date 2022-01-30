@@ -1,22 +1,0 @@
-
-‡python:S101O"kRename class "TestCreateZeros_1" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÅÅªãùÿÿÿÿ
-‚python:S101T"kRename class "TestCreateZeros_2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(×‘é›
-…python:S101Y"nRename class "TestCreateZeros_1009" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(”¢ğŒ
-‰python:S101ˆ"qRename class "TestCreateValues_1_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(õ¶«
-python:S101"qRename class "TestCreateValues_1_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Îİ¡„üÿÿÿÿ
-python:S101”"qRename class "TestCreateValues_2_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ş¾í©ûÿÿÿÿ
-ˆpython:S101š"qRename class "TestCreateValues_2_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ã™I
-Œpython:S101 "tRename class "TestCreateValues_1009_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¬Â·í
-‘python:S101¦"tRename class "TestCreateValues_1009_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ÿí‹Ñşÿÿÿÿ
-‰python:S101ß"qRename class "TestAssignValues_1_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¹È© 
-ˆpython:S101å"qRename class "TestAssignValues_1_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ïÙÀy
-python:S101ë"qRename class "TestAssignValues_2_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÆøáÎûÿÿÿÿ
-python:S101ñ"qRename class "TestAssignValues_2_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¤òËóûÿÿÿÿ
-‘python:S101÷"tRename class "TestAssignValues_1009_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(„äììùÿÿÿÿ
-Œpython:S101ı"tRename class "TestAssignValues_1009_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Œùå
-‹python:S101É"nRename class "TestByteorder_1_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¸Üì”ÿÿÿÿÿ
-‹python:S101Ï"nRename class "TestByteorder_1_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¸™‰œûÿÿÿÿ
-‹python:S101Õ"nRename class "TestByteorder_2_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÁşÕ‰ÿÿÿÿÿ
-‹python:S101Û"nRename class "TestByteorder_2_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(“ì™›şÿÿÿÿ
-python:S101á"qRename class "TestByteorder_1009_UCS2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ïõæ¾ùÿÿÿÿ
-‰python:S101ç"qRename class "TestByteorder_1009_UCS4" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ø¡í

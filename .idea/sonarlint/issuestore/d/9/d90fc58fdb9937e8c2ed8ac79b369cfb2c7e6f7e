@@ -1,10 +1,0 @@
-
-dpython:S1192§"KDefine a constant instead of duplicating this literal "fcompiler=" 3 times.(Í—ÖÙ
-rpython:S3776˜"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(­Ä†åúÿÿÿÿ
-Apython:S5603®"(Remove this unused function declaration.(’÷ø
-mpython:S3776²"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(ö•†£
-mpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¨ë
-Ipython:S5806ß"+Rename this variable; it shadows a builtin.(Õ›ë£ùÿÿÿÿ
-mpython:S3776ş"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(Öä‰Ï
-rpython:S3776û"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ñîÌÖûÿÿÿÿ
-mpython:S3776—"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÎüŸé

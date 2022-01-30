@@ -1,117 +1,0 @@
-
-Qpython:S905":Remove or refactor this statement; it has no side effects.(İœÄÚ
-cpython:S1764"KCorrect one of the identical sub-expressions on both sides of operator "%".(İœÄÚ
-Ppython:S905":Remove or refactor this statement; it has no side effects.(ÃŞ¢R
-Vpython:S905":Remove or refactor this statement; it has no side effects.(—Áÿ‘şÿÿÿÿ
-Gpython:S2201"*The return value of "divmod" must be used.(ŸÜ˜¯ıÿÿÿÿ
-Bpython:S2201"*The return value of "divmod" must be used.(Íñúà
-Bpython:S2201 "*The return value of "divmod" must be used.(¿•ó
-Vpython:S905$":Remove or refactor this statement; it has no side effects.(íß™½şÿÿÿÿ
-Qpython:S905%":Remove or refactor this statement; it has no side effects.(’‡Ô›
-Vpython:S905&":Remove or refactor this statement; it has no side effects.(Ç¨×şÿÿÿÿ
-Vpython:S905'":Remove or refactor this statement; it has no side effects.(€Ä€âûÿÿÿÿ
-hpython:S1764'"KCorrect one of the identical sub-expressions on both sides of operator "%".(€Ä€âûÿÿÿÿ
-Vpython:S905(":Remove or refactor this statement; it has no side effects.(êŞïøÿÿÿÿ
-Ppython:S905)":Remove or refactor this statement; it has no side effects.(ö¯¨W
-Qpython:S905*":Remove or refactor this statement; it has no side effects.(É¢ƒ
-Vpython:S905+":Remove or refactor this statement; it has no side effects.(Ÿ££Äûÿÿÿÿ
-Apython:S2201-"*The return value of "divmod" must be used.(›í“!
-Gpython:S2201."*The return value of "divmod" must be used.(©†˜ ıÿÿÿÿ
-Bpython:S2201/"*The return value of "divmod" must be used.(ÈıÔÔ
-Bpython:S22010"*The return value of "divmod" must be used.(Àªºß
-Bpython:S22011"*The return value of "divmod" must be used.(»–È’
-Gpython:S22012"*The return value of "divmod" must be used.(Ÿí»—úÿÿÿÿ
-Gpython:S22013"*The return value of "divmod" must be used.(–¡‹¤ÿÿÿÿÿ
-Gpython:S22014"*The return value of "divmod" must be used.(éÇæşúÿÿÿÿ
-Vpython:S9056":Remove or refactor this statement; it has no side effects.(½œ§şøÿÿÿÿ
-Qpython:S9057":Remove or refactor this statement; it has no side effects.(ğıäµ
-Vpython:S9058":Remove or refactor this statement; it has no side effects.(ÈĞÎ°şÿÿÿÿ
-Vpython:S9059":Remove or refactor this statement; it has no side effects.(€Ä€âûÿÿÿÿ
-hpython:S17649"KCorrect one of the identical sub-expressions on both sides of operator "%".(€Ä€âûÿÿÿÿ
-Qpython:S905:":Remove or refactor this statement; it has no side effects.(½İº¨
-Qpython:S905;":Remove or refactor this statement; it has no side effects.(•ØÍÅ
-Qpython:S905<":Remove or refactor this statement; it has no side effects.(ã…§¿
-Vpython:S905=":Remove or refactor this statement; it has no side effects.(ÜÓÏŞøÿÿÿÿ
-Apython:S2201?"*The return value of "divmod" must be used.(°Ï²I
-Gpython:S2201@"*The return value of "divmod" must be used.(™—»şÿÿÿÿ
-Bpython:S2201A"*The return value of "divmod" must be used.(Äİ¶ã
-Bpython:S2201B"*The return value of "divmod" must be used.(Àªºß
-Gpython:S2201C"*The return value of "divmod" must be used.(µî¢çşÿÿÿÿ
-Gpython:S2201D"*The return value of "divmod" must be used.(‰ÆĞ…úÿÿÿÿ
-Bpython:S2201E"*The return value of "divmod" must be used.(ßìš¦
-Bpython:S2201F"*The return value of "divmod" must be used.(ÍØºÕ
-Vpython:S905J":Remove or refactor this statement; it has no side effects.(êÇÇâøÿÿÿÿ
-Vpython:S905K":Remove or refactor this statement; it has no side effects.(­­şÿÿÿÿ
-Ppython:S905L":Remove or refactor this statement; it has no side effects.(ÏŸ¸z
-Vpython:S905M":Remove or refactor this statement; it has no side effects.(‘ÊçÅşÿÿÿÿ
-hpython:S1764M"KCorrect one of the identical sub-expressions on both sides of operator "%".(‘ÊçÅşÿÿÿÿ
-Vpython:S905N":Remove or refactor this statement; it has no side effects.(ÖòÅ•ıÿÿÿÿ
-Vpython:S905O":Remove or refactor this statement; it has no side effects.(Œ«Üúÿÿÿÿ
-Vpython:S905P":Remove or refactor this statement; it has no side effects.(Ä™ˆ…ùÿÿÿÿ
-Vpython:S905Q":Remove or refactor this statement; it has no side effects.(ùÓÑÉÿÿÿÿÿ
-hpython:S1764Q"KCorrect one of the identical sub-expressions on both sides of operator "%".(ùÓÑÉÿÿÿÿÿ
-Vpython:S905R":Remove or refactor this statement; it has no side effects.(¢ÓĞ®ıÿÿÿÿ
-Vpython:S905S":Remove or refactor this statement; it has no side effects.(×ÍÄÿÿÿÿÿ
-Bpython:S2201U"*The return value of "divmod" must be used.(õÀşŸ
-Bpython:S2201V"*The return value of "divmod" must be used.(àÕğ±
-Bpython:S2201W"*The return value of "divmod" must be used.(Õ¢Ä•
-Gpython:S2201X"*The return value of "divmod" must be used.(Û¸Íõúÿÿÿÿ
-Bpython:S2201Y"*The return value of "divmod" must be used.(Îãú±
-Gpython:S2201Z"*The return value of "divmod" must be used.(ÕÖÿÜùÿÿÿÿ
-Gpython:S2201["*The return value of "divmod" must be used.(›Áš†ûÿÿÿÿ
-Gpython:S2201\"*The return value of "divmod" must be used.(¨ê‰ˆşÿÿÿÿ
-Bpython:S2201]"*The return value of "divmod" must be used.(áÜÒˆ
-Bpython:S2201^"*The return value of "divmod" must be used.(åÌü
-Vpython:S905`":Remove or refactor this statement; it has no side effects.(ûÑéèşÿÿÿÿ
-Qpython:S905a":Remove or refactor this statement; it has no side effects.(Îù—¬
-Vpython:S905b":Remove or refactor this statement; it has no side effects.(ŠÜûûÿÿÿÿ
-Vpython:S905c":Remove or refactor this statement; it has no side effects.(‘ÊçÅşÿÿÿÿ
-hpython:S1764c"KCorrect one of the identical sub-expressions on both sides of operator "%".(‘ÊçÅşÿÿÿÿ
-Vpython:S905d":Remove or refactor this statement; it has no side effects.(¶­¢ıÿÿÿÿ
-Vpython:S905e":Remove or refactor this statement; it has no side effects.(‘í¬±ÿÿÿÿÿ
-Qpython:S905f":Remove or refactor this statement; it has no side effects.(¾˜»Ë
-Vpython:S905g":Remove or refactor this statement; it has no side effects.(ùÓÑÉÿÿÿÿÿ
-hpython:S1764g"KCorrect one of the identical sub-expressions on both sides of operator "%".(ùÓÑÉÿÿÿÿÿ
-Qpython:S905h":Remove or refactor this statement; it has no side effects.(ƒ­í¯
-Vpython:S905i":Remove or refactor this statement; it has no side effects.(ñù£éøÿÿÿÿ
-Bpython:S2201k"*The return value of "divmod" must be used.(çí‘Ó
-Gpython:S2201l"*The return value of "divmod" must be used.(ÿºúˆûÿÿÿÿ
-Bpython:S2201m"*The return value of "divmod" must be used.(‘íÕ¢
-Gpython:S2201n"*The return value of "divmod" must be used.(Û¸Íõúÿÿÿÿ
-Gpython:S2201o"*The return value of "divmod" must be used.(Êêüïıÿÿÿÿ
-Gpython:S2201p"*The return value of "divmod" must be used.(şÑüƒşÿÿÿÿ
-Gpython:S2201q"*The return value of "divmod" must be used.(î°—”úÿÿÿÿ
-Gpython:S2201r"*The return value of "divmod" must be used.(¨ê‰ˆşÿÿÿÿ
-Bpython:S2201s"*The return value of "divmod" must be used.(¢³Ã
-Bpython:S2201t"*The return value of "divmod" must be used.(îÚÇ
-Qpython:S905x":Remove or refactor this statement; it has no side effects.(®€³
-Vpython:S905y":Remove or refactor this statement; it has no side effects.(ùÑ£Ùøÿÿÿÿ
-Vpython:S905z":Remove or refactor this statement; it has no side effects.(¶äïßùÿÿÿÿ
-Vpython:S905{":Remove or refactor this statement; it has no side effects.(Ú¬Üºøÿÿÿÿ
-Vpython:S905|":Remove or refactor this statement; it has no side effects.(ÄÕú³úÿÿÿÿ
-hpython:S1764|"KCorrect one of the identical sub-expressions on both sides of operator "%".(ÄÕú³úÿÿÿÿ
-Vpython:S905}":Remove or refactor this statement; it has no side effects.(æöùÿÿÿÿ
-Bpython:S2201"*The return value of "divmod" must be used.(æòÕ”
-Hpython:S2201€"*The return value of "divmod" must be used.(ÚÇİñıÿÿÿÿ
-Hpython:S2201"*The return value of "divmod" must be used.(Şíºúÿÿÿÿ
-Hpython:S2201‚"*The return value of "divmod" must be used.(Ïì”Ìûÿÿÿÿ
-Hpython:S2201ƒ"*The return value of "divmod" must be used.(½¼ª¯üÿÿÿÿ
-Hpython:S2201„"*The return value of "divmod" must be used.(ô´ËÉúÿÿÿÿ
-Cpython:S2201…"*The return value of "divmod" must be used.(ò†™˜
-Rpython:S905‡":Remove or refactor this statement; it has no side effects.(òƒÎ
-Rpython:S905ˆ":Remove or refactor this statement; it has no side effects.(ù›ÌÆ
-Wpython:S905‰":Remove or refactor this statement; it has no side effects.(š’é¯ÿÿÿÿÿ
-Rpython:S905Š":Remove or refactor this statement; it has no side effects.(æÎßñ
-dpython:S1764Š"KCorrect one of the identical sub-expressions on both sides of operator "%".(æÎßñ
-Rpython:S905‹":Remove or refactor this statement; it has no side effects.(æÎßñ
-dpython:S1764‹"KCorrect one of the identical sub-expressions on both sides of operator "%".(æÎßñ
-Wpython:S905Œ":Remove or refactor this statement; it has no side effects.(ÄÕú³úÿÿÿÿ
-ipython:S1764Œ"KCorrect one of the identical sub-expressions on both sides of operator "%".(ÄÕú³úÿÿÿÿ
-Rpython:S905":Remove or refactor this statement; it has no side effects.(ãÒú
-Cpython:S2201"*The return value of "divmod" must be used.(ÍÎí
-Cpython:S2201"*The return value of "divmod" must be used.(İĞÆ
-Cpython:S2201‘"*The return value of "divmod" must be used.(ÜãËÙ
-Hpython:S2201’"*The return value of "divmod" must be used.(Ïì”Ìûÿÿÿÿ
-Cpython:S2201“"*The return value of "divmod" must be used.(¿ÎØ
-Hpython:S2201”"*The return value of "divmod" must be used.(ô´ËÉúÿÿÿÿ
-Hpython:S2201•"*The return value of "divmod" must be used.(¬½ï”úÿÿÿÿ

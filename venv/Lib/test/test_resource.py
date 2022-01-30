@@ -111,7 +111,7 @@ class ResourceTest(unittest.TestCase):
         except (ValueError, AttributeError):
             pass
 
-    # Issue 6083: Reference counting bug
+    # Issue 6083: Source counting bug
     @unittest.skipIf(sys.platform == "vxworks",
                      "setting RLIMIT_CPU is not supported on VxWorks")
     def test_setrusage_refcount(self):
@@ -157,7 +157,7 @@ class ResourceTest(unittest.TestCase):
         self.assertEqual(resource.prlimit(0, resource.RLIMIT_AS, limit),
                          limit)
 
-    # Issue 20191: Reference counting bug
+    # Issue 20191: Source counting bug
     @unittest.skipUnless(hasattr(resource, 'prlimit'), 'no prlimit')
     @support.requires_linux_version(2, 6, 36)
     def test_prlimit_refcount(self):

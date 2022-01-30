@@ -1,11 +1,0 @@
-
-python:S1192‘"ZDefine a constant instead of duplicating this literal "All-NaN slice encountered" 5 times.(ª—–£ıÿÿÿÿ8„Ê—á/
-ˆpython:S101V"qRename class "TestNanFunctions_MinMax" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¸ñ´
-”python:S101†"wRename class "TestNanFunctions_ArgminArgmax" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ü’Šúÿÿÿÿ
-•python:S101ñ"vRename class "TestNanFunctions_NumberTypes" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(É¨×ª8„Ê—á/
-python:S101™"rRename class "TestNanFunctions_SumProd" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ò¼ºÕùÿÿÿÿ
-python:S101Ô"uRename class "TestNanFunctions_CumSumProd" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¿§ĞË
-’python:S101"uRename class "TestNanFunctions_MeanVarStd" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¤“Œœùÿÿÿÿ
-python:S101‡"qRename class "TestNanFunctions_Median" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(´°øÿÿÿÿ
-’python:S101´"uRename class "TestNanFunctions_Percentile" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(£şøÿÿÿÿ
-python:S101¼"sRename class "TestNanFunctions_Quantile" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¨Ÿ˜ şÿÿÿÿ

@@ -2,6 +2,62 @@ import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
 
+class Source():
+    '''Provides iterator for the Source data tables '''
+    __data = [ ]
+
+    @property
+    def data( self ):
+        ''' Property used to store table names in a list '''
+        if self.__data is not None:
+            return iter( self.__data )
+
+    def __init__( self ):
+        self.__data = [ 'Accounts', 'ActivityCodes',
+                        'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
+                        'CostAreas', 'CPIC', 'Divisions',
+                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                        'Goals', 'GsPayScale', 'Images',
+                        'Messages', 'NationalPrograms', 'Objectives',
+                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                        'ProgramProjects', 'Projects', 'Providers',
+                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                        'SchemaTypes', 'Sources' ]
+
+    def __iter__( self ):
+        if len( self.__data ) > 0:
+            for i in self.__data:
+                yield i
+
+class Reference():
+    '''Provides iterator for the Source data tables '''
+    __data = [ ]
+
+    @property
+    def data( self ):
+        ''' Property used to store table names in a list '''
+        if self.__data is not None:
+            return iter( self.__data )
+
+    def __init__( self ):
+        self.__data = [ 'Accounts', 'ActivityCodes',
+                        'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
+                        'CostAreas', 'CPIC', 'Divisions',
+                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                        'Goals', 'GsPayScale', 'Images',
+                        'Messages', 'NationalPrograms', 'Objectives',
+                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                        'ProgramProjects', 'Projects', 'Providers',
+                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                        'SchemaTypes', 'Sources' ]
+
+    def __iter__( self ):
+        if len( self.__data ) > 0:
+            for i in self.__data:
+                yield i
+
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
     __and = None
@@ -38,14 +94,15 @@ class CriteriaBuilder():
             return self.__criteria
 
     @pairs.setter
-    def pairs( self, nvpairs ):
+    def pairs( self, namevaluepairs ):
         ''' builds criteria from name value pairs'''
-        if isinstance( nvpairs, dict ):
-            self.__criteria = nvpairs
+        if isinstance( namevaluepairs, dict ):
+            self.__criteria = namevaluepairs
 
     def __init__( self, cmd = 'SELECT' ):
         self.__and = ' AND '
         self.__where = ' WHERE '
+        self.__or = ' OR '
         self.__cmd = cmd
         self.__sql = [ 'SELECT', 'INSERT', 'UPDATE', 'CREATE',
                        'ALTER', 'DROP', 'DETACH' ]
@@ -58,7 +115,6 @@ class DataRow( sl.Row ):
     __data = None
     __values = None
     __id = None
-    __record = None
 
     @property
     def index( self ):
@@ -77,7 +133,7 @@ class DataRow( sl.Row ):
 
     @data.setter
     def data( self, items ):
-        if isinstance( items, dict ):
+        if isinstance( items, () ):
             self.__items = items
 
     @property
@@ -87,8 +143,8 @@ class DataRow( sl.Row ):
 
     @items.setter
     def items( self, data ):
-        if isinstance( data, tuple ):
-            self.__items = data
+        if isinstance( data, dict ):
+            self.__items = tuple( data.values() )
 
     @property
     def names( self ):
@@ -126,7 +182,7 @@ class DataRow( sl.Row ):
         self.__items = dict( items )
         self.__id = int( items[ 0 ] )
         self.__names = list( self.__items.keys() )
-        self.__values = self.__items.values()
+        self.__values = tuple( self.__items.values() )
 
     def __str__( self ):
         return 'Row ID: ' + str( self.__id )
@@ -300,65 +356,13 @@ class DataTable( pd.DataFrame ):
         super().__init__()
         self.__base = str( name )
         self.__name = self.__base
-        self.__data = pd.DataFrame( self.__name )
+        self.__data = pd.DataFrame
         self.__columns = self.__data.columns
         self.__rows = self.__data.items
 
     def __str__( self ):
         if self.__name is not None:
             return self.__name
-
-class Source():
-    '''Provides iterator for the Budget Execution table tables '''
-    __data = [ ]
-    __references = [ ]
-
-    @property
-    def data( self ):
-        ''' Property used to store table names in a list '''
-        if self.__data is not None:
-            return iter( self.__data )
-
-    @property
-    def references( self ):
-        ''' Property used to store table names in a list '''
-        if self.__references is not None:
-            return iter( self.__references )
-
-    def __init__( self ):
-        self.__data = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
-                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
-                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
-                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
-                        'ObjectClassOutlays', 'CarryoverOutlays', 'UnobligatedAuthority',
-                        'QueryDefinitions',  'RegionalAuthority', 'SpendingRates',
-                        'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
-                        'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations',
-                        'BudgetControls', 'AppropriationDocuments', 'BudgetDocuments',
-                        'Apportionments', 'BudgetOutlays', 'BudgetResourceExecution',
-                        'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
-                        'StatusOfFunds', 'Supplementals', 'Transfers',
-                        'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
-                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-                        'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
-                        'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
-                        'AdministrativeRequests']
-        self.__references = [ 'Accounts', 'ActivityCodes',
-                        'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
-                        'CostAreas', 'CPIC', 'Divisions',
-                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                        'Goals', 'GsPayScale', 'Images',
-                        'Messages', 'NationalPrograms', 'Objectives',
-                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                        'ProgramProjects', 'Projects', 'Providers',
-                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                        'SchemaTypes', 'Sources' ]
-
-    def __iter__( self ):
-        if len( self.__data ) > 0:
-            for i in self.__data:
-                yield i
 
 class AccessData():
     '''Builds the budget execution data classes'''

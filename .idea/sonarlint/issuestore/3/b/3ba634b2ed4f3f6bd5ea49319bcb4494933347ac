@@ -1,7 +1,0 @@
-
-qpython:S3776'"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ú¾Ú—ûÿÿÿÿ
-ipython:S1134Q"LTake the required action to fix the issue indicated by this "FIXME" comment.(Ûöõôùÿÿÿÿ
-ppython:S3923„"RRemove this if statement or edit its code blocks so that they're not all the same.(¹¿à–úÿÿÿÿ
-ppython:S3923‹"RRemove this if statement or edit its code blocks so that they're not all the same.(¹¿à–úÿÿÿÿ
-tpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(©úžò8’åãÚã/
-°python:S1515÷"–Add a parameter to the parent lambda function and use variable "pat" as its default value; The value of "pat" might change at the next loop iteration.(°†Ù€

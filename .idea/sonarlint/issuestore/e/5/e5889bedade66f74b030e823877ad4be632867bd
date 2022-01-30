@@ -1,25 +1,0 @@
-
-dpython:S1192˜"FDefine a constant instead of duplicating this literal "1 Day" 4 times.(éÕâßúÿÿÿÿ
-opython:S1192Ø
-"QDefine a constant instead of duplicating this literal "timedelta64[ns]" 16 times.(üÂÅ„ıÿÿÿÿ
-apython:S1192·"HDefine a constant instead of duplicating this literal "M8[ns]" 19 times.(Œ¨ë¨
-npython:S1192Ñ"PDefine a constant instead of duplicating this literal "datetime64[ns]" 19 times.(˜„ÌÎùÿÿÿÿ
-epython:S1192â
-"GDefine a constant instead of duplicating this literal "m8[ns]" 4 times.(šÀë†ûÿÿÿÿ
-hpython:S1192˜	"JDefine a constant instead of duplicating this literal "Period[D]" 4 times.(¦½©èÿÿÿÿÿ
-ipython:S1192•"KDefine a constant instead of duplicating this literal "US/Pacific" 4 times.(½ï”ÿüÿÿÿÿ
-tpython:S1192ä"[Define a constant instead of duplicating this literal "datetime64[ns, US/Eastern]" 7 times.(á«ö
-jpython:S1192Å"LDefine a constant instead of duplicating this literal "US/Eastern" 11 times.(óîÅ¿øÿÿÿÿ
-tpython:S1192¯"[Define a constant instead of duplicating this literal "2013-08-05 15:30:00.000001" 4 times.(¨¾ùé
-@python:S2201ş"'The return value of "str" must be used.(Ğ«¥
-Epython:S2201ÿ"'The return value of "str" must be used.(ôæœ—øÿÿÿÿ
-@python:S2201ˆ"'The return value of "str" must be used.(×ç‡¹
-@python:S2201‰"'The return value of "str" must be used.(Ïì…Í
-@python:S2201"'The return value of "str" must be used.(×ç‡¹
-@python:S2201"'The return value of "str" must be used.(Ïì…Í
-@python:S2201š"'The return value of "str" must be used.(×ç‡¹
-@python:S2201›"'The return value of "str" must be used.(Ïì…Í
-wpython:S117ü	"_Rename this local variable "data_Timestamp" to match the regular expression ^[_a-z][a-z0-9_]*$.(À…ó·
-~python:S117‚
-"aRename this local variable "result_Timestamp" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï°æàùÿÿÿÿ
-Fpython:S2201"(The return value of "repr" must be used.(ÍéÓşÿÿÿÿ

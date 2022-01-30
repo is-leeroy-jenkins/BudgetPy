@@ -1,32 +1,0 @@
-
-vpython:S1192©"XDefine a constant instead of duplicating this literal "display.show_dimensions" 3 times.(ˆùê©ÿÿÿÿÿ
-rpython:S1192Ì"TDefine a constant instead of duplicating this literal "display.max_columns" 3 times.(Øãš—şÿÿÿÿ
-qpython:S1192ª"SDefine a constant instead of duplicating this literal "2 rows x 2 columns" 3 times.(û™ıêûÿÿÿÿ
-=python:S1481""%Remove the unused local variable "x".(ÿ„ä—
-Epython:S2201'"(The return value of "repr" must be used.(ˆÿşøÿÿÿÿ
-@python:S2201("(The return value of "repr" must be used.(ÎÈ±Ø
-Epython:S2201)"(The return value of "repr" must be used.(“È„¾ÿÿÿÿÿ
-Epython:S22010"(The return value of "repr" must be used.(Í°ıÿÿÿÿ
-Epython:S2201:"(The return value of "repr" must be used.(ˆÿşøÿÿÿÿ
-Epython:S2201?"(The return value of "repr" must be used.(ˆÿşøÿÿÿÿ
-Epython:S2201U"(The return value of "repr" must be used.(ŠÃ‰€ıÿÿÿÿ
-Epython:S2201i"(The return value of "repr" must be used.(„Î³šüÿÿÿÿ
-@python:S2201j"(The return value of "repr" must be used.(ø«°
-Epython:S2201k"(The return value of "repr" must be used.(ºªÿÖıÿÿÿÿ
-Epython:S2201l"(The return value of "repr" must be used.(€õ¢øÿÿÿÿ
-@python:S2201v"(The return value of "repr" must be used.(©·à
-Epython:S2201z"(The return value of "repr" must be used.(„Î³šüÿÿÿÿ
-Fpython:S2201€"(The return value of "repr" must be used.(Ø­Şçÿÿÿÿÿ
-Apython:S2201Œ"(The return value of "repr" must be used.(Àû¸Œ
-Fpython:S2201’"(The return value of "repr" must be used.(›»¹×ûÿÿÿÿ
-Apython:S2201"(The return value of "repr" must be used.(âÈÏ
-Apython:S2201¶"(The return value of "repr" must be used.(Àû¸Œ
-Fpython:S2201Ç"(The return value of "repr" must be used.(²µ¿ûÿÿÿÿ
-Fpython:S2201Ê"(The return value of "repr" must be used.(›»¹×ûÿÿÿÿ
-Fpython:S2201Í"(The return value of "repr" must be used.(›»¹×ûÿÿÿÿ
-Fpython:S2201Ğ"(The return value of "repr" must be used.(›»¹×ûÿÿÿÿ
-@python:S2201å"'The return value of "str" must be used.(Ïì…Í
-Fpython:S2201é"(The return value of "repr" must be used.(Éá€³ûÿÿÿÿ
-Bpython:S2201ğ")The return value of "bytes" must be used.(ßìø
-Fpython:S2201ô"(The return value of "repr" must be used.(ˆÿşøÿÿÿÿ
-Fpython:S2201»"(The return value of "repr" must be used.(ˆÿşøÿÿÿÿ

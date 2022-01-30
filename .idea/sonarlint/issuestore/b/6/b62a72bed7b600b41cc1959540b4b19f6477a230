@@ -1,8 +1,0 @@
-
-ipython:S1192æ"KDefine a constant instead of duplicating this literal "values>2.0" 4 times.(»ã‰çýÿÿÿÿ
-Ipython:S1481Œ"+Remove the unused local variable "np_zero".(ÚäÃêýÿÿÿÿ
-`python:S1854ý"GRemove this assignment to local variable 'df'; the value is never used.(éœïû
-Fpython:S1481®"&Remove the unused local variable "l0".(¢„·¦8í…åÚã/
-Bpython:S1481¸")Remove the unused local variable "index".(Ù¥îÞ
-epython:S1134Ê"LTake the required action to fix the issue indicated by this "FIXME" comment.(Ž—íŠ
-?python:S1481£"&Remove the unused local variable "ts".(Ê¶Œƒ

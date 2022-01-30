@@ -960,7 +960,7 @@ class TestSequence(seq_tests.CommonTest):
 #==============================================================================
 
 libreftest = """
-Example from the Library Reference:  Doc/lib/libcollections.tex
+Example from the Library Source:  Doc/lib/libcollections.tex
 
 >>> from collections import deque
 >>> d = deque('ghi')                 # make a new deque with three items

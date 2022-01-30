@@ -1,6 +1,0 @@
-
-fpython:S1192Ñ"HDefine a constant instead of duplicating this literal "BAD[_]*" 5 times.(”‰Àœùÿÿÿÿ
-gpython:S1192ñ"ODefine a constant instead of duplicating this literal ".*BAD[_]+.*BAD" 3 times.(é¯›x
-dpython:S1192…"FDefine a constant instead of duplicating this literal "rege." 4 times.(æ´Òúÿÿÿÿ
-lpython:S1192‚"NDefine a constant instead of duplicating this literal "[a-z][A-Z]{2}" 3 times.(ª§§Õùÿÿÿÿ
-`python:S1192¦"GDefine a constant instead of duplicating this literal r"BAD_*" 3 times.(Â «è

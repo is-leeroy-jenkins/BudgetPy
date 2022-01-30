@@ -1,15 +1,0 @@
-
-lpython:S1542m"ORename function "test_Hour" to match the regular expression ^[a-z_][a-z0-9_]*$.(«åŸıÿÿÿÿ
-npython:S1542y"QRename function "test_Minute" to match the regular expression ^[a-z_][a-z0-9_]*$.(ßï¢şÿÿÿÿ
-jpython:S1542„"QRename function "test_Second" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÄşŒ
-opython:S1542’"VRename function "test_Millisecond" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ãİ¬†
-‚python:S1542§"iRename function "test_MillisecondTimestampArithmetic" to match the regular expression ^[a-z_][a-z0-9_]*$.(ò‡õ»
-opython:S1542°"VRename function "test_Microsecond" to match the regular expression ^[a-z_][a-z0-9_]*$.(£Æêë
-upython:S1542Á"\Rename function "test_NanosecondGeneric" to match the regular expression ^[a-z_][a-z0-9_]*$.(£‘å»
-npython:S1542Ì"URename function "test_Nanosecond" to match the regular expression ^[a-z_][a-z0-9_]*$.(Œ¤¡æ
-Wpython:S905­":Remove or refactor this statement; it has no side effects.(ÒËµûÿÿÿÿÿ
-Qpython:S905¯":Remove or refactor this statement; it has no side effects.(”ëù(
-Wpython:S905ó":Remove or refactor this statement; it has no side effects.(–Ñ•‹şÿÿÿÿ
-Rpython:S905õ":Remove or refactor this statement; it has no side effects.(Øüÿ×
-Wpython:S905÷":Remove or refactor this statement; it has no side effects.( Ì÷“ıÿÿÿÿ
-Wpython:S905ù":Remove or refactor this statement; it has no side effects.(ø‹õûûÿÿÿÿ

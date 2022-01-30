@@ -1,6 +1,0 @@
-
-dpython:S1854Ï"FRemove this assignment to local variable 'n'; the value is never used.(°«Þªüÿÿÿÿ
-mpython:S117€"VRename this local variable "X_res" to match the regular expression ^[_a-z][a-z0-9_]*$.(æà°.
-spython:S117"VRename this local variable "Y_res" to match the regular expression ^[_a-z][a-z0-9_]*$.(àÀ”ôÿÿÿÿÿ
->python:S1481¡"%Remove the unused local variable "i".(¿×­•
-Cpython:S1481œ"%Remove the unused local variable "i".(ö§ú™ÿÿÿÿÿ

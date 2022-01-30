@@ -1,35 +1,0 @@
-
-qpython:S1192ø?"RDefine a constant instead of duplicating this literal 'out : MaskedArray' 7 times.(›«×8éšÌ—á/
-npython:S1192÷?"NDefine a constant instead of duplicating this literal 'out : ndarray' 8 times.(¸õÖ8éšÌ—á/
-Hpython:S1066÷%"/Merge this if statement with the enclosing one.(’Ğ½â
-Hpython:S1066•&"/Merge this if statement with the enclosing one.(’Ğ½â
->python:S1481›"%Remove the unused local variable "e".(¨šı®
-rpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(‹Şğûÿÿÿÿ
-6python:S3626”"Remove this redundant return.(ÙãŞŸ
-6python:S3626Œ"Remove this redundant return.(ÙãŞŸ
-mpython:S3776ş"TRefactor this function to reduce its Cognitive Complexity from 77 to the 15 allowed.(ãÇ÷„
-qpython:S1134"LTake the required action to fix the issue indicated by this "FIXME" comment.(ö˜âÿÿÿÿÿ8éšÌ—á/
-}python:S1871â"dEither merge this branch with the identical one on line "2910" or change one of the implementations.(ùš¼Ğ
-6python:S3626š"Remove this redundant return.(ÙãŞŸ
-rpython:S3776œ"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(¿ê¿Œüÿÿÿÿ
-rpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ÛÆ¢¿ıÿÿÿÿ
-rpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(öÊÍ¸ÿÿÿÿÿ
-rpython:S3776‹"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(ÒÈÕ¨øÿÿÿÿ
-6python:S3626Ì"Remove this redundant return.(ÙãŞŸ
-mpython:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.( Î‚¥
-6python:S3626®"Remove this redundant return.(ÙãŞŸ
-mpython:S3776ë"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(Ü›Ÿà
-rpython:S3776•"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(õß±øúÿÿÿÿ
-rpython:S3776Û""TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(ÀºÆÄúÿÿÿÿ
-6python:S3626›%"Remove this redundant return.(ÙãŞŸ
-ipython:S1854ç'"KRemove this assignment to local variable 'result'; the value is never used.( Ø³Úûÿÿÿÿ
-ipython:S1854¹("KRemove this assignment to local variable 'result'; the value is never used.(‹€ıÿÿÿÿ
-mpython:S3776µ)"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(£æ–³
-ipython:S1854Ó,"KRemove this assignment to local variable 'result'; the value is never used.(Ÿı¤šıÿÿÿÿ
-dpython:S1854Ù-"KRemove this assignment to local variable 'result'; the value is never used.(êûÑ
-hpython:S1854š0"JRemove this assignment to local variable '_mask'; the value is never used.(©·¼Ÿıÿÿÿÿ
-opython:S2710â0"QRename "self" to a valid class parameter name or add the missing class parameter.(ÜÉ¥®üÿÿÿÿ
-;python:S2638Ì1""Add missing parameters fill_value.(÷¢Ö
-lpython:S1542é1"SRename function "isMaskedArray" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ä¡ßÏ
-7python:S125–5"Remove this commented out code.(âÀÑ
-6python:S3626À7"Remove this redundant return.(ÙãŞŸ

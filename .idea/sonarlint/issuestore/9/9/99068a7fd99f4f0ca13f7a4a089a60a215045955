@@ -1,22 +1,0 @@
-
-~python:S1192L"aDefine a constant instead of duplicating this literal r"nested renamer is not supported" 3 times.(‘×ıáüÿÿÿÿ
-Tpython:S1066‹"/Merge this if statement with the enclosing one.(÷³Ìşÿÿÿÿ8½¤æÚã/
-Tpython:S1066—"/Merge this if statement with the enclosing one.(Ã˜§öûÿÿÿÿ8½¤æÚã/
-gpython:S1854J"JRemove this assignment to local variable 'agged'; the value is never used.(¿Ïãíÿÿÿÿÿ
-<python:S125Æ"Remove this commented out code.(ª‹à˜ùÿÿÿÿ
-qpython:S117Õ"YRename this local variable "groupedT" to match the regular expression ^[_a-z][a-z0-9_]*$.(“·Ä
-hpython:S1226¼"JIntroduce a new variable or use its initial value before reassigning 'df'.(ÉİÓ“ùÿÿÿÿ
-upython:S117¬"XRename this local variable "agged_A" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤Ñ”Ôÿÿÿÿÿ
-vpython:S117•	"YRename this local variable "testFunc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÂÌ·Äúÿÿÿÿ
->python:S1481¾	"%Remove the unused local variable "x".(æö´
-fpython:S1854¦
-"MRemove this assignment to local variable 'expected'; the value is never used.(Ÿ¸„ª
-ipython:S1854¥
-"KRemove this assignment to local variable 'result'; the value is never used.(×Çğ·ûÿÿÿÿ
-rpython:S1854Ö"MRemove this assignment to local variable 'expected'; the value is never used.(©ÃÅìşÿÿÿÿ8½¤æÚã/
-tpython:S3776§"TRefactor this function to reduce its Cognitive Complexity from 69 to the 15 allowed.(ÛâÚ×8½¤æÚã/
-‚python:S1871Ô"dEither merge this branch with the identical one on line "1867" or change one of the implementations.(Ÿåû˜ıÿÿÿÿ
-}python:S1871Ç"dEither merge this branch with the identical one on line "1963" or change one of the implementations.(Ç¢‘©
-jpython:S1134Æ"LTake the required action to fix the issue indicated by this "FIXME" comment.(¹˜À•ùÿÿÿÿ
-Cpython:S125å"Remove this commented out code.(Ãæ»‹ùÿÿÿÿ8½¤æÚã/
-†python:S1542Ü"hRename function "test_groupby_groups_in_BaseGrouper" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÁµŸâùÿÿÿÿ

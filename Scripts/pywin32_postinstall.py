@@ -259,12 +259,12 @@ def RegisterHelpFile(register=True, lib_dir=None):
         if os.path.isfile(chm_file):
             # This isn't recursive, so if 'Help' doesn't exist, we croak
             SetPyKeyVal("Help", None, None)
-            SetPyKeyVal("Help\\Pythonwin Reference", None, chm_file)
+            SetPyKeyVal("Help\\Pythonwin Source", None, chm_file)
             return chm_file
         else:
             print("NOTE: PyWin32.chm can not be located, so has not " "been registered")
     else:
-        UnsetPyKeyVal("Help\\Pythonwin Reference", None, delete_key=True)
+        UnsetPyKeyVal("Help\\Pythonwin Source", None, delete_key=True)
     return None
 
 

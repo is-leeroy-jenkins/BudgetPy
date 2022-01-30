@@ -35,7 +35,7 @@ Module docs for core modules are assumed to be in
 
 This can be overridden by setting the PYTHONDOCS environment variable
 to a different URL or to a local directory containing the Library
-Reference Manual pages.
+Source Manual pages.
 """
 __all__ = ['help']
 __author__ = "Ka-Ping Yee <ping@lfw.org>"
@@ -765,7 +765,7 @@ class HTMLDoc(Doc):
             head = head + ' (%s)' % ', '.join(info)
         docloc = self.getdocloc(object)
         if docloc is not None:
-            docloc = '<br><a href="%(docloc)s">Module Reference</a>' % locals()
+            docloc = '<br><a href="%(docloc)s">Module Source</a>' % locals()
         else:
             docloc = ''
         result = self.heading(

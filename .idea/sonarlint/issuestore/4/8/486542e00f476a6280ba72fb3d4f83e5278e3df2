@@ -1,6 +1,0 @@
-
-bpython:S1192Ñ"IDefine a constant instead of duplicating this literal "GH#38172" 3 times.(ùõß∂
-Gpython:S1066~"/Merge this if statement with the enclosing one.(Ã¢òÓ
-Apython:S108Ä")Either remove or fill this block of code.(„ë€æ
-Apython:S108Ç")Either remove or fill this block of code.(„ë€æ
-Ypython:S905ë":Remove or refactor this statement; it has no side effects.(’ï∞‰8ñÛ„⁄„/

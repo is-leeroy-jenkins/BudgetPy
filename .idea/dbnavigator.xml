@@ -122,7 +122,7 @@ FROM
           <database value="" />
           <files>
             <file path="C:\Users\teppler\source\repos\budgetpy\db\sqlite\datamodels\Data.db" schema="main" />
-            <file path="C:\Users\teppler\source\repos\budgetpy\db\sqlite\referencemodels\References.db" schema="" />
+            <file path="C:\Users\teppler\source\repos\budgetpy\db\sqlite\referencemodels\References.db" schema="References" />
           </files>
           <type value="NONE" />
           <user value="" />

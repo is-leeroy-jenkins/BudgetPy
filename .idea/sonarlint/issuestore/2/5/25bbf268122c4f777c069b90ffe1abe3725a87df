@@ -1,30 +1,0 @@
-
-cpython:S1854Y"FRemove this assignment to local variable 's'; the value is never used.(јЂРдэяяяя
-hpython:S1764^"KCorrect one of the identical sub-expressions on both sides of operator "-".(ё†Ђ“щяяяя
-@python:S2201Ч"'The return value of "str" must be used.(япЋВ
-Fpython:S2201Ш"(The return value of "repr" must be used.(ОЏҐйщяяяя
->python:S1481‰"%Remove the unused local variable "t".(«€ЖҐ
-kpython:S117Ў"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(«рЌ±
-lpython:S117ў"TRename this local variable "mXX" to match the regular expression ^[_a-z][a-z0-9_]*$.(шАР¬
-kpython:S117§"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-lpython:S117§"TRename this local variable "mXX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-opython:S117Ё"WRename this local variable "mXdiag" to match the regular expression ^[_a-z][a-z0-9_]*$.(ў ъг
-kpython:S117Ї"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-lpython:S117Ї"TRename this local variable "mXX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-_python:S1854¶"FRemove this assignment to local variable 'm'; the value is never used.(ЌШиЪ
-kpython:S117¶"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-lpython:S117¶"TRename this local variable "mXX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-kpython:S117Г"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-lpython:S117Г"TRename this local variable "mXX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-xpython:S117Ж"[Rename this local variable "mXXswapped" to match the regular expression ^[_a-z][a-z0-9_]*$.(§къЛыяяяя
-rpython:S117Д"ZRename this local variable "mXswapped" to match the regular expression ^[_a-z][a-z0-9_]*$.(јЭ•
-kpython:S117К"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-lpython:S117К"TRename this local variable "mXX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-rpython:S117Л"URename this local variable "mXcp" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЦЙкуяяяяя
-kpython:S117С"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-lpython:S117С"TRename this local variable "mXX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-rpython:S117Т"URename this local variable "mXcp" to match the regular expression ^[_a-z][a-z0-9_]*$.(Тъ®Ћэяяяя
-kpython:S117Ш"SRename this local variable "mX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-lpython:S117Ш"TRename this local variable "mXX" to match the regular expression ^[_a-z][a-z0-9_]*$.(ЌШиЪ
-opython:S117Э"WRename this local variable "mXvar0" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ќя–›
-opython:S117Э"WRename this local variable "mXvar1" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ќя–›

@@ -1,7 +1,0 @@
-
-upython:S1192ñ"\Define a constant instead of duplicating this literal "pandas.plotting._matplotlib" 3 times.(ÂöÓ’
-Mpython:S1066•"/Merge this if statement with the enclosing one.(°õÍùÿÿÿÿ
-hpython:S107u"QFunction "hist_frame" has 17 parameters, which is greater than the 13 authorized.(–¢ŸŒ
-rpython:S3776û"TRefactor this function to reduce its Cognitive Complexity from 65 to the 15 allowed.(Í«Îòúÿÿÿÿ
-jpython:S117‡"MRename this parameter "C" to match the regular expression ^[_a-z][a-z0-9_]*$.(È¹íøÿÿÿÿ
-zpython:S117‡"]Rename this parameter "reduce_C_function" to match the regular expression ^[_a-z][a-z0-9_]*$.(È¹íøÿÿÿÿ

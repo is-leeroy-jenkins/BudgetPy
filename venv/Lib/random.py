@@ -538,7 +538,7 @@ class Random(_random.Random):
         mu is the mean, and sigma is the standard deviation.
 
         """
-        # Uses Kinderman and Monahan method. Reference: Kinderman,
+        # Uses Kinderman and Monahan method. Source: Kinderman,
         # A.J. and Monahan, J.F., "Computer generation of random
         # variables using the ratio of uniform deviates", ACM Trans
         # Math Software, 3, (1977), pp257-260.

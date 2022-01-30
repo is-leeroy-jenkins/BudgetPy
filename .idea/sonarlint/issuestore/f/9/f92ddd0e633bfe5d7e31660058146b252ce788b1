@@ -1,34 +1,0 @@
-
-`python:S1192q"HDefine a constant instead of duplicating this literal "M8[ns]" 10 times.(úá¤
-„python:S1192Å"fDefine a constant instead of duplicating this literal "will be changed to match the behavior" 4 times.(³òğùÿÿÿÿ
-jpython:S1192”"LDefine a constant instead of duplicating this literal "US/Eastern" 15 times.(®ı¤ğüÿÿÿÿ
-npython:S1192Œ"PDefine a constant instead of duplicating this literal "datetime64[ns]" 15 times.(òÿöƒüÿÿÿÿ
-epython:S1192"GDefine a constant instead of duplicating this literal "m8[ns]" 4 times.(¾äŒüıÿÿÿÿ
-jpython:S1192J"KDefine a constant instead of duplicating this literal "US/Pacific" 3 times.(¯£òƒ8ä³èÚã/
-ypython:S1192š"[Define a constant instead of duplicating this literal "datetime64[ns, US/Eastern]" 3 times.(ş›°”üÿÿÿÿ
-gpython:S1192—"IDefine a constant instead of duplicating this literal "End Date" 4 times.(ü•Üúÿÿÿÿ
-Opython:S1481é"1Remove the unused local variable "indexed_frame".(À‘ò«ûÿÿÿÿ
-Qpython:S1481ê"3Remove the unused local variable "unindexed_frame".(’ÀÌ§úÿÿÿÿ
-wpython:S117¯"_Rename this local variable "data_Timestamp" to match the regular expression ^[_a-z][a-z0-9_]*$.(À…ó·
-~python:S117½"aRename this local variable "result_Timestamp" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ·©ßıÿÿÿÿ
-wpython:S117Ë"_Rename this local variable "data_Timedelta" to match the regular expression ^[_a-z][a-z0-9_]*$.(²Ñ—³
-ypython:S117Ù"aRename this local variable "result_Timedelta" to match the regular expression ^[_a-z][a-z0-9_]*$.(êâì•
-jpython:S1764ğ"LCorrect one of the identical sub-expressions on both sides of operator "==".(œŞ¹Ğşÿÿÿÿ
-jpython:S1764ú"LCorrect one of the identical sub-expressions on both sides of operator "==".(œŞ¹Ğşÿÿÿÿ
-jpython:S1764®"LCorrect one of the identical sub-expressions on both sides of operator "==".(œŞ¹Ğşÿÿÿÿ
-`python:S1763‰
-"GDelete this unreachable code or refactor the code to make it reachable.(“À™á
-Vpython:S5722Ş
-"=Remove 1 parameters. Method __len__ should have 1 parameters.(¹¸ïü
->python:S1481ƒ"%Remove the unused local variable "i".(éŠ‰£
-spython:S117º"VRename this local variable "Point" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë»¹ªşÿÿÿÿ
-mpython:S117Ç"VRename this local variable "HLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡­C
-spython:S117Æ"VRename this local variable "Point" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë»¹ªşÿÿÿÿ
-spython:S117Õ"VRename this local variable "Point" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë»¹ªşÿÿÿÿ
->python:S1481š"%Remove the unused local variable "x".(†«Ó
-Cpython:S1481Ÿ"%Remove the unused local variable "x".(ø¦Ì„úÿÿÿÿ
-Cpython:S1481Â"%Remove the unused local variable "i".(Ãûİµúÿÿÿÿ
-tpython:S3776Ì"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Üé‡‘8ä³èÚã/
-lpython:S1134"LTake the required action to fix the issue indicated by this "FIXME" comment.(úì8ä³èÚã/
-kpython:S1134"LTake the required action to fix the issue indicated by this "FIXME" comment.(‹€Çd8ä³èÚã/
-kpython:S1134£"LTake the required action to fix the issue indicated by this "FIXME" comment.(‹€Çd8ä³èÚã/

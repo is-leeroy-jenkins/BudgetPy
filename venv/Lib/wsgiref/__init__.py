@@ -1,4 +1,4 @@
-"""wsgiref -- a WSGI (PEP 3333) Reference Library
+"""wsgiref -- a WSGI (PEP 3333) Source Library
 
 Current Contents:
 

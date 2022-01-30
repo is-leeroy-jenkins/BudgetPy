@@ -1,5 +1,0 @@
-
-apython:S1192P"IDefine a constant instead of duplicating this literal 'f8,i4,a5' 5 times.(£ÿ†æ
-cpython:S1192z"FDefine a constant instead of duplicating this literal 'i4,i4' 5 times.(„þ“Ãúÿÿÿÿ
-epython:S1192•"GDefine a constant instead of duplicating this literal "numpy." 3 times.(÷íÂûþÿÿÿÿ
-Epython:S1481Ð"'Remove the unused local variable "arr".(ßïÓÐýÿÿÿÿ

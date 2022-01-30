@@ -1,7 +1,0 @@
-
-gpython:S1192þ"ODefine a constant instead of duplicating this literal "Insertion sort" 3 times.(õ _
-Vpython:S5709">Derive this class from "Exception" instead of "BaseException".(ð¹¿Õ
-Hpython:S5806^"+Rename this variable; it shadows a builtin.(Ê¦¼Ãùÿÿÿÿ
-;python:S125"Remove this commented out code.(ºÔ—•ùÿÿÿÿ
-Cpython:S1481˜"%Remove the unused local variable "i".(‡¬ß°ýÿÿÿÿ
-mpython:S3776ž"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(ŠÜÚà

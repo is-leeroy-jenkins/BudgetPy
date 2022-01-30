@@ -1,33 +1,0 @@
-
-dpython:S1192µ"FDefine a constant instead of duplicating this literal "i4,i4" 3 times.(›†“£˘ˇˇˇˇ
-Cpython:S2201ä"*The return value of "divmod" must be used.(Óˇ¸ò
-Rpython:S905≤":Remove or refactor this statement; it has no side effects.(ÒÎ≤ø
-Wpython:S905ñ":Remove or refactor this statement; it has no side effects.(üé¸¸ˇˇˇˇ
-Cpython:S1481¿"%Remove the unused local variable "x".(Œ∆Æ”˘ˇˇˇˇ
->python:S1481¬"%Remove the unused local variable "x".(Œ¥Î∫
-apython:S1854Å"HRemove this assignment to local variable 'tmp'; the value is never used.(”ô¶ñ
-apython:S1854˛"HRemove this assignment to local variable 'tmp'; the value is never used.(âëˆ®
-apython:S1854˙"HRemove this assignment to local variable 'tmp'; the value is never used.(‹ÓÅ‡
-gpython:S1854Ê"IRemove this assignment to local variable 'arr2'; the value is never used.(êçÃ€˝ˇˇˇˇ
-gpython:S1854‚"IRemove this assignment to local variable 'arr2'; the value is never used.(”˚ûÇ˙ˇˇˇˇ
-Cpython:S1481ù
-"%Remove the unused local variable "k".(ê–÷î˝ˇˇˇˇ
-mpython:S3776ô
-"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(´˚ô⁄
-@python:S2201õ"(The return value of "repr" must be used.(íù˙S
-vpython:S4143©"]Verify this is the key that was intended; a value has already been saved for it on line 1448.(√’áß
-@python:S1481ﬂ"'Remove the unused local variable "min".(¢Ω—˚
-@python:S1481‡"'Remove the unused local variable "min".(àˇèó
-Dpython:S5806ﬂ"+Rename this variable; it shadows a builtin.(¢Ω—˚
-Apython:S2201Ä"(The return value of "repr" must be used.(ˇ‹¶≠
-Cpython:S1481ˆ"%Remove the unused local variable "i".(ãÉœ¯ˇˇˇˇ
-[python:S112¶">Replace this generic exception class with a more specific one.(–˛æ∞¯ˇˇˇˇ
->python:S1481‰"%Remove the unused local variable "i".(˙Ãﬁ€
-Wpython:S905Â":Remove or refactor this statement; it has no side effects.(äô·¡˛ˇˇˇˇ
-jpython:S1764Â"LCorrect one of the identical sub-expressions on both sides of operator "==".(äô·¡˛ˇˇˇˇ
-Rpython:S905Î":Remove or refactor this statement; it has no side effects.(ƒ‰ÄÂ
-Cpython:S1481™"%Remove the unused local variable "e".(°πâ·˚ˇˇˇˇ
->python:S1481œ"%Remove the unused local variable "j".(Ôõ∫Ω
->python:S1481Î"%Remove the unused local variable "i".(Èäâ£
-@python:S2201Ï"'The return value of "str" must be used.(Æº®°
-epython:S1542ﬂ"LRename function "cass√©" to match the regular expression ^[a-z_][a-z0-9_]*$.(Í∑çÓ

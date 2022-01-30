@@ -1,93 +1,0 @@
-
-`python:S1192à"GDefine a constant instead of duplicating this literal "0 days" 6 times.( óÌí
-œpython:S1192Ü"|Define a constant instead of duplicating this literal "Cannot subtract tz-naive and tz-aware datetime-like objects" 3 times.(ğÜ8±ğåÚã/
-ipython:S1192ì"KDefine a constant instead of duplicating this literal "Asia/Tokyo" 3 times.(ë¼œÙıÿÿÿÿ
-_python:S1192˜"GDefine a constant instead of duplicating this literal "-1 Day" 3 times.(ÀîÉ
-npython:S1192Ş"PDefine a constant instead of duplicating this literal "timedelta64[ns]" 6 times.(»Çãºøÿÿÿÿ
-mpython:S1192ƒ"ODefine a constant instead of duplicating this literal "datetime64[ns]" 7 times.(‰ÇŒèøÿÿÿÿ
-lpython:S1192¢
-"TDefine a constant instead of duplicating this literal "2000-01-31 00:23:00" 3 times.(ëúğ{
-ppython:S1192Ğ"PDefine a constant instead of duplicating this literal "0 days 06:00:00" 4 times.(¨üòû8±ğåÚã/
-wpython:S1192×"RDefine a constant instead of duplicating this literal "-1 days +18:00:00" 4 times.(ÑŞŠùÿÿÿÿ8±ğåÚã/
-rpython:S1192¡
-"TDefine a constant instead of duplicating this literal "2000-01-05 00:15:00" 3 times.(Ó‡¡“şÿÿÿÿ
-ipython:S1192»"KDefine a constant instead of duplicating this literal "US/Pacific" 5 times.(±²éïøÿÿÿÿ
-ipython:S1192Ö"KDefine a constant instead of duplicating this literal "US/Central" 8 times.(Á˜•ùÿÿÿÿ
-‚python:S1192ç	"iDefine a constant instead of duplicating this literal "(bad|unsupported) operand type for unary" 4 times.(æ¦Ù·
-tpython:S1192÷"[Define a constant instead of duplicating this literal "Overflow in int64 addition" 3 times.(ˆƒ’Ğ
-ppython:S1192É"KDefine a constant instead of duplicating this literal "US/Eastern" 6 times.(¯¢¸…ûÿÿÿÿ8±ğåÚã/
-tpython:S1192ë"VDefine a constant instead of duplicating this literal "cannot (add|subtract)" 3 times.(¡­é©ùÿÿÿÿ
-vpython:S1192’"QDefine a constant instead of duplicating this literal "2021-12-28 17:19" 4 times.(ôèŸ÷ùÿÿÿÿ8±ğåÚã/
-Rpython:S905‹":Remove or refactor this statement; it has no side effects.(úŠÁû
-Rpython:S905":Remove or refactor this statement; it has no side effects.(Úµ”Ã
-Wpython:S905":Remove or refactor this statement; it has no side effects.(ş°ÿïùÿÿÿÿ
-Rpython:S905‘":Remove or refactor this statement; it has no side effects.(øÓó
-jpython:S1764»"LCorrect one of the identical sub-expressions on both sides of operator "!=".(íı÷Ûúÿÿÿÿ
-jpython:S1764Ì"LCorrect one of the identical sub-expressions on both sides of operator "==".(ÛØ„šüÿÿÿÿ
-epython:S1764Ú"LCorrect one of the identical sub-expressions on both sides of operator "==".(éªšå
-epython:S1764à"LCorrect one of the identical sub-expressions on both sides of operator "==".( £ó»
-epython:S1764Ü"LCorrect one of the identical sub-expressions on both sides of operator "==".(‘é™ö
-Wpython:S905÷":Remove or refactor this statement; it has no side effects.(Ì”Şøÿÿÿÿ
-Rpython:S905ù":Remove or refactor this statement; it has no side effects.(œ©Öø
-Rpython:S905û":Remove or refactor this statement; it has no side effects.(àè
-Rpython:S905ı":Remove or refactor this statement; it has no side effects.(‹ŸşÀ
-Rpython:S905“":Remove or refactor this statement; it has no side effects.(‹ŸşÀ
-^python:S905Ş":Remove or refactor this statement; it has no side effects.(ÇËƒıÿÿÿÿ8±ğåÚã/
-Xpython:S905á":Remove or refactor this statement; it has no side effects.(Ü™œ8±ğåÚã/
-^python:S905ú":Remove or refactor this statement; it has no side effects.(ÇËƒıÿÿÿÿ8±ğåÚã/
-Xpython:S905ı":Remove or refactor this statement; it has no side effects.(Ü™œ8±ğåÚã/
-Wpython:S905’":Remove or refactor this statement; it has no side effects.(ƒ›Ç»øÿÿÿÿ
-Wpython:S905¬":Remove or refactor this statement; it has no side effects.(ÜÌ¤µûÿÿÿÿ
-ipython:S1764ï"KCorrect one of the identical sub-expressions on both sides of operator "-".(¤Æ‚Òÿÿÿÿÿ
-dpython:S1764ş"KCorrect one of the identical sub-expressions on both sides of operator "-".(âñ¬ü
-Rpython:S905":Remove or refactor this statement; it has no side effects.(ıåÓá
-Rpython:S905‘":Remove or refactor this statement; it has no side effects.(¿×Ù¹
->python:S125—"Remove this commented out code.(î³™œ8±ğåÚã/
-Ypython:S905µ	":Remove or refactor this statement; it has no side effects.(àòØÕ8±ğåÚã/
-^python:S905·	":Remove or refactor this statement; it has no side effects.(£´È´şÿÿÿÿ8±ğåÚã/
-^python:S905»	":Remove or refactor this statement; it has no side effects.(Öü½Üúÿÿÿÿ8±ğåÚã/
-Ypython:S905½	":Remove or refactor this statement; it has no side effects.( ş€ó8±ğåÚã/
-Rpython:S905é	":Remove or refactor this statement; it has no side effects.(´…±ù
-Wpython:S905õ	":Remove or refactor this statement; it has no side effects.(±ë„éûÿÿÿÿ
-Wpython:S905ö	":Remove or refactor this statement; it has no side effects.(Êæ¡Âşÿÿÿÿ
-Rpython:S905÷	":Remove or refactor this statement; it has no side effects.(È»©´
-^python:S905˜
-":Remove or refactor this statement; it has no side effects.(„·İõùÿÿÿÿ8±ğåÚã/
-Rpython:S905Î
-":Remove or refactor this statement; it has no side effects.(ÄŠÛ„
-Wpython:S905Â":Remove or refactor this statement; it has no side effects.(Âòèóÿÿÿÿÿ
-fpython:S1226‹"MIntroduce a new variable or use its initial value before reassigning 'other'.(©ùøü
-7python:S125"Remove this commented out code.(åü¦Ü
-Rpython:S905ù":Remove or refactor this statement; it has no side effects.(€­Óˆ
-Rpython:S905û":Remove or refactor this statement; it has no side effects.(§Ú¹¤
-Rpython:S905ı":Remove or refactor this statement; it has no side effects.(Á•äİ
-Wpython:S905ÿ":Remove or refactor this statement; it has no side effects.(Û™©·şÿÿÿÿ
-Rpython:S905§":Remove or refactor this statement; it has no side effects.(ª¥ÅË
-Qpython:S905µ":Remove or refactor this statement; it has no side effects.(‰€
-Ppython:S905É":Remove or refactor this statement; it has no side effects.(¼º>
-Wpython:S905Ì":Remove or refactor this statement; it has no side effects.(¾¼Â¼ûÿÿÿÿ
-Wpython:S905Ò":Remove or refactor this statement; it has no side effects.(¶şÂ€şÿÿÿÿ
-Rpython:S905×":Remove or refactor this statement; it has no side effects.(Õ¨Š¹
-Wpython:S905æ":Remove or refactor this statement; it has no side effects.(Ùââ·ùÿÿÿÿ
-Wpython:S905ş":Remove or refactor this statement; it has no side effects.(ô¸Â›ûÿÿÿÿ
-Ypython:S905ÿ":Remove or refactor this statement; it has no side effects.(û•³ú8ÀğåÚã/
-Wpython:S905‚":Remove or refactor this statement; it has no side effects.(ïìš«ûÿÿÿÿ
-Rpython:S905ƒ":Remove or refactor this statement; it has no side effects.(ı¶¨Ê
-Wpython:S905„":Remove or refactor this statement; it has no side effects.(Ç×ô¤ùÿÿÿÿ
-Rpython:S905‡":Remove or refactor this statement; it has no side effects.(ı¶¨Ê
-Wpython:S905ˆ":Remove or refactor this statement; it has no side effects.(ïìš«ûÿÿÿÿ
-Wpython:S905ÿ":Remove or refactor this statement; it has no side effects.(ÍÅÂ³şÿÿÿÿ
-Rpython:S905…":Remove or refactor this statement; it has no side effects.(­ÀÍÅ
-Rpython:S905º":Remove or refactor this statement; it has no side effects.(ë§ã¤
-Wpython:S905À":Remove or refactor this statement; it has no side effects.(•ÿ¸ùÿÿÿÿ
-Wpython:S905Ó":Remove or refactor this statement; it has no side effects.(š¼öñùÿÿÿÿ
-Rpython:S905Õ":Remove or refactor this statement; it has no side effects.(×ÙºŸ
-Rpython:S905š":Remove or refactor this statement; it has no side effects.(Ùì›
-Rpython:S905¢":Remove or refactor this statement; it has no side effects.(¦÷Š¯
-ipython:S1764Õ"KCorrect one of the identical sub-expressions on both sides of operator "-".(¤Æ‚Òÿÿÿÿÿ
-ipython:S1764é"KCorrect one of the identical sub-expressions on both sides of operator "-".(£üÒ ùÿÿÿÿ
-dpython:S1764ì"KCorrect one of the identical sub-expressions on both sides of operator "-".(İˆÇå
-Wpython:S905ğ":Remove or refactor this statement; it has no side effects.(÷ÔöÈÿÿÿÿÿ
-Wpython:S905ó":Remove or refactor this statement; it has no side effects.(ƒà÷İÿÿÿÿÿ
-Wpython:S905ş":Remove or refactor this statement; it has no side effects.(Ò¬ğşÿÿÿÿ
-Wpython:S905Ì":Remove or refactor this statement; it has no side effects.( ‡ôÍüÿÿÿÿ

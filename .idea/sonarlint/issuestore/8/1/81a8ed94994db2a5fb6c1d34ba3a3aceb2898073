@@ -1,37 +1,0 @@
-
-xpython:S1192›"SDefine a constant instead of duplicating this literal "SELECT * FROM iris" 9 times.(í™œ¸øÿÿÿÿ8‚ÇæÚã/
-spython:S1192Û"TDefine a constant instead of duplicating this literal "select * from types" 3 times.(Ö„æM8‚ÇæÚã/
-qpython:S1192÷"SDefine a constant instead of duplicating this literal "select * from test" 3 times.(ÍÂŠ«úÿÿÿÿ
-}python:S1192¯"_Define a constant instead of duplicating this literal "SELECT * FROM test_index_label" 5 times.(’·øÿÿÿÿ
-npython:S1192Ë"IDefine a constant instead of duplicating this literal ":memory:" 4 times.(€àî²ıÿÿÿÿ8‚ÇæÚã/
-gpython:S1192Ù"NDefine a constant instead of duplicating this literal "io.sql.engine" 4 times.(ó¬Äî
-upython:S1192­"WDefine a constant instead of duplicating this literal "SELECT * FROM test_nan" 3 times.(ıÙ×÷ùÿÿÿÿ
-tpython:S1192®"TDefine a constant instead of duplicating this literal "2000-01-04 00:00:00" 3 times.(’èö¨8‚ÇæÚã/
-tpython:S1192¢"TDefine a constant instead of duplicating this literal "2000-01-03 00:00:00" 3 times.(™Ü„ğ8‚ÇæÚã/
-mpython:S1192†"TDefine a constant instead of duplicating this literal "2013-01-01 09:00:00" 3 times.(‰ÏÚ
-|python:S1192ô"cDefine a constant instead of duplicating this literal "SELECT * FROM test_frame_roundtrip" 3 times.(ü¢à™
-kpython:S1192»"RDefine a constant instead of duplicating this literal "%Y-%m-%d %H:%M:%S" 3 times.(Ûöôª
-tpython:S1192¬"TDefine a constant instead of duplicating this literal "SELECT * FROM types" 7 times.(‘’Ï§8‚ÇæÚã/
-Ipython:S2115")Add password protection to this database.(ÿãïØ8‚ÇæÚã/
-ypython:S117ú"ZRename this local variable "pandasSQL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕûŒ®8‚ÇæÚã/
-ypython:S117„"ZRename this local variable "pandasSQL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕûŒ®8‚ÇæÚã/
-ypython:S117"ZRename this local variable "pandasSQL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕûŒ®8‚ÇæÚã/
-ypython:S117š"ZRename this local variable "pandasSQL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕûŒ®8‚ÇæÚã/
-ypython:S117¢"ZRename this local variable "pandasSQL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕûŒ®8‚ÇæÚã/
-<python:S125ş"Remove this commented out code.(…ä‹üÿÿÿÿ
-<python:S125¤"Remove this commented out code.(…ä‹üÿÿÿÿ
-ipython:S116È"QRename this field "pandasSQL" to match the regular expression ^[_a-z][_a-z0-9]*$.(Áü€İ
-Bpython:S2115ø")Add password protection to this database.(Œ×û
-ypython:S1186³"YAdd a nested comment explaining why this method is empty, or complete the implementation.(…õíæ8’ÇæÚã/
-~python:S1186·"YAdd a nested comment explaining why this method is empty, or complete the implementation.(æõÚşÿÿÿÿ8’ÇæÚã/
-wpython:S117à"ZRename this local variable "pandasSQL" to match the regular expression ^[_a-z][a-z0-9_]*$.(È¹¼ùÿÿÿÿ
-wpython:S117ò"ZRename this local variable "pandasSQL" to match the regular expression ^[_a-z][a-z0-9_]*$.(È¹¼ùÿÿÿÿ
-{python:S4143»"]Verify this is the key that was intended; a value has already been saved for it on line 1978.(Äéşÿÿÿÿ
-ypython:S117µ"URename this local variable "Base" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç¼¦ûÿÿÿÿ8’ÇæÚã/
-|python:S117Æ"XRename this local variable "Session" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒûÈÜüÿÿÿÿ8’ÇæÚã/
-ypython:S117·"ZRename this local variable "BaseModel" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìóµ8’ÇæÚã/
-|python:S117¿"XRename this local variable "Session" to match the regular expression ^[_a-z][a-z0-9_]*$.(Êõ‰µøÿÿÿÿ8’ÇæÚã/
-Bpython:S2115Ü")Add password protection to this database.(æç¤
-xpython:S1186æ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(½ãŸ}8’ÇæÚã/
-rpython:S1854Û"MRemove this assignment to local variable 'expected'; the value is never used.(÷¼´¡ıÿÿÿÿ8’ÇæÚã/
-hpython:S1854”"JRemove this assignment to local variable 'lines'; the value is never used.(ô”Ú‚ıÿÿÿÿ

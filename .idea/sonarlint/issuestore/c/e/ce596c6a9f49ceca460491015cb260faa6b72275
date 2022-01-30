@@ -1,13 +1,0 @@
-
-gpython:S1192"IDefine a constant instead of duplicating this literal "(2.5, 5]" 6 times.(Æƒ‰°ûÿÿÿÿ
-gpython:S1192 "IDefine a constant instead of duplicating this literal "(0, 2.5]" 5 times.(”ßÔ’øÿÿÿÿ
-cpython:S1192›"JDefine a constant instead of duplicating this literal "(7.5, 10]" 6 times.(µºÒš
-gpython:S1192"IDefine a constant instead of duplicating this literal "(5, 7.5]" 6 times.(»‡Ïğûÿÿÿÿ
-<python:S125€"Remove this commented out code.(èÃÌıÿÿÿÿ
-7python:S125Š"Remove this commented out code.(Í¤§à
-<python:S125ç"Remove this commented out code.(èÃÌıÿÿÿÿ
-7python:S125‹"Remove this commented out code.(Í¤§à
-<python:S125¸"Remove this commented out code.(Õ‘º…ıÿÿÿÿ
-7python:S125½"Remove this commented out code.(”˜’…
-<python:S125Õ"Remove this commented out code.(Õ‘º…ıÿÿÿÿ
-7python:S125Ú"Remove this commented out code.(”˜’…

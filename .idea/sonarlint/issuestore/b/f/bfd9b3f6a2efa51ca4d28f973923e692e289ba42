@@ -1,7 +1,0 @@
-
-kpython:S1192¨"MDefine a constant instead of duplicating this literal r"^Match this" 3 times.(üÎ ÿÿÿÿÿ
-}python:S1192C"`Define a constant instead of duplicating this literal r"Caused unexpected warning\(s\)" 3 times.(¬ÈÜÏşÿÿÿÿ
-python:S1192m"[Define a constant instead of duplicating this literal "Another unmatched warning." 3 times.(”ã÷Éıÿÿÿÿ8‰»äÚã/
-dpython:S1192©"KDefine a constant instead of duplicating this literal "Match this" 3 times.(ıóÖ
-ypython:S1192l"UDefine a constant instead of duplicating this literal "This is not a match." 3 times.(ÎÎô¦üÿÿÿÿ8‰»äÚã/
-Apython:S108È")Either remove or fill this block of code.(ã‘Û¾

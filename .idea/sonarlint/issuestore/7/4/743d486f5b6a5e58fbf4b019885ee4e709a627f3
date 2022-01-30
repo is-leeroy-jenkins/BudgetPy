@@ -1,11 +1,0 @@
-
-ipython:S1192û"PDefine a constant instead of duplicating this literal "timedelta64[ns]" 4 times.(²­™ó
-ipython:S1192Ó"KDefine a constant instead of duplicating this literal "US/Eastern" 8 times.(®‹•úÿÿÿÿ
-dpython:S1192ö"FDefine a constant instead of duplicating this literal "2 day" 4 times.(×ŒôÖøÿÿÿÿ
-_python:S1192õ"FDefine a constant instead of duplicating this literal "1 day" 5 times.(ÔƒÀµ
-_python:S1192ø"FDefine a constant instead of duplicating this literal "4 day" 4 times.(˜§“¢
-mpython:S1192½"ODefine a constant instead of duplicating this literal "datetime64[ns]" 7 times.(äÈÃ¥ùÿÿÿÿ
-_python:S1192÷"FDefine a constant instead of duplicating this literal "3 day" 4 times.(‡şÕ
-spython:S1192Ü"[Define a constant instead of duplicating this literal "datetime64[ns, US/Eastern]" 3 times.(êÑô
-fpython:S1854~"HRemove this assignment to local variable 'exp'; the value is never used.(¿Óv8¸ãÚã/
-}python:S1871ê"dEither merge this branch with the identical one on line "1127" or change one of the implementations.(ÙãŞŸ

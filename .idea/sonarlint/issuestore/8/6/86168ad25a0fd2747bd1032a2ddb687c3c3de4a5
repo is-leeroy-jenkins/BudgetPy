@@ -1,13 +1,0 @@
-
-gpython:S1192‘"IDefine a constant instead of duplicating this literal "%Y-%m-%d" 4 times.(Ğ‹†ôşÿÿÿÿ
-lpython:S1192‡
-"NDefine a constant instead of duplicating this literal "City Exponent" 6 times.(íšü€ÿÿÿÿÿ
-spython:S1192İ"NDefine a constant instead of duplicating this literal "More than ten" 3 times.(Ò‰É‡ûÿÿÿÿ8˜åÚã/
-hpython:S1192‡
-"JDefine a constant instead of duplicating this literal "City Rank" 4 times.(íšü€ÿÿÿÿÿ
-{python:S1192º"]Define a constant instead of duplicating this literal "chunksize must be a positive" 3 times.(Ëæ—õÿÿÿÿÿ
->python:S1481	"%Remove the unused local variable "j".(ï›º½
->python:S1481ã	"%Remove the unused local variable "j".(ï›º½
->python:S1481û	"%Remove the unused local variable "j".(ï›º½
-kpython:S1854±"KRemove this assignment to local variable 'writer'; the value is never used.(øÔÉÛ8˜åÚã/
-kpython:S1854©"KRemove this assignment to local variable 'writer'; the value is never used.(øÔÉÛ8˜åÚã/

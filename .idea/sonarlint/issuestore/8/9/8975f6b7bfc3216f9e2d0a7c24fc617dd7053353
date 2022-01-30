@@ -1,9 +1,0 @@
-
-mpython:S1192Ú"TDefine a constant instead of duplicating this literal "a,b,c\n1,2,3\n4,5,6" 3 times.(ŠÀä
-|python:S1871˜"cEither merge this branch with the identical one on line "533" or change one of the implementations.(ÙãŞŸ
-|python:S1871«"cEither merge this branch with the identical one on line "805" or change one of the implementations.(®›¡¼
-7python:S125ƒ"Remove this commented out code.(İ†ŠÔ
-jpython:S1764â"LCorrect one of the identical sub-expressions on both sides of operator "==".(Ø”…¥øÿÿÿÿ
-Wpython:S905ñ":Remove or refactor this statement; it has no side effects.(¬©ã‡ıÿÿÿÿ
-Gpython:S2201â
-")The return value of "bytes" must be used.(Š„î¡ùÿÿÿÿ

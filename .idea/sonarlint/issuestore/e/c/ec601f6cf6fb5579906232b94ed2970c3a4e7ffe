@@ -1,10 +1,0 @@
-
-python:S1192¸"cDefine a constant instead of duplicating this literal "Columns must be same length as key" 4 times.(í½™üÿÿÿÿ
-epython:S1192›"GDefine a constant instead of duplicating this literal "M8[ns]" 3 times.(´Òÿ‚úÿÿÿÿ
-hpython:S1192‹"ODefine a constant instead of duplicating this literal "datetime64[ns]" 5 times.(÷®¯¶
-zpython:S4143’"\Verify this is the key that was intended; a value has already been saved for it on line 145.(î²æßüÿÿÿÿ
-upython:S4143µ"\Verify this is the key that was intended; a value has already been saved for it on line 306.(½åÙÊ
-zpython:S4143Â"\Verify this is the key that was intended; a value has already been saved for it on line 321.(ııÌÅÿÿÿÿÿ
-Hpython:S1656¨"/Remove or correct this useless self-assignment.(ÏÏ­Ÿ
-@python:S2201›"'The return value of "str" must be used.(Ïì…Í
-@python:S2201¦"'The return value of "str" must be used.(Ïì…Í

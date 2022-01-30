@@ -25,7 +25,7 @@ def evaluate_slice_index(arg):
 
 def slice_indices(slice, length):
     """
-    Reference implementation for the slice.indices method.
+    Source implementation for the slice.indices method.
 
     """
     # Compute step and length as integers.

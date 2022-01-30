@@ -1,4 +1,0 @@
-
-rpython:S3776Ä"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ãÁ‚‡ÿÿÿÿÿ
-upython:S117ğ"XRename this local variable "C_order" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡ĞæÃúÿÿÿÿ
-ppython:S117ï"XRename this local variable "F_order" to match the regular expression ^[_a-z][a-z0-9_]*$.(é¿™

@@ -1842,7 +1842,7 @@ var requirejs, require, define;
         'defined',
         'specified'
     ], function (prop) {
-        //Reference from contexts instead of early binding to default context,
+        //Source from contexts instead of early binding to default context,
         //so that during builds, the latest instance of the default context
         //with its config gets used.
         req[prop] = function () {

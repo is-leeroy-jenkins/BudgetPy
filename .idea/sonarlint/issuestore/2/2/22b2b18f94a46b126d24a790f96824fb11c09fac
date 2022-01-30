@@ -1,28 +1,0 @@
-
-”python:S1192m"|Define a constant instead of duplicating this literal "The 'check_less_precise' keyword in testing.assert_*_equal " 5 times.(ĞµÎ±
-Mpython:S1066´"/Merge this if statement with the enclosing one.(€ÍÅÜúÿÿÿÿ
-Opython:S1066Ì"/Merge this if statement with the enclosing one.(µ¨ºø8û¸åÚã/
-Mpython:S1066Ş"/Merge this if statement with the enclosing one.(¸¬®—üÿÿÿÿ
-Mpython:S1066ù"/Merge this if statement with the enclosing one.(õ¸†üÿÿÿÿ
-Opython:S1066Ù"/Merge this if statement with the enclosing one.(äÌÔ8û¸åÚã/
-qpython:S3776="TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(İ¢‘İıÿÿÿÿ
-Spython:S1481»"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-rpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(çÚÄ­ûÿÿÿÿ
-Spython:S1481¾"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-Spython:S1481á"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-|python:S1871ê"cEither merge this branch with the identical one on line "487" or change one of the implementations.(³î
-Spython:S1481ö"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-Spython:S1481€"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-Spython:S1481ˆ"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-Spython:S1481Ì"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-mpython:S3776­"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(‰¥™â
-qpython:S107ç"ZFunction "assert_series_equal" has 17 parameters, which is greater than the 13 authorized.(™ÃÀ
-Spython:S1481Â"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-lpython:S3776æ"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(«³ÏP
-Apython:S108ù")Either remove or fill this block of code.(ã‘Û¾
-‚python:S1871Ã"dEither merge this branch with the identical one on line "1083" or change one of the implementations.(¤›€äüÿÿÿÿ
-‚python:S1871Ê"dEither merge this branch with the identical one on line "1062" or change one of the implementations.(¬ÄÅâøÿÿÿÿ
-ppython:S107æ"YFunction "assert_frame_equal" has 18 parameters, which is greater than the 13 authorized.(™ÃÀ
-Spython:S1481ã	"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ
-Spython:S1481Ñ
-"5Remove the unused local variable "__tracebackhide__".(Œ„›¤üÿÿÿÿ

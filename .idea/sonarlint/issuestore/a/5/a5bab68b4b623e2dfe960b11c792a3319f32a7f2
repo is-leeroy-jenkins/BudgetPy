@@ -1,9 +1,0 @@
-
-`python:S1192¼"GDefine a constant instead of duplicating this literal "M8[ns]" 4 times.(šç½
-rpython:S3776¡"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(É¼§ûÿÿÿÿ
-Ipython:S5806ı"+Rename this variable; it shadows a builtin.(¥—ÂÓıÿÿÿÿ
-rpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(á‹Íëÿÿÿÿÿ
-rpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(´­ôŒùÿÿÿÿ
-mpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(€Ãİ
-rpython:S3776Ø"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(²’ªÉûÿÿÿÿ
-ppython:S1542´	"WRename function "_attempt_YYYYMMDD" to match the regular expression ^[a-z_][a-z0-9_]*$.(©Á¸á

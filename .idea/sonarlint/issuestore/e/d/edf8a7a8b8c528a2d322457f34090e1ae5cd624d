@@ -1,8 +1,0 @@
-
-dpython:S1854©"KRemove this assignment to local variable 'result'; the value is never used.(°é•
-Fpython:S2201‚"(The return value of "repr" must be used.(„´Ë¹ûÿÿÿÿ
-Epython:S2201…"'The return value of "str" must be used.(¥ªïúÿÿÿÿ
-Apython:S108˜")Either remove or fill this block of code.(ã‘Û¾
-@python:S2201 "'The return value of "str" must be used.(Ïì…Í
-epython:S1764³"LCorrect one of the identical sub-expressions on both sides of operator "is".(‡ÍÊ¤
-kpython:S117ß"NRename this parameter "RI" to match the regular expression ^[_a-z][a-z0-9_]*$.(—½Ğàıÿÿÿÿ

@@ -1,26 +1,0 @@
-
-opython:S1192è"QDefine a constant instead of duplicating this literal "2011-01-01 09:00" 6 times.(°òî¬ÿÿÿÿÿ
-cpython:S11921"KDefine a constant instead of duplicating this literal "Name: test" 3 times.(ËˆÛƒ
-Fpython:S2201F"'The return value of "str" must be used.(¡“ ß8¿ÃäÚã/
-Dpython:S2201J"'The return value of "str" must be used.(ÕŒ÷€ÿÿÿÿÿ
-Dpython:S2201M"'The return value of "str" must be used.(€Øäúÿÿÿÿ
->python:S2201N"'The return value of "str" must be used.(†çÃ
-Dpython:S2201R"'The return value of "str" must be used.(€Øäúÿÿÿÿ
-Dpython:S2201U"'The return value of "str" must be used.(å»ÄÜÿÿÿÿÿ
-Dpython:S2201X"'The return value of "str" must be used.(ƒ°†Åüÿÿÿÿ
-Epython:S2201\"(The return value of "repr" must be used.(‹Òêıÿÿÿÿ
-Epython:S2201q"(The return value of "repr" must be used.(–Åä°ıÿÿÿÿ
-@python:S2201w"(The return value of "repr" must be used.(Àû¸Œ
-Apython:S2201•"(The return value of "repr" must be used.(ßõ«Ò
->python:S1481˜"%Remove the unused local variable "i".(øñËÂ
-Fpython:S2201›"(The return value of "repr" must be used.(Š¦·¦üÿÿÿÿ
-Fpython:S2201¤"(The return value of "repr" must be used.(Š¦·¦üÿÿÿÿ
-Fpython:S2201§"(The return value of "repr" must be used.(Š¦·¦üÿÿÿÿ
-Epython:S2201·"'The return value of "str" must be used.(µöÛ¿ıÿÿÿÿ
-@python:S2201»"'The return value of "str" must be used.(Ïì…Í
-Bpython:S2201Â")The return value of "bytes" must be used.(ßìø
-Apython:S2201É"(The return value of "repr" must be used.(–³Á
-Hpython:S2201Ï"/The return value of "__getitem__" must be used.(Ğ¹Åƒ
-Apython:S2201ï"(The return value of "repr" must be used.(–³Á
-Fpython:S2201•"(The return value of "repr" must be used.(ªë¯¯úÿÿÿÿ
-Epython:S2201–"'The return value of "str" must be used.(ñû€˜øÿÿÿÿ

@@ -139,7 +139,7 @@ class GetoptTests(unittest.TestCase):
 
     def test_libref_examples(self):
         s = """
-        Examples from the Library Reference:  Doc/lib/libgetopt.tex
+        Examples from the Library Source:  Doc/lib/libgetopt.tex
 
         An example using only Unix style options:
 

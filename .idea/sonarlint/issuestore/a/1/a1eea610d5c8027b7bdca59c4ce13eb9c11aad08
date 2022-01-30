@@ -1,14 +1,0 @@
-
-kpython:S1192("SDefine a constant instead of duplicating this literal "Lengths must match" 7 times.(þÿß°
-Ppython:S905)":Remove or refactor this statement; it has no side effects.(âä—p
-dpython:S1764,"LCorrect one of the identical sub-expressions on both sides of operator "==".(û„›‹
-Qpython:S9055":Remove or refactor this statement; it has no side effects.(Õ½•î
-Qpython:S905?":Remove or refactor this statement; it has no side effects.(Æ“Šô
-Vpython:S905F":Remove or refactor this statement; it has no side effects.(âÎ²Îÿÿÿÿÿ
-Qpython:S905H":Remove or refactor this statement; it has no side effects.(ì–›“
-Vpython:S905J":Remove or refactor this statement; it has no side effects.(¨×ïÿüÿÿÿÿ
-Vpython:S905M":Remove or refactor this statement; it has no side effects.(¶¹í¾úÿÿÿÿ
-Vpython:S905O":Remove or refactor this statement; it has no side effects.(ùÃÝ†øÿÿÿÿ
-epython:S1764Ô"LCorrect one of the identical sub-expressions on both sides of operator "==".(Ôåß
-jpython:S1764œ"LCorrect one of the identical sub-expressions on both sides of operator "==".(à˜Ã»ùÿÿÿÿ
-dpython:S1764¡"KCorrect one of the identical sub-expressions on both sides of operator ">".(÷êþÅ

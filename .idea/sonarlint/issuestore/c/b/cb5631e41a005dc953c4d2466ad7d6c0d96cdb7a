@@ -1,17 +1,0 @@
-
-ˆpython:S1192F"pDefine a constant instead of duplicating this literal "Cannot compare tz-naive and tz-aware timestamps" 3 times.(Áèƒµ
-Qpython:S905`":Remove or refactor this statement; it has no side effects.(»Ò‡Š
-dpython:S1764h"LCorrect one of the identical sub-expressions on both sides of operator "==".(¤ñïª
-ipython:S1764i"LCorrect one of the identical sub-expressions on both sides of operator "!=".(‰‘–³úÿÿÿÿ
-hpython:S1764j"KCorrect one of the identical sub-expressions on both sides of operator "<".(Ğø‘¼ıÿÿÿÿ
-ipython:S1764k"LCorrect one of the identical sub-expressions on both sides of operator "<=".(Ê€´Øüÿÿÿÿ
-hpython:S1764l"KCorrect one of the identical sub-expressions on both sides of operator ">".(Ü–‘¸şÿÿÿÿ
-ipython:S1764m"LCorrect one of the identical sub-expressions on both sides of operator ">=".(¼†ç«ûÿÿÿÿ
-Wpython:S905À":Remove or refactor this statement; it has no side effects.(¶èßüşÿÿÿÿ
-Wpython:S905Â":Remove or refactor this statement; it has no side effects.(‚·üùÿÿÿÿ
-Wpython:S905Ä":Remove or refactor this statement; it has no side effects.(‰¿Şéùÿÿÿÿ
-Rpython:S905Æ":Remove or refactor this statement; it has no side effects.(šêíÛ
-Rpython:S905Ë":Remove or refactor this statement; it has no side effects.(º¥òë
-Wpython:S905Í":Remove or refactor this statement; it has no side effects.(ÖÇ®Şÿÿÿÿÿ
-Rpython:S905Ï":Remove or refactor this statement; it has no side effects.(¥®Å
-Rpython:S905Ñ":Remove or refactor this statement; it has no side effects.(¥áÓÙ

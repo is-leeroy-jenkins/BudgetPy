@@ -1,12 +1,0 @@
-
-epython:S1192Œ"LDefine a constant instead of duplicating this literal 'model name' 17 times.(º“äã
-ipython:S1192Å"KDefine a constant instead of duplicating this literal 'cpu family' 4 times.(»ÁÙØıÿÿÿÿ
-hpython:S1192®"JDefine a constant instead of duplicating this literal 'cpu model' 4 times.( èÀùÿÿÿÿ
-python:S1845"hRename field "_is_Xeon" to prevent any misunderstanding/clash with method "_is_XEON" defined on line 253(ş‰¹“
-vpython:S1186~"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤œ„§ùÿÿÿÿ
-wpython:S1186°"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤œ„§ùÿÿÿÿ
-wpython:S1186ë"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤œ„§ùÿÿÿÿ
-wpython:S1186£"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤œ„§ùÿÿÿÿ
-rpython:S3776à"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(Áû¹Çûÿÿÿÿ
-wpython:S1186ˆ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤œ„§ùÿÿÿÿ
-7python:S125œ"Remove this commented out code.(Ê·ó¥

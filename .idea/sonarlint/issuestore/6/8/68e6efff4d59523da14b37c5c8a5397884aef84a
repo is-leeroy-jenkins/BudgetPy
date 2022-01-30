@@ -1,29 +1,0 @@
-
-cpython:S1192B"FDefine a constant instead of duplicating this literal '"ABC"' 5 times.(æıúÿÿÿÿ
-dpython:S1764$"LCorrect one of the identical sub-expressions on both sides of operator "==".(îËõò
-Kpython:S5727&"3Remove this identity check; it will always be True.(İæ©‚
-ipython:S5795&"QReplace this "is not" operator with "!="; identity operator is not reliable here.(İæ©‚
-ipython:S1764,"LCorrect one of the identical sub-expressions on both sides of operator "==".(¡İıøÿÿÿÿ
-Kpython:S5727."3Remove this identity check; it will always be True.(¦¦”†
-ipython:S5795."QReplace this "is not" operator with "!="; identity operator is not reliable here.(¦¦”†
-ipython:S17644"LCorrect one of the identical sub-expressions on both sides of operator "==".(àˆÄúÿÿÿÿ
-Ppython:S57276"3Remove this identity check; it will always be True.(Õ­ª‰üÿÿÿÿ
-npython:S57956"QReplace this "is not" operator with "!="; identity operator is not reliable here.(Õ­ª‰üÿÿÿÿ
-ipython:S1764="LCorrect one of the identical sub-expressions on both sides of operator "==".(Û¨éÛøÿÿÿÿ
-Kpython:S5727?"3Remove this identity check; it will always be True.(±ß±ë
-ipython:S5795?"QReplace this "is not" operator with "!="; identity operator is not reliable here.(±ß±ë
-ipython:S1764E"LCorrect one of the identical sub-expressions on both sides of operator "==".(ĞÈíÜúÿÿÿÿ
-ipython:S1764M"LCorrect one of the identical sub-expressions on both sides of operator "==".(¶‡²üıÿÿÿÿ
-ipython:S1764T"LCorrect one of the identical sub-expressions on both sides of operator "==".(Ëµúıÿÿÿÿ
-Ppython:S5727V"3Remove this identity check; it will always be True.(Öì·úÿÿÿÿ
-npython:S5795V"QReplace this "is not" operator with "!="; identity operator is not reliable here.(Öì·úÿÿÿÿ
-dpython:S1764\"LCorrect one of the identical sub-expressions on both sides of operator "==".(Ó³Â¼
-Ppython:S5727^"3Remove this identity check; it will always be True.(€¦‘¶úÿÿÿÿ
-npython:S5795^"QReplace this "is not" operator with "!="; identity operator is not reliable here.(€¦‘¶úÿÿÿÿ
-ipython:S1764c"LCorrect one of the identical sub-expressions on both sides of operator "==".(Ëµúıÿÿÿÿ
-Ppython:S5727e"3Remove this identity check; it will always be True.(Öì·úÿÿÿÿ
-npython:S5795e"QReplace this "is not" operator with "!="; identity operator is not reliable here.(Öì·úÿÿÿÿ
-dpython:S1764j"LCorrect one of the identical sub-expressions on both sides of operator "==".(è¾ º
-Ppython:S5727l"3Remove this identity check; it will always be True.(í›®øÿÿÿÿ
-npython:S5795l"QReplace this "is not" operator with "!="; identity operator is not reliable here.(í›®øÿÿÿÿ
-dpython:S1764Ã"KCorrect one of the identical sub-expressions on both sides of operator "-".(¹àÊ—

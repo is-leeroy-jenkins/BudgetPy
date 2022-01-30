@@ -41,7 +41,7 @@ examined by testmod.
 There are a variety of other ways to run doctests, including integration
 with the unittest framework, and support for running non-Python text
 files containing doctests.  There are also many ways to override parts
-of doctest's default behaviors.  See the Library Reference Manual for
+of doctest's default behaviors.  See the Library Source Manual for
 details.
 """
 

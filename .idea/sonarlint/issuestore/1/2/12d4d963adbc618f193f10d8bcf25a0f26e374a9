@@ -1,26 +1,0 @@
-
-fpython:S1192Þ"HDefine a constant instead of duplicating this literal "<m8[ns]" 3 times.(¡”Ñ™øÿÿÿÿ
-apython:S1192Ù"HDefine a constant instead of duplicating this literal "<M8[ns]" 6 times.(Æù‡€
-Gpython:S2201_"0The return value of "__contains__" must be used.(Å°8
-Qpython:S905°":Remove or refactor this statement; it has no side effects.(Úìûz
-Wpython:S905²":Remove or refactor this statement; it has no side effects.(”à¨Çÿÿÿÿÿ
-Rpython:S905´":Remove or refactor this statement; it has no side effects.(­ß’
-Rpython:S905¶":Remove or refactor this statement; it has no side effects.(ôÆÛº
-Rpython:S905ƒ":Remove or refactor this statement; it has no side effects.(êè»ö
-Rpython:S905“":Remove or refactor this statement; it has no side effects.(û²˜Ú
-7python:S125–"Remove this commented out code.(Ûáå
-Epython:S2201¸"'The return value of "str" must be used.(×Ú¬ûÿÿÿÿ
-mpython:S3776Ì"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ãÏÅØ
-<python:S125ä	"Remove this commented out code.(€ðáûÿÿÿÿ
-dpython:S1854ù"KRemove this assignment to local variable 'result'; the value is never used.(þ…Óè
-dpython:S1854ö"KRemove this assignment to local variable 'result'; the value is never used.(â¹Ð
-dpython:S1854à"KRemove this assignment to local variable 'result'; the value is never used.(þ…Óè
-dpython:S1854Ý"KRemove this assignment to local variable 'result'; the value is never used.(â¹Ð
-ipython:S1854È"KRemove this assignment to local variable 'result'; the value is never used.(Ï¨ªÔùÿÿÿÿ
-Qpython:S905Ä":Remove or refactor this statement; it has no side effects.(¦õçp
-Wpython:S905Ò":Remove or refactor this statement; it has no side effects.(Ëüœøÿÿÿÿ
-Rpython:S905Õ":Remove or refactor this statement; it has no side effects.(·¡•¯
-Wpython:S905ê":Remove or refactor this statement; it has no side effects.(¦­ð¢øÿÿÿÿ
-tpython:S117"WRename this local variable "X_orig" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨˜Œ¬ûÿÿÿÿ
-Rpython:S905À":Remove or refactor this statement; it has no side effects.(‚Àüò
-Wpython:S905Â":Remove or refactor this statement; it has no side effects.(·³Ç®ûÿÿÿÿ

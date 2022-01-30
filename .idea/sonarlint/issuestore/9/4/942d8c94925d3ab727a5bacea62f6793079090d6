@@ -1,16 +1,0 @@
-
-{python:S1192’"]Define a constant instead of duplicating this literal "operating as a set operation" 3 times.(ÛˆÅ„şÿÿÿÿ
-python:S1192Y"xDefine a constant instead of duplicating this literal "Cannot perform.+with a dtyped.+array and scalar of type" 4 times.(áå‹i
-Qpython:S905[":Remove or refactor this statement; it has no side effects.(÷Íùç
-Qpython:S905]":Remove or refactor this statement; it has no side effects.(•¬Éá
-Qpython:S905`":Remove or refactor this statement; it has no side effects.(¨°ù‚
-Vpython:S905b":Remove or refactor this statement; it has no side effects.(†¸áûıÿÿÿÿ
-Vpython:S905d":Remove or refactor this statement; it has no side effects.(‡«¬¢ùÿÿÿÿ
-Vpython:S905j":Remove or refactor this statement; it has no side effects.(õò§ºûÿÿÿÿ
-Qpython:S905l":Remove or refactor this statement; it has no side effects.(º–Üœ
-tpython:S117‰"WRename this local variable "s_abNd" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷öˆœûÿÿÿÿ
-Rpython:S905‹":Remove or refactor this statement; it has no side effects.(Ğì
-bpython:S1854Å"JRemove this assignment to local variable 's_tft'; the value is never used.(§ˆÈI
-Wpython:S905ã":Remove or refactor this statement; it has no side effects.(£ŒÀÊùÿÿÿÿ
-Wpython:S905º":Remove or refactor this statement; it has no side effects.(°Ãğíúÿÿÿÿ
-apython:S1854Ğ"HRemove this assignment to local variable 'exp'; the value is never used.(çíÇñ

@@ -1,26 +1,0 @@
-
-Vpython:S905R":Remove or refactor this statement; it has no side effects.(ÅÜ ıÿÿÿÿ
-Vpython:S905W":Remove or refactor this statement; it has no side effects.(ÎùÑ•şÿÿÿÿ
-hpython:S1764["KCorrect one of the identical sub-expressions on both sides of operator ">".(ÈÂ„¼ùÿÿÿÿ
-Qpython:S905^":Remove or refactor this statement; it has no side effects.( Å¶×
-Qpython:S905g":Remove or refactor this statement; it has no side effects.(æ€Ø
-Vpython:S905i":Remove or refactor this statement; it has no side effects.(ÈÈ™«üÿÿÿÿ
-Vpython:S905k":Remove or refactor this statement; it has no side effects.(Î¹Ğúüÿÿÿÿ
-Qpython:S905m":Remove or refactor this statement; it has no side effects.(ú¡÷µ
-Qpython:S905s":Remove or refactor this statement; it has no side effects.(ÿœŠ°
-Qpython:S905u":Remove or refactor this statement; it has no side effects.(ß’â«
-Rpython:S905¯":Remove or refactor this statement; it has no side effects.(¶ôìó
-Wpython:S905±":Remove or refactor this statement; it has no side effects.(’ÇñŒùÿÿÿÿ
-Wpython:S905³":Remove or refactor this statement; it has no side effects.(ºì´‚ûÿÿÿÿ
-Rpython:S905µ":Remove or refactor this statement; it has no side effects.(âÈî•
-Wpython:S905‘":Remove or refactor this statement; it has no side effects.(ÅÜ ıÿÿÿÿ
-Rpython:S905š":Remove or refactor this statement; it has no side effects.(æ€Ø
-Wpython:S905œ":Remove or refactor this statement; it has no side effects.(ÈÈ™«üÿÿÿÿ
-Rpython:S905":Remove or refactor this statement; it has no side effects.(ÿœŠ°
-Rpython:S905 ":Remove or refactor this statement; it has no side effects.(ß’â«
-Wpython:S905£":Remove or refactor this statement; it has no side effects.(Î¹Ğúüÿÿÿÿ
-Rpython:S905¥":Remove or refactor this statement; it has no side effects.(ú¡÷µ
-Rpython:S905¨":Remove or refactor this statement; it has no side effects.(Ğ”Ùá
-Rpython:S905ª":Remove or refactor this statement; it has no side effects.(£ãğè
-Qpython:S905Ë":Remove or refactor this statement; it has no side effects.(ÖÙ†H
-Qpython:S905Ó":Remove or refactor this statement; it has no side effects.(ÖÙ†H

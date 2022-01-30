@@ -1,22 +1,0 @@
-
-mpython:S1192÷"ODefine a constant instead of duplicating this literal '#pydocsignout#' 3 times.(ï½‰†üÿÿÿÿ
-dpython:S1192’"FDefine a constant instead of duplicating this literal 'len..' 6 times.(¤‹æúÿÿÿÿ
-dpython:S1192"KDefine a constant instead of duplicating this literal '--- #note#' 4 times.(Ş¼’É
-opython:S1192Ï"QDefine a constant instead of duplicating this literal ',&#varname#_capi' 8 times.(µÅ¾ûÿÿÿÿ
-½python:S1192”"œDefine a constant instead of duplicating this literal '    {\"#name#\",-1,{{-1}},0,(char *)#fortranname#,(f2py_init_func)#apiname#,doc_#apiname#},' 3 times.(ä‚ÿÈ8ÆßÊ—á/
-bpython:S1192õ"IDefine a constant instead of duplicating this literal '#ctype#' 12 times.(äûÎ 
-cpython:S1192"KDefine a constant instead of duplicating this literal ',#varname#' 3 times.(®§•
-lpython:S1192õ"SDefine a constant instead of duplicating this literal '#ctype#_from_pyobj' 3 times.(”«Ì
-Úpython:S1192“"´Define a constant instead of duplicating this literal '    {\"#name#\",-1,{{-1}},0,(char *)#F_FUNC#(#fortranname#,#FORTRANNAME#),(f2py_init_func)#apiname#,doc_#apiname#},' 3 times.(ö¨şÎşÿÿÿÿ8ÆßÊ—á/
-±python:S1192•"‹Define a constant instead of duplicating this literal '    {\"#name#\",-1,{{-1}},0,NULL,(f2py_init_func)#apiname#,doc_#apiname#},' 4 times.(›«¥ãıÿÿÿÿ8ÆßÊ—á/
-dpython:S1192á"KDefine a constant instead of duplicating this literal '#varname#,' 6 times.(ÿãØ
-ppython:S1192Õ"WDefine a constant instead of duplicating this literal 'try_pyarr_from_#ctype#' 3 times.(Òğ˜µ
-¡python:S1192Á"‡Define a constant instead of duplicating this literal """\
-    if (#setjmpbuf#) {
-        f2py_success = 0;
-    } else {""" 3 times.(œ¢ÈŸ
-ˆpython:S1192Ì"hDefine a constant instead of duplicating this literal '    PyObject *#varname#_capi = Py_None;' 5 times.(Œ‡Ş»8ÆßÊ—á/
-;python:S125X"Remove this commented out code.(ñ ´îúÿÿÿÿ
-rpython:S3776š	"TRefactor this function to reduce its Cognitive Complexity from 86 to the 15 allowed.(Ò©Âøÿÿÿÿ
-rpython:S3776Ø
-"TRefactor this function to reduce its Cognitive Complexity from 73 to the 15 allowed.(ÙŠêìşÿÿÿÿ

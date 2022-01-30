@@ -669,7 +669,7 @@ class CmdLineTest(unittest.TestCase):
         self.maxDiff = None
         with support.temp_dir() as work_dir, support.temp_dir() as script_dir:
             script_name = _make_test_script(script_dir, '__main__', script)
-            # Reference output comes from directly executing __main__.py
+            # Source output comes from directly executing __main__.py
             # We omit PYTHONPATH and user site to align with isolated mode
             p = spawn_python("-Es", script_name, cwd=work_dir)
             out_by_name = kill_python(p).decode().splitlines()
@@ -703,7 +703,7 @@ class CmdLineTest(unittest.TestCase):
             script_dir = os.path.join(work_dir, "script_pkg")
             os.mkdir(script_dir)
             script_name = _make_test_script(script_dir, '__main__', script)
-            # Reference output comes from `-m script_pkg.__main__`
+            # Source output comes from `-m script_pkg.__main__`
             # We omit PYTHONPATH and user site to better align with the
             # direct execution test cases
             p = spawn_python("-sm", "script_pkg.__main__", cwd=work_dir)

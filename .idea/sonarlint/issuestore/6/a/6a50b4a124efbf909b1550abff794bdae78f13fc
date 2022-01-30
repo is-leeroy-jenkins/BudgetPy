@@ -1,22 +1,0 @@
-
-`python:S1192‘"GDefine a constant instead of duplicating this literal 'M8[as]' 4 times.(ˆçÖ˜
-xpython:S1192¦"ZDefine a constant instead of duplicating this literal "[     -1   'NaT' 1234567]" 3 times.(åì™ıÿÿÿÿ
-‘python:S1192½"sDefine a constant instead of duplicating this literal b"cnumpy\ndtype\np0\n(S'M8'\np1\nI0\nI1\ntp2\nRp3\n" 3 times.(İ÷€ûùÿÿÿÿ
-dpython:S1192Å"KDefine a constant instead of duplicating this literal 'US/Pacific' 4 times.(ı”¤ß
-dpython:S1192Á"KDefine a constant instead of duplicating this literal 'US/Central' 3 times.(–åşË
-jpython:S1192µ"QDefine a constant instead of duplicating this literal '2010-03-15T06:30' 4 times.(Á£Œ‰
-ipython:S1192Ô"PDefine a constant instead of duplicating this literal 'timedelta64[ns]' 6 times.(™¶­­
-lpython:S1192ˆ"TDefine a constant instead of duplicating this literal '2032-07-18T12:23:34' 3 times.(‰È‹f
-fpython:S1192È"HDefine a constant instead of duplicating this literal '>M8[us]' 4 times.(¿õ¡€ùÿÿÿÿ
-_python:S1192ø"GDefine a constant instead of duplicating this literal 'M8[ns]' 9 times.(å¢¾7
-_python:S1192ÿ"GDefine a constant instead of duplicating this literal 'M8[ps]' 4 times.(ŞÆ‰
-tpython:S1192û"[Define a constant instead of duplicating this literal '2032-07-18T12:23:34.123456' 4 times.(üŞ¹–
-mpython:S1192Ã"TDefine a constant instead of duplicating this literal '2038-01-19T03:14:07' 3 times.(›“øâ
-mpython:S1192"HDefine a constant instead of duplicating this literal 'M8[us]' 51 times.(ûÈ„»üÿÿÿÿ8ÔÓË—á/
-ppython:S117Õ"SRename this local variable "mM" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š€Çÿıÿÿÿÿ
-Rpython:S905¥":Remove or refactor this statement; it has no side effects.(éÀîõ
-Rpython:S905¾
-":Remove or refactor this statement; it has no side effects.(•Ê¦
-<python:S125Š"Remove this commented out code.(‘ñŸûÿÿÿÿ
-Wpython:S905Ê":Remove or refactor this statement; it has no side effects.(éàƒùÿÿÿÿ
-Wpython:S905Ş":Remove or refactor this statement; it has no side effects.(éàƒùÿÿÿÿ

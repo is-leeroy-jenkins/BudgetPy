@@ -1,18 +1,0 @@
-
-mpython:S3776T"URefactor this function to reduce its Cognitive Complexity from 157 to the 15 allowed.(ş½®
-«python:S1515˜"’Add a parameter to the parent lambda function and use variable "a" as its default value; The value of "a" might change at the next loop iteration.(¦û³j
-±python:S1515ª"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.( ¸á ûÿÿÿÿ
-±python:S1515°"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.( ¸á ûÿÿÿÿ
-±python:S1515½"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.( ¸á ûÿÿÿÿ
-±python:S1515Ğ"’Add a parameter to the parent lambda function and use variable "a" as its default value; The value of "a" might change at the next loop iteration.(ı¸³¯ùÿÿÿÿ
-±python:S1515ä"’Add a parameter to the parent lambda function and use variable "a" as its default value; The value of "a" might change at the next loop iteration.(¬„£‚ûÿÿÿÿ
-«python:S1515æ"’Add a parameter to the parent lambda function and use variable "a" as its default value; The value of "a" might change at the next loop iteration.(¦û³j
-«python:S1515ó"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(è³ã
-±python:S1515ô"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(ŒîÙ‡ıÿÿÿÿ
-¬python:S1515õ"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(ÂûóÙ
-¬python:S1515÷"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(³Èªù
-±python:S1515ø"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(¤Ğ®›ıÿÿÿÿ
-¬python:S1515ú"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(ÂûóÙ
-±python:S1515ü"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(Ã·™øÿÿÿÿ
-¬python:S1515"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(ÂûóÙ
-±python:S1515„"’Add a parameter to the parent lambda function and use variable "y" as its default value; The value of "y" might change at the next loop iteration.(Ã·™øÿÿÿÿ

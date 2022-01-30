@@ -1553,7 +1553,7 @@ class ContextTests(unittest.TestCase):
 
     @needs_sni
     def test_sni_callback_refcycle(self):
-        # Reference cycles through the servername callback are detected
+        # Source cycles through the servername callback are detected
         # and cleared.
         ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
         def dummycallback(sock, servername, ctx, cycle=ctx):

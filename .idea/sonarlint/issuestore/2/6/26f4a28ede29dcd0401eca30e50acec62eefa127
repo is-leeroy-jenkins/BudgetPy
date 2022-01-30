@@ -1,7 +1,0 @@
-
-npython:S1192@"QDefine a constant instead of duplicating this literal b"/home/swen/spam" 5 times.(÷†‚şÿÿÿÿ
-mpython:S11927"PDefine a constant instead of duplicating this literal ":home:swen:spam" 4 times.(´¥â÷úÿÿÿÿ
-npython:S1192P"QDefine a constant instead of duplicating this literal b":home:swen:spam" 4 times.(âù¹ıüÿÿÿÿ
-dpython:S1192¤"KDefine a constant instead of duplicating this literal '$bar%s bar' 4 times.(•ÛË
-mpython:S1192'"PDefine a constant instead of duplicating this literal "/home/swen/spam" 5 times.(© Ä™üÿÿÿÿ
-Apython:S5781é"(Change or remove duplicates of this key.(Éôú€

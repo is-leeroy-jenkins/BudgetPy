@@ -1,37 +1,0 @@
-
-_python:S1192ë"FDefine a constant instead of duplicating this literal "(2)i," 5 times.(ØƒÜŒ
-epython:S1192›	"GDefine a constant instead of duplicating this literal "m8[ns]" 5 times.(¶±Þšÿÿÿÿÿ
-gpython:S1192·"IDefine a constant instead of duplicating this literal 'skip me!' 4 times.(™é¬ðýÿÿÿÿ
-Mpython:S1481T"5Remove the unused local variable "__tracebackhide__".(äÒµ
-~python:S101ê"fRename class "TestNPY_CHAR" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¢³³á
-‡python:S101ò"jRename class "TestPyArray_AS1D" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ìÎÉæüÿÿÿÿ
-‚python:S101ø"jRename class "TestPyArray_AS2D" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ñê‚¾
-ˆpython:S101þ"kRename class "Test_UPDATEIFCOPY" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Éý‚ÿûÿÿÿÿ
-ˆpython:S101ù"pRename class "Test_GetSet_NumericOps" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¸¨©…
-Cpython:S1481§"%Remove the unused local variable "i".(×‚îðùÿÿÿÿ
-npython:S117ž"VRename this local variable "MyArr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔôÕÚ
-npython:S117§"VRename this local variable "MyArr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔôÕÚ
-npython:S117´"VRename this local variable "MyArr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔôÕÚ
-npython:S117Â"VRename this local variable "MyArr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û ÇÅ
-npython:S117Ö"VRename this local variable "MyArr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û ÇÅ
-ypython:S1186‚"[Add a nested comment explaining why this function is empty, or complete the implementation.(”ÕÏ‰üÿÿÿÿ
-tpython:S1186‹"[Add a nested comment explaining why this function is empty, or complete the implementation.(½Ë¯¯
-ypython:S1186"[Add a nested comment explaining why this function is empty, or complete the implementation.(ºƒ¶äüÿÿÿÿ
-tpython:S1186“"[Add a nested comment explaining why this function is empty, or complete the implementation.(ö€ñþ
-[python:S112¤">Replace this generic exception class with a more specific one.(Ÿ¾¤‡ùÿÿÿÿ
-Vpython:S112±">Replace this generic exception class with a more specific one.(êøŠ–
-[python:S112Á">Replace this generic exception class with a more specific one.(Ÿ¾¤‡ùÿÿÿÿ
-Vpython:S112Ï">Replace this generic exception class with a more specific one.(êøŠ–
->python:S1481Ù"%Remove the unused local variable "j".(¸è¨‰
->python:S1481æ"%Remove the unused local variable "j".(ÚÁ–¼
-Apython:S108Ú")Either remove or fill this block of code.(ã‘Û¾
-Vpython:S112Þ">Replace this generic exception class with a more specific one.(äÀ¢å
-Apython:S108ç")Either remove or fill this block of code.(ã‘Û¾
-Vpython:S112é">Replace this generic exception class with a more specific one.(£Øßñ
->python:S1481ù"%Remove the unused local variable "j".(¸è¨‰
->python:S1481‡"%Remove the unused local variable "j".(ÚÁ–¼
-Apython:S108ú")Either remove or fill this block of code.(ã‘Û¾
-Vpython:S112þ">Replace this generic exception class with a more specific one.(äÀ¢å
-Apython:S108ˆ")Either remove or fill this block of code.(ã‘Û¾
-Vpython:S112Š">Replace this generic exception class with a more specific one.(£Øßñ
-tpython:S1186’"[Add a nested comment explaining why this function is empty, or complete the implementation.(¤¤¯¹

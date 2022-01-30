@@ -1,9 +1,0 @@
-
-Hpython:S1066ô"/Merge this if statement with the enclosing one.(µ¥ƒ·
-Hpython:S5806m"+Rename this variable; it shadows a builtin.(ˆëº‘ÿÿÿÿÿ
-|python:S1542ã"WRename function "pandasSQL_builder" to match the regular expression ^[a-z_][a-z0-9_]*$.(ö¡—§þÿÿÿÿ8ª‹æÚã/
-Apython:S108¿")Either remove or fill this block of code.(ã‘Û¾
-ypython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ê¬øªüÿÿÿÿ8ª‹æÚã/
-mpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(÷â©„
-rpython:S3776Æ"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(²í¿›üÿÿÿÿ
-mpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(”àÃá

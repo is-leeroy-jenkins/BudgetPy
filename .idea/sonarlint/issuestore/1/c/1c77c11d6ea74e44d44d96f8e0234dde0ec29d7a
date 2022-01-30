@@ -1,6 +1,0 @@
-
-python:S1192æ"aDefine a constant instead of duplicating this literal r"nested renamer is not supported" 4 times.(‘×ıáüÿÿÿÿ
-ipython:S1854Ù"KRemove this assignment to local variable 'result'; the value is never used.(é…¥«ûÿÿÿÿ
-mpython:S1542ª"TRename function "raiseException" to match the regular expression ^[a-z_][a-z0-9_]*$.(¢ş¯å
-apython:S1542ù"HRename function "P1" to match the regular expression ^[a-z_][a-z0-9_]*$.(³Ôâ
-jpython:S1134À"LTake the required action to fix the issue indicated by this "FIXME" comment.(©¡÷Šøÿÿÿÿ

@@ -1,8 +1,0 @@
-
-Cpython:S1481¾"%Remove the unused local variable "i".(ËŒºÙýÿÿÿÿ
-Apython:S5603Æ"(Remove this unused function declaration.(žÂ¦½
-mpython:S116Œ"PRename this field "tgtShape" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷èº»øÿÿÿÿ
-kpython:S116‰"NRename this field "argOne" to match the regular expression ^[_a-z][_a-z0-9]*$.(ˆÜ¶¢üÿÿÿÿ
-fpython:S116Š"NRename this field "argTwo" to match the regular expression ^[_a-z][_a-z0-9]*$.(ï€ðæ
-mpython:S116‹"PRename this field "argThree" to match the regular expression ^[_a-z][_a-z0-9]*$.(¡Ñ…Ìüÿÿÿÿ
-opython:S117®"WRename this local variable "argTwo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÇðÍ
