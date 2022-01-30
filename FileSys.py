@@ -2,6 +2,7 @@ import os as fp
 import io as fi
 import datetime as dt
 import openpyxl as xl
+import zipfile as zp
 
 class DataModel():
     ''' Defines object used to provide the path to data model databases '''
@@ -882,3 +883,42 @@ class ExcelReport():
         self.__columns = int( cols )
         self.__dimensions = ( self.__rows, self.__columns )
 
+class FileZipper( zp ):
+    __name = None
+    __path = None
+
+    @property
+    def path( self ):
+        if fp.path.exists( self.__path ):
+            return self.__path
+
+    @path.setter
+    def path( self, pt ):
+        if fp.path.exists( pt ) and fp.path.isfile( pt ):
+            self.__path = pt
+
+    @property
+    def name( self ):
+        if not self.__name == '':
+            return self.__name
+
+    @name.setter
+    def name( self, nm ):
+        if not nm == '':
+            self.__name = nm
+
+    def create( self ):
+        ''' Creates zip file'''
+        file = zp.ZipFile( self.__path )
+        file.write( self, self.__path, self.__name )
+
+    def extract( self ):
+        ''' Extracts zip file contents '''
+        if fp.path.exists( self.__path ):
+            file = zp.ZipFile( self.__path )
+            file.extractall( self, self.__path )
+
+    def __init__(self, path ):
+        super.__init__( self )
+        self.__path = path
+        self.__name = fp.path.basename( path )
