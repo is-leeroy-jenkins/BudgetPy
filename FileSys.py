@@ -398,7 +398,7 @@ class BudgetFile( fi.FileIO ):
 
     # Constructor
     def __init__( self, base ):
-        super().__init__()
+        super().__init__( base )
         self.__base =  base if not self.__base == '' else 'NS'
         self.__path = self.__base if not self.__base == '' else 'NS'
         self.__name = fp.path.basename( base ) if not base == '' else 'NS'
@@ -883,7 +883,7 @@ class ExcelReport():
         self.__columns = int( cols )
         self.__dimensions = ( self.__rows, self.__columns )
 
-class ZipFile( zp.ZipFile ):
+class ZipFile():
     __name = None
     __path = None
 
