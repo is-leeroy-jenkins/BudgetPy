@@ -1,62 +1,90 @@
 import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
+import os as os
 
-class Source():
-    '''Provides iterator for the Source data tables '''
-    __data = [ ]
-
-    @property
-    def data( self ):
-        ''' Property used to store table names in a list '''
-        if self.__data is not None:
-            return iter( self.__data )
-
-    def __init__( self ):
-        self.__data = [ 'Accounts', 'ActivityCodes',
-                        'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
-                        'CostAreas', 'CPIC', 'Divisions',
-                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                        'Goals', 'GsPayScale', 'Images',
-                        'Messages', 'NationalPrograms', 'Objectives',
-                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                        'ProgramProjects', 'Projects', 'Providers',
-                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                        'SchemaTypes', 'Sources' ]
-
-    def __iter__( self ):
-        if len( self.__data ) > 0:
-            for i in self.__data:
-                yield i
-
-class Reference():
-    '''Provides iterator for the Source data tables '''
-    __data = [ ]
+class DataModel():
+    ''' Defines object used to provide the path to data model databases '''
+    __accesspath = None
+    __sqlitepath = None
+    __mssqlpath = None
 
     @property
-    def data( self ):
-        ''' Property used to store table names in a list '''
-        if self.__data is not None:
-            return iter( self.__data )
+    def access( self ):
+        if self.__accesspath is not None:
+            return str( self.__accesspath )
+
+    @access.setter
+    def access( self, path ):
+        if path is not None:
+            self.__accesspath = str( path )
+
+    @property
+    def sqlite( self ):
+        if self.__sqlitepath is not None:
+            return str( self.__sqlitepath )
+
+    @sqlite.setter
+    def sqlite( self, path ):
+        if path is not None:
+            self.__sqlitepath = str( path )
+
+    @property
+    def sqlserver( self ):
+        if self.__mssqlpath is not None:
+            return str( self.__mssqlpath )
+
+    @sqlserver.setter
+    def sqlserver( self, path ):
+        if path is not None:
+            self.__mssqlpath = str( path )
 
     def __init__( self ):
-        self.__data = [ 'Accounts', 'ActivityCodes',
-                        'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
-                        'CostAreas', 'CPIC', 'Divisions',
-                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                        'Goals', 'GsPayScale', 'Images',
-                        'Messages', 'NationalPrograms', 'Objectives',
-                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                        'ProgramProjects', 'Projects', 'Providers',
-                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                        'SchemaTypes', 'Sources' ]
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\Data.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\Data.db'
+        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\Data.mdf'
 
-    def __iter__( self ):
-        if len( self.__data ) > 0:
-            for i in self.__data:
-                yield i
+class ReferenceModel():
+    '''Defines object used to provide paths to the references model databases '''
+    __accesspath = None
+    __sqlitepath = None
+    __mssqlpath = None
+
+    @property
+    def access( self ):
+        if self.__accesspath is not None:
+            return str( self.__accesspath )
+
+    @access.setter
+    def access( self, path ):
+        if os.path.exists( path ):
+            self.__accesspath = str( path )
+
+    @property
+    def sqlite( self ):
+        if self.__sqlitepath is not None:
+            return str( self.__sqlitepath )
+
+    @sqlite.setter
+    def sqlite( self, path ):
+        if os.path.exists( path ):
+            self.__sqlitepath = str( path )
+
+    @property
+    def sqlserver( self ):
+        if self.__mssqlpath is not None:
+            return str( self.__mssqlpath )
+
+    def __init__( self ):
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\References.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\References.db'
+        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\References.mdf'
 
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
@@ -94,15 +122,14 @@ class CriteriaBuilder():
             return self.__criteria
 
     @pairs.setter
-    def pairs( self, namevaluepairs ):
+    def pairs( self, nvpairs ):
         ''' builds criteria from name value pairs'''
-        if isinstance( namevaluepairs, dict ):
-            self.__criteria = namevaluepairs
+        if isinstance( nvpairs, dict ):
+            self.__criteria = nvpairs
 
     def __init__( self, cmd = 'SELECT' ):
         self.__and = ' AND '
         self.__where = ' WHERE '
-        self.__or = ' OR '
         self.__cmd = cmd
         self.__sql = [ 'SELECT', 'INSERT', 'UPDATE', 'CREATE',
                        'ALTER', 'DROP', 'DETACH' ]
@@ -115,6 +142,7 @@ class DataRow( sl.Row ):
     __data = None
     __values = None
     __id = None
+    __record = None
 
     @property
     def index( self ):
@@ -133,7 +161,7 @@ class DataRow( sl.Row ):
 
     @data.setter
     def data( self, items ):
-        if isinstance( items, () ):
+        if isinstance( items, dict ):
             self.__items = items
 
     @property
@@ -143,8 +171,8 @@ class DataRow( sl.Row ):
 
     @items.setter
     def items( self, data ):
-        if isinstance( data, dict ):
-            self.__items = tuple( data.values() )
+        if isinstance( data, tuple ):
+            self.__items = data
 
     @property
     def names( self ):
@@ -182,7 +210,7 @@ class DataRow( sl.Row ):
         self.__items = dict( items )
         self.__id = int( items[ 0 ] )
         self.__names = list( self.__items.keys() )
-        self.__values = tuple( self.__items.values() )
+        self.__values = self.__items.values()
 
     def __str__( self ):
         return 'Row ID: ' + str( self.__id )
@@ -356,13 +384,66 @@ class DataTable( pd.DataFrame ):
         super().__init__()
         self.__base = str( name )
         self.__name = self.__base
-        self.__data = pd.DataFrame
+        self.__data = pd.DataFrame( self.__name )
         self.__columns = self.__data.columns
         self.__rows = self.__data.items
 
     def __str__( self ):
         if self.__name is not None:
             return self.__name
+
+class Source():
+    '''Provides iterator for the
+    Budget Execution table tables '''
+    __data = [ ]
+    __references = [ ]
+
+    @property
+    def data( self ):
+        ''' Property used to store table names in a list '''
+        if self.__data is not None:
+            return iter( self.__data )
+
+    @property
+    def references( self ):
+        ''' Property used to store table names in a list '''
+        if self.__references is not None:
+            return iter( self.__references )
+
+    def __init__( self ):
+        self.__data = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
+                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
+                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
+                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
+                        'ObjectClassOutlays', 'CarryoverOutlays', 'UnobligatedAuthority',
+                        'QueryDefinitions',  'RegionalAuthority', 'SpendingRates',
+                        'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
+                        'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations',
+                        'BudgetControls', 'AppropriationDocuments', 'BudgetDocuments',
+                        'Apportionments', 'BudgetOutlays', 'BudgetResourceExecution',
+                        'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
+                        'StatusOfFunds', 'Supplementals', 'Transfers',
+                        'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
+                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                        'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
+                        'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
+                        'AdministrativeRequests']
+        self.__references = [ 'Accounts', 'ActivityCodes',
+                        'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
+                        'CostAreas', 'CPIC', 'Divisions',
+                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                        'Goals', 'GsPayScale', 'Images',
+                        'Messages', 'NationalPrograms', 'Objectives',
+                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                        'ProgramProjects', 'Projects', 'Providers',
+                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                        'SchemaTypes', 'Sources' ]
+
+    def __iter__( self ):
+        if len( self.__data ) > 0:
+            for i in self.__data:
+                yield i
 
 class AccessData():
     '''Builds the budget execution data classes'''
@@ -423,11 +504,11 @@ class AccessData():
         if name is not None:
             self.__driver = name
 
-    def get_connection( self ):
-        if self.__connstr is not None:
+    def getconnection( self ):
+        if not self.__connstr == '':
             return db.connect( self.__connstr )
 
-    def __init__( self, table = None ):
+    def __init__( self, table ):
         self.__source = table
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \

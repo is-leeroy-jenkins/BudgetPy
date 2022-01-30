@@ -8,7 +8,7 @@ d.items() -> list(d.items())
 d.values() -> list(d.values())
 
 d.iterkeys() -> iter(d.keys())
-d.iteritems() -> iter(d.items())
+d.iterate() -> iter(d.items())
 d.itervalues() -> iter(d.values())
 
 d.viewkeys() -> d.keys()
@@ -44,7 +44,7 @@ class FixDict(fixer_base.BaseFix):
     PATTERN = """
     power< head=any+
          trailer< '.' method=('keys'|'items'|'values'|
-                              'iterkeys'|'iteritems'|'itervalues'|
+                              'iterkeys'|'iterate'|'itervalues'|
                               'viewkeys'|'viewitems'|'viewvalues') >
          parens=trailer< '(' ')' >
          tail=any*

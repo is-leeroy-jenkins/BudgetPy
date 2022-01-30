@@ -316,8 +316,8 @@ class TestMailbox(TestBase):
         self._check_iteration(self._box.values, do_keys=False, do_values=True)
 
     def test_iteritems(self):
-        # Get keys and values using iteritems()
-        self._check_iteration(self._box.iteritems, do_keys=True,
+        # Get keys and values using iterate()
+        self._check_iteration(self._box.iterate, do_keys=True,
                               do_values=True)
 
     def test_items(self):

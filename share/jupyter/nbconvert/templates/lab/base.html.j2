@@ -89,13 +89,17 @@
 {% endblock output %}
 
 {% block markdowncell scoped %}
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 {%- if resources.global_content_filter.include_input_prompt-%}
     {{ self.empty_in_prompt() }}
 {%- endif -%}
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput {{ celltags(cell) }}" data-mime-type="text/markdown">
 {{ cell.source  | markdown2html | strip_files_prefix }}
+</div>
 </div>
 </div>
 </div>
@@ -176,9 +180,17 @@ width={{ width }}
 {%- if height is not none %}
 height={{ height }}
 {%- endif %}
+class="
 {%- if output | get_metadata('unconfined', 'image/png') %}
-class="unconfined"
+unconfined
 {%- endif %}
+{%- if output | get_metadata('needs_background', 'image/png') == 'light' %}
+jp-needs-light-background
+{%- endif %}
+{%- if output | get_metadata('needs_background', 'image/png') == 'dark' %}
+jp-needs-dark-background
+{%- endif %}
+"
 >
 </div>
 {%- endblock data_png %}
@@ -198,9 +210,17 @@ width={{ width }}
 {%- if height is not none %}
 height={{ height }}
 {%- endif %}
+class="
 {%- if output | get_metadata('unconfined', 'image/jpeg') %}
-class="unconfined"
+unconfined
 {%- endif %}
+{%- if output | get_metadata('needs_background', 'image/jpeg') == 'light' %}
+jp-needs-light-background
+{%- endif %}
+{%- if output | get_metadata('needs_background', 'image/jpeg') == 'dark' %}
+jp-needs-dark-background
+{%- endif %}
+"
 >
 </div>
 {%- endblock data_jpg %}

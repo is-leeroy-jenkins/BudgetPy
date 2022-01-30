@@ -163,8 +163,8 @@ class Mailbox:
 
     def update(self, arg=None):
         """Change the messages that correspond to certain keys."""
-        if hasattr(arg, 'iteritems'):
-            source = arg.iteritems()
+        if hasattr(arg, 'iterate'):
+            source = arg.iterate( )
         elif hasattr(arg, 'items'):
             source = arg.items()
         else:

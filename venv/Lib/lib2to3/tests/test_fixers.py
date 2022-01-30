@@ -1355,7 +1355,7 @@ class Test_dict(FixerTestCase):
         self.check(b, a)
 
     def test_05(self):
-        b = "d.iteritems()"
+        b = "d.iterate()"
         a = "iter(d.items())"
         self.check(b, a)
 
