@@ -54,8 +54,6 @@ YLib/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/_debug_adapter/pydevd
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-8
-Ninja.py,8\b\8bd840fba2dbdab27f36c7587e14a47f48cdbb59
 <
 Execution.py,2\d\2df21b90c8ea48d7cc2f85009a182200e6888db7
 C
