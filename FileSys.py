@@ -396,7 +396,6 @@ class BudgetFile( fi.FileIO ):
             for line in lines:
                 self.__contents.append( open( self.__path, 'w' ).write( line ) )
 
-    # Constructor
     def __init__( self, base ):
         super().__init__( base )
         self.__base =  base if not self.__base == '' else 'NS'
@@ -910,7 +909,7 @@ class ZipFile():
     def create( self ):
         ''' Creates zip file'''
         file = zp.ZipFile( self.__path )
-        file.write( self, self.__path, self.__name )
+        file.write( self.__path )
 
     def unzip( self ):
         ''' Extracts zip file contents '''
