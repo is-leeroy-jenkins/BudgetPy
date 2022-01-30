@@ -919,6 +919,5 @@ class ZipFile():
             file.extractall( self, self.__path )
 
     def __init__(self, path ):
-        super().__init__( path )
         self.__path = path
         self.__name = fp.path.basename( path )
