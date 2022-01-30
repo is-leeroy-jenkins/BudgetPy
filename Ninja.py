@@ -88,22 +88,9 @@ class ReferenceModel():
 
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
-    __and = None
-    __where = None
-    __or = None
     __criteria = None
     __cmd = None
     __sql = None
-
-    @property
-    def AND( self ):
-        if self.__and is not None:
-            return self.__and
-
-    @property
-    def WHERE( self ):
-        if self.__where is not None:
-            return self.__where
 
     @property
     def command( self ):
@@ -122,17 +109,23 @@ class CriteriaBuilder():
             return self.__criteria
 
     @pairs.setter
-    def pairs( self, nvpairs ):
+    def pairs( self, namevaluepairs ):
         ''' builds criteria from name value pairs'''
-        if isinstance( nvpairs, dict ):
-            self.__criteria = nvpairs
+        if isinstance( namevaluepairs, dict ):
+            self.__criteria = namevaluepairs
 
-    def __init__( self, cmd = 'SELECT' ):
-        self.__and = ' AND '
-        self.__where = ' WHERE '
-        self.__cmd = cmd
+    def create( self ):
+        if self.__criteria is not None:
+            for name , value  in self.__criteria:
+                criteria = ''
+                criteria += f'{ name } = { value } AND'
+                criteria.rstrip( ' AND' )
+                return criteria
+
+    def __init__( self, nvp ):
         self.__sql = [ 'SELECT', 'INSERT', 'UPDATE', 'CREATE',
                        'ALTER', 'DROP', 'DETACH' ]
+        self.__criteria = nvp if isinstance( nvp, dict ) else None
 
 class DataRow( sl.Row ):
     '''Defines the DataRow Class'''
@@ -142,7 +135,6 @@ class DataRow( sl.Row ):
     __data = None
     __values = None
     __id = None
-    __record = None
 
     @property
     def index( self ):
@@ -343,11 +335,10 @@ class DataTable( pd.DataFrame ):
     __name = None
     __data = None
     __columns = None
-    __records = None
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
@@ -380,13 +371,18 @@ class DataTable( pd.DataFrame ):
         if self.__rows is not None:
             return self.__rows
 
+    @rows.setter
+    def rows( self , items ):
+        if isinstance( items, list ):
+            self.__rows = items
+
     def __init__( self, name ):
         super().__init__()
         self.__base = str( name )
         self.__name = self.__base
         self.__data = pd.DataFrame( self.__name )
+        self.__rows = [ tuple( r ) for r in self.__data[ 0 : ] ]
         self.__columns = self.__data.columns
-        self.__rows = self.__data.items
 
     def __str__( self ):
         if self.__name is not None:
@@ -394,7 +390,7 @@ class DataTable( pd.DataFrame ):
 
 class Source():
     '''Provides iterator for the
-    Budget Execution table tables '''
+    Budget Execution tables '''
     __data = [ ]
     __references = [ ]
 
@@ -452,7 +448,6 @@ class AccessData():
     __connstr = None
     __data = None
     __source = None
-    __query = None
 
     @property
     def path( self ):
@@ -523,7 +518,6 @@ class AccessReference():
     __connstr = None
     __data = None
     __source = None
-    __query = None
 
     @property
     def path( self ):
@@ -593,7 +587,6 @@ class SQLiteData():
     __connstr = None
     __data = None
     __source = None
-    __query = None
 
     @property
     def path( self ):
@@ -617,8 +610,8 @@ class SQLiteData():
 
     @property
     def connstr( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
+        if not self.__dbpath == '':
+            return  self.__dbpath
 
     @connstr.setter
     def connstr( self, conn ):
@@ -656,7 +649,6 @@ class SQLiteReference():
     __dbpath = None
     __connstr = None
     __data = None
-    __query = None
 
     @property
     def path( self ):
@@ -715,7 +707,6 @@ class SqlServerData():
     __source = None
     __dbpath = None
     __data = None
-    __query = None
 
     @property
     def path( self ):
@@ -739,8 +730,8 @@ class SqlServerData():
 
     @property
     def connstring( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
+        if not self.__dbpath == '':
+            return self.__dbpath
 
     @connstring.setter
     def connstring( self, conn ):
@@ -772,7 +763,6 @@ class SqlServerReference():
     __source = None
     __dbpath = None
     __data = None
-    __query = None
 
     @property
     def path( self ):
@@ -796,8 +786,8 @@ class SqlServerReference():
 
     @property
     def connstring( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
+        if not self.__dbpath == '':
+            return self.__dbpath
 
     @connstring.setter
     def connstring( self, conn ):

@@ -18,7 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.vs" />
     </content>
-    <orderEntry type="jdk" jdkName="BudgetPy" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (BudgetPy)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
     <orderEntry type="library" name="MicroPython" level="project" />
