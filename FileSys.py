@@ -235,7 +235,7 @@ class BudgetFile( fi.FileIO ):
 
     @property
     def path( self ):
-        if fp.path.isdir( self.__path ):
+        if fp.path.isfile( self.__path ):
             return str( self.__path )
 
     @path.setter
@@ -348,7 +348,7 @@ class BudgetFile( fi.FileIO ):
             return fp.path.exists( other )
 
     def delete( self, other ):
-        ''' deletes file at 'self.__path'   '''
+        ''' deletes file at 'self.__opath'   '''
         if fp.path.isfile( other ):
             fp.remove( other )
 
@@ -884,17 +884,21 @@ class ExcelReport():
 
 class ZipFile():
     __name = None
-    __path = None
+    __opath = None
+    __oext = None
+    __zpath = None
+    __zext = None
+    __bfile = None
 
     @property
     def path( self ):
-        if fp.path.exists( self.__path ):
-            return self.__path
+        if fp.path.exists( self.__opath ):
+            return self.__opath
 
     @path.setter
     def path( self, pt ):
         if fp.path.exists( pt ) and fp.path.isfile( pt ):
-            self.__path = pt
+            self.__opath = pt
 
     @property
     def name( self ):
@@ -908,15 +912,19 @@ class ZipFile():
 
     def create( self ):
         ''' Creates zip file'''
-        file = zp.ZipFile( self.__path )
-        file.write( self.__path )
+        if fp.path.exists( self.__zpath ):
+            zp.ZipFile( self.__zpath, 'w' )
 
     def unzip( self ):
         ''' Extracts zip file contents '''
-        if fp.path.exists( self.__path ):
-            file = zp.ZipFile( self.__path )
-            file.extractall( self, self.__path )
+        if fp.path.exists( self.__zpath ):
+            file = zp.ZipFile( self.__zpath )
+            file.extractall( self, self.__zpath )
 
     def __init__(self, path ):
-        self.__path = path
-        self.__name = fp.path.basename( path )
+        self.__zext = '.zip'
+        self.__opath = str( path )
+        self.__bfile = BudgetFile( self.__opath )
+        self.__oext = self.__bfile.extension
+        self.__zpath = self.__opath.replace( self.__oext, self.__zext )
+        self.__name = self.__zpath
