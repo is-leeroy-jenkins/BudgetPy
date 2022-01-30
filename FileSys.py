@@ -421,12 +421,9 @@ class BudgetFolder():
     __base = None
     __name = None
     __path = None
-    __size = None
     __parent = None
+    __dir = None
     __drive = None
-    __created = None
-    __modified = None
-    __accessed = None
     __current = None
 
     @property
@@ -454,24 +451,26 @@ class BudgetFolder():
             self.__path = str( list( fp.path.split( self.__base ) )[ 1 ] )
 
     @property
+    def directory( self ):
+        '''Returns string representing the name of the path 'base' '''
+        if not self.__dir == '':
+            return self.__dir
+
+    @directory.setter
+    def directory( self, path ):
+        '''Returns string representing the name of the path 'base' '''
+        if os.path.isdir( path ):
+            self.__dir = path
+
+    @property
     def path( self ):
-        if fp.path.isdir( self.__path ):
-            return str( self.__path )
+        if not self.__path == '':
+            return self.__path
 
     @path.setter
     def path( self, base ):
         if fp.path.exists( base ):
             self.__path = str( base )
-
-    @property
-    def size( self ):
-        if self.__base is not None:
-            return float( self.__size )
-
-    @size.setter
-    def size( self, num ):
-        if num is not None:
-            self.__size = float( num )
 
     @property
     def parent( self ):
@@ -492,36 +491,6 @@ class BudgetFolder():
     def drive( self, path ):
         if fp.path.ismount( path ):
             self.__drive = str( path )
-
-    @property
-    def modified( self ):
-        if self.__modified is not None:
-            return self.__modified
-
-    @modified.setter
-    def modified( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__modified = dt.date( yr, mo, dy )
-
-    @property
-    def accessed( self ):
-        if self.__accessed is not None:
-            return self.__accessed
-
-    @accessed.setter
-    def accessed( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__accessed = dt.date( yr, mo, dy )
-
-    @property
-    def created( self ):
-        if self.__created is not None:
-            return self.__created
-
-    @created.setter
-    def created( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__created = dt.date( yr, mo, dy )
 
     @property
     def current( self ):
@@ -586,11 +555,8 @@ class BudgetFolder():
     def __init__( self, base ):
         self.__base = base
         self.__name = fp.path.basename( base ) if not base == '' else 'NS'
-        self.__path = fp.path.abspath( base ) if not base == '' else 'NS'
-        self.__size = fp.path.getsize( base ) if not base == '' else 'NS'
-        self.__created = fp.path.getctime( base ) if not base == '' else 'NS'
-        self.__accessed = fp.path.getatime( base ) if not base == '' else 'NS'
-        self.__modified = fp.path.getmtime( base ) if not base == '' else 'NS'
+        self.__path = self.__base if not self.__base == '' else 'NS'
+        self.__dir = fp.mkdir( self.__path )
         self.__parent = fp.path.dirname( base ) if not base == '' else 'NS'
 
 class EmailMessage():

@@ -58,3 +58,5 @@ YLib/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/_debug_adapter/pydevd
 Ninja.py,8\b\8bd840fba2dbdab27f36c7587e14a47f48cdbb59
 <
 Execution.py,2\d\2df21b90c8ea48d7cc2f85009a182200e6888db7
+C
+venv/Lib/zipfile.py,8\d\8d657f6e160769e123e2eacdb372c04b168a9632
