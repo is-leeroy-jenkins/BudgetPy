@@ -1,0 +1,30 @@
+CREATE TABLE [dbo].[PayrollAuthority]
+(
+	[PayrollId] [int] IDENTITY(1,1) NOT NULL,
+	[AllocationsId] [int] NOT NULL,
+	[StatusOfFundsId] [int] NOT NULL,
+	[BFY] [text] NULL,
+	[EFY] [text] NULL,
+	[RpioCode] [text] NULL,
+	[RpioName] [text] NULL,
+	[BudgetLevel] [text] NULL,
+	[AhCode] [text] NULL,
+	[AhName] [text] NULL,
+	[FundCode] [text] NULL,
+	[FundName] [text] NULL,
+	[OrgCode] [text] NULL,
+	[OrgName] [text] NULL,
+	[AccountCode] [text] NULL,
+	[RcCode] [text] NULL,
+	[RcName] [text] NULL,
+	[BocCode] [tinyint] NULL,
+	[BocName] [text] NULL,
+	[Amount] [float] NULL,
+	[ProgramProjectCode] [text] NULL,
+	[ProgramProjectName] [text] NULL,
+	[ProgramAreaCode] [text] NULL,
+	[ProgramAreaName] [text] NULL,
+	[NpmCode] [text] NULL,
+	[NpmName] [text] NULL
+);
+

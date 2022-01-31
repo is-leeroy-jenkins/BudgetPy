@@ -499,7 +499,7 @@ class AccessData():
         if name is not None:
             self.__driver = name
 
-    def getconnection( self ):
+    def connect( self ):
         if not self.__connstr == '':
             return db.connect( self.__connstr )
 
@@ -671,7 +671,7 @@ class AccessReference():
         self.__connstr = f'{ self.__driver } { self.__dbpath }'
         self.__data = pd.DataFrame
 
-    def get_connection( self ):
+    def connect( self ):
         if self.__connstr is not None:
             return db.connect( self.__connstr )
 
@@ -816,6 +816,10 @@ class SQLiteData():
         if isinstance( dframe, pd.DataFrame ):
             self.__data = dframe
 
+    def connect( self ):
+        if self.__connstr is not None:
+            return sl.connect( self.__connstr )
+
     def __init__( self, table = None ):
         self.__source = str( table )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -826,10 +830,6 @@ class SQLiteData():
     def __str__( self ):
         if self.__dbpath is not None:
             return self.__dbpath
-
-    def connect( self ):
-        if self.__connstr is not None:
-            return sl.connect( self.__connstr )
 
 class SQLiteDataQueries():
     '''Provide pre-written sqlite sql statements '''
@@ -974,6 +974,10 @@ class SQLiteReference():
         if dframe is not None:
             self.__data = dframe
 
+    def connect( self ):
+        if self.__connstr is not None:
+            return sl.connect( self.__connstr )
+
     def __init__( self, table = None ):
         self.__source = str( table )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -981,10 +985,6 @@ class SQLiteReference():
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
         self.__data = [ ]
-
-    def get_connection( self ):
-        if self.__connstr is not None:
-            return sl.connect( self.__connstr )
 
 class SQLiteReferenceQueries():
     '''Provide pre-written sqlite sql statements '''
@@ -1147,62 +1147,62 @@ class SqlServerDataQueries():
     __al = None
 
     @property
-    def createtable( self ):
+    def createtables( self ):
         if not self.__ct =='':
             return self.__ct
 
-    @createtable.setter
-    def createtable( self, sql ):
+    @createtables.setter
+    def createtables( self, sql ):
         if not sql == '':
             self.__ct = sql
 
     @property
-    def createview( self ):
+    def createviews( self ):
         if not self.__cv == '':
             return self.__cv
 
-    @createview.setter
-    def createview( self, sql ):
+    @createviews.setter
+    def createviews( self, sql ):
         if not sql == '':
             self.__cv = sql
 
     @property
-    def insert( self ):
+    def inserts( self ):
         if not self.__in == '':
             return self.__in
 
-    @insert.setter
-    def insert( self, sql ):
+    @inserts.setter
+    def inserts( self, sql ):
         if not sql == '':
             self.__in = sql
 
     @property
-    def update( self ):
+    def updates( self ):
         if not self.__up == '':
             return self.__up
 
-    @update.setter
-    def update( self, sql ):
+    @updates.setter
+    def updates( self, sql ):
         if not sql == '':
             self.__up = sql
 
     @property
-    def select( self ):
+    def selects( self ):
         if not self.__se == '':
             return self.__se
 
-    @select.setter
-    def select( self, sql ):
+    @selects.setter
+    def selects( self, sql ):
         if not sql == '':
             self.__se = sql
 
     @property
-    def delete( self ):
+    def deletes( self ):
         if not self.__de == '':
             return self.__de
 
-    @delete.setter
-    def delete( self, sql ):
+    @deletes.setter
+    def deletes( self, sql ):
         if not sql == '':
             self.__de = sql
 
@@ -1295,72 +1295,72 @@ class SqlServerReferenceQueries():
     __al = None
 
     @property
-    def createtable( self ):
+    def createtables( self ):
         if not self.__ct =='':
             return self.__ct
 
-    @createtable.setter
-    def createtable( self, sql ):
+    @createtables.setter
+    def createtables( self, sql ):
         if not sql == '':
             self.__ct = sql
 
     @property
-    def createview( self ):
+    def createviews( self ):
         if not self.__cv == '':
             return self.__cv
 
-    @createview.setter
-    def createview( self, sql ):
+    @createviews.setter
+    def createviews( self, sql ):
         if not sql == '':
             self.__cv = sql
 
     @property
-    def insert( self ):
+    def inserts( self ):
         if not self.__in == '':
             return self.__in
 
-    @insert.setter
-    def insert( self, sql ):
+    @inserts.setter
+    def inserts( self, sql ):
         if not sql == '':
             self.__in = sql
 
     @property
-    def update( self ):
+    def updates( self ):
         if not self.__up == '':
             return self.__up
 
-    @update.setter
-    def update( self, sql ):
+    @updates.setter
+    def updates( self, sql ):
         if not sql == '':
             self.__up = sql
 
     @property
-    def select( self ):
+    def selects( self ):
         if not self.__se == '':
             return self.__se
 
-    @select.setter
-    def select( self, sql ):
+    @selects.setter
+    def selects( self, sql ):
         if not sql == '':
             self.__se = sql
 
     @property
-    def delete( self ):
+    def deletes( self ):
         if not self.__de == '':
             return self.__de
 
-    @delete.setter
-    def delete( self, sql ):
+    @deletes.setter
+    def deletes( self, sql ):
         if not sql == '':
             self.__de = sql
 
     @property
-    def alter( self ):
+    def alters( self ):
         if not self.__al == '':
             return self.__al
 
-    @alter.setter
-    def alter( self, sql ):
+    @alters.setter
+    def alters( self, sql ):
         if not sql == '':
             self.__al = sql
 
