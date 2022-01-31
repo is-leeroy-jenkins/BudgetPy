@@ -511,6 +511,100 @@ class AccessData():
         self.__connstr = f'{ self.__driver } { self.__dbpath }'
         self.__data = pd.DataFrame
 
+class AccessDataQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtables( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtables.setter
+    def createtables( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createviews( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createviews.setter
+    def createviews( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def inserts( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @inserts.setter
+    def inserts( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def updates( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @updates.setter
+    def updates( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def selects( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @selects.setter
+    def selects( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def deletes( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @deletes.setter
+    def deletes( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alters( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alters.setter
+    def alters( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\CREATE\TABLE'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\ALTER'
+
 class AccessReference():
     '''Builds the budget execution data classes'''
     __dbpath = None
@@ -581,6 +675,100 @@ class AccessReference():
         if self.__connstr is not None:
             return db.connect( self.__connstr )
 
+class AccessReferenceQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtable( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtable.setter
+    def createtable( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createview( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createview.setter
+    def createview( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def insert( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @insert.setter
+    def insert( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def update( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @update.setter
+    def update( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def select( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @select.setter
+    def select( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def delete( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @delete.setter
+    def delete( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alter( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alter.setter
+    def alter( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\CREATE\TABLE'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\ALTER'
+
 class SQLiteData():
     '''Builds the budget execution data classes'''
     __dbpath = None
@@ -639,9 +827,105 @@ class SQLiteData():
         if self.__dbpath is not None:
             return self.__dbpath
 
-    def get_connection( self ):
+    def connect( self ):
         if self.__connstr is not None:
             return sl.connect( self.__connstr )
+
+class SQLiteDataQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtables( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtables.setter
+    def createtables( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createviews( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createviews.setter
+    def createviews( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def inserts( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @inserts.setter
+    def inserts( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def updates( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @updates.setter
+    def updates( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def selects( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @selects.setter
+    def selects( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def deletes( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @deletes.setter
+    def deletes( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alters( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alters.setter
+    def alters( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\CREATE\TABLE'
+        self.__cv = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\CREATE\VIEW'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\ALTER'
 
 class SQLiteReference():
     '''Class representing the budget execution references models'''
@@ -702,6 +986,100 @@ class SQLiteReference():
         if self.__connstr is not None:
             return sl.connect( self.__connstr )
 
+class SQLiteReferenceQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtables( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtables.setter
+    def createtables( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createviews( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createviews.setter
+    def createviews( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def inserts( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @inserts.setter
+    def inserts( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def updates( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @updates.setter
+    def updates( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def selects( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @selects.setter
+    def selects( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def deletes( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @deletes.setter
+    def deletes( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alters( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alters.setter
+    def alters( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\CREATE\TABLE'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\ALTER'
+
 class SqlServerData():
     '''Builds the budget execution data classes'''
     __source = None
@@ -758,6 +1136,102 @@ class SqlServerData():
             r'\db\mssql\datamodels\Data.mdf'
         self.__data = pd.DataFrame
 
+class SqlServerDataQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtable( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtable.setter
+    def createtable( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createview( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createview.setter
+    def createview( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def insert( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @insert.setter
+    def insert( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def update( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @update.setter
+    def update( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def select( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @select.setter
+    def select( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def delete( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @delete.setter
+    def delete( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alter( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alter.setter
+    def alter( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\CREATE\TABLE'
+        self.__cv = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\CREATE\VIEW'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\ALTER'
+
 class SqlServerReference():
     '''Class representing the budget execution references models'''
     __source = None
@@ -809,3 +1283,97 @@ class SqlServerReference():
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\mssql\referencemodels\References.mdf'
         self.__data = pd.DataFrame
+
+class SqlServerReferenceQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtable( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtable.setter
+    def createtable( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createview( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createview.setter
+    def createview( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def insert( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @insert.setter
+    def insert( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def update( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @update.setter
+    def update( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def select( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @select.setter
+    def select( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def delete( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @delete.setter
+    def delete( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alter( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alter.setter
+    def alter( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\CREATE\TABLE'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\ALTER'
