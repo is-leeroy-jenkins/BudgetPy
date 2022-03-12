@@ -2,10 +2,8 @@
 # Distributed under the terms of the Modified BSD License.
 
 
-from unittest import TestCase
-
 import zmq
-from zmq.tests import BaseZMQTestCase, have_gevent, GreenTest
+from zmq.tests import BaseZMQTestCase, GreenTest, have_gevent
 
 
 class TestReqRep(BaseZMQTestCase):
@@ -14,7 +12,7 @@ class TestReqRep(BaseZMQTestCase):
 
         msg1 = b'message 1'
         msg2 = self.ping_pong(s1, s2, msg1)
-        self.assertEqual(msg1, msg2)
+        assert msg1 == msg2
 
     def test_multiple(self):
         s1, s2 = self.create_bound_pair(zmq.REQ, zmq.REP)
@@ -22,7 +20,7 @@ class TestReqRep(BaseZMQTestCase):
         for i in range(10):
             msg1 = i * b' '
             msg2 = self.ping_pong(s1, s2, msg1)
-            self.assertEqual(msg1, msg2)
+            assert msg1 == msg2
 
     def test_bad_send_recv(self):
         s1, s2 = self.create_bound_pair(zmq.REQ, zmq.REP)
@@ -36,17 +34,17 @@ class TestReqRep(BaseZMQTestCase):
         # I have to have this or we die on an Abort trap.
         msg1 = b'asdf'
         msg2 = self.ping_pong(s1, s2, msg1)
-        self.assertEqual(msg1, msg2)
+        assert msg1 == msg2
 
     def test_json(self):
         s1, s2 = self.create_bound_pair(zmq.REQ, zmq.REP)
         o = dict(a=10, b=list(range(10)))
-        o2 = self.ping_pong_json(s1, s2, o)
+        self.ping_pong_json(s1, s2, o)
 
     def test_pyobj(self):
         s1, s2 = self.create_bound_pair(zmq.REQ, zmq.REP)
         o = dict(a=10, b=range(10))
-        o2 = self.ping_pong_pyobj(s1, s2, o)
+        self.ping_pong_pyobj(s1, s2, o)
 
     def test_large_msg(self):
         s1, s2 = self.create_bound_pair(zmq.REQ, zmq.REP)
@@ -54,7 +52,7 @@ class TestReqRep(BaseZMQTestCase):
 
         for i in range(10):
             msg2 = self.ping_pong(s1, s2, msg1)
-            self.assertEqual(msg1, msg2)
+            assert msg1 == msg2
 
 
 if have_gevent:

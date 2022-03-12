@@ -1,5 +1,18 @@
-from __future__ import print_function, unicode_literals
-
+# encoding: UTF-8
+#
+# Copyright 2012-2022 Alejandro Autalán
+#
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3, as published
+# by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranties of
+# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+# PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program.  If not, see <http://www.gnu.org/licenses/>.
 import os
 from collections import OrderedDict
 
@@ -135,6 +148,14 @@ class UI2Code(Builder):
                     childid = self._code_realize(builder, childmeta)
                     code = builder.code_child_add(childid)
                     self._code.extend(code)
+
+                # configuration
+                configure = builder.code_configure()
+                self._code.extend(configure)
+
+                # layout? TODO: Review if layout is required here.
+                layout = builder.code_layout(parentid=masterid)
+                self._code.extend(layout)
 
         return self._process_results(target)
 

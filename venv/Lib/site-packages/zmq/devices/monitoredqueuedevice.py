@@ -4,9 +4,9 @@
 # Distributed under the terms of the Modified BSD License.
 
 
-from zmq import ZMQError, PUB
-from zmq.devices.proxydevice import ProxyBase, Proxy, ThreadProxy, ProcessProxy
+from zmq import PUB
 from zmq.devices.monitoredqueue import monitored_queue
+from zmq.devices.proxydevice import ProcessProxy, Proxy, ProxyBase, ThreadProxy
 
 
 class MonitoredQueueBase(ProxyBase):
@@ -44,16 +44,12 @@ class MonitoredQueue(MonitoredQueueBase, Proxy):
     A PUB socket is the most logical choice for the mon_socket, but it is not required.
     """
 
-    pass
-
 
 class ThreadMonitoredQueue(MonitoredQueueBase, ThreadProxy):
     """Run zmq.monitored_queue in a background thread.
 
     See MonitoredQueue and Proxy for details.
     """
-
-    pass
 
 
 class ProcessMonitoredQueue(MonitoredQueueBase, ProcessProxy):

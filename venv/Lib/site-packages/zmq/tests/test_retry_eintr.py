@@ -1,4 +1,3 @@
-# -*- coding: utf8 -*-
 # Copyright (C) PyZMQ Developers
 # Distributed under the terms of the Modified BSD License.
 
@@ -9,9 +8,7 @@ from threading import Thread
 from pytest import mark
 
 import zmq
-from zmq.tests import BaseZMQTestCase, SkipTest, skip_pypy
-from zmq.utils.strtypes import b
-
+from zmq.tests import BaseZMQTestCase, SkipTest
 
 # Partially based on EINTRBaseTest from CPython 3.5 eintr_tester
 
@@ -57,7 +54,7 @@ class TestEINTRSysCall(BaseZMQTestCase):
         push = self.socket(zmq.PUSH)
         push.sndtimeo = self.timeout_ms
         self.alarm()
-        self.assertRaises(zmq.Again, push.send, b('buf'))
+        self.assertRaises(zmq.Again, push.send, b'buf')
         assert self.timer_fired
 
     @mark.flaky(reruns=3)
@@ -69,7 +66,7 @@ class TestEINTRSysCall(BaseZMQTestCase):
 
         def send():
             time.sleep(2 * self.signal_delay)
-            y.send(b('ping'))
+            y.send(b'ping')
 
         t = Thread(target=send)
         t.start()
@@ -83,7 +80,7 @@ class TestEINTRSysCall(BaseZMQTestCase):
         push = self.socket(zmq.PUSH)
         push.linger = self.timeout_ms
         push.connect('tcp://127.0.0.1:5555')
-        push.send(b('ping'))
+        push.send(b'ping')
         time.sleep(0.1)
         self.alarm()
         self.context.destroy()

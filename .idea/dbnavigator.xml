@@ -106,7 +106,7 @@ FROM
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="385f0c55-7f53-42ff-80f2-bf9649b6e5f0" active="true">
+      <connection id="385f0c55-7f53-42ff-80f2-bf9649b6e5f0" active="true" signed="true">
         <database>
           <name value="BudgetPy SQLite" />
           <description value="" />
@@ -194,7 +194,7 @@ FROM
           <object-name-filters />
         </object-filters>
       </connection>
-      <connection id="68a23cd3-749f-401d-9c8a-108dd1afdaa8" active="true">
+      <connection id="68a23cd3-749f-401d-9c8a-108dd1afdaa8" active="true" signed="true">
         <database>
           <name value="SqlServer" />
           <description value="" />
@@ -275,7 +275,7 @@ FROM
           <object-name-filters />
         </object-filters>
       </connection>
-      <connection id="d0d5b611-7580-4105-b843-21ff32225a16" active="true">
+      <connection id="d0d5b611-7580-4105-b843-21ff32225a16" active="true" signed="true">
         <database>
           <name value="SQLite" />
           <description value="" />
