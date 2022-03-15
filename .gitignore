@@ -1,0 +1,17 @@
+/venv/Lib/site-packages/pywinpty-2.0.1.dist-info/INSTALLER
+/venv/Lib/site-packages/terminado-0.13.1.dist-info/INSTALLER
+/venv/Lib/site-packages/terminado-0.13.1.dist-info/LICENSE
+/.idea/markdown.xml
+/venv/Lib/site-packages/pywinpty-2.0.1.dist-info/METADATA
+/venv/Lib/site-packages/terminado-0.13.1.dist-info/METADATA
+/venv/Lib/site-packages/pywinpty-2.0.1.dist-info/RECORD
+/venv/Lib/site-packages/terminado-0.13.1.dist-info/RECORD
+/venv/Lib/site-packages/terminado-0.13.1.dist-info/REQUESTED
+/.idea/sonarlint.xml
+/.idea/sonarlint-state.xml
+/venv/Lib/site-packages/terminado-0.13.1.dist-info/top_level.txt
+/venv/Lib/site-packages/pywinpty-2.0.1.dist-info/WHEEL
+/venv/Lib/site-packages/terminado-0.13.1.dist-info/WHEEL
+*.db
+*.mdf
+*.ldf

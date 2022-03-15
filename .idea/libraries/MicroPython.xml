@@ -3,7 +3,6 @@
     <CLASSES>
       <root url="file://$APPLICATION_PLUGINS_DIR$/intellij-micropython/typehints/microbit" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES />
   </library>
 </component>
