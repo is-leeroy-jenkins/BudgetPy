@@ -1,6 +1,20 @@
-CREATE TABLE IF NOT EXISTS ReportingCodes
+CREATE TABLE "ProjectCostCodes" 
 (
-	ReportingCodesId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyReportingCodes PRIMARY KEY AUTOINCREMENT,
-    ReportingCode TEXT(255) NULL,
-    ReportingCodeName TEXT(255) NULL
+	"ProjectCostCodesId" INTEGER NOT NULL UNIQUE,
+	"BFY"	TEXT,
+	"RpioCode"	TEXT,
+	"RpioName"	TEXT,
+	"AhCode"	TEXT,
+	"AhName"	TEXT,
+	"FundCode"	TEXT,
+	"FundName"	TEXT,
+	"AccountCode"	TEXT,
+	"ProgramProjectName"	TEXT,
+	"BocCode"	TEXT,
+	"BocName"	TEXT,
+	"OrgCode"	TEXT,
+	"OrgName"	TEXT,
+	"VendorCode"	TEXT,
+	"VendorName"	TEXT,
+	PRIMARY KEY("ProjectCostCodeId" AUTOINCREMENT)
 );

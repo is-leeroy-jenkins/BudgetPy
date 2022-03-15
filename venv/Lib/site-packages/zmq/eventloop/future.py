@@ -9,14 +9,15 @@
 # Copyright (c) PyZMQ Developers.
 # Distributed under the terms of the Modified BSD License.
 
+import asyncio
 import warnings
-
-import zmq as _zmq
-
-from zmq._future import _AsyncPoller, _AsyncSocket
+from typing import Any, Type
 
 from tornado.concurrent import Future
 from tornado.ioloop import IOLoop
+
+import zmq as _zmq
+from zmq._future import _AsyncPoller, _AsyncSocket
 
 
 class CancelledError(Exception):
@@ -49,7 +50,7 @@ class _CancellableTornadoTimeout:
 
 
 class _AsyncTornado:
-    _Future = _TornadoFuture
+    _Future: Type[asyncio.Future] = _TornadoFuture
     _READ = IOLoop.READ
     _WRITE = IOLoop.WRITE
 
@@ -80,7 +81,7 @@ class Socket(_AsyncTornado, _AsyncSocket):
 Poller._socket_class = Socket
 
 
-class Context(_zmq.Context):
+class Context(_zmq.Context[Socket]):
 
     # avoid sharing instance with base Context class
     _instance = None
@@ -91,7 +92,7 @@ class Context(_zmq.Context):
     def _socket_class(self, socket_type):
         return Socket(self, socket_type)
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self: "Context", *args: Any, **kwargs: Any) -> None:
         io_loop = kwargs.pop('io_loop', None)
         if io_loop is not None:
             warnings.warn(
@@ -100,4 +101,4 @@ class Context(_zmq.Context):
                 DeprecationWarning,
                 stacklevel=2,
             )
-        super(Context, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)

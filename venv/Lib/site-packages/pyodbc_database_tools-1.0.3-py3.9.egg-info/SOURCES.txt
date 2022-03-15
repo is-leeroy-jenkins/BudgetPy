@@ -1,0 +1,8 @@
+setup.cfg
+setup.py
+dbtools/__init__.py
+pyodbc_database_tools.egg-info/PKG-INFO
+pyodbc_database_tools.egg-info/SOURCES.txt
+pyodbc_database_tools.egg-info/dependency_links.txt
+pyodbc_database_tools.egg-info/requires.txt
+pyodbc_database_tools.egg-info/top_level.txt

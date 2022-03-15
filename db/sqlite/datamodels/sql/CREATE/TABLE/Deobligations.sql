@@ -1,7 +1,8 @@
 CREATE TABLE Deobligations
 (
 	DeobligationId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyDeobligations PRIMARY KEY,
-	RPIO TEXT(255) NULL,
+	RpioCode TEXT(255) NULL,
+	RpioName TEXT(255) NULL,
 	BFY TEXT(255) NULL,
 	FundCode TEXT(255) NULL,
 	DocumentNumber TEXT(255) NULL,

@@ -1,501 +1,101 @@
-import os
-import io
-import datetime as dt
 import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
-import openpyxl as xl
+import os as os
 
-class BudgetPath():
-    '''Defines the BudgetPath class'''
-    __base = None
-    __path = None
-    __ext = None
-    __report = None
-
-    @property
-    def base( self ):
-        if self.__base is not None:
-            return self.__base
-
-    @base.setter
-    def base( self, path ):
-        if path is not None and os.path.exists( path ):
-            self.__base = str( path )
+class DataModel():
+    ''' Defines object used to provide the path to data model databases '''
+    __accesspath = None
+    __sqlitepath = None
+    __mssqlpath = None
 
     @property
-    def name( self ):
-        '''Returns string representing the name of the path 'base' '''
-        if os.path.exists( self.__base ):
-            return str( list( os.path.split( self.__base ) )[ 1 ] )
+    def access( self ):
+        if self.__accesspath is not None:
+            return str( self.__accesspath )
 
-    @name.setter
-    def name( self, path ):
-        '''Returns string representing the name of the path 'base' '''
-        if path is not None and os.path.exists( path ):
-            self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
-
-    @property
-    def path( self ):
-        if self.__path is not None:
-            return self.__path
-
-    @path.setter
-    def path( self, base ):
-        if os.path.exists( base ) is not None:
-            self.__path = str( base )
-
-    @property
-    def exists( self ):
-        if os.path.exists( self.__path ):
-            return True
-
-    @property
-    def isfolder( self ):
-        if os.path.isdir( self.__path ):
-            return True
-
-    @property
-    def isfile( self ):
-        if os.path.exists( self.__path ) and os.path.isfile( self.__path ):
-            return True
-
-    @property
-    def extension( self ):
-        if self.__ext is not None:
-            return str( self.__ext )
-
-    @extension.setter
-    def extension( self, ext ):
-        if ext is not None:
-            self.__ext = str( ext )
-
-    def verify( self, other ):
-        '''Verifies if the parameter 'other' exists'''
-        if os.path.exists( other ):
-            return True
-
-    def verify_file( self, other ):
-        if os.path.isfile( other ):
-            return True
-
-    def verify_folder( self, other ):
-        if os.path.isdir( other ):
-            return True
-
-    def get_extension( self, other ):
-        '''Returns string representing the file extension of 'other' '''
-        if os.path.exists( other ):
-            return list( os.path.splitext( other ) )[ 1 ]
-
-    def get_report( self ):
-        if self.__report is not None:
-            return self.__report
-
-    def join( self, first, second ):
-        ''' Concatenates 'first' to 'second' '''
-        if os.path.exists( first ) and os.path.exists( second ):
-            return os.path.join( first, second )
-
-    def __init__( self, filepath ):
-        self.__base = str( filepath )
-        self.__path = self.__base
-        self.__ext = os.path.split( self.__path )
-        self.__report = r'etc\templates\report\ReportBase.xlsx'
-
-class BudgetFile():
-    '''Defines the BudgetFile Class'''
-    __base = None
-    __name = None
-    __path = None
-    __size = None
-    __extension = None
-    __directory = None
-    __drive = None
-    __created = None
-    __modified = None
-    __accessed = None
-    __current = None
-    __content = [ ]
-
-    @property
-    def base( self ):
-        if self.__base is not None:
-            return self.__base
-
-    @base.setter
-    def base( self, path ):
+    @access.setter
+    def access( self, path ):
         if path is not None:
-            self.__base = str( path )
+            self.__accesspath = str( path )
 
     @property
-    def name( self ):
-        if os.path.isdir( self.__name ):
-            return str( os.path.dirname( self.__path ) )
+    def sqlite( self ):
+        if self.__sqlitepath is not None:
+            return str( self.__sqlitepath )
 
-    @name.setter
-    def name( self, path ):
-        if os.path.exists( path ):
-            self.__name = str( os.path.basename( path ) )
-
-    @property
-    def path( self ):
-        if os.path.isdir( self.__path ):
-            return str( self.__path )
-
-    @path.setter
-    def path( self, base ):
-        if os.path.exists( base ):
-            self.__path = str( base )
-
-    @property
-    def size( self ):
-        if self.__base is not None:
-            return float( self.__size )
-
-    @size.setter
-    def size( self, num ):
-        if num is not None:
-            self.__size = float( num )
-
-    @property
-    def directory( self ):
-        if self.__directory is not None:
-            return self.__directory
-
-    @directory.setter
-    def directory( self, path ):
-        if os.path.isdir( path ):
-            self.__directory = str( os.path.dirname( path ) )
-
-    @property
-    def extension( self ):
-        if self.__extension is not None:
-            return self.__extension
-
-    @extension.setter
-    def extension( self, ext ):
-        if ext is not None:
-            self.__extension = str( ext )
-
-    @property
-    def drive( self ):
-        if self.__drive is not None:
-            return self.__drive
-
-    @drive.setter
-    def drive( self, path ):
-        if os.path.ismount( path ):
-            self.__drive = str( path )
-
-    @property
-    def modified( self ):
-        if self.__modified is not None:
-            return self.__modified
-
-    @modified.setter
-    def modified( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__modified = dt.date( yr, mo, dy )
-
-    @property
-    def accessed( self ):
-        if self.__accessed is not None:
-            return self.__accessed
-
-    @accessed.setter
-    def accessed( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__accessed = dt.date( yr, mo, dy )
-
-    @property
-    def created( self ):
-        if self.__created is not None:
-            return self.__created
-
-    @created.setter
-    def created( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__created = dt.date( yr, mo, dy )
-
-    @property
-    def current( self ):
-        if self.__current is not None:
-            return self.__current
-
-    @current.setter
-    def current( self, path ):
-        if os.path.exists( path ):
-            os.chdir( path )
-
-    # Constructor
-    def __init__( self, base ):
-        self.__base = str( base )
-        self.__path = self.__base
-        self.__name = os.path.basename( base )
-        self.__size = os.path.getsize( base )
-        self.__directory = str( os.path.dirname( self.__path ) )
-        self.__extension = str( list( os.path.splitext( base ) )[ 1 ] )
-        self.__created = os.path.getctime( base )
-        self.__accessed = os.path.getatime( base )
-        self.__modified = os.path.getmtime( base )
-        self.__current = os.getcwd()
-        self.__drive = str( list( os.path.splitdrive( self.__path ) )[ 0 ] )
-        self.__content = list()
-
-    def rename( self, other ):
-        '''renames current file'''
-        if self.__base is not None and self.__name is not None:
-            return os.rename( self.__name, other )
-
-    def move( self, destination ):
-        '''renames current file'''
-        if self.__base is not None and os.path.exists( self.__base ):
-            return os.path.join( self.__name, destination )
-
-    def create( self, other ):
-        ''' creates and returns 'path' file '''
-        if other is not None:
-            os.mkdir( other )
-
-    def exists( self, other ):
-        '''determines if an external file exists'''
-        if other is not None:
-            return os.path.exists( other )
-
-    def delete( self, other ):
-        ''' deletes file at 'self.__path'   '''
-        if other is not None and os.path.isfile( other ):
-            os.remove( other )
-
-    def getsize( self, other ):
-        '''gets the size of another file'''
-        if self.__base is not None and os.path.exists( other ):
-            return os.path.getsize( other )
-
-    def getdrive( self, other ):
-        '''gets the drive of another file'''
-        if os.path.exists( other ):
-            return str( list( os.path.splitdrive( other ) )[ 0 ] )
-
-    def getextension( self, other ):
-        ''' gets and returns extension of 'path' 'file' '''
-        if other is not None and os.path.isfile( other ):
-            return str( list( os.path.splitext( other ) )[ 1 ] )
-
-    def readlines( self, other ):
-        '''reads all lines in 'path' into a list
-            then returns the list '''
-        lines = [ ]
-        count = len( self.__content )
-        if other is not None and os.path.isfile( other ):
-            file = open( other, 'r' )
-            for line in file.readlines():
-                lines.append( line )
-            self.__content.append( lines )
-        if len( lines ) > 0 and len( self.__content ) > count:
-            return lines
-
-    def readline( self, other ):
-        '''reads a single line from the file into a string
-            then returns the string'''
-        count = len( self.__content )
-        if other is not None and os.path.isfile( other ):
-            line = open( self.__path, 'r' ).readline()
-            self.__content.append( line )
-            if len( self.__content ) > count:
-                return line
-
-    def writelines( self, lines = None ):
-        ''' writes the contents of 'lines' to self.__content '''
-        if os.path.isfile( self.__path ) and isinstance( lines, list ):
-            for line in lines:
-                self.__content.append( open( self.__path, 'w' ).write( line ) )
-
-class BudgetFolder():
-    '''Defines the BudgetFolder Class'''
-    # pseudo-private backing fields
-    __base = None
-    __name = None
-    __path = None
-    __size = None
-    __parent = None
-    __drive = None
-    __created = None
-    __modified = None
-    __accessed = None
-    __current = None
-
-    @property
-    def base( self ):
-        if self.__base is not None:
-            return self.__base
-
-    @base.setter
-    def base( self, path ):
+    @sqlite.setter
+    def sqlite( self, path ):
         if path is not None:
-            self.__base = str( path )
+            self.__sqlitepath = str( path )
 
     @property
-    def name( self ):
-        '''Returns string representing the name of the path 'base' '''
-        if os.path.exists( self.__base ):
-            return str( list( os.path.split( self.__base ) )[ 1 ] )
+    def sqlserver( self ):
+        if self.__mssqlpath is not None:
+            return str( self.__mssqlpath )
 
-    @name.setter
-    def name( self, path ):
-        '''Returns string representing the name of the path 'base' '''
+    @sqlserver.setter
+    def sqlserver( self, path ):
         if path is not None:
-            self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
+            self.__mssqlpath = str( path )
+
+    def __init__( self ):
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\Data.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\Data.db'
+        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\Data.mdf'
+
+class ReferenceModel():
+    '''Defines object used to provide paths to the references model databases '''
+    __accesspath = None
+    __sqlitepath = None
+    __mssqlpath = None
 
     @property
-    def path( self ):
-        if os.path.isdir( self.__path ):
-            return str( self.__path )
+    def access( self ):
+        if self.__accesspath is not None:
+            return str( self.__accesspath )
 
-    @path.setter
-    def path( self, base ):
-        if os.path.exists( base ):
-            self.__path = str( base )
-
-    @property
-    def size( self ):
-        if self.__base is not None:
-            return float( self.__size )
-
-    @size.setter
-    def size( self, num ):
-        if num is not None:
-            self.__size = float( num )
-
-    @property
-    def parent( self ):
-        if self.__parent is not None:
-            return self.__parent
-
-    @parent.setter
-    def parent( self, path ):
-        if os.path.isdir( path ):
-            self.__parent = str( path )
-
-    @property
-    def drive( self ):
-        if self.__drive is not None:
-            return self.__drive
-
-    @drive.setter
-    def drive( self, path ):
-        if os.path.ismount( path ):
-            self.__drive = str( path )
-
-    @property
-    def modified( self ):
-        if self.__modified is not None:
-            return self.__modified
-
-    @modified.setter
-    def modified( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__modified = dt.date( yr, mo, dy )
-
-    @property
-    def accessed( self ):
-        if self.__accessed is not None:
-            return self.__accessed
-
-    @accessed.setter
-    def accessed( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__accessed = dt.date( yr, mo, dy )
-
-    @property
-    def created( self ):
-        if self.__created is not None:
-            return self.__created
-
-    @created.setter
-    def created( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__created = dt.date( yr, mo, dy )
-
-    @property
-    def current( self ):
-        if self.__current is not None:
-            return self.__current
-
-    @current.setter
-    def current( self, path ):
+    @access.setter
+    def access( self, path ):
         if os.path.exists( path ):
-            os.chdir( path )
+            self.__accesspath = str( path )
 
-    # Constructor
-    def __init__( self, base ):
-        self.__base = base
-        self.__name = str( os.path.basename( base ) )
-        self.__path = str( os.path.abspath( base ) )
-        self.__size = int( os.path.getsize( base ) )
-        self.__created = float( os.path.getctime( base ) )
-        self.__accessed = float( os.path.getatime( base ) )
-        self.__modified = float( os.path.getmtime( base ) )
-        self.__parent = str( os.path.dirname( base ) )
+    @property
+    def sqlite( self ):
+        if self.__sqlitepath is not None:
+            return str( self.__sqlitepath )
 
-    def rename( self, new_name ):
-        '''renames current file'''
-        if self.__name is not None and new_name is not None:
-            return os.rename( self.__name, new_name )
+    @sqlite.setter
+    def sqlite( self, path ):
+        if os.path.exists( path ):
+            self.__sqlitepath = str( path )
 
-    def move( self, destination ):
-        '''renames current file'''
-        if self.__name is not None and destination is not None:
-            return os.path.join( self.__name, destination )
+    @property
+    def sqlserver( self ):
+        if self.__mssqlpath is not None:
+            return str( self.__mssqlpath )
 
-    def exists( self, other ):
-        '''determines if the base file exists'''
-        if other is not None and os.path.isdir( other ):
-            return True
-
-    def create( self, other ):
-        if other is not None:
-            os.mkdir( other )
-
-    def delete( self, other ):
-        ''' deletes 'path' directory '''
-        if other is not None and os.path.isdir( other ):
-            os.rmdir( other )
-
-    def get_size( self, other ):
-        ''' gets and returns size of 'path' '''
-        if other is not None and os.path.isdir( other ):
-            return os.path.getsize( other )
-
-    def get_drive( self, other ):
-        ''' gets and returns parent directory of 'path' '''
-        if other is not None and os.path.isdir( other ):
-            return os.path.splitdrive( other )[ 0 ]
+    def __init__( self ):
+        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\References.accdb'
+        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\References.db'
+        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\References.mdf'
 
 class CriteriaBuilder():
     '''Defines the CriteriaBuilder class'''
-    __and = None
-    __where = None
-    __or = None
     __criteria = None
     __cmd = None
     __sql = None
 
     @property
-    def AND( self ):
-        if self.__and is not None:
-            return self.__and
-
-    @property
-    def WHERE( self ):
-        if self.__where is not None:
-            return self.__where
-
-    @property
     def command( self ):
         if self.__cmd is not None:
-            return str( self.__sql[ self.__cmd ] )
+            return  self.__cmd
 
     @command.setter
     def command( self, cmd ):
@@ -509,17 +109,23 @@ class CriteriaBuilder():
             return self.__criteria
 
     @pairs.setter
-    def pairs( self, nvpairs ):
+    def pairs( self, namevaluepairs ):
         ''' builds criteria from name value pairs'''
-        if isinstance( nvpairs, dict ):
-            self.__criteria = nvpairs
+        if isinstance( namevaluepairs, dict ):
+            self.__criteria = namevaluepairs
 
-    def __init__( self, cmd = 'SELECT' ):
-        self.__and = ' AND '
-        self.__where = ' WHERE '
-        self.__cmd = str( cmd )
+    def create( self ):
+        if self.__criteria is not None:
+            for name , value  in self.__criteria:
+                criteria = ''
+                criteria += f'{ name } = { value } AND'
+                criteria.rstrip( ' AND' )
+                return criteria
+
+    def __init__( self, nvp ):
         self.__sql = [ 'SELECT', 'INSERT', 'UPDATE', 'CREATE',
                        'ALTER', 'DROP', 'DETACH' ]
+        self.__criteria = nvp if isinstance( nvp, dict ) else None
 
 class DataRow( sl.Row ):
     '''Defines the DataRow Class'''
@@ -529,7 +135,6 @@ class DataRow( sl.Row ):
     __data = None
     __values = None
     __id = None
-    __record = None
 
     @property
     def index( self ):
@@ -591,10 +196,10 @@ class DataRow( sl.Row ):
         if isinstance( row, sl.Row ):
             self.__source = row
 
-    def __init__( self, items = None, *args: Any, **kwargs: Any ):
-        super().__init__( *args, **kwargs )
+    def __init__( self, items = None  ):
+        super().__init__( items )
         self.__source = sl.Row()
-        self.__items = tuple( items )
+        self.__items = dict( items )
         self.__id = int( items[ 0 ] )
         self.__names = list( self.__items.keys() )
         self.__values = self.__items.values()
@@ -730,11 +335,10 @@ class DataTable( pd.DataFrame ):
     __name = None
     __data = None
     __columns = None
-    __records = None
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
@@ -767,20 +371,26 @@ class DataTable( pd.DataFrame ):
         if self.__rows is not None:
             return self.__rows
 
+    @rows.setter
+    def rows( self , items ):
+        if isinstance( items, list ):
+            self.__rows = items
+
     def __init__( self, name ):
         super().__init__()
         self.__base = str( name )
         self.__name = self.__base
         self.__data = pd.DataFrame( self.__name )
+        self.__rows = [ tuple( r ) for r in self.__data[ 0 : ] ]
         self.__columns = self.__data.columns
-        self.__rows = self.__data.items
 
     def __str__( self ):
         if self.__name is not None:
             return self.__name
 
 class Source():
-    '''Provides iterator for the Budget Execution table tables '''
+    '''Provides iterator for the
+    Budget Execution tables '''
     __data = [ ]
     __references = [ ]
 
@@ -831,87 +441,6 @@ class Source():
             for i in self.__data:
                 yield i
 
-class DataModel():
-    ''' Defines object used to provide the path to data model databases '''
-    __accesspath = None
-    __sqlitepath = None
-    __mssqlpath = None
-
-    @property
-    def access( self ):
-        if self.__accesspath is not None:
-            return str( self.__accesspath )
-
-    @access.setter
-    def access( self, path ):
-        if path is not None:
-            self.__accesspath = str( path )
-
-    @property
-    def sqlite( self ):
-        if self.__sqlitepath is not None:
-            return str( self.__sqlitepath )
-
-    @sqlite.setter
-    def sqlite( self, path ):
-        if path is not None:
-            self.__sqlitepath = str( path )
-
-    @property
-    def sqlserver( self ):
-        if self.__mssqlpath is not None:
-            return str( self.__mssqlpath )
-
-    @sqlserver.setter
-    def sqlserver( self, path ):
-        if path is not None:
-            self.__mssqlpath = str( path )
-
-    def __init__( self ):
-        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\datamodels\Data.accdb'
-        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\Data.db'
-
-class ReferenceModel():
-    '''Defines object used to provide paths to the references model databases '''
-    __accesspath = None
-    __sqlitepath = None
-    __mssqlpath = None
-
-    @property
-    def access( self ):
-        if self.__accesspath is not None:
-            return str( self.__accesspath )
-
-    @access.setter
-    def access( self, path ):
-        if os.path.exists( path ):
-            self.__accesspath = str( path )
-
-    @property
-    def sqlite( self ):
-        if self.__sqlitepath is not None:
-            return str( self.__sqlitepath )
-
-    @sqlite.setter
-    def sqlite( self, path ):
-        if os.path.exists( path ):
-            self.__sqlitepath = str( path )
-
-    @property
-    def sqlserver( self ):
-        if self.__mssqlpath is not None:
-            return str( self.__mssqlpath )
-
-    def __init__( self ):
-        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\referencemodels\References.accdb'
-        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\References.db'
-        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\References.mdf'
-
 class AccessData():
     '''Builds the budget execution data classes'''
     __dbpath = None
@@ -919,7 +448,6 @@ class AccessData():
     __connstr = None
     __data = None
     __source = None
-    __query = None
 
     @property
     def path( self ):
@@ -959,7 +487,7 @@ class AccessData():
     @data.setter
     def data( self, dframe ):
         if dframe is not None and isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe
+            self.__data = dframe.items
 
     @property
     def driver( self ):
@@ -971,17 +499,111 @@ class AccessData():
         if name is not None:
             self.__driver = name
 
-    def get_connection( self ):
-        if self.__connstr is not None:
+    def connect( self ):
+        if not self.__connstr == '':
             return db.connect( self.__connstr )
 
-    def __init__( self, table = None ):
+    def __init__( self, table ):
         self.__source = table
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
             r'\access\datamodels\Data.accdb;'
         self.__connstr = f'{ self.__driver } { self.__dbpath }'
         self.__data = pd.DataFrame
+
+class AccessDataQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtables( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtables.setter
+    def createtables( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createviews( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createviews.setter
+    def createviews( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def inserts( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @inserts.setter
+    def inserts( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def updates( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @updates.setter
+    def updates( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def selects( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @selects.setter
+    def selects( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def deletes( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @deletes.setter
+    def deletes( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alters( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alters.setter
+    def alters( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\CREATE\TABLE'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\datamodels\sql\ALTER'
 
 class AccessReference():
     '''Builds the budget execution data classes'''
@@ -990,7 +612,6 @@ class AccessReference():
     __connstr = None
     __data = None
     __source = None
-    __query = None
 
     @property
     def path( self ):
@@ -1030,7 +651,7 @@ class AccessReference():
     @data.setter
     def data( self, dframe ):
         if dframe is not None and isinstance( dframe, pd.DataFrame ):
-            self.__data[ 0: ] = dframe
+            self.__data = dframe.items
 
     @property
     def driver( self ):
@@ -1050,9 +671,103 @@ class AccessReference():
         self.__connstr = f'{ self.__driver } { self.__dbpath }'
         self.__data = pd.DataFrame
 
-    def get_connection( self ):
+    def connect( self ):
         if self.__connstr is not None:
             return db.connect( self.__connstr )
+
+class AccessReferenceQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtable( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtable.setter
+    def createtable( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createview( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createview.setter
+    def createview( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def insert( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @insert.setter
+    def insert( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def update( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @update.setter
+    def update( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def select( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @select.setter
+    def select( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def delete( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @delete.setter
+    def delete( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alter( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alter.setter
+    def alter( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\CREATE\TABLE'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\access\referencemodels\sql\ALTER'
 
 class SQLiteData():
     '''Builds the budget execution data classes'''
@@ -1060,7 +775,6 @@ class SQLiteData():
     __connstr = None
     __data = None
     __source = None
-    __query = None
 
     @property
     def path( self ):
@@ -1084,8 +798,8 @@ class SQLiteData():
 
     @property
     def connstr( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
+        if not self.__dbpath == '':
+            return  self.__dbpath
 
     @connstr.setter
     def connstr( self, conn ):
@@ -1102,6 +816,10 @@ class SQLiteData():
         if isinstance( dframe, pd.DataFrame ):
             self.__data = dframe
 
+    def connect( self ):
+        if self.__connstr is not None:
+            return sl.connect( self.__connstr )
+
     def __init__( self, table = None ):
         self.__source = str( table )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -1113,9 +831,101 @@ class SQLiteData():
         if self.__dbpath is not None:
             return self.__dbpath
 
-    def get_connection( self ):
-        if self.__connstr is not None:
-            return sl.connect( self.__connstr )
+class SQLiteDataQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtables( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtables.setter
+    def createtables( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createviews( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createviews.setter
+    def createviews( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def inserts( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @inserts.setter
+    def inserts( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def updates( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @updates.setter
+    def updates( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def selects( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @selects.setter
+    def selects( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def deletes( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @deletes.setter
+    def deletes( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alters( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alters.setter
+    def alters( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\CREATE\TABLE'
+        self.__cv = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\CREATE\VIEW'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\datamodels\sql\ALTER'
 
 class SQLiteReference():
     '''Class representing the budget execution references models'''
@@ -1123,7 +933,6 @@ class SQLiteReference():
     __dbpath = None
     __connstr = None
     __data = None
-    __query = None
 
     @property
     def path( self ):
@@ -1165,6 +974,10 @@ class SQLiteReference():
         if dframe is not None:
             self.__data = dframe
 
+    def connect( self ):
+        if self.__connstr is not None:
+            return sl.connect( self.__connstr )
+
     def __init__( self, table = None ):
         self.__source = str( table )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -1173,16 +986,105 @@ class SQLiteReference():
         self.__data = pd.DataFrame
         self.__data = [ ]
 
-    def get_connection( self ):
-        if self.__connstr is not None:
-            return sl.connect( self.__connstr )
+class SQLiteReferenceQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtables( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtables.setter
+    def createtables( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createviews( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createviews.setter
+    def createviews( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def inserts( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @inserts.setter
+    def inserts( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def updates( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @updates.setter
+    def updates( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def selects( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @selects.setter
+    def selects( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def deletes( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @deletes.setter
+    def deletes( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alters( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alters.setter
+    def alters( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\CREATE\TABLE'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\sqlite\referencemodels\sql\ALTER'
 
 class SqlServerData():
     '''Builds the budget execution data classes'''
     __source = None
     __dbpath = None
     __data = None
-    __query = None
 
     @property
     def path( self ):
@@ -1206,8 +1108,8 @@ class SqlServerData():
 
     @property
     def connstring( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
+        if not self.__dbpath == '':
+            return self.__dbpath
 
     @connstring.setter
     def connstring( self, conn ):
@@ -1234,12 +1136,107 @@ class SqlServerData():
             r'\db\mssql\datamodels\Data.mdf'
         self.__data = pd.DataFrame
 
+class SqlServerDataQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
+
+    @property
+    def createtables( self ):
+        if not self.__ct =='':
+            return self.__ct
+
+    @createtables.setter
+    def createtables( self, sql ):
+        if not sql == '':
+            self.__ct = sql
+
+    @property
+    def createviews( self ):
+        if not self.__cv == '':
+            return self.__cv
+
+    @createviews.setter
+    def createviews( self, sql ):
+        if not sql == '':
+            self.__cv = sql
+
+    @property
+    def inserts( self ):
+        if not self.__in == '':
+            return self.__in
+
+    @inserts.setter
+    def inserts( self, sql ):
+        if not sql == '':
+            self.__in = sql
+
+    @property
+    def updates( self ):
+        if not self.__up == '':
+            return self.__up
+
+    @updates.setter
+    def updates( self, sql ):
+        if not sql == '':
+            self.__up = sql
+
+    @property
+    def selects( self ):
+        if not self.__se == '':
+            return self.__se
+
+    @selects.setter
+    def selects( self, sql ):
+        if not sql == '':
+            self.__se = sql
+
+    @property
+    def deletes( self ):
+        if not self.__de == '':
+            return self.__de
+
+    @deletes.setter
+    def deletes( self, sql ):
+        if not sql == '':
+            self.__de = sql
+
+    @property
+    def alter( self ):
+        if not self.__al == '':
+            return self.__al
+
+    @alter.setter
+    def alter( self, sql ):
+        if not sql == '':
+            self.__al = sql
+
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\CREATE\TABLE'
+        self.__cv = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\CREATE\VIEW'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\datamodels\sql\ALTER'
+
 class SqlServerReference():
     '''Class representing the budget execution references models'''
     __source = None
     __dbpath = None
     __data = None
-    __query = None
 
     @property
     def path( self ):
@@ -1263,8 +1260,8 @@ class SqlServerReference():
 
     @property
     def connstring( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
+        if not self.__dbpath == '':
+            return self.__dbpath
 
     @connstring.setter
     def connstring( self, conn ):
@@ -1287,166 +1284,96 @@ class SqlServerReference():
             r'\db\mssql\referencemodels\References.mdf'
         self.__data = pd.DataFrame
 
-class EmailBuilder():
-    ''' Helper class for generating email messages '''
-    __from = None
-    __to = None
-    __subject = None
-    __message = None
-    __others = None
+class SqlServerReferenceQueries():
+    '''Provide pre-written sqlite sql statements '''
+    __ct = None
+    __cv = None
+    __in = None
+    __de = None
+    __se = None
+    __up = None
+    __al = None
 
     @property
-    def sender( self ):
-        ''' Gets the sender's email address '''
-        if self.__from is not None:
-            return self.__from
+    def createtables( self ):
+        if not self.__ct =='':
+            return self.__ct
 
-    @sender.setter
-    def sender( self, frm ):
-        ''' Set the sender's email address '''
-        if frm is not None:
-            self.__from = str( frm )
+    @createtables.setter
+    def createtables( self, sql ):
+        if not sql == '':
+            self.__ct = sql
 
     @property
-    def receiver( self ):
-        ''' Gets the sender's email address '''
-        if self.__to is not None:
-            return self.__to
+    def createviews( self ):
+        if not self.__cv == '':
+            return self.__cv
 
-    @receiver.setter
-    def receiver( self, rec ):
-        ''' Sets the receiver's email address '''
-        if rec is not None:
-            self.__to = str( rec )
+    @createviews.setter
+    def createviews( self, sql ):
+        if not sql == '':
+            self.__cv = sql
 
     @property
-    def subject( self ):
-        ''' Gets the email's subject line '''
-        if self.__subject is not None:
-            return self.__subject
+    def inserts( self ):
+        if not self.__in == '':
+            return self.__in
 
-    @subject.setter
-    def subject( self, sub ):
-        ''' Sets the email's subject line '''
-        if sub is not None:
-            self.__to = str( sub )
+    @inserts.setter
+    def inserts( self, sql ):
+        if not sql == '':
+            self.__in = sql
 
     @property
-    def body( self ):
-        ''' Gets the email's subject line '''
-        if self.__message is not None:
-            return self.__message
+    def updates( self ):
+        if not self.__up == '':
+            return self.__up
 
-    @body.setter
-    def body( self, msg ):
-        ''' Sets the email's subject line '''
-        if msg is not None:
-            self.__to = str( msg )
+    @updates.setter
+    def updates( self, sql ):
+        if not sql == '':
+            self.__up = sql
 
     @property
-    def copy( self ):
-        ''' Gets the addresses to send copies  '''
-        if self.__others is not None:
-            return self.__others
+    def selects( self ):
+        if not self.__se == '':
+            return self.__se
 
-    @copy.setter
-    def copy( self, copy ):
-        ''' Sets the address's to send copies  '''
-        if copy is not None:
-            self.__others = list( copy )
-
-    def __init__( self, frm = None, to = None,
-                  body = None, sub = None, copy = None ):
-        self.__from = str( frm )
-        self.__to = str( to )
-        self.__message = str( body )
-        self.__others = list( copy )
-        self.__subject = str( sub )
-
-    def __str__( self ):
-        if self.__message is not None:
-            return self.__message
-
-class ExcelFile():
-    ''' Provides the spreadsheet for Budget Py reports '''
-    __path = None
-    __workbook = None
-    __worksheet = None
-    __name = None
-    __rows = None
-    __columns = None
-    __dimensions = None
+    @selects.setter
+    def selects( self, sql ):
+        if not sql == '':
+            self.__se = sql
 
     @property
-    def name( self ):
-        ''' Get the name of the workbook '''
-        if self.__name is not None:
-            return self.__name
+    def deletes( self ):
+        if not self.__de == '':
+            return self.__de
 
-    @name.setter
-    def name( self, filename ):
-        if filename is not None and len( filename ) > 0:
-            self.__name = str( filename )
-
-    @property
-    def rows( self ):
-        if self.__rows is not None:
-            return self.__rows
-
-    @rows.setter
-    def rows( self, count ):
-        if isinstance( count, int ) and count > 0:
-            self.__rows = count
+    @deletes.setter
+    def deletes( self, sql ):
+        if not sql == '':
+            self.__de = sql
 
     @property
-    def columns( self ):
-        if self.__columns is not None:
-            return self.__columns
+    def alters( self ):
+        if not self.__al == '':
+            return self.__al
 
-    @columns.setter
-    def columns( self, count ):
-        if isinstance( count, int ) and count > 0:
-            self.__columns = count
+    @alters.setter
+    def alters( self, sql ):
+        if not sql == '':
+            self.__al = sql
 
-    @property
-    def dimensions( self ):
-        if self.__dimensions is not None:
-            return self.__dimensions
-
-    @dimensions.setter
-    def dimensions( self, grid = () ):
-        if isinstance( grid, tuple ) and len( grid ) < 3:
-            self.__dimensions = grid
-
-    @property
-    def workbook( self ):
-        ''' Gets the report template '''
-        if self.__path is not None:
-            self.__workbook = xl.open( self.__path )
-            return self.__workbook
-
-    @workbook.setter
-    def workbook( self, path ):
-        ''' Gets the report template '''
-        if path is not None and os.path.exists( path ):
-            self.__workbook = xl.open( path )
-
-    @property
-    def worksheet( self ):
-        ''' Gets the workbooks worksheet '''
-        if self.__worksheet is not None:
-            return self.__worksheet
-
-    @worksheet.setter
-    def worksheet( self, name ):
-        ''' Gets the workbooks worksheet '''
-        if self.__workbook is not None and name is not None:
-            self.__workbook.worksheets.clear()
-            self.__worksheet = self.__workbook.create_sheet( title = name, index = 1 )
-
-    def __init__( self, name, rows = 46, cols = 12 ):
-        self.__path = r'etc\templates\report\Excel.xlsx'
-        self.__name = str( name )
-        self.__rows = int( rows )
-        self.__columns = int( cols )
-        self.__dimensions = ( self.__rows, self.__columns )
+    def __init__(self):
+        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\CREATE\TABLE'
+        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\INSERT'
+        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\DELETE'
+        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\UPDATE'
+        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\SELECT'
+        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
+            r'\db\mssql\referencemodels\sql\ALTER'

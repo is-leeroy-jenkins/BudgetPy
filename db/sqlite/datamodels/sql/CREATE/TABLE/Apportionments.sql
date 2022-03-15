@@ -1,0 +1,26 @@
+CREATE TABLE "Apportionments" 
+(
+	"ApportionmentsId"	INTEGER NOT NULL UNIQUE,
+	"Year"	TEXT,
+	"ActivityId"	TEXT,
+	"TreasuryFundCode"	TEXT,
+	"TreasuryFundSymbol"	TEXT,
+	"TreasuryAgency"	TEXT,
+	"TreasuryAccountCode"	TEXT,
+	"BFY"	TEXT,
+	"EFY"	TEXT,
+	"AvailabilityType"	TEXT,
+	"TreasuryAccountTitle"	TEXT,
+	"BudgetAgency"	TEXT,
+	"BudgetBureau"	TEXT,
+	"BudgetAccount"	TEXT,
+	"BudgetAgencyTitle"	TEXT,
+	"BudgetBureauTitle"	TEXT,
+	"BudgetAccountTitle"	TEXT,
+	"DateApproved"	TEXT,
+	"LineNumber"	TEXT,
+	"LineSort"	TEXT,
+	"LineDescription"	TEXT,
+	"Amount"	REAL,
+	PRIMARY KEY("ApportionmentId" AUTOINCREMENT)
+);

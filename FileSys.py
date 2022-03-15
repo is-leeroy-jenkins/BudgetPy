@@ -413,16 +413,6 @@ class BudgetFolder():
         if fp.path.exists( path ):
             fp.chdir( path )
 
-    def files( self ):
-        '''Iterates files in the base directory'''
-        if fp.path.isdir( self.__base ):
-            file_list = []
-            for file in os.listdir( self.__base ):
-                if os.path.isfile( file ):
-                    file_list.append( file )
-
-            return file_list
-
     def rename( self, new_name ):
         '''renames current file'''
         if self.__name is not None and isinstance( new_name, str ):
@@ -457,13 +447,18 @@ class BudgetFolder():
         if other is not None and fp.path.isdir( other ):
             return fp.path.splitdrive( other )[ 0 ]
 
+    def iterfiles( self ):
+        '''Iterates files in the base directory'''
+        if fp.path.isdir( self.__base ):
+            yield from fi.open( self.__base )
+
     def iterate( self ):
         '''iterates files in the base directory'''
         if fp.path.isdir( self.__base ):
             for i in fp.scandir( self.__base ):
                 yield i
 
-    def getfiles( self, other ):
+    def iterfiles( self, other ):
         '''iterates files in the directory provided by 'other' '''
         if fp.path.exists( other ) and fp.path.isdir( other ):
             yield from fp.scandir( self.__base )
