@@ -1302,10 +1302,20 @@ class ResponsibilityCenter():
         if self.__data is not None:
             return self.__data
 
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, dict ):
+            self.__data = value
+
     @property
     def table( self ):
         if self.__dataframe is not None:
             return self.__dataframe
+
+    @table.setter
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__dataframe = value
 
     def __init__( self, code ):
         self.__code = str( code )
