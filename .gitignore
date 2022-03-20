@@ -12,3 +12,7 @@
 /venv/Lib/site-packages/terminado-0.13.1.dist-info/top_level.txt
 /venv/Lib/site-packages/pywinpty-2.0.1.dist-info/WHEEL
 /venv/Lib/site-packages/terminado-0.13.1.dist-info/WHEEL
+*.db
+*.accdb
+*.mdf
+*.ldf

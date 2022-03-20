@@ -51,9 +51,6 @@ K
 YLib/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/_debug_adapter/pydevd_schema.py,3\d\3dbd5912e9549ad0c930fe2100563aaae0b61aa2
 \
 ,Lib/site-packages/PySimpleGUI/PySimpleGUI.py,6\4\6491a76555f522f409ba0a7b35bef87c94c172d8
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 C
 venv/Lib/zipfile.py,8\d\8d657f6e160769e123e2eacdb372c04b168a9632
 y
