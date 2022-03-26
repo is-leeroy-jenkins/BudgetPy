@@ -8,6 +8,7 @@ class Source( ):
     across two databases (data and references)'''
     __data = [ ]
     __references = [ ]
+    __table = None
 
     @property
     def data( self ):
@@ -21,7 +22,26 @@ class Source( ):
         if self.__references is not None:
             return list( self.__references )
 
-    def __init__( self ):
+    @property
+    def table( self ):
+        if self.__table is not None and self.__table != '':
+            return self.__table
+
+    @table.setter
+    def table( self, src ):
+        if src is not None and src != '':
+            self.settable( src )
+
+    def settable( self, table ):
+        '''Function to set the table of sql command'''
+        if table in self.__data:
+            self.__table = self.__data[ table ]
+        elif table in self.__references:
+            self.__table = self.__references[ table ]
+        else:
+            self.__table = None
+
+    def __init__( self, table ):
         '''Constructor for the Source class providing
         a list of tables in the data database and/or
         reference database'''
@@ -55,6 +75,7 @@ class Source( ):
                               'ProgramProjects', 'Projects', 'Providers',
                               'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                               'SchemaTypes', 'Sources' ]
+        self.settable( table )
 
 class Provider( ):
     '''Provides data providers used to identify
@@ -330,6 +351,14 @@ class CriteriaBuilder( ):
                     self.__predicate += f'{ name } = { value } AND'
             self.__predicate.rstrip( ' AND' )
 
+    def create( self, names, values ):
+        if isinstance( names, list ) and isinstance( values, list ):
+            criteria = ''
+            for name in names:
+                for value in values:
+                    criteria += f'{ name } = { value } AND'
+            criteria.rstrip( ' AND' )
+
     def equimap( self, this, that ):
         if this is not None and that is not None:
             return f'{ this } = { that }'
@@ -370,6 +399,7 @@ class SqlStatement( ):
     __provider = None
     __command = None
     __path = None
+    __source = None
     __table = None
 
     @property
@@ -399,17 +429,27 @@ class SqlStatement( ):
             self.__command = command
 
     @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @source.setter
+    def source( self, src ):
+        if isinstance( src, Source ):
+            self.__source = src
+        else:
+            source = Source( 'Allocations' )
+            self.__source = source
+
+    @property
     def table( self ):
         if self.__table is not None:
             return self.__table
 
     @table.setter
-    def table( self, src ):
-        if isinstance( src, Source ):
-            self.__table = src
-        else:
-            source = Source( )
-            self.__table = source.data
+    def table( self, name ):
+        if name is not None and name != '':
+            self.__table = name
 
     @property
     def sqlpath( self ):
@@ -427,7 +467,8 @@ class SqlStatement( ):
     def __init__( self, pvdr, cmd, src, path = None ):
         self.__provider = pvdr if isinstance( pvdr, Provider ) else Provider( ).sqlite
         self.__command = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
-        self.__table = src if isinstance( src, Source ) else Source( ).data
+        self.__source = Source( src )
+        self.__table = self.__source.table
         self.__path = path if isinstance( path, DataPath ) else DataPath( ).sqlite
 
 class DataRow( sl.Row ):
