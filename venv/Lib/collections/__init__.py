@@ -99,12 +99,12 @@ class OrderedDict(dict):
     # The remaining methods are order-aware.
     # Big-O running times for all methods are the same as regular dictionaries.
 
-    # The internal self.__map dict maps keys to links in a doubly linked list.
+    # The internal self.__predicate dict maps keys to links in a doubly linked list.
     # The circular doubly linked list starts and ends with a sentinel element.
     # The sentinel element never gets deleted (this simplifies the algorithm).
     # The sentinel is in self.__hardroot with a weakref proxy in self.__root.
     # The prev links are weakref proxies (to prevent circular references).
-    # Individual links are kept alive by the hard reference in self.__map.
+    # Individual links are kept alive by the hard reference in self.__predicate.
     # Those hard references disappear when a key is deleted from an OrderedDict.
 
     def __init__(self, other=(), /, **kwds):
@@ -136,7 +136,7 @@ class OrderedDict(dict):
 
     def __delitem__(self, key, dict_delitem=dict.__delitem__):
         'od.__delitem__(y) <==> del od[y]'
-        # Deleting an existing item uses self.__map to find the link which gets
+        # Deleting an existing item uses self.__predicate to find the link which gets
         # removed by updating the links in the predecessor and successor nodes.
         dict_delitem(self, key)
         link = self.__map.pop(key)

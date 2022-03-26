@@ -274,7 +274,9 @@ class ReferencePath( ):
 
 class CriteriaBuilder( ):
     '''Defines the CriteriaBuilder class'''
-    __criteria = None
+    __predicate = None
+    __names = None
+    __values = None
     __cmd = None
 
     @property
@@ -288,28 +290,79 @@ class CriteriaBuilder( ):
             self.__cmd = cmd
 
     @property
-    def pairs( self ):
-        ''' builds criteria from name value pairs'''
-        if isinstance( self.__criteria, dict ):
-            return self.__criteria
+    def names( self ):
+        ''' builds criteria from name value namevaluepairs'''
+        if isinstance( self.__names, list ):
+            return self.__names
 
-    @pairs.setter
-    def pairs( self, namevaluepairs ):
-        ''' builds criteria from name value pairs'''
-        if isinstance( namevaluepairs, dict ):
-            self.__criteria = namevaluepairs
+    @names.setter
+    def names( self, keys ):
+        ''' builds criteria from name value namevaluepairs'''
+        if keys is not None and isinstance( keys, list ):
+            self.__names = keys
 
-    def create( self ):
-        if self.__criteria is not None:
-            for name, value in self.__criteria:
-                criteria = ''
-                criteria += f'{name} = {value} AND'
-                criteria.rstrip( ' AND' )
-                return criteria
+    @property
+    def values( self ):
+        ''' builds criteria from name value namevaluepairs'''
+        if isinstance( self.__values, list ):
+            return self.__values
 
-    def __init__( self, nvp, cmd ):
-        self.__criteria = nvp if isinstance( nvp, dict ) else None
+    @values.setter
+    def values( self, vals ):
+        ''' builds criteria from name value namevaluepairs'''
+        if vals is not None and isinstance( vals, list ):
+            self.__values = vals
+            
+    @property
+    def predicate( self ):
+        if self.__names is not None and self.__values is not None:
+            for name in self.__names:
+                for value in self.__values:
+                    self.__predicate += f'{name} = {value} AND'
+            self.__predicate.rstrip( ' AND' )
+            return str( self.__predicate )
+
+    @predicate.setter
+    def predicate( self, kvp ):
+        if isinstance( kvp, dict ):
+            for name in kvp.keys():
+                for value in kvp.values():
+                    self.__predicate += f'{ name } = { value } AND'
+            self.__predicate.rstrip( ' AND' )
+
+    def equimap( self, this, that ):
+        if this is not None and that is not None:
+            return f'{ this } = { that }'
+
+    def inequimap( self, this, that ):
+        if this is not None and that is not None:
+            return f'{ this } != { that }'
+
+    def lessmap( self, this, that ):
+        if this is not None and that is not None:
+            return f'{ this } < { that }'
+
+    def greatermap( self, this, that ):
+        if this is not None and that is not None:
+            return f'{ this } > { that }'
+
+    def lessequimap( self, this, that ):
+        if this is not None and that is not None:
+            return f'{ this } <= { that }'
+
+    def greaterequimap( self, this, that ):
+        if this is not None and that is not None:
+            return f'{ this } >= { that }'
+
+    def likemap( self, this, that ):
+        if this is not None and that is not None:
+            return f'{ this } LIKE { that }'
+
+    def __init__( self, cmd, names, values ):
+        self.__names = names if isinstance( names, list ) else None
+        self.__values = values if isinstance( values, list ) else None
         self.__cmd = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
+        self.__predicate = ''
 
 class SqlStatement( ):
     '''Class representing the sql queries
@@ -961,12 +1014,13 @@ class SQLiteReference( ):
 
 class SqlServerData( ):
     '''Builds the budget execution data classes'''
+    __server = None
+    __driver = None
     __source = None
     __dbpath = None
     __data = None
     __connstr = None
     __command = None
-    __server = None
 
     @property
     def path( self ):
@@ -975,8 +1029,8 @@ class SqlServerData( ):
 
     @path.setter
     def path( self, path ):
-        if path is not None:
-            self.__dbpath = str( path )
+        if isinstance( path, str ) and os.path.exists( path ):
+            self.__dbpath = path
 
     @property
     def server( self ):
@@ -989,6 +1043,16 @@ class SqlServerData( ):
             self.__server = path
 
     @property
+    def driver( self ):
+        if self.__driver is not None:
+            return str( self.__driver )
+
+    @driver.setter
+    def driver( self, drvr ):
+        if isinstance( drvr, str ):
+            self.__server = drvr
+
+    @property
     def source( self ):
         if self.__source is not None:
             return str( self.__source )
@@ -999,12 +1063,12 @@ class SqlServerData( ):
             self.__source = str( source )
 
     @property
-    def connstring( self ):
+    def connectionstring( self ):
         if not self.__connstr == '':
             return self.__connstr
 
-    @connstring.setter
-    def connstring( self, conn ):
+    @connectionstring.setter
+    def connectionstring( self, conn ):
         if conn is not None:
             self.__dbpath = str( conn )
 
@@ -1035,13 +1099,14 @@ class SqlServerData( ):
         if self.__dbpath is not None:
             return self.__dbpath
 
-    def __init__( self, table = None ):
+    def __init__( self, table ):
         self.__server = r'(LocalDB)\MSSQLLocalDB'
-        self.__source = str( table )
+        self.__driver = r'{SQL Server Native Client 11.0}'
+        self.__source = table
         self.__command = CommandType( 'SELECT' )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\mssql\datamodels\Data.mdf'
-        self.__connstr = self.__dbpath
+        self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
         self.__data = pd.DataFrame
 
 class SqlServerReference( ):
@@ -1052,6 +1117,7 @@ class SqlServerReference( ):
     __connstr = None
     __command = None
     __server = None
+    __driver = None
 
     @property
     def server( self ):
@@ -1064,14 +1130,24 @@ class SqlServerReference( ):
             self.__server = path
 
     @property
+    def driver( self ):
+        if self.__driver is not None:
+            return str( self.__driver )
+
+    @driver.setter
+    def driver( self, drvr ):
+        if isinstance( drvr, str ):
+            self.__server = drvr
+
+    @property
     def path( self ):
         if self.__dbpath is not None:
             return str( self.__dbpath )
 
     @path.setter
     def path( self, path ):
-        if path is not None:
-            self.__dbpath = str( path )
+        if isinstance( path, str ) and os.path.exists( path ):
+            self.__dbpath = path
 
     @property
     def source( self ):
@@ -1118,9 +1194,10 @@ class SqlServerReference( ):
 
     def __init__( self, table = None ):
         self.__server = r'(LocalDB)\MSSQLLocalDB'
+        self.__driver = r'{SQL Server Native Client 11.0}'
         self.__source = str( table )
         self.__command = CommandType( 'SELECT' )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\mssql\referencemodels\References.mdf'
-        self.__connstr = self.__dbpath
+        self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
         self.__data = pd.DataFrame
