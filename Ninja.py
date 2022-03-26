@@ -966,6 +966,7 @@ class SqlServerData( ):
     __data = None
     __connstr = None
     __command = None
+    __server = None
 
     @property
     def path( self ):
@@ -976,6 +977,16 @@ class SqlServerData( ):
     def path( self, path ):
         if path is not None:
             self.__dbpath = str( path )
+
+    @property
+    def server( self ):
+        if self.__server is not None:
+            return str( self.__server )
+
+    @server.setter
+    def server( self, path ):
+        if isinstance( path, str ):
+            self.__server = path
 
     @property
     def source( self ):
@@ -1025,6 +1036,7 @@ class SqlServerData( ):
             return self.__dbpath
 
     def __init__( self, table = None ):
+        self.__server = r'(LocalDB)\MSSQLLocalDB'
         self.__source = str( table )
         self.__command = CommandType( 'SELECT' )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -1039,6 +1051,7 @@ class SqlServerReference( ):
     __data = None
     __connstr = None
     __command = None
+    __server = None
 
     @property
     def path( self ):
@@ -1094,6 +1107,7 @@ class SqlServerReference( ):
             self.__command = cmd
 
     def __init__( self, table = None ):
+        self.__server = r'(LocalDB)\MSSQLLocalDB'
         self.__source = str( table )
         self.__command = CommandType( 'SELECT' )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
