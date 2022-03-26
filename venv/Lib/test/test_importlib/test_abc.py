@@ -805,7 +805,7 @@ class SourceOnlyLoaderTests(SourceLoaderTestHarness):
     def test_get_source(self):
         # Verify the source code is returned as a string.
         # If an OSError is raised by get_data then raise ImportError.
-        expected_source = self.loader.source.decode('utf-8')
+        expected_source = self.loader.table.decode( 'utf-8' )
         self.assertEqual(self.loader.get_source(self.name), expected_source)
         def raise_OSError(path):
             raise OSError
@@ -829,7 +829,7 @@ class SourceOnlyLoaderTests(SourceLoaderTestHarness):
 
     def test_source_to_code(self):
         # Verify the compiled code object.
-        code = self.loader.source_to_code(self.loader.source, self.path)
+        code = self.loader.source_to_code(self.loader.table, self.path )
         self.verify_code(code)
 
     def test_load_module(self):
@@ -860,11 +860,11 @@ class SourceOnlyLoaderTests(SourceLoaderTestHarness):
         # Source is considered encoded in UTF-8 by default unless otherwise
         # specified by an encoding line.
         source = "_ = 'ü'"
-        self.loader.source = source.encode('utf-8')
+        self.loader.table = source.encode( 'utf-8' )
         returned_source = self.loader.get_source(self.name)
         self.assertEqual(returned_source, source)
         source = "# coding: latin-1\n_ = ü"
-        self.loader.source = source.encode('latin-1')
+        self.loader.table = source.encode( 'latin-1' )
         returned_source = self.loader.get_source(self.name)
         self.assertEqual(returned_source, source)
 
@@ -980,7 +980,7 @@ class SourceLoaderGetSourceTests:
         name = 'mod'
         mock = self.SourceOnlyLoaderMock('mod.file')
         source = 'x = "ü"'
-        mock.source = source.encode('utf-8')
+        mock.table = source.encode( 'utf-8' )
         returned_source = mock.get_source(name)
         self.assertEqual(returned_source, source)
 
@@ -990,7 +990,7 @@ class SourceLoaderGetSourceTests:
         mock = self.SourceOnlyLoaderMock("mod.file")
         source = "# coding: Latin-1\nx='ü'"
         assert source.encode('latin-1') != source.encode('utf-8')
-        mock.source = source.encode('latin-1')
+        mock.table = source.encode( 'latin-1' )
         returned_source = mock.get_source(name)
         self.assertEqual(returned_source, source)
 
@@ -999,7 +999,7 @@ class SourceLoaderGetSourceTests:
         name = 'mod'
         mock = self.SourceOnlyLoaderMock('mod.file')
         source = "x = 42\r\ny = -13\r\n"
-        mock.source = source.encode('utf-8')
+        mock.table = source.encode( 'utf-8' )
         expect = io.IncrementalNewlineDecoder(None, True).decode(source)
         self.assertEqual(mock.get_source(name), expect)
 

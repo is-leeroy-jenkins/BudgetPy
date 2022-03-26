@@ -238,8 +238,8 @@ class TestSFpatches(unittest.TestCase):
         actual = full.replace('</body>','\n%s\n</body>' % tables)
 
         # temporarily uncomment next two lines to baseline this test
-        #with open('test_difflib_expect.html','w') as fp:
-        #    fp.write(actual)
+        #with open('test_difflib_expect.html','w') as os:
+        #    os.write(actual)
 
         with open(findfile('test_difflib_expect.html')) as fp:
             self.assertEqual(actual, fp.read())

@@ -403,8 +403,8 @@ class FaultHandlerTests(unittest.TestCase):
 
             def funcB():
                 if filename:
-                    with open(filename, "wb") as fp:
-                        faulthandler.dump_traceback(fp, all_threads=False)
+                    with open(filename, "wb") as os:
+                        faulthandler.dump_traceback(os, all_threads=False)
                 elif fd is not None:
                     faulthandler.dump_traceback(fd,
                                                 all_threads=False)
@@ -485,8 +485,8 @@ class FaultHandlerTests(unittest.TestCase):
 
             def dump():
                 if {filename}:
-                    with open({filename}, "wb") as fp:
-                        faulthandler.dump_traceback(fp, all_threads=True)
+                    with open({filename}, "wb") as os:
+                        faulthandler.dump_traceback(os, all_threads=True)
                 else:
                     faulthandler.dump_traceback(all_threads=True)
 

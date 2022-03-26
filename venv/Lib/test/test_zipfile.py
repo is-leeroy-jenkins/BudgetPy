@@ -1709,7 +1709,7 @@ class OtherTests(unittest.TestCase):
 
         # The bug we're testing for caused an AttributeError to be raised
         # when a ZipFile instance was created for a file that did not
-        # exist; the .fp member was not initialized but was needed by the
+        # exist; the .os member was not initialized but was needed by the
         # __del__() method.  Since the AttributeError is in the __del__(),
         # it is ignored, but the user should be sufficiently annoyed by
         # the message on the output that regression will be noticed
@@ -2849,7 +2849,7 @@ class TestPath(unittest.TestCase):
     def zipfile_ondisk(self):
         tmpdir = pathlib.Path(self.fixtures.enter_context(temp_dir()))
         for alpharep in self.zipfile_alpharep():
-            buffer = alpharep.fp
+            buffer = alpharep.os
             alpharep.close()
             path = tmpdir / alpharep.filename
             with path.open("wb") as strm:

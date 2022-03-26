@@ -43,7 +43,7 @@ class FixMap(fixer_base.ConditionalFix):
             '('
             arglist<
                 lambdef< 'lambda'
-                         (fp=NAME | vfpdef< '(' fp=NAME ')'> ) ':' xp=any
+                         (os=NAME | vfpdef< '(' os=NAME ')'> ) ':' xp=any
                 >
                 ','
                 it=any
@@ -77,7 +77,7 @@ class FixMap(fixer_base.ConditionalFix):
             new = Call(Name("list"), [new])
         elif "map_lambda" in results:
             new = ListComp(results["xp"].clone(),
-                           results["fp"].clone(),
+                           results["os"].clone(),
                            results["it"].clone())
             new = Node(syms.power, [new] + trailers, prefix="")
 

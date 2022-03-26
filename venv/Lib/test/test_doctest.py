@@ -179,7 +179,7 @@ These attributes are set by the constructor.  `source` and `want` are
 required; the other attributes all have default values:
 
     >>> example = doctest.Example('print(1)', '1\n')
-    >>> (example.source, example.want, example.exc_msg,
+    >>> (example.table, example.want, example.exc_msg,
     ...  example.lineno, example.indent, example.options)
     ('print(1)\n', '1\n', None, 0, 0, {})
 
@@ -191,7 +191,7 @@ keyword arguments:
     >>> example = doctest.Example('[].pop()', '', exc_msg,
     ...                           lineno=5, indent=4,
     ...                           options={doctest.ELLIPSIS: True})
-    >>> (example.source, example.want, example.exc_msg,
+    >>> (example.table, example.want, example.exc_msg,
     ...  example.lineno, example.indent, example.options)
     ('[].pop()\n', '', 'IndexError: pop from an empty list\n', 5, 4, {8: True})
 
@@ -199,40 +199,40 @@ The constructor normalizes the `source` string to end in a newline:
 
     Source spans a single line: no terminating newline.
     >>> e = doctest.Example('print(1)', '1\n')
-    >>> e.source, e.want
+    >>> e.table, e.want
     ('print(1)\n', '1\n')
 
     >>> e = doctest.Example('print(1)\n', '1\n')
-    >>> e.source, e.want
+    >>> e.table, e.want
     ('print(1)\n', '1\n')
 
     Source spans multiple lines: require terminating newline.
     >>> e = doctest.Example('print(1);\nprint(2)\n', '1\n2\n')
-    >>> e.source, e.want
+    >>> e.table, e.want
     ('print(1);\nprint(2)\n', '1\n2\n')
 
     >>> e = doctest.Example('print(1);\nprint(2)', '1\n2\n')
-    >>> e.source, e.want
+    >>> e.table, e.want
     ('print(1);\nprint(2)\n', '1\n2\n')
 
     Empty source string (which should never appear in real examples)
     >>> e = doctest.Example('', '')
-    >>> e.source, e.want
+    >>> e.table, e.want
     ('\n', '')
 
 The constructor normalizes the `want` string to end in a newline,
 unless it's the empty string:
 
     >>> e = doctest.Example('print(1)', '1\n')
-    >>> e.source, e.want
+    >>> e.table, e.want
     ('print(1)\n', '1\n')
 
     >>> e = doctest.Example('print(1)', '1')
-    >>> e.source, e.want
+    >>> e.table, e.want
     ('print(1)\n', '1\n')
 
     >>> e = doctest.Example('print', '')
-    >>> e.source, e.want
+    >>> e.table, e.want
     ('print\n', '')
 
 The constructor normalizes the `exc_msg` string to end in a newline,
@@ -310,9 +310,9 @@ constructor:
     >>> len(test.examples)
     2
     >>> e1, e2 = test.examples
-    >>> (e1.source, e1.want, e1.lineno)
+    >>> (e1.table, e1.want, e1.lineno)
     ('print(12)\n', '12\n', 1)
-    >>> (e2.source, e2.want, e2.lineno)
+    >>> (e2.table, e2.want, e2.lineno)
     ("print('another\\example')\n", 'another\nexample\n', 6)
 
 Source information (name, filename, and line number) is available as
@@ -340,7 +340,8 @@ expected output of an example, then `DocTest` will raise a ValueError:
     ...     '''
     >>> parser.get_doctest(docstring, globs, 'some_test', 'filename', 0)
     Traceback (most recent call last):
-    ValueError: line 4 of the docstring for some_test has inconsistent leading whitespace: 'indentation'
+    ValueError: line 4 of the docstring for some_test has inconsistent leading whitespace: 
+    'indentation'
 
 If the docstring contains inconsistent leading whitespace on
 continuation lines, then `DocTest` will raise a ValueError:
@@ -352,7 +353,8 @@ continuation lines, then `DocTest` will raise a ValueError:
     ...     '''
     >>> parser.get_doctest(docstring, globs, 'some_test', 'filename', 0)
     Traceback (most recent call last):
-    ValueError: line 2 of the docstring for some_test has inconsistent leading whitespace: '...          2))'
+    ValueError: line 2 of the docstring for some_test has inconsistent leading whitespace: '...   
+           2))'
 
 If there's no blank space after a PS1 prompt ('>>>'), then `DocTest`
 will raise a ValueError:
@@ -417,242 +419,243 @@ Compare `DocTestCase`:
 """
 
 class test_DocTestFinder:
-    def basics(): r"""
-Unit tests for the `DocTestFinder` class.
+    def basics():
+        r"""
+       Unit tests for the `DocTestFinder` class.
 
-DocTestFinder is used to extract DocTests from an object's docstring
-and the docstrings of its contained objects.  It can be used with
-modules, functions, classes, methods, staticmethods, classmethods, and
-properties.
+       DocTestFinder is used to extract DocTests from an object's docstring
+       and the docstrings of its contained objects.  It can be used with
+       modules, functions, classes, methods, staticmethods, classmethods, and
+       properties.
 
-Finding Tests in Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-For a function whose docstring contains examples, DocTestFinder.find()
-will return a single test (for that function's docstring):
+       Finding Tests in Functions
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+       For a function whose docstring contains examples, DocTestFinder.find()
+       will return a single test (for that function's docstring):
 
-    >>> finder = doctest.DocTestFinder()
+           >>> finder = doctest.DocTestFinder()
 
-We'll simulate a __file__ attr that ends in pyc:
+       We'll simulate a __file__ attr that ends in pyc:
 
-    >>> import test.test_doctest
-    >>> old = test.test_doctest.__file__
-    >>> test.test_doctest.__file__ = 'test_doctest.pyc'
+           >>> import test.test_doctest
+           >>> old = test.test_doctest.__file__
+           >>> test.test_doctest.__file__ = 'test_doctest.pyc'
 
-    >>> tests = finder.find(sample_func)
+           >>> tests = finder.find(sample_func)
 
-    >>> print(tests)  # doctest: +ELLIPSIS
-    [<DocTest sample_func from ...:25 (1 example)>]
+           >>> print(tests)  # doctest: +ELLIPSIS
+           [<DocTest sample_func from ...:25 (1 example)>]
 
-The exact name depends on how test_doctest was invoked, so allow for
-leading path components.
+       The exact name depends on how test_doctest was invoked, so allow for
+       leading path components.
 
-    >>> tests[0].filename # doctest: +ELLIPSIS
-    '...test_doctest.py'
+           >>> tests[0].filename # doctest: +ELLIPSIS
+           '...test_doctest.py'
 
-    >>> test.test_doctest.__file__ = old
+           >>> test.test_doctest.__file__ = old
 
 
-    >>> e = tests[0].examples[0]
-    >>> (e.source, e.want, e.lineno)
-    ('print(sample_func(22))\n', '44\n', 3)
+           >>> e = tests[0].examples[0]
+           >>> (e.table, e.want, e.lineno)
+           ('print(sample_func(22))\n', '44\n', 3)
 
-By default, tests are created for objects with no docstring:
+       By default, tests are created for objects with no docstring:
 
-    >>> def no_docstring(v):
-    ...     pass
-    >>> finder.find(no_docstring)
-    []
+           >>> def no_docstring(v):
+           ...     pass
+           >>> finder.find(no_docstring)
+           []
 
-However, the optional argument `exclude_empty` to the DocTestFinder
-constructor can be used to exclude tests for objects with empty
-docstrings:
+       However, the optional argument `exclude_empty` to the DocTestFinder
+       constructor can be used to exclude tests for objects with empty
+       docstrings:
 
-    >>> def no_docstring(v):
-    ...     pass
-    >>> excl_empty_finder = doctest.DocTestFinder(exclude_empty=True)
-    >>> excl_empty_finder.find(no_docstring)
-    []
+           >>> def no_docstring(v):
+           ...     pass
+           >>> excl_empty_finder = doctest.DocTestFinder(exclude_empty=True)
+           >>> excl_empty_finder.find(no_docstring)
+           []
 
-If the function has a docstring with no examples, then a test with no
-examples is returned.  (This lets `DocTestRunner` collect statistics
-about which functions have no tests -- but is that useful?  And should
-an empty test also be created when there's no docstring?)
+       If the function has a docstring with no examples, then a test with no
+       examples is returned.  (This lets `DocTestRunner` collect statistics
+       about which functions have no tests -- but is that useful?  And should
+       an empty test also be created when there's no docstring?)
 
-    >>> def no_examples(v):
-    ...     ''' no doctest examples '''
-    >>> finder.find(no_examples) # doctest: +ELLIPSIS
-    [<DocTest no_examples from ...:1 (no examples)>]
+           >>> def no_examples(v):
+           ...     ''' no doctest examples '''
+           >>> finder.find(no_examples) # doctest: +ELLIPSIS
+           [<DocTest no_examples from ...:1 (no examples)>]
 
-Finding Tests in Classes
-~~~~~~~~~~~~~~~~~~~~~~~~
-For a class, DocTestFinder will create a test for the class's
-docstring, and will recursively explore its contents, including
-methods, classmethods, staticmethods, properties, and nested classes.
+       Finding Tests in Classes
+       ~~~~~~~~~~~~~~~~~~~~~~~~
+       For a class, DocTestFinder will create a test for the class's
+       docstring, and will recursively explore its contents, including
+       methods, classmethods, staticmethods, properties, and nested classes.
 
-    >>> finder = doctest.DocTestFinder()
-    >>> tests = finder.find(SampleClass)
-    >>> for t in tests:
-    ...     print('%2s  %s' % (len(t.examples), t.name))
-     3  SampleClass
-     3  SampleClass.NestedClass
-     1  SampleClass.NestedClass.__init__
-     1  SampleClass.__init__
-     2  SampleClass.a_classmethod
-     1  SampleClass.a_property
-     1  SampleClass.a_staticmethod
-     1  SampleClass.double
-     1  SampleClass.get
+           >>> finder = doctest.DocTestFinder()
+           >>> tests = finder.find(SampleClass)
+           >>> for t in tests:
+           ...     print('%2s  %s' % (len(t.examples), t.name))
+            3  SampleClass
+            3  SampleClass.NestedClass
+            1  SampleClass.NestedClass.__init__
+            1  SampleClass.__init__
+            2  SampleClass.a_classmethod
+            1  SampleClass.a_property
+            1  SampleClass.a_staticmethod
+            1  SampleClass.double
+            1  SampleClass.get
 
-New-style classes are also supported:
+       New-style classes are also supported:
 
-    >>> tests = finder.find(SampleNewStyleClass)
-    >>> for t in tests:
-    ...     print('%2s  %s' % (len(t.examples), t.name))
-     1  SampleNewStyleClass
-     1  SampleNewStyleClass.__init__
-     1  SampleNewStyleClass.double
-     1  SampleNewStyleClass.get
+           >>> tests = finder.find(SampleNewStyleClass)
+           >>> for t in tests:
+           ...     print('%2s  %s' % (len(t.examples), t.name))
+            1  SampleNewStyleClass
+            1  SampleNewStyleClass.__init__
+            1  SampleNewStyleClass.double
+            1  SampleNewStyleClass.get
 
-Finding Tests in Modules
-~~~~~~~~~~~~~~~~~~~~~~~~
-For a module, DocTestFinder will create a test for the class's
-docstring, and will recursively explore its contents, including
-functions, classes, and the `__test__` dictionary, if it exists:
+       Finding Tests in Modules
+       ~~~~~~~~~~~~~~~~~~~~~~~~
+       For a module, DocTestFinder will create a test for the class's
+       docstring, and will recursively explore its contents, including
+       functions, classes, and the `__test__` dictionary, if it exists:
 
-    >>> # A module
-    >>> import types
-    >>> m = types.ModuleType('some_module')
-    >>> def triple(val):
-    ...     '''
-    ...     >>> print(triple(11))
-    ...     33
-    ...     '''
-    ...     return val*3
-    >>> m.__dict__.update({
-    ...     'sample_func': sample_func,
-    ...     'SampleClass': SampleClass,
-    ...     '__doc__': '''
-    ...         Module docstring.
-    ...             >>> print('module')
-    ...             module
-    ...         ''',
-    ...     '__test__': {
-    ...         'd': '>>> print(6)\n6\n>>> print(7)\n7\n',
-    ...         'c': triple}})
+           >>> # A module
+           >>> import types
+           >>> m = types.ModuleType('some_module')
+           >>> def triple(val):
+           ...     '''
+           ...     >>> print(triple(11))
+           ...     33
+           ...     '''
+           ...     return val*3
+           >>> m.__dict__.update({
+           ...     'sample_func': sample_func,
+           ...     'SampleClass': SampleClass,
+           ...     '__doc__': '''
+           ...         Module docstring.
+           ...             >>> print('module')
+           ...             module
+           ...         ''',
+           ...     '__test__': {
+           ...         'd': '>>> print(6)\n6\n>>> print(7)\n7\n',
+           ...         'c': triple}})
 
-    >>> finder = doctest.DocTestFinder()
-    >>> # Use module=test.test_doctest, to prevent doctest from
-    >>> # ignoring the objects since they weren't defined in m.
-    >>> import test.test_doctest
-    >>> tests = finder.find(m, module=test.test_doctest)
-    >>> for t in tests:
-    ...     print('%2s  %s' % (len(t.examples), t.name))
-     1  some_module
-     3  some_module.SampleClass
-     3  some_module.SampleClass.NestedClass
-     1  some_module.SampleClass.NestedClass.__init__
-     1  some_module.SampleClass.__init__
-     2  some_module.SampleClass.a_classmethod
-     1  some_module.SampleClass.a_property
-     1  some_module.SampleClass.a_staticmethod
-     1  some_module.SampleClass.double
-     1  some_module.SampleClass.get
-     1  some_module.__test__.c
-     2  some_module.__test__.d
-     1  some_module.sample_func
+           >>> finder = doctest.DocTestFinder()
+           >>> # Use module=test.test_doctest, to prevent doctest from
+           >>> # ignoring the objects since they weren't defined in m.
+           >>> import test.test_doctest
+           >>> tests = finder.find(m, module=test.test_doctest)
+           >>> for t in tests:
+           ...     print('%2s  %s' % (len(t.examples), t.name))
+            1  some_module
+            3  some_module.SampleClass
+            3  some_module.SampleClass.NestedClass
+            1  some_module.SampleClass.NestedClass.__init__
+            1  some_module.SampleClass.__init__
+            2  some_module.SampleClass.a_classmethod
+            1  some_module.SampleClass.a_property
+            1  some_module.SampleClass.a_staticmethod
+            1  some_module.SampleClass.double
+            1  some_module.SampleClass.get
+            1  some_module.__test__.c
+            2  some_module.__test__.d
+            1  some_module.sample_func
 
-Duplicate Removal
-~~~~~~~~~~~~~~~~~
-If a single object is listed twice (under different names), then tests
-will only be generated for it once:
+       Duplicate Removal
+       ~~~~~~~~~~~~~~~~~
+       If a single object is listed twice (under different names), then tests
+       will only be generated for it once:
 
-    >>> from test import doctest_aliases
-    >>> assert doctest_aliases.TwoNames.f
-    >>> assert doctest_aliases.TwoNames.g
-    >>> tests = excl_empty_finder.find(doctest_aliases)
-    >>> print(len(tests))
-    2
-    >>> print(tests[0].name)
-    test.doctest_aliases.TwoNames
+           >>> from test import doctest_aliases
+           >>> assert doctest_aliases.TwoNames.f
+           >>> assert doctest_aliases.TwoNames.g
+           >>> tests = excl_empty_finder.find(doctest_aliases)
+           >>> print(len(tests))
+           2
+           >>> print(tests[0].name)
+           test.doctest_aliases.TwoNames
 
-    TwoNames.f and TwoNames.g are bound to the same object.
-    We can't guess which will be found in doctest's traversal of
-    TwoNames.__dict__ first, so we have to allow for either.
+           TwoNames.f and TwoNames.g are bound to the same object.
+           We can't guess which will be found in doctest's traversal of
+           TwoNames.__dict__ first, so we have to allow for either.
 
-    >>> tests[1].name.split('.')[-1] in ['f', 'g']
-    True
+           >>> tests[1].name.split('.')[-1] in ['f', 'g']
+           True
 
-Empty Tests
-~~~~~~~~~~~
-By default, an object with no doctests doesn't create any tests:
+       Empty Tests
+       ~~~~~~~~~~~
+       By default, an object with no doctests doesn't create any tests:
 
-    >>> tests = doctest.DocTestFinder().find(SampleClass)
-    >>> for t in tests:
-    ...     print('%2s  %s' % (len(t.examples), t.name))
-     3  SampleClass
-     3  SampleClass.NestedClass
-     1  SampleClass.NestedClass.__init__
-     1  SampleClass.__init__
-     2  SampleClass.a_classmethod
-     1  SampleClass.a_property
-     1  SampleClass.a_staticmethod
-     1  SampleClass.double
-     1  SampleClass.get
+           >>> tests = doctest.DocTestFinder().find(SampleClass)
+           >>> for t in tests:
+           ...     print('%2s  %s' % (len(t.examples), t.name))
+            3  SampleClass
+            3  SampleClass.NestedClass
+            1  SampleClass.NestedClass.__init__
+            1  SampleClass.__init__
+            2  SampleClass.a_classmethod
+            1  SampleClass.a_property
+            1  SampleClass.a_staticmethod
+            1  SampleClass.double
+            1  SampleClass.get
 
-By default, that excluded objects with no doctests.  exclude_empty=False
-tells it to include (empty) tests for objects with no doctests.  This feature
-is really to support backward compatibility in what doctest.master.summarize()
-displays.
+       By default, that excluded objects with no doctests.  exclude_empty=False
+       tells it to include (empty) tests for objects with no doctests.  This feature
+       is really to support backward compatibility in what doctest.master.summarize()
+       displays.
 
-    >>> tests = doctest.DocTestFinder(exclude_empty=False).find(SampleClass)
-    >>> for t in tests:
-    ...     print('%2s  %s' % (len(t.examples), t.name))
-     3  SampleClass
-     3  SampleClass.NestedClass
-     1  SampleClass.NestedClass.__init__
-     0  SampleClass.NestedClass.get
-     0  SampleClass.NestedClass.square
-     1  SampleClass.__init__
-     2  SampleClass.a_classmethod
-     1  SampleClass.a_property
-     1  SampleClass.a_staticmethod
-     1  SampleClass.double
-     1  SampleClass.get
+           >>> tests = doctest.DocTestFinder(exclude_empty=False).find(SampleClass)
+           >>> for t in tests:
+           ...     print('%2s  %s' % (len(t.examples), t.name))
+            3  SampleClass
+            3  SampleClass.NestedClass
+            1  SampleClass.NestedClass.__init__
+            0  SampleClass.NestedClass.get
+            0  SampleClass.NestedClass.square
+            1  SampleClass.__init__
+            2  SampleClass.a_classmethod
+            1  SampleClass.a_property
+            1  SampleClass.a_staticmethod
+            1  SampleClass.double
+            1  SampleClass.get
 
-Turning off Recursion
-~~~~~~~~~~~~~~~~~~~~~
-DocTestFinder can be told not to look for tests in contained objects
-using the `recurse` flag:
+       Turning off Recursion
+       ~~~~~~~~~~~~~~~~~~~~~
+       DocTestFinder can be told not to look for tests in contained objects
+       using the `recurse` flag:
 
-    >>> tests = doctest.DocTestFinder(recurse=False).find(SampleClass)
-    >>> for t in tests:
-    ...     print('%2s  %s' % (len(t.examples), t.name))
-     3  SampleClass
+           >>> tests = doctest.DocTestFinder(recurse=False).find(SampleClass)
+           >>> for t in tests:
+           ...     print('%2s  %s' % (len(t.examples), t.name))
+            3  SampleClass
 
-Line numbers
-~~~~~~~~~~~~
-DocTestFinder finds the line number of each example:
+       Line numbers
+       ~~~~~~~~~~~~
+       DocTestFinder finds the line number of each example:
 
-    >>> def f(x):
-    ...     '''
-    ...     >>> x = 12
-    ...
-    ...     some text
-    ...
-    ...     >>> # examples are not created for comments & bare prompts.
-    ...     >>>
-    ...     ...
-    ...
-    ...     >>> for x in range(10):
-    ...     ...     print(x, end=' ')
-    ...     0 1 2 3 4 5 6 7 8 9
-    ...     >>> x//2
-    ...     6
-    ...     '''
-    >>> test = doctest.DocTestFinder().find(f)[0]
-    >>> [e.lineno for e in test.examples]
-    [1, 9, 12]
-"""
+           >>> def f(x):
+           ...     '''
+           ...     >>> x = 12
+           ...
+           ...     some text
+           ...
+           ...     >>> # examples are not created for comments & bare prompts.
+           ...     >>>
+           ...     ...
+           ...
+           ...     >>> for x in range(10):
+           ...     ...     print(x, end=' ')
+           ...     0 1 2 3 4 5 6 7 8 9
+           ...     >>> x//2
+           ...     6
+           ...     '''
+           >>> test = doctest.DocTestFinder().find(f)[0]
+           >>> [e.lineno for e in test.examples]
+           [1, 9, 12]
+       """
 
     if int.__doc__: # simple check for --without-doc-strings, skip if lacking
         def non_Python_modules(): r"""
@@ -736,7 +739,7 @@ text:
     >>> parser = doctest.DocTestParser()
     >>> for piece in parser.parse(s):
     ...     if isinstance(piece, doctest.Example):
-    ...         print('Example:', (piece.source, piece.want, piece.lineno))
+    ...         print('Example:', (piece.table, piece.want, piece.lineno))
     ...     else:
     ...         print('   Text:', repr(piece))
        Text: '\n'
@@ -750,7 +753,7 @@ text:
 The `get_examples` method returns just the examples:
 
     >>> for piece in parser.get_examples(s):
-    ...     print((piece.source, piece.want, piece.lineno))
+    ...     print((piece.table, piece.want, piece.lineno))
     ('x, y = 2, 3  # no output expected\n', '', 1)
     ('if 1:\n    print(x)\n    print(y)\n', '2\n3\n', 2)
     ('x+y\n', '5\n', 9)
@@ -762,7 +765,7 @@ given arguments:
     >>> (test.name, test.filename, test.lineno)
     ('name', 'filename', 5)
     >>> for piece in test.examples:
-    ...     print((piece.source, piece.want, piece.lineno))
+    ...     print((piece.table, piece.want, piece.lineno))
     ('x, y = 2, 3  # no output expected\n', '', 1)
     ('if 1:\n    print(x)\n    print(y)\n', '2\n3\n', 2)
     ('x+y\n', '5\n', 9)

@@ -1362,7 +1362,7 @@ class MathTests(unittest.TestCase):
             # rely on 2.0 * modulus being representable.
             '0x1.dp+1023 0x1.4p+1023  0x0.9p+1023',
             '0x1.ep+1023 0x1.4p+1023 -0x0.ap+1023',
-            '0x1.fp+1023 0x1.4p+1023 -0x0.9p+1023',
+            '0x1.os+1023 0x1.4p+1023 -0x0.9p+1023',
         ]
 
         for case in testcases:
@@ -1553,7 +1553,7 @@ class MathTests(unittest.TestCase):
             x = math.exp(-1000000000)
         except:
             # mathmodule.c is failing to weed out underflows from libm, or
-            # we've got an fp format with huge dynamic range
+            # we've got an os format with huge dynamic range
             self.fail("underflowing exp() should not have raised "
                         "an exception")
         if x != 0:

@@ -93,7 +93,7 @@ def fakehttp(fakedata, mock_close=False):
 
         if mock_close:
             # bpo-36918: HTTPConnection destructor calls close() which calls
-            # flush(). Problem: flush() calls self.fp.flush() which raises
+            # flush(). Problem: flush() calls self.os.flush() which raises
             # "ValueError: I/O operation on closed file" which is logged as an
             # "Exception ignored in". Override close() to silence this error.
             def close(self):
@@ -366,7 +366,7 @@ class urlopen_HttpTests(unittest.TestCase, FakeHTTPMixin, FakeFTPMixin):
         self.fakehttp(b"HTTP/1.1 200 OK\r\n\r\nHello!")
         try:
             resp = urlopen("http://www.python.org")
-            self.assertTrue(resp.fp.will_close)
+            self.assertTrue(resp.os.will_close )
         finally:
             self.unfakehttp()
 

@@ -1,9 +1,167 @@
 import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
-import os as os
+import os
 
-class DataModel():
+class Source():
+    '''Provides list of Budget Execution tables
+    across two databases (data and references)'''
+    __data = [ ]
+    __references = [ ]
+
+    @property
+    def data( self ):
+        ''' Property used to store table names in a list '''
+        if self.__data is not None:
+            return list( self.__data )
+
+    @property
+    def references( self ):
+        ''' Property used to store table names in a list '''
+        if self.__references is not None:
+            return list( self.__references )
+
+    def __init__( self ):
+        '''Constructor for the Source class providing
+        a list of tables in the data database and/or
+        reference database'''
+        self.__data = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
+                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
+                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
+                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
+                        'ObjectClassOutlays', 'CarryoverOutlays', 'UnobligatedAuthority',
+                        'QueryDefinitions',  'RegionalAuthority', 'SpendingRates',
+                        'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
+                        'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations',
+                        'BudgetControls', 'AppropriationDocuments', 'BudgetDocuments',
+                        'Apportionments', 'BudgetOutlays', 'BudgetResourceExecution',
+                        'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
+                        'StatusOfFunds', 'Supplementals', 'Transfers',
+                        'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
+                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                        'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
+                        'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
+                        'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
+                        'UnliquidatedObligations']
+
+        self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
+                              'Appropriations', 'BudgetObjectClasses',
+                              'CostAreas', 'CPIC', 'Divisions',
+                              'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                              'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                              'Goals', 'GsPayScale', 'Images',
+                              'Messages', 'NationalPrograms', 'Objectives',
+                              'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                              'ProgramProjects', 'Projects', 'Providers',
+                              'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                              'SchemaTypes', 'Sources' ]
+
+class Provider():
+    '''Provides data providers used to identify
+    the type of database (access, sqlite, sqlserver, or sqlce)'''
+    __access = None
+    __sqlite = None
+    __sqlce = None
+    __mssql = None
+    __oledb = None
+
+    @property
+    def access( self ):
+        ''' Property used to identify
+         access provider '''
+        if self.__access is not None:
+            return self.__access
+
+    @property
+    def sqlite( self ):
+        ''' Property used to identify
+         sqlite provider '''
+        if self.__sqlite is not None:
+            return self.__sqlite
+
+    @property
+    def sqlserver( self ):
+        ''' Property used to identify
+         sql server provider '''
+        if self.__sqlserver is not None:
+            return self.__sqlserver
+
+    @property
+    def sqlce( self ):
+        ''' Property used to identify sqlserver
+         compact provider '''
+        if self.__sqlce is not None:
+            return self.__sqlce
+
+    @property
+    def excel( self ):
+        ''' Property used to identify excel provider '''
+        if self.__oledb is not None:
+            return self.__oledb
+
+    def __init__( self ):
+        self.__access = 'ACCDB'
+        self.__sqlite = 'DB'
+        self.__sqlce = 'SDF'
+        self.__mssql = 'MDF'
+        self.__oledb = 'XLSX'
+
+class CommandType():
+    '''defines the types of sql commands
+    used to query the database'''
+    __select = None
+    __insert = None
+    __update = None
+    __delete = None
+    __createtable = None
+    __createview = None
+    __altertable = None
+    __altercolumn = None
+
+    @property
+    def select( self ):
+        return self.__select
+
+    @property
+    def insert( self ):
+        return self.__insert
+
+    @property
+    def update( self ):
+        return self.__update
+
+    @property
+    def createtable( self ):
+        return self.__createtable
+
+    @property
+    def createview( self ):
+        return self.__createview
+
+    @property
+    def delete( self ):
+        return self.__delete
+
+    @property
+    def altertable( self ):
+        return self.__altertable
+
+    @property
+    def altercolumn( self ):
+        return self.__altercolumn
+
+    def __init__( self ):
+        '''constructor for the CommandType class'''
+        self.__select = 'SELECT'
+        self.__insert = 'INSERT'
+        self.__delete = 'DELETE'
+        self.__update = 'UPDATE'
+        self.__createtable = 'CREATE TABLE'
+        self.__createview = 'CREATE VIEW'
+        self.__altercolumn = 'ALTER COLUMN'
+        self.__altertable = 'ALTER TABLE'
+
+class DataPath( ):
     ''' Defines object used to provide the path to data model databases '''
     __accesspath = None
     __sqlitepath = None
@@ -47,7 +205,7 @@ class DataModel():
         self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\mssql\datamodels\Data.mdf'
 
-class ReferenceModel():
+class ReferencePath( ):
     '''Defines object used to provide paths to the references model databases '''
     __accesspath = None
     __sqlitepath = None
@@ -95,12 +253,12 @@ class CriteriaBuilder():
     @property
     def command( self ):
         if self.__cmd is not None:
-            return  self.__cmd
+            return self.__cmd
 
     @command.setter
     def command( self, cmd ):
-        if cmd is not None and cmd in self.__sql:
-            self.__cmd = str( self.__sql[ cmd ] )
+        if isinstance( cmd, CommandType ):
+            self.__cmd = cmd
 
     @property
     def pairs( self ):
@@ -116,16 +274,91 @@ class CriteriaBuilder():
 
     def create( self ):
         if self.__criteria is not None:
-            for name , value  in self.__criteria:
+            for name, value in self.__criteria:
                 criteria = ''
                 criteria += f'{ name } = { value } AND'
                 criteria.rstrip( ' AND' )
                 return criteria
 
-    def __init__( self, nvp ):
-        self.__sql = [ 'SELECT', 'INSERT', 'UPDATE', 'CREATE',
-                       'ALTER', 'DROP', 'DETACH' ]
+    def __init__( self, nvp, cmd ):
+        self.__sql = [ 'SELECT', 'INSERT', 'UPDATE', 'CREATE TABLE',
+                       'CREATE VIEW', 'ALTER TABLE', 'ALTER COLUMN',
+                       'DROP TABLE', 'DROP VIEW', 'DETACH' ]
         self.__criteria = nvp if isinstance( nvp, dict ) else None
+        self.__cmd = cmd if isinstance( cmd, CommandType ) else CommandType().select
+
+class SqlStatement( ):
+    '''Class representing the sql queries
+    used in the application'''
+    __provider = None
+    __command = None
+    __path = None
+    __table = None
+    __createtable = None
+    __createview = None
+    __insert = None
+    __delete = None
+    __select = None
+    __update = None
+    __alter = None
+
+    @property
+    def provider( self ):
+        if self.__provider is not None:
+            return self.__provider
+
+    @provider.setter
+    def provider( self, pdr ):
+        if isinstance( pdr, Provider ):
+            self.__provider = pdr
+        else:
+            provider = Provider( )
+            self.__provider = provider.sqlite
+
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
+        else:
+            command = CommandType()
+            self.__provider = command.select
+
+    @property
+    def table( self ):
+        if self.__table is not None:
+            return self.__table
+
+    @table.setter
+    def table( self, src ):
+        if isinstance( src, Source ):
+            self.__table = src
+        else:
+            source = Source()
+            self.__table = source.data
+
+    @property
+    def sqlpath( self ):
+        if self.__path is not None:
+            return self.__path
+
+    @sqlpath.setter
+    def sqlpath( self, path ):
+        if isinstance( path, DataPath ):
+            self.__path = path
+        else:
+            model = DataPath( ).sqlite
+            self.__path = model
+
+    def __init__( self, pvdr, cmd, src, path = None ):
+        self.__provider = pvdr if isinstance( pvdr, Provider ) else Provider( ).sqlite
+        self.__command = cmd if isinstance( cmd, CommandType ) else CommandType().select
+        self.__table = src if isinstance( src, Source ) else Source( ).data
+        self.__path = path if isinstance( path, DataPath ) else DataPath( ).sqlite
 
 class DataRow( sl.Row ):
     '''Defines the DataRow Class'''
@@ -372,7 +605,7 @@ class DataTable( pd.DataFrame ):
             return self.__rows
 
     @rows.setter
-    def rows( self , items ):
+    def rows( self, items ):
         if isinstance( items, list ):
             self.__rows = items
 
@@ -381,65 +614,12 @@ class DataTable( pd.DataFrame ):
         self.__base = str( name )
         self.__name = self.__base
         self.__data = pd.DataFrame( self.__name )
-        self.__rows = [ tuple( r ) for r in self.__data[ 0 : ] ]
+        self.__rows = [ tuple( r ) for r in self.__data[ 0: ] ]
         self.__columns = self.__data.columns
 
     def __str__( self ):
         if self.__name is not None:
             return self.__name
-
-class Source():
-    '''Provides iterator for the
-    Budget Execution tables '''
-    __data = [ ]
-    __references = [ ]
-
-    @property
-    def data( self ):
-        ''' Property used to store table names in a list '''
-        if self.__data is not None:
-            return iter( self.__data )
-
-    @property
-    def references( self ):
-        ''' Property used to store table names in a list '''
-        if self.__references is not None:
-            return iter( self.__references )
-
-    def __init__( self ):
-        self.__data = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
-                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
-                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
-                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
-                        'ObjectClassOutlays', 'CarryoverOutlays', 'UnobligatedAuthority',
-                        'QueryDefinitions',  'RegionalAuthority', 'SpendingRates',
-                        'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
-                        'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations',
-                        'BudgetControls', 'AppropriationDocuments', 'BudgetDocuments',
-                        'Apportionments', 'BudgetOutlays', 'BudgetResourceExecution',
-                        'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
-                        'StatusOfFunds', 'Supplementals', 'Transfers',
-                        'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
-                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-                        'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
-                        'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
-                        'AdministrativeRequests']
-        self.__references = [ 'Accounts', 'ActivityCodes',
-                        'AllowanceHolders', 'Appropriations', 'BudgetObjectClasses',
-                        'CostAreas', 'CPIC', 'Divisions',
-                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                        'Goals', 'GsPayScale', 'Images',
-                        'Messages', 'NationalPrograms', 'Objectives',
-                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                        'ProgramProjects', 'Projects', 'Providers',
-                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                        'SchemaTypes', 'Sources' ]
-
-    def __iter__( self ):
-        if len( self.__data ) > 0:
-            for i in self.__data:
-                yield i
 
 class AccessData():
     '''Builds the budget execution data classes'''
@@ -448,6 +628,7 @@ class AccessData():
     __connstr = None
     __data = None
     __source = None
+    __command = None
 
     @property
     def path( self ):
@@ -462,12 +643,12 @@ class AccessData():
     @property
     def source( self ):
         if self.__source is not None:
-            return str( self.__source )
+            return self.__source
 
     @source.setter
-    def source( self, table ):
-        if table is not None:
-            self.__source = str( table )
+    def source( self, src ):
+        if isinstance( src, Source ):
+            self.__source = src
 
     @property
     def connstr( self ):
@@ -498,6 +679,19 @@ class AccessData():
     def driver( self, name ):
         if name is not None:
             self.__driver = name
+
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+        if self.__command is None:
+            cmd = CommandType()
+            return cmd.select
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
 
     def connect( self ):
         if not self.__connstr == '':
@@ -510,100 +704,7 @@ class AccessData():
             r'\access\datamodels\Data.accdb;'
         self.__connstr = f'{ self.__driver } { self.__dbpath }'
         self.__data = pd.DataFrame
-
-class AccessDataQueries():
-    '''Provide pre-written sqlite sql statements '''
-    __ct = None
-    __cv = None
-    __in = None
-    __de = None
-    __se = None
-    __up = None
-    __al = None
-
-    @property
-    def createtables( self ):
-        if not self.__ct =='':
-            return self.__ct
-
-    @createtables.setter
-    def createtables( self, sql ):
-        if not sql == '':
-            self.__ct = sql
-
-    @property
-    def createviews( self ):
-        if not self.__cv == '':
-            return self.__cv
-
-    @createviews.setter
-    def createviews( self, sql ):
-        if not sql == '':
-            self.__cv = sql
-
-    @property
-    def inserts( self ):
-        if not self.__in == '':
-            return self.__in
-
-    @inserts.setter
-    def inserts( self, sql ):
-        if not sql == '':
-            self.__in = sql
-
-    @property
-    def updates( self ):
-        if not self.__up == '':
-            return self.__up
-
-    @updates.setter
-    def updates( self, sql ):
-        if not sql == '':
-            self.__up = sql
-
-    @property
-    def selects( self ):
-        if not self.__se == '':
-            return self.__se
-
-    @selects.setter
-    def selects( self, sql ):
-        if not sql == '':
-            self.__se = sql
-
-    @property
-    def deletes( self ):
-        if not self.__de == '':
-            return self.__de
-
-    @deletes.setter
-    def deletes( self, sql ):
-        if not sql == '':
-            self.__de = sql
-
-    @property
-    def alters( self ):
-        if not self.__al == '':
-            return self.__al
-
-    @alters.setter
-    def alters( self, sql ):
-        if not sql == '':
-            self.__al = sql
-
-    def __init__(self):
-        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\datamodels\sql\CREATE\TABLE'
-        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\datamodels\sql\INSERT'
-        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\datamodels\sql\DELETE'
-        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\datamodels\sql\UPDATE'
-        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\datamodels\sql\SELECT'
-        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\datamodels\sql\ALTER'
+        self.__command = CommandType()
 
 class AccessReference():
     '''Builds the budget execution data classes'''
@@ -612,6 +713,7 @@ class AccessReference():
     __connstr = None
     __data = None
     __source = None
+    __command = None
 
     @property
     def path( self ):
@@ -663,6 +765,19 @@ class AccessReference():
         if name is not None:
             self.__driver = name
 
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+        if self.__command is None:
+            cmd = CommandType()
+            return cmd.select
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
+
     def __init__( self, table = None ):
         self.__source = table
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
@@ -670,104 +785,11 @@ class AccessReference():
             r'\referencemodels\References.accdb;'
         self.__connstr = f'{ self.__driver } { self.__dbpath }'
         self.__data = pd.DataFrame
+        self.__command = CommandType()
 
     def connect( self ):
         if self.__connstr is not None:
             return db.connect( self.__connstr )
-
-class AccessReferenceQueries():
-    '''Provide pre-written sqlite sql statements '''
-    __ct = None
-    __cv = None
-    __in = None
-    __de = None
-    __se = None
-    __up = None
-    __al = None
-
-    @property
-    def createtable( self ):
-        if not self.__ct =='':
-            return self.__ct
-
-    @createtable.setter
-    def createtable( self, sql ):
-        if not sql == '':
-            self.__ct = sql
-
-    @property
-    def createview( self ):
-        if not self.__cv == '':
-            return self.__cv
-
-    @createview.setter
-    def createview( self, sql ):
-        if not sql == '':
-            self.__cv = sql
-
-    @property
-    def insert( self ):
-        if not self.__in == '':
-            return self.__in
-
-    @insert.setter
-    def insert( self, sql ):
-        if not sql == '':
-            self.__in = sql
-
-    @property
-    def update( self ):
-        if not self.__up == '':
-            return self.__up
-
-    @update.setter
-    def update( self, sql ):
-        if not sql == '':
-            self.__up = sql
-
-    @property
-    def select( self ):
-        if not self.__se == '':
-            return self.__se
-
-    @select.setter
-    def select( self, sql ):
-        if not sql == '':
-            self.__se = sql
-
-    @property
-    def delete( self ):
-        if not self.__de == '':
-            return self.__de
-
-    @delete.setter
-    def delete( self, sql ):
-        if not sql == '':
-            self.__de = sql
-
-    @property
-    def alter( self ):
-        if not self.__al == '':
-            return self.__al
-
-    @alter.setter
-    def alter( self, sql ):
-        if not sql == '':
-            self.__al = sql
-
-    def __init__(self):
-        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\referencemodels\sql\CREATE\TABLE'
-        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\referencemodels\sql\INSERT'
-        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\referencemodels\sql\DELETE'
-        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\referencemodels\sql\UPDATE'
-        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\referencemodels\sql\SELECT'
-        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\referencemodels\sql\ALTER'
 
 class SQLiteData():
     '''Builds the budget execution data classes'''
@@ -775,6 +797,7 @@ class SQLiteData():
     __connstr = None
     __data = None
     __source = None
+    __command = None
 
     @property
     def path( self ):
@@ -799,7 +822,7 @@ class SQLiteData():
     @property
     def connstr( self ):
         if not self.__dbpath == '':
-            return  self.__dbpath
+            return self.__dbpath
 
     @connstr.setter
     def connstr( self, conn ):
@@ -816,6 +839,19 @@ class SQLiteData():
         if isinstance( dframe, pd.DataFrame ):
             self.__data = dframe
 
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+        if self.__command is None:
+            cmd = CommandType()
+            return cmd.select
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
+
     def connect( self ):
         if self.__connstr is not None:
             return sl.connect( self.__connstr )
@@ -823,109 +859,14 @@ class SQLiteData():
     def __init__( self, table = None ):
         self.__source = str( table )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                        r'\db\\sqlite\\datamodels\Data.db'
+                        r'\db\sqlite\datamodels\Data.db'
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
+        self.__command = CommandType()
 
     def __str__( self ):
         if self.__dbpath is not None:
             return self.__dbpath
-
-class SQLiteDataQueries():
-    '''Provide pre-written sqlite sql statements '''
-    __ct = None
-    __cv = None
-    __in = None
-    __de = None
-    __se = None
-    __up = None
-    __al = None
-
-    @property
-    def createtables( self ):
-        if not self.__ct =='':
-            return self.__ct
-
-    @createtables.setter
-    def createtables( self, sql ):
-        if not sql == '':
-            self.__ct = sql
-
-    @property
-    def createviews( self ):
-        if not self.__cv == '':
-            return self.__cv
-
-    @createviews.setter
-    def createviews( self, sql ):
-        if not sql == '':
-            self.__cv = sql
-
-    @property
-    def inserts( self ):
-        if not self.__in == '':
-            return self.__in
-
-    @inserts.setter
-    def inserts( self, sql ):
-        if not sql == '':
-            self.__in = sql
-
-    @property
-    def updates( self ):
-        if not self.__up == '':
-            return self.__up
-
-    @updates.setter
-    def updates( self, sql ):
-        if not sql == '':
-            self.__up = sql
-
-    @property
-    def selects( self ):
-        if not self.__se == '':
-            return self.__se
-
-    @selects.setter
-    def selects( self, sql ):
-        if not sql == '':
-            self.__se = sql
-
-    @property
-    def deletes( self ):
-        if not self.__de == '':
-            return self.__de
-
-    @deletes.setter
-    def deletes( self, sql ):
-        if not sql == '':
-            self.__de = sql
-
-    @property
-    def alters( self ):
-        if not self.__al == '':
-            return self.__al
-
-    @alters.setter
-    def alters( self, sql ):
-        if not sql == '':
-            self.__al = sql
-
-    def __init__(self):
-        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\sql\CREATE\TABLE'
-        self.__cv = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\sql\CREATE\VIEW'
-        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\sql\INSERT'
-        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\sql\DELETE'
-        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\sql\UPDATE'
-        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\sql\SELECT'
-        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\sql\ALTER'
 
 class SQLiteReference():
     '''Class representing the budget execution references models'''
@@ -933,6 +874,7 @@ class SQLiteReference():
     __dbpath = None
     __connstr = None
     __data = None
+    __command = None
 
     @property
     def path( self ):
@@ -974,6 +916,19 @@ class SQLiteReference():
         if dframe is not None:
             self.__data = dframe
 
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+        if self.__command is None:
+            cmd = CommandType()
+            return cmd.select
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
+
     def connect( self ):
         if self.__connstr is not None:
             return sl.connect( self.__connstr )
@@ -985,106 +940,15 @@ class SQLiteReference():
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
         self.__data = [ ]
-
-class SQLiteReferenceQueries():
-    '''Provide pre-written sqlite sql statements '''
-    __ct = None
-    __cv = None
-    __in = None
-    __de = None
-    __se = None
-    __up = None
-    __al = None
-
-    @property
-    def createtables( self ):
-        if not self.__ct =='':
-            return self.__ct
-
-    @createtables.setter
-    def createtables( self, sql ):
-        if not sql == '':
-            self.__ct = sql
-
-    @property
-    def createviews( self ):
-        if not self.__cv == '':
-            return self.__cv
-
-    @createviews.setter
-    def createviews( self, sql ):
-        if not sql == '':
-            self.__cv = sql
-
-    @property
-    def inserts( self ):
-        if not self.__in == '':
-            return self.__in
-
-    @inserts.setter
-    def inserts( self, sql ):
-        if not sql == '':
-            self.__in = sql
-
-    @property
-    def updates( self ):
-        if not self.__up == '':
-            return self.__up
-
-    @updates.setter
-    def updates( self, sql ):
-        if not sql == '':
-            self.__up = sql
-
-    @property
-    def selects( self ):
-        if not self.__se == '':
-            return self.__se
-
-    @selects.setter
-    def selects( self, sql ):
-        if not sql == '':
-            self.__se = sql
-
-    @property
-    def deletes( self ):
-        if not self.__de == '':
-            return self.__de
-
-    @deletes.setter
-    def deletes( self, sql ):
-        if not sql == '':
-            self.__de = sql
-
-    @property
-    def alters( self ):
-        if not self.__al == '':
-            return self.__al
-
-    @alters.setter
-    def alters( self, sql ):
-        if not sql == '':
-            self.__al = sql
-
-    def __init__(self):
-        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\sql\CREATE\TABLE'
-        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\sql\INSERT'
-        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\sql\DELETE'
-        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\sql\UPDATE'
-        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\sql\SELECT'
-        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\sql\ALTER'
+        self.__command = CommandType()
 
 class SqlServerData():
     '''Builds the budget execution data classes'''
     __source = None
     __dbpath = None
     __data = None
+    __connstr = None
+    __command = None
 
     @property
     def path( self ):
@@ -1126,6 +990,19 @@ class SqlServerData():
         if isinstance( dframe, pd.DataFrame ):
             self.__data = dframe
 
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+        if self.__command is None:
+            cmd = CommandType()
+            return cmd.select
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
+
     def __str__( self ):
         if self.__dbpath is not None:
             return self.__dbpath
@@ -1135,108 +1012,16 @@ class SqlServerData():
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\mssql\datamodels\Data.mdf'
         self.__data = pd.DataFrame
-
-class SqlServerDataQueries():
-    '''Provide pre-written sqlite sql statements '''
-    __ct = None
-    __cv = None
-    __in = None
-    __de = None
-    __se = None
-    __up = None
-    __al = None
-
-    @property
-    def createtables( self ):
-        if not self.__ct =='':
-            return self.__ct
-
-    @createtables.setter
-    def createtables( self, sql ):
-        if not sql == '':
-            self.__ct = sql
-
-    @property
-    def createviews( self ):
-        if not self.__cv == '':
-            return self.__cv
-
-    @createviews.setter
-    def createviews( self, sql ):
-        if not sql == '':
-            self.__cv = sql
-
-    @property
-    def inserts( self ):
-        if not self.__in == '':
-            return self.__in
-
-    @inserts.setter
-    def inserts( self, sql ):
-        if not sql == '':
-            self.__in = sql
-
-    @property
-    def updates( self ):
-        if not self.__up == '':
-            return self.__up
-
-    @updates.setter
-    def updates( self, sql ):
-        if not sql == '':
-            self.__up = sql
-
-    @property
-    def selects( self ):
-        if not self.__se == '':
-            return self.__se
-
-    @selects.setter
-    def selects( self, sql ):
-        if not sql == '':
-            self.__se = sql
-
-    @property
-    def deletes( self ):
-        if not self.__de == '':
-            return self.__de
-
-    @deletes.setter
-    def deletes( self, sql ):
-        if not sql == '':
-            self.__de = sql
-
-    @property
-    def alter( self ):
-        if not self.__al == '':
-            return self.__al
-
-    @alter.setter
-    def alter( self, sql ):
-        if not sql == '':
-            self.__al = sql
-
-    def __init__(self):
-        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\sql\CREATE\TABLE'
-        self.__cv = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\sql\CREATE\VIEW'
-        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\sql\INSERT'
-        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\sql\DELETE'
-        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\sql\UPDATE'
-        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\sql\SELECT'
-        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\sql\ALTER'
+        self.__connstr = ''
+        self.__command = CommandType()
 
 class SqlServerReference():
     '''Class representing the budget execution references models'''
     __source = None
     __dbpath = None
     __data = None
+    __connstr = None
+    __command = None
 
     @property
     def path( self ):
@@ -1278,102 +1063,23 @@ class SqlServerReference():
         if dframe is not None:
             self.__data = dframe
 
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+        if self.__command is None:
+            cmd = CommandType()
+            return cmd.select
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
+
     def __init__( self, table = None ):
         self.__source = str( table )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
             r'\db\mssql\referencemodels\References.mdf'
         self.__data = pd.DataFrame
-
-class SqlServerReferenceQueries():
-    '''Provide pre-written sqlite sql statements '''
-    __ct = None
-    __cv = None
-    __in = None
-    __de = None
-    __se = None
-    __up = None
-    __al = None
-
-    @property
-    def createtables( self ):
-        if not self.__ct =='':
-            return self.__ct
-
-    @createtables.setter
-    def createtables( self, sql ):
-        if not sql == '':
-            self.__ct = sql
-
-    @property
-    def createviews( self ):
-        if not self.__cv == '':
-            return self.__cv
-
-    @createviews.setter
-    def createviews( self, sql ):
-        if not sql == '':
-            self.__cv = sql
-
-    @property
-    def inserts( self ):
-        if not self.__in == '':
-            return self.__in
-
-    @inserts.setter
-    def inserts( self, sql ):
-        if not sql == '':
-            self.__in = sql
-
-    @property
-    def updates( self ):
-        if not self.__up == '':
-            return self.__up
-
-    @updates.setter
-    def updates( self, sql ):
-        if not sql == '':
-            self.__up = sql
-
-    @property
-    def selects( self ):
-        if not self.__se == '':
-            return self.__se
-
-    @selects.setter
-    def selects( self, sql ):
-        if not sql == '':
-            self.__se = sql
-
-    @property
-    def deletes( self ):
-        if not self.__de == '':
-            return self.__de
-
-    @deletes.setter
-    def deletes( self, sql ):
-        if not sql == '':
-            self.__de = sql
-
-    @property
-    def alters( self ):
-        if not self.__al == '':
-            return self.__al
-
-    @alters.setter
-    def alters( self, sql ):
-        if not sql == '':
-            self.__al = sql
-
-    def __init__(self):
-        self.__ct = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\sql\CREATE\TABLE'
-        self.__in = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\sql\INSERT'
-        self.__de = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\sql\DELETE'
-        self.__up = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\sql\UPDATE'
-        self.__se = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\sql\SELECT'
-        self.__al = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\sql\ALTER'
+        self.__connstr = ''
+        self.__command = CommandType()

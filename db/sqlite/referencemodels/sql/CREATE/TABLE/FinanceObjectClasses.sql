@@ -1,4 +1,4 @@
-﻿CREATE TABLE FinanceObjectClasses 
+CREATE TABLE FinanceObjectClasses 
 (
 	FinanceObjectClassId INTEGER NOT NULL UNIQUE,
 	Code TEXT(255) NOT NULL,

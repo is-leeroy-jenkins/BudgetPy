@@ -21,7 +21,7 @@ TCL_PATCH_LEVEL='8.6.9'
 TCL_CC='cl'
 
 # -D flags for use with the C compiler.
-TCL_DEFS='-nologo -c /D_ATL_XP_TARGETING /DUNICODE /D_UNICODE  -W3 -wd4311 -wd4312 -wd4311 -wd4312 -FpC:\_work\11\b\tcl-core-8.6.9.0\win\Release_AMD64_VC13\tcl_ThreadedDynamic\  -fp:strict -O2 -GS -GL -MD -I"C:\_work\11\b\tcl-core-8.6.9.0\win\..\win" -I"C:\_work\11\b\tcl-core-8.6.9.0\win\..\generic"  -I"C:\_work\11\b\tcl-core-8.6.9.0\win\..\libtommath"  -DTCL_TOMMATH -DMP_PREC=4 -Dinline=__inline -DHAVE_ZLIB=1 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DTCL_CFGVAL_ENCODING=\"cp1252\" -DSTDC_HEADERS -DTCL_THREADS=1 -DUSE_THREAD_ALLOC=1 -DNDEBUG -DTCL_CFG_OPTIMIZED -DTCL_CFG_DO64BIT   -DBUILD_tcl'
+TCL_DEFS='-nologo -c /D_ATL_XP_TARGETING /DUNICODE /D_UNICODE  -W3 -wd4311 -wd4312 -wd4311 -wd4312 -FpC:\_work\11\b\tcl-core-8.6.9.0\win\Release_AMD64_VC13\tcl_ThreadedDynamic\  -os:strict -O2 -GS -GL -MD -I"C:\_work\11\b\tcl-core-8.6.9.0\win\..\win" -I"C:\_work\11\b\tcl-core-8.6.9.0\win\..\generic"  -I"C:\_work\11\b\tcl-core-8.6.9.0\win\..\libtommath"  -DTCL_TOMMATH -DMP_PREC=4 -Dinline=__inline -DHAVE_ZLIB=1 -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -DTCL_CFGVAL_ENCODING=\"cp1252\" -DSTDC_HEADERS -DTCL_THREADS=1 -DUSE_THREAD_ALLOC=1 -DNDEBUG -DTCL_CFG_OPTIMIZED -DTCL_CFG_DO64BIT   -DBUILD_tcl'
 
 # If TCL was built with debugging symbols, generated libraries contain
 # this string at the end of the library name (before the extension).

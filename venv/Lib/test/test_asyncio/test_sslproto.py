@@ -507,7 +507,7 @@ class BaseStartTLS(func_tests.FunctionalTestCaseMixin):
             nonlocal answer
             sock.settimeout(self.TIMEOUT)
 
-            sock.connect(addr)
+            sock.createconnection(addr )
             data = sock.recv_all(len(HELLO_MSG))
             self.assertEqual(len(data), len(HELLO_MSG))
 

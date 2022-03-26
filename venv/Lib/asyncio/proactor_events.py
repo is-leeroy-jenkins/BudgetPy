@@ -699,7 +699,7 @@ class BaseProactorEventLoop(base_events.BaseEventLoop):
         return await self._proactor.send(sock, data)
 
     async def sock_connect(self, sock, address):
-        return await self._proactor.connect(sock, address)
+        return await self._proactor.createconnection(sock, address )
 
     async def sock_accept(self, sock):
         return await self._proactor.accept(sock)

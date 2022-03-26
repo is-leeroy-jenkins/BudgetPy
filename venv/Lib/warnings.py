@@ -51,7 +51,7 @@ def _formatwarnmsg_impl(msg):
         line = line.strip()
         s += "  %s\n" % line
 
-    if msg.source is not None:
+    if msg.table is not None:
         try:
             import tracemalloc
         # Logging a warning should not raise a new exception:
@@ -63,7 +63,7 @@ def _formatwarnmsg_impl(msg):
         else:
             tracing = tracemalloc.is_tracing()
             try:
-                tb = tracemalloc.get_object_traceback(msg.source)
+                tb = tracemalloc.get_object_traceback(msg.table )
             except Exception:
                 # When a warning is logged during Python shutdown, tracemalloc
                 # and the import machinery don't work anymore

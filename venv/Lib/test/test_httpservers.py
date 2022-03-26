@@ -366,8 +366,8 @@ class SimpleHTTPServerTestCase(BaseTestCase):
             """Don't close reader yet so we can check if there was leftover
             buffered input"""
             nonlocal reader
-            reader = response.fp
-            response.fp = None
+            reader = response.os
+            response.os = None
         reader = None
         response._close_conn = close_conn
 

@@ -1,13 +1,12 @@
 import os
-
-import os as fp
-import io as fi
+import io
 import datetime as dt
 import openpyxl as xl
 import zipfile as zp
 
-class BudgetPath():
-    '''Defines the BudgetPath class'''
+class BudgetPath( ):
+    '''Defines the BudgetPath class representing
+    filepaths used in the application'''
     __base = None
     __path = None
     __ext = None
@@ -21,20 +20,20 @@ class BudgetPath():
 
     @base.setter
     def base( self, path ):
-        if path is not None and fp.path.exists( path ):
+        if path is not None and os.path.exists( path ):
             self.__base = str( path )
 
     @property
     def name( self ):
         '''Returns string representing the name of the path 'base' '''
-        if fp.path.exists( self.__base ):
-            return str( list( fp.path.split( self.__base ) )[ 1 ] )
+        if os.path.exists( self.__base ):
+            return str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @name.setter
     def name( self, path ):
         '''Returns string representing the name of the path 'base' '''
-        if fp.path.exists( path ):
-            self.__path = str( list( fp.path.split( self.__base ) )[ 1 ] )
+        if os.path.exists( path ):
+            self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @property
     def path( self ):
@@ -43,22 +42,22 @@ class BudgetPath():
 
     @path.setter
     def path( self, base ):
-        if fp.path.exists( base ):
+        if os.path.exists( base ):
             self.__path = base
 
     @property
     def exists( self ):
-        if fp.path.exists( self.__path ):
+        if os.path.exists( self.__path ):
             return True
 
     @property
     def isfolder( self ):
-        if fp.path.isdir( self.__path ):
+        if os.path.isdir( self.__path ):
             return True
 
     @property
     def isfile( self ):
-        if fp.path.isfile( self.__path ):
+        if os.path.isfile( self.__path ):
             return True
 
     @property
@@ -73,25 +72,25 @@ class BudgetPath():
 
     @property
     def current( self ):
-        if fp.path.exists( self.__currdir ):
+        if os.path.exists( self.__currdir ):
             return self.__currdir
 
     @current.setter
     def current( self, path ):
         '''Set the current directory to 'path' '''
-        if fp.path.exists( path ):
-            fp.chdir( path )
+        if os.path.exists( path ):
+            os.chdir( path )
             self.__currdir = path
 
     def verify( self, other ):
         '''Verifies if the parameter 'other' exists'''
-        if fp.path.exists( other ):
+        if os.path.exists( other ):
             return True
 
     def getextension( self, other ):
         '''Returns string representing the file extension of 'other' '''
-        if fp.path.exists( other ):
-            return list( fp.path.splitext( other ) )[ 1 ]
+        if os.path.exists( other ):
+            return list( os.path.splitext( other ) )[ 1 ]
 
     def getreport( self ):
         if self.__report is not None:
@@ -99,17 +98,17 @@ class BudgetPath():
 
     def join( self, first, second ):
         ''' Concatenates 'first' to 'second' '''
-        if fp.path.exists( first ) and fp.path.exists( second ):
-            return fp.path.join( first, second )
+        if os.path.exists( first ) and os.path.exists( second ):
+            return os.path.join( first, second )
 
     def __init__( self, filepath ):
         self.__base = str( filepath )
         self.__path = self.__base
-        self.__currdir = fp.getcwd()
-        self.__ext = fp.path.split( self.__path )
+        self.__currdir = os.getcwd( )
+        self.__ext = os.path.split( self.__path )
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
-class BudgetFile( fi.FileIO ):
+class BudgetFile( ):
     '''Defines the BudgetFile Class'''
     __base = None
     __name = None
@@ -131,7 +130,7 @@ class BudgetFile( fi.FileIO ):
 
     @base.setter
     def base( self, path ):
-        if isinstance( path , str ) and not path == '':
+        if isinstance( path, str ) and not path == '':
             self.__base = path
 
     @property
@@ -143,17 +142,17 @@ class BudgetFile( fi.FileIO ):
     @name.setter
     def name( self, path ):
         '''Set the name property'''
-        if fp.path.exists( path ):
-            self.__name = fp.path.basename( path )
+        if os.path.exists( path ):
+            self.__name = os.path.basename( path )
 
     @property
     def path( self ):
-        if fp.path.isfile( self.__path ):
+        if os.path.isfile( self.__path ):
             return str( self.__path )
 
     @path.setter
     def path( self, base ):
-        if fp.path.exists( base ):
+        if os.path.exists( base ):
             self.__path = str( base )
 
     @property
@@ -173,8 +172,8 @@ class BudgetFile( fi.FileIO ):
 
     @directory.setter
     def directory( self, path ):
-        if fp.path.isdir( path ):
-            self.__directory = str( fp.path.dirname( path ) )
+        if os.path.isdir( path ):
+            self.__directory = str( os.path.dirname( path ) )
 
     @property
     def extension( self ):
@@ -193,7 +192,7 @@ class BudgetFile( fi.FileIO ):
 
     @drive.setter
     def drive( self, path ):
-        if fp.path.ismount( path ):
+        if os.path.ismount( path ):
             self.__drive = str( path )
 
     @property
@@ -224,70 +223,70 @@ class BudgetFile( fi.FileIO ):
     @created.setter
     def created( self, yr, mo = 1, dy = 1 ):
         if dt.date( yr, mo, dy ):
-            self.__created = dt.date( yr, mo, dy )
+            self.__created = dt.datetime( yr, mo, dy )
 
     @property
     def current( self ):
-        if fp.path.exists( self.__currdir ):
-            return self.__currdir
+        if os.path.exists( self.__currdir ):
+            return str( self.__currdir )
 
     @current.setter
     def current( self, path ):
         '''Set the current directory to 'path' '''
-        if fp.path.exists( path ):
-            fp.chdir( path )
+        if os.path.exists( path ) and os.path.isdir( path ):
+            os.chdir( path )
             self.__currdir = path
 
     def rename( self, other ):
         '''Renames the current file to 'other' '''
         if isinstance( other, str ) and not other == '':
-            fp.rename( self.__name, other )
+            os.rename( self.__name, other )
             self.__name = other
             return self.__name
 
     def move( self, destination ):
         '''renames current file'''
-        if fp.path.exists( self.__base ):
-            return fp.path.join( self.__name, destination )
+        if os.path.exists( self.__base ):
+            return os.path.join( self.__name, destination )
 
     def create( self, other ):
         ''' creates and returns 'path' file '''
         if other is not None:
-            fp.mkdir( other )
+            os.mkdir( other )
 
     def exists( self, other ):
         '''determines if an external file exists'''
         if other is not None:
-            return fp.path.exists( other )
+            return os.path.exists( other )
 
     def delete( self, other ):
-        ''' deletes file at 'self.__opath'   '''
-        if fp.path.isfile( other ):
-            fp.remove( other )
+        ''' deletes file at 'self.__filepath'   '''
+        if os.path.isfile( other ):
+            os.remove( other )
 
     def getsize( self, other ):
         '''gets the size of another file'''
-        if self.__base is not None and fp.path.exists( other ):
-            return fp.path.getsize( other )
+        if self.__base is not None and os.path.exists( other ):
+            return os.path.getsize( other )
 
     def getdrive( self, other ):
         '''gets the drive of another file'''
-        if fp.path.exists( other ):
-            return str( list( fp.path.splitdrive( other ) )[ 0 ] )
+        if os.path.exists( other ):
+            return str( list( os.path.splitdrive( other ) )[ 0 ] )
 
     def getextension( self, other ):
         ''' gets and returns extension of 'path' 'file' '''
-        if other is not None and fp.path.isfile( other ):
-            return str( list( fp.path.splitext( other ) )[ 1 ] )
+        if other is not None and os.path.isfile( other ):
+            return str( list( os.path.splitext( other ) )[ 1 ] )
 
     def readlines( self, other ):
         '''reads all lines in 'path' into a list
             then returns the list '''
         lines = [ ]
         count = len( self.__contents )
-        if other is not None and fp.path.isfile( other ):
+        if other is not None and os.path.isfile( other ):
             file = open( other, 'r' )
-            for line in file.readlines():
+            for line in file.readlines( ):
                 lines.append( line )
             self.__contents.append( lines )
         if len( lines ) > 0 and len( self.__contents ) > count:
@@ -297,37 +296,36 @@ class BudgetFile( fi.FileIO ):
         '''reads a single line from the file into a string
             then returns the string'''
         count = len( self.__content )
-        if fp.path.isfile( other ):
-            line = open( self.__path, 'r' ).readline()
+        if os.path.isfile( other ):
+            line = open( self.__path, 'r' ).readline( )
             self.__content.append( line )
             if len( self.__content ) > count:
                 yield from iter( self.__content )
 
     def writelines( self, lines = None ):
         ''' writes the contents of 'lines' to self.__contents '''
-        if fp.path.isfile( self.__path ) and isinstance( lines, list ):
+        if os.path.isfile( self.__path ) and isinstance( lines, list ):
             for line in lines:
                 self.__contents.append( open( self.__path, 'w' ).write( line ) )
 
     def __init__( self, base ):
-        super().__init__( base )
-        self.__base =  base if not self.__base == '' else 'NS'
+        self.__base = base if not self.__base == '' else 'NS'
         self.__path = self.__base if not self.__base == '' else 'NS'
-        self.__name = fp.path.basename( base ) if not base == '' else 'NS'
-        self.__size = fp.path.getsize( base ) if not base == '' else 'NS'
-        self.__directory = fp.path.dirname( self.__path ) \
-            if fp.path.exists( base ) else 'NS'
-        self.__extension = list( fp.path.splitext( base ) )[ 1 ] \
+        self.__name = os.path.basename( base ) if not base == '' else 'NS'
+        self.__size = os.path.getsize( base ) if not base == '' else 'NS'
+        self.__directory = os.path.dirname( self.__path ) \
+            if os.path.exists( base ) else 'NS'
+        self.__extension = list( os.path.splitext( base ) )[ 1 ] \
             if not base == '' else 'NS'
-        self.__created = fp.path.getctime( base ) if not base == '' else 'NS'
-        self.__accessed = fp.path.getatime( base ) if not base == '' else 'NS'
-        self.__modified = fp.path.getmtime( base ) if not base == '' else 'NS'
-        self.__currdir = fp.getcwd()
-        self.__drive = str( list( fp.path.splitdrive( self.__path ) )[ 0 ] ) \
+        self.__created = os.path.getctime( base ) if not base == '' else 'NS'
+        self.__accessed = os.path.getatime( base ) if not base == '' else 'NS'
+        self.__modified = os.path.getmtime( base ) if not base == '' else 'NS'
+        self.__currdir = os.getcwd( )
+        self.__drive = str( list( os.path.splitdrive( self.__path ) )[ 0 ] ) \
             if not base == '' else 'NS'
-        self.__content = list()
+        self.__content = list( )
 
-class BudgetFolder():
+class BudgetFolder( ):
     '''Defines the BudgetFolder Class'''
     __base = None
     __name = None
@@ -352,14 +350,14 @@ class BudgetFolder():
     @property
     def name( self ):
         '''Returns string representing the name of the path 'base' '''
-        if fp.path.exists( self.__base ):
-            return str( list( fp.path.split( self.__base ) )[ 1 ] )
+        if os.path.exists( self.__base ):
+            return str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @name.setter
     def name( self, path ):
         '''Returns string representing the name of the path 'base' '''
         if path is not None:
-            self.__path = str( list( fp.path.split( self.__base ) )[ 1 ] )
+            self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @property
     def directory( self ):
@@ -380,7 +378,7 @@ class BudgetFolder():
 
     @path.setter
     def path( self, base ):
-        if fp.path.exists( base ):
+        if os.path.exists( base ):
             self.__path = str( base )
 
     @property
@@ -390,7 +388,7 @@ class BudgetFolder():
 
     @parent.setter
     def parent( self, path ):
-        if fp.path.isdir( path ):
+        if os.path.isdir( path ):
             self.__parent = str( path )
 
     @property
@@ -400,7 +398,7 @@ class BudgetFolder():
 
     @drive.setter
     def drive( self, path ):
-        if fp.path.ismount( path ):
+        if os.path.ismount( path ):
             self.__drive = str( path )
 
     @property
@@ -410,67 +408,72 @@ class BudgetFolder():
 
     @current.setter
     def current( self, path ):
-        if fp.path.exists( path ):
-            fp.chdir( path )
+        if os.path.exists( path ):
+            os.chdir( path )
+
+    def files( self ):
+        '''Iterates files in the base directory'''
+        if os.path.isdir( self.__base ):
+            file_list = [ ]
+            for file in os.listdir( self.__base ):
+                if os.path.isfile( file ):
+                    file_list.append( file )
+
+            return file_list
 
     def rename( self, new_name ):
         '''renames current file'''
         if self.__name is not None and isinstance( new_name, str ):
-            return fp.rename( self.__name, new_name )
+            return os.rename( self.__name, new_name )
 
     def move( self, destination ):
         '''renames current file'''
-        if not destination == '' and not fp.path.exists( destination ):
-            return fp.path.join( self.__name, destination )
+        if not destination == '' and not os.path.exists( destination ):
+            return os.path.join( self.__name, destination )
 
     def exists( self, other ):
         '''determines if the base file exists'''
-        if not other == '' and fp.path.isdir( other ):
+        if not other == '' and os.path.isdir( other ):
             return True
 
     def create( self, other ):
         if other is not None:
-            fp.mkdir( other )
+            os.mkdir( other )
 
     def delete( self, other ):
         ''' deletes 'path' directory '''
-        if other is not None and fp.path.isdir( other ):
-            fp.rmdir( other )
+        if other is not None and os.path.isdir( other ):
+            os.rmdir( other )
 
     def getsize( self, other ):
         ''' gets and returns size of 'path' '''
-        if other is not None and fp.path.isdir( other ):
-            return fp.path.getsize( other )
+        if other is not None and os.path.isdir( other ):
+            return os.path.getsize( other )
 
     def getdrive( self, other ):
         ''' gets and returns parent directory of 'path' '''
-        if other is not None and fp.path.isdir( other ):
-            return fp.path.splitdrive( other )[ 0 ]
-
-    def iterfiles( self ):
-        '''Iterates files in the base directory'''
-        if fp.path.isdir( self.__base ):
-            yield from fi.open( self.__base )
+        if other is not None and os.path.isdir( other ):
+            return os.path.splitdrive( other )[ 0 ]
 
     def iterate( self ):
         '''iterates files in the base directory'''
-        if fp.path.isdir( self.__base ):
-            for i in fp.scandir( self.__base ):
+        if os.path.isdir( self.__base ):
+            for i in os.scandir( self.__base ):
                 yield i
 
-    def iterfiles( self, other ):
+    def getfiles( self, other ):
         '''iterates files in the directory provided by 'other' '''
-        if fp.path.exists( other ) and fp.path.isdir( other ):
-            yield from fp.scandir( self.__base )
+        if os.path.exists( other ) and os.path.isdir( other ):
+            yield from os.scandir( self.__base )
 
     def __init__( self, base ):
         self.__base = base
-        self.__name = fp.path.basename( base ) if not base == '' else 'NS'
+        self.__name = os.path.basename( base ) if not base == '' else 'NS'
         self.__path = self.__base if not self.__base == '' else 'NS'
-        self.__dir = fp.mkdir( self.__path )
-        self.__parent = fp.path.dirname( base ) if not base == '' else 'NS'
+        self.__dir = os.path.dirname( self.__path )
+        self.__parent = os.path.dirname( base ) if not base == '' else 'NS'
 
-class EmailMessage():
+class EmailMessage( ):
     ''' Represents an Email Item '''
     __from = None
     __to = None
@@ -550,7 +553,7 @@ class EmailMessage():
         if self.__message is not None:
             return self.__message
 
-class EmailBuilder():
+class EmailBuilder( ):
     ''' Helper class for generating email messages '''
     __from = None
     __to = None
@@ -630,7 +633,7 @@ class EmailBuilder():
         if self.__message is not None:
             return self.__message
 
-class ExcelFile():
+class ExcelFile( ):
     ''' Provides the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
@@ -658,7 +661,7 @@ class ExcelFile():
     @workbook.setter
     def workbook( self, path ):
         ''' Gets the report template '''
-        if fp.path.exists( path ):
+        if os.path.exists( path ):
             self.__workbook = path
 
     @property
@@ -677,7 +680,7 @@ class ExcelFile():
         self.__path = r'etc\templates\report\Excel.xlsx'
         self.__name = name if not name == '' else 'NS'
 
-class ExcelReport():
+class ExcelReport( ):
     ''' Provides the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
@@ -738,7 +741,7 @@ class ExcelReport():
     @workbook.setter
     def workbook( self, path ):
         ''' Gets the report template '''
-        if path is not None and fp.path.exists( path ):
+        if path is not None and os.path.exists( path ):
             self.__workbook = xl.open( path )
 
     @property
@@ -751,7 +754,7 @@ class ExcelReport():
     def worksheet( self, name ):
         ''' Gets the workbooks worksheet '''
         if self.__workbook is not None and name is not None:
-            self.__workbook.worksheets.clear()
+            self.__workbook.worksheets.clear( )
             self.__worksheet = self.__workbook.create_sheet( title = name, index = 1 )
 
     def __init__( self, name, rows = 46, cols = 12 ):
@@ -759,25 +762,25 @@ class ExcelReport():
         self.__name = str( name )
         self.__rows = int( rows )
         self.__columns = int( cols )
-        self.__dimensions = ( self.__rows, self.__columns )
+        self.__dimensions = (self.__rows, self.__columns)
 
-class ZipFile():
+class ZipFile( ):
     __name = None
-    __opath = None
-    __oext = None
-    __zpath = None
-    __zext = None
-    __bfile = None
+    __filepath = None
+    __extension = None
+    __zippath = None
+    __zipextension = None
+    __base = None
 
     @property
     def path( self ):
-        if not self.__zpath == '':
-            return self.__zpath
+        if not self.__filepath == '':
+            return self.__filepath
 
     @path.setter
     def path( self, pt ):
-        if fp.path.exists( pt ) and fp.path.isfile( pt ):
-            self.__opath = pt
+        if os.path.exists( pt ) and os.path.isfile( pt ):
+            self.__filepath = pt
 
     @property
     def name( self ):
@@ -791,19 +794,19 @@ class ZipFile():
 
     def create( self ):
         ''' Creates zip file'''
-        if not self.__opath == '':
-            zp.ZipFile( self.__zpath, 'w' ).write( self.__opath, self.__name )
+        if not self.__filepath == '':
+            zp.ZipFile( self.__zippath, 'w' ).write( self.__filepath, self.__name )
 
     def unzip( self ):
         ''' Extracts zip file contents '''
-        if fp.path.exists( self.__zpath ):
-            file = zp.ZipFile( self.__zpath )
-            file.extractall( self, self.__zpath )
+        if os.path.exists( self.__zippath ):
+            file = zp.ZipFile( self.__zippath )
+            file.extractall( self.__zippath )
 
-    def __init__(self, path ):
-        self.__zext = '.zip'
-        self.__opath = str( path )
-        self.__bfile = BudgetFile( self.__opath )
-        self.__oext = self.__bfile.extension
-        self.__zpath = self.__opath.replace( self.__oext, self.__zext )
-        self.__name = os.path.basename( self.__opath )
+    def __init__( self, path ):
+        self.__zipextension = '.zip'
+        self.__filepath = str( path )
+        self.__base = BudgetFile( self.__filepath )
+        self.__extension = self.__base.extension
+        self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
+        self.__name = os.path.basename( self.__filepath )

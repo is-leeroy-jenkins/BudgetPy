@@ -739,7 +739,7 @@ class HTTPRedirectHandler(BaseHandler):
             visited = new.redirect_dict = req.redirect_dict = {}
         visited[newurl] = visited.get(newurl, 0) + 1
 
-        # Don't close the fp until we are sure that we won't use it
+        # Don't close the os until we are sure that we won't use it
         # with HTTPError.
         fp.read()
         fp.close()
@@ -1956,7 +1956,7 @@ class URLopener:
                               response.status)
         else:
             return self.http_error(
-                url, response.fp,
+                url, response.os,
                 response.status, response.reason, response.msg, data)
 
     def open_http(self, url, data=None):

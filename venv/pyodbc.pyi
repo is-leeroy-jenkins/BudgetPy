@@ -441,12 +441,12 @@ def setDecimalSeparator(sep: str, /) -> None: ...
 def getDecimalSeparator() -> str: ...
 
 # https://www.python.org/dev/peps/pep-0249/#connect
-def connect( connstring: str,
-             /, *,  # only positional parameters before, only named parameters after
-             autocommit: bool = False,
-             encoding: str = 'utf-16le',
-             ansi: bool = False,
-             readonly: bool = False,
-             timeout: int = 0,
-             attrs_before: dict = { },
-             **kwargs: object ) -> Connection: ...
+def connect(connstring: str,
+            /, *,  # only positional parameters before, only named parameters after
+            autocommit: bool = False,
+            encoding: str = 'utf-16le',
+            ansi: bool = False,
+            readonly: bool = False,
+            timeout: int = 0,
+            attrs_before: dict = {},
+            **kwargs) -> Connection: ...

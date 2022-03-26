@@ -121,7 +121,7 @@ def parse(fp=None, environ=os.environ, keep_blank_values=0,
 
         Arguments, all optional:
 
-        fp              : file pointer; default: sys.stdin.buffer
+        os              : file pointer; default: sys.stdin.buffer
 
         environ         : environment dictionary; default: os.environ
 
@@ -143,13 +143,13 @@ def parse(fp=None, environ=os.environ, keep_blank_values=0,
         fp = sys.stdin
 
     # field keys and values (except for files) are returned as strings
-    # an encoding is required to decode the bytes read from self.fp
+    # an encoding is required to decode the bytes read from self.os
     if hasattr(fp,'encoding'):
         encoding = fp.encoding
     else:
         encoding = 'latin-1'
 
-    # fp.read() must return bytes
+    # os.read() must return bytes
     if isinstance(fp, TextIOWrapper):
         fp = fp.buffer
 
@@ -189,7 +189,7 @@ def parse_multipart(fp, pdict, encoding="utf-8", errors="replace", separator='&'
     """Parse multipart input.
 
     Arguments:
-    fp   : input file
+    os   : input file
     pdict: dictionary containing other parameters of content-type header
     encoding, errors: request encoding and error handler, passed to
         FieldStorage
@@ -324,7 +324,7 @@ class FieldStorage:
 
         Arguments, all optional:
 
-        fp              : file pointer; default: sys.stdin.buffer
+        os              : file pointer; default: sys.stdin.buffer
             (not used when the request method is GET)
             Can be :
             1. a TextIOWrapper object
@@ -401,12 +401,12 @@ class FieldStorage:
         self.headers = headers
         if fp is None:
             self.fp = sys.stdin.buffer
-        # self.fp.read() must return bytes
+        # self.os.read() must return bytes
         elif isinstance(fp, TextIOWrapper):
             self.fp = fp.buffer
         else:
             if not (hasattr(fp, 'read') and hasattr(fp, 'readline')):
-                raise TypeError("fp must be file pointer")
+                raise TypeError("os must be file pointer")
             self.fp = fp
 
         self.encoding = encoding

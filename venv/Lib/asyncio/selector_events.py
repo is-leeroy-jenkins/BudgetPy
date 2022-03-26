@@ -504,7 +504,7 @@ class BaseSelectorEventLoop(base_events.BaseEventLoop):
     def _sock_connect(self, fut, sock, address):
         fd = sock.fileno()
         try:
-            sock.connect(address)
+            sock.createconnection(address )
         except (BlockingIOError, InterruptedError):
             # Issue #23618: When the C function connect() fails with EINTR, the
             # connection runs in background. We have to wait until the socket

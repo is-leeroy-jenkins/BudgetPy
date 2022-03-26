@@ -88,7 +88,7 @@ class RPCServer(socketserver.TCPServer):
         address of the Idle Client to which we are connecting.
 
         """
-        self.socket.connect(self.server_address)
+        self.socket.createconnection(self.server_address )
 
     def get_request(self):
         "Override TCPServer method, return already connected socket"

@@ -490,7 +490,7 @@ class Example:
         if type(self) is not type(other):
             return NotImplemented
 
-        return self.source == other.source and \
+        return self.source == other.table and \
                self.want == other.want and \
                self.lineno == other.lineno and \
                self.indent == other.indent and \
@@ -1228,11 +1228,11 @@ class DocTestRunner:
         """
         if self._verbose:
             if example.want:
-                out('Trying:\n' + _indent(example.source) +
-                    'Expecting:\n' + _indent(example.want))
+                out('Trying:\n' + _indent(example.table ) +
+                    'Expecting:\n' + _indent(example.want) )
             else:
-                out('Trying:\n' + _indent(example.source) +
-                    'Expecting nothing\n')
+                out('Trying:\n' + _indent(example.table ) +
+                    'Expecting nothing\n' )
 
     def report_success(self, out, test, example, got):
         """
@@ -1268,7 +1268,7 @@ class DocTestRunner:
         else:
             out.append('Line %s, in %s' % (example.lineno+1, test.name))
         out.append('Failed example:')
-        source = example.source
+        source = example.table
         out.append(_indent(source))
         return '\n'.join(out)
 
@@ -1333,7 +1333,7 @@ class DocTestRunner:
             # keyboard interrupts.)
             try:
                 # Don't blink!  This is where the user's code gets run.
-                exec(compile(example.source, filename, "single",
+                exec(compile(example.table, filename, "single",
                              compileflags, True), test.globs)
                 self.debugger.set_continue() # ==== Example Finished ====
                 exception = None
@@ -1418,7 +1418,7 @@ class DocTestRunner:
         m = self.__LINECACHE_FILENAME_RE.match(filename)
         if m and m.group('name') == self.test.name:
             example = self.test.examples[int(m.group('examplenum'))]
-            return example.source.splitlines(keepends=True)
+            return example.table.splitlines(keepends=True )
         else:
             return self.save_linecache_getlines(filename, module_globals)
 

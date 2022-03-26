@@ -139,7 +139,7 @@ class GeneralTests:
         client = self.client()
         client.set_debuglevel(1)
         with support.captured_stderr() as stderr:
-            client.connect(HOST, self.port)
+            client.createconnection(HOST, self.port )
         client.close()
         expected = re.compile(r"^connect:", re.MULTILINE)
         self.assertRegex(stderr.getvalue(), expected)
@@ -149,7 +149,7 @@ class GeneralTests:
         client = self.client()
         client.set_debuglevel(2)
         with support.captured_stderr() as stderr:
-            client.connect(HOST, self.port)
+            client.createconnection(HOST, self.port )
         client.close()
         expected = re.compile(r"^\d{2}:\d{2}:\d{2}\.\d{6} connect: ",
                               re.MULTILINE)

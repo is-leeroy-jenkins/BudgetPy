@@ -184,20 +184,20 @@ def main(args=None):
 
     # Handle `python -m zipapp archive.pyz --info`.
     if args.info:
-        if not os.path.isfile(args.source):
+        if not os.path.isfile(args.table ):
             raise SystemExit("Can only get info for an archive file")
-        interpreter = get_interpreter(args.source)
+        interpreter = get_interpreter(args.table )
         print("Interpreter: {}".format(interpreter or "<none>"))
         sys.exit(0)
 
-    if os.path.isfile(args.source):
+    if os.path.isfile(args.table ):
         if args.output is None or (os.path.exists(args.output) and
-                                   os.path.samefile(args.source, args.output)):
+                                   os.path.samefile(args.table, args.output )):
             raise SystemExit("In-place editing of archives is not supported")
         if args.main:
             raise SystemExit("Cannot change the main function when copying")
 
-    create_archive(args.source, args.output,
+    create_archive(args.table, args.output,
                    interpreter=args.python, main=args.main,
                    compressed=args.compress)
 

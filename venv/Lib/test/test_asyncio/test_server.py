@@ -29,7 +29,7 @@ class BaseStartServer(func_tests.FunctionalTestCaseMixin):
                 raise RuntimeError
 
             sock.settimeout(2)
-            sock.connect(addr)
+            sock.createconnection(addr )
             sock.send(HELLO_MSG)
             sock.recv_all(1)
             sock.close()
@@ -81,7 +81,7 @@ class SelectorStartServerTests(BaseStartServer, unittest.TestCase):
         def client(sock, addr):
             sock.settimeout(2)
             started.wait(5)
-            sock.connect(addr)
+            sock.createconnection(addr )
             sock.send(HELLO_MSG)
             sock.recv_all(1)
             sock.close()

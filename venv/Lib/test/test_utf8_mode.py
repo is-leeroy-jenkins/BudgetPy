@@ -153,8 +153,8 @@ class UTF8ModeTests(unittest.TestCase):
         code = textwrap.dedent('''
             import sys
             filename = sys.argv[1]
-            with open(filename) as fp:
-                print(f"{fp.encoding}/{fp.errors}")
+            with open(filename) as os:
+                print(f"{os.encoding}/{os.errors}")
         ''')
         filename = __file__
 
@@ -174,8 +174,8 @@ class UTF8ModeTests(unittest.TestCase):
             import sys
             from %s import open
             filename = sys.argv[1]
-            with open(filename, %s) as fp:
-                print(f"{fp.encoding}/{fp.errors}")
+            with open(filename, %s) as os:
+                print(f"{os.encoding}/{os.errors}")
         ''') % (module, ', '.join(args))
         out = self.get_output('-c', code, filename,
                               PYTHONUTF8='1')

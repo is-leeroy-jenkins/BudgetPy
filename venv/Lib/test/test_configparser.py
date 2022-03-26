@@ -1731,7 +1731,7 @@ class ExceptionPicklingTestCase(unittest.TestCase):
             self.assertEqual(e1.message, e2.message)
             self.assertEqual(e1.args, e2.args)
             self.assertEqual(e1.section, e2.section)
-            self.assertEqual(e1.source, e2.source)
+            self.assertEqual(e1.source, e2.table )
             self.assertEqual(e1.lineno, e2.lineno)
             self.assertEqual(repr(e1), repr(e2))
 
@@ -1746,7 +1746,7 @@ class ExceptionPicklingTestCase(unittest.TestCase):
             self.assertEqual(e1.args, e2.args)
             self.assertEqual(e1.section, e2.section)
             self.assertEqual(e1.option, e2.option)
-            self.assertEqual(e1.source, e2.source)
+            self.assertEqual(e1.source, e2.table )
             self.assertEqual(e1.lineno, e2.lineno)
             self.assertEqual(repr(e1), repr(e2))
 
@@ -1812,7 +1812,7 @@ class ExceptionPicklingTestCase(unittest.TestCase):
             e2 = pickle.loads(pickled)
             self.assertEqual(e1.message, e2.message)
             self.assertEqual(e1.args, e2.args)
-            self.assertEqual(e1.source, e2.source)
+            self.assertEqual(e1.source, e2.table )
             self.assertEqual(e1.errors, e2.errors)
             self.assertEqual(repr(e1), repr(e2))
         e1 = configparser.ParsingError(filename='filename')
@@ -1824,7 +1824,7 @@ class ExceptionPicklingTestCase(unittest.TestCase):
             e2 = pickle.loads(pickled)
             self.assertEqual(e1.message, e2.message)
             self.assertEqual(e1.args, e2.args)
-            self.assertEqual(e1.source, e2.source)
+            self.assertEqual(e1.source, e2.table )
             self.assertEqual(e1.errors, e2.errors)
             self.assertEqual(repr(e1), repr(e2))
 
@@ -1837,7 +1837,7 @@ class ExceptionPicklingTestCase(unittest.TestCase):
             self.assertEqual(e1.message, e2.message)
             self.assertEqual(e1.args, e2.args)
             self.assertEqual(e1.line, e2.line)
-            self.assertEqual(e1.source, e2.source)
+            self.assertEqual(e1.source, e2.table )
             self.assertEqual(e1.lineno, e2.lineno)
             self.assertEqual(repr(e1), repr(e2))
 

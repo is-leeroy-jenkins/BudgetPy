@@ -22,7 +22,7 @@ class addbase(tempfile._TemporaryFileWrapper):
         self.fp = fp
 
     def __repr__(self):
-        return '<%s at %r whose fp = %r>' % (self.__class__.__name__,
+        return '<%s at %r whose os = %r>' % (self.__class__.__name__,
                                              id(self), self.file)
 
     def __enter__(self):

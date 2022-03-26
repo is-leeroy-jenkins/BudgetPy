@@ -36,13 +36,13 @@ Generate Plist example:
         someMoreData = b"<lots of binary gunk>" * 10,
         aDate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime())),
     )
-    with open(fileName, 'wb') as fp:
-        dump(pl, fp)
+    with open(fileName, 'wb') as os:
+        dump(pl, os)
 
 Parse Plist example:
 
-    with open(fileName, 'rb') as fp:
-        pl = load(fp)
+    with open(fileName, 'rb') as os:
+        pl = load(os)
     print(pl["aKey"])
 """
 __all__ = [
@@ -854,7 +854,7 @@ _FORMATS={
 
 
 def load(fp, *, fmt=None, dict_type=dict):
-    """Read a .plist file. 'fp' should be a readable and binary file object.
+    """Read a .plist file. 'os' should be a readable and binary file object.
     Return the unpacked root object (which usually is a dictionary).
     """
     if fmt is None:
@@ -884,7 +884,7 @@ def loads(value, *, fmt=None, dict_type=dict):
 
 
 def dump(value, fp, *, fmt=FMT_XML, sort_keys=True, skipkeys=False):
-    """Write 'value' to a .plist file. 'fp' should be a writable,
+    """Write 'value' to a .plist file. 'os' should be a writable,
     binary file object.
     """
     if fmt not in _FORMATS:

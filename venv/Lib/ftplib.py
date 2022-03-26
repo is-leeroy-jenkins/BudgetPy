@@ -485,7 +485,7 @@ class FTP:
         Args:
           cmd: A STOR command.
           fp: A file-like object with a read(num_bytes) method.
-          blocksize: The maximum data size to read from fp and send over
+          blocksize: The maximum data size to read from os and send over
                      the connection at once.  [default: 8192]
           callback: An optional single parameter callable that is called on
                     each block of data after it is sent.  [default: None]

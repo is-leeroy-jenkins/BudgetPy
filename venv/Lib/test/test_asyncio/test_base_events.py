@@ -1280,7 +1280,7 @@ class BaseEventLoopWithSelectorTests(test_utils.TestCase):
         coro = self.loop.create_connection(asyncio.Protocol, '1.2.3.4', 80)
         t, p = self.loop.run_until_complete(coro)
         try:
-            sock.connect.assert_called_with(('1.2.3.4', 80))
+            sock.createconnection.assert_called_with(('1.2.3.4', 80) )
             _, kwargs = m_socket.socket.call_args
             self.assertEqual(kwargs['family'], m_socket.AF_INET)
             self.assertEqual(kwargs['type'], m_socket.SOCK_STREAM)
@@ -1296,7 +1296,7 @@ class BaseEventLoopWithSelectorTests(test_utils.TestCase):
                 # Without inet_pton we use getaddrinfo, which transforms
                 # ('::1', 80) to ('::1', 80, 0, 0). The last 0s are flow info,
                 # scope id.
-                [address] = sock.connect.call_args[0]
+                [address] = sock.createconnection.call_args[0 ]
                 host, port = address[:2]
                 self.assertRegex(host, r'::(0\.)*1')
                 self.assertEqual(port, 80)
@@ -1324,7 +1324,7 @@ class BaseEventLoopWithSelectorTests(test_utils.TestCase):
         coro = self.loop.create_connection(asyncio.Protocol, 'fe80::1%1', 80)
         t, p = self.loop.run_until_complete(coro)
         try:
-            sock.connect.assert_called_with(('fe80::1', 80, 0, 1))
+            sock.createconnection.assert_called_with(('fe80::1', 80, 0, 1) )
             _, kwargs = m_socket.socket.call_args
             self.assertEqual(kwargs['family'], m_socket.AF_INET6)
             self.assertEqual(kwargs['type'], m_socket.SOCK_STREAM)
@@ -1356,7 +1356,7 @@ class BaseEventLoopWithSelectorTests(test_utils.TestCase):
 
             t, p = self.loop.run_until_complete(coro)
             try:
-                sock.connect.assert_called_with(('127.0.0.1', port))
+                sock.createconnection.assert_called_with(('127.0.0.1', port) )
                 _, kwargs = m_socket.socket.call_args
                 self.assertEqual(kwargs['family'], m_socket.AF_INET)
                 self.assertEqual(kwargs['type'], m_socket.SOCK_STREAM)

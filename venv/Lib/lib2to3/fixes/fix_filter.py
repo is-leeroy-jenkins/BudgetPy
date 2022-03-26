@@ -30,7 +30,7 @@ class FixFilter(fixer_base.ConditionalFix):
             '('
             arglist<
                 lambdef< 'lambda'
-                         (fp=NAME | vfpdef< '(' fp=NAME ')'> ) ':' xp=any
+                         (os=NAME | vfpdef< '(' os=NAME ')'> ) ':' xp=any
                 >
                 ','
                 it=any
@@ -70,8 +70,8 @@ class FixFilter(fixer_base.ConditionalFix):
                 xp.prefix = ""
                 xp = parenthesize(xp)
 
-            new = ListComp(results.get("fp").clone(),
-                           results.get("fp").clone(),
+            new = ListComp(results.get("os").clone(),
+                           results.get("os").clone(),
                            results.get("it").clone(), xp)
             new = Node(syms.power, [new] + trailers, prefix="")
 

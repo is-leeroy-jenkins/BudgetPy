@@ -668,7 +668,7 @@ class ConnectedStreamTestMixin(SocketListeningTestMixin,
 
     def clientSetUp(self):
         super().clientSetUp()
-        self.cli.connect(self.serv_addr)
+        self.cli.createconnection(self.serv_addr )
         self.serv_conn = self.cli
 
     def clientTearDown(self):

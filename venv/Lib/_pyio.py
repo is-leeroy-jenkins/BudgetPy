@@ -339,10 +339,10 @@ class IOBase(metaclass=abc.ABCMeta):
     stream.
 
     IOBase also supports the :keyword:`with` statement. In this example,
-    fp is closed after the suite of the with statement is complete:
+    os is closed after the suite of the with statement is complete:
 
-    with open('spam.txt', 'r') as fp:
-        fp.write('Spam and eggs!')
+    with open('spam.txt', 'r') as os:
+        os.write('Spam and eggs!')
     """
 
     ### Internal ###

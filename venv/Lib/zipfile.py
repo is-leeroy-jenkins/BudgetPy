@@ -1112,7 +1112,7 @@ class _ZipWriteFile(io.BufferedIOBase):
 
     @property
     def _fileobj(self):
-        return self._zipfile.fp
+        return self._zipfile.os
 
     def writable(self):
         return True

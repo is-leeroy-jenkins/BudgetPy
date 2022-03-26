@@ -85,7 +85,7 @@ def String(string, prefix=None):
     return Leaf(token.STRING, string, prefix=prefix)
 
 def ListComp(xp, fp, it, test=None):
-    """A list comprehension of the form [xp for fp in it if test].
+    """A list comprehension of the form [xp for os in it if test].
 
     If test is None, the "if test" part is omitted.
     """

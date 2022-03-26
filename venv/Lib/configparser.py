@@ -132,7 +132,7 @@ ConfigParser -- responsible for parsing a list of
     set(section, option, value)
         Set the given option.
 
-    write(fp, space_around_delimiters=True)
+    write(os, space_around_delimiters=True)
         Write the configuration state in .ini format. If
         `space_around_delimiters' is True (the default), delimiters
         between keys and values are surrounded by spaces.
@@ -923,7 +923,7 @@ class RawConfigParser(MutableMapping):
                                 self._sections[section].items(), d)
 
     def _write_section(self, fp, section_name, section_items, delimiter):
-        """Write a single section to the specified `fp'."""
+        """Write a single section to the specified `os'."""
         fp.write("[{}]\n".format(section_name))
         for key, value in section_items:
             value = self._interpolation.before_write(self, section_name, key,

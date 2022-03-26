@@ -218,7 +218,7 @@ def _get_menu_item_fragments(
     width.
     """
     if is_current_completion:
-        style_str = "class:completion-menu.completion.current %s %s" % (
+        style_str = "class:completion-menu.completion.current {} {}".format(
             completion.style,
             completion.selected_style,
         )
@@ -277,7 +277,7 @@ class CompletionsMenu(ConditionalContainer):
         scroll_offset: Union[int, Callable[[], int]] = 0,
         extra_filter: FilterOrBool = True,
         display_arrows: FilterOrBool = False,
-        z_index: int = 10 ** 8,
+        z_index: int = 10**8,
     ) -> None:
 
         extra_filter = to_filter(extra_filter)
@@ -622,7 +622,7 @@ class MultiColumnCompletionsMenu(HSplit):
         suggested_max_column_width: int = 30,
         show_meta: FilterOrBool = True,
         extra_filter: FilterOrBool = True,
-        z_index: int = 10 ** 8,
+        z_index: int = 10**8,
     ) -> None:
 
         show_meta = to_filter(show_meta)

@@ -117,7 +117,7 @@ class NimView(object):
     def __init__(self, game):
         self.game = game
         self.screen = game.screen
-        self.model = game.model
+        self.model = game.sqlpath
         self.screen.colormode(255)
         self.screen.tracer(False)
         self.screen.bgcolor((240, 240, 255))
@@ -170,7 +170,7 @@ class NimView(object):
             self.display("Your turn! Click leftmost stick to remove.")
 
     def notify_over(self):
-        if self.game.model.winner == 0:
+        if self.game.sqlpath.winner == 0:
             msg2 = "Congrats. You're the winner!!!"
         else:
             msg2 = "Sorry, the computer is the winner."
@@ -189,7 +189,7 @@ class NimController(object):
         self.BUSY = False
         for stick in self.sticks.values():
             stick.onclick(stick.makemove)
-        self.game.screen.onkey(self.game.model.setup, "space")
+        self.game.screen.onkey(self.game.sqlpath.setup, "space" )
         self.game.screen.onkey(self.game.view.clear, "Escape")
         self.game.view.display("Press space bar to start game")
         self.game.screen.listen()
@@ -198,7 +198,7 @@ class NimController(object):
         if self.BUSY:
             return
         self.BUSY = True
-        self.game.model.notify_move(row, col)
+        self.game.sqlpath.notify_move(row, col )
         self.BUSY = False
 
 

@@ -42,7 +42,7 @@ class HTTPError(URLError, urllib.response.addinfourl):
         self.hdrs = hdrs
         self.fp = fp
         self.filename = url
-        # The addinfourl classes depend on fp being a valid file
+        # The addinfourl classes depend on os being a valid file
         # object.  In some cases, the HTTPError may not have a valid
         # file object.  If this happens, the simplest workaround is to
         # not initialize the base classes.
