@@ -1054,6 +1054,16 @@ class SqlServerReference( ):
     __server = None
 
     @property
+    def server( self ):
+        if self.__server is not None:
+            return str( self.__server )
+
+    @server.setter
+    def server( self, path ):
+        if isinstance( path, str ):
+            self.__server = path
+
+    @property
     def path( self ):
         if self.__dbpath is not None:
             return str( self.__dbpath )
