@@ -3,7 +3,7 @@ import pandas as pd
 import pyodbc as db
 import os
 
-class Source():
+class Source( ):
     '''Provides list of Budget Execution tables
     across two databases (data and references)'''
     __data = [ ]
@@ -30,7 +30,7 @@ class Source():
                         'Deobligations', 'Defactos', 'DocumentControlNumbers',
                         'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
                         'ObjectClassOutlays', 'CarryoverOutlays', 'UnobligatedAuthority',
-                        'QueryDefinitions',  'RegionalAuthority', 'SpendingRates',
+                        'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
                         'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
                         'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations',
                         'BudgetControls', 'AppropriationDocuments', 'BudgetDocuments',
@@ -42,7 +42,7 @@ class Source():
                         'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
                         'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
                         'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
-                        'UnliquidatedObligations']
+                        'UnliquidatedObligations' ]
 
         self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
                               'Appropriations', 'BudgetObjectClasses',
@@ -56,7 +56,7 @@ class Source():
                               'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                               'SchemaTypes', 'Sources' ]
 
-class Provider():
+class Provider( ):
     '''Provides data providers used to identify
     the type of database (access, sqlite, sqlserver, or sqlce)'''
     __access = None
@@ -83,8 +83,8 @@ class Provider():
     def sqlserver( self ):
         ''' Property used to identify
          sql server provider '''
-        if self.__sqlserver is not None:
-            return self.__sqlserver
+        if self.__mssql is not None:
+            return self.__mssql
 
     @property
     def sqlce( self ):
@@ -106,7 +106,7 @@ class Provider():
         self.__mssql = 'MDF'
         self.__oledb = 'XLSX'
 
-class CommandType():
+class CommandType( ):
     '''defines the types of sql commands
     used to query the database'''
     __select = None
@@ -117,6 +117,7 @@ class CommandType():
     __createview = None
     __altertable = None
     __altercolumn = None
+    __type = None
 
     @property
     def select( self ):
@@ -150,7 +151,29 @@ class CommandType():
     def altercolumn( self ):
         return self.__altercolumn
 
-    def __init__( self ):
+    def setcommand( self, cmd ):
+        '''Function to set the type of sql command that
+        will be used to query the database'''
+        if isinstance( cmd, str ) and cmd == 'SELECT':
+            self.__type = self.__select
+        elif cmd == 'INSERT':
+            self.__type = self.__insert
+        elif cmd == 'DELETE':
+            self.__type = self.__delete
+        elif cmd == 'UPDATE':
+            self.__type = self.__update
+        elif cmd == 'CREATE TABLE':
+            self.__type = self.__createtable
+        elif cmd == 'CREATE VIEW':
+            self.__type = self.__createview
+        elif cmd == 'ALTER TABLE':
+            self.__type = self.__altertable
+        elif cmd == 'ALTER COLUMN':
+            self.__type = self.__altercolumn
+        else:
+            self.__type = self.__select
+
+    def __init__( self, cmd ):
         '''constructor for the CommandType class'''
         self.__select = 'SELECT'
         self.__insert = 'INSERT'
@@ -160,6 +183,11 @@ class CommandType():
         self.__createview = 'CREATE VIEW'
         self.__altercolumn = 'ALTER COLUMN'
         self.__altertable = 'ALTER TABLE'
+        self.setcommand( cmd )
+
+    def __str__( self ):
+        if self.__type is not None:
+            return str( self.__type )
 
 class DataPath( ):
     ''' Defines object used to provide the path to data model databases '''
@@ -199,11 +227,11 @@ class DataPath( ):
 
     def __init__( self ):
         self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\datamodels\Data.accdb'
+                            r'\db\access\datamodels\Data.accdb'
         self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\datamodels\Data.db'
+                            r'\db\sqlite\datamodels\Data.db'
         self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\Data.mdf'
+                           r'\db\mssql\datamodels\Data.mdf'
 
 class ReferencePath( ):
     '''Defines object used to provide paths to the references model databases '''
@@ -238,17 +266,16 @@ class ReferencePath( ):
 
     def __init__( self ):
         self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\access\referencemodels\References.accdb'
+                            r'\db\access\referencemodels\References.accdb'
         self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\References.db'
+                            r'\db\sqlite\referencemodels\References.db'
         self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\References.mdf'
+                           r'\db\mssql\referencemodels\References.mdf'
 
-class CriteriaBuilder():
+class CriteriaBuilder( ):
     '''Defines the CriteriaBuilder class'''
     __criteria = None
     __cmd = None
-    __sql = None
 
     @property
     def command( self ):
@@ -276,16 +303,13 @@ class CriteriaBuilder():
         if self.__criteria is not None:
             for name, value in self.__criteria:
                 criteria = ''
-                criteria += f'{ name } = { value } AND'
+                criteria += f'{name} = {value} AND'
                 criteria.rstrip( ' AND' )
                 return criteria
 
     def __init__( self, nvp, cmd ):
-        self.__sql = [ 'SELECT', 'INSERT', 'UPDATE', 'CREATE TABLE',
-                       'CREATE VIEW', 'ALTER TABLE', 'ALTER COLUMN',
-                       'DROP TABLE', 'DROP VIEW', 'DETACH' ]
         self.__criteria = nvp if isinstance( nvp, dict ) else None
-        self.__cmd = cmd if isinstance( cmd, CommandType ) else CommandType().select
+        self.__cmd = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
 
 class SqlStatement( ):
     '''Class representing the sql queries
@@ -294,13 +318,6 @@ class SqlStatement( ):
     __command = None
     __path = None
     __table = None
-    __createtable = None
-    __createview = None
-    __insert = None
-    __delete = None
-    __select = None
-    __update = None
-    __alter = None
 
     @property
     def provider( self ):
@@ -325,8 +342,8 @@ class SqlStatement( ):
         if isinstance( cmd, CommandType ):
             self.__command = cmd
         else:
-            command = CommandType()
-            self.__provider = command.select
+            command = CommandType( 'SELECT' )
+            self.__command = command
 
     @property
     def table( self ):
@@ -338,7 +355,7 @@ class SqlStatement( ):
         if isinstance( src, Source ):
             self.__table = src
         else:
-            source = Source()
+            source = Source( )
             self.__table = source.data
 
     @property
@@ -356,7 +373,7 @@ class SqlStatement( ):
 
     def __init__( self, pvdr, cmd, src, path = None ):
         self.__provider = pvdr if isinstance( pvdr, Provider ) else Provider( ).sqlite
-        self.__command = cmd if isinstance( cmd, CommandType ) else CommandType().select
+        self.__command = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
         self.__table = src if isinstance( src, Source ) else Source( ).data
         self.__path = path if isinstance( path, DataPath ) else DataPath( ).sqlite
 
@@ -407,7 +424,7 @@ class DataRow( sl.Row ):
     @names.setter
     def names( self, data ):
         if isinstance( data, dict ):
-            self.__names = data.keys()
+            self.__names = data.keys( )
 
     @property
     def values( self ):
@@ -429,18 +446,18 @@ class DataRow( sl.Row ):
         if isinstance( row, sl.Row ):
             self.__source = row
 
-    def __init__( self, items = None  ):
-        super().__init__( items )
-        self.__source = sl.Row()
+    def __init__( self, items = None ):
+        super( ).__init__( items )
+        self.__source = sl.Row( )
         self.__items = dict( items )
         self.__id = int( items[ 0 ] )
-        self.__names = list( self.__items.keys() )
-        self.__values = self.__items.values()
+        self.__names = list( self.__items.keys( ) )
+        self.__values = self.__items.values( )
 
     def __str__( self ):
         return 'Row ID: ' + str( self.__id )
 
-class DataColumn():
+class DataColumn( ):
     '''Defines the DataColumn Class'''
     __base = None
     __source = None
@@ -610,7 +627,7 @@ class DataTable( pd.DataFrame ):
             self.__rows = items
 
     def __init__( self, name ):
-        super().__init__()
+        super( ).__init__( )
         self.__base = str( name )
         self.__name = self.__base
         self.__data = pd.DataFrame( self.__name )
@@ -621,7 +638,7 @@ class DataTable( pd.DataFrame ):
         if self.__name is not None:
             return self.__name
 
-class AccessData():
+class AccessData( ):
     '''Builds the budget execution data classes'''
     __dbpath = None
     __driver = None
@@ -685,8 +702,8 @@ class AccessData():
         if self.__command is not None:
             return self.__command
         if self.__command is None:
-            cmd = CommandType()
-            return cmd.select
+            cmd = CommandType( 'SELECT' )
+            return cmd
 
     @command.setter
     def command( self, cmd ):
@@ -701,12 +718,12 @@ class AccessData():
         self.__source = table
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
-            r'\access\datamodels\Data.accdb;'
-        self.__connstr = f'{ self.__driver } { self.__dbpath }'
+                        r'\access\datamodels\Data.accdb;'
+        self.__connstr = f'{self.__driver} {self.__dbpath}'
         self.__data = pd.DataFrame
-        self.__command = CommandType()
+        self.__command = CommandType( 'SELECT' )
 
-class AccessReference():
+class AccessReference( ):
     '''Builds the budget execution data classes'''
     __dbpath = None
     __driver = None
@@ -770,8 +787,8 @@ class AccessReference():
         if self.__command is not None:
             return self.__command
         if self.__command is None:
-            cmd = CommandType()
-            return cmd.select
+            cmd = CommandType( 'SELECT' )
+            return cmd
 
     @command.setter
     def command( self, cmd ):
@@ -782,16 +799,16 @@ class AccessReference():
         self.__source = table
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access' \
-            r'\referencemodels\References.accdb;'
-        self.__connstr = f'{ self.__driver } { self.__dbpath }'
+                        r'\referencemodels\References.accdb;'
+        self.__connstr = f'{self.__driver} {self.__dbpath}'
         self.__data = pd.DataFrame
-        self.__command = CommandType()
+        self.__command = CommandType( 'SELECT' )
 
     def connect( self ):
         if self.__connstr is not None:
             return db.connect( self.__connstr )
 
-class SQLiteData():
+class SQLiteData( ):
     '''Builds the budget execution data classes'''
     __dbpath = None
     __connstr = None
@@ -844,8 +861,8 @@ class SQLiteData():
         if self.__command is not None:
             return self.__command
         if self.__command is None:
-            cmd = CommandType()
-            return cmd.select
+            cmd = CommandType( 'SELECT' )
+            return cmd
 
     @command.setter
     def command( self, cmd ):
@@ -862,13 +879,13 @@ class SQLiteData():
                         r'\db\sqlite\datamodels\Data.db'
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
-        self.__command = CommandType()
+        self.__command = CommandType( 'SELECT' )
 
     def __str__( self ):
         if self.__dbpath is not None:
             return self.__dbpath
 
-class SQLiteReference():
+class SQLiteReference( ):
     '''Class representing the budget execution references models'''
     __source = None
     __dbpath = None
@@ -921,8 +938,8 @@ class SQLiteReference():
         if self.__command is not None:
             return self.__command
         if self.__command is None:
-            cmd = CommandType()
-            return cmd.select
+            cmd = CommandType( 'SELECT' )
+            return cmd
 
     @command.setter
     def command( self, cmd ):
@@ -936,13 +953,13 @@ class SQLiteReference():
     def __init__( self, table = None ):
         self.__source = str( table )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\sqlite\referencemodels\References.db'
+                        r'\db\sqlite\referencemodels\References.db'
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
         self.__data = [ ]
-        self.__command = CommandType()
+        self.__command = CommandType( 'SELECT' )
 
-class SqlServerData():
+class SqlServerData( ):
     '''Builds the budget execution data classes'''
     __source = None
     __dbpath = None
@@ -972,8 +989,8 @@ class SqlServerData():
 
     @property
     def connstring( self ):
-        if not self.__dbpath == '':
-            return self.__dbpath
+        if not self.__connstr == '':
+            return self.__connstr
 
     @connstring.setter
     def connstring( self, conn ):
@@ -995,8 +1012,8 @@ class SqlServerData():
         if self.__command is not None:
             return self.__command
         if self.__command is None:
-            cmd = CommandType()
-            return cmd.select
+            cmd = CommandType( 'SELECT' )
+            return cmd
 
     @command.setter
     def command( self, cmd ):
@@ -1009,13 +1026,13 @@ class SqlServerData():
 
     def __init__( self, table = None ):
         self.__source = str( table )
+        self.__command = CommandType( 'SELECT' )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\datamodels\Data.mdf'
+                        r'\db\mssql\datamodels\Data.mdf'
+        self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
-        self.__connstr = ''
-        self.__command = CommandType()
 
-class SqlServerReference():
+class SqlServerReference( ):
     '''Class representing the budget execution references models'''
     __source = None
     __dbpath = None
@@ -1045,13 +1062,13 @@ class SqlServerReference():
 
     @property
     def connstring( self ):
-        if not self.__dbpath == '':
-            return self.__dbpath
+        if not self.__connstr == '':
+            return self.__connstr
 
     @connstring.setter
     def connstring( self, conn ):
-        if conn is not None:
-            self.__dbpath = str( conn )
+        if isinstance( conn, str ) and os.path.exists( conn ):
+            self.__connstr = conn
 
     @property
     def data( self ):
@@ -1068,8 +1085,8 @@ class SqlServerReference():
         if self.__command is not None:
             return self.__command
         if self.__command is None:
-            cmd = CommandType()
-            return cmd.select
+            cmd = CommandType( 'SELECT' )
+            return cmd
 
     @command.setter
     def command( self, cmd ):
@@ -1078,8 +1095,8 @@ class SqlServerReference():
 
     def __init__( self, table = None ):
         self.__source = str( table )
+        self.__command = CommandType( 'SELECT' )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-            r'\db\mssql\referencemodels\References.mdf'
+                        r'\db\mssql\referencemodels\References.mdf'
+        self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
-        self.__connstr = ''
-        self.__command = CommandType()
