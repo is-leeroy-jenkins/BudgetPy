@@ -84,7 +84,9 @@ class Provider( ):
     __sqlite = None
     __sqlce = None
     __mssql = None
-    __oledb = None
+    __excel = None
+    __name = None
+    __list = None
 
     @property
     def access( self ):
@@ -117,15 +119,55 @@ class Provider( ):
     @property
     def excel( self ):
         ''' Property used to identify excel provider '''
-        if self.__oledb is not None:
-            return self.__oledb
+        if self.__excel is not None:
+            return self.__excel
 
-    def __init__( self ):
-        self.__access = 'ACCDB'
-        self.__sqlite = 'DB'
-        self.__sqlce = 'SDF'
-        self.__mssql = 'MDF'
-        self.__oledb = 'XLSX'
+    @property 
+    def extension( self ):
+        if self.__name is not None and self.__name != '':
+            if self.__name == 'Access':
+                return '.accdb'
+            elif self.__name == 'SqlCe':
+                return '.sdf'
+            elif self.__name == 'SQLite':
+                return '.db'
+            elif self.__name == 'SqlServer':
+                return '.mdf'
+            elif self.__name == 'Excel':
+                return '.xlsx'
+            else:
+                return '.db'
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, base ):
+        if isinstance( base, str ) and base != '':
+            if base in self.__list:
+                self.__name = base
+            else: 
+                self.__name = 'SQLite'
+
+    @property
+    def path( self ):
+        if self.__name == 'Access':
+            dp = DataPath()
+            return dp.access
+        elif self.__name == 'SQLite':
+            dp = DataPath()
+            return dp.sqlite
+
+    def __init__( self, name ):
+        self.__access = 'Access'
+        self.__sqlite = 'Sqlite'
+        self.__sqlce = 'SqlCe'
+        self.__mssql = 'SqlServer'
+        self.__excel = 'Excel'
+        self.__list = [ 'Access', 'Sqlite', 'SqlCe', 'SqlServer', 'Excel' ]
+        self.__name = name
 
 class CommandType( ):
     '''defines the types of sql commands
@@ -134,53 +176,78 @@ class CommandType( ):
     __insert = None
     __update = None
     __delete = None
+    __droptable = None
+    __dropview = None
     __createtable = None
     __createview = None
     __altertable = None
     __altercolumn = None
+    __list = None
     __type = None
 
     @property
     def select( self ):
-        return self.__select
+        if self.__select is not None:
+            return self.__select
 
     @property
     def insert( self ):
-        return self.__insert
+        if self.__insert is not None:
+            return self.__insert
 
     @property
     def update( self ):
-        return self.__update
+        if self.__update is not None:
+            return self.__update
 
     @property
     def createtable( self ):
-        return self.__createtable
+        if self.__createtable is not None:
+            return self.__createtable
 
     @property
     def createview( self ):
-        return self.__createview
+        if self.__createview is not None:
+            return self.__createview
+
+    @property
+    def droptable( self ):
+        if self.__droptable is not None:
+            return self.__droptable
+
+    @property
+    def dropview( self ):
+        if self.__dropview is not None:
+            return self.__dropview
 
     @property
     def delete( self ):
-        return self.__delete
+        if self.__delete is not None:
+            return self.__delete
 
     @property
     def altertable( self ):
-        return self.__altertable
+        if self.__altertable is not None:
+            return self.__altertable
 
     @property
     def altercolumn( self ):
-        return self.__altercolumn
+        if self.__altercolumn is not None:
+            return self.__altercolumn
 
     def setcommand( self, cmd ):
         '''Function to set the type of sql command that
         will be used to query the database'''
-        if isinstance( cmd, str ) and cmd == 'SELECT':
+        if cmd in self.__list and cmd == 'SELECT':
             self.__type = self.__select
         elif cmd == 'INSERT':
             self.__type = self.__insert
         elif cmd == 'DELETE':
             self.__type = self.__delete
+        elif cmd == 'DROP TABLE':
+            self.__type = self.__droptable
+        elif cmd == 'DROP VIEW':
+            self.__type = self.__dropview
         elif cmd == 'UPDATE':
             self.__type = self.__update
         elif cmd == 'CREATE TABLE':
@@ -194,21 +261,25 @@ class CommandType( ):
         else:
             self.__type = self.__select
 
+    def __str__( self ):
+        if self.__type is not None:
+            return str( self.__type )
+
     def __init__( self, cmd ):
         '''constructor for the CommandType class'''
         self.__select = 'SELECT'
         self.__insert = 'INSERT'
-        self.__delete = 'DELETE'
         self.__update = 'UPDATE'
+        self.__delete = 'DELETE'
         self.__createtable = 'CREATE TABLE'
         self.__createview = 'CREATE VIEW'
+        self.__droptable = 'DROP TABLE'
+        self.__dropview = 'DROP VIEW'
         self.__altercolumn = 'ALTER COLUMN'
         self.__altertable = 'ALTER TABLE'
+        self.__list = [ 'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP TABLE', 'DROP VIEW',
+                        'CREATE TABLE', 'CREATE VIEW', 'ALTER COLUMN', 'ALTER TABLE' ]
         self.setcommand( cmd )
-
-    def __str__( self ):
-        if self.__type is not None:
-            return str( self.__type )
 
 class DataPath( ):
     ''' Defines object used to provide the path to data model databases '''
@@ -412,8 +483,8 @@ class SqlStatement( ):
         if isinstance( pdr, Provider ):
             self.__provider = pdr
         else:
-            provider = Provider( )
-            self.__provider = provider.sqlite
+            sqlite = Provider( 'SQLite' )
+            self.__provider = sqlite
 
     @property
     def command( self ):
@@ -465,9 +536,9 @@ class SqlStatement( ):
             self.__path = model
 
     def __init__( self, pvdr, cmd, src, path = None ):
-        self.__provider = pvdr if isinstance( pvdr, Provider ) else Provider( ).sqlite
+        self.__provider = pvdr if isinstance( pvdr, Provider ) else Provider( 'SQLite' )
         self.__command = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
-        self.__source = Source( src )
+        self.__source = src if isinstance( src, Source ) else Source( 'Allocations' )
         self.__table = self.__source.table
         self.__path = path if isinstance( path, DataPath ) else DataPath( ).sqlite
 
