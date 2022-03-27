@@ -163,6 +163,10 @@ class Provider( ):
             dp = DataPath()
             return dp.sqlserver
 
+    def __str__( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
     def __init__( self, name ):
         self.__access = 'Access'
         self.__sqlite = 'SQLite'
