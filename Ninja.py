@@ -159,10 +159,13 @@ class Provider( ):
         elif self.__name == 'SQLite':
             dp = DataPath()
             return dp.sqlite
+        elif self.__name == 'SqlServer':
+            dp = DataPath()
+            return dp.sqlserver
 
     def __init__( self, name ):
         self.__access = 'Access'
-        self.__sqlite = 'Sqlite'
+        self.__sqlite = 'SQLite'
         self.__sqlce = 'SqlCe'
         self.__mssql = 'SqlServer'
         self.__excel = 'Excel'
