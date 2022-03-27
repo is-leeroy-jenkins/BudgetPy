@@ -1,0 +1,4 @@
+
+spython:S1192D"VDefine a constant instead of duplicating this literal b'\xEF\xBB\xBF\xc3\xa9' 3 times.(€ô’£üÿÿÿÿ
+jpython:S1854•"LRemove this assignment to local variable 'decoded'; the value is never used.(åÙ¢ıÿÿÿÿ
+jpython:S1854”"LRemove this assignment to local variable 'encoded'; the value is never used.(¶ª‡şÿÿÿÿ

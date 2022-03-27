@@ -1,0 +1,34 @@
+
+“python:S1192Á"zDefine a constant instead of duplicating this literal "Can't perform this operation for unregistered loader type" 3 times.(—İÑè
+ipython:S1192Ê"KDefine a constant instead of duplicating this literal '.dist-info' 3 times.(ºøÙŸıÿÿÿÿ
+Mpython:S1066ö"/Merge this if statement with the enclosing one.(İµ´îüÿÿÿÿ
+tpython:S117â"WRename this parameter "moduleOrReq" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¬³ ùÿÿÿÿ
+xpython:S117¶"[Rename this local variable "provDarwin" to match the regular expression ^[_a-z][a-z0-9_]*$.(´€¹ùÿÿÿÿ
+ppython:S117¯"XRename this local variable "provMac" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÆ
+tpython:S117­"WRename this local variable "reqMac" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü§íúşÿÿÿÿ
+mpython:S3776¡"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(©±…ò
+Zpython:S5720÷"<Rename "name" to "self" or add the missing "self" parameter.(áœ€ßûÿÿÿÿ
+Upython:S5720ú"<Rename "name" to "self" or add the missing "self" parameter.(ƒ•Ã‡
+Upython:S5720ı"<Rename "name" to "self" or add the missing "self" parameter.(ŒÌ‘ñ
+Upython:S5720ƒ"<Rename "name" to "self" or add the missing "self" parameter.(ı±Çà
+Upython:S5720†"<Rename "name" to "self" or add the missing "self" parameter.(²ÙİÕ
+\python:S5720‰"CRename "script_name" to "self" or add the missing "self" parameter.(ÛŒÇÆ
+Xpython:S5720"?Rename "manager" to "self" or add the missing "self" parameter.(ü³¢
+Xpython:S5720•"?Rename "manager" to "self" or add the missing "self" parameter.(«©¸
+]python:S5720š"?Rename "manager" to "self" or add the missing "self" parameter.(¶ì×æûÿÿÿÿ
+^python:S5720Ÿ"ERename "resource_name" to "self" or add the missing "self" parameter.(íŞ÷õ
+]python:S5720¢"ERename "resource_name" to "self" or add the missing "self" parameter.(²Ì‚
+^python:S5720¥"ERename "resource_name" to "self" or add the missing "self" parameter.(²ø‚
+rpython:S3776Ë"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(şŞ×³ıÿÿÿÿ
+wpython:S1186ë"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Áû¹Çûÿÿÿÿ
+bpython:S3358"IExtract this nested conditional expression into an independent statement.(Ãˆ€Ó
+gpython:S3358 "IExtract this nested conditional expression into an independent statement.(¨ÿşßøÿÿÿÿ
+tpython:S117"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(’¥æÕüÿÿÿÿ
+tpython:S117Ğ"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹ù¡Ìúÿÿÿÿ
+opython:S117ş"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ññú
+opython:S117’"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(š¸±Î
+opython:S117Â"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õİ¹£
+gpython:S1854™"NRemove this assignment to local variable 'new_extra'; the value is never used.(ÿ×ø
+6python:S3626ø"Remove this redundant return.(ÙãŞŸ
+mpython:S3776¶"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(Óï–Ô
+{python:S5717¨"]Change this default value to "None" and initialize this parameter inside the function/method.(Ôö…–úÿÿÿÿ

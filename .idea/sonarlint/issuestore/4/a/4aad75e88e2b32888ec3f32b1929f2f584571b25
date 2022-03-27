@@ -1,0 +1,59 @@
+
+dpython:S1192¬"FDefine a constant instead of duplicating this literal "<xml>" 9 times.(í¬šòÿÿÿÿÿ
+vpython:S1192
+"]Define a constant instead of duplicating this literal "Error evaluating expression " 3 times.(±³´Ÿ
+`python:S1192½"GDefine a constant instead of duplicating this literal "</xml>" 9 times.(æˆßæ
+}python:S1192Â"dDefine a constant instead of duplicating this literal "Frame not found: %s from thread: %s" 3 times.(£êéÂ
+Mpython:S1066Ğ"/Merge this if statement with the enclosing one.(›·³æşÿÿÿÿ
+Hpython:S1066Û"/Merge this if statement with the enclosing one.(Š†ğâ
+epython:S2208€"GImport only needed names or import the module and then use its members.(§æ×Æùÿÿÿÿ
+Tpython:S5754_"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754y"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754|"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+}python:S117”"eRename this parameter "PyDevJsonCommandProcessor" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãï¦È
+rpython:S3776ã"TRefactor this function to reduce its Cognitive Complexity from 48 to the 15 allowed.(½»•«ıÿÿÿÿ
+Upython:S5754°"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754˜"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754¬"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Ú"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S3776÷"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(½»•«ıÿÿÿÿ
+Upython:S5754“"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754„"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S3776Ç"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(îØˆŠúÿÿÿÿ
+Upython:S5754û"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Hpython:S1656Î"/Remove or correct this useless self-assignment.(ˆ¢Á«
+Upython:S5754“"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S117­"ZRename this local variable "_typeName" to match the regular expression ^[_a-z][a-z0-9_]*$.(®Íê¶
+Upython:S5754İ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Bpython:S1481ÿ")Remove the unused local variable "scope".(§¡ï¤
+Bpython:S1481")Remove the unused local variable "scope".(â†Ö”
+Upython:S5754Ä"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754÷"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+mpython:S3776€"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(á²ÜÏ
+Upython:S5754ã"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Ö"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S3776û"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ä¸´íşÿÿÿÿ
+Upython:S5754€
+"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754›
+"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754‰"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Rpython:S5727†"4Remove this identity check; it will always be False.(– Úƒøÿÿÿÿ
+Upython:S5754š"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+mpython:S3776 "TRefactor this function to reduce its Cognitive Complexity from 73 to the 15 allowed.(­Ü©Ä
+Upython:S5754ê"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754¾"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Á"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Ä"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Ì"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754—"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+qpython:S117®"ZRename this local variable "makeValid" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷Ò¼S
+Upython:S5754¼"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Õ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754è"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+xpython:S117¨"[Rename this local variable "resEncoded" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ë‡·şÿÿÿÿ
+Upython:S5754«"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Ã"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754ß"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754‰"<Specify an exception class to catch or reraise the exception(ˆÊÉ·

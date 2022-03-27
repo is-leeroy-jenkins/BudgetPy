@@ -1,0 +1,46 @@
+
+>python:S1481ˆ"%Remove the unused local variable "j".(ø—™ê
+Cpython:S1481£"%Remove the unused local variable "i".(ÄÏªæûÿÿÿÿ
+>python:S1481»"%Remove the unused local variable "x".(öêëÏ
+Apython:S108¼")Either remove or fill this block of code.(ã‘Û¾
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(¦ŽÒ»
+jpython:S107¬"MMethod "__init__" has 17 parameters, which is greater than the 13 authorized.(¢Ê…öúÿÿÿÿ
+spython:S3776¬"URefactor this function to reduce its Cognitive Complexity from 132 to the 15 allowed.(¢Ê…öúÿÿÿÿ
+?python:S1110œ"!Remove those useless parentheses.(ïÏ‘½üÿÿÿÿ
+mpython:S3776¼"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ŒüÂ¶
+=python:S1481»"%Remove the unused local variable "j".(÷œŒ3
+>python:S1481Û"%Remove the unused local variable "j".(ˆŸÜŸ
+spython:S3776ˆ"URefactor this function to reduce its Cognitive Complexity from 215 to the 15 allowed.(†€¶ûÿÿÿÿ
+>python:S1481Ð"&Remove the unused local variable "ii".(à±Ü7
+Cpython:S1481—	"%Remove the unused local variable "j".(ŒáÎÀûÿÿÿÿ
+Cpython:S1481¥	"%Remove the unused local variable "j".(ŒáÎÀûÿÿÿÿ
+npython:S3776ã"URefactor this function to reduce its Cognitive Complexity from 123 to the 15 allowed.(çé¤Ý
+<python:S125ÿ"Remove this commented out code.(åþ×þÿÿÿÿ
+Cpython:S1481ô	"%Remove the unused local variable "j".(ŒáÎÀûÿÿÿÿ
+gpython:S1226„
+"NIntroduce a new variable or use its initial value before reassigning 'minute'.(øÆ§¿
+gpython:S1226„
+"NIntroduce a new variable or use its initial value before reassigning 'second'.(øÆ§¿
+gpython:S1226Ž
+"NIntroduce a new variable or use its initial value before reassigning 'second'.(ðŒ²í
+rpython:S3776ç
+"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(†€¶ûÿÿÿÿ
+upython:S116Ê"XRename this field "_handle_BYSETPOS" to match the regular expression ^[_a-z][_a-z0-9]*$.(Â‰ùëýÿÿÿÿ
+upython:S116Î"XRename this field "_handle_BYEASTER" to match the regular expression ^[_a-z][_a-z0-9]*$.(¥žŸ¼ÿÿÿÿÿ
+ppython:S116Ò"XRename this field "_handle_BYSECOND" to match the regular expression ^[_a-z][_a-z0-9]*$.(½™ ü
+wpython:S116Ì"ZRename this field "_handle_BYMONTHDAY" to match the regular expression ^[_a-z][_a-z0-9]*$.(ïÛ‡ñøÿÿÿÿ
+mpython:S116É"URename this field "_handle_COUNT" to match the regular expression ^[_a-z][_a-z0-9]*$.(·ä×Ö
+vpython:S116Í"YRename this field "_handle_BYYEARDAY" to match the regular expression ^[_a-z][_a-z0-9]*$.(€ýÈòøÿÿÿÿ
+ppython:S116Ï"XRename this field "_handle_BYWEEKNO" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÔÇù
+rpython:S116ÿ"URename this field "_handle_BYDAY" to match the regular expression ^[_a-z][_a-z0-9]*$.(œ¤×›ûÿÿÿÿ
+ppython:S116È"XRename this field "_handle_INTERVAL" to match the regular expression ^[_a-z][_a-z0-9]*$.(Âô´§
+ppython:S116Ñ"XRename this field "_handle_BYMINUTE" to match the regular expression ^[_a-z][_a-z0-9]*$.(¸ ”Ž
+opython:S116Ë"WRename this field "_handle_BYMONTH" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ç˜¸õ
+spython:S116Ð"VRename this field "_handle_BYHOUR" to match the regular expression ^[_a-z][_a-z0-9]*$.(¬ñÊáøÿÿÿÿ
+hpython:S100Ô"PRename method "_handle_FREQ" to match the regular expression ^[a-z_][a-z0-9_]*$.(õì…ï
+npython:S100×"QRename method "_handle_UNTIL" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶°˜žÿÿÿÿÿ
+mpython:S100â"PRename method "_handle_WKST" to match the regular expression ^[a-z_][a-z0-9_]*$.(åµ†¦ÿÿÿÿÿ
+rpython:S100å"URename method "_handle_BYWEEKDAY" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰—Ííùÿÿÿÿ
+rpython:S3776å"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(‰—Ííùÿÿÿÿ
+mpython:S3776›"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(“è«¾
+mpython:S3776Ï"TRefactor this function to reduce its Cognitive Complexity from 86 to the 15 allowed.(ÐÒñ¸

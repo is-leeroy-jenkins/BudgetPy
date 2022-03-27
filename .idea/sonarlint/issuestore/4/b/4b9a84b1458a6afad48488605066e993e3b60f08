@@ -1,0 +1,7 @@
+
+[python:S112‡">Replace this generic exception class with a more specific one.(šÜßëýÿÿÿÿ
+mpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Û”â¨
+upython:S5890ß"\Assign to "is_upgrade" a value of type "bool" instead of "NoneType" or update its type hint.(Š—ˆµ
+xpython:S5890ã"ZAssign to "is_stamp" a value of type "bool" instead of "NoneType" or update its type hint.(ãŒñ¨úÿÿÿÿ
+{python:S5890õ"bAssign to "up_revision_ids" a value of type "tuple" instead of "NoneType" or update its type hint.(äËý§
+‚python:S5890€"dAssign to "down_revision_ids" a value of type "tuple" instead of "NoneType" or update its type hint.(ß‰¨×ûÿÿÿÿ

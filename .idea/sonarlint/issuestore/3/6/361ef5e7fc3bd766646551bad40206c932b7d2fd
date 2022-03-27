@@ -1,0 +1,26 @@
+
+{python:S1192"]Define a constant instead of duplicating this literal "Statement is not a compiled " 5 times.(°ευ€όÿÿÿÿ
+mpython:S3776›"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(Υλϋ²
+rpython:S3776Σ"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(†΅€ξύÿÿÿÿ
+rpython:S1186ά"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ÿυΗ
+rpython:S1186ί"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ν£ϋΪ
+Ppython:S2638θ"7Remove parameter dbapi_cursor or provide default value.(ΫΔ―ª
+Vpython:S5754Ώ"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ
+Vpython:S5754Μ"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ
+Ppython:S2638Ο"7Remove parameter dbapi_cursor or provide default value.(ΫΔ―ª
+Vpython:S5754Τ"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ
+Vpython:S5754"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ
+Vpython:S5754Ώ"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ
+Vpython:S5754Ν"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ
+Vpython:S5754ί"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ
+rpython:S1186χ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ÒΚΆω
+epython:S5799"GMerge these implicitly concatenated strings; or did you forget a comma?(°ευ€όÿÿÿÿ
+epython:S5799"GMerge these implicitly concatenated strings; or did you forget a comma?(έ…ϋΏώÿÿÿÿ
+epython:S5799Σ"GMerge these implicitly concatenated strings; or did you forget a comma?(°ευ€όÿÿÿÿ
+epython:S5799Χ"GMerge these implicitly concatenated strings; or did you forget a comma?(΄΄υ¶ύÿÿÿÿ
+epython:S5799ι"GMerge these implicitly concatenated strings; or did you forget a comma?(°ευ€όÿÿÿÿ
+epython:S5799ν"GMerge these implicitly concatenated strings; or did you forget a comma?(έ…ϋΏώÿÿÿÿ
+epython:S5799¶"GMerge these implicitly concatenated strings; or did you forget a comma?(°ευ€όÿÿÿÿ
+epython:S5799Ν"GMerge these implicitly concatenated strings; or did you forget a comma?(°ευ€όÿÿÿÿ
+Vpython:S5754"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ
+Vpython:S5754―"8Catch a more specific exception or reraise the exception(κ¥Π…ϊÿÿÿÿ

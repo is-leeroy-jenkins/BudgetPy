@@ -1,0 +1,5 @@
+
+dpython:S2208"GImport only needed names or import the module and then use its members.(ùêŠÁùÿÿÿÿ
+_python:S2208"GImport only needed names or import the module and then use its members.(ÉöÍÂ
+epython:S1542"MRename function "ToASCII" to match the regular expression ^[a-z_][a-z0-9_]*$.(¨Šû 
+lpython:S1542"ORename function "ToUnicode" to match the regular expression ^[a-z_][a-z0-9_]*$.(è²£şÿÿÿÿ

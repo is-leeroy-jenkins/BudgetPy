@@ -1,0 +1,13 @@
+
+opython:S117&"XRename this parameter "depthPercent" to match the regular expression ^[_a-z][a-z0-9_]*$.(£Àû‰
+npython:S117)"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+ppython:S117$"TRename this parameter "hPercent" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÌ¥İúÿÿÿÿ
+ipython:S117'"RRename this parameter "rAngAx" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯¬®¿
+lpython:S117#"PRename this parameter "rotX" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡¶Ôÿÿÿÿÿ
+gpython:S117%"PRename this parameter "rotY" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘¨éñ
+npython:S117C"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S117B"ZRename this parameter "pictureOptions" to match the regular expression ^[_a-z][a-z0-9_]*$.(«œâ
+lpython:S117A"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
+ppython:S117["TRename this parameter "backWall" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤³Ğûùÿÿÿÿ
+kpython:S117Z"TRename this parameter "sideWall" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÇÍ’ú
+npython:S117X"RRename this parameter "view3D" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø‹˜øÿÿÿÿ

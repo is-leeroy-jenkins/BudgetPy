@@ -1,0 +1,47 @@
+
+tpython:S1178"]Rename this parameter "showColumnStripes" to match the regular expression ^[_a-z][a-z0-9_]*$.(øçƒŠ
+wpython:S1175"[Rename this parameter "showFirstColumn" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÏˆİÿÿÿÿÿ
+qpython:S1176"ZRename this parameter "showLastColumn" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒâŞª
+vpython:S1177"ZRename this parameter "showRowStripes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñÏû¥üÿÿÿÿ
+npython:S117R"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+gpython:S117N"QRename this parameter "mapId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÛÒe
+spython:S117Q"WRename this parameter "xmlDataType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó¡şïÿÿÿÿÿ
+€python:S117“"cRename this parameter "calculatedColumnFormula" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıµ¦Íùÿÿÿÿ
+vpython:S117‘"YRename this parameter "dataCellStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÏ‡»şÿÿÿÿ
+rpython:S117"URename this parameter "dataDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(âìò²ıÿÿÿÿ
+opython:S117–"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+{python:S117"^Rename this parameter "headerRowCellStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒç³ıÿÿÿÿ
+wpython:S117"ZRename this parameter "headerRowDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹É»×ÿÿÿÿÿ
+upython:S117Œ"]Rename this parameter "queryTableFieldId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎÃ¶³
+{python:S117’"^Rename this parameter "totalsRowCellStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßş¥Åùÿÿÿÿ
+wpython:S117"ZRename this parameter "totalsRowDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÜ–Ğøÿÿÿÿ
+tpython:S117”"\Rename this parameter "totalsRowFormula" to match the regular expression ^[_a-z][a-z0-9_]*$.(µÜëÇ
+upython:S117Š"]Rename this parameter "totalsRowFunction" to match the regular expression ^[_a-z][a-z0-9_]*$.(³‚¿»
+rpython:S117‹"ZRename this parameter "totalsRowLabel" to match the regular expression ^[_a-z][a-z0-9_]*$.(õËò
+npython:S117ˆ"VRename this parameter "uniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(çò™
+tpython:S117•"WRename this parameter "xmlColumnPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(§ÎÂíıÿÿÿÿ
+jpython:S107†"MMethod "__init__" has 16 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+npython:S117ƒ"VRename this parameter "autoFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¯¯Ì
+ppython:S117‚"XRename this parameter "connectionId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã´©˜
+vpython:S117€"YRename this parameter "dataCellStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÏ‡»şÿÿÿÿ
+rpython:S117ú"URename this parameter "dataDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(âìò²ıÿÿÿÿ
+tpython:S117î"WRename this parameter "displayName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß¦©¥ùÿÿÿÿ
+opython:S117‡"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+wpython:S117ü"`Rename this parameter "headerRowBorderDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹ÍŸB
+{python:S117ÿ"^Rename this parameter "headerRowCellStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒç³ıÿÿÿÿ
+wpython:S117ó"ZRename this parameter "headerRowCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÀÂÁìıÿÿÿÿ
+wpython:S117ù"ZRename this parameter "headerRowDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹É»×ÿÿÿÿÿ
+rpython:S117ô"URename this parameter "insertRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àø“‘ûÿÿÿÿ
+rpython:S117õ"ZRename this parameter "insertRowShift" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿Ÿš‚
+rpython:S117„"URename this parameter "sortState" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶«ø²ÿÿÿÿÿ
+tpython:S117ı"\Rename this parameter "tableBorderDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßŒÊÕ
+upython:S117…"XRename this parameter "tableColumns" to match the regular expression ^[_a-z][a-z0-9_]*$.(³°ÄÍşÿÿÿÿ
+wpython:S117†"ZRename this parameter "tableStyleInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(„”ôêúÿÿÿÿ
+rpython:S117ò"URename this parameter "tableType" to match the regular expression ^[_a-z][a-z0-9_]*$.(îÂêúÿÿÿÿ
+}python:S117ş"`Rename this parameter "totalsRowBorderDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(½ß×ôşÿÿÿÿ
+{python:S117"^Rename this parameter "totalsRowCellStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßş¥Åùÿÿÿÿ
+rpython:S117ö"ZRename this parameter "totalsRowCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥¤•
+wpython:S117û"ZRename this parameter "totalsRowDxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÜ–Ğøÿÿÿÿ
+rpython:S117÷"ZRename this parameter "totalsRowShown" to match the regular expression ^[_a-z][a-z0-9_]*$.(­Å¶ƒ
+jpython:S107ì"MMethod "__init__" has 27 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+mpython:S117İ"URename this parameter "tablePart" to match the regular expression ^[_a-z][a-z0-9_]*$.(ï®ö

@@ -1,0 +1,19 @@
+
+Mpython:S1066Â"/Merge this if statement with the enclosing one.(ú¼‹«øÿÿÿÿ
+jpython:S1134ß"LTake the required action to fix the issue indicated by this "FIXME" comment.(¼ôÏŒşÿÿÿÿ
+Dpython:S5806î"+Rename this variable; it shadows a builtin.(Û†ƒÒ
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(¬Ù¡Á
+Dpython:S5806•"+Rename this variable; it shadows a builtin.(œÚğ°
+rpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 90 to the 15 allowed.(ÖÕ¦Ãúÿÿÿÿ
+Cpython:S1481Ö"%Remove the unused local variable "i".(îÇè²ùÿÿÿÿ
+jpython:S117»	"MRename this parameter "X" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ’•âÿÿÿÿÿ
+epython:S117Â	"MRename this parameter "X" to match the regular expression ^[_a-z][a-z0-9_]*$.(êóŒĞ
+ypython:S117ƒ"\Rename this local variable "iscomplex_X" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡ŞÍÛùÿÿÿÿ
+mpython:S3776Â	"TRefactor this function to reduce its Cognitive Complexity from 47 to the 15 allowed.(êóŒĞ
+Dpython:S5806‰"+Rename this variable; it shadows a builtin.(Ò¡Ã—
+upython:S107¡"]Function "_genfromtxt_dispatcher" has 24 parameters, which is greater than the 13 authorized.(ª»÷Å
+ipython:S107®"QFunction "genfromtxt" has 24 parameters, which is greater than the 13 authorized.(ê©´
+npython:S3776®"URefactor this function to reduce its Cognitive Complexity from 295 to the 15 allowed.(ê©´
+vpython:S5717®"]Change this default value to "None" and initialize this parameter inside the function/method.(ê©´
+jpython:S1134"LTake the required action to fix the issue indicated by this "FIXME" comment.(õµö¯ùÿÿÿÿ
+Cpython:S1481Ç"%Remove the unused local variable "t".(¿Ùëêûÿÿÿÿ

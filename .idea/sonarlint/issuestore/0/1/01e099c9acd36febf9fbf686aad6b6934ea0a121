@@ -1,0 +1,37 @@
+
+ypython:S1176"]Rename this parameter "allowRefreshQuery" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬äµøÿÿÿÿ
+|python:S1179"`Rename this parameter "autoCompressPictures" to match the regular expression ^[_a-z][a-z0-9_]*$.(š¥œ¹øÿÿÿÿ
+mpython:S1170"VRename this parameter "backupFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÃËª
+upython:S1178"^Rename this parameter "checkCompatibility" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş¥µø
+kpython:S1173"TRename this parameter "codeName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê¢Õà
+ypython:S117*"]Rename this parameter "dateCompatibility" to match the regular expression ^[_a-z][a-z0-9_]*$.(†Şàûÿÿÿÿ
+upython:S117;"_Rename this parameter "defaultThemeVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(Çê‰
+ppython:S117-"YRename this parameter "filterPrivacy" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼ñŞæ
+upython:S1174"^Rename this parameter "hidePivotFieldList" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦±¯Á
+spython:S117."]Rename this parameter "promptedSolutions" to match the regular expression ^[_a-z][a-z0-9_]*$.(•…K
+opython:S1177"XRename this parameter "publishItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûªëì
+xpython:S117:"aRename this parameter "refreshAllConnections" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎÖµ
+~python:S1171"bRename this parameter "saveExternalLinkValues" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬°Öúÿÿÿÿ
+‚python:S117,"fRename this parameter "showBorderUnselectedTables" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨†ıôøÿÿÿÿ
+ypython:S117/"]Rename this parameter "showInkAnnotation" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ¹Ûäûÿÿÿÿ
+npython:S117+"WRename this parameter "showObjects" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß€Õû
+wpython:S1175"`Rename this parameter "showPivotChartFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ÏÜİ
+npython:S1172"WRename this parameter "updateLinks" to match the regular expression ^[_a-z][a-z0-9_]*$.(„¹
+ipython:S107("MMethod "__init__" has 19 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+upython:S117m"YRename this parameter "calcCompleted" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÈÊàøÿÿÿÿ
+npython:S117e"RRename this parameter "calcId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÏİÏ÷ÿÿÿÿÿ
+ppython:S117f"TRename this parameter "calcMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø™£«ùÿÿÿÿ
+mpython:S117n"VRename this parameter "calcOnSave" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ğÓ‡
+qpython:S117o"ZRename this parameter "concurrentCalc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞĞ€ø
+xpython:S117p"aRename this parameter "concurrentManualCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(™¶æ×
+ppython:S117q"YRename this parameter "forceFullCalc" to match the regular expression ^[_a-z][a-z0-9_]*$.(çúÍÊ
+qpython:S117g"ZRename this parameter "fullCalcOnLoad" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù´ş 
+ppython:S117l"YRename this parameter "fullPrecision" to match the regular expression ^[_a-z][a-z0-9_]*$.(õÄ½
+opython:S117j"XRename this parameter "iterateCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¸¥ü
+opython:S117k"XRename this parameter "iterateDelta" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚û¸ƒ
+opython:S117h"SRename this parameter "refMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(·“°ûÿÿÿÿ
+ppython:S117"SRename this parameter "appName" to match the regular expression ^[_a-z][a-z0-9_]*$.(±§ãşûÿÿÿÿ
+lpython:S117‘"TRename this parameter "codeName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê¢Õà
+npython:S117"VRename this parameter "lastEdited" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛÕ¨”
+upython:S117"XRename this parameter "lowestEdited" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚œÒäùÿÿÿÿ
+qpython:S117"TRename this parameter "rupBuild" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ãåûÿÿÿÿ

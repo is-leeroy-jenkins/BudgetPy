@@ -1,0 +1,7 @@
+
+bpython:S1192)"JDefine a constant instead of duplicating this literal '{profile}' 4 times.(ŸÍŒ
+ipython:S1192)"QDefine a constant instead of duplicating this literal '{jupyter_config}' 3 times.(ŸÍŒ
+gpython:S1192'"ODefine a constant instead of duplicating this literal '{jupyter_data}' 3 times.(äÀˆ®
+Mpython:S1066´"/Merge this if statement with the enclosing one.(ÓÎ¥ıÿÿÿÿ
+Hpython:S1066å"/Merge this if statement with the enclosing one.(ãÓ•ˆ
+rpython:S3776ˆ"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(½Òïøÿÿÿÿ

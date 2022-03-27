@@ -1,0 +1,11 @@
+
+xpython:S117@"\Rename this parameter "calculatedColumn" to match the regular expression ^[_a-z][a-z0-9_]*$.(þ¤¢•øÿÿÿÿ
+upython:S117>"^Rename this parameter "emptyCellReference" to match the regular expression ^[_a-z][a-z0-9_]*$.(œÃž€
+qpython:S1178"URename this parameter "evalError" to match the regular expression ^[_a-z][a-z0-9_]*$.(ð¦êêþÿÿÿÿ
+npython:S117<"XRename this parameter "formulaRange" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹”Ê
+upython:S117?"^Rename this parameter "listDataValidation" to match the regular expression ^[_a-z][a-z0-9_]*$.(²Îƒâ
+zpython:S117:"^Rename this parameter "numberStoredAsText" to match the regular expression ^[_a-z][a-z0-9_]*$.(Øã½†úÿÿÿÿ
+spython:S1179"\Rename this parameter "twoDigitTextYear" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÜÿøÛ
+wpython:S117="[Rename this parameter "unlockedFormula" to match the regular expression ^[_a-z][a-z0-9_]*$.(µà·Ýÿÿÿÿÿ
+npython:S117Y"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+opython:S117X"XRename this parameter "ignoredError" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ý•®™

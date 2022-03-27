@@ -1,0 +1,29 @@
+
+mpython:S117h"VRename this parameter "AppVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(›˜Šº
+spython:S117g"WRename this parameter "Application" to match the regular expression ^[_a-z][a-z0-9_]*$.(•À„‹ûÿÿÿÿ
+rpython:S117T"VRename this parameter "Characters" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÂÇÜ¸øÿÿÿÿ
+|python:S117a"`Rename this parameter "CharactersWithSpaces" to match the regular expression ^[_a-z][a-z0-9_]*$.(é¥ÂÃşÿÿÿÿ
+jpython:S117Q"SRename this parameter "Company" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ğµú
+ipython:S117f"RRename this parameter "DigSig" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡¹‚¿
+spython:S117i"WRename this parameter "DocSecurity" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘´®ûÿÿÿÿ
+npython:S117d"RRename this parameter "HLinks" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÍıËËıÿÿÿÿ
+npython:S117^"XRename this parameter "HeadingPairs" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ñÀH
+opython:S117["XRename this parameter "HiddenSlides" to match the regular expression ^[_a-z][a-z0-9_]*$.(·²÷÷
+upython:S117c"YRename this parameter "HyperlinkBase" to match the regular expression ^[_a-z][a-z0-9_]*$.(š²„Çüÿÿÿÿ
+ypython:S117e"]Rename this parameter "HyperlinksChanged" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒôË±üÿÿÿÿ
+hpython:S117V"QRename this parameter "Lines" to match the regular expression ^[_a-z][a-z0-9_]*$.(íŒÌç
+ppython:S117`"YRename this parameter "LinksUpToDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓïÈ
+jpython:S117\"SRename this parameter "MMClips" to match the regular expression ^[_a-z][a-z0-9_]*$.(„Å·
+jpython:S117P"SRename this parameter "Manager" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôĞÂ
+mpython:S117Y"QRename this parameter "Notes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÃáøÿÿÿÿ
+hpython:S117R"QRename this parameter "Pages" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢¹Õ
+rpython:S117W"VRename this parameter "Paragraphs" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÉÆœøÿÿÿÿ
+upython:S117U"^Rename this parameter "PresentationFormat" to match the regular expression ^[_a-z][a-z0-9_]*$.(šÃÖü
+qpython:S117]"URename this parameter "ScaleCrop" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÇÛµ×øÿÿÿÿ
+lpython:S117b"URename this parameter "SharedDoc" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãà¢³
+ipython:S117X"RRename this parameter "Slides" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ‡Şº
+kpython:S117O"TRename this parameter "Template" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ¶Ïå
+upython:S117_"YRename this parameter "TitlesOfParts" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞİÜÅùÿÿÿÿ
+qpython:S117Z"URename this parameter "TotalTime" to match the regular expression ^[_a-z][a-z0-9_]*$.(ò±×Îúÿÿÿÿ
+hpython:S117S"QRename this parameter "Words" to match the regular expression ^[_a-z][a-z0-9_]*$.(™Æú¡
+ipython:S107N"MMethod "__init__" has 27 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

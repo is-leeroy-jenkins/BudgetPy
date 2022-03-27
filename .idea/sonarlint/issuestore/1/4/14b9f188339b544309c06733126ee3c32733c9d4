@@ -1,0 +1,7 @@
+
+epython:S1192Í"GDefine a constant instead of duplicating this literal '*final' 3 times.(Ÿ¿‡ùÿÿÿÿ
+6python:S125o"Remove this commented out code.(àØ£©
+mpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(¬æĞ–
+rpython:S3776–"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(…ßöÈúÿÿÿÿ
+Ipython:S6035ˆ"0Replace this alternation with a character class.(´´õà
+rpython:S3776Â"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(°‚µòıÿÿÿÿ

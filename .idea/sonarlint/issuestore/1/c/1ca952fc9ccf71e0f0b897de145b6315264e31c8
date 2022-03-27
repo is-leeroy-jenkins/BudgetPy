@@ -1,0 +1,21 @@
+
+bpython:S1192m"JDefine a constant instead of duplicating this literal ',\n  end=' 3 times.(Ö‘ú½
+`python:S5797"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
+Mpython:S1066µ"/Merge this if statement with the enclosing one.(ô›Úïùÿÿÿÿ
+Hpython:S1066•"/Merge this if statement with the enclosing one.(µÔñ£
+Hpython:S1066ª"/Merge this if statement with the enclosing one.(µÔñ£
+6python:S125,"Remove this commented out code.(‹—Û†
+3python:S1700b"Rename field "comment"(ûÿïúÿÿÿÿ
+;python:S125g"Remove this commented out code.(»†Ä™øÿÿÿÿ
+mpython:S3776Á"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(¦ãÂ«
+mpython:S1542Ù"ORename function "NoComment" to match the regular expression ^[a-z_][a-z0-9_]*$.(Æ„ôûÿÿÿÿ
+~python:S4144¡"`Update this function so that its implementation is not identical to add_kv_line_col on line 262.(ˆ«³úşÿÿÿÿ
+rpython:S3776ó"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(çîëøÿÿÿÿ
+opython:S2710ß"QRename "self" to a valid class parameter name or add the missing class parameter.(Ù÷»¼ûÿÿÿÿ
+opython:S2710ò"QRename "self" to a valid class parameter name or add the missing class parameter.(Ù÷»¼ûÿÿÿÿ
+wpython:S4144ç"YUpdate this function so that its implementation is not identical to __iter__ on line 994.(¼ÓçÅüÿÿÿÿ
+mpython:S3776³"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(¿ûé
+Upython:S5754Á"<Specify an exception class to catch or reraise the exception(Ãı¼¼
+qpython:S2737É"XAdd logic to this except clause or eliminate it and rethrow the exception automatically.(€³¢»
+opython:S2710æ"QRename "keys" to a valid class parameter name or add the missing class parameter.(ÃĞ¯Šıÿÿÿÿ
+rpython:S3776à	"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(‚­ ¦şÿÿÿÿ

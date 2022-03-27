@@ -1,0 +1,22 @@
+
+rpython:S1192Å"TDefine a constant instead of duplicating this literal 'typing_extensions.' 11 times.(˜¯µõúÿÿÿÿ
+Mpython:S1066Ú"/Merge this if statement with the enclosing one.(¦àåùÿÿÿÿ
+Mpython:S1066"/Merge this if statement with the enclosing one.(¦àåùÿÿÿÿ
+epython:S1542¸"LRename function "IntVar" to match the regular expression ^[a-z_][a-z0-9_]*$.(ê”ö§
+jpython:S117Ö"MRename this parameter "C" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú¯¼ñùÿÿÿÿ
+hpython:S1854¿"JRemove this assignment to local variable 'gvars'; the value is never used.(¦±‘ñşÿÿÿÿ
+rpython:S3776¤"TRefactor this function to reduce its Cognitive Complexity from 64 to the 15 allowed.(´ÃÎ½øÿÿÿÿ
+hpython:S1854£"JRemove this assignment to local variable 'gvars'; the value is never used.(¦±‘ñşÿÿÿÿ
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(óÏÃı
+rpython:S3776Í"TRefactor this function to reduce its Cognitive Complexity from 40 to the 15 allowed.(ëöıÿÿÿÿ
+rpython:S3776æ"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(¯ùÑÓıÿÿÿÿ
+mpython:S1542ã"ORename function "TypeAlias" to match the regular expression ^[a-z_][a-z0-9_]*$.(œƒÒ·üÿÿÿÿ
+opython:S1542“"QRename function "Concatenate" to match the regular expression ^[a-z_][a-z0-9_]*$.(âİß“øÿÿÿÿ
+mpython:S1542ã"ORename function "TypeGuard" to match the regular expression ^[a-z_][a-z0-9_]*$.(İ€Ô„ıÿÿÿÿ
+qpython:S1542Í"SRename function "LiteralString" to match the regular expression ^[a-z_][a-z0-9_]*$.(Üï¬üıÿÿÿÿ
+hpython:S1542ÿ"JRename function "Self" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ãì‚ğÿÿÿÿÿ
+ipython:S1542¬"KRename function "Never" to match the regular expression ^[a-z_][a-z0-9_]*$.(˜€·úÿÿÿÿ
+lpython:S1542ğ"NRename function "Required" to match the regular expression ^[a-z_][a-z0-9_]*$.(×©ËŠıÿÿÿÿ
+ipython:S1542„"QRename function "NotRequired" to match the regular expression ^[a-z_][a-z0-9_]*$.(òà­!
+jpython:S1542"LRename function "Unpack" to match the regular expression ^[a-z_][a-z0-9_]*$.(«áğúúÿÿÿÿ
+opython:S2710Ä"QRename "self" to a valid class parameter name or add the missing class parameter.(”¸®šıÿÿÿÿ

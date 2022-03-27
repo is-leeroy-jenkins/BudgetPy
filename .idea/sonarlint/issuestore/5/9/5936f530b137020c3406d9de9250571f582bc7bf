@@ -1,0 +1,8 @@
+
+kpython:S117"TRename this parameter "treeType" to match the regular expression ^[_a-z][a-z0-9_]*$.(é¿Åº
+kpython:S1542"SRename function "getTreeWalker" to match the regular expression ^[a-z_][a-z0-9_]*$.(é¿Åº
+ypython:S117B"bRename this local variable "pendingCharacters" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê„Ô
+}python:S1542A"`Rename function "concatenateCharacterTokens" to match the regular expression ^[a-z_][a-z0-9_]*$.(úëèèûÿÿÿÿ
+Hpython:S5806D"+Rename this variable; it shadows a builtin.(üÌƒ‹úÿÿÿÿ
+qpython:S3776P"TRefactor this function to reduce its Cognitive Complexity from 51 to the 15 allowed.(õ£†Èúÿÿÿÿ
+Hpython:S5806["+Rename this variable; it shadows a builtin.(üÌƒ‹úÿÿÿÿ

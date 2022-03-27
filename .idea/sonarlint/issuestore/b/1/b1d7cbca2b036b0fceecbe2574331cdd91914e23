@@ -1,0 +1,29 @@
+
+rpython:S117"VRename this parameter "activePane" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò×í¡üÿÿÿÿ
+npython:S117"WRename this parameter "topLeftCell" to match the regular expression ^[_a-z][a-z0-9_]*$.(Áˆïè
+ipython:S117"RRename this parameter "xSplit" to match the regular expression ^[_a-z][a-z0-9_]*$.(­ÌÔı
+npython:S117"RRename this parameter "ySplit" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ“§‚úÿÿÿÿ
+mpython:S117-"VRename this parameter "activeCell" to match the regular expression ^[_a-z][a-z0-9_]*$.(æÒ¢§
+tpython:S117."XRename this parameter "activeCellId" to match the regular expression ^[_a-z][a-z0-9_]*$.(™Í×ûÿÿÿÿ
+jpython:S117b"SRename this parameter "colorId" to match the regular expression ^[_a-z][a-z0-9_]*$.(™Îçƒ
+spython:S117^"\Rename this parameter "defaultGridColor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş™÷Ø
+spython:S117Z"WRename this parameter "rightToLeft" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÙşÿÿÿÿ
+tpython:S117V"XRename this parameter "showFormulas" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª—ãÃúÿÿÿÿ
+upython:S117W"YRename this parameter "showGridLines" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ÿš¹ÿÿÿÿÿ
+upython:S117]"^Rename this parameter "showOutlineSymbols" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æê‡
+ypython:S117X"]Rename this parameter "showRowColHeaders" to match the regular expression ^[_a-z][a-z0-9_]*$.(½ì¨şşÿÿÿÿ
+kpython:S117\"URename this parameter "showRuler" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶©·a
+qpython:S117_"ZRename this parameter "showWhiteSpace" to match the regular expression ^[_a-z][a-z0-9_]*$.(è¤¨˜
+lpython:S117Y"URename this parameter "showZeros" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘üÎ
+npython:S117["WRename this parameter "tabSelected" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛñŠŸ
+npython:S117a"WRename this parameter "topLeftCell" to match the regular expression ^[_a-z][a-z0-9_]*$.(Áˆïè
+xpython:S117U"\Rename this parameter "windowProtection" to match the regular expression ^[_a-z][a-z0-9_]*$.(ä¹ÿÿÿÿÿ
+qpython:S117h"ZRename this parameter "workbookViewId" to match the regular expression ^[_a-z][a-z0-9_]*$.(…‹ô
+lpython:S117c"URename this parameter "zoomScale" to match the regular expression ^[_a-z][a-z0-9_]*$.(©£Úœ
+rpython:S117d"[Rename this parameter "zoomScaleNormal" to match the regular expression ^[_a-z][a-z0-9_]*$.(Íººç
+zpython:S117f"cRename this parameter "zoomScalePageLayoutView" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãª£
+zpython:S117e"dRename this parameter "zoomScaleSheetLayoutView" to match the regular expression ^[_a-z][a-z0-9_]*$.(Íñœ
+qpython:S117g"URename this parameter "zoomToFit" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú»„Àúÿÿÿÿ
+ipython:S107T"MMethod "__init__" has 22 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+opython:S117‘"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+rpython:S117"URename this parameter "sheetView" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÃŒ¦ıÿÿÿÿÿ

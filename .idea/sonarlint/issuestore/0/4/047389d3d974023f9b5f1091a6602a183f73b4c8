@@ -1,0 +1,5 @@
+
+hpython:S1192"PDefine a constant instead of duplicating this literal 'tcp://127.0.0.1' 3 times.(ò’¨Ó
+cpython:S1192"FDefine a constant instead of duplicating this literal "%s:%i" 8 times.(Ğ¶Âøÿÿÿÿ
+Hpython:S58062"+Rename this variable; it shadows a builtin.(Ë‚ıÿÿÿÿ
+Hpython:S58062"+Rename this variable; it shadows a builtin.(Ë‚ıÿÿÿÿ

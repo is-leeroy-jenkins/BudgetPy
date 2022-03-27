@@ -1,0 +1,117 @@
+
+opython:S1179"XRename this parameter "measureGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö„¬µ
+mpython:S117["VRename this parameter "uniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(çò™
+npython:S117{"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+mpython:S117v"VRename this parameter "memberName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯»èÃ
+mpython:S117y"VRename this parameter "solveOrder" to match the regular expression ^[_a-z][a-z0-9_]*$.(½ºã‡
+<python:S125„"Remove this commented out code.(ŠõÈ„ùÿÿÿÿ
+opython:S117–"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+rpython:S117•"URename this parameter "pivotArea" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó¬‰üÿÿÿÿ
+ppython:S117¸"XRename this parameter "serverFormat" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş‚šº
+kpython:S117õ"SRename this parameter "maxRank" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙäİÄ
+tpython:S117ø"WRename this parameter "queryFailed" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëò©¯ûÿÿÿÿ
+qpython:S117ö"YRename this parameter "setDefinition" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñÌ¸Ü
+tpython:S117ú"WRename this parameter "sortByTuple" to match the regular expression ^[_a-z][a-z0-9_]*$.(íÿ”úÿÿÿÿ
+lpython:S117÷"TRename this parameter "sortType" to match the regular expression ^[_a-z][a-z0-9_]*$.(³ÏÍå
+opython:S117À"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+npython:S117¾"VRename this parameter "queryCache" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ë¸ï²
+vpython:S117¿"YRename this parameter "serverFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆ„õüøÿÿÿÿ
+vpython:S117Ü"YRename this parameter "displayFolder" to match the regular expression ^[_a-z][a-z0-9_]*$.(½õÍ§ıÿÿÿÿ
+ppython:S117İ"XRename this parameter "measureGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö„¬µ
+npython:S117Ú"VRename this parameter "uniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(çò™
+npython:S117û"VRename this parameter "uniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(çò™
+tpython:S117‹"WRename this parameter "groupMember" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó¿ş²ıÿÿÿÿ
+upython:S117¤"XRename this parameter "groupMembers" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÔÓ’üÿÿÿÿ
+npython:S117 "VRename this parameter "uniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(çò™
+ppython:S117¢"XRename this parameter "uniqueParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(Êã„†
+upython:S117Ğ"XRename this parameter "customRollUp" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßˆó™úÿÿÿÿ
+opython:S117Ò"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+npython:S117Í"VRename this parameter "uniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(çò™
+npython:S117å"VRename this parameter "groupLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(êòº´
+spython:S117€"VRename this parameter "fieldUsage" to match the regular expression ^[_a-z][a-z0-9_]*$.(©Ù³ÿÿÿÿÿ
+spython:S117²"VRename this parameter "allCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğÚÕùüÿÿÿÿ
+qpython:S117±"YRename this parameter "allUniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢òà
+€python:S117°"cRename this parameter "defaultMemberUniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Óâ‚íûÿÿÿÿ
+|python:S117³"_Rename this parameter "dimensionUniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(©åç™ûÿÿÿÿ
+vpython:S117´"YRename this parameter "displayFolder" to match the regular expression ^[_a-z][a-z0-9_]*$.(½õÍ§ıÿÿÿÿ
+opython:S117¿"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+tpython:S117½"WRename this parameter "fieldsUsage" to match the regular expression ^[_a-z][a-z0-9_]*$.( °ºÒşÿÿÿÿ
+npython:S117¾"WRename this parameter "groupLevels" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥»”v
+kpython:S117¬"SRename this parameter "iconSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª…Ø¦
+ppython:S117¯"XRename this parameter "keyAttribute" to match the regular expression ^[_a-z][a-z0-9_]*$.(„ä°à
+ppython:S117µ"XRename this parameter "measureGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö„¬µ
+wpython:S117¹"_Rename this parameter "memberValueDatatype" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÆŞâ
+lpython:S117¸"TRename this parameter "oneField" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÂÎÓû
+rpython:S117«"URename this parameter "parentSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(üÏĞñşÿÿÿÿ
+xpython:S117»"[Rename this parameter "unbalancedGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(À±¾–şÿÿÿÿ
+spython:S117§"VRename this parameter "uniqueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(­¨¨–üÿÿÿÿ
+jpython:S107¦"MMethod "__init__" has 25 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+jpython:S117¡"SRename this parameter "autoEnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(«”›=
+mpython:S117 "URename this parameter "autoStart" to match the regular expression ^[_a-z][a-z0-9_]*$.(«”¹
+ppython:S117¦"SRename this parameter "endDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹¡¤Øüÿÿÿÿ
+jpython:S117¤"RRename this parameter "endNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ú¿¹
+kpython:S117¢"SRename this parameter "groupBy" to match the regular expression ^[_a-z][a-z0-9_]*$.(öû©ø
+ppython:S117§"YRename this parameter "groupInterval" to match the regular expression ^[_a-z][a-z0-9_]*$.(½û‚W
+rpython:S117¥"URename this parameter "startDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûîÍ ûÿÿÿÿ
+qpython:S117£"TRename this parameter "startNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(À€¹±úÿÿÿÿ
+npython:S117Ã"VRename this parameter "discretePr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼³¯
+spython:S117Ä"VRename this parameter "groupItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(”£„şıÿÿÿÿ
+ppython:S117Â"SRename this parameter "rangePr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÌñÒ‹ÿÿÿÿÿ
+qpython:S117ò"YRename this parameter "containsBlank" to match the regular expression ^[_a-z][a-z0-9_]*$.(œàÿš
+opython:S117ğ"XRename this parameter "containsDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘êÖ
+xpython:S117õ"[Rename this parameter "containsInteger" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş„öôşÿÿÿÿ
+{python:S117ó"^Rename this parameter "containsMixedTypes" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢ú¤÷ıÿÿÿÿ
+xpython:S117ï"[Rename this parameter "containsNonDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(›´ÿ‹ùÿÿÿÿ
+qpython:S117ô"ZRename this parameter "containsNumber" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú Ä*
+zpython:S117î"bRename this parameter "containsSemiMixedTypes" to match the regular expression ^[_a-z][a-z0-9_]*$.(üğÎò
+wpython:S117ñ"ZRename this parameter "containsString" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷Œëÿşÿÿÿÿ
+lpython:S117û"TRename this parameter "longText" to match the regular expression ^[_a-z][a-z0-9_]*$.(å½—¡
+ppython:S117ù"SRename this parameter "maxDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄèÁ¨ûÿÿÿÿ
+kpython:S117÷"TRename this parameter "maxValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(æÒÆ
+ppython:S117ø"SRename this parameter "minDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù§«‘şÿÿÿÿ
+qpython:S117ö"TRename this parameter "minValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìô®¿ÿÿÿÿÿ
+jpython:S107ì"MMethod "__init__" has 15 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+qpython:S117¹"YRename this parameter "databaseField" to match the regular expression ^[_a-z][a-z0-9_]*$.(×‹ûè
+opython:S117®"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+spython:S117¬"VRename this parameter "fieldGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(š¯áèùÿÿÿÿ
+upython:S117º"XRename this parameter "mappingCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß”Éúÿÿÿÿ
+wpython:S117»"_Rename this parameter "memberPropertyField" to match the regular expression ^[_a-z][a-z0-9_]*$.(º”˜
+npython:S117­"QRename this parameter "mpMap" to match the regular expression ^[_a-z][a-z0-9_]*$.(™ùºâşÿÿÿÿ
+qpython:S117´"TRename this parameter "numFmtId" to match the regular expression ^[_a-z][a-z0-9_]*$.(­äÊ³øÿÿÿÿ
+ppython:S117±"XRename this parameter "propertyName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıòÓà
+tpython:S117²"WRename this parameter "serverField" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ºÙşÿÿÿÿ
+tpython:S117«"WRename this parameter "sharedItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(§‚»•ùÿÿÿÿ
+kpython:S117¶"SRename this parameter "sqlType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú™Ü
+spython:S117³"VRename this parameter "uniqueList" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷¡ÃÏüÿÿÿÿ
+jpython:S107ª"MMethod "__init__" has 17 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+qpython:S117…"TRename this parameter "pageItem" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ–ıÍıÿÿÿÿ
+lpython:S117š"TRename this parameter "autoPage" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢÷
+rpython:S117œ"URename this parameter "rangeSets" to match the regular expression ^[_a-z][a-z0-9_]*$.(õ‡şæúÿÿÿÿ
+ppython:S117Ä"XRename this parameter "connectionId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã´©˜
+opython:S117Ç"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+xpython:S117Å"[Rename this parameter "worksheetSource" to match the regular expression ^[_a-z][a-z0-9_]*$.(­ŸŠ‹ûÿÿÿÿ
+spython:S117…"[Rename this parameter "backgroundQuery" to match the regular expression ^[_a-z][a-z0-9_]*$.(„…Ìú
+opython:S117"WRename this parameter "cacheFields" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒŞ‚×
+tpython:S117‘"\Rename this parameter "cacheHierarchies" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤öÅ
+tpython:S117"WRename this parameter "cacheSource" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼­İÆøÿÿÿÿ
+xpython:S117“"[Rename this parameter "calculatedItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(å½íÑûÿÿÿÿ
+zpython:S117”"]Rename this parameter "calculatedMembers" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡Åã°üÿÿÿÿ
+rpython:S117‡"ZRename this parameter "createdVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ¨”
+vpython:S117"YRename this parameter "enableRefresh" to match the regular expression ^[_a-z][a-z0-9_]*$.(™°çîúÿÿÿÿ
+opython:S117˜"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S117–"YRename this parameter "measureGroups" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ—Î¾
+~python:S117‰"aRename this parameter "minRefreshableVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷ÄÇµşÿÿÿÿ
+upython:S117†"]Rename this parameter "missingItemsLimit" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘†­
+wpython:S117€"ZRename this parameter "optimizeMemory" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÃËùøÿÿÿÿÿ
+opython:S117Š"WRename this parameter "recordCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãª¹Ç
+qpython:S117ÿ"YRename this parameter "refreshOnLoad" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÓ…
+opython:S117‚"WRename this parameter "refreshedBy" to match the regular expression ^[_a-z][a-z0-9_]*$.(éÙ½Û
+ppython:S117ƒ"YRename this parameter "refreshedDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(šÎŞF
+ypython:S117„"\Rename this parameter "refreshedDateIso" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü§æœùÿÿÿÿ
+ypython:S117ˆ"\Rename this parameter "refreshedVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(àÛâéıÿÿÿÿ
+lpython:S117ş"TRename this parameter "saveData" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éõ¨”
+xpython:S117"`Rename this parameter "supportAdvancedDrill" to match the regular expression ^[_a-z][a-z0-9_]*$.(œôÆ¹
+xpython:S117"[Rename this parameter "supportSubquery" to match the regular expression ^[_a-z][a-z0-9_]*$.(òÉÿ›üÿÿÿÿ
+npython:S117Œ"VRename this parameter "tupleCache" to match the regular expression ^[_a-z][a-z0-9_]*$.(íªÚ¡
+ypython:S117‹"\Rename this parameter "upgradeOnRefresh" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼¶ì«øÿÿÿÿ
+jpython:S107ü"MMethod "__init__" has 29 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

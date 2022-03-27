@@ -1,0 +1,12 @@
+
+Ypython:S6019)"<Remove the '?' from this unnecessarily reluctant quantifier.(”€ººüÿÿÿÿ
+ypython:S117ë"\Rename this parameter "alignWithMargins" to match the regular expression ^[_a-z][a-z0-9_]*$.(È¸Âúÿÿÿÿ
+wpython:S117é"ZRename this parameter "differentFirst" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å—³½ùÿÿÿÿ
+tpython:S117è"\Rename this parameter "differentOddEven" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ°•®
+spython:S117ï"VRename this parameter "evenFooter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôò›Óúÿÿÿÿ
+npython:S117î"VRename this parameter "evenHeader" to match the regular expression ^[_a-z][a-z0-9_]*$.(’‡àÀ
+tpython:S117ñ"WRename this parameter "firstFooter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë´Õøÿÿÿÿ
+npython:S117ð"WRename this parameter "firstHeader" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Š’7
+rpython:S117í"URename this parameter "oddFooter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªû“Ýùÿÿÿÿ
+rpython:S117ì"URename this parameter "oddHeader" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ôýÚüÿÿÿÿ
+ppython:S117ê"XRename this parameter "scaleWithDoc" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô¹ÔÄ

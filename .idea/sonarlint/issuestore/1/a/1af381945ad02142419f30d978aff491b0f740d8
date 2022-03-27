@@ -1,0 +1,41 @@
+
+dpython:S1192½"FDefine a constant instead of duplicating this literal "<xml>" 3 times.(í¬šòÿÿÿÿÿ
+`python:S1192¿"GDefine a constant instead of duplicating this literal "</xml>" 3 times.(æˆßæ
+Tpython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754&"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754c"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+ipython:S116°"RRename this field "mainThread" to match the regular expression ^[_a-z][_a-z0-9]*$.(üŒ×y
+spython:S117¯"VRename this parameter "mainThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ´Éìûÿÿÿÿ
+rpython:S3776ô"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(àŽ±öýÿÿÿÿ
+Upython:S5754„"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Dpython:S5806û"+Rename this variable; it shadows a builtin.(Ö—¹–
+Upython:S5754“"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754­"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+ppython:S117»"XRename this parameter "codeFragment" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸ÔõÁ
+lpython:S3776Ë"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¾÷Ûi
+Upython:S5754Ú"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754à"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754é"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+jpython:S100í"RRename method "getDescription" to match the regular expression ^[a-z_][a-z0-9_]*$.(îúè™
+Upython:S5754ó"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754€"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+ipython:S100„"LRename method "execLine" to match the regular expression ^[a-z_][a-z0-9_]*$.(ªºâÊüÿÿÿÿ
+rpython:S100‡"URename method "execMultipleLines" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÞÀÍÞþÿÿÿÿ
+Upython:S5754™"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+lpython:S100«"ORename method "ShowConsole" to match the regular expression ^[a-z_][a-z0-9_]*$.(üóœäÿÿÿÿÿ
+dpython:S100º"LRename method "getFrame" to match the regular expression ^[a-z_][a-z0-9_]*$.(á£Ž³
+gpython:S100Ä"ORename method "getVariable" to match the regular expression ^[a-z_][a-z0-9_]*$.(›¦Ú»
+ipython:S100Ô"LRename method "getArray" to match the regular expression ^[a-z_][a-z0-9_]*$.(úÜîÏøÿÿÿÿ
+npython:S100â"QRename method "loadFullValue" to match the regular expression ^[a-z_][a-z0-9_]*$.(à¨ÿûÿÿÿÿ
+Ipython:S5806ì"+Rename this variable; it shadows a builtin.(»•©¯ùÿÿÿÿ
+opython:S100ˆ"RRename method "changeVariable" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÖÂ”¥ÿÿÿÿÿ
+upython:S117‘"XRename this parameter "debuggerPort" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯¡þñûÿÿÿÿ
+rpython:S100‘"URename method "connectToDebugger" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯¡þñûÿÿÿÿ
+rpython:S3776‘"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(¯¡þñûÿÿÿÿ
+Upython:S5754«"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Â"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Ë"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+epython:S100á"MRename method "enableGui" to match the regular expression ^[a-z_][a-z0-9_]*$.(†§Óß
+Upython:S5754í"<Specify an exception class to catch or reraise the exception(ˆÊÉ·

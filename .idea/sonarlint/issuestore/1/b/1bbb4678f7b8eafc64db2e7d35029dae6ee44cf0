@@ -1,0 +1,9 @@
+
+epython:S1192•"LDefine a constant instead of duplicating this literal "header line" 3 times.(СЌ“Љ
+Gpython:S1066Ё"/Merge this if statement with the enclosing one.(ћк¦^
+lpython:S3776м"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(ѕќЪX
+mpython:S3776в"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(ЮУМП
+rpython:S3776°"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(Т“јЁъяяяя
+?python:S1481Р"&Remove the unused local variable "te".(З¬ўё
+Jpython:S4423В	",Change this code to use a stronger protocol.(эѕЂныяяяя
+<python:S125н	"Remove this commented out code.(Ћ±ьЉыяяяя

@@ -1,0 +1,16 @@
+
+vpython:S117i"ZRename this parameter "applyAlignment" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ùˆİ£ıÿÿÿÿ
+spython:S117h"WRename this parameter "applyBorder" to match the regular expression ^[_a-z][a-z0-9_]*$.(çæ—ùıÿÿÿÿ
+lpython:S117g"URename this parameter "applyFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ£¿¸
+lpython:S117f"URename this parameter "applyFont" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶ò 
+ypython:S117e"]Rename this parameter "applyNumberFormat" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÀ™©üÿÿÿÿ
+qpython:S117j"[Rename this parameter "applyProtection" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ„«y
+ppython:S117a"TRename this parameter "borderId" to match the regular expression ^[_a-z][a-z0-9_]*$.(à˜Õÿÿÿÿÿ
+npython:S117m"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+npython:S117`"RRename this parameter "fillId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Âäíûÿÿÿÿ
+ipython:S117_"RRename this parameter "fontId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁåÉñ
+kpython:S117^"TRename this parameter "numFmtId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊÂÕÿ
+spython:S117d"WRename this parameter "pivotButton" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚úÚ¼şÿÿÿÿ
+spython:S117c"WRename this parameter "quotePrefix" to match the regular expression ^[_a-z][a-z0-9_]*$.(§õîÑúÿÿÿÿ
+lpython:S117b"PRename this parameter "xfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚ùÿÿÿÿ
+ipython:S107]"MMethod "__init__" has 16 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

@@ -1,0 +1,14 @@
+
+ipython:S1192y"QDefine a constant instead of duplicating this literal '    return NULL;' 3 times.(ê±®Ù
+qpython:S1192Þ"SDefine a constant instead of duplicating this literal '_cffi_layout_%s_%s' 3 times.(Ñ ¹Ùÿÿÿÿÿ
+mpython:S1192ƒ"ODefine a constant instead of duplicating this literal '    return -1;' 3 times.(öÂâ‡þÿÿÿÿ
+kpython:S1192‘"MDefine a constant instead of duplicating this literal '  return %s;' 3 times.(ëŒðŠúÿÿÿÿ
+qpython:S1186"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Õ€ªã
+rpython:S1186ê"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¹œåº
+mpython:S3776Ü"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(¨Œ³þ
+rpython:S3776Ú"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ûè°´ûÿÿÿÿ
+tpython:S117Á"WRename this local variable "BField" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú¦Üªúÿÿÿÿ
+ppython:S117¶"XRename this local variable "BStruct" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿæ£€
+7python:S125ï"Remove this commented out code.(ãàëµ
+tpython:S117–"WRename this local variable "BArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(°È‘ýùÿÿÿÿ
+rpython:S117Œ"ZRename this local variable "BItemType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÖã¶

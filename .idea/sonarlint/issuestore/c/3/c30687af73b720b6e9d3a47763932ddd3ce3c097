@@ -1,0 +1,5 @@
+
+’python:S1192Í	"yDefine a constant instead of duplicating this literal "select id FROM some_table WHERE (x, z) IN :q ORDER BY id" 3 times.(½Ðûæ
+cpython:S1192›"JDefine a constant instead of duplicating this literal "some data" 4 times.(¹º³—
+|python:S4144Ð"cUpdate this function so that its implementation is not identical to test_inner_join_fk on line 662.(ÅÊ²º
+apython:S1854…"HRemove this assignment to local variable 'res'; the value is never used.(’‚ …

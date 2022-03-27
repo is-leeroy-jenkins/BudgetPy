@@ -1,0 +1,7 @@
+
+Gpython:S1066("/Merge this if statement with the enclosing one.(°±µİ
+qpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¯Õ¶şÿÿÿÿ
+mpython:S3776õ"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(¥©ãß
+rpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 50 to the 15 allowed.(›‹Ò’úÿÿÿÿ
+apython:S5445”"C'tempfile.mktemp' is insecure. Use 'tempfile.TemporaryFile' instead(Î×ıúÿÿÿÿ
+<python:S125¬"Remove this commented out code.(áÆÙŞüÿÿÿÿ

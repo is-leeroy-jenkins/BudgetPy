@@ -1,0 +1,8 @@
+
+npython:S117"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+npython:S117"WRename this parameter "tabSelected" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛñŠŸ
+qpython:S117"ZRename this parameter "workbookViewId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ž…‹ô
+lpython:S117"URename this parameter "zoomScale" to match the regular expression ^[_a-z][a-z0-9_]*$.(©£Úœ
+qpython:S117"URename this parameter "zoomToFit" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú»„Àúÿÿÿÿ
+npython:S117/"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S117."URename this parameter "sheetView" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÃŒ¦ýÿÿÿÿÿ

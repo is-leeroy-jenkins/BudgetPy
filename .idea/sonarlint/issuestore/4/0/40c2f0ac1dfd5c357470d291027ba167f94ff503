@@ -1,0 +1,54 @@
+
+cpython:S1192«"JDefine a constant instead of duplicating this literal '%A0$=%C1$' 4 times.(ï•âå
+wpython:S1192‹"YDefine a constant instead of duplicating this literal "using quote(): %r != %r" 16 times.(şí›ûÿÿÿÿ
+fpython:S1192Ü"HDefine a constant instead of duplicating this literal b"Hello!" 3 times.(Ô÷·Õøÿÿÿÿ
+ipython:S1192á"QDefine a constant instead of duplicating this literal 'alpha+beta gamma' 3 times.(Äş”
+|python:S1192é"cDefine a constant instead of duplicating this literal "using unquote_to_bytes(): %r != %r" 8 times.(ş’¶­
+ypython:S1192Õ"`Define a constant instead of duplicating this literal "pathname2url() failed; %s != %s" 5 times.(×©ÒÈ
+lpython:S1192Û"SDefine a constant instead of duplicating this literal "http://python.org/" 3 times.(„äÑÑ
+lpython:S1192›"NDefine a constant instead of duplicating this literal 'newdomain.com' 3 times.(Ô¾Ã²üÿÿÿÿ
+lpython:S1192ı"SDefine a constant instead of duplicating this literal 'newdomain.com:1234' 4 times.(í½øë
+}python:S1192ú"_Define a constant instead of duplicating this literal b"HTTP/1.1 200 OK\r\n\r\nHello." 4 times.(ãÁèÿÿÿÿÿ
+tpython:S1192"VDefine a constant instead of duplicating this literal 'http://somewhere:3128' 5 times.(ô•œ¦üÿÿÿÿ
+}python:S1192È"_Define a constant instead of duplicating this literal "using unquote_plus(): %r != %r" 3 times.(®‹„ğûÿÿÿÿ
+ypython:S1192Å"[Define a constant instead of duplicating this literal "using unquote(): %r != %r" 17 times.(˜æ¹õøÿÿÿÿ
+xpython:S1192æ"_Define a constant instead of duplicating this literal b"HTTP/1.1 200 OK\r\n\r\nHello!" 3 times.(€­ò³
+spython:S1192ú"UDefine a constant instead of duplicating this literal r'C:\foo\bar\spam.foo' 3 times.(Ãü‹Üÿÿÿÿÿ
+vpython:S1192"]Define a constant instead of duplicating this literal "using quote_plus(): %r != %r" 6 times.(¯âÚÌ
+opython:S1192ğ"VDefine a constant instead of duplicating this literal "http://www.python.org" 6 times.(¦…ê“
+qpython:S15424"TRename function "FancyURLopener" to match the regular expression ^[a-z_][a-z0-9_]*$.(ç¾í¼ÿÿÿÿÿ
+vpython:S1186w"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¾»Ÿåÿÿÿÿÿ
+vpython:S1186~"YAdd a nested comment explaining why this method is empty, or complete the implementation.(æ€‰Üüÿÿÿÿ
+ˆpython:S101ˆ"kRename class "urlopen_FileTests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ğìÌÅûÿÿÿÿ
+python:S101±"sRename class "ProxyTests_withOrderedEnv" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(µçÇ„ùÿÿÿÿ
+ƒpython:S101Õ"kRename class "urlopen_HttpTests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(®îö
+spython:S117ƒ"[Rename this local variable "InvalidURL" to match the regular expression ^[_a-z][a-z0-9_]*$.(•üÛ–
+spython:S117œ"[Rename this local variable "InvalidURL" to match the regular expression ^[_a-z][a-z0-9_]*$.(•üÛ–
+spython:S117²"[Rename this local variable "InvalidURL" to match the regular expression ^[_a-z][a-z0-9_]*$.(•üÛ–
+spython:S117Á"[Rename this local variable "InvalidURL" to match the regular expression ^[_a-z][a-z0-9_]*$.(•üÛ–
+Cpython:S1481õ"%Remove the unused local variable "i".(±ŞÿÒÿÿÿÿÿ
+‚python:S101à"kRename class "urlopen_DataTests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(çåé
+‡python:S101­"oRename class "urlretrieve_FileTests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ñıèå
+Upython:S5754Æ"<Specify an exception class to catch or reraise the exception(–’Ê
+Upython:S5754Ì"<Specify an exception class to catch or reraise the exception(–’Ê
+kpython:S117Î"TRename this parameter "filePath" to match the regular expression ^[_a-z][a-z0-9_]*$.(€ˆà'
+npython:S117Û"VRename this local variable "newFd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö«°
+ppython:S117Ş"XRename this local variable "newFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈùÆ
+tpython:S117Û"\Rename this local variable "newFilePath" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö«°
+Upython:S5754ã"<Specify an exception class to catch or reraise the exception(–’Ê
+qpython:S117æ"TRename this parameter "fileName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊŠµ–øÿÿÿÿ
+Upython:S5754"<Specify an exception class to catch or reraise the exception(–’Ê
+tpython:S117—"\Rename this local variable "srcFileName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆš
+spython:S117¤"\Rename this local variable "srcFileName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š–Ê
+ypython:S117²"\Rename this local variable "srcFileName" to match the regular expression ^[_a-z][a-z0-9_]*$.(°¬ ¨şÿÿÿÿ
+‡python:S101¼"oRename class "urlretrieve_HttpTests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(øğòâ
+tpython:S1186Ì"[Add a nested comment explaining why this function is empty, or complete the implementation.(ûè°É
+†python:S101‰
+"iRename class "urlencode_Tests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Şñ—Úşÿÿÿÿ
+ipython:S1854Ã"KRemove this assignment to local variable 'result'; the value is never used.(µäá®ùÿÿÿÿ
+dpython:S1854Â"KRemove this assignment to local variable 'expect'; the value is never used.(ï•âå
+…python:S101Ì"hRename class "Pathname_Tests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(í÷Âˆøÿÿÿÿ
+python:S101š"gRename class "Utility_Tests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÏîÏ¤
+python:S101¢"iRename class "URLopener_Tests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÿİŠœ
+ppython:S117Ø"XRename this local variable "Request" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¡¦Ä
+ppython:S117ß"XRename this local variable "Request" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¡¦Ä

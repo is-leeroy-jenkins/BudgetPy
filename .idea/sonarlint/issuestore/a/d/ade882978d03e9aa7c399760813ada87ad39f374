@@ -1,0 +1,5 @@
+
+upython:S1192¬"WDefine a constant instead of duplicating this literal "Exception information:" 5 times.(ÇÇõòûÿÿÿÿ
+vpython:S1186O"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Ë «ƒÿÿÿÿÿ
+qpython:S3776i"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(ƒÌ¨üýÿÿÿÿ
+Qpython:S5754Ð"8Catch a more specific exception or reraise the exception(Ÿ­˜§

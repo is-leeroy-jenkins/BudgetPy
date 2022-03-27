@@ -1,0 +1,10 @@
+
+dpython:S2208"GImport only needed names or import the module and then use its members.(ÀªÁÀùÿÿÿÿ
+ipython:S117@"RRename this parameter "bwMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å„¡Ô
+ppython:S117H"TRename this parameter "custGeom" to match the regular expression ^[_a-z][a-z0-9_]*$.(©¶Ííüÿÿÿÿ
+npython:S117K"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+ppython:S117D"TRename this parameter "gradFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Œàúÿÿÿÿ
+npython:S117B"RRename this parameter "noFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Éøÿÿÿÿ
+kpython:S117E"TRename this parameter "pattFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾åĞ¢
+kpython:S117I"TRename this parameter "prstGeom" to match the regular expression ^[_a-z][a-z0-9_]*$.(áğşô
+qpython:S117C"URename this parameter "solidFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã©Ö ıÿÿÿÿ

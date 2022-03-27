@@ -1,0 +1,5 @@
+
+_python:S2208"GImport only needed names or import the module and then use its members.(…»²Ê
+Gpython:S1481!"*Remove the unused local variable "script".(¾ĞÖùÿÿÿÿ
+lpython:S37769"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(éœêÜ
+[python:S5754Û"BReraise this exception to stop the application as the user expects(¦ÖÍá

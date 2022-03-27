@@ -1,0 +1,18 @@
+
+npython:S117"WRename this parameter "applyStyles" to match the regular expression ^[_a-z][a-z0-9_]*$.(½¢”
+zpython:S117"^Rename this parameter "showOutlineSymbols" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á¶•ûşÿÿÿÿ
+tpython:S117"XRename this parameter "summaryBelow" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ÅÓ›ıÿÿÿÿ
+tpython:S117"XRename this parameter "summaryRight" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼©ü¯úÿÿÿÿ
+vpython:S117'"ZRename this parameter "autoPageBreaks" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤çÄ¨ûÿÿÿÿ
+qpython:S117'"URename this parameter "fitToPage" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤çÄ¨ûÿÿÿÿ
+kpython:S117A"TRename this parameter "codeName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê¢Õà
+‰python:S117B"mRename this parameter "enableFormatConditionsCalculation" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿½Èôûÿÿÿÿ
+rpython:S117C"VRename this parameter "filterMode" to match the regular expression ^[_a-z][a-z0-9_]*$.( ±Íîûÿÿÿÿ
+lpython:S117K"URename this parameter "outlinePr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚‡ú
+npython:S117L"WRename this parameter "pageSetUpPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(çÎ¥
+ppython:S117E"ZRename this parameter "syncHorizontal" to match the regular expression ^[_a-z][a-z0-9_]*$.(†œ›x
+jpython:S117F"SRename this parameter "syncRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(èˆ‡
+tpython:S117G"XRename this parameter "syncVertical" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘úÒ¿úÿÿÿÿ
+kpython:S117J"TRename this parameter "tabColor" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ü–ú
+rpython:S117I"[Rename this parameter "transitionEntry" to match the regular expression ^[_a-z][a-z0-9_]*$.(³ÌÛö
+wpython:S117H"`Rename this parameter "transitionEvaluation" to match the regular expression ^[_a-z][a-z0-9_]*$.(†ö“â

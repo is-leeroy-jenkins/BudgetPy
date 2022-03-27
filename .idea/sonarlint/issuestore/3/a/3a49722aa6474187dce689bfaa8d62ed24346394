@@ -1,0 +1,11 @@
+
+Ÿpython:S1192´"…Define a constant instead of duplicating this literal r"\nA value is trying to be set on a copy of a slice from a DataFrame" 4 times.(’¯‘³
+`python:S1192Ó"GDefine a constant instead of duplicating this literal "m8[ns]" 7 times.(‰÷
+zpython:S4143‡"\Verify this is the key that was intended; a value has already been saved for it on line 390.(‰¯Ïıÿÿÿÿ
+zpython:S4143‹"\Verify this is the key that was intended; a value has already been saved for it on line 394.(Óâ®·ÿÿÿÿÿ
+mpython:S100â"URename method "test_setitem_None" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶¹şÑ
+Fpython:S2201ì"(The return value of "repr" must be used.(›»¹×ûÿÿÿÿ
+Hpython:S1481ü"*Remove the unused local variable "result".(²°ªøúÿÿÿÿ
+Dpython:S1481ß"&Remove the unused local variable "ts".(¨úÏŞşÿÿÿÿ
+{python:S4143™
+"]Verify this is the key that was intended; a value has already been saved for it on line 1304.(ııÌÅÿÿÿÿÿ

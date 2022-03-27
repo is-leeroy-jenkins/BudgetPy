@@ -1,0 +1,37 @@
+
+~python:S1192å"eDefine a constant instead of duplicating this literal "Attempted operation on closed cursor" 3 times.(îÒºå
+Mpython:S1066®"/Merge this if statement with the enclosing one.(î¶’Ëýÿÿÿÿ
+Tpython:S5754<"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+apython:S1542M"JRename function "Date" to match the regular expression ^[a-z_][a-z0-9_]*$.(µËì-
+gpython:S1542Q"JRename function "Time" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÖŸº‰ÿÿÿÿÿ
+lpython:S1542U"ORename function "Timestamp" to match the regular expression ^[a-z_][a-z0-9_]*$.(®¢Üóýÿÿÿÿ
+kpython:S1542Y"SRename function "DateFromTicks" to match the regular expression ^[a-z_][a-z0-9_]*$.(Å§µÁ
+ppython:S1542]"SRename function "TimeFromTicks" to match the regular expression ^[a-z_][a-z0-9_]*$.(þâìÈüÿÿÿÿ
+upython:S1542a"XRename function "TimestampFromTicks" to match the regular expression ^[a-z_][a-z0-9_]*$.(”…Åÿÿÿÿÿ
+opython:S117œ"WRename this local variable "myConn" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÜÞ·
+qpython:S3776e"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ßÜ’åùÿÿÿÿ
+ipython:S116Ä"QRename this field "DataError" to match the regular expression ^[_a-z][_a-z0-9]*$.(í‹·Ã
+epython:S116Â"MRename this field "Error" to match the regular expression ^[_a-z][_a-z0-9]*$.(‹€©Ë
+rpython:S116È"URename this field "InternalError" to match the regular expression ^[_a-z][_a-z0-9]*$.(‡öÜüÿÿÿÿ
+ppython:S116Æ"XRename this field "OperationalError" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ð²Â‰
+opython:S116Ê"XRename this field "ProgrammingError" to match the regular expression ^[_a-z][_a-z0-9]*$.(Àö¼
+npython:S116Ç"VRename this field "IntegrityError" to match the regular expression ^[_a-z][_a-z0-9]*$.(‰œÒ¦
+mpython:S116Å"URename this field "DatabaseError" to match the regular expression ^[_a-z][_a-z0-9]*$.(°÷…Ï
+npython:S116Ã"VRename this field "InterfaceError" to match the regular expression ^[_a-z][_a-z0-9]*$.(Õä¬€
+qpython:S116É"YRename this field "NotSupportedError" to match the regular expression ^[_a-z][_a-z0-9]*$.(šº¾ì
+lpython:S116Á"ORename this field "Warning" to match the regular expression ^[_a-z][_a-z0-9]*$.(‚üé‰ùÿÿÿÿ
+ypython:S116×"\Rename this field "supportsTransactions" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÀÀìýùÿÿÿÿ
+qpython:S100ð"YRename method "_raiseConnectionError" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÀÕËÇ
+Upython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+ppython:S100Ê"SRename method "getIndexedValue" to match the regular expression ^[a-z_][a-z0-9_]*$.(™öŸÉøÿÿÿÿ
+qpython:S117Ð"YRename this local variable "myCursor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôö«ˆ
+Upython:S5754Û"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+kpython:S116Ä"SRename this field "columnNames" to match the regular expression ^[_a-z][_a-z0-9]*$.(”Çœæ
+Upython:S5754´"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+mpython:S100Ü"URename method "_raiseCursorError" to match the regular expression ^[a-z_][a-z0-9_]*$.(ž¡Ð
+Upython:S5754ß"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754ã"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754ç"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754ó"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+wpython:S1186ö"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ÒÎ™ûÿÿÿÿ
+rpython:S1186ù"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Ôêð×

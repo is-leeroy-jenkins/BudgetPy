@@ -1,0 +1,99 @@
+
+_python:S2208""GImport only needed names or import the module and then use its members.( ä†ğ
+_python:S2208#"GImport only needed names or import the module and then use its members.(£ıší
+ipython:S117Q"RRename this parameter "endSnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(çâ¹
+npython:S117S"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+vpython:S117P"ZRename this parameter "highlightClick" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú³ëÿıÿÿÿÿ
+rpython:S117K"VRename this parameter "invalidUrl" to match the regular expression ^[_a-z][a-z0-9_]*$.(íï²úÿÿÿÿ
+ppython:S117M"TRename this parameter "tgtFrame" to match the regular expression ^[_a-z][a-z0-9_]*$.(€–˜şÿÿÿÿ
+spython:S117n"WRename this parameter "pitchFamily" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬õ…æüÿÿÿÿ
+ppython:S117µ"SRename this parameter "altLang" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁÌãœşÿÿÿÿ
+lpython:S117Ó"TRename this parameter "blipFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(«Ó–Ó
+mpython:S117×"URename this parameter "effectDag" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¬÷¤
+mpython:S117Ö"URename this parameter "effectLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(î‡±Ø
+opython:S117Ï"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S117Ò"TRename this parameter "gradFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Œàúÿÿÿÿ
+kpython:S117Õ"SRename this parameter "grpFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù–‰…
+npython:S117Ì"VRename this parameter "hlinkClick" to match the regular expression ^[_a-z][a-z0-9_]*$.(º·İ±
+qpython:S117Í"ZRename this parameter "hlinkMouseOver" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔÃS
+opython:S117Ğ"RRename this parameter "noFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Éøÿÿÿÿ
+kpython:S117À"SRename this parameter "noProof" to match the regular expression ^[_a-z][a-z0-9_]*$.(±®–™
+mpython:S117¾"VRename this parameter "normalizeH" to match the regular expression ^[_a-z][a-z0-9_]*$.(î½ÒB
+lpython:S117Ô"TRename this parameter "pattFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾åĞ¢
+lpython:S117Ã"TRename this parameter "smtClean" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ù”±
+ipython:S117Ä"QRename this parameter "smtId" to match the regular expression ^[_a-z][a-z0-9_]*$.(×ØËÙ
+rpython:S117Ñ"URename this parameter "solidFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã©Ö ıÿÿÿÿ
+ipython:S117Û"QRename this parameter "uFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã±‡õ
+kpython:S117Ú"SRename this parameter "uFillTx" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á÷…
+gpython:S117Ù"ORename this parameter "uLn" to match the regular expression ^[_a-z][a-z0-9_]*$.(íŒ‰½
+npython:S117Ø"QRename this parameter "uLnTx" to match the regular expression ^[_a-z][a-z0-9_]*$.(áÜüøÿÿÿÿ
+jpython:S107²"MMethod "__init__" has 41 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+opython:S117¦"RRename this parameter "spcPct" to match the regular expression ^[_a-z][a-z0-9_]*$.(ï»¹ûúÿÿÿÿ
+jpython:S117§"RRename this parameter "spcPts" to match the regular expression ^[_a-z][a-z0-9_]*$.(çüè£
+kpython:S117¿"SRename this parameter "startAt" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸‡ßÊ
+rpython:S117Š"URename this parameter "buAutoNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œá¥ñùÿÿÿÿ
+opython:S117Œ"RRename this parameter "buBlip" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó‹ÿÿÿÿÿ
+opython:S117‹"RRename this parameter "buChar" to match the regular expression ^[_a-z][a-z0-9_]*$.(î‚ï¾ûÿÿÿÿ
+npython:S117ƒ"QRename this parameter "buClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿Ãùáşÿÿÿÿ
+ppython:S117‚"SRename this parameter "buClrTx" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÄÿŞúÿÿÿÿ
+opython:S117ˆ"RRename this parameter "buFont" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğâ‹“úÿÿÿÿ
+lpython:S117‡"TRename this parameter "buFontTx" to match the regular expression ^[_a-z][a-z0-9_]*$.(šˆ¤Ô
+ipython:S117‰"RRename this parameter "buNone" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºŸ–c
+kpython:S117…"SRename this parameter "buSzPct" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼Áø
+jpython:S117†"SRename this parameter "buSzPts" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬•¿n
+opython:S117„"RRename this parameter "buSzTx" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô’•¾ÿÿÿÿÿ
+jpython:S117€"RRename this parameter "defRPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(×²ïß
+qpython:S117ö"TRename this parameter "defTabSz" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç¸»¤ÿÿÿÿÿ
+kpython:S117ø"SRename this parameter "eaLnBrk" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾÷¸Õ
+opython:S117"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+lpython:S117ù"TRename this parameter "fontAlgn" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¸í
+ppython:S117û"XRename this parameter "hangingPunct" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤òÙà
+spython:S117ú"VRename this parameter "latinLnBrk" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ™»øÿÿÿÿ
+ipython:S117ü"QRename this parameter "lnSpc" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸Ü«
+hpython:S117ñ"PRename this parameter "marL" to match the regular expression ^[_a-z][a-z0-9_]*$.(·œÆœ
+hpython:S117ò"PRename this parameter "marR" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñáäƒ
+jpython:S117ş"RRename this parameter "spcAft" to match the regular expression ^[_a-z][a-z0-9_]*$.(Â±¤
+opython:S117ı"RRename this parameter "spcBef" to match the regular expression ^[_a-z][a-z0-9_]*$.(Áğ¡«şÿÿÿÿ
+jpython:S117ÿ"RRename this parameter "tabLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(™ââµ
+jpython:S107ğ"MMethod "__init__" has 28 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+jpython:S117Á"RRename this parameter "defPPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÈŞ
+opython:S117Ë"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+ppython:S117Â"SRename this parameter "lvl1pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦êÆùÿÿÿÿ
+kpython:S117Ã"SRename this parameter "lvl2pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ìí†
+ppython:S117Ä"SRename this parameter "lvl3pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(…»“©øÿÿÿÿ
+ppython:S117Å"SRename this parameter "lvl4pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¥³Èıÿÿÿÿ
+ppython:S117Æ"SRename this parameter "lvl5pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(½¹Ä°ûÿÿÿÿ
+kpython:S117Ç"SRename this parameter "lvl6pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒøâ¥
+ppython:S117È"SRename this parameter "lvl7pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(—’éËøÿÿÿÿ
+kpython:S117É"SRename this parameter "lvl8pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÂè»
+ppython:S117Ê"SRename this parameter "lvl9pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(í´öğùÿÿÿÿ
+lpython:S117æ"ORename this parameter "rPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ¾ÿøÿÿÿÿ
+lpython:S117÷"ORename this parameter "rPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ¾ÿøÿÿÿÿ
+gpython:S117Š"ORename this parameter "pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş¶ÿš
+lpython:S117‰"ORename this parameter "rPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ¾ÿøÿÿÿÿ
+spython:S117¦"VRename this parameter "endParaRPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(§åÇşÿÿÿÿ
+gpython:S117¥"ORename this parameter "pPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş¶ÿš
+npython:S117Ş"QRename this parameter "avLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦Ì²²ûÿÿÿÿ
+mpython:S117ê"URename this parameter "fontScale" to match the regular expression ^[_a-z][a-z0-9_]*$.(©¥í
+qpython:S117ë"ZRename this parameter "lnSpcReduction" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿Öß0
+lpython:S117¤"URename this parameter "anchorCtr" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°\
+mpython:S117"PRename this parameter "bIns" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘±Ë•ùÿÿÿÿ
+tpython:S117§"WRename this parameter "compatLnSpc" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ïˆ‚æúÿÿÿÿ
+opython:S117ª"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+opython:S117®"RRename this parameter "flatTx" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ÿŠêıÿÿÿÿ
+ppython:S117¥"SRename this parameter "forceAA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ï§±ùÿÿÿÿ
+opython:S117¢"WRename this parameter "fromWordArt" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù¬ƒé
+upython:S117˜"XRename this parameter "horzOverflow" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô†˜¥ùÿÿÿÿ
+mpython:S117›"PRename this parameter "lIns" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥®¢±şÿÿÿÿ
+mpython:S117«"URename this parameter "noAutofit" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚·§‰
+tpython:S117¬"WRename this parameter "normAutofit" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞâÃâøÿÿÿÿ
+opython:S117Ÿ"RRename this parameter "numCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(–ƒª±üÿÿÿÿ
+spython:S117¨"VRename this parameter "prstTxWarp" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í¬ƒ‰úÿÿÿÿ
+hpython:S117"PRename this parameter "rIns" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê“€¹
+opython:S117¡"RRename this parameter "rtlCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(â¶ê¯ûÿÿÿÿ
+rpython:S117­"URename this parameter "spAutoFit" to match the regular expression ^[_a-z][a-z0-9_]*$.(½ÛÅ×şÿÿÿÿ
+opython:S117 "RRename this parameter "spcCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(úµ®åùÿÿÿÿ
+tpython:S117–"\Rename this parameter "spcFirstLastPara" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª ñÖ
+hpython:S117œ"PRename this parameter "tIns" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ¥Ù
+ppython:S117—"XRename this parameter "vertOverflow" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û˜äª
+jpython:S107”"MMethod "__init__" has 26 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

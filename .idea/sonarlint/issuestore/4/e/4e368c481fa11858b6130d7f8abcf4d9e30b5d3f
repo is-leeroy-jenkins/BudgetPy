@@ -1,0 +1,8 @@
+
+qpython:S3776G"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÖÆëñüÿÿÿÿ
+6python:S3626ù"Remove this redundant return.(ÙãŞŸ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÛÊ½ıÿÿÿÿ
+mpython:S3776ä"TRefactor this function to reduce its Cognitive Complexity from 50 to the 15 allowed.(üÄù¿
+Dpython:S5806œ"+Rename this variable; it shadows a builtin.(Ó½äÿ
+rpython:S3776¬"TRefactor this function to reduce its Cognitive Complexity from 85 to the 15 allowed.(¡óÿÿÿÿÿ
+`python:S5754‰"BReraise this exception to stop the application as the user expects(ãëÂÌúÿÿÿÿ

@@ -1,0 +1,689 @@
+
+_python:S2208%"GImport only needed names or import the module and then use its members.(Š©ù´
+_python:S2208&"GImport only needed names or import the module and then use its members.(à€
+…python:S101¬"mRename class "LUID_AND_ATTRIBUTES" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(îºÊÕ
+‡python:S101·"jRename class "TOKEN_PRIVILEGES" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(˜İæÏÿÿÿÿÿ
+‰python:S101Æ"lRename class "SID_AND_ATTRIBUTES" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Şåã¬şÿÿÿÿ
+|python:S101Ğ"dRename class "TOKEN_USER" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(†Ìİõ
+Œpython:S101Ù"oRename class "TOKEN_MANDATORY_LABEL" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Û»£Íÿÿÿÿÿ
+}python:S101â"eRename class "TOKEN_OWNER" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ô‚•
+Špython:S101ë"mRename class "TOKEN_PRIMARY_GROUP" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(†ãˆşÿÿÿÿ
+•python:S101ô"xRename class "TOKEN_APPCONTAINER_INFORMATION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(œ ü”şÿÿÿÿ
+~python:S101ı"fRename class "TOKEN_ORIGIN" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(·ÒğŸ
+‰python:S101†"lRename class "TOKEN_LINKED_TOKEN" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(²¼¿‚øÿÿÿÿ
+‡python:S101˜"jRename class "TOKEN_STATISTICS" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÏĞ¤‡øÿÿÿÿ
+”python:S101š"wRename class "_WAITCHAIN_NODE_INFO_STRUCT_1" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ßöøÿÿÿÿ
+”python:S101¡"wRename class "_WAITCHAIN_NODE_INFO_STRUCT_2" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(“ÏßŒøÿÿÿÿ
+‘python:S101©"tRename class "_WAITCHAIN_NODE_INFO_UNION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ü ¤ãÿÿÿÿÿ
+…python:S101¯"mRename class "WAITCHAIN_NODE_INFO" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÜÕ½
+npython:S116ÿ"QRename this field "ProcessId" to match the regular expression ^[_a-z][_a-z0-9]*$.(„¡Ôûÿÿÿÿ
+mpython:S116€"PRename this field "ThreadId" to match the regular expression ^[_a-z][_a-z0-9]*$.(•Åİ·úÿÿÿÿ
+jpython:S116ü"RRename this field "ObjectType" to match the regular expression ^[_a-z][_a-z0-9]*$.(©Äšì
+lpython:S116ı"TRename this field "ObjectStatus" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷±ßà
+hpython:S116"PRename this field "WaitTime" to match the regular expression ^[_a-z][_a-z0-9]*$.(¹óß©
+opython:S116‚"WRename this field "ContextSwitches" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÈÌå 
+opython:S116ƒ"RRename this field "ObjectName" to match the regular expression ^[_a-z][_a-z0-9]*$.(¼˜Ñïÿÿÿÿÿ
+npython:S117û"VRename this parameter "aStructure" to match the regular expression ^[_a-z][a-z0-9_]*$.(âª«ñ
+6python:S125†"Remove this commented out code.(öôŠG
+kpython:S117’"SRename this parameter "aHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(á òß
+rpython:S117¢"ZRename this parameter "dwMilliseconds" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ—Ù˜
+€python:S101İ"hRename class "SERVICE_STATUS" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ƒµ¹°
+ˆpython:S101ô"pRename class "SERVICE_STATUS_PROCESS" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(²ÒÇ
+†python:S101€"nRename class "ENUM_SERVICE_STATUSA" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÃûÄé
+†python:S101†"nRename class "ENUM_SERVICE_STATUSW" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÆıÔ 
+python:S101”"vRename class "ENUM_SERVICE_STATUS_PROCESSA" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(‚äˆÑ
+python:S101š"vRename class "ENUM_SERVICE_STATUS_PROCESSW" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ºµì
+ppython:S116¯"XRename this field "ControlsAccepted" to match the regular expression ^[_a-z][_a-z0-9]*$.(ıù÷Ø
+wpython:S116±"_Rename this field "ServiceSpecificExitCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÖìÚ†
+qpython:S116®"TRename this field "CurrentState" to match the regular expression ^[_a-z][_a-z0-9]*$.(—¯”Ùüÿÿÿÿ
+mpython:S116°"URename this field "Win32ExitCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(éÈ‘
+hpython:S116³"PRename this field "WaitHint" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÖàÈ‰
+opython:S116²"RRename this field "CheckPoint" to match the regular expression ^[_a-z][_a-z0-9]*$.(”æÄ½ùÿÿÿÿ
+ppython:S116­"SRename this field "ServiceType" to match the regular expression ^[_a-z][_a-z0-9]*$.(ñÀ—ıüÿÿÿÿ
+npython:S116Æ"QRename this field "ProcessId" to match the regular expression ^[_a-z][_a-z0-9]*$.(”ìáıÿÿÿÿ
+ppython:S116Á"XRename this field "ControlsAccepted" to match the regular expression ^[_a-z][_a-z0-9]*$.(ıù÷Ø
+wpython:S116Ã"_Rename this field "ServiceSpecificExitCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÖìÚ†
+hpython:S116Å"PRename this field "WaitHint" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÖàÈ‰
+mpython:S116Â"URename this field "Win32ExitCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(éÈ‘
+ppython:S116¿"SRename this field "ServiceType" to match the regular expression ^[_a-z][_a-z0-9]*$.(ñÀ—ıüÿÿÿÿ
+qpython:S116À"TRename this field "CurrentState" to match the regular expression ^[_a-z][_a-z0-9]*$.(—¯”Ùüÿÿÿÿ
+opython:S116Ä"RRename this field "CheckPoint" to match the regular expression ^[_a-z][_a-z0-9]*$.(”æÄ½ùÿÿÿÿ
+lpython:S116Ç"TRename this field "ServiceFlags" to match the regular expression ^[_a-z][_a-z0-9]*$.(‰æ­í
+kpython:S116Ö"TRename this field "CurrentState" to match the regular expression ^[_a-z][_a-z0-9]*$.(“ô
+kpython:S116Ô"SRename this field "DisplayName" to match the regular expression ^[_a-z][_a-z0-9]*$.(şµæò
+upython:S116×"XRename this field "ControlsAccepted" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÓÈôğüÿÿÿÿ
+opython:S116Ú"RRename this field "CheckPoint" to match the regular expression ^[_a-z][_a-z0-9]*$.(µÙ¢„ûÿÿÿÿ
+rpython:S116Ø"URename this field "Win32ExitCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ø—áìşÿÿÿÿ
+kpython:S116Õ"SRename this field "ServiceType" to match the regular expression ^[_a-z][_a-z0-9]*$.(‹®ıó
+wpython:S116Ù"_Rename this field "ServiceSpecificExitCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(Æ¬Æ 
+ppython:S116Ó"SRename this field "ServiceName" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ğ¡—úÿÿÿÿ
+hpython:S116Û"PRename this field "WaitHint" to match the regular expression ^[_a-z][_a-z0-9]*$.(š–©è
+qpython:S116„"TRename this field "CurrentState" to match the regular expression ^[_a-z][_a-z0-9]*$.(Í¢ïÓÿÿÿÿÿ
+ppython:S116"SRename this field "ServiceName" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ğ¡—úÿÿÿÿ
+hpython:S116‰"PRename this field "WaitHint" to match the regular expression ^[_a-z][_a-z0-9]*$.(Æõ¡
+kpython:S116‚"SRename this field "DisplayName" to match the regular expression ^[_a-z][_a-z0-9]*$.(şµæò
+upython:S116…"XRename this field "ControlsAccepted" to match the regular expression ^[_a-z][_a-z0-9]*$.(Êáâúıÿÿÿÿ
+npython:S116Š"QRename this field "ProcessId" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ûß¯·ùÿÿÿÿ
+lpython:S116‹"TRename this field "ServiceFlags" to match the regular expression ^[_a-z][_a-z0-9]*$.(âÏÿ
+mpython:S116†"URename this field "Win32ExitCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(·¨“È
+|python:S116‡"_Rename this field "ServiceSpecificExitCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(©ø²¤ùÿÿÿÿ
+opython:S116ˆ"RRename this field "CheckPoint" to match the regular expression ^[_a-z][_a-z0-9]*$.(ßû§’üÿÿÿÿ
+kpython:S116ƒ"SRename this field "ServiceType" to match the regular expression ^[_a-z][_a-z0-9]*$.(Í˜Ù°
+vpython:S117ê"^Rename this local variable "_GetUserNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(²óï‚
+vpython:S117ó"YRename this local variable "lpBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ÍÑ¬øÿÿÿÿ
+npython:S117î"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÁ‹Î
+kpython:S1542é"RRename function "GetUserNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾Ğêì
+{python:S117ú"^Rename this local variable "_GetUserNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ˜Ğ„øÿÿÿÿ
+qpython:S117ƒ	"YRename this local variable "lpBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶õ¨
+npython:S117ş"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÁ‹Î
+jpython:S1542ù"RRename function "GetUserNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹ÚØN
+{python:S117¡	"cRename this local variable "_LookupAccountSidA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éáåª
+ppython:S117¥	"XRename this local variable "cchName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ì³
+…python:S117¦	"hRename this local variable "cchReferencedDomainName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¨¾†úÿÿÿÿ
+tpython:S117¬	"WRename this local variable "lpName" to match the regular expression ^[_a-z][a-z0-9_]*$.(í –êıÿÿÿÿ
+„python:S117­	"gRename this local variable "lpReferencedDomainName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºëšüÿÿÿÿ
+ipython:S117 	"QRename this parameter "lpSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õµ–
+ppython:S117 	"XRename this parameter "lpSystemName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õµ–
+npython:S117§	"VRename this local variable "peUse" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÊëú
+ppython:S1542 	"WRename function "LookupAccountSidA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õµ–
+{python:S117´	"cRename this local variable "_LookupAccountSidW" to match the regular expression ^[_a-z][a-z0-9_]*$.(óê•Ë
+ppython:S117¸	"XRename this local variable "cchName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ì³
+…python:S117¹	"hRename this local variable "cchReferencedDomainName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¨¾†úÿÿÿÿ
+tpython:S117¿	"WRename this local variable "lpName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢øáüşÿÿÿÿ
+python:S117À	"gRename this local variable "lpReferencedDomainName" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ˆ­î
+ipython:S117³	"QRename this parameter "lpSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(–â¨•
+ppython:S117³	"XRename this parameter "lpSystemName" to match the regular expression ^[_a-z][a-z0-9_]*$.(–â¨•
+npython:S117º	"VRename this local variable "peUse" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÊëú
+ppython:S1542³	"WRename function "LookupAccountSidW" to match the regular expression ^[a-z_][a-z0-9_]*$.(–â¨•
+lpython:S117Ì	"ORename this parameter "Sid" to match the regular expression ^[_a-z][a-z0-9_]*$.(±†ıµûÿÿÿÿ
+rpython:S117Õ	"ZRename this local variable "StringSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(çİÎô
+…python:S117Í	"hRename this local variable "_ConvertSidToStringSidA" to match the regular expression ^[_a-z][a-z0-9_]*$.(·‰¿Öşÿÿÿÿ
+spython:S117Ò	"[Rename this local variable "pStringSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÉÄ©
+zpython:S1542Ì	"\Rename function "ConvertSidToStringSidA" to match the regular expression ^[a-z_][a-z0-9_]*$.(±†ıµûÿÿÿÿ
+lpython:S117Ú	"ORename this parameter "Sid" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ÙÂ£şÿÿÿÿ
+rpython:S117ã	"ZRename this local variable "StringSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(çİÎô
+€python:S117Û	"hRename this local variable "_ConvertSidToStringSidW" to match the regular expression ^[_a-z][a-z0-9_]*$.(’¢î
+xpython:S117à	"[Rename this local variable "pStringSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë ¡çøÿÿÿÿ
+zpython:S1542Ú	"\Rename function "ConvertSidToStringSidW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¨ÙÂ£şÿÿÿÿ
+qpython:S117ô	"TRename this local variable "Sid" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ìú­úÿÿÿÿ
+rpython:S117î	"URename this parameter "StringSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(§ìèÆÿÿÿÿÿ
+…python:S117ï	"hRename this local variable "_ConvertStringSidToSidA" to match the regular expression ^[_a-z][a-z0-9_]*$.(îÌ†¬üÿÿÿÿ
+zpython:S1542î	"\Rename function "ConvertStringSidToSidA" to match the regular expression ^[a-z_][a-z0-9_]*$.(§ìèÆÿÿÿÿÿ
+qpython:S117ş	"TRename this local variable "Sid" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ìú­úÿÿÿÿ
+rpython:S117ø	"URename this parameter "StringSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(²¾¤şÿÿÿÿ
+€python:S117ù	"hRename this local variable "_ConvertStringSidToSidW" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚“ö¤
+zpython:S1542ø	"\Rename function "ConvertStringSidToSidW" to match the regular expression ^[a-z_][a-z0-9_]*$.(²¾¤şÿÿÿÿ
+ypython:S117ˆ
+"\Rename this local variable "_IsValidSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(óİ»¨øÿÿÿÿ
+hpython:S117‡
+"PRename this parameter "pSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú·ñô
+ipython:S1542‡
+"PRename function "IsValidSid" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ú·ñô
+wpython:S117’
+"ZRename this local variable "_EqualSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(½£¯¢ÿÿÿÿÿ
+hpython:S117‘
+"QRename this parameter "pSid1" to match the regular expression ^[_a-z][a-z0-9_]*$.(İÎV
+hpython:S117‘
+"QRename this parameter "pSid2" to match the regular expression ^[_a-z][a-z0-9_]*$.(İÎV
+fpython:S1542‘
+"NRename function "EqualSid" to match the regular expression ^[a-z_][a-z0-9_]*$.(İÎV
+vpython:S117›
+"^Rename this local variable "_GetLengthSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(Î†§
+hpython:S117š
+"PRename this parameter "pSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÊºÛ
+kpython:S1542š
+"RRename function "GetLengthSid" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÄÊºÛ
+|python:S117¬
+"_Rename this local variable "DestinationSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(µİîúÿÿÿÿ
+vpython:S117¦
+"YRename this local variable "_CopySid" to match the regular expression ^[_a-z][a-z0-9_]*$.(óı£úÿÿÿÿ
+ƒpython:S117«
+"fRename this local variable "nDestinationSidLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(š¯ØÂşÿÿÿÿ
+}python:S117­
+"`Rename this local variable "pDestinationSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ™ƒÂøÿÿÿÿ
+spython:S117¥
+"VRename this parameter "pSourceSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(“µüíúÿÿÿÿ
+kpython:S1542¥
+"MRename function "CopySid" to match the regular expression ^[a-z_][a-z0-9_]*$.(“µüíúÿÿÿÿ
+qpython:S117µ
+"YRename this local variable "_FreeSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢Œãù
+hpython:S117´
+"PRename this parameter "pSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åßüé
+fpython:S1542´
+"MRename function "FreeSid" to match the regular expression ^[a-z_][a-z0-9_]*$.(Åßüé
+qpython:S117À
+"YRename this parameter "DesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙÉ´Ø
+|python:S117Æ
+"_Rename this local variable "NewTokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(çŒØúÿÿÿÿ
+qpython:S117À
+"YRename this parameter "ProcessHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙÉ´Ø
+python:S117Á
+"bRename this local variable "_OpenProcessToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷ƒıÜÿÿÿÿÿ
+opython:S1542À
+"VRename function "OpenProcessToken" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÙÉ´Ø
+qpython:S117Ğ
+"YRename this parameter "DesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖëÛÂ
+|python:S117Ö
+"_Rename this local variable "NewTokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(çŒØúÿÿÿÿ
+npython:S117Ğ
+"VRename this parameter "OpenAsSelf" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖëÛÂ
+ppython:S117Ğ
+"XRename this parameter "ThreadHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖëÛÂ
+~python:S117Ñ
+"aRename this local variable "_OpenThreadToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(úŠÀ½ıÿÿÿÿ
+npython:S1542Ğ
+"URename function "OpenThreadToken" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÖëÛÂ
+}python:S117å
+"eRename this local variable "DuplicateTokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü×ş¬
+wpython:S117ß
+"_Rename this parameter "ExistingTokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(í‰íó
+vpython:S117ß
+"^Rename this parameter "ImpersonationLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(í‰íó
+}python:S117à
+"`Rename this local variable "_DuplicateToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(à¨şÙşÿÿÿÿ
+mpython:S1542ß
+"TRename function "DuplicateToken" to match the regular expression ^[a-z_][a-z0-9_]*$.(í‰íó
+}python:S117÷
+"eRename this local variable "DuplicateTokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü×ş¬
+vpython:S117ñ
+"^Rename this parameter "ImpersonationLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(’Û­‹
+mpython:S117ñ
+"URename this parameter "TokenType" to match the regular expression ^[_a-z][a-z0-9_]*$.(’Û­‹
+python:S117ò
+"bRename this local variable "_DuplicateTokenEx" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ûéùşıÿÿÿÿ
+spython:S117ñ
+"[Rename this parameter "dwDesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(’Û­‹
+rpython:S117ñ
+"ZRename this parameter "hExistingToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(’Û­‹
+upython:S117ñ
+"]Rename this parameter "lpTokenAttributes" to match the regular expression ^[_a-z][a-z0-9_]*$.(’Û­‹
+opython:S1542ñ
+"VRename function "DuplicateTokenEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(’Û­‹
+€python:S117ÿ
+"cRename this local variable "_IsTokenRestricted" to match the regular expression ^[_a-z][a-z0-9_]*$.(…¢½Üûÿÿÿÿ
+upython:S117ş
+"XRename this parameter "hTokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(±–°ùÿÿÿÿ
+upython:S1542ş
+"WRename function "IsTokenRestricted" to match the regular expression ^[a-z_][a-z0-9_]*$.(±–°ùÿÿÿÿ
+python:S117"gRename this local variable "_LookupPrivilegeValueA" to match the regular expression ^[_a-z][a-z0-9_]*$.(®â°ô
+opython:S117’"WRename this local variable "lpLuid" to match the regular expression ^[_a-z][a-z0-9_]*$.(°¸Î«
+jpython:S117Œ"RRename this parameter "lpName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åß…¢
+ppython:S117Œ"XRename this parameter "lpSystemName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åß…¢
+tpython:S1542Œ"[Rename function "LookupPrivilegeValueA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Åß…¢
+„python:S117™"gRename this local variable "_LookupPrivilegeValueW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãé¢ùùÿÿÿÿ
+opython:S117"WRename this local variable "lpLuid" to match the regular expression ^[_a-z][a-z0-9_]*$.(°¸Î«
+jpython:S117˜"RRename this parameter "lpName" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷Œÿõ
+ppython:S117˜"XRename this parameter "lpSystemName" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷Œÿõ
+tpython:S1542˜"[Rename function "LookupPrivilegeValueW" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷Œÿõ
+ƒpython:S117®"fRename this local variable "_LookupPrivilegeNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷İ•ÿÿÿÿÿ
+ppython:S117³"XRename this local variable "cchName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ì³
+opython:S117­"RRename this parameter "lpLuid" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÓ¸‹üÿÿÿÿ
+tpython:S117µ"WRename this local variable "lpName" to match the regular expression ^[_a-z][a-z0-9_]*$.(²©ñòûÿÿÿÿ
+upython:S117­"XRename this parameter "lpSystemName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÓ¸‹üÿÿÿÿ
+xpython:S1542­"ZRename function "LookupPrivilegeNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ãÓ¸‹üÿÿÿÿ
+~python:S117º"fRename this local variable "_LookupPrivilegeNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸àëé
+ppython:S117¿"XRename this local variable "cchName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ì³
+jpython:S117¹"RRename this parameter "lpLuid" to match the regular expression ^[_a-z][a-z0-9_]*$.(³ù“ç
+opython:S117Á"WRename this local variable "lpName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾Ğ¹•
+ppython:S117¹"XRename this parameter "lpSystemName" to match the regular expression ^[_a-z][a-z0-9_]*$.(³ù“ç
+spython:S1542¹"ZRename function "LookupPrivilegeNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(³ù“ç
+kpython:S117Ï"TRename this parameter "NewState" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç»ši
+npython:S117Ï"WRename this parameter "TokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç»ši
+„python:S117Ğ"gRename this local variable "_AdjustTokenPrivileges" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥¬ğ¹üÿÿÿÿ
+spython:S1542Ï"[Rename function "AdjustTokenPrivileges" to match the regular expression ^[a-z_][a-z0-9_]*$.(ç»ši
+Ipython:S1481Ş"+Remove the unused local variable "success".(¾–©Íÿÿÿÿÿ
+~python:S117û"aRename this local variable "TokenInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ‹§Ñûÿÿÿÿ
+~python:S117õ"aRename this parameter "TokenInformationClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(éŠ¦«úÿÿÿÿ
+upython:S117õ"XRename this parameter "hTokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(éŠ¦«úÿÿÿÿ
+wpython:S1542õ"YRename function "GetTokenInformation" to match the regular expression ^[a-z_][a-z0-9_]*$.(éŠ¦«úÿÿÿÿ
+upython:S117Ñ"]Rename this local variable "ReturnLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªß…
+ypython:S117Ë"\Rename this parameter "TokenInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ¬û‹úÿÿÿÿ
+~python:S117Ë"aRename this parameter "TokenInformationClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ¬û‹úÿÿÿÿ
+python:S117Ò"gRename this local variable "TokenInformationLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞÏû¶
+‚python:S117Ì"eRename this local variable "_GetTokenInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ëí¶«øÿÿÿÿ
+upython:S117Ë"XRename this parameter "hTokenHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ¬û‹úÿÿÿÿ
+python:S1542Ë"cRename function "_internal_GetTokenInformation" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ÿ¬û‹úÿÿÿÿ
+python:S117ï"iRename this local variable "_CreateProcessWithLogonW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Î¦Ğï
+xpython:S117î"[Rename this parameter "dwCreationFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+upython:S117î"XRename this parameter "dwLogonFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+zpython:S117î"]Rename this parameter "lpApplicationName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+vpython:S117î"YRename this parameter "lpCommandLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+{python:S117î"^Rename this parameter "lpCurrentDirectory" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+qpython:S117î"TRename this parameter "lpDomain" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+vpython:S117î"YRename this parameter "lpEnvironment" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+spython:S117î"VRename this parameter "lpPassword" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+}python:S117"eRename this local variable "lpProcessInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(”¸Ñ£
+vpython:S117î"YRename this parameter "lpStartupInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+spython:S117î"VRename this parameter "lpUsername" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+{python:S1542î"]Rename function "CreateProcessWithLogonW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦ô³úÿÿÿÿ
+python:S117¦"iRename this local variable "_CreateProcessWithTokenW" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹õ´‰
+xpython:S117¥"[Rename this parameter "dwCreationFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+upython:S117¥"XRename this parameter "dwLogonFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+opython:S117¥"RRename this parameter "hToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+zpython:S117¥"]Rename this parameter "lpApplicationName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+vpython:S117¥"YRename this parameter "lpCommandLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+{python:S117¥"^Rename this parameter "lpCurrentDirectory" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+vpython:S117¥"YRename this parameter "lpEnvironment" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+}python:S117Â"eRename this local variable "lpProcessInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(”¸Ñ£
+vpython:S117¥"YRename this parameter "lpStartupInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+{python:S1542¥"]Rename function "CreateProcessWithTokenW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÈË–©ıÿÿÿÿ
+ƒpython:S117Û"fRename this local variable "_CreateProcessAsUserA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÏøøÿÿÿÿ
+spython:S117Ú"[Rename this parameter "bInheritHandles" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+spython:S117Ú"[Rename this parameter "dwCreationFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+jpython:S117Ú"RRename this parameter "hToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+upython:S117Ú"]Rename this parameter "lpApplicationName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+qpython:S117Ú"YRename this parameter "lpCommandLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+vpython:S117Ú"^Rename this parameter "lpCurrentDirectory" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+qpython:S117Ú"YRename this parameter "lpEnvironment" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+wpython:S117Ú"_Rename this parameter "lpProcessAttributes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+}python:S117ı"eRename this local variable "lpProcessInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(”¸Ñ£
+qpython:S117Ú"YRename this parameter "lpStartupInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+vpython:S117Ú"^Rename this parameter "lpThreadAttributes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞˆÜ‚
+spython:S1542Ú"ZRename function "CreateProcessAsUserA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŞˆÜ‚
+~python:S117†"fRename this local variable "_CreateProcessAsUserW" to match the regular expression ^[_a-z][a-z0-9_]*$.(®Ó´½
+spython:S117…"[Rename this parameter "bInheritHandles" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+spython:S117…"[Rename this parameter "dwCreationFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+jpython:S117…"RRename this parameter "hToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+upython:S117…"]Rename this parameter "lpApplicationName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+qpython:S117…"YRename this parameter "lpCommandLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+vpython:S117…"^Rename this parameter "lpCurrentDirectory" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+qpython:S117…"YRename this parameter "lpEnvironment" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+wpython:S117…"_Rename this parameter "lpProcessAttributes" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+}python:S117¨"eRename this local variable "lpProcessInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(”¸Ñ£
+qpython:S117…"YRename this parameter "lpStartupInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+vpython:S117…"^Rename this parameter "lpThreadAttributes" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰“ùß
+spython:S1542…"ZRename function "CreateProcessAsUserW" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰“ùß
+npython:S117À"QRename this parameter "Flags" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß½²Êøÿÿÿÿ
+„python:S117Á"lRename this local variable "_OpenThreadWaitChainSession" to match the regular expression ^[_a-z][a-z0-9_]*$.(šş“ú
+ppython:S117È"XRename this local variable "aHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(—Ç¾Æ
+~python:S1542À"`Rename function "OpenThreadWaitChainSession" to match the regular expression ^[a-z_][a-z0-9_]*$.(ß½²Êøÿÿÿÿ
+ppython:S117Ô"SRename this parameter "Context" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ÄÌÔşÿÿÿÿ
+npython:S117Ô"QRename this parameter "Flags" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ÄÌÔşÿÿÿÿ
+upython:S117Ü"XRename this local variable "IsCycle" to match the regular expression ^[_a-z][a-z0-9_]*$.(­—ãˆûÿÿÿÿ
+rpython:S117Ô"URename this parameter "NodeCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ÄÌÔşÿÿÿÿ
+vpython:S117Û"^Rename this local variable "NodeInfoArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¡æ×
+qpython:S117Ô"TRename this parameter "ThreadId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ÄÌÔşÿÿÿÿ
+rpython:S117Ô"URename this parameter "WctHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ÄÌÔşÿÿÿÿ
+python:S117Õ"dRename this local variable "_GetThreadWaitChain" to match the regular expression ^[_a-z][a-z0-9_]*$.(†Ş—ôÿÿÿÿÿ
+tpython:S117Ú"\Rename this local variable "dwNodeCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(§·Õ
+vpython:S1542Ô"XRename function "GetThreadWaitChain" to match the regular expression ^[a-z_][a-z0-9_]*$.(¿ÄÌÔşÿÿÿÿ
+rpython:S117ê"URename this parameter "WctHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(­‹¦ùúÿÿÿÿ
+„python:S117ë"mRename this local variable "_CloseThreadWaitChainSession" to match the regular expression ^[_a-z][a-z0-9_]*$.(—ğ€;
+python:S1542ê"aRename function "CloseThreadWaitChainSession" to match the regular expression ^[a-z_][a-z0-9_]*$.(­‹¦ùúÿÿÿÿ
+mpython:S117ö"URename this parameter "OpenFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(›€ıŒ
+zpython:S117÷"bRename this local variable "_SaferCreateLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïª¥ 
+mpython:S117ö"URename this parameter "dwLevelId" to match the regular expression ^[_a-z][a-z0-9_]*$.(›€ıŒ
+mpython:S117ö"URename this parameter "dwScopeId" to match the regular expression ^[_a-z][a-z0-9_]*$.(›€ıŒ
+upython:S117ü"]Rename this local variable "hLevelHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿúö¶
+opython:S1542ö"VRename function "SaferCreateLevel" to match the regular expression ^[a-z_][a-z0-9_]*$.(›€ıŒ
+vpython:S117"YRename this parameter "InAccessToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ÖÏ˜ùÿÿÿÿ
+tpython:S117"WRename this parameter "LevelHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ÖÏ˜ùÿÿÿÿ
+vpython:S117–"_Rename this local variable "OutAccessToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(âµ‰,
+‰python:S117‘"lRename this local variable "_SaferComputeTokenFromLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘‘ÙËøÿÿÿÿ
+ppython:S117"SRename this parameter "dwFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ÖÏ˜ùÿÿÿÿ
+spython:S117—"[Rename this local variable "lpReserved" to match the regular expression ^[_a-z][a-z0-9_]*$.(îşî²
+~python:S1542"`Rename function "SaferComputeTokenFromLevel" to match the regular expression ^[a-z_][a-z0-9_]*$.(¨ÖÏ˜ùÿÿÿÿ
+~python:S117Ÿ"aRename this local variable "_SaferCloseLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(§øÖüøÿÿÿÿ
+ppython:S117"XRename this parameter "hLevelHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã¼¶
+npython:S1542"URename function "SaferCloseLevel" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ã¼¶
+„python:S117®"lRename this local variable "_SaferiIsExecutableFileType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ËÊÇõ
+zpython:S117­"]Rename this parameter "bFromShellExecute" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì’°„úÿÿÿÿ
+spython:S117­"VRename this parameter "szFullPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì’°„úÿÿÿÿ
+~python:S1542­"`Rename function "SaferiIsExecutableFileType" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ì’°„úÿÿÿÿ
+upython:S117Î"]Rename this local variable "_RegCloseKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğÉ¥º
+hpython:S117¾"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş½¢‰
+jpython:S1542¾"QRename function "RegCloseKey" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ş½¢‰
+‚python:S117Ú"eRename this local variable "_RegConnectRegistryA" to match the regular expression ^[_a-z][a-z0-9_]*$.(­Éõ¥øÿÿÿÿ
+hpython:S117Ù"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ËÎÍ
+vpython:S117ß"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+qpython:S117Ù"YRename this parameter "lpMachineName" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ËÎÍ
+rpython:S1542Ù"YRename function "RegConnectRegistryA" to match the regular expression ^[a-z_][a-z0-9_]*$.(›ËÎÍ
+}python:S117ä"eRename this local variable "_RegConnectRegistryW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞºŠŸ
+gpython:S117ã"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙÒó=
+vpython:S117é"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+ppython:S117ã"YRename this parameter "lpMachineName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙÒó=
+qpython:S1542ã"YRename function "RegConnectRegistryW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÙÒó=
+wpython:S117õ"_Rename this local variable "_RegCreateKeyA" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¼Š÷
+hpython:S117ô"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿õÃŠ
+vpython:S117ú"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+lpython:S117ô"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿õÃŠ
+lpython:S1542ô"SRename function "RegCreateKeyA" to match the regular expression ^[a-z_][a-z0-9_]*$.(¿õÃŠ
+|python:S117ÿ"_Rename this local variable "_RegCreateKeyW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã¢¢‹ùÿÿÿÿ
+hpython:S117ş"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÊª‰
+vpython:S117„"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+lpython:S117ş"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÊª‰
+lpython:S1542ş"SRename function "RegCreateKeyW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓÊª‰
+upython:S117"]Rename this local variable "_RegOpenKeyA" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿¿†°
+mpython:S117"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡’û¬ıÿÿÿÿ
+vpython:S117£"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+qpython:S117"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡’û¬ıÿÿÿÿ
+opython:S1542"QRename function "RegOpenKeyA" to match the regular expression ^[a-z_][a-z0-9_]*$.(¡’û¬ıÿÿÿÿ
+upython:S117¨"]Rename this local variable "_RegOpenKeyW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ½–
+mpython:S117§"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ûò×ûÿÿÿÿ
+vpython:S117­"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+qpython:S117§"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ûò×ûÿÿÿÿ
+opython:S1542§"QRename function "RegOpenKeyW" to match the regular expression ^[a-z_][a-z0-9_]*$.(£ûò×ûÿÿÿÿ
+wpython:S117»"_Rename this local variable "_RegOpenKeyExA" to match the regular expression ^[_a-z][a-z0-9_]*$.(£¯ÛŠ
+hpython:S117º"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı‚›ø
+vpython:S117À"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+lpython:S117º"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı‚›ø
+npython:S117º"VRename this parameter "samDesired" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı‚›ø
+lpython:S1542º"SRename function "RegOpenKeyExA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ı‚›ø
+|python:S117Å"_Rename this local variable "_RegOpenKeyExW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğæ¾„şÿÿÿÿ
+hpython:S117Ä"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊêŒö
+vpython:S117Ê"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+lpython:S117Ä"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊêŒö
+npython:S117Ä"VRename this parameter "samDesired" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊêŒö
+lpython:S1542Ä"SRename function "RegOpenKeyExW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÊêŒö
+python:S117Õ"dRename this local variable "_RegOpenCurrentUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(úù¤£ùÿÿÿÿ
+vpython:S117Ú"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+spython:S117Ô"VRename this parameter "samDesired" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢™êòùÿÿÿÿ
+vpython:S1542Ô"XRename function "RegOpenCurrentUser" to match the regular expression ^[a-z_][a-z0-9_]*$.(¢™êòùÿÿÿÿ
+…python:S117å"hRename this local variable "_RegOpenUserClassesRoot" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ÊÃ±øÿÿÿÿ
+opython:S117ä"RRename this parameter "hToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÙîüÿÿÿÿ
+vpython:S117ê"YRename this local variable "hkResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø†å–úÿÿÿÿ
+spython:S117ä"VRename this parameter "samDesired" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÙîüÿÿÿÿ
+zpython:S1542ä"\Rename function "RegOpenUserClassesRoot" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓÙîüÿÿÿÿ
+xpython:S117õ"`Rename this local variable "_RegQueryValueA" to match the regular expression ^[_a-z][a-z0-9_]*$.(òıõé
+upython:S117ú"XRename this local variable "cbValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(Î¡¡Êıÿÿÿÿ
+hpython:S117ô"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(±şÈ£
+lpython:S117ô"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(±şÈ£
+upython:S117ü"XRename this local variable "lpValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(»ê‹Ÿúÿÿÿÿ
+mpython:S1542ô"TRename function "RegQueryValueA" to match the regular expression ^[a-z_][a-z0-9_]*$.(±şÈ£
+xpython:S117"`Rename this local variable "_RegQueryValueW" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚Åç¶
+upython:S117†"XRename this local variable "cbValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(Î¡¡Êıÿÿÿÿ
+mpython:S117€"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(øŞó„ıÿÿÿÿ
+qpython:S117€"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(øŞó„ıÿÿÿÿ
+ppython:S117ˆ"XRename this local variable "lpValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªÛåí
+rpython:S1542€"TRename function "RegQueryValueW" to match the regular expression ^[a-z_][a-z0-9_]*$.(øŞó„ıÿÿÿÿ
+mpython:S117½"URename this local variable "Data" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã¨¦ş
+rpython:S117œ"URename this local variable "Type" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œñº’ùÿÿÿÿ
+~python:S117—"aRename this local variable "_RegQueryValueEx" to match the regular expression ^[_a-z][a-z0-9_]*$.(´éßüÿÿÿÿ
+npython:S117¿"VRename this local variable "aData" to match the regular expression ^[_a-z][a-z0-9_]*$.(®±ê
+qpython:S117–"TRename this parameter "bGetData" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã»×³ûÿÿÿÿ
+tpython:S117™"WRename this local variable "cbData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ§àëûÿÿÿÿ
+tpython:S117¤"WRename this local variable "dwData" to match the regular expression ^[_a-z][a-z0-9_]*$.(è°ëÓıÿÿÿÿ
+tpython:S117š"WRename this local variable "dwType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù–ˆÓûÿÿÿÿ
+mpython:S117–"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã»×³ûÿÿÿÿ
+tpython:S117–"WRename this parameter "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã»×³ûÿÿÿÿ
+tpython:S117«"WRename this local variable "qwData" to match the regular expression ^[_a-z][a-z0-9_]*$.(Áºòùÿÿÿÿ
+tpython:S117±"WRename this local variable "szData" to match the regular expression ^[_a-z][a-z0-9_]*$.(šë¦Äıÿÿÿÿ
+}python:S1542–"_Rename function "_internal_RegQueryValueEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ã»×³ûÿÿÿÿ
+rpython:S3776–"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ã»×³ûÿÿÿÿ
+ypython:S117Ñ"aRename this local variable "_RegQueryValueEx" to match the regular expression ^[_a-z][a-z0-9_]*$.(„Ã¨Ø
+vpython:S1542Ï"]Rename function "_caller_RegQueryValueEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(Í’Æ£
+lpython:S117Û"TRename this parameter "bGetData" to match the regular expression ^[_a-z][a-z0-9_]*$.(©À ¢
+hpython:S117Û"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(©À ¢
+opython:S117Û"WRename this parameter "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(©À ¢
+opython:S1542Û"VRename function "RegQueryValueExA" to match the regular expression ^[a-z_][a-z0-9_]*$.(©À ¢
+lpython:S117ß"TRename this parameter "bGetData" to match the regular expression ^[_a-z][a-z0-9_]*$.(³¹©à
+hpython:S117ß"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(³¹©à
+opython:S117ß"WRename this parameter "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(³¹©à
+opython:S1542ß"VRename function "RegQueryValueExW" to match the regular expression ^[a-z_][a-z0-9_]*$.(³¹©à
+mpython:S117Ÿ"URename this local variable "Data" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛÃİ„
+upython:S117›"XRename this local variable "DataRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ó‘Íºúÿÿÿÿ
+qpython:S117œ"YRename this local variable "DataSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÊµ
+vpython:S117‘"_Rename this local variable "_RegSetValueEx" to match the regular expression ^[_a-z][a-z0-9_]*$.(’'
+jpython:S117ì"RRename this parameter "dwType" to match the regular expression ^[_a-z][a-z0-9_]*$.(â‚ç
+hpython:S117ì"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(â‚ç
+jpython:S117ì"RRename this parameter "lpData" to match the regular expression ^[_a-z][a-z0-9_]*$.(â‚ç
+opython:S117ì"WRename this parameter "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(â‚ç
+lpython:S1542ì"SRename function "RegSetValueEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(â‚ç
+mpython:S3776ì"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(â‚ç
+zpython:S117À"]Rename this local variable "_RegEnumKeyA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãùÛ€úÿÿÿÿ
+ppython:S117Ä"XRename this local variable "cchName" to match the regular expression ^[_a-z][a-z0-9_]*$.(€•âî
+kpython:S117¿"SRename this parameter "dwIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê¼ÿÚ
+hpython:S117¿"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê¼ÿÚ
+npython:S117Æ"WRename this local variable "lpName" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÇ™+
+jpython:S1542¿"QRename function "RegEnumKeyA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ê¼ÿÚ
+upython:S117Ô"]Rename this local variable "_RegEnumKeyW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÃÒ¯
+ppython:S117Ø"XRename this local variable "cchName" to match the regular expression ^[_a-z][a-z0-9_]*$.(âü¡Ø
+kpython:S117Ó"SRename this parameter "dwIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿœ”é
+hpython:S117Ó"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿœ”é
+tpython:S117Ú"WRename this local variable "lpName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Íæºéùÿÿÿÿ
+jpython:S1542Ó"QRename function "RegEnumKeyW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿœ”é
+rpython:S117§"URename this local variable "Data" to match the regular expression ^[_a-z][a-z0-9_]*$.(®ìÃáøÿÿÿÿ
+rpython:S117¢"URename this local variable "Type" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œñº’ùÿÿÿÿ
+{python:S117‚"^Rename this local variable "_RegEnumValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù…°‚üÿÿÿÿ
+npython:S117Í"VRename this local variable "aData" to match the regular expression ^[_a-z][a-z0-9_]*$.(êæï‘
+lpython:S117€"TRename this parameter "bGetData" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤Óşæ
+tpython:S117’"WRename this local variable "cbData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ§àëûÿÿÿÿ
+upython:S117‰"]Rename this local variable "cchValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö¨’ñ
+kpython:S117€"SRename this parameter "dwIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤Óşæ
+tpython:S117Š"WRename this local variable "dwType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù–ˆÓûÿÿÿÿ
+hpython:S117€"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤Óşæ
+opython:S117–"WRename this local variable "lpData" to match the regular expression ^[_a-z][a-z0-9_]*$.( ÙãÕ
+tpython:S117Œ"WRename this local variable "lpType" to match the regular expression ^[_a-z][a-z0-9_]*$.(«‡Ù‹øÿÿÿÿ
+spython:S117"\Rename this local variable "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(–òø
+vpython:S117“"YRename this local variable "lpcbData" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ÍÑîûÿÿÿÿ
+|python:S117‹"_Rename this local variable "lpcchValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷ÅóÔüÿÿÿÿ
+mpython:S117Ê"VRename this local variable "sData" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹¥îM
+upython:S1542€"\Rename function "_internal_RegEnumValue" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤Óşæ
+mpython:S3776€"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(¤Óşæ
+7python:S125À"Remove this commented out code.(½é„
+lpython:S117Ö"TRename this parameter "bGetData" to match the regular expression ^[_a-z][a-z0-9_]*$.( ñï£
+kpython:S117Ö"SRename this parameter "dwIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.( ñï£
+hpython:S117Ö"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.( ñï£
+lpython:S1542Ö"SRename function "RegEnumValueA" to match the regular expression ^[a-z_][a-z0-9_]*$.( ñï£
+qpython:S117Ù"TRename this parameter "bGetData" to match the regular expression ^[_a-z][a-z0-9_]*$.(éô«äÿÿÿÿÿ
+ppython:S117Ù"SRename this parameter "dwIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(éô«äÿÿÿÿÿ
+mpython:S117Ù"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(éô«äÿÿÿÿÿ
+qpython:S1542Ù"SRename function "RegEnumValueW" to match the regular expression ^[a-z_][a-z0-9_]*$.(éô«äÿÿÿÿÿ
+ypython:S117ú"aRename this local variable "_RegDeleteValueA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Óƒ
+ppython:S117ù"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞşÏÑøÿÿÿÿ
+tpython:S117ù"WRename this parameter "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞşÏÑøÿÿÿÿ
+spython:S1542ù"URename function "RegDeleteValueA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŞşÏÑøÿÿÿÿ
+ypython:S117€"aRename this local variable "_RegDeleteValueW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ«¾ƒ
+kpython:S117ÿ"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª¬·š
+opython:S117ÿ"WRename this parameter "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª¬·š
+npython:S1542ÿ"URename function "RegDeleteValueW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ª¬·š
+python:S117"dRename this local variable "_RegDeleteKeyValueA" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹Îìúÿÿÿÿ
+kpython:S117Œ"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒŠ—ğ
+lpython:S117Œ"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒŠ—ğ
+opython:S117Œ"WRename this parameter "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒŠ—ğ
+qpython:S1542Œ"XRename function "RegDeleteKeyValueA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÒŠ—ğ
+{python:S117“"dRename this local variable "_RegDeleteKeyValueW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎşÔ
+kpython:S117’"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(Çº±
+lpython:S117’"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(Çº±
+opython:S117’"WRename this parameter "lpValueName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Çº±
+qpython:S1542’"XRename function "RegDeleteKeyValueW" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çº±
+|python:S117Ÿ"_Rename this local variable "_RegDeleteKeyA" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹÷ô¼ûÿÿÿÿ
+jpython:S117"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(“×†a
+kpython:S117"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(“×†a
+kpython:S1542"SRename function "RegDeleteKeyA" to match the regular expression ^[a-z_][a-z0-9_]*$.(“×†a
+|python:S117¥"_Rename this local variable "_RegDeleteKeyW" to match the regular expression ^[_a-z][a-z0-9_]*$.(õâÕÛüÿÿÿÿ
+ppython:S117¤"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìƒ—•úÿÿÿÿ
+qpython:S117¤"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìƒ—•úÿÿÿÿ
+qpython:S1542¤"SRename function "RegDeleteKeyW" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ìƒ—•úÿÿÿÿ
+ypython:S117´"aRename this local variable "_RegDeleteKeyExA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ó²¤è
+kpython:S117³"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(”‚ˆ
+lpython:S117³"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(”‚ˆ
+npython:S117³"VRename this parameter "samDesired" to match the regular expression ^[_a-z][a-z0-9_]*$.(”‚ˆ
+npython:S1542³"URename function "RegDeleteKeyExA" to match the regular expression ^[a-z_][a-z0-9_]*$.(”‚ˆ
+ypython:S117º"aRename this local variable "_RegDeleteKeyExW" to match the regular expression ^[_a-z][a-z0-9_]*$.(„ãğó
+kpython:S117¹"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(û‘Ö
+lpython:S117¹"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(û‘Ö
+npython:S117¹"VRename this parameter "samDesired" to match the regular expression ^[_a-z][a-z0-9_]*$.(û‘Ö
+npython:S1542¹"URename function "RegDeleteKeyExW" to match the regular expression ^[a-z_][a-z0-9_]*$.(û‘Ö
+vpython:S117Ç"^Rename this local variable "_RegCopyTreeA" to match the regular expression ^[_a-z][a-z0-9_]*$.(îšº‚
+lpython:S117Æ"TRename this parameter "hKeyDest" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª®àÈ
+kpython:S117Æ"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª®àÈ
+lpython:S117Æ"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª®àÈ
+kpython:S1542Æ"RRename function "RegCopyTreeA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ª®àÈ
+{python:S117Í"^Rename this local variable "_RegCopyTreeW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡ÛÉûÿÿÿÿ
+lpython:S117Ì"TRename this parameter "hKeyDest" to match the regular expression ^[_a-z][a-z0-9_]*$.(©¾†Â
+kpython:S117Ì"SRename this parameter "hKeySrc" to match the regular expression ^[_a-z][a-z0-9_]*$.(©¾†Â
+lpython:S117Ì"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(©¾†Â
+kpython:S1542Ì"RRename function "RegCopyTreeW" to match the regular expression ^[a-z_][a-z0-9_]*$.(©¾†Â
+xpython:S117Ù"`Rename this local variable "_RegDeleteTreeA" to match the regular expression ^[_a-z][a-z0-9_]*$.(×…ß„
+mpython:S117Ø"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÎ˜üÿÿÿÿ
+qpython:S117Ø"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÎ˜üÿÿÿÿ
+rpython:S1542Ø"TRename function "RegDeleteTreeA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓÎ˜üÿÿÿÿ
+xpython:S117ß"`Rename this local variable "_RegDeleteTreeW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿®Î¼
+hpython:S117Ş"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘éÒÂ
+lpython:S117Ş"TRename this parameter "lpSubKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘éÒÂ
+mpython:S1542Ş"TRename function "RegDeleteTreeW" to match the regular expression ^[a-z_][a-z0-9_]*$.(‘éÒÂ
+upython:S117ê"]Rename this local variable "_RegFlushKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(İşÊ®
+hpython:S117é"PRename this parameter "hKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷™âê
+jpython:S1542é"QRename function "RegFlushKey" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷™âê
+|python:S117‚"dRename this local variable "_CloseServiceHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(—ó
+rpython:S117"URename this parameter "hSCObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ•Å”ûÿÿÿÿ
+vpython:S1542"XRename function "CloseServiceHandle" to match the regular expression ^[a-z_][a-z0-9_]*$.(ñ•Å”ûÿÿÿÿ
+}python:S117“"`Rename this local variable "_OpenSCManagerA" to match the regular expression ^[_a-z][a-z0-9_]*$.(áá¯¥şÿÿÿÿ
+xpython:S117’"[Rename this parameter "dwDesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚š×ºûÿÿÿÿ
+rpython:S117˜"ZRename this local variable "hSCObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(º‚ú
+wpython:S117’"ZRename this parameter "lpDatabaseName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚š×ºûÿÿÿÿ
+vpython:S117’"YRename this parameter "lpMachineName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚š×ºûÿÿÿÿ
+rpython:S1542’"TRename function "OpenSCManagerA" to match the regular expression ^[a-z_][a-z0-9_]*$.(‚š×ºûÿÿÿÿ
+}python:S117œ"`Rename this local variable "_OpenSCManagerW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÏèÌÔùÿÿÿÿ
+xpython:S117›"[Rename this parameter "dwDesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¤õüÿÿÿÿ
+rpython:S117¡"ZRename this local variable "hSCObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(º‚ú
+wpython:S117›"ZRename this parameter "lpDatabaseName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¤õüÿÿÿÿ
+vpython:S117›"YRename this parameter "lpMachineName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¤õüÿÿÿÿ
+rpython:S1542›"TRename function "OpenSCManagerW" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ü¤õüÿÿÿÿ
+vpython:S117¬"^Rename this local variable "_OpenServiceA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞùÜÃ
+rpython:S117«"[Rename this parameter "dwDesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìÍ´
+mpython:S117«"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìÍ´
+ppython:S117«"YRename this parameter "lpServiceName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìÍ´
+jpython:S1542«"RRename function "OpenServiceA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ìÍ´
+{python:S117³"^Rename this local variable "_OpenServiceW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıã°¹ûÿÿÿÿ
+xpython:S117²"[Rename this parameter "dwDesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(±å˜„ùÿÿÿÿ
+spython:S117²"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(±å˜„ùÿÿÿÿ
+vpython:S117²"YRename this parameter "lpServiceName" to match the regular expression ^[_a-z][a-z0-9_]*$.(±å˜„ùÿÿÿÿ
+ppython:S1542²"RRename function "OpenServiceW" to match the regular expression ^[a-z_][a-z0-9_]*$.(±å˜„ùÿÿÿÿ
+xpython:S117Ö"`Rename this local variable "_CreateServiceA" to match the regular expression ^[_a-z][a-z0-9_]*$.(“­Ä
+xpython:S117Ì"[Rename this parameter "dwDesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åúˆçÿÿÿÿÿ
+wpython:S117Ï"ZRename this parameter "dwErrorControl" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ëîğøÿÿÿÿ
+vpython:S117Í"YRename this parameter "dwServiceType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç„¼Åıÿÿÿÿ
+opython:S117Î"WRename this parameter "dwStartType" to match the regular expression ^[_a-z][a-z0-9_]*$.(îéÂ€
+ppython:S117Û"XRename this local variable "dwTagId" to match the regular expression ^[_a-z][a-z0-9_]*$.(§ÚŠ
+spython:S117Ê"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ†–®ùÿÿÿÿ
+vpython:S117Ü"YRename this local variable "hService" to match the regular expression ^[_a-z][a-z0-9_]*$.(Şğ¨åÿÿÿÿÿ
+tpython:S117Ğ"\Rename this parameter "lpBinaryPathName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìœ´À
+wpython:S117Ò"ZRename this parameter "lpDependencies" to match the regular expression ^[_a-z][a-z0-9_]*$.(³Î´ûÿÿÿÿ
+vpython:S117Ë"YRename this parameter "lpDisplayName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò”Ñùÿÿÿÿÿ
+ypython:S117Ñ"\Rename this parameter "lpLoadOrderGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù¹õÜûÿÿÿÿ
+npython:S117Ô"VRename this parameter "lpPassword" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷ºÜÚ
+vpython:S117Ê"YRename this parameter "lpServiceName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ†–®ùÿÿÿÿ
+{python:S117Ó"^Rename this parameter "lpServiceStartName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù¨ üÿÿÿÿ
+rpython:S1542Ê"TRename function "CreateServiceA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒ†–®ùÿÿÿÿ
+}python:S117ë"`Rename this local variable "_CreateServiceW" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚œÀÒÿÿÿÿÿ
+xpython:S117á"[Rename this parameter "dwDesiredAccess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åúˆçÿÿÿÿÿ
+wpython:S117ä"ZRename this parameter "dwErrorControl" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ëîğøÿÿÿÿ
+vpython:S117â"YRename this parameter "dwServiceType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç„¼Åıÿÿÿÿ
+opython:S117ã"WRename this parameter "dwStartType" to match the regular expression ^[_a-z][a-z0-9_]*$.(îéÂ€
+ppython:S117ğ"XRename this local variable "dwTagId" to match the regular expression ^[_a-z][a-z0-9_]*$.(§ÚŠ
+spython:S117ß"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(é¤·Áùÿÿÿÿ
+qpython:S117ñ"YRename this local variable "hService" to match the regular expression ^[_a-z][a-z0-9_]*$.(´äœñ
+tpython:S117å"\Rename this parameter "lpBinaryPathName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìœ´À
+wpython:S117ç"ZRename this parameter "lpDependencies" to match the regular expression ^[_a-z][a-z0-9_]*$.(³Î´ûÿÿÿÿ
+vpython:S117à"YRename this parameter "lpDisplayName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò”Ñùÿÿÿÿÿ
+ypython:S117æ"\Rename this parameter "lpLoadOrderGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù¹õÜûÿÿÿÿ
+npython:S117é"VRename this parameter "lpPassword" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷ºÜÚ
+vpython:S117ß"YRename this parameter "lpServiceName" to match the regular expression ^[_a-z][a-z0-9_]*$.(é¤·Áùÿÿÿÿ
+{python:S117è"^Rename this parameter "lpServiceStartName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù¨ üÿÿÿÿ
+rpython:S1542ß"TRename function "CreateServiceW" to match the regular expression ^[a-z_][a-z0-9_]*$.(é¤·Áùÿÿÿÿ
+wpython:S117ú"_Rename this local variable "_DeleteService" to match the regular expression ^[_a-z][a-z0-9_]*$.(±ƒ’¸
+kpython:S117ù"TRename this parameter "hService" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ÆÃv
+kpython:S1542ù"SRename function "DeleteService" to match the regular expression ^[a-z_][a-z0-9_]*$.(’ÆÃv
+python:S117‡"dRename this local variable "_GetServiceKeyNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç€µ±şÿÿÿÿ
+rpython:S117‹"ZRename this local variable "cchBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(õ»´¤
+npython:S117†"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÍ¯ü
+qpython:S117†"YRename this parameter "lpDisplayName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÍ¯ü
+vpython:S117"^Rename this local variable "lpServiceName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ„Ê
+qpython:S1542†"XRename function "GetServiceKeyNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÄÍ¯ü
+|python:S117—"dRename this local variable "_GetServiceKeyNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü›ˆ“
+rpython:S117›"ZRename this local variable "cchBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(õ»´¤
+spython:S117–"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ğ¶œúÿÿÿÿ
+vpython:S117–"YRename this parameter "lpDisplayName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ğ¶œúÿÿÿÿ
+{python:S117Ÿ"^Rename this local variable "lpServiceName" to match the regular expression ^[_a-z][a-z0-9_]*$.(´±çºûÿÿÿÿ
+vpython:S1542–"XRename function "GetServiceKeyNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯ğ¶œúÿÿÿÿ
+…python:S117¯"hRename this local variable "_GetServiceDisplayNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãş÷×ûÿÿÿÿ
+rpython:S117³"ZRename this local variable "cchBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(õ»´¤
+npython:S117®"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åì‡Ô
+vpython:S117·"^Rename this local variable "lpDisplayName" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ö«¤
+qpython:S117®"YRename this parameter "lpServiceName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åì‡Ô
+upython:S1542®"\Rename function "GetServiceDisplayNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Åì‡Ô
+€python:S117¿"hRename this local variable "_GetServiceDisplayNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å€Ö
+rpython:S117Ã"ZRename this local variable "cchBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(õ»´¤
+spython:S117¾"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ°Ê¬øÿÿÿÿ
+vpython:S117Ç"^Rename this local variable "lpDisplayName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘È…
+vpython:S117¾"YRename this parameter "lpServiceName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ°Ê¬øÿÿÿÿ
+zpython:S1542¾"\Rename function "GetServiceDisplayNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ñ°Ê¬øÿÿÿÿ
+{python:S117ˆ"cRename this local variable "CServiceArgVectors" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã·‡
+upython:S117€"]Rename this parameter "ServiceArgVectors" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ»Ò
+wpython:S117"_Rename this local variable "_StartServiceA" to match the regular expression ^[_a-z][a-z0-9_]*$.(îİŠ
+~python:S117‡"aRename this local variable "dwNumServiceArgs" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¤Ä“úÿÿÿÿ
+lpython:S117€"TRename this parameter "hService" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ»Ò
+python:S117‰"dRename this local variable "lpServiceArgVectors" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑˆÓµıÿÿÿÿ
+lpython:S1542€"SRename function "StartServiceA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õ»Ò
+€python:S117—"cRename this local variable "CServiceArgVectors" to match the regular expression ^[_a-z][a-z0-9_]*$.(›æ×‹ıÿÿÿÿ
+zpython:S117"]Rename this parameter "ServiceArgVectors" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯²°°ÿÿÿÿÿ
+|python:S117"_Rename this local variable "_StartServiceW" to match the regular expression ^[_a-z][a-z0-9_]*$.(şâ°áÿÿÿÿÿ
+~python:S117–"aRename this local variable "dwNumServiceArgs" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¤Ä“úÿÿÿÿ
+qpython:S117"TRename this parameter "hService" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯²°°ÿÿÿÿÿ
+python:S117˜"dRename this local variable "lpServiceArgVectors" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑˆÓµıÿÿÿÿ
+qpython:S1542"SRename function "StartServiceW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯²°°ÿÿÿÿÿ
+xpython:S117¦"`Rename this local variable "_ControlService" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Ï¶Ü
+rpython:S117¥"URename this parameter "dwControl" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜óÖÙûÿÿÿÿ
+qpython:S117¥"TRename this parameter "hService" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜óÖÙûÿÿÿÿ
+~python:S117«"aRename this local variable "rawServiceStatus" to match the regular expression ^[_a-z][a-z0-9_]*$.(å‰Àöûÿÿÿÿ
+rpython:S1542¥"TRename function "ControlService" to match the regular expression ^[a-z_][a-z0-9_]*$.(˜óÖÙûÿÿÿÿ
+python:S117Å"dRename this local variable "_QueryServiceStatus" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞÉ‘¬ÿÿÿÿÿ
+lpython:S117Ä"TRename this parameter "hService" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éã€™
+~python:S117Ê"aRename this local variable "rawServiceStatus" to match the regular expression ^[_a-z][a-z0-9_]*$.(å‰Àöûÿÿÿÿ
+qpython:S1542Ä"XRename function "QueryServiceStatus" to match the regular expression ^[a-z_][a-z0-9_]*$.(Éã€™
+mpython:S117Õ"URename this parameter "InfoLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(—ŒÂÉ
+ƒpython:S117Ú"fRename this local variable "_QueryServiceStatusEx" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚŠÅüÿÿÿÿ
+vpython:S117à"^Rename this local variable "cbBytesNeeded" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊÂ®ª
+lpython:S117Õ"TRename this parameter "hService" to match the regular expression ^[_a-z][a-z0-9_]*$.(—ŒÂÉ
+vpython:S117ß"YRename this local variable "lpBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞíÄŸûÿÿÿÿ
+spython:S1542Õ"ZRename function "QueryServiceStatusEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(—ŒÂÉ
+zpython:S117õ"]Rename this local variable "ResumeHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(³Í³‰úÿÿÿÿ
+qpython:S117ù"YRename this local variable "Services" to match the regular expression ^[_a-z][a-z0-9_]*$.( ¾õÑ
+wpython:S117ş"_Rename this local variable "ServicesBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.( ”Ùÿ
+~python:S117ô"aRename this local variable "ServicesReturned" to match the regular expression ^[_a-z][a-z0-9_]*$.(Èÿèöüÿÿÿÿ
+‚python:S117ï"eRename this local variable "_EnumServicesStatusA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àï¸şÿÿÿÿ
+{python:S117ó"^Rename this local variable "cbBytesNeeded" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¼Ø…ÿÿÿÿÿ
+rpython:S117î"ZRename this parameter "dwServiceState" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãê¦ƒ
+qpython:S117î"YRename this parameter "dwServiceType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãê¦ƒ
+npython:S117î"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãê¦ƒ
+}python:S117‚"`Rename this local variable "lpServicesArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(óÎäüÿÿÿÿ
+rpython:S1542î"YRename function "EnumServicesStatusA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ãê¦ƒ
+zpython:S117’"]Rename this local variable "ResumeHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(³Í³‰úÿÿÿÿ
+qpython:S117–"YRename this local variable "Services" to match the regular expression ^[_a-z][a-z0-9_]*$.( ¾õÑ
+wpython:S117›"_Rename this local variable "ServicesBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.( ”Ùÿ
+~python:S117‘"aRename this local variable "ServicesReturned" to match the regular expression ^[_a-z][a-z0-9_]*$.(Èÿèöüÿÿÿÿ
+|python:S117Œ"eRename this local variable "_EnumServicesStatusW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô©ı[
+{python:S117"^Rename this local variable "cbBytesNeeded" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¼Ø…ÿÿÿÿÿ
+rpython:S117‹"ZRename this parameter "dwServiceState" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôñ‘
+qpython:S117‹"YRename this parameter "dwServiceType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôñ‘
+npython:S117‹"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôñ‘
+}python:S117Ÿ"`Rename this local variable "lpServicesArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(íˆéøÿÿÿÿ
+rpython:S1542‹"YRename function "EnumServicesStatusW" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ôñ‘
+rpython:S117¶"URename this parameter "InfoLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(áˆïñÿÿÿÿÿ
+zpython:S117Á"]Rename this local variable "ResumeHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(³Í³‰úÿÿÿÿ
+qpython:S117Å"YRename this local variable "Services" to match the regular expression ^[_a-z][a-z0-9_]*$.( ¾õÑ
+wpython:S117Ê"_Rename this local variable "ServicesBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.( ”Ùÿ
+~python:S117À"aRename this local variable "ServicesReturned" to match the regular expression ^[_a-z][a-z0-9_]*$.(Èÿèöüÿÿÿÿ
+„python:S117»"gRename this local variable "_EnumServicesStatusExA" to match the regular expression ^[_a-z][a-z0-9_]*$.(úŒàôÿÿÿÿÿ
+{python:S117¿"^Rename this local variable "cbBytesNeeded" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¼Ø…ÿÿÿÿÿ
+wpython:S117¶"ZRename this parameter "dwServiceState" to match the regular expression ^[_a-z][a-z0-9_]*$.(áˆïñÿÿÿÿÿ
+vpython:S117¶"YRename this parameter "dwServiceType" to match the regular expression ^[_a-z][a-z0-9_]*$.(áˆïñÿÿÿÿÿ
+spython:S117¶"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(áˆïñÿÿÿÿÿ
+xpython:S117Î"`Rename this local variable "lpServicesArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô¡¾Ñ
+upython:S117¶"XRename this parameter "pszGroupName" to match the regular expression ^[_a-z][a-z0-9_]*$.(áˆïñÿÿÿÿÿ
+ypython:S1542¶"[Rename function "EnumServicesStatusExA" to match the regular expression ^[a-z_][a-z0-9_]*$.(áˆïñÿÿÿÿÿ
+mpython:S117×"URename this parameter "InfoLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ›¸û
+zpython:S117á"]Rename this local variable "ResumeHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(³Í³‰úÿÿÿÿ
+qpython:S117å"YRename this local variable "Services" to match the regular expression ^[_a-z][a-z0-9_]*$.( ¾õÑ
+wpython:S117ê"_Rename this local variable "ServicesBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.( ”Ùÿ
+~python:S117à"aRename this local variable "ServicesReturned" to match the regular expression ^[_a-z][a-z0-9_]*$.(Èÿèöüÿÿÿÿ
+python:S117Ø"gRename this local variable "_EnumServicesStatusExW" to match the regular expression ^[_a-z][a-z0-9_]*$.(´á’
+{python:S117ß"^Rename this local variable "cbBytesNeeded" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¼Ø…ÿÿÿÿÿ
+rpython:S117×"ZRename this parameter "dwServiceState" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ›¸û
+qpython:S117×"YRename this parameter "dwServiceType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ›¸û
+npython:S117×"VRename this parameter "hSCManager" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ›¸û
+}python:S117î"`Rename this local variable "lpServicesArray" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ„¡æùÿÿÿÿ
+ppython:S117×"XRename this parameter "pszGroupName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ›¸û
+tpython:S1542×"[Rename function "EnumServicesStatusExW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ğ›¸û

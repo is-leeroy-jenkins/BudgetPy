@@ -1,0 +1,40 @@
+
+opython:S1192à"WDefine a constant instead of duplicating this literal 'invalid constraint: %s' 3 times.(Áéü
+ppython:S1192Ð"WDefine a constant instead of duplicating this literal "Invalid specification " 3 times.(›Í²¼
+qpython:S37768"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(šåËûÿÿÿÿÿ
+spython:S3776‘"URefactor this function to reduce its Cognitive Complexity from 100 to the 15 allowed.(ÄØÇÏþÿÿÿÿ
+6python:S125‡"Remove this commented out code.(Ùñþ}
+7python:S125¾"Remove this commented out code.(ÃâŽ¨
+6python:S125Æ"Remove this commented out code.(ˆ¹Å
+<python:S125Ú"Remove this commented out code.(€Ö¢Ðþÿÿÿÿ
+mpython:S3776Þ"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(‚Šêþ
+Npython:S6035Æ"0Replace this alternation with a character class.(ë¿¨¡ÿÿÿÿÿ
+rpython:S5843Æ"TSimplify this regular expression to reduce its complexity from 40 to the 20 allowed.(ë¿¨¡ÿÿÿÿÿ
+mpython:S3776Ë"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(¼•’
+mpython:S3776ø"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÿƒÎ£
+7python:S125ž"Remove this commented out code.(×ÞÃ
+mpython:S3776°"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÃÅÒ
+rpython:S3776ð"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(âñ˜¸þÿÿÿÿ
+mpython:S3776µ	"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(’ÑÐº
+Ipython:S5806Ã	"+Rename this variable; it shadows a builtin.(ƒ€Þüÿÿÿÿ
+dpython:S100º
+"GRename method "ETA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿ‚øÄýÿÿÿÿ
+7python:S125¾
+"Remove this commented out code.(àØ£©
+7python:S125Æ
+"Remove this commented out code.(àØ£©
+rpython:S5850Þ
+"TGroup parts of the regex together to make the intended operator precedence explicit.(¼Æçöøÿÿÿÿ
+rpython:S3776ì
+"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(Ü²Ó€ÿÿÿÿÿ
+Ipython:S5806ð
+"+Rename this variable; it shadows a builtin.(“þÐ›ÿÿÿÿÿ
+rpython:S3776•"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ì¡ºìøÿÿÿÿ
+Jpython:S4423£",Change this code to use a stronger protocol.(½µúÿÿÿÿ
+Jpython:S4423¦",Change this code to use a stronger protocol.(ý¾€íûÿÿÿÿ
+6python:S125«"Remove this commented out code.(ãÃ³
+mpython:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(µ³È»
+kpython:S1854‘"MRemove this assignment to local variable '_servers'; the value is never used.(ÙíÂ¡øÿÿÿÿ
+rpython:S3776ÿ"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(ÀŸ£Èøÿÿÿÿ
+7python:S125º"Remove this commented out code.(àØ£©
+rpython:S3776Ó"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¯Õ¶þÿÿÿÿ

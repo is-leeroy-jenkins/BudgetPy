@@ -1,0 +1,14 @@
+
+{python:S1192é"bDefine a constant instead of duplicating this literal "Intel Compiler doesn't support it" 4 times.(—Î‘´
+kpython:S1192µ"MDefine a constant instead of duplicating this literal "/arch:AVX512" 3 times.(ÇÇĞøıÿÿÿÿ
+Hpython:S1066„"/Merge this if statement with the enclosing one.(”õ
+rpython:S3776¶"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(§º†„ûÿÿÿÿ
+rpython:S3776÷"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(Ù‡şùÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(Áû¹Çûÿÿÿÿ
+rpython:S3776³"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(ÖÎœƒıÿÿÿÿ
+Apython:S108Ü")Either remove or fill this block of code.(ã‘Û¾
+jpython:S1134è	"LTake the required action to fix the issue indicated by this "FIXME" comment.(‹¹Å‰üÿÿÿÿ
+mpython:S3776‘"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(²şÖı
+Apython:S108ª")Either remove or fill this block of code.(ã‘Û¾
+mpython:S3776Ê"TRefactor this function to reduce its Cognitive Complexity from 69 to the 15 allowed.(É×Ê—
+rpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(”êöøÿÿÿÿ

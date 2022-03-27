@@ -1,0 +1,19 @@
+
+kpython:S1542¥"RRename function "test_Example" to match the regular expression ^[a-z_][a-z0-9_]*$.(×Çõ¦
+ppython:S1542"RRename function "test_DocTest" to match the regular expression ^[a-z_][a-z0-9_]*$.(Æ–€êùÿÿÿÿ
+„python:S101¥"lRename class "test_DocTestFinder" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ù‡Èù
+=python:S5719¦"Add a "self" or class parameter(ı–¹¨şÿÿÿÿ
+8python:S5719•"Add a "self" or class parameter(Ï§ß
+npython:S100•"VRename method "non_Python_modules" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï§ß
+qpython:S1542Ï"XRename function "test_DocTestParser" to match the regular expression ^[a-z_][a-z0-9_]*$.(ª®¤ß
+‰python:S101†"lRename class "test_DocTestRunner" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ğ¬£øûÿÿÿÿ
+8python:S5719‡"Add a "self" or class parameter(’Ô
+8python:S5719Ä"Add a "self" or class parameter(àòİ«
+8python:S5719‡"Add a "self" or class parameter(Â¹ô
+=python:S5719õ"Add a "self" or class parameter(ÛèÓ˜üÿÿÿÿ
+=python:S5719’	"Add a "self" or class parameter(Ä§¨øúÿÿÿÿ
+=python:S5719Ã"Add a "self" or class parameter(Ï«¢÷üÿÿÿÿ
+upython:S1542¾"WRename function "test_DocTestSuite" to match the regular expression ^[a-z_][a-z0-9_]*$.(èÁ‹›øÿÿÿÿ
+ppython:S1542³"WRename function "test_DocFileSuite" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ñš˜
+gpython:S1542"NRename function "test_CLI" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ïì¡
+@python:S1481Ÿ"'Remove the unused local variable "ret".(Ïíµ½

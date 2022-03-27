@@ -1,0 +1,30 @@
+
+_python:S2208%"GImport only needed names or import the module and then use its members.(Š©ù´
+dpython:S2208&"GImport only needed names or import the module and then use its members.(ñÌÜ±ùÿÿÿÿ
+‚python:S101<"kRename class "WTS_PROCESS_INFOA" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÙùÙ
+‡python:S101E"kRename class "WTS_PROCESS_INFOW" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ô½Èúÿÿÿÿ
+‰python:S101±"lRename class "WTS_CLIENT_DISPLAY" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÝÃßÐûÿÿÿÿ
+wpython:S117ø"_Rename this local variable "_WTSFreeMemory" to match the regular expression ^[_a-z][a-z0-9_]*$.(„ŒÝŒ
+kpython:S117÷"SRename this parameter "pMemory" to match the regular expression ^[_a-z][a-z0-9_]*$.(É¬Àê
+lpython:S1542÷"SRename function "WTSFreeMemory" to match the regular expression ^[a-z_][a-z0-9_]*$.(É¬Àê
+mpython:S117‹"VRename this local variable "Count" to match the regular expression ^[_a-z][a-z0-9_]*$.(†¢–
+…python:S117…"hRename this local variable "_WTSEnumerateProcessesA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Øô•ôùÿÿÿÿ
+ppython:S117„"SRename this parameter "hServer" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸§œÖúÿÿÿÿ
+zpython:S117Š"]Rename this local variable "pProcessInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(–Ä¼„úÿÿÿÿ
+zpython:S1542„"\Rename function "WTSEnumerateProcessesA" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸§œÖúÿÿÿÿ
+mpython:S117–"VRename this local variable "Count" to match the regular expression ^[_a-z][a-z0-9_]*$.(†¢–
+€python:S117"hRename this local variable "_WTSEnumerateProcessesW" to match the regular expression ^[_a-z][a-z0-9_]*$.(”’¯
+ppython:S117"SRename this parameter "hServer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÞ¨Ðøÿÿÿÿ
+zpython:S117•"]Rename this local variable "pProcessInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(Çó“Ñøÿÿÿÿ
+zpython:S1542"\Rename function "WTSEnumerateProcessesW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ùÞ¨Ðøÿÿÿÿ
+qpython:S117¡"TRename this parameter "ExitCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(–è¶¢úÿÿÿÿ
+rpython:S117¡"URename this parameter "ProcessId" to match the regular expression ^[_a-z][a-z0-9_]*$.(–è¶¢úÿÿÿÿ
+‚python:S117¢"eRename this local variable "_WTSTerminateProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ÝÔ°üÿÿÿÿ
+ppython:S117¡"SRename this parameter "hServer" to match the regular expression ^[_a-z][a-z0-9_]*$.(–è¶¢úÿÿÿÿ
+wpython:S1542¡"YRename function "WTSTerminateProcess" to match the regular expression ^[a-z_][a-z0-9_]*$.(–è¶¢úÿÿÿÿ
+~python:S117»"fRename this local variable "_ProcessIdToSessionId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ÙÏà
+tpython:S117º"WRename this parameter "dwProcessId" to match the regular expression ^[_a-z][a-z0-9_]*$.(²áŽúÿÿÿÿ
+tpython:S117À"\Rename this local variable "dwSessionId" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Çï˜
+xpython:S1542º"ZRename function "ProcessIdToSessionId" to match the regular expression ^[a-z_][a-z0-9_]*$.(²áŽúÿÿÿÿ
+†python:S117Æ"nRename this local variable "_WTSGetActiveConsoleSessionId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒýŽÇ
+€python:S1542Å"bRename function "WTSGetActiveConsoleSessionId" to match the regular expression ^[a-z_][a-z0-9_]*$.(µñÙÿÿÿÿÿ

@@ -1,0 +1,21 @@
+
+spython:S1192E"VDefine a constant instead of duplicating this literal "builtins.staticmethod" 3 times.(’“Á„ÿÿÿÿÿ
+rpython:S1192E"UDefine a constant instead of duplicating this literal "builtins.classmethod" 3 times.(’“Á„ÿÿÿÿÿ
+qpython:S3776K"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ŒÖ¥ëúÿÿÿÿ
+mpython:S3776—"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(™ÆŠ¯
+rpython:S3776Ç"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÂÇïúÿÿÿÿ
+mpython:S3776ƒ"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(µ»€
+rpython:S3776 "TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(ßîçùÿÿÿÿ
+mpython:S3776É"TRefactor this function to reduce its Cognitive Complexity from 53 to the 15 allowed.(úàêß
+mpython:S3776ö"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(â•ÊÃ
+rpython:S3776²"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ù²·øÿÿÿÿ
+rpython:S3776¼"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(´À”·úÿÿÿÿ
+rpython:S3776Ş"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(€ÇÑıÿÿÿÿ
+epython:S5799„"GMerge these implicitly concatenated strings; or did you forget a comma?(ŠİŠ­ûÿÿÿÿ
+rpython:S3776×"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(¯Ñüÿÿÿÿ
+lpython:S3776Ü"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(ÒÒ´e
+epython:S1134å"LTake the required action to fix the issue indicated by this "FIXME" comment.(íÂî¾
+epython:S1134æ"LTake the required action to fix the issue indicated by this "FIXME" comment.(¾ıŠÉ
+mpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(Õ’Å´
+‚python:S1871Œ"dEither merge this branch with the identical one on line "2689" or change one of the implementations.(æ‹±ıúÿÿÿÿ
+mpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 43 to the 15 allowed.(ÙÃÛş

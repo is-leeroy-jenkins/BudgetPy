@@ -1,0 +1,15 @@
+
+wpython:S1175"[Rename this parameter "fLocksWithSheet" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢£Èÿÿÿÿÿ
+xpython:S1176"\Rename this parameter "fPrintsWithSheet" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡¾Ú¡ûÿÿÿÿ
+npython:S117G"RRename this parameter "colOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç‚íşÿÿÿÿ
+ipython:S117I"RRename this parameter "rowOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¬Ïµ
+rpython:S117d"VRename this parameter "clientData" to match the regular expression ^[_a-z][a-z0-9_]*$.(’®®Òÿÿÿÿÿ
+npython:S117j"WRename this parameter "contentPart" to match the regular expression ^[_a-z][a-z0-9_]*$.(’‰ˆÄ
+mpython:S117h"QRename this parameter "cxnSp" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô†Îşúÿÿÿÿ
+npython:S117g"XRename this parameter "graphicFrame" to match the regular expression ^[_a-z][a-z0-9_]*$.(âŞ
+
+hpython:S117f"QRename this parameter "grpSp" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈğÂ‘
+jpython:S117É"RRename this parameter "editAs" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í½¼œ
+wpython:S117ı"ZRename this parameter "absoluteAnchor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÌÏ…ıÿÿÿÿ
+vpython:S117ü"YRename this parameter "oneCellAnchor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ø·ø®øÿÿÿÿ
+vpython:S117û"YRename this parameter "twoCellAnchor" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îá½§ûÿÿÿÿ

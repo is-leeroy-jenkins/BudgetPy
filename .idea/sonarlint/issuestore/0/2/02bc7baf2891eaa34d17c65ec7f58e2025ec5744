@@ -1,0 +1,49 @@
+
+`python:S1192Ä"GDefine a constant instead of duplicating this literal "not in" 7 times.(ÅÊßÁ
+_python:S1192ü"FDefine a constant instead of duplicating this literal "x + y" 3 times.(äÅô…
+`python:S1192ü"GDefine a constant instead of duplicating this literal "df + s" 6 times.(ÿ¨©é
+cpython:S1192¯"JDefine a constant instead of duplicating this literal "a = 1 + 2" 3 times.(¿û¿–
+|python:S1192±"cDefine a constant instead of duplicating this literal "'BoolOp' nodes are not implemented" 5 times.(ï­ç¨
+_python:S1192Ê"FDefine a constant instead of duplicating this literal "x + 1" 3 times.(ıšŠ™
+hpython:S1192å	"JDefine a constant instead of duplicating this literal "c = a + b" 3 times.(Á£­¼úÿÿÿÿ
+Mpython:S1066½"/Merge this if statement with the enclosing one.(‹ŠÀ¨øÿÿÿÿ
+dpython:S1854´"KRemove this assignment to local variable 'result'; the value is never used.(·Å«
+Hpython:S1481±"*Remove the unused local variable "engine".(ŒùâÀûÿÿÿÿ
+ipython:S1854Ú"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+ipython:S1854Ş"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+apython:S1854×"HRemove this assignment to local variable 'lhs'; the value is never used.(Ñã¸‚
+ipython:S1854Ê"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+ipython:S1854¿"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+ipython:S1854Ã"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+apython:S1854»"HRemove this assignment to local variable 'lhs'; the value is never used.(Ç’ˆÙ
+ipython:S1854‰"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+ipython:S1854"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+fpython:S1854†"HRemove this assignment to local variable 'lhs'; the value is never used.(×ÊÛ€úÿÿÿÿ
+ipython:S1854õ"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+ipython:S1854ê"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+ipython:S1854î"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+fpython:S1854æ"HRemove this assignment to local variable 'lhs'; the value is never used.(ê¼²šşÿÿÿÿ
+ipython:S1854£"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+ipython:S1854½"KRemove this assignment to local variable 'result'; the value is never used.(ß–°úÿÿÿÿ
+Dpython:S1481©"&Remove the unused local variable "df".(Ù¾¾¶úÿÿÿÿ
+Cpython:S1481²"%Remove the unused local variable "x".(Ø Ìúÿÿÿÿÿ
+=python:S1481·"%Remove the unused local variable "x".(—“—A
+>python:S1481¼"%Remove the unused local variable "x".(æŸáí
+>python:S1481Â"%Remove the unused local variable "x".(øö‹œ
+>python:S1481Ç"%Remove the unused local variable "x".(É¢¡â
+=python:S1481Ì"%Remove the unused local variable "x".(Ê²üg
+dpython:S1854‚"FRemove this assignment to local variable 's'; the value is never used.(¤·µøÿÿÿÿ
+`python:S1854"GRemove this assignment to local variable 'df'; the value is never used.(Ô‹ŠÑ
+_python:S1854ı"FRemove this assignment to local variable 's'; the value is never used.(—ÔÉŠ
+dpython:S1854ô"FRemove this assignment to local variable 's'; the value is never used.(¤·µøÿÿÿÿ
+`python:S1854ó"GRemove this assignment to local variable 'df'; the value is never used.(ÂÿôÓ
+python:S4144ê"fUpdate this function so that its implementation is not identical to test_simple_bool_ops on line 1114.(è€’
+Cpython:S1481ˆ	"%Remove the unused local variable "s".(Ò«§²üÿÿÿÿ
+Dpython:S1481ª	"&Remove the unused local variable "df".(µ³åÿÿÿÿÿ
+>python:S1481ë	"%Remove the unused local variable "a".(Â²‚ø
+>python:S1481÷	"%Remove the unused local variable "a".(Â²‚ø
+>python:S1481«"%Remove the unused local variable "a".(Â²‚ø
+Dpython:S1481Ò"&Remove the unused local variable "df".(µ³åÿÿÿÿÿ
+>python:S1481Ğ"%Remove the unused local variable "x".(ş“Ã™
+zpython:S117Œ"]Rename this local variable "VisitorClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Î¶ƒÁıÿÿÿÿ
+@python:S1481Ñ"'Remove the unused local variable "mid".(”“Ú

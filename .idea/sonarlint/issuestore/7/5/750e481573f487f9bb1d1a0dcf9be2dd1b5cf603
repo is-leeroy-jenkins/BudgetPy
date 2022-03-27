@@ -1,0 +1,47 @@
+
+bpython:S1192ª"IDefine a constant instead of duplicating this literal '[0.+1.j]' 3 times.(£ØÀÈ
+dpython:S1192Á"KDefine a constant instead of duplicating this literal '[-inf+0.j]' 3 times.(¢™Ãó
+hpython:S1192Ç"JDefine a constant instead of duplicating this literal '[nan+0.j]' 3 times.(¦Êˆıÿÿÿÿ
+bpython:S1192«"IDefine a constant instead of duplicating this literal '[0.-1.j]' 3 times.(À¹ÎÜ
+cpython:S1192»"JDefine a constant instead of duplicating this literal '[inf+0.j]' 3 times.(•¡œ
+ipython:S1192¾"KDefine a constant instead of duplicating this literal '[inf+infj]' 3 times.(ô¾íÏøÿÿÿÿ
+dpython:S1192¸"KDefine a constant instead of duplicating this literal '[-1.+infj]' 3 times.(¨Ó€é
+Špython:S1192À"lDefine a constant instead of duplicating this literal "array([1.234e+001, 1.000e+002, 1.000e+123])" 3 times.(‰¯ëüÿÿÿÿ
+cpython:S1192Â"KDefine a constant instead of duplicating this literal '[-inf+1.j]' 3 times.(ˆ¹µ=
+hpython:S1192³"JDefine a constant instead of duplicating this literal '[1.-infj]' 3 times.(®¡Ú‰úÿÿÿÿ
+ppython:S1192"RDefine a constant instead of duplicating this literal "array([-1, 0, 1])" 4 times.(ÖÑ²€øÿÿÿÿ
+cpython:S1192´"JDefine a constant instead of duplicating this literal '[1.+nanj]' 3 times.(ÈÖæÒ
+epython:S1192Ä"LDefine a constant instead of duplicating this literal '[-inf+infj]' 3 times.(áöÏ
+cpython:S1192µ"JDefine a constant instead of duplicating this literal '[-1.+0.j]' 3 times.(å•š²
+hpython:S1192È"JDefine a constant instead of duplicating this literal '[nan+1.j]' 3 times.(“÷æÄÿÿÿÿÿ
+jpython:S1192Æ"LDefine a constant instead of duplicating this literal '[-inf+nanj]' 3 times.(š•®øÿÿÿÿ
+epython:S1192Å"LDefine a constant instead of duplicating this literal '[-inf-infj]' 3 times.(¦°
+gpython:S1192©"IDefine a constant instead of duplicating this literal '[0.+0.j]' 3 times.(Œ˜”¡úÿÿÿÿ
+hpython:S1192¼"JDefine a constant instead of duplicating this literal '[inf+1.j]' 3 times.(ƒüæıÿÿÿÿ
+opython:S1192•"QDefine a constant instead of duplicating this literal "array([0, 1, 2])" 3 times.(èœåşÿÿÿÿ
+hpython:S1192²"JDefine a constant instead of duplicating this literal '[1.+infj]' 3 times.(®·Øûøÿÿÿÿ
+cpython:S1192·"JDefine a constant instead of duplicating this literal '[-1.-1.j]' 3 times.(éÆ¥
+gpython:S1192°"IDefine a constant instead of duplicating this literal '[1.+1.j]' 3 times.(ó¿¹ÿÿÿÿÿ
+dpython:S1192¿"KDefine a constant instead of duplicating this literal '[inf-infj]' 3 times.(ÆıÉæ
+cpython:S1192¬"JDefine a constant instead of duplicating this literal '[0.+infj]' 3 times.(ë’ÊŠ
+dpython:S1192Ì"KDefine a constant instead of duplicating this literal '[nan+nanj]' 3 times.(Óí¯ò
+hpython:S1192¶"JDefine a constant instead of duplicating this literal '[-1.+1.j]' 3 times.(¨–úüÿÿÿÿ
+hpython:S1192É"JDefine a constant instead of duplicating this literal '[nan-1.j]' 3 times.(ü¤€øÿÿÿÿ
+cpython:S1192½"JDefine a constant instead of duplicating this literal '[inf-1.j]' 3 times.(¸šö
+cpython:S1192Ë"KDefine a constant instead of duplicating this literal '[nan-infj]' 3 times.(º™— 
+bpython:S1192¯"IDefine a constant instead of duplicating this literal '[1.+0.j]' 3 times.(»ıä
+dpython:S1192º"KDefine a constant instead of duplicating this literal '[-1.+nanj]' 3 times.(æÿ§“
+dpython:S1192¹"KDefine a constant instead of duplicating this literal '[-1.-infj]' 3 times.(—ÓÏå
+hpython:S1192­"JDefine a constant instead of duplicating this literal '[0.-infj]' 3 times.(ÍÂÙúúÿÿÿÿ
+ipython:S1192À"KDefine a constant instead of duplicating this literal '[inf+nanj]' 3 times.(½ĞÉ şÿÿÿÿ
+ipython:S1192Ã"KDefine a constant instead of duplicating this literal '[-inf-1.j]' 3 times.(ğêÔãûÿÿÿÿ
+hpython:S1192®"JDefine a constant instead of duplicating this literal '[0.+nanj]' 3 times.(¸Š¨¹ÿÿÿÿÿ
+ipython:S1192Ê"KDefine a constant instead of duplicating this literal '[nan+infj]' 3 times.(„ÖœÏşÿÿÿÿ
+gpython:S1192±"IDefine a constant instead of duplicating this literal '[1.-1.j]' 3 times.(½ì‚ºùÿÿÿÿ
+Fpython:S2201™"(The return value of "repr" must be used.(öĞâèıÿÿÿÿ
+npython:S117Ö"VRename this local variable "reprA" to match the regular expression ^[_a-z][a-z0-9_]*$.(´ú£Ø
+mpython:S117Ó"URename this local variable "strA" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥½ö±
+npython:S117ß"VRename this local variable "reprA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü•”‘
+rpython:S117Û"URename this local variable "strA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û ´óøÿÿÿÿ
+Fpython:S2201–"(The return value of "repr" must be used.(´×ƒİûÿÿÿÿ
+Apython:S108¶")Either remove or fill this block of code.(ã‘Û¾

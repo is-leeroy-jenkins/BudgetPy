@@ -1,0 +1,9 @@
+
+jpython:S107Ä"MMethod "__init__" has 17 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+epython:S1134¹"LTake the required action to fix the issue indicated by this "FIXME" comment.(‡İ–¢
+jpython:S1134¾"LTake the required action to fix the issue indicated by this "FIXME" comment.(ãéæÉûÿÿÿÿ
+rpython:S3776á"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(£ó†Ìûÿÿÿÿ
+opython:S117Æ"WRename this parameter "ResponseCls" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛÍî
+qpython:S2710Æ"XRename "ResponseCls" to a valid class parameter name or add the missing class parameter.(ÛÍî
+mpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(×ø˜å
+jpython:S1134ä"LTake the required action to fix the issue indicated by this "FIXME" comment.(ñ÷Ïûÿÿÿÿ

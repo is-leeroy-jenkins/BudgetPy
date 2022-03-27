@@ -1,0 +1,14 @@
+
+mpython:S1192|"UDefine a constant instead of duplicating this literal "tcp://127.0.0.1:5555" 3 times.(£éÇ
+python:S1845`"dRename field "context" to prevent any misunderstanding/clash with field "Context" defined on line 31(•Îê›þÿÿÿÿ
+=python:S1481s"%Remove the unused local variable "m".(¦Ë†¶
+Bpython:S1481x"%Remove the unused local variable "p".(ÈËµØùÿÿÿÿ
+jpython:S1764˜"LCorrect one of the identical sub-expressions on both sides of operator "==".(ÐÓòÃýÿÿÿÿ
+jpython:S1764™"LCorrect one of the identical sub-expressions on both sides of operator "==".(ÁåËýÿÿÿÿ
+mpython:S3776¬"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(’—¸ú
+>python:S1481Æ"%Remove the unused local variable "i".(éŠ‰£
+>python:S1481Í"%Remove the unused local variable "i".(éŠ‰£
+>python:S1481ä"%Remove the unused local variable "i".(éŠ‰£
+>python:S1481§"%Remove the unused local variable "i".(¹½ð
+>python:S1481ª"%Remove the unused local variable "i".(¹½ð
+>python:S1481³"%Remove the unused local variable "i".(úÌÞÛ

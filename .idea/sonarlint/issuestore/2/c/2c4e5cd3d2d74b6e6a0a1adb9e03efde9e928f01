@@ -1,0 +1,6 @@
+
+Cpython:S5806s"+Rename this variable; it shadows a builtin.(âÏ’±
+Bpython:S5806{"+Rename this variable; it shadows a builtin.(ð¿ê#
+mpython:S3776•"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(»ˆî§
+epython:S1134ù"LTake the required action to fix the issue indicated by this "FIXME" comment.(øô”ê
+jpython:S1134ú"LTake the required action to fix the issue indicated by this "FIXME" comment.(¹²¶—ýÿÿÿÿ

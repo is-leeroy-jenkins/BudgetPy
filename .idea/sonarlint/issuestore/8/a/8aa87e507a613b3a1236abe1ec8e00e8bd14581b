@@ -1,0 +1,10 @@
+
+kpython:S1192$"SDefine a constant instead of duplicating this literal 'tcp://127.0.0.1:%i' 5 times.(€º®ş
+hpython:S1192#"PDefine a constant instead of duplicating this literal 'tcp://127.0.0.1' 9 times.(¸ÓÇ
+cpython:S1192x"FDefine a constant instead of duplicating this literal "%s:%i" 3 times.(Ğ¶Âøÿÿÿÿ
+Hpython:S5806V"+Rename this variable; it shadows a builtin.(Ë‚ıÿÿÿÿ
+Hpython:S5806V"+Rename this variable; it shadows a builtin.(Ë‚ıÿÿÿÿ
+Bpython:S1481g"%Remove the unused local variable "e".(¼³ƒıÿÿÿÿ
+Bpython:S1481e"%Remove the unused local variable "i".(¢ÈŒ—ùÿÿÿÿ
+Ipython:S5806ˆ"+Rename this variable; it shadows a builtin.(Ë‚ıÿÿÿÿ
+Ipython:S5806ˆ"+Rename this variable; it shadows a builtin.(Ë‚ıÿÿÿÿ

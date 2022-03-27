@@ -1,0 +1,4 @@
+
+opython:S117X"XRename this local variable "Context" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ôó“
+opython:S117m"XRename this local variable "Context" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ôó“
+spython:S117n"\Rename this local variable "Environment" to match the regular expression ^[_a-z][a-z0-9_]*$.(­÷Óñ

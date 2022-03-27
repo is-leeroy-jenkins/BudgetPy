@@ -1,0 +1,9 @@
+
+ƒpython:S101„"kRename class "_MSNumeric_pyodbc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ûÆÌĞ
+†python:S101ˆ"iRename class "_MSFloat_pyodbc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(·£æşÿÿÿÿ
+ypython:S117—"\Rename this local variable "DBAPIBinary" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈËºâşÿÿÿÿ
+ˆpython:S101Ê"kRename class "_VARBINARY_pyodbc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(“İÎ­üÿÿÿÿ
+€python:S101Î"hRename class "_BINARY_pyodbc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¬ë—Ù
+python:S101Ò"sRename class "MSExecutionContext_pyodbc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ñÉÂíûÿÿÿÿ
+‚python:S101„"jRename class "MSDialect_pyodbc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÔÅ•
+„python:S117ä"lRename this local variable "odbc_SQL_SS_TIMESTAMPOFFSET" to match the regular expression ^[_a-z][a-z0-9_]*$.(×¹Ù±

@@ -1,0 +1,7 @@
+
+spython:S117"\Rename this local variable "ElementTree" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ëè‡
+ƒpython:S117"gRename this local variable "ElementTreeCommentType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ØÆ‚“şÿÿÿÿ
+python:S117"eRename this parameter "ElementTreeImplementation" to match the regular expression ^[_a-z][a-z0-9_]*$.(û¾îıÿÿÿÿ
+rpython:S1542"URename function "getETreeBuilder" to match the regular expression ^[a-z_][a-z0-9_]*$.(û¾îıÿÿÿÿ
+qpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(û¾îıÿÿÿÿ
+=python:S5603"%Remove this unused class declaration.(É¶¢ä

@@ -1,0 +1,136 @@
+
+python:S1192Š"fDefine a constant instead of duplicating this literal 'network interface `%s` does not exist' 3 times.(š˜îë
+opython:S1192²0"QDefine a constant instead of duplicating this literal "positive integer" 4 times.(ÓçÒ‡ÿÿÿÿÿ
+qpython:S1192¥*"XDefine a constant instead of duplicating this literal b"\x00python\x00test\x00" 3 times.(½ç¬á
+spython:S1192È"UDefine a constant instead of duplicating this literal 'ff02::1de:c0:face:8d' 3 times.(™ó³×øÿÿÿÿ
+rpython:S1192è"TDefine a constant instead of duplicating this literal 'name lookup failure' 3 times.(™øˆ€ıÿÿÿÿ
+spython:S1192Ã"UDefine a constant instead of duplicating this literal 'ff02::1de:c0:face:8D' 3 times.(¤Ğú¼úÿÿÿÿ
+gpython:S116Æ"ORename this field "__setUp" to match the regular expression ^[_a-z][_a-z0-9]*$.(†É×À
+jpython:S116È"MRename this field "setUp" to match the regular expression ^[_a-z][_a-z0-9]*$.(î¦ Æùÿÿÿÿ
+jpython:S116Ç"RRename this field "__tearDown" to match the regular expression ^[_a-z][_a-z0-9]*$.(åÒŸ°
+gpython:S116É"PRename this field "tearDown" to match the regular expression ^[_a-z][_a-z0-9]*$.(ûùÓ>
+opython:S100Ë"WRename method "serverExplicitReady" to match the regular expression ^[a-z_][a-z0-9_]*$.(øã•Ã
+gpython:S100Ò"JRename method "_setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(åÊŒ²üÿÿÿÿ
+jpython:S100í"MRename method "_tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(âüÛ¶úÿÿÿÿ
+jpython:S100ö"MRename method "clientRun" to match the regular expression ^[a-z_][a-z0-9_]*$.(…¯™ôÿÿÿÿÿ
+Vpython:S5754ú"8Catch a more specific exception or reraise the exception(ê¥Ğ…úÿÿÿÿ
+Vpython:S5754‡"8Catch a more specific exception or reraise the exception(ê¥Ğ…úÿÿÿÿ
+lpython:S100Œ"ORename method "clientSetUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(ú•¸œøÿÿÿÿ
+opython:S100"RRename method "clientTearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÍĞÃ•ùÿÿÿÿ
+spython:S117•"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117£"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117³"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117Á"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117Õ"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117ğ"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117“"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117¯"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+wpython:S1186º"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ú•¸œøÿÿÿÿ
+apython:S5445¹"C'tempfile.mktemp' is insecure. Use 'tempfile.TemporaryFile' instead(à“Ñèùÿÿÿÿ
+opython:S1542ş"VRename function "skipWithClientIf" to match the regular expression ^[a-z_][a-z0-9_]*$.(é”ë€
+ypython:S1186‡"[Add a nested comment explaining why this function is empty, or complete the implementation.(îíöúÿÿÿÿ
+ppython:S1542•"RRename function "requireAttrs" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÇÄè÷üÿÿÿÿ
+lpython:S1542Ÿ"SRename function "requireSocket" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÃÓú½
+{python:S117Ê	"^Rename this local variable "assertInvalid" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş÷é¬üÿÿÿÿ
+{python:S117÷	"^Rename this local variable "assertInvalid" to match the regular expression ^[_a-z][a-z0-9_]*$.(èÆˆ‰şÿÿÿÿ
+{python:S117ª
+"^Rename this local variable "assertInvalid" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş÷é¬üÿÿÿÿ
+{python:S117Ñ
+"^Rename this local variable "assertInvalid" to match the regular expression ^[_a-z][a-z0-9_]*$.(èÆˆ‰şÿÿÿÿ
+Wpython:S905Á":Remove or refactor this statement; it has no side effects.(ÎáÁäûÿÿÿÿ
+dpython:S1854æ"FRemove this assignment to local variable 'r'; the value is never used.(œ·ª§ıÿÿÿÿ
+Cpython:S1481å"%Remove the unused local variable "f".(Š˜›Ûüÿÿÿÿ
+Cpython:S1481ê"%Remove the unused local variable "f".(ôë±íşÿÿÿÿ
+Wpython:S5655Š"?Change this argument; Function "close" expects a different type(íøÿ
+Dpython:S5806¤"+Rename this variable; it shadows a builtin.(¶ŒîÄ
+Cpython:S1481Á"%Remove the unused local variable "s".(ÉÏÿòıÿÿÿÿ
+Apython:S108Â")Either remove or fill this block of code.(ã‘Û¾
+>python:S1481Ç"%Remove the unused local variable "s".(š÷
+Apython:S108È")Either remove or fill this block of code.(ã‘Û¾
+spython:S117ï"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+Cpython:S1481Õ"%Remove the unused local variable "s".(ÉÏÿòıÿÿÿÿ
+Apython:S108Ö")Either remove or fill this block of code.(ã‘Û¾
+Cpython:S1481Û"%Remove the unused local variable "s".(ÒˆÅÇúÿÿÿÿ
+Apython:S108Ü")Either remove or fill this block of code.(ã‘Û¾
+>python:S1481Ÿ"%Remove the unused local variable "s".(¯ßş´
+Apython:S108 ")Either remove or fill this block of code.(ã‘Û¾
+Cpython:S1481¸"%Remove the unused local variable "s".(·¤§Ÿúÿÿÿÿ
+Apython:S108¹")Either remove or fill this block of code.(ã‘Û¾
+€python:S4144Û"bUpdate this function so that its implementation is not identical to _testSendAndRecv on line 2257.(ø°íÆüÿÿÿÿ
+spython:S117Å"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+>python:S1481‰"%Remove the unused local variable "s".(Éš¾¦
+Apython:S108Š")Either remove or fill this block of code.(ã‘Û¾
+>python:S1481±"%Remove the unused local variable "s".(¢©
+Apython:S108²")Either remove or fill this block of code.(ã‘Û¾
+>python:S1481â"%Remove the unused local variable "s".(­éµø
+Apython:S108ã")Either remove or fill this block of code.(ã‘Û¾
+Cpython:S1481ç"%Remove the unused local variable "s".(‘¸æåıÿÿÿÿ
+Apython:S108è")Either remove or fill this block of code.(ã‘Û¾
+>python:S1481ì"%Remove the unused local variable "s".(¤ºÀ¦
+Apython:S108í")Either remove or fill this block of code.(ã‘Û¾
+Cpython:S1481ò"%Remove the unused local variable "s".(ü—àùÿÿÿÿ
+Apython:S108ó")Either remove or fill this block of code.(ã‘Û¾
+spython:S117ø"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117ó"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117’"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+[python:S112¶">Replace this generic exception class with a more specific one.(¿ğœıÿÿÿÿ
+‚python:S4144¬"dUpdate this function so that its implementation is not identical to testSendmsgTimeout on line 2957.(ëğı²üÿÿÿÿ
+rpython:S1186 "YAdd a nested comment explaining why this method is empty, or complete the implementation.(¦µëƒ
+ƒpython:S4144Ö"eUpdate this function so that its implementation is not identical to _testFDPassSeparate on line 3515.(©ª„ïÿÿÿÿÿ
+|python:S4144ä"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(İª˜†
+|python:S4144¨"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(Øíıî
+python:S4144µ"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(¤ÑŞ›ıÿÿÿÿ
+‰python:S4144Ğ"pUpdate this function so that its implementation is not identical to testSetTrafficClassAndHopLimit on line 3900.(»ë¨÷
+{python:S4144"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(¨ÓÍ
+|python:S4144™"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(‚ÔÁÂ
+python:S4144¥"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(Ø¯¾Åıÿÿÿÿ
+python:S4144®"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(·øäËûÿÿÿÿ
+|python:S4144·"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(ßÊû
+|python:S4144Ò"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(ìì·÷
+{python:S4144ı"cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(˜Öå
+{python:S4144‡ "cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(ï½«k
+|python:S4144’ "cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(›€µ€
+|python:S4144 "cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(ó©û´
+python:S4144Ç "cUpdate this function so that its implementation is not identical to _testRecvHopLimit on line 3799.(º§›§ùÿÿÿÿ
+>python:S1481ñ""&Remove the unused local variable "cm".(§œ¤
+>python:S1481¬#"&Remove the unused local variable "cm".(§œ¤
+spython:S117İ#"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117€$"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+rpython:S1186©$"YAdd a nested comment explaining why this method is empty, or complete the implementation.(öÙ…
+wpython:S1186Å$"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ìÂ–æıÿÿÿÿ
+fpython:S1854‡%"HRemove this assignment to local variable 'msg'; the value is never used.(Æî†Ïşÿÿÿÿ
+ypython:S4144†&"`Update this function so that its implementation is not identical to _testSmallRead on line 4847.(­°âÿ
+ypython:S4144&"`Update this function so that its implementation is not identical to _testSmallRead on line 4847.(¡‚¶ı
+~python:S4144š&"`Update this function so that its implementation is not identical to _testSmallRead on line 4847.(Ø³®Êıÿÿÿÿ
+ypython:S4144¥&"`Update this function so that its implementation is not identical to _testSmallRead on line 4847.(ãùÅ¦
+spython:S117´%"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+Cpython:S1481¹%"%Remove the unused local variable "i".(ù”éüÿÿÿÿ
+wpython:S1186½&"YAdd a nested comment explaining why this method is empty, or complete the implementation.(‰ÌÓèûÿÿÿÿ
+Cpython:S1481 '"%Remove the unused local variable "i".(İš¨ùÿÿÿÿ
+lpython:S100Ø'"ORename method "clientSetUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(ú•¸œøÿÿÿÿ
+spython:S117£("VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+spython:S117ê("VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+wpython:S1186î("YAdd a nested comment explaining why this method is empty, or complete the implementation.(ú•¸œøÿÿÿÿ
+?python:S1481”)"'Remove the unused local variable "foo".(Æ¨ñ5
+Upython:S5754™)"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+?python:S1481­)"'Remove the unused local variable "foo".(Æ¨ñ5
+Upython:S5754²)"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+@python:S1481Í)"'Remove the unused local variable "foo".(âÍĞ
+Upython:S5754Ò)"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+@python:S1481æ)"'Remove the unused local variable "foo".(âÍĞ
+Upython:S5754ë)"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Dpython:S1481‘*"&Remove the unused local variable "s3".(‹¦¾Åúÿÿÿÿ
+}python:S4144¢+"dUpdate this function so that its implementation is not identical to _testRecvIntoArray on line 5508.(Œ¡Ï
+spython:S117ù*"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+npython:S1542Ì+"URename function "isTipcAvailable" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹àáÓ
+spython:S117û+"VRename this parameter "methodName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¨Ëÿùÿÿÿÿ
+ˆpython:S4144¿,"jUpdate this function so that its implementation is not identical to testCreateConnectionBase on line 5681.(šËäîùÿÿÿÿ
+zpython:S4144ˆ/"aUpdate this function so that its implementation is not identical to testRegularFile on line 6006.(¸¥€•
+zpython:S4144‹0"aUpdate this function so that its implementation is not identical to testRegularFile on line 6006.(˜ ò
+Bpython:S1481Ì.")Remove the unused local variable "csize".(Âş»ó
+Cpython:S1481Ê."%Remove the unused local variable "i".(’¾øÿÿÿÿÿ
+?python:S930ê1"'Add the missing keyword arguments: 'op'(ö€
+epython:S5655í1"GChange this argument; Function "sendmsg_afalg" expects a different type(ß‘ÛØüÿÿÿÿ
+epython:S5655ğ1"GChange this argument; Function "sendmsg_afalg" expects a different type(¹ÍçÊÿÿÿÿÿ
+Dpython:S930ğ1"'Add the missing keyword arguments: 'op'(¹ÍçÊÿÿÿÿÿ
+`python:S5655ó1"GChange this argument; Function "sendmsg_afalg" expects a different type(´íÎÕ

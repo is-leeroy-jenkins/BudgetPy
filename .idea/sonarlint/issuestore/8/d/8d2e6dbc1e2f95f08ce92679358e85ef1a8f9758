@@ -1,0 +1,10 @@
+
+npython:S1192˜"PDefine a constant instead of duplicating this literal "unsigned char[]" 7 times.(ş‘Åßùÿÿÿÿ
+`python:S1192Ä"GDefine a constant instead of duplicating this literal "char[]" 5 times.(°€Î¼
+{python:S1192‘"]Define a constant instead of duplicating this literal "Connection sock was not None" 3 times.(©×şÎÿÿÿÿÿ
+qpython:S1192»"XDefine a constant instead of duplicating this literal "mode must be an integer" 3 times.(æ§¸Ì
+ppython:S1542Ô"WRename function "_asFileDescriptor" to match the regular expression ^[a-z_][a-z0-9_]*$.(ï¦Û
+rpython:S1542è"TRename function "SSLeay_version" to match the regular expression ^[a-z_][a-z0-9_]*$.(Û›³ˆùÿÿÿÿ
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ãÌèÏ
+Apython:S108¢")Either remove or fill this block of code.(ã‘Û¾
+ipython:S100…"QRename method "DTLSv1_listen" to match the regular expression ^[a-z_][a-z0-9_]*$.(èÑò

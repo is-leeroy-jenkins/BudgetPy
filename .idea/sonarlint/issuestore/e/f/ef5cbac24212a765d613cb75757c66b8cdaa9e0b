@@ -1,0 +1,6 @@
+
+6python:S125""Remove this commented out code.(âþ™”
+kpython:S3776l"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(âß±7
+Apython:S108Œ")Either remove or fill this block of code.(ã‘Û¾
+mpython:S117Å"URename this local variable "Path" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß”Ñ­
+qpython:S117â"ZRename this local variable "LocalPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨§Í`

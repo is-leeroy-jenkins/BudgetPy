@@ -1,0 +1,13 @@
+
+`python:S1192Ö"GDefine a constant instead of duplicating this literal "%s(%s)" 4 times.(¿’ı¦
+Mpython:S1066¦"/Merge this if statement with the enclosing one.(›ìş¤úÿÿÿÿ
+mpython:S3776è"TRefactor this function to reduce its Cognitive Complexity from 63 to the 15 allowed.(œå³
+mpython:S3776×"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(©¸÷§
+vpython:S5717	"]Change this default value to "None" and initialize this parameter inside the function/method.(¤š¸”
+npython:S3776²
+"URefactor this function to reduce its Cognitive Complexity from 115 to the 15 allowed.(¾ÉÖ‘
+Apython:S108")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108§")Either remove or fill this block of code.(ã‘Û¾
+npython:S3776¾"URefactor this function to reduce its Cognitive Complexity from 112 to the 15 allowed.(ĞÊ€
+Lpython:S1481¢".Remove the unused local variable "old_offset".(õ×¾«ûÿÿÿÿ
+wpython:S1186¶"YAdd a nested comment explaining why this method is empty, or complete the implementation.(‘öĞåûÿÿÿÿ

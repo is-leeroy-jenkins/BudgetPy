@@ -1,0 +1,7 @@
+
+_python:S1192š"FDefine a constant instead of duplicating this literal 'if 1:' 5 times.(ŸÄ›
+;python:S125."Remove this commented out code.(êÁ´—ıÿÿÿÿ
+epython:S1134–"LTake the required action to fix the issue indicated by this "FIXME" comment.(ÚËûÉ
+Mpython:S1481¸"/Remove the unused local variable "out_t_parts".(é»³‚ıÿÿÿÿ
+6python:S125ù"Remove this commented out code.(‘—ÆY
+dpython:S100Â"LRename method "tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(•ûÜë

@@ -1,0 +1,6 @@
+
+zpython:S5717X"]Change this default value to "None" and initialize this parameter inside the function/method.(îÅÑ×þÿÿÿÿ
+upython:S5717Y"]Change this default value to "None" and initialize this parameter inside the function/method.(™ƒî“
+rpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(š­Øîùÿÿÿÿ
+opython:S117´"WRename this local variable "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔˆÛÜ
+rpython:S3776‡"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(åÎ›ûüÿÿÿÿ

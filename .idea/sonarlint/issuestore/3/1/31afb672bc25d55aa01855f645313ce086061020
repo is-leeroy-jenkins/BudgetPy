@@ -1,0 +1,12 @@
+
+npython:S1192ƒ"UDefine a constant instead of duplicating this literal "keys must be strings" 3 times.(Š¯ıÌ
+opython:S117º"WRename this parameter "writeHeader" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ§Íü
+opython:S117ã"RRename this parameter "tokenL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıªÕÉøÿÿÿÿ
+tpython:S117‡"WRename this local variable "tokenH" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¸ ¨úÿÿÿÿ
+tpython:S117‡"WRename this local variable "tokenL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¸ ¨úÿÿÿÿ
+rpython:S3776ú"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ìí·£øÿÿÿÿ
+mpython:S3776¡"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(ñ†ˆ
+upython:S117ª"XRename this local variable "keyRefs" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ†ÒØùÿÿÿÿ
+rpython:S117­"ZRename this local variable "rootItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ°ƒÜ
+upython:S117ª"XRename this local variable "valRefs" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ†ÒØùÿÿÿÿ
+rpython:S3776á"TRefactor this function to reduce its Cognitive Complexity from 44 to the 15 allowed.(íûÅ‡úÿÿÿÿ

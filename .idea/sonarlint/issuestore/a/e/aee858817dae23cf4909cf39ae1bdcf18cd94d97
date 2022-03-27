@@ -1,0 +1,25 @@
+
+npython:S1192å"PDefine a constant instead of duplicating this literal 'A,B\n0,1\n2,N/A' 3 times.(Ûú½¥ÿÿÿÿÿ
+lpython:S1192Ä"SDefine a constant instead of duplicating this literal b"test1,testNonethe" 3 times.(Ëæ¯Ü
+lpython:S1192ö"SDefine a constant instead of duplicating this literal '1,2,3.0\n4,5,6.0\n' 3 times.(ÛÙÀÈ
+gpython:S1192"IDefine a constant instead of duplicating this literal 'test.csv' 3 times.( šÈ˜üÿÿÿÿ
+apython:S1192©"HDefine a constant instead of duplicating this literal "a, b, c" 3 times.(›€ÿÓ
+spython:S1192„"UDefine a constant instead of duplicating this literal "0, 1, 2.3\n4, 5, 6.7" 4 times.(ÔÆÃ˜úÿÿÿÿ
+gpython:S1192³"IDefine a constant instead of duplicating this literal '1 2\n3 4' 4 times.(›üÈüÿÿÿÿ
+kpython:S1192¼"MDefine a constant instead of duplicating this literal 'place holder' 5 times.(áÂ†úÿÿÿÿ
+mpython:S1192õ"UDefine a constant instead of duplicating this literal '# comment\n1,2,3,5\n' 5 times.(Â½Ö
+lpython:S1192¬"NDefine a constant instead of duplicating this literal 'A,B\n0,1\n2,3' 4 times.(Í”£½ûÿÿÿÿ
+cpython:S1192Ä"JDefine a constant instead of duplicating this literal b",test3\n" 3 times.(Ëæ¯Ü
+hpython:S100"KRename method "test_1D" to match the regular expression ^[a-z_][a-z0-9_]*$.(‚àä¹ûÿÿÿÿ
+Cpython:S1481ƒ"%Remove the unused local variable "j".(çĞŞ›ûÿÿÿÿ
+Cpython:S1481«"%Remove the unused local variable "i".(·ı“Îÿÿÿÿÿ
+hpython:S100Ô"KRename method "test_1D" to match the regular expression ^[a-z_][a-z0-9_]*$.(‚àä¹ûÿÿÿÿ
+fpython:S100Ü"NRename method "test_0D_3D" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾áÖ
+Cpython:S1481Ê"%Remove the unused local variable "i".(‘¶¿¥şÿÿÿÿ
+_python:S1854ú"FRemove this assignment to local variable 'x'; the value is never used.(Óâ †
+bpython:S1854Ñ"IRemove this assignment to local variable 'test'; the value is never used.(˜ŒŠè
+bpython:S1854Ê"IRemove this assignment to local variable 'test'; the value is never used.(˜ŒŠè
+gpython:S1854˜"IRemove this assignment to local variable 'ctrl'; the value is never used.(¯®‡£ıÿÿÿÿ
+gpython:S1854ı"IRemove this assignment to local variable 'test'; the value is never used.(®óâêıÿÿÿÿ
+gpython:S1854û"IRemove this assignment to local variable 'ctrl'; the value is never used.(ˆ¶²”ùÿÿÿÿ
+<python:S125õ"Remove this commented out code.(çë™ãûÿÿÿÿ

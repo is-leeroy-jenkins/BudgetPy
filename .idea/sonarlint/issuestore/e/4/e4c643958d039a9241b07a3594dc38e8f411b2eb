@@ -1,0 +1,7 @@
+
+npython:S1192­"PDefine a constant instead of duplicating this literal "some_table.id_2" 5 times.(­§á½ûÿÿÿÿ
+hpython:S1192þ"JDefine a constant instead of duplicating this literal "no action" 4 times.(‚Ìä—þÿÿÿÿ
+hpython:S1192%"PDefine a constant instead of duplicating this literal "some_table.test" 4 times.(òß®í
+lpython:S1192€"NDefine a constant instead of duplicating this literal "some_table.id" 4 times.(ûÃ›²üÿÿÿÿ
+npython:S1192­"PDefine a constant instead of duplicating this literal "some_table.id_1" 5 times.(­§á½ûÿÿÿÿ
+fpython:S1854ò"HRemove this assignment to local variable 'ref'; the value is never used.(‡•É´øÿÿÿÿ

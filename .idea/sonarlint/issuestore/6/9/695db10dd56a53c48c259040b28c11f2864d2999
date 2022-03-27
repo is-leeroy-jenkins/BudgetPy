@@ -1,0 +1,8 @@
+
+zpython:S1845"bRename field "target" to prevent any misunderstanding/clash with field "Target" defined on line 29(Äí€õ
+rpython:S1845!"ZRename field "id" to prevent any misunderstanding/clash with field "Id" defined on line 32(®÷ØÏ
+epython:S117%"NRename this parameter "Id" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ»Ó€
+ipython:S117("RRename this parameter "Target" to match the regular expression ^[_a-z][a-z0-9_]*$.(øúÔ‰
+lpython:S117)"VRename this parameter "TargetMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨žŒ'
+lpython:S117&"PRename this parameter "Type" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê˜Žàøÿÿÿÿ
+opython:S117>"XRename this parameter "Relationship" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ’¡Ì

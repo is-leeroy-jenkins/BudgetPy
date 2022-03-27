@@ -1,0 +1,35 @@
+
+_python:S2208%"GImport only needed names or import the module and then use its members.(Š©ù´
+;python:S125F"Remove this commented out code.(ªŠĞÇùÿÿÿÿ
+;python:S125O"Remove this commented out code.(ÈŸ¼°ùÿÿÿÿ
+6python:S125P"Remove this commented out code.(äˆ„ó
+;python:S125S"Remove this commented out code.(Á®§ùÿÿÿÿ
+6python:S125T"Remove this commented out code.(ãä¢¿
+tpython:S117ì"WRename this local variable "_GetDC" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š©Ìõûÿÿÿÿ
+mpython:S117ë"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(äÚÌùÿÿÿÿ
+ipython:S1542ë"KRename function "GetDC" to match the regular expression ^[a-z_][a-z0-9_]*$.(äÚÌùÿÿÿÿ
+zpython:S117ö"]Rename this local variable "_GetWindowDC" to match the regular expression ^[_a-z][a-z0-9_]*$.(á Œªøÿÿÿÿ
+mpython:S117õ"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(í½éëûÿÿÿÿ
+opython:S1542õ"QRename function "GetWindowDC" to match the regular expression ^[a-z_][a-z0-9_]*$.(í½éëûÿÿÿÿ
+spython:S117"[Rename this local variable "_ReleaseDC" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àú¦ê
+gpython:S117€"ORename this parameter "hDC" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ÂĞÜ
+hpython:S117€"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ÂĞÜ
+hpython:S1542€"ORename function "ReleaseDC" to match the regular expression ^[a-z_][a-z0-9_]*$.(©ÂĞÜ
+{python:S117Œ"^Rename this local variable "_SelectObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹øøáùÿÿÿÿ
+ppython:S1542‹"RRename function "SelectObject" to match the regular expression ^[a-z_][a-z0-9_]*$.(ôÊÎ¦ùÿÿÿÿ
+}python:S117–"`Rename this local variable "_GetStockObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(” Öšùÿÿÿÿ
+qpython:S117•"TRename this parameter "fnObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô¥ÿüÿÿÿÿ
+rpython:S1542•"TRename function "GetStockObject" to match the regular expression ^[a-z_][a-z0-9_]*$.(ô¥ÿüÿÿÿÿ
+wpython:S117 "_Rename this local variable "_GetObjectType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îçğ¹
+qpython:S1542Ÿ"SRename function "GetObjectType" to match the regular expression ^[a-z_][a-z0-9_]*$.(“¾Ç‚ûÿÿÿÿ
+spython:S117¬"[Rename this local variable "_GetObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(±Àœ­
+lpython:S117«"TRename this parameter "cbBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÌªÅ
+mpython:S117«"URename this parameter "lpvObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÌªÅ
+hpython:S1542«"ORename function "GetObject" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŒÌªÅ
+mpython:S3776«"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ŒÌªÅ
+|python:S117á"_Rename this local variable "_GetBitmapBits" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ä›ğøÿÿÿÿ
+vpython:S117ç"YRename this local variable "cbBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛæİÑøÿÿÿÿ
+upython:S117è"XRename this local variable "lpvBits" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å«ùÃøÿÿÿÿ
+qpython:S1542à"SRename function "GetBitmapBits" to match the regular expression ^[a-z_][a-z0-9_]*$.(êÇ°¶ùÿÿÿÿ
+ƒpython:S117ğ"fRename this local variable "_CreateBitmapIndirect" to match the regular expression ^[_a-z][a-z0-9_]*$.(óŸÍ”üÿÿÿÿ
+spython:S1542ï"ZRename function "CreateBitmapIndirect" to match the regular expression ^[a-z_][a-z0-9_]*$.(ßôëÄ

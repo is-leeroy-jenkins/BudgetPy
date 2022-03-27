@@ -1,0 +1,8 @@
+
+upython:S1192¡"WDefine a constant instead of duplicating this literal 'time.sleep(sleep_time)' 4 times.(ã˜·Èûÿÿÿÿ
+ypython:S1192…"[Define a constant instead of duplicating this literal '    time.sleep(sleep_time)' 3 times.(ã˜·Èûÿÿÿÿ
+ipython:S1192"PDefine a constant instead of duplicating this literal 'sleep_time = %r' 7 times.(‡£‘Å
+Epython:S1481’",Remove the unused local variable "old_mask".(Ðõþ•
+Epython:S1481„"'Remove the unused local variable "pid".(™Â»‡úÿÿÿÿ
+Dpython:S1481™"&Remove the unused local variable "dt".( Ý¯×ýÿÿÿÿ
+Vpython:S112ö">Replace this generic exception class with a more specific one.(™ÐŸ®

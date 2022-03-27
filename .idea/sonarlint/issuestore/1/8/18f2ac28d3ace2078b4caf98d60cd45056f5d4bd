@@ -1,0 +1,5 @@
+
+upython:S117S"YRename this parameter "contentStatus" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬á£úÿÿÿÿ
+qpython:S117U"ZRename this parameter "lastModifiedBy" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ™ä
+npython:S117V"WRename this parameter "lastPrinted" to match the regular expression ^[_a-z][a-z0-9_]*$.(Èë®¬
+ipython:S107Q"MMethod "__init__" has 15 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

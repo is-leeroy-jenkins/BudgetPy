@@ -1,0 +1,11 @@
+
+`python:S5797"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
+;python:S125"Remove this commented out code.(æ¯ÁËÿÿÿÿÿ
+Tpython:S5754#"<Specify an exception class to catch or reraise the exception(Ãý¼¼
+Tpython:S5754'"<Specify an exception class to catch or reraise the exception(Ãý¼¼
+5python:S3626T"Remove this redundant return.(ÙãÞŸ
+6python:S125x"Remove this commented out code.(®¿ò÷
+7python:S125Ð"Remove this commented out code.(œè™Á
+7python:S125Ÿ"Remove this commented out code.(ÙöîÎ
+Upython:S5754€"<Specify an exception class to catch or reraise the exception(Ãý¼¼
+Upython:S5754„"<Specify an exception class to catch or reraise the exception(Ãý¼¼

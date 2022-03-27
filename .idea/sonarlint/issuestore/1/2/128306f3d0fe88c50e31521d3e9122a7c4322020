@@ -1,0 +1,13 @@
+
+cpython:S1192ı"JDefine a constant instead of duplicating this literal 'attr = 42' 5 times.(½çç¯
+apython:S1192•"IDefine a constant instead of duplicating this literal '<string>' 3 times.(£èd
+epython:S100"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(§˜œşÿÿÿÿ
+Jpython:S1481à"1Remove the unused local variable "original_repr".(¸‘¯
+}python:S100ª"`Rename method "test_get_code_source_is_None" to match the regular expression ^[a-z_][a-z0-9_]*$.(á­Â‘øÿÿÿÿ
+fpython:S100Å"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(§˜œşÿÿÿÿ
+zpython:S100Ò"]Rename method "test_get_code_ImportError" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡ö¶Ñúÿÿÿÿ
+npython:S100Ú"VRename method "test_get_code_None" to match the regular expression ^[a-z_][a-z0-9_]*$.(™–û
+}python:S100"`Rename method "test_get_code_source_is_None" to match the regular expression ^[a-z_][a-z0-9_]*$.(á­Â‘øÿÿÿÿ
+fpython:S100ø"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÄÍ°Óşÿÿÿÿ
+qpython:S1542ª"SRename function "raise_OSError" to match the regular expression ^[a-z_][a-z0-9_]*$.(æ­ğĞùÿÿÿÿ
+Mpython:S1481«"/Remove the unused local variable "code_object".(Ÿõ÷ıúÿÿÿÿ

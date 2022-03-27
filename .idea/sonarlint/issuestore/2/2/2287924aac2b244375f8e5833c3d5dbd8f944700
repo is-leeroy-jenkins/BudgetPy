@@ -1,0 +1,10 @@
+
+fpython:S11927"NDefine a constant instead of duplicating this literal 'arrayobject.h' 3 times.(˜ƒÓŞ
+fpython:S11923"IDefine a constant instead of duplicating this literal 'string.h' 5 times.(Ô‚ÿºşÿÿÿÿ
+vpython:S4143¦	"]Verify this is the key that was intended; a value has already been saved for it on line 1187.(÷„›´
+xpython:S4143;"[Verify this is the key that was intended; a value has already been saved for it on line 56.(Øùãªüÿÿÿÿ
+<python:S125á"Remove this commented out code.(øÜ¤¤øÿÿÿÿ
+7python:S125®"Remove this commented out code.(²£ƒ
+mpython:S3776Ú
+"TRefactor this function to reduce its Cognitive Complexity from 90 to the 15 allowed.(¤ª¦‡
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(÷¿ı”ıÿÿÿÿ

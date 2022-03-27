@@ -1,0 +1,9 @@
+
+npython:S1170"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+mpython:S117+"QRename this parameter "hMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(º–•Ôúÿÿÿÿ
+npython:S117'"XRename this parameter "layoutTarget" to match the regular expression ^[_a-z][a-z0-9_]*$.(ËùÂI
+mpython:S117*"QRename this parameter "wMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÞÄ¿ôüÿÿÿÿ
+hpython:S117("QRename this parameter "xMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(íÿ§·
+mpython:S117)"QRename this parameter "yMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô¢ž®þÿÿÿÿ
+npython:S117H"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+opython:S117G"XRename this parameter "manualLayout" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹„Šà

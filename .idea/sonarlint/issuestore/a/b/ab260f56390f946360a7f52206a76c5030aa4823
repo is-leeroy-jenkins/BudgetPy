@@ -1,0 +1,54 @@
+
+_python:S2208)"GImport only needed names or import the module and then use its members.(Š©ù´
+qpython:S117Ç"TRename this parameter "hMonitor" to match the regular expression ^[_a-z][a-z0-9_]*$.(½æ­ôşÿÿÿÿ
+|python:S117Ô"dRename this local variable "_CommandLineToArgvW" to match the regular expression ^[_a-z][a-z0-9_]*$.(İˆÈ«
+rpython:S117Ó"URename this parameter "lpCmdLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚È³ãÿÿÿÿÿ
+vpython:S1542Ó"XRename function "CommandLineToArgvW" to match the regular expression ^[a-z_][a-z0-9_]*$.(‚È³ãÿÿÿÿÿ
+mpython:S117ê"URename this parameter "lpCmdLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß†¼ç
+qpython:S1542ê"XRename function "CommandLineToArgvA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ß†¼ç
+vpython:S117ş"_Rename this local variable "_ShellExecuteA" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Ø×a
+tpython:S117ı"WRename this parameter "lpDirectory" to match the regular expression ^[_a-z][a-z0-9_]*$.(•¢®Ïúÿÿÿÿ
+opython:S117ı"RRename this parameter "lpFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(•¢®Ïúÿÿÿÿ
+tpython:S117ı"WRename this parameter "lpOperation" to match the regular expression ^[_a-z][a-z0-9_]*$.(•¢®Ïúÿÿÿÿ
+upython:S117ı"XRename this parameter "lpParameters" to match the regular expression ^[_a-z][a-z0-9_]*$.(•¢®Ïúÿÿÿÿ
+qpython:S117ı"TRename this parameter "nShowCmd" to match the regular expression ^[_a-z][a-z0-9_]*$.(•¢®Ïúÿÿÿÿ
+qpython:S1542ı"SRename function "ShellExecuteA" to match the regular expression ^[a-z_][a-z0-9_]*$.(•¢®Ïúÿÿÿÿ
+|python:S117‹"_Rename this local variable "_ShellExecuteW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢Ÿ­³ÿÿÿÿÿ
+tpython:S117Š"WRename this parameter "lpDirectory" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÉıçúÿÿÿÿ
+opython:S117Š"RRename this parameter "lpFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÉıçúÿÿÿÿ
+tpython:S117Š"WRename this parameter "lpOperation" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÉıçúÿÿÿÿ
+upython:S117Š"XRename this parameter "lpParameters" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÉıçúÿÿÿÿ
+qpython:S117Š"TRename this parameter "nShowCmd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÉıçúÿÿÿÿ
+qpython:S1542Š"SRename function "ShellExecuteW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒÉıçúÿÿÿÿ
+npython:S117œ"VRename this parameter "lpExecInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(›àİ£
+mpython:S1542œ"TRename function "ShellExecuteEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(›àİ£
+ypython:S117¥"aRename this local variable "_ShellExecuteExA" to match the regular expression ^[_a-z][a-z0-9_]*$.(³³ôş
+npython:S117¤"VRename this parameter "lpExecInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ€Êò
+npython:S1542¤"URename function "ShellExecuteExA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ñ€Êò
+~python:S117¬"aRename this local variable "_ShellExecuteExW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıà¢¡ÿÿÿÿÿ
+npython:S117«"VRename this parameter "lpExecInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷ı‘‚
+npython:S1542«"URename function "ShellExecuteExW" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷ı‘‚
+~python:S117¸"aRename this local variable "_FindExecutableA" to match the regular expression ^[_a-z][a-z0-9_]*$.(öÔÜ½øÿÿÿÿ
+tpython:S117·"WRename this parameter "lpDirectory" to match the regular expression ^[_a-z][a-z0-9_]*$.(„¥‚ùÿÿÿÿ
+opython:S117·"RRename this parameter "lpFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(„¥‚ùÿÿÿÿ
+qpython:S117¼"YRename this local variable "lpResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÎ‡
+spython:S1542·"URename function "FindExecutableA" to match the regular expression ^[a-z_][a-z0-9_]*$.(„¥‚ùÿÿÿÿ
+~python:S117Å"aRename this local variable "_FindExecutableW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Øáêüûÿÿÿÿ
+opython:S117Ä"WRename this parameter "lpDirectory" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯¬ğÓ
+jpython:S117Ä"RRename this parameter "lpFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯¬ğÓ
+qpython:S117É"YRename this local variable "lpResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¬§Ã
+npython:S1542Ä"URename function "FindExecutableW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯¬ğÓ
+python:S117Û"bRename this local variable "_SHGetFolderPathA" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹øÇ•ùÿÿÿÿ
+kpython:S117Ú"SRename this parameter "dwFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(«†‚Ë
+jpython:S117Ú"RRename this parameter "hToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(«†‚Ë
+kpython:S117Ú"SRename this parameter "nFolder" to match the regular expression ^[_a-z][a-z0-9_]*$.(«†‚Ë
+upython:S117à"XRename this local variable "pszPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊÍõúÿÿÿÿÿ
+opython:S1542Ú"VRename function "SHGetFolderPathA" to match the regular expression ^[a-z_][a-z0-9_]*$.(«†‚Ë
+zpython:S117å"bRename this local variable "_SHGetFolderPathW" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ÃşĞ
+kpython:S117ä"SRename this parameter "dwFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.( ş¾ä
+jpython:S117ä"RRename this parameter "hToken" to match the regular expression ^[_a-z][a-z0-9_]*$.( ş¾ä
+kpython:S117ä"SRename this parameter "nFolder" to match the regular expression ^[_a-z][a-z0-9_]*$.( ş¾ä
+upython:S117ê"XRename this local variable "pszPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(£Ï¸Ëúÿÿÿÿ
+opython:S1542ä"VRename function "SHGetFolderPathW" to match the regular expression ^[a-z_][a-z0-9_]*$.( ş¾ä
+vpython:S117ô"_Rename this local variable "_IsUserAnAdmin" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿öÖq
+lpython:S1542ñ"SRename function "IsUserAnAdmin" to match the regular expression ^[a-z_][a-z0-9_]*$.(©šŸ€

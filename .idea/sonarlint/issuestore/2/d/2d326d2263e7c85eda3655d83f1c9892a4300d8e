@@ -1,0 +1,27 @@
+
+mpython:S117("WRename this parameter "autoRecover" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡Úˆg
+lpython:S117)"URename this parameter "crashSave" to match the regular expression ^[_a-z][a-z0-9_]*$.(£–›Ï
+rpython:S117*"[Rename this parameter "dataExtractLoad" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡®âÂ
+mpython:S117+"VRename this parameter "repairLoad" to match the regular expression ^[_a-z][a-z0-9_]*$.(×»‘Å
+jpython:S117D"SRename this parameter "sheetId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞÍÂŠ
+opython:S117V"SRename this parameter "cacheId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú°šøşÿÿÿÿ
+mpython:S117—"URename this parameter "Ignorable" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÙİ…
+mpython:S117ˆ"URename this parameter "bookViews" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ¶‚„
+jpython:S117"RRename this parameter "calcPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç˜ãä
+|python:S117"_Rename this parameter "customWorkbookViews" to match the regular expression ^[_a-z][a-z0-9_]*$.(”û³¥ÿÿÿÿÿ
+ppython:S117Œ"XRename this parameter "definedNames" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢óÍÜ
+opython:S117–"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+{python:S117‹"^Rename this parameter "externalReferences" to match the regular expression ^[_a-z][a-z0-9_]*$.(£êçäùÿÿÿÿ
+wpython:S117”"ZRename this parameter "fileRecoveryPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(È»îàúÿÿÿÿ
+tpython:S117…"WRename this parameter "fileSharing" to match the regular expression ^[_a-z][a-z0-9_]*$.(º„‹üÿÿÿÿ
+opython:S117„"WRename this parameter "fileVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(œğã¿
+rpython:S117Š"ZRename this parameter "functionGroups" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÀÏã
+kpython:S117"SRename this parameter "oleSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(™Ã œ
+tpython:S117"WRename this parameter "pivotCaches" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÕİòüÿÿÿÿ
+npython:S117‘"VRename this parameter "smartTagPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(â®¢
+qpython:S117’"YRename this parameter "smartTagTypes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú÷û
+upython:S117•"]Rename this parameter "webPublishObjects" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¨çµ
+vpython:S117“"YRename this parameter "webPublishing" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶ÖÎÅùÿÿÿÿ
+spython:S117†"VRename this parameter "workbookPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(äºØ™ıÿÿÿÿ
+vpython:S117‡"^Rename this parameter "workbookProtection" to match the regular expression ^[_a-z][a-z0-9_]*$.(â†ôË
+jpython:S107‚"MMethod "__init__" has 21 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

@@ -1,0 +1,4 @@
+
+{python:S117å"^Rename this local variable "LineGenerator" to match the regular expression ^[_a-z][a-z0-9_]*$.(Áä¶ûÿÿÿÿ
+rpython:S3776à"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(Å·’œûÿÿÿÿ
+˜python:S5886"zRemove this yield statement or annotate function "create_line_generator" with "typing.Generator" or one of its supertypes.(¼¨Óôÿÿÿÿÿ

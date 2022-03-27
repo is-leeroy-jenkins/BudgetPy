@@ -1,0 +1,7 @@
+
+mpython:S117."VRename this parameter "errBarType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àá‘•
+npython:S117-"RRename this parameter "errDir" to match the regular expression ^[_a-z][a-z0-9_]*$.(–Á±úüÿÿÿÿ
+rpython:S117/"VRename this parameter "errValType" to match the regular expression ^[_a-z][a-z0-9_]*$.(áµ¹òþÿÿÿÿ
+npython:S1175"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+ppython:S1170"TRename this parameter "noEndCap" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÝíÞùÿÿÿÿÿ
+lpython:S1174"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ

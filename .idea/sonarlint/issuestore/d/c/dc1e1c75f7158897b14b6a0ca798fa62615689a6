@@ -1,0 +1,30 @@
+
+gpython:S1192è"IDefine a constant instead of duplicating this literal "Foo Bar" 14 times.(ÈÑ«úÿÿÿÿ
+ipython:S1192N"LDefine a constant instead of duplicating this literal 'Spacey Bar' 12 times.(ÆÛ±Àûÿÿÿÿ
+{python:S1192O"^Define a constant instead of duplicating this literal 'Spacey Bar From The Beginning' 7 times.(¼¥şÌøÿÿÿÿ
+bpython:S1192¹"IDefine a constant instead of duplicating this literal "[sect]\n" 4 times.(‡øÜ²
+mpython:S1192|"PDefine a constant instead of duplicating this literal 'key with spaces' 3 times.(—…ñøùÿÿÿÿ
+lpython:S1192¥
+"SDefine a constant instead of duplicating this literal 'interpolation fail' 6 times.(ß³
+epython:S1192›"LDefine a constant instead of duplicating this literal "cfgparser.3" 3 times.(‰ÔüÌ
+”python:S1192…"vDefine a constant instead of duplicating this literal "something %(with11)s lots of interpolation (11 steps)" 3 times.(º–ûÈúÿÿÿÿ
+bpython:S1192º"IDefine a constant instead of duplicating this literal "foo%%bar" 3 times.(¶•êù
+ipython:S1192‹"PDefine a constant instead of duplicating this literal 'No Such Foo Bar' 4 times.(Çå‰•
+epython:S1192É"LDefine a constant instead of duplicating this literal "cfgparser.1" 4 times.(È»˜Ì
+kpython:S1192H"NDefine a constant instead of duplicating this literal 'Commented Bar' 8 times.(ëÒòíûÿÿÿÿ
+ipython:S1192®	"QDefine a constant instead of duplicating this literal 'favourite Beatle' 4 times.(ˆ¤
+hpython:S1192¯	"PDefine a constant instead of duplicating this literal 'favourite color' 4 times.(—‚éW
+›python:S1192»"Define a constant instead of duplicating this literal "could not locate option, expecting case-insensitive option names" 4 times.(–ÎÉµ
+ipython:S1192‡"PDefine a constant instead of duplicating this literal 'No Such Section' 3 times.(ÕâÉ„
+gpython:S1192K"JDefine a constant instead of duplicating this literal 'Long Line' 3 times.(„Óøıÿÿÿÿ
+`python:S1192I"IDefine a constant instead of duplicating this literal 'Foo Bar' 20 times.(ş›‰
+npython:S1192Æ
+"UDefine a constant instead of duplicating this literal 'tricky interpolation' 4 times.(¸ªùÍ
+Hpython:S1656Ö"/Remove or correct this useless self-assignment.(ÀÙ©
+Mpython:S1656ß"/Remove or correct this useless self-assignment.(äå¯şÿÿÿÿ
+python:S1871‡"cEither merge this branch with the identical one on line "900" or change one of the implementations.(Æ§µşÿÿÿÿ
+|python:S1871•"cEither merge this branch with the identical one on line "914" or change one of the implementations.(Î·Œå
+`python:S1854
+"GRemove this assignment to local variable 'cf'; the value is never used.(ÕÜö
+apython:S5655ò"CChange this argument; Function "read_file" expects a different type(ªÔöÊùÿÿÿÿ
+Hpython:S1481ñ"*Remove the unused local variable "parser".(‚²Õ’úÿÿÿÿ

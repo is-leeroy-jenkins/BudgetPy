@@ -1,0 +1,21 @@
+
+opython:S117("XRename this parameter "outlineLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñú÷ğ
+tpython:S117S"XRename this parameter "customFormat" to match the regular expression ^[_a-z][a-z0-9_]*$.(åĞñıÿÿÿÿ
+tpython:S117Q"XRename this parameter "customHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ£Ã×ıÿÿÿÿ
+opython:S117U"XRename this parameter "outlineLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÆÈ­
+kpython:S117\"TRename this parameter "thickBot" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Õè
+ppython:S117]"TRename this parameter "thickTop" to match the regular expression ^[_a-z][a-z0-9_]*$.(óĞ¿¦üÿÿÿÿ
+ipython:S107M"MMethod "__init__" has 17 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+ppython:S117‹"SRename this parameter "bestFit" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıò†Úÿÿÿÿÿ
+opython:S117“"WRename this parameter "customWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(í×Ä
+ppython:S117"XRename this parameter "outlineLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÆÈ­
+jpython:S107‡"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+upython:S117…"XRename this parameter "baseColWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥¾Æºúÿÿÿÿ
+upython:S117ˆ"XRename this parameter "customHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê“³¥ıÿÿÿÿ
+spython:S117†"[Rename this parameter "defaultColWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æõ·‡
+ypython:S117‡"\Rename this parameter "defaultRowHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(†˜„òşÿÿÿÿ
+spython:S117"[Rename this parameter "outlineLevelCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰€ÿé
+spython:S117Œ"[Rename this parameter "outlineLevelRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(î»«
+tpython:S117‹"WRename this parameter "thickBottom" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯Èûøıÿÿÿÿ
+qpython:S117Š"TRename this parameter "thickTop" to match the regular expression ^[_a-z][a-z0-9_]*$.(óĞ¿¦üÿÿÿÿ
+npython:S117‰"VRename this parameter "zeroHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(£Ş

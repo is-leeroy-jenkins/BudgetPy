@@ -1,0 +1,41 @@
+
+jpython:S1192«"LDefine a constant instead of duplicating this literal "__init__.py" 3 times.(Ä˜ú¦ûÿÿÿÿ
+hpython:S1192Ä"JDefine a constant instead of duplicating this literal '<zipfile>' 3 times.(Ö§ë¾ûÿÿÿÿ
+qpython:S1542Õ"SRename function "_EndRecData64" to match the regular expression ^[a-z_][a-z0-9_]*$.(½Ù•Ëşÿÿÿÿ
+tpython:S117°"\Rename this local variable "commentSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(Òõ‡ú
+xpython:S117¥"`Rename this local variable "maxCommentStart" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş³æû
+ppython:S117«"XRename this local variable "recData" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğğ…í
+ipython:S1542€"QRename function "_EndRecData" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŒÎÎ
+fpython:S100˜"NRename method "FileHeader" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡ñ°¨
+ppython:S100Æ"XRename method "_encodeFilenameFlags" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦é—
+mpython:S100Ì"PRename method "_decodeExtra" to match the regular expression ^[a-z_][a-z0-9_]*$.(Îä ¿ùÿÿÿÿ
+rpython:S3776Ì"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Îä ¿ùÿÿÿÿ
+>python:S1481š"%Remove the unused local variable "j".(Ãî
+lpython:S1542©"SRename function "_ZipDecrypter" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦ïÔ°
+Apython:S108˜")Either remove or fill this block of code.(ã‘Û¾
+rpython:S3776®"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Èÿ¿“ıÿÿÿÿ
+opython:S116À	"RRename this field "_didModify" to match the regular expression ^[_a-z][_a-z0-9]*$.(ö›•şÿÿÿÿ
+ppython:S116Ğ	"SRename this field "_filePassed" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÚæŞùÿÿÿÿ
+ppython:S116¿	"SRename this field "_allowZip64" to match the regular expression ^[_a-z][_a-z0-9]*$.(ğ£”ûşÿÿÿÿ
+ppython:S116â	"SRename this field "_fileRefCnt" to match the regular expression ^[_a-z][_a-z0-9]*$.(ì¢Ãíúÿÿÿÿ
+opython:S116Â	"RRename this field "NameToInfo" to match the regular expression ^[_a-z][_a-z0-9]*$.(ş÷à‘ùÿÿÿÿ
+spython:S117¶	"VRename this parameter "allowZip64" to match the regular expression ^[_a-z][a-z0-9_]*$.(æÿÕ¶ûÿÿÿÿ
+vpython:S117Ò	"YRename this local variable "modeDict" to match the regular expression ^[_a-z][a-z0-9_]*$.(­‹Â­ıÿÿÿÿ
+rpython:S3776¶	"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(æÿÕ¶ûÿÿÿÿ
+qpython:S100¤
+"TRename method "_RealGetContents" to match the regular expression ^[a-z_][a-z0-9_]*$.(¿›Š´ÿÿÿÿÿ
+rpython:S3776¤
+"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¿›Š´ÿÿÿÿÿ
+rpython:S3776º"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(îä´¬ıÿÿÿÿ
+mpython:S3776³"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Øöå•
+zpython:S117ß"]Rename this local variable "centDirCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹ß€ıÿÿÿÿ
+{python:S117á"^Rename this local variable "centDirOffset" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ìû†şÿÿÿÿ
+ypython:S117à"\Rename this local variable "centDirSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğË½éşÿÿÿÿ
+mpython:S3776§"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ûìôß
+spython:S117"VRename this parameter "allowZip64" to match the regular expression ^[_a-z][a-z0-9_]*$.(”†‰üüÿÿÿÿ
+rpython:S3776•"TRefactor this function to reduce its Cognitive Complexity from 83 to the 15 allowed.(ê¶Õıÿÿÿÿ
+Ipython:S5806©"+Rename this variable; it shadows a builtin.(¸‘ö›üÿÿÿÿ
+rpython:S3776ç"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(­¢óÓúÿÿÿÿ
+Ipython:S5806±"+Rename this variable; it shadows a builtin.(ÆÊã¯øÿÿÿÿ
+mpython:S3776¾"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ÉÉ–ƒ
+lpython:S1542æ"NRename function "addToZip" to match the regular expression ^[a-z_][a-z0-9_]*$.(ˆÛÚÀüÿÿÿÿ

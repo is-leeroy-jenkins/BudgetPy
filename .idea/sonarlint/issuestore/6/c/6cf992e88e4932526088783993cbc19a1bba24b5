@@ -1,0 +1,14 @@
+
+rpython:S117r"VRename this parameter "allowBlank" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä®—Œşÿÿÿÿ
+rpython:S117u"VRename this parameter "errorStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(€ÁÄ’şÿÿÿÿ
+mpython:S117x"VRename this parameter "errorTitle" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê¼Íõ
+jpython:S117y"SRename this parameter "imeMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¢ö”
+spython:S117t"WRename this parameter "promptTitle" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ŒÅÆüÿÿÿÿ
+opython:S117q"XRename this parameter "showDropDown" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿™µç
+xpython:S117o"\Rename this parameter "showErrorMessage" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥Ù˜šşÿÿÿÿ
+spython:S117p"\Rename this parameter "showInputMessage" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚ŞÚÇ
+ipython:S107k"MMethod "__init__" has 16 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+wpython:S117®"ZRename this parameter "dataValidation" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ¦Éùÿÿÿÿ
+wpython:S117ª"ZRename this parameter "disablePrompts" to match the regular expression ^[_a-z][a-z0-9_]*$.(å¦Œ™øÿÿÿÿ
+jpython:S117«"SRename this parameter "xWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(œå»
+kpython:S117¬"SRename this parameter "yWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(„şçß

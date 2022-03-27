@@ -1,0 +1,5 @@
+
+_python:S2208"GImport only needed names or import the module and then use its members.(Öª≤ 
+kpython:S3776U"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(¬¨”
+\python:S5445π"C'tempfile.mktemp' is insecure. Use 'tempfile.TemporaryFile' instead(ﬁ‰‚ù
+mpython:S3776æ"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¡…•—

@@ -1,0 +1,13 @@
+
+†python:S18453"nRename field "HeaderFooter" to prevent any misunderstanding/clash with field "headerFooter" defined on line 50(äíÅÀ
+spython:S117@"\Rename this parameter "customSheetViews" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï¬„ï
+lpython:S117E"URename this parameter "drawingHF" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥õÈ‚
+npython:S117H"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+opython:S117C"XRename this parameter "headerFooter" to match the regular expression ^[_a-z][a-z0-9_]*$.(’–“Ü
+npython:S117A"WRename this parameter "pageMargins" to match the regular expression ^[_a-z][a-z0-9_]*$.(­ÃÓ‰
+kpython:S117B"URename this parameter "pageSetup" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ØğN
+jpython:S117="SRename this parameter "sheetPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª¤¡
+qpython:S117?"[Rename this parameter "sheetProtection" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æœ½w
+mpython:S117>"VRename this parameter "sheetViews" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñÅÛÜ
+wpython:S117G"[Rename this parameter "webPublishItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(´¸Òëüÿÿÿÿ
+ipython:S107<"MMethod "__init__" has 15 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

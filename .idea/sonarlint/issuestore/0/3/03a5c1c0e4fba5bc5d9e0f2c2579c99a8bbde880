@@ -1,0 +1,22 @@
+
+Mpython:S1066ç"/Merge this if statement with the enclosing one.(ÉÏùùÿÿÿÿ
+Hpython:S1066û"/Merge this if statement with the enclosing one.(ƒÏÍÊ
+Tpython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754>"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754t"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754“"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+upython:S117½"XRename this local variable "curLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ£ı‚şÿÿÿÿ
+wpython:S117¾"ZRename this local variable "curOffset" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş˜›•üÿÿÿÿ
+Upython:S5754à"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S3776ì"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(ÎşèÌÿÿÿÿÿ
+Upython:S5754•"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Dpython:S5806ö"+Rename this variable; it shadows a builtin.(˜Ùêà
+Upython:S5754©"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754å"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+jpython:S1226¢"LIntroduce a new variable or use its initial value before reassigning 'stop'.(‡ö†Ëüÿÿÿÿ
+npython:S1226µ"UIntroduce a new variable or use its initial value before reassigning 'main_debugger'.(¡ş‚ı
+Fpython:S1481Â"-Remove the unused local variable "_filename".(‹£ìª
+spython:S1226À"UIntroduce a new variable or use its initial value before reassigning 'main_debugger'.(¾Ì­†ûÿÿÿÿ
+mpython:S3776ò"TRefactor this function to reduce its Cognitive Complexity from 50 to the 15 allowed.(˜µ˜±
+npython:S1226ò"UIntroduce a new variable or use its initial value before reassigning 'main_debugger'.(˜µ˜±

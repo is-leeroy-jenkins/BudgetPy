@@ -1,0 +1,7 @@
+
+upython:S5713×"WRemove this redundant Exception class; it derives from another which is already caught.(ýþ÷Çûÿÿÿÿ
+upython:S5713ì"WRemove this redundant Exception class; it derives from another which is already caught.(ýþ÷Çûÿÿÿÿ
+rpython:S3776Ê"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(Æì¬áýÿÿÿÿ
+mpython:S3776Ë"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ø®¸Á
+epython:S1854æ"LRemove this assignment to local variable 'content'; the value is never used.(ÁÞ»¾
+rpython:S3776Ê"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(¢·Øºûÿÿÿÿ

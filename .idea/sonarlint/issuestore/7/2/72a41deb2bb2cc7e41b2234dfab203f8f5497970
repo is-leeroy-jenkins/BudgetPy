@@ -1,0 +1,8 @@
+
+kpython:S1173"TRename this parameter "bubble3D" to match the regular expression ^[_a-z][a-z0-9_]*$.(£Í°è
+spython:S1174"WRename this parameter "bubbleScale" to match the regular expression ^[_a-z][a-z0-9_]*$.(é³µúüÿÿÿÿ
+mpython:S1172"QRename this parameter "dLbls" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÛÞƒúÿÿÿÿ
+npython:S1177"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S1175"ZRename this parameter "showNegBubbles" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù¿°Š
+qpython:S1176"ZRename this parameter "sizeRepresents" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸¸äÄ
+rpython:S1170"VRename this parameter "varyColors" to match the regular expression ^[_a-z][a-z0-9_]*$.(­« „ÿÿÿÿÿ

@@ -1,0 +1,5 @@
+
+ppython:S117"TRename this parameter "downBars" to match the regular expression ^[_a-z][a-z0-9_]*$.(îé‚…úÿÿÿÿ
+npython:S117"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+ppython:S117"TRename this parameter "gapWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜¬Äùúÿÿÿÿ
+npython:S117"RRename this parameter "upBars" to match the regular expression ^[_a-z][a-z0-9_]*$.(»š‘Ñÿÿÿÿÿ

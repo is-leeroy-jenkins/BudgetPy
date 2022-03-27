@@ -1,0 +1,7 @@
+
+_python:S1192©"FDefine a constant instead of duplicating this literal "as_%s" 3 times.(š£ãş
+hpython:S1192„"JDefine a constant instead of duplicating this literal "some text" 6 times.(Ã×æÿÿÿÿÿ
+opython:S1192©"QDefine a constant instead of duplicating this literal "rÃ©veğŸ illÃ©" 11 times.(´î±Ûúÿÿÿÿ
+>python:S1481"%Remove the unused local variable "i".(æíÄÕ
+rpython:S117 
+"URename this local variable "Base" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç¼¦ûÿÿÿÿ

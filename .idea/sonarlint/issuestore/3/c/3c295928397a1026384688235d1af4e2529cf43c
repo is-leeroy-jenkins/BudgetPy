@@ -1,0 +1,16 @@
+
+`python:S5797U"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
+Hpython:S1066‘"/Merge this if statement with the enclosing one.(‘ò¶ä
+Hpython:S1066Ÿ"/Merge this if statement with the enclosing one.(‘ò¶ä
+Hpython:S1066§"/Merge this if statement with the enclosing one.(‘ò¶ä
+Hpython:S1066¤"/Merge this if statement with the enclosing one.(åÂ°„
+_python:S2208N"GImport only needed names or import the module and then use its members.(µìå¥
+dpython:S2208O"GImport only needed names or import the module and then use its members.(™¨‘ûÿÿÿÿ
+_python:S1763^"GDelete this unreachable code or refactor the code to make it reachable.(ã‘Û¾
+4python:S2772^"Remove this unneeded "pass".(ã‘Û¾
+7python:S125è"Remove this commented out code.(öÙêõ
+rpython:S3776™"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(¾ø¤”úÿÿÿÿ
+rpython:S3776æ"TRefactor this function to reduce its Cognitive Complexity from 51 to the 15 allowed.(¹óŸæúÿÿÿÿ
+7python:S125“"Remove this commented out code.(âÕ¥ã
+rpython:S3776ñ"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(é¦¼ãüÿÿÿÿ
+lpython:S3776é"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ïìM

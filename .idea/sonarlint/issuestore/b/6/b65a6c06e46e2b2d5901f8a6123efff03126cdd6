@@ -1,0 +1,15 @@
+
+fpython:S5797"HReplace this expression; used as a condition it will always be constant.(æÄÅ´ùÿÿÿÿ
+Mpython:S1066Ë"/Merge this if statement with the enclosing one.(ÀÄµ®ùÿÿÿÿ
+ppython:S117—"SRename this local variable "Nc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞĞæ÷ıÿÿÿÿ
+mpython:S3776ã"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(êõö‘
+<python:S125§"Remove this commented out code.(«È›¹ıÿÿÿÿ
+mpython:S3776·"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(ø—
+Dpython:S5806¼"+Rename this variable; it shadows a builtin.(‚á¸Ù
+rpython:S3776×"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ùÊËıÿÿÿÿ
+<python:S125²"Remove this commented out code.(ğ¯œşÿÿÿÿ
+lpython:S3776º"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(°¶®K
+mpython:S3776™"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(‰àü
+[python:S112ô">Replace this generic exception class with a more specific one.(¡ûé’øÿÿÿÿ
+mpython:S3776Ù"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(¯Œåò
+7python:S125Ü	"Remove this commented out code.(òËÄş

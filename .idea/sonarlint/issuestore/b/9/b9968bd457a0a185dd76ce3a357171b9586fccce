@@ -1,0 +1,13 @@
+
+`python:S1192á"GDefine a constant instead of duplicating this literal "%s(%d)" 3 times.(×Íš½
+²python:S1515’
+"“Add a parameter to function "replace" and use variable "column" as its default value;The value of "column" might change at the next loop iteration.(±³¾¾ùÿÿÿÿ
+rpython:S3776ú
+"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(÷§‰âþÿÿÿÿ
+rpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÅÓæ¸úÿÿÿÿ
+‡python:S1845í"nRename method "visit_ENUM" to prevent any misunderstanding/clash with method "visit_enum" defined on line 2256(†Ž«Ï
+qpython:S2737²"XAdd logic to this except clause or eliminate it and rethrow the exception automatically.(€³¢»
+Ipython:S6035Î"0Replace this alternation with a character class.(¤€·ã
+mpython:S3776¢"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÿÅé“
+Apython:S108É")Either remove or fill this block of code.(ã‘Û¾
+5python:S2772Î"Remove this unneeded "pass".(ã‘Û¾

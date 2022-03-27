@@ -1,0 +1,12 @@
+
+spython:S1192Ì"UDefine a constant instead of duplicating this literal r"\(asimdhp asimddp\)" 3 times.(¶ÉÿÃøÿÿÿÿ
+upython:S1192Ç"WDefine a constant instead of duplicating this literal "avx512cd avx2 avx sse2" 3 times.(‡¸­Ãşÿÿÿÿ
+hpython:S1192Ë"JDefine a constant instead of duplicating this literal "vsx3 vsx2" 5 times.(ì›Òğıÿÿÿÿ
+lpython:S1192¬"NDefine a constant instead of duplicating this literal "asimddp asimd" 3 times.(§‡Îıÿÿÿÿ
+bpython:S1192ö"IDefine a constant instead of duplicating this literal "vsx vsx2" 3 times.(´îˆ
+wpython:S1192ı"^Define a constant instead of duplicating this literal "avx512f avx2 sse42 sse41 sse2" 3 times.(Ê¶Úô
+Gpython:S1066Œ"/Merge this if statement with the enclosing one.(µÂÕq
+qpython:S1186I"YAdd a nested comment explaining why this method is empty, or complete the implementation.(è‹ãç
+ˆpython:S101L"lRename class "_Test_CCompilerOpt" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÂäĞ ûÿÿÿÿ
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(±Áİ‰
+7python:S125‡"Remove this commented out code.(…Óµ•

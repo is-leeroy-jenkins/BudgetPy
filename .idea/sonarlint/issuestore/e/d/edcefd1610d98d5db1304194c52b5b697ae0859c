@@ -1,0 +1,24 @@
+
+rpython:S117B"\Rename this parameter "autoTitleDeleted" to match the regular expression ^[_a-z][a-z0-9_]*$.(²İëI
+ppython:S117G"TRename this parameter "backWall" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤³Ğûùÿÿÿÿ
+tpython:S117K"XRename this parameter "dispBlanksAs" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éë„üıÿÿÿÿ
+npython:S117M"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S117C"URename this parameter "pivotFmts" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïƒƒ–ıÿÿÿÿ
+kpython:S117H"TRename this parameter "plotArea" to match the regular expression ^[_a-z][a-z0-9_]*$.(â¬üú
+npython:S117J"WRename this parameter "plotVisOnly" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾×Ş
+spython:S117L"\Rename this parameter "showDLblsOverMax" to match the regular expression ^[_a-z][a-z0-9_]*$.(äÓ÷ƒ
+kpython:S117F"TRename this parameter "sideWall" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÇÍ’ú
+npython:S117D"RRename this parameter "view3D" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø‹˜øÿÿÿÿ
+npython:S117l"WRename this parameter "chartObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ¯ŸÑ
+ppython:S117p"YRename this parameter "userInterface" to match the regular expression ^[_a-z][a-z0-9_]*$.(õƒÁ÷
+spython:S117"VRename this parameter "autoUpdate" to match the regular expression ^[_a-z][a-z0-9_]*$.(ËÙ„¯ıÿÿÿÿ
+mpython:S117¦"URename this parameter "clrMapOvr" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ƒßæ
+opython:S117¯"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+ppython:S117¬"XRename this parameter "externalData" to match the regular expression ^[_a-z][a-z0-9_]*$.(Şôº
+tpython:S117§"WRename this parameter "pivotSource" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢ü‹ùúÿÿÿÿ
+vpython:S117­"YRename this parameter "printSettings" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õú”’şÿÿÿÿ
+rpython:S117¤"ZRename this parameter "roundedCorners" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÙ¢ö
+mpython:S117ª"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
+hpython:S117«"PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ
+spython:S117®"VRename this parameter "userShapes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎıÓ£øÿÿÿÿ
+jpython:S107¡"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

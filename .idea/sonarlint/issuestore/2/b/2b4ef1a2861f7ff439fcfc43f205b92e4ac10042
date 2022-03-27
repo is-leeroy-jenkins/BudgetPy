@@ -1,0 +1,18 @@
+
+_python:S2208"GImport only needed names or import the module and then use its members.( ä†ğ
+npython:S117:"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S1177"ZRename this parameter "noChangeAspect" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Î
+npython:S1175"WRename this parameter "noDrilldown" to match the regular expression ^[_a-z][a-z0-9_]*$.(š³ß
+hpython:S1174"QRename this parameter "noGrp" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š²º
+npython:S1178"RRename this parameter "noMove" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÆï…øÿÿÿÿ
+ppython:S1179"TRename this parameter "noResize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑêÔÿÿÿÿÿ
+ppython:S1176"TRename this parameter "noSelect" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ŸØÁøÿÿÿÿ
+npython:S117N"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+ypython:S117M"]Rename this parameter "graphicFrameLocks" to match the regular expression ^[_a-z][a-z0-9_]*$.(”ê²Îøÿÿÿÿ
+ypython:S117_"]Rename this parameter "cNvGraphicFramePr" to match the regular expression ^[_a-z][a-z0-9_]*$.(øŠÙ‰øÿÿÿÿ
+mpython:S117^"QRename this parameter "cNvPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(È‚¼¦úÿÿÿÿ
+opython:S117‚"WRename this parameter "graphicData" to match the regular expression ^[_a-z][a-z0-9_]*$.(æ½²ç
+npython:S117š"VRename this parameter "fPublished" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑİØÿ
+tpython:S117–"\Rename this parameter "nvGraphicFramePr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ï½ê
+kpython:S117µ"SRename this parameter "grpSpPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(´Š³Ñ
+rpython:S117´"URename this parameter "nvGrpSpPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê˜“Øüÿÿÿÿ

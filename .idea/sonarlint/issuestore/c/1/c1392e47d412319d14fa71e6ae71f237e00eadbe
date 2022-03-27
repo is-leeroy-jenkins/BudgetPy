@@ -1,0 +1,87 @@
+
+npython:S1192™"UDefine a constant instead of duplicating this literal "Probably exploitable" 5 times.(ı¹ìæ
+ppython:S1192½"WDefine a constant instead of duplicating this literal "Not likely exploitable" 3 times.(Õ’îû
+Mpython:S1066÷"/Merge this if statement with the enclosing one.(šå™‚şÿÿÿÿ
+Hpython:S1066¼"/Merge this if statement with the enclosing one.(Å£¶Ã
+ipython:S116Ş"QRename this field "faultCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(°“ëÉ
+mpython:S116Í"URename this field "exceptionName" to match the regular expression ^[_a-z][_a-z0-9]*$.(ó¢Ş˜
+ypython:S116Î"\Rename this field "exceptionDescription" to match the regular expression ^[_a-z][_a-z0-9]*$.(¥«»ßûÿÿÿÿ
+npython:S116Ğ"VRename this field "exceptionLabel" to match the regular expression ^[_a-z][_a-z0-9]*$.(’Ñùí
+ipython:S116â"QRename this field "memoryMap" to match the regular expression ^[_a-z][_a-z0-9]*$.(»Ì¿¦
+jpython:S116Ô"RRename this field "faultLabel" to match the regular expression ^[_a-z][_a-z0-9]*$.(„«µ
+ppython:S116Ê"SRename this field "modFileName" to match the regular expression ^[_a-z][_a-z0-9]*$.(ˆ£Õùÿÿÿÿ
+npython:S116½"QRename this field "eventCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(ê±·¢øÿÿÿÿ
+kpython:S116Ñ"SRename this field "firstChance" to match the regular expression ^[_a-z][_a-z0-9]*$.(‰¼ø–
+opython:S116Ù"XRename this field "stackTraceLabels" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ö“Ğ!
+opython:S116Û"RRename this field "stackRange" to match the regular expression ^[_a-z][_a-z0-9]*$.(©ì¥üûÿÿÿÿ
+lpython:S116Ó"TRename this field "faultAddress" to match the regular expression ^[_a-z][_a-z0-9]*$.(æøÑ«
+npython:S116Ò"QRename this field "faultType" to match the regular expression ^[_a-z][_a-z0-9]*$.(¦…£Æÿÿÿÿÿ
+ppython:S116Ë"SRename this field "lpBaseOfDll" to match the regular expression ^[_a-z][_a-z0-9]*$.(¿÷£ßúÿÿÿÿ
+ipython:S116®"QRename this field "timeStamp" to match the regular expression ^[_a-z][_a-z0-9]*$.(°€ºÉ
+npython:S116İ"QRename this field "stackPeek" to match the regular expression ^[_a-z][_a-z0-9]*$.(™¶È«úÿÿÿÿ
+opython:S116Ï"XRename this field "exceptionAddress" to match the regular expression ^[_a-z][_a-z0-9]*$.(ŒË¾F
+gpython:S116Â"ORename this field "labelPC" to match the regular expression ^[_a-z][_a-z0-9]*$.(ñ”“à
+opython:S116Ç"WRename this field "environmentData" to match the regular expression ^[_a-z][_a-z0-9]*$.(„ü´
+kpython:S116á"SRename this field "faultDisasm" to match the regular expression ^[_a-z][_a-z0-9]*$.(¶¯”Ğ
+qpython:S116Ø"TRename this field "stackTracePC" to match the regular expression ^[_a-z][_a-z0-9]*$.(¶ßä•üÿÿÿÿ
+hpython:S116ß"PRename this field "faultMem" to match the regular expression ^[_a-z][_a-z0-9]*$.(ë¹ëŒ
+npython:S116¾"QRename this field "eventName" to match the regular expression ^[_a-z][_a-z0-9]*$.(óºöÙşÿÿÿÿ
+opython:S116Ú"XRename this field "stackTracePretty" to match the regular expression ^[_a-z][_a-z0-9]*$.(Šœ/
+rpython:S116Ö"ZRename this field "isSystemBreakpoint" to match the regular expression ^[_a-z][_a-z0-9]*$.(’ëô
+opython:S116Õ"WRename this field "isOurBreakpoint" to match the regular expression ^[_a-z][_a-z0-9]*$.(œä°Ñ
+opython:S116×"RRename this field "stackTrace" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ã¼¡ğûÿÿÿÿ
+mpython:S116È"URename this field "registersPeek" to match the regular expression ^[_a-z][_a-z0-9]*$.(çØ»¸
+rpython:S116Ì"URename this field "exceptionCode" to match the regular expression ^[_a-z][_a-z0-9]*$.(®õø­ûÿÿÿÿ
+ppython:S116É"SRename this field "debugString" to match the regular expression ^[_a-z][_a-z0-9]*$.(ºæüÛøÿÿÿÿ
+ipython:S116à"QRename this field "faultPeek" to match the regular expression ^[_a-z][_a-z0-9]*$.(Û™¦±
+jpython:S116Ü"RRename this field "stackFrame" to match the regular expression ^[_a-z][_a-z0-9]*$.(»ìùº
+kpython:S116Å"SRename this field "commandLine" to match the regular expression ^[_a-z][_a-z0-9]*$.(°ˆ
+upython:S117ï"XRename this local variable "aModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(³Ñ¦øÿÿÿÿ
+ypython:S117"aRename this local variable "stackTraceLabels" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìçËñ
+upython:S117›"]Rename this local variable "stackTracePC" to match the regular expression ^[_a-z][a-z0-9_]*$.(—ö·ï
+ppython:S117Ö"XRename this local variable "aModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(±¬Íğ
+xpython:S117Š"`Rename this local variable "mappedFilenames" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÂÈš‡
+spython:S117ä"[Rename this local variable "stackFrame" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜Ï×
+{python:S117¥"^Rename this parameter "takeMemorySnapshot" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒáŒÂùÿÿÿÿ
+rpython:S3776¥"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ŒáŒÂùÿÿÿÿ
+{python:S117–"^Rename this local variable "blockDataMove" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã½òØûÿÿÿÿ
+tpython:S117•"\Rename this local variable "controlFlow" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó—­Ò
+qpython:S117”"YRename this local variable "nearNull" to match the regular expression ^[_a-z][a-z0-9_]*$.(À²½Û
+npython:S100×"QRename method "isExploitable" to match the regular expression ^[a-z_][a-z0-9_]*$.(´ã–øÿÿÿÿ
+rpython:S3776×"TRefactor this function to reduce its Cognitive Complexity from 52 to the 15 allowed.(´ã–øÿÿÿÿ
+{python:S117à"^Rename this local variable "isControlFlow" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú²Åşÿÿÿÿ
+}python:S117ö"`Rename this local variable "isBlockDataMove" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯³©şÿÿÿÿ
+lpython:S100„"ORename method "briefReport" to match the regular expression ^[a-z_][a-z0-9_]*$.(ĞÉ¼ûıÿÿÿÿ
+rpython:S3776„"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(ĞÉ¼ûıÿÿÿÿ
+spython:S117·"VRename this parameter "bShowNotes" to match the regular expression ^[_a-z][a-z0-9_]*$.(™æ‚ôüÿÿÿÿ
+xpython:S117‘"`Rename this local variable "mappedFileNames" to match the regular expression ^[_a-z][a-z0-9_]*$.(½°€„
+kpython:S100·"NRename method "fullReport" to match the regular expression ^[a-z_][a-z0-9_]*$.(™æ‚ôüÿÿÿÿ
+rpython:S3776·"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(™æ‚ôüÿÿÿÿ
+rpython:S100"URename method "environmentReport" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ê”ûóûÿÿÿÿ
+gpython:S100ª"ORename method "notesReport" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ç¦•æ
+cpython:S100¼"KRename method "addNote" to match the regular expression ^[a-z_][a-z0-9_]*$.(„ê
+fpython:S100Å"NRename method "clearNotes" to match the regular expression ^[a-z_][a-z0-9_]*$.(Æšé
+dpython:S100Ë"LRename method "getNotes" to match the regular expression ^[a-z_][a-z0-9_]*$.(ì› µ
+epython:S100Ô"MRename method "iterNotes" to match the regular expression ^[a-z_][a-z0-9_]*$.( ê¨ç
+ipython:S100İ"LRename method "hasNotes" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓÂ£çùÿÿÿÿ
+lpython:S116¢	"TRename this field "compressKeys" to match the regular expression ^[_a-z][_a-z0-9]*$.(¨³¶
+qpython:S116§	"TRename this field "binaryValues" to match the regular expression ^[_a-z][_a-z0-9]*$.(ş¥‚èùÿÿÿÿ
+lpython:S116¥	"TRename this field "escapeValues" to match the regular expression ^[_a-z][_a-z0-9]*$.(ºû½¼
+npython:S116£	"VRename this field "compressValues" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ø¿‚ç
+ipython:S116¦	"RRename this field "binaryKeys" to match the regular expression ^[_a-z][_a-z0-9]*$.(ïŞƒH
+spython:S116¡	"VRename this field "optimizeValues" to match the regular expression ^[_a-z][_a-z0-9]*$.(ç…éäúÿÿÿÿ
+qpython:S116 	"TRename this field "optimizeKeys" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÙØéşÿÿÿÿ
+jpython:S116¤	"RRename this field "escapeKeys" to match the regular expression ^[_a-z][_a-z0-9]*$.(İ­§Ì
+zpython:S117©	"]Rename this parameter "allowRepeatedKeys" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞŸõ¢üÿÿÿÿ
+wpython:S117‹
+"ZRename this local variable "memoryMap" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú³å×şÿÿÿÿ
+rpython:S117÷	"ZRename this parameter "storeMemoryMap" to match the regular expression ^[_a-z][a-z0-9_]*$.(†Ñíö
+Upython:S5754…"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S116‘"ZRename this field "_allowRepeatedKeys" to match the regular expression ^[_a-z][_a-z0-9]*$.(×¼÷ƒ
+upython:S117ù"]Rename this parameter "allowRepeatedKeys" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßç½ª
+jpython:S1134Ø"LTake the required action to fix the issue indicated by this "FIXME" comment.(€´·ìøÿÿÿÿ
+upython:S117…"]Rename this parameter "allowRepeatedKeys" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¶Ê…
+upython:S117¨"]Rename this parameter "allowRepeatedKeys" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¶Ê…
+zpython:S117Å"]Rename this parameter "allowRepeatedKeys" to match the regular expression ^[_a-z][a-z0-9_]*$.(Òª¶Êûÿÿÿÿ
+spython:S116ê"[Rename this field "__allowRepeatedKeys" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÈÔ¦˜
+zpython:S117ß"]Rename this parameter "allowRepeatedKeys" to match the regular expression ^[_a-z][a-z0-9_]*$.(Òª¶Êûÿÿÿÿ

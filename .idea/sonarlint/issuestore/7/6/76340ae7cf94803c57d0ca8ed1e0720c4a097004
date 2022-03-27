@@ -1,0 +1,22 @@
+
+rpython:S3776Œ"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÂğÄøÿÿÿÿ
+rpython:S3776²"TRefactor this function to reduce its Cognitive Complexity from 54 to the 15 allowed.(é±¹©øÿÿÿÿ
+Apython:S108	")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108 	")Either remove or fill this block of code.(ã‘Û¾
+6python:S3626³"Remove this redundant return.(ÙãŞŸ
+lpython:S3776‚"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(À°ë
+rpython:S3776Ü"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(‡¶ççÿÿÿÿÿ
+mpython:S3776Ÿ"TRefactor this function to reduce its Cognitive Complexity from 47 to the 15 allowed.(ä¤°¿
+epython:S117›"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ÂÛ
+epython:S117ÿ"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾™©Å
+jpython:S117ì"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÏÆµûÿÿÿÿ
+dpython:S117Ô"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÀ«D
+epython:S117Î"MRename this parameter "M" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÃâÉÏ
+rpython:S3776Ù"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(æ¸Ä¥şÿÿÿÿ
+Ipython:S5806—#"+Rename this variable; it shadows a builtin.(½±øšùÿÿÿÿ
+Dpython:S5806¸$"+Rename this variable; it shadows a builtin.(é‡œŞ
+mpython:S3776ß&"TRefactor this function to reduce its Cognitive Complexity from 48 to the 15 allowed.(‹æùƒ
+Apython:S108Ë'")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108Ñ'")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108Ù'")Either remove or fill this block of code.(ã‘Û¾
+lpython:S3776˜("TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(”®È

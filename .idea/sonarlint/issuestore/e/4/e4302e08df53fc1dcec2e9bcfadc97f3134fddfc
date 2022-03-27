@@ -1,0 +1,45 @@
+
+_python:S2208%"GImport only needed names or import the module and then use its members.(Š©ù´
+dpython:S2208."GImport only needed names or import the module and then use its members.(ÃªÇ±ÿÿÿÿÿ
+‹python:S101—"sRename class "PROCESS_BASIC_INFORMATION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(÷·”ß
+Špython:S101­"rRename class "THREAD_BASIC_INFORMATION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ß°Ì«
+Œpython:S101½"oRename class "FILE_NAME_INFORMATION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(æ»ŞÁûÿÿÿÿ
+|python:S101È"dRename class "SYSDBG_MSR" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¹Ç´•
+†python:S101×"iRename class "IO_STATUS_BLOCK" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(·İó·ûÿÿÿÿ
+opython:S117é"RRename this parameter "Status" to match the regular expression ^[_a-z][a-z0-9_]*$.(Öµñÿıÿÿÿÿ
+python:S117ê"gRename this local variable "_RtlNtStatusToDosError" to match the regular expression ^[_a-z][a-z0-9_]*$.(²€¶ê
+ypython:S1542é"[Rename function "RtlNtStatusToDosError" to match the regular expression ^[a-z_][a-z0-9_]*$.(Öµñÿıÿÿÿÿ
+ppython:S117÷"SRename this parameter "Command" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê‹ûÄùÿÿÿÿ
+tpython:S117÷"WRename this parameter "InputBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê‹ûÄùÿÿÿÿ
+zpython:S117÷"]Rename this parameter "InputBufferLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê‹ûÄùÿÿÿÿ
+upython:S117÷"XRename this parameter "OutputBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê‹ûÄùÿÿÿÿ
+{python:S117÷"^Rename this parameter "OutputBufferLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê‹ûÄùÿÿÿÿ
+zpython:S117”"]Rename this local variable "ReturnLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(®áÃûÿÿÿÿ
+ƒpython:S117ø"fRename this local variable "_NtSystemDebugControl" to match the regular expression ^[_a-z][a-z0-9_]*$.(“­ı¼úÿÿÿÿ
+xpython:S1542÷"ZRename function "NtSystemDebugControl" to match the regular expression ^[a-z_][a-z0-9_]*$.(ê‹ûÄùÿÿÿÿ
+rpython:S3776÷"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ê‹ûÄùÿÿÿÿ
+ppython:S117«"YRename this parameter "ProcessHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ°ùF
+{python:S117°"cRename this local variable "ProcessInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(îÖ§Ù
+zpython:S117«"cRename this parameter "ProcessInformationClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ°ùF
+{python:S117«"dRename this parameter "ProcessInformationLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ°ùF
+zpython:S117¾"]Rename this local variable "ReturnLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(®áÃûÿÿÿÿ
+ˆpython:S117¬"kRename this local variable "_NtQueryInformationProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îˆ—¢şÿÿÿÿ
+wpython:S1542«"_Rename function "NtQueryInformationProcess" to match the regular expression ^[a-z_][a-z0-9_]*$.(œ°ùF
+Vpython:S112½">Replace this generic exception class with a more specific one.(÷É‰€
+zpython:S117ë"]Rename this local variable "ReturnLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(®áÃûÿÿÿÿ
+ppython:S117×"XRename this parameter "ThreadHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(º¥À›
+python:S117Ü"bRename this local variable "ThreadInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸áâÇûÿÿÿÿ
+zpython:S117×"bRename this parameter "ThreadInformationClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(º¥À›
+{python:S117×"cRename this parameter "ThreadInformationLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(º¥À›
+‡python:S117Ø"jRename this local variable "_NtQueryInformationThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼êó»şÿÿÿÿ
+wpython:S1542×"^Rename function "NtQueryInformationThread" to match the regular expression ^[a-z_][a-z0-9_]*$.(º¥À›
+[python:S112é">Replace this generic exception class with a more specific one.(ú½Ñüÿÿÿÿ
+spython:S117ƒ"VRename this parameter "FileHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(“Ü“¸ùÿÿÿÿ
+xpython:S117ƒ"[Rename this parameter "FileInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(“Ü“¸ùÿÿÿÿ
+}python:S117ƒ"`Rename this parameter "FileInformationClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(“Ü“¸ùÿÿÿÿ
+upython:S117‡"^Rename this local variable "IoStatusBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢ j
+opython:S117ƒ"RRename this parameter "Length" to match the regular expression ^[_a-z][a-z0-9_]*$.(“Ü“¸ùÿÿÿÿ
+€python:S117„"hRename this local variable "_NtQueryInformationFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú‚°
+zpython:S1542ƒ"\Rename function "NtQueryInformationFile" to match the regular expression ^[a-z_][a-z0-9_]*$.(“Ü“¸ùÿÿÿÿ
+~python:S117‘"aRename this local variable "_CsrGetProcessId" to match the regular expression ^[_a-z][a-z0-9_]*$.(İóÑ°ùÿÿÿÿ
+mpython:S1542"URename function "CsrGetProcessId" to match the regular expression ^[a-z_][a-z0-9_]*$.(„‰¦F

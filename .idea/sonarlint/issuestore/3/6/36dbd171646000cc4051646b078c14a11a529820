@@ -1,0 +1,6 @@
+
+fpython:S1192¾"HDefine a constant instead of duplicating this literal ':action' 3 times.(‰æãøÿÿÿÿ
+vpython:S1192a"YDefine a constant instead of duplicating this literal 'Server response (%s): %s' 4 times.(áÙ‡Êşÿÿÿÿ
+_python:S2208"GImport only needed names or import the module and then use its members.(…»²Ê
+lpython:S3776c"TRefactor this function to reduce its Cognitive Complexity from 52 to the 15 allowed.(µİ‘…
+mpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Œşàî

@@ -1,0 +1,6 @@
+
+hpython:S1192†"JDefine a constant instead of duplicating this literal 'conf.json' 3 times.(ÚÙè¢ùÿÿÿÿ
+Gpython:S1066Ì"/Merge this if statement with the enclosing one.(¤ÕÄU
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(‹Ğº‘
+jpython:S1226"QIntroduce a new variable or use its initial value before reassigning 'root_dirs'.(‹Ğº‘
+rpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(³ù«Ğüÿÿÿÿ

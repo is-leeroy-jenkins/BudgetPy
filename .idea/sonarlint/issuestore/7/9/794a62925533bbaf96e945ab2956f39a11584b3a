@@ -1,0 +1,102 @@
+
+xpython:S117"aRename this parameter "namespaceHTMLElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾’šŒ
+}python:S1171"aRename this parameter "namespaceHTMLElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(£Ê‰şıÿÿÿÿ
+ppython:S15421"SRename function "parseFragment" to match the regular expression ^[a-z_][a-z0-9_]*$.(£Ê‰şıÿÿÿÿ
+zpython:S117M"^Rename this local variable "attributeName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ş‹Ãşÿÿÿÿ
+qpython:S117L"URename this parameter "classDict" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¢Øüÿÿÿÿ
+npython:S2710L"QRename "meta" to a valid class parameter name or add the missing class parameter.(Æ¢Øüÿÿÿÿ
+mpython:S116‡"URename this field "originalPhase" to match the regular expression ^[_a-z][_a-z0-9]*$.(‘¾‰û
+rpython:S116Œ"URename this field "firstStartTag" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ç¢»†øÿÿÿÿ
+qpython:S116~"URename this field "innerHTMLMode" to match the regular expression ^[_a-z][_a-z0-9]*$.(úˆõùÿÿÿÿ
+opython:S116"RRename this field "compatMode" to match the regular expression ^[_a-z][_a-z0-9]*$.(óóÄ˜øÿÿÿÿ
+npython:S116“"QRename this field "innerHTML" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÌÎ’»şÿÿÿÿ
+ipython:S116¦"QRename this field "lastPhase" to match the regular expression ^[_a-z][_a-z0-9]*$.(·­
+qpython:S116¨"YRename this field "beforeRCDataPhase" to match the regular expression ^[_a-z][_a-z0-9]*$.( „ø€
+opython:S116ª"RRename this field "framesetOK" to match the regular expression ^[_a-z][_a-z0-9]*$.(å¤Ô»ùÿÿÿÿ
+}python:S117]"aRename this parameter "namespaceHTMLElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(…©…ºûÿÿÿÿ
+lpython:S117|"URename this parameter "innerHTML" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸·ëº
+qpython:S100­"TRename method "documentEncoding" to match the regular expression ^[a-z_][a-z0-9_]*$.(”¡Ì±ûÿÿÿÿ
+rpython:S100¶"ZRename method "isHTMLIntegrationPoint" to match the regular expression ^[a-z_][a-z0-9_]*$.(©åôö
+xpython:S100À"`Rename method "isMathMLTextIntegrationPoint" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹§ç°
+wpython:S117Ä"`Rename this local variable "CharactersToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(íÌû[
+tpython:S117È"]Rename this local variable "CommentToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç”¥
+zpython:S117É"]Rename this local variable "DoctypeToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ŒâÆıÿÿÿÿ
+ypython:S117Ç"\Rename this local variable "EndTagToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(·¶İàøÿÿÿÿ
+}python:S117Ê"`Rename this local variable "ParseErrorToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôÄíûÿÿÿÿ
+}python:S117Å"eRename this local variable "SpaceCharactersToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Êö
+vpython:S117Æ"^Rename this local variable "StartTagToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ÇÃ¢
+ypython:S117Ñ"\Rename this local variable "currentNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(°Ô«Çùÿÿÿÿ
+}python:S117Ó"`Rename this local variable "currentNodeName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ä‚ßûÿÿÿÿ
+}python:S117Ò"eRename this local variable "currentNodeNamespace" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡º´„
+ipython:S100Ã"LRename method "mainLoop" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ú³ìÀıÿÿÿÿ
+rpython:S3776Ã"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(Ú³ìÀıÿÿÿÿ
+Ipython:S5806Õ"+Rename this variable; it shadows a builtin.(ËÍû™ÿÿÿÿÿ
+ipython:S100Ÿ"QRename method "parseFragment" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯ŒÊÚ
+kpython:S100»"NRename method "parseError" to match the regular expression ^[a-z_][a-z0-9_]*$.(”ÌÜ¶üÿÿÿÿ
+wpython:S100Ã"ZRename method "adjustMathMLAttributes" to match the regular expression ^[a-z_][a-z0-9_]*$.(õ¿Ğ†úÿÿÿÿ
+opython:S100Æ"WRename method "adjustSVGAttributes" to match the regular expression ^[a-z_][a-z0-9_]*$.(«º…ÿ
+spython:S100É"[Rename method "adjustForeignAttributes" to match the regular expression ^[a-z_][a-z0-9_]*$.(†ıêî
+spython:S100Ì"VRename method "reparseTokenNormal" to match the regular expression ^[a-z_][a-z0-9_]*$.(ğùª³ÿÿÿÿÿ
+vpython:S117Ô"YRename this local variable "newModes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôİÅÿÿÿÿÿ
+qpython:S117å"YRename this local variable "nodeName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡Úæ¸
+spython:S100Ğ"VRename method "resetInsertionMode" to match the regular expression ^[a-z_][a-z0-9_]*$.(î¹ôÓüÿÿÿÿ
+tpython:S117ü"WRename this parameter "contentType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÛƒóùÿÿÿÿ
+spython:S100ü"VRename method "parseRCDataRawtext" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒÛƒóùÿÿÿÿ
+hpython:S1542"ORename function "getPhases" to match the regular expression ^[a-z_][a-z0-9_]*$.(‘‡’¥
+npython:S3776"URefactor this function to reduce its Cognitive Complexity from 356 to the 15 allowed.(‘‡’¥
+kpython:S1542£"RRename function "getMetaclass" to match the regular expression ^[a-z_][a-z0-9_]*$.(òˆìâ
+rpython:S1186õ"YAdd a nested comment explaining why this method is empty, or complete the implementation.( ¥¹Ö
+qpython:S117ı"YRename this local variable "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç™¦ë
+qpython:S117ş"YRename this local variable "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àö¼
+rpython:S1186„"YAdd a nested comment explaining why this method is empty, or complete the implementation.( ¥¹Ö
+€python:S4144¯"bUpdate this function so that its implementation is not identical to processCharacters on line 675.(°ıäæúÿÿÿÿ
+{python:S4144³"bUpdate this function so that its implementation is not identical to processCharacters on line 675.(×ñÕÍ
+rpython:S1186 "YAdd a nested comment explaining why this method is empty, or complete the implementation.( ¥¹Ö
+€python:S4144†"bUpdate this function so that its implementation is not identical to processCharacters on line 718.(°ıäæúÿÿÿÿ
+{python:S4144"bUpdate this function so that its implementation is not identical to processCharacters on line 718.(½¾™î
+wpython:S4144Ò"^Update this function so that its implementation is not identical to startTagOther on line 840.(Ôä­£
+€python:S4144"bUpdate this function so that its implementation is not identical to processCharacters on line 882.(°ıäæúÿÿÿÿ
+{python:S4144“"bUpdate this function so that its implementation is not identical to processCharacters on line 882.(½¾™î
+~python:S117Á"aRename this local variable "matchingElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰äíüşÿÿÿÿ
+Apython:S108ˆ")Either remove or fill this block of code.(ã‘Û¾
+rpython:S117¬"ZRename this local variable "stopNames" to match the regular expression ^[_a-z][a-z0-9_]*$.(•³Úª
+upython:S117©"]Rename this local variable "stopNamesMap" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ê– 
+tpython:S117Ë"\Rename this local variable "afeAElement" to match the regular expression ^[_a-z][a-z0-9_]*$.(§Êå€
+qpython:S117	"[Rename this local variable "framesetOK" to match the regular expression ^[_a-z][a-z0-9_]*$.(êş
+
+ppython:S117Å
+"XRename this local variable "inScope" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºÙ—¯
+qpython:S117½"YRename this local variable "afeIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹™ë¢
+vpython:S117Ô"_Rename this local variable "commonAncestor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë¸¼P
+zpython:S117’"bRename this local variable "formattingElement" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì¯È
+vpython:S117¾"^Rename this local variable "furthestBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(üüšé
+ypython:S117ß"aRename this local variable "innerLoopCounter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆìË
+zpython:S117ˆ"]Rename this local variable "insertBefore" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑÓ‰áûÿÿÿÿ
+qpython:S117Ş"YRename this local variable "lastNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê“÷´
+~python:S117‚"aRename this local variable "outerLoopCounter" to match the regular expression ^[_a-z][a-z0-9_]*$.(­äö•úÿÿÿÿ
+Apython:S108¹")Either remove or fill this block of code.(ã‘Û¾
+{python:S117¸"^Rename this local variable "originalPhase" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı…Øşÿÿÿÿ
+{python:S117¾"^Rename this local variable "originalPhase" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı…Øşÿÿÿÿ
+~python:S4144Ø"`Update this function so that its implementation is not identical to processComment on line 1860.(ØıÊŠüÿÿÿÿ
+~python:S4144İ"`Update this function so that its implementation is not identical to processComment on line 1860.(Ø€„ÿÿÿÿÿ
+7python:S125Ö"Remove this commented out code.(Ë¡óË
+„python:S4144Œ"fUpdate this function so that its implementation is not identical to startTagTableElement on line 1903.(úúÈºüÿÿÿÿ
+zpython:S117ò"]Rename this local variable "ignoreEndTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œİüÿÿÿÿ
+zpython:S117"]Rename this local variable "ignoreEndTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œİüÿÿÿÿ
+python:S4144Ä"cUpdate this function so that its implementation is not identical to processCharacters on line 1977.(°ıäæúÿÿÿÿ
+|python:S4144Ö"cUpdate this function so that its implementation is not identical to processCharacters on line 1977.(¹Ğ¹
+6python:S3626²"Remove this redundant return.(ÙãŞŸ
+zpython:S117´"]Rename this local variable "ignoreEndTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(×¡ìğÿÿÿÿÿ
+zpython:S117º"]Rename this local variable "ignoreEndTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(×¡ìğÿÿÿÿÿ
+zpython:S117Å"]Rename this local variable "ignoreEndTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(×¡ìğÿÿÿÿÿ
+zpython:S117×"]Rename this local variable "ignoreEndTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(×¡ìğÿÿÿÿÿ
+‚python:S4144¥"dUpdate this function so that its implementation is not identical to startTagTableOther on line 2059.(úúÈºüÿÿÿÿ
+‚python:S4144ü"dUpdate this function so that its implementation is not identical to startTagTableOther on line 2152.(úúÈºüÿÿÿÿ
+zpython:S117é"]Rename this local variable "ignoreEndTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ™Ëóúÿÿÿÿ
+zpython:S117ı"]Rename this local variable "ignoreEndTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ™Ëóúÿÿÿÿ
+tpython:S117¶"\Rename this local variable "currentNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ÈÂÁ
+rpython:S117Ñ"ZRename this local variable "nodeIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨‰ó¡
+wpython:S1186÷"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¡ÑÇŒüÿÿÿÿ
+wpython:S1186œ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¡ÑÇŒüÿÿÿÿ
+tpython:S117â"WRename this parameter "selfClosing" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ïõêøÿÿÿÿ
+spython:S1542á"URename function "impliedTagToken" to match the regular expression ^[a-z_][a-z0-9_]*$.(ä÷Éåûÿÿÿÿ

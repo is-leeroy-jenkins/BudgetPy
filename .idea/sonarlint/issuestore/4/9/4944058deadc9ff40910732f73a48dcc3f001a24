@@ -1,0 +1,7 @@
+
+`python:S5797"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
+;python:S125"Remove this commented out code.(¾¹À‘ÿÿÿÿÿ
+`python:S5799Ï"GMerge these implicitly concatenated strings; or did you forget a comma?(¥ºÊ˜
+lpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(£îµ
+
+Dpython:S1862Œ"+This branch duplicates the one on line 266.(±¼â€

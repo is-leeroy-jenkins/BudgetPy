@@ -1,0 +1,8 @@
+
+Zpython:S5747j"BRemove this "raise" statement or move it inside an "except" block.(€³Ά»
+8python:S3626Ζ"Remove this redundant continue.(ΐ–¬
+8python:S3626Τ"Remove this redundant continue.(ΐ–¬
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(Δέγόÿÿÿÿ
+fpython:S100Φ"NRename method "handle_EOF" to match the regular expression ^[a-z_][a-z0-9_]*$.(ϋνιά
+bpython:S100γ"KRename method "EOFhook" to match the regular expression ^[a-z_][a-z0-9_]*$.(υΩΙ5
+Ipython:S5806ς"+Rename this variable; it shadows a builtin.(€Ήƒψÿÿÿÿ

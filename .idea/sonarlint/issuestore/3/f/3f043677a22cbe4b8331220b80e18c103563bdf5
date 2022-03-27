@@ -1,0 +1,11 @@
+
+npython:S117,"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+npython:S117)"RRename this parameter "numFmt" to match the regular expression ^[_a-z][a-z0-9_]*$.(…«îŒÿÿÿÿÿ
+lpython:S117*"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
+gpython:S117+"PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ
+hpython:S117T"RRename this parameter "dispEq" to match the regular expression ^[_a-z][a-z0-9_]*$.(–¨ l
+jpython:S117S"TRename this parameter "dispRSqr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÂ¿:
+npython:S117V"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+lpython:S117L"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
+tpython:S117U"XRename this parameter "trendlineLbl" to match the regular expression ^[_a-z][a-z0-9_]*$.(™òÖ§úÿÿÿÿ
+ppython:S117M"YRename this parameter "trendlineType" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷—Ú¬

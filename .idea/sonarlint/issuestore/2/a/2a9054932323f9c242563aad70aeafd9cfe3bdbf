@@ -1,0 +1,13 @@
+
+npython:S117@"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S117:"ZRename this parameter "showHorzBorder" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã¢ı
+jpython:S117="TRename this parameter "showKeys" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÖØ'
+spython:S117<"WRename this parameter "showOutline" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å±Œıÿÿÿÿ
+vpython:S117;"ZRename this parameter "showVertBorder" to match the regular expression ^[_a-z][a-z0-9_]*$.(á”ñšùÿÿÿÿ
+lpython:S117>"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
+gpython:S117?"PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ
+ipython:S117r"RRename this parameter "dTable" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ‘¼
+npython:S117v"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+lpython:S117s"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
+spython:S117€"VRename this local variable "axIds" to match the regular expression ^[_a-z][a-z0-9_]*$.(³ã¹†ÿÿÿÿÿ
+mpython:S117•"URename this local variable "axId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ·¾ƒ

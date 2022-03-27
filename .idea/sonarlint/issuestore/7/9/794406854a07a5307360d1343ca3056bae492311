@@ -1,0 +1,13 @@
+
+rpython:S3776‡"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.( ­í†úÿÿÿÿ
+rpython:S3776Å"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ú„Úüùÿÿÿÿ
+gpython:S3358â"IExtract this nested conditional expression into an independent statement.(›ó’Ñıÿÿÿÿ
+gpython:S3358å"IExtract this nested conditional expression into an independent statement.(˜£ÕÔÿÿÿÿÿ
+bpython:S3358ë"IExtract this nested conditional expression into an independent statement.(áÙ˜ñ
+mpython:S3776ò"URefactor this function to reduce its Cognitive Complexity from 105 to the 15 allowed.(ãÈ†A
+`python:S5799Î"GMerge these implicitly concatenated strings; or did you forget a comma?(…°—ê
+`python:S5799Õ"GMerge these implicitly concatenated strings; or did you forget a comma?(ºşÒä
+rpython:S5850"TGroup parts of the regex together to make the intended operator precedence explicit.(¿¸©‡ûÿÿÿÿ
+Mpython:S5727²"4Remove this identity check; it will always be False.(ÎÏ¢
+rpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(îê„¯øÿÿÿÿ
+mpython:S3776Ë	"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ıáãÕ

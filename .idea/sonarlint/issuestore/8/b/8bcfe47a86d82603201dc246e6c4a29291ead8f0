@@ -1,0 +1,5 @@
+
+qpython:S1186E"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Â§®Ó
+…python:S1542€"gRename function "message_about_scripts_not_on_PATH" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÂÓ¿Âüÿÿÿÿ
+mpython:S3776®"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(Æÿ„¬
+Apython:S108¬")Either remove or fill this block of code.(ã‘Û¾

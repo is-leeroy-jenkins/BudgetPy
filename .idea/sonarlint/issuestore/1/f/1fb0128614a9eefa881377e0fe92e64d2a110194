@@ -1,0 +1,6 @@
+
+dpython:S5607Ä"KFix this invalid "<<" operation between incompatible types (float and int).(…‚û°
+ipython:S107H"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.( Ðàþüÿÿÿÿ
+qpython:S3776G"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ú„Úüùÿÿÿÿ
+epython:S1134È"LTake the required action to fix the issue indicated by this "FIXME" comment.(Ë™ËÆ
+Dpython:S5806»"+Rename this variable; it shadows a builtin.(³‡¼´

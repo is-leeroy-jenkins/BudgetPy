@@ -1,0 +1,6 @@
+
+dpython:S1134Û"LTake the required action to fix the issue indicated by this "FIXME" comment.(ûŠÿ&
+rpython:S3776Å"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(íŸûÿÿÿÿ
+|python:S117Ú"dRename this local variable "_AsyncGeneratorType" to match the regular expression ^[_a-z][a-z0-9_]*$.(½˜ğ¦
+|python:S117É"_Rename this local variable "_GeneratorType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í¼ûÿÿÿÿ
+mpython:S3776®"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(„ìÁè

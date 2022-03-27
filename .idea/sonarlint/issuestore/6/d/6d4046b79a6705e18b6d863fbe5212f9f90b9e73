@@ -1,0 +1,19 @@
+
+ppython:S1174"YRename this parameter "blackAndWhite" to match the regular expression ^[_a-z][a-z0-9_]*$.(„Ÿ¬
+opython:S1176"XRename this parameter "cellComments" to match the regular expression ^[_a-z][a-z0-9_]*$.(İĞ´Ö
+rpython:S117."[Rename this parameter "firstPageNumber" to match the regular expression ^[_a-z][a-z0-9_]*$.(°›Ğó
+npython:S117,"WRename this parameter "fitToHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡Øé„
+rpython:S117-"VRename this parameter "fitToWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸°ó²ùÿÿÿÿ
+upython:S1178"YRename this parameter "horizontalDpi" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ƒ¼¸ıÿÿÿÿ
+qpython:S1172"URename this parameter "pageOrder" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸ÃÔ­ùÿÿÿÿ
+npython:S1170"WRename this parameter "paperHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(±àÒ
+qpython:S117*"URename this parameter "paperSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨³¿àÿÿÿÿÿ
+mpython:S1171"VRename this parameter "paperWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù¹ÜŒ
+upython:S117/"^Rename this parameter "useFirstPageNumber" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ÔÛ…
+zpython:S1173"^Rename this parameter "usePrinterDefaults" to match the regular expression ^[_a-z][a-z0-9_]*$.(“Œôüÿÿÿÿ
+npython:S1179"WRename this parameter "verticalDpi" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ÍÜü
+ipython:S107'"MMethod "__init__" has 20 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+rpython:S117ˆ"URename this parameter "gridLines" to match the regular expression ^[_a-z][a-z0-9_]*$.(«î©şÿÿÿÿ
+ppython:S117‰"XRename this parameter "gridLinesSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(›…‰ÿ
+{python:S117…"^Rename this parameter "horizontalCentered" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÃ¥–ıÿÿÿÿ
+ypython:S117†"\Rename this parameter "verticalCentered" to match the regular expression ^[_a-z][a-z0-9_]*$.(À«¯Áıÿÿÿÿ

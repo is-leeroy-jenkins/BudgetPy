@@ -1,0 +1,10 @@
+
+^python:S6019"FFix this reluctant quantifier that will only ever match 0 repetitions.(´ş¨
+Apython:S1481")Remove the unused local variable "found".(ŒC
+Gpython:S1481ª")Remove the unused local variable "found".(µã›×şÿÿÿÿ
+Gpython:S1481¸")Remove the unused local variable "found".(ê½ö…üÿÿÿÿ
+rpython:S3776‚"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(·ÌŠúÿÿÿÿ
+<python:S125"Remove this commented out code.(ûÕ®Ôÿÿÿÿÿ
+<python:S125«"Remove this commented out code.(ûÕ®Ôÿÿÿÿÿ
+<python:S125¹"Remove this commented out code.(ûÕ®Ôÿÿÿÿÿ
+mpython:S3776½"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(õ«ÖŒ

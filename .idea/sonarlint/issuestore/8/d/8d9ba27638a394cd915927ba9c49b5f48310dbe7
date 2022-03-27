@@ -1,0 +1,9 @@
+
+tpython:S5890«"VAssign to "key" a value of type "Hashable" instead of "tuple" or update its type hint.(ªÜŒüÿÿÿÿ
+qpython:S2737Â"XAdd logic to this except clause or eliminate it and rethrow the exception automatically.(€³¢»
+rpython:S3776É"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(Ü¼­„ıÿÿÿÿ
+ƒpython:S101"fRename class "Vt100_Output" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(½õéùÿÿÿÿ
+Apython:S108õ")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108ı")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108‡")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108")Either remove or fill this block of code.(ã‘Û¾

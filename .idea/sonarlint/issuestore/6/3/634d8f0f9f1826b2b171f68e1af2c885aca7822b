@@ -1,0 +1,8 @@
+
+tpython:S117:"]Rename this local variable "_dictEntries" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ°›á
+rpython:S1542j"URename function "isSurrogatePair" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰ñ¹¶üÿÿÿÿ
+vpython:S1542p"^Rename function "surrogatePairToCodepoint" to match the regular expression ^[a-z_][a-z0-9_]*$.(ïìæÜ
+xpython:S117z"\Rename this local variable "moduleCache" to match the regular expression ^[_a-z][a-z0-9_]*$.(èô¸ûÿÿÿÿ
+wpython:S1542y"ZRename function "moduleFactoryFactory" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡ËóĞüÿÿÿÿ
+rpython:S117|"VRename this parameter "baseModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(òä®Ëşÿÿÿÿ
+ppython:S1542|"SRename function "moduleFactory" to match the regular expression ^[a-z_][a-z0-9_]*$.(òä®Ëşÿÿÿÿ

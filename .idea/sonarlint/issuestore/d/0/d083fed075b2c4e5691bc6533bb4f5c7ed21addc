@@ -1,0 +1,43 @@
+
+bpython:S1192–"IDefine a constant instead of duplicating this literal 'https://' 3 times.(±è…À
+apython:S1192±"HDefine a constant instead of duplicating this literal 'file://' 4 times.(ãøÿ”
+gpython:S1192³	"NDefine a constant instead of duplicating this literal 'no host given' 3 times.(¿ÑÊ´
+fpython:S1192„"HDefine a constant instead of duplicating this literal 'http://' 3 times.(™úß ıÿÿÿÿ
+gpython:S1192ó"NDefine a constant instead of duplicating this literal 'ftp error: %r' 3 times.(Ö…ı¢
+Mpython:S1066¡"/Merge this if statement with the enclosing one.(»“İşÿÿÿÿ
+Hpython:S1066¾"/Merge this if statement with the enclosing one.(Í”å½
+rpython:S3776™"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(÷³€áøÿÿÿÿ
+Jpython:S4423¤",Change this code to use a stronger protocol.(ı¾€íûÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÛÅÉöùÿÿÿÿ
+Dpython:S5806"+Rename this variable; it shadows a builtin.(İÁ”Â
+mpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(÷ÔıÑ
+mpython:S3776°"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(Ş“€’
+mpython:S3776°	"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(Š ´å
+Dpython:S5806Î
+"+Rename this variable; it shadows a builtin.(óıü‡
+mpython:S3776Á"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(¨©÷
+Dpython:S5806ã"+Rename this variable; it shadows a builtin.(òŠíˆ
+Ipython:S5806±"+Rename this variable; it shadows a builtin.(ÿŒÇéÿÿÿÿÿ
+Ipython:S5806¶"+Rename this variable; it shadows a builtin.(ÿŒÇéÿÿÿÿÿ
+Epython:S1481Ç"'Remove the unused local variable "msg".(§Šıªıÿÿÿÿ
+rpython:S3776º"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(Êâ°Öıÿÿÿÿ
+Dpython:S5806À"+Rename this variable; it shadows a builtin.(ºÏÄ‘
+mpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(¥±“Ñ
+mpython:S3776¤"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(è’¦
+Dpython:S5806Ë"+Rename this variable; it shadows a builtin.(‡¹÷ˆ
+epython:S1226Ş"LIntroduce a new variable or use its initial value before reassigning 'data'.(—¤ôï
+Dpython:S5806î"+Rename this variable; it shadows a builtin.(š°ô 
+<python:S125„"Remove this commented out code.(œˆÏÿÿÿÿÿ
+rpython:S3776›"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(şåšßùÿÿÿÿ
+opython:S117¤"WRename this local variable "hostIP" to match the regular expression ^[_a-z][a-z0-9_]*$.(É×Èä
+mpython:S3776ˆ"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(àÀß¼
+opython:S117˜"RRename this parameter "ipAddr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éšééùÿÿÿÿ
+~python:S117í"aRename this local variable "internetSettings" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æƒˆûÿÿÿÿ
+tpython:S117ï"\Rename this local variable "proxyEnable" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ÖÅâ
+ypython:S117ó"\Rename this local variable "proxyServer" to match the regular expression ^[_a-z][a-z0-9_]*$.( Æ€’ÿÿÿÿÿ
+mpython:S3776à"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(‡›‹—
+~python:S117"aRename this local variable "internetSettings" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æƒˆûÿÿÿÿ
+tpython:S117Ÿ"\Rename this local variable "proxyEnable" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ÖÅâ
+{python:S117¡"^Rename this local variable "proxyOverride" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú’õ­úÿÿÿÿ
+upython:S117©"XRename this local variable "rawHost" to match the regular expression ^[_a-z][a-z0-9_]*$.(™„ÛŞüÿÿÿÿ
+rpython:S3776–"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¼Šçøÿÿÿÿ

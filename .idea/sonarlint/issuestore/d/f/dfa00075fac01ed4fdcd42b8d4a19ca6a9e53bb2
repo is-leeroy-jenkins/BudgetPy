@@ -1,0 +1,4 @@
+
+lpython:S117|"PRename this parameter "Link" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã™øµÿÿÿÿÿ
+{python:S5717Æ"]Change this default value to "None" and initialize this parameter inside the function/method.(¦þí¥üÿÿÿÿ
+rpython:S3776Ù"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(†ø ×ýÿÿÿÿ

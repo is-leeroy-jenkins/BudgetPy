@@ -1,0 +1,35 @@
+
+jpython:S1192Ë"LDefine a constant instead of duplicating this literal 'foo@bar.com' 5 times.(·†ÏĞüÿÿÿÿ
+mpython:S1192é"TDefine a constant instead of duplicating this literal r"^recips: .*'{}'.*$" 5 times.(“íàº
+€python:S1192Ï"gDefine a constant instead of duplicating this literal 'Martha <my_mom@great.cooker.com>, Jeff' 3 times.(«¦ææ
+hpython:S1192Î"ODefine a constant instead of duplicating this literal 'holy@grail.net' 3 times.(şùúı
+hpython:S1192ü"JDefine a constant instead of duplicating this literal '%s%s\n%s' 10 times.( ¦£«ûÿÿÿÿ
+xpython:S1192ª"ZDefine a constant instead of duplicating this literal b'Authentication Succeeded' 7 times.( §®÷üÿÿÿÿ
+qpython:S1192ê"SDefine a constant instead of duplicating this literal 'Mr.A@somewhere.com' 3 times.(ÍóÛ¸ùÿÿÿÿ
+dpython:S1192Í"LDefine a constant instead of duplicating this literal 'Sally, Fred' 3 times.(öÄª!
+gpython:S1192ñ"ODefine a constant instead of duplicating this literal 'John, Dinsdale' 3 times.(²£üd
+lpython:S1192Õ"SDefine a constant instead of duplicating this literal 'nobody@nowhere.com' 3 times.(¦¢åš
+kpython:S1192¯	"MDefine a constant instead of duplicating this literal 'test message' 4 times.(ì«Úùÿÿÿÿ
+opython:S1192Ğ"QDefine a constant instead of duplicating this literal 'doe@losthope.net' 3 times.(¬ºÀ÷ÿÿÿÿÿ
+jpython:S1192Š"QDefine a constant instead of duplicating this literal b"220 Hello world" 3 times.(ıµã
+gpython:S1192î"ODefine a constant instead of duplicating this literal 'A test message' 9 times.(µç˜V
+hpython:S1192M"PDefine a constant instead of duplicating this literal b"220 Hola mundo" 8 times.(…ëãŠ
+Ÿpython:S1192Î"€Define a constant instead of duplicating this literal 'John Root <root@localhost>, "Dinsdale" <warped@silly.walks.com>' 3 times.(¤×éæıÿÿÿÿ
+Hpython:S1066 "/Merge this if statement with the enclosing one.(¡”„
+epython:S100>"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(§˜œşÿÿÿÿ
+cpython:S100B"LRename method "tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(•ûÜë
+hpython:S100G"QRename method "testQuoteData" to match the regular expression ^[a-z_][a-z0-9_]*$.(„ø‘
+jpython:S100L"NRename method "testBasic1" to match the regular expression ^[a-z_][a-z0-9_]*$.(şÑË³øÿÿÿÿ
+lpython:S100R"URename method "testSourceAddress" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹ü†Â
+jpython:S100Z"NRename method "testBasic2" to match the regular expression ^[a-z_][a-z0-9_]*$.(§àıÿÿÿÿ
+qpython:S100`"URename method "testLocalHostName" to match the regular expression ^[a-z_][a-z0-9_]*$.(Å­¤ñøÿÿÿÿ
+mpython:S100g"VRename method "testTimeoutDefault" to match the regular expression ^[a-z_][a-z0-9_]*$.(‚˜¹Ğ
+jpython:S100s"SRename method "testTimeoutNone" to match the regular expression ^[a-z_][a-z0-9_]*$.(—˜­¸
+opython:S100~"SRename method "testTimeoutZero" to match the regular expression ^[a-z_][a-z0-9_]*$.(¢‚È‰ûÿÿÿÿ
+qpython:S100ƒ"TRename method "testTimeoutValue" to match the regular expression ^[a-z_][a-z0-9_]*$.(­¿şÓşÿÿÿÿ
+upython:S4143÷"\Verify this is the key that was intended; a value has already been saved for it on line 628.(ÚŸ…Ç
+upython:S4143ø"\Verify this is the key that was intended; a value has already been saved for it on line 627.(”©¯å
+zpython:S4143ö"\Verify this is the key that was intended; a value has already been saved for it on line 626.(Ôµ™‘øÿÿÿÿ
+[python:S5747­"BRemove this "raise" statement or move it inside an "except" block.(€³¢»
+[python:S5747Æ"BRemove this "raise" statement or move it inside an "except" block.(€³¢»
+Dpython:S1481Ö"&Remove the unused local variable "cm".(Û†‹¤úÿÿÿÿ

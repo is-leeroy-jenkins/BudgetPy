@@ -1,0 +1,7 @@
+
+epython:S11928"MDefine a constant instead of duplicating this literal b"hello alice" 5 times.(¼Ô–·
+hpython:S1192"PDefine a constant instead of duplicating this literal 'tcp://127.0.0.1' 5 times.(€¢ÞÖ
+kpython:S1192"SDefine a constant instead of duplicating this literal "tcp://127.0.0.1:%i" 3 times.(Žßí•
+tpython:S1192D"WDefine a constant instead of duplicating this literal b"hello again and again" 4 times.(ØßŸ¼úÿÿÿÿ
+epython:S1192B"MDefine a constant instead of duplicating this literal b"hello again" 4 times.(ÎÏô›
+cpython:S11924"KDefine a constant instead of duplicating this literal b"hello bob" 5 times.(ßŠýý

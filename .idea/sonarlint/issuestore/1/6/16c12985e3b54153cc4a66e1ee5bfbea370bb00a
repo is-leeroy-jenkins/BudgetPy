@@ -1,0 +1,36 @@
+
+qpython:S1175"URename this parameter "activeTab" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿğ³–üÿÿÿÿ
+ypython:S1176"bRename this parameter "autoFilterDateGrouping" to match the regular expression ^[_a-z][a-z0-9_]*$.(æ¹Àò
+npython:S1177"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+mpython:S1174"VRename this parameter "firstSheet" to match the regular expression ^[_a-z][a-z0-9_]*$.(™¥Ãû
+|python:S117,"`Rename this parameter "showHorizontalScroll" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìòËóûÿÿÿÿ
+upython:S117."YRename this parameter "showSheetTabs" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ¬‰Šşÿÿÿÿ
+upython:S117-"^Rename this parameter "showVerticalScroll" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬•Ãş
+kpython:S1173"TRename this parameter "tabRatio" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ËÀÎ
+tpython:S1172"XRename this parameter "windowHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑòÀ©ÿÿÿÿÿ
+npython:S1171"WRename this parameter "windowWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(àÀŞø
+ipython:S117/"SRename this parameter "xWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(œå»
+jpython:S1170"SRename this parameter "yWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(„şçß
+ipython:S107)"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+ppython:S117}"YRename this parameter "activeSheetId" to match the regular expression ^[_a-z][a-z0-9_]*$.(èéæê
+rpython:S117l"VRename this parameter "autoUpdate" to match the regular expression ^[_a-z][a-z0-9_]*$.(ËÙ„¯ıÿÿÿÿ
+rpython:S117n"[Rename this parameter "changesSavedWin" to match the regular expression ^[_a-z][a-z0-9_]*$.(“¾š
+opython:S117‚"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+{python:S117r"_Rename this parameter "includeHiddenRowCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(œØ”¤ûÿÿÿÿ
+wpython:S117q"`Rename this parameter "includePrintSettings" to match the regular expression ^[_a-z][a-z0-9_]*$.(òœÛ
+upython:S117m"YRename this parameter "mergeInterval" to match the regular expression ^[_a-z][a-z0-9_]*$.(äÕæßùÿÿÿÿ
+kpython:S117o"TRename this parameter "onlySync" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ãËú
+opython:S117p"XRename this parameter "personalView" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó´ü
+upython:S117€"XRename this parameter "showComments" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÆÖÊ÷ûÿÿÿÿ
+vpython:S117~"ZRename this parameter "showFormulaBar" to match the regular expression ^[_a-z][a-z0-9_]*$.(òü­¯ùÿÿÿÿ
+vpython:S117u"`Rename this parameter "showHorizontalScroll" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄßS
+tpython:S117"WRename this parameter "showObjects" to match the regular expression ^[_a-z][a-z0-9_]*$.(–Ìºªûÿÿÿÿ
+ppython:S117w"YRename this parameter "showSheetTabs" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ‚õÛ
+upython:S117"YRename this parameter "showStatusbar" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹êçÚıÿÿÿÿ
+upython:S117v"^Rename this parameter "showVerticalScroll" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹ÊÀ
+kpython:S117|"TRename this parameter "tabRatio" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑçÙ
+tpython:S117{"XRename this parameter "windowHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑòÀ©ÿÿÿÿÿ
+npython:S117z"WRename this parameter "windowWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(àÀŞø
+ipython:S117x"SRename this parameter "xWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(œå»
+jpython:S117y"SRename this parameter "yWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(„şçß
+ipython:S107i"MMethod "__init__" has 25 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

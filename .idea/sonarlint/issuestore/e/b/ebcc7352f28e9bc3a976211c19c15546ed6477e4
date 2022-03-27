@@ -1,0 +1,70 @@
+
+gpython:S1192³"NDefine a constant instead of duplicating this literal 'python module' 4 times.(ÄÄÎ
+ipython:S1192±"KDefine a constant instead of duplicating this literal 'block data' 5 times.(éÍÜíÿÿÿÿÿ
+gpython:S1192‡"NDefine a constant instead of duplicating this literal 'dimension(%s)' 4 times.(Ã´¦Ï
+lpython:S1192µ"SDefine a constant instead of duplicating this literal 'abstract interface' 4 times.(¦ìÇ
+bpython:S1192"IDefine a constant instead of duplicating this literal '%s(%s)%s' 4 times.(ÃµÌõ
+Gpython:S1066£"/Merge this if statement with the enclosing one.(ÌËÁw
+Mpython:S1066µ"/Merge this if statement with the enclosing one.(ï÷ÄÚúÿÿÿÿ
+Hpython:S1066½"/Merge this if statement with the enclosing one.(˜üî
+Hpython:S1066º"/Merge this if statement with the enclosing one.(€Í•
+Mpython:S1066Ã"/Merge this if statement with the enclosing one.(ï÷ÄÚúÿÿÿÿ
+Mpython:S1066¾"/Merge this if statement with the enclosing one.(Ó½éŞşÿÿÿÿ
+Mpython:S1066¿"/Merge this if statement with the enclosing one.(ŞÅ¢¿úÿÿÿÿ
+Mpython:S1066¡"/Merge this if statement with the enclosing one.(ŞÅ¢¿úÿÿÿÿ
+Hpython:S1066ü"/Merge this if statement with the enclosing one.(êÕüÉ
+epython:S2208›"GImport only needed names or import the module and then use its members.(Ä£è§üÿÿÿÿ
+Hpython:S5869­"*Remove duplicates in this character class.(ãİÊüÿÿÿÿ
+mpython:S3776È"URefactor this function to reduce its Cognitive Complexity from 162 to the 15 allowed.(Üî„8
+Npython:S6035Ş"0Replace this alternation with a character class.(—ÀÀ˜üÿÿÿÿ
+Npython:S6035Ş"0Replace this alternation with a character class.(—ÀÀ˜üÿÿÿÿ
+[python:S112¦">Replace this generic exception class with a more specific one.(ø“åÉûÿÿÿÿ
+<python:S125´"Remove this commented out code.(‘Ÿ¯ñıÿÿÿÿ
+6python:S3626ş"Remove this redundant return.(ÙãŞŸ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 82 to the 15 allowed.(ø‘Êüúÿÿÿÿ
+[python:S112…">Replace this generic exception class with a more specific one.(‘‰Ç’øÿÿÿÿ
+Vpython:S112Š">Replace this generic exception class with a more specific one.(¨Ä•Ö
+Apython:S108Ÿ")Either remove or fill this block of code.(ã‘Û¾
+mpython:S3776Ö"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(İ‡–å
+python:S1871é"cEither merge this branch with the identical one on line "863" or change one of the implementations.(›·éôüÿÿÿÿ
+Apython:S108ì")Either remove or fill this block of code.(ã‘Û¾
+[python:S112ñ">Replace this generic exception class with a more specific one.(®÷òŠùÿÿÿÿ
+rpython:S5843ø"TSimplify this regular expression to reduce its complexity from 49 to the 20 allowed.(äĞòÑùÿÿÿÿ
+rpython:S5843ü"TSimplify this regular expression to reduce its complexity from 21 to the 20 allowed.(Ë–şÿÿÿÿ
+rpython:S5843ş"TSimplify this regular expression to reduce its complexity from 36 to the 20 allowed.(´²ğúÿÿÿÿ
+npython:S3776•"URefactor this function to reduce its Cognitive Complexity from 462 to the 15 allowed.( Ô‚¹
+epython:S1226•"LIntroduce a new variable or use its initial value before reassigning 'line'.( Ô‚¹
+7python:S125±"Remove this commented out code.(ïã¯­
+Dpython:S5806°
+"+Rename this variable; it shadows a builtin.(ƒª×•
+Apython:S108")Either remove or fill this block of code.(ã‘Û¾
+6python:S3626Á"Remove this redundant return.(ÙãŞŸ
+rpython:S5843ä"TSimplify this regular expression to reduce its complexity from 56 to the 20 allowed.(ò´ğ¡úÿÿÿÿ
+mpython:S5843æ"TSimplify this regular expression to reduce its complexity from 63 to the 20 allowed.(Ãæ
+spython:S3776"URefactor this function to reduce its Cognitive Complexity from 196 to the 15 allowed.(ÏŞù¬ùÿÿÿÿ
+mpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 48 to the 15 allowed.(¶Å
+mpython:S3776ê"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(—‚Ù«
+rpython:S3776Ù"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(³ŸÖÚüÿÿÿÿ
+Ipython:S5806é"+Rename this variable; it shadows a builtin.(§Ü¾óûÿÿÿÿ
+mpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 85 to the 15 allowed.(á®µ‰
+[python:S112">Replace this generic exception class with a more specific one.(şÈğÎüÿÿÿÿ
+mpython:S3776Ù"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(â²ÇÉ
+mpython:S3776û"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(­ç»
+mpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(„Êû¿
+rpython:S3776å"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(ÂŸ®Ñıÿÿÿÿ
+<python:S125å"Remove this commented out code.(ÂŸ®Ñıÿÿÿÿ
+rpython:S3776°"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(¦µœ¬úÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 55 to the 15 allowed.(Éè§•ıÿÿÿÿ
+Rpython:S3516ï"9Refactor this method to not always return the same value.(öêÑ
+@python:S1481¨"'Remove the unused local variable "msg".(©ï‹À
+spython:S3776ş"URefactor this function to reduce its Cognitive Complexity from 552 to the 15 allowed.(Ó°³¤ùÿÿÿÿ
+Ipython:S5806ƒ"+Rename this variable; it shadows a builtin.(ÖïìÊüÿÿÿÿ
+:python:S1110å"!Remove those useless parentheses.(ê³‹¯
+rpython:S3776ˆ"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(é«÷½øÿÿÿÿ
+mpython:S3776­"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(÷ã“ÿ
+rpython:S3776Û"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ä¸¹øÿÿÿÿ
+rpython:S3776ˆ"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(¸Õ˜ùÿÿÿÿ
+Ipython:S5806 "+Rename this variable; it shadows a builtin.(§Ü¾óûÿÿÿÿ
+mpython:S3776İ"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(Œ´ôô
+spython:S3776ƒ"URefactor this function to reduce its Cognitive Complexity from 122 to the 15 allowed.(›„ÙĞûÿÿÿÿ
+Apython:S108¦")Either remove or fill this block of code.(ã‘Û¾

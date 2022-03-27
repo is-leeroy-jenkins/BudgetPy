@@ -1,0 +1,17 @@
+
+mpython:S117-"QRename this parameter "dLbls" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÛÞƒúÿÿÿÿ
+rpython:S117+"VRename this parameter "varyColors" to match the regular expression ^[_a-z][a-z0-9_]*$.(£¸»Äùÿÿÿÿ
+npython:S117E"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+opython:S117D"YRename this parameter "firstSliceAng" to match the regular expression ^[_a-z][a-z0-9_]*$.(çÑù4
+npython:S117j"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+opython:S117h"YRename this parameter "firstSliceAng" to match the regular expression ^[_a-z][a-z0-9_]*$.(çÑù4
+ppython:S117i"TRename this parameter "holeSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(… ’²ÿÿÿÿÿ
+npython:S117{"WRename this parameter "secondPiePt" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤žžì
+mpython:S117£"URename this parameter "custSplit" to match the regular expression ^[_a-z][a-z0-9_]*$.(î—Î©
+opython:S117¦"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+lpython:S117 "TRename this parameter "gapWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ˆÒÃ
+lpython:S117Ÿ"URename this parameter "ofPieType" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÚÖh
+ppython:S117¤"YRename this parameter "secondPieSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(î—³}
+qpython:S117¥"TRename this parameter "serLines" to match the regular expression ^[_a-z][a-z0-9_]*$.(°‘÷»øÿÿÿÿ
+qpython:S117¢"TRename this parameter "splitPos" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôÊ±€ùÿÿÿÿ
+mpython:S117¡"URename this parameter "splitType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛÝäŠ

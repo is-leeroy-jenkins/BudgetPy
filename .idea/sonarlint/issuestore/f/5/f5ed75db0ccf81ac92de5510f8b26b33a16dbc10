@@ -1,0 +1,8 @@
+
+jpython:S1192"LDefine a constant instead of duplicating this literal ", schema=%r" 4 times.(­‡šíıÿÿÿÿ
+‹python:S5886;"nReturn a value of type "Optional[Union]" instead of "_f_name" or update function "_render_gen_name" type hint.(ì˜äùÿÿÿÿ
+epython:S5799§"GMerge these implicitly concatenated strings; or did you forget a comma?(èÆšùÿÿÿÿ
+mpython:S5850ş"TGroup parts of the regex together to make the intended operator precedence explicit.(ùéŒ­
+rpython:S3776¬"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(÷¡Ä¡úÿÿÿÿ
+vpython:S1542Ø"XRename function "_render_ARRAY_type" to match the regular expression ^[a-z_][a-z0-9_]*$.(ñÃÑ¢şÿÿÿÿ
+spython:S1542ã"ZRename function "_render_Variant_type" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷Ã³‘

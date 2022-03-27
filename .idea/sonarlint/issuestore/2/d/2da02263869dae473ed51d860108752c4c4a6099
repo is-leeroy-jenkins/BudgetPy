@@ -1,0 +1,12 @@
+
+apython:S1192–"HDefine a constant instead of duplicating this literal r"[\n\t]" 3 times.(óÉïÉ
+rpython:S3776„"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(òŒüÊýÿÿÿÿ
+Ypython:S5361š"@Replace this "re.sub()" call by a "str.replace()" function call.(ùÂÏý
+wpython:S1186Ÿ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(êé‰Òÿÿÿÿÿ
+Spython:S2836´"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
+fpython:S100å"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(§˜œŽþÿÿÿÿ
+dpython:S100ù"LRename method "tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(•ûÜë
+<python:S125…"Remove this commented out code.(Ëˆ„øÿÿÿÿ
+7python:S125—"Remove this commented out code.(ü—š¸
+7python:S125™"Remove this commented out code.(í¿Ñ
+apython:S3358³"IExtract this nested conditional expression into an independent statement.(ú‹ a

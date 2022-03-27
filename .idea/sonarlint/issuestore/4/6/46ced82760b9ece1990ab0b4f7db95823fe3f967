@@ -1,0 +1,42 @@
+
+qpython:S117Š"TRename this parameter "alphaMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÀàšùÿÿÿÿ
+qpython:S117‰"TRename this parameter "alphaOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(”Æ©¤ùÿÿÿÿ
+ppython:S117œ"SRename this parameter "blueMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(’Ğ÷¢øÿÿÿÿ
+kpython:S117›"SRename this parameter "blueOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÀÒÆ¹
+qpython:S117™"TRename this parameter "greenMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(°öÓéşÿÿÿÿ
+lpython:S117˜"TRename this parameter "greenOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(î¦Äª
+opython:S117"RRename this parameter "hueMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ€¨ùùÿÿÿÿ
+jpython:S117Œ"RRename this parameter "hueOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(°…È
+kpython:S117"TRename this parameter "invGamma" to match the regular expression ^[_a-z][a-z0-9_]*$.(éÇÑU
+ppython:S117‚"SRename this parameter "lastClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦Ò²úÿÿÿÿÿ
+opython:S117“"RRename this parameter "lumMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(âÅöûúÿÿÿÿ
+jpython:S117’"RRename this parameter "lumOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù¡“
+jpython:S117–"RRename this parameter "redMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼ùšá
+opython:S117•"RRename this parameter "redOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ùçÿ—ûÿÿÿÿ
+opython:S117"RRename this parameter "satMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª´ôûÿÿÿÿ
+opython:S117"RRename this parameter "satOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ì˜Ÿøÿÿÿÿ
+jpython:S107€"MMethod "__init__" has 30 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+qpython:S117œ"TRename this parameter "alphaMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÀàšùÿÿÿÿ
+qpython:S117›"TRename this parameter "alphaOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(”Æ©¤ùÿÿÿÿ
+ppython:S117®"SRename this parameter "blueMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(’Ğ÷¢øÿÿÿÿ
+kpython:S117­"SRename this parameter "blueOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÀÒÆ¹
+qpython:S117«"TRename this parameter "greenMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(°öÓéşÿÿÿÿ
+lpython:S117ª"TRename this parameter "greenOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(î¦Äª
+opython:S117Ÿ"RRename this parameter "hueMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ€¨ùùÿÿÿÿ
+jpython:S117"RRename this parameter "hueOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(°…È
+qpython:S117°"TRename this parameter "invGamma" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ë´œİıÿÿÿÿ
+opython:S117¥"RRename this parameter "lumMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(âÅöûúÿÿÿÿ
+jpython:S117¤"RRename this parameter "lumOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù¡“
+jpython:S117¨"RRename this parameter "redMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼ùšá
+opython:S117§"RRename this parameter "redOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ùçÿ—ûÿÿÿÿ
+opython:S117¢"RRename this parameter "satMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª´ôûÿÿÿÿ
+opython:S117¡"RRename this parameter "satOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ì˜Ÿøÿÿÿÿ
+jpython:S107”"MMethod "__init__" has 29 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+jpython:S117ä"RRename this parameter "hslClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(±Ùİ„
+ppython:S117ç"SRename this parameter "prstClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ…°øÿÿÿÿ
+rpython:S117æ"URename this parameter "schemeClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ôèİúÿÿÿÿ
+qpython:S117â"TRename this parameter "scrgbClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÊ¾ôÿÿÿÿÿ
+kpython:S117ã"SRename this parameter "srgbClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰Ê¯
+jpython:S117å"RRename this parameter "sysClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡‰©²
+opython:S117“"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+qpython:S117’"TRename this parameter "folHlink" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨›ï˜úÿÿÿÿ

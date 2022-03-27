@@ -1,0 +1,15 @@
+
+lpython:S3776M"TRefactor this function to reduce its Cognitive Complexity from 57 to the 15 allowed.(˜û„¶
+ypython:S1845¿"`Rename method "jump" to prevent any misunderstanding/clash with field "JUMP" defined on line 260(²Æ•Ÿ
+|python:S1845Ğ"^Rename method "hms" to prevent any misunderstanding/clash with field "HMS" defined on line 283(’ö¦ùÿÿÿÿ
+~python:S1845Ö"`Rename method "ampm" to prevent any misunderstanding/clash with field "AMPM" defined on line 286(ºá§¥øÿÿÿÿ
+„python:S1845Ü"fRename method "pertain" to prevent any misunderstanding/clash with field "PERTAIN" defined on line 289(šƒøÿÿÿÿ
+python:S1845ß"fRename method "utczone" to prevent any misunderstanding/clash with field "UTCZONE" defined on line 288(¿ÛÀ¼
+python:S1845â"hRename method "tzoffset" to prevent any misunderstanding/clash with field "TZOFFSET" defined on line 290(ÀÊ©±
+rpython:S3776¬"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¬”†öüÿÿÿÿ
+mpython:S3776Ú"TRefactor this function to reduce its Cognitive Complexity from 59 to the 15 allowed.(¡——
+rpython:S3776š"TRefactor this function to reduce its Cognitive Complexity from 65 to the 15 allowed.(Î°¸°ıÿÿÿÿ
+rpython:S3776ë"TRefactor this function to reduce its Cognitive Complexity from 61 to the 15 allowed.(Óñßİûÿÿÿÿ
+mpython:S3776î
+"TRefactor this function to reduce its Cognitive Complexity from 93 to the 15 allowed.(¸†‚«
+Apython:S108¶")Either remove or fill this block of code.(ã‘Û¾

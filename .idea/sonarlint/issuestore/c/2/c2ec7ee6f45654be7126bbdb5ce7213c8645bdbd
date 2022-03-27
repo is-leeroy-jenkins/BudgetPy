@@ -1,0 +1,70 @@
+
+5python:S2772¶"Remove this unneeded "pass".(ã‘Û¾
+<python:S125²"Remove this commented out code.(Ñ§ªÑüÿÿÿÿ
+xpython:S117Ä"[Rename this local variable "AbsoluteSD" to match the regular expression ^[_a-z][a-z0-9_]*$.(­ýÜêúÿÿÿÿ
+qpython:S117º"TRename this local variable "Acl" to match the regular expression ^[_a-z][a-z0-9_]*$.(Óõ’…ÿÿÿÿÿ
+python:S117Ö"bRename this local variable "NameSamCompatible" to match the regular expression ^[_a-z][a-z0-9_]*$.(Žäãóÿÿÿÿÿ
+|python:S117Ã"_Rename this local variable "SelfRelativeSD" to match the regular expression ^[_a-z][a-z0-9_]*$.(âÇ·Îúÿÿÿÿ
+rpython:S117·"ZRename this local variable "SidAdmins" to match the regular expression ^[_a-z][a-z0-9_]*$.(Òð«ç
+upython:S117¸"XRename this local variable "SidUser" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰Œæ°þÿÿÿÿ
+ƒpython:S117×"lRename this local variable "WinBuiltinAdministratorsSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü±Ì
+rpython:S3776Á"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(º¹Â”þÿÿÿÿ
+ypython:S117í"\Rename this parameter "WellKnownSidType" to match the regular expression ^[_a-z][a-z0-9_]*$.(çÌÚ²ÿÿÿÿÿ
+spython:S117ð"VRename this local variable "cbSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(òµ±Âÿÿÿÿÿ
+rpython:S117ï"URename this local variable "pSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ž¼×ëÿÿÿÿÿ
+vpython:S1542í"XRename function "CreateWellKnownSid" to match the regular expression ^[a-z_][a-z0-9_]*$.(çÌÚ²ÿÿÿÿÿ
+spython:S117þ"VRename this parameter "NameFormat" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÔ‡°üÿÿÿÿ
+zpython:S117‰"]Rename this local variable "lpNameBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(´ûÑ¨ýÿÿÿÿ
+npython:S117"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(–öÝ³
+qpython:S1542þ"SRename function "GetUserNameEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŒÔ‡°üÿÿÿÿ
+qpython:S117 "TRename this local variable "Sid" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹æÂ¹ûÿÿÿÿ
+npython:S117"VRename this local variable "cbSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(›éª
+€python:S117‘"hRename this local variable "cchReferencedDomainName" to match the regular expression ^[_a-z][a-z0-9_]*$.(–òë”
+vpython:S117"YRename this parameter "lpAccountName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡µ¹âøÿÿÿÿ
+„python:S117¢"gRename this local variable "lpReferencedDomainName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŽÃ¸üùÿÿÿÿ
+upython:S117"XRename this parameter "lpSystemName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡µ¹âøÿÿÿÿ
+mpython:S117¡"URename this local variable "pSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(úãð‹
+spython:S117’"VRename this local variable "peUse" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁâÐÅüÿÿÿÿ
+upython:S1542"WRename function "LookupAccountName" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡µ¹âøÿÿÿÿ
+npython:S117²"VRename this parameter "AccessMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠÞ²Ò
+qpython:S117²"YRename this parameter "dwAceRevision" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠÞ²Ò
+hpython:S117²"PRename this parameter "pAcl" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠÞ²Ò
+hpython:S117²"PRename this parameter "pSid" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠÞ²Ò
+rpython:S1542²"YRename function "AddAccessAllowedAce" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŠÞ²Ò
+}python:S117·"`Rename this parameter "RequestedInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(ï¨à³ûÿÿÿÿ
+spython:S117·"VRename this parameter "lpFileName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ï¨à³ûÿÿÿÿ
+upython:S117¹"XRename this local variable "nLength" to match the regular expression ^[_a-z][a-z0-9_]*$.( ¾Ýîüÿÿÿÿ
+|python:S117Ç"dRename this local variable "pSecurityDescriptor" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸’Ÿ»
+spython:S1542·"URename function "GetFileSecurity" to match the regular expression ^[a-z_][a-z0-9_]*$.(ï¨à³ûÿÿÿÿ
+xpython:S117Ñ"`Rename this parameter "RequestedInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ýþç
+npython:S117Ñ"VRename this parameter "lpFileName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ýþç
+wpython:S117Ñ"_Rename this parameter "pSecurityDescriptor" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ýþç
+npython:S1542Ñ"URename function "SetFileSecurity" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ýþç
+rpython:S117Ø"ZRename this parameter "bDaclDefaulted" to match the regular expression ^[_a-z][a-z0-9_]*$.(£É©æ
+ppython:S117Ø"XRename this parameter "bDaclPresent" to match the regular expression ^[_a-z][a-z0-9_]*$.(£É©æ
+ipython:S117Ø"QRename this parameter "pDacl" to match the regular expression ^[_a-z][a-z0-9_]*$.(£É©æ
+wpython:S117Ø"_Rename this parameter "pSecurityDescriptor" to match the regular expression ^[_a-z][a-z0-9_]*$.(£É©æ
+xpython:S1542×"_Rename function "SetSecurityDescriptorDacl" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿÀ­
+‹python:S117ã"sRename this local variable "lpdwAbsoluteSecurityDescriptorSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(í¥’×
+zpython:S117å"]Rename this local variable "lpdwDaclSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾•ƒÁùÿÿÿÿ
+upython:S117é"^Rename this local variable "lpdwOwnerSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(«¨‡
+‚python:S117ë"eRename this local variable "lpdwPrimaryGroupSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìê’¼úÿÿÿÿ
+upython:S117ç"]Rename this local variable "lpdwSaclSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ùè»Ü
+„python:S117â"lRename this local variable "pAbsoluteSecurityDescriptor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ð°›„
+spython:S117ä"VRename this local variable "pDacl" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ’Õ˜ÿÿÿÿÿ
+wpython:S117€"ZRename this local variable "pDaclData" to match the regular expression ^[_a-z][a-z0-9_]*$.(™ê”Óýÿÿÿÿ
+opython:S117è"WRename this local variable "pOwner" to match the regular expression ^[_a-z][a-z0-9_]*$.(è¼
+spython:S117„"[Rename this local variable "pOwnerData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ø˜ðÓ
+vpython:S117ê"^Rename this local variable "pPrimaryGroup" to match the regular expression ^[_a-z][a-z0-9_]*$.(þÝžÏ
+zpython:S117†"bRename this local variable "pPrimaryGroupData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÂä×
+npython:S117æ"VRename this local variable "pSacl" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Û«ý
+wpython:S117‚"ZRename this local variable "pSaclData" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ò’€ÿÿÿÿÿ
+ƒpython:S117ß"kRename this parameter "pSelfRelativeSecurityDescriptor" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸É¼ì
+mpython:S1542ß"TRename function "MakeAbsoluteSD" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸É¼ì
+~python:S117›"aRename this local variable "lpdwBufferLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºïÅ„úÿÿÿÿ
+python:S117—"gRename this parameter "pAbsoluteSecurityDescriptor" to match the regular expression ^[_a-z][a-z0-9_]*$.(®Æ¢‹
+python:S117š"pRename this local variable "pSelfRelativeSecurityDescriptor" to match the regular expression ^[_a-z][a-z0-9_]*$.(›¦òñüÿÿÿÿ
+qpython:S1542—"XRename function "MakeSelfRelativeSD" to match the regular expression ^[a-z_][a-z0-9_]*$.(®Æ¢‹
+spython:S117±"[Rename this local variable "nAclLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò˜Òö
+rpython:S117³"URename this local variable "pAcl" to match the regular expression ^[_a-z][a-z0-9_]*$.(š¬—Üùÿÿÿÿ
+epython:S1542¯"LRename function "NewAcl" to match the regular expression ^[a-z_][a-z0-9_]*$.(Úçˆú

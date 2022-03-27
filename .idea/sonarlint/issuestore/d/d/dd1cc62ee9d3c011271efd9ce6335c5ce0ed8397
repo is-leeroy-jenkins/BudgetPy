@@ -1,0 +1,13 @@
+
+‚python:S101Ù
+"eRename class "SQL_VARIANT" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ï·¸¡úÿÿÿÿ
+“python:S1845ê"uRename field "visit_DATETIME" to prevent any misunderstanding/clash with method "visit_datetime" defined on line 1510(üÏ«úÿÿÿÿ
+†python:S1845"nRename method "visit_TEXT" to prevent any misunderstanding/clash with method "visit_text" defined on line 1536(’ˆ¯C
+‹python:S1845¢"mRename field "visit_DATE" to prevent any misunderstanding/clash with method "visit_date" defined on line 1566(«à‹ùÿÿÿÿ
+Œpython:S1845§"nRename method "visit_time" to prevent any misunderstanding/clash with method "visit_TIME" defined on line 1497(‘·î¢ûÿÿÿÿ
+mpython:S3776‹"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(éÂÅ
+mpython:S3776½"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(õ˜ç´
+Npython:S6035Ò"0Replace this alternation with a character class.(Òéûşÿÿÿÿ
+Spython:S2836˜"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
+Spython:S2836ó"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
+mpython:S3776İ"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(¼£¾İ

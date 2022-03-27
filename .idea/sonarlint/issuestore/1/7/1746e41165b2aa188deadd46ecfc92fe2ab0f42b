@@ -1,0 +1,4 @@
+
+qpython:S3776	"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(›¼‡Îşÿÿÿÿ
+`python:S1854I"HRemove this assignment to local variable 'row'; the value is never used.(ŸšÍœ
+=python:S1481K"%Remove the unused local variable "l".(ˆç¡

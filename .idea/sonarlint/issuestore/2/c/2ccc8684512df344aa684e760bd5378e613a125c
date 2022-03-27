@@ -1,0 +1,337 @@
+
+”python:S1192¬"vDefine a constant instead of duplicating this literal "Cannot combine element of type %s with ParserElement" 10 times.(ìˆÂşıÿÿÿÿ
+dpython:S1192¯	"KDefine a constant instead of duplicating this literal "Expected " 10 times.(§ø÷Š
+Gpython:S1066œ"/Merge this if statement with the enclosing one.(‚ŞÌ$
+upython:S117ø"XRename this parameter "markerString" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶éÌÔøÿÿÿÿ
+ypython:S117´"\Rename this parameter "parseElementList" to match the regular expression ^[_a-z][a-z0-9_]*$.(”®êîûÿÿÿÿ
+epython:S100Á"MRename method "setOffset" to match the regular expression ^[a-z_][a-z0-9_]*$.(ï“Š—
+Qpython:S1144»"3Remove this unused class-private '__lookup' method.(Ü­“Èüÿÿÿÿ
+qpython:S116ù"TRename this field "__accumNames" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ô¯ŞŒûÿÿÿÿ
+hpython:S116ú"PRename this field "__asList" to match the regular expression ^[_a-z][_a-z0-9]*$.(öÉÕ«
+jpython:S117ë"RRename this parameter "asList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºªóÆ
+opython:S117ô"RRename this parameter "asList" to match the regular expression ^[_a-z][a-z0-9_]*$.(í’ùóùÿÿÿÿ
+rpython:S3776ô"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(í’ùóùÿÿÿÿ
+mpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(§ó¼„
+upython:S117³"XRename this parameter "defaultValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(í€Í¿øÿÿÿÿ
+jpython:S117É"RRename this parameter "insStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(øıÎ™
+npython:S100µ"QRename method "_asStringList" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÕäºÉüÿÿÿÿ
+bpython:S100À"JRename method "asList" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾ û
+gpython:S100Ğ"JRename method "asDict" to match the regular expression ^[a-z_][a-z0-9_]*$.(²»âñşÿÿÿÿ
+epython:S1542è"LRename function "toItem" to match the regular expression ^[a-z_][a-z0-9_]*$.(µôáˆ
+spython:S117„"[Rename this local variable "namedItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıêæ–
+wpython:S117ş"ZRename this parameter "namedItemsOnly" to match the regular expression ^[_a-z][a-z0-9_]*$.(£»Âùÿÿÿÿ
+xpython:S117†"`Rename this local variable "nextLevelIndent" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ¤Ùå
+tpython:S117«"WRename this local variable "resTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì½µ”ıÿÿÿÿ
+upython:S117"XRename this local variable "selfTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¶…ûÿÿÿÿ
+tpython:S117³"\Rename this local variable "xmlBodyText" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô
+fpython:S100ş"IRename method "asXML" to match the regular expression ^[a-z_][a-z0-9_]*$.(£»Âùÿÿÿÿ
+rpython:S3776ş"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(£»Âùÿÿÿÿ
+hpython:S100Â"KRename method "getName" to match the regular expression ^[a-z_][a-z0-9_]*$.(©Áâˆıÿÿÿÿ
+mpython:S3776ç"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(×á“·
+spython:S117·"]Rename this local variable "inAccumNames" to match the regular expression ^[_a-z][a-z0-9_]*$.(æ›q
+tpython:S117ä"WRename this local variable "lastCR" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö´¤ˆÿÿÿÿÿ
+tpython:S117å"WRename this local variable "nextCR" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸¸è¥øÿÿÿÿ
+wpython:S1542ë"^Rename function "_defaultStartDebugAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ã×‰´
+ypython:S1542î"`Rename function "_defaultSuccessDebugAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(è¶İ
+{python:S1542ñ"bRename function "_defaultExceptionDebugAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(®±Ö
+spython:S1542ô"URename function "nullDebugAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(á‘¶ˆüÿÿÿÿ
+spython:S117“"[Rename this local variable "foundArity" to match the regular expression ^[_a-z][a-z0-9_]*$.(°ŠÜ¬
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(…ˆÉÔûÿÿÿÿ
+opython:S116¤"WRename this field "_packratEnabled" to match the regular expression ^[_a-z][_a-z0-9]*$.(Å½
+npython:S116ÿ"VRename this field "skipWhitespace" to match the regular expression ^[_a-z][_a-z0-9]*$.(©Ÿ¤÷
+mpython:S116‡	"URename this field "mayIndexError" to match the regular expression ^[_a-z][_a-z0-9]*$.(¿¹¬
+lpython:S116Œ	"TRename this field "callPreparse" to match the regular expression ^[_a-z][_a-z0-9]*$.(½“éƒ
+ppython:S116ù"SRename this field "parseAction" to match the regular expression ^[_a-z][_a-z0-9]*$.(á®ñêûÿÿÿÿ
+ppython:S116„	"SRename this field "ignoreExprs" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÓğÁûÿÿÿÿ
+spython:S116‚	"VRename this field "mayReturnEmpty" to match the regular expression ^[_a-z][_a-z0-9]*$.(‘¥‚úÿÿÿÿ
+kpython:S116ı"SRename this field "resultsName" to match the regular expression ^[_a-z][_a-z0-9]*$.(ñÍ×Ñ
+zpython:S116	"]Rename this field "copyDefaultWhiteChars" to match the regular expression ^[_a-z][_a-z0-9]*$.(›âÿÏıÿÿÿÿ
+lpython:S116	"URename this field "callDuringTry" to match the regular expression ^[_a-z][_a-z0-9]*$.(ßİè
+jpython:S116€	"RRename this field "whiteChars" to match the regular expression ^[_a-z][_a-z0-9]*$.(ã¾Ã½
+mpython:S116ƒ	"PRename this field "keepTabs" to match the regular expression ^[_a-z][_a-z0-9]*$.(¾„”Äùÿÿÿÿ
+lpython:S116‰	"TRename this field "modalResults" to match the regular expression ^[_a-z][_a-z0-9]*$.(™°ï
+opython:S116ú"RRename this field "failAction" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ó¶ºˆûÿÿÿÿ
+gpython:S116ü"ORename this field "strRepr" to match the regular expression ^[_a-z][_a-z0-9]*$.(á‚·Ÿ
+kpython:S116Š	"TRename this field "debugActions" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷¢Ø
+jpython:S116ş"RRename this field "saveAsList" to match the regular expression ^[_a-z][_a-z0-9]*$.(îØ±ô
+upython:S100Õ"]Rename method "setDefaultWhitespaceChars" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï²
+opython:S100ä"WRename method "inlineLiteralsUsing" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯³øÊ
+<python:S125û"Remove this commented out code.(ì÷¤‘øÿÿÿÿ
+hpython:S100¦	"KRename method "setName" to match the regular expression ^[a-z_][a-z0-9_]*$.(±ÛÂışÿÿÿÿ
+wpython:S117´	"ZRename this parameter "listAllMatches" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÂõÕ«şÿÿÿÿ
+opython:S100´	"RRename method "setResultsName" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÂõÕ«şÿÿÿÿ
+upython:S117Ö	"]Rename this local variable "_parseMethod" to match the regular expression ^[_a-z][a-z0-9_]*$.(›¼
+rpython:S117Ğ	"URename this parameter "breakFlag" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëµŠæşÿÿÿÿ
+ipython:S100Ğ	"LRename method "setBreak" to match the regular expression ^[a-z_][a-z0-9_]*$.(ëµŠæşÿÿÿÿ
+upython:S117×	"XRename this parameter "callPreParse" to match the regular expression ^[_a-z][a-z0-9_]*$.(«ÿ¦‘ÿÿÿÿÿ
+rpython:S117×	"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(«ÿ¦‘ÿÿÿÿÿ
+opython:S100â	"RRename method "setParseAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(şÊİşÿÿÿÿ
+opython:S100ˆ
+"RRename method "addParseAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(ûóœ½şÿÿÿÿ
+hpython:S100’
+"PRename method "addCondition" to match the regular expression ^[a-z_][a-z0-9_]*$.(×·€ú
+Ÿpython:S1515§
+"†Add a parameter to function "pa" and use variable "fn" as its default value;The value of "fn" might change at the next loop iteration.(££O
+npython:S100­
+"QRename method "setFailAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(ñışîıÿÿÿÿ
+spython:S117»
+"[Rename this local variable "exprsFound" to match the regular expression ^[_a-z][a-z0-9_]*$.(æ­Õ·
+ppython:S100º
+"SRename method "_skipIgnorables" to match the regular expression ^[a-z_][a-z0-9_]*$.(“×î©ùÿÿÿÿ
+ipython:S100Ç
+"LRename method "preParse" to match the regular expression ^[a-z_][a-z0-9_]*$.(§¸şâøÿÿÿÿ
+mpython:S117Ó
+"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+epython:S100Ó
+"MRename method "parseImpl" to match the regular expression ^[a-z_][a-z0-9_]*$.(“°›¬
+jpython:S100Ö
+"MRename method "postParse" to match the regular expression ^[a-z_][a-z0-9_]*$.(…Õ«âşÿÿÿÿ
+upython:S117Ú
+"XRename this parameter "callPreParse" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹³Å—øÿÿÿÿ
+rpython:S117Ú
+"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹³Å—øÿÿÿÿ
+wpython:S117‚"ZRename this local variable "retTokens" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑÊ¶ıÿÿÿÿ
+ypython:S117å
+"\Rename this local variable "tokensStart" to match the regular expression ^[_a-z][a-z0-9_]*$.(±Âáñùÿÿÿÿ
+npython:S100Ú
+"QRename method "_parseNoCache" to match the regular expression ^[a-z_][a-z0-9_]*$.(‹³Å—øÿÿÿÿ
+rpython:S3776Ú
+"TRefactor this function to reduce its Cognitive Complexity from 62 to the 15 allowed.(‹³Å—øÿÿÿÿ
+ipython:S100¡"LRename method "tryParse" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦½‰ûÿÿÿÿ
+mpython:S100§"PRename method "canParseNext" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÙÌ°ıøÿÿÿÿ
+upython:S117†"XRename this parameter "callPreParse" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ÕÓ¡şÿÿÿÿ
+rpython:S117†"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ÕÓ¡şÿÿÿÿ
+lpython:S100†"ORename method "_parseCache" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬ÕÓ¡şÿÿÿÿ
+fpython:S100 "NRename method "resetCache" to match the regular expression ^[a-z_][a-z0-9_]*$.(ìèü·
+npython:S100¦"QRename method "enablePackrat" to match the regular expression ^[a-z_][a-z0-9_]*$.(ïœ¼¢şÿÿÿÿ
+kpython:S117È"TRename this parameter "parseAll" to match the regular expression ^[_a-z][a-z0-9_]*$.(ä÷~
+fpython:S100È"ORename method "parseString" to match the regular expression ^[a-z_][a-z0-9_]*$.(ä÷~
+7python:S125æ"Remove this commented out code.(äÅ¥ÿ
+spython:S117ú"VRename this parameter "maxMatches" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑÆó£úÿÿÿÿ
+upython:S117©"XRename this local variable "nextLoc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒÌë®üÿÿÿÿ
+ppython:S117¢"XRename this local variable "parseFn" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆş§õ
+spython:S117¡"[Rename this local variable "preparseFn" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ë¯é
+kpython:S100ú"NRename method "scanString" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÑÆó£úÿÿÿÿ
+rpython:S3776ú"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(ÑÆó£úÿÿÿÿ
+spython:S117Ó"VRename this local variable "lastE" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ ŞÚÿÿÿÿÿ
+ppython:S100Á"SRename method "transformString" to match the regular expression ^[a-z_][a-z0-9_]*$.(Å€‹àùÿÿÿÿ
+spython:S117ì"VRename this parameter "maxMatches" to match the regular expression ^[_a-z][a-z0-9_]*$.(»ğåşÿÿÿÿ
+mpython:S100ì"PRename method "searchString" to match the regular expression ^[a-z_][a-z0-9_]*$.(»ğåşÿÿÿÿ
+zpython:S117‡"]Rename this parameter "includeSeparators" to match the regular expression ^[_a-z][a-z0-9_]*$.(†šˆ‘ûÿÿÿÿ
+Hpython:S1481”"*Remove the unused local variable "splits".(ú ËÆüÿÿÿÿ
+ypython:S117ê"\Rename this local variable "minElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(«¡êÜşÿÿÿÿ
+ypython:S117ê"\Rename this local variable "optElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(«¡êÜşÿÿÿÿ
+rpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(›šîÿÿÿÿÿ
+tpython:S1542†"VRename function "makeOptionalList" to match the regular expression ^[a-z_][a-z0-9_]*$.(êŸ„Ïüÿÿÿÿ
+ppython:S100„"SRename method "leaveWhitespace" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï•İ¹ıÿÿÿÿ
+npython:S100"VRename method "setWhitespaceChars" to match the regular expression ^[a-z_][a-z0-9_]*$.(üğá”
+npython:S100–"QRename method "parseWithTabs" to match the regular expression ^[a-z_][a-z0-9_]*$.(´™ßÁûÿÿÿÿ
+rpython:S117¶"[Rename this parameter "exceptionAction" to match the regular expression ^[_a-z][a-z0-9_]*$.(›§¥
+npython:S117¶"WRename this parameter "startAction" to match the regular expression ^[_a-z][a-z0-9_]*$.(›§¥
+ppython:S117¶"YRename this parameter "successAction" to match the regular expression ^[_a-z][a-z0-9_]*$.(›§¥
+jpython:S100¶"SRename method "setDebugActions" to match the regular expression ^[a-z_][a-z0-9_]*$.(›§¥
+dpython:S100À"LRename method "setDebug" to match the regular expression ^[a-z_][a-z0-9_]*$.(ëÙÄ¨
+ypython:S117ô"\Rename this parameter "parseElementList" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú×›Ğúÿÿÿÿ
+opython:S100ô"RRename method "checkRecursion" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ú×›Ğúÿÿÿÿ
+wpython:S1186ô"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Ú×›Ğúÿÿÿÿ
+vpython:S117÷"YRename this parameter "validateTrace" to match the regular expression ^[_a-z][a-z0-9_]*$.(î™ÿÿÿÿÿ
+lpython:S117ı"TRename this parameter "parseAll" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÍÈø
+epython:S100ı"MRename method "parseFile" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓÍÈø
+lpython:S117¥"TRename this parameter "parseAll" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑöˆÃ
+npython:S117¥"VRename this parameter "testString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑöˆÃ
+spython:S117“"[Rename this local variable "allResults" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åÿšº
+upython:S117¸"XRename this parameter "failureTests" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¼¼‰ıÿÿÿÿ
+qpython:S117¸"TRename this parameter "fullDump" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¼¼‰ıÿÿÿÿ
+qpython:S117¸"TRename this parameter "parseAll" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¼¼‰ıÿÿÿÿ
+upython:S117¸"XRename this parameter "printResults" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¼¼‰ıÿÿÿÿ
+ipython:S100¸"LRename method "runTests" to match the regular expression ^[a-z_][a-z0-9_]*$.(Œ¼¼‰ıÿÿÿÿ
+rpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(Œ¼¼‰ıÿÿÿÿ
+mpython:S117Ú"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+tpython:S117ì"WRename this parameter "matchString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚïÕ½øÿÿÿÿ
+mpython:S117ÿ"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+lpython:S117š"VRename this parameter "identChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷¦{
+mpython:S117š"WRename this parameter "matchString" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷¦{
+mpython:S117¯"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+tpython:S117Ó"WRename this parameter "matchString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚïÕ½øÿÿÿÿ
+mpython:S117Ú"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+npython:S117è"VRename this parameter "identChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Ğä¢
+opython:S117è"WRename this parameter "matchString" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Ğä¢
+mpython:S117ë"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+vpython:S117Š"YRename this parameter "maxMismatches" to match the regular expression ^[_a-z][a-z0-9_]*$.(ø›¦ğüÿÿÿÿ
+mpython:S117“"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+vpython:S117œ"^Rename this local variable "maxMismatches" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾Ü¨ï
+Ipython:S1481™"0Remove the unused local variable "match_string".(ï•°î
+rpython:S117İ"URename this parameter "asKeyword" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÑğ»üÿÿÿÿ
+rpython:S117İ"URename this parameter "bodyChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÑğ»üÿÿÿÿ
+upython:S117İ"XRename this parameter "excludeChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÑğ»üÿÿÿÿ
+rpython:S117İ"URename this parameter "initChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÑğ»üÿÿÿÿ
+rpython:S3776İ"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÅÑğ»üÿÿÿÿ
+mpython:S117“"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+|python:S117¨"_Rename this local variable "throwException" to match the regular expression ^[_a-z][a-z0-9_]*$.(Î¼úÿÿÿÿ
+mpython:S3776“"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(“°›¬
+npython:S1542¿"PRename function "charsAsStr" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ê ûŞùÿÿÿÿ
+mpython:S117ı"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+python:S117¯"dRename this parameter "convertWhitespaceEscapes" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¤ÙÒıÿÿÿÿ
+upython:S117¯"XRename this parameter "endQuoteChar" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¤ÙÒıÿÿÿÿ
+ppython:S117¯"SRename this parameter "escChar" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¤ÙÒıÿÿÿÿ
+qpython:S117¯"TRename this parameter "escQuote" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¤ÙÒıÿÿÿÿ
+rpython:S117¯"URename this parameter "quoteChar" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¤ÙÒıÿÿÿÿ
+wpython:S117¯"ZRename this parameter "unquoteResults" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¤ÙÒıÿÿÿÿ
+mpython:S117ğ"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S3776ğ"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(“°›¬
+qpython:S117¯"TRename this parameter "notChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÔç«ùÿÿÿÿ
+mpython:S117Ç"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S117‰"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S117±"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S117Ó"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S117á"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S117ô"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S117ƒ"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+rpython:S117•"URename this parameter "wordChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹à«¦ıÿÿÿÿ
+mpython:S117š"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+rpython:S117©"URename this parameter "wordChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹à«¦ıÿÿÿÿ
+mpython:S117¯"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+wpython:S117™"ZRename this parameter "listAllMatches" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÂõÕ«şÿÿÿÿ
+vpython:S117"YRename this parameter "validateTrace" to match the regular expression ^[_a-z][a-z0-9_]*$.(î™ÿÿÿÿÿ
+mpython:S117Å"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+wpython:S117É"ZRename this local variable "errorStop" to match the regular expression ^[_a-z][a-z0-9_]*$.(º•êôÿÿÿÿÿ
+mpython:S3776Å"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(“°›¬
+ypython:S117ã"\Rename this parameter "parseElementList" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú×›Ğúÿÿÿÿ
+}python:S117ä"`Rename this local variable "subRecCheckList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¼°‹ıÿÿÿÿ
+mpython:S117‰"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+rpython:S117Š"ZRename this local variable "maxExcLoc" to match the regular expression ^[_a-z][a-z0-9_]*$.(•Ê°ô
+upython:S117‹"]Rename this local variable "maxException" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğİø¤
+mpython:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(“°›¬
+ypython:S117½"\Rename this parameter "parseElementList" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú×›Ğúÿÿÿÿ
+}python:S117¾"`Rename this local variable "subRecCheckList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¼°‹ıÿÿÿÿ
+mpython:S117Û"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+rpython:S117Ü"ZRename this local variable "maxExcLoc" to match the regular expression ^[_a-z][a-z0-9_]*$.(•Ê°ô
+upython:S117İ"]Rename this local variable "maxException" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğİø¤
+Spython:S2836ì"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
+ypython:S117"\Rename this parameter "parseElementList" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú×›Ğúÿÿÿÿ
+}python:S117‚"`Rename this local variable "subRecCheckList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¼°‹ıÿÿÿÿ
+mpython:S117Ã"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+zpython:S117ñ"]Rename this local variable "finalResults" to match the regular expression ^[_a-z][a-z0-9_]*$.(´££Íşÿÿÿÿ
+zpython:S117Ó"]Rename this local variable "keepMatching" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶Ñ°äüÿÿÿÿ
+xpython:S117Ñ"[Rename this local variable "matchOrder" to match the regular expression ^[_a-z][a-z0-9_]*$.(áìŸÎıÿÿÿÿ
+qpython:S117Õ"YRename this local variable "tmpExprs" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ãõú
+tpython:S117Î"WRename this local variable "tmpLoc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ííÌ‚øÿÿÿÿ
+opython:S117Ğ"WRename this local variable "tmpOpt" to match the regular expression ^[_a-z][a-z0-9_]*$.(Óèú
+upython:S117Ï"XRename this local variable "tmpReqd" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘À—–ıÿÿÿÿ
+mpython:S3776Ã"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(“°›¬
+ypython:S117ı"\Rename this parameter "parseElementList" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú×›Ğúÿÿÿÿ
+}python:S117ş"`Rename this local variable "subRecCheckList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¼°‹ıÿÿÿÿ
+mpython:S117™"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+ypython:S117¸"\Rename this parameter "parseElementList" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú×›Ğúÿÿÿÿ
+}python:S117»"`Rename this local variable "subRecCheckList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¼°‹ıÿÿÿÿ
+vpython:S117¿"YRename this parameter "validateTrace" to match the regular expression ^[_a-z][a-z0-9_]*$.(î™ÿÿÿÿÿ
+mpython:S117å"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S117ü"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+jpython:S117‹"RRename this parameter "stopOn" to match the regular expression ^[_a-z][a-z0-9_]*$.(×…–Ò
+mpython:S117“"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+|python:S117 "_Rename this local variable "hasIgnoreExprs" to match the regular expression ^[_a-z][a-z0-9_]*$.(ä¯ùÍùÿÿÿÿ
+jpython:S117ß"RRename this parameter "stopOn" to match the regular expression ^[_a-z][a-z0-9_]*$.(×…–Ò
+mpython:S117ã"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+mpython:S117£"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+opython:S117ñ"RRename this parameter "failOn" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıÒı¥üÿÿÿÿ
+mpython:S117ş"URename this parameter "doActions" to match the regular expression ^[_a-z][a-z0-9_]*$.(“°›¬
+†python:S117ƒ "iRename this local variable "self_failOn_canParseNext" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ˆ‘¬øÿÿÿÿ
+python:S117„ "iRename this local variable "self_ignoreExpr_tryParse" to match the regular expression ^[_a-z][a-z0-9_]*$.(®ìÔ¢
+Fpython:S1481 "(Remove the unused local variable "expr".(û‰°—ÿÿÿÿÿ
+mpython:S3776ş"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(“°›¬
+vpython:S117Ş "YRename this parameter "validateTrace" to match the regular expression ^[_a-z][a-z0-9_]*$.(î™ÿÿÿÿÿ
+rpython:S117ï "ZRename this local variable "retString" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Àìé
+epython:S1763ë "GDelete this unreachable code or refactor the code to make it reachable.(³ˆ†Íùÿÿÿÿ
+npython:S117›!"VRename this parameter "joinString" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡™çÆ
+ppython:S117­!"XRename this local variable "retToks" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ²”¬
+rpython:S3776ó!"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(…Õ«âşÿÿÿÿ
+spython:S117ª""VRename this parameter "methodCall" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÂ°øÿÿÿÿ
+opython:S1542¶""VRename function "traceParseAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(È–÷²
+opython:S117Ì""RRename this parameter "paArgs" to match the regular expression ^[_a-z][a-z0-9_]*$.(£‡¶”øÿÿÿÿ
+qpython:S117Í""YRename this local variable "thisFunc" to match the regular expression ^[_a-z][a-z0-9_]*$.(å“ÛĞ
+7python:S125ß""Remove this commented out code.(ÆÔœ¦
+opython:S117ï""WRename this local variable "dlName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÆ¨
+lpython:S1542â""SRename function "delimitedList" to match the regular expression ^[a-z_][a-z0-9_]*$.(ûøƒÃ
+wpython:S117‡#"ZRename this local variable "arrayExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ùäƒìşÿÿÿÿ
+ppython:S117õ""SRename this parameter "intExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¼ûşÿÿÿÿ
+ppython:S1542õ""RRename function "countedArray" to match the regular expression ^[a-z_][a-z0-9_]*$.(Æ¼ûşÿÿÿÿ
+tpython:S1542ˆ#"[Rename function "countFieldParseAction" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹¿ù¡
+jpython:S117”#"MRename this parameter "L" to match the regular expression ^[_a-z][a-z0-9_]*$.(å¥òùÿÿÿÿ
+spython:S1542#"ZRename function "matchPreviousLiteral" to match the regular expression ^[a-z_][a-z0-9_]*$.(ø—¤Ÿ
+rpython:S1542«#"YRename function "copyTokenToRepeater" to match the regular expression ^[a-z_][a-z0-9_]*$.(•Âæ»
+ppython:S1542¹#"WRename function "matchPreviousExpr" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÉŞ×€
+ypython:S117Ë#"\Rename this local variable "matchTokens" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢ÕÌÔıÿÿÿÿ
+rpython:S1542Ê#"YRename function "copyTokenToRepeater" to match the regular expression ^[a-z_][a-z0-9_]*$.(•Âæ»
+ypython:S117Í#"\Rename this local variable "theseTokens" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á¹ïûÿÿÿÿÿ
+spython:S1542Ì#"ZRename function "mustMatchTheseTokens" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÚŞÅ•
+upython:S1542Õ#"\Rename function "_escapeRegexRangeChars" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾±¶·
+zpython:S117÷#"bRename this local variable "parseElementClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş§åÛ
+qpython:S117İ#"TRename this parameter "useRegex" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷‚ËÊüÿÿÿÿ
+ipython:S1542İ#"KRename function "oneOf" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷‚ËÊüÿÿÿÿ
+rpython:S3776İ#"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(÷‚ËÊüÿÿÿÿ
+jpython:S1542¦$"LRename function "dictOf" to match the regular expression ^[a-z_][a-z0-9_]*$.(±š»ˆùÿÿÿÿ
+qpython:S117É$"TRename this parameter "asString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿÌåÅûÿÿÿÿ
+upython:S117â$"]Rename this local variable "endlocMarker" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã™†×
+ypython:S117æ$"\Rename this local variable "extractText" to match the regular expression ^[_a-z][a-z0-9_]*$.(”…´Ëùÿÿÿÿ
+wpython:S117á$"ZRename this local variable "locMarker" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğğ¥˜ûÿÿÿÿ
+rpython:S117ä$"ZRename this local variable "matchExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤¹òÆ
+spython:S1542É$"URename function "originalTextFor" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿÌåÅûÿÿÿÿ
+jpython:S1542è$"QRename function "extractText" to match the regular expression ^[a-z_][a-z0-9_]*$.(¡Ö÷Î
+jpython:S1542õ$"QRename function "locatedExpr" to match the regular expression ^[a-z_][a-z0-9_]*$.(®’ ¦
+lpython:S1542³%"TRename function "matchOnlyAtCol" to match the regular expression ^[a-z_][a-z0-9_]*$.(êä`
+hpython:S1542¸%"ORename function "verifyCol" to match the regular expression ^[a-z_][a-z0-9_]*$.(ø‰‚
+kpython:S117½%"SRename this parameter "replStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ‰®
+jpython:S1542½%"QRename function "replaceWith" to match the regular expression ^[a-z_][a-z0-9_]*$.(Œ‰®
+ppython:S1542Ë%"RRename function "removeQuotes" to match the regular expression ^[a-z_][a-z0-9_]*$.(£ìğ¿øÿÿÿÿ
+lpython:S1542Ù%"NRename function "tokenMap" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦şáÂıÿÿÿÿ
+qpython:S117 &"YRename this local variable "closeTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ…µ
+opython:S117–&"XRename this local variable "openTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôƒŞk
+ƒpython:S117š&"fRename this local variable "printablesLessRAbrack" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦İÄ–ûÿÿÿÿ
+ypython:S117“&"\Rename this local variable "tagAttrName" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÍÚ¬ùÿÿÿÿ
+zpython:S117•&"]Rename this local variable "tagAttrValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿÔûÕùÿÿÿÿ
+jpython:S117‹&"RRename this parameter "tagStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞÙ²
+hpython:S1542‹&"ORename function "_makeTags" to match the regular expression ^[a-z_][a-z0-9_]*$.(ĞÙ²
+opython:S117¨&"RRename this parameter "tagStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Çç‡Õÿÿÿÿÿ
+ppython:S1542¨&"RRename function "makeHTMLTags" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çç‡Õÿÿÿÿÿ
+opython:S117»&"RRename this parameter "tagStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(†Ç‘­ûÿÿÿÿ
+opython:S1542»&"QRename function "makeXMLTags" to match the regular expression ^[a-z_][a-z0-9_]*$.(†Ç‘­ûÿÿÿÿ
+kpython:S117Ä&"TRename this parameter "attrDict" to match the regular expression ^[_a-z][a-z0-9_]*$.(œÈÎ#
+kpython:S1542Ä&"SRename function "withAttribute" to match the regular expression ^[a-z_][a-z0-9_]*$.(œÈÎ#
+qpython:S117ü&"YRename this local variable "attrName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊÙâ
+rpython:S117ü&"ZRename this local variable "attrValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊÙâ
+hpython:S1542…'"ORename function "withClass" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ù±ÂÁ
+qpython:S117¬'"TRename this parameter "baseExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(•õşˆüÿÿÿÿ
+vpython:S117ê'"YRename this local variable "lastExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(§ÙÊûÿÿÿÿ
+rpython:S117õ'"ZRename this local variable "matchExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(…‡–…
+tpython:S117ì'"WRename this local variable "opExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(à¹Ç§ıÿÿÿÿ
+upython:S117ñ'"XRename this local variable "opExpr1" to match the regular expression ^[_a-z][a-z0-9_]*$.(³±éşÿÿÿÿ
+upython:S117ñ'"XRename this local variable "opExpr2" to match the regular expression ^[_a-z][a-z0-9_]*$.(³±éşÿÿÿÿ
+opython:S117¬'"RRename this parameter "opList" to match the regular expression ^[_a-z][a-z0-9_]*$.(•õşˆüÿÿÿÿ
+upython:S117ë'"XRename this local variable "operDef" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÅº¡øÿÿÿÿ
+|python:S117ì'"_Rename this local variable "rightLeftAssoc" to match the regular expression ^[_a-z][a-z0-9_]*$.(à¹Ç§ıÿÿÿÿ
+ppython:S117í'"YRename this local variable "termName" to match the regular expression ^[_a-z][a-z0-9_]*$.(”Ç¤(
+vpython:S117ò'"YRename this local variable "thisExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰éæ“üÿÿÿÿ
+qpython:S1542¬'"SRename function "infixNotation" to match the regular expression ^[a-z_][a-z0-9_]*$.(•õşˆüÿÿÿÿ
+rpython:S3776¬'"TRefactor this function to reduce its Cognitive Complexity from 45 to the 15 allowed.(•õşˆüÿÿÿÿ
+npython:S117¥("VRename this parameter "ignoreExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾–ûº
+ipython:S1542¥("PRename function "nestedExpr" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾–ûº
+mpython:S3776¥("TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(¾–ûº
+vpython:S117ÿ("^Rename this parameter "blockStatementExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(´¸‹ê
+opython:S117ÿ("WRename this parameter "indentStack" to match the regular expression ^[_a-z][a-z0-9_]*$.(´¸‹ê
+opython:S117è)"WRename this local variable "smExpr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ½«¾
+lpython:S1542ÿ("SRename function "indentedBlock" to match the regular expression ^[a-z_][a-z0-9_]*$.(´¸‹ê
+mpython:S3776ÿ("TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(´¸‹ê
+tpython:S117Ï)"WRename this local variable "curCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë¹òşúÿÿÿÿ
+spython:S1542Í)"URename function "checkPeerIndent" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÏóôÇıÿÿÿÿ
+tpython:S117Ö)"WRename this local variable "curCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë¹òşúÿÿÿÿ
+rpython:S1542Õ)"TRename function "checkSubIndent" to match the regular expression ^[a-z_][a-z0-9_]*$.(ï±ª¥ûÿÿÿÿ
+tpython:S117Ş)"WRename this local variable "curCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë¹òşúÿÿÿÿ
+qpython:S1542Ü)"SRename function "checkUnindent" to match the regular expression ^[a-z_][a-z0-9_]*$.(×‡°ğùÿÿÿÿ
+ppython:S1542÷)"WRename function "replaceHTMLEntity" to match the regular expression ^[a-z_][a-z0-9_]*$.(­Ê ‰
+spython:S116¤+"VRename this field "convertToFloat" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÂäËÓøÿÿÿÿ
+npython:S116¥,"VRename this field "downcaseTokens" to match the regular expression ^[_a-z][_a-z0-9]*$.(Šı‚ÿ
+qpython:S116¢,"TRename this field "upcaseTokens" to match the regular expression ^[_a-z][_a-z0-9]*$.( æô„ùÿÿÿÿ
+upython:S116Ÿ+"XRename this field "convertToInteger" to match the regular expression ^[_a-z][_a-z0-9]*$.(Áç¬üÿÿÿÿ
+npython:S100Ù+"QRename method "convertToDate" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡ü˜úÿÿÿÿ
+rpython:S100ï+"URename method "convertToDatetime" to match the regular expression ^[a-z_][a-z0-9_]*$.(ô¡Ü­şÿÿÿÿ
+ipython:S100,"QRename method "stripHTMLTags" to match the regular expression ^[a-z_][a-z0-9_]*$.(ü•¹Ÿ

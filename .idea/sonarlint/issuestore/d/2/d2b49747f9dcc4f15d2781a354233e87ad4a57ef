@@ -1,0 +1,24 @@
+
+Hpython:S1066‰"/Merge this if statement with the enclosing one.(„¼Á¶
+hpython:S1542"PRename function "KeywordArg" to match the regular expression ^[a-z_][a-z0-9_]*$.(³Ø‡Õ
+dpython:S1542"LRename function "LParen" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ó©ï§
+ipython:S1542"LRename function "RParen" to match the regular expression ^[a-z_][a-z0-9_]*$.(àèŒ‹úÿÿÿÿ
+dpython:S1542"LRename function "Assign" to match the regular expression ^[a-z_][a-z0-9_]*$.(ı¡Æı
+bpython:S1542$"JRename function "Name" to match the regular expression ^[a-z_][a-z0-9_]*$.(˜¢ÆË
+gpython:S1542("JRename function "Attr" to match the regular expression ^[a-z_][a-z0-9_]*$.(™¡ûÿÿÿÿ
+hpython:S1542,"KRename function "Comma" to match the regular expression ^[a-z_][a-z0-9_]*$.(šùˆÉøÿÿÿÿ
+fpython:S15420"IRename function "Dot" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÚÑëÉùÿÿÿÿ
+epython:S15424"MRename function "ArgList" to match the regular expression ^[a-z_][a-z0-9_]*$.(û§Ô‰
+gpython:S1542;"JRename function "Call" to match the regular expression ^[a-z_][a-z0-9_]*$.(‹ÃÂøùÿÿÿÿ
+jpython:S1542B"MRename function "Newline" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ãùôİûÿÿÿÿ
+lpython:S1542F"ORename function "BlankLine" to match the regular expression ^[a-z_][a-z0-9_]*$.(¡£„™ùÿÿÿÿ
+ipython:S1542J"LRename function "Number" to match the regular expression ^[a-z_][a-z0-9_]*$.(ùÍ·Åÿÿÿÿÿ
+lpython:S1542M"ORename function "Subscript" to match the regular expression ^[a-z_][a-z0-9_]*$.(§µİ„şÿÿÿÿ
+ipython:S1542S"LRename function "String" to match the regular expression ^[a-z_][a-z0-9_]*$.( ³Ğùÿÿÿÿÿ
+kpython:S1542W"NRename function "ListComp" to match the regular expression ^[a-z_][a-z0-9_]*$.(åÒÁ«şÿÿÿÿ
+hpython:S1542o"PRename function "FromImport" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÀŞ„Û
+qpython:S1542‚"SRename function "ImportAndCall" to match the regular expression ^[a-z_][a-z0-9_]*$.(ãÑ©Şüÿÿÿÿ
+Dpython:S5806Í"+Rename this variable; it shadows a builtin.(ˆË¿Í
+rpython:S3776»"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(–¾Ôúÿÿÿÿ
+rpython:S3776é"TRefactor this function to reduce its Cognitive Complexity from 50 to the 15 allowed.(­Š‡‰ùÿÿÿÿ
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 43 to the 15 allowed.(ÍÎŞ®

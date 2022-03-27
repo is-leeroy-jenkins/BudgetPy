@@ -1,0 +1,7 @@
+
+lpython:S3776ð"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(¼á°p
+mpython:S3776“"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÉÈëµ
+Dpython:S5806Ö"+Rename this variable; it shadows a builtin.(Ï¹“´
+Mpython:S1656Ù"/Remove or correct this useless self-assignment.(ù‚Þ£üÿÿÿÿ
+ypython:S5890ó"`Assign to this expression a value of type "Hashable" instead of "tuple" or update its type hint.(Ë°›â
+opython:S4487ú"WRemove this unread private attribute '__version' or refactor the code to use its value.(ÔÆÍK

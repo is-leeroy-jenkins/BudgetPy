@@ -1,0 +1,16 @@
+
+bpython:S1192M"JDefine a constant instead of duplicating this literal "spam.html" 3 times.(ª°Äı
+|python:S1192‘"^Define a constant instead of duplicating this literal "First Federal Bank of Florida" 3 times.(¤èçëûÿÿÿÿ
+jpython:S1192]"RDefine a constant instead of duplicating this literal "valid_markup.html" 3 times.(™İ¤´
+kpython:S1192—"MDefine a constant instead of duplicating this literal "Metcalf Bank" 3 times.(øìáşûÿÿÿÿ
+_python:S1192“"FDefine a constant instead of duplicating this literal "sq mi" 3 times.(íŸ–Ù
+ipython:S1192´"KDefine a constant instead of duplicating this literal ".*Water.*" 22 times.(øùÈ¸ıÿÿÿÿ
+Hpython:S1066µ	"/Merge this if statement with the enclosing one.(µŸ¹í
+{python:S4144ó"bUpdate this function so that its implementation is not identical to test_skiprows_int on line 219.(ìÖİ¤
+python:S4144™"oUpdate this function so that its implementation is not identical to test_header_and_index_no_types on line 276.(¥–ä‚ûÿÿÿÿ
+ypython:S4144"[Update this function so that its implementation is not identical to test_index on line 271.(È§Õ­ùÿÿÿÿ
+•python:S4144€"wUpdate this function so that its implementation is not identical to test_multiindex_header_skiprows_tuples on line 379.(ª›«œûÿÿÿÿ
+<python:S125‘"Remove this commented out code.(¤èçëûÿÿÿÿ
+7python:S125£"Remove this commented out code.(¼×øø
+Apython:S108‚
+")Either remove or fill this block of code.(ã‘Û¾

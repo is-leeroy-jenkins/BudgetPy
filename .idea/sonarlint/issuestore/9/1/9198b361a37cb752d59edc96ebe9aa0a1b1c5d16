@@ -1,0 +1,4 @@
+
+kpython:S1854"NRemove this assignment to local variable 'attribute'; the value is never used.(ð««©üÿÿÿÿ
+Cpython:S5806"+Rename this variable; it shadows a builtin.(–áˆ¤
+5python:S3626Y"Remove this redundant return.(ÙãÞŸ

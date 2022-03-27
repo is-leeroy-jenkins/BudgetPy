@@ -1,0 +1,8 @@
+
+npython:S117%"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+gpython:S117$"PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ
+npython:S117D"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+spython:S117?"WRename this parameter "legendEntry" to match the regular expression ^[_a-z][a-z0-9_]*$.(î’×ºøÿÿÿÿ
+kpython:S117>"URename this parameter "legendPos" to match the regular expression ^[_a-z][a-z0-9_]*$.(½ÉÐm
+lpython:S117B"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
+gpython:S117C"PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ

@@ -1,0 +1,12 @@
+
+mpython:S117["VRename this parameter "customMenu" to match the regular expression ^[_a-z][a-z0-9_]*$.(“ 
+wpython:S117d"[Rename this parameter "functionGroupId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÑÅŸøÿÿÿÿ
+tpython:S117_"XRename this parameter "localSheetId" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘‡³¼ûÿÿÿÿ
+wpython:S117f"[Rename this parameter "publishToServer" to match the regular expression ^[_a-z][a-z0-9_]*$.(…«ÅŸüÿÿÿÿ
+npython:S117e"WRename this parameter "shortcutKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷Ó¸
+lpython:S117^"URename this parameter "statusBar" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñúğƒ
+spython:S117b"WRename this parameter "vbProcedure" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğâà˜ıÿÿÿÿ
+tpython:S117g"]Rename this parameter "workbookParameter" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ççñ
+ipython:S107X"MMethod "__init__" has 16 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
+npython:S117®"WRename this parameter "definedName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã–¥
+|python:S1871»"cEither merge this branch with the identical one on line "185" or change one of the implementations.(À–¬ˆ

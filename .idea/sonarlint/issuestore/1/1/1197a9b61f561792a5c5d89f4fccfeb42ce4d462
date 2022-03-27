@@ -1,0 +1,12 @@
+
+lpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(ç¶þà
+Tpython:S57540"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S57544"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S57548"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754<"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754C"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754J"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Tpython:S5754Q"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+jpython:S117‡"RRename this parameter "QtCore" to match the regular expression ^[_a-z][a-z0-9_]*$.(óäÉá
+zpython:S117Œ"bRename this local variable "_original_QThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜æÖ“
+Upython:S5754›"<Specify an exception class to catch or reraise the exception(ˆÊÉ·

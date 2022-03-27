@@ -1,0 +1,15 @@
+
+spython:S1170"WRename this parameter "hasChildren" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê‰¶ˆşÿÿÿÿ
+hpython:S1000"LRename method "emptyTag" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ê‰¶ˆşÿÿÿÿ
+hpython:S100E"LRename method "startTag" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦†¶¡ıÿÿÿÿ
+fpython:S100V"JRename method "endTag" to match the regular expression ^[a-z_][a-z0-9_]*$.(ê“Åùÿÿÿÿ
+Lpython:S1656}"/Remove or correct this useless self-assignment.(´‰ºàøÿÿÿÿ
+qpython:S117”"TRename this parameter "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(´ºÖãıÿÿÿÿ
+qpython:S117”"TRename this parameter "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(´ºÖãıÿÿÿÿ
+lpython:S117¯"TRename this parameter "nodeType" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ›×Ô
+tpython:S117Â"\Rename this local variable "currentNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àß³ñ
+xpython:S117æ"[Rename this local variable "firstChild" to match the regular expression ^[_a-z][a-z0-9_]*$.(™­ÀÛÿÿÿÿÿ
+ypython:S117Æ"\Rename this local variable "hasChildren" to match the regular expression ^[_a-z][a-z0-9_]*$.(õÌ³ıÿÿÿÿ
+spython:S117÷"\Rename this local variable "nextSibling" to match the regular expression ^[_a-z][a-z0-9_]*$.(–«ôH
+mpython:S3776Á"TRefactor this function to reduce its Cognitive Complexity from 51 to the 15 allowed.(šƒß
+Dpython:S5806Å"+Rename this variable; it shadows a builtin.(šÑÚ¨

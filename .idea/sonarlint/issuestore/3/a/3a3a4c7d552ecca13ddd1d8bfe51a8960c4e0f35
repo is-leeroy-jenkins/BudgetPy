@@ -1,0 +1,24 @@
+
+ipython:S1192©"KDefine a constant instead of duplicating this literal "<!DOCTYPE>" 3 times.(Çşù½ûÿÿÿÿ
+cpython:S1192Ù"JDefine a constant instead of duplicating this literal "|%s\"%s\"" 3 times.(‡ÿø
+spython:S117"\Rename this local variable "ElementTree" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ëè‡
+ƒpython:S117"gRename this local variable "ElementTreeCommentType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ØÆ‚“şÿÿÿÿ
+python:S117"eRename this parameter "ElementTreeImplementation" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÁšäúÿÿÿÿ
+ppython:S117"TRename this parameter "fullTree" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÁšäúÿÿÿÿ
+rpython:S1542"URename function "getETreeBuilder" to match the regular expression ^[a-z_][a-z0-9_]*$.(ˆÁšäúÿÿÿÿ
+rpython:S3776"URefactor this function to reduce its Cognitive Complexity from 159 to the 15 allowed.(ˆÁšäúÿÿÿÿ
+opython:S117d"SRename this parameter "refNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š›€ªûÿÿÿÿ
+npython:S117n"XRename this parameter "insertBefore" to match the regular expression ^[_a-z][a-z0-9_]*$.(—óñ[
+rpython:S117‹"URename this parameter "newParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(º¤×øøÿÿÿÿ
+lpython:S117¨"TRename this parameter "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(º†¦
+lpython:S117¨"TRename this parameter "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(º†¦
+rpython:S1542È"TRename function "testSerializer" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÁÑ‘Õÿÿÿÿÿ
+vpython:S117Ğ"YRename this local variable "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞØû³üÿÿÿÿ
+vpython:S117Ñ"YRename this local variable "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç„Àäùÿÿÿÿ
+tpython:S1542Ë"VRename function "serializeElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒîíøÿÿÿÿ
+Fpython:S5603†"(Remove this unused function declaration.(å„ ïÿÿÿÿÿ
+Ipython:S5806‰"+Rename this variable; it shadows a builtin.(Íˆ§„øÿÿÿÿ
+vpython:S117‘"YRename this local variable "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞØû³üÿÿÿÿ
+vpython:S117’"YRename this local variable "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç„Àäùÿÿÿÿ
+opython:S1542‹"VRename function "serializeElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(ûü’¹
+>python:S5603¼"%Remove this unused class declaration.(¡û¹

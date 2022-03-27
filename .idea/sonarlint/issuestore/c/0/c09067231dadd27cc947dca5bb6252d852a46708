@@ -1,0 +1,14 @@
+
+tpython:S117I"XRename this parameter "refreshError" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁÎÆ¬ÿÿÿÿÿ
+jpython:S117H"SRename this parameter "sheetId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞÍÂŠ
+qpython:S117X"URename this parameter "sheetData" to match the regular expression ^[_a-z][a-z0-9_]*$.(œÁÖİûÿÿÿÿ
+qpython:S117d"URename this parameter "sheetName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã´‰§ÿÿÿÿÿ
+ppython:S117s"TRename this parameter "refersTo" to match the regular expression ^[_a-z][a-z0-9_]*$.(’¨¯ úÿÿÿÿ
+jpython:S117t"SRename this parameter "sheetId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞÍÂŠ
+upython:S117ˆ"XRename this parameter "definedNames" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š³—Ìùÿÿÿÿ
+upython:S117‰"XRename this parameter "sheetDataSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í…™şÿÿÿÿ
+spython:S117‡"VRename this parameter "sheetNames" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï£èûÿÿÿÿ
+ppython:S117¢"SRename this parameter "ddeLink" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾›á”ûÿÿÿÿ
+opython:S117¤"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+ppython:S117¡"XRename this parameter "externalBook" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ»Ìõ
+kpython:S117£"SRename this parameter "oleLink" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò¡İ

@@ -1,0 +1,9 @@
+
+mpython:S1192¶"TDefine a constant instead of duplicating this literal "2015-02-24 00:00:00" 5 times.(³ìåƒ
+mpython:S1192½"ODefine a constant instead of duplicating this literal "some UA string" 4 times.(ı½Ôêúÿÿÿÿ
+cpython:S1226ô"JIntroduce a new variable or use its initial value before reassigning 'df'.(ìæ›Ö
+ipython:S1542Ô"KRename function "get_B" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÂØÊ©ıÿÿÿÿ
+ipython:S1764ÿ"KCorrect one of the identical sub-expressions on both sides of operator "-".(”“Àşÿÿÿÿ
+Dpython:S1481§"&Remove the unused local variable "nn".(ÕÀÉˆÿÿÿÿÿ
+ypython:S1186Û"[Add a nested comment explaining why this function is empty, or complete the implementation.( ³¢Éùÿÿÿÿ
+7python:S125Û"Remove this commented out code.(“ŞÇß

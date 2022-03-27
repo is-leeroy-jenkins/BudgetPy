@@ -1,0 +1,17 @@
+
+lpython:S1192°"SDefine a constant instead of duplicating this literal "Unsatisfiable read" 6 times.( È–‚
+ppython:S1192K"XDefine a constant instead of duplicating this literal b"GET / HTTP/1.0\r\n\r\n" 4 times.(ÒÔì¥
+Cpython:S1481—"%Remove the unused local variable "i".(ºõª®ıÿÿÿÿ
+>python:S1481£"%Remove the unused local variable "i".(úÌŞÛ
+>python:S1481²"%Remove the unused local variable "i".(úÌŞÛ
+>python:S1481Å"%Remove the unused local variable "i".(©¯¿ú
+Fpython:S5603Ï"(Remove this unused function declaration.(Ô¯ÿµüÿÿÿÿ
+Cpython:S1481â"%Remove the unused local variable "i".(ñğ‹®úÿÿÿÿ
+Cpython:S1481í"%Remove the unused local variable "i".(‚¨±šıÿÿÿÿ
+Jpython:S4423š",Change this code to use a stronger protocol.(ı¾€íûÿÿÿÿ
+Jpython:S4423¥",Change this code to use a stronger protocol.(ı¾€íûÿÿÿÿ
+^python:S4830¦"@Enable server certificate validation on this SSL/TLS connection.(ÊÆ©ùÿÿÿÿÿ
+Xpython:S5527¤"?Enable server hostname verification on this SSL/TLS connection.(ª…è
+>python:S1481Õ	"%Remove the unused local variable "i".(©¯¿ú
+>python:S1481Ø	"%Remove the unused local variable "i".(©¯¿ú
+>python:S1481÷	"%Remove the unused local variable "i".(¹½ğ

@@ -1,0 +1,4 @@
+
+}python:S1845U"eRename field "context" to prevent any misunderstanding/clash with method "Context" defined on line 78(Ú¢Ä¤
+rpython:S100Ñ"URename method "assertRaisesErrno" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ë´Ì´ýÿÿÿÿ
+dpython:S100â"LRename method "tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(•ûÜë

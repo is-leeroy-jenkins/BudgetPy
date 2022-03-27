@@ -1,0 +1,5 @@
+
+cpython:S1854"KRemove this assignment to local variable '_locs_'; the value is never used.(ëäÚª
+ipython:S1854"LRemove this assignment to local variable '_globs_'; the value is never used.(•¯¥¹øÿÿÿÿ
+hpython:S1854"KRemove this assignment to local variable '_locs_'; the value is never used.(‘ªğ‹ÿÿÿÿÿ
+rpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 65 to the 15 allowed.(Î´ğÿÿÿÿÿ

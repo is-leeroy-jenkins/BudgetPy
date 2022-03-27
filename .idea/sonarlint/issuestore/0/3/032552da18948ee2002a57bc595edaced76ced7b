@@ -1,0 +1,14 @@
+
+opython:S1171"SRename this parameter "dLblPos" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò–¥Æÿÿÿÿÿ
+npython:S117:"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
+npython:S117."RRename this parameter "numFmt" to match the regular expression ^[_a-z][a-z0-9_]*$.(…«îŒÿÿÿÿÿ
+qpython:S1177"ZRename this parameter "showBubbleSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ»½²
+npython:S1174"WRename this parameter "showCatName" to match the regular expression ^[_a-z][a-z0-9_]*$.(èÒÐê
+wpython:S1178"[Rename this parameter "showLeaderLines" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¨Þˆþÿÿÿÿ
+upython:S1172"YRename this parameter "showLegendKey" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦‰Æ€ýÿÿÿÿ
+spython:S1176"WRename this parameter "showPercent" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë³Ï‹øÿÿÿÿ
+npython:S1175"WRename this parameter "showSerName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨õïª
+opython:S1173"SRename this parameter "showVal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôòØÎþÿÿÿÿ
+lpython:S117/"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
+gpython:S1170"PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ
+gpython:S117|"PRename this parameter "dLbl" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª£§ö

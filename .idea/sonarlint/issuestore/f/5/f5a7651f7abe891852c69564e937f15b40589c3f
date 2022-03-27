@@ -1,0 +1,29 @@
+
+gpython:S1192]"JDefine a constant instead of duplicating this literal "|%s\"%s\"" 4 times.(®ÎŸæÿÿÿÿÿ
+lpython:S116+"PRename this field "publicId" to match the regular expression ^[_a-z][_a-z0-9]*$.(î ãûÿÿÿÿ
+lpython:S116,"PRename this field "systemId" to match the regular expression ^[_a-z][_a-z0-9]*$.(ïâáÿÿÿÿÿ
+kpython:S117)"TRename this parameter "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(º†¦
+kpython:S117)"TRename this parameter "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(º†¦
+ipython:S116>"RRename this field "childNodes" to match the regular expression ^[_a-z][_a-z0-9]*$.(ô·˜Ä
+ppython:S1161"TRename this field "_elementTree" to match the regular expression ^[_a-z][_a-z0-9]*$.(İŸÓ¿úÿÿÿÿ
+ipython:S1162"SRename this field "_childNodes" to match the regular expression ^[_a-z][_a-z0-9]*$.(›ÑA
+apython:S18545"IRemove this assignment to local variable 'last'; the value is never used.(ÓÀÆµ
+kpython:S1004"ORename method "appendChild" to match the regular expression ^[a-z_][a-z0-9_]*$.(³Ìˆğûÿÿÿÿ
+@python:S1087")Either remove or fill this block of code.(ã‘Û¾
+ipython:S100;"RRename method "_getChildNodes" to match the regular expression ^[a-z_][a-z0-9_]*$.(üıŒ‰
+upython:S117C"^Rename this local variable "infosetFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨çâ
+qpython:S1542A"TRename function "testSerializer" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÁÑ‘Õÿÿÿÿÿ
+qpython:S3776A"TRefactor this function to reduce its Cognitive Complexity from 69 to the 15 allowed.(ÁÑ‘Õÿÿÿÿÿ
+spython:S1542E"VRename function "serializeElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒîíøÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(˜â´×ÿÿÿÿÿ
+opython:S1542”"VRename function "serializeElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(ûü’¹
+qpython:S117Á"TRename this parameter "fullTree" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿øšñÿÿÿÿÿ
+{python:S117Ã"^Rename this local variable "infosetFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªóñúÿÿÿÿ
+~python:S117Á"aRename this parameter "namespaceHTMLElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿øšñÿÿÿÿÿ
+opython:S117€"XRename this parameter "insertBefore" to match the regular expression ^[_a-z][a-z0-9_]*$.(—óñ[
+<python:S125š"Remove this commented out code.(ÀÑß¹øÿÿÿÿ
+ypython:S117¿"\Rename this local variable "coercedName" to match the regular expression ^[_a-z][a-z0-9_]*$.(îùÄØşÿÿÿÿ
+qpython:S117¸"YRename this local variable "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç™¦ë
+qpython:S117¹"YRename this local variable "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àö¼
+opython:S117Ö"WRename this local variable "docStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(úØóÑ
+mpython:S3776Ñ"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(“ÀÒã

@@ -1,0 +1,6 @@
+
+qpython:S3776'"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(Ïä˜•ùÿÿÿÿ
+wpython:S1186´"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ã¬¯œûÿÿÿÿ
+6python:S3626†"Remove this redundant return.(ÙãÞŸ
+qpython:S1186•"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Â¬Ó
+5python:S2772Ö"Remove this unneeded "pass".(ã‘Û¾
