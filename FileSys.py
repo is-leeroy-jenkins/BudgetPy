@@ -101,6 +101,10 @@ class BudgetPath( ):
         if os.path.exists( first ) and os.path.exists( second ):
             return os.path.join( first, second )
 
+    def __str__( self ):
+       if self.__path is not None:
+            return self.__path
+
     def __init__( self, filepath ):
         self.__base = str( filepath )
         self.__path = self.__base
@@ -308,6 +312,10 @@ class BudgetFile( ):
             for line in lines:
                 self.__contents.append( open( self.__path, 'w' ).write( line ) )
 
+    def __str__( self ):
+        if self.__path is not None:
+            return self.__path
+
     def __init__( self, base ):
         self.__base = base if not self.__base == '' else 'NS'
         self.__path = self.__base if not self.__base == '' else 'NS'
@@ -465,6 +473,10 @@ class BudgetFolder( ):
         '''iterates files in the directory provided by 'other' '''
         if os.path.exists( other ) and os.path.isdir( other ):
             yield from os.scandir( self.__base )
+
+    def __str__( self ):
+        if self.__path is not None:
+            return self.__path
 
     def __init__( self, base ):
         self.__base = base
@@ -675,6 +687,10 @@ class ExcelFile( ):
         ''' Gets the workbooks worksheet '''
         if not name == '':
             self.__worksheet = name
+
+    def __str__( self ):
+        if self.__path is not None:
+            return self.__path
 
     def __init__( self, name ):
         self.__path = r'etc\templates\report\Excel.xlsx'

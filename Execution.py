@@ -99,6 +99,10 @@ class Account( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__code is not None:
+            return self.__code
+
     def __init__( self, code ):
         self.__data = { }
         self.__code = str( code )
@@ -107,10 +111,6 @@ class Account( ):
         self.__npm = str( self.__code[ 3 ] )
         self.__programproject = str( self.__code[ 4:6 ] )
         self.__frame = pd.DataFrame( self.__data )
-
-    def __str__( self ):
-        if self.__code is not None:
-            return self.__code
 
 class Activity( ):
     '''Defines the Activity Class'''
@@ -161,13 +161,13 @@ class Activity( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__data = { }
         self.__code = str( code )
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
@@ -218,14 +218,14 @@ class AllowanceHolder( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if not self.__code == '':
+            return self.__code
+
     def __init__( self, code ):
         self.__data = { }
         self.__code = str( code )
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if not self.__code == '':
-            return self.__code
 
 class Appropriation( ):
     '''Defines the Appropriation Class'''
@@ -311,14 +311,14 @@ class Appropriation( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__fund = Fund( self.__code )
         self.__data = { 'code': self.__code,
                         'fund': self.__fund }
-
-    def __str__( self ):
-        return self.__code
 
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
@@ -479,6 +479,9 @@ class BudgetFiscalYear( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return str( self.__year )
+
     def __init__( self, bfy ):
         self.__today = dt.date.today( )
         self.__base = str( bfy )
@@ -498,9 +501,6 @@ class BudgetFiscalYear( ):
                         'startdate': self.__startdate,
                         'enddate': self.__enddate }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return str( self.__year )
 
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
@@ -563,13 +563,13 @@ class BudgetObjectClass( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class Division( ):
     '''Defines the Division Class'''
@@ -667,14 +667,14 @@ class FinanceObjectClass( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if not self.__code == '':
+            return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if not self.__code == '':
-            return self.__code
 
 class Fund( ):
     '''Defines the Fund Class'''
@@ -737,13 +737,13 @@ class Fund( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class Goal( ):
     '''Defines the Goal Class'''
@@ -794,12 +794,12 @@ class Goal( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
-
-    def __str__( self ):
-        return self.__code
 
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
@@ -874,13 +874,13 @@ class NationalProgram( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class Objective( ):
     '''Defines the Objective Class'''
@@ -931,13 +931,13 @@ class Objective( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = Objective( str( code )  )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class Organization( ):
     '''Defines the Organization Class'''
@@ -988,13 +988,13 @@ class Organization( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = code
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class Project( ):
     '''Defines the Organization Class'''
@@ -1045,14 +1045,14 @@ class Project( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__code:
+            return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__code:
-            return self.__code
 
 class ItProjectCode( ):
     '''Defines the Organization Class'''
@@ -1103,13 +1103,13 @@ class ItProjectCode( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
@@ -1155,13 +1155,13 @@ class SiteProjectCode( ):
         if self.__frame is not None:
             return self.__frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
@@ -1212,13 +1212,13 @@ class HumanResourceOrganization( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class WorkCode( ):
     '''Defines the Organization Class'''
@@ -1269,13 +1269,13 @@ class WorkCode( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class ProgramArea( ):
     '''defines the ProgramArea class'''
@@ -1324,13 +1324,13 @@ class ProgramArea( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
@@ -1390,13 +1390,13 @@ class ProgramProject( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
@@ -1445,13 +1445,13 @@ class ResponsibilityCenter( ):
         if isinstance( value, pd.DataFrame ):
             self.__frame = value
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
@@ -1500,13 +1500,13 @@ class ResourcePlanningOffice( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
@@ -1654,6 +1654,10 @@ class ProgramResultsCode( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__account.code is not None:
+            return self.__account.code
+
     def __init__( self, code, amount = 0 ):
         '''Initializes the PRC class'''
         self.__account = Account( str( code ) )
@@ -1663,10 +1667,6 @@ class ProgramResultsCode( ):
                         'account': self.__account,
                         'amount': self.__amount }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__account.code is not None:
-            return self.__account.code
 
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
@@ -1717,16 +1717,16 @@ class RegionalOffice( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__rpio is not None:
+            return str( self.__rpio )
+
     def __init__( self, rpio ):
         self.__rpio = ResourcePlanningOffice( str( rpio ) )
         self.__name = self.__rpio.name
         self.__data = { 'rpio': self.__rpio,
                         'name': self.__name }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__rpio is not None:
-            return str( self.__rpio )
 
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
@@ -1825,6 +1825,9 @@ class SiteProject( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        return self.__code
+
     def __init__( self, code ):
         self.__code = str( code )
         self.__ssid = self.__code[ 0: 4 ]
@@ -1832,9 +1835,6 @@ class SiteProject( ):
         self.__operableunit = self.__code[ 6:9 ]
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        return self.__code
 
 class HeadQuartersOffice( ):
     '''Defines the HQ class'''
@@ -1897,16 +1897,16 @@ class HeadQuartersOffice( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if not self.__name == '':
+            return self.__name
+
     def __init__( self, rpio ):
         self.__rpio = ResourcePlanningOffice( str( rpio ) )
         self.__name = self.__rpio.name
         self.__data = { 'rpio': self.__rpio,
                         'name': self.__name }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if not self.__name == '':
-            return self.__name
 
 class Holiday( ):
     '''Defines the Holiday class'''
@@ -1981,6 +1981,10 @@ class Holiday( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if not self.__name == '':
+            return self.__name
+
     def __init__( self, bfy, name ):
         self.__bfy = str( bfy )
         self.__name = str( name )
@@ -1989,10 +1993,6 @@ class Holiday( ):
         self.__data = { 'bfy': self.__bfy,
                         'name': self.__name }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if not self.__name == '':
-            return self.__name
 
 class Commitment( ):
     '''Defines the commitment class.'''
@@ -2108,6 +2108,10 @@ class Commitment( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
     def __init__( self, amount ):
         self.__amount = float( amount )
         self.__data = { 'amount': self.__amount,
@@ -2118,10 +2122,6 @@ class Commitment( ):
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__amount is not None:
-            return str( self.__amount )
 
 class OpenCommitment( ):
     '''Defines the commitment class.'''
@@ -2232,6 +2232,10 @@ class OpenCommitment( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
     def __init__( self, amount ):
         self.__amount = float( amount )
         self.__data = { 'amount': self.__amount,
@@ -2242,10 +2246,6 @@ class OpenCommitment( ):
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__amount is not None:
-            return str( self.__amount )
 
 class Obligation:
     '''Defines the commitment class.'''
@@ -2356,6 +2356,10 @@ class Obligation:
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
     def __init__( self, amount ):
         self.__amount = float( amount )
         self.__data = { 'amount': self.__amount,
@@ -2366,10 +2370,6 @@ class Obligation:
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__amount is not None:
-            return str( self.__amount )
 
 class Deobligation:
     '''Defines the commitment class.'''
@@ -2480,6 +2480,10 @@ class Deobligation:
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
     def __init__( self, amount ):
         self.__amount = float( amount )
         self.__data = { 'amount': self.__amount,
@@ -2490,10 +2494,6 @@ class Deobligation:
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__amount is not None:
-            return str( self.__amount )
 
 class ULO:
     '''Defines the commitment class.'''
@@ -2601,6 +2601,10 @@ class ULO:
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
     def __init__( self, amount ):
         self.__amount = float( amount )
         self.__data = { 'amount': self.__amount,
@@ -2611,10 +2615,6 @@ class ULO:
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__amount is not None:
-            return str( self.__amount )
 
 class Expenditure:
     '''Defines the commitment class.'''
@@ -2711,6 +2711,10 @@ class Expenditure:
         if self.__frame is not None:
             return self.__frame
 
+    def __str__( self ):
+        if self.__amount is not None:
+            return str( self.__amount )
+
     def __init__( self, amount ):
         self.__amount = float( amount )
         self.__data = { 'amount': self.__amount,
@@ -2722,7 +2726,3 @@ class Expenditure:
                         'boc': None }
         self.__frame = pd.DataFrame
         self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if self.__amount is not None:
-            return str( self.__amount )
