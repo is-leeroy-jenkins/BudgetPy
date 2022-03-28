@@ -28,13 +28,8 @@ class Source( ):
             return self.__table
 
     @table.setter
-    def table( self, src ):
-        if src is not None and src != '':
-            self.settable( src )
-
-    def settable( self, name ):
-        '''Function to set the tablename of sql command'''
-        if name in self.__data:
+    def table( self, name ):
+        if isinstance( name, str ) and name in self.__data:
             self.__table = name
         elif name in self.__references:
             self.__table = name
@@ -45,7 +40,7 @@ class Source( ):
         if isinstance( self.__table, str ) and self.__table != '':
             return self.__table
 
-    def __init__( self, table ):
+    def __init__( self, tablename ):
         '''Constructor for the Source class providing
         a list of tables in the data database and/or
         reference database'''
@@ -79,7 +74,7 @@ class Source( ):
                               'ProgramProjects', 'Projects', 'Providers',
                               'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                               'SchemaTypes', 'Sources' ]
-        self.settable( table )
+        self.__table = tablename
 
 class Provider( ):
     '''Provides data providers used to identify
@@ -1148,7 +1143,7 @@ class AccessData( ):
 
     def __init__( self, tablename ):
         self.__source = Source( tablename )
-        self.__table = self.__source.table
+        self.__table = tablename
         self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
                         r'\access\datamodels\Data.accdb;'
@@ -1320,9 +1315,13 @@ class SQLiteData( ):
         if self.__connstr is not None:
             return sl.connect( self.__connstr )
 
+    def __str__( self ):
+        if self.__dbpath is not None:
+            return self.__dbpath
+
     def __init__( self, tablename ):
         self.__source = Source( tablename )
-        self.__table = self.__source.table
+        self.__table = tablename
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\sqlite\datamodels\Data.db'
         self.__driver = r='DBMS: SQLite (ver. 3.36.0) Case sensitivity: plain=mixed, ' \
@@ -1330,10 +1329,6 @@ class SQLiteData( ):
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' )
-
-    def __str__( self ):
-        if self.__dbpath is not None:
-            return self.__dbpath
 
 class SQLiteReference( ):
     '''Class representing the budget execution references models'''
@@ -1414,7 +1409,7 @@ class SQLiteReference( ):
 
     def __init__( self, tablename ):
         self.__source = Source( tablename )
-        self.__table = self.__source.table
+        self.__table = tablename
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\sqlite\referencemodels\References.db'
         self.__driver = r='DBMS: SQLite (ver. 3.36.0) Case sensitivity: plain=mixed, ' \
