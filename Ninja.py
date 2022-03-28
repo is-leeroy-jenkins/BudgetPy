@@ -1246,6 +1246,7 @@ class AccessReference( ):
 class SQLiteData( ):
     '''Builds the budget execution data classes'''
     __dbpath = None
+    __driver = None
     __connstr = None
     __data = None
     __source = None
@@ -1261,6 +1262,16 @@ class SQLiteData( ):
     def path( self, path ):
         if path is not None:
             self.__dbpath = str( path )
+
+    @property
+    def driver( self ):
+        if self.__driver is not None:
+            return str( self.__driver )
+
+    @driver.setter
+    def driver( self, driver ):
+        if isinstance( driver, str ) and driver != '':
+            self.__driver = str( driver )
 
     @property
     def source( self ):
@@ -1314,6 +1325,8 @@ class SQLiteData( ):
         self.__table = self.__source.table
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\sqlite\datamodels\Data.db'
+        self.__driver = r='DBMS: SQLite (ver. 3.36.0) Case sensitivity: plain=mixed, ' \
+            r'delimited=mixed Driver: SQLite JDBC (ver. 3.36.0.3, JDBC2.1) Ping: 15 ms'
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' )
@@ -1326,6 +1339,7 @@ class SQLiteReference( ):
     '''Class representing the budget execution references models'''
     __source = None
     __dbpath = None
+    __driver = None
     __connstr = None
     __data = None
     __table = None
@@ -1362,6 +1376,16 @@ class SQLiteReference( ):
             self.__connstr = str( conn )
 
     @property
+    def driver( self ):
+        if self.__driver is not None:
+            return str( self.__driver )
+
+    @driver.setter
+    def driver( self, driver ):
+        if isinstance( driver, str ) and driver != '':
+            self.__driver = str( driver )
+
+    @property
     def data( self ):
         if self.__data is not None:
             return iter( self.__data[ 0: ] )
@@ -1393,6 +1417,8 @@ class SQLiteReference( ):
         self.__table = self.__source.table
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\sqlite\referencemodels\References.db'
+        self.__driver = r='DBMS: SQLite (ver. 3.36.0) Case sensitivity: plain=mixed, ' \
+            r'delimited=mixed Driver: SQLite JDBC (ver. 3.36.0.3, JDBC2.1) Ping: 15 ms'
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' )
