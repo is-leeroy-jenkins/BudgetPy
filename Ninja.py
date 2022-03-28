@@ -35,9 +35,9 @@ class Source( ):
     def settable( self, name ):
         '''Function to set the tablename of sql command'''
         if name in self.__data:
-            self.__table = self.__data[ name ]
+            self.__table = name
         elif name in self.__references:
-            self.__table = self.__references[ name ]
+            self.__table = name
         else:
             self.__table = None
 
