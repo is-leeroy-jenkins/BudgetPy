@@ -4,8 +4,8 @@ import pyodbc as db
 import os
 
 class Source( ):
-    '''Provides list of Budget Execution tables
-    across two databases (data and references)'''
+    '''Source( tablename ) provides list of Budget Execution
+     tables across two databases (data and references)'''
     __data = [ ]
     __references = [ ]
     __table = None
@@ -77,7 +77,7 @@ class Source( ):
         self.__table = tablename
 
 class Provider( ):
-    '''Provides data providers used to identify
+    '''Provider( name ) provides the data providers used to identify
     the type of database (access, sqlite, sqlserver, or sqlce)'''
     __access = None
     __sqlite = None
@@ -195,7 +195,7 @@ class Provider( ):
         self.setbyname( name )
 
 class CommandType( ):
-    '''defines the types of sql commands
+    '''CommandType( cmd ) defines the types of sql commands
     used to query the database'''
     __select = None
     __insert = None
@@ -307,7 +307,8 @@ class CommandType( ):
         self.setbyname( cmd )
 
 class DataPath( ):
-    ''' Defines object used to provide the path to data model databases '''
+    '''DataPath( name ) provides path information
+    related to the data model databases '''
     __accesspath = None
     __sqlitepath = None
     __mssqlpath = None
@@ -469,7 +470,8 @@ class DataPath( ):
         self.setbyname( name )
 
 class ReferencePath( ):
-    '''Defines object used to provide paths to the references model databases '''
+    '''ReferencePath( name ) provides path information
+    related to the references model databases '''
     __accesspath = None
     __sqlitepath = None
     __mssqlpath = None
@@ -626,7 +628,8 @@ class ReferencePath( ):
         self.setbyname( name )
 
 class CriteriaBuilder( ):
-    '''Defines the CriteriaBuilder class'''
+    '''CriteriaBuilder( cmd, names, values ) provides the
+     predicate name value pairs for sql queries'''
     __predicate = None
     __names = None
     __values = None
@@ -726,8 +729,8 @@ class CriteriaBuilder( ):
         self.__predicate = ''
 
 class SqlStatement( ):
-    '''Class representing the sql queries
-    used in the application'''
+    '''SqlStatement( pvdr, cmd, src, path ) Class represents
+     the sql queries used in the application'''
     __provider = None
     __command = None
     __path = None
@@ -796,7 +799,7 @@ class SqlStatement( ):
             model = DataPath( ).sqlite
             self.__path = model
 
-    def __init__( self, pvdr, cmd, src, path = None ):
+    def __init__( self, pvdr, cmd, src, path ):
         self.__provider = pvdr if isinstance( pvdr, Provider ) else Provider( 'SQLite' )
         self.__command = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
         self.__source = src if isinstance( src, Source ) else Source( 'Allocations' )

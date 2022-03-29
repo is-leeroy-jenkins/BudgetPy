@@ -5,8 +5,9 @@ import openpyxl as xl
 import zipfile as zp
 
 class BudgetPath( ):
-    '''Defines the BudgetPath class representing
-    filepaths used in the application'''
+    '''BudgetPath( filename ) initializes the
+    BudgetPath class providingfilepath information of files
+    used in the application'''
     __base = None
     __path = None
     __ext = None
@@ -113,7 +114,9 @@ class BudgetPath( ):
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
 class BudgetFile( ):
-    '''Defines the BudgetFile Class'''
+    '''BudgetFile( path ) intializes the
+     BudgetFile Class providing file information for
+     files used in the application'''
     __base = None
     __name = None
     __path = None
@@ -316,25 +319,26 @@ class BudgetFile( ):
         if self.__path is not None:
             return self.__path
 
-    def __init__( self, base ):
-        self.__base = base if not self.__base == '' else 'NS'
+    def __init__( self, path ):
+        self.__base = path if not self.__base == '' else 'NS'
         self.__path = self.__base if not self.__base == '' else 'NS'
-        self.__name = os.path.basename( base ) if not base == '' else 'NS'
-        self.__size = os.path.getsize( base ) if not base == '' else 'NS'
+        self.__name = os.path.basename( path ) if not path == '' else 'NS'
+        self.__size = os.path.getsize( path ) if not path == '' else 'NS'
         self.__directory = os.path.dirname( self.__path ) \
-            if os.path.exists( base ) else 'NS'
-        self.__extension = list( os.path.splitext( base ) )[ 1 ] \
-            if not base == '' else 'NS'
-        self.__created = os.path.getctime( base ) if not base == '' else 'NS'
-        self.__accessed = os.path.getatime( base ) if not base == '' else 'NS'
-        self.__modified = os.path.getmtime( base ) if not base == '' else 'NS'
+            if os.path.exists( path ) else 'NS'
+        self.__extension = list( os.path.splitext( path ) )[ 1 ] \
+            if not path == '' else 'NS'
+        self.__created = os.path.getctime( path ) if not path == '' else 'NS'
+        self.__accessed = os.path.getatime( path ) if not path == '' else 'NS'
+        self.__modified = os.path.getmtime( path ) if not path == '' else 'NS'
         self.__currdir = os.getcwd( )
         self.__drive = str( list( os.path.splitdrive( self.__path ) )[ 0 ] ) \
-            if not base == '' else 'NS'
+            if not path == '' else 'NS'
         self.__content = list( )
 
 class BudgetFolder( ):
-    '''Defines the BudgetFolder Class'''
+    '''BudgetFolder( path ) initializes the
+     BudgetFolder Class providing file directory information'''
     __base = None
     __name = None
     __path = None
@@ -478,15 +482,16 @@ class BudgetFolder( ):
         if self.__path is not None:
             return self.__path
 
-    def __init__( self, base ):
-        self.__base = base
-        self.__name = os.path.basename( base ) if not base == '' else 'NS'
-        self.__path = self.__base if not self.__base == '' else 'NS'
+    def __init__( self, path ):
+        self.__base = path
+        self.__name = os.path.basename( path ) if path != '' else 'NS'
+        self.__path = self.__base if self.__base != '' else 'NS'
         self.__dir = os.path.dirname( self.__path )
-        self.__parent = os.path.dirname( base ) if not base == '' else 'NS'
+        self.__parent = os.path.dirname( path ) if path != '' else 'NS'
 
 class EmailMessage( ):
-    ''' Represents an Email Item '''
+    '''EmailMessage( frm, to, body, sub ) initializes
+    class providing email behavior '''
     __from = None
     __to = None
     __subject = None
@@ -553,8 +558,7 @@ class EmailMessage( ):
         if copy is not None:
             self.__others = list( copy )
 
-    def __init__( self, frm = None, to = None,
-                  body = None, sub = None, copy = None ):
+    def __init__( self, frm, to, body, sub, copy = None ):
         self.__from = str( frm )
         self.__to = str( to )
         self.__message = str( body )
@@ -646,7 +650,7 @@ class EmailBuilder( ):
             return self.__message
 
 class ExcelFile( ):
-    ''' Provides the spreadsheet for Budget Py reports '''
+    '''ExcelFile( name ) class provides the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
     __worksheet = None
