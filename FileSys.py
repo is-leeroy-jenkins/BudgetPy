@@ -54,8 +54,8 @@ class BudgetPath( ):
 
     @drive.setter
     def drive( self, base ):
-        if os.path.splitdrive( base ):
-            self.__drive = base
+        if os.path.isdir( base ):
+            self.__drive = os.path.splitdrive( base )[ 0 ]
 
     @property
     def exists( self ):
@@ -120,9 +120,9 @@ class BudgetPath( ):
     def __init__( self, filepath ):
         self.__base = str( filepath )
         self.__path = self.__base
-        self.__name = str( list( os.path.split( self.__base ) )[ 1 ] )
+        self.__name = os.path.split( self.__base )[ 1 ]
         self.__currdir = os.getcwd( )
-        self.__ext = os.path.splitext( self.__name )[ 1 ]
+        self.__ext = os.path.splitext( self.__base )[ 1 ]
         self.__drive = os.path.splitdrive( self.__base )[ 0 ]
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
@@ -335,7 +335,7 @@ class BudgetFile( ):
             return self.__path
 
     def __init__( self, path ):
-        self.__base = path if not self.__base == '' else 'NS'
+        self.__base = path if os.path.exists( path) else 'NS'
         self.__path = self.__base if not self.__base == '' else 'NS'
         self.__name = os.path.basename( path ) if not path == '' else 'NS'
         self.__size = os.path.getsize( path ) if not path == '' else 'NS'
@@ -347,7 +347,7 @@ class BudgetFile( ):
         self.__accessed = os.path.getatime( path ) if not path == '' else 'NS'
         self.__modified = os.path.getmtime( path ) if not path == '' else 'NS'
         self.__currdir = os.getcwd( )
-        self.__drive = str( list( os.path.splitdrive( self.__path ) )[ 0 ] ) \
+        self.__drive = str( list( os.path.splitdrive( self.__base ) )[ 0 ] ) \
             if not path == '' else 'NS'
         self.__content = list( )
 
