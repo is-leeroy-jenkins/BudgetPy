@@ -13,6 +13,7 @@ class BudgetPath( ):
     __ext = None
     __currdir = None
     __report = None
+    __drive = None
 
     @property
     def base( self ):
@@ -45,6 +46,16 @@ class BudgetPath( ):
     def path( self, base ):
         if os.path.exists( base ):
             self.__path = base
+
+    @property
+    def drive( self ):
+        if self.__drive is not None:
+            return self.__drive
+
+    @drive.setter
+    def drive( self, base ):
+        if os.path.splitdrive( base ):
+            self.__drive = base
 
     @property
     def exists( self ):
@@ -112,6 +123,7 @@ class BudgetPath( ):
         self.__name = str( list( os.path.split( self.__base ) )[ 1 ] )
         self.__currdir = os.getcwd( )
         self.__ext = os.path.splitext( self.__name )[ 1 ]
+        self.__drive = os.path.splitdrive( self.__base )[ 0 ]
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
 class BudgetFile( ):
