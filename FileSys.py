@@ -711,9 +711,9 @@ class ExcelFile( ):
         if self.__path is not None:
             return self.__path
 
-    def __init__( self, name ):
-        self.__path = r'etc\templates\report\Excel.xlsx'
-        self.__name = name if not name == '' else 'NS'
+    def __init__( self, filepath ):
+        self.__path = filepath if os.path.exists( filepath ) else 'NS'
+        self.__name = os.path.split( self.__path )[ 1 ]
 
 class ExcelReport( ):
     ''' Provides the spreadsheet for Budget Py reports '''
