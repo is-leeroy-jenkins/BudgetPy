@@ -672,6 +672,17 @@ class ExcelFile( ):
     __name = None
 
     @property
+    def path( self ):
+        ''' Get the name of the workbook '''
+        if os.path.exists( self.__path ):
+            return self.__path
+
+    @path.setter
+    def path( self, filepath ):
+        if os.path.exists( filepath ):
+            self.__path = filepath
+
+    @property
     def name( self ):
         ''' Get the name of the workbook '''
         if self.__name is not None:

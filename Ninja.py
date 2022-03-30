@@ -266,25 +266,25 @@ class CommandType( ):
     def setbyname( self, cmd ):
         '''Function to set the type of sql command that
         will be used to query the database'''
-        if cmd in self.__list and cmd == 'SELECT':
+        if cmd in self.__list and str( cmd ).upper() == 'SELECT':
             self.__type = self.__select
-        elif cmd == 'INSERT':
+        elif str( cmd ).upper() == 'INSERT':
             self.__type = self.__insert
-        elif cmd == 'DELETE':
+        elif str( cmd ).upper() == 'DELETE':
             self.__type = self.__delete
-        elif cmd == 'DROP TABLE':
+        elif str( cmd ).upper() == 'DROP TABLE':
             self.__type = self.__droptable
-        elif cmd == 'DROP VIEW':
+        elif str( cmd ).upper() == 'DROP VIEW':
             self.__type = self.__dropview
-        elif cmd == 'UPDATE':
+        elif str( cmd ).upper() == 'UPDATE':
             self.__type = self.__update
-        elif cmd == 'CREATE TABLE':
+        elif str( cmd ).upper() == 'CREATE TABLE':
             self.__type = self.__createtable
-        elif cmd == 'CREATE VIEW':
+        elif str( cmd ).upper() == 'CREATE VIEW':
             self.__type = self.__createview
-        elif cmd == 'ALTER TABLE':
+        elif str( cmd ).upper() == 'ALTER TABLE':
             self.__type = self.__altertable
-        elif cmd == 'ALTER COLUMN':
+        elif str( cmd ).upper() == 'ALTER COLUMN':
             self.__type = self.__altercolumn
         else:
             self.__type = self.__select
