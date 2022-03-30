@@ -109,6 +109,7 @@ class BudgetPath( ):
     def __init__( self, filepath ):
         self.__base = str( filepath )
         self.__path = self.__base
+        self.__name = str( list( os.path.split( self.__base ) )[ 1 ] )
         self.__currdir = os.getcwd( )
         self.__ext = os.path.split( self.__path )
         self.__report = r'etc\templates\report\ReportBase.xlsx'
