@@ -48,17 +48,17 @@ class BudgetPath( ):
 
     @property
     def exists( self ):
-        if os.path.exists( self.__path ):
+        if os.path.exists( self.__base ):
             return True
 
     @property
     def isfolder( self ):
-        if os.path.isdir( self.__path ):
+        if os.path.isdir( self.__base ):
             return True
 
     @property
     def isfile( self ):
-        if os.path.isfile( self.__path ):
+        if os.path.isfile( self.__base ):
             return True
 
     @property
@@ -111,7 +111,7 @@ class BudgetPath( ):
         self.__path = self.__base
         self.__name = str( list( os.path.split( self.__base ) )[ 1 ] )
         self.__currdir = os.getcwd( )
-        self.__ext = os.path.split( self.__path )
+        self.__ext = os.path.splitext( self.__name )[ 1 ]
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
 class BudgetFile( ):
@@ -187,6 +187,8 @@ class BudgetFile( ):
     def extension( self ):
         if self.__extension is not None:
             return self.__extension
+        else:
+            return 'NS'
 
     @extension.setter
     def extension( self, ext ):
