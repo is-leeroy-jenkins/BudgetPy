@@ -177,6 +177,9 @@ class Provider( ):
             elif name == 'SqlCe':
                 self.__name = name
                 self.__baseprovider = self.__sqlce
+            elif name == 'Excel':
+                self.__name = name
+                self.__baseprovider = self.__excel
             else:
                 self.__name = 'SQLite'
                 self.__baseprovider = self.__sqlite
