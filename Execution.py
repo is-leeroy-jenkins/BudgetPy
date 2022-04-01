@@ -1836,7 +1836,7 @@ class SiteProject( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
-class HeadQuartersOffice( ):
+class HeadquartersOffice( ):
     '''Defines the HQ class'''
     __rpio = None
     __name = None
@@ -2495,7 +2495,7 @@ class Deobligation:
                         'boc': None }
         self.__frame = pd.DataFrame
 
-class ULO:
+class UnliquidatedObligation:
     '''Defines the commitment class.'''
     __amount = None
     __account = None
