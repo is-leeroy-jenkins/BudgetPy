@@ -1153,10 +1153,10 @@ class AccessData( ):
     def __init__( self, tablename ):
         self.__source = Source( tablename )
         self.__table = tablename
-        self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'
+        self.__driver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)}'
         self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
                         r'\access\datamodels\Data.accdb;'
-        self.__connstr = f'{self.__driver} {self.__dbpath}'
+        self.__connstr = f'{self.__driver};{self.__dbpath};{self.__source};'
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' )
 
