@@ -77,7 +77,8 @@ class Source( ):
         self.__table = tablename
 
 class Provider( ):
-    '''Provider( name ) provides the data providers used to identify
+    '''Provider( name ) class that
+    provides the data providers used to identify
     the type of database (access, sqlite, sqlserver, or sqlce)'''
     __access = None
     __sqlite = None
@@ -1071,7 +1072,9 @@ class DataTable( pd.DataFrame ):
             return self.__name
 
 class AccessData( ):
-    '''Builds the budget execution data classes'''
+    '''AccessData( tablename ) class
+      represents the budget execution
+      data model classes'''
     __dbpath = None
     __driver = None
     __connstr = None
@@ -1158,7 +1161,8 @@ class AccessData( ):
         self.__command = CommandType( 'SELECT' )
 
 class AccessReference( ):
-    '''Builds the budget execution data classes'''
+    '''AccessReference( tablename ) class represents
+    the budget execution data classes'''
     __dbpath = None
     __driver = None
     __connstr = None
@@ -1245,7 +1249,8 @@ class AccessReference( ):
             return db.connect( self.__connstr )
 
 class SQLiteData( ):
-    '''Builds the budget execution data classes'''
+    '''SQLiteData( tablename ) class represents
+     the budget execution data classes'''
     __dbpath = None
     __driver = None
     __connstr = None
@@ -1337,7 +1342,9 @@ class SQLiteData( ):
         self.__command = CommandType( 'SELECT' )
 
 class SQLiteReference( ):
-    '''Class representing the budget execution references models'''
+    '''The SQLiteReference( tablename ) Class
+    represents the budget execution
+    references models'''
     __source = None
     __dbpath = None
     __driver = None
@@ -1524,7 +1531,8 @@ class SqlServerData( ):
         self.__data = pd.DataFrame
 
 class SqlServerReference( ):
-    '''Class representing the budget execution references models'''
+    '''SqlServerReference( tablename ) Class
+    represents the budget execution references models'''
     __source = None
     __table = None
     __dbpath = None

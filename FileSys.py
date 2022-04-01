@@ -665,7 +665,8 @@ class EmailBuilder( ):
             return self.__message
 
 class ExcelFile( ):
-    '''ExcelFile( name ) class provides the spreadsheet for Budget Py reports '''
+    '''ExcelFile( name ) class provides
+    the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
     __worksheet = None
@@ -727,7 +728,8 @@ class ExcelFile( ):
         self.__name = os.path.split( self.__path )[ 1 ]
 
 class ExcelReport( ):
-    ''' Provides the spreadsheet for Budget Py reports '''
+    '''ExcelReport( name ) class provides
+    the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
     __worksheet = None
