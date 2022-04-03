@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0140f8c9-2bce-4702-a202-a548654ddc36" name="Changes" comment="updates main rig;">
-      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-    </list>
+    <list default="true" id="0140f8c9-2bce-4702-a202-a548654ddc36" name="Changes" comment="updates main rig;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +110,7 @@
       <workItem from="1648916117640" duration="3613000" />
       <workItem from="1648919816159" duration="22751000" />
       <workItem from="1648989820869" duration="5573000" />
-      <workItem from="1648997236616" duration="3717000" />
+      <workItem from="1648997236616" duration="3794000" />
     </task>
     <task id="LOCAL-00001" summary="updates rig1;">
       <created>1648415130342</created>
@@ -275,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649000903220</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="updates main rig;">
+      <created>1649001061455</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1649001061455</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
