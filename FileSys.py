@@ -1,9 +1,7 @@
-import os
-import io
 import datetime as dt
-import openpyxl as xl
+import os
 import zipfile as zp
-
+import openpyxl as xl
 
 class BudgetPath( ):
     '''BudgetPath( filename ) initializes the
@@ -105,7 +103,7 @@ class BudgetPath( ):
         if os.path.exists( other ):
             return list( os.path.splitext( other ) )[ 1 ]
 
-    def getreport( self ):
+    def getreportpath( self ):
         if self.__report is not None:
             return self.__report
 
@@ -117,8 +115,6 @@ class BudgetPath( ):
     def __str__( self ):
        if self.__path is not None:
            return str( self.__path )
-       else:
-           return 'NS'
 
     def __init__( self, filepath ):
         self.__base = str( filepath )
