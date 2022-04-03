@@ -28,6 +28,11 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/FileSys.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Execution.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -52,7 +57,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="settings.editor.splitter.proportion" value="0.2511592" />
   </component>
   <component name="RecentsManager">
@@ -305,8 +310,5 @@
     <MESSAGE value="updates from work rig;" />
     <MESSAGE value="updates main rig;" />
     <option name="LAST_COMMIT_MESSAGE" value="updates main rig;" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BudgetPy$Source.coverage" NAME="Source Coverage Results" MODIFIED="1648903919115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Ninja" />
   </component>
 </project>

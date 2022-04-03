@@ -2116,25 +2116,25 @@ class FederalHoliday( ):
             return self.__labor
 
     def dayofweek( self, day ):
-        if 0 < day < 8 and day == 1:
+        if 0 < int( day ) < 8 and int( day ) == 1:
             self.__day = 'Monday'
             return self.__day
-        elif 0 < day < 8 and day == 2:
+        elif 0 < int( day ) < 8 and int( day ) == 2:
             self.__day = 'Tuesday'
             return self.__day
-        elif 0 < day < 8 and day == 3:
+        elif 0 < int( day ) < 8 and int( day ) == 3:
             self.__day = 'Wednesday'
             return self.__day
-        elif 0 < day < 8 and day == 4:
+        elif 0 < int( day ) < 8 and int( day ) == 4:
             self.__day = 'Thursday'
             return self.__day
-        elif 0 < day < 8 and day == 5:
+        elif 0 < int( day ) < 8 and int( day ) == 5:
             self.__day = 'Friday'
             return self.__day
-        elif 0 < day < 8 and day == 6:
+        elif 0 < int( day ) < 8 and int( day ) == 6:
             self.__day = 'Saturday'
             return self.__day
-        elif 0 < day < 8 and day == 7:
+        elif 0 < int( day ) < 8 and int( day ) == 7:
             self.__day = 'Sunday'
             return self.__day
 
@@ -2142,34 +2142,44 @@ class FederalHoliday( ):
         if isinstance( name, str ) and name in self.__list:
             if name == 'Columbus':
                 self.__date = self.columbusday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'Veterans':
                 self.__date = self.veteransday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'Thanksgiving':
                 self.__date = self.thanksgivingday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'Christmas':
                 self.__date = self.christmasday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'NewYearsDay':
                 self.__date = self.newyearsday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'MartinLutherKing':
                 self.__date = self.martinlutherkingday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'Washingtons':
                 self.__date = self.washingtonsday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'Memorial':
                 self.__date = self.memorialday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'Juneteenth':
                 self.__date = self.juneteenthday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
             elif name == 'Labor':
                 self.__date = self.laborday( )
-                return self.__date
+                return dt.datetime( self.__date.year,
+                    self.__month, self.__day )
 
     def setname( self, name ):
         if isinstance( name, str ) and name != '':
