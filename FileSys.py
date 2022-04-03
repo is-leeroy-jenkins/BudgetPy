@@ -29,8 +29,8 @@ class BudgetPath( ):
     @property
     def name( self ):
         '''Returns string representing the name of the path 'base' '''
-        if os.path.exists( self.__base ):
-            return str( list( os.path.split( self.__base ) )[ 1 ] )
+        if self.__name is not None:
+            return self.__name
 
     @name.setter
     def name( self, path ):
@@ -116,7 +116,9 @@ class BudgetPath( ):
 
     def __str__( self ):
        if self.__path is not None:
-            return self.__path
+           return str( self.__path )
+       else:
+           return 'NS'
 
     def __init__( self, filepath ):
         self.__base = str( filepath )
@@ -126,6 +128,7 @@ class BudgetPath( ):
         self.__ext = os.path.splitext( self.__base )[ 1 ]
         self.__drive = os.path.splitdrive( self.__base )[ 0 ]
         self.__report = r'etc\templates\report\ReportBase.xlsx'
+
 
 class BudgetFile( ):
     '''BudgetFile( path ) initializes the
@@ -352,6 +355,7 @@ class BudgetFile( ):
             if not path == '' else 'NS'
         self.__content = list( )
 
+
 class BudgetFolder( ):
     '''BudgetFolder( path ) initializes the
      BudgetFolder Class providing file directory information'''
@@ -505,6 +509,7 @@ class BudgetFolder( ):
         self.__dir = os.path.dirname( self.__path )
         self.__parent = os.path.dirname( path ) if path != '' else 'NS'
 
+
 class EmailMessage( ):
     '''EmailMessage( frm, to, body, sub ) initializes
     class providing email behavior '''
@@ -584,6 +589,7 @@ class EmailMessage( ):
     def __str__( self ):
         if self.__message is not None:
             return self.__message
+
 
 class EmailBuilder( ):
     ''' Helper class for generating email messages '''
@@ -665,6 +671,7 @@ class EmailBuilder( ):
         if self.__message is not None:
             return self.__message
 
+
 class ExcelFile( ):
     '''ExcelFile( name ) class provides
     the spreadsheet for Budget Py reports '''
@@ -727,6 +734,7 @@ class ExcelFile( ):
     def __init__( self, filepath ):
         self.__path = filepath if os.path.exists( filepath ) else 'NS'
         self.__name = os.path.split( self.__path )[ 1 ]
+
 
 class ExcelReport( ):
     '''ExcelReport( name ) class provides
@@ -812,6 +820,7 @@ class ExcelReport( ):
         self.__rows = int( rows )
         self.__columns = int( cols )
         self.__dimensions = (self.__rows, self.__columns)
+
 
 class ZipFile( ):
     __name = None

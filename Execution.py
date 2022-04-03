@@ -111,6 +111,7 @@ class Account( ):
         self.__programproject = self.__code[ 4:6 ]
         self.__frame = pd.DataFrame( self.__data )
 
+
 class Activity( ):
     '''Defines the Activity Class'''
     __code = None
@@ -167,6 +168,7 @@ class Activity( ):
         self.__data = { }
         self.__code = str( code )
         self.__frame = pd.DataFrame
+
 
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
@@ -225,6 +227,7 @@ class AllowanceHolder( ):
         self.__data = { }
         self.__code = str( code )
         self.__frame = pd.DataFrame
+
 
 class Appropriation( ):
     '''Defines the Appropriation Class'''
@@ -318,6 +321,7 @@ class Appropriation( ):
         self.__fund = Fund( self.__code )
         self.__data = { 'code': self.__code,
                         'fund': self.__fund }
+
 
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
@@ -501,6 +505,7 @@ class BudgetFiscalYear( ):
                         'enddate': self.__enddate }
         self.__frame = pd.DataFrame
 
+
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
     __code = None
@@ -570,6 +575,7 @@ class BudgetObjectClass( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class Division( ):
     '''Defines the Division Class'''
     __code = None
@@ -616,6 +622,7 @@ class Division( ):
     def __str__( self ):
         if not self.__code == '':
             return self.__code
+
 
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
@@ -674,6 +681,7 @@ class FinanceObjectClass( ):
         self.__code = code if isinstance( code, str ) else 'NS'
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class Fund( ):
     '''Defines the Fund Class'''
@@ -744,6 +752,7 @@ class Fund( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class Goal( ):
     '''Defines the Goal Class'''
     __code = None
@@ -799,6 +808,7 @@ class Goal( ):
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
+
 
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
@@ -881,6 +891,7 @@ class NationalProgram( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class Objective( ):
     '''Defines the Objective Class'''
     __code = None
@@ -938,6 +949,7 @@ class Objective( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class Organization( ):
     '''Defines the Organization Class'''
     __code = None
@@ -994,6 +1006,7 @@ class Organization( ):
         self.__code = code
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class Project( ):
     '''Defines the Organization Class'''
@@ -1053,6 +1066,7 @@ class Project( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class ItProjectCode( ):
     '''Defines the Organization Class'''
     __code = None
@@ -1110,6 +1124,7 @@ class ItProjectCode( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
     __code = None
@@ -1161,6 +1176,7 @@ class SiteProjectCode( ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
@@ -1219,6 +1235,7 @@ class HumanResourceOrganization( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class WorkCode( ):
     '''Defines the Organization Class'''
     __code = None
@@ -1276,6 +1293,7 @@ class WorkCode( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class ProgramArea( ):
     '''defines the ProgramArea class'''
     __code = None
@@ -1330,6 +1348,7 @@ class ProgramArea( ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
@@ -1397,6 +1416,7 @@ class ProgramProject( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
     __code = None
@@ -1452,6 +1472,7 @@ class ResponsibilityCenter( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __code = None
@@ -1506,6 +1527,7 @@ class ResourcePlanningOffice( ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
@@ -1667,6 +1689,7 @@ class ProgramResultsCode( ):
                         'amount': self.__amount }
         self.__frame = pd.DataFrame
 
+
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __rpio = None
@@ -1726,6 +1749,7 @@ class RegionalOffice( ):
         self.__data = { 'rpio': self.__rpio,
                         'name': self.__name }
         self.__frame = pd.DataFrame
+
 
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
@@ -1835,6 +1859,7 @@ class SiteProject( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class HeadquartersOffice( ):
     '''Defines the HQ class'''
     __rpio = None
@@ -1906,6 +1931,7 @@ class HeadquartersOffice( ):
         self.__data = { 'rpio': self.__rpio,
                         'name': self.__name }
         self.__frame = pd.DataFrame
+
 
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
@@ -2208,6 +2234,7 @@ class FederalHoliday( ):
                         'name': self.__name }
         self.__frame = pd.DataFrame
 
+
 class Commitment( ):
     '''Defines the commitment class.'''
     __amount = None
@@ -2331,6 +2358,7 @@ class Commitment( ):
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
+
 
 class OpenCommitment( ):
     '''Defines the commitment class.'''
@@ -2456,6 +2484,7 @@ class OpenCommitment( ):
                         'boc': None }
         self.__frame = pd.DataFrame
 
+
 class Obligation( ):
     '''Defines the commitment class.'''
     __amount = None
@@ -2579,6 +2608,7 @@ class Obligation( ):
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
+
 
 class Deobligation( ):
     '''Defines the commitment class.'''
@@ -2704,6 +2734,7 @@ class Deobligation( ):
                         'boc': None }
         self.__frame = pd.DataFrame
 
+
 class UnliquidatedObligation( ):
     '''Defines the commitment class.'''
     __amount = None
@@ -2824,6 +2855,7 @@ class UnliquidatedObligation( ):
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
+
 
 class Expenditure:
     '''Defines the commitment class.'''
