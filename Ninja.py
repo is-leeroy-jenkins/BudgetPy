@@ -87,7 +87,7 @@ class Source( ):
                              'ProgramProjects', 'Projects', 'Providers',
                              'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                              'SchemaTypes', 'Sources']
-        self.__table = tablename
+        self.__table = str( tablename )
 
 
 class Provider( ):
@@ -96,7 +96,6 @@ class Provider( ):
     the type of database ( access, sqlite, sqlserver, or sqlce ) '''
     __access = None
     __sqlite = None
-    __sqlce = None
     __mssql = None
     __excel = None
     __name = None
@@ -123,13 +122,6 @@ class Provider( ):
          sql server provider '''
         if self.__mssql is not None:
             return self.__mssql
-
-    @property
-    def sqlce( self ):
-        ''' Property used to identify sqlserver
-         compact provider '''
-        if self.__sqlce is not None:
-            return self.__sqlce
 
     @property
     def excel( self ):
@@ -189,9 +181,6 @@ class Provider( ):
             elif name == 'SqlServer':
                 self.__name = name
                 self.__baseprovider = self.__mssql
-            elif name == 'SqlCe':
-                self.__name = name
-                self.__baseprovider = self.__sqlce
             elif name == 'Excel':
                 self.__name = name
                 self.__baseprovider = self.__excel
@@ -206,15 +195,14 @@ class Provider( ):
     def __init__( self, name ):
         self.__access = 'Access'
         self.__sqlite = 'SQLite'
-        self.__sqlce = 'SqlCe'
         self.__mssql = 'SqlServer'
         self.__excel = 'Excel'
-        self.__list = ['Access', 'Sqlite', 'SqlCe', 'SqlServer', 'Excel']
+        self.__list = ['Access', 'Sqlite', 'SqlServer', 'Excel']
         self.setbyname( name ) 
 
 
 class CommandType( ):
-    '''CommandType( cmd  ) defines the types of sql commands
+    '''CommandType( command  ) defines the types of sql commands
     used to query the database'''
     __select = None
     __insert = None
@@ -332,7 +320,6 @@ class DataPath( ):
     __accesspath = None
     __sqlitepath = None
     __mssqlpath = None
-    __sqlcepath = None
     __abspath = None
     __relpath = None
     __basepath = None
@@ -367,15 +354,10 @@ class DataPath( ):
         if os.path.exists( path ):
             self.__mssqlpath = path
 
-    @property
-    def sqlce( self ):
-        if isinstance( self.__sqlcepath, str ) and os.path.exists( self.__sqlcepath ):
-            return str( self.__sqlcepath ) 
-
-    @sqlce.setter
-    def sqlce( self, path ):
-        if isinstance( path, str ) and os.path.exists( path ):
-            self.__sqlcepath = str( path ) 
+    @sqlserver.setter
+    def sqlserver( self, path ):
+        if path is not None:
+            self.__mssqlpath = str( path )
 
     def setbyextension( self, ext ):
         if isinstance( ext, str ) and ext != '':
@@ -391,10 +373,6 @@ class DataPath( ):
                 self.__basepath = self.__mssqlpath
                 self.__abspath = self.__mssqlpath
                 self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            elif ext == '.sdf':
-                self.__basepath = self.__sqlcepath
-                self.__abspath = self.__sqlcepath
-                self.__relpath = r'\db\sqlce\datamodels\Data.sf'
             else:
                 self.__basepath = self.__sqlitepath
                 self.__abspath = self.__sqlitepath
@@ -414,10 +392,6 @@ class DataPath( ):
                 self.__basepath = self.__mssqlpath
                 self.__abspath = self.__mssqlpath
                 self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            elif name == 'SqlCe':
-                self.__basepath = self.__sqlcepath
-                self.__abspath = self.__sqlcepath
-                self.__relpath = r'\db\sqlce\datamodels\Data.sdf'
             else:
                 self.__basepath = self.__sqlitepath
                 self.__abspath = self.__sqlitepath
@@ -437,10 +411,6 @@ class DataPath( ):
                 self.__basepath = self.__mssqlpath
                 self.__abspath = self.__mssqlpath
                 self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            elif pvdr.extension == '.sdf':
-                self.__basepath = self.__sqlcepath
-                self.__abspath = self.__sqlcepath
-                self.__relpath = r'\db\sqlce\datamodels\Data.sdf'
             else:
                 self.__basepath = self.__sqlitepath
                 self.__abspath = self.__sqlitepath
@@ -460,19 +430,10 @@ class DataPath( ):
                 self.__basepath = self.__mssqlpath
                 self.__abspath = self.__mssqlpath
                 self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            elif path == self.__sqlcepath:
-                self.__basepath = self.__sqlcepath
-                self.__abspath = self.__sqlcepath
-                self.__relpath = r'\db\sqlce\datamodels\Data.sdf'
             else:
                 self.__basepath = self.__sqlitepath
                 self.__abspath = self.__sqlitepath
                 self.__relpath = r'db\sqlite\datamodels\Data.db'
-
-    @sqlserver.setter
-    def sqlserver( self, path ):
-        if path is not None:
-            self.__mssqlpath = str( path ) 
 
     def __str__( self ):
         if os.path.exists( self.__basepath ):
@@ -485,8 +446,6 @@ class DataPath( ):
                             r'\db\sqlite\datamodels\Data.db'
         self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
                            r'\db\mssql\datamodels\Data.mdf'
-        self.__sqlcepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\sqlce\datamodels\Data.sdf'
         self.setbyname( name ) 
 
 
@@ -649,8 +608,58 @@ class ReferencePath( ):
         self.setbyname( name ) 
 
 
+class DataConnection( ):
+    '''DataConnection( source, provider, path ) initializes
+    class establishing connection between database and provider'''
+    __source = None
+    __provider = None
+    __table = None
+    __path = None
+    __connection = None
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, src ):
+        if isinstance( src, Source ):
+            self.__source = src
+        else:
+            self.__source = Source( 'Allocations' )
+
+    @property
+    def provider( self ):
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @provider.setter
+    def provider( self, pvdr ):
+        if isinstance( pvdr, Provider ):
+            self.__provider = pvdr
+        else:
+            self.__provider = Provider( 'SQLite' )
+
+    def setpathbysource( self ):
+        if self.__source is not None:
+            if self.__source.is_data( ):
+                self.__path = DataPath( '')
+
+    def create( self ):
+        if self.__provider is not None and self.__source is not None:
+            if self.__provider is not None:
+                self.__connection = sl.Connection( self.__provider.path )
+
+    def __init__( self, source, provider, path = '' ):
+        self.__source = source if isinstance( source, Source ) else Source( 'Allocations' )
+        self.__table = self.__source.table
+        self.__provider = provider if isinstance( provider, Provider ) else Provider( 'SQLite' )
+        self.__path = path if path != '' else self.__provider.path
+
+
 class CriteriaBuilder( ):
-    '''CriteriaBuilder( cmd, names, values  ) provides the
+    '''CriteriaBuilder( command, names, values  ) provides the
      predicate name value pairs for sql queries'''
     __predicate = None
     __names = None
@@ -753,7 +762,7 @@ class CriteriaBuilder( ):
 
 
 class SqlStatement( ):
-    '''SqlStatement( pvdr, cmd, src, path  ) Class represents
+    '''SqlStatement( provider, command, source, path  ) Class represents
      the sql queries used in the application'''
     __provider = None
     __command = None
@@ -823,12 +832,12 @@ class SqlStatement( ):
             model = DataPath( 'SQLite'  ) 
             self.__path = model
 
-    def __init__( self, pvdr, cmd, src, path ):
-        self.__provider = pvdr if isinstance( pvdr, Provider  ) else Provider( 'SQLite'  ) 
-        self.__command = cmd if isinstance( cmd, CommandType  ) else CommandType( 'SELECT'  ) 
-        self.__source = src if isinstance( src, Source  ) else Source( 'Allocations'  ) 
+    def __init__( self, provider, command, source ):
+        self.__provider = provider if isinstance( provider, Provider ) else Provider( 'SQLite' )
+        self.__command = command if isinstance( command, CommandType ) else CommandType( 'SELECT' )
+        self.__source = source if isinstance( source, Source ) else Source( 'Allocations' )
         self.__table = self.__source.table
-        self.__path = path if isinstance( path, DataPath  ) else DataPath( 'SQLite'  ) 
+        self.__path = provider.path
 
 
 class DataRow( sl.Row ):
@@ -1093,6 +1102,24 @@ class DataTable( pd.DataFrame ):
     def __str__( self ):
         if self.__name is not None:
             return self.__name
+
+
+class DataQuery( ):
+    '''DataQuery( connection, sql ) class for queries
+    against the database'''
+    __connection = None
+    __sqlstatement = None
+    __commandtype = None
+    __provider = None
+    __source = None
+    __table = None
+
+    def __init__( self, conn, sql = None ):
+        self.__connection = conn if isinstance( conn, DataConnection ) else DataConnection( )
+        self.__provider = self.__connection.provider
+        self.__source = self.__connection.source
+        self.__table = self.__source.table
+        self.__sqlstatement = sql if isinstance( sql, SqlStatement ) else SqlStatement( 'SELECT' )
 
 
 class AccessData( ):
@@ -1652,201 +1679,5 @@ class SqlServerReference( ):
         self.__command = CommandType( 'SELECT' ) 
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\mssql\referencemodels\References.mdf'
-        self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
-        self.__data = pd.DataFrame
-
-
-class SqlCeData( ):
-    '''Builds the budget execution data classes'''
-    __server = None
-    __driver = None
-    __source = None
-    __table = None
-    __dbpath = None
-    __data = None
-    __connstr = None
-    __command = None
-
-    @property
-    def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath ) 
-
-    @path.setter
-    def path( self, path ):
-        if isinstance( path, str ) and os.path.exists( path ):
-            self.__dbpath = path
-
-    @property
-    def server( self ):
-        if self.__server is not None:
-            return str( self.__server ) 
-
-    @server.setter
-    def server( self, path ):
-        if isinstance( path, str ):
-            self.__server = path
-
-    @property
-    def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver ) 
-
-    @driver.setter
-    def driver( self, drvr ):
-        if isinstance( drvr, str ):
-            self.__server = drvr
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return str( self.__source ) 
-
-    @source.setter
-    def source( self, source ):
-        if source is not None:
-            self.__source = str( source ) 
-
-    @property
-    def connectionstring( self ):
-        if not self.__connstr == '':
-            return self.__connstr
-
-    @connectionstring.setter
-    def connectionstring( self, conn ):
-        if conn is not None:
-            self.__dbpath = str( conn ) 
-
-    @property
-    def data( self ):
-        if isinstance( self.__data, pd.DataFrame ):
-            return self.__data
-
-    @data.setter
-    def data( self, dframe ):
-        if isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe
-
-    @property
-    def command( self ):
-        if self.__command is not None:
-            return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' ) 
-            return cmd
-
-    @command.setter
-    def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
-            self.__command = cmd
-
-    def __str__( self ):
-        if self.__dbpath is not None:
-            return self.__dbpath
-
-    def __init__( self, tablename ):
-        self.__source = Source( tablename ) 
-        self.__table = self.__source.table
-        self.__server = r'( LocalDB ) \MSSQLLocalDB'
-        self.__driver = r'{SQL Server Native Client 11.0}'
-        self.__command = CommandType( 'SELECT' ) 
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                        r'\db\sqlce\datamodels\Data.sdf'
-        self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
-        self.__data = pd.DataFrame
-
-
-class SqlCeReference( ):
-    '''Class representing the budget execution references models'''
-    __source = None
-    __table = None
-    __dbpath = None
-    __data = None
-    __connstr = None
-    __command = None
-    __server = None
-    __driver = None
-
-    @property
-    def server( self ):
-        if self.__server is not None:
-            return str( self.__server ) 
-
-    @server.setter
-    def server( self, path ):
-        if isinstance( path, str ):
-            self.__server = path
-
-    @property
-    def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver ) 
-
-    @driver.setter
-    def driver( self, drvr ):
-        if isinstance( drvr, str ):
-            self.__server = drvr
-
-    @property
-    def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath ) 
-
-    @path.setter
-    def path( self, path ):
-        if isinstance( path, str ) and os.path.exists( path ):
-            self.__dbpath = path
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return str( self.__source ) 
-
-    @source.setter
-    def source( self, src ):
-        if src is not None:
-            self.__source = str( src ) 
-
-    @property
-    def connstring( self ):
-        if not self.__connstr == '':
-            return self.__connstr
-
-    @connstring.setter
-    def connstring( self, conn ):
-        if isinstance( conn, str ) and os.path.exists( conn ):
-            self.__connstr = conn
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return iter( self.__data[0:] ) 
-
-    @data.setter
-    def data( self, dframe ):
-        if dframe is not None:
-            self.__data = dframe
-
-    @property
-    def command( self ):
-        if self.__command is not None:
-            return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' ) 
-            return cmd
-
-    @command.setter
-    def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
-            self.__command = cmd
-
-    def __init__( self, tablename ):
-        self.__source = Source( tablename ) 
-        self.__table = self.__source.table
-        self.__server = r'( LocalDB ) \MSSQLLocalDB'
-        self.__driver = r'{SQL Server Native Client 11.0}'
-        self.__command = CommandType( 'SELECT' ) 
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                        r'\db\sqlce\referencemodels\References.sdf'
         self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
         self.__data = pd.DataFrame
