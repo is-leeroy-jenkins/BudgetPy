@@ -191,6 +191,8 @@ class Provider( ):
     def __str__( self ):
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
+        else:
+            return 'NS'
 
     def __init__( self, name ):
         self.__access = 'Access'
