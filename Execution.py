@@ -2,6 +2,7 @@ import datetime as dt
 import pandas as pd
 import Ninja as bn
 
+
 class Account( ):
     '''defines the Account Code class'''
     __code = None
@@ -105,12 +106,13 @@ class Account( ):
 
     def __init__( self, code ):
         self.__data = { }
-        self.__code = str( code )
-        self.__goal = str( self.__code[ 0 ] )
-        self.__objective = str( self.__code[ 1:3 ] )
-        self.__npm = str( self.__code[ 3 ] )
-        self.__programproject = str( self.__code[ 4:6 ] )
+        self.__code = code if isinstance( code, str ) else 'NS'
+        self.__goal = self.__code[ 0 ]
+        self.__objective = self.__code[ 1:3 ]
+        self.__npm = self.__code[ 3 ]
+        self.__programproject = self.__code[ 4:6 ]
         self.__frame = pd.DataFrame( self.__data )
+
 
 class Activity( ):
     '''Defines the Activity Class'''
@@ -169,6 +171,7 @@ class Activity( ):
         self.__code = str( code )
         self.__frame = pd.DataFrame
 
+
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
     __code = None
@@ -226,6 +229,7 @@ class AllowanceHolder( ):
         self.__data = { }
         self.__code = str( code )
         self.__frame = pd.DataFrame
+
 
 class Appropriation( ):
     '''Defines the Appropriation Class'''
@@ -319,6 +323,7 @@ class Appropriation( ):
         self.__fund = Fund( self.__code )
         self.__data = { 'code': self.__code,
                         'fund': self.__fund }
+
 
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
@@ -484,7 +489,7 @@ class BudgetFiscalYear( ):
 
     def __init__( self, bfy ):
         self.__today = dt.date.today( )
-        self.__base = str( bfy )
+        self.__base = bfy if isinstance( bfy, str ) else str( dt.date.year )
         self.__date = self.__today
         self.__year = int( self.__base )
         self.__day = self.__date.day
@@ -501,6 +506,7 @@ class BudgetFiscalYear( ):
                         'startdate': self.__startdate,
                         'enddate': self.__enddate }
         self.__frame = pd.DataFrame
+
 
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
@@ -567,9 +573,10 @@ class BudgetObjectClass( ):
         return self.__code
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code if isinstance( code, str ) else 'NS'
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class Division( ):
     '''Defines the Division Class'''
@@ -618,8 +625,9 @@ class Division( ):
         if not self.__code == '':
             return self.__code
 
+
 class FinanceObjectClass( ):
-    '''Defines the Finance Object Class Class'''
+    '''Defines the Finance Object Class'''
     __code = None
     __name = None
     __data = None
@@ -672,9 +680,10 @@ class FinanceObjectClass( ):
             return self.__code
 
     def __init__( self, code ):
-        self.__code = str( code )
+        self.__code = code if isinstance( code, str ) else 'NS'
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class Fund( ):
     '''Defines the Fund Class'''
@@ -745,6 +754,7 @@ class Fund( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class Goal( ):
     '''Defines the Goal Class'''
     __code = None
@@ -800,6 +810,7 @@ class Goal( ):
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
+
 
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
@@ -882,6 +893,7 @@ class NationalProgram( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class Objective( ):
     '''Defines the Objective Class'''
     __code = None
@@ -898,7 +910,7 @@ class Objective( ):
     def code( self, code ):
         if code is not None:
             self.__code = str( code )
-            self.__data[ 'fund' ] = self.__code
+            self.__data[ 'fund' ] = Objective( self.__code )
 
     @property
     def name( self ):
@@ -938,6 +950,7 @@ class Objective( ):
         self.__code = Objective( str( code )  )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class Organization( ):
     '''Defines the Organization Class'''
@@ -995,6 +1008,7 @@ class Organization( ):
         self.__code = code
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class Project( ):
     '''Defines the Organization Class'''
@@ -1054,6 +1068,7 @@ class Project( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class ItProjectCode( ):
     '''Defines the Organization Class'''
     __code = None
@@ -1111,6 +1126,7 @@ class ItProjectCode( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
     __code = None
@@ -1162,6 +1178,7 @@ class SiteProjectCode( ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
@@ -1220,6 +1237,7 @@ class HumanResourceOrganization( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class WorkCode( ):
     '''Defines the Organization Class'''
     __code = None
@@ -1277,6 +1295,7 @@ class WorkCode( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class ProgramArea( ):
     '''defines the ProgramArea class'''
     __code = None
@@ -1331,6 +1350,7 @@ class ProgramArea( ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
@@ -1398,6 +1418,7 @@ class ProgramProject( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
     __code = None
@@ -1453,6 +1474,7 @@ class ResponsibilityCenter( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __code = None
@@ -1507,6 +1529,7 @@ class ResourcePlanningOffice( ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
@@ -1668,6 +1691,7 @@ class ProgramResultsCode( ):
                         'amount': self.__amount }
         self.__frame = pd.DataFrame
 
+
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __rpio = None
@@ -1727,6 +1751,7 @@ class RegionalOffice( ):
         self.__data = { 'rpio': self.__rpio,
                         'name': self.__name }
         self.__frame = pd.DataFrame
+
 
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
@@ -1836,6 +1861,7 @@ class SiteProject( ):
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
+
 class HeadquartersOffice( ):
     '''Defines the HQ class'''
     __rpio = None
@@ -1908,12 +1934,27 @@ class HeadquartersOffice( ):
                         'name': self.__name }
         self.__frame = pd.DataFrame
 
-class Holiday( ):
-    '''Defines the Holiday class'''
+
+class FederalHoliday( ):
+    '''Defines the FederalHoliday class'''
     __bfy = None
     __name = None
+    __newyearsday = None
+    __martinlutherking = None
+    __memorial = None
+    __juneteenth = None
+    __independence = None
+    __washingtons = None
+    __labor = None
+    __columbus = None
+    __veterans = None
+    __thanksgiving = None
+    __christmas = None
+    __list = None
     __date = None
     __day = None
+    __month = None
+    __year = None
     __data = None
     __frame = None
 
@@ -1935,9 +1976,8 @@ class Holiday( ):
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
+        if name in self.__list:
+            self.__name = name
 
     @property
     def date( self ):
@@ -1954,6 +1994,17 @@ class Holiday( ):
     def day( self ):
         if self.__day is not None:
             return self.__day
+
+    @property
+    def month( self ):
+        if self.__day is not None:
+            return self.__day
+
+    @month.setter
+    def month( self, month ):
+        if isinstance( month, dt.date ):
+            self.__month = str( month.month )
+            self.__data[ 'day' ] = str( self.__day )
 
     @day.setter
     def day( self, day ):
@@ -1972,6 +2023,11 @@ class Holiday( ):
             self.__data = cache
 
     @property
+    def list( self ):
+        if self.__list is not None:
+            return self.__list
+
+    @property
     def table( self ):
         if self.__frame is not None:
             return self.__frame
@@ -1981,18 +2037,161 @@ class Holiday( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
+    @property
+    def columbus( self ):
+        if self.__year is not None:
+            __start = dt.date( self.__year, 10, 1 )
+            __end = dt.date( self.__year, 10, 31 )
+            __delta = ( __start - __end ).days
+            for i in range( __delta ):
+                d = dt.date( self.__year, 10, __start.day + i )
+                if ( 15 < d.day < 28 ) and dt.datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
+                    self.__columbus = dt.date( self.__year, 10, d.day )
+                    return self.__columbus
+
+    @property
+    def veterans( self ):
+        if self.__year is not None:
+            self.__veterans = dt.date( self.__year, 11, 11 )
+            return self.__veterans
+
+    @property
+    def christmas( self ):
+        if self.__year is not None:
+            self.__christmas = dt.date( self.__year, 12, 25 )
+            return self.__christmas
+
+    @property
+    def newyearsday( self ):
+        if self.__year is not None:
+            self.__newyearsday = dt.date( self.__year, 1, 1 )
+            return self.__newyearsday
+
+    @property
+    def martinlutherking( self ):
+        if self.__year is not None:
+            __start = dt.date( self.__year, 1, 15 )
+            __end = dt.date( self.__year, 1, 31)
+            __delta = ( __start - __end ).days
+            for i in range( __delta ):
+                d = dt.date( self.__year, 1, __start.day + i ).day
+                if ( 15 < d.day < 31 ) and dt.datetime( self.__year, 1, d.day ).isoweekday( ) == 1:
+                    self.__martinlutherking = dt.date( self.__year, 1, d.day )
+                    return self.__martinlutherking
+
+    @property
+    def washingtons( self ):
+        if self.__year is not None:
+            __start = dt.date( self.__year, 2, 15 )
+            __end = dt.date( self.__year, 2, 28 )
+            __delta = ( __start - __end ).days
+            for i in range( __delta ):
+                d = dt.date( self.__year, 2, __start.day + i )
+                if ( 15 < d.day < 28 ) and dt.datetime( self.__year, 2, d.day ).isoweekday( ) == 1:
+                    self.__washingtons = dt.date( self.__year, 2, d.day )
+                    return self.__washingtons
+
+    @property
+    def memorial( self ):
+        if self.__year is not None:
+            __monday = list()
+            __month = dt.date( self.__year, 5, 1 ) - dt.date( self.__year, 5, 31 )
+            for i in range( 1, __month.days - 1 ):
+                if dt.datetime( self.__year, 5, i ).isoweekday( ) == 1:
+                    __monday.append( dt.datetime( self.__year, 5, i ) )
+            m = len( __monday )
+            self.__memorial = __monday[ m ].date()
+            return self.__memorial
+
+    @property
+    def juneteenth( self ):
+        if self.__year is not None:
+            self.__juneteenth = dt.date( self.__year, 6, 19 )
+            return self.__juneteenth
+
+    @property
+    def independence( self ):
+        if self.__year is not None:
+            self.__independence = dt.date( self.__year, 7, 4 )
+            return self.__independence
+
+    @property
+    def observance( self ):
+        if self.__observance is not None:
+            return self.__observance
+
+    def setdate( self, name ):
+        if isinstance( name, str ) and name in self.__list:
+            if name == 'NewYearsDay':
+                self.__date = dt.date( self.__year, 1, 1 )
+            elif name == 'MartinLutherKing':
+                self.__date = martinlutherking( )
+            elif name == 'Memorial':
+                self.__date = memorial()
+            elif name == 'Juneteenth':
+                self.__date = dt.date( self.__year, 6, 19 )
+
+    def setname( self, name ):
+        if isinstance( name, str ) and name != '':
+            if name == 'NewYearsDay':
+                self.__name = name
+                return self.__name
+            elif name == 'MartinLutherKing':
+                self.__name = name
+                return self.__name
+            elif name == 'Veterans':
+                self.__name = name
+                return self.__name
+            elif name == 'Washingtons':
+                self.__name = name
+                return self.__name
+            elif name == 'Memorial':
+                self.__name = name
+                return self.__name
+            elif name == 'Juneteenth':
+                self.__name = name
+                return self.__name
+            elif name == 'Independence':
+                self.__name = name
+                return self.__name
+            elif name == 'Labor':
+                self.__name = name
+                return self.__name
+            elif name == 'Thanksgiving':
+                self.__name = name
+                return self.__name
+            else:
+                self.__name = 'NS'
+                return self.__name
+
     def __str__( self ):
         if not self.__name == '':
             return self.__name
 
     def __init__( self, bfy, name ):
-        self.__bfy = str( bfy )
-        self.__name = str( name )
+        self.__list = [ 'NewYearsDay', 'MartinLutherKing', 'Washingtons', 'Memorial', 'Juneteenth',
+                        'Independence', 'Labor', 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas']
+        self.__observance = { 'NewYearsDay' : 'January 1',
+                              'MartinLutherKing' : 'Birthday of Martin Luther King, Jr., the third Monday in January',
+                              'Washingtons' : 'Washington’s Birthday, the third Monday in February',
+                              'Memorial' : 'Memorial Day, the last Monday in May.',
+                              'Juneteenth' : 'Juneteenth National Independence Day, June 19',
+                              'Independence' : 'Independence Day, July 4',
+                              'Labor' : 'Labor Day, the first Monday in September',
+                              'Columbus' : 'Columbus Day, the second Monday in October.',
+                              'Veterans' : 'Veterans Day, November 11',
+                              'Thanksgiving' : 'Thanksgiving Day, the fourth Thursday in November',
+                              'Christmas' : 'Christmas Day, December 25' }
+        self.__bfy = bfy if isinstance( bfy, str ) else str( dt.date.year )
+        self.__name = setname( name )
         self.__date = dt.date.today( )
         self.__day = self.__date.day
+        self.__month = self.__date.month
+        self.__year = self.__date.year
         self.__data = { 'bfy': self.__bfy,
                         'name': self.__name }
         self.__frame = pd.DataFrame
+
 
 class Commitment( ):
     '''Defines the commitment class.'''
@@ -2123,6 +2322,7 @@ class Commitment( ):
                         'boc': None }
         self.__frame = pd.DataFrame
 
+
 class OpenCommitment( ):
     '''Defines the commitment class.'''
     __amount = None
@@ -2247,7 +2447,8 @@ class OpenCommitment( ):
                         'boc': None }
         self.__frame = pd.DataFrame
 
-class Obligation:
+
+class Obligation( ):
     '''Defines the commitment class.'''
     __amount = None
     __account = None
@@ -2371,7 +2572,8 @@ class Obligation:
                         'boc': None }
         self.__frame = pd.DataFrame
 
-class Deobligation:
+
+class Deobligation( ):
     '''Defines the commitment class.'''
     __amount = None
     __account = None
@@ -2495,7 +2697,8 @@ class Deobligation:
                         'boc': None }
         self.__frame = pd.DataFrame
 
-class UnliquidatedObligation:
+
+class UnliquidatedObligation( ):
     '''Defines the commitment class.'''
     __amount = None
     __account = None
@@ -2615,6 +2818,7 @@ class UnliquidatedObligation:
                         'fund': None,
                         'boc': None }
         self.__frame = pd.DataFrame
+
 
 class Expenditure:
     '''Defines the commitment class.'''

@@ -4,9 +4,10 @@ import datetime as dt
 import openpyxl as xl
 import zipfile as zp
 
+
 class BudgetPath( ):
     '''BudgetPath( filename ) initializes the
-    BudgetPath class providingfilepath information of files
+    BudgetPath class providing filepath information of files
     used in the application'''
     __base = None
     __path = None
@@ -127,7 +128,7 @@ class BudgetPath( ):
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
 class BudgetFile( ):
-    '''BudgetFile( path ) intializes the
+    '''BudgetFile( path ) initializes the
      BudgetFile Class providing file information for
      files used in the application'''
     __base = None

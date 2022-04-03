@@ -2,21 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0140f8c9-2bce-4702-a202-a548654ddc36" name="Changes" comment="updates rig1;">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Execution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileSys.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileSys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/alembic/runtime/migration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/alembic/runtime/migration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/alembic/testing/fixtures.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/alembic/testing/fixtures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/system.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/numpy/core/_add_newdocs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/numpy/core/_add_newdocs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pandas/io/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pandas/io/sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pandas/tests/io/test_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pandas/tests/io/test_sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pandas/tseries/holiday.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pandas/tseries/holiday.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pyrsistent/_field_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pyrsistent/_field_common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/dialects/mysql/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/dialects/mysql/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/fixtures.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/fixtures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_ddl.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_ddl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_dialect.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_dialect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_reflection.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_reflection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/sqlalchemy/testing/suite/test_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/xvba_debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_add_newdocs.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_add_newdocs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pandas/io/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pandas/io/sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pandas/tests/io/test_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pandas/tests/io/test_sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pandas/tseries/holiday.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pandas/tseries/holiday.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pyrsistent/_field_common.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyrsistent/_field_common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/tarfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/tarfile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/test/test__xxsubinterpreters.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/test/test__xxsubinterpreters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/tkinter/test/widget_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/tkinter/test/widget_tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/zipfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/zipfile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Execution.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/FileSys.py" root0="SKIP_INSPECTION" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,7 +78,43 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.splitter.proportion" value="0.2511592" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\terry\source\repos\BudgetPy" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Source" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BudgetPy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Ninja" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Ninja/Source.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Source" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -52,6 +127,15 @@
       <workItem from="1648416959112" duration="8626000" />
       <workItem from="1648427168627" duration="1869000" />
       <workItem from="1648429106764" duration="1598000" />
+      <workItem from="1648900883585" duration="2475000" />
+      <workItem from="1648903458017" duration="490000" />
+      <workItem from="1648903998738" duration="2436000" />
+      <workItem from="1648906524747" duration="660000" />
+      <workItem from="1648907524424" duration="3059000" />
+      <workItem from="1648914529237" duration="474000" />
+      <workItem from="1648915069708" duration="1023000" />
+      <workItem from="1648916117640" duration="3613000" />
+      <workItem from="1648919816159" duration="22751000" />
     </task>
     <task id="LOCAL-00001" summary="updates rig1;">
       <created>1648415130342</created>
@@ -185,6 +269,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -200,5 +287,8 @@
     <MESSAGE value="updates rig1;" />
     <MESSAGE value="updates from work rig;" />
     <option name="LAST_COMMIT_MESSAGE" value="updates from work rig;" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/BudgetPy$Source.coverage" NAME="Source Coverage Results" MODIFIED="1648903919115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Ninja" />
   </component>
 </project>

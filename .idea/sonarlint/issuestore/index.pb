@@ -51,8 +51,6 @@ K
 YLib/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/_debug_adapter/pydevd_schema.py,3\d\3dbd5912e9549ad0c930fe2100563aaae0b61aa2
 \
 ,Lib/site-packages/PySimpleGUI/PySimpleGUI.py,6\4\6491a76555f522f409ba0a7b35bef87c94c172d8
-C
-venv/Lib/zipfile.py,8\d\8d657f6e160769e123e2eacdb372c04b168a9632
 y
 Idb/sqlite/datamodels/sql/UPDATE/UpdatePayrollActivityProgramAreaNames.sql,2\4\24313f9a261bada1ec70ee74b7a0311c95148763
 p
@@ -2270,8 +2268,6 @@ T
 $Lib/site-packages/blackd/__main__.py,b\f\bfa0662c924958a284c39be24a566ad883c8ed56
 T
 $Lib/site-packages/wrapt/arguments.py,d\3\d36007a7ad7d6e4d94e7c5857d97b1e3de708b84
-7
-main.py,f\1\f1bdda93d9a278e358509d498e17d97764c1fb29
 c
 3Lib/site-packages/nbconvert-6.4.4.dist-info/LICENSE,f\8\f831de3738f9d058fde04bc49f8e2f04db7e4a47
 b
@@ -2765,8 +2761,6 @@ W
 'Lib/site-packages/pyrsistent/_pclass.py,4\1\411dc2b3ae207d946d859e5cd1365467eeb7578c
 V
 &Lib/site-packages/pyrsistent/_plist.py,f\b\fb80a08c832f6cb7b5dd196fd30862daca53bbfa
-]
--Lib/site-packages/pyrsistent/_field_common.py,8\e\8e4598cbed9e904a627473ed4a835f90173c0fa5
 U
 %Lib/site-packages/pyrsistent/_pbag.py,e\7\e76aa0a7ce57973424a543dd0585347842811113
 W
@@ -3473,3 +3467,5 @@ k
 ;install/Lib/site-packages/setuptools/command/install_lib.py,9\e\9edce695c85f16366ebec12cd4b13a298be07f9f
 o
 ?install/Lib/site-packages/setuptools/command/install_scripts.py,b\c\bc2861e79bad7b88934202de8d4149017320cf50
+7
+main.py,f\1\f1bdda93d9a278e358509d498e17d97764c1fb29

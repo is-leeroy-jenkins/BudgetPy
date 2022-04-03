@@ -2379,7 +2379,7 @@ def main(args=None):
                        help='Create zipfile from sources')
     group.add_argument('-t', '--test', metavar='<zipfile>',
                        help='Test if a zipfile is valid')
-    args = parser.parse_args(args)
+    args = parser
 
     if args.test is not None:
         src = args.test

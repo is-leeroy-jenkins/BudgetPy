@@ -2509,7 +2509,7 @@ def main():
                        help='Create tarfile from sources')
     group.add_argument('-t', '--test', metavar='<tarfile>',
                        help='Test if a tarfile is valid')
-    args = parser.parse_args()
+    args = parser
 
     if args.test is not None:
         src = args.test
