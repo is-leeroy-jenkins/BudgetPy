@@ -2024,6 +2024,7 @@ class FederalHoliday( ):
             return self.__observance
 
     def columbusday( self ):
+        '''The second Monday in October'''
         if self.__year is not None:
             __start = dt.datetime( self.__year, 10, 1 )
             __end = dt.datetime( self.__year, 10, 31 )
@@ -2035,36 +2036,37 @@ class FederalHoliday( ):
                     return self.__columbus
 
     def veteransday( self ):
+        '''Veterans Day, November 11'''
         if self.__year is not None:
             self.__veterans = dt.datetime( self.__year, 11, 11 )
             return self.__veterans
 
     def thanksgivingday( self ):
+        '''The fourth Thursday in November'''
         if self.__year is not None:
-            __thursday = list( )
-            __month = dt.datetime( self.__year, 11, 15 ) - dt.datetime( self.__year, 11, 31 )
-            for i in range( 1, __month.days - 1 ):
-                if dt.datetime( self.__year, 11, i ).isoweekday( ) == 4:
-                    __thursday.append( dt.datetime( self.__year, 11, i ) )
-            m = len( __thursday )
-            if m == 4:
-                y = __thursday[ m ].date().year
-                m = __thursday[ m ].date().month
-                d = __thursday[ m ].date().day
-                self.__thanksgiving = dt.datetime( y, m, d )
-                return self.__thanksgiving
+            __start = dt.datetime( self.__year, 11, 15 )
+            __end = dt.datetime( self.__year, 11, 30 )
+            __delta = ( __start - __end ).days
+            for i in range( 15, 31 ):
+                d = dt.datetime( self.__year, 11, i )
+                if ( 21 < d.day < 31 ) and dt.datetime( self.__year, 11, d.day ).isoweekday( ) == 4:
+                    self.__thanksgiving = dt.datetime( self.__year, 11, d.day )
+                    return self.__thanksgiving
 
     def christmasday( self ):
+        '''Christmas Day, December 25'''
         if self.__year is not None:
             self.__christmas = dt.datetime( self.__year, 12, 25 )
             return self.__christmas
 
     def newyearsday( self ):
+        '''January 1'''
         if self.__year is not None:
             self.__newyearsday = dt.datetime( self.__year, 1, 1 )
             return self.__newyearsday
 
     def martinlutherkingday( self ):
+        '''The third Monday in January'''
         if self.__year is not None:
             __start = dt.datetime( self.__year, 1, 15 )
             __end = dt.datetime( self.__year, 1, 31 )
@@ -2076,6 +2078,7 @@ class FederalHoliday( ):
                     return self.__martinlutherking
 
     def washingtonsday( self ):
+        '''The third Monday in February'''
         if self.__year is not None:
             __start = dt.datetime( self.__year, 2, 15 )
             __end = dt.datetime( self.__year, 2, 28 )
@@ -2087,6 +2090,7 @@ class FederalHoliday( ):
                     return self.__washingtons
 
     def memorialday( self ):
+        '''The last Monday in May'''
         if self.__year is not None:
             __start = dt.datetime( self.__year, 5, 1 )
             __end = dt.datetime( self.__year, 5, 31 )
@@ -2098,16 +2102,19 @@ class FederalHoliday( ):
                     return self.__memorial
 
     def juneteenthday( self ):
+        '''Juneteenth National Independence Day, June 19'''
         if self.__year is not None:
             self.__juneteenth = dt.datetime( self.__year, 6, 19 )
             return self.__juneteenth
 
     def independence( self ):
+        '''Independence Day, July 4'''
         if self.__year is not None:
             self.__independence = dt.datetime( self.__year, 7, 4 )
             return self.__independence
 
     def laborday( self ):
+        '''The first Monday in September'''
         if self.__year is not None:
             __monday = list( )
             __month = dt.date( self.__year, 9, 1 ) - dt.date( self.__year, 9, 31 )
