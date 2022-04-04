@@ -2028,7 +2028,7 @@ class FederalHoliday( ):
             __start = dt.datetime( self.__year, 10, 1 )
             __end = dt.datetime( self.__year, 10, 31 )
             __delta = ( __start - __end ).days
-            for i in range( 1, __delta - 1 ):
+            for i in range( 1, 31 ):
                 d = dt.datetime( self.__year, 10, __start.day + i )
                 if ( 15 < d.day < 28 ) and dt.datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
                     self.__columbus = dt.datetime( self.__year, 10, d.day )
@@ -2088,17 +2088,14 @@ class FederalHoliday( ):
 
     def memorialday( self ):
         if self.__year is not None:
-            __monday = list( )
-            __month = dt.datetime( self.__year, 5, 1 ) - dt.datetime( self.__year, 5, 31 )
-            for i in range( 1, __month.days - 1 ):
-                if dt.datetime( self.__year, 5, i ).isoweekday( ) == 1:
-                    __monday.append( dt.datetime( self.__year, 5, i ) )
-            m = len( __monday )
-            y = __monday[ 0 ].date( ).year
-            m = __monday[ 0 ].date( ).month
-            d = __monday[ 0 ].date( ).day
-            self.__memorial = dt.datetime( y, m, d )
-            return self.__memorial
+            __start = dt.datetime( self.__year, 5, 1 )
+            __end = dt.datetime( self.__year, 5, 31 )
+            __delta = ( __start - __end ).days
+            for i in range( 15, 31 ):
+                d = dt.datetime( self.__year, 5, i )
+                if ( 21 < d.day < 31 ) and dt.datetime( self.__year, 5, d.day ).isoweekday( ) == 1:
+                    self.__memorial = dt.datetime( self.__year, 5, d.day )
+                    return self.__memorial
 
     def juneteenthday( self ):
         if self.__year is not None:
@@ -2180,40 +2177,12 @@ class FederalHoliday( ):
                 return self.__date
 
     def setname( self, name ):
-        if isinstance( name, str ) and name != '':
-            if name in self.__list and name == 'NewYearsDay':
-                self.__name = name
-                return self.__name
-            elif name == 'MartinLutherKing':
-                self.__name = name
-                return self.__name
-            elif name == 'Veterans':
-                self.__name = name
-                return self.__name
-            elif name == 'Washingtons':
-                self.__name = name
-                return self.__name
-            elif name == 'Memorial':
-                self.__name = name
-                return self.__name
-            elif name == 'Juneteenth':
-                self.__name = name
-                return self.__name
-            elif name == 'Independence':
-                self.__name = name
-                return self.__name
-            elif name == 'Labor':
-                self.__name = name
-                return self.__name
-            elif name == 'Thanksgiving':
-                self.__name = name
-                return self.__name
-            elif name == 'Christmas':
-                self.__name = name
-                return self.__name
-            else:
-                self.__name = 'NS'
-                return self.__name
+        if isinstance( name, str ) and name in self.__list:
+            self.__name = name
+            return self.__name
+        else:
+            self.__name = 'NS'
+            return self.__name
 
     def __str__( self ):
         if not self.__name == '':
