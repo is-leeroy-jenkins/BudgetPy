@@ -2134,19 +2134,19 @@ class FederalHoliday( ):
         elif 0 <  self.__day < 8 and  self.__day == 2:
             self.__dayofweek = 'Tuesday'
             return self.__dayofweek
-        elif 0 < self__day < 8 and self__day == 3:
+        elif 0 < self.__day < 8 and self.__day == 3:
             self.__dayofweek = 'Wednesday'
             return self.__dayofweek
-        elif 0 < self__day < 8 and self__day == 4:
+        elif 0 < self.__day < 8 and self.__day == 4:
             self.__dayofweek = 'Thursday'
             return self.__dayofweek
-        elif 0 < self__day < 8 and self__day == 5:
+        elif 0 < self.__day < 8 and self.__day == 5:
             self.__dayofweek = 'Friday'
             return self.__dayofweek
-        elif 0 < self__day < 8 and self__day == 6:
+        elif 0 < self.__day < 8 and self.__day == 6:
             self.__dayofweek = 'Saturday'
             return self.__dayofweek
-        elif 0 < self__day < 8 and self__day == 7:
+        elif 0 < self.__day < 8 and self.__day == 7:
             self.__dayofweek = 'Sunday'
             return self.__dayofweek
 
