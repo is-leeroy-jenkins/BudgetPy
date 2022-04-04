@@ -62,8 +62,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.better-comments" />
     <property name="settings.editor.splitter.proportion" value="0.2511592" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="showRenderedDocs" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
