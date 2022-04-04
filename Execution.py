@@ -504,6 +504,9 @@ class BudgetFiscalYear( ):
                         'startdate': self.__startdate,
                         'enddate': self.__enddate }
         self.__frame = pd.DataFrame
+        self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
+                            'NewYearsDay', 'MartinLutherKing', 'Washingtons',
+                            'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
 
 
 class BudgetObjectClass( ):
@@ -2208,9 +2211,9 @@ class FederalHoliday( ):
             return self.__name
 
     def __init__( self, bfy, name ):
-        self.__list = [ 'NewYearsDay', 'MartinLutherKing', 'Washingtons',
-                        'Memorial', 'Juneteenth', 'Independence', 'Labor',
-                        'Columbus', 'Veterans', 'Thanksgiving', 'Christmas' ]
+        self.__list = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
+                        'NewYearsDay', 'MartinLutherKing', 'Washingtons',
+                        'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
         self.__observance = { 'Columbus': 'The second Monday in October',
                               'Veterans': 'Veterans Day, November 11',
                               'Thanksgiving': 'The fourth Thursday in November',

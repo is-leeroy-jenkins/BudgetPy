@@ -317,7 +317,7 @@ class CommandType( ):
 
 
 class DataPath( ):
-    '''DataPath( name  ) provides path information
+    '''DataPath( name ) provides path information
     related to the data model databases '''
     __accesspath = None
     __sqlitepath = None
@@ -391,6 +391,10 @@ class DataPath( ):
                 self.__abspath = self.__accesspath
                 self.__relpath = r'db\access\datamodels\Data.accdb'
             elif name == 'SqlServer':
+                self.__basepath = self.__mssqlpath
+                self.__abspath = self.__mssqlpath
+                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
+            elif name == 'Excel':
                 self.__basepath = self.__mssqlpath
                 self.__abspath = self.__mssqlpath
                 self.__relpath = r'\db\mssql\datamodels\Data.mdf'
@@ -611,7 +615,7 @@ class ReferencePath( ):
 
 
 class DataConnection( ):
-    '''DataConnection( source, provider, path ) initializes
+    '''DataConnection( source, provider ) initializes
     class establishing connection between database and provider'''
     __source = None
     __provider = None
@@ -653,7 +657,7 @@ class DataConnection( ):
             if self.__provider is not None:
                 self.__connection = sl.Connection( self.__provider.path )
 
-    def __init__( self, source, provider, path = '' ):
+    def __init__( self, source, provider ):
         self.__source = source if isinstance( source, Source ) else Source( 'Allocations' )
         self.__table = self.__source.table
         self.__provider = provider if isinstance( provider, Provider ) else Provider( 'SQLite' )
@@ -734,7 +738,6 @@ class CriteriaBuilder( ):
     def inequimap( self, this, that ):
         if this is not None and that is not None:
             return f'{this} != {that}'
-
 
     def lessmap( self, this, that ):
         if this is not None and that is not None:
