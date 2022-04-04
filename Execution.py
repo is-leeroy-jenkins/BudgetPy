@@ -2120,28 +2120,40 @@ class FederalHoliday( ):
             self.__labor = dt.datetime( y, m, d )
             return self.__labor
 
-    def dayofweek( self, day ):
-        if 0 < day < 8 and day == 1:
+    def dayofweek( self ):
+        if 0 < self.__day < 8 and  self.__day == 1:
             self.__dayofweek = 'Monday'
             return self.__dayofweek
-        elif 0 < day < 8 and day == 2:
+        elif 0 <  self.__day < 8 and  self.__day == 2:
             self.__dayofweek = 'Tuesday'
             return self.__dayofweek
-        elif 0 < day < 8 and day == 3:
+        elif 0 < self__day < 8 and self__day == 3:
             self.__dayofweek = 'Wednesday'
             return self.__dayofweek
-        elif 0 < day < 8 and day == 4:
+        elif 0 < self__day < 8 and self__day == 4:
             self.__dayofweek = 'Thursday'
             return self.__dayofweek
-        elif 0 < day < 8 and day == 5:
+        elif 0 < self__day < 8 and self__day == 5:
             self.__dayofweek = 'Friday'
             return self.__dayofweek
-        elif 0 < day < 8 and day == 6:
+        elif 0 < self__day < 8 and self__day == 6:
             self.__dayofweek = 'Saturday'
             return self.__dayofweek
-        elif 0 < day < 8 and day == 7:
+        elif 0 < self__day < 8 and self__day == 7:
             self.__dayofweek = 'Sunday'
             return self.__dayofweek
+
+    def isweekday( self ):
+        if 1 <= self.__date.isoweekday() <= 5:
+            return True
+        else:
+            return False
+
+    def isweekend( self ):
+        if 5 < self.__date.isoweekday() <= 7:
+            return True
+        else:
+            return False
 
     def setdate( self, name ):
         if isinstance( name, str ) and name in self.__list:
