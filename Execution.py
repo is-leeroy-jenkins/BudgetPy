@@ -2226,7 +2226,7 @@ class FederalHoliday( ):
         self.__year = int( bfy )
         self.__name = self.setname( name )
         self.__date = self.setdate( name )
-        self.__dayofweek = self.dayofweek( )
+        self.__dayofweek = self.__date.day
         self.__month = self.__date.month
         self.__day = self.__date.isoweekday()
         self.__data = { 'bfy': self.__bfy,
