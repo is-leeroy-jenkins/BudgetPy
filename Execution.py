@@ -1950,6 +1950,7 @@ class FederalHoliday( ):
     __christmas = None
     __list = None
     __date = None
+    __dayofweek = None
     __day = None
     __month = None
     __year = None
@@ -2123,70 +2124,60 @@ class FederalHoliday( ):
             return self.__labor
 
     def dayofweek( self, day ):
-        if 0 < int( day ) < 8 and int( day ) == 1:
-            self.__day = 'Monday'
-            return self.__day
-        elif 0 < int( day ) < 8 and int( day ) == 2:
-            self.__day = 'Tuesday'
-            return self.__day
-        elif 0 < int( day ) < 8 and int( day ) == 3:
-            self.__day = 'Wednesday'
-            return self.__day
-        elif 0 < int( day ) < 8 and int( day ) == 4:
-            self.__day = 'Thursday'
-            return self.__day
-        elif 0 < int( day ) < 8 and int( day ) == 5:
-            self.__day = 'Friday'
-            return self.__day
-        elif 0 < int( day ) < 8 and int( day ) == 6:
-            self.__day = 'Saturday'
-            return self.__day
-        elif 0 < int( day ) < 8 and int( day ) == 7:
-            self.__day = 'Sunday'
-            return self.__day
+        if 0 < day < 8 and day == 1:
+            self.__dayofweek = 'Monday'
+            return self.__dayofweek
+        elif 0 < day < 8 and day == 2:
+            self.__dayofweek = 'Tuesday'
+            return self.__dayofweek
+        elif 0 < day < 8 and day == 3:
+            self.__dayofweek = 'Wednesday'
+            return self.__dayofweek
+        elif 0 < day < 8 and day == 4:
+            self.__dayofweek = 'Thursday'
+            return self.__dayofweek
+        elif 0 < day < 8 and day == 5:
+            self.__dayofweek = 'Friday'
+            return self.__dayofweek
+        elif 0 < day < 8 and day == 6:
+            self.__dayofweek = 'Saturday'
+            return self.__dayofweek
+        elif 0 < day < 8 and day == 7:
+            self.__dayofweek = 'Sunday'
+            return self.__dayofweek
 
     def setdate( self, name ):
         if isinstance( name, str ) and name in self.__list:
             if name == 'Columbus':
                 self.__date = self.columbusday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'Veterans':
                 self.__date = self.veteransday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'Thanksgiving':
                 self.__date = self.thanksgivingday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'Christmas':
                 self.__date = self.christmasday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'NewYearsDay':
                 self.__date = self.newyearsday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'MartinLutherKing':
                 self.__date = self.martinlutherkingday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'Washingtons':
                 self.__date = self.washingtonsday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'Memorial':
                 self.__date = self.memorialday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'Juneteenth':
                 self.__date = self.juneteenthday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
             elif name == 'Labor':
                 self.__date = self.laborday( )
-                return dt.datetime( self.__date.year,
-                    self.__month, self.__day )
+                return self.__date
 
     def setname( self, name ):
         if isinstance( name, str ) and name != '':
@@ -2243,12 +2234,13 @@ class FederalHoliday( ):
                               'Juneteenth': 'Juneteenth National Independence Day, June 19',
                               'Independence': 'Independence Day, July 4',
                               'Labor': 'The first Monday in September' }
-        self.__bfy = bfy if isinstance( bfy, str ) else str( dt.date.year )
+        self.__bfy = bfy
+        self.__year = int( bfy )
         self.__name = self.setname( name )
         self.__date = self.setdate( name )
-        self.__day = self.dayofweek( self.__date.day )
+        self.__dayofweek = self.dayofweek( self.__date.isoweekday() )
         self.__month = self.__date.month
-        self.__year = self.__date.year
+        self.__day = self.__date.isoweekday()
         self.__data = { 'bfy': self.__bfy,
                         'name': self.__name }
         self.__frame = pd.DataFrame
