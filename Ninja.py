@@ -49,6 +49,14 @@ class Source( ):
         else:
             return False
 
+    def setname( self, src ):
+        if isinstance( src, str ) and src in self.__data:
+            self.__table = src
+        elif name in self.__references:
+            self.__table = src
+        else:
+            self.__table = None
+
     def __str__( self ):
         if isinstance( self.__table, str ) and self.__table != '':
             return self.__table
@@ -88,6 +96,7 @@ class Source( ):
                              'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                              'SchemaTypes', 'Sources']
         self.__table = str( tablename )
+        self.__name = setname( tablename )
 
 
 class Provider( ):
