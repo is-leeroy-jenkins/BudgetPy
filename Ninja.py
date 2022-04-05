@@ -91,43 +91,19 @@ class Source( ):
 
 
 class Provider( ):
-    '''Provider( name  ) class that
+    '''Provider( provider  ) class that
     provides the data providers used to identify
     the type of database ( access, sqlite, sqlserver, or sqlce ) '''
-    __access = None
-    __sqlite = None
-    __mssql = None
+    __accessdata = None
+    __sqlitedata = None
+    __sqlserverdata = None
+    __accessreferences = None
+    __sqlitereferences = None
+    __sqlserverreferences = None
     __excel = None
     __name = None
-    __baseprovider = None
+    __base = None
     __list = None
-
-    @property
-    def access( self ):
-        ''' Property used to identify
-        access provider '''
-        if self.__access is not None:
-            return self.__access
-
-    @property
-    def sqlite( self ):
-        ''' Property used to identify
-         sqlite provider '''
-        if self.__sqlite is not None:
-            return self.__sqlite
-
-    @property
-    def sqlserver( self ):
-        ''' Property used to identify
-         sql server provider '''
-        if self.__mssql is not None:
-            return self.__mssql
-
-    @property
-    def excel( self ):
-        ''' Property used to identify excel provider '''
-        if self.__excel is not None:
-            return self.__excel
 
     @property
     def extension( self ):
@@ -146,6 +122,33 @@ class Provider( ):
                 return '.db'
 
     @property
+    def list( self ):
+        if self.__list is not None:
+            return self.__list
+
+    @property
+    def datapath( self ):
+        if self.__name is not None and self.__name == 'Access':
+            return self.__accessdata
+        elif self.__name == 'SQLite':
+            return self.__sqlitedata
+        elif self.__name == 'SqlServer':
+            return self.__sqlserverdata
+        else:
+            return self.__sqlitedata
+
+    @property
+    def referencepath( self ):
+        if self.__name is not None and self.__name == 'Access':
+            return self.__accessreferences
+        elif self.__name == 'SQLite':
+            return self.__sqlitereferences
+        elif self.__name == 'SqlServer':
+            return self.__sqlserverreferences
+        else:
+            return self.__sqlitereferences
+
+    @property
     def name( self ):
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
@@ -158,36 +161,6 @@ class Provider( ):
             else:
                 self.__name = 'SQLite'
 
-    @property
-    def path( self ):
-        if self.__name == 'Access':
-            dp = DataPath( 'Access' ) 
-            return dp.access
-        elif self.__name == 'SQLite':
-            dp = DataPath( 'SQLite' ) 
-            return dp.sqlite
-        elif self.__name == 'SqlServer':
-            dp = DataPath( 'SqlServer' ) 
-            return dp.sqlserver
-
-    def setbyname( self, name ):
-        if isinstance( name, str ) and name != '':
-            if name == 'SQLite':
-                self.__name = name
-                self.__baseprovider = self.__sqlite
-            elif name == 'Access':
-                self.__name = name
-                self.__baseprovider = self.__access
-            elif name == 'SqlServer':
-                self.__name = name
-                self.__baseprovider = self.__mssql
-            elif name == 'Excel':
-                self.__name = name
-                self.__baseprovider = self.__excel
-            else:
-                self.__name = 'SQLite'
-                self.__baseprovider = self.__sqlite
-
     def __str__( self ):
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
@@ -195,12 +168,21 @@ class Provider( ):
             return 'NS'
 
     def __init__( self, name ):
-        self.__access = 'Access'
-        self.__sqlite = 'SQLite'
-        self.__mssql = 'SqlServer'
-        self.__excel = 'Excel'
-        self.__list = ['Access', 'Sqlite', 'SqlServer', 'Excel']
-        self.setbyname( name ) 
+        self.__list = ['Access', 'SQLite', 'SqlServer', 'Excel']
+        self.__name = name if name in self.__list else 'SQLite'
+        self.__base = self.__name
+        self.__accessdata = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\Data.accdb'
+        self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\datamodels\Data.db'
+        self.__sqlserverdata = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\datamodels\Data.mdf'
+        self.__accessreferences = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\referencemodels\References.accdb'
+        self.__sqlitereferences = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\referencemodels\References.db'
+        self.__sqlserverreferences = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\referencemodels\References.mdf'
 
 
 class CommandType( ):
@@ -316,304 +298,6 @@ class CommandType( ):
         self.setbyname( cmd ) 
 
 
-class DataPath( ):
-    '''DataPath( name ) provides path information
-    related to the data model databases '''
-    __accesspath = None
-    __sqlitepath = None
-    __mssqlpath = None
-    __abspath = None
-    __relpath = None
-    __basepath = None
-
-    @property
-    def access( self ):
-        if self.__accesspath is not None:
-            return str( self.__accesspath ) 
-
-    @access.setter
-    def access( self, path ):
-        if path is not None:
-            self.__accesspath = str( path ) 
-
-    @property
-    def sqlite( self ):
-        if self.__sqlitepath is not None:
-            return str( self.__sqlitepath ) 
-
-    @sqlite.setter
-    def sqlite( self, path ):
-        if path is not None:
-            self.__sqlitepath = str( path ) 
-
-    @property
-    def sqlserver( self ):
-        if self.__mssqlpath is not None:
-            return str( self.__mssqlpath ) 
-
-    @sqlserver.setter
-    def sqlserver( self, path ):
-        if os.path.exists( path ):
-            self.__mssqlpath = path
-
-    @sqlserver.setter
-    def sqlserver( self, path ):
-        if path is not None:
-            self.__mssqlpath = str( path )
-
-    def setbyextension( self, ext ):
-        if isinstance( ext, str ) and ext != '':
-            if ext == '.db':
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-            elif ext == '.accdb':
-                self.__basepath = self.__accesspath
-                self.__abspath = self.__accesspath
-                self.__relpath = r'db\access\datamodels\Data.accdb'
-            elif ext == '.mdf':
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            else:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__relpath = r'db\sqlite\datamodels\Data.db'
-
-    def setbyname( self, name ):
-        if isinstance( name, str ) and name != '':
-            if name == 'SQLite':
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-            elif name == 'Access':
-                self.__basepath = self.__accesspath
-                self.__abspath = self.__accesspath
-                self.__relpath = r'db\access\datamodels\Data.accdb'
-            elif name == 'SqlServer':
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            elif name == 'Excel':
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            else:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__relpath = r'db\sqlite\datamodels\Data.db'
-
-    def setbyprovider( self, pvdr ):
-        if isinstance( pvdr, Provider ) and pvdr is not None:
-            if pvdr.extension == '.db':
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-            elif pvdr.extension == '.accdb':
-                self.__basepath = self.__accesspath
-                self.__abspath = self.__accesspath
-                self.__relpath = r'db\access\datamodels\Data.accdb'
-            elif pvdr.extension == '.mdf':
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            else:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__relpath = r'db\sqlite\datamodels\Data.db'
-
-    def setbypath( self, path ):
-        if isinstance( path, str ) and os.path.exists( path ):
-            if path == self.__sqlitepath:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-            elif path == self.__accesspath:
-                self.__basepath = self.__accesspath
-                self.__abspath = self.__accesspath
-                self.__relpath = r'db\access\datamodels\Data.accdb'
-            elif path == self.__mssqlpath:
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            else:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__relpath = r'db\sqlite\datamodels\Data.db'
-
-    def __str__( self ):
-        if os.path.exists( self.__basepath ):
-            return self.__basepath
-
-    def __init__( self, name ):
-        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb'
-        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db'
-        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf'
-        self.setbyname( name ) 
-
-
-class ReferencePath( ):
-    '''ReferencePath( name  ) provides path information
-    related to the references model databases '''
-    __accesspath = None
-    __sqlitepath = None
-    __mssqlpath = None
-    __sqlcepath = None
-    __abspath = None
-    __relpath = None
-    __basepath = None
-
-    @property
-    def access( self ):
-        if self.__accesspath is not None:
-            return str( self.__accesspath ) 
-
-    @access.setter
-    def access( self, path ):
-        if os.path.exists( path ):
-            self.__accesspath = str( path ) 
-
-    @property
-    def sqlite( self ):
-        if self.__sqlitepath is not None:
-            return str( self.__sqlitepath ) 
-
-    @sqlite.setter
-    def sqlite( self, path ):
-        if os.path.exists( path ):
-            self.__sqlitepath = str( path ) 
-
-    @property
-    def sqlserver( self ):
-        if self.__mssqlpath is not None:
-            return str( self.__mssqlpath ) 
-
-    @sqlserver.setter
-    def sqlserver( self, path ):
-        if os.path.exists( path ):
-            self.__mssqlpath = path
-
-    @property
-    def sqlce( self ):
-        if isinstance( self.__sqlcepath, str ) and os.path.exists( self.__sqlcepath ):
-            return str( self.__sqlcepath ) 
-
-    @sqlce.setter
-    def sqlce( self, path ):
-        if isinstance( path, str ) and os.path.exists( path ):
-            self.__sqlcepath = str( path ) 
-
-    def setbyextension( self, ext ):
-        if isinstance( ext, str ) and ext != '':
-            if ext == '.db':
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-            elif ext == '.accdb':
-                self.__basepath = self.__accesspath
-                self.__abspath = self.__accesspath
-                self.__relpath = r'db\access\datamodels\Data.accdb'
-            elif ext == '.mdf':
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            elif ext == '.sdf':
-                self.__basepath = self.__sqlcepath
-                self.__abspath = self.__sqlcepath
-                self.__relpath = r'\db\sqlce\datamodels\Data.sf'
-            else:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-
-    def setbyname( self, name ):
-        if isinstance( name, str ) and name != '':
-            if name == 'SQLite':
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-            elif name == 'Access':
-                self.__basepath = self.__accesspath
-                self.__abspath = self.__accesspath
-                self.__relpath = r'db\access\datamodels\Data.accdb'
-            elif name == 'SqlServer':
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            elif name == 'SqlCe':
-                self.__basepath = self.__sqlcepath
-                self.__abspath = self.__sqlcepath
-                self.__relpath = r'\db\sqlce\datamodels\Data.sdf'
-            else:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-
-    def setbyprovider( self, pvdr ):
-        if isinstance( pvdr, Provider ) and pvdr is not None:
-            if pvdr.extension == '.db':
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-            elif pvdr.extension == '.accdb':
-                self.__basepath = self.__accesspath
-                self.__abspath = self.__accesspath
-                self.__relpath = r'db\access\datamodels\Data.accdb'
-            elif pvdr.extension == '.mdf':
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\mssql\datamodels\Data.mdf'
-            elif pvdr.extension == '.sdf':
-                self.__basepath = self.__sqlcepath
-                self.__abspath = self.__sqlcepath
-                self.__relpath = r'\db\sqlce\datamodels\Data.sdf'
-            else:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'db\sqlite\datamodels\Data.db'
-
-    def setbypath( self, path ):
-        if isinstance( path, str ) and os.path.exists( path ):
-            if path == self.__sqlitepath:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'\db\access\referencemodels\References.db'
-            elif path == self.__accesspath:
-                self.__basepath = self.__accesspath
-                self.__abspath = self.__accesspath
-                self.__relpath = r'\db\access\referencemodels\References.accdb'
-            elif path == self.__mssqlpath:
-                self.__basepath = self.__mssqlpath
-                self.__abspath = self.__mssqlpath
-                self.__relpath = r'\db\access\referencemodels\References.mdf'
-            elif path == self.__sqlcepath:
-                self.__basepath = self.__sqlcepath
-                self.__abspath = self.__sqlcepath
-                self.__relpath = r'\db\access\referencemodels\References.sdf'
-            else:
-                self.__basepath = self.__sqlitepath
-                self.__abspath = self.__sqlitepath
-                self.__abspath = r'\db\access\referencemodels\References.db'
-
-    def __str__( self ):
-        if os.path.exists( self.__basepath ):
-            return self.__basepath
-
-    def __init__( self, name ):
-        self.__accesspath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb'
-        self.__sqlitepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db'
-        self.__mssqlpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf'
-        self.__sqlcepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\sqlce\referencemodels\References.sdf'
-        self.setbyname( name ) 
-
-
 class DataConnection( ):
     '''DataConnection( source, provider ) initializes
     class establishing connection between database and provider'''
@@ -647,10 +331,10 @@ class DataConnection( ):
         else:
             self.__provider = Provider( 'SQLite' )
 
-    def setpathbysource( self ):
+    def path( self ):
         if self.__source is not None:
             if self.__source.is_data( ):
-                self.__path = DataPath( '')
+                self.__path = DataModel( self.__provider ).path()
 
     def create( self ):
         if self.__provider is not None and self.__source is not None:
@@ -661,12 +345,12 @@ class DataConnection( ):
         self.__source = source if isinstance( source, Source ) else Source( 'Allocations' )
         self.__table = self.__source.table
         self.__provider = provider if isinstance( provider, Provider ) else Provider( 'SQLite' )
-        self.__path = path if path != '' else self.__provider.path
+        self.__path = self.__provider.path
 
 
 class CriteriaBuilder( ):
     '''CriteriaBuilder( command, names, values  ) provides the
-     predicate name value pairs for sql queries'''
+     predicate provider value pairs for sql queries'''
     __predicate = None
     __names = None
     __values = None
@@ -684,25 +368,25 @@ class CriteriaBuilder( ):
 
     @property
     def names( self ):
-        ''' builds criteria from name value namevaluepairs'''
+        ''' builds criteria from provider value namevaluepairs'''
         if isinstance( self.__names, list ):
             return self.__names
 
     @names.setter
     def names( self, keys ):
-        ''' builds criteria from name value namevaluepairs'''
+        ''' builds criteria from provider value namevaluepairs'''
         if keys is not None and isinstance( keys, list ):
             self.__names = keys
 
     @property
     def values( self ):
-        ''' builds criteria from name value namevaluepairs'''
+        ''' builds criteria from provider value namevaluepairs'''
         if isinstance( self.__values, list ):
             return self.__values
 
     @values.setter
     def values( self, vals  ):
-        ''' builds criteria from name value namevaluepairs'''
+        ''' builds criteria from provider value namevaluepairs'''
         if vals is not None and isinstance( vals, list ):
             self.__values = vals
 
@@ -1041,7 +725,7 @@ class DataColumn( ):
         self.__name = str( name ) 
         self.__value = value
         self.__base = {self.__name: self.__value}
-        self.__data = {'ordinal': self.__id, 'name': self.__name,
+        self.__data = {'ordinal': self.__id, 'provider': self.__name,
                        'caption': self.__caption, 'value': self.__value,
                        'datatype': self.__type, 'tablename': self.__table}
 
