@@ -559,14 +559,14 @@ class SqlStatement( ):
         if isinstance( self.__commandtext, str ):
             return self.__commandtext
 
-    def createinsertfields( self ):
+    def insertfields( self ):
         if isinstance( self.__names, list ):
             col = ', '
             col.join( self.__names )
             col.rstrip( ', ' )
             return col
 
-    def createinsertvalues( self ):
+    def insertvalues( self ):
         if isinstance( self.__values, list ):
             val = ', '
             val.join( self.__values )
