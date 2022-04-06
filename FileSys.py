@@ -177,12 +177,12 @@ class BudgetFile( ):
 
     @property
     def size( self ):
-        if self.__base is not None:
-            return float( self.__size )
+        if isinstance( self.__size, float ):
+            return self.__size
 
     @size.setter
     def size( self, num ):
-        if num is not None:
+        if isinstance( num, float ):
             self.__size = float( num )
 
     @property

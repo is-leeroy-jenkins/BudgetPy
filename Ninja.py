@@ -334,15 +334,46 @@ class DataConnection( ):
     object used to connect to Budget databases'''
     __provider = None
     __source = None
+    __connection = None
+    __isopen = None
 
     @property
     def provider( self ):
         if isinstance( self.__provider, Provider ):
             return self.__provider
 
+    @provider.setter
+    def provider( self, pvdr ):
+        if isinstance( pvdr, Provider ):
+            self.__provider = pvdr
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, src ):
+        if isinstance( src, Source ):
+            self.__source = src
+
     def __init__( self, source, provider ):
-        self.__source = source
-        self.__provider = provider
+        self.__source = source if isinstance( source, Source ) else Source( 'StatusOfFunds' )
+        self.__provider = provider if isinstance( provider, Provider ) else Provider( 'SQLite' )
+        self.__isopen = False
+
+    def open( self ):
+            __path = self.__provider.getpath( )
+            if __path is not None:
+                self.__connection = sl.connect( __path )
+            if self.__connection is not None:
+                self.__isopen = True
+                return self.__connection
+
+    def close( self ):
+        if self.__isopen == True:
+            self.__connection.close()
+            self.__isopen = False
 
 
 class CriteriaBuilder( ):
@@ -448,12 +479,13 @@ class CriteriaBuilder( ):
 
 
 class SqlStatement( ):
-    '''SqlStatement( provider, command, source, path  ) Class represents
+    '''SqlStatement( connection, commandtype ) Class represents
      the sql queries used in the application'''
-    __provider = None
-    __command = None
-    __path = None
+    __commandtype = None
+    __connection = None
     __source = None
+    __provider = None
+    __path = None
     __table = None
 
     @property
@@ -518,12 +550,31 @@ class SqlStatement( ):
             model = DataPath( 'SQLite'  ) 
             self.__path = model
 
-    def __init__( self, provider, command, source ):
-        self.__provider = provider if isinstance( provider, Provider ) else Provider( 'SQLite' )
-        self.__command = command if isinstance( command, CommandType ) else CommandType( 'SELECT' )
-        self.__source = source if isinstance( source, Source ) else Source( 'Allocations' )
+    def __init__( self, connection, commandtype = CommandType( 'SELECT' ) ):
+        self.__commandtype = commandtype
+        self.__connection = connection if isinstance( connection, DataConnection ) else DataConnection()
+        self.__provider = self.__connection.provider if isinstance( self.__connection, DataConnection ) else Provider( 'SQLite' )
+        self.__source = self.__connection.source if isinstance( self.__connection, DataConnection ) else Source( 'StatusOfFunds' )
         self.__table = self.__source.table
-        self.__path = provider.path
+        self.__path = self.__provider.path
+
+
+class DataQuery( ):
+    '''DataQuery( connection, sql ) class for queries
+    against the database'''
+    __connection = None
+    __sqlstatement = None
+    __commandtype = None
+    __provider = None
+    __source = None
+    __table = None
+
+    def __init__( self, sqlstatement ):
+        self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else SqlStatement( 'SELECT' )
+        self.__provider = self.__sqlstatement.provider
+        self.__source = self.__sqlstatement.source
+        self.__table = self.__source.table
+        self.__connection = DataConnection( self.__sqlstatement.source, self.__sqlstatement.provider )
 
 
 class DataRow( sl.Row ):
@@ -790,203 +841,6 @@ class DataTable( pd.DataFrame ):
             return self.__name
 
 
-class DataQuery( ):
-    '''DataQuery( connection, sql ) class for queries
-    against the database'''
-    __connection = None
-    __sqlstatement = None
-    __commandtype = None
-    __provider = None
-    __source = None
-    __table = None
-
-    def __init__( self, conn, sql = None ):
-        self.__connection = conn if isinstance( conn, DataConnection ) else DataConnection( )
-        self.__provider = self.__connection.provider
-        self.__source = self.__connection.source
-        self.__table = self.__source.table
-        self.__sqlstatement = sql if isinstance( sql, SqlStatement ) else SqlStatement( 'SELECT' )
-
-
-class AccessData( ):
-    '''AccessData( tablename  ) class
-      represents the budget execution
-      data model classes'''
-    __dbpath = None
-    __driver = None
-    __connstr = None
-    __data = None
-    __source = None
-    __table = None
-    __command = None
-
-    @property
-    def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath ) 
-
-    @path.setter
-    def path( self, path ):
-        if path is not None:
-            self.__dbpath = str( path ) 
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
-
-    @source.setter
-    def source( self, src ):
-        if isinstance( src, Source ):
-            self.__source = src
-
-    @property
-    def connstr( self ):
-        if self.__connstr is not None:
-            return str( self.__connstr ) 
-
-    @connstr.setter
-    def connstr( self, conn ):
-        if conn is not None:
-            self.__connstr = str( conn ) 
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return iter( self.__data[0:] ) 
-
-    @data.setter
-    def data( self, dframe ):
-        if dframe is not None and isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe.items
-
-    @property
-    def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver ) 
-
-    @driver.setter
-    def driver( self, name ):
-        if name is not None:
-            self.__driver = name
-
-    @property
-    def command( self ):
-        if self.__command is not None:
-            return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' ) 
-            return cmd
-
-    @command.setter
-    def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
-            self.__command = cmd
-
-    def connect( self ):
-        if not self.__connstr == '':
-            return db.connect( self.__connstr ) 
-
-    def __init__( self, tablename ):
-        self.__source = Source( tablename ) 
-        self.__table = tablename
-        self.__driver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) }'
-        self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
-                        r'\access\datamodels\Data.accdb;'
-        self.__connstr = f'{self.__driver};{self.__dbpath};{self.__source};'
-        self.__data = pd.DataFrame
-        self.__command = CommandType( 'SELECT' ) 
-
-
-class AccessReference( ):
-    '''AccessReference( tablename  ) class represents
-    the budget execution data classes'''
-    __dbpath = None
-    __driver = None
-    __connstr = None
-    __data = None
-    __source = None
-    __table = None
-    __command = None
-
-    @property
-    def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath ) 
-
-    @path.setter
-    def path( self, path ):
-        if path is not None:
-            self.__dbpath = str( path ) 
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return str( self.__source ) 
-
-    @source.setter
-    def source( self, source ):
-        if source is not None:
-            self.__source = str( source ) 
-
-    @property
-    def connstr( self ):
-        if self.__connstr is not None:
-            return str( self.__connstr ) 
-
-    @connstr.setter
-    def connstr( self, conn ):
-        if conn is not None:
-            self.__connstr = str( conn ) 
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, dframe ):
-        if dframe is not None and isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe.items
-
-    @property
-    def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver ) 
-
-    @driver.setter
-    def driver( self, name ):
-        if name is not None:
-            self.__driver = name
-
-    @property
-    def command( self ):
-        if self.__command is not None:
-            return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' ) 
-            return cmd
-
-    @command.setter
-    def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
-            self.__command = cmd
-
-    def __init__( self, tablename ):
-        self.__source = Source( tablename ) 
-        self.__table = self.__source.table
-        self.__driver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
-        self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access' \
-                        r'\referencemodels\References.accdb;'
-        self.__connstr = f'{self.__driver} {self.__dbpath}'
-        self.__data = pd.DataFrame
-        self.__command = CommandType( 'SELECT' ) 
-
-    def connect( self ):
-        if self.__connstr is not None:
-            return db.connect( self.__connstr ) 
-
-
 class SQLiteData( ):
     '''SQLiteData( tablename  ) class represents
      the budget execution data classes'''
@@ -1035,7 +889,7 @@ class SQLiteData( ):
 
     @connstr.setter
     def connstr( self, conn ):
-        if conn is not None:
+        if isinstance( conn, str ):
             self.__dbpath = str( conn ) 
 
     @property
@@ -1061,14 +915,6 @@ class SQLiteData( ):
         if isinstance( cmd, CommandType ):
             self.__command = cmd
 
-    def connect( self ):
-        if self.__connstr is not None:
-            return sl.connect( self.__connstr ) 
-
-    def __str__( self ):
-        if self.__dbpath is not None:
-            return self.__dbpath
-
     def __init__( self, tablename ):
         self.__source = Source( tablename ) 
         self.__table = tablename
@@ -1076,9 +922,17 @@ class SQLiteData( ):
                         r'\db\sqlite\datamodels\Data.db'
         self.__driver = r'DBMS: SQLite ( ver. 3.36.0 ) Case sensitivity: plain=mixed, ' \
                         'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms'
-        self.__connstr = self.__dbpath
+        self.__connstr = DataConnection( self.__dbpath )
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' ) 
+
+    def __str__( self ):
+        if self.__dbpath is not None:
+            return self.__dbpath
+
+    def connect( self ):
+        if self.__connstr is not None:
+            return DataConnection( self.__connstr )
 
 
 class SQLiteReference( ):
@@ -1120,7 +974,7 @@ class SQLiteReference( ):
 
     @connstr.setter
     def connstr( self, conn ):
-        if conn is not None:
+        if isinstance( conn, str ):
             self.__connstr = str( conn ) 
 
     @property
@@ -1156,13 +1010,9 @@ class SQLiteReference( ):
         if isinstance( cmd, CommandType ):
             self.__command = cmd
 
-    def connect( self ):
-        if self.__connstr is not None:
-            return sl.connect( self.__connstr ) 
-
     def __init__( self, tablename ):
         self.__source = Source( tablename ) 
-        self.__table = tablename
+        self.__table = self.__source.table
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\sqlite\referencemodels\References.db'
         self.__driver = r'DBMS: SQLite ( ver. 3.36.0 ) Case sensitivity: plain=mixed, ' \
@@ -1170,6 +1020,190 @@ class SQLiteReference( ):
         self.__connstr = self.__dbpath
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' ) 
+
+    def connect( self ):
+        if self.__connstr is not None:
+            return DataConnection( self.__connstr )
+
+
+class AccessData( ):
+    '''AccessData( tablename  ) class
+      represents the budget execution
+      data model classes'''
+    __dbpath = None
+    __driver = None
+    __connstr = None
+    __data = None
+    __source = None
+    __table = None
+    __command = None
+
+    @property
+    def path( self ):
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
+
+    @path.setter
+    def path( self, path ):
+        if path is not None:
+            self.__dbpath = str( path )
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @source.setter
+    def source( self, src ):
+        if isinstance( src, Source ):
+            self.__source = src
+
+    @property
+    def connstr( self ):
+        if self.__connstr is not None:
+            return str( self.__connstr )
+
+    @connstr.setter
+    def connstr( self, conn ):
+        if conn is not None:
+            self.__connstr = str( conn )
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return iter( self.__data[0:] )
+
+    @data.setter
+    def data( self, dframe ):
+        if dframe is not None and isinstance( dframe, pd.DataFrame ):
+            self.__data = dframe.items
+
+    @property
+    def driver( self ):
+        if self.__driver is not None:
+            return str( self.__driver )
+
+    @driver.setter
+    def driver( self, name ):
+        if name is not None:
+            self.__driver = name
+
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+        if self.__command is None:
+            cmd = CommandType( 'SELECT' )
+            return cmd
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
+
+    def connect( self ):
+        if not self.__connstr == '':
+            return db.connect( self.__connstr )
+
+    def __init__( self, tablename ):
+        self.__source = Source( tablename )
+        self.__table = self.__source.table
+        self.__driver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) }'
+        self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
+                        r'\access\datamodels\Data.accdb;'
+        self.__connstr = f'{self.__driver};{self.__dbpath};{self.__source};'
+        self.__data = pd.DataFrame
+        self.__command = CommandType( 'SELECT' )
+
+
+class AccessReference( ):
+    '''AccessReference( tablename  ) class represents
+    the budget execution data classes'''
+    __dbpath = None
+    __driver = None
+    __connstr = None
+    __data = None
+    __source = None
+    __table = None
+    __command = None
+
+    @property
+    def path( self ):
+        if self.__dbpath is not None:
+            return str( self.__dbpath )
+
+    @path.setter
+    def path( self, path ):
+        if path is not None:
+            self.__dbpath = str( path )
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return str( self.__source )
+
+    @source.setter
+    def source( self, source ):
+        if source is not None:
+            self.__source = str( source )
+
+    @property
+    def connstr( self ):
+        if self.__connstr is not None:
+            return str( self.__connstr )
+
+    @connstr.setter
+    def connstr( self, conn ):
+        if conn is not None:
+            self.__connstr = str( conn )
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @data.setter
+    def data( self, dframe ):
+        if dframe is not None and isinstance( dframe, pd.DataFrame ):
+            self.__data = dframe.items
+
+    @property
+    def driver( self ):
+        if self.__driver is not None:
+            return str( self.__driver )
+
+    @driver.setter
+    def driver( self, name ):
+        if name is not None:
+            self.__driver = name
+
+    @property
+    def command( self ):
+        if self.__command is not None:
+            return self.__command
+        if self.__command is None:
+            cmd = CommandType( 'SELECT' )
+            return cmd
+
+    @command.setter
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
+
+    def __init__( self, tablename ):
+        self.__source = Source( tablename )
+        self.__table = self.__source.table
+        self.__driver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
+        self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access' \
+                        r'\referencemodels\References.accdb;'
+        self.__connstr = f'{self.__driver} {self.__dbpath}'
+        self.__data = pd.DataFrame
+        self.__command = CommandType( 'SELECT' )
+
+    def connect( self ):
+        if self.__connstr is not None:
+            return db.connect( self.__connstr )
+
 
 
 class SqlServerData( ):
