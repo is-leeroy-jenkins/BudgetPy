@@ -561,17 +561,17 @@ class SqlStatement( ):
 
     def insertfields( self ):
         if isinstance( self.__names, list ):
-            col = ', '
+            col = ", "
             col.join( self.__names )
-            col.rstrip( ', ' )
-            return col
+            col.rstrip( ", '" )
+            return '(' + col + ')"'
 
     def insertvalues( self ):
         if isinstance( self.__values, list ):
             val = ', '
             val.join( self.__values )
             val.rstrip( ', ' )
-            return val
+            return '(' + val + ')"'
 
     def commandtext( self ):
         if self.__commandtype == 'SELECT' and isinstance( self.__source, Source ):
