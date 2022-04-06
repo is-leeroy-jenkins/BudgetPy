@@ -436,10 +436,10 @@ class CriteriaBuilder( ):
             self.__predicate.rstrip( ' AND' ) 
 
     def __init__( self, cmd, names, values ):
-        self.__names = names if isinstance( names, list ) else None
-        self.__values = values if isinstance( values, list ) else None
+        self.__names = names if isinstance( names, list ) else list()
+        self.__values = values if isinstance( values, list ) else list()
         self.__cmd = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' ) 
-        self.__predicate = ''
+        self.__predicate = zip( self.__names, self.__values )
 
     def create( self, names, values ):
         if isinstance( names, list ) and isinstance( values, list ):
@@ -479,14 +479,17 @@ class CriteriaBuilder( ):
 
 
 class SqlStatement( ):
-    '''SqlStatement( connection, commandtype ) Class represents
+    '''SqlStatement( connection, criteria ) Class represents
      the sql queries used in the application'''
     __commandtype = None
     __connection = None
+    __criteria = None
     __source = None
     __provider = None
-    __path = None
     __table = None
+    __names = None
+    __values = None
+    __commandtext = None
 
     @property
     def provider( self ):
@@ -537,27 +540,45 @@ class SqlStatement( ):
         if name is not None and name != '':
             self.__table = name
 
-    @property
-    def sqlpath( self ):
-        if self.__path is not None:
-            return self.__path
-
-    @sqlpath.setter
-    def sqlpath( self, path ):
-        if isinstance( path, DataPath ):
-            self.__path = path
-        else:
-            model = DataPath( 'SQLite'  ) 
-            self.__path = model
-
-    def __init__( self, connection, commandtype = CommandType( 'SELECT' ) ):
-        self.__commandtype = commandtype
-        self.__connection = connection if isinstance( connection, DataConnection ) else DataConnection()
-        self.__provider = self.__connection.provider if isinstance( self.__connection, DataConnection ) else Provider( 'SQLite' )
-        self.__source = self.__connection.source if isinstance( self.__connection, DataConnection ) else Source( 'StatusOfFunds' )
+    def __init__( self, connection, criteria ):
+        self.__criteria = criteria if isinstance( criteria, CriteriaBuilder ) \
+            else CriteriaBuilder( self.__commandtype, self.__names, self.__values )
+        self.__commandtype = criteria.command if isinstance( criteria, CriteriaBuilder ) \
+            else CommandType( 'SELECT' )
+        self.__connection = connection if isinstance( connection, DataConnection ) \
+            else DataConnection()
+        self.__provider = self.__connection.provider if isinstance( self.__connection, DataConnection ) \
+            else Provider( 'SQLite' )
+        self.__source = self.__connection.source if isinstance( self.__connection, DataConnection ) \
+            else Source( 'StatusOfFunds' )
+        self.__names = self.__criteria.names
+        self.__values = self.__criteria.values
         self.__table = self.__source.table
-        self.__path = self.__provider.path
 
+    def __str__( self ):
+        if isinstance( self.__commandtext, str ):
+            return self.__commandtext
+
+    def createinsertfields( self ):
+        if isinstance( self.__names, list ):
+            col = ', '
+            col.join( self.__names )
+            col.rstrip( ', ' )
+            return col
+
+    def createinsertvalues( self ):
+        if isinstance( self.__values, list ):
+            val = ', '
+            val.join( self.__values )
+            val.rstrip( ', ' )
+            return val
+
+    def commandtext( self ):
+        if self.__commandtype == 'SELECT' and isinstance( self.__source, Source ):
+            self.__commandtext = 'SELECT * FROM ' + self.__source.table
+            return self.__commandtext
+        elif self.__commandtype == 'INSERT' and isinstance( self.__source, Source ):
+            self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.predicate }'
 
 class DataQuery( ):
     '''DataQuery( connection, sql ) class for queries
