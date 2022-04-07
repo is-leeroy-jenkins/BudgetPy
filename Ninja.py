@@ -427,8 +427,7 @@ class CriteriaBuilder( ):
     def pairs( self, kvp ):
         if isinstance( kvp, dict ):
             map = dict()
-            for k in kvp.keys( ):
-                for v in kvp.values( ):
+            for k, v in kvp.items( ):
                     map.update( k, v )
             self.__predicate = map
 
@@ -442,10 +441,11 @@ class CriteriaBuilder( ):
         '''__map() returns dictionary built from
         lists self.__names and self.__values'''
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
-            map = dict( )
-            for key in self.__names:
-                for value in self.__values:
-                    map[ key ] = value
+            map = dict()
+            for k in self.__names:
+                for v in self.__values:
+                    kvp = { k: v }
+                    map.update( kvp )
             return map
 
     def pairdump( self ):
