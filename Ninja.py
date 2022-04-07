@@ -442,10 +442,10 @@ class CriteriaBuilder( ):
         lists self.__names and self.__values'''
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
             map = dict()
-            for k in self.__names:
-                for v in self.__values:
-                    kvp = { k: v }
-                    map.update( kvp )
+            kvp = zip( self.__names, self.__values )
+            for k, v in kvp:
+                kvp = { k: v }
+                map.update( kvp )
             return map
 
     def pairdump( self ):
@@ -454,9 +454,9 @@ class CriteriaBuilder( ):
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
             pairs = ''
             criteria = ''
-            for n in self.__names:
-                for v in self.__values:
-                    pairs += f'{ n } = { v } AND '
+            kvp = zip( self.__names, self.__values )
+            for k, v in kvp:
+                pairs += f'{ k } = { v } AND '
             criteria = pairs.rstrip( ' AND ' )
             return criteria
 
@@ -466,11 +466,10 @@ class CriteriaBuilder( ):
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
             pairs = ''
             criteria = ''
-            for n in self.__names:
-                for v in self.__values:
-                    pairs += f'{ n } = { v } AND '
-                pairs.rstrip( ' AND ' )
-                criteria = 'WHERE ' + pairs
+            for k, v in zip( self.__names, self.__values ):
+                pairs += f'{ k } = { v } AND '
+            pairs.rstrip( ' AND ' )
+            criteria = 'WHERE ' + pairs
             return criteria
 
     def setdump( self ):
@@ -479,11 +478,10 @@ class CriteriaBuilder( ):
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
             pairs = ''
             criteria = ''
-            for n in self.__names:
-                for v in self.__values:
-                    pairs += f'{ n } = { v }, '
-                pairs.rstrip( ', ' )
-                criteria = 'SET ' + pairs
+            for k, v in zip( self.__names, self.__values ):
+                pairs += f'{ n } = { v }, '
+            pairs.rstrip( ', ' )
+            criteria = 'SET ' + pairs
             return criteria
 
     def columndump( self ):
