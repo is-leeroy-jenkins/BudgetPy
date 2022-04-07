@@ -479,7 +479,7 @@ class CriteriaBuilder( ):
             pairs = ''
             criteria = ''
             for k, v in zip( self.__names, self.__values ):
-                pairs += f'{ n } = { v }, '
+                pairs += f'{ k } = { v }, '
             pairs.rstrip( ', ' )
             criteria = 'SET ' + pairs
             return criteria
