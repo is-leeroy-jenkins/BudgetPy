@@ -14,13 +14,13 @@ class Source( ):
 
     @property
     def data( self ):
-        ''' Property used to store tablename names in a list '''
+        ''' Property used to store tablename cols in a list '''
         if self.__data is not None:
             return list( self.__data ) 
 
     @property
     def references( self ):
-        ''' Property used to store tablename names in a list '''
+        ''' Property used to store tablename cols in a list '''
         if self.__references is not None:
             return list( self.__references ) 
 
@@ -364,7 +364,7 @@ class DataConnection( ):
 
     def open( self ):
             __path = self.__provider.getpath( )
-            if __path is not None:
+            if isinstance( __path, str ) and os.path.exists( __path ):
                 self.__connection = sl.connect( __path )
             if self.__connection is not None:
                 self.__isopen = True
@@ -377,7 +377,7 @@ class DataConnection( ):
 
 
 class CriteriaBuilder( ):
-    '''CriteriaBuilder( command, names, values  ) provides the
+    '''CriteriaBuilder( command, cols, vals  ) provides the
      predicate provider value pairs for sql queries'''
     __predicate = None
     __names = None
@@ -396,86 +396,120 @@ class CriteriaBuilder( ):
 
     @property
     def names( self ):
-        ''' builds criteria from provider value namevaluepairs'''
+        ''' builds crit from provider value namevaluepairs'''
         if isinstance( self.__names, list ):
             return self.__names
 
     @names.setter
     def names( self, keys ):
-        ''' builds criteria from provider value namevaluepairs'''
+        ''' builds crit from provider value namevaluepairs'''
         if keys is not None and isinstance( keys, list ):
             self.__names = keys
 
     @property
     def values( self ):
-        ''' builds criteria from provider value namevaluepairs'''
+        ''' builds crit from provider value namevaluepairs'''
         if isinstance( self.__values, list ):
             return self.__values
 
     @values.setter
     def values( self, vals  ):
-        ''' builds criteria from provider value namevaluepairs'''
+        ''' builds crit from provider value namevaluepairs'''
         if vals is not None and isinstance( vals, list ):
             self.__values = vals
 
     @property
-    def predicate( self  ):
-        if self.__names is not None and self.__values is not None:
-            for name in self.__names:
-                for value in self.__values:
-                    self.__predicate += f'{name} = {value} AND'
-            self.__predicate.rstrip( ' AND' ) 
-            return str( self.__predicate ) 
+    def pairs( self ):
+        if isinstance( self.__predicate, str ):
+            return self.__predicate
 
-    @predicate.setter
-    def predicate( self, kvp ):
+    @pairs.setter
+    def pairs( self, kvp ):
         if isinstance( kvp, dict ):
-            for name in kvp.keys( ):
-                for value in kvp.values( ):
-                    self.__predicate += f'{name} = {value} AND'
-            self.__predicate.rstrip( ' AND' ) 
+            map = dict()
+            for k in kvp.keys( ):
+                for v in kvp.values( ):
+                    map.update( k, v )
+            self.__predicate = map
 
     def __init__( self, cmd, names, values ):
+        self.__cmd = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
         self.__names = names if isinstance( names, list ) else list()
         self.__values = values if isinstance( values, list ) else list()
-        self.__cmd = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' ) 
-        self.__predicate = zip( self.__names, self.__values )
+        self.__predicate = self.__map( )
 
-    def create( self, names, values ):
-        if isinstance( names, list ) and isinstance( values, list ):
+    def __map( self ):
+        '''__map() returns dictionary built from
+        lists self.__names and self.__values'''
+        if isinstance( self.__names, list ) and isinstance( self.__values, list ):
+            map = dict( )
+            for key in self.__names:
+                for value in self.__values:
+                    map.update( key, value )
+            return map
+
+    def pairdump( self ):
+        '''dump() returns string of name value pairs
+        built from self.__names and self.__values'''
+        if isinstance( self.__names, list ) and isinstance( self.__values, list ):
+            pairs = ''
             criteria = ''
-            for name in names:
-                for value in values:
-                    criteria += f'{name} = {value} AND'
-                criteria.rstrip( ' AND'  )
+            for n in self.__names:
+                for v in self.__values:
+                    pairs += f'{ n } = { v } AND'
+                pairs.rstrip( ' AND' )
+                criteria = pairs
+            return criteria
 
-    def equimap( self, this, that  ):
-        if this is not None and that is not None:
-            return f'{this} = {that}'
+    def wheredump( self ):
+        '''pairdump( names, values) returns a string
+        using list arguments names and values'''
+        if isinstance( self.__names, list ) and isinstance( self.__values, list ):
+            pairs = ''
+            criteria = ''
+            for n in names:
+                for v in values:
+                    pairs += f'{ n } = { v } AND'
+                pairs.rstrip( ' AND' )
+                criteria = 'WHERE ' + pairs
+            return criteria
 
-    def inequimap( self, this, that ):
-        if this is not None and that is not None:
-            return f'{this} != {that}'
+    def setdump( self ):
+        '''pairdump( names, values) returns a string
+        using list arguments names and values'''
+        if isinstance( self.__names, list ) and isinstance( self.__values, list ):
+            pairs = ''
+            criteria = ''
+            for n in names:
+                for v in values:
+                    pairs += f'{ n } = { v }, '
+                pairs.rstrip( ', ' )
+                criteria = 'SET ' + pairs
+            return criteria
 
-    def lessmap( self, this, that ):
-        if this is not None and that is not None:
-            return f'{this} < {that}'
+    def columndump( self ):
+        '''columndump( ) returns a string of columbs
+        used in select statements from list self.__names'''
+        if isinstance( self.__names, list ):
+            cols = ''
+            columns = ''
+            for n in self.__names:
+                cols += f'{ n }, '
+            cols.rstrip( ', ' )
+            columns = '(' + cols + ')'
+            return columns
 
-    def greatermap( self, this, that ):
-        if this is not None and that is not None:
-            return f'{this} > {that}'
-
-    def lessequimap( self, this, that ):
-        if this is not None and that is not None:
-            return f'{this} <= {that}'
-
-    def greaterequimap( self, this, that ):
-        if this is not None and that is not None:
-            return f'{this} >= {that}'
-
-    def likemap( self, this, that ):
-        if this is not None and that is not None:
-            return f'{this} LIKE {that}'
+    def valuedump( self ):
+        '''valuedump( ) returns a string of values
+        used in select statements from list self.__names'''
+        if isinstance( self.__values, list ):
+            vals = ''
+            values = ''
+            for v in self.__values:
+                vals += f'{ v }, '
+            vals.rstrip( ', ' )
+            values = '(' + vals + ')'
+            return values
 
 
 class SqlStatement( ):
@@ -488,7 +522,9 @@ class SqlStatement( ):
     __provider = None
     __table = None
     __names = None
+    __columnnames = None
     __values = None
+    __columnvalues = None
     __commandtext = None
 
     @property
@@ -497,12 +533,11 @@ class SqlStatement( ):
             return self.__provider
 
     @provider.setter
-    def provider( self, pdr ):
-        if isinstance( pdr, Provider ):
-            self.__provider = pdr
+    def provider( self, pvr ):
+        if isinstance( pvr, Provider ):
+            self.__provider = pvr
         else:
-            sqlite = Provider( 'SQLite' ) 
-            self.__provider = sqlite
+            self.__provider = Provider( 'SQLite' )
 
     @property
     def command( self ):
@@ -510,9 +545,9 @@ class SqlStatement( ):
             return self.__command
 
     @command.setter
-    def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
-            self.__command = cmd
+    def command( self, cmdtype ):
+        if isinstance( cmdtype, CommandType ):
+            self.__command = cmdtype
         else:
             command = CommandType( 'SELECT' ) 
             self.__command = command
@@ -527,8 +562,7 @@ class SqlStatement( ):
         if isinstance( src, Source ):
             self.__source = src
         else:
-            source = Source( 'Allocations' ) 
-            self.__source = source
+            self.__source = Source( 'StatusOfFunds' )
 
     @property
     def table( self ):
@@ -537,15 +571,53 @@ class SqlStatement( ):
 
     @table.setter
     def table( self, name ):
-        if name is not None and name != '':
+        if isinstance( name, str ) and name != '':
             self.__table = name
 
-    def __init__( self, connection, criteria ):
-        self.__criteria = criteria if isinstance( criteria, CriteriaBuilder ) \
-            else CriteriaBuilder( self.__commandtype, self.__names, self.__values )
-        self.__commandtype = criteria.command if isinstance( criteria, CriteriaBuilder ) \
+    @property
+    def names( self ):
+        if isinstance( self.__names, list ):
+            return self.__names
+
+    @names.setter
+    def names( self, cols ):
+        if isinstance( cols, list ):
+            self.__names = cols
+
+    @property
+    def values( self ):
+        if isinstance( self.__values, list ):
+            return self.__values
+
+    @values.setter
+    def values( self, vals ):
+        if isinstance( vals, list ):
+            self.__values = vals
+
+    @property
+    def columnnames( self ):
+        if isinstance( self.__names, list ):
+            col = ", "
+            col.join( self.__names )
+            col.rstrip( ", '" )
+            self.__columnnames = '(' + col + ')"'
+            return self.__columnnames
+
+    @property
+    def columnvalues( self ):
+        if isinstance( self.__values, list ):
+            val = ', '
+            val.join( self.__values )
+            val.rstrip( ', ' )
+            self.__columnvalues = '(' + val + ')"'
+            return self.__columnvalues
+
+    def __init__( self, conn, crit ):
+        self.__criteria = crit if isinstance( crit, CriteriaBuilder ) \
+            else CriteriaBuilder( )
+        self.__commandtype = crit.command if isinstance( crit, CriteriaBuilder ) \
             else CommandType( 'SELECT' )
-        self.__connection = connection if isinstance( connection, DataConnection ) \
+        self.__connection = conn if isinstance( conn, DataConnection ) \
             else DataConnection()
         self.__provider = self.__connection.provider if isinstance( self.__connection, DataConnection ) \
             else Provider( 'SQLite' )
@@ -559,29 +631,16 @@ class SqlStatement( ):
         if isinstance( self.__commandtext, str ):
             return self.__commandtext
 
-    def insertfields( self ):
-        if isinstance( self.__names, list ):
-            col = ", "
-            col.join( self.__names )
-            col.rstrip( ", '" )
-            return '(' + col + ')"'
-
-    def insertvalues( self ):
-        if isinstance( self.__values, list ):
-            val = ', '
-            val.join( self.__values )
-            val.rstrip( ', ' )
-            return '(' + val + ')"'
-
     def commandtext( self ):
         if self.__commandtype == 'SELECT' and isinstance( self.__source, Source ):
-            self.__commandtext = 'SELECT * FROM ' + self.__source.table
+            self.__commandtext = f'SELECT * FROM {self.__source.table};'
             return self.__commandtext
         elif self.__commandtype == 'INSERT' and isinstance( self.__source, Source ):
-            self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.predicate }'
+            self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.pairs }'
+
 
 class DataQuery( ):
-    '''DataQuery( connection, sql ) class for queries
+    '''DataQuery( conn, sql ) class for queries
     against the database'''
     __connection = None
     __sqlstatement = None
@@ -590,8 +649,8 @@ class DataQuery( ):
     __source = None
     __table = None
 
-    def __init__( self, sqlstatement ):
-        self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else SqlStatement( 'SELECT' )
+    def __init__( self, sql ):
+        self.__sqlstatement = sql if isinstance( sql, SqlStatement ) else SqlStatement( 'SELECT' )
         self.__provider = self.__sqlstatement.provider
         self.__source = self.__sqlstatement.source
         self.__table = self.__source.table
