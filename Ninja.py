@@ -149,7 +149,7 @@ class Provider( ):
         if isinstance( self.__source, Source ):
             return self.__source
 
-    @name.setter
+    @source.setter
     def source( self, src ):
         if isinstance( src, Source ):
             self.__source = src
@@ -420,7 +420,7 @@ class CriteriaBuilder( ):
 
     @property
     def pairs( self ):
-        if isinstance( self.__predicate, str ):
+        if isinstance( self.__predicate, dict ):
             return self.__predicate
 
     @pairs.setter
@@ -445,7 +445,7 @@ class CriteriaBuilder( ):
             map = dict( )
             for key in self.__names:
                 for value in self.__values:
-                    map.update( key, value )
+                    map[ key ] = value
             return map
 
     def pairdump( self ):
@@ -456,9 +456,8 @@ class CriteriaBuilder( ):
             criteria = ''
             for n in self.__names:
                 for v in self.__values:
-                    pairs += f'{ n } = { v } AND'
-                pairs.rstrip( ' AND' )
-                criteria = pairs
+                    pairs += f'{ n } = { v } AND '
+            criteria = pairs.rstrip( ' AND ' )
             return criteria
 
     def wheredump( self ):
@@ -467,10 +466,10 @@ class CriteriaBuilder( ):
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
             pairs = ''
             criteria = ''
-            for n in names:
-                for v in values:
-                    pairs += f'{ n } = { v } AND'
-                pairs.rstrip( ' AND' )
+            for n in self.__names:
+                for v in self.__values:
+                    pairs += f'{ n } = { v } AND '
+                pairs.rstrip( ' AND ' )
                 criteria = 'WHERE ' + pairs
             return criteria
 
@@ -480,8 +479,8 @@ class CriteriaBuilder( ):
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
             pairs = ''
             criteria = ''
-            for n in names:
-                for v in values:
+            for n in self.__names:
+                for v in self.__values:
                     pairs += f'{ n } = { v }, '
                 pairs.rstrip( ', ' )
                 criteria = 'SET ' + pairs
