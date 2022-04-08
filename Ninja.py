@@ -220,7 +220,9 @@ class CommandType( ):
     '''CommandType( command  ) defines the types of sql commands
     used to query the database'''
     __select = None
+    __selectdistinct = None
     __selectall = None
+    __selectdistinctall = None
     __insert = None
     __update = None
     __delete = None
@@ -237,6 +239,16 @@ class CommandType( ):
     def select( self ):
         if self.__select is not None:
             return self.__select
+
+    @property
+    def selectdistinct( self ):
+        if self.__selectdistinct is not None:
+            return self.__selectdistinct
+
+    @property
+    def selectall( self ):
+        if self.__selectall is not None:
+            return self.__selectall
 
     @property
     def insert( self ):
@@ -286,6 +298,9 @@ class CommandType( ):
     def __init__( self, cmd ):
         '''constructor for the CommandType class'''
         self.__select = 'SELECT'
+        self.__selectall = 'SELECT ALL'
+        self.__selectdistinct = 'SELECT DISTINCT'
+        self.__selectalldistinct = 'SELECT DISTINCT ALL'
         self.__insert = 'INSERT'
         self.__update = 'UPDATE'
         self.__delete = 'DELETE'
