@@ -3,7 +3,6 @@ import pandas as pd
 import pyodbc as db
 import os
 
-
 class Source( ):
     '''Source( tablename  ) provides list of Budget Execution
     tables across two databases ( data and references ) '''
@@ -605,10 +604,10 @@ class SqlStatement( ):
         if isinstance( vals, list ):
             self.__values = vals
 
-    def __init__( self, conn, crit ):
-        self.__criteria = crit if isinstance( crit, CriteriaBuilder ) else None
-        self.__commandtype = crit.command
-        self.__connection = conn if isinstance( conn, DataConnection ) else None
+    def __init__( self, connection, criteria ):
+        self.__criteria = criteria if isinstance( criteria, CriteriaBuilder ) else None
+        self.__commandtype = criteria.command
+        self.__connection = connection if isinstance( connection, DataConnection ) else None
         self.__provider = self.__connection.provider if isinstance( conn, DataConnection ) else None
         self.__source = self.__connection.source if isinstance( conn, DataConnection ) else None
         self.__names = self.__criteria.names
@@ -625,270 +624,6 @@ class SqlStatement( ):
             return self.__commandtext
         elif self.__commandtype == 'INSERT' and isinstance( self.__source, Source ):
             self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.pairs }'
-
-
-class DataRow( sl.Row ):
-    '''Defines the DataRow Class'''
-    __source = None
-    __names = None
-    __items = None
-    __data = None
-    __values = None
-    __id = None
-
-    @property
-    def index( self ):
-        if isinstance( self.__id, int ):
-            return self.__id
-
-    @index.setter
-    def index( self, ordinal ):
-        if isinstance( ordinal, int ):
-            self.__id = ordinal
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return dict( self.__data ) 
-
-    @data.setter
-    def data( self, items ):
-        if isinstance( items, dict ):
-            self.__items = items
-
-    @property
-    def items( self ):
-        if isinstance( self.__items, tuple ):
-            return self.__items
-
-    @items.setter
-    def items( self, data ):
-        if isinstance( data, tuple ):
-            self.__items = data
-
-    @property
-    def names( self ):
-        if self.__names is not None:
-            return self.__names
-
-    @names.setter
-    def names( self, data ):
-        if isinstance( data, dict ):
-            self.__names = data.keys( ) 
-
-    @property
-    def values( self ):
-        if self.__values is not None:
-            return list( self.__values ) 
-
-    @values.setter
-    def values( self, items ):
-        if isinstance( items, list ):
-            self.__values = items
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
-
-    @source.setter
-    def source( self, row ):
-        if isinstance( row, sl.Row ):
-            self.__source = row
-
-    def __init__( self, items=None ):
-        super( ) .__init__( items ) 
-        self.__source = sl.Row( ) 
-        self.__items = dict( items ) 
-        self.__id = int( items[0] ) 
-        self.__names = list( self.__items.keys( ) ) 
-        self.__values = self.__items.values( ) 
-
-    def __str__( self ):
-        return 'Row ID: ' + str( self.__id ) 
-
-
-class DataColumn( ):
-    '''Defines the DataColumn Class'''
-    __base = None
-    __source = None
-    __row = None
-    __name = None
-    __value = None
-    __type = None
-    __caption = None
-    __id = None
-    __table = None
-    __data = None
-
-    @property
-    def name( self ):
-        if self.__name is not None:
-            return self.__name
-
-    @name.setter
-    def name( self, name ):
-        if name is not None:
-            self.__name = str( name ) 
-
-    @property
-    def value( self ):
-        if self.__value is not None:
-            return self.__value
-
-    @value.setter
-    def value( self, value ):
-        if value is not None:
-            self.__value = value
-
-    @property
-    def datatype( self ):
-        if self.__type is not None:
-            return self.__type
-        else:
-            return 'NS'
-
-    @datatype.setter
-    def datatype( self, typ ):
-        if typ is not None:
-            self.__type = str( type( typ ) ) 
-
-    @property
-    def caption( self ):
-        if self.__caption is not None:
-            return self.__caption
-
-    @caption.setter
-    def caption( self, text ):
-        if text is not None:
-            self.__caption = str( text ) 
-
-    @property
-    def ordinal( self ):
-        if self.__id > -1:
-            return self.__id
-
-    @ordinal.setter
-    def ordinal( self, index ):
-        if isinstance( index, int ):
-            self.__id = index
-
-    @property
-    def table( self ):
-        if self.__table is not None:
-            return self.__table
-
-    @table.setter
-    def table( self, name ):
-        if name is not None:
-            self.__table = str( name ) 
-
-    @property
-    def row( self ):
-        if self.__row is not None:
-            return self.__row
-
-    @row.setter
-    def row( self, items ):
-        if isinstance( items, dict ):
-            self.__base = items
-            self.__row = self.__base
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
-
-    @source.setter
-    def source( self, table ):
-        if table is not None:
-            self.__source = str( table ) 
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return self.__data
-
-    @property
-    def isnumeric( self ):
-        if not isinstance( self.__value, str ):
-            return True
-
-    @property
-    def istext( self ):
-        if isinstance( self.__value, str ):
-            return True
-
-    def __init__( self, name, value ):
-        self.__name = str( name ) 
-        self.__value = value
-        self.__base = {self.__name: self.__value}
-        self.__data = {'ordinal': self.__id, 'provider': self.__name,
-                       'caption': self.__caption, 'value': self.__value,
-                       'datatype': self.__type, 'tablename': self.__table}
-
-    def __str__( self ):
-        return self.__name
-
-
-class DataTable( pd.DataFrame ):
-    '''Defines the DataTable Class'''
-    __base = None
-    __name = None
-    __data = None
-    __columns = None
-
-    @property
-    def name( self ):
-        if isinstance( self.__name, str ):
-            return self.__name
-
-    @name.setter
-    def name( self, name ):
-        if name is not None:
-            self.__name = str( name ) 
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, dataframe ):
-        if isinstance( dataframe, pd.DataFrame ):
-            self.__data = pd.DataFrame( dataframe ) 
-
-    @property
-    def schema( self ):
-        if self.__columns is not None:
-            return self.__columns
-
-    @schema.setter
-    def schema( self, columns ):
-        if isinstance( columns, dict ):
-            self.__columns = pd.Series( columns ) .index
-
-    @property
-    def rows( self ):
-        if self.__rows is not None:
-            return self.__rows
-
-    @rows.setter
-    def rows( self, items ):
-        if isinstance( items, list ):
-            self.__rows = items
-
-    def __init__( self, name ):
-        super( ) .__init__( ) 
-        self.__base = str( name ) 
-        self.__name = self.__base
-        self.__data = pd.DataFrame( self.__name ) 
-        self.__rows = [tuple( r ) for r in self.__data[0:]]
-        self.__columns = self.__data.columns
-
-    def __str__( self ):
-        if self.__name is not None:
-            return self.__name
 
 
 class SQLiteData( ):
@@ -1470,3 +1205,268 @@ class SqlServerReference( ):
     def __str__( self ):
         if isinstance( self.__source, Source ):
             return self.__source.name
+
+
+class DataRow( sl.Row ):
+    '''Defines the DataRow Class'''
+    __source = None
+    __names = None
+    __items = None
+    __data = None
+    __values = None
+    __id = None
+
+    @property
+    def index( self ):
+        if isinstance( self.__id, int ):
+            return self.__id
+
+    @index.setter
+    def index( self, ordinal ):
+        if isinstance( ordinal, int ):
+            self.__id = ordinal
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return dict( self.__data )
+
+    @data.setter
+    def data( self, items ):
+        if isinstance( items, dict ):
+            self.__items = items
+
+    @property
+    def items( self ):
+        if isinstance( self.__items, tuple ):
+            return self.__items
+
+    @items.setter
+    def items( self, data ):
+        if isinstance( data, tuple ):
+            self.__items = data
+
+    @property
+    def names( self ):
+        if self.__names is not None:
+            return self.__names
+
+    @names.setter
+    def names( self, data ):
+        if isinstance( data, dict ):
+            self.__names = data.keys( )
+
+    @property
+    def values( self ):
+        if self.__values is not None:
+            return list( self.__values )
+
+    @values.setter
+    def values( self, items ):
+        if isinstance( items, list ):
+            self.__values = items
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @source.setter
+    def source( self, row ):
+        if isinstance( row, sl.Row ):
+            self.__source = row
+
+    def __init__( self, items=None ):
+        super( ) .__init__( items )
+        self.__source = sl.Row( )
+        self.__items = dict( items )
+        self.__id = int( items[0] )
+        self.__names = list( self.__items.keys( ) )
+        self.__values = self.__items.values( )
+
+    def __str__( self ):
+        return 'Row ID: ' + str( self.__id )
+
+
+class DataColumn( ):
+    '''Defines the DataColumn Class'''
+    __base = None
+    __source = None
+    __row = None
+    __name = None
+    __value = None
+    __type = None
+    __caption = None
+    __id = None
+    __table = None
+    __data = None
+
+    @property
+    def name( self ):
+        if self.__name is not None:
+            return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
+
+    @property
+    def value( self ):
+        if self.__value is not None:
+            return self.__value
+
+    @value.setter
+    def value( self, value ):
+        if value is not None:
+            self.__value = value
+
+    @property
+    def datatype( self ):
+        if self.__type is not None:
+            return self.__type
+        else:
+            return 'NS'
+
+    @datatype.setter
+    def datatype( self, typ ):
+        if typ is not None:
+            self.__type = str( type( typ ) )
+
+    @property
+    def caption( self ):
+        if self.__caption is not None:
+            return self.__caption
+
+    @caption.setter
+    def caption( self, text ):
+        if text is not None:
+            self.__caption = str( text )
+
+    @property
+    def ordinal( self ):
+        if self.__id > -1:
+            return self.__id
+
+    @ordinal.setter
+    def ordinal( self, index ):
+        if isinstance( index, int ):
+            self.__id = index
+
+    @property
+    def table( self ):
+        if self.__table is not None:
+            return self.__table
+
+    @table.setter
+    def table( self, name ):
+        if name is not None:
+            self.__table = str( name )
+
+    @property
+    def row( self ):
+        if self.__row is not None:
+            return self.__row
+
+    @row.setter
+    def row( self, items ):
+        if isinstance( items, dict ):
+            self.__base = items
+            self.__row = self.__base
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @source.setter
+    def source( self, table ):
+        if table is not None:
+            self.__source = str( table )
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @property
+    def isnumeric( self ):
+        if not isinstance( self.__value, str ):
+            return True
+
+    @property
+    def istext( self ):
+        if isinstance( self.__value, str ):
+            return True
+
+    def __init__( self, name, value ):
+        self.__name = str( name )
+        self.__value = value
+        self.__base = {self.__name: self.__value}
+        self.__data = {'ordinal': self.__id, 'provider': self.__name,
+                       'caption': self.__caption, 'value': self.__value,
+                       'datatype': self.__type, 'tablename': self.__table}
+
+    def __str__( self ):
+        return self.__name
+
+
+class DataTable( pd.DataFrame ):
+    '''Defines the DataTable Class'''
+    __base = None
+    __name = None
+    __data = None
+    __columns = None
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ):
+            return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if name is not None:
+            self.__name = str( name )
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @data.setter
+    def data( self, dataframe ):
+        if isinstance( dataframe, pd.DataFrame ):
+            self.__data = pd.DataFrame( dataframe )
+
+    @property
+    def schema( self ):
+        if self.__columns is not None:
+            return self.__columns
+
+    @schema.setter
+    def schema( self, columns ):
+        if isinstance( columns, dict ):
+            self.__columns = pd.Series( columns ) .index
+
+    @property
+    def rows( self ):
+        if self.__rows is not None:
+            return self.__rows
+
+    @rows.setter
+    def rows( self, items ):
+        if isinstance( items, list ):
+            self.__rows = items
+
+    def __init__( self, name ):
+        super( ) .__init__( )
+        self.__base = str( name )
+        self.__name = self.__base
+        self.__data = pd.DataFrame( self.__name )
+        self.__rows = [tuple( r ) for r in self.__data[0:]]
+        self.__columns = self.__data.columns
+
+    def __str__( self ):
+        if self.__name is not None:
+            return self.__name
+
