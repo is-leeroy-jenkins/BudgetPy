@@ -220,6 +220,7 @@ class CommandType( ):
     '''CommandType( command  ) defines the types of sql commands
     used to query the database'''
     __select = None
+    __selectall = None
     __insert = None
     __update = None
     __delete = None
@@ -307,6 +308,8 @@ class CommandType( ):
         will be used to query the database'''
         if cmd in self.__list and str( cmd ) .upper( ) == 'SELECT':
             self.__type = self.__select
+        elif str( cmd ) .upper( ) == 'SELECT ALL':
+            self.__type = self.__selectall
         elif str( cmd ) .upper( ) == 'INSERT':
             self.__type = self.__insert
         elif str( cmd ) .upper( ) == 'DELETE':
@@ -358,8 +361,8 @@ class DataConnection( ):
             self.__source = src
 
     def __init__( self, source, provider ):
-        self.__source = source if isinstance( source, Source ) else Source( 'StatusOfFunds' )
-        self.__provider = provider if isinstance( provider, Provider ) else Provider( 'SQLite' )
+        self.__source = source if isinstance( source, Source ) else None
+        self.__provider = provider if isinstance( provider, Provider ) else None
         self.__isopen = False
 
     def open( self ):
@@ -468,8 +471,7 @@ class CriteriaBuilder( ):
             criteria = ''
             for k, v in zip( self.__names, self.__values ):
                 pairs += f'{ k } = { v } AND '
-            pairs.rstrip( ' AND ' )
-            criteria = 'WHERE ' + pairs
+            criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
             return criteria
 
     def setdump( self ):
@@ -480,8 +482,7 @@ class CriteriaBuilder( ):
             criteria = ''
             for k, v in zip( self.__names, self.__values ):
                 pairs += f'{ k } = { v }, '
-            pairs.rstrip( ', ' )
-            criteria = 'SET ' + pairs
+            criteria = 'SET ' + pairs.rstrip( ', ' )
             return criteria
 
     def columndump( self ):
@@ -492,8 +493,7 @@ class CriteriaBuilder( ):
             columns = ''
             for n in self.__names:
                 cols += f'{ n }, '
-            cols.rstrip( ', ' )
-            columns = '(' + cols + ')'
+            columns = '(' + cols.rstrip( ', ' ) + ')'
             return columns
 
     def valuedump( self ):
@@ -504,8 +504,7 @@ class CriteriaBuilder( ):
             values = ''
             for v in self.__values:
                 vals += f'{ v }, '
-            vals.rstrip( ', ' )
-            values = '(' + vals + ')'
+            values = '(' + vals.rstrip( ', ' ) + ')'
             return values
 
 
@@ -513,8 +512,8 @@ class SqlStatement( ):
     '''SqlStatement( connection, criteria ) Class represents
      the sql queries used in the application'''
     __commandtype = None
-    __connection = None
     __criteria = None
+    __connection = None
     __source = None
     __provider = None
     __table = None
@@ -542,9 +541,9 @@ class SqlStatement( ):
             return self.__command
 
     @command.setter
-    def command( self, cmdtype ):
-        if isinstance( cmdtype, CommandType ):
-            self.__command = cmdtype
+    def command( self, cmd ):
+        if isinstance( cmd, CommandType ):
+            self.__command = cmd
         else:
             command = CommandType( 'SELECT' ) 
             self.__command = command
@@ -591,29 +590,12 @@ class SqlStatement( ):
         if isinstance( vals, list ):
             self.__values = vals
 
-    @property
-    def columnnames( self ):
-        if isinstance( self.__names, list ):
-            col = ", "
-            col.join( self.__names )
-            col.rstrip( ", '" )
-            self.__columnnames = '(' + col + ')"'
-            return self.__columnnames
-
-    @property
-    def columnvalues( self ):
-        if isinstance( self.__values, list ):
-            val = ', '
-            val.join( self.__values )
-            val.rstrip( ', ' )
-            self.__columnvalues = '(' + val + ')"'
-            return self.__columnvalues
-
-    def __init__( self, pvdr, src, crit ):
-        self.__criteria = crit if isinstance( crit, CriteriaBuilder ) else CriteriaBuilder( )
+    def __init__( self, conn, crit ):
+        self.__criteria = crit if isinstance( crit, CriteriaBuilder ) else None
         self.__commandtype = crit.command
-        self.__provider = pvdr if isinstance( pvdr, Provider ) else Provider( 'SQLite' )
-        self.__source = src if isinstance( src, Source ) else Source( 'StatusOfFunds' )
+        self.__connection = conn if isinstance( conn, DataConnection ) else None
+        self.__provider = self.__connection.provider if isinstance( conn, DataConnection ) else None
+        self.__source = self.__connection.source if isinstance( conn, DataConnection ) else None
         self.__names = self.__criteria.names
         self.__values = self.__criteria.values
         self.__table = self.__source.table
@@ -628,71 +610,6 @@ class SqlStatement( ):
             return self.__commandtext
         elif self.__commandtype == 'INSERT' and isinstance( self.__source, Source ):
             self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.pairs }'
-
-
-class DataQuery( ):
-    '''DataQuery( conn, sql ) class for queries
-    against the database'''
-    __connection = None
-    __sqlstatement = None
-    __commandtype = None
-    __provider = None
-    __source = None
-    __table = None
-
-    @property
-    def provider( self ):
-        if self.__provider is not None:
-            return self.__provider
-
-    @provider.setter
-    def provider( self, pvr ):
-        if isinstance( pvr, Provider ):
-            self.__provider = pvr
-        else:
-            self.__provider = Provider( 'SQLite' )
-
-    @property
-    def command( self ):
-        if self.__commandtype is not None:
-            return self.__commandtype
-
-    @command.setter
-    def command( self, cmdtype ):
-        if isinstance( cmdtype, CommandType ):
-            self.__commandtype = cmdtype
-        else:
-            command = CommandType( 'SELECT' )
-            self.__commandtype = command
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
-
-    @source.setter
-    def source( self, src ):
-        if isinstance( src, Source ):
-            self.__source = src
-        else:
-            self.__source = Source( 'StatusOfFunds' )
-
-    @property
-    def table( self ):
-        if self.__table is not None:
-            return self.__table
-
-    @table.setter
-    def table( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__table = name
-
-    def __init__( self, sql ):
-        self.__sqlstatement = sql if isinstance( sql, SqlStatement ) else None
-        self.__provider = self.__sqlstatement.provider
-        self.__source = self.__sqlstatement.source
-        self.__table = self.__source.table
-        self.__connection = self.__sqlstatement.connection
 
 
 class DataRow( sl.Row ):
@@ -810,14 +727,14 @@ class DataColumn( ):
             self.__value = value
 
     @property
-    def type( self ):
+    def datatype( self ):
         if self.__type is not None:
             return self.__type
         else:
             return 'NS'
 
-    @type.setter
-    def type( self, typ ):
+    @datatype.setter
+    def datatype( self, typ ):
         if typ is not None:
             self.__type = str( type( typ ) ) 
 
@@ -1139,6 +1056,10 @@ class SQLiteReference( ):
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' ) 
 
+    def __str__( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source.name
+
     def connect( self ):
         if self.__connstr is not None:
             return DataConnection( self.__connstr )
@@ -1219,10 +1140,6 @@ class AccessData( ):
         if isinstance( cmd, CommandType ):
             self.__command = cmd
 
-    def connect( self ):
-        if not self.__connstr == '':
-            return db.connect( self.__connstr )
-
     def __init__( self, tablename ):
         self.__source = Source( tablename )
         self.__table = self.__source.table
@@ -1232,6 +1149,14 @@ class AccessData( ):
         self.__connstr = f'{self.__driver};{self.__dbpath};{self.__source};'
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' )
+
+    def __str__( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source.name
+
+    def connect( self ):
+        if not self.__connstr == '':
+            return db.connect( self.__connstr )
 
 
 class AccessReference( ):
@@ -1318,10 +1243,13 @@ class AccessReference( ):
         self.__data = pd.DataFrame
         self.__command = CommandType( 'SELECT' )
 
+    def __str__( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source.name
+
     def connect( self ):
         if self.__connstr is not None:
             return db.connect( self.__connstr )
-
 
 
 class SqlServerData( ):
@@ -1376,12 +1304,12 @@ class SqlServerData( ):
             self.__source = str( source ) 
 
     @property
-    def connectionstring( self ):
+    def connstring( self ):
         if not self.__connstr == '':
             return self.__connstr
 
-    @connectionstring.setter
-    def connectionstring( self, conn ):
+    @connstring.setter
+    def connstring( self, conn ):
         if conn is not None:
             self.__dbpath = str( conn ) 
 
@@ -1408,10 +1336,6 @@ class SqlServerData( ):
         if isinstance( cmd, CommandType ):
             self.__command = cmd
 
-    def __str__( self ):
-        if self.__dbpath is not None:
-            return self.__dbpath
-
     def __init__( self, tablename ):
         self.__source = Source( tablename ) 
         self.__table = self.__source.table
@@ -1422,6 +1346,14 @@ class SqlServerData( ):
                         r'\db\mssql\datamodels\Data.mdf'
         self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
         self.__data = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source.name
+
+    def connect( self ):
+        if self.__connstr is not None:
+            return DataConnection( self.__connstr )
 
 
 class SqlServerReference( ):
@@ -1519,3 +1451,7 @@ class SqlServerReference( ):
                         r'\db\mssql\referencemodels\References.mdf'
         self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
         self.__data = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source.name
