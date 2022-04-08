@@ -609,17 +609,11 @@ class SqlStatement( ):
             self.__columnvalues = '(' + val + ')"'
             return self.__columnvalues
 
-    def __init__( self, conn, crit ):
-        self.__criteria = crit if isinstance( crit, CriteriaBuilder ) \
-            else CriteriaBuilder( )
-        self.__commandtype = crit.command if isinstance( crit, CriteriaBuilder ) \
-            else CommandType( 'SELECT' )
-        self.__connection = conn if isinstance( conn, DataConnection ) \
-            else DataConnection()
-        self.__provider = self.__connection.provider if isinstance( self.__connection, DataConnection ) \
-            else Provider( 'SQLite' )
-        self.__source = self.__connection.source if isinstance( self.__connection, DataConnection ) \
-            else Source( 'StatusOfFunds' )
+    def __init__( self, pvdr, src, crit ):
+        self.__criteria = crit if isinstance( crit, CriteriaBuilder ) else CriteriaBuilder( )
+        self.__commandtype = crit.command
+        self.__provider = pvdr if isinstance( pvdr, Provider ) else Provider( 'SQLite' )
+        self.__source = src if isinstance( src, Source ) else Source( 'StatusOfFunds' )
         self.__names = self.__criteria.names
         self.__values = self.__criteria.values
         self.__table = self.__source.table
@@ -646,12 +640,59 @@ class DataQuery( ):
     __source = None
     __table = None
 
+    @property
+    def provider( self ):
+        if self.__provider is not None:
+            return self.__provider
+
+    @provider.setter
+    def provider( self, pvr ):
+        if isinstance( pvr, Provider ):
+            self.__provider = pvr
+        else:
+            self.__provider = Provider( 'SQLite' )
+
+    @property
+    def command( self ):
+        if self.__commandtype is not None:
+            return self.__commandtype
+
+    @command.setter
+    def command( self, cmdtype ):
+        if isinstance( cmdtype, CommandType ):
+            self.__commandtype = cmdtype
+        else:
+            command = CommandType( 'SELECT' )
+            self.__commandtype = command
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @source.setter
+    def source( self, src ):
+        if isinstance( src, Source ):
+            self.__source = src
+        else:
+            self.__source = Source( 'StatusOfFunds' )
+
+    @property
+    def table( self ):
+        if self.__table is not None:
+            return self.__table
+
+    @table.setter
+    def table( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__table = name
+
     def __init__( self, sql ):
-        self.__sqlstatement = sql if isinstance( sql, SqlStatement ) else SqlStatement( 'SELECT' )
+        self.__sqlstatement = sql if isinstance( sql, SqlStatement ) else None
         self.__provider = self.__sqlstatement.provider
         self.__source = self.__sqlstatement.source
         self.__table = self.__source.table
-        self.__connection = DataConnection( self.__sqlstatement.source, self.__sqlstatement.provider )
+        self.__connection = self.__sqlstatement.connection
 
 
 class DataRow( sl.Row ):
@@ -1468,12 +1509,12 @@ class SqlServerReference( ):
         if isinstance( cmd, CommandType ):
             self.__command = cmd
 
-    def __init__( self, tablename ):
+    def __init__( self, tablename, cmd = None ):
         self.__source = Source( tablename ) 
         self.__table = self.__source.table
         self.__server = r'( LocalDB ) \MSSQLLocalDB'
         self.__driver = r'{SQL Server Native Client 11.0}'
-        self.__command = CommandType( 'SELECT' ) 
+        self.__command = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
         self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\mssql\referencemodels\References.mdf'
         self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
