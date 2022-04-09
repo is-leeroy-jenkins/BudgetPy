@@ -285,8 +285,7 @@ class DataModel( ):
         self.__source = source if isinstance( source, Source ) else Source.NS
         self.__name = self.__source.name if isinstance( self.__source, Source ) else None
         self.__table = self.__name
-        self.__sqlitedriver = r'DBMS: SQLite ( ver. 3.36.0 ) Case sensitivity: plain=mixed, ' \
-                        'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms;'
+        self.__sqlitedriver = r'DRIVER=SQLite3 ODBC Driver;'
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db;'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -296,9 +295,9 @@ class DataModel( ):
                             r'\db\access\datamodels\Data.accdb;'
         self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\referencemodels\References.accdb;'
-        self.__sqldriver = r'{SQL Server Native Client 11.0};'
         self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                            r'\db\mssql\datamodels\Data.mdf;'
+        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;'
         self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                            r'\db\mssql\referencemodels\References.mdf;'
 
@@ -352,7 +351,17 @@ class DataConnection( ):
 
     @property
     def connectionstring( self ):
-        if isinstance( self.__connxstring, str ):
+        if isinstance( self.__provider, Provider ) and self.__provider == Provider.SQLite:
+            self.__connxstring = f'DRIVER=SQLite3 ODBC Driver;SERVER=localhost;' \
+                    + f'DATABASE={self.__path};'
+            return self.__connxstring
+        elif isinstance( self.__provider, Provider ) and self.__provider == Provider.Access:
+            self.__connxstring = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
+                    + f'DBQ={ self.__path };'
+            return self.__connxstring
+        elif isinstance( self.__provider, Provider ) and self.__provider == Provider.SqlServer:
+            self.__connxstring = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
+                    + f'DBQ={ self.__path };'
             return self.__connxstring
 
     def __init__( self, model ):
