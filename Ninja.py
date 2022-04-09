@@ -357,13 +357,13 @@ class DataConnection( ):
 
     def __init__( self, model ):
         self.__model = model if isinstance( model, DataModel ) else None
-        self.__source = model.source.name
-        self.__provider = model.provider.name
-        self.__path = model.getpath()
-        self.__driver = model.getdriver()
+        self.__source = self.__model.source.name
+        self.__provider = self.__model.provider.name
+        self.__path = self.__model.getpath()
+        self.__driver = self.__model.getdriver()
         self.__dsn = self.__source + ';'
         self.__connxstring = 'Provider=' + self.__provider + ';' \
-                             + self.__dsn + 'DBQ=' + self.__path + ';'
+                             + self.__dsn + 'DBQ=' + self.__path
         self.__isopen = False
 
     def open( self ):
