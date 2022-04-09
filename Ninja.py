@@ -171,8 +171,8 @@ class DataModel( ):
 
     @property
     def provider( self ):
-        if isinstance( self.__source, Source ):
-            return self.__source
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
 
     @provider.setter
     def provider( self, pvdr ):
@@ -352,7 +352,7 @@ class DataConnection( ):
 
     @property
     def connectionstring( self ):
-        if isinstance( self.__connxstring, str ) and self.__connxstring != '':
+        if isinstance( self.__connxstring, str ):
             return self.__connxstring
 
     def __init__( self, model ):
