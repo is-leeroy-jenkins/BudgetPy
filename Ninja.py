@@ -321,13 +321,13 @@ class DataConnection( ):
 
     @property
     def model( self ):
-        if isinstance( self.__provider, Database ):
-            return self.__provider
+        if isinstance( self.__model, DataModel ):
+            return self.__model
 
     @model.setter
     def model( self, mod ):
-        if isinstance( pvdr, Database ):
-            self.__provider = pvdr
+        if isinstance( mod, DataModeel ):
+            self.__model = mod
 
     @property
     def source( self ):
