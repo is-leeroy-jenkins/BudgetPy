@@ -237,7 +237,7 @@ class DataModel( ):
             if self.__provider == Provider.SQLite and self.isreference():
                 return self.__sqlitereferencepath
             elif self.__provider == Provider.SQLite and self.isdata():
-                return self.__sqldatapath
+                return self.__sqlitedatapath
             elif self.__provider == Provider.Access and self.isdata():
                 return self.__accessdatapath
             elif self.__provider == Provider.Access and self.isreference():
