@@ -7,6 +7,7 @@ from enum import Enum, auto
 
 class Source( Enum ):
     '''enumeration of table names'''
+    NS = auto( )
     Allocations = auto( )
     ApplicationTables = auto( )
     CarryoverEstimates = auto( )
@@ -95,6 +96,7 @@ class Source( Enum ):
 
 class Provider( Enum ):
     '''enumeration of data providers'''
+    NS = auto( )
     SQLite = auto( )
     SqlServer = auto( )
     Access = auto( )
@@ -114,6 +116,7 @@ class Extension( Enum ):
 
 class Command( Enum ):
     '''enumeration of sql commands'''
+    NS = auto( )
     SELECT = auto( )
     INSERT = auto( )
     UPDATE = auto( )
@@ -126,63 +129,6 @@ class Command( Enum ):
     ALTERCOLUMN = auto( )
 
 
-class Unit( ):
-    '''Unit( name, value ) initializes object
-    representing fundemental unit of data
-    in the Budget Execution application'''
-    __name = None
-    __value = None
-
-    @poperty
-    def name( self ):
-        if isinstance( self.__name, str ):
-            return self.__name
-
-    @name.setter
-    def name( self, base ):
-        if isinstance( base, str ):
-            self.__name = base
-
-    @property
-    def value( self ):
-        if self.__value is not None:
-            return self.__value
-
-    @value.setter
-    def value( self, obj ):
-        if obj is not None:
-            self.__value = obj
-
-    def __init__( self, name, value ):
-        self.__name = name
-        self.__value = value
-
-    def __str__( self ):
-        if isinstance( self.__name, str ):
-            return self.__name
-
-
-class Element( Unit ):
-    '''Element class represents fundemental program unit'''
-    __index = None
-
-    @property
-    def index( self ):
-        if isinstance( self.__index, int ):
-            return self.__index
-
-    @index.setter
-    def index( self, id ):
-        if isinstance( id, int ):
-            self.__index = id
-
-    def __init__( self, id, name, value ):
-        super().__init__( name, value )
-        self.__name = super().__name
-        self.__value = super().__value
-        self.__index = id if isinstance( id, int ) else None
-
-
 class DataModel( ):
     '''DataModel( source, provider  ) provides list of Budget Execution
     tables across two databases ( data and references ) '''
@@ -190,6 +136,9 @@ class DataModel( ):
     __references = [ ]
     __source = None
     __provider = None
+    __accessdriver = None
+    __sqldriver = None
+    __sqlitedriver = None
     __table = None
     __name = None
 
@@ -288,10 +237,14 @@ class DataModel( ):
                              'ProgramProjects', 'Projects', 'Providers',
                              'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                              'SchemaTypes', 'Sources']
-        self.__source = source if isinstance( source, Source ) else Source.StatusOfFunds
         self.__provider = provider
-        self.__name = source.name if isinstance( source, Source ) else Source.StatusOfFunds.name
+        self.__source = source if isinstance( source, Source ) else Source.NS
+        self.__name = self.__source.name if isinstance( self.__source, Source ) else 'NS'
         self.__table = self.__name
+        self.__sqlitedriver = r'DBMS: SQLite ( ver. 3.36.0 ) Case sensitivity: plain=mixed, ' \
+                        'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms'
+        self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) }'
+        self.__sqldriver = r'{SQL Server Native Client 11.0}'
 
     def __str__( self ):
         if isinstance( self.__table, str ) and self.__table != '':
@@ -299,7 +252,7 @@ class DataModel( ):
 
 
 class DataConnection( ):
-    '''DataConnection( source, provider ) initializes
+    '''DataConnection( model, path = '' ) initializes
     object used to connect to Budget databases'''
     __provider = None
     __source = None
@@ -333,9 +286,9 @@ class DataConnection( ):
         if isinstance( src, DataModel ):
             self.__source = src
 
-    def __init__( self, source, provider, path = '' ):
-        self.__source = source if isinstance( source, Source ) else None
-        self.__provider = provider if isinstance( provider, Provider ) else None
+    def __init__( self, model, path = '' ):
+        self.__source = model.source if isinstance( model, DataModel ) else None
+        self.__provider = model.provider if isinstance( model, DataModel ) else None
         self.__isopen = False
         self.__accessdata = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb'
@@ -620,8 +573,8 @@ class SqlStatement( ):
             self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.pairs }'
 
 
-class SQLiteData( ):
-    '''SQLiteData( tablename  ) class represents
+class SQLiteQuery( ):
+    '''SQLiteQuery( tablename  ) class represents
      the budget execution data classes'''
     __dbpath = None
     __driver = None
@@ -691,7 +644,7 @@ class SQLiteData( ):
 
     @command.setter
     def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
+        if isinstance( cmd, Command ):
             self.__command = cmd
 
     def __init__( self, tablename ):
@@ -703,7 +656,7 @@ class SQLiteData( ):
                         'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms'
         self.__connstr = DataConnection( self.__dbpath )
         self.__data = pd.DataFrame
-        self.__command = CommandType( 'SELECT' ) 
+        self.__command = Command.SELECT
 
     def __str__( self ):
         if self.__dbpath is not None:
@@ -714,103 +667,8 @@ class SQLiteData( ):
             return DataConnection( self.__connstr )
 
 
-class SQLiteReference( ):
-    '''The SQLiteReference( tablename  ) Class
-    represents the budget execution
-    references models'''
-    __source = None
-    __dbpath = None
-    __driver = None
-    __connstr = None
-    __data = None
-    __table = None
-    __command = None
-
-    @property
-    def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath ) 
-
-    @path.setter
-    def path( self, path ):
-        if path is not None:
-            self.__dbpath = str( path ) 
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return str( self.__source ) 
-
-    @source.setter
-    def source( self, src ):
-        if src is not None:
-            self.__source = str( src ) 
-
-    @property
-    def connstr( self ):
-        if self.__connstr is not None:
-            return str( self.__connstr ) 
-
-    @connstr.setter
-    def connstr( self, conn ):
-        if isinstance( conn, str ):
-            self.__connstr = str( conn ) 
-
-    @property
-    def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver ) 
-
-    @driver.setter
-    def driver( self, driver ):
-        if isinstance( driver, str ) and driver != '':
-            self.__driver = str( driver ) 
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return iter( self.__data[0:] ) 
-
-    @data.setter
-    def data( self, dframe ):
-        if dframe is not None:
-            self.__data = dframe
-
-    @property
-    def command( self ):
-        if self.__command is not None:
-            return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' ) 
-            return cmd
-
-    @command.setter
-    def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
-            self.__command = cmd
-
-    def __init__( self, tablename ):
-        self.__source = DataModel( tablename )
-        self.__table = self.__source.table
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                        r'\db\sqlite\referencemodels\References.db'
-        self.__driver = r'DBMS: SQLite ( ver. 3.36.0 ) Case sensitivity: plain=mixed, ' \
-                        r'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms'
-        self.__connstr = self.__dbpath
-        self.__data = pd.DataFrame
-        self.__command = CommandType( 'SELECT' ) 
-
-    def __str__( self ):
-        if isinstance( self.__source, DataModel ):
-            return self.__source.name
-
-    def connect( self ):
-        if self.__connstr is not None:
-            return DataConnection( self.__connstr )
-
-
-class AccessData( ):
-    '''AccessData( tablename  ) class
+class AccessQuery( ):
+    '''AccessQuery( tablename  ) class
       represents the budget execution
       data model classes'''
     __dbpath = None
@@ -903,100 +761,7 @@ class AccessData( ):
             return db.connect( self.__connstr )
 
 
-class AccessReference( ):
-    '''AccessReference( tablename  ) class represents
-    the budget execution data classes'''
-    __dbpath = None
-    __driver = None
-    __connstr = None
-    __data = None
-    __source = None
-    __table = None
-    __command = None
-
-    @property
-    def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
-
-    @path.setter
-    def path( self, path ):
-        if path is not None:
-            self.__dbpath = str( path )
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return str( self.__source )
-
-    @source.setter
-    def source( self, source ):
-        if source is not None:
-            self.__source = str( source )
-
-    @property
-    def connstr( self ):
-        if self.__connstr is not None:
-            return str( self.__connstr )
-
-    @connstr.setter
-    def connstr( self, conn ):
-        if conn is not None:
-            self.__connstr = str( conn )
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, dframe ):
-        if dframe is not None and isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe.items
-
-    @property
-    def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver )
-
-    @driver.setter
-    def driver( self, name ):
-        if name is not None:
-            self.__driver = name
-
-    @property
-    def command( self ):
-        if self.__command is not None:
-            return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' )
-            return cmd
-
-    @command.setter
-    def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
-            self.__command = cmd
-
-    def __init__( self, tablename ):
-        self.__source = DataModel( tablename )
-        self.__table = self.__source.table
-        self.__driver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
-        self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db\access' \
-                        r'\referencemodels\References.accdb;'
-        self.__connstr = f'{self.__driver} {self.__dbpath}'
-        self.__data = pd.DataFrame
-        self.__command = CommandType( 'SELECT' )
-
-    def __str__( self ):
-        if isinstance( self.__source, DataModel ):
-            return self.__source.name
-
-    def connect( self ):
-        if self.__connstr is not None:
-            return db.connect( self.__connstr )
-
-
-class SqlServerData( ):
+class SqlServerQuery( ):
     '''Builds the budget execution data classes'''
     __server = None
     __driver = None
@@ -1098,188 +863,6 @@ class SqlServerData( ):
     def connect( self ):
         if self.__connstr is not None:
             return DataConnection( self.__connstr )
-
-
-class SqlServerReference( ):
-    '''SqlServerReference( tablename  ) Class
-    represents the budget execution references models'''
-    __source = None
-    __table = None
-    __dbpath = None
-    __data = None
-    __connstr = None
-    __command = None
-    __server = None
-    __driver = None
-
-    @property
-    def server( self ):
-        if self.__server is not None:
-            return str( self.__server ) 
-
-    @server.setter
-    def server( self, path ):
-        if isinstance( path, str ):
-            self.__server = path
-
-    @property
-    def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver ) 
-
-    @driver.setter
-    def driver( self, drvr ):
-        if isinstance( drvr, str ):
-            self.__server = drvr
-
-    @property
-    def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath ) 
-
-    @path.setter
-    def path( self, path ):
-        if isinstance( path, str ) and os.path.exists( path ):
-            self.__dbpath = path
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return str( self.__source ) 
-
-    @source.setter
-    def source( self, src ):
-        if src is not None:
-            self.__source = str( src ) 
-
-    @property
-    def connstring( self ):
-        if not self.__connstr == '':
-            return self.__connstr
-
-    @connstring.setter
-    def connstring( self, conn ):
-        if isinstance( conn, str ) and os.path.exists( conn ):
-            self.__connstr = conn
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return iter( self.__data[0:] ) 
-
-    @data.setter
-    def data( self, dframe ):
-        if dframe is not None:
-            self.__data = dframe
-
-    @property
-    def command( self ):
-        if self.__command is not None:
-            return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' ) 
-            return cmd
-
-    @command.setter
-    def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
-            self.__command = cmd
-
-    def __init__( self, tablename, cmd = None ):
-        self.__source = DataModel( tablename )
-        self.__table = self.__source.table
-        self.__server = r'( LocalDB ) \MSSQLLocalDB'
-        self.__driver = r'{SQL Server Native Client 11.0}'
-        self.__command = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                        r'\db\mssql\referencemodels\References.mdf'
-        self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
-        self.__data = pd.DataFrame
-
-    def __str__( self ):
-        if isinstance( self.__source, DataModel ):
-            return self.__source.name
-
-
-class DataRow( sl.Row ):
-    '''Defines the DataRow Class'''
-    __source = None
-    __names = None
-    __items = None
-    __data = None
-    __values = None
-    __id = None
-
-    @property
-    def index( self ):
-        if isinstance( self.__id, int ):
-            return self.__id
-
-    @index.setter
-    def index( self, ordinal ):
-        if isinstance( ordinal, int ):
-            self.__id = ordinal
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return dict( self.__data )
-
-    @data.setter
-    def data( self, items ):
-        if isinstance( items, dict ):
-            self.__items = items
-
-    @property
-    def items( self ):
-        if isinstance( self.__items, tuple ):
-            return self.__items
-
-    @items.setter
-    def items( self, data ):
-        if isinstance( data, tuple ):
-            self.__items = data
-
-    @property
-    def names( self ):
-        if self.__names is not None:
-            return self.__names
-
-    @names.setter
-    def names( self, data ):
-        if isinstance( data, dict ):
-            self.__names = data.keys( )
-
-    @property
-    def values( self ):
-        if self.__values is not None:
-            return list( self.__values )
-
-    @values.setter
-    def values( self, items ):
-        if isinstance( items, list ):
-            self.__values = items
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
-
-    @source.setter
-    def source( self, row ):
-        if isinstance( row, sl.Row ):
-            self.__source = row
-
-    def __init__( self, items=None ):
-        super( ) .__init__( items )
-        self.__source = sl.Row( )
-        self.__items = dict( items )
-        self.__id = int( items[0] )
-        self.__names = list( self.__items.keys( ) )
-        self.__values = self.__items.values( )
-
-    def __str__( self ):
-        return 'Row ID: ' + str( self.__id )
 
 
 class DataColumn( ):
@@ -1403,6 +986,87 @@ class DataColumn( ):
 
     def __str__( self ):
         return self.__name
+
+
+class DataRow( sl.Row ):
+    '''Defines the DataRow Class'''
+    __source = None
+    __names = None
+    __items = None
+    __data = None
+    __values = None
+    __id = None
+
+    @property
+    def index( self ):
+        if isinstance( self.__id, int ):
+            return self.__id
+
+    @index.setter
+    def index( self, ordinal ):
+        if isinstance( ordinal, int ):
+            self.__id = ordinal
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return dict( self.__data )
+
+    @data.setter
+    def data( self, items ):
+        if isinstance( items, dict ):
+            self.__items = items
+
+    @property
+    def items( self ):
+        if isinstance( self.__items, tuple ):
+            return self.__items
+
+    @items.setter
+    def items( self, data ):
+        if isinstance( data, tuple ):
+            self.__items = data
+
+    @property
+    def names( self ):
+        if self.__names is not None:
+            return self.__names
+
+    @names.setter
+    def names( self, data ):
+        if isinstance( data, dict ):
+            self.__names = data.keys( )
+
+    @property
+    def values( self ):
+        if self.__values is not None:
+            return list( self.__values )
+
+    @values.setter
+    def values( self, items ):
+        if isinstance( items, list ):
+            self.__values = items
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @source.setter
+    def source( self, row ):
+        if isinstance( row, sl.Row ):
+            self.__source = row
+
+    def __init__( self, items=None ):
+        super( ) .__init__( items )
+        self.__source = sl.Row( )
+        self.__items = dict( items )
+        self.__id = int( items[0] )
+        self.__names = list( self.__items.keys( ) )
+        self.__values = self.__items.values( )
+
+    def __str__( self ):
+        return 'Row ID: ' + str( self.__id )
 
 
 class DataTable( pd.DataFrame ):
