@@ -333,12 +333,12 @@ class DataConnection( ):
     @property
     def source( self ):
         if isinstance( self.__source, DataModel ):
-            return self.__source
+            return self.__source.name
 
     @property
     def provider( self ):
         if isinstance( self.__provider, Provider ):
-            return self.__provider
+            return self.__provider.name
 
     @property
     def driver( self ):
@@ -357,12 +357,12 @@ class DataConnection( ):
 
     def __init__( self, model ):
         self.__model = model if isinstance( model, DataModel ) else None
-        self.__source = self.__model.source.name
-        self.__provider = self.__model.provider.name
+        self.__source = self.__model.source
+        self.__provider = self.__model.provider
         self.__path = self.__model.getpath()
         self.__driver = self.__model.getdriver()
-        self.__dsn = self.__source + ';'
-        self.__connxstring = 'Provider=' + self.__provider + ';' \
+        self.__dsn = self.__source.name + ';'
+        self.__connxstring = 'Provider=' + self.__provider.name + ';' \
                              + self.__dsn + 'DBQ=' + self.__path
         self.__isopen = False
 
