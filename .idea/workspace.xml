@@ -130,20 +130,6 @@
       <workItem from="1648989820869" duration="5573000" />
       <workItem from="1648997236616" duration="3794000" />
     </task>
-    <task id="LOCAL-00007" summary="updates from work rig;">
-      <created>1648595986090</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1648595986090</updated>
-    </task>
-    <task id="LOCAL-00008" summary="updates from work rig;">
-      <created>1648596229124</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1648596229124</updated>
-    </task>
     <task id="LOCAL-00009" summary="updates from work rig;">
       <created>1648646242216</created>
       <option name="number" value="00009" />
@@ -473,7 +459,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649506836781</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="updates from main rig;">
+      <created>1649508978888</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1649508978888</updated>
+    </task>
+    <task id="LOCAL-00057" summary="updates from main rig;">
+      <created>1649509395829</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1649509395829</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,5 +499,16 @@
     <MESSAGE value="updates from work rig;" />
     <MESSAGE value="updates from main rig;" />
     <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Ninja.py</url>
+          <line>337</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -331,13 +331,13 @@ class DataConnection( ):
 
     @property
     def source( self ):
-        if isinstance( self.__source, DataModel ):
-            return self.__source.name
+        if isinstance( self.__source, Source ):
+            return self.__source
 
     @property
     def provider( self ):
         if isinstance( self.__provider, Provider ):
-            return self.__provider.name
+            return self.__provider
 
     @property
     def driver( self ):
