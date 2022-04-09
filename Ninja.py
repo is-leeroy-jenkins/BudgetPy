@@ -181,7 +181,7 @@ class DataModel( ):
 
     @property
     def name( self ):
-        if isinstance( self.__name ):
+        if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
