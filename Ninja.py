@@ -352,16 +352,19 @@ class DataConnection( ):
     @property
     def connectionstring( self ):
         if isinstance( self.__provider, Provider ) and self.__provider == Provider.SQLite:
-            self.__connxstring = f'DRIVER=SQLite3 ODBC Driver;SERVER=localhost;' \
-                    + f'DATABASE={self.__path};'
+            self.__connxstring = f'DRIVER=SQLite3 ODBC Driver;' + f'Database={self.__path}'
             return self.__connxstring
         elif isinstance( self.__provider, Provider ) and self.__provider == Provider.Access:
             self.__connxstring = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
-                    + f'DBQ={ self.__path };'
+                    + f'DBQ={ self.__path }'
             return self.__connxstring
         elif isinstance( self.__provider, Provider ) and self.__provider == Provider.SqlServer:
-            self.__connxstring = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
-                    + f'DBQ={ self.__path };'
+            self.__connxstring = r'DRIVER={ODBC Driver 17 for SQL Server};' \
+                    + f'DATABASE={ self.__path }'
+            return self.__connxstring
+        else:
+            self.__connxstring = f'DRIVER=SQLite3 ODBC Driver;SERVER=localhost;' \
+                    + f'Database={self.__path}'
             return self.__connxstring
 
     def __init__( self, model ):
