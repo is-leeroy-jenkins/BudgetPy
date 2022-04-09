@@ -137,8 +137,14 @@ class DataModel( ):
     __source = None
     __provider = None
     __accessdriver = None
+    __accessdatapath = None
+    __accessreferencepath = None
     __sqldriver = None
+    __sqldatapath = None
+    __sqlreferencepath = None
     __sqlitedriver = None
+    __sqlitedatapath = None
+    __sqlitereferencepath = None
     __table = None
     __name = None
 
@@ -204,10 +210,37 @@ class DataModel( ):
         else:
             return False
 
+    def getdriver( self ):
+        if isinstance( self.__provider, Provider ) and self.__provider != Provider.NS:
+            if self.__provider == Provider.SQLite:
+                return self.__sqlitedriver
+            elif self.__provider == Provider.Access:
+                return self.__accessdriver
+            elif self.__provider == Provider.SqlServer:
+                return self.__sqldriver
+            else:
+                return self.__sqlitedriver
+
+    def getpath( self ):
+        if isinstance( self.__provider, Provider) and self.__provider != Provider.NS:
+            if self.__provider == Provider.SQLite and self.isreference():
+                return self.__sqlitereferencepath
+            elif self.__provider == Provider.SQLite and self.isdata():
+                return self.__sqldatapath
+            elif self.__provider == Provider.Access and self.isdata():
+                return self.__accessdatapath
+            elif self.__provider == Provider.Access and self.isreference():
+                return self.__accessreferencepath
+            elif self.__provider == Provider.SqlServer and self.isdata():
+                return self.__sqldatapath
+            elif self.__provider == Provider.SqlServer and self.isreference():
+                return self.__sqlreferencepath
+            else:
+                return self.__sqldatapath
+
     def __init__( self, source, provider = Provider.SQLite ):
         '''Constructor for the DataModel class providing
-       a list of tables in the data database and/or
-        reference database'''
+        data connection details'''
         self.__data = ['Allocations', 'ApplicationTables', 'CarryoverEstimates',
                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
@@ -243,8 +276,20 @@ class DataModel( ):
         self.__table = self.__name
         self.__sqlitedriver = r'DBMS: SQLite ( ver. 3.36.0 ) Case sensitivity: plain=mixed, ' \
                         'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms'
+        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\datamodels\Data.db'
+        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\referencemodels\References.db'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) }'
+        self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\Data.accdb'
+        self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'{SQL Server Native Client 11.0}'
+        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\datamodels\Data.mdf'
+        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\referencemodels\References.mdf'
 
     def __str__( self ):
         if isinstance( self.__table, str ) and self.__table != '':
@@ -258,12 +303,6 @@ class DataConnection( ):
     __source = None
     __connection = None
     __isopen = None
-    __accessdata = None
-    __sqlitedata = None
-    __sqldata = None
-    __accessreference = None
-    __sqlitereference = None
-    __sqlreference = None
     __excel = None
 
     @property
@@ -290,18 +329,6 @@ class DataConnection( ):
         self.__source = model.source if isinstance( model, DataModel ) else None
         self.__provider = model.provider if isinstance( model, DataModel ) else None
         self.__isopen = False
-        self.__accessdata = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb'
-        self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db'
-        self.__sqldata = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf'
-        self.__accessreference = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb'
-        self.__sqlitereference = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db'
-        self.__sqlreference = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf'
         self.__excel = path if path != '' else None
 
     def open( self ):
