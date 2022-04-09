@@ -346,7 +346,7 @@ class DataConnection( ):
 
     @property
     def path( self ):
-        if os.path.exists( self.__path ):
+        if isinstance( self.__path, str ):
             return self.__path
 
     @property
