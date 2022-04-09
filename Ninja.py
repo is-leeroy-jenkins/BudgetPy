@@ -101,6 +101,7 @@ class Provider( Enum ):
     SqlServer = auto( )
     Access = auto( )
     Excel = auto( )
+    CSV = auto( )
 
 
 class Extension( Enum ):
@@ -112,6 +113,16 @@ class Extension( Enum ):
     XLSX = auto( )
     XLS = auto( )
     CSV = auto( )
+
+
+class ParamStyle( Enum ):
+    '''Enumeration of paramstyles'''
+    NS = auto( )
+    format = auto( )
+    number = auto( )
+    pyformat = auto( )
+    name = auto( )
+    qmark = auto( )
 
 
 class Command( Enum ):
@@ -272,24 +283,24 @@ class DataModel( ):
                              'SchemaTypes', 'Sources']
         self.__provider = provider
         self.__source = source if isinstance( source, Source ) else Source.NS
-        self.__name = self.__source.name if isinstance( self.__source, Source ) else 'NS'
+        self.__name = self.__source.name if isinstance( self.__source, Source ) else None
         self.__table = self.__name
         self.__sqlitedriver = r'DBMS: SQLite ( ver. 3.36.0 ) Case sensitivity: plain=mixed, ' \
-                        'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms'
+                        'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms;'
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db'
+                            r'\db\sqlite\datamodels\Data.db;'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db'
-        self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) }'
+                            r'\db\sqlite\referencemodels\References.db;'
+        self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
         self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb'
+                            r'\db\access\datamodels\Data.accdb;'
         self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb'
-        self.__sqldriver = r'{SQL Server Native Client 11.0}'
+                            r'\db\access\referencemodels\References.accdb;'
+        self.__sqldriver = r'{SQL Server Native Client 11.0};'
         self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf'
+                           r'\db\mssql\datamodels\Data.mdf;'
         self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf'
+                           r'\db\mssql\referencemodels\References.mdf;'
 
     def __str__( self ):
         if isinstance( self.__table, str ) and self.__table != '':
@@ -299,19 +310,23 @@ class DataModel( ):
 class DataConnection( ):
     '''DataConnection( model, path = '' ) initializes
     object used to connect to Budget databases'''
+    __model = None
     __provider = None
     __source = None
+    __driver = None
+    __dsn = None
+    __path = None
+    __connxstring = None
     __connection = None
     __isopen = None
-    __excel = None
 
     @property
-    def provider( self ):
+    def model( self ):
         if isinstance( self.__provider, Database ):
             return self.__provider
 
-    @provider.setter
-    def provider( self, pvdr ):
+    @model.setter
+    def model( self, mod ):
         if isinstance( pvdr, Database ):
             self.__provider = pvdr
 
@@ -320,16 +335,35 @@ class DataConnection( ):
         if isinstance( self.__source, DataModel ):
             return self.__source
 
-    @source.setter
-    def source( self, src ):
-        if isinstance( src, DataModel ):
-            self.__source = src
+    @property
+    def provider( self ):
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
 
-    def __init__( self, model, path = '' ):
-        self.__source = model.source if isinstance( model, DataModel ) else None
-        self.__provider = model.provider if isinstance( model, DataModel ) else None
+    @property
+    def driver( self ):
+        if self.__driver is not None:
+            return self.__driver
+
+    @property
+    def path( self ):
+        if os.path.exists( self.__path ):
+            return self.__path
+
+    @property
+    def connectionstring( self ):
+        if isinstance( self.__connxstring, str ) and self.__connxstring != '':
+            return self.__connxstring
+
+    def __init__( self, model ):
+        self.__model = model if isinstance( model, DataModel ) else None
+        self.__source = model.source
+        self.__provider = model.provider
+        self.__path = model.getpath()
+        self.__driver = model.getdriver()
+        self.__dsn = self.__source.name + ';'
+        self.__connxstring = self.__provider + self.__dsn + self.__path
         self.__isopen = False
-        self.__excel = path if path != '' else None
 
     def open( self ):
             __path = self.__provider.getpath( )
@@ -337,34 +371,12 @@ class DataConnection( ):
                 self.__connection = sl.connect( __path )
             if self.__connection is not None:
                 self.__isopen = True
-                return self.__connection
+                return __conn
 
     def close( self ):
         if self.__isopen == True:
             self.__connection.close( )
             self.__isopen = False
-
-    def getpath( self ):
-        if self.__name == 'Access' \
-                and self.__source.isdata( ):
-            return self.__accessdata
-        elif self.__name == 'SQLite' \
-                and self.__source.isdata( ):
-            return self.__sqlitedata
-        elif self.__name == 'SqlServer' \
-                and self.__source.isdata( ):
-            return self.__sqldata
-        elif self.__name == 'Access' \
-                and self.__source.isreference( ):
-            return self.__accessreference
-        elif self.__name == 'SQLite' \
-                and self.__source.isreference( ):
-            return self.__sqlitereference
-        elif self.__name == 'SqlServer' \
-                and self.__source.isreference( ):
-            return self.__sqlreference
-        else:
-            return self.__sqlitedata
 
 
 class CriteriaBuilder( ):
@@ -374,15 +386,16 @@ class CriteriaBuilder( ):
     __names = None
     __values = None
     __cmd = None
+    __paramstyle = None
 
     @property
     def command( self ):
-        if self.__cmd is not None:
+        if isinstance( self.__cmd, Command ):
             return self.__cmd
 
     @command.setter
     def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
+        if isinstance( cmd, Command ):
             self.__cmd = cmd
 
     @property
@@ -410,6 +423,18 @@ class CriteriaBuilder( ):
             self.__values = vals
 
     @property
+    def param( self ):
+        ''' Property representing the DBI paramstyle'''
+        if isinstance( self.__paramstyle, ParamStyle ):
+            return self.__paramstyle
+
+    @values.setter
+    def param( self, prms  ):
+        ''' Property representing the DBI paramstyle'''
+        if isinstance( prms, ParamStyle ):
+            self.__paramstyle = prms
+
+    @property
     def pairs( self ):
         if isinstance( self.__predicate, dict ):
             return self.__predicate
@@ -422,10 +447,11 @@ class CriteriaBuilder( ):
                     map.update( k, v )
             self.__predicate = map
 
-    def __init__( self, cmd, names, values ):
-        self.__cmd = cmd if isinstance( cmd, CommandType ) else CommandType( 'SELECT' )
+    def __init__( self, cmd, names, values, parms = ParamStyle.qmark ):
+        self.__cmd = cmd if isinstance( cmd, Command ) else Command.SELECT
         self.__names = names if isinstance( names, list ) else list( )
         self.__values = values if isinstance( values, list ) else list( )
+        self.__paramstyle = parms
         self.__predicate = self.__map( )
 
     def __map( self ):
@@ -474,8 +500,8 @@ class CriteriaBuilder( ):
             return criteria
 
     def columndump( self ):
-        '''columndump( ) returns a string of columbs
-        used in select statements from list self.__names'''
+        '''columndump( ) returns a string of columns
+        used in select and insert statements from list self.__names'''
         if isinstance( self.__names, list ):
             cols = ''
             columns = ''
@@ -499,7 +525,7 @@ class CriteriaBuilder( ):
 class SqlStatement( ):
     '''SqlStatement( connection, criteria ) Class represents
      the sql queries used in the application'''
-    __commandtype = None
+    __command = None
     __criteria = None
     __connection = None
     __source = None
@@ -580,7 +606,7 @@ class SqlStatement( ):
 
     def __init__( self, connection, criteria ):
         self.__criteria = criteria if isinstance( criteria, CriteriaBuilder ) else None
-        self.__commandtype = criteria.command
+        self.__command = criteria.command
         self.__connection = connection if isinstance( connection, DataConnection ) else None
         self.__provider = self.__connection.provider if isinstance( conn, DataConnection ) else None
         self.__source = self.__connection.source if isinstance( conn, DataConnection ) else None
@@ -593,10 +619,10 @@ class SqlStatement( ):
             return self.__commandtext
 
     def commandtext( self ):
-        if self.__commandtype == 'SELECT' and isinstance( self.__source, DataModel ):
+        if self.__command == 'SELECT' and isinstance( self.__source, DataModel ):
             self.__commandtext = f'SELECT * FROM {self.__source.table};'
             return self.__commandtext
-        elif self.__commandtype == 'INSERT' and isinstance( self.__source, DataModel ):
+        elif self.__command == 'INSERT' and isinstance( self.__source, DataModel ):
             self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.pairs }'
 
 
@@ -607,7 +633,7 @@ class SQLiteQuery( ):
     __driver = None
     __connstr = None
     __data = None
-    __source = None
+    __model = None
     __table = None
     __command = None
 
@@ -674,14 +700,12 @@ class SQLiteQuery( ):
         if isinstance( cmd, Command ):
             self.__command = cmd
 
-    def __init__( self, tablename ):
-        self.__source = DataModel( tablename )
-        self.__table = tablename
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
-                        r'\db\sqlite\datamodels\Data.db'
-        self.__driver = r'DBMS: SQLite ( ver. 3.36.0 ) Case sensitivity: plain=mixed, ' \
-                        'delimited=mixed Driver: SQLite JDBC ( ver. 3.36.0.3, JDBC2.1 ) Ping: 15 ms'
-        self.__connstr = DataConnection( self.__dbpath )
+    def __init__( self, model ):
+        self.__model = model if isinstance( model, DataModel ) else None
+        self.__table = self.__model.source.name
+        self.__dbpath = self.__model.getpath( )
+        self.__driver = self.__model.getdriver( )
+        self.__connstr = DataConnection( self.__s )
         self.__data = pd.DataFrame
         self.__command = Command.SELECT
 
