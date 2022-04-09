@@ -101,6 +101,17 @@ class Provider( Enum ):
     Excel = auto( )
 
 
+class Extension( Enum ):
+    '''Enumeration of database file extensions'''
+    NS = auto( )
+    DB = auto( )
+    ACCDB = auto( )
+    MDF = auto( )
+    XLSX = auto( )
+    XLS = auto( )
+    CSV = auto( )
+
+
 class Command( Enum ):
     '''enumeration of sql commands'''
     SELECT = auto( )
@@ -173,24 +184,34 @@ class Element( Unit ):
 
 
 class DataModel( ):
-    '''DataModel( tablename  ) provides list of Budget Execution
+    '''DataModel( source, provider  ) provides list of Budget Execution
     tables across two databases ( data and references ) '''
-    __datalist = [ ]
-    __referencelist = [ ]
+    __data = [ ]
+    __references = [ ]
+    __source = None
+    __provider = None
     __table = None
     __name = None
 
     @property
-    def data( self ):
-        ''' Property used to store tablename cols in a list '''
-        if self.__datalist is not None:
-            return list( self.__datalist )
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, src ):
+        if isinstance( src, Source ):
+            self.__source = src
 
     @property
-    def references( self ):
-        ''' Property used to store tablename cols in a list '''
-        if self.__referencelist is not None:
-            return list( self.__referencelist )
+    def provider( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @provider.setter
+    def provider( self, pvdr ):
+        if isinstance( pvdr, Provider ):
+            self.__provider = pvdr
 
     @property
     def name( self ):
@@ -199,9 +220,9 @@ class DataModel( ):
 
     @name.setter
     def name( self, table ):
-        if isinstance( name, str ) and name in self.__datalist:
+        if isinstance( name, str ) and name in self.__data:
             self.__table = name
-        elif name in self.__referencelist:
+        elif name in self.__references:
             self.__table = name
         else:
             self.__table = None
@@ -213,36 +234,32 @@ class DataModel( ):
 
     @table.setter
     def table( self, name ):
-        if isinstance( name, str ) and name in self.__datalist:
+        if isinstance( name, str ) and name in self.__data:
             self.__table = name
-        elif name in self.__referencelist:
+        elif name in self.__references:
             self.__table = name
         else:
             self.__table = None
 
     def isdata( self ):
         if self.__table is not None \
-                and self.__table in self.__datalist:
+                and self.__table in self.__data:
             return True
         else:
             return False
 
     def isreference( self ):
         if self.__table is not None  \
-                and self.__table in self.__referencelist:
+                and self.__table in self.__references:
             return True
         else:
             return False
 
-    def __str__( self ):
-        if isinstance( self.__table, str ) and self.__table != '':
-            return self.__table
-
-    def __init__( self, src ):
+    def __init__( self, source, provider = Provider.SQLite ):
         '''Constructor for the DataModel class providing
        a list of tables in the data database and/or
         reference database'''
-        self.__datalist = [ 'Allocations', 'ApplicationTables', 'CarryoverEstimates',
+        self.__data = ['Allocations', 'ApplicationTables', 'CarryoverEstimates',
                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
@@ -253,14 +270,14 @@ class DataModel( ):
                        'BudgetControls', 'AppropriationDocuments', 'BudgetDocuments',
                        'Apportionments', 'BudgetOutlays', 'BudgetResourceExecution',
                        'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
-                            'StatusOfFunds', 'Supplementals', 'Transfers',
-                            'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
-                            'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-                            'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
-                            'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
-                            'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
-                            'UnliquidatedObligations' ]
-        self.__referencelist = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
+                       'StatusOfFunds', 'Supplementals', 'Transfers',
+                       'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
+                       'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                       'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
+                       'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
+                       'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
+                       'UnliquidatedObligations']
+        self.__references = ['Accounts', 'ActivityCodes', 'AllowanceHolders',
                              'Appropriations', 'BudgetObjectClasses',
                              'CostAreas', 'CPIC', 'Divisions',
                              'Documents', 'FederalHolidays', 'FinanceObjectClasses',
@@ -270,249 +287,15 @@ class DataModel( ):
                              'Organizations', 'ProgramAreas', 'ProgramDescriptions',
                              'ProgramProjects', 'Projects', 'Providers',
                              'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                             'SchemaTypes', 'Sources' ]
-        self.__name = src.name if isinstance( src, Source ) else Source.StatusOfFunds.name
+                             'SchemaTypes', 'Sources']
+        self.__source = source if isinstance( source, Source ) else Source.StatusOfFunds
+        self.__provider = provider
+        self.__name = source.name if isinstance( source, Source ) else Source.StatusOfFunds.name
         self.__table = self.__name
 
-
-class Database( ):
-    '''Database( source, name = 'SQLite' ) class that
-    provides the data providers used to identify
-    the type of database ( access, sqlite, sqlserver, or sqlce )'''
-    __accessdata = None
-    __sqlitedata = None
-    __mssqldata = None
-    __accessreference = None
-    __sqlitereference = None
-    __mssqlreference = None
-    __excel = None
-    __name = None
-    __base = None
-    __list = None
-    __source = None
-
-    @property
-    def extension( self ):
-        if self.__name is not None and self.__name != '':
-            if self.__name == 'Access':
-                return '.accdb'
-            elif self.__name == 'SqlCe':
-                return '.sdf'
-            elif self.__name == 'SQLite':
-                return '.db'
-            elif self.__name == 'SqlServer':
-                return '.mdf'
-            elif self.__name == 'Excel':
-                return '.xlsx'
-            else:
-                return '.db'
-
-    @property
-    def list( self ):
-        if self.__list is not None:
-            return self.__list
-
-    @property
-    def source( self ):
-        if isinstance( self.__source, DataModel ):
-            return self.__source
-
-    @source.setter
-    def source( self, src ):
-        if isinstance( src, DataModel ):
-            self.__source = src
-        else:
-            self.__source = 'StatusOfFunds'
-
-    @property
-    def name( self ):
-        if isinstance( self.__name, str ) \
-                and self.__name != '':
-            return self.__name
-
-    @name.setter
-    def name( self, src ):
-        if isinstance( src, str ) \
-                and src in self.__list:
-            self.__name = src
-        else:
-            self.__name = 'SQLite'
-
-    def __init__( self, name ):
-        self.__list = ['Access', 'SQLite', 'SqlServer', 'Excel']
-        self.__name = name if name in self.__list else 'SQLite'
-        self.__base = self.__name
-        self.__accessdata = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb'
-        self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db'
-        self.__mssqldata = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf'
-        self.__accessreference = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb'
-        self.__sqlitereference = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db'
-        self.__mssqlreference = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf'
-
     def __str__( self ):
-        if isinstance( self.__name, str ):
-            return self.__name
-        else:
-            return 'NS'
-
-    def getpath( self ):
-        if self.__name == 'Access' \
-                and self.__source.isdata( ):
-            return self.__accessdata
-        elif self.__name == 'SQLite' \
-                and self.__source.isdata( ):
-            return self.__sqlitedata
-        elif self.__name == 'SqlServer' \
-                and self.__source.isdata( ):
-            return self.__mssqldata
-        elif self.__name == 'Access' \
-                and self.__source.isreference( ):
-            return self.__accessreference
-        elif self.__name == 'SQLite' \
-                and self.__source.isreference( ):
-            return self.__sqlitereference
-        elif self.__name == 'SqlServer' \
-                and self.__source.isreference( ):
-            return self.__mssqlreference
-        else:
-            return self.__sqlitedata
-
-
-class CommandType( ):
-    '''CommandType( command  ) defines the types of sql commands
-    used to query the database'''
-    __select = None
-    __selectdistinct = None
-    __selectall = None
-    __selectdistinctall = None
-    __insert = None
-    __update = None
-    __delete = None
-    __droptable = None
-    __dropview = None
-    __createtable = None
-    __createview = None
-    __altertable = None
-    __altercolumn = None
-    __list = None
-    __type = None
-
-    @property
-    def select( self ):
-        if self.__select is not None:
-            return self.__select
-
-    @property
-    def selectdistinct( self ):
-        if self.__selectdistinct is not None:
-            return self.__selectdistinct
-
-    @property
-    def selectall( self ):
-        if self.__selectall is not None:
-            return self.__selectall
-
-    @property
-    def insert( self ):
-        if self.__insert is not None:
-            return self.__insert
-
-    @property
-    def update( self ):
-        if self.__update is not None:
-            return self.__update
-
-    @property
-    def createtable( self ):
-        if self.__createtable is not None:
-            return self.__createtable
-
-    @property
-    def createview( self ):
-        if self.__createview is not None:
-            return self.__createview
-
-    @property
-    def droptable( self ):
-        if self.__droptable is not None:
-            return self.__droptable
-
-    @property
-    def dropview( self ):
-        if self.__dropview is not None:
-            return self.__dropview
-
-    @property
-    def delete( self ):
-        if self.__delete is not None:
-            return self.__delete
-
-    @property
-    def altertable( self ):
-        if self.__altertable is not None:
-            return self.__altertable
-
-    @property
-    def altercolumn( self ):
-        if self.__altercolumn is not None:
-            return self.__altercolumn
-
-    def __init__( self, cmd ):
-        '''constructor for the CommandType class'''
-        self.__select = 'SELECT'
-        self.__selectall = 'SELECT ALL'
-        self.__selectdistinct = 'SELECT DISTINCT'
-        self.__selectalldistinct = 'SELECT DISTINCT ALL'
-        self.__insert = 'INSERT'
-        self.__update = 'UPDATE'
-        self.__delete = 'DELETE'
-        self.__createtable = 'CREATE TABLE'
-        self.__createview = 'CREATE VIEW'
-        self.__droptable = 'DROP TABLE'
-        self.__dropview = 'DROP VIEW'
-        self.__altercolumn = 'ALTER COLUMN'
-        self.__altertable = 'ALTER TABLE'
-        self.__list = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP TABLE', 'DROP VIEW',
-                       'CREATE TABLE', 'CREATE VIEW', 'ALTER COLUMN', 'ALTER TABLE']
-        self.setbyname( cmd ) 
-
-    def __str__( self ):
-        if self.__type is not None:
-            return str( self.__type )
-
-    def setbyname( self, cmd ):
-        '''Function to set the type of sql command that
-        will be used to query the database'''
-        if cmd in self.__list and str( cmd ) .upper( ) == 'SELECT':
-            self.__type = self.__select
-        elif str( cmd ) .upper( ) == 'SELECT ALL':
-            self.__type = self.__selectall
-        elif str( cmd ) .upper( ) == 'INSERT':
-            self.__type = self.__insert
-        elif str( cmd ) .upper( ) == 'DELETE':
-            self.__type = self.__delete
-        elif str( cmd ) .upper( ) == 'DROP TABLE':
-            self.__type = self.__droptable
-        elif str( cmd ) .upper( ) == 'DROP VIEW':
-            self.__type = self.__dropview
-        elif str( cmd ) .upper( ) == 'UPDATE':
-            self.__type = self.__update
-        elif str( cmd ) .upper( ) == 'CREATE TABLE':
-            self.__type = self.__createtable
-        elif str( cmd ) .upper( ) == 'CREATE VIEW':
-            self.__type = self.__createview
-        elif str( cmd ) .upper( ) == 'ALTER TABLE':
-            self.__type = self.__altertable
-        elif str( cmd ) .upper( ) == 'ALTER COLUMN':
-            self.__type = self.__altercolumn
-        else:
-            self.__type = self.__select
+        if isinstance( self.__table, str ) and self.__table != '':
+            return self.__table
 
 
 class DataConnection( ):
@@ -522,6 +305,13 @@ class DataConnection( ):
     __source = None
     __connection = None
     __isopen = None
+    __accessdata = None
+    __sqlitedata = None
+    __sqldata = None
+    __accessreference = None
+    __sqlitereference = None
+    __sqlreference = None
+    __excel = None
 
     @property
     def provider( self ):
@@ -543,10 +333,23 @@ class DataConnection( ):
         if isinstance( src, DataModel ):
             self.__source = src
 
-    def __init__( self, source, provider ):
-        self.__source = source if isinstance( source, DataModel ) else None
-        self.__provider = provider if isinstance( provider, Database ) else None
+    def __init__( self, source, provider, path = '' ):
+        self.__source = source if isinstance( source, Source ) else None
+        self.__provider = provider if isinstance( provider, Provider ) else None
         self.__isopen = False
+        self.__accessdata = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\Data.accdb'
+        self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\datamodels\Data.db'
+        self.__sqldata = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\datamodels\Data.mdf'
+        self.__accessreference = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\referencemodels\References.accdb'
+        self.__sqlitereference = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\referencemodels\References.db'
+        self.__sqlreference = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\referencemodels\References.mdf'
+        self.__excel = path if path != '' else None
 
     def open( self ):
             __path = self.__provider.getpath( )
@@ -560,6 +363,28 @@ class DataConnection( ):
         if self.__isopen == True:
             self.__connection.close( )
             self.__isopen = False
+
+    def getpath( self ):
+        if self.__name == 'Access' \
+                and self.__source.isdata( ):
+            return self.__accessdata
+        elif self.__name == 'SQLite' \
+                and self.__source.isdata( ):
+            return self.__sqlitedata
+        elif self.__name == 'SqlServer' \
+                and self.__source.isdata( ):
+            return self.__sqldata
+        elif self.__name == 'Access' \
+                and self.__source.isreference( ):
+            return self.__accessreference
+        elif self.__name == 'SQLite' \
+                and self.__source.isreference( ):
+            return self.__sqlitereference
+        elif self.__name == 'SqlServer' \
+                and self.__source.isreference( ):
+            return self.__sqlreference
+        else:
+            return self.__sqlitedata
 
 
 class CriteriaBuilder( ):
