@@ -315,7 +315,7 @@ class DataConnection( ):
     __driver = None
     __dsn = None
     __path = None
-    __connxstring = None
+    __connectionstring = None
     __connection = None
     __isopen = None
 
@@ -352,20 +352,20 @@ class DataConnection( ):
     @property
     def connectionstring( self ):
         if isinstance( self.__provider, Provider ) and self.__provider == Provider.SQLite:
-            self.__connxstring = f'DRIVER=SQLite3 ODBC Driver;' + f'Database={self.__path}'
-            return self.__connxstring
+            self.__connectionstring = f'DRIVER=SQLite3 ODBC Driver;' + f'Database={self.__path}'
+            return self.__connectionstring
         elif isinstance( self.__provider, Provider ) and self.__provider == Provider.Access:
-            self.__connxstring = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
-                    + f'DBQ={ self.__path }'
-            return self.__connxstring
+            self.__connectionstring = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
+                                      + f'DBQ={ self.__path }'
+            return self.__connectionstring
         elif isinstance( self.__provider, Provider ) and self.__provider == Provider.SqlServer:
-            self.__connxstring = r'DRIVER={ODBC Driver 17 for SQL Server};' \
-                    + f'DATABASE={ self.__path }'
-            return self.__connxstring
+            self.__connectionstring = r'DRIVER={ODBC Driver 17 for SQL Server};' \
+                                      + f'DATABASE={ self.__path }'
+            return self.__connectionstring
         else:
-            self.__connxstring = f'DRIVER=SQLite3 ODBC Driver;SERVER=localhost;' \
-                    + f'Database={self.__path}'
-            return self.__connxstring
+            self.__connectionstring = f'DRIVER=SQLite3 ODBC Driver;SERVER=localhost;' \
+                                      + f'Database={self.__path}'
+            return self.__connectionstring
 
     def __init__( self, model ):
         self.__model = model if isinstance( model, DataModel ) else None
@@ -374,8 +374,8 @@ class DataConnection( ):
         self.__path = self.__model.getpath()
         self.__driver = self.__model.getdriver()
         self.__dsn = self.__source.name + ';'
-        self.__connxstring = 'Provider=' + self.__provider.name + ';' \
-                             + self.__dsn + 'DBQ=' + self.__path
+        self.__connectionstring = 'Provider=' + self.__provider.name + ';' \
+                                  + self.__dsn + 'DBQ=' + self.__path
         self.__isopen = False
 
     def open( self ):
@@ -426,13 +426,13 @@ class CriteriaBuilder( ):
     @property
     def values( self ):
         ''' builds crit from provider value namevaluepairs'''
-        if isinstance( self.__values, list ):
+        if isinstance( self.__values, tuple ):
             return self.__values
 
     @values.setter
     def values( self, vals  ):
         ''' builds crit from provider value namevaluepairs'''
-        if vals is not None and isinstance( vals, list ):
+        if isinstance( vals, tuple ):
             self.__values = vals
 
     @property
@@ -443,9 +443,11 @@ class CriteriaBuilder( ):
 
     @values.setter
     def param( self, prms  ):
-        ''' Property representing the DBI paramstyle'''
+        ''' Property representing the DBI paramstyle attribute'''
         if isinstance( prms, ParamStyle ):
             self.__paramstyle = prms
+        else:
+            self.__paramstyle = ParamStyle.qmark
 
     @property
     def pairs( self ):
@@ -463,7 +465,7 @@ class CriteriaBuilder( ):
     def __init__( self, cmd, names, values, parms = ParamStyle.qmark ):
         self.__cmd = cmd if isinstance( cmd, Command ) else Command.SELECT
         self.__names = names if isinstance( names, list ) else list( )
-        self.__values = values if isinstance( values, list ) else list( )
+        self.__values = values if isinstance( values, tuple ) else tuple( )
         self.__paramstyle = parms
         self.__predicate = self.__map( )
 
@@ -479,9 +481,8 @@ class CriteriaBuilder( ):
             return map
 
     def pairdump( self ):
-        '''dump( ) returns string of name value pairs
-        built from self.__names and self.__values'''
-        if isinstance( self.__names, list ) and isinstance( self.__values, list ):
+        '''dump( ) returns string of 'name = value AND' pairs'''
+        if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             pairs = ''
             criteria = ''
             kvp = zip( self.__names, self.__values )
@@ -493,7 +494,7 @@ class CriteriaBuilder( ):
     def wheredump( self ):
         '''pairdump( names, values) returns a string
         using list arguments names and values'''
-        if isinstance( self.__names, list ) and isinstance( self.__values, list ):
+        if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             pairs = ''
             criteria = ''
             for k, v in zip( self.__names, self.__values ):
@@ -540,7 +541,7 @@ class SqlStatement( ):
      the sql queries used in the application'''
     __command = None
     __criteria = None
-    __connection = None
+    __model = None
     __source = None
     __provider = None
     __table = None
@@ -617,78 +618,80 @@ class SqlStatement( ):
         if isinstance( vals, list ):
             self.__values = vals
 
-    def __init__( self, connection, criteria ):
+    def __init__( self, model, criteria ):
         self.__criteria = criteria if isinstance( criteria, CriteriaBuilder ) else None
+        self.__model = model if isinstance( model, DataModel ) else None
         self.__command = criteria.command
-        self.__connection = connection if isinstance( connection, DataConnection ) else None
-        self.__provider = self.__connection.provider if isinstance( conn, DataConnection ) else None
-        self.__source = self.__connection.source if isinstance( conn, DataConnection ) else None
+        self.__provider = self.__model.provider
+        self.__source = self.__model.source
         self.__names = self.__criteria.names
         self.__values = self.__criteria.values
-        self.__table = self.__source.table
+        self.__table = self.__source.name
 
     def __str__( self ):
         if isinstance( self.__commandtext, str ):
             return self.__commandtext
 
     def commandtext( self ):
-        if self.__command == 'SELECT' and isinstance( self.__source, DataModel ):
-            self.__commandtext = f'SELECT * FROM {self.__source.table};'
+        if self.__command == Command.SELECT:
+            self.__commandtext = f'SELECT ' + self.__criteria.columndump( ) + f' FROM { self.__table }' \
+                + f'{ self.__criteria.wheredump( ) };'
             return self.__commandtext
         elif self.__command == 'INSERT' and isinstance( self.__source, DataModel ):
             self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.pairs }'
 
 
 class SQLiteQuery( ):
-    '''SQLiteQuery( tablename  ) class represents
+    '''SQLiteQuery( source  ) class represents
      the budget execution data classes'''
-    __dbpath = None
+    __connection = None
+    __path = None
     __driver = None
-    __connstr = None
+    __connectionstring = None
     __data = None
-    __model = None
+    __sqlstatement = None
     __table = None
     __command = None
 
     @property
     def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath ) 
+        if isinstance( self.__path, str ):
+            return self.__path
 
     @path.setter
     def path( self, path ):
-        if path is not None:
-            self.__dbpath = str( path ) 
+        if isinstance( path, str ):
+            self.__path = path
 
     @property
     def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver ) 
+        if isinstance( self.__driver, str ):
+            return self.__driver
 
     @driver.setter
     def driver( self, driver ):
-        if isinstance( driver, str ) and driver != '':
-            self.__driver = str( driver ) 
+        if isinstance( driver, str ):
+            self.__driver = driver
 
     @property
     def source( self ):
-        if self.__source is not None:
-            return str( self.__source ) 
+        if isinstance( self.__source, Source ):
+            return self.__source
 
     @source.setter
     def source( self, source ):
-        if source is not None:
-            self.__source = str( source ) 
+        if isinstance( source, Source):
+            self.__source = source
 
     @property
-    def connstr( self ):
-        if not self.__dbpath == '':
-            return self.__dbpath
+    def connectionstring( self ):
+        if not self.__path == '':
+            return self.__path
 
-    @connstr.setter
-    def connstr( self, conn ):
+    @connectionstring.setter
+    def connectionstring( self, conn ):
         if isinstance( conn, str ):
-            self.__dbpath = str( conn ) 
+            self.__path = str( conn )
 
     @property
     def data( self ):
@@ -713,31 +716,34 @@ class SQLiteQuery( ):
         if isinstance( cmd, Command ):
             self.__command = cmd
 
-    def __init__( self, model ):
-        self.__model = model if isinstance( model, DataModel ) else None
-        self.__table = self.__model.source.name
-        self.__dbpath = self.__model.getpath( )
-        self.__driver = self.__model.getdriver( )
-        self.__connstr = DataConnection( self.__s )
+    def __init__( self, connection, sqlstatement ):
+        self.__connection = connection if isinstance( connection, DataConnection ) else None
+        self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
+        self.__table = self.__sqlstatement.source.name
+        self.__path = self.__sqlstatement.getpath( )
+        self.__driver = self.__sqlstatement.getdriver( )
+        self.__command = self.__sqlstatement.command
+        self.__connectionstring = self.__connection.connectionstring
         self.__data = pd.DataFrame
-        self.__command = Command.SELECT
 
     def __str__( self ):
-        if self.__dbpath is not None:
-            return self.__dbpath
+        if self.__path is not None:
+            return self.__path
 
     def connect( self ):
-        if self.__connstr is not None:
-            return DataConnection( self.__connstr )
+        if self.__connectionstring is not None:
+            return DataConnection( self.__connectionstring )
 
 
 class AccessQuery( ):
-    '''AccessQuery( tablename  ) class
+    '''AccessQuery( source  ) class
       represents the budget execution
       data model classes'''
-    __dbpath = None
+    __path = None
+    __connection = None
+    __sqlstatment = None
     __driver = None
-    __connstr = None
+    __connectionstring = None
     __data = None
     __source = None
     __table = None
@@ -745,48 +751,48 @@ class AccessQuery( ):
 
     @property
     def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath )
+        if isinstance( self.__path, str ):
+            return self.__path
 
     @path.setter
     def path( self, path ):
-        if path is not None:
-            self.__dbpath = str( path )
+        if isinstance( path, str ):
+            self.__path = path
 
     @property
     def source( self ):
-        if self.__source is not None:
+        if isinstance( self.__source, Source ):
             return self.__source
 
     @source.setter
     def source( self, src ):
-        if isinstance( src, DataModel ):
+        if isinstance( src, Source ):
             self.__source = src
 
     @property
-    def connstr( self ):
-        if self.__connstr is not None:
-            return str( self.__connstr )
+    def connectionstring( self ):
+        if isinstance( self.__connectionstring, str ):
+            return self.__connectionstring
 
-    @connstr.setter
-    def connstr( self, conn ):
-        if conn is not None:
-            self.__connstr = str( conn )
+    @connectionstring.setter
+    def connectionstring( self, conn ):
+        if isinstance( conn, str ):
+            self.__connectionstring = conn
 
     @property
     def data( self ):
-        if self.__data is not None:
-            return iter( self.__data[0:] )
+        if isinstance( self.__data, pd.DataFrame ):
+            return iter( self.__data )
 
     @data.setter
     def data( self, dframe ):
-        if dframe is not None and isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe.items
+        if isinstance( dframe, pd.DataFrame ):
+            self.__data = dframe.items()
 
     @property
     def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver )
+        if isinstance( self.__driver, str ):
+            return self.__driver
 
     @driver.setter
     def driver( self, name ):
@@ -795,61 +801,61 @@ class AccessQuery( ):
 
     @property
     def command( self ):
-        if self.__command is not None:
+        if isinstance( self.__command, Command ):
             return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' )
-            return cmd
 
     @command.setter
     def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
+        if isinstance( cmd, Command ):
             self.__command = cmd
 
-    def __init__( self, tablename ):
-        self.__source = DataModel( tablename )
-        self.__table = self.__source.table
-        self.__driver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) }'
-        self.__dbpath = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
+    def __init__( self, connection, sqlstatement ):
+        self.__connection = connection if isinstance( connection, DataConnection ) else Non
+        self.__sqlstatment = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
+        self.__source = self.__sqlstatment.source
+        self.__table = self.__source.table.name
+        self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )}'
+        self.__path = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
                         r'\access\datamodels\Data.accdb;'
-        self.__connstr = f'{self.__driver};{self.__dbpath};{self.__source};'
+        self.__connectionstring = self.__connection.connectionstring
         self.__data = pd.DataFrame
-        self.__command = CommandType( 'SELECT' )
+        self.__command = self.__sqlstatment.command
 
     def __str__( self ):
         if isinstance( self.__source, DataModel ):
             return self.__source.name
 
     def connect( self ):
-        if not self.__connstr == '':
-            return db.connect( self.__connstr )
+        if self.__connectionstring != '':
+            return db.connect( self.__connectionstring )
 
 
 class SqlServerQuery( ):
     '''Builds the budget execution data classes'''
+    __sqlstatment = None
     __server = None
     __driver = None
     __source = None
     __table = None
-    __dbpath = None
+    __path = None
     __data = None
-    __connstr = None
+    __connectionstring = None
     __command = None
 
     @property
     def path( self ):
-        if self.__dbpath is not None:
-            return str( self.__dbpath ) 
+        if isinstance( self.__path, str ):
+            return  self.__path
 
     @path.setter
     def path( self, path ):
-        if isinstance( path, str ) and os.path.exists( path ):
-            self.__dbpath = path
+        if isinstance( path, str ):
+            self.__path = path
 
     @property
     def server( self ):
-        if self.__server is not None:
-            return str( self.__server ) 
+        if isinstance( self.__server, str ):
+            return self.__server
 
     @server.setter
     def server( self, path ):
@@ -858,8 +864,8 @@ class SqlServerQuery( ):
 
     @property
     def driver( self ):
-        if self.__driver is not None:
-            return str( self.__driver ) 
+        if isinstance( self.__driver, str ):
+            return self.__driver
 
     @driver.setter
     def driver( self, drvr ):
@@ -868,23 +874,23 @@ class SqlServerQuery( ):
 
     @property
     def source( self ):
-        if self.__source is not None:
-            return str( self.__source ) 
+        if isinstance( self.__source, Source ):
+            return self.__source
 
     @source.setter
     def source( self, source ):
-        if source is not None:
-            self.__source = str( source ) 
+        if isinstance( source, Source ):
+            self.__source = source
 
     @property
-    def connstring( self ):
-        if not self.__connstr == '':
-            return self.__connstr
+    def connectionstring( self ):
+        if not self.__connectionstring == '':
+            return self.__connectionstring
 
-    @connstring.setter
-    def connstring( self, conn ):
+    @connectionstring.setter
+    def connectionstring( self, conn ):
         if conn is not None:
-            self.__dbpath = str( conn ) 
+            self.__path = str( conn )
 
     @property
     def data( self ):
@@ -898,26 +904,24 @@ class SqlServerQuery( ):
 
     @property
     def command( self ):
-        if self.__command is not None:
+        if isinstance( self.__command, Command):
             return self.__command
-        if self.__command is None:
-            cmd = CommandType( 'SELECT' ) 
-            return cmd
 
     @command.setter
     def command( self, cmd ):
         if isinstance( cmd, CommandType ):
             self.__command = cmd
 
-    def __init__( self, tablename ):
-        self.__source = DataModel( tablename )
-        self.__table = self.__source.table
+    def __init__( self, sqlst ):
+        self.__sqlstatment = sqlst if isinstance( sqlst, SqlStatement ) else None
+        self.__source = self.__sqlstatment.source
+        self.__table = self.__source.name
         self.__server = r'( LocalDB ) \MSSQLLocalDB'
         self.__driver = r'{SQL Server Native Client 11.0}'
-        self.__command = CommandType( 'SELECT' ) 
-        self.__dbpath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__command = self.__sqlstatment.command
+        self.__path = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\mssql\datamodels\Data.mdf'
-        self.__connstr = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__dbpath}'
+        self.__connectionstring = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__path}'
         self.__data = pd.DataFrame
 
     def __str__( self ):
@@ -925,8 +929,8 @@ class SqlServerQuery( ):
             return self.__source.name
 
     def connect( self ):
-        if self.__connstr is not None:
-            return DataConnection( self.__connstr )
+        if self.__connectionstring is not None:
+            return DataConnection( self.__connectionstring )
 
 
 class DataColumn( ):
@@ -1046,7 +1050,7 @@ class DataColumn( ):
         self.__base = {self.__name: self.__value}
         self.__data = {'ordinal': self.__id, 'provider': self.__name,
                        'caption': self.__caption, 'value': self.__value,
-                       'datatype': self.__type, 'tablename': self.__table}
+                       'datatype': self.__type, 'source': self.__table}
 
     def __str__( self ):
         return self.__name
