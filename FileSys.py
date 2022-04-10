@@ -34,24 +34,24 @@ class BudgetPath( ):
 
     @base.setter
     def base( self, path ):
-        if path is not None and os.path.exists( path ):
-            self.__base = str( path )
+        if isinstance( path, str ):
+            self.__base = path
 
     @property
     def name( self ):
         '''Returns string representing the name of the path 'base' '''
-        if self.__name is not None:
+        if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
     def name( self, path ):
         '''Returns string representing the name of the path 'base' '''
-        if os.path.exists( path ):
+        if isinstance( path, str ):
             self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @property
     def path( self ):
-        if self.__path is not None:
+        if isinstance( self.__path, str ):
             return self.__path
 
     @path.setter
@@ -61,37 +61,43 @@ class BudgetPath( ):
 
     @property
     def drive( self ):
-        if self.__drive is not None:
+        if  isinstance( self.__drive, str ):
             return self.__drive
 
     @drive.setter
     def drive( self, base ):
-        if os.path.isdir( base ):
+        if isinstance( base, str ):
             self.__drive = os.path.splitdrive( base )[ 0 ]
 
     @property
     def exists( self ):
         if os.path.exists( self.__base ):
             return True
+        else:
+            return False
 
     @property
     def isfolder( self ):
         if os.path.isdir( self.__base ):
             return True
+        else:
+            return False
 
     @property
     def isfile( self ):
         if os.path.isfile( self.__base ):
             return True
+        else:
+            return False
 
     @property
     def extension( self ):
-        if self.__ext is not None:
+        if  isinstance( self.__ext, str ):
             return str( self.__ext )
 
     @extension.setter
     def extension( self, ext ):
-        if ext is not None:
+        if  isinstance( ext, str ):
             self.__ext = str( ext )
 
     @property
@@ -110,6 +116,8 @@ class BudgetPath( ):
         '''Verifies if the parameter 'other' exists'''
         if os.path.exists( other ):
             return True
+        else:
+            return False
 
     def getextension( self, other ):
         '''Returns string representing the file extension of 'other' '''
