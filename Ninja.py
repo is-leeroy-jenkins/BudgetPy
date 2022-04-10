@@ -129,8 +129,8 @@ class Command( Enum ):
     ALTERCOLUMN = auto( )
 
 
-class DataModel( ):
-    '''DataModel( source, provider  ) provides list of Budget Execution
+class DataConfiguration( ):
+    '''DataConfiguration( source, provider  ) provides list of Budget Execution
     tables across two databases ( data and references ) '''
     __data = [ ]
     __references = [ ]
@@ -239,7 +239,7 @@ class DataModel( ):
                 return self.__sqldatapath
 
     def __init__( self, source, provider = Provider.SQLite ):
-        '''Constructor for the DataModel class providing
+        '''Constructor for the DataConfiguration class providing
         data connection details'''
         self.__data = ['Allocations', 'ApplicationTables', 'CarryoverEstimates',
                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
@@ -296,9 +296,9 @@ class DataModel( ):
 
 
 class DataConnection( ):
-    '''DataConnection( model, path = '' ) initializes
+    '''DataConnection( configuration, path = '' ) initializes
     object used to connect to Budget databases'''
-    __model = None
+    __configuration = None
     __provider = None
     __source = None
     __driver = None
@@ -309,14 +309,14 @@ class DataConnection( ):
     __isopen = None
 
     @property
-    def model( self ):
-        if isinstance( self.__model, DataModel ):
-            return self.__model
+    def configuration( self ):
+        if isinstance( self.__configuration, DataConfiguration ):
+            return self.__configuration
 
-    @model.setter
-    def model( self, mod ):
+    @configuration.setter
+    def configuration( self, mod ):
         if isinstance( mod, DataModeel ):
-            self.__model = mod
+            self.__configuration = mod
 
     @property
     def source( self ):
@@ -356,12 +356,12 @@ class DataConnection( ):
                                       + f'Database={self.__path}'
             return self.__connectionstring
 
-    def __init__( self, model ):
-        self.__model = model if isinstance( model, DataModel ) else None
-        self.__source = self.__model.source
-        self.__provider = self.__model.provider
-        self.__path = self.__model.getpath()
-        self.__driver = self.__model.getdriver()
+    def __init__( self, config ):
+        self.__configuration = config if isinstance( config, DataConfiguration ) else None
+        self.__source = self.__configuration.source
+        self.__provider = self.__configuration.provider
+        self.__path = self.__configuration.getpath( )
+        self.__driver = self.__configuration.getdriver( )
         self.__dsn = self.__source.name + ';'
         self.__connectionstring = 'Provider=' + self.__provider.name + ';' \
                                   + self.__dsn + 'DBQ=' + self.__path
@@ -381,8 +381,8 @@ class DataConnection( ):
             self.__isopen = False
 
 
-class CriteriaBuilder( ):
-    '''CriteriaBuilder( command, cols, vals  ) provides the
+class QueryBuilder( ):
+    '''QueryBuilder( command, cols, vals  ) provides the
      predicate provider value pairs for sql queries'''
     __predicate = None
     __names = None
@@ -526,11 +526,11 @@ class CriteriaBuilder( ):
 
 
 class SqlStatement( ):
-    '''SqlStatement( connection, criteria ) Class represents
-     the sql queries used in the application'''
+    '''SqlStatement( configuration, querybuilder ) Class
+    represents the data models used in the SQLite database'''
     __command = None
-    __criteria = None
-    __model = None
+    __querybuilder = None
+    __configuration = None
     __source = None
     __provider = None
     __table = None
@@ -572,10 +572,10 @@ class SqlStatement( ):
 
     @source.setter
     def source( self, src ):
-        if isinstance( src, DataModel ):
+        if isinstance( src, DataConfiguration ):
             self.__source = src
         else:
-            self.__source = DataModel( 'StatusOfFunds' )
+            self.__source = DataConfiguration( 'StatusOfFunds' )
 
     @property
     def table( self ):
@@ -607,15 +607,15 @@ class SqlStatement( ):
         if isinstance( vals, list ):
             self.__values = vals
 
-    def __init__( self, model, criteria ):
-        self.__criteria = criteria if isinstance( criteria, CriteriaBuilder ) else None
-        self.__model = model if isinstance( model, DataModel ) else None
-        self.__command = criteria.command
-        self.__provider = self.__model.provider
-        self.__source = self.__model.source
-        self.__names = self.__criteria.names
-        self.__values = self.__criteria.values
+    def __init__( self, configuration, querybuilder ):
+        self.__querybuilder = querybuilder if isinstance( querybuilder, QueryBuilder ) else None
+        self.__configuration = configuration if isinstance( configuration, DataConfiguration ) else None
+        self.__command = querybuilder.command
+        self.__provider = self.__configuration.provider
+        self.__source = self.__configuration.source
         self.__table = self.__source.name
+        self.__names = self.__querybuilder.names
+        self.__values = self.__querybuilder.values
 
     def __str__( self ):
         if isinstance( self.__commandtext, str ):
@@ -623,15 +623,21 @@ class SqlStatement( ):
 
     def commandtext( self ):
         if self.__command == Command.SELECT:
-            self.__commandtext = f'SELECT ' + self.__criteria.columndump( ) + f' FROM { self.__table }' \
-                + f'{ self.__criteria.wheredump( ) };'
+            self.__commandtext = f'SELECT ' + self.__querybuilder.columndump( ) \
+                                 + f' FROM { self.__table }' \
+                                 + f'{ self.__querybuilder.wheredump( ) };'
             return self.__commandtext
-        elif self.__command == 'INSERT' and isinstance( self.__source, DataModel ):
-            self.__commandtext = 'INSERT INTO ' + self.__source.table + f'( { self.__criteria.pairs }'
+        elif self.__command == 'INSERT':
+            self.__commandtext = 'INSERT INTO ' + self.__table \
+                                 + f'( { self.__querybuilder.columndump( ) }' \
+                                 + f'VALUES { self.__querybuilder.valuedump( ) }'
+        elif self.__command == 'DELETE':
+            self.__commandtext = 'DELETE FROM ' + self.__table \
+                                 + f'( { self.__querybuilder.wheredump( ) };'
 
 
-class SQLiteQuery( ):
-    '''SQLiteQuery( source  ) class represents
+class SQLiteData( ):
+    '''SQLiteData( connection, sqlstatement ) represents
      the budget execution data classes'''
     __connection = None
     __path = None
@@ -640,6 +646,7 @@ class SQLiteQuery( ):
     __data = None
     __sqlstatement = None
     __table = None
+    __dsn = None
     __command = None
 
     @property
@@ -724,14 +731,15 @@ class SQLiteQuery( ):
             return DataConnection( self.__connectionstring )
 
 
-class AccessQuery( ):
-    '''AccessQuery( source  ) class
+class AccessData( ):
+    '''AccessData( connection, sqlstatement ) class
       represents the budget execution
-      data model classes'''
+      data model classes in the MS Access database'''
     __path = None
     __connection = None
     __sqlstatment = None
     __driver = None
+    __dsn = None
     __connectionstring = None
     __data = None
     __source = None
@@ -811,7 +819,7 @@ class AccessQuery( ):
         self.__command = self.__sqlstatment.command
 
     def __str__( self ):
-        if isinstance( self.__source, DataModel ):
+        if isinstance( self.__source, DataConfiguration ):
             return self.__source.name
 
     def connect( self ):
@@ -819,11 +827,15 @@ class AccessQuery( ):
             return db.connect( self.__connectionstring )
 
 
-class SqlServerQuery( ):
-    '''Builds the budget execution data classes'''
+class SqlServerData( ):
+    '''SqlServerData( connection, sqlstatement ) object
+    represents the data models in the MS SQL Server
+    database'''
+    __connection = None
     __sqlstatment = None
     __server = None
     __driver = None
+    __dsn = None
     __source = None
     __table = None
     __path = None
@@ -877,9 +889,19 @@ class SqlServerQuery( ):
             return self.__connectionstring
 
     @connectionstring.setter
-    def connectionstring( self, conn ):
-        if conn is not None:
-            self.__path = str( conn )
+    def connectionstring( self, cxstring ):
+        if isinstance( cxstring, str ):
+            self.__connectionstring = cxstring
+
+    @property
+    def connection( self ):
+        if isinstance( self.__connection, DataConnection ):
+            return self.__connection
+
+    @connection.setter
+    def connection( self, dataconn ):
+        if isinstance( dataconn, DataConnection ):
+            self.__connection = dataconn
 
     @property
     def data( self ):
@@ -901,8 +923,9 @@ class SqlServerQuery( ):
         if isinstance( cmd, CommandType ):
             self.__command = cmd
 
-    def __init__( self, sqlst ):
-        self.__sqlstatment = sqlst if isinstance( sqlst, SqlStatement ) else None
+    def __init__( self, connection, sqlstatement ):
+        self.__connection = connection if isinstance( connection, DataConnection ) else None
+        self.__sqlstatment = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
         self.__source = self.__sqlstatment.source
         self.__table = self.__source.name
         self.__server = r'( LocalDB ) \MSSQLLocalDB'
@@ -910,11 +933,11 @@ class SqlServerQuery( ):
         self.__command = self.__sqlstatment.command
         self.__path = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\mssql\datamodels\Data.mdf'
-        self.__connectionstring = f'DRIVER={self.__driver};SERVER={self.__server};DATABASE={self.__path}'
+        self.__connectionstring = self.__connection.connectionstring
         self.__data = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__source, DataModel ):
+        if isinstance( self.__source, DataConfiguration ):
             return self.__source.name
 
     def connect( self ):
@@ -937,13 +960,13 @@ class DataColumn( ):
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
+        if isinstance( name, str ):
+            self.__name = name
 
     @property
     def value( self ):
