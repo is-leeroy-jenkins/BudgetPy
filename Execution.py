@@ -1,6 +1,8 @@
 import datetime as dt
 import pandas as pd
 from enum import Enum, auto
+from collections import namedtuple as ntuple
+
 
 class BOC( Enum ):
     '''Enumeration of object class codes'''
@@ -187,7 +189,7 @@ class Account( ):
             return self.__code
 
     def __init__( self, code ):
-        self.__data = { }
+        self.__data = {  }
         self.__code = code if isinstance( code, str ) else 'NS'
         self.__goal = self.__code[ 0 ]
         self.__objective = self.__code[ 1:3 ]
@@ -809,6 +811,16 @@ class Fund( ):
     __frame = None
 
     @property
+    def id( self ):
+        if isinstance( self.__fundsid, int ):
+            self.__fundsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__fundsid = id
+
+    @property
     def code( self ):
         if self.__code is not None:
             return self.__code
@@ -861,13 +873,14 @@ class Fund( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        return self.__code
-
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__code, str ):
+            return self.__code
 
 
 class Goal( ):

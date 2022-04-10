@@ -1,8 +1,10 @@
+import collections
 import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
 import os
 from enum import Enum, auto
+from collections import namedtuple as ntuple
 
 
 class Source( Enum ):
@@ -636,8 +638,8 @@ class SqlStatement( ):
                                  + f'( { self.__querybuilder.wheredump( ) };'
 
 
-class SQLiteData( ):
-    '''SQLiteData( connection, sqlstatement ) represents
+class SQLiteQuery( ):
+    '''SQLiteQuery( connection, sqlstatement ) represents
      the budget execution data classes'''
     __connection = None
     __path = None
@@ -691,13 +693,13 @@ class SQLiteData( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, pd.DataFrame ):
+        if isinstance( self.__data, ntuple ):
             return self.__data
 
     @data.setter
-    def data( self, dframe ):
-        if isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe
+    def data( self, data ):
+        if isinstance( data, ntuple ):
+            self.__data = data
 
     @property
     def command( self ):
@@ -720,7 +722,7 @@ class SQLiteData( ):
         self.__driver = self.__sqlstatement.getdriver( )
         self.__command = self.__sqlstatement.command
         self.__connectionstring = self.__connection.connectionstring
-        self.__data = pd.DataFrame
+        self.__data = ntuple( data, self.__sqlstatment.names )
 
     def __str__( self ):
         if self.__path is not None:
@@ -731,8 +733,8 @@ class SQLiteData( ):
             return DataConnection( self.__connectionstring )
 
 
-class AccessData( ):
-    '''AccessData( connection, sqlstatement ) class
+class AccessQuery( ):
+    '''AccessQuery( connection, sqlstatement ) class
       represents the budget execution
       data model classes in the MS Access database'''
     __path = None
@@ -778,13 +780,13 @@ class AccessData( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, pd.DataFrame ):
-            return iter( self.__data )
+        if isinstance( self.__data, ntuple ):
+            return self.__data
 
     @data.setter
-    def data( self, dframe ):
-        if isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe.items()
+    def data( self, data ):
+        if isinstance( data, ntuple ):
+            self.__data = data
 
     @property
     def driver( self ):
@@ -815,8 +817,8 @@ class AccessData( ):
         self.__path = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
                         r'\access\datamodels\Data.accdb;'
         self.__connectionstring = self.__connection.connectionstring
-        self.__data = pd.DataFrame
         self.__command = self.__sqlstatment.command
+        self.__data = ntuple( data, self.__sqlstatment.names )
 
     def __str__( self ):
         if isinstance( self.__source, DataConfiguration ):
@@ -827,8 +829,8 @@ class AccessData( ):
             return db.connect( self.__connectionstring )
 
 
-class SqlServerData( ):
-    '''SqlServerData( connection, sqlstatement ) object
+class SqlServerQuery( ):
+    '''SqlServerQuery( connection, sqlstatement ) object
     represents the data models in the MS SQL Server
     database'''
     __connection = None
@@ -840,6 +842,7 @@ class SqlServerData( ):
     __table = None
     __path = None
     __data = None
+    __recordset = None
     __connectionstring = None
     __command = None
 
@@ -905,13 +908,13 @@ class SqlServerData( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, pd.DataFrame ):
+        if isinstance( self.__data, ntuple ):
             return self.__data
 
     @data.setter
-    def data( self, dframe ):
-        if isinstance( dframe, pd.DataFrame ):
-            self.__data = dframe
+    def data( self, data ):
+        if isinstance( data, ntuple ):
+            self.__data = data
 
     @property
     def command( self ):
@@ -934,7 +937,7 @@ class SqlServerData( ):
         self.__path = r'C:\Users\terry\source\repos\BudgetPy' \
                         r'\db\mssql\datamodels\Data.mdf'
         self.__connectionstring = self.__connection.connectionstring
-        self.__data = pd.DataFrame
+        self.__data = ntuple( data, self.__sqlstatment.names )
 
     def __str__( self ):
         if isinstance( self.__source, DataConfiguration ):
