@@ -775,10 +775,37 @@ class FinanceObjectClass( ):
 
 class Fund( ):
     '''Defines the Fund Class'''
+    __fundsid = None
     __code = None
     __name = None
-    __title = None
-    __data = None
+    __bfy = None
+    __efy = None
+    __shortname = None
+    __status = None
+    __bpoa = None
+    __epoa = None
+    __main = None
+    __multiyearindicator = None
+    __sublevel = None
+    __ata = None
+    __aid = None
+    __fundcategory = None
+    __appropriationcode = None
+    __appropriationname = None
+    __fundgroup = None
+    __noyear = None
+    __carryover = None
+    __cancelledyearspendingaccount = None
+    __applyatalllevels = None
+    __batsfund = None
+    __batsenddate = None
+    __batsoptionid = None
+    __securityorg = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __ombaccountcode = None
+    __ombaccountname = None
+    __apportionmentaccountcode = None
     __frame = None
 
     @property
@@ -1266,6 +1293,16 @@ class SiteProjectCode( ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
+
+class StateOrganization( ):
+    '''StateOrganization( code ) class
+    representing state codes'''
+    __code = None
+    __name = None
+    __orgcode = None
+    __rpiocode = None
+    __rpioname = None
 
 
 class HumanResourceOrganization( ):
