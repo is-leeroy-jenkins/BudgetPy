@@ -5,7 +5,7 @@ import openpyxl as xl
 from enum import Enum, auto
 
 
-class Extension( Enum ):
+class EXT( Enum ):
     '''Enumeration of database file extensions'''
     NS = auto( )
     DB = auto( )
