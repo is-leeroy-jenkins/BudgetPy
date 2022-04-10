@@ -120,6 +120,7 @@ class Command( Enum ):
     '''enumeration of sql commands'''
     NS = auto( )
     SELECT = auto( )
+    SELECTALL = auto( )
     INSERT = auto( )
     UPDATE = auto( )
     DELETE = auto( )
@@ -224,21 +225,20 @@ class DataConfig( ):
                 return self.__sqlitedriver
 
     def getpath( self ):
-        if isinstance( self.__provider, Provider) and self.__provider != Provider.NS:
-            if self.__provider == Provider.SQLite and self.isreference():
-                return self.__sqlitereferencepath
-            elif self.__provider == Provider.SQLite and self.isdata():
-                return self.__sqlitedatapath
-            elif self.__provider == Provider.Access and self.isdata():
-                return self.__accessdatapath
-            elif self.__provider == Provider.Access and self.isreference():
-                return self.__accessreferencepath
-            elif self.__provider == Provider.SqlServer and self.isdata():
-                return self.__sqldatapath
-            elif self.__provider == Provider.SqlServer and self.isreference():
-                return self.__sqlreferencepath
-            else:
-                return self.__sqldatapath
+        if self.__provider == Provider.SQLite and self.isreference():
+            return self.__sqlitereferencepath
+        elif self.__provider == Provider.SQLite and self.isdata():
+            return self.__sqlitedatapath
+        elif self.__provider == Provider.Access and self.isdata():
+            return self.__accessdatapath
+        elif self.__provider == Provider.Access and self.isreference():
+            return self.__accessreferencepath
+        elif self.__provider == Provider.SqlServer and self.isdata():
+            return self.__sqldatapath
+        elif self.__provider == Provider.SqlServer and self.isreference():
+            return self.__sqlreferencepath
+        else:
+            return self.__sqlitedatapath
 
     def __init__( self, source, provider = Provider.SQLite ):
         '''Constructor for the DataConfig class providing
@@ -297,8 +297,8 @@ class DataConfig( ):
             return self.__table
 
 
-class DataConnection( ):
-    '''DataConnection( configuration, path = '' ) initializes
+class DataConnection(  ):
+    '''DataConnection( dataconfig, path = '' ) initializes
     object used to connect to Budget databases'''
     __configuration = None
     __provider = None
@@ -316,9 +316,9 @@ class DataConnection( ):
             return self.__configuration
 
     @configuration.setter
-    def configuration( self, mod ):
-        if isinstance( mod, DataModeel ):
-            self.__configuration = mod
+    def configuration( self, cfg ):
+        if isinstance( cfg, DataModeel ):
+            self.__configuration = cfg
 
     @property
     def source( self ):
@@ -332,7 +332,7 @@ class DataConnection( ):
 
     @property
     def driver( self ):
-        if self.__driver is not None:
+        if isinstance( self.__driver, str):
             return self.__driver
 
     @property
@@ -343,7 +343,7 @@ class DataConnection( ):
     @property
     def connectionstring( self ):
         if isinstance( self.__provider, Provider ) and self.__provider == Provider.SQLite:
-            self.__connectionstring = f'DRIVER=SQLite3 ODBC Driver;' + f'Database={self.__path}'
+            self.__connectionstring = f'Database={ self.__path }'
             return self.__connectionstring
         elif isinstance( self.__provider, Provider ) and self.__provider == Provider.Access:
             self.__connectionstring = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
@@ -358,8 +358,8 @@ class DataConnection( ):
                                       + f'Database={self.__path}'
             return self.__connectionstring
 
-    def __init__( self, config ):
-        self.__configuration = config if isinstance( config, DataConfig ) else None
+    def __init__( self, dataconfig ):
+        self.__configuration = dataconfig if isinstance( dataconfig, DataConfig ) else None
         self.__source = self.__configuration.source
         self.__provider = self.__configuration.provider
         self.__path = self.__configuration.getpath( )
@@ -367,15 +367,24 @@ class DataConnection( ):
         self.__dsn = self.__source.name + ';'
         self.__connectionstring = 'Provider=' + self.__provider.name + ';' \
                                   + self.__dsn + 'DBQ=' + self.__path
-        self.__isopen = False
 
     def open( self ):
             __path = self.__provider.getpath( )
-            if isinstance( __path, str ) and os.path.exists( __path ):
+            if self.__provider.name == Provider.SQLite.name:
                 self.__connection = sl.connect( __path )
-            if self.__connection is not None:
-                self.__isopen = True
-                return __conn
+                if isinstance( self.__connection, Connection ):
+                    self.__isopen = True
+                    return self.__connection
+            elif self.__provider.name != Provider.SQLite.name:
+                self.__connection = db.connect( self.__connectionstring )
+                if isinstance( self.__connection, db.Connection ):
+                    self.__isopen = True
+                    return self.__connection
+            else:
+                self.__connection = sl.connect( __path )
+                if isinstance( self.__connection, Connection ):
+                    self.__isopen = True
+                    return self.__connection
 
     def close( self ):
         if self.__isopen == True:
@@ -383,8 +392,8 @@ class DataConnection( ):
             self.__isopen = False
 
 
-class QueryConfig( ):
-    '''QueryConfig( command, cols, vals  ) provides the
+class SqlConfig( ):
+    '''SqlConfig( command, cols, vals, paramstyle  ) provides the
      predicate provider value pairs for sql queries'''
     __predicate = None
     __names = None
@@ -453,11 +462,11 @@ class QueryConfig( ):
                     map.update( k, v )
             self.__predicate = map
 
-    def __init__( self, cmd, names, values, parms = ParamStyle.qmark ):
-        self.__cmd = cmd if isinstance( cmd, Command ) else Command.SELECT
-        self.__names = names if isinstance( names, list ) else list( )
-        self.__values = values if isinstance( values, tuple ) else tuple( )
-        self.__paramstyle = parms
+    def __init__( self, cmd, names, values, parms = None ):
+        self.__cmd = cmd if isinstance( cmd, Command ) else Command.SELECTALL
+        self.__names = names if isinstance( names, list ) else list()
+        self.__values = values if isinstance( values, tuple ) else tuple()
+        self.__paramstyle = parms if isinstance( parms, ParamStyle ) else ParamStyle.qmark
         self.__predicate = self.__map( )
 
     def __map( self ):
@@ -528,11 +537,11 @@ class QueryConfig( ):
 
 
 class SqlStatement( ):
-    '''SqlStatement( configuration, querybuilder ) Class
+    '''SqlStatement( dataconfig, sqlconfig ) Class
     represents the data models used in the SQLite database'''
     __command = None
-    __querybuilder = None
-    __configuration = None
+    __sqlconfig = None
+    __dataconfig = None
     __source = None
     __provider = None
     __table = None
@@ -609,15 +618,15 @@ class SqlStatement( ):
         if isinstance( vals, list ):
             self.__values = vals
 
-    def __init__( self, configuration, querybuilder ):
-        self.__querybuilder = querybuilder if isinstance( querybuilder, QueryConfig ) else None
-        self.__configuration = configuration if isinstance( configuration, DataConfig ) else None
-        self.__command = querybuilder.command
-        self.__provider = self.__configuration.provider
-        self.__source = self.__configuration.source
+    def __init__( self, dataconfig, sqlconfig ):
+        self.__sqlconfig = sqlconfig if isinstance( sqlconfig, SqlConfig ) else None
+        self.__dataconfig = dataconfig if isinstance( dataconfig, DataConfig ) else None
+        self.__command = sqlconfig.command
+        self.__provider = self.__dataconfig.provider
+        self.__source = self.__dataconfig.source
         self.__table = self.__source.name
-        self.__names = self.__querybuilder.names
-        self.__values = self.__querybuilder.values
+        self.__names = self.__sqlconfig.names
+        self.__values = self.__sqlconfig.values
 
     def __str__( self ):
         if isinstance( self.__commandtext, str ):
@@ -625,17 +634,21 @@ class SqlStatement( ):
 
     def commandtext( self ):
         if self.__command == Command.SELECT:
-            self.__commandtext = f'SELECT ' + self.__querybuilder.columndump( ) \
+            self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
                                  + f' FROM { self.__table }' \
-                                 + f'{ self.__querybuilder.wheredump( ) };'
+                                 + f'{ self.__sqlconfig.wheredump( ) };'
+            return self.__commandtext
+        elif self.__command == Command.SELECTALL:
+            self.__commandtext = f'SELECT ALL FROM { self.__table }' \
+                                 + f'{ self.__sqlconfig.wheredump( ) };'
             return self.__commandtext
         elif self.__command == 'INSERT':
             self.__commandtext = 'INSERT INTO ' + self.__table \
-                                 + f'( { self.__querybuilder.columndump( ) }' \
-                                 + f'VALUES { self.__querybuilder.valuedump( ) }'
+                                 + f'( { self.__sqlconfig.columndump( ) }' \
+                                 + f'VALUES { self.__sqlconfig.valuedump( ) }'
         elif self.__command == 'DELETE':
             self.__commandtext = 'DELETE FROM ' + self.__table \
-                                 + f'( { self.__querybuilder.wheredump( ) };'
+                                 + f'( { self.__sqlconfig.wheredump( ) };'
 
 
 class SQLiteQuery( ):
@@ -683,13 +696,13 @@ class SQLiteQuery( ):
 
     @property
     def connectionstring( self ):
-        if not self.__path == '':
-            return self.__path
+        if isinstance( self.__connectionstring, str ):
+            return self.__connectionstring
 
     @connectionstring.setter
     def connectionstring( self, conn ):
         if isinstance( conn, str ):
-            self.__path = str( conn )
+            self.__connectionstring = str( conn )
 
     @property
     def data( self ):
@@ -718,19 +731,20 @@ class SQLiteQuery( ):
         self.__connection = connection if isinstance( connection, DataConnection ) else None
         self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
         self.__table = self.__sqlstatement.source.name
-        self.__path = self.__sqlstatement.getpath( )
+        self.__path = self.__connection.path
         self.__driver = self.__sqlstatement.getdriver( )
         self.__command = self.__sqlstatement.command
-        self.__connectionstring = self.__connection.connectionstring
-        self.__data = ntuple( data, self.__sqlstatment.names )
+        self.__connectionstring = self.__path
 
     def __str__( self ):
         if self.__path is not None:
             return self.__path
 
-    def connect( self ):
-        if self.__connectionstring is not None:
-            return DataConnection( self.__connectionstring )
+    def getdata( self ):
+        __query = self.__sqlstatement.commandtext()
+        __conn = self.__connection.open()
+        __cursor = __conn.execute( __query )
+        return __cursor.fetchall()
 
 
 class AccessQuery( ):
@@ -739,7 +753,7 @@ class AccessQuery( ):
       data model classes in the MS Access database'''
     __path = None
     __connection = None
-    __sqlstatment = None
+    __sqlstatement = None
     __driver = None
     __dsn = None
     __connectionstring = None
@@ -809,24 +823,23 @@ class AccessQuery( ):
             self.__command = cmd
 
     def __init__( self, connection, sqlstatement ):
-        self.__connection = connection if isinstance( connection, DataConnection ) else Non
-        self.__sqlstatment = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
+        self.__connection = connection if isinstance( connection, DataConnection ) else None
+        self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
         self.__source = self.__sqlstatment.source
         self.__table = self.__source.table.name
-        self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )}'
-        self.__path = r'DBQ=C:\Users\terry\source\repos\BudgetPy\db' \
-                        r'\access\datamodels\Data.accdb;'
-        self.__connectionstring = self.__connection.connectionstring
+        self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
+        self.__path = self.__connection.path
         self.__command = self.__sqlstatment.command
-        self.__data = ntuple( data, self.__sqlstatment.names )
 
     def __str__( self ):
         if isinstance( self.__source, DataConfig ):
             return self.__source.name
 
-    def connect( self ):
-        if self.__connectionstring != '':
-            return db.connect( self.__connectionstring )
+    def getdata( self ):
+        __query = self.__sqlstatement.commandtext()
+        __conn = self.__connection.open()
+        __cursor = __conn.execute( __query )
+        return __cursor.fetchall()
 
 
 class SqlServerQuery( ):
@@ -888,7 +901,7 @@ class SqlServerQuery( ):
 
     @property
     def connectionstring( self ):
-        if not self.__connectionstring == '':
+        if isinstance( self.__connectionstring, str ):
             return self.__connectionstring
 
     @connectionstring.setter
@@ -898,13 +911,13 @@ class SqlServerQuery( ):
 
     @property
     def connection( self ):
-        if isinstance( self.__connection, DataConnection ):
+        if isinstance( self.__connection, Connection ):
             return self.__connection
 
     @connection.setter
-    def connection( self, dataconn ):
-        if isinstance( dataconn, DataConnection ):
-            self.__connection = dataconn
+    def connection( self, conn ):
+        if isinstance( conn, DataConnection ):
+            self.__connection = conn
 
     @property
     def data( self ):
@@ -931,21 +944,21 @@ class SqlServerQuery( ):
         self.__sqlstatment = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
         self.__source = self.__sqlstatment.source
         self.__table = self.__source.name
-        self.__server = r'( LocalDB ) \MSSQLLocalDB'
-        self.__driver = r'{SQL Server Native Client 11.0}'
+        self.__server = r'(LocalDB)\MSSQLLocalDB;'
+        self.__driver = r'{SQL Server Native Client 11.0};'
         self.__command = self.__sqlstatment.command
-        self.__path = r'C:\Users\terry\source\repos\BudgetPy' \
-                        r'\db\mssql\datamodels\Data.mdf'
-        self.__connectionstring = self.__connection.connectionstring
-        self.__data = ntuple( data, self.__sqlstatment.names )
+        self.__path = self.__connection.path
 
     def __str__( self ):
         if isinstance( self.__source, DataConfig ):
             return self.__source.name
 
-    def connect( self ):
-        if self.__connectionstring is not None:
-            return DataConnection( self.__connectionstring )
+    def getdata( self ):
+        if isinstance( self.__connection, DataConnection ):
+            __connection = self.__connection.open()
+            __cursor = __connection.cursor()
+            self.__data = __cursor.fetchall
+            return self.__data
 
 
 class DataColumn( ):

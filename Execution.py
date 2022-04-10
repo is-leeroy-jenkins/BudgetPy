@@ -2,6 +2,7 @@ import datetime as dt
 import pandas as pd
 from enum import Enum, auto
 from collections import namedtuple as ntuple
+from Ninja import *
 
 
 class BOC( Enum ):
@@ -100,18 +101,17 @@ class Account( ):
 
     @property
     def code( self ):
-        if self.__code:
+        if isinstance( self.__code, str ):
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
-            self.__data[ 'fund' ] = self.__code
+        if isinstance( code, str ):
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name:
+        if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
@@ -189,14 +189,22 @@ class Account( ):
             return self.__code
 
     def __init__( self, code ):
-        self.__data = {  }
         self.__code = code if isinstance( code, str ) else 'NS'
         self.__goal = self.__code[ 0 ]
         self.__objective = self.__code[ 1:3 ]
         self.__npm = self.__code[ 3 ]
         self.__programproject = self.__code[ 4:6 ]
-        self.__frame = pd.DataFrame( self.__data )
+        self.__data = getdata()
 
+    def getdata( self ):
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        sqlconfig = SqlConfig( Command.SELECTALL, names, values )
+        dbconfig = DataConfig( Source.Accounts, Provider.SQLite )
+        connection = DataConnection( dbconfig )
+        sql = SqlStatement( dbconfig, sqlconfig )
+        query = SQLiteQuery( connection, sql)
+        return query.getdata()
 
 class Activity( ):
     '''Defines the Activity Class'''
@@ -1078,6 +1086,7 @@ class Objective( ):
         self.__code = Objective( str( code ) )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
 
 
 class Organization( ):
