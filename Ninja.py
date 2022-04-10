@@ -131,8 +131,8 @@ class Command( Enum ):
     ALTERCOLUMN = auto( )
 
 
-class DataConfiguration( ):
-    '''DataConfiguration( source, provider  ) provides list of Budget Execution
+class DataConfig( ):
+    '''DataConfig( source, provider  ) provides list of Budget Execution
     tables across two databases ( data and references ) '''
     __data = [ ]
     __references = [ ]
@@ -241,7 +241,7 @@ class DataConfiguration( ):
                 return self.__sqldatapath
 
     def __init__( self, source, provider = Provider.SQLite ):
-        '''Constructor for the DataConfiguration class providing
+        '''Constructor for the DataConfig class providing
         data connection details'''
         self.__data = ['Allocations', 'ApplicationTables', 'CarryoverEstimates',
                        'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
@@ -312,7 +312,7 @@ class DataConnection( ):
 
     @property
     def configuration( self ):
-        if isinstance( self.__configuration, DataConfiguration ):
+        if isinstance( self.__configuration, DataConfig ):
             return self.__configuration
 
     @configuration.setter
@@ -359,7 +359,7 @@ class DataConnection( ):
             return self.__connectionstring
 
     def __init__( self, config ):
-        self.__configuration = config if isinstance( config, DataConfiguration ) else None
+        self.__configuration = config if isinstance( config, DataConfig ) else None
         self.__source = self.__configuration.source
         self.__provider = self.__configuration.provider
         self.__path = self.__configuration.getpath( )
@@ -383,8 +383,8 @@ class DataConnection( ):
             self.__isopen = False
 
 
-class QueryBuilder( ):
-    '''QueryBuilder( command, cols, vals  ) provides the
+class QueryConfig( ):
+    '''QueryConfig( command, cols, vals  ) provides the
      predicate provider value pairs for sql queries'''
     __predicate = None
     __names = None
@@ -574,10 +574,10 @@ class SqlStatement( ):
 
     @source.setter
     def source( self, src ):
-        if isinstance( src, DataConfiguration ):
+        if isinstance( src, DataConfig ):
             self.__source = src
         else:
-            self.__source = DataConfiguration( 'StatusOfFunds' )
+            self.__source = DataConfig( 'StatusOfFunds' )
 
     @property
     def table( self ):
@@ -610,8 +610,8 @@ class SqlStatement( ):
             self.__values = vals
 
     def __init__( self, configuration, querybuilder ):
-        self.__querybuilder = querybuilder if isinstance( querybuilder, QueryBuilder ) else None
-        self.__configuration = configuration if isinstance( configuration, DataConfiguration ) else None
+        self.__querybuilder = querybuilder if isinstance( querybuilder, QueryConfig ) else None
+        self.__configuration = configuration if isinstance( configuration, DataConfig ) else None
         self.__command = querybuilder.command
         self.__provider = self.__configuration.provider
         self.__source = self.__configuration.source
@@ -821,7 +821,7 @@ class AccessQuery( ):
         self.__data = ntuple( data, self.__sqlstatment.names )
 
     def __str__( self ):
-        if isinstance( self.__source, DataConfiguration ):
+        if isinstance( self.__source, DataConfig ):
             return self.__source.name
 
     def connect( self ):
@@ -940,7 +940,7 @@ class SqlServerQuery( ):
         self.__data = ntuple( data, self.__sqlstatment.names )
 
     def __str__( self ):
-        if isinstance( self.__source, DataConfiguration ):
+        if isinstance( self.__source, DataConfig ):
             return self.__source.name
 
     def connect( self ):
