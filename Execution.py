@@ -38,7 +38,7 @@ class Unit( ):
         if isinstance( self.__index, int ):
             return self.__index
 
-    @index.setter
+    @id.setter
     def id( self, id ):
         if isinstance( id, int ):
             self.__index = id
@@ -57,25 +57,25 @@ class Element( Unit ):
     __code = None
     __name = None
 
-    @poperty
+    @property
     def name( self ):
         if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
-    def name( self, base ):
-        if isinstance( base, str ):
-            self.__name = base
+    def name( self, name ):
+        if isinstance( name, str ):
+            self.__name = name
 
-    @poperty
+    @property
     def code( self ):
         if isinstance( self.__name, str ):
             return self.__name
 
-    @name.setter
-    def code( self, prc ):
-        if isinstance( base, str ):
-            self.__name = base
+    @code.setter
+    def code( self, code ):
+        if isinstance( code, str ):
+            self.__name = code
 
     def __init__( self, id, code, name ):
         super( ).__init__( id )
