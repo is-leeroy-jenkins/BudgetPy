@@ -4,6 +4,7 @@ from enum import Enum, auto
 
 class BOC( Enum ):
     '''Enumeration of object class codes'''
+    NS = 0
     PAYROLL = 10
     FTE = 17
     EXPENSES = 36
@@ -14,6 +15,7 @@ class BOC( Enum ):
 
 class NPM( Enum ):
     '''Enumeration of NPM Codes'''
+    NS = auto( )
     A = auto( )
     B = auto( )
     C = auto( )
@@ -425,23 +427,23 @@ class BudgetFiscalYear( ):
     __frame = None
 
     @property
-    def firstyear( self ):
+    def startyear( self ):
         if self.__base is not None:
             return self.__bfy
 
-    @firstyear.setter
-    def firstyear( self, yr ):
+    @startyear.setter
+    def startyear( self, yr ):
         if yr is not None:
             self.__bfy = str( yr )
             self.__data[ 'firstyear' ] = self.__bfy
 
     @property
-    def lastyear( self ):
+    def endyear( self ):
         if self.__efy is not None:
             return self.__efy
 
-    @lastyear.setter
-    def lastyear( self, yr ):
+    @endyear.setter
+    def endyear( self, yr ):
         if yr is not None:
             self.__efy = str( yr )
             self.__data[ 'lastyear' ] = self.__efy
@@ -453,7 +455,7 @@ class BudgetFiscalYear( ):
 
     @calendaryear.setter
     def calendaryear( self, yr ):
-        if yr is not None:
+        if isinstance( yr, int ):
             self.__year = int( yr )
             self.__data[ 'calendaryear' ] = self.__year
 
@@ -464,7 +466,7 @@ class BudgetFiscalYear( ):
 
     @startdate.setter
     def startdate( self, start ):
-        if isinstance( start, dt.date ):
+        if isinstance( start, dt.datetime ):
             self.__startdate = start
             self.__data[ 'startdate' ] = self.__startdate
 
@@ -564,19 +566,16 @@ class BudgetFiscalYear( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        return str( self.__year )
-
     def __init__( self, bfy ):
-        self.__today = dt.date.today( )
-        self.__base = bfy if isinstance( bfy, str ) else str( dt.date.year )
+        self.__today = dt.datetime.today()
         self.__date = self.__today
+        self.__base = bfy if isinstance( bfy, str ) else str( self.__today.year )
         self.__year = int( self.__base )
         self.__day = self.__date.day
         self.__month = self.__date.month
-        self.__startdate = dt.date( self.__year, 10, 1 )
+        self.__startdate = dt.datetime( self.__year, 10, 1 )
         self.__bfy = str( self.__startdate.year )
-        self.__enddate = dt.date( self.__year + 1, 9, 30 )
+        self.__enddate = dt.datetime( self.__year + 1, 9, 30 )
         self.__efy = str( self.__enddate.year )
         self.__data = { 'base': self.__base,
                         'date': self.__date,
@@ -590,10 +589,14 @@ class BudgetFiscalYear( ):
                             'NewYearsDay', 'MartinLutherKing', 'Washingtons',
                             'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
 
+    def __str__( self ):
+        return str( self.__year )
+
 
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
     __code = None
+    __boc = None
     __name = None
     __value = None
     __data = None
@@ -655,9 +658,11 @@ class BudgetObjectClass( ):
     def __str__( self ):
         return self.__code
 
-    def __init__( self, code ):
-        self.__code = code if isinstance( code, str ) else 'NS'
-        self.__data = { 'fund': self.__code }
+    def __init__( self, boc ):
+        self.__boc = boc if isinstance( boc, BOC ) else BOC.NS
+        self.__code = self.__boc.value
+        self.__name = self.__boc.name
+        self.__data = { 'BOC': self.__code }
         self.__frame = pd.DataFrame
 
 
@@ -1649,7 +1654,7 @@ class ProgramResultsCode( ):
     def bfy( self, year ):
         if year is not None:
             self.__rpio = BudgetFiscalYear( year )
-            self.__data[ 'BFY' ] = self.__bfy.firstyear
+            self.__data[ 'BFY' ] = self.__bfy.startyear
 
     @property
     def fund( self ):
@@ -2384,7 +2389,7 @@ class Commitment( ):
     def bfy( self, year ):
         if isinstance( BudgetFiscalYear, year ):
             self.__bfy = year
-            self.__data[ 'bfy' ] = self.__bfy.firstyear
+            self.__data[ 'bfy' ] = self.__bfy.startyear
 
     @property
     def fund( self ):
@@ -2877,7 +2882,7 @@ class UnliquidatedObligation( ):
     @property
     def bfy( self ):
         if self.__bfy is not None:
-            return self.__bfy.firstyear
+            return self.__bfy.startyear
 
     @bfy.setter
     def bfy( self, year ):
