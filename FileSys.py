@@ -2,6 +2,19 @@ import datetime as dt
 import os
 import zipfile as zp
 import openpyxl as xl
+from enum import Enum, auto
+
+
+class Extension( Enum ):
+    '''Enumeration of database file extensions'''
+    NS = auto( )
+    DB = auto( )
+    ACCDB = auto( )
+    MDF = auto( )
+    XLSX = auto( )
+    XLS = auto( )
+    CSV = auto( )
+
 
 class BudgetPath( ):
     '''BudgetPath( filename ) initializes the

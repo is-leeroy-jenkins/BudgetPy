@@ -1,5 +1,28 @@
 import datetime as dt
 import pandas as pd
+from enum import Enum, auto
+
+class BOC( Enum ):
+    '''Enumeration of object class codes'''
+    PAYROLL = 10
+    FTE = 17
+    EXPENSES = 36
+    CONTRACTS = 37
+    WCF = 38
+    GRANTS = 41
+
+
+class NPM( Enum ):
+    '''Enumeration of NPM Codes'''
+    A = auto( )
+    B = auto( )
+    C = auto( )
+    D = auto( )
+    E = auto( )
+    F = auto( )
+    H = auto( )
+    J = auto( )
+    M = auto( )
 
 
 class Unit( ):

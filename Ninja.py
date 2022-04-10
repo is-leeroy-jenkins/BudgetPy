@@ -104,17 +104,6 @@ class Provider( Enum ):
     CSV = auto( )
 
 
-class Extension( Enum ):
-    '''Enumeration of database file extensions'''
-    NS = auto( )
-    DB = auto( )
-    ACCDB = auto( )
-    MDF = auto( )
-    XLSX = auto( )
-    XLS = auto( )
-    CSV = auto( )
-
-
 class ParamStyle( Enum ):
     '''Enumeration of paramstyles'''
     NS = auto( )
