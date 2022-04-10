@@ -185,7 +185,7 @@ class Account( ):
             self.__frame = frame
 
     def __str__( self ):
-        if self.__code is not None:
+        if isinstance( self.__code ):
             return self.__code
 
     def __init__( self, code ):
@@ -194,7 +194,6 @@ class Account( ):
         self.__objective = self.__code[ 1:3 ]
         self.__npm = self.__code[ 3 ]
         self.__programproject = self.__code[ 4:6 ]
-        self.__data = getdata()
 
     def getdata( self ):
         names = [ 'Code', ]
@@ -203,8 +202,9 @@ class Account( ):
         dbconfig = DataConfig( Source.Accounts, Provider.SQLite )
         connection = DataConnection( dbconfig )
         sql = SqlStatement( dbconfig, sqlconfig )
-        query = SQLiteQuery( connection, sql)
-        return query.getdata()
+        query = SQLiteQuery( connection, sql )
+        self.__data = query.getdata( )
+        return self.__data
 
 class Activity( ):
     '''Defines the Activity Class'''
@@ -255,13 +255,24 @@ class Activity( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        return self.__code
-
     def __init__( self, code ):
-        self.__data = { }
-        self.__code = str( code )
-        self.__frame = pd.DataFrame
+        self.__code = code if isinstance( code, str ) else None
+        self.__data = self.getdata( )
+
+    def __str__( self ):
+        if isinstance( self.__code, str ):
+            return self.__code
+
+    def getdata( self ):
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        sqlconfig = SqlConfig( Command.SELECTALL, names, values )
+        dbconfig = DataConfig( Source.ActivityCodes, Provider.SQLite )
+        connection = DataConnection( dbconfig )
+        sql = SqlStatement( dbconfig, sqlconfig )
+        query = SQLiteQuery( connection, sql )
+        self.__data = query.getdata( )
+        return self.__data
 
 
 class AllowanceHolder( ):
