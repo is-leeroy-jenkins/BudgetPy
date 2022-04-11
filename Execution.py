@@ -2876,6 +2876,250 @@ class FederalHoliday( ):
         self.__frame = pd.DataFrame
 
 
+class StatusOfFunds( ):
+    '''Object representing exeuction data'''
+    __statusoffundsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accoutcode = None
+    __boccode = None
+    __bocname = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__rpiocode = code
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__rpiocode = name
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__ahcode = code
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__ahname = name
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__name = name
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__orgcode = code
+
+    @property
+    def orgname( self ):
+        if isinstance( self.__orgname, str ) and self.__orgname != '':
+            return self.__orgname
+
+    @orgname.setter
+    def organame( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__orgname = name
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accoutcode != '':
+            return self.__accoutcode
+
+    @accountcode.setter
+    def accountcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__accountcode = code
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__boccode = code
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__bocname = name
+
+class Allocation( ):
+    '''object representing operating plan data'''
+    __allocationsid = None
+    __statusoffundsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accoutcode = None
+    __boccode = None
+    __bocname = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+
+class RegionalAuthority( ):
+    '''object representing Regional Allocations'''
+    __regionalauthorityid = None
+    __statusoffundsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accoutcode = None
+    __boccode = None
+    __bocname = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+
+class HeadquartersAuthority( ):
+    '''object representing HQ Allocations'''
+    __headquartersauthorityid = None
+    __statusoffundsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accoutcode = None
+    __boccode = None
+    __bocname = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+
+class Actuals( ):
+    '''Object representing expendtiure data'''
+    __actualsid = None
+
+class AppropriationDocument( ):
+    '''object representing Level 1 documents'''
+    __appropriationdocumentsid = None
+
+class BudgetDocument( ):
+    '''object representing Level 2-3 documents'''
+    __budgetdocumentsid = None
+
+class BudgetControl( ):
+    '''object representing compass control data'''
+
+class CongressionalControl( ):
+    '''object representing congressional control data'''
+    __congressionalcontrolsid = None
+
+class CompassLevel( ):
+    '''object representing Compass data levels 1-7'''
+    __compasslevelsid = None
+
 class Commitment( ):
     '''Defines the commitment class.'''
     __commitmentsid = None
