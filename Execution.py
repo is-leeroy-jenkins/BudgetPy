@@ -1626,7 +1626,6 @@ class ResponsibilityCenter( ):
             return self.__code
 
 
-
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __code = None
@@ -1682,7 +1681,6 @@ class ResourcePlanningOffice( ):
     def __str__( self ):
         if isinstance( self.__code ) and self.__code != '':
             return self.__code
-
 
 
 class ProgramResultsCode( ):
