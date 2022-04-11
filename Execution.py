@@ -1191,23 +1191,22 @@ class NationalProgram( ):
 
     @property
     def rpio( self ):
-        if isinstance( self.__rpio, str ):
+        if isinstance( self.__rpio, str ) and self.__rpio != '':
             return self.__rpio
 
     @rpio.setter
     def rpio( self, code ):
-        if isinstance( self.__rpio, str ):
+        if isinstance( code, str ) and code != '':
             self.__rpio = code
-            self.__data[ 'rpio' ] = self.__rpio
 
     @property
     def title( self ):
-        if isinstance( self.__title, str ):
+        if isinstance( self.__title, str ) and self.__title != '':
             return self.__title
 
     @title.setter
     def title( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__title = name
 
     @property
@@ -1288,7 +1287,6 @@ class Objective( ):
 
     def __init__( self, code ):
         self.__code = Objective( str( code ) )
-        self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1344,8 +1342,7 @@ class Organization( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = code
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1401,8 +1398,7 @@ class Project( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1458,8 +1454,7 @@ class ItProjectCode( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1515,8 +1510,7 @@ class SiteProjectCode( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1621,7 +1615,6 @@ class HumanResourceOrganization( ):
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
-        self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1677,8 +1670,7 @@ class WorkCode( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1734,8 +1726,7 @@ class ProgramArea( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1773,13 +1764,13 @@ class ProgramProject( ):
 
     @property
     def description( self ):
-        if self.__description is not None:
+        if isinstance( self.__description, str ) and self.__description != '':
             return self.__description
 
     @description.setter
     def description( self, text ):
-        if text is not None:
-            self.__description = str( text )
+        if isinstance( text, str ) and text != '':
+            self.__description = text
 
     @property
     def data( self ):
@@ -1802,8 +1793,7 @@ class ProgramProject( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1859,8 +1849,7 @@ class ResponsibilityCenter( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1916,8 +1905,7 @@ class ResourcePlanningOffice( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -1927,6 +1915,7 @@ class ResourcePlanningOffice( ):
 
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
+    __id = None
     __rpio = None
     __bfy = None
     __ah = None
@@ -1941,115 +1930,114 @@ class ProgramResultsCode( ):
     __frame = None
 
     @property
+    def id( self ):
+        if isinstance( self.__id, int ):
+            return self.__id
+
+    @id.setter
+    def id( self, prcid ):
+        if isinstance( prcid, int ):
+            self.__id = prcid
+
+    @property
     def rpio( self ):
-        if self.__rpio is not None:
+        if isinstance( self.__rpio, ResourcePlanningOffice ):
             return self.__rpio
 
     @rpio.setter
-    def rpio( self, code ):
-        if code is not None:
-            self.__rpio = ResourcePlanningOffice( code )
-            self.__data[ 'RPIO' ] = self.__rpio.code
+    def rpio( self, rp ):
+        if isinstance( rp, ResourcePlanningOffice ):
+            self.__rpio = rp
 
     @property
     def bfy( self ):
-        if self.__bfy is not None:
-            return BudgetFiscalYear( self.__bfy )
+        if isinstance( self.__bfy, BudgetFiscalYear ):
+            return self.__bfy
 
     @bfy.setter
     def bfy( self, year ):
-        if year is not None:
-            self.__rpio = BudgetFiscalYear( year )
-            self.__data[ 'BFY' ] = self.__bfy.startyear
+        if isinstance( year, BudgetFiscalYear ):
+            self.__bfy = year
 
     @property
     def fund( self ):
-        if self.__fund.code is not None:
-            return Fund( self.__fund.code )
+        if isinstance( self.__fund, Fund ):
+            return self.__fund
 
     @fund.setter
-    def fund( self, code ):
-        if code is not None:
-            self.__fund = ResourcePlanningOffice( str( code ) )
-            self.__data[ 'Fund' ] = self.__fund.code
+    def fund( self, fu ):
+        if isinstance( fu, Fund ):
+            self.__fund = fu
 
     @property
     def ah( self ):
-        if self.__ah is not None:
-            return AllowanceHolder( self.__ah )
+        if isinstance( self.__ah, AllowanceHolder ):
+            return self.__ah
 
     @ah.setter
-    def ah( self, code ):
-        if code is not None:
-            self.__ah = AllowanceHolder( str( code ) )
-            self.__data[ 'AH' ] = self.__ah.code
+    def ah( self, ah ):
+        if isinstance( ah, AllowanceHolder ):
+            self.__ah = ah
 
     @property
     def account( self ):
-        if self.__account is not None:
+        if isinstance( self.__account, Account ):
             return self.__account
 
     @account.setter
-    def account( self, code ):
-        if code is not None:
-            self.__account = Account( str( code ) )
-            self.__data[ 'Account' ] = self.__account.code
+    def account( self, acct ):
+        if isinstance( acct, Account ):
+            self.__account = acct
 
     @property
     def activity( self ):
-        if self.__account is not None:
-            self.__activity = str( self.__account[ 5:2 ] )
-            return Activity( self.__activity )
+        if isinstance( self.__activity, Activity ):
+            return self.__activity
 
     @activity.setter
-    def activity( self, code ):
-        if code is not None:
-            self.__activity = Activity( str( code ) )
-            self.__data[ 'Activity' ] = self.__activity.code
+    def activity( self, act ):
+        if isinstance( act, Activity ):
+            self.__activity = act
 
     @property
     def org( self ):
-        if self.__org is not None:
-            return Organization( self.__org )
+        if isinstance( self.__org, Organization ):
+            return self.__org
 
     @org.setter
-    def org( self, code ):
-        if code is not None:
-            self.__org = Organization( str( code ) )
-            self.__data[ 'ORG' ] = self.__org.code
+    def org( self, org ):
+        if isinstance( org, Organziation):
+            self.__org = org
 
     @property
     def rc( self ):
-        if self.__rc is not None:
+        if isinstance( self.__rc, ResponsibilityCenter ):
             return self.__rc
 
     @rc.setter
-    def rc( self, code ):
-        if code is not None:
-            self.__rc = ResponsibilityCenter( str( code ) )
-            self.__data[ 'RC' ] = self.__rc.code
+    def rc( self, rcc ):
+        if isinstance( rcc, ResponsibilityCenter ):
+            self.__rc = rcc
 
     @property
     def boc( self ):
-        if self.__boc is not None:
+        if isinstance( self.__boc, BudgetObjectClass ):
             return self.__boc
 
     @boc.setter
-    def boc( self, code ):
-        if code is not None:
-            self.__rpio = BudgetObjectClass( str( code ) )
-            self.__data[ 'BOC' ] = self.__boc.code
+    def boc( self, boc ):
+        if isinstance( boc, BudgetObjectClass ):
+            self.__boc = boc
 
     @property
     def amount( self ):
-        if self.__amount is not None:
+        if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
     def amount( self, value ):
-        if value is not None:
+        if isinstance( value, float ):
             self.__amount = value
-            self.__data[ 'Amount' ] = self.__amount
 
     @property
     def data( self ):
