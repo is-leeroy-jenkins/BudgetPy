@@ -50,8 +50,8 @@ class Unit( ):
         self.__id = id if isinstance( id, int ) else None
 
     def __str__( self ):
-        if isinstance( self.__id, int ):
-            return str( self.__id )
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
 
 
 class Element( Unit ):
@@ -75,17 +75,16 @@ class Element( Unit ):
         if isinstance( self.__name, str ):
             return self.__name
 
-    @code.setter
-    def code( self, code ):
-        if isinstance( code, str ):
-            self.__name = code
-
     def __init__( self, id, code, name ):
         super( ).__init__( id )
         self.__id = super( ).__id
         self.__code = code if isinstance( code, str ) else None
         self.__name = name if isinstance( name, str ) else None
         self.__code = code if isinstance( code, str ) else None
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
 
 
 class Account( ):
@@ -101,24 +100,23 @@ class Account( ):
 
     @property
     def code( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
-            self.__record[ 'name' ] = self.__name
 
     @property
     def goal( self ):
@@ -184,16 +182,16 @@ class Account( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        if isinstance( self.__code, str ):
-            return self.__code
-
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
         self.__goal = self.__code[ 0 ]
         self.__objective = self.__code[ 1:3 ]
         self.__npm = self.__code[ 3 ]
         self.__programproject = self.__code[ 4:6 ]
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
 
     def getdata( self ):
         provider = Provider.SQLite
@@ -215,23 +213,23 @@ class Activity( ):
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__code = str( code )
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
         if isinstance( name, str ) and name != '':
-            self.__name = str( name )
+            self.__name = name
 
     @property
     def data( self ):
@@ -257,10 +255,6 @@ class Activity( ):
         self.__code = code if isinstance( code, str ) else None
         self.__data = self.getdata( )
 
-    def __str__( self ):
-        if isinstance( self.__code, str ):
-            return self.__code
-
     def getdata( self ):
         names = [ 'Code', ]
         values = ( self.__code, )
@@ -272,6 +266,10 @@ class Activity( ):
         self.__data = query.getdata( )
         return self.__data
 
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
+
 
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
@@ -282,25 +280,23 @@ class AllowanceHolder( ):
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
-            self.__data[ 'fund' ] = self.__code
+        if isinstance( code, str ) and code != '':
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
+        if isinstance( name, str ) and name != '':
+            self.__name = name
 
     @property
     def data( self ):
@@ -322,13 +318,13 @@ class AllowanceHolder( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        if isinstance( self.__code, str ):
-            return self.__code
-
     def __init__( self, code ):
         self.__code = code if isinstance( self.__code, str ) else None
         self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
 
 
 class Appropriation( ):
@@ -343,24 +339,23 @@ class Appropriation( ):
 
     @property
     def code( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name , str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
-            self.__data[ 'name' ] = self.__name
 
     @property
     def fiscalyear( self ):
@@ -395,15 +390,15 @@ class Appropriation( ):
             self.__title = title
             self.__data[ 'title' ] = self.__title
 
-    def __str__( self ):
-        if isinstance( self.__code, str ):
-            return self.__code
-
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
         self.__fund = Fund( self.__code )
         self.__data = { 'code': self.__code,
                         'fund': self.__fund }
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
 
 
 class BudgetFiscalYear( ):
@@ -579,7 +574,8 @@ class BudgetFiscalYear( ):
                             'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
 
     def __str__( self ):
-        return str( self.__year )
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
 
 
 class BudgetObjectClass( ):
@@ -593,22 +589,22 @@ class BudgetObjectClass( ):
 
     @property
     def code( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -641,15 +637,15 @@ class BudgetObjectClass( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        if isinstance( self.__code, str ):
-            return self.__code
-
     def __init__( self, boc ):
         self.__boc = boc if isinstance( boc, BOC ) else BOC.NS
         self.__code = self.__boc.value
         self.__name = self.__boc.name
         self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
 
 
 class Division( ):
@@ -660,22 +656,22 @@ class Division( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -694,7 +690,7 @@ class Division( ):
         self.__data = { 'fund': self.__code }
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -703,26 +699,26 @@ class FinanceObjectClass( ):
     __code = None
     __name = None
     __data = None
-    __frame = None
+    __frame = Nonec
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
-            self.__code = code
+        if isinstance( code, str ) and code != '':
+            self.__code = ode
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -750,7 +746,7 @@ class FinanceObjectClass( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -801,25 +797,23 @@ class Fund( ):
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
-            self.__data[ 'fund' ] = self.__code
+        if isinstance( code, str ) and code != '':
+            self.__code = code
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
+        if isinstance( name, str ) and name != '':
+            self.__name = name
 
     @property
     def title( self ):
@@ -858,7 +852,7 @@ class Fund( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -871,22 +865,22 @@ class Goal( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -913,7 +907,7 @@ class Goal( ):
         self.__code = code if isinstance( code, str ) else None
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -928,22 +922,22 @@ class NationalProgram( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -992,7 +986,7 @@ class NationalProgram( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1005,22 +999,22 @@ class Objective( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1049,7 +1043,7 @@ class Objective( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1062,22 +1056,22 @@ class Organization( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1106,7 +1100,7 @@ class Organization( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1119,22 +1113,22 @@ class Project( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1163,7 +1157,7 @@ class Project( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1176,22 +1170,22 @@ class ItProjectCode( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1220,7 +1214,7 @@ class ItProjectCode( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1233,22 +1227,22 @@ class SiteProjectCode( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1277,7 +1271,7 @@ class SiteProjectCode( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1292,29 +1286,29 @@ class StateOrganization( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
 
     def __str__( self ):
-        if isinstance( self.__code, str ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1327,22 +1321,22 @@ class HumanResourceOrganization( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1371,7 +1365,7 @@ class HumanResourceOrganization( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1384,22 +1378,22 @@ class WorkCode( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1428,7 +1422,7 @@ class WorkCode( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1441,22 +1435,22 @@ class ProgramArea( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1485,7 +1479,7 @@ class ProgramArea( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code ):
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
 
@@ -1499,22 +1493,22 @@ class ProgramProject( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1547,14 +1541,14 @@ class ProgramProject( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        if isinstance( self.__code ):
-            return self.__code
-
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
 
 
 class ResponsibilityCenter( ):
@@ -1566,22 +1560,22 @@ class ResponsibilityCenter( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1604,14 +1598,15 @@ class ResponsibilityCenter( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        if isinstance( self.__code ):
-            return self.__code
-
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__code ) and self.__code != '':
+            return self.__code
+
 
 
 class ResourcePlanningOffice( ):
@@ -1623,22 +1618,22 @@ class ResourcePlanningOffice( ):
 
     @property
     def code( self ):
-        if isinstance( self.code, str ):
+        if isinstance( self.__code, str) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__code = code
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if isinstance( name, str ):
+        if isinstance( name, str ) and name != '':
             self.__name = name
 
     @property
@@ -1661,14 +1656,15 @@ class ResourcePlanningOffice( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __str__( self ):
-        if isinstance( self.__code ):
-            return self.__code
-
     def __init__( self, code ):
         self.__code = str( code )
         self.__data = { 'fund': self.__code }
         self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__code ) and self.__code != '':
+            return self.__code
+
 
 
 class ProgramResultsCode( ):
@@ -1825,7 +1821,7 @@ class ProgramResultsCode( ):
         self.__frame = pd.DataFrame
 
     def __str__( self ):
-        if isinstance( self.__code ):
+        if isinstance( self.__code ) and self.__code != '':
             return self.__code
 
 
