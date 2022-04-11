@@ -369,14 +369,13 @@ class Appropriation( ):
 
     @property
     def fiscalyear( self ):
-        if self.__bfy is not None:
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
             return self.__bfy
 
     @fiscalyear.setter
     def fiscalyear( self, bfy ):
-        if bfy is not None:
-            self.__bfy = str( bfy )
-            self.__data[ 'bfy' ] = self.__bfy
+        if isinstance( bfy, str) and bfy != '':
+            self.__bfy = bfy
 
     @property
     def fund( self ):
@@ -385,9 +384,8 @@ class Appropriation( ):
 
     @fund.setter
     def fund( self, code ):
-        if isinstance( code, str ):
+        if isinstance( code, str ) and code != '':
             self.__fund = Fund( code )
-            self.__data[ 'fund' ] = self.__fund
 
     @property
     def title( self ):
@@ -396,9 +394,8 @@ class Appropriation( ):
 
     @title.setter
     def title( self, title ):
-        if isinstance( title, str ):
+        if isinstance( title, str ) and title != '':
             self.__title = title
-            self.__data[ 'title' ] = self.__title
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -430,22 +427,22 @@ class BudgetFiscalYear( ):
 
     @property
     def startyear( self ):
-        if isinstance( self.__base, str ):
+        if isinstance( self.__base, str ) and self.__bfy != '':
             return self.__bfy
 
     @startyear.setter
     def startyear( self, yr ):
-        if isinstance( yr, str ):
+        if isinstance( yr, str ) and yr != '':
             self.__bfy = yr
 
     @property
     def endyear( self ):
-        if isinstance( self.__efy, str):
+        if isinstance( self.__efy, str) and self.__efy != '':
             return self.__efy
 
     @endyear.setter
     def endyear( self, yr ):
-        if isinstance( yr, str ):
+        if isinstance( yr, str ) and yr != '':
             self.__efy = yr
 
     @property
@@ -454,9 +451,9 @@ class BudgetFiscalYear( ):
             return self.__year
 
     @calendaryear.setter
-    def calendaryear( self, yr ):
-        if isinstance( yr, int ):
-            self.__year = yr
+    def calendaryear( self, cyr ):
+        if isinstance( cyr, int ):
+            self.__year = cyr
 
     @property
     def startdate( self ):
@@ -569,13 +566,6 @@ class BudgetFiscalYear( ):
         self.__bfy = bfy if isinstance( bfy, str ) else str( self.__today.year )
         self.__enddate = dt.datetime( self.__year + 1, 9, 30 ) if isinstance( self.__year, int ) else None
         self.__efy = str( self.__enddate.year ) if isinstance( self.__enddate, dt.datetime ) else None
-        self.__data = { 'base': self.__base,
-                        'date': self.__date,
-                        'calendaryear': self.__year,
-                        'day': self.__day,
-                        'month': self.__month,
-                        'startdate': self.__startdate,
-                        'enddate': self.__enddate }
         self.__frame = pd.DataFrame
         self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                             'NewYearsDay', 'MartinLutherKing', 'Washingtons',
@@ -823,15 +813,24 @@ class Fund( ):
             self.__name = name
 
     @property
-    def title( self ):
-        if self.__title is not None:
+    def shortname( self ):
+        if isinstance( self.__title, str ) and self.__title != '':
             return self.__title
 
     @title.setter
-    def title( self, title ):
-        if title is not None:
-            self.__title = str( title )
-            self.__data[ 'title' ] = self.__title
+    def shortname( self, title ):
+        if isinstance( title , str ) and title != '':
+            self.__title = title
+
+    @property
+    def status( self ):
+        if isinstance( self.__status, str ) and self.__status != '':
+            return self.__status
+
+    @status.setter
+    def status( self, stat ):
+        if isinstance( stat, str ) and stat in [ 'ACTIVE', 'INACTIVE' ]:
+            self.__status = stat
 
     @property
     def data( self ):
@@ -845,7 +844,7 @@ class Fund( ):
 
     @property
     def table( self ):
-        if self.__frame is not None:
+        if isinstance( self.__frame, pd.DataFrame ):
             return self.__frame
 
     @table.setter
@@ -854,8 +853,7 @@ class Fund( ):
             self.__frame = frame
 
     def __init__( self, code ):
-        self.__code = str( code )
-        self.__data = { 'fund': self.__code }
+        self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
