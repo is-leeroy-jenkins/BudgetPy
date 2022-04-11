@@ -1673,7 +1673,7 @@ class SiteProjectCode( ):
 
 
 class StateOrganization( ):
-    '''StateOrganization( code ) class
+    '''StateOrganization( fgrp ) class
     representing state codes'''
     __stateorganizationsid = None
     __code = None
@@ -4154,6 +4154,287 @@ class StatusOfAppropriations( ):
     def appropriationfundcode( self, code ):
         if isinstance( code, str ) and code != '':
            self.__appropriationfundcode = code
+
+    @property
+    def appropriationfundname( self ):
+        if isinstance( self.__appropriationfundname, str ) \
+                and self.__appropriationfundname != '':
+            return self.__appropriationfundname
+
+    @appropriationfundname.setter
+    def appropriationfundname( self, name ):
+        if isinstance( name, str ) and name != '':
+           self.__appropriationfundname = name
+
+    @property
+    def appropriationcreationdate( self ):
+        if isinstance( self.__appropriationcreationdate, dt.datetime ):
+            return self.__appropriationcreationdate
+
+    @appropriationcreationdate.setter
+    def appropriationcreationdate( self, date ):
+        if isinstance( date, dt.datetime ):
+           self.__appropriationcreationdate = date
+
+    @property
+    def appropriationcode( self ):
+        if isinstance( self.__appropriationode, str ) \
+                and self.__appropriationcode != '':
+            return self.__appropriationode
+
+    @appropriationode.setter
+    def appropriationcode( self, code ):
+        if isinstance( code, str ) and code != '':
+           self.__appropriationcode = code
+
+    @property
+    def subappropriationcode( self ):
+        if isinstance( self.__subappropriationode, str ) \
+                and self.__subappropriationcode != '':
+            return self.__subappropriationode
+
+    @subappropriationode.setter
+    def subappropriationcode( self, code ):
+        if isinstance( code, str ) and code != '':
+           self.__subappropriationcode = code
+
+    @property
+    def appropriationdescription( self ):
+        if isinstance( self.__appropriationdescription, str ) \
+                and self.__appropriationdescription != '':
+            return self.__appropriationdescription
+
+    @appropriationdescription.setter
+    def appropriationdescription( self, desc ):
+        if isinstance( desc, str ) and desc != '':
+           self.__appropriationdescription = de
+
+    @property
+    def fundgroup( self ):
+        if isinstance( self.__fundgroup, str ) \
+                and self.__fundgroup != '':
+            return self.__fundgroup
+
+    @fundgroup.setter
+    def fundgroup( self, fgrp ):
+        if isinstance( fgrp, str ) and fgrp != '':
+            self.__fundgroup = fgrp
+
+    @property
+    def fundgroupname( self ):
+        if isinstance( self.__fundgroupname, str ) \
+                and self.__fundgroupname != '':
+            return self.__fundgroupname
+
+    @fundgroupname.setter
+    def fundgroupname( self, fgrp ):
+        if isinstance( fgrp, str ) and fgrp != '':
+            self.__fundgroupname = fgrp
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) \
+                and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, dtyp ):
+        if isinstance( dtyp, str ) and dtyp != '':
+            self.__documenttype = dtyp
+
+    @property
+    def transtype( self ):
+        if isinstance( self.__transtype, str ) \
+                and self.__transtype != '':
+            return self.__transtype
+
+    @transtype.setter
+    def transtype( self, ttyp ):
+        if isinstance( ttyp, str ) and ttyp != '':
+            self.__transtype = ttyp
+
+    @property
+    def actualrecoverytranstype( self ):
+        if isinstance( self.__actualrecoverytranstype, str ) \
+                and self.__actualrecoverytranstype != '':
+            return self.__actualrecoverytranstype
+
+    @actualrecoverytranstype.setter
+    def actualrecoverytranstype( self, artyp ):
+        if isinstance( artyp, str ) and artyp != '':
+            self.__actualrecoverytranstype = artyp
+
+    @property
+    def commitmentspendingcontrolflag( self ):
+        if isinstance( self.__commitmentspendingcontrolflag, str ) \
+                and self.__commitmentspendingcontrolflag != '':
+            return self.__commitmentspendingcontrolflag
+
+    @commitmentspendingcontrolflag.setter
+    def commitmentspendingcontrolflag( self, csflag ):
+        if isinstance( csflag, str ) and csflag != '':
+            self.__commitmentspendingcontrolflag = csflag
+
+    @property
+    def agreementlimit( self ):
+        if isinstance( self.__agreementlimit, str ) \
+                and self.__agreementlimit != '':
+            return self.__agreementlimit
+
+    @agreementlimit.setter
+    def agreementlimit( self, lim ):
+        if isinstance( lim, str ) and lim != '':
+            self.__agreementlimit = lim
+
+    @property
+    def estimatedrecoveriestranstype( self ):
+        if isinstance( self.__estimatedrecoveriestranstype, str ) \
+                and self.__estimatedrecoveriestranstype != '':
+            return self.__estimatedrecoveriestranstype
+
+    @estimatedrecoveriestranstype.setter
+    def estimatedrecoveriestranstype( self, ttyp ):
+        if isinstance( ttyp, str ) and ttyp != '':
+            self.__estimatedrecoveriestranstype = ttyp
+
+    @property
+    def estimatedreimbursementstranstype( self ):
+        if isinstance( self.__estimatedreimbursementstranstype, str ) \
+                and self.__estimatedreimbursementstranstype != '':
+            return self.__estimatedreimbursementstranstype
+
+    @estimatedreimbursementstranstype.setter
+    def estimatedreimbursementstranstype( self, etyp ):
+        if isinstance( etyp, str ) and etyp != '':
+            self.__estimatedreimbursementstranstype = etyp
+
+    @property
+    def expensespendingcontrolflag( self ):
+        if isinstance( self.__expensespendingcontrolflag, str ) \
+                and self.__expensespendingcontrolflag != '':
+            return self.__expensespendingcontrolflag
+
+    @expensespendingcontrolflag.setter
+    def expensespendingcontrolflag( self, esflag ):
+        if isinstance( esflag, str ) and esflag != '':
+            self.__expensespendingcontrolflag = esflag
+
+    @property
+    def obligationspendingcontrolflag( self ):
+        if isinstance( self.__obligationspendingcontrolflag, str ) \
+                and self.__obligationspendingcontrolflag != '':
+            return self.__obligationspendingcontrolflag
+
+    @obligationspendingcontrolflag.setter
+    def obligationspendingcontrolflag( self, oflag ):
+        if isinstance( oflag, str ) and oflag != '':
+            self.__obligationspendingcontrolflag = oflag
+
+    @property
+    def precommitmentspendingcontrolflag( self ):
+        if isinstance( self.__precommitmentspendingcontrolflag, str ) \
+                and self.__precommitmentspendingcontrolflag != '':
+            return self.__precommitmentspendingcontrolflag
+
+    @precommitmentspendingcontrolflag.setter
+    def precommitmentspendingcontrolflag( self, pflag ):
+        if isinstance( pflag, str ) and pflag != '':
+            self.__precommitmentspendingcontrolflag = pflag
+
+    @property
+    def postedcontrolflag( self ):
+        if isinstance( self.__postedcontrolflag, str ) \
+                and self.__postedcontrolflag != '':
+            return self.__postedcontrolflag
+
+    @postedcontrolflag.setter
+    def postedcontrolflag( self, pcflag ):
+        if isinstance( pcflag, str ) and pcflag != '':
+            self.__expensespendingcontrolflag = pcflag
+
+    @property
+    def postedflag( self ):
+        if isinstance( self.__postedflag, str ) and self.__postedflag != '':
+            return self.__postedflag
+
+    @postedflag.setter
+    def postedflag( self, flag ):
+        if isinstance( flag, str ) and flag != '':
+            self.__postedflag = flag
+
+    @property
+    def recordcarryoveratlowerlevel( self ):
+        if isinstance( self.__recordcarryoveratlowerlevel, str ) \
+                and self.__recordcarryoveratlowerlevel != '':
+            return self.__recordcarryoveratlowerlevel
+
+    @recordcarryoveratlowerlevel.setter
+    def recordcarryoveratlowerlevel( self, ttyp ):
+        if isinstance( ttyp, str ) and ttyp != '':
+            self.__recordcarryoveratlowerlevel = ttyp
+
+    @property
+    def reimbursablespendingoption( self ):
+        if isinstance( self.__reimbursablespendingoption, str ) \
+                and self.__reimbursablespendingoption != '':
+            return self.__reimbursablespendingoption
+
+    @reimbursablespendingoption.setter
+    def reimbursablespendingoption( self, ttyp ):
+        if isinstance( ttyp, str ) and ttyp != '':
+            self.__reimbursablespendingoption = ttyp
+
+    @property
+    def recoveriesoption( self ):
+        if isinstance( self.__recoveriesoption, str ) \
+                and self.__recoveriesoption != '':
+            return self.__recoveriesoption
+
+    @recoveriesoption.setter
+    def recoveriesoption( self, ttyp ):
+        if isinstance( ttyp, str ) and ttyp != '':
+            self.__recoveriesoption = ttyp
+
+    @property
+    def recoveriesspendingoption( self ):
+        if isinstance( self.__recoveriesspendingoption, str ) \
+                and self.__recoveriesspendingoption != '':
+            return self.__recoveriesspendingoption
+
+    @recoveriesspendingoption.setter
+    def recoveriesspendingoption( self, ttyp ):
+        if isinstance( ttyp, str ) and ttyp != '':
+            self.__recoveriesspendingoption = ttyp
+
+    @property
+    def originalbudgetedamount( self ):
+        if isinstance( self.__originalbudgetedamount, float ):
+            return self.__originalbudgetedamount
+
+    @originalbudgetedamount.setter
+    def originalbudgetedamount( self, amount  ):
+        if isinstance( amount , float):
+            self.__originalbudgetedamount = amount
+
+    @property
+    def apportionmentsposted( self ):
+        if isinstance( self.__apportionmentsposted, float ):
+            return self.__apportionmentsposted
+
+    @apportionmentsposted.setter
+    def apportionmentsposted( self, amount  ):
+        if isinstance( amount , float ):
+            self.__apportionmentsposted = amount
+
+    @property
+    def totalauthority( self ):
+        if isinstance( self.__totalauthority, float ):
+            return self.__totalauthority
+
+    @totalauthority.setter
+    def totalauthority( self, amount ):
+        if isinstance( amount, float ):
+            self.__totalauthority = amount
 
 
 class StatusOfSupplementalFunds( ):
