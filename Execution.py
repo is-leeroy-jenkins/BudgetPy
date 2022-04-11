@@ -2080,25 +2080,23 @@ class RegionalOffice( ):
 
     @property
     def rpio( self ):
-        if self.__rpio is not None:
+        if isinstance( self.__rpio, ResourcePlanningOffice ):
             return self.__rpio
 
     @rpio.setter
-    def rpio( self, code ):
-        if code is not None:
-            self.__rpio = ResourcePlanningOffice( code )
-            self.__data[ 'rpio' ] = self.__rpio
+    def rpio( self, rpo ):
+        if isinstance( rpo, ResourcePlanningOffice ):
+            self.__rpio = rpo
 
     @property
     def name( self ):
-        if self.__name is not None:
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
+        if isinstance( name, str ) and name != '':
+            self.__name = name
 
     @property
     def data( self ):
@@ -2121,7 +2119,7 @@ class RegionalOffice( ):
             self.__frame = frame
 
     def __init__( self, rpio ):
-        self.__rpio = rpio if isinstance( rpio, str ) else None
+        self.__rpio = rpio if isinstance( rpio, ResourcePlanningOffice ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -2142,58 +2140,53 @@ class SiteProject( ):
 
     @property
     def ssid( self ):
-        if self.__ssid is not None:
+        if isinstance( self.__ssid, str ) and self.__ssid != '':
             return self.__ssid
 
     @ssid.setter
     def ssid( self, ssid ):
-        if ssid is not None:
-            self.__ssid = str( ssid )
-            self.__data[ 'ssid' ] = self.__ssid
+        if isinstance( ssid, str ) and ssid != '':
+            self.__ssid = ssid
 
     @property
     def actioncode( self ):
-        if self.__actioncode is not None:
+        if isinstance( self.__actioncode, str ):
             return self.__actioncode
 
     @actioncode.setter
     def actioncode( self, code ):
-        if code is not None:
-            self.__actioncode = str( code )
-            self.__data[ 'actioncode' ] = self.__actioncode
+        if isinstance( self.__actioncode, str ) and self.__actioncode != '':
+            self.__actioncode = code
 
     @property
     def operableunit( self ):
-        if self.__operableunit is not None:
+        if isinstance( self.__operableunit, str ) and self.__operableunit != '':
             return self.__operableunit
 
     @operableunit.setter
     def operableunit( self, unit ):
-        if unit is not None:
-            self.__operableunit = str( unit )
-            self.__data[ 'operableunit' ] = self.__operableunit
+        if isinstance( unit, str ) and unit != '':
+            self.__operableunit =  unit
 
     @property
     def epaid( self ):
-        if self.__epaid is not None:
+        if isinstance( self.__epaid, str ) and self.__epaid != '':
             return self.__epaid
 
     @epaid.setter
     def epaid( self, eid ):
-        if eid is not None:
-            self.__epaid = str( eid )
-            self.__data[ 'epaid' ] = self.__epaid
+        if isinstance( eid, str ) and eid != '':
+            self.__epaid =  eid
 
     @property
     def code( self ):
-        if self.__code is not None:
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     @code.setter
     def code( self, code ):
-        if code is not None:
-            self.__code = str( code )
-            self.__data[ 'fund' ] = self.__code
+        if isinstance( code, str ) and code != '':
+            self.__code = code
 
     @property
     def name( self ):
@@ -2203,8 +2196,7 @@ class SiteProject( ):
     @name.setter
     def name( self, name ):
         if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
+            self.__name = name
 
     @property
     def data( self ):
@@ -2623,80 +2615,73 @@ class Commitment( ):
 
     @property
     def amount( self ):
-        if self.__amount is not None:
+        if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
     def amount( self, value ):
-        if value is not None:
-            self.__amount = float( value )
-            self.__data[ 'amount' ] = self.__amount
+        if isinstance( value, float):
+            self.__amount = value
 
     @property
     def account( self ):
-        if self.__account is not None:
+        if isinstance( self.__account, Account ):
             return self.__account
 
     @account.setter
     def account( self, code ):
-        if code is not None:
+        if isinstance( code, Account ):
             self.__account = code
-            self.__data[ 'account' ] = self.__account
 
     @property
     def document( self ):
-        if self.__document is not None:
+        if isinstance( self.__document, str ) and self.__document != '':
             return self.__document
 
     @document.setter
     def document( self, doc ):
-        if doc is not None:
+        if isinstance( doc, str ) and doc != '':
             self.__document = doc
-            self.__data[ 'document' ] = self.__document
 
     @property
     def org( self ):
-        if self.__org is not None:
+        if isinstance( self.__org, Organization ):
             return self.__org
 
     @org.setter
-    def org( self, code ):
-        if code is not None:
-            self.__org = Organization( code )
-            self.__data[ 'org' ] = self.__org.code
+    def org( self, org ):
+        if isinstance( org, Organization ):
+            self.__org = org
 
     @property
     def bfy( self ):
-        if self.__bfy is not None:
+        if isinstance( self.__bfy, BudgetFiscalYear ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( BudgetFiscalYear, year ):
-            self.__bfy = year
-            self.__data[ 'bfy' ] = self.__bfy.startyear
+    def bfy( self, bfy ):
+        if isinstance( bfy, BudgetFiscalYear ):
+            self.__bfy = bfy
 
     @property
     def fund( self ):
-        if self.__fund is not None:
+        if isinstance( self.__fund, Fund ):
             return self.__fund
 
     @fund.setter
-    def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( code )
-            self.__data[ 'fund' ] = code
+    def fund( self, fund ):
+        if isinstance( fund, Fund ):
+            self.__fund = fund
 
     @property
     def boc( self ):
-        if self.__boc is not None:
+        if isinstance( self.__boc, BudgetObjectClass ):
             return self.__boc
 
     @boc.setter
-    def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( code )
-            self.__data[ 'boc' ] = code
+    def boc( self, boc ):
+        if isinstance( boc, BudgetObjectClass ):
+            self.__boc = boc
 
     @property
     def data( self ):
@@ -2720,14 +2705,7 @@ class Commitment( ):
 
 
     def __init__( self, amount ):
-        self.__amount = float( amount )
-        self.__data = { 'amount': self.__amount,
-                        'account': None,
-                        'document': None,
-                        'org': None,
-                        'bfy': None,
-                        'fund': None,
-                        'boc': None }
+        self.__amount = amount if isinstance( amount, float ) else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -2749,80 +2727,73 @@ class OpenCommitment( ):
 
     @property
     def amount( self ):
-        if self.__amount is not None:
+        if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
     def amount( self, value ):
-        if value is not None:
-            self.__amount = float( value )
-            self.__data[ 'amount' ] = self.__amount
+        if isinstance( value, float ):
+            self.__amount = value
 
     @property
     def account( self ):
-        if self.__account is not None:
+        if isinstance( self.__account, Account ):
             return self.__account
 
     @account.setter
-    def account( self, code ):
-        if code is not None:
-            self.__account = Account( code )
-            self.__data[ 'account' ] = code
+    def account( self, acct ):
+        if isinstance( acct, Account ):
+            self.__account = acct
 
     @property
     def document( self ):
-        if self.__document is not None:
+        if isinstance( self.__document, str ) and self.__document != '':
             return self.__document
 
     @document.setter
     def document( self, doc ):
-        if doc is not None:
+        if isinstance( doc, str ) and doc != '':
             self.__document = doc
-            self.__data[ 'document' ] = doc
 
     @property
     def org( self ):
-        if self.__org is not None:
+        if isinstance( self.__org, Organization ):
             return self.__org
 
     @org.setter
-    def org( self, code ):
-        if code is not None:
-            self.__org = Organization( code )
-            self.__data[ 'org' ] = code
+    def org( self, org ):
+        if isinstance( org, Organization ):
+            self.__org = org
 
     @property
     def bfy( self ):
-        if self.__bfy is not None:
+        if isinstance( self.__bfy, BudgetFiscalYear ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( year )
-            self.__data[ 'bfy' ] = year
+    def bfy( self, bfy ):
+        if isinstance( bfy, BudgetFiscalYear ):
+            self.__bfy = bfy
 
     @property
     def fund( self ):
-        if self.__fund is not None:
+        if isinstance( self.__fund, Fund ):
             return self.__fund
 
     @fund.setter
-    def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( code )
-            self.__data[ 'fund' ] = code
+    def fund( self, fund ):
+        if isinstance( fund, Fund ):
+            self.__fund = fund
 
     @property
     def boc( self ):
-        if self.__boc is not None:
+        if isinstance( self.__boc, BudgetObjectClass ):
             return self.__boc
 
     @boc.setter
-    def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( code )
-            self.__data[ 'boc' ] = code
+    def boc( self, boc ):
+        if isinstance( boc, BudgetObjectClass ):
+            self.__boc = boc
 
     @property
     def data( self ):
@@ -2879,80 +2850,73 @@ class Obligation( ):
 
     @property
     def amount( self ):
-        if self.__amount is not None:
+        if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
     def amount( self, value ):
-        if value is not None:
-            self.__amount = float( value )
-            self.__data[ 'amount' ] = self.__amount
+        if isinstance( value, float ):
+            self.__amount = value
 
     @property
     def account( self ):
-        if self.__account is not None:
+        if isinstance( self.__account, Account ):
             return self.__account
 
     @account.setter
-    def account( self, code ):
-        if code is not None:
-            self.__account = Account( code )
-            self.__data[ 'account' ] = code
+    def account( self, acct ):
+        if isinstance( acct, Account ):
+            self.__account = acct
 
     @property
     def document( self ):
-        if self.__document is not None:
+        if isinstance( self.__document, str ) and self.__document != '':
             return self.__document
 
     @document.setter
     def document( self, doc ):
-        if doc is not None:
+        if isinstance( doc, str ) and doc != '':
             self.__document = doc
-            self.__data[ 'document' ] = doc
 
     @property
     def org( self ):
-        if self.__org is not None:
+        if isinstance( self.__org, Organization ):
             return self.__org
 
     @org.setter
-    def org( self, code ):
-        if code is not None:
-            self.__org = Organization( code )
-            self.__data[ 'org' ] = code
+    def org( self, org ):
+        if isinstance( org, Organization ):
+            self.__org = org
 
     @property
     def bfy( self ):
-        if self.__bfy is not None:
+        if isinstance( self.__bfy, BudgetFiscalYear ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( year )
-            self.__data[ 'bfy' ] = year
+    def bfy( self, bfy ):
+        if isinstance( bfy, BudgetFiscalYear ):
+            self.__bfy = bfy
 
     @property
     def fund( self ):
-        if self.__fund is not None:
+        if isinstance( self.__fund, Fund ):
             return self.__fund
 
     @fund.setter
-    def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( code )
-            self.__data[ 'fund' ] = code
+    def fund( self, fund ):
+        if isinstance( fund, Fund ):
+            self.__fund = fund
 
     @property
     def boc( self ):
-        if self.__boc is not None:
+        if isinstance( self.__boc, BudgetObjectClass ):
             return self.__boc
 
     @boc.setter
-    def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( code )
-            self.__data[ 'boc' ] = code
+    def boc( self, boc ):
+        if isinstance( boc, BudgetObjectClass ):
+            self.__boc = boc
 
     @property
     def data( self ):
@@ -3004,80 +2968,73 @@ class Deobligation( ):
 
     @property
     def amount( self ):
-        if self.__amount is not None:
+        if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
     def amount( self, value ):
-        if value is not None:
-            self.__amount = float( value )
-            self.__data[ 'amount' ] = self.__amount
+        if isinstance( value, float ):
+            self.__amount = value
 
     @property
     def account( self ):
-        if self.__account is not None:
+        if isinstance( self.__account, Account ):
             return self.__account
 
     @account.setter
-    def account( self, code ):
-        if code is not None:
-            self.__account = Account( code )
-            self.__data[ 'account' ] = code
+    def account( self, acct ):
+        if isinstance( acct, Account ):
+            self.__account = acct
 
     @property
-    def dcn( self ):
-        if self.__document is not None:
+    def document( self ):
+        if isinstance( self.__document, str ) and self.__document != '':
             return self.__document
 
-    @dcn.setter
-    def dcn( self, doc ):
-        if doc is not None:
+    @document.setter
+    def document( self, doc ):
+        if isinstance( doc, str ) and doc != '':
             self.__document = doc
-            self.__data[ 'document' ] = doc
 
     @property
     def org( self ):
-        if self.__org is not None:
+        if isinstance( self.__org, Organization ):
             return self.__org
 
     @org.setter
-    def org( self, code ):
-        if code is not None:
-            self.__org = Organization( code )
-            self.__data[ 'org' ] = code
+    def org( self, org ):
+        if isinstance( org, Organization ):
+            self.__org = org
 
     @property
     def bfy( self ):
-        if self.__bfy is not None:
+        if isinstance( self.__bfy, BudgetFiscalYear ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( year )
-            self.__data[ 'bfy' ] = year
+    def bfy( self, bfy ):
+        if isinstance( bfy, BudgetFiscalYear ):
+            self.__bfy = bfy
 
     @property
     def fund( self ):
-        if self.__fund is not None:
+        if isinstance( self.__fund, Fund ):
             return self.__fund
 
     @fund.setter
-    def fund( self, code ):
-        if code is not None:
-            self.__fund = Fund( code )
-            self.__data[ 'fund' ] = code
+    def fund( self, fund ):
+        if isinstance( fund, Fund ):
+            self.__fund = fund
 
     @property
     def boc( self ):
-        if self.__boc is not None:
+        if isinstance( self.__boc, BudgetObjectClass ):
             return self.__boc
 
     @boc.setter
-    def boc( self, code ):
-        if code is not None:
-            self.__boc = BudgetObjectClass( code )
-            self.__data[ 'boc' ] = code
+    def boc( self, boc ):
+        if isinstance( boc, BudgetObjectClass ):
+            self.__boc = boc
 
     @property
     def data( self ):
@@ -3129,61 +3086,57 @@ class UnliquidatedObligation( ):
 
     @property
     def amount( self ):
-        if self.__amount is not None:
+        if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
     def amount( self, value ):
-        if value is not None:
-            self.__amount = float( value )
-            self.__data[ 'amount' ] = self.__amount
+        if isinstance( value, float ):
+            self.__amount = value
 
     @property
     def account( self ):
-        if self.__account is not None:
+        if isinstance( self.__account, Account ):
             return self.__account
 
     @account.setter
-    def account( self, code ):
-        if not code == '':
-            self.__account = Account( code )
-            self.__data[ 'account' ] = code
+    def account( self, acct ):
+        if isinstance( acct, Account ):
+            self.__account = acct
 
     @property
     def document( self ):
-        if self.__document is not None:
+        if isinstance( self.__document, str ) and self.__document != '':
             return self.__document
 
     @document.setter
     def document( self, doc ):
-        if isinstance( doc, str ):
+        if isinstance( doc, str ) and doc != '':
             self.__document = doc
 
     @property
     def org( self ):
-        if self.__org is not None:
+        if isinstance( self.__org, Organization ):
             return self.__org
 
     @org.setter
-    def org( self, oc ):
-        if oc is not None:
-            self.__org = Organization( oc )
-            self.__data[ 'org' ] = self.__org.code
+    def org( self, org ):
+        if isinstance( org, Organization ):
+            self.__org = org
 
     @property
     def bfy( self ):
-        if self.__bfy is not None:
-            return self.__bfy.startyear
+        if isinstance( self.__bfy, BudgetFiscalYear ):
+            return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if year is not None:
-            self.__bfy = BudgetFiscalYear( year )
-            self.__data[ 'bfy' ] = year
+    def bfy( self, bfy ):
+        if isinstance( bfy, BudgetFiscalYear ):
+            self.__bfy = bfy
 
     @property
     def fund( self ):
-        if self.__fund is not None:
+        if isinstance( self.__fund, Fund ):
             return self.__fund
 
     @fund.setter
@@ -3193,13 +3146,13 @@ class UnliquidatedObligation( ):
 
     @property
     def boc( self ):
-        if self.__boc is not None:
+        if isinstance( self.__boc, BudgetObjectClass ):
             return self.__boc
 
     @boc.setter
-    def boc( self, code ):
-        if code is not None and isinstance( code, str ):
-            self.__boc = BudgetObjectClass( code )
+    def boc( self, boc ):
+        if isinstance( boc, BudgetObjectClass ):
+            self.__boc = boc
 
     @property
     def data( self ):
@@ -3251,76 +3204,73 @@ class Expenditure:
 
     @property
     def amount( self ):
-        if self.__amount is not None:
+        if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
     def amount( self, value ):
-        if value is not None:
-            self.__amount = float( value )
-            self.__data[ 'amount' ] = self.__amount
+        if isinstance( value, float ):
+            self.__amount = value
 
     @property
     def account( self ):
-        if self.__account is not None:
+        if isinstance( self.__account, Account ):
             return self.__account
 
     @account.setter
-    def account( self, code ):
-        if code is not None:
-            self.__account = Account( code )
-            self.__data[ 'account' ] = code
+    def account( self, acct ):
+        if isinstance( acct, Account ):
+            self.__account = acct
 
     @property
     def document( self ):
-        if self.__document is not None:
+        if isinstance( self.__document, str ) and self.__document != '':
             return self.__document
 
     @document.setter
     def document( self, doc ):
-        if not doc == '':
+        if isinstance( doc, str ) and doc != '':
             self.__document = doc
 
     @property
     def org( self ):
-        if self.__org is not None:
+        if isinstance( self.__org, Organization ):
             return self.__org
 
     @org.setter
-    def org( self, code ):
-        if code is not None:
-            self.__org = Organization( code )
-            self.__data[ 'org' ] = self.__org.code
+    def org( self, org ):
+        if isinstance( org, Organization ):
+            self.__org = org
 
     @property
     def bfy( self ):
-        if self.__bfy is not None:
+        if isinstance( self.__bfy, BudgetFiscalYear ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, BudgetFiscalYear ):
-            self.__bfy = year
+    def bfy( self, bfy ):
+        if isinstance( bfy, BudgetFiscalYear ):
+            self.__bfy = bfy
 
     @property
     def fund( self ):
-        if self.__fund is not None:
+        if isinstance( self.__fund, Fund ):
             return self.__fund
 
     @fund.setter
-    def fund( self, fc ):
-        if isinstance( fc, Fund ):
-            self.__fund = fc
+    def fund( self, fund ):
+        if isinstance( fund, Fund ):
+            self.__fund = fund
 
     @property
     def boc( self ):
-        if self.__boc is not None:
+        if isinstance( self.__boc, BudgetObjectClass ):
             return self.__boc
 
     @boc.setter
-    def boc( self, bc ):
-        if isinstance( bc, BudgetObjectClass ):
-            self.__boc = bc
+    def boc( self, boc ):
+        if isinstance( boc, BudgetObjectClass ):
+            self.__boc = boc
 
     @property
     def data( self ):
