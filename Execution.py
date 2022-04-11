@@ -233,13 +233,13 @@ class Activity( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -300,13 +300,13 @@ class AllowanceHolder( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -358,6 +358,16 @@ class Appropriation( ):
             self.__name = name
 
     @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @data.setter
+    def data( self, cache ):
+        if isinstance( cache, list ):
+            self.__data = cache
+
+    @property
     def fiscalyear( self ):
         if self.__bfy is not None:
             return self.__bfy
@@ -393,8 +403,6 @@ class Appropriation( ):
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
         self.__fund = Fund( self.__code )
-        self.__data = { 'code': self.__code,
-                        'fund': self.__fund }
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -532,12 +540,12 @@ class BudgetFiscalYear( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, dict ):
+        if isinstance( self.__data, list ):
             return self.__data
 
     @data.setter
     def data( self, cache ):
-        if isinstance( cache, dict ):
+        if isinstance( cache, list ):
             self.__data = cache
 
     @property
@@ -676,13 +684,12 @@ class Division( ):
 
     @property
     def data( self ):
-        ''' Property that provides the account elements of a Division'''
-        if isinstance( self.__data, str ):
+        if isinstance( self.__data, list ):
             return self.__data
 
     @data.setter
     def data( self, cache ):
-        if isinstance( cache, dict ):
+        if isinstance( cache, list ):
             self.__data = cache
 
     def __init__( self, code ):
@@ -723,13 +730,13 @@ class FinanceObjectClass( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1019,13 +1026,13 @@ class Objective( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1133,13 +1140,13 @@ class Project( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1190,13 +1197,13 @@ class ItProjectCode( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1247,13 +1254,13 @@ class SiteProjectCode( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1283,6 +1290,7 @@ class StateOrganization( ):
     __orgcode = None
     __rpiocode = None
     __rpioname = None
+    __data = None
 
     @property
     def code( self ):
@@ -1303,6 +1311,16 @@ class StateOrganization( ):
     def name( self, name ):
         if isinstance( name, str ) and name != '':
             self.__name = name
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @data.setter
+    def data( self, cache ):
+        if isinstance( cache, list ):
+            self.__data = cache
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -1341,13 +1359,13 @@ class HumanResourceOrganization( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1398,13 +1416,13 @@ class WorkCode( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1455,13 +1473,13 @@ class ProgramArea( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1523,13 +1541,13 @@ class ProgramProject( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1580,13 +1598,13 @@ class ResponsibilityCenter( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1638,13 +1656,13 @@ class ResourcePlanningOffice( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1795,13 +1813,13 @@ class ProgramResultsCode( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1856,13 +1874,13 @@ class RegionalOffice( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -1962,13 +1980,13 @@ class SiteProject( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -2036,13 +2054,13 @@ class HeadquartersOffice( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -2124,12 +2142,12 @@ class FederalHoliday( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, dict ):
+        if isinstance( self.__data, list ):
             return self.__data
 
     @data.setter
     def data( self, cache ):
-        if isinstance( cache, dict ):
+        if isinstance( cache, list ):
             self.__data = cache
 
     @property
@@ -2454,13 +2472,13 @@ class Commitment( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -2580,13 +2598,13 @@ class OpenCommitment( ):
 
     @property
     def data( self ):
-        if self.__data is not None:
+        if isinstance( self.__data, list ):
             return self.__data
 
-    @property
-    def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+    @data.setter
+    def data( self, cache ):
+        if isinstance( cache, list ):
+            self.__data = cache
 
     @data.setter
     def data( self, cache ):
@@ -2710,13 +2728,13 @@ class Obligation( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -2835,12 +2853,12 @@ class Deobligation( ):
 
     @property
     def data( self ):
-        if self.__data is not None:
+        if isinstance( self.__data, list ):
             return self.__data
 
     @data.setter
     def data( self, cache ):
-        if isinstance( cache, dict ):
+        if isinstance( cache, list ):
             self.__data = cache
 
     @property
@@ -2957,13 +2975,13 @@ class UnliquidatedObligation( ):
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -3078,8 +3096,13 @@ class Expenditure:
 
     @property
     def data( self ):
-        if self.__data is not None:
+        if isinstance( self.__data, list ):
             return self.__data
+
+    @data.setter
+    def data( self, cache ):
+        if isinstance( cache, list ):
+            self.__data = cache
 
     @property
     def table( self ):

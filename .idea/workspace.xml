@@ -166,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649616224249</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="updates from work rig;">
+      <created>1649681971829</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1649681971829</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +189,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updates from main rig;" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;" />
+    <MESSAGE value="updates from work rig;" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates from work rig;" />
   </component>
 </project>
