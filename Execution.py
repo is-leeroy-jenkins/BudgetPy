@@ -89,6 +89,7 @@ class Element( Unit ):
 
 class Account( ):
     '''defines the Account Code class'''
+    __accountsid = None
     __code = None
     __name = None
     __goal = None
@@ -97,6 +98,16 @@ class Account( ):
     __programproject = None
     __record = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__accountsid, int ):
+            return self.__accountsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__accountsid = id
 
     @property
     def code( self ):
@@ -206,10 +217,21 @@ class Account( ):
 
 class Activity( ):
     '''Defines the Activity Class'''
+    __activitycodesid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__activitycodesid, int ):
+            return self.__activitycodesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__activitycodesid = id
 
     @property
     def code( self ):
@@ -273,10 +295,21 @@ class Activity( ):
 
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
+    __allowancholdersid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__allowancholdersid, int ):
+            return self.__allowancholdersid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__allowancholdersid = id
 
     @property
     def code( self ):
@@ -329,6 +362,7 @@ class AllowanceHolder( ):
 
 class Appropriation( ):
     '''Defines the Appropriation Class'''
+    __appropriationsid = None
     __fund = None
     __code = None
     __name = None
@@ -336,6 +370,16 @@ class Appropriation( ):
     __bfy = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__appropriationsid , int ):
+            return self.__appropriationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__appropriationsid  = id
 
     @property
     def code( self ):
@@ -408,6 +452,7 @@ class Appropriation( ):
 
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
+    __budgetfiscalyearid = None
     __base = None
     __bfy = None
     __efy = None
@@ -424,6 +469,16 @@ class BudgetFiscalYear( ):
     __holidays = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__budgetfiscalyearid, int ):
+            return self.__budgetfiscalyearid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__budgetfiscalyearid = id
 
     @property
     def startyear( self ):
@@ -578,12 +633,23 @@ class BudgetFiscalYear( ):
 
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
+    __budgetobjectclassesid = None
     __code = None
     __boc = None
     __name = None
     __value = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__accountsid, int ):
+            return self.__accountsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__accountsid = id
 
     @property
     def code( self ):
@@ -693,10 +759,21 @@ class Division( ):
 
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
+    __financeobjectclassesid = None
     __code = None
     __name = None
     __data = None
     __frame = Nonec
+
+    @property
+    def id( self ):
+        if isinstance( self.__financeobjectclassesid, int ):
+            return self.__financeobjectclassesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__financeobjectclassesid = id
 
     @property
     def code( self ):
@@ -1107,10 +1184,21 @@ class Fund( ):
 
 class Goal( ):
     '''Defines the Goal Class'''
+    __goalsid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__goalsid, int ):
+            return self.__goalsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__goalsid = id
 
     @property
     def code( self ):
@@ -1162,12 +1250,23 @@ class Goal( ):
 
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
+    __nationalprogramsid = None
     __code = None
     __name = None
     __rpio = None
     __title = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__nationalprogramsid, int ):
+            return self.__nationalprogramsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__nationalprogramsid = id
 
     @property
     def code( self ):
@@ -1240,10 +1339,21 @@ class NationalProgram( ):
 
 class Objective( ):
     '''Defines the Objective Class'''
+    __objectivesid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__objectivesid, int ):
+            return self.__objectivesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__objectivesid = id
 
     @property
     def code( self ):
@@ -1296,10 +1406,21 @@ class Objective( ):
 
 class Organization( ):
     '''Defines the Organization Class'''
+    __organizationsid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__organizationsid, int ):
+            return self.__organizationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__organizationsid = id
 
     @property
     def code( self ):
@@ -1352,10 +1473,21 @@ class Organization( ):
 
 class Project( ):
     '''Defines the Organization Class'''
+    __projectsid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__projectsid, int ):
+            return self.__projectsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__accountsid = id
 
     @property
     def code( self ):
@@ -1408,10 +1540,21 @@ class Project( ):
 
 class ItProjectCode( ):
     '''Defines the Organization Class'''
+    __cpicid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__cpicid, int ):
+            return self.__cpicid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__accountsid = id
 
     @property
     def code( self ):
@@ -1464,10 +1607,21 @@ class ItProjectCode( ):
 
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
+    __siteprojectcodesid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__siteprojectcodesid, int ):
+            return self.__siteprojectcodesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__siteprojectcodesid = id
 
     @property
     def code( self ):
@@ -1521,12 +1675,23 @@ class SiteProjectCode( ):
 class StateOrganization( ):
     '''StateOrganization( code ) class
     representing state codes'''
+    __stateorganizationsid = None
     __code = None
     __name = None
     __orgcode = None
     __rpiocode = None
     __rpioname = None
     __data = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__stateorganizationsid, int ):
+            return self.__stateorganizationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__stateorganizationsid = id
 
     @property
     def code( self ):
@@ -1568,10 +1733,21 @@ class StateOrganization( ):
 
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
+    __humanresourceorganizationsid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__humanresourceorganizationsid, int ):
+            return self.__humanresourceorganizationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__humanresourceorganizationsid = id
 
     @property
     def code( self ):
@@ -1624,10 +1800,21 @@ class HumanResourceOrganization( ):
 
 class WorkCode( ):
     '''Defines the Organization Class'''
+    __workcodesid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__workcodesid, int ):
+            return self.__workcodesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__workcodesid = id
 
     @property
     def code( self ):
@@ -1680,10 +1867,21 @@ class WorkCode( ):
 
 class ProgramArea( ):
     '''defines the ProgramArea class'''
+    __programareasid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__programareasid, int ):
+            return self.__programareasid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__accountsid = id
 
     @property
     def code( self ):
@@ -1736,11 +1934,22 @@ class ProgramArea( ):
 
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
+    __programprojectsid = None
     __code = None
     __name = None
     __description = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__programprojectsid , int ):
+            return self.__programprojectsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__programprojectsid  = id
 
     @property
     def code( self ):
@@ -1803,10 +2012,21 @@ class ProgramProject( ):
 
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
+    __responsibilitycentersid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__responsibilitycentersid, int ):
+            return self.__responsibilitycentersid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__accountsid = id
 
     @property
     def code( self ):
@@ -1859,10 +2079,21 @@ class ResponsibilityCenter( ):
 
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
+    __resourceplanningofficesid = None
     __code = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__resourceplanningofficesid, int ):
+            return self.__resourceplanningofficesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__resourceplanningofficesid = id
 
     @property
     def code( self ):
@@ -1915,7 +2146,7 @@ class ResourcePlanningOffice( ):
 
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
-    __id = None
+    __allocationsid = None
     __rpio = None
     __bfy = None
     __ah = None
@@ -1931,13 +2162,13 @@ class ProgramResultsCode( ):
 
     @property
     def id( self ):
-        if isinstance( self.__id, int ):
-            return self.__id
+        if isinstance( self.__allocationsid, int ):
+            return self.__allocationsid
 
     @id.setter
-    def id( self, prcid ):
-        if isinstance( prcid, int ):
-            self.__id = prcid
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__allocationsid = id
 
     @property
     def rpio( self ):
@@ -2073,10 +2304,21 @@ class ProgramResultsCode( ):
 
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
+    __resourceplanningofficesid = None
     __rpio = None
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__resourceplanningofficesid, int ):
+            return self.__resourceplanningofficesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.___resourceplanningofficesid = id
 
     @property
     def rpio( self ):
@@ -2129,6 +2371,7 @@ class RegionalOffice( ):
 
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
+    __siteprojectcodesid = None
     __epaid = None
     __ssid = None
     __actioncode = None
@@ -2137,6 +2380,16 @@ class SiteProject( ):
     __name = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__siteprojectcodesid, int ):
+            return self.___siteprojectcodesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__siteprojectcodesid = id
 
     @property
     def ssid( self ):
@@ -2233,11 +2486,22 @@ class SiteProject( ):
 
 class HeadquartersOffice( ):
     '''Defines the HQ class'''
+    __resourceplanningofficesid = None
     __rpio = None
     __name = None
     __title = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__resourceplanningofficesid, int ):
+            return self.__resourceplanningofficesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__accountsid = id
 
     @property
     def rpio( self ):
@@ -2302,6 +2566,7 @@ class HeadquartersOffice( ):
 
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
+    __federalholidaysid = None
     __bfy = None
     __name = None
     __newyearsday = None
@@ -2323,6 +2588,16 @@ class FederalHoliday( ):
     __year = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__federalholidaysid, int ):
+            return self.__accountsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__accountsid = id
 
     @property
     def bfy( self ):
@@ -2603,6 +2878,8 @@ class FederalHoliday( ):
 
 class Commitment( ):
     '''Defines the commitment class.'''
+    __commitmentsid = None
+    __obligationsid = None
     __amount = None
     __account = None
     __document = None
@@ -2612,6 +2889,16 @@ class Commitment( ):
     __boc = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__commitmentsid , int ):
+            return self.__commitmentsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__commitmentsid  = id
 
     @property
     def amount( self ):
@@ -2715,6 +3002,8 @@ class Commitment( ):
 
 class OpenCommitment( ):
     '''Defines the commitment class.'''
+    __opencommitmentsid = None
+    __obligationsid = None
     __amount = None
     __account = None
     __document = None
@@ -2724,6 +3013,16 @@ class OpenCommitment( ):
     __boc = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__opencommitmentsid, int ):
+            return self.__opencommitmentsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__opencommitmentsid = id
 
     @property
     def amount( self ):
@@ -2838,6 +3137,7 @@ class OpenCommitment( ):
 
 class Obligation( ):
     '''Defines the commitment class.'''
+    __obligationsid = None
     __amount = None
     __account = None
     __document = None
@@ -2847,6 +3147,16 @@ class Obligation( ):
     __boc = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__obligationsid, int ):
+            return self.__obligationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__obligationsid = id
 
     @property
     def amount( self ):
@@ -2956,6 +3266,8 @@ class Obligation( ):
 
 class Deobligation( ):
     '''Defines the commitment class.'''
+    __deobligationsid = None
+    __obligationsid = None
     __amount = None
     __account = None
     __document = None
@@ -2965,6 +3277,16 @@ class Deobligation( ):
     __boc = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__deobligationsid, int ):
+            return self.__deobligationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__deobligationsid = id
 
     @property
     def amount( self ):
@@ -3074,6 +3396,8 @@ class Deobligation( ):
 
 class UnliquidatedObligation( ):
     '''Defines the commitment class.'''
+    __unliquidatedobligationsid = None
+    __obligationsid = None
     __amount = None
     __account = None
     __document = None
@@ -3083,6 +3407,16 @@ class UnliquidatedObligation( ):
     __boc = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__unliquidatedobligationsid, int ):
+            return self.__unliquidatedobligationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__unliquidatedobligationsid = id
 
     @property
     def amount( self ):
@@ -3192,6 +3526,8 @@ class UnliquidatedObligation( ):
 
 class Expenditure:
     '''Defines the commitment class.'''
+    __expendituresid = None
+    __obligationsid = None
     __amount = None
     __account = None
     __document = None
@@ -3201,6 +3537,16 @@ class Expenditure:
     __boc = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__expendituresid, int ):
+            return self.__expendituresid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__expendituresid = id
 
     @property
     def amount( self ):
