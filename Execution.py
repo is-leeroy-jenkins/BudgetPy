@@ -833,6 +833,250 @@ class Fund( ):
             self.__status = stat
 
     @property
+    def BPOA( self ):
+        if isinstance( self.__bpoa, str ) and self.__bpoa != '':
+            return self.__bpoa
+
+    @BPOA.setter
+    def BPOA( self, yr ):
+        if isinstance( yr, str ) and yr != '':
+            self.__bpoa = yr
+    @property
+    def EPOA( self ):
+        if isinstance( self.__epoa, str ) and self.__epoa != '':
+            return self.__epoa
+
+    @EPOA.setter
+    def EPOA( self, yr ):
+        if isinstance( yr, str ) and yr != '':
+            self.__epoa = yr
+    @property
+    def main( self ):
+        if isinstance( self.__main, str ) and self.__main != '':
+            return self.__main
+
+    @main.setter
+    def main( self, code ):
+        if isinstance( code, str ) and code != '':
+           self.__main = code
+
+    @property
+    def multiyearindicator( self ):
+        if isinstance( self.__multiyearindicator) \
+                and self.__multiyearindicator != '':
+            return self.__multiyearindicator
+
+    @multiyearindicator.setter
+    def multiyearindicator( self, multi ):
+        if isinstance( multi, str ) and multi != '':
+            self.__multiyearindicator = multi
+
+    @property
+    def sublevel( self ):
+        if isinstance( self.__sublevel, str ) and self.__sublevel != '':
+            return self.__sublevel
+
+    @sublevel.setter
+    def sublevel( self, sub ):
+        if isinstance( sub, str ) and sub != '':
+            self.__sublevel = sub
+    @property
+    def ATA( self ):
+        if isinstance( self.__ata, str ) and self.__ata != '':
+            return self.__ata
+
+    @ATA.setter
+    def ATA( self, ata ):
+        if isinstance( ata, str ) and ata != '':
+            self.__ata = ata
+
+    @property
+    def AID( self ):
+        if isinstance( self.__aid, str ) and self.__aid != '':
+            return self.__aid
+
+    @AID.setter
+    def AID( self, aid ):
+        if isinstance( aid, str ) and aid != '':
+            self.__aid = aid
+
+    @property
+    def fundcategory( self ):
+        if isinstance( self.__fundcategory, str ) and self.__fundcategory != '':
+            return self.__fundcategory
+
+    @fundcategory.setter
+    def fundcategory( self, catg ):
+        if isinstance( catg, str ) and catg != '':
+            self.__fundcategory = catg
+
+    @property
+    def appropriationcode( self ):
+        if isinstance( self.__appropriationcode, str ) \
+                and self.__appropriationcode != '':
+            return self.__appropriationcode
+
+    @appropriationcode.setter
+    def appropriationcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__appropriationcode = code
+
+    @property
+    def appropriationname( self ):
+        if isinstance( self.__appropriationname, str ) \
+                and self.__appropriationname != '':
+            return self.__appropriationname
+
+    @appropriationname.setter
+    def appropriationname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__appropriationname = name
+
+    @property
+    def fundgroup( self ):
+        if isinstance( self.__fundgroup, str ) and self.__fundgroup != '':
+            return self.__fundgroup
+
+    @fundgroup.setter
+    def fundgroup( self, group ):
+        if isinstance( group, str ) and group != '':
+            self.__fundgroup = group
+
+    @property
+    def noyear( self ):
+        if isinstance( self.__noyear, str ) and self.__noyear != '':
+            return self.__noyear
+
+    @noyear.setter
+    def noyear( self, noyr ):
+        if isinstance( noyr, str ) and noyr != '':
+            self.__noyear = noyr
+
+    @property
+    def carryover( self ):
+        if isinstance( self.__carryover, str ) and self.__carryover != '':
+            return self.__carryover
+
+    @carryover.setter
+    def carryover( self, carry ):
+        if isinstance( carry, str ) and carry != '':
+            self.__carryover = carry
+
+    @property
+    def cancelledyearspendingaccount( self ):
+        if isinstance( self.__cancelledyearspendingaccount, str ) \
+                and self.__cancelledyearspendingaccount != '':
+            return self.__cancelledyearspendingaccount
+
+    @cancelledyearspendingaccount.setter
+    def cancelledyearspendingaccount( self, acct ):
+        if isinstance( acct, str ) and acct != '':
+            self.__cancelledyearspendingaccount = acct
+
+    @property
+    def applyatalllevels( self ):
+        if isinstance( self.__applyatalllevels, str ) and self.__applyatalllevels != '':
+            return self.__applyatalllevels
+
+    @applyatalllevels.setter
+    def applyatalllevels( self, all ):
+        if isinstance( self.__applyatalllevels, str ) and self.__applyatalllevels != '':
+            return self.__applyatalllevels
+
+    @property
+    def batsfund( self ):
+        if isinstance( self.__batsfund, str ) and self.__batsfund != '':
+            return self.__batsfund
+
+    @batsfund.setter
+    def batsfund( self, bats ):
+        if isinstance( bats, str ) and bats != '':
+            self.__batsfund = bats
+
+    @property
+    def batsenddate( self ):
+        if isinstance( self.__batsenddate, dt.datetime ):
+            return self.__batsenddate
+
+    @batsenddate.setter
+    def batsenddate( self, end):
+        if isinstance( end, dt.datetime ):
+            self.__batsenddate = end
+
+    @property
+    def batsoptionid( self ):
+        if isinstance( self.__batsoptionid, int ):
+            return self.__batsoptionid
+
+    @batsoptionid.setter
+    def batsoptionid( self, optid ):
+        if isinstance( optid, int ):
+            self.__batsoptionid = optid
+
+    @property
+    def securityorg( self ):
+        if isinstance( self.__securityorg, str ) and self.__securityorg != '':
+            return self.__securityorg
+
+    @securityorg.setter
+    def securityorg( self, sec ):
+        if isinstance( sec, str ) and sec != '':
+            self.__securityorg = sec
+
+    @property
+    def treasuryaccountcode( self ):
+        if isinstance( self.__treasuryaccountcode, str ) \
+                and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasuryaccountcode.setter
+    def treasuryaccountcode( self, tres ):
+        if isinstance( tres, str ) and tres != '':
+            self.__treasuryaccountcode = tres
+
+    @property
+    def treasuryaccountname( self ):
+        if isinstance( self.__treasuryaccountname, str ) \
+                and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasuryaccountname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__treasuryaccountname = name
+
+    @property
+    def ombaccountcode( self ):
+        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
+            return self.__ombaccountcode
+
+    @ombaccountcode.setter
+    def ombaccountcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__ombaccountcode = code
+
+    @property
+    def ombaccountname( self ):
+        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__ombaccountname = name
+
+    @property
+    def apportionmentaccountcode( self ):
+        if isinstance( self.__apportionmentaccountcode, str ) \
+                and self.__apportionmentaccountcode != '':
+            return self.__apportionmentaccountcode
+
+    @apportionmentaccountcode.setter
+    def apportionmentaccountcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__apportionmentaccountcode = code
+
+    @property
     def data( self ):
         if isinstance( self.__data, list ):
             return self.__data
