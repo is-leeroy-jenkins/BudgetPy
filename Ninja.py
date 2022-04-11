@@ -558,7 +558,7 @@ class SqlStatement( ):
 
     @provider.setter
     def provider( self, pvr ):
-        if isinstance( pvr, Database ):
+        if isinstance( pvr, Provider  ):
             self.__provider = pvr
         else:
             self.__provider = Database( 'SQLite' )
@@ -570,10 +570,10 @@ class SqlStatement( ):
 
     @command.setter
     def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
+        if isinstance( cmd, Command ):
             self.__command = cmd
         else:
-            command = CommandType( 'SELECT' ) 
+            command = Command( 'SELECT' ) 
             self.__command = command
 
     @property
@@ -719,7 +719,7 @@ class SQLiteQuery( ):
         if self.__command is not None:
             return self.__command
         if self.__command is None:
-            cmd = CommandType( 'SELECT' ) 
+            cmd = Command( 'SELECT' ) 
             return cmd
 
     @command.setter
@@ -936,7 +936,7 @@ class SqlServerQuery( ):
 
     @command.setter
     def command( self, cmd ):
-        if isinstance( cmd, CommandType ):
+        if isinstance( cmd, Command ):
             self.__command = cmd
 
     def __init__( self, connection, sqlstatement ):
@@ -1213,7 +1213,7 @@ class DataTable( pd.DataFrame ):
             self.__rows = items
 
     def __init__( self, name ):
-        super( ) .__init__( )
+        super( ).__init__( )
         self.__base = str( name )
         self.__name = self.__base
         self.__data = pd.DataFrame( self.__name )
@@ -1223,4 +1223,137 @@ class DataTable( pd.DataFrame ):
     def __str__( self ):
         if self.__name is not None:
             return self.__name
+
+
+class DataFactory( ):
+    '''DataFactory( source, names, values, provider )
+    initializes a factory method'''
+    __names = None
+    __values = None
+    __command = None
+    __source = None
+    __provider = None
+    __dbconfig = None
+    __sqlconfig = None
+    __connection = None
+    __sqlstatement = None
+    __query = None
+    __data = None
+
+
+    @property
+    def names( self ):
+        '''Provides list of column names'''
+        if isinstance( self.__names, list ):
+            return self.__names
+
+    @names.setter
+    def names( self, names ):
+        '''Sets the list of column names'''
+        if isinstance( names, list ):
+            self.__names = names
+
+    @property
+    def values( self ):
+        '''Provides tuple of column values'''
+        if isinstance( self.__values, tuple ):
+            return self.__values
+
+    @values.setter
+    def values( self, values ):
+        '''Sets tuple of column values'''
+        if isinstance( values, tuple ):
+            self.__values = values
+
+    @property
+    def provider( self ):
+        '''Gets the provider'''
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @provider.setter
+    def provider( self, pvr ):
+        '''Sets the provider'''
+        if isinstance( pvr, Provider  ):
+            self.__provider = pvr
+        else:
+            self.__provider = Provider.SQLite
+
+    @property
+    def command( self ):
+        '''Gets an instance of the DataCommand object'''
+        if isinstance( self.__command, Command ):
+            return self.__command
+
+    @command.setter
+    def command( self, cmd ):
+        '''Set the command property to a DataCommand instance'''
+        if isinstance( cmd, Command ):
+            self.__command = cmd
+        else:
+            command = Command( 'SELECT' ) 
+            self.__command = command
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @source.setter
+    def source( self, src ):
+        if isinstance( src, DataConfig ):
+            self.__source = src
+        else:
+            self.__source = DataConfig( 'StatusOfFunds' )
+
+    @property
+    def dataconfig( self ):
+        if isinstance( self.__dbconfig, DataConfig ):
+            return self.__dbconfig
+
+    @dataconfig.setter
+    def dataconfig( self, dbconfig ):
+        if isinstance( dbconfig, DataConfig ):
+            self.__dbconfig = dbconfig
+
+    @property
+    def sqlconfig( self ):
+        '''Gets instance of the SqlConfig class'''
+        if isinstance( self.__sqlconfig, SqlConfig ):
+            return self.__sqlconfig
+
+    @sqlconfig.setter
+    def sqlconfig( self, sqlconfig ):
+        '''Sets property to an instance of the SqlConfig class'''
+        if isinstance( sqlconfig, SqlConfig ):
+            self.__sqlconfig = sqlconfig
+
+    def __init__( self, provider, source, command, names, values ):
+        self.__name = names if isinstance( names, list ) else None
+        self.__values = values if isinstance( values, tuple ) else None
+        self.__command = command if isinstance( command, Command ) else Command.SELECTALL
+        self.__source = source if isinstance( source, Source ) else None
+        self.__provider = provider if isinstance( provider, Provider ) else None
+        self.__dbconfig = DataConfig( self.__source, self.__provider )
+        self.__connection = DataConnection( self.__dbconfig )
+        self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
+        self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
+
+    def create( self ):
+        if self.__provider == Provider.SQLite:
+            __query = SQLiteQuery( self.__connection, self.__sqlstatement )
+            self.__data = list( __query.getdata( ) )
+            return self.__data
+        elif self.__provider == Provider.Access:
+            __query = AccessQuery( self.__connection, self.__sqlstatement )
+            self.__data = list( __query.getdata( ) )
+            return self.__data
+        elif self.__provider == Provider.SqlServer:
+            __query = SqlServerQuery( self.__connection, self.__sqlstatement )
+            self.__data = list( __query.getdata( ) )
+            return self.__data
+        else:
+            __query = SqlServerQuery( self.__connection, self.__sqlstatement )
+            self.__data = __query.getdata( )
+            return self.__data
 
