@@ -910,21 +910,21 @@ class Fund( ):
             self.__status = stat
 
     @property
-    def BPOA( self ):
+    def bpoa( self ):
         if isinstance( self.__bpoa, str ) and self.__bpoa != '':
             return self.__bpoa
 
-    @BPOA.setter
-    def BPOA( self, yr ):
+    @bpoa.setter
+    def bpoa( self, yr ):
         if isinstance( yr, str ) and yr != '':
             self.__bpoa = yr
     @property
-    def EPOA( self ):
+    def epoa( self ):
         if isinstance( self.__epoa, str ) and self.__epoa != '':
             return self.__epoa
 
-    @EPOA.setter
-    def EPOA( self, yr ):
+    @epoa.setter
+    def epoa( self, yr ):
         if isinstance( yr, str ) and yr != '':
             self.__epoa = yr
     @property
@@ -957,23 +957,24 @@ class Fund( ):
     def sublevel( self, sub ):
         if isinstance( sub, str ) and sub != '':
             self.__sublevel = sub
+
     @property
-    def ATA( self ):
+    def ata( self ):
         if isinstance( self.__ata, str ) and self.__ata != '':
             return self.__ata
 
-    @ATA.setter
-    def ATA( self, ata ):
+    @ata.setter
+    def ata( self, ata ):
         if isinstance( ata, str ) and ata != '':
             self.__ata = ata
 
     @property
-    def AID( self ):
+    def aid( self ):
         if isinstance( self.__aid, str ) and self.__aid != '':
             return self.__aid
 
-    @AID.setter
-    def AID( self, aid ):
+    @aid.setter
+    def aid( self, aid ):
         if isinstance( aid, str ) and aid != '':
             self.__aid = aid
 
