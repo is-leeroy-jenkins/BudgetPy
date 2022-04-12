@@ -3350,7 +3350,7 @@ class HeadquartersAuthority( ):
 
 
 class Actuals( ):
-    '''Object representing expendtiure data'''
+    '''Object representing expenditure data'''
     __actualsid = None
     __bfy = None
     __efy = None

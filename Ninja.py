@@ -1157,7 +1157,7 @@ class DataRow( sl.Row ):
         super( ) .__init__( items )
         self.__source = sl.Row( )
         self.__items = dict( items )
-        self.__id = int( items[0] )
+        self.__id = int( items[ 0 ] )
         self.__names = list( self.__items.keys( ) )
         self.__values = self.__items.values( )
 
@@ -1342,18 +1342,18 @@ class DataFactory( ):
     def create( self ):
         if self.__provider == Provider.SQLite:
             __query = SQLiteQuery( self.__connection, self.__sqlstatement )
-            self.__data = list( __query.getdata( ) )
+            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
             return self.__data
         elif self.__provider == Provider.Access:
             __query = AccessQuery( self.__connection, self.__sqlstatement )
-            self.__data = list( __query.getdata( ) )
+            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
             return self.__data
         elif self.__provider == Provider.SqlServer:
             __query = SqlServerQuery( self.__connection, self.__sqlstatement )
-            self.__data = list( __query.getdata( ) )
+            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
             return self.__data
         else:
-            __query = SqlServerQuery( self.__connection, self.__sqlstatement )
-            self.__data = __query.getdata( )
+            __query = SQLiteQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
             return self.__data
 
