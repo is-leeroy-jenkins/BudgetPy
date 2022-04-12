@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "notebooks"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

@@ -913,13 +913,13 @@ class Fund( ):
 
     @property
     def shortname( self ):
-        if isinstance( self.__title, str ) and self.__title != '':
-            return self.__title
+        if isinstance( self.__shortname, str ) and self.__shortname != '':
+            return self.__shortname
 
-    @title.setter
+    @shortname.setter
     def shortname( self, title ):
         if isinstance( title , str ) and title != '':
-            self.__title = title
+            self.__shortname = title
 
     @property
     def status( self ):
