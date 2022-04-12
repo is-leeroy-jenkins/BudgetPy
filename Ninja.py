@@ -1225,7 +1225,6 @@ class QueryBuilder( ):
     __query = None
     __data = None
 
-
     @property
     def names( self ):
         '''Provides list of column names'''

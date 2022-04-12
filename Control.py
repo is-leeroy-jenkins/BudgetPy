@@ -519,7 +519,7 @@ class OperatingPlan( ):
             self.__npmname = code
 
 
-class FullTimeEquivalent( ):
+class FullTimeEquivalents( ):
     '''object representing Operating Plan FTE'''
     __fulltimeequivalentsid = None
     __operatingplansid = None
@@ -1110,7 +1110,7 @@ class StatusOfFunds( ):
             self.__npmname = code
 
 
-class Defacto( ):
+class Defactos( ):
     '''object representing defacto obligations'''
     __defactosid = None
     __statusoffundsid = None
@@ -2513,7 +2513,7 @@ class StateGrantObligations( ):
             self.__amount = value
 
 
-class Allocation( ):
+class Allocations( ):
     '''object representing operating plan data'''
     __allocationsid = None
     __statusoffundsid = None
@@ -3398,17 +3398,17 @@ class BudgetControl( ):
     '''object representing compass control data'''
 
 
-class CongressionalControl( ):
+class CongressionalControls( ):
     '''object representing congressional control data'''
     __congressionalcontrolsid = None
 
 
-class CompassLevel( ):
+class CompassLevels( ):
     '''object representing Compass data levels 1-7'''
     __compasslevelsid = None
 
 
-class Commitment( ):
+class Commitments( ):
     '''Defines the commitment class.'''
     __commitmentsid = None
     __obligationsid = None
@@ -3531,7 +3531,7 @@ class Commitment( ):
             return str( self.__amount )
 
 
-class OpenCommitment( ):
+class OpenCommitments( ):
     '''Defines the commitment class.'''
     __opencommitmentsid = None
     __obligationsid = None
@@ -3668,7 +3668,7 @@ class OpenCommitment( ):
             return str( self.__amount )
 
 
-class Obligation( ):
+class Obligations( ):
     '''Defines the commitment class.'''
     __obligationsid = None
     __amount = None
@@ -3798,7 +3798,7 @@ class Obligation( ):
             return str( self.__amount )
 
 
-class Deobligation( ):
+class Deobligations( ):
     '''Defines the commitment class.'''
     __deobligationsid = None
     __obligationsid = None
@@ -3929,7 +3929,7 @@ class Deobligation( ):
             return str( self.__amount )
 
 
-class UnliquidatedObligation( ):
+class UnliquidatedObligations( ):
     '''Defines the commitment class.'''
     __unliquidatedobligationsid = None
     __obligationsid = None
@@ -4060,7 +4060,7 @@ class UnliquidatedObligation( ):
             return str( self.__amount )
 
 
-class Expenditure:
+class Expenditures:
     '''Defines the commitment class.'''
     __expendituresid = None
     __obligationsid = None
