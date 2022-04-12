@@ -1,85 +1,5 @@
 from Execution import *
 
-class TreasuryAccountFundSymbol( ):
-    '''TreasuryAccountFundSymbol( code )
-    creates object that represents a TAFS'''
-
-    __ombagencycode = None
-    __treasuryagencycode = None
-    __bfy = None
-    __efy = None
-    __ombaccountcode = None
-    __ombaccountname = None
-    __treasuryaccountcode = None
-    __treasuryaccountname = None
-
-    @property
-    def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__bfy = yr
-
-    @property
-    def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
-            return self.__efy
-
-    @efy.setter
-    def efy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__efy = yr
-
-    @property
-    def treasuryaccountcode( self ):
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
-            return self.__treasuryaccountcode
-
-    @treasuryaccountcode.setter
-    def treasuryaccountcode( self, tres ):
-        if isinstance( tres, str ) and tres != '':
-            self.__treasuryaccountcode = tres
-
-    @property
-    def treasuryaccountname( self ):
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
-            return self.__treasuryaccountname
-
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__treasuryaccountname = name
-
-    @property
-    def ombaccountcode( self ):
-        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
-            return self.__ombaccountcode
-
-    @ombaccountcode.setter
-    def ombaccountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ombaccountcode = code
-
-    @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
-
-    @ombaccountname.setter
-    def ombaccountname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ombaccountname = name
-
-    def __init__( self, bfy, efy, trescode ):
-        self.__bfy = bfy if isinstance( bfy, str ) else None
-        self.__efy = efy if isinstance( efy, str ) else None
-        self.__treasuryaccountcode = trescode if isinstance( trescode, str ) else None
-
 class Apportionment( ):
     '''Apportionment( code ) creates
     object representing Letters Of Apportionment'''
@@ -200,9 +120,9 @@ class Apportionment( ):
             return self.__sectionnumber
 
     @sectionnumber.setter
-    def sectionnumber( self, secno ):
-        if isinstance( secno, str ) and secno != '':
-            self.__sectionnumber = secno
+    def sectionnumber( self, section ):
+        if isinstance( section, str ) and section != '':
+            self.__sectionnumber = section
 
     @property
     def sectiondescription( self ):
@@ -211,9 +131,9 @@ class Apportionment( ):
             return self.__sectiondescription
 
     @sectiondescription.setter
-    def sectiondescription( self, secdesc ):
-        if isinstance( secdesc, str ) and secdesc != '':
-            self.__sectiondescription = secdesc
+    def sectiondescription( self, description ):
+        if isinstance( description, str ) and description != '':
+            self.__sectiondescription = description
 
     @property
     def subline( self ):
@@ -222,9 +142,9 @@ class Apportionment( ):
             return self.__subline
 
     @subline.setter
-    def subline( self, sub ):
-        if isinstance( sub, str ) and sub != '':
-            self.__subline = sub
+    def subline( self, line ):
+        if isinstance( line, str ) and line != '':
+            self.__subline = line
 
     @property
     def amount( self ):
@@ -232,14 +152,15 @@ class Apportionment( ):
             return self.__amount
 
     @amount.setter
-    def amount( self, amt ):
-        if isinstance( amt, float ):
-            self.__amount = amt
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
 
     def __init__( self, bfy, efy, ombaccount ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
         self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
+
 
 class BudgetaryResourceExecution( ):
     '''BudgetaryResourceExecution( code ) initializes
@@ -306,6 +227,7 @@ class BudgetaryResourceExecution( ):
         self.__efy = efy if isinstance( efy, str ) else None
         self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
 
+
 class OperatingPlan( ):
     '''object representing Operating plan allocations'''
     __operatingplansid = None
@@ -371,10 +293,10 @@ class OperatingPlan( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, name ):
+    @rpioname.setter
+    def rpioname( self, name ):
         if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+            self.__rpioname = name
 
     @property
     def ahcode( self ):
@@ -595,6 +517,7 @@ class OperatingPlan( ):
     def npmname( self, code ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
+
 
 class FullTimeEquivalent( ):
     '''object representing Operating Plan FTE'''
@@ -886,6 +809,7 @@ class FullTimeEquivalent( ):
     def npmname( self, code ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
+
 
 class StatusOfFunds( ):
     '''Object representing execution data'''
@@ -1184,6 +1108,7 @@ class StatusOfFunds( ):
     def npmname( self, code ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
+
 
 class Defacto( ):
     '''object representing defacto obligations'''
@@ -1484,6 +1409,7 @@ class Defacto( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+
 class StatusOfAppropriations( ):
     '''object representing Appropriation-level execution data'''
     __statusofappropriationsid = None
@@ -1643,9 +1569,9 @@ class StatusOfAppropriations( ):
             return self.__fundgroup
 
     @fundgroup.setter
-    def fundgroup( self, fgrp ):
-        if isinstance( fgrp, str ) and fgrp != '':
-            self.__fundgroup = fgrp
+    def fundgroup( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundgroup = code
 
     @property
     def fundgroupname( self ):
@@ -1654,9 +1580,9 @@ class StatusOfAppropriations( ):
             return self.__fundgroupname
 
     @fundgroupname.setter
-    def fundgroupname( self, fgrp ):
-        if isinstance( fgrp, str ) and fgrp != '':
-            self.__fundgroupname = fgrp
+    def fundgroupname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__fundgroupname = name
 
     @property
     def documenttype( self ):
@@ -1665,9 +1591,9 @@ class StatusOfAppropriations( ):
             return self.__documenttype
 
     @documenttype.setter
-    def documenttype( self, dtyp ):
-        if isinstance( dtyp, str ) and dtyp != '':
-            self.__documenttype = dtyp
+    def documenttype( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__documenttype = code
 
     @property
     def transtype( self ):
@@ -1676,9 +1602,9 @@ class StatusOfAppropriations( ):
             return self.__transtype
 
     @transtype.setter
-    def transtype( self, ttyp ):
-        if isinstance( ttyp, str ) and ttyp != '':
-            self.__transtype = ttyp
+    def transtype( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__transtype = code
 
     @property
     def actualrecoverytranstype( self ):
@@ -1687,9 +1613,9 @@ class StatusOfAppropriations( ):
             return self.__actualrecoverytranstype
 
     @actualrecoverytranstype.setter
-    def actualrecoverytranstype( self, artyp ):
-        if isinstance( artyp, str ) and artyp != '':
-            self.__actualrecoverytranstype = artyp
+    def actualrecoverytranstype( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__actualrecoverytranstype = code
 
     @property
     def commitmentspendingcontrolflag( self ):
@@ -1698,9 +1624,9 @@ class StatusOfAppropriations( ):
             return self.__commitmentspendingcontrolflag
 
     @commitmentspendingcontrolflag.setter
-    def commitmentspendingcontrolflag( self, csflag ):
-        if isinstance( csflag, str ) and csflag != '':
-            self.__commitmentspendingcontrolflag = csflag
+    def commitmentspendingcontrolflag( self, flag ):
+        if isinstance( flag, str ) and flag != '':
+            self.__commitmentspendingcontrolflag = flag
 
     @property
     def agreementlimit( self ):
@@ -1720,9 +1646,9 @@ class StatusOfAppropriations( ):
             return self.__estimatedrecoveriestranstype
 
     @estimatedrecoveriestranstype.setter
-    def estimatedrecoveriestranstype( self, ttyp ):
-        if isinstance( ttyp, str ) and ttyp != '':
-            self.__estimatedrecoveriestranstype = ttyp
+    def estimatedrecoveriestranstype( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__estimatedrecoveriestranstype = code
 
     @property
     def estimatedreimbursementstranstype( self ):
@@ -1731,9 +1657,9 @@ class StatusOfAppropriations( ):
             return self.__estimatedreimbursementstranstype
 
     @estimatedreimbursementstranstype.setter
-    def estimatedreimbursementstranstype( self, etyp ):
-        if isinstance( etyp, str ) and etyp != '':
-            self.__estimatedreimbursementstranstype = etyp
+    def estimatedreimbursementstranstype( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__estimatedreimbursementstranstype = code
 
     @property
     def expensespendingcontrolflag( self ):
@@ -1742,9 +1668,9 @@ class StatusOfAppropriations( ):
             return self.__expensespendingcontrolflag
 
     @expensespendingcontrolflag.setter
-    def expensespendingcontrolflag( self, esflag ):
-        if isinstance( esflag, str ) and esflag != '':
-            self.__expensespendingcontrolflag = esflag
+    def expensespendingcontrolflag( self, flag ):
+        if isinstance( flag, str ) and flag != '':
+            self.__expensespendingcontrolflag = flag
 
     @property
     def obligationspendingcontrolflag( self ):
@@ -2083,6 +2009,7 @@ class StatusOfAppropriations( ):
         if isinstance( amount, float ):
             self.__availableamount = amount
 
+
 class StatusOfSupplementalFunds( ):
     '''object representing Supplemental Funds execution data'''
     __statusofsupplementalfundsid = None
@@ -2382,6 +2309,7 @@ class StatusOfSupplementalFunds( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+
 class StateGrantObligations( ):
     '''object representing the BIS'''
     __stategrantobligationsid = None
@@ -2583,6 +2511,7 @@ class StateGrantObligations( ):
     def amount( self, value ):
         if isinstance( value, float ):
             self.__amount = value
+
 
 class Allocation( ):
     '''object representing operating plan data'''
@@ -2875,6 +2804,7 @@ class Allocation( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+
 class RegionalAuthority( ):
     '''object representing Regional Allocations'''
     __regionalauthorityid = None
@@ -3145,6 +3075,7 @@ class RegionalAuthority( ):
     def npmname( self, code ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
+
 
 class HeadquartersAuthority( ):
     '''object representing HQ Allocations'''
@@ -3417,6 +3348,7 @@ class HeadquartersAuthority( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+
 class Actuals( ):
     '''Object representing expendtiure data'''
     __actualsid = None
@@ -3451,24 +3383,30 @@ class Actuals( ):
     __npmcode = None
     __npmname = None
 
+
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
     __appropriationdocumentsid = None
+
 
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
     __budgetdocumentsid = None
 
+
 class BudgetControl( ):
     '''object representing compass control data'''
+
 
 class CongressionalControl( ):
     '''object representing congressional control data'''
     __congressionalcontrolsid = None
 
+
 class CompassLevel( ):
     '''object representing Compass data levels 1-7'''
     __compasslevelsid = None
+
 
 class Commitment( ):
     '''Defines the commitment class.'''
@@ -3591,6 +3529,7 @@ class Commitment( ):
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
+
 
 class OpenCommitment( ):
     '''Defines the commitment class.'''
@@ -3728,6 +3667,7 @@ class OpenCommitment( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
+
 class Obligation( ):
     '''Defines the commitment class.'''
     __obligationsid = None
@@ -3856,6 +3796,7 @@ class Obligation( ):
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
+
 
 class Deobligation( ):
     '''Defines the commitment class.'''
@@ -3987,6 +3928,7 @@ class Deobligation( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
+
 class UnliquidatedObligation( ):
     '''Defines the commitment class.'''
     __unliquidatedobligationsid = None
@@ -4116,6 +4058,7 @@ class UnliquidatedObligation( ):
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
+
 
 class Expenditure:
     '''Defines the commitment class.'''
