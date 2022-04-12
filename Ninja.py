@@ -172,22 +172,8 @@ class DataConfig( ):
             self.__provider = pvdr
 
     @property
-    def name( self ):
-        if isinstance( self.__name, str ):
-            return self.__name
-
-    @name.setter
-    def name( self, table ):
-        if isinstance( name, str ) and name in self.__data:
-            self.__table = name
-        elif name in self.__references:
-            self.__table = name
-        else:
-            self.__table = None
-
-    @property
     def table( self ):
-        if self.__table is not None and self.__table != '':
+        if isinstance( self.__table, str ) and self.__table != '':
             return self.__table
 
     @table.setter
@@ -274,8 +260,7 @@ class DataConfig( ):
                              'SchemaTypes', 'Sources']
         self.__provider = provider
         self.__source = source if isinstance( source, Source ) else Source.NS
-        self.__name = self.__source.name if isinstance( self.__source, Source ) else None
-        self.__table = self.__name
+        self.__table = self.__source.name if isinstance( self.__source, Source ) else None
         self.__sqlitedriver = r'DRIVER=SQLite3 ODBC Driver;'
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db;'
@@ -1225,9 +1210,9 @@ class DataTable( pd.DataFrame ):
             return self.__name
 
 
-class DataFactory( ):
-    '''DataFactory( source, names, values, provider )
-    initializes a factory method'''
+class QueryBuilder( ):
+    '''QueryBuilder( source, provider, command, names, values )
+    initializes object used as argument for the DataFactory'''
     __names = None
     __values = None
     __command = None
@@ -1291,7 +1276,7 @@ class DataFactory( ):
         if isinstance( cmd, Command ):
             self.__command = cmd
         else:
-            command = Command( 'SELECT' ) 
+            command = Command( 'SELECT' )
             self.__command = command
 
     @property
@@ -1328,12 +1313,81 @@ class DataFactory( ):
         if isinstance( sqlconfig, SqlConfig ):
             self.__sqlconfig = sqlconfig
 
-    def __init__( self, provider, source, command, names, values ):
-        self.__name = names if isinstance( names, list ) else None
-        self.__values = values if isinstance( values, tuple ) else None
-        self.__command = command if isinstance( command, Command ) else Command.SELECTALL
-        self.__source = source if isinstance( source, Source ) else None
-        self.__provider = provider if isinstance( provider, Provider ) else None
+    def __init__( self, source = None, provider = Provider.SQLite,
+                  command = Command.SELECTALL, names = None, values = None ):
+        self.__name = names
+        self.__values = values
+        self.__command = command
+        self.__source = source
+        self.__provider = provider
+        self.__dbconfig = DataConfig( self.__source, self.__provider )
+        self.__connection = DataConnection( self.__dbconfig )
+        self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
+        self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
+
+
+class DataFactory( ):
+    '''DataFactory( provider, source, command, names, values )
+    initializes a factory method'''
+    __names = None
+    __values = None
+    __command = None
+    __source = None
+    __provider = None
+    __dbconfig = None
+    __sqlconfig = None
+    __connection = None
+    __sqlstatement = None
+    __query = None
+    __data = None
+
+    @property
+    def names( self ):
+        '''Provides list of column names'''
+        if isinstance( self.__names, list ):
+            return self.__names
+
+    @property
+    def values( self ):
+        '''Provides tuple of column values'''
+        if isinstance( self.__values, tuple ):
+            return self.__values
+
+    @property
+    def provider( self ):
+        '''Gets the provider'''
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @property
+    def command( self ):
+        '''Gets an instance of the DataCommand object'''
+        if isinstance( self.__command, Command ):
+            return self.__command
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @property
+    def dataconfig( self ):
+        if isinstance( self.__dbconfig, DataConfig ):
+            return self.__dbconfig
+
+    @property
+    def sqlconfig( self ):
+        '''Gets instance of the SqlConfig class'''
+        if isinstance( self.__sqlconfig, SqlConfig ):
+            return self.__sqlconfig
+
+    def __init__( self, query ):
+        self.__query = query if isinstance( query, QueryBuilder ) else None
+        self.__name = query.names if isinstance( query.names, list ) else None
+        self.__values = query.values if isinstance( query.values, tuple ) else None
+        self.__command = query.command if isinstance( query.command, Command ) else None
+        self.__source = query.source if isinstance( query.source, Source ) else None
+        self.__provider = query.provider if isinstance( query.provider, Provider ) else None
         self.__dbconfig = DataConfig( self.__source, self.__provider )
         self.__connection = DataConnection( self.__dbconfig )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
