@@ -574,37 +574,37 @@ class TestNtpath(NtpathTestCase):
                               [os.fsencode(p) for p in paths])
 
         self.assertRaises(ValueError, ntpath.commonpath, [])
-        check_error(ValueError, ['C:\\Program Files', 'Program Files'])
-        check_error(ValueError, ['C:\\Program Files', 'C:Program Files'])
-        check_error(ValueError, ['\\Program Files', 'Program Files'])
-        check_error(ValueError, ['Program Files', 'C:\\Program Files'])
-        check(['C:\\Program Files'], 'C:\\Program Files')
-        check(['C:\\Program Files', 'C:\\Program Files'], 'C:\\Program Files')
-        check(['C:\\Program Files\\', 'C:\\Program Files'],
-              'C:\\Program Files')
-        check(['C:\\Program Files\\', 'C:\\Program Files\\'],
-              'C:\\Program Files')
-        check(['C:\\\\Program Files', 'C:\\Program Files\\\\'],
-              'C:\\Program Files')
-        check(['C:\\.\\Program Files', 'C:\\Program Files\\.'],
-              'C:\\Program Files')
+        check_error(ValueError, ['C:\\App Files', 'App Files'])
+        check_error(ValueError, ['C:\\App Files', 'C:App Files'])
+        check_error(ValueError, ['\\App Files', 'App Files'])
+        check_error(ValueError, ['App Files', 'C:\\App Files'])
+        check(['C:\\App Files'], 'C:\\App Files')
+        check(['C:\\App Files', 'C:\\App Files'], 'C:\\App Files')
+        check(['C:\\App Files\\', 'C:\\App Files'],
+              'C:\\App Files')
+        check(['C:\\App Files\\', 'C:\\App Files\\'],
+              'C:\\App Files')
+        check(['C:\\\\App Files', 'C:\\App Files\\\\'],
+              'C:\\App Files')
+        check(['C:\\.\\App Files', 'C:\\App Files\\.'],
+              'C:\\App Files')
         check(['C:\\', 'C:\\bin'], 'C:\\')
-        check(['C:\\Program Files', 'C:\\bin'], 'C:\\')
-        check(['C:\\Program Files', 'C:\\Program Files\\Bar'],
-              'C:\\Program Files')
-        check(['C:\\Program Files\\Foo', 'C:\\Program Files\\Bar'],
-              'C:\\Program Files')
-        check(['C:\\Program Files', 'C:\\Projects'], 'C:\\')
-        check(['C:\\Program Files\\', 'C:\\Projects'], 'C:\\')
+        check(['C:\\App Files', 'C:\\bin'], 'C:\\')
+        check(['C:\\App Files', 'C:\\App Files\\Bar'],
+              'C:\\App Files')
+        check(['C:\\App Files\\Foo', 'C:\\App Files\\Bar'],
+              'C:\\App Files')
+        check(['C:\\App Files', 'C:\\Projects'], 'C:\\')
+        check(['C:\\App Files\\', 'C:\\Projects'], 'C:\\')
 
-        check(['C:\\Program Files\\Foo', 'C:/Program Files/Bar'],
-              'C:\\Program Files')
-        check(['C:\\Program Files\\Foo', 'c:/program files/bar'],
-              'C:\\Program Files')
-        check(['c:/program files/bar', 'C:\\Program Files\\Foo'],
+        check(['C:\\App Files\\Foo', 'C:/App Files/Bar'],
+              'C:\\App Files')
+        check(['C:\\App Files\\Foo', 'c:/program files/bar'],
+              'C:\\App Files')
+        check(['c:/program files/bar', 'C:\\App Files\\Foo'],
               'c:\\program files')
 
-        check_error(ValueError, ['C:\\Program Files', 'D:\\Program Files'])
+        check_error(ValueError, ['C:\\App Files', 'D:\\App Files'])
 
         check(['spam'], 'spam')
         check(['spam', 'spam'], 'spam')
@@ -621,17 +621,17 @@ class TestNtpath(NtpathTestCase):
         check_error(ValueError, ['', '\\spam\\alot'])
 
         self.assertRaises(TypeError, ntpath.commonpath,
-                          [b'C:\\Program Files', 'C:\\Program Files\\Foo'])
+                          [b'C:\\App Files', 'C:\\App Files\\Foo'])
         self.assertRaises(TypeError, ntpath.commonpath,
-                          [b'C:\\Program Files', 'Program Files\\Foo'])
+                          [b'C:\\App Files', 'App Files\\Foo'])
         self.assertRaises(TypeError, ntpath.commonpath,
-                          [b'Program Files', 'C:\\Program Files\\Foo'])
+                          [b'App Files', 'C:\\App Files\\Foo'])
         self.assertRaises(TypeError, ntpath.commonpath,
-                          ['C:\\Program Files', b'C:\\Program Files\\Foo'])
+                          ['C:\\App Files', b'C:\\App Files\\Foo'])
         self.assertRaises(TypeError, ntpath.commonpath,
-                          ['C:\\Program Files', b'Program Files\\Foo'])
+                          ['C:\\App Files', b'App Files\\Foo'])
         self.assertRaises(TypeError, ntpath.commonpath,
-                          ['Program Files', b'C:\\Program Files\\Foo'])
+                          ['App Files', b'C:\\App Files\\Foo'])
 
     def test_sameopenfile(self):
         with TemporaryFile() as tf1, TemporaryFile() as tf2:

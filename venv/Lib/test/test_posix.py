@@ -1517,7 +1517,7 @@ class PosixGroupsTester(unittest.TestCase):
 
 
 class _PosixSpawnMixin:
-    # Program which does nothing and exits with status 0 (success)
+    # App which does nothing and exits with status 0 (success)
     NOOP_PROGRAM = (sys.executable, '-I', '-S', '-c', 'pass')
     spawn_func = None
 

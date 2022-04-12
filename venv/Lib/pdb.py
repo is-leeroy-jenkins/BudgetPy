@@ -189,7 +189,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
     def sigint_handler(self, signum, frame):
         if self.allow_kbdint:
             raise KeyboardInterrupt
-        self.message("\nProgram interrupted. (Use 'cont' to resume).")
+        self.message("\nApp interrupted. (Use 'cont' to resume).")
         self.set_step()
         self.set_trace(frame)
 

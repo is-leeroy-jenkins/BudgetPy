@@ -211,7 +211,7 @@ class Reindenter:
         stats.append((len(lines), 0))
         # Map count of leading spaces to # we want.
         have2want = {}
-        # Program after transformation.
+        # App after transformation.
         after = self.after = []
         # Copy over initial empty lines -- there's nothing to do until
         # we see a line with *something* on it.
