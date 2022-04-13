@@ -1,0 +1,4 @@
+
+access = 'C:\Users\teppler\source\repos\BudgetPy\db\access\datamodels\Data.accdb'
+sqlite = 'C:\Users\teppler\source\repos\BudgetPy\db\sqlite\datamodels\Data.db'
+excel = 'C:\Users\teppler\source\repos\BudgetPy\db\excel\Excel.xlsx'

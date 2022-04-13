@@ -15,7 +15,9 @@ class Client( Enum ):
 
 
 class App( ):
-    '''factory methods for running process'''
+    '''App( app ) initializes object providing
+     factory methods for running processes based on 'Client'
+     enumeration input args'''
     __app = None
     __sqliteclient = None
     __accessclient = None
@@ -38,6 +40,16 @@ class App( ):
         if isinstance( self.__excelapp, str ) and self.__excelapp != '':
             return self.__excelapp
 
+    @property
+    def chrome( self ):
+        if isinstance( self.__chrome, str ) and self.__chrome != '':
+            return self.__chrome
+
+    @property
+    def edge( self ):
+        if isinstance( self.__edge, str ) and self.__edge != '':
+            return self.__edge
+
     def __init__( self, app ):
         self.__app = app if isinstance( app, Client ) else None
         self.__sqliteclient = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
@@ -47,6 +59,7 @@ class App( ):
         self.__chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
 
     def run( self ):
+        '''instance method that runs a client program with know path'''
         if isinstance( self.__app, Client ) and self.__app == Client.SQLite:
             sp.Popen( self.__sqliteclient )
         elif isinstance( self.__app, Client ) and self.__app == Client.Access:
@@ -59,6 +72,7 @@ class App( ):
             sp.Popen( self.__chrome )
 
     def runargs( self, args ):
+        '''instance method that runs client program provided 'args' '''
         if isinstance( args, str ) and self.__app == Client.SQLite:
             if os.path.isfile( args ):
                 sp.Popen( [ self.__sqliteclient, args ] )
