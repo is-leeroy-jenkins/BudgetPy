@@ -1,5 +1,6 @@
 from Execution import *
 
+
 class Apportionment( ):
     '''Apportionment( code ) creates
     object representing Letters Of Apportionment'''
