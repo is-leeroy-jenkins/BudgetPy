@@ -61,15 +61,15 @@ class App( ):
     def runargs( self, args ):
         if isinstance( args, str ) and self.__app == Client.SQLite:
             if os.path.isfile( args ):
-                sp.Popen( self.__sqliteclient, args )
+                sp.Popen( [ self.__sqliteclient, args ] )
         elif isinstance( args, str ) and self.__app == Client.Access:
             if os.path.isfile( args ):
-                sp.Popen( self.__accessclient )
+                sp.Popen( [ self.__accessclient, args ] )
         elif isinstance( args, str ) and self.__app == Client.Excel:
             if os.path.isfile( args ):
-                sp.Popen(  args )
+                sp.Popen( [ self.__excelapp, args ] )
         elif isinstance( args, str ) and self.__app == Client.Edge:
-                sp.Popen( self.__edge )
+                sp.Popen( args )
         elif isinstance( args, str ) and self.__app == Client.Chrome:
-                sp.Popen( self.__chrome )
+                sp.Popen( [ self.__chrome, args ] )
 
