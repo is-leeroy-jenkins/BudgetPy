@@ -2342,7 +2342,7 @@ class PythonSymlink:
             import _winapi
 
             if os.path.lexists(self.real) and not os.path.exists(self.real):
-                # App symlink appears to not exist, but we want the
+                # Client symlink appears to not exist, but we want the
                 # real executable here anyway
                 self.real = _winapi.GetModuleFileName(0)
 

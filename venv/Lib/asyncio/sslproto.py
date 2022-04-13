@@ -435,7 +435,7 @@ class SSLProtocol(protocols.Protocol):
         # completes.
         self._extra = dict(sslcontext=sslcontext)
 
-        # App data write buffering
+        # Client data write buffering
         self._write_backlog = collections.deque()
         self._write_buffer_size = 0
 

@@ -285,7 +285,7 @@ def RegisterPythonwin(register=True, lib_dir=None):
 
     keys_vals = [
         (
-            "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Pythonwin.exe",
+            "Software\\Microsoft\\Windows\\CurrentVersion\\Client Paths\\Pythonwin.exe",
             "",
             pythonwin_exe,
         ),

@@ -310,7 +310,7 @@ class PlatformTest(unittest.TestCase):
             # Cygwin horror
             executable = sys.executable + '.exe'
         elif sys.platform == "win32" and not os.path.exists(sys.executable):
-            # App symlink appears to not exist, but we want the
+            # Client symlink appears to not exist, but we want the
             # real executable here anyway
             import _winapi
             executable = _winapi.GetModuleFileName(0)

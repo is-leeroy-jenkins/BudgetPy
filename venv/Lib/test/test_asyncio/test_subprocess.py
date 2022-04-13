@@ -14,10 +14,10 @@ from test import support
 if sys.platform != 'win32':
     from asyncio import unix_events
 
-# Program blocking
+# App blocking
 PROGRAM_BLOCKED = [sys.executable, '-c', 'import time; time.sleep(3600)']
 
-# Program copying input to output
+# App copying input to output
 PROGRAM_CAT = [
     sys.executable, '-c',
     ';'.join(('import sys',

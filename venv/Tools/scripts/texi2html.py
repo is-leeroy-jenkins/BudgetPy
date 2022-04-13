@@ -1535,7 +1535,7 @@ class TexinfoParser:
         self.indextitle['cp'] = 'Concept'
         self.indextitle['fn'] = 'Function'
         self.indextitle['ky'] = 'Keyword'
-        self.indextitle['pg'] = 'Program'
+        self.indextitle['pg'] = 'App'
         self.indextitle['tp'] = 'Type'
         self.indextitle['vr'] = 'Variable'
         #

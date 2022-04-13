@@ -233,7 +233,7 @@ def fixline(line):
         if match is None: break
         i = match.start()
         found = match.group(0)
-##      if Program is InsideCommentProgram: print(end='... ')
+##      if App is InsideCommentProgram: print(end='... ')
 ##      else: print(end='    ')
 ##      print(found)
         if len(found) == 2:

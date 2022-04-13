@@ -229,12 +229,12 @@ class DebuggerTests(unittest.TestCase):
 
         # bpo-34007: Sometimes some versions of the shared libraries that
         # are part of the traceback are compiled in optimised mode and the
-        # Program Counter (PC) is not present, not allowing gdb to walk the
+        # App Counter (PC) is not present, not allowing gdb to walk the
         # frames back. When this happens, the Python bindings of gdb raise
         # an exception, making the test impossible to succeed.
         if "PC not saved" in err:
             raise unittest.SkipTest("gdb cannot walk the frame object"
-                                    " because the Program Counter is"
+                                    " because the App Counter is"
                                     " not present")
 
         # bpo-40019: Skip the test if gdb failed to read debug information
