@@ -1,5 +1,6 @@
 import subprocess as sp
 from enum import Enum, auto
+import os
 
 
 class Client( Enum ):
@@ -9,6 +10,8 @@ class Client( Enum ):
     Access = auto( )
     Excel = auto( )
     Linq = auto( )
+    Edge = auto( )
+    Chrome = auto( )
 
 
 class App( ):
@@ -17,6 +20,8 @@ class App( ):
     __sqliteclient = None
     __accessclient = None
     __excelapp = None
+    __edge = None
+    __chrome = None
 
     @property
     def sqlite( self ):
@@ -38,6 +43,8 @@ class App( ):
         self.__sqliteclient = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
         self.__accessclient = r'C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE'
         self.__excelapp = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
+        self.__edge = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+        self.__chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
 
     def run( self ):
         if isinstance( self.__app, Client ) and self.__app == Client.SQLite:
@@ -46,4 +53,23 @@ class App( ):
             sp.Popen( self.__accessclient )
         elif isinstance( self.__app, Client ) and self.__app == Client.Excel:
             sp.Popen( self.__excelapp )
+        elif isinstance( self.__app, Client ) and self.__app == Client.Edge:
+            sp.Popen( self.__edge )
+        elif isinstance( self.__app, Client ) and self.__app == Client.Chrome:
+            sp.Popen( self.__chrome )
+
+    def runargs( self, args ):
+        if isinstance( args, str ) and self.__app == Client.SQLite:
+            if os.path.isfile( args ):
+                sp.Popen( self.__sqliteclient, args )
+        elif isinstance( args, str ) and self.__app == Client.Access:
+            if os.path.isfile( args ):
+                sp.Popen( self.__accessclient )
+        elif isinstance( args, str ) and self.__app == Client.Excel:
+            if os.path.isfile( args ):
+                sp.Popen(  args )
+        elif isinstance( args, str ) and self.__app == Client.Edge:
+                sp.Popen( self.__edge )
+        elif isinstance( args, str ) and self.__app == Client.Chrome:
+                sp.Popen( self.__chrome )
 
