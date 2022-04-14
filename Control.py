@@ -5122,7 +5122,6 @@ class Expenditures:
                 'fund':     None,
                 'boc':      None }
         self.__frame = pd.DataFrame
-        self.__frame = pd.DataFrame
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
