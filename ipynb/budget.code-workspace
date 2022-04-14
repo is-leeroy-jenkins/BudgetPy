@@ -5,6 +5,11 @@
 		}
 	],
 	"settings": {
-		"git.ignoreLimitWarning": true
+		"git.ignoreLimitWarning": true,
+		"python.pythonPath": "C:\\Users\\terry\\source\\compilers\\py\\python\\python.exe",
+		"cSpell.words": [
+			"Roboto",
+			"monospace"
+		]
 	}
 }

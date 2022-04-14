@@ -452,7 +452,7 @@ class Appropriation( ):
 
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
-    __budgetfiscalyearid = None
+    __budgetfiscalyearsid = None
     __base = None
     __bfy = None
     __efy = None
@@ -461,8 +461,8 @@ class BudgetFiscalYear( ):
     __startdate = None
     __enddate = None
     __expiration = None
-    __weekends = 0
-    __workdays = 0
+    __weekends = None
+    __workdays = None
     __year = None
     __month = None
     __day = None
@@ -472,13 +472,13 @@ class BudgetFiscalYear( ):
 
     @property
     def id( self ):
-        if isinstance( self.__budgetfiscalyearid, int ):
-            return self.__budgetfiscalyearid
+        if isinstance( self.__budgetfiscalyearsid, int ):
+            return self.__budgetfiscalyearsid
 
     @id.setter
     def id( self, id ):
         if isinstance( id, int ):
-            self.__budgetfiscalyearid = id
+            self.__budgetfiscalyearsid = id
 
     @property
     def startyear( self ):
@@ -577,7 +577,7 @@ class BudgetFiscalYear( ):
 
     @day.setter
     def day( self, today ):
-        if isinstance( today, int ):
+        if isinstance( today, int ) and ( 0 <= today <= 7 ):
             self.__day = today
 
     @property

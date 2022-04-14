@@ -2,29 +2,114 @@
   <dictionary name="teppler">
     <words>
       <w>accessclient</w>
+      <w>accrualcontrols</w>
+      <w>accrualspendigcontrolflag</w>
+      <w>accrualspendingcontrol</w>
+      <w>actualrecoveries</w>
+      <w>actualrecoveriestranstype</w>
+      <w>actualreimbursements</w>
+      <w>agreementreimbursables</w>
       <w>appropriationdocumentsid</w>
       <w>argrunner</w>
+      <w>authoritydistributioncontrol</w>
+      <w>budgetcontrolsid</w>
+      <w>budgetdefault</w>
       <w>budgetdocumentsid</w>
+      <w>budgetedcontrol</w>
+      <w>budgetedtranstype</w>
+      <w>budgetestimatedlowerlevels</w>
+      <w>budgetingcontrols</w>
+      <w>carryin</w>
+      <w>carryoveravailabilitypercentage</w>
+      <w>carryoverin</w>
+      <w>carryoverout</w>
+      <w>carryrout</w>
+      <w>commitmentcontrols</w>
       <w>commitmentsid</w>
+      <w>commitmentspendingcontrol</w>
       <w>compasslevelsid</w>
       <w>congressionalcontrolsid</w>
+      <w>decreaserestriction</w>
       <w>defactos</w>
       <w>deobligations</w>
       <w>deobligationsid</w>
+      <w>documentdate</w>
+      <w>documentnumber</w>
+      <w>estimatedrecoveries</w>
+      <w>estimatedreimbursements</w>
+      <w>estimatedreimbursementsbudgetingoptions</w>
+      <w>estimatedreimbursementsspendingoptions</w>
       <w>excelapp</w>
       <w>excelpath</w>
+      <w>expenditurecontrols</w>
       <w>expendituresid</w>
+      <w>expenditurespendingcontrol</w>
+      <w>expensecontrols</w>
+      <w>expensespendingcontrol</w>
+      <w>ftebudgetingcontrol</w>
+      <w>ftecontrolflag</w>
+      <w>ftespendingcontrol</w>
+      <w>fundsin</w>
+      <w>fundsout</w>
+      <w>increaserestriction</w>
+      <w>lastdocumentdate</w>
       <w>linqpadpath</w>
       <w>linqpath</w>
+      <w>lowerchildexpenditurecontrolflag</w>
+      <w>lowerchildexpensespendingcontrolflag</w>
+      <w>lowercommitmentspendingcontrolflag</w>
+      <w>lowerexpenditurespendingcontrolflag</w>
+      <w>lowerexpensespendingcontrolflag</w>
+      <w>lowername</w>
+      <w>lowerobligationspendingcontrolflag</w>
+      <w>lowerpostedcontrolflag</w>
+      <w>lowerpostedflag</w>
+      <w>lowerpostedtranstype</w>
+      <w>lowerprecommitmentspendingcontrolflag</w>
+      <w>lowerrecoveriesoption</w>
+      <w>lowerreimbursablespendingoption</w>
+      <w>memorandumrequired</w>
       <w>msaccess</w>
       <w>msedge</w>
+      <w>obligationcontrols</w>
       <w>obligationsid</w>
+      <w>obligationspendingcontrol</w>
       <w>opencommitmentsid</w>
+      <w>originalauthority</w>
       <w>pargs</w>
+      <w>postedcontrol</w>
+      <w>postedcontrolflag</w>
+      <w>postedtranstype</w>
+      <w>postingcontrols</w>
+      <w>precommitmentcontrols</w>
+      <w>precommitmentspendingcontrol</w>
+      <w>precommitmentspendingcontrolflag</w>
+      <w>profitlossbudgetingoption</w>
+      <w>profitlossspendingoption</w>
+      <w>profitlosstranstype</w>
+      <w>recoveriescarryinamountcontrol</w>
+      <w>recoveriescarryinlowerlevel</w>
+      <w>recoveriescarryinlowerlevelcontrol</w>
+      <w>recoverieswithdrawn</w>
+      <w>recoverybudgetmismatch</w>
+      <w>recoverynextlevel</w>
+      <w>reimbursableagreementcontrols</w>
+      <w>reimbursableagreementspendingcontrol</w>
+      <w>reimbursementcontrols</w>
+      <w>reimbursementspendingcontrol</w>
+      <w>reoveriescarryinlowerlevel</w>
+      <w>reprogrammingrestriction</w>
       <w>runargs</w>
+      <w>spendingadjustmenttranstype</w>
       <w>sqliteclient</w>
       <w>statecode</w>
       <w>statename</w>
+      <w>statusreservetranstype</w>
+      <w>subprojectcode</w>
+      <w>subprojectname</w>
+      <w>totalauthority</w>
+      <w>trackagreementlowerlevels</w>
+      <w>transactiontypecontrol</w>
       <w>unliquidated</w>
       <w>unliquidatedobligationsid</w>
     </words>

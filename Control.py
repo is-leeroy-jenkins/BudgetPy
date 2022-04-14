@@ -3388,25 +3388,189 @@ class Actuals( ):
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
     __appropriationdocumentsid = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fund = None
+    __documenttype = None
+    __documentnumber = None
+    __documentdate = None
+    __lastdocumentdate = None
+    __budgetlevel = None
+    __budgetingcontrols = None
+    __postingcontrols = None
+    __precommitmentcontrols = None
+    __commitmentcontrols = None
+    __obligationcontrols = None
+    __accrualcontrols = None
+    __expenditurecontrols = None
+    __expensecontrols = None
+    __reimbursementcontrols = None
+    __reimbursableagreementcontrols = None
+    __budgeted = None
+    __posted = None
+    __carryout = None
+    __carryin = None
+    __estimatedreimbursements = None
+    __estimatedrecoveries = None
 
 
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
     __budgetdocumentsid = None
+    __bfy = None
+    __efy = None
+    __budgetlevel = None
+    __fundcode = None
+    __fundname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentdate = None
+    __lastdocumentdate = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __boccode = None
+    __bocname = None
+    __budgetingcontrols = None
+    __postingcontrols = None
+    __precommitmentcontrols = None
+    __commitmentcontrols = None
+    __obligationcontrols = None
+    __accrualcontrols = None
+    __expenditurecontrols = None
+    __expensecontrols = None
+    __reimbursementcontrols = None
+    __reimbursableagreementcontrols = None
+    __budgeted = None
+    __posted = None
+    __carryout = None
+    __carryin = None
+    __estimatedreimbursements = None
+    __estimatedrecoveries = None
 
 
-class BudgetControl( ):
+
+class BudgetControls( ):
     '''object representing compass control data'''
+    __budgetcontrolsid = None
+    __code = None
+    __name = None
+    __budgetedtranstype = None
+    __postedtranstype = None
+    __estimatedreimbursementstranstype = None
+    __spendingadjustmenttranstype = None
+    __estimatedrecoveriestranstype = None
+    __actualrecoveriestranstype = None
+    __statusreservetranstype = None
+    __actualrecoveriestranstype = None
+    __statusreservetranstype = None
+    __profitlosstranstype = None
+    __estimatedreimbursementsspendingoptions = None
+    __estimatedreimbursementsbudgetingoptions = None
+    __trackagreementlowerlevels = None
+    __budgetestimatedlowerlevels = None
+    __recoverynextlevel = None
+    __recoverybudgetmismatch = None
+    __profitlossspendingoption = None
+    __profitlossbudgetingoption = None
+    __recoveriescarryinlowerlevelcontrol = None
+    __recoveriescarryinlowerlevel = None
+    __recoveriescarryinamountcontrol = None
+    __budgetedcontrol = None
+    __postedcontrol = None
+    __precommitmentspendingcontrol = None
+    __commitmentspendingcontrol = None
+    __obligationspendingcontrol = None
+    __accrualspendingcontrol = None
+    __expenditurespendingcontrol = None
+    __expensespendingcontrol = None
+    __reimbursementspendingcontrol = None
+    __reimbursableagreementspendingcontrol = None
+    __ftebudgetingcontrol = None
+    __ftespendingcontrol = None
+    __transactiontypecontrol = None
+    __authoritydistributioncontrol = None
 
 
 class CongressionalControls( ):
     '''object representing congressional control data'''
     __congressionalcontrolsid = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __subprojectcode = None
+    __subprojectname = None
+    __reprogrammingrestriction = None
+    __increaserestriction = None
+    __decreaserestriction = None
+    __memorandumrequired = None
 
 
 class CompassLevels( ):
     '''object representing Compass data levels 1-7'''
     __compasslevelsid = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __appropriationcode = None
+    __subappropriationcode = None
+    __appropriationname = None
+    __treasurysymbol = None
+    __documenttype = None
+    __lowername = None
+    __description = None
+    __postedcontrolflag = None
+    __actualrecoverytranstype = None
+    __commitmentspendingcontrolflag = None
+    __budgetdefault = None
+    __lowerchildexpenditurecontrolflag = None
+    __lowerchildexpensespendingcontrolflag = None
+    __ftecontrolflag = None
+    __accrualspendigcontrolflag = None
+    __obligationspendingcontrolflag = None
+    __precommitmentspendingcontrolflag = None
+    __lowercommitmentspendingcontrolflag = None
+    __lowerobligationspendingcontrolflag = None
+    __lowerexpenditurespendingcontrolflag = None
+    __lowerexpensespendingcontrolflag = None
+    __lowerpostedcontrolflag = None
+    __lowerpostedtranstype = None
+    __lowerpostedflag = None
+    __lowerprecommitmentspendingcontrolflag = None
+    __lowerrecoveriesspendingoption = None
+    __lowerrecoveriesoption = None
+    __lowerreimbursablespendingoption = None
+    __lowerrecoveriesoption = None
+    __lowerreimbursablespendingoption = None
+    __date = None
+    __totalauthority = None
+    __originalauthority = None
+    __carryoveravailabilitypercentage = None
+    __carryoverin = None
+    __carryoverout = None
+    __fundsin = None
+    __fundsout = None
+    __recoverieswithdrawn = None
+    __actualrecoveries = None
+    __actualreimbursements = None
+    __agreementreimbursables = None
 
 
 class Commitments( ):
