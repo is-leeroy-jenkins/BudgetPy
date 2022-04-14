@@ -92,11 +92,11 @@ class Account( ):
     __accountsid = None
     __code = None
     __name = None
-    __goal = None
-    __objective = None
-    __npm = None
-    __programproject = None
-    __record = None
+    __goalcode = None
+    __objectivecode = None
+    __npmcode = None
+    __programprojectcode = None
+    __data = None
     __frame = None
 
     @property
@@ -130,58 +130,58 @@ class Account( ):
             self.__name = name
 
     @property
-    def goal( self ):
-        if isinstance( self.__goal, str ):
-            return self.__goal
+    def goalcode( self ):
+        if isinstance( self.__goalcode, str ):
+            return self.__goalcode
 
-    @goal.setter
-    def goal( self, goal ):
+    @goalcode.setter
+    def goalcode( self, goal ):
         if isinstance( goal, str ):
-            self.__goal = goal
-            self.__record[ 'goal' ] = self.__goal
+            self.__goalcode = goal
+            self.__data[ 'goal' ] = self.__goalcode
 
     @property
-    def objective( self ):
-        if isinstance( self.__objective, str ):
-            return self.__objective
+    def objectivecode( self ):
+        if isinstance( self.__objectivecode, str ):
+            return self.__objectivecode
 
-    @objective.setter
-    def objective( self, obj ):
+    @objectivecode.setter
+    def objectivecode( self, obj ):
         if obj is not None:
-            self.__objective = str( obj )
-            self.__record[ 'objective' ] = self.__objective
+            self.__objectivecode = str( obj )
+            self.__data[ 'objective' ] = self.__objectivecode
 
     @property
-    def npm( self ):
-        if self.__npm is not None:
-            return self.__npm
+    def npmcode( self ):
+        if self.__npmcode is not None:
+            return self.__npmcode
 
-    @npm.setter
-    def npm( self, code ):
+    @npmcode.setter
+    def npmcode( self, code ):
         if isinstance( code, str ):
-            self.__npm = code
-            self.__record[ 'npm' ] = self.__npm
+            self.__npmcode = code
+            self.__data[ 'npm' ] = self.__npmcode
 
     @property
-    def programproject( self ):
-        if isinstance( self.__programproject, str ):
-            return self.__programproject
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ):
+            return self.__programprojectcode
 
-    @programproject.setter
-    def programproject( self, code ):
+    @programprojectcode.setter
+    def programprojectcode( self, code ):
         if isinstance( code, str ):
-            self.__programproject = code
-            self.__record[ 'programproject' ] = self.__programproject
+            self.__programprojectcode = code
+            self.__data[ 'programproject' ] = self.__programprojectcode
 
     @property
     def data( self ):
-        if isinstance( self.__record, list ):
-            return self.__record
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @data.setter
     def data( self, cache ):
         if isinstance( cache, list ):
-            self.__record = cache
+            self.__data = cache
 
     @property
     def table( self ):
@@ -195,10 +195,10 @@ class Account( ):
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
-        self.__goal = self.__code[ 0 ]
-        self.__objective = self.__code[ 1:3 ]
-        self.__npm = self.__code[ 3 ]
-        self.__programproject = self.__code[ 4:6 ]
+        self.__goalcode = self.__code[ 0 ]
+        self.__objectivecode = self.__code[ 1:3 ]
+        self.__npmcode = self.__code[ 3 ]
+        self.__programprojectcode = self.__code[ 4:6 ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':

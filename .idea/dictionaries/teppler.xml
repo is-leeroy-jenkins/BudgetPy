@@ -2,16 +2,31 @@
   <dictionary name="teppler">
     <words>
       <w>accessclient</w>
+      <w>appropriationdocumentsid</w>
       <w>argrunner</w>
+      <w>budgetdocumentsid</w>
+      <w>commitmentsid</w>
+      <w>compasslevelsid</w>
+      <w>congressionalcontrolsid</w>
+      <w>defactos</w>
+      <w>deobligations</w>
+      <w>deobligationsid</w>
       <w>excelapp</w>
       <w>excelpath</w>
+      <w>expendituresid</w>
       <w>linqpadpath</w>
       <w>linqpath</w>
       <w>msaccess</w>
       <w>msedge</w>
+      <w>obligationsid</w>
+      <w>opencommitmentsid</w>
       <w>pargs</w>
       <w>runargs</w>
       <w>sqliteclient</w>
+      <w>statecode</w>
+      <w>statename</w>
+      <w>unliquidated</w>
+      <w>unliquidatedobligationsid</w>
     </words>
   </dictionary>
 </component>
