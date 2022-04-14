@@ -3460,7 +3460,6 @@ class BudgetDocument( ):
     __estimatedrecoveries = None
 
 
-
 class BudgetControls( ):
     '''object representing compass control data'''
     __budgetcontrolsid = None
