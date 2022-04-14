@@ -1011,6 +1011,86 @@ class StatusOfFunds( ):
             self.__amount = value
 
     @property
+    def budgeted( self ):
+        if isinstance( self.__budgeted, float ):
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if isinstance( value, float ):
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if isinstance( self.__posted, float ):
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( self.__posted, value ):
+            self.__posted = value
+
+    @property
+    def opencommitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if isinstance( value, float ):
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if isinstance( self.__obligations, float ):
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if isinstance( value, float ):
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if isinstance( self.__unliquidatedobligations, float ):
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if isinstance( value, float ):
+            self.__unliquidatedobligations = value
+
+    @property
+    def expenditures( self ):
+        if isinstance( self.__expenditures, float ):
+            return self.__expenditures
+
+    @expenditures.setter
+    def expenditures( self, value ):
+        if isinstance( value, float ):
+            self.__expenditures = value
+
+    @property
+    def used( self ):
+        if isinstance( self.__used, float ):
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if isinstance( value, float ):
+            self.__used = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__avaialable, float ):
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if isinstance( value, float ):
+            self.__avaialable = value
+
+    @property
     def programprojectcode( self ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
@@ -1309,6 +1389,86 @@ class Defactos( ):
     def amount( self, value ):
         if isinstance( value, float ):
             self.__amount = value
+
+    @property
+    def budgeted( self ):
+        if isinstance( self.__budgeted, float ):
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if isinstance( value, float ):
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if isinstance( self.__posted, float ):
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( self.__posted, value ):
+            self.__posted = value
+
+    @property
+    def opencommitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if isinstance( value, float ):
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if isinstance( self.__obligations, float ):
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if isinstance( value, float ):
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if isinstance( self.__unliquidatedobligations, float ):
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if isinstance( value, float ):
+            self.__unliquidatedobligations = value
+
+    @property
+    def expenditures( self ):
+        if isinstance( self.__expenditures, float ):
+            return self.__expenditures
+
+    @expenditures.setter
+    def expenditures( self, value ):
+        if isinstance( value, float ):
+            self.__expenditures = value
+
+    @property
+    def used( self ):
+        if isinstance( self.__used, float ):
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if isinstance( value, float ):
+            self.__used = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__avaialable, float ):
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if isinstance( value, float ):
+            self.__avaialable = value
 
     @property
     def programprojectcode( self ):
@@ -2211,6 +2371,86 @@ class StatusOfSupplementalFunds( ):
             self.__amount = value
 
     @property
+    def budgeted( self ):
+        if isinstance( self.__budgeted, float ):
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if isinstance( value, float ):
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if isinstance( self.__posted, float ):
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( self.__posted, value ):
+            self.__posted = value
+
+    @property
+    def opencommitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if isinstance( value, float ):
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if isinstance( self.__obligations, float ):
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if isinstance( value, float ):
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if isinstance( self.__unliquidatedobligations, float ):
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if isinstance( value, float ):
+            self.__unliquidatedobligations = value
+
+    @property
+    def expenditures( self ):
+        if isinstance( self.__expenditures, float ):
+            return self.__expenditures
+
+    @expenditures.setter
+    def expenditures( self, value ):
+        if isinstance( value, float ):
+            self.__expenditures = value
+
+    @property
+    def used( self ):
+        if isinstance( self.__used, float ):
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if isinstance( value, float ):
+            self.__used = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__avaialable, float ):
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if isinstance( value, float ):
+            self.__avaialable = value
+
+    @property
     def programprojectcode( self ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
@@ -2978,6 +3218,86 @@ class RegionalAuthority( ):
             self.__amount = value
 
     @property
+    def budgeted( self ):
+        if isinstance( self.__budgeted, float ):
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if isinstance( value, float ):
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if isinstance( self.__posted, float ):
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( self.__posted, value ):
+            self.__posted = value
+
+    @property
+    def opencommitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if isinstance( value, float ):
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if isinstance( self.__obligations, float ):
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if isinstance( value, float ):
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if isinstance( self.__unliquidatedobligations, float ):
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if isinstance( value, float ):
+            self.__unliquidatedobligations = value
+
+    @property
+    def expenditures( self ):
+        if isinstance( self.__expenditures, float ):
+            return self.__expenditures
+
+    @expenditures.setter
+    def expenditures( self, value ):
+        if isinstance( value, float ):
+            self.__expenditures = value
+
+    @property
+    def used( self ):
+        if isinstance( self.__used, float ):
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if isinstance( value, float ):
+            self.__used = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__avaialable, float ):
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if isinstance( value, float ):
+            self.__avaialable = value
+
+    @property
     def programprojectcode( self ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
@@ -3383,6 +3703,266 @@ class Actuals( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__actualsid, int ):
+            return self.__actualsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ) and id > -1:
+            self.__id = id
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__bfy = year
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__efy = year
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__rpiocode = code
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__rpiocode = name
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__ahcode = code
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__ahname = name
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__fundname = name
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__orgcode = code
+
+    @property
+    def orgname( self ):
+        if isinstance( self.__orgname, str ) and self.__orgname != '':
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__orgname = name
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__accountcode = code
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__boccode = code
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__bocname = name
+
+    @property
+    def balance( self ):
+        if isinstance( self.__balance, float ):
+            return self.__balance
+
+    @bocname.setter
+    def bocname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__bocname = name
+
+    @property
+    def balance( self ):
+        if isinstance( self.__balance, float ):
+            return self.__balance
+
+    @balance.setter
+    def balance( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__programprojectcode = code
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__programprojectname = name
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__programareacode = code
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__programareaname = name
+
+    @property
+    def goalcode( self ):
+        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__goalcode = code
+
+    @property
+    def goalname( self ):
+        if isinstance( self.__goalname, str ) and self.__goalname != '':
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__goalname = code
+
+    @property
+    def objectivecode( self ):
+        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__objectivecode = code
+
+    @property
+    def objectivename( self ):
+        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__objectivename = code
+
+    @property
+    def npmcode( self ):
+        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__npmcode = code
+
+    @property
+    def npmname( self ):
+        if isinstance( self.__npmname, str ) and self.__npmname != '':
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__npmname = code
 
 
 class AppropriationDocument( ):
