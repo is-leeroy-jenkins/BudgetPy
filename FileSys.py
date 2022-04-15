@@ -832,7 +832,7 @@ class ExcelReport( ):
             self.__worksheet = self.__workbook.create_sheet( title = name, index = 1 )
 
     def __init__( self, name, rows = 46, cols = 12 ):
-        self.__path = r'etc\templates\report\Excel.xlsx'
+        self.__path = r'etc/templates/report/Excel.xlsx'
         self.__name = str( name )
         self.__rows = int( rows )
         self.__columns = int( cols )

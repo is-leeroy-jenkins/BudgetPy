@@ -141,11 +141,13 @@
       <w>subrcname</w>
       <w>totalaccrualrecoveries</w>
       <w>totalactualreimbursements</w>
+      <w>totalagreeementreimbursables</w>
       <w>totalagreementreimbursables</w>
       <w>totalauthority</w>
       <w>totalbudgeted</w>
       <w>totalcarriedforwardin</w>
       <w>totalcarriedforwardout</w>
+      <w>totalcommited</w>
       <w>totalestimatedrecoveries</w>
       <w>totalestimatedreimbursements</w>
       <w>totalexpenditureexpenses</w>
