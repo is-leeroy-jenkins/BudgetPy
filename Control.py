@@ -4,7 +4,7 @@ from Execution import *
 class Apportionment( ):
     '''Apportionment( name ) creates
     object representing Letters Of Apportionment'''
-
+    __apportionmentsid = None
     __bfy = None
     __efy = None
     __treasuryfundsymbol = None
@@ -19,6 +19,16 @@ class Apportionment( ):
     __subline = None
     __amount = None
     __data = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__apportionmentsid, int ):
+            return self.__apportionmentsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__apportionmentsid = value
 
     @property
     def bfy( self ):
@@ -162,16 +172,21 @@ class Apportionment( ):
         self.__efy = efy if isinstance( efy, str ) else None
         self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
 
-
+'''TODO: properties'''
 class BudgetaryResourceExecution( ):
     '''BudgetaryResourceExecution( name ) initializes
     object representing MAX A-11 DE, SF-133'''
-
+    __budgetaryresourceexecutionid = None
     __bfy = None
     __efy = None
     __treasuryfundsymbol = None
     __ombaccountcode = None
     __ombaccountname = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__budgetaryresourceexecutionid, int ):
+            return self.__budgetaryresourceexecutionid
 
     @property
     def bfy( self ):
@@ -851,6 +866,16 @@ class StatusOfFunds( ):
     __npmname = None
 
     @property
+    def id( self ):
+        if isinstance( self.__statusoffundsid, int ):
+            return self.__statusoffundsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__statusoffundsid = value
+
+    @property
     def bfy( self ):
         if isinstance( self.__bfy, str ) and self.__bfy != '':
             return self.__bfy
@@ -1229,6 +1254,16 @@ class Defactos( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusoffundsid, int ):
+            return self.__statusoffundsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__statusoffundsid = value
 
     @property
     def bfy( self ):
@@ -1627,6 +1662,16 @@ class StatusOfAppropriations( ):
     __voidedamount = None
     __totalusedamount = None
     __availableamount = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusofappropriationsid, int ):
+            return self.__statusofappropriationsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__statusofappropriationsid = value
 
     @property
     def bfy( self ):
@@ -2209,6 +2254,16 @@ class StatusOfSupplementalFunds( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusoffundsid, int ):
+            return self.__statusoffundsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__statusoffundsid = value
 
     @property
     def bfy( self ):
@@ -4785,6 +4840,7 @@ class Actuals( ):
             self.__npmname = code
 
 
+'''TODO: properties'''
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
     __appropriationdocumentsid = None
@@ -4815,6 +4871,7 @@ class AppropriationDocument( ):
     __estimatedrecoveries = None
 
 
+'''TODO: properties'''
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
     __budgetdocumentsid = None
@@ -4860,6 +4917,7 @@ class BudgetDocument( ):
     __estimatedrecoveries = None
 
 
+'''TODO: properties'''
 class BudgetControls( ):
     '''object representing compass control data'''
     __budgetcontrolsid = None
@@ -4902,6 +4960,7 @@ class BudgetControls( ):
     __authoritydistributioncontrol = None
 
 
+'''TODO: properties'''
 class CongressionalControls( ):
     '''object representing congressional control data'''
     __congressionalcontrolsid = None
@@ -4921,6 +4980,7 @@ class CongressionalControls( ):
     __memorandumrequired = None
 
 
+'''TODO: properties'''
 class CompassLevels( ):
     '''object representing Compass data levels 1-7'''
     __compasslevelsid = None
@@ -4971,6 +5031,16 @@ class CompassLevels( ):
     __actualreimbursements = None
     __agreementreimbursables = None
 
+    @property
+    def id( self ):
+        if isinstance( self.__compasslevelsid, int ):
+            return self.__compasslevelsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__compasslevelsid = value
+
 
 class Commitments( ):
     '''Defines the commitment class.'''
@@ -5004,6 +5074,16 @@ class Commitments( ):
     __npmname = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__obligationsid, int ):
+            return self.__obligationsid
+
+    @id.setter
+    def id( self, cid ):
+        if isinstance( cid, int ):
+            self.__obligationsid = cid
 
     @property
     def bfy( self ):
