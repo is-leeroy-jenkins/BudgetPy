@@ -2,7 +2,7 @@ from Execution import *
 
 
 class Apportionment( ):
-    '''Apportionment( name ) creates
+    '''Apportionment( value ) creates
     object representing Letters Of Apportionment'''
     __apportionmentsid = None
     __bfy = None
@@ -174,7 +174,7 @@ class Apportionment( ):
 
 '''TODO: properties'''
 class BudgetaryResourceExecution( ):
-    '''BudgetaryResourceExecution( name ) initializes
+    '''BudgetaryResourceExecution( value ) initializes
     object representing MAX A-11 DE, SF-133'''
     __budgetaryresourceexecutionid = None
     __bfy = None
@@ -4870,6 +4870,185 @@ class AppropriationDocument( ):
     __estimatedreimbursements = None
     __estimatedrecoveries = None
 
+    @property
+    def id( self ):
+        if isinstance( self.__appropriationdocumentsid, int ):
+            return self.__appropriationdocumentsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__appropriationdocumentsid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__bfy = year
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__efy = year
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fund( self ):
+        if isinstance( self.__fund, str ) and self.__fund != '':
+            return self.__fund
+
+    @fund.setter
+    def fund( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fund = value
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ):
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ):
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentname, str ):
+            return self.__documentname
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ):
+            self.__documentname = value
+
+    @property
+    def documentdate( self ):
+        if isinstance( self.__documentdate, dt.datetime ):
+            return self.__documentdate
+
+    @documentdate.setter
+    def documentdate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__documentdate = value
+
+    @property
+    def lastdocumentdate( self ):
+        if isinstance( self.__lastdocumentdate, dt.datetime ):
+            return self.__lastdocumentdate
+
+    @lastdocumentdate.setter
+    def lastdocumentdate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__lastdocumentdate = value
+
+    @property
+    def budgetlevel( self ):
+        if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != '':
+            return self.__budgetlevel
+
+    @budgetlevel.setter
+    def budgetlevel( self, level ):
+        if isinstance( level, str ) and level != '':
+            self.__budgetlevel = level
+
+    @property
+    def budgetingcontrols( self ):
+        if isinstance( self.__budgetingcontrols, str ):
+            return self.__budgetingcontrols
+
+    @budgetingcontrols.setter
+    def budgetingcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__budgetingcontrols = value
+
+    @property
+    def postingcontrols( self ):
+        if isinstance( self.__budgetingcontrols, str ):
+            return self.__budgetingcontrols
+
+    @postingcontrols.setter
+    def postingcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__budgetingcontrols = value
+
+    @property
+    def precommitmentcontrols( self ):
+        if isinstance( self.__precommitmentcontrols, str ):
+            return self.__precommitmentcontrols
+
+    @precommitmentcontrols.setter
+    def precommitmentcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__precommitmentcontrols = value
+
+    @property
+    def commitmentcontrols( self ):
+        if isinstance( self.__commitmentcontrols, str ):
+            return self.__commitmentcontrols
+
+    @commitmentcontrols.setter
+    def commitmentcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__commitmentcontrols = value
+
+    @property
+    def obligationcontrols( self ):
+        if isinstance( self.__obligationcontrols, str ):
+            return self.__obligationcontrols
+
+    @obligationcontrols.setter
+    def obligationcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__obligationcontrols = value
+
+    @property
+    def accrualcontrols( self ):
+        if isinstance( self.__accrualcontrols, str ):
+            return self.__accrualcontrols
+
+    @accrualcontrols.setter
+    def accrualcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__accrualcontrols = value
+
+    @property
+    def expenditurecontrols( self ):
+        if isinstance( self.__expenditurecontrols, str ):
+            return self.__expenditurecontrols
+
+    @expenditurecontrols.setter
+    def expenditurecontrols( self, value ):
+        if isinstance( value, str ):
+            self.__expenditurecontrols = value
+
+    @property
+    def expensecontrols( self ):
+        if isinstance( self.__expensecontrols, str ):
+            return self.__expensecontrolscontrols
+
+    @expensecontrols.setter
+    def expensecontrols( self, value ):
+        if isinstance( value, str ):
+            self.__expensecontrols = value
 
 '''TODO: properties'''
 class BudgetDocument( ):
