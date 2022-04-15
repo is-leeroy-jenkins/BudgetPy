@@ -9,6 +9,8 @@
       <w>actualrecoveriestranstype</w>
       <w>actualreimbursements</w>
       <w>agreementreimbursables</w>
+      <w>apportionments</w>
+      <w>apportionmentsid</w>
       <w>apportionmentsposted</w>
       <w>appropriationdocumentsid</w>
       <w>argrunner</w>
@@ -16,6 +18,7 @@
       <w>availableamount</w>
       <w>basehours</w>
       <w>basepaid</w>
+      <w>budgetaryresourceexecutionid</w>
       <w>budgetcontrolsid</w>
       <w>budgetdefault</w>
       <w>budgetdocumentsid</w>
