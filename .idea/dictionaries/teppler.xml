@@ -9,9 +9,13 @@
       <w>actualrecoveriestranstype</w>
       <w>actualreimbursements</w>
       <w>agreementreimbursables</w>
+      <w>apportionmentsposted</w>
       <w>appropriationdocumentsid</w>
       <w>argrunner</w>
       <w>authoritydistributioncontrol</w>
+      <w>availableamount</w>
+      <w>basehours</w>
+      <w>basepaid</w>
       <w>budgetcontrolsid</w>
       <w>budgetdefault</w>
       <w>budgetdocumentsid</w>
@@ -24,6 +28,7 @@
       <w>carryoverin</w>
       <w>carryoverout</w>
       <w>carryrout</w>
+      <w>checkdate</w>
       <w>commitmentcontrols</w>
       <w>commitmentsid</w>
       <w>commitmentspendingcontrol</w>
@@ -35,6 +40,7 @@
       <w>deobligationsid</w>
       <w>documentdate</w>
       <w>documentnumber</w>
+      <w>enddate</w>
       <w>estimatedrecoveries</w>
       <w>estimatedreimbursements</w>
       <w>estimatedreimbursementsbudgetingoptions</w>
@@ -46,11 +52,18 @@
       <w>expenditurespendingcontrol</w>
       <w>expensecontrols</w>
       <w>expensespendingcontrol</w>
+      <w>foccode</w>
+      <w>focname</w>
       <w>ftebudgetingcontrol</w>
       <w>ftecontrolflag</w>
       <w>ftespendingcontrol</w>
+      <w>fundinginamount</w>
+      <w>fundingoutamount</w>
       <w>fundsin</w>
       <w>fundsout</w>
+      <w>fundswithdrawnprioryearamounts</w>
+      <w>hrorgcode</w>
+      <w>hrorgname</w>
       <w>increaserestriction</w>
       <w>lastdocumentdate</w>
       <w>linqpadpath</w>
@@ -67,6 +80,7 @@
       <w>lowerpostedtranstype</w>
       <w>lowerprecommitmentspendingcontrolflag</w>
       <w>lowerrecoveriesoption</w>
+      <w>lowerrecoveriesspendingoption</w>
       <w>lowerreimbursablespendingoption</w>
       <w>memorandumrequired</w>
       <w>msaccess</w>
@@ -76,9 +90,16 @@
       <w>obligationspendingcontrol</w>
       <w>opencommitmentsid</w>
       <w>originalauthority</w>
+      <w>originalbudgetedamount</w>
+      <w>overtimehour</w>
+      <w>overtimehours</w>
+      <w>overtimepaid</w>
       <w>pargs</w>
+      <w>payperiod</w>
+      <w>payrollactivityid</w>
       <w>postedcontrol</w>
       <w>postedcontrolflag</w>
+      <w>postedflag</w>
       <w>postedtranstype</w>
       <w>postingcontrols</w>
       <w>precommitmentcontrols</w>
@@ -87,31 +108,58 @@
       <w>profitlossbudgetingoption</w>
       <w>profitlossspendingoption</w>
       <w>profitlosstranstype</w>
+      <w>recordcarryoveratlowerlevel</w>
       <w>recoveriescarryinamountcontrol</w>
       <w>recoveriescarryinlowerlevel</w>
       <w>recoveriescarryinlowerlevelcontrol</w>
+      <w>recoveriesoption</w>
+      <w>recoveriesspendingoption</w>
       <w>recoverieswithdrawn</w>
       <w>recoverybudgetmismatch</w>
       <w>recoverynextlevel</w>
       <w>reimbursableagreementcontrols</w>
       <w>reimbursableagreementspendingcontrol</w>
+      <w>reimbursablespendingoption</w>
       <w>reimbursementcontrols</w>
       <w>reimbursementspendingcontrol</w>
       <w>reoveriescarryinlowerlevel</w>
       <w>reprogrammingrestriction</w>
       <w>runargs</w>
+      <w>siteactivityid</w>
       <w>spendingadjustmenttranstype</w>
       <w>sqliteclient</w>
+      <w>startdate</w>
       <w>statecode</w>
       <w>statename</w>
       <w>statusreservetranstype</w>
       <w>subprojectcode</w>
       <w>subprojectname</w>
+      <w>subrccode</w>
+      <w>subrcname</w>
+      <w>totalaccrualrecoveries</w>
+      <w>totalactualreimbursements</w>
+      <w>totalagreementreimbursables</w>
       <w>totalauthority</w>
+      <w>totalbudgeted</w>
+      <w>totalcarriedforwardin</w>
+      <w>totalcarriedforwardout</w>
+      <w>totalestimatedrecoveries</w>
+      <w>totalestimatedreimbursements</w>
+      <w>totalexpenditureexpenses</w>
+      <w>totalexpenseaccruals</w>
+      <w>totalexpenses</w>
+      <w>totalobligations</w>
+      <w>totalpostedamount</w>
+      <w>totalprecommitments</w>
+      <w>totalusedamount</w>
       <w>trackagreementlowerlevels</w>
       <w>transactiontypecontrol</w>
       <w>unliquidated</w>
       <w>unliquidatedobligationsid</w>
+      <w>unliquidatedprecommitments</w>
+      <w>voidedamount</w>
+      <w>workcode</w>
+      <w>workcodename</w>
     </words>
   </dictionary>
 </component>

@@ -2,7 +2,7 @@ from Execution import *
 
 
 class Apportionment( ):
-    '''Apportionment( code ) creates
+    '''Apportionment( name ) creates
     object representing Letters Of Apportionment'''
 
     __bfy = None
@@ -164,7 +164,7 @@ class Apportionment( ):
 
 
 class BudgetaryResourceExecution( ):
-    '''BudgetaryResourceExecution( code ) initializes
+    '''BudgetaryResourceExecution( name ) initializes
     object representing MAX A-11 DE, SF-133'''
 
     __bfy = None
@@ -1867,7 +1867,7 @@ class StatusOfAppropriations( ):
             self.__expensespendingcontrolflag = pcflag
 
     @property
-    def postedflag( self ):
+    def postedflag( self ) -> object:
         if isinstance( self.__postedflag, str ) and self.__postedflag != '':
             return self.__postedflag
 
@@ -2574,6 +2574,16 @@ class StateGrantObligations( ):
     __amount = None
 
     @property
+    def id( self ):
+        if isinstance( self.__stategrantobligationsid, int ):
+            return self.__stategrantobligationsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__stategrantobligationsid = value
+
+    @property
     def bfy( self ):
         if isinstance( self.__bfy, str ) and self.__bfy != '':
             return self.__bfy
@@ -2784,6 +2794,16 @@ class Allocations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusoffundsid, int ):
+            return self.__statusoffundsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__statusoffundsid = value
 
     @property
     def bfy( self ):
@@ -3076,6 +3096,16 @@ class RegionalAuthority( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusoffundsid, int ):
+            return self.__statusoffundsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__statusoffundsid = value
 
     @property
     def bfy( self ):
@@ -3430,6 +3460,16 @@ class HeadquartersAuthority( ):
     __npmname = None
 
     @property
+    def id( self ):
+        if isinstance( self.__statusoffundsid, int ):
+            return self.__statusoffundsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__statusoffundsid = value
+
+    @property
     def bfy( self ):
         if isinstance( self.__bfy, str ) and self.__bfy != '':
             return self.__bfy
@@ -3717,6 +3757,16 @@ class PayrollActivity( ):
     __overtimehours = None
 
     @property
+    def id( self ):
+        if isinstance( self.__payrollactivityid, int ):
+            return self.__payrollactivityid
+
+    @id.setter
+    def id( self, pid ):
+        if isinstance( pid, int ):
+            self.__payrollactivityid = pid
+
+    @property
     def bfy( self ):
         if isinstance( self.__bfy, str ) and self.__bfy != '':
             return self.__bfy
@@ -3907,6 +3957,156 @@ class PayrollActivity( ):
             self.__programprojectname = name
 
     @property
+    def hrorgcode( self ):
+        if isinstance( self.__hrorgcode, str ) and self.__hrorgcode != '':
+            return self.__hrorgcode
+
+    @hrorgcode.setter
+    def hrorgcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__hrorgcode = code
+
+    @property
+    def hrorgname( self ):
+        if isinstance( self.__hrorgname, str ) and self.__hrorgname != '':
+            return self.__hrorgname
+
+    @hrorgname.setter
+    def hrorgname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__hrorgname = name
+
+    @property
+    def workcode( self ):
+        if isinstance( self.__workcode, str ) and self.__workcode != '':
+            return self.__workcode
+
+    @workcode.setter
+    def workcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__workcode = code
+
+    @property
+    def workcodename( self ):
+        if isinstance( self.__workcodename, str ) and self.__workcodename != '':
+            return self.__workcodename
+
+    @workcodename.setter
+    def workcodename( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__workcodecode = name
+
+    @property
+    def payperiod( self ):
+        if isinstance( self.__payperiod, int ):
+            return self.__payperiod
+
+    @payperiod.setter
+    def payperiod( self, pd ):
+        if isinstance( pd, int ):
+            self.__payperiod = pd
+
+    @property
+    def startdate( self ):
+        if isinstance( self.__startdate, dt.datetime ):
+            return self.__startdate
+
+    @startdate.setter
+    def startdate( self, sd ):
+        if isinstance( sd, dt.datetime ):
+            self.__startdate = sd
+
+    @property
+    def enddate( self ):
+        if isinstance( self.__enddate, dt.datetime ):
+            return self.__enddate
+
+    @enddate.setter
+    def enddate( self, ed ):
+        if isinstance( ed, dt.datetime ):
+            self.__startdate = ed
+
+    @property
+    def checkdate( self ):
+        if isinstance( self.__checkdate, dt.datetime ):
+            return self.__checkdate
+
+    @checkdate.setter
+    def checkdate( self, cd ):
+        if isinstance( cd, dt.datetime ):
+            self.__checkdate = cd
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float ):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
+
+    @property
+    def hours( self ):
+        if isinstance( self.__hours, float ):
+            return self.__hours
+
+    @hours.setter
+    def hours( self, value ):
+        if isinstance( value, float ):
+            self.__hours = value
+
+    @property
+    def basepaid( self ):
+        if isinstance( self.__basepaid, float ):
+            return self.__basepaid
+
+    @basepaid.setter
+    def basepaid( self, value ):
+        if isinstance( value, float):
+            self.__basepaid = value
+
+    @property
+    def basehours( self ):
+        if isinstance( self.__basehours, float ):
+            return self.__basehours
+
+    @basehours.setter
+    def basehours( self, value ):
+        if isinstance( value, float ):
+            self.__basehours = value
+
+    @property
+    def benefits( self ):
+        if isinstance( self.__benefits, float ):
+            return self.__benefits
+
+    @benefits.setter
+    def benefits( self, value ):
+        if isinstance( value, float ):
+            self.__benefits = value
+
+    @property
+    def overtimepaid( self ):
+        if isinstance( self.__benefits, float ):
+            return self.__benefits
+
+    @overtimepaid.setter
+    def overtimepaid( self, value ):
+        if isinstance( value, float ):
+            self.__overtimepaid = value
+
+    @property
+    def overtimehours( self ):
+        if isinstance( self.__overtimehours, float ):
+            return self.__overtimehours
+
+    @overtimehours.setter
+    def overtimehours( self, value ):
+        if isinstance( value, float ):
+            self.__overtimehours = value
+
+    @property
     def programareacode( self ):
         if isinstance( self.__programareacode, str ) and self.__programareacode != '':
             return self.__programareacode
@@ -3986,16 +4186,6 @@ class PayrollActivity( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
-    @property
-    def amount( self ):
-        if isinstance( self.__amount, float ):
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value ):
-        if isinstance( value, float ):
-            self.__amount = value
-
 
 class SiteActivity( ):
     '''provides data on superfund site spending'''
@@ -4028,6 +4218,16 @@ class SiteActivity( ):
     __npmcode = None
     __npmname = None
     __amount = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__siteactivityid, int ):
+            return self.__siteactivityid
+
+    @id.setter
+    def id( self, pid ):
+        if isinstance( pid, int ):
+            self.__siteactivityid = pid
 
     @property
     def bfy( self ):
@@ -4307,7 +4507,7 @@ class Actuals( ):
     __ahname = None
     __orgcode = None
     __orgname = None
-    __accoutcode = None
+    __accountcode = None
     __boccode = None
     __bocname = None
     __balance = None
