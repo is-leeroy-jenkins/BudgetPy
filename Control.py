@@ -5071,13 +5071,64 @@ class AppropriationDocument( ):
 
     @property
     def budgeted( self ):
-        if isinstance( self.__budgeted, str ):
+        if isinstance( self.__budgeted, float ):
             return self.__budgeted
 
     @budgeted.setter
     def budgeted( self, value ):
         if isinstance( value, float ):
             self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if isinstance( self.__posted, float ):
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( value, float ):
+            self.__posted = value
+
+    @property
+    def carryoverin( self ):
+        if isinstance( self.__carryoverin, float ):
+            return self.__carryoverin
+
+    @carryoverin.setter
+    def carryoverin( self, value ):
+        if isinstance( value, float ):
+            self.__carryoverin = value
+
+    @property
+    def carryoverout( self ):
+        if isinstance( self.__carryoverout, float ):
+            return self.__carryoverout
+
+    @carryoverout.setter
+    def carryoverout( self, value ):
+        if isinstance( value, float ):
+            self.__carryoverout = value
+
+    @property
+    def estimatedreimbursements( self ):
+        if isinstance( self.__reimbursementcontrols, float ):
+            return self.__reimbursementcontrols
+
+    @estimatedreimbursements.setter
+    def estimatedreimbursements( self, value ):
+        if isinstance( value, float ):
+            self.__estimatedreimbursements = value
+
+    @property
+    def estimatedrecoveries( self ):
+        if isinstance( self.__estimatedrecoveries, float ):
+            return self.__estimatedrecoveries
+
+    @estimatedrecoveries.setter
+    def estimatedrecoveries( self, value ):
+        if isinstance( value, float ):
+            self.__estimatedrecoveries = value
+
 
 '''TODO: properties'''
 class BudgetDocument( ):
