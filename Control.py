@@ -4839,7 +4839,6 @@ class Actuals( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
-
 '''TODO: properties'''
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
@@ -5050,6 +5049,36 @@ class AppropriationDocument( ):
         if isinstance( value, str ):
             self.__expensecontrols = value
 
+    @property
+    def reimbursementcontrols( self ):
+        if isinstance( self.__reimbursementcontrols, str ):
+            return self.__reimbursementcontrols
+
+    @reimbursementcontrols.setter
+    def reimbursementcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__reimbursementcontrols = value
+
+    @property
+    def reimbursableagreementcontrols( self ):
+        if isinstance( self.__reimbursableagreementcontrols, str ):
+            return self.__reimbursableagreementcontrols
+
+    @reimbursableagreementcontrols.setter
+    def reimbursableagreementcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__reimbursableagreementcontrols = value
+
+    @property
+    def budgeted( self ):
+        if isinstance( self.__budgeted, str ):
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if isinstance( value, float ):
+            self.__budgeted = value
+
 '''TODO: properties'''
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
@@ -5095,7 +5124,6 @@ class BudgetDocument( ):
     __estimatedreimbursements = None
     __estimatedrecoveries = None
 
-
 '''TODO: properties'''
 class BudgetControls( ):
     '''object representing compass control data'''
@@ -5138,7 +5166,6 @@ class BudgetControls( ):
     __transactiontypecontrol = None
     __authoritydistributioncontrol = None
 
-
 '''TODO: properties'''
 class CongressionalControls( ):
     '''object representing congressional control data'''
@@ -5157,7 +5184,6 @@ class CongressionalControls( ):
     __increaserestriction = None
     __decreaserestriction = None
     __memorandumrequired = None
-
 
 '''TODO: properties'''
 class CompassLevels( ):
