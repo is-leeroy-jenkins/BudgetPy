@@ -4839,7 +4839,7 @@ class Actuals( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
-'''TODO: properties'''
+
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
     __appropriationdocumentsid = None
@@ -5130,7 +5130,6 @@ class AppropriationDocument( ):
             self.__estimatedrecoveries = value
 
 
-'''TODO: properties'''
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
     __budgetdocumentsid = None
@@ -5174,6 +5173,396 @@ class BudgetDocument( ):
     __carryin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusoffundsid, int ):
+            return self.__statusoffundsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__statusoffundsid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__bfy = year
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__efy = year
+
+    @property
+    def budgetlevel( self ):
+        if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != '':
+            return self.__budgetlevel
+
+    @budgetlevel.setter
+    def budgetlevel( self, level ):
+        if isinstance( level, str ) and level != '':
+            self.__budgetlevel = level
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__rpiocode = code
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__rpiocode = name
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__ahcode = code
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__ahname = name
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__fundname = name
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ):
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ):
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentname, str ):
+            return self.__documentname
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ):
+            self.__documentname = value
+
+    @property
+    def documentdate( self ):
+        if isinstance( self.__documentdate, dt.datetime ):
+            return self.__documentdate
+
+    @documentdate.setter
+    def documentdate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__documentdate = value
+
+    @property
+    def lastdocumentdate( self ):
+        if isinstance( self.__lastdocumentdate, dt.datetime ):
+            return self.__lastdocumentdate
+
+    @lastdocumentdate.setter
+    def lastdocumentdate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__lastdocumentdate = value
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__orgcode = code
+
+    @property
+    def orgname( self ):
+        if isinstance( self.__orgname, str ) and self.__orgname != '':
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__orgname = name
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__accountcode = code
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__programprojectcode = code
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__programprojectname = name
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__programareacode = code
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__programareaname = name
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__boccode = code
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__bocname = name
+
+    @property
+    def budgetingcontrols( self ):
+        if isinstance( self.__budgetingcontrols, str ):
+            return self.__budgetingcontrols
+
+    @budgetingcontrols.setter
+    def budgetingcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__budgetingcontrols = value
+
+    @property
+    def postingcontrols( self ):
+        if isinstance( self.__budgetingcontrols, str ):
+            return self.__budgetingcontrols
+
+    @postingcontrols.setter
+    def postingcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__budgetingcontrols = value
+
+    @property
+    def precommitmentcontrols( self ):
+        if isinstance( self.__precommitmentcontrols, str ):
+            return self.__precommitmentcontrols
+
+    @precommitmentcontrols.setter
+    def precommitmentcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__precommitmentcontrols = value
+
+    @property
+    def commitmentcontrols( self ):
+        if isinstance( self.__commitmentcontrols, str ):
+            return self.__commitmentcontrols
+
+    @commitmentcontrols.setter
+    def commitmentcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__commitmentcontrols = value
+
+    @property
+    def obligationcontrols( self ):
+        if isinstance( self.__obligationcontrols, str ):
+            return self.__obligationcontrols
+
+    @obligationcontrols.setter
+    def obligationcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__obligationcontrols = value
+
+    @property
+    def accrualcontrols( self ):
+        if isinstance( self.__accrualcontrols, str ):
+            return self.__accrualcontrols
+
+    @accrualcontrols.setter
+    def accrualcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__accrualcontrols = value
+
+    @property
+    def expenditurecontrols( self ):
+        if isinstance( self.__expenditurecontrols, str ):
+            return self.__expenditurecontrols
+
+    @expenditurecontrols.setter
+    def expenditurecontrols( self, value ):
+        if isinstance( value, str ):
+            self.__expenditurecontrols = value
+
+    @property
+    def expensecontrols( self ):
+        if isinstance( self.__expensecontrols, str ):
+            return self.__expensecontrolscontrols
+
+    @expensecontrols.setter
+    def expensecontrols( self, value ):
+        if isinstance( value, str ):
+            self.__expensecontrols = value
+
+    @property
+    def reimbursementcontrols( self ):
+        if isinstance( self.__reimbursementcontrols, str ):
+            return self.__reimbursementcontrols
+
+    @reimbursementcontrols.setter
+    def reimbursementcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__reimbursementcontrols = value
+
+    @property
+    def reimbursableagreementcontrols( self ):
+        if isinstance( self.__reimbursableagreementcontrols, str ):
+            return self.__reimbursableagreementcontrols
+
+    @reimbursableagreementcontrols.setter
+    def reimbursableagreementcontrols( self, value ):
+        if isinstance( value, str ):
+            self.__reimbursableagreementcontrols = value
+
+    @property
+    def budgeted( self ):
+        if isinstance( self.__budgeted, float ):
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if isinstance( value, float ):
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if isinstance( self.__posted, float ):
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( value, float ):
+            self.__posted = value
+
+    @property
+    def carryoverin( self ):
+        if isinstance( self.__carryoverin, float ):
+            return self.__carryoverin
+
+    @carryoverin.setter
+    def carryoverin( self, value ):
+        if isinstance( value, float ):
+            self.__carryoverin = value
+
+    @property
+    def carryoverout( self ):
+        if isinstance( self.__carryoverout, float ):
+            return self.__carryoverout
+
+    @carryoverout.setter
+    def carryoverout( self, value ):
+        if isinstance( value, float ):
+            self.__carryoverout = value
+
+    @property
+    def estimatedreimbursements( self ):
+        if isinstance( self.__reimbursementcontrols, float ):
+            return self.__reimbursementcontrols
+
+    @estimatedreimbursements.setter
+    def estimatedreimbursements( self, value ):
+        if isinstance( value, float ):
+            self.__estimatedreimbursements = value
+
+    @property
+    def estimatedrecoveries( self ):
+        if isinstance( self.__estimatedrecoveries, float ):
+            return self.__estimatedrecoveries
+
+    @estimatedrecoveries.setter
+    def estimatedrecoveries( self, value ):
+        if isinstance( value, float ):
+            self.__estimatedrecoveries = value
 
 '''TODO: properties'''
 class BudgetControls( ):
