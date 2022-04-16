@@ -15,16 +15,16 @@ class BOC( Enum ):
 
 class NPM( Enum ):
     '''Enumeration of NPM Codes'''
-    NS = auto( )
-    A = auto( )
-    B = auto( )
-    C = auto( )
-    D = auto( )
-    E = auto( )
-    F = auto( )
-    H = auto( )
-    J = auto( )
-    M = auto( )
+    A = 1
+    B = 2
+    C = 3
+    D = 4
+    E = 5
+    F = 6
+    H = 7
+    J = 8
+    M = 9
+    NS = 10
 
 
 class Unit( ):
