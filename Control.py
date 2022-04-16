@@ -4753,7 +4753,7 @@ class BudgetControls( ):
     __transactiontypecontrol = None
     __authoritydistributioncontrol = None
 
-'''TODO: properties'''
+
 class CongressionalControls( ):
     '''object representing congressional control data'''
     __congressionalcontrolsid = None
@@ -4771,6 +4771,156 @@ class CongressionalControls( ):
     __increaserestriction = None
     __decreaserestriction = None
     __memorandumrequired = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__congressionalcontrolsid, int ):
+            return self.__congressionalcontrolsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__congressionalcontrolsid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__bfy = year
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__efy = year
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__fundname = name
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__programprojectcode = code
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__programprojectname = name
+
+    @property
+    def subprojectcode( self ):
+        if isinstance( self.__subprojectcode, str ) and self.__subprojectcode != '':
+            return self.__subprojectcode
+
+    @subprojectcode.setter
+    def subprojectcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__subprojectcode = code
+
+    @property
+    def subprojectname( self ):
+        if isinstance( self.__subprojectname, str ) and self.__subprojectname != '':
+            return self.__subprojectname
+
+    @subprojectname.setter
+    def subprojectname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__subprojectname = name
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__programareacode = code
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__programareaname = name
+
+    @property
+    def reprogrammingrestriction( self ):
+        if isinstance( self.__reprogrammingrestriction, bool ):
+            return self.__reprogrammingrestriction
+
+    @reprogrammingrestriction.setter
+    def reprogrammingrestriction( self, value ):
+        if isinstance( value, bool ):
+            self.__reprogrammingrestriction = value
+
+    @property
+    def increaserestriction( self ):
+        if isinstance( self.__increaserestriction, bool ):
+            return self.__increaserestriction
+
+    @increaserestriction.setter
+    def increaserestriction( self, value ):
+        if isinstance( value, bool ):
+            self.__increaserestriction = value
+
+    @property
+    def decreaserestriction( self ):
+        if isinstance( self.__decreaserestriction, bool ):
+            return self.__decreaserestriction
+
+    @decreaserestriction.setter
+    def decreaserestriction( self, value ):
+        if isinstance( value, bool ):
+            self.__decreaserestriction = value
+
+    @property
+    def memorandumrequired( self ):
+        if isinstance( self.__memorandumrequired, bool ):
+            return self.__memorandumrequired
+
+    @memorandumrequired.setter
+    def memorandumrequired( self, value ):
+        if isinstance( value, bool ):
+            self.__memorandumrequired = value
 
 '''TODO: properties'''
 class CompassLevels( ):
