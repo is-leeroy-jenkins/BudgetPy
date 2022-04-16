@@ -4753,6 +4753,65 @@ class BudgetControls( ):
     __transactiontypecontrol = None
     __authoritydistributioncontrol = None
 
+    @property
+    def id( self ):
+        if isinstance( self.__budgetcontrolsid, int ):
+            return self.__budgetcontrolsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__budgetcontrolsid = value
+
+    @property
+    def code( self ):
+        if isinstance( self.__code, str ):
+            return self.__code
+
+    @code.setter
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ):
+            return self.__name
+
+    @code.setter
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
+
+    @property
+    def budgetedtranstype( self ):
+        if isinstance( self.__budgetedtranstype, str ) and self.__budgetedtranstype != '':
+            return self.__budgetedtranstype
+
+    @budgetedtranstype.setter
+    def budgetedtranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__budgetedtranstype = value
+
+    @property
+    def postedtranstype( self ):
+        if isinstance( self.__postedtranstype, str ) and self.__postedtranstype != '':
+            return self.__postedtranstype
+
+    @postedtranstype.setter
+    def postedtranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__postedtranstype = value
+
+    @property
+    def estimatedreimbursementstranstype( self ):
+        if isinstance( self.__estimatedreimbursementstranstype, str ) and self.__estimatedreimbursementstranstype != '':
+            return self.__estimatedreimbursementstranstype
+
+    @estimatedreimbursementstranstype.setter
+    def estimatedreimbursementstranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__estimatedreimbursementstranstype = value
 
 class CongressionalControls( ):
     '''object representing congressional control data'''
