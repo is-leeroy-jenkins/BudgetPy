@@ -4711,7 +4711,7 @@ class BudgetDocument( ):
         if isinstance( value, float ):
             self.__estimatedrecoveries = value
 
-'''TODO: properties'''
+
 class BudgetControls( ):
     '''object representing compass control data'''
     __budgetcontrolsid = None
@@ -4804,6 +4804,16 @@ class BudgetControls( ):
             self.__postedtranstype = value
 
     @property
+    def spendingadjustmenttranstype( self ):
+        if isinstance( self.__spendingadjustmenttranstype, str ) and self.__spendingadjustmenttranstype != '':
+            return self.__spendingadjustmenttranstype
+
+    @spendingadjustmenttranstype.setter
+    def spendingadjustmenttranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__spendingadjustmenttranstype = value
+
+    @property
     def estimatedreimbursementstranstype( self ):
         if isinstance( self.__estimatedreimbursementstranstype, str ) and self.__estimatedreimbursementstranstype != '':
             return self.__estimatedreimbursementstranstype
@@ -4812,6 +4822,297 @@ class BudgetControls( ):
     def estimatedreimbursementstranstype( self, value ):
         if isinstance( value, str ) and value != '':
             self.__estimatedreimbursementstranstype = value
+
+    @property
+    def estimatedrecovieriestranstype( self ):
+        if isinstance( self.__estimatedrecovieriestranstype, str ) and self.__estimatedrecovieriestranstype != '':
+            return self.__estimatedrecovieriestranstype
+
+    @estimatedrecovieriestranstype.setter
+    def estimatedrecovieriestranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__estimatedrecovieriestranstype = value
+
+    @property
+    def actualrecoveriestranstype( self ):
+        if isinstance( self.__actualrecoveriestranstype, str ) and self.__actualrecoveriestranstype != '':
+            return self.__actualrecoveriestranstype
+
+    @actualrecoveriestranstype.setter
+    def actualrecoveriestranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__actualrecoveriestranstype = value
+
+    @property
+    def statusreservetranstype( self ):
+        if isinstance( self.__statusreservetranstype, str ) and self.__statusreservetranstype != '':
+            return self.__statusreservetranstype
+
+    @statusreservetranstype.setter
+    def statusreservetranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__statusreservetranstype = value
+
+    @property
+    def profitlosstranstype( self ):
+        if isinstance( self.__profitlosstranstype, str ) and self.__profitlosstranstype != '':
+            return self.__profitlosstranstype
+
+    @profitlosstranstype.setter
+    def profitlosstranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__profitlosstranstype = value
+
+    @property
+    def estimatedreimbursementsspendingoptions( self ):
+        if isinstance( self.__estimatedreimbursementsspendingoptions, str ) and self.__estimatedreimbursementsspendingoptions != '':
+            return self.__estimatedreimbursementsspendingoptions
+
+    @estimatedreimbursementsspendingoptions.setter
+    def estimatedreimbursementsspendingoptions( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__estimatedreimbursementsspendingoptions = value
+
+    @property
+    def estimatedreimbursementsbudgetingoptions( self ):
+        if isinstance( self.__estimatedreimbursementsbudgetingoptions, str ) and self.__estimatedreimbursementsbudgetingoptions != '':
+            return self.__estimatedreimbursementsbudgetingoptions
+
+    @estimatedreimbursementsbudgetingoptions.setter
+    def estimatedreimbursementsbudgetingoptions( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__estimatedreimbursementsbudgetingoptions = value
+
+    @property
+    def trackingagreementlowerlevels( self ):
+        if isinstance( self.__trackinglowerlevels, str ) and self.__trackinglowerlevels != '':
+            return self.__trackinglowerlevels
+
+    @trackingagreementlowerlevels.setter
+    def trackingagreementlowerlevels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__trackinglowerlevelse = value
+
+    @property
+    def budgetestimatedlowerlevels( self ):
+        if isinstance( self.__budgetedestimatedlowerlevels, str ) and self.__budgetedestimatedlowerlevels != '':
+            return self.__budgetedestimatedlowerlevels
+
+    @budgetestimatedlowerlevels.setter
+    def budgetestimatedlowerlevels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__budgetedestimatedlowerlevels = value
+
+    @property
+    def recoverynextlevel( self ):
+        if isinstance( self.__recoverynextlevel, str ) and self.__recoverynextlevel != '':
+            return self.__recoverynextlevel
+
+    @recoverynextlevel.setter
+    def recoverynextlevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__recoverynextlevel = value
+
+    @property
+    def recoverybudgetmismatch( self ):
+        if isinstance( self.__recoverynextlevel, str ) and self.__recoverynextlevel != '':
+            return self.__recoverynextlevel
+
+    @recoverybudgetmismatch.setter
+    def recoverybudgetmismatch( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__recoverynextlevel = value
+
+    @property
+    def profitlossspendingoption( self ):
+        if isinstance( self.__profitlossspendingoption, str ) and self.__profitlossspendingoption != '':
+            return self.__profitlossspendingoption
+
+    @profitlossspendingoption.setter
+    def profitlossspendingoption( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__profitlossspendingoption = value
+
+    @property
+    def profitlossbudgetingoption( self ):
+        if isinstance( self.__profitlossbudgetingoption, str ) and self.__profitlossbudgetingoption != '':
+            return self.__profitlossbudgetingoption
+
+    @profitlossbudgetingoption.setter
+    def profitlossbudgetingoption( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__profitlossbudgetingoption = value
+
+    @property
+    def recoveriescarryinlowerelevelcontrol( self ):
+        if isinstance( self.__recoveriescarryinlowerelevelcontrol, str ) and self.__recoveriescarryinlowerelevelcontrol != '':
+            return self.__recoveriescarryinlowerelevelcontrol
+
+    @recoveriescarryinlowerelevelcontrol.setter
+    def recoveriescarryinlowerelevelcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__recoveriescarryinlowerelevelcontrol = value
+
+    @property
+    def recoveriescarryinlowerlevel( self ):
+        if isinstance( self.__recoveriescarryinlowerlevel, str ) and self.__recoveriescarryinlowerlevel != '':
+            return self.__recoveriescarryinlowerlevel
+
+    @recoveriescarryinlowerlevel.setter
+    def recoveriescarryinlowerlevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__recoveriescarryinlowerlevel = value
+
+    @property
+    def recoveriescarryinamountcontrol( self ):
+        if isinstance( self.__recoveriescarryinamountcontrol, str ) and self.__recoveriescarryamountcontrol != '':
+            return self.__recoveriescarryinamountcontrol
+
+    @recoveriescarryinamountcontrol.setter
+    def recoveriescarryinamountcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__recoveriescarryinamountcontrol = value
+
+    @property
+    def budgetedcontrol( self ):
+        if isinstance( self.__budgetedcontrol, str ) and self.__budgetedcontrol != '':
+            return self.__budgetedcontrol
+
+    @budgetedcontrol.setter
+    def budgetedcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__budgetedcontrol = value
+
+    @property
+    def postedcontrol( self ):
+        if isinstance( self.__postedcontrol, str ) and self.__postedcontrol != '':
+            return self.__postedcontrol
+
+    @postedcontrol.setter
+    def postedcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__postedcontrol = value
+
+    @property
+    def precommitmentspendingcontrol( self ):
+        if isinstance( self.__precommitmentspendingcontrol, str ) and self.__precommitmentspendingcontrol != '':
+            return self.__precommitmentspendingcontrol
+
+    @precommitmentspendingcontrol.setter
+    def precommitmentspendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__precommitmentspendingcontrol = value
+
+    @property
+    def commitmentspendingcontrol( self ):
+        if isinstance( self.__commitmentspendingcontrol, str ) and self.__commitmentspendingcontrol != '':
+            return self.__commitmentspendingcontrol
+
+    @commitmentspendingcontrol.setter
+    def commitmentspendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__commitmentspendingcontrol = value
+
+    @property
+    def obligationspendingcontrol( self ):
+        if isinstance( self.__obligationspendingcontrol, str ) and self.__obligationspendingcontrol != '':
+            return self.__obligationspendingcontrol
+
+    @obligationspendingcontrol.setter
+    def obligationspendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__obligationspendingcontrol = value
+
+    @property
+    def accrualspendingcontrol( self ):
+        if isinstance( self.__accrualspendingcontrol,  str ) and self.__accrualspendingcontrol != '':
+            return self.__accrualspendingcontrol
+
+    @accrualspendingcontrol.setter
+    def accrualspendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accrualspendingcontrol = value
+
+    @property
+    def expenditurespendingcontrol( self ):
+        if isinstance( self.__expenditurespendingcontrol, str ) and self.__expenditurespendingcontrol != '':
+            return self.__expenditurespendingcontrol
+
+    @expenditurespendingcontrol.setter
+    def expenditurespendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__expenditurespendingcontrol = value
+
+    @property
+    def expensespendingcontrol( self ):
+        if isinstance( self.__expensespendingcontrol, str ) and self.__expensespendingcontrol != '':
+            return self.__expensespendingcontrol
+
+    @expensespendingcontrol.setter
+    def expensespendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__expensespendingcontrol = value
+
+    @property
+    def reimbursementspendingcontrol( self ):
+        if isinstance( self.__reimbursementspendingcontrol, str ) and self.__reimbursementspendingcontrol != '':
+            return self.__reimbursementspendingcontrol
+
+    @reimbursementspendingcontrol.setter
+    def reimbursementspendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__reimbursementspendingcontrol = value
+
+    @property
+    def reimbursableagreementspendingcontrol( self ):
+        if isinstance( self.__reimbursableagreementspendingcontrol, str ) and self.__reimbursableagreementspendingcontrol != '':
+            return self.__reimbursableagreementspendingcontrol
+
+    @reimbursableagreementspendingcontrol.setter
+    def reimbursableagreementspendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__reimbursableagreementspendingcontrol = value
+
+    @property
+    def ftebudgetingcontrol( self ):
+        if isinstance( self.__ftebudgetingcontrol, str ) and self.__ftebudgetingcontrol != '':
+            return self.__ftebudgetingcontrol
+
+    @ftebudgetingcontrol.setter
+    def ftebudgetingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ftebudgetingcontrol = value
+
+    @property
+    def ftespendingcontrol( self ):
+        if isinstance( self.__ftespendingcontrol, str ) and self.__ftependingcontrol != '':
+            return self.__ftespendingcontrol
+
+    @ftespendingcontrol.setter
+    def ftespendingcontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ftespendingcontrol = value
+
+    @property
+    def transactiontypecontrol( self ):
+        if isinstance( self.__transactiontypecontrol, str ) and self.__transactiontypecontrol != '':
+            return self.__transactiontypecontrol
+
+    @transactiontypecontrol.setter
+    def transactiontypecontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__transactiontypecontrol = value
+
+    @property
+    def authoritydistributioncontrol( self ):
+        if isinstance( self.__transactiontypecontrol, str ) and self.__transactiontypecontrol != '':
+            return self.__transactiontypecontrol
+
+    @authoritydistributioncontrol.setter
+    def authoritydistributioncontrol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__authoritydistributioncontrol = value
+
 
 class CongressionalControls( ):
     '''object representing congressional control data'''
@@ -5042,9 +5343,82 @@ class CompassLevels( ):
         if isinstance( value, int ) and value > -1:
             self.__compasslevelsid = value
 
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__bfy = year
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__efy = year
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__fundname = name
+
+    @property
+    def appropriationcode( self ):
+        if isinstance( self.__appropriationcode, str ) \
+                and self.__appropriationcode != '':
+            return self.__appropriationcode
+
+    @appropriationcode.setter
+    def appropriationcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__appropriationcode = code
+
+    @property
+    def appropriationname( self ):
+        if isinstance( self.__appropriationname, str ) \
+                and self.__appropriationname != '':
+            return self.__appropriationname
+
+    @appropriationname.setter
+    def appropriationname( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__appropriationname = code
+
+    @property
+    def subappropriationcode( self ):
+        if isinstance( self.__subappropriationcode, str ) \
+                and self.__subappropriationcode != '':
+            return self.__subappropriationcode
+
+    @subappropriationcode.setter
+    def subappropriationcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__subappropriationcode = code
+
 
 class Commitments( ):
-    '''Defines the commitment class.'''
+    '''Defines the CommitmentS class.'''
     __commitmentsid = None
     __obligationsid = None
     __bfy = None
@@ -5356,7 +5730,7 @@ class Commitments( ):
 
 
 class OpenCommitments( ):
-    '''Defines the commitment class.'''
+    '''Defines the OpenCommitments class.'''
     __obligationsid = None
     __bfy = None
     __efy = None
@@ -5665,7 +6039,7 @@ class OpenCommitments( ):
 
 
 class Obligations( ):
-    '''Defines the commitment class.'''
+    '''Defines the Obligations class.'''
     __obligationsid = None
     __bfy = None
     __efy = None
@@ -5984,7 +6358,7 @@ class Obligations( ):
 
 
 class Deobligations( ):
-    '''Defines the commitment class.'''
+    '''Defines the Deobligations class.'''
     __obligationsid = None
     __bfy = None
     __efy = None
@@ -6133,7 +6507,7 @@ class Deobligations( ):
 
 
 class UnliquidatedObligations( ):
-    '''Defines the commitment class.'''
+    '''Defines the UnliquidatedObligations class.'''
     __unliquidatedobligationsid = None
     __obligationsid = None
     __bfy = None
@@ -6453,7 +6827,7 @@ class UnliquidatedObligations( ):
 
 
 class Expenditures:
-    '''Defines the commitment class.'''
+    '''Defines the Expenditures class.'''
     __expendituresid = None
     __obligationsid = None
     __bfy = None

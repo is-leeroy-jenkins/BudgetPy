@@ -14,6 +14,24 @@ class Client( Enum ):
     Chrome = auto( )
 
 
+class EXT( Enum ):
+    '''Enumeration of file extensions used in the database'''
+    NS = auto( )
+    DB = auto( )
+    ACCDB = auto( )
+    XLS = auto( )
+    XLSM = auto( )
+    XLSX = auto( )
+    MDF = auto( )
+    HTML = auto( )
+    HTM = auto( )
+    XHTML = auto( )
+    XML = auto( )
+    PNG = auto( )
+    JPEG = auto( )
+    SVG = auto( )
+
+
 class App( ):
     '''App( app ) initializes object providing
      factory methods for running processes based on 'Client'

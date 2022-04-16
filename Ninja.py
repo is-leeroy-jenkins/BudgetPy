@@ -98,38 +98,38 @@ class Source( Enum ):
 
 class Provider( Enum ):
     '''enumeration of data providers'''
-    NS = auto( )
-    SQLite = auto( )
-    SqlServer = auto( )
-    Access = auto( )
-    Excel = auto( )
-    CSV = auto( )
+    SQLite = 0
+    SqlServer = 1
+    Access = 2
+    Excel = 3
+    CSV = 4
+    NS = 5
 
 
 class ParamStyle( Enum ):
     '''Enumeration of paramstyles'''
-    NS = auto( )
-    format = auto( )
-    number = auto( )
-    pyformat = auto( )
-    name = auto( )
-    qmark = auto( )
+    format = 1
+    number = 2
+    pyformat = 3
+    name = 4
+    qmark = 5
+    NS = 6
 
 
 class Command( Enum ):
     '''enumeration of sql commands'''
-    NS = auto( )
-    SELECT = auto( )
-    SELECTALL = auto( )
-    INSERT = auto( )
-    UPDATE = auto( )
-    DELETE = auto( )
-    DROPTABLE = auto( )
-    DROPVIEW = auto( )
-    CREATETABLE = auto( )
-    CREATEVIEW = auto( )
-    ALTERTABLE = auto( )
-    ALTERCOLUMN = auto( )
+    ALL = 0
+    SELECT = 1
+    INSERT = 2
+    UPDATE = 3
+    DELETE = 4
+    DROPTABLE = 5
+    DROPVIEW = 6
+    CREATETABLE = 7
+    CREATEVIEW = 8
+    ALTERTABLE = 9
+    ALTERCOLUMN = 10
+    NS = 11
 
 
 class DataConfig( ):
@@ -186,6 +186,7 @@ class DataConfig( ):
             self.__table = None
 
     def isdata( self ):
+        '''Determines if the data source is a memeber of the data models'''
         if self.__table is not None \
                 and self.__table in self.__data:
             return True
@@ -193,6 +194,7 @@ class DataConfig( ):
             return False
 
     def isreference( self ):
+        '''Determines if the data source is a memeber of the reference models'''
         if self.__table is not None  \
                 and self.__table in self.__references:
             return True
@@ -383,18 +385,18 @@ class SqlConfig( ):
     __predicate = None
     __names = None
     __values = None
-    __cmd = None
+    __command = None
     __paramstyle = None
 
     @property
     def command( self ):
-        if isinstance( self.__cmd, Command ):
-            return self.__cmd
+        if isinstance( self.__command, Command ):
+            return self.__command
 
     @command.setter
     def command( self, cmd ):
         if isinstance( cmd, Command ):
-            self.__cmd = cmd
+            self.__command = cmd
 
     @property
     def names( self ):
@@ -448,7 +450,7 @@ class SqlConfig( ):
             self.__predicate = map
 
     def __init__( self, cmd, names, values, parms = None ):
-        self.__cmd = cmd if isinstance( cmd, Command ) else Command.SELECTALL
+        self.__command = cmd if isinstance( cmd, Command ) else Command.SELECTALL
         self.__names = names if isinstance( names, list ) else list()
         self.__values = values if isinstance( values, tuple ) else tuple()
         self.__paramstyle = parms if isinstance( parms, ParamStyle ) else ParamStyle.qmark
@@ -488,7 +490,7 @@ class SqlConfig( ):
             return criteria
 
     def setdump( self ):
-        '''pairdump( names, values) returns a string
+        '''setdump( ) returns a string
         using list arguments names and values'''
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
             pairs = ''
@@ -618,18 +620,18 @@ class SqlStatement( ):
             return self.__commandtext
 
     def commandtext( self ):
-        if self.__command == Command.SELECT:
+        if self.__command == Command.ALL:
+            self.__commandtext = f'SELECT ALL FROM { self.__table }' \
+                                 + f'{ self.__sqlconfig.wheredump( ) };'
+            return self.__commandtext
+        elif self.__command == Command.SELECT:
             self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
                                  + f' FROM { self.__table }' \
                                  + f'{ self.__sqlconfig.wheredump( ) };'
             return self.__commandtext
-        elif self.__command == Command.SELECTALL:
-            self.__commandtext = f'SELECT ALL FROM { self.__table }' \
-                                 + f'{ self.__sqlconfig.wheredump( ) };'
-            return self.__commandtext
         elif self.__command == 'INSERT':
             self.__commandtext = 'INSERT INTO ' + self.__table \
-                                 + f'( { self.__sqlconfig.columndump( ) }' \
+                                 + f'{ self.__sqlconfig.columndump( ) }' \
                                  + f'VALUES { self.__sqlconfig.valuedump( ) }'
         elif self.__command == 'DELETE':
             self.__commandtext = 'DELETE FROM ' + self.__table \
@@ -946,7 +948,7 @@ class SqlServerQuery( ):
             return self.__data
 
 
-class DataColumn( ):
+class DataColumn( pd.Series ):
     '''Defines the DataColumn Class'''
     __base = None
     __source = None
@@ -1058,6 +1060,7 @@ class DataColumn( ):
             return True
 
     def __init__( self, name, value ):
+        super( ).__init__( )
         self.__name = str( name )
         self.__value = value
         self.__base = {self.__name: self.__value}
@@ -1313,7 +1316,7 @@ class QueryBuilder( ):
             self.__sqlconfig = sqlconfig
 
     def __init__( self, source = None, provider = Provider.SQLite,
-                  command = Command.SELECTALL, names = None, values = None ):
+                  command = Command.ALL, names = None, values = None ):
         self.__name = names
         self.__values = values
         self.__command = command
@@ -1326,8 +1329,8 @@ class QueryBuilder( ):
 
 
 class DataFactory( ):
-    '''DataFactory( provider, source, command, names, values )
-    initializes a factory method'''
+    '''DataFactory( QueryBuilder ) object
+    provides factory method for table data'''
     __names = None
     __values = None
     __command = None
