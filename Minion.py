@@ -1,35 +1,6 @@
 import subprocess as sp
-from enum import Enum, auto
 import os
-
-
-class Client( Enum ):
-    '''Enumeration of auxiliary applications'''
-    NS = auto( )
-    SQLite = auto( )
-    Access = auto( )
-    Excel = auto( )
-    Linq = auto( )
-    Edge = auto( )
-    Chrome = auto( )
-
-
-class EXT( Enum ):
-    '''Enumeration of file extensions used in the database'''
-    NS = auto( )
-    DB = auto( )
-    ACCDB = auto( )
-    XLS = auto( )
-    XLSM = auto( )
-    XLSX = auto( )
-    MDF = auto( )
-    HTML = auto( )
-    HTM = auto( )
-    XHTML = auto( )
-    XML = auto( )
-    PNG = auto( )
-    JPEG = auto( )
-    SVG = auto( )
+from Enum import *
 
 
 class App( ):

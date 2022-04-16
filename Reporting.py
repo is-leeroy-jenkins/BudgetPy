@@ -1,7 +1,8 @@
 from Execution import *
+from Enum import *
 
 
-class Apportionments( ):
+class Apportionment( ):
     '''Apportionment( value ) creates
     object representing Letters Of Apportionment'''
     __apportionmentsid = None

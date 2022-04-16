@@ -1,31 +1,6 @@
 import datetime as dt
 from Ninja import *
-
-
-class BOC( Enum ):
-    '''Enumeration of object class codes'''
-    NS = 0
-    PAYROLL = 10
-    FTE = 17
-    EXPENSES = 36
-    CONTRACTS = 37
-    WCF = 38
-    GRANTS = 41
-
-
-class NPM( Enum ):
-    '''Enumeration of NPM Codes'''
-    A = 1
-    B = 2
-    C = 3
-    D = 4
-    E = 5
-    F = 6
-    H = 7
-    J = 8
-    M = 9
-    NS = 10
-
+from Enum import *
 
 class Unit( ):
     '''Unit( name, value ) initializes object

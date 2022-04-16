@@ -2,18 +2,7 @@ import datetime as dt
 import os
 import zipfile as zp
 import openpyxl as xl
-from enum import Enum, auto
-
-
-class EXT( Enum ):
-    '''Enumeration of database file extensions'''
-    NS = auto( )
-    DB = auto( )
-    ACCDB = auto( )
-    MDF = auto( )
-    XLSX = auto( )
-    XLS = auto( )
-    CSV = auto( )
+from Enum import *
 
 
 class BudgetPath( ):
@@ -138,8 +127,8 @@ class BudgetPath( ):
            return str( self.__path )
 
     def __init__( self, filepath ):
-        self.__base = str( filepath )
-        self.__path = self.__base
+        self.__base = filepath if isinstance( filepath, str ) else None
+        self.__path = filepath if os.path.isfile( filepath ) else None
         self.__name = os.path.split( self.__base )[ 1 ]
         self.__currdir = os.getcwd( )
         self.__ext = os.path.splitext( self.__base )[ 1 ]

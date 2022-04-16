@@ -3,133 +3,8 @@ import sqlite3 as sl
 import pandas as pd
 import pyodbc as db
 import os
-from enum import Enum, auto
 from collections import namedtuple as ntuple
-
-
-class Source( Enum ):
-    '''enumeration of table names'''
-    NS = auto( )
-    Allocations = auto( )
-    ApplicationTables = auto( )
-    CarryoverEstimates = auto( )
-    CarryoverSurvey = auto( )
-    Changes = auto( )
-    CongressionalReprogrammings = auto( )
-    Deobligation = auto( )
-    Defactos = auto( )
-    DocumentControlNumbers = auto( )
-    Obligations = auto( )
-    OperatingPlans = auto( )
-    OperatingPlanUpdates = auto( )
-    ObjectClassOutlays = auto( )
-    CarryoverOutlays = auto( )
-    UnobligatedAuthority = auto( )
-    QueryDefinitions = auto( )
-    RegionalAuthority = auto( )
-    SpendingRates = auto( )
-    GrowthRates = auto( )
-    ReimbursableAgreements = auto( )
-    ReimbursableFunds = auto( )
-    ReimbursableSurvey = auto( )
-    Reports = auto( )
-    BudgetControls = auto( )
-    AppropriationDocuments = auto( )
-    BudgetDocuments = auto( )
-    Apportionments = auto( )
-    BudgetOutlays = auto( )
-    BudgetResourceExecution = auto( )
-    Reprogrammings = auto( )
-    SiteActivity = auto( )
-    SiteProjectCodes = auto( )
-    StatusOfFunds = auto( )
-    Supplementals = auto( )
-    Transfers = auto( )
-    HeadquartersAuthority = auto( )
-    TravelObligations = auto( )
-    StatusOfAppropriations = auto( )
-    StatusOfJobsActFunding = auto( )
-    StatusOfSupplementalFunding = auto( )
-    SuperfundSites = auto( )
-    PayrollAuthority = auto( )
-    TransTypes = auto( )
-    ProgramFinancingSchedule = auto( )
-    PayrollRequests = auto( )
-    CarryoverRequests = auto( )
-    CompassLevels = auto( )
-    AdministrativeRequests = auto( )
-    OpenCommitments = auto( )
-    Expenditures = auto( )
-    UnliquidatedObligations = auto( )
-    '''Reference Models'''
-    Accounts = auto( )
-    ActivityCodes = auto( )
-    AllowanceHolders = auto( )
-    Appropriations = auto( )
-    BudgetObjectClasses = auto( )
-    CostAreas = auto( )
-    CPIC = auto( )
-    Divisions = auto( )
-    Documents = auto( )
-    FederalHolidays = auto( )
-    FinanceObjectClasses = auto( )
-    FiscalYears = auto( )
-    FiscalYearsBackUp = auto( )
-    Funds = auto( )
-    FundSymbols = auto( )
-    Goals = auto( )
-    GsPayScale = auto( )
-    Images = auto( )
-    Messages = auto( )
-    NationalPrograms = auto( )
-    Objectives = auto( )
-    Organizations = auto( )
-    ProgramAreas = auto( )
-    ProgramDescriptions = auto( )
-    ProgramProjects = auto( )
-    Projects = auto( )
-    Providers = auto( )
-    ReferenceTables = auto( )
-    ResourcePlanningOffices = auto( )
-    ResponsibilityCenters = auto( )
-    SchemaTypes = auto( )
-    Sources = auto( )
-
-
-class Provider( Enum ):
-    '''enumeration of data providers'''
-    SQLite = 0
-    SqlServer = 1
-    Access = 2
-    Excel = 3
-    CSV = 4
-    NS = 5
-
-
-class ParamStyle( Enum ):
-    '''Enumeration of paramstyles'''
-    format = 1
-    number = 2
-    pyformat = 3
-    name = 4
-    qmark = 5
-    NS = 6
-
-
-class Command( Enum ):
-    '''enumeration of sql commands'''
-    ALL = 0
-    SELECT = 1
-    INSERT = 2
-    UPDATE = 3
-    DELETE = 4
-    DROPTABLE = 5
-    DROPVIEW = 6
-    CREATETABLE = 7
-    CREATEVIEW = 8
-    ALTERTABLE = 9
-    ALTERCOLUMN = 10
-    NS = 11
+from Enum import *
 
 
 class DataConfig( ):
@@ -948,6 +823,207 @@ class SqlServerQuery( ):
             return self.__data
 
 
+class QueryBuilder( ):
+    '''QueryBuilder( source, provider, command, names, values )
+    initializes object used as argument for the DataFactory'''
+    __names = None
+    __values = None
+    __command = None
+    __source = None
+    __provider = None
+    __dbconfig = None
+    __sqlconfig = None
+    __connection = None
+    __sqlstatement = None
+    __query = None
+    __data = None
+
+    @property
+    def names( self ):
+        '''Provides list of column names'''
+        if isinstance( self.__names, list ):
+            return self.__names
+
+    @names.setter
+    def names( self, names ):
+        '''Sets the list of column names'''
+        if isinstance( names, list ):
+            self.__names = names
+
+    @property
+    def values( self ):
+        '''Provides tuple of column values'''
+        if isinstance( self.__values, tuple ):
+            return self.__values
+
+    @values.setter
+    def values( self, values ):
+        '''Sets tuple of column values'''
+        if isinstance( values, tuple ):
+            self.__values = values
+
+    @property
+    def provider( self ):
+        '''Gets the provider'''
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @provider.setter
+    def provider( self, pvr ):
+        '''Sets the provider'''
+        if isinstance( pvr, Provider  ):
+            self.__provider = pvr
+        else:
+            self.__provider = Provider.SQLite
+
+    @property
+    def command( self ):
+        '''Gets an instance of the DataCommand object'''
+        if isinstance( self.__command, Command ):
+            return self.__command
+
+    @command.setter
+    def command( self, cmd ):
+        '''Set the command property to a DataCommand instance'''
+        if isinstance( cmd, Command ):
+            self.__command = cmd
+        else:
+            command = Command( 'SELECT' )
+            self.__command = command
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @source.setter
+    def source( self, src ):
+        if isinstance( src, DataConfig ):
+            self.__source = src
+        else:
+            self.__source = DataConfig( 'StatusOfFunds' )
+
+    @property
+    def dataconfig( self ):
+        if isinstance( self.__dbconfig, DataConfig ):
+            return self.__dbconfig
+
+    @dataconfig.setter
+    def dataconfig( self, dbconfig ):
+        if isinstance( dbconfig, DataConfig ):
+            self.__dbconfig = dbconfig
+
+    @property
+    def sqlconfig( self ):
+        '''Gets instance of the SqlConfig class'''
+        if isinstance( self.__sqlconfig, SqlConfig ):
+            return self.__sqlconfig
+
+    @sqlconfig.setter
+    def sqlconfig( self, sqlconfig ):
+        '''Sets property to an instance of the SqlConfig class'''
+        if isinstance( sqlconfig, SqlConfig ):
+            self.__sqlconfig = sqlconfig
+
+    def __init__( self, source = None, provider = Provider.SQLite,
+                  command = Command.ALL, names = None, values = None ):
+        self.__name = names
+        self.__values = values
+        self.__command = command
+        self.__source = source
+        self.__provider = provider
+        self.__dbconfig = DataConfig( self.__source, self.__provider )
+        self.__connection = DataConnection( self.__dbconfig )
+        self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
+        self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
+
+
+class DataFactory( ):
+    '''DataFactory( QueryBuilder ) object
+    provides factory method for table data'''
+    __names = None
+    __values = None
+    __command = None
+    __source = None
+    __provider = None
+    __dbconfig = None
+    __sqlconfig = None
+    __connection = None
+    __sqlstatement = None
+    __query = None
+    __data = None
+
+    @property
+    def names( self ):
+        '''Provides list of column names'''
+        if isinstance( self.__names, list ):
+            return self.__names
+
+    @property
+    def values( self ):
+        '''Provides tuple of column values'''
+        if isinstance( self.__values, tuple ):
+            return self.__values
+
+    @property
+    def provider( self ):
+        '''Gets the provider'''
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @property
+    def command( self ):
+        '''Gets an instance of the DataCommand object'''
+        if isinstance( self.__command, Command ):
+            return self.__command
+
+    @property
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
+
+    @property
+    def dataconfig( self ):
+        if isinstance( self.__dbconfig, DataConfig ):
+            return self.__dbconfig
+
+    @property
+    def sqlconfig( self ):
+        '''Gets instance of the SqlConfig class'''
+        if isinstance( self.__sqlconfig, SqlConfig ):
+            return self.__sqlconfig
+
+    def __init__( self, query ):
+        self.__query = query if isinstance( query, QueryBuilder ) else None
+        self.__name = query.names if isinstance( query.names, list ) else None
+        self.__values = query.values if isinstance( query.values, tuple ) else None
+        self.__command = query.command if isinstance( query.command, Command ) else None
+        self.__source = query.source if isinstance( query.source, Source ) else None
+        self.__provider = query.provider if isinstance( query.provider, Provider ) else None
+        self.__dbconfig = DataConfig( self.__source, self.__provider )
+        self.__connection = DataConnection( self.__dbconfig )
+        self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
+        self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
+
+    def create( self ):
+        if self.__provider == Provider.SQLite:
+            __query = SQLiteQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
+            return self.__data
+        elif self.__provider == Provider.Access:
+            __query = AccessQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
+            return self.__data
+        elif self.__provider == Provider.SqlServer:
+            __query = SqlServerQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
+            return self.__data
+        else:
+            __query = SQLiteQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
+            return self.__data
+
+
 class DataColumn( pd.Series ):
     '''Defines the DataColumn Class'''
     __base = None
@@ -1211,205 +1287,4 @@ class DataTable( pd.DataFrame ):
     def __str__( self ):
         if self.__name is not None:
             return self.__name
-
-
-class QueryBuilder( ):
-    '''QueryBuilder( source, provider, command, names, values )
-    initializes object used as argument for the DataFactory'''
-    __names = None
-    __values = None
-    __command = None
-    __source = None
-    __provider = None
-    __dbconfig = None
-    __sqlconfig = None
-    __connection = None
-    __sqlstatement = None
-    __query = None
-    __data = None
-
-    @property
-    def names( self ):
-        '''Provides list of column names'''
-        if isinstance( self.__names, list ):
-            return self.__names
-
-    @names.setter
-    def names( self, names ):
-        '''Sets the list of column names'''
-        if isinstance( names, list ):
-            self.__names = names
-
-    @property
-    def values( self ):
-        '''Provides tuple of column values'''
-        if isinstance( self.__values, tuple ):
-            return self.__values
-
-    @values.setter
-    def values( self, values ):
-        '''Sets tuple of column values'''
-        if isinstance( values, tuple ):
-            self.__values = values
-
-    @property
-    def provider( self ):
-        '''Gets the provider'''
-        if isinstance( self.__provider, Provider ):
-            return self.__provider
-
-    @provider.setter
-    def provider( self, pvr ):
-        '''Sets the provider'''
-        if isinstance( pvr, Provider  ):
-            self.__provider = pvr
-        else:
-            self.__provider = Provider.SQLite
-
-    @property
-    def command( self ):
-        '''Gets an instance of the DataCommand object'''
-        if isinstance( self.__command, Command ):
-            return self.__command
-
-    @command.setter
-    def command( self, cmd ):
-        '''Set the command property to a DataCommand instance'''
-        if isinstance( cmd, Command ):
-            self.__command = cmd
-        else:
-            command = Command( 'SELECT' )
-            self.__command = command
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
-
-    @source.setter
-    def source( self, src ):
-        if isinstance( src, DataConfig ):
-            self.__source = src
-        else:
-            self.__source = DataConfig( 'StatusOfFunds' )
-
-    @property
-    def dataconfig( self ):
-        if isinstance( self.__dbconfig, DataConfig ):
-            return self.__dbconfig
-
-    @dataconfig.setter
-    def dataconfig( self, dbconfig ):
-        if isinstance( dbconfig, DataConfig ):
-            self.__dbconfig = dbconfig
-
-    @property
-    def sqlconfig( self ):
-        '''Gets instance of the SqlConfig class'''
-        if isinstance( self.__sqlconfig, SqlConfig ):
-            return self.__sqlconfig
-
-    @sqlconfig.setter
-    def sqlconfig( self, sqlconfig ):
-        '''Sets property to an instance of the SqlConfig class'''
-        if isinstance( sqlconfig, SqlConfig ):
-            self.__sqlconfig = sqlconfig
-
-    def __init__( self, source = None, provider = Provider.SQLite,
-                  command = Command.ALL, names = None, values = None ):
-        self.__name = names
-        self.__values = values
-        self.__command = command
-        self.__source = source
-        self.__provider = provider
-        self.__dbconfig = DataConfig( self.__source, self.__provider )
-        self.__connection = DataConnection( self.__dbconfig )
-        self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
-        self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
-
-
-class DataFactory( ):
-    '''DataFactory( QueryBuilder ) object
-    provides factory method for table data'''
-    __names = None
-    __values = None
-    __command = None
-    __source = None
-    __provider = None
-    __dbconfig = None
-    __sqlconfig = None
-    __connection = None
-    __sqlstatement = None
-    __query = None
-    __data = None
-
-    @property
-    def names( self ):
-        '''Provides list of column names'''
-        if isinstance( self.__names, list ):
-            return self.__names
-
-    @property
-    def values( self ):
-        '''Provides tuple of column values'''
-        if isinstance( self.__values, tuple ):
-            return self.__values
-
-    @property
-    def provider( self ):
-        '''Gets the provider'''
-        if isinstance( self.__provider, Provider ):
-            return self.__provider
-
-    @property
-    def command( self ):
-        '''Gets an instance of the DataCommand object'''
-        if isinstance( self.__command, Command ):
-            return self.__command
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
-
-    @property
-    def dataconfig( self ):
-        if isinstance( self.__dbconfig, DataConfig ):
-            return self.__dbconfig
-
-    @property
-    def sqlconfig( self ):
-        '''Gets instance of the SqlConfig class'''
-        if isinstance( self.__sqlconfig, SqlConfig ):
-            return self.__sqlconfig
-
-    def __init__( self, query ):
-        self.__query = query if isinstance( query, QueryBuilder ) else None
-        self.__name = query.names if isinstance( query.names, list ) else None
-        self.__values = query.values if isinstance( query.values, tuple ) else None
-        self.__command = query.command if isinstance( query.command, Command ) else None
-        self.__source = query.source if isinstance( query.source, Source ) else None
-        self.__provider = query.provider if isinstance( query.provider, Provider ) else None
-        self.__dbconfig = DataConfig( self.__source, self.__provider )
-        self.__connection = DataConnection( self.__dbconfig )
-        self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
-        self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
-
-    def create( self ):
-        if self.__provider == Provider.SQLite:
-            __query = SQLiteQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
-            return self.__data
-        elif self.__provider == Provider.Access:
-            __query = AccessQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
-            return self.__data
-        elif self.__provider == Provider.SqlServer:
-            __query = SqlServerQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
-            return self.__data
-        else:
-            __query = SQLiteQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
-            return self.__data
 
