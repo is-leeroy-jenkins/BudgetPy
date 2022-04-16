@@ -2450,86 +2450,6 @@ class RegionalAuthority( ):
             self.__amount = value
 
     @property
-    def budgeted( self ):
-        if isinstance( self.__budgeted, float ):
-            return self.__budgeted
-
-    @budgeted.setter
-    def budgeted( self, value ):
-        if isinstance( value, float ):
-            self.__budgeted = value
-
-    @property
-    def posted( self ):
-        if isinstance( self.__posted, float ):
-            return self.__posted
-
-    @posted.setter
-    def posted( self, value ):
-        if isinstance( self.__posted, value ):
-            self.__posted = value
-
-    @property
-    def opencommitments( self ):
-        if isinstance( self.__opencommitments, float ):
-            return self.__opencommitments
-
-    @opencommitments.setter
-    def opencommitments( self, value ):
-        if isinstance( value, float ):
-            self.__opencommitments = value
-
-    @property
-    def obligations( self ):
-        if isinstance( self.__obligations, float ):
-            return self.__obligations
-
-    @obligations.setter
-    def obligations( self, value ):
-        if isinstance( value, float ):
-            self.__obligations = value
-
-    @property
-    def unliquidatedobligations( self ):
-        if isinstance( self.__unliquidatedobligations, float ):
-            return self.__unliquidatedobligations
-
-    @unliquidatedobligations.setter
-    def unliquidatedobligations( self, value ):
-        if isinstance( value, float ):
-            self.__unliquidatedobligations = value
-
-    @property
-    def expenditures( self ):
-        if isinstance( self.__expenditures, float ):
-            return self.__expenditures
-
-    @expenditures.setter
-    def expenditures( self, value ):
-        if isinstance( value, float ):
-            self.__expenditures = value
-
-    @property
-    def used( self ):
-        if isinstance( self.__used, float ):
-            return self.__used
-
-    @used.setter
-    def used( self, value ):
-        if isinstance( value, float ):
-            self.__used = value
-
-    @property
-    def available( self ):
-        if isinstance( self.__avaialable, float ):
-            return self.__avaialable
-
-    @available.setter
-    def available( self, value ):
-        if isinstance( value, float ):
-            self.__avaialable = value
-
-    @property
     def programprojectcode( self ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
@@ -3120,23 +3040,23 @@ class PayrollActivity( ):
 
     @property
     def subrccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
-            return self.__rccode
+        if isinstance( self.__subrccode, str ) and self.__subrccode != '':
+            return self.__subrccode
 
     @subrccode.setter
     def subrccode( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__rccode = code
+            self.__subrccode = code
 
     @property
     def subrcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
-            return self.__rcname
+        if isinstance( self.__subrcname, str ) and self.__subrcname != '':
+            return self.__subrcname
 
     @subrcname.setter
     def subrcname( self, name ):
         if isinstance( name, str ) and name != '':
-            self.__rcname = name
+            self.__subrcname = name
 
     @property
     def programprojectcode( self ):
@@ -3196,7 +3116,7 @@ class PayrollActivity( ):
     @workcodename.setter
     def workcodename( self, name ):
         if isinstance( name, str ) and name != '':
-            self.__workcodecode = name
+            self.__workcodename = name
 
     @property
     def payperiod( self ):
@@ -3290,8 +3210,8 @@ class PayrollActivity( ):
 
     @property
     def overtimepaid( self ):
-        if isinstance( self.__benefits, float ):
-            return self.__benefits
+        if isinstance( self.__overtimepaid, float ):
+            return self.__overtimepaid
 
     @overtimepaid.setter
     def overtimepaid( self, value ):
@@ -3871,16 +3791,6 @@ class Actuals( ):
         if isinstance( self.__balance, float ):
             return self.__balance
 
-    @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
-
-    @property
-    def balance( self ):
-        if isinstance( self.__balance, float ):
-            return self.__balance
-
     @balance.setter
     def balance( self, value ):
         if isinstance( value, float ):
@@ -4128,13 +4038,13 @@ class AppropriationDocument( ):
 
     @property
     def postingcontrols( self ):
-        if isinstance( self.__budgetingcontrols, str ):
-            return self.__budgetingcontrols
+        if isinstance( self.__postingcontrols, str ):
+            return self.__postingcontrols
 
     @postingcontrols.setter
     def postingcontrols( self, value ):
         if isinstance( value, str ):
-            self.__budgetingcontrols = value
+            self.__postingcontrols = value
 
     @property
     def precommitmentcontrols( self ):
@@ -4189,7 +4099,7 @@ class AppropriationDocument( ):
     @property
     def expensecontrols( self ):
         if isinstance( self.__expensecontrols, str ):
-            return self.__expensecontrolscontrols
+            return self.__expensecontrols
 
     @expensecontrols.setter
     def expensecontrols( self, value ):
@@ -4291,8 +4201,6 @@ class BudgetDocument( ):
     __lastdocumentdate = None
     __rpiocode = None
     __rpioname = None
-    __fundcode = None
-    __fundname = None
     __ahcode = None
     __ahname = None
     __orgcode = None
@@ -4316,8 +4224,8 @@ class BudgetDocument( ):
     __reimbursableagreementcontrols = None
     __budgeted = None
     __posted = None
-    __carryout = None
-    __carryin = None
+    __carryoverout = None
+    __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
 
@@ -4563,13 +4471,13 @@ class BudgetDocument( ):
 
     @property
     def postingcontrols( self ):
-        if isinstance( self.__budgetingcontrols, str ):
-            return self.__budgetingcontrols
+        if isinstance( self.__postingcontrols, str ):
+            return self.__postingcontrols
 
     @postingcontrols.setter
     def postingcontrols( self, value ):
         if isinstance( value, str ):
-            self.__budgetingcontrols = value
+            self.__postingcontrols = value
 
     @property
     def precommitmentcontrols( self ):
@@ -4624,7 +4532,7 @@ class BudgetDocument( ):
     @property
     def expensecontrols( self ):
         if isinstance( self.__expensecontrols, str ):
-            return self.__expensecontrolscontrols
+            return self.__expensecontrols
 
     @expensecontrols.setter
     def expensecontrols( self, value ):
@@ -4722,8 +4630,6 @@ class BudgetControls( ):
     __estimatedreimbursementstranstype = None
     __spendingadjustmenttranstype = None
     __estimatedrecoveriestranstype = None
-    __actualrecoveriestranstype = None
-    __statusreservetranstype = None
     __actualrecoveriestranstype = None
     __statusreservetranstype = None
     __profitlosstranstype = None
@@ -4824,14 +4730,14 @@ class BudgetControls( ):
             self.__estimatedreimbursementstranstype = value
 
     @property
-    def estimatedrecovieriestranstype( self ):
-        if isinstance( self.__estimatedrecovieriestranstype, str ) and self.__estimatedrecovieriestranstype != '':
-            return self.__estimatedrecovieriestranstype
+    def estimatedrecoveriestranstype( self ):
+        if isinstance( self.__estimatedrecoveriestranstype, str ) and self.__estimatedrecoveriestranstype != '':
+            return self.__estimatedrecoveriestranstype
 
-    @estimatedrecovieriestranstype.setter
-    def estimatedrecovieriestranstype( self, value ):
+    @estimatedrecoveriestranstype.setter
+    def estimatedrecoveriestranstype( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__estimatedrecovieriestranstype = value
+            self.__estimatedrecoveriestranstype = value
 
     @property
     def actualrecoveriestranstype( self ):
@@ -4885,13 +4791,13 @@ class BudgetControls( ):
 
     @property
     def trackingagreementlowerlevels( self ):
-        if isinstance( self.__trackinglowerlevels, str ) and self.__trackinglowerlevels != '':
-            return self.__trackinglowerlevels
+        if isinstance( self.__trackingagreementlowerlevels, str ) and self.__trackingagreementlowerlevels != '':
+            return self.__trackingagreementlowerlevels
 
     @trackingagreementlowerlevels.setter
     def trackingagreementlowerlevels( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__trackinglowerlevelse = value
+            self.__trackingagreementlowerlevels = value
 
     @property
     def budgetestimatedlowerlevels( self ):
@@ -4915,13 +4821,13 @@ class BudgetControls( ):
 
     @property
     def recoverybudgetmismatch( self ):
-        if isinstance( self.__recoverynextlevel, str ) and self.__recoverynextlevel != '':
-            return self.__recoverynextlevel
+        if isinstance( self.__recoverybudgetmismatch, str ) and self.__recoverybudgetmismatch != '':
+            return self.__recoverybudgetmismatch
 
     @recoverybudgetmismatch.setter
     def recoverybudgetmismatch( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__recoverynextlevel = value
+            self.__recoverybudgetmismatch = value
 
     @property
     def profitlossspendingoption( self ):
@@ -4965,7 +4871,7 @@ class BudgetControls( ):
 
     @property
     def recoveriescarryinamountcontrol( self ):
-        if isinstance( self.__recoveriescarryinamountcontrol, str ) and self.__recoveriescarryamountcontrol != '':
+        if isinstance( self.__recoveriescarryinamountcontrol, str ) and self.__recoveriescarryinamountcontrol != '':
             return self.__recoveriescarryinamountcontrol
 
     @recoveriescarryinamountcontrol.setter
@@ -5085,7 +4991,7 @@ class BudgetControls( ):
 
     @property
     def ftespendingcontrol( self ):
-        if isinstance( self.__ftespendingcontrol, str ) and self.__ftependingcontrol != '':
+        if isinstance( self.__ftespendingcontrol, str ) and self.__ftespendingcontrol != '':
             return self.__ftespendingcontrol
 
     @ftespendingcontrol.setter
@@ -5316,8 +5222,6 @@ class CompassLevels( ):
     __lowerpostedflag = None
     __lowerprecommitmentspendingcontrolflag = None
     __lowerrecoveriesspendingoption = None
-    __lowerrecoveriesoption = None
-    __lowerreimbursablespendingoption = None
     __lowerrecoveriesoption = None
     __lowerreimbursablespendingoption = None
     __date = None
