@@ -53,7 +53,7 @@ class Source( Enum ):
     CarryoverSurvey = auto( )
     Changes = auto( )
     CongressionalReprogrammings = auto( )
-    Deobligation = auto( )
+    Deobligations = auto( )
     Defactos = auto( )
     DocumentControlNumbers = auto( )
     Obligations = auto( )
@@ -166,7 +166,6 @@ class Command( Enum ):
     CREATEVIEW = 8
     ALTERTABLE = 9
     ALTERCOLUMN = 10
-    NS = 11
 
 
 class Client( Enum ):

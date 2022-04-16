@@ -524,9 +524,9 @@ class StatusOfAppropriations( ):
             return self.__obligationspendingcontrolflag
 
     @obligationspendingcontrolflag.setter
-    def obligationspendingcontrolflag( self, oflag ):
-        if isinstance( oflag, str ) and oflag != '':
-            self.__obligationspendingcontrolflag = oflag
+    def obligationspendingcontrolflag( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__obligationspendingcontrolflag = value
 
     @property
     def precommitmentspendingcontrolflag( self ):
@@ -535,9 +535,9 @@ class StatusOfAppropriations( ):
             return self.__precommitmentspendingcontrolflag
 
     @precommitmentspendingcontrolflag.setter
-    def precommitmentspendingcontrolflag( self, pflag ):
-        if isinstance( pflag, str ) and pflag != '':
-            self.__precommitmentspendingcontrolflag = pflag
+    def precommitmentspendingcontrolflag( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__precommitmentspendingcontrolflag = value
 
     @property
     def postedcontrolflag( self ):

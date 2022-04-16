@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed3eb2b1-5333-4745-8a9d-e09b01079b93" name="Changes" comment="" />
+    <list default="true" id="d40f2dc4-3e9e-4394-8d79-ad4ff57c9895" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/7/17dabf4f007d7cce2897536a31790a348b595693" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/25e320b55d443630a1ce03c213804f01e7f09c7e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6f61558d7c3dd6ffeaf68367bc625434c34b23df" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/b/8bd840fba2dbdab27f36c7587e14a47f48cdbb59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enum.py" beforeDir="false" afterPath="$PROJECT_DIR$/Enum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reporting.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,10 +31,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectId" id="27tErUU1W1dmeEO2xaoqLYMEQAM" />
+  <component name="ProjectId" id="27tQ0HqlAoVEQbx5xQkTo0TOgDA" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="2" id="Remove" />
@@ -40,32 +47,27 @@
     <property name="GitStage.ChangesTree.GroupingKeys" value="directory&#10;module&#10;repository" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="updates from main rig;">
-      <created>1650126235330</created>
+      <created>1650134905137</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1650126235330</updated>
-    </task>
-    <task id="LOCAL-00002" summary="updates from main rig;">
-      <created>1650129923259</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1650129923259</updated>
+      <updated>1650134905137</updated>
     </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ed3eb2b1-5333-4745-8a9d-e09b01079b93" name="Changes" comment="" />
-      <created>1650131181442</created>
+      <changelist id="d40f2dc4-3e9e-4394-8d79-ad4ff57c9895" name="Changes" comment="" />
+      <created>1650136697030</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1650131181442</updated>
+      <updated>1650136697030</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
