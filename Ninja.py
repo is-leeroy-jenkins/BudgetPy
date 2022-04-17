@@ -8,10 +8,10 @@ from Static import *
 from numpy import ndarray
 
 
-''' DataConfig( src: Source, prov: Provider  ) '''
+''' DataConfig( source, provider ) '''
 class DataConfig( ):
-    '''DataConfig( src, prov  ) provides list of Budget Execution
-    tables across two databases ( vals and references ) '''
+    '''DataConfig( source, provider  ) provides list of Budget Execution
+    tables across two databases ( values and references ) '''
     __data = [ ]
     __references = [ ]
     __source = None
@@ -63,7 +63,7 @@ class DataConfig( ):
             self.__table = None
 
     def isdata( self ):
-        '''Determines if the vals src is a memeber of the vals models'''
+        '''Determines if the values source is a memeber of the values models'''
         if self.__table is not None \
                 and self.__table in self.__data:
             return True
@@ -71,7 +71,7 @@ class DataConfig( ):
             return False
 
     def isreference( self ):
-        '''Determines if the vals src is a memeber of the reference models'''
+        '''Determines if the values source is a memeber of the reference models'''
         if self.__table is not None  \
                 and self.__table in self.__references:
             return True
@@ -107,7 +107,7 @@ class DataConfig( ):
 
     def __init__( self, src, prov ):
         '''Constructor for the DataConfig class providing
-        vals conn details'''
+        values conn details'''
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
                        'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
@@ -141,9 +141,9 @@ class DataConfig( ):
         self.__table = self.__source.name if isinstance( self.__source, Source ) else None
         self.__sqlitedriver = r'DRIVER=SQLite3 ODBC Driver;'
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db;'
+                            r'\dataconfig\sqlite\datamodels\Data.dataconfig;'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db;'
+                            r'\dataconfig\sqlite\referencemodels\References.dataconfig;'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
         self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb;'
@@ -160,9 +160,9 @@ class DataConfig( ):
             return self.__table
 
 
-''' DataConnection( config: DataConfig ) '''
+''' DataConnection( dataconfig ) '''
 class DataConnection(  ):
-    '''DataConnection( config, path = '' ) initializes
+    '''DataConnection( dataconfig, path = '' ) initializes
     object used to connect to Budget databases'''
     __configuration = None
     __provider = None
@@ -222,10 +222,10 @@ class DataConnection(  ):
                                       + f'Database={self.__path}'
             return self.__connectionstring
 
-    def __init__( self, config: DataConfig ):
-        self.__configuration = config if isinstance( config, DataConfig ) else None
-        self.__source = config.source if isinstance( config.source, Source ) else None
-        self.__provider = config.provider if isinstance( config.provider, Provider ) else None
+    def __init__( self, dataconfig ):
+        self.__configuration = dataconfig if isinstance( dataconfig, DataConfig ) else None
+        self.__source = dataconfig.source if isinstance( dataconfig.source, Source ) else None
+        self.__provider = dataconfig.provider if isinstance( dataconfig.provider, Provider ) else None
         self.__path = self.__configuration.getpath( )
         self.__driver = self.__configuration.getdriver( )
         self.__dsn = self.__source.name + ';'
@@ -256,10 +256,10 @@ class DataConnection(  ):
             self.__isopen = False
 
 
-''' SqlConfig( cmd: Command, nams: list, vals: tuple ) '''
+''' SqlConfig( command, names, values ) '''
 class SqlConfig( ):
-    '''SqlConfig( cmd, cols, vals, paramstyle  ) provides the
-     predicate prov index pairs for sql queries'''
+    '''SqlConfig( command, cols, values, paramstyle  ) provides the
+     predicate provider index pairs for sqlconfig queries'''
     __predicate = None
     __names = None
     __values = None
@@ -278,25 +278,25 @@ class SqlConfig( ):
 
     @property
     def names( self ):
-        ''' builds crit from prov index namevaluepairs'''
+        ''' builds crit from provider index namevaluepairs'''
         if isinstance( self.__names, list ):
             return self.__names
 
     @names.setter
     def names( self, keys: list ):
-        ''' builds crit from prov index namevaluepairs'''
+        ''' builds crit from provider index namevaluepairs'''
         if keys is not None and isinstance( keys, list ):
             self.__names = keys
 
     @property
     def values( self ):
-        ''' builds crit from prov index namevaluepairs'''
+        ''' builds crit from provider index namevaluepairs'''
         if isinstance( self.__values, tuple ):
             return self.__values
 
     @values.setter
     def values( self, vals: tuple  ):
-        ''' builds crit from prov index namevaluepairs'''
+        ''' builds crit from provider index namevaluepairs'''
         if isinstance( vals, tuple ):
             self.__values = vals
 
@@ -327,12 +327,11 @@ class SqlConfig( ):
                     map.update( k, v )
             self.__predicate = map
 
-    def __init__( self, command: CommandType, nams: list,
-                  vals: tuple, parms: ParamStyle = None ):
+    def __init__( self, command, names, values, params  = None ):
         self.__command = command if isinstance( command, Command ) else Command.SELECTALL
-        self.__names = nams if isinstance( nams, list ) else list( )
-        self.__values = vals if isinstance( vals, tuple ) else tuple( )
-        self.__paramstyle = parms if isinstance( parms, ParamStyle ) else ParamStyle.qmark
+        self.__names = names if isinstance( names, list ) else None
+        self.__values = values if isinstance( values, tuple ) else None
+        self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
         self.__predicate = self.__map( )
 
     def __map( self ):
@@ -347,7 +346,7 @@ class SqlConfig( ):
             return map
 
     def pairdump( self ):
-        '''dump( ) returns string of 'vals = index AND' pairs'''
+        '''dump( ) returns string of 'values = index AND' pairs'''
         if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             pairs = ''
             criteria = ''
@@ -358,8 +357,8 @@ class SqlConfig( ):
             return criteria
 
     def wheredump( self ):
-        '''pairdump( nams, vals) returns a string
-        using list arguments nams and vals'''
+        '''pairdump( names, values) returns a string
+        using list arguments names and values'''
         if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             pairs = ''
             criteria = ''
@@ -370,7 +369,7 @@ class SqlConfig( ):
 
     def setdump( self ):
         '''setdump( ) returns a string
-        using list arguments nams and vals'''
+        using list arguments names and values'''
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
             pairs = ''
             criteria = ''
@@ -391,7 +390,7 @@ class SqlConfig( ):
             return columns
 
     def valuedump( self ):
-        '''valuedump( ) returns a string of vals
+        '''valuedump( ) returns a string of values
         used in select statements from list self.__names'''
         if isinstance( self.__values, list ):
             vals = ''
@@ -402,10 +401,10 @@ class SqlConfig( ):
             return values
 
 
-''' SqlStatement( db: DataConfig, sql: SqlConfig ) '''
+''' SqlStatement(  dataconfig,  sqlconfig ) '''
 class SqlStatement( ):
-    '''SqlStatement( config, sql ) Class
-    represents the vals models used in the SQLite database'''
+    '''SqlStatement( dataconfig, sqlconfig ) Class
+    represents the values models used in the SQLite database'''
     __command = None
     __sqlconfig = None
     __dataconfig = None
@@ -485,10 +484,10 @@ class SqlStatement( ):
         if isinstance( vals, list ):
             self.__values = vals
 
-    def __init__( self, db: DataConfig, sql: SqlConfig ):
-        self.__sqlconfig = sql if isinstance( sql, SqlConfig ) else None
-        self.__dataconfig = db if isinstance( db, DataConfig ) else None
-        self.__command = sql.command
+    def __init__( self, dataconfig, sqlconfig ):
+        self.__sqlconfig = sqlconfig if isinstance( sqlconfig, SqlConfig ) else None
+        self.__dataconfig = dataconfig if isinstance( dataconfig, DataConfig ) else None
+        self.__command = sqlconfig.command
         self.__provider = self.__dataconfig.provider
         self.__source = self.__dataconfig.source
         self.__table = self.__source.name
@@ -518,10 +517,10 @@ class SqlStatement( ):
                                  + f'( { self.__sqlconfig.wheredump( ) };'
 
 
-''' SQLiteQuery( conn: DataConnection, sql: SqlStatement ) '''
+''' SQLiteQuery( connection, sqlstatement ) '''
 class SQLiteQuery( ):
-    '''SQLiteQuery( conn, sql ) represents
-     the budget execution vals classes'''
+    '''SQLiteQuery( conn, sqlconfig ) represents
+     the budget execution values classes'''
     __connection = None
     __path = None
     __driver = None
@@ -616,11 +615,11 @@ class SQLiteQuery( ):
         return __cursor.fetchall()
 
 
-''' AccessQuery( conn, sql ) '''
+''' AccessQuery( connection, sqlstatement ) '''
 class AccessQuery( ):
-    '''AccessQuery( conn, sql ) class
+    '''AccessQuery( conn, sqlconfig ) class
       represents the budget execution
-      vals model classes in the MS Access database'''
+      values model classes in the MS Access database'''
     __path = None
     __connection = None
     __sqlstatement = None
@@ -712,10 +711,10 @@ class AccessQuery( ):
         return __cursor.fetchall()
 
 
-''' SqlServerQuery( conn, sql ) '''
+''' SqlServerQuery( connection, sqlstatement ) '''
 class SqlServerQuery( ):
-    '''SqlServerQuery( conn, sql ) object
-    represents the vals models in the MS SQL Server
+    '''SqlServerQuery( conn, sqlconfig ) object
+    represents the values models in the MS SQL Server
     database'''
     __connection = None
     __sqlstatment = None
@@ -832,9 +831,9 @@ class SqlServerQuery( ):
             return self.__data
 
 
-''' QueryBuilder( src: Source, prov: Provider, cmd: Command, nams: list, vals: tuple ) '''
+''' QueryBuilder( source, provider, command,  names, values ) '''
 class QueryBuilder( ):
-    '''QueryBuilder( src, prov, cmd, nams, vals )
+    '''QueryBuilder( source, provider, command, names, values )
     initializes object used as argument for the DataFactory'''
     __names = None
     __values = None
@@ -850,37 +849,37 @@ class QueryBuilder( ):
 
     @property
     def names( self ):
-        '''Provides list of column nams'''
+        '''Provides list of name names'''
         if isinstance( self.__names, list ):
             return self.__names
 
     @names.setter
     def names( self, names ):
-        '''Sets the list of column nams'''
+        '''Sets the list of name names'''
         if isinstance( names, list ):
             self.__names = names
 
     @property
     def values( self ):
-        '''Provides tuple of column vals'''
+        '''Provides tuple of name values'''
         if isinstance( self.__values, tuple ):
             return self.__values
 
     @values.setter
     def values( self, values ):
-        '''Sets tuple of column vals'''
+        '''Sets tuple of name values'''
         if isinstance( values, tuple ):
             self.__values = values
 
     @property
     def provider( self ):
-        '''Gets the prov'''
+        '''Gets the provider'''
         if isinstance( self.__provider, Provider ):
             return self.__provider
 
     @provider.setter
     def provider( self, pvr ):
-        '''Sets the prov'''
+        '''Sets the provider'''
         if isinstance( pvr, Provider  ):
             self.__provider = pvr
         else:
@@ -894,7 +893,7 @@ class QueryBuilder( ):
 
     @command.setter
     def command( self, cmd ):
-        '''Set the cmd property to a DataCommand instance'''
+        '''Set the command property to a DataCommand instance'''
         if isinstance( cmd, Command ):
             self.__command = cmd
         else:
@@ -935,23 +934,23 @@ class QueryBuilder( ):
         if isinstance( sqlconfig, SqlConfig ):
             self.__sqlconfig = sqlconfig
 
-    def __init__( self, src = None, prov = Provider.SQLite,
-                  cmd = Command.SELECTALL, names = None, values = None ):
+    def __init__( self, source = None, provider = Provider.SQLite,
+                  command = Command.SELECTALL, names = None, values = None ):
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
-        self.__command = cmd if isinstance( cmd, Command ) else None
-        self.__source = src if isinstance( src, Source ) else None
-        self.__provider = prov if isinstance( prov, Provider ) else None
+        self.__command = command if isinstance( command, Command ) else None
+        self.__source = source if isinstance( source, Source ) else None
+        self.__provider = provider if isinstance( provider, Provider ) else None
         self.__dbconfig = DataConfig( self.__source, self.__provider )
         self.__connection = DataConnection( self.__dbconfig )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
 
 
-''' DataFactory( query: QueryBuilder ) '''
+''' DataFactory( querybuilder ) '''
 class DataFactory( ):
     '''DataFactory( QueryBuilder ) object
-    provides factory method for src vals'''
+    provides factory method for source values'''
     __names = None
     __values = None
     __command = None
@@ -966,19 +965,19 @@ class DataFactory( ):
 
     @property
     def names( self ):
-        '''Provides list of column nams'''
+        '''Provides list of name names'''
         if isinstance( self.__names, list ):
             return self.__names
 
     @property
     def values( self ):
-        '''Provides tuple of column vals'''
+        '''Provides tuple of name values'''
         if isinstance( self.__values, tuple ):
             return self.__values
 
     @property
     def provider( self ):
-        '''Gets the prov'''
+        '''Gets the provider'''
         if isinstance( self.__provider, Provider ):
             return self.__provider
 
@@ -1004,13 +1003,13 @@ class DataFactory( ):
         if isinstance( self.__sqlconfig, SqlConfig ):
             return self.__sqlconfig
 
-    def __init__( self, query ):
-        self.__query = query if isinstance( query, QueryBuilder ) else None
-        self.__name = query.names if isinstance( query.names, list ) else None
-        self.__values = query.values if isinstance( query.values, tuple ) else None
-        self.__command = query.command if isinstance( query.command, Command ) else None
-        self.__source = query.source if isinstance( query.source, Source ) else None
-        self.__provider = query.provider if isinstance( query.provider, Provider ) else None
+    def __init__( self, querybuilder ):
+        self.__query = querybuilder if isinstance( querybuilder, QueryBuilder ) else None
+        self.__name = querybuilder.names if isinstance( querybuilder.names, list ) else None
+        self.__values = querybuilder.values if isinstance( querybuilder.values, tuple ) else None
+        self.__command = querybuilder.command if isinstance( querybuilder.command, Command ) else None
+        self.__source = querybuilder.source if isinstance( querybuilder.source, Source ) else None
+        self.__provider = querybuilder.provider if isinstance( querybuilder.provider, Provider ) else None
         self.__dbconfig = DataConfig( self.__source, self.__provider )
         self.__connection = DataConnection( self.__dbconfig )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
@@ -1035,7 +1034,7 @@ class DataFactory( ):
             return self.__data
 
 
-''' DataColumn( name: str, vals: list ) '''
+''' DataColumn( name,  values ) '''
 class DataColumn( pd.Series ):
     '''Defines the DataColumn Class'''
     __series = None
@@ -1159,7 +1158,7 @@ class DataColumn( pd.Series ):
         if isinstance( self.__values, str ):
             return True
 
-    def __init__( self, name: str, values: list ):
+    def __init__( self, name, values ):
         super( ).__init__( self, values )
         self.__name = name if isinstance( name, str ) and name != '' else None
         self.__values = values if isinstance( values, list ) else None
@@ -1171,7 +1170,7 @@ class DataColumn( pd.Series ):
             return self.__name
 
 
-''' DataRow( src: Source, items: tuple, nams: list ) '''
+''' DataRow( source, items, names ) '''
 class DataRow( sl.Row ):
     '''Defines the DataRow Class'''
     __source = None
@@ -1241,10 +1240,10 @@ class DataRow( sl.Row ):
         if isinstance( src, Source ):
             self.__source = src
 
-    def __init__( self, source = Source.NS, items = ( ), names = None ):
+    def __init__( self, source, items = ( ), names = None ):
         super( ) .__init__( self, items )
         self.__source = source if isinstance( source, Source ) else None
-        self.__items = items if isinstance( items, tuple ) else None
+        self.__items = items if isinstance( items, tuple ) else ( )
         self.__names = names if isinstance( names, list ) else [ ]
         self.__values = list( self.__items )
         self.__id = int( self.__values[ 0 ] )

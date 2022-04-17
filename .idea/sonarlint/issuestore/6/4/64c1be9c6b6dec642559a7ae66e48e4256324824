@@ -1,17 +1,0 @@
-
-Hpython:S5869µ"*Remove duplicates in this character class.(äÖ™Ôıÿÿÿÿ
-Jpython:S5855µ",Remove or rework this redundant alternative.(äÖ™Ôıÿÿÿÿ
-‡python:S101±"jRename class "DOUBLE_PRECISION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(î“Ìşÿÿÿÿ
-mpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¥£Çß
-mpython:S3776–"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(éÂÅ
-‡python:S1845†"nRename method "visit_ENUM" to prevent any misunderstanding/clash with method "visit_enum" defined on line 2944(“ûÃÁ
-rpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÆªèÆùÿÿÿÿ
-jpython:S1134×"LTake the required action to fix the issue indicated by this "FIXME" comment.(–ğ‚ÿÿÿÿÿ
-epython:S5799ù"GMerge these implicitly concatenated strings; or did you forget a comma?(ëùéêşÿÿÿÿ
-8python:S3626é"Remove this redundant continue.(À–¬ˆ
-mpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 59 to the 15 allowed.(ùú–
-lpython:S3776Ú"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ƒ¸…Z
-mpython:S3776Û "TRefactor this function to reduce its Cognitive Complexity from 79 to the 15 allowed.(†£Ôú
-Hpython:S5869#"*Remove duplicates in this character class.(ŸËüŒùÿÿÿÿ
-Hpython:S5869#"*Remove duplicates in this character class.(ŸËüŒùÿÿÿÿ
-Mpython:S1656ß#"/Remove or correct this useless self-assignment.(ê«òÌûÿÿÿÿ

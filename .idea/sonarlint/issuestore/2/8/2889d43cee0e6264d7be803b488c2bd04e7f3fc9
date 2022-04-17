@@ -1,40 +1,0 @@
-
-Mpython:S1066°"/Merge this if statement with the enclosing one.(Îâİ»üÿÿÿÿ
-Hpython:S1066Å "/Merge this if statement with the enclosing one.(¥€øû
-python:S4144³"cUpdate this function so that its implementation is not identical to post_process_text on line 1582.(Æ¹Ü¤øÿÿÿÿ
-rpython:S3776²"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ú„Úüùÿÿÿÿ
-|python:S1871˜"cEither merge this branch with the identical one on line "784" or change one of the implementations.(³ô¤Ô
-Ypython:S5361ÿ"@Replace this "re.sub()" call by a "str.replace()" function call.(ÏıĞ¾
-rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 55 to the 15 allowed.(Í¬¤Úøÿÿÿÿ
-mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(¯°áı
-mpython:S3776ß"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(âãºü
-epython:S5799ê"GMerge these implicitly concatenated strings; or did you forget a comma?(Ã–›¨şÿÿÿÿ
-lpython:S3776ñ"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¤ĞE
-gpython:S3358Ú"IExtract this nested conditional expression into an independent statement.(‚àˆÿûÿÿÿÿ
-gpython:S3358Ü"IExtract this nested conditional expression into an independent statement.(¥Ú’”ıÿÿÿÿ
-gpython:S3358ã"IExtract this nested conditional expression into an independent statement.(‚àˆÿûÿÿÿÿ
-gpython:S3358å"IExtract this nested conditional expression into an independent statement.(¥Ú’”ıÿÿÿÿ
-rpython:S3776 "TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ş ã—şÿÿÿÿ
-Dpython:S1481ë"+Remove the unused local variable "element".(ÚëÉ
-Dpython:S1481ò"+Remove the unused local variable "element".(ÚëÉ
-rpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(åË©’ùÿÿÿÿ
-mpython:S3776Ä"TRefactor this function to reduce its Cognitive Complexity from 61 to the 15 allowed.(ÔÎ«Ò
-mpython:S1854¬"TRemove this assignment to local variable 'enclosing_alias'; the value is never used.(Ïèå
-mpython:S3776ş"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(¬ÿ«°
-rpython:S3776Æ"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(¿ÙĞ§øÿÿÿÿ
-lpython:S3776£"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(˜û¶
-lpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÂòÆ
-lpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(™‹ì[
-rpython:S3776ã"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(ë±Ÿ¹øÿÿÿÿ
-mpython:S3776–"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(½âºû
-mpython:S3776” "TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(Ûî¼Á
-†python:S4144Û$"hUpdate this function so that its implementation is not identical to visit_check_constraint on line 4687.(ËÆöªûÿÿÿÿ
-Œpython:S1845¸&"tRename method "visit_boolean" to prevent any misunderstanding/clash with method "visit_BOOLEAN" defined on line 4914(Ã¬º6
-Œpython:S1845»&"nRename method "visit_time" to prevent any misunderstanding/clash with method "visit_TIME" defined on line 4872(‘·î¢ûÿÿÿÿ
-python:S1845¾&"vRename method "visit_datetime" to prevent any misunderstanding/clash with method "visit_DATETIME" defined on line 4866(ˆÆ‘‡
-‡python:S1845Á&"nRename method "visit_date" to prevent any misunderstanding/clash with method "visit_DATE" defined on line 4869(áßËù
-python:S1845Ê&"tRename method "visit_integer" to prevent any misunderstanding/clash with method "visit_INTEGER" defined on line 4854(¹¡©Š
-Œpython:S1845Í&"nRename method "visit_real" to prevent any misunderstanding/clash with method "visit_REAL" defined on line 4829(üé¡Óûÿÿÿÿ
-‰python:S1845Ğ&"pRename method "visit_float" to prevent any misunderstanding/clash with method "visit_FLOAT" defined on line 4826(ğÆÌÈ
-’python:S1845Ó&"tRename method "visit_numeric" to prevent any misunderstanding/clash with method "visit_NUMERIC" defined on line 4832(ğ Ä¹úÿÿÿÿ
-Œpython:S1845Ü&"nRename method "visit_text" to prevent any misunderstanding/clash with method "visit_TEXT" defined on line 4902(¯²Éúÿÿÿÿ
