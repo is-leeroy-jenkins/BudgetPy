@@ -102,6 +102,19 @@ class BudgetPath( ):
             os.chdir( path )
             self.__currdir = path
 
+    def __init__( self, filepath ):
+        self.__base = filepath if isinstance( filepath, str ) else None
+        self.__path = filepath if os.path.isfile( filepath ) else None
+        self.__name = os.path.split( self.__base )[ 1 ]
+        self.__currdir = os.getcwd( )
+        self.__ext = os.path.splitext( self.__base )[ 1 ]
+        self.__drive = os.path.splitdrive( self.__base )[ 0 ]
+        self.__report = r'etc\templates\report\ReportBase.xlsx'
+
+    def __str__( self ):
+       if self.__path is not None:
+           return str( self.__path )
+
     def verify( self, other ):
         '''Verifies if the parameter 'other' exists'''
         if os.path.exists( other ):
@@ -122,19 +135,6 @@ class BudgetPath( ):
         ''' Concatenates 'first' to 'second' '''
         if os.path.exists( first ) and os.path.exists( second ):
             return os.path.join( first, second )
-
-    def __str__( self ):
-       if self.__path is not None:
-           return str( self.__path )
-
-    def __init__( self, filepath ):
-        self.__base = filepath if isinstance( filepath, str ) else None
-        self.__path = filepath if os.path.isfile( filepath ) else None
-        self.__name = os.path.split( self.__base )[ 1 ]
-        self.__currdir = os.getcwd( )
-        self.__ext = os.path.splitext( self.__base )[ 1 ]
-        self.__drive = os.path.splitdrive( self.__base )[ 0 ]
-        self.__report = r'etc\templates\report\ReportBase.xlsx'
 
 
 ''' BudgetFile( filepath ) '''
@@ -271,6 +271,27 @@ class BudgetFile( ):
             os.chdir( path )
             self.__currdir = path
 
+    def __init__( self, filepath ):
+        self.__base = filepath if os.path.exists( filepath ) else 'NS'
+        self.__path = self.__base if not self.__base == '' else 'NS'
+        self.__name = os.path.basename( filepath ) if not filepath == '' else 'NS'
+        self.__size = os.path.getsize( filepath ) if not filepath == '' else 'NS'
+        self.__directory = os.path.dirname( self.__path ) \
+            if os.path.exists( filepath ) else 'NS'
+        self.__extension = list( os.path.splitext( filepath ) )[ 1 ] \
+            if not filepath == '' else 'NS'
+        self.__created = os.path.getctime( filepath ) if not filepath == '' else 'NS'
+        self.__accessed = os.path.getatime( filepath ) if not filepath == '' else 'NS'
+        self.__modified = os.path.getmtime( filepath ) if not filepath == '' else 'NS'
+        self.__currdir = os.getcwd( )
+        self.__drive = str( list( os.path.splitdrive( self.__base ) )[ 0 ] ) \
+            if not filepath == '' else 'NS'
+        self.__content = list( )
+
+    def __str__( self ):
+        if self.__path is not None:
+            return self.__path
+
     def rename( self, other ):
         '''Renames the current file to 'other' '''
         if isinstance( other, str ) and not other == '':
@@ -341,27 +362,6 @@ class BudgetFile( ):
         if os.path.isfile( self.__path ) and isinstance( lines, list ):
             for line in lines:
                 self.__contents.append( open( self.__path, 'w' ).write( line ) )
-
-    def __init__( self, path ):
-        self.__base = path if os.path.exists( path) else 'NS'
-        self.__path = self.__base if not self.__base == '' else 'NS'
-        self.__name = os.path.basename( path ) if not path == '' else 'NS'
-        self.__size = os.path.getsize( path ) if not path == '' else 'NS'
-        self.__directory = os.path.dirname( self.__path ) \
-            if os.path.exists( path ) else 'NS'
-        self.__extension = list( os.path.splitext( path ) )[ 1 ] \
-            if not path == '' else 'NS'
-        self.__created = os.path.getctime( path ) if not path == '' else 'NS'
-        self.__accessed = os.path.getatime( path ) if not path == '' else 'NS'
-        self.__modified = os.path.getmtime( path ) if not path == '' else 'NS'
-        self.__currdir = os.getcwd( )
-        self.__drive = str( list( os.path.splitdrive( self.__base ) )[ 0 ] ) \
-            if not path == '' else 'NS'
-        self.__content = list( )
-
-    def __str__( self ):
-        if self.__path is not None:
-            return self.__path
 
 
 ''' BudgetFolder( filepath ) '''
@@ -452,6 +452,17 @@ class BudgetFolder( ):
         if os.path.exists( path ):
             os.chdir( path )
 
+    def __init__( self, folderpath ):
+        self.__base = folderpath if isinstance( folderpath, str ) else None
+        self.__name = os.path.basename( folderpath )
+        self.__path = self.__base
+        self.__dir = os.path.dirname( self.__path )
+        self.__parent = os.path.dirname( folderpath )
+
+    def __str__( self ):
+        if self.__path is not None:
+            return self.__path
+
     def files( self ):
         '''Iterates files in the base directory'''
         if os.path.isdir( self.__base ):
@@ -506,17 +517,6 @@ class BudgetFolder( ):
         '''iterates files in the directory provided by 'other' '''
         if os.path.exists( other ) and os.path.isdir( other ):
             yield from os.scandir( self.__base )
-
-    def __str__( self ):
-        if self.__path is not None:
-            return self.__path
-
-    def __init__( self, path ):
-        self.__base = path
-        self.__name = os.path.basename( path ) if path != '' else 'NS'
-        self.__path = self.__base if self.__base != '' else 'NS'
-        self.__dir = os.path.dirname( self.__path )
-        self.__parent = os.path.dirname( path ) if path != '' else 'NS'
 
 
 ''' EmailMessage( frm, to, body, subject, copy )'''
