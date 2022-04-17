@@ -2,7 +2,7 @@ import datetime as dt
 import os
 import zipfile as zp
 import openpyxl as xl
-from Enum import *
+from Static import *
 
 
 ''' BudgetPath( filepath ) '''
