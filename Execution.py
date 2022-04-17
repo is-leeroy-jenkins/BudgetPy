@@ -2,6 +2,7 @@ import datetime as dt
 from Ninja import *
 from Static import *
 
+
 class Unit( ):
     '''Unit( name, value ) initializes object
     representing fundemental unit of data
@@ -875,7 +876,7 @@ class FinanceObjectClass( ):
         return self.__data
 
 
-''' Fund( code )'''
+''' Fund( bfy, efy, code )'''
 class Fund( ):
     '''Defines the Fund Class'''
     __fundsid = None
@@ -1226,8 +1227,10 @@ class Fund( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __init__( self, code ):
-        self.__code = code if isinstance( code, str ) else None
+    def __init__( self, bfy, efy, code ):
+        self.__bfy = bfy if isinstance( bfy, str ) and bfy != '' else None
+        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
+        self.__code = code if isinstance( code, str ) and code != '' else None
         self.__frame = pd.DataFrame
 
     def __str__( self ):
@@ -2361,7 +2364,7 @@ class ResourcePlanningOffice( ):
         return self.__data
 
 
-''' ProgramResultsCode( bfy, efy, rpiocode, ahcode, accountcode, boccode ) '''
+''' ProgramResultsCode( bfy, efy, rpiocode, ahcode, accountc,ode, boccode ) '''
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
     __allocationsid = None
