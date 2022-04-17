@@ -1,6 +1,6 @@
 import datetime as dt
 from Ninja import *
-from Enum import *
+from Static import *
 
 class Unit( ):
     '''Unit( name, value ) initializes object
@@ -59,6 +59,7 @@ class Element( Unit ):
             return self.__code
 
 
+''' Account( code ) '''
 class Account( ):
     '''defines the Account Code class'''
     __accountsid = None
@@ -179,7 +180,7 @@ class Account( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.Accounts
-        command = Command.SELECT
+        command = Command.SELECTALL
         names = [ 'Code', ]
         values = ( self.__code, )
         df = DataFactory( provider, source, command, names, values )
@@ -187,6 +188,7 @@ class Account( ):
         return self.__data
 
 
+''' Activity( code  ) '''
 class Activity( ):
     '''Defines the Activity Class'''
     __activitycodesid = None
@@ -249,22 +251,22 @@ class Activity( ):
         self.__code = code if isinstance( code, str ) else None
         self.__data = self.getdata( )
 
-    def getdata( self ):
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        sqlconfig = SqlConfig( Command.SELECTALL, names, values )
-        dbconfig = DataConfig( Source.ActivityCodes, Provider.SQLite )
-        connection = DataConnection( dbconfig )
-        sql = SqlStatement( dbconfig, sqlconfig )
-        query = SQLiteQuery( connection, sql )
-        self.__data = query.getdata( )
-        return self.__data
-
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.ActivityCodes
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' AllowanceHolder( code  ) '''
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
     __allowancholdersid = None
@@ -331,7 +333,18 @@ class AllowanceHolder( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.AllowanceHolders
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' Appropriation( code  ) '''
 class Appropriation( ):
     '''Defines the Appropriation Class'''
     __appropriationsid = None
@@ -421,7 +434,18 @@ class Appropriation( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Appropriations
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' BudgetFiscalYear( year: str ) '''
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
     __budgetfiscalyearsid = None
@@ -602,7 +626,18 @@ class BudgetFiscalYear( ):
         if isinstance( self.__bfy, str ) and self.__bfy != '':
             return self.__bfy
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.FiscalYears
+        command = Command.SELECTALL
+        names = [ 'BFY', ]
+        values = ( self.__bfy, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' BudgetObjectClass( code ) '''
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
     __budgetobjectclassesid = None
@@ -683,7 +718,18 @@ class BudgetObjectClass( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.BudgetObjectClasses
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' Division( code ) '''
 class Division( ):
     '''Defines the Division Class'''
     __code = None
@@ -729,6 +775,7 @@ class Division( ):
             return self.__code
 
 
+''' FinanceObjectClass( code )'''
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
     __financeobjectclassesid = None
@@ -817,7 +864,18 @@ class FinanceObjectClass( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.FinanceObjectClasses
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' Fund( code )'''
 class Fund( ):
     '''Defines the Fund Class'''
     __fundsid = None
@@ -1176,7 +1234,18 @@ class Fund( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Funds
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY', 'Code' ]
+        values = ( self.__bfy, self.__efy, self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' Goal( code ) '''
 class Goal( ):
     '''Defines the Goal Class'''
     __goalsid = None
@@ -1242,7 +1311,18 @@ class Goal( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Goals
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' NationalProgram( code ) '''
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
     __nationalprogramsid = None
@@ -1331,7 +1411,18 @@ class NationalProgram( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.NationalPrograms
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' Objective( code )'''
 class Objective( ):
     '''Defines the Objective Class'''
     __objectivesid = None
@@ -1398,7 +1489,18 @@ class Objective( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Objectives
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' Organization( code ) '''
 class Organization( ):
     '''Defines the Organization Class'''
     __organizationsid = None
@@ -1465,7 +1567,18 @@ class Organization( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Organizations
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' Project( code ) '''
 class Project( ):
     '''Defines the Organization Class'''
     __projectsid = None
@@ -1532,7 +1645,18 @@ class Project( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Projects
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' ItProjectCode( code ) '''
 class ItProjectCode( ):
     '''Defines the Organization Class'''
     __cpicid = None
@@ -1599,7 +1723,18 @@ class ItProjectCode( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.CPIC
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' SiteProjectCode( code ) '''
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
     __siteprojectcodesid = None
@@ -1666,7 +1801,18 @@ class SiteProjectCode( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.SiteProjectCodes
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' StateOrganization( code ) '''
 class StateOrganization( ):
     '''StateOrganization( fgrp ) class
     representing state codes'''
@@ -1725,7 +1871,96 @@ class StateOrganization( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.StateOrganizations
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' HeadquartersOffice( code ) '''
+class HeadquartersOffice( ):
+    '''Defines a regional RPIO'''
+    __resourceplanningofficesid = None
+    __rpio = None
+    __name = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__resourceplanningofficesid, int ):
+            return self.__resourceplanningofficesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.___resourceplanningofficesid = id
+
+    @property
+    def rpio( self ):
+        if isinstance( self.__rpio, ResourcePlanningOffice ):
+            return self.__rpio
+
+    @rpio.setter
+    def rpio( self, rpo ):
+        if isinstance( rpo, ResourcePlanningOffice ):
+            self.__rpio = rpo
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__name = name
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @data.setter
+    def data( self, cache ):
+        if isinstance( cache, list ):
+            self.__data = cache
+
+    @property
+    def table( self ):
+        if isinstance( self.__frame, pd.DataFrame ):
+            return self.__frame
+
+    @table.setter
+    def table( self, frame ):
+        if isinstance( frame, pd.DataFrame ):
+            self.__frame = frame
+
+    def __init__( self, rpio ):
+        self.__rpio = rpio if isinstance( rpio, ResourcePlanningOffice ) else None
+        self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__code ):
+            return self.__code
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.HeadquartersOffices
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
+
+''' HumanResourceOrganization( code ) '''
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
     __humanresourceorganizationsid = None
@@ -1792,74 +2027,18 @@ class HumanResourceOrganization( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-
-class WorkCode( ):
-    '''Defines the Organization Class'''
-    __workcodesid = None
-    __code = None
-    __name = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__workcodesid, int ):
-            return self.__workcodesid
-
-    @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__workcodesid = id
-
-    @property
-    def code( self ):
-        if isinstance( self.__code, str) and self.__code != '':
-            return self.__code
-
-    @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
-
-    @property
-    def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
-            return self.__name
-
-    @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
-
-    @property
-    def data( self ):
-        if isinstance( self.__data, list ):
-            return self.__data
-
-    @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
-
-    @property
-    def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
-            return self.__frame
-
-    @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
-
-    def __init__( self, code ):
-        self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if isinstance( self.__code, str ) and self.__code != '':
-            return self.__code
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.HumanResourceOrganizations
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
+''' ProgramArea( code ) '''
 class ProgramArea( ):
     '''defines the ProgramArea class'''
     __programareasid = None
@@ -1926,7 +2105,18 @@ class ProgramArea( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.ProgramAreas
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' ProgramProject( code ) '''
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
     __programprojectsid = None
@@ -2004,7 +2194,18 @@ class ProgramProject( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.ProgramProjects
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' ResponsibilityCenter( code ) '''
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
     __responsibilitycentersid = None
@@ -2071,7 +2272,18 @@ class ResponsibilityCenter( ):
         if isinstance( self.__code ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.ResponsibilityCenters
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' ResourcePlanningOffice( code ) '''
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __resourceplanningofficesid = None
@@ -2138,7 +2350,18 @@ class ResourcePlanningOffice( ):
         if isinstance( self.__code ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.ResourcePlanningOffices
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' ProgramResultsCode( bfy, efy, rpiocode, ahcode, accountcode, boccode ) '''
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
     __allocationsid = None
@@ -2474,7 +2697,7 @@ class ProgramResultsCode( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __init__( self, bfy, code, amount = 0.0 ):
+    def __init__( self, bfy, efy, rpiocode, ahcode, accountcode, boccode, amount = 0.0 ):
         '''Initializes the PRC class'''
         self.__accountcode = code if isinstance( code, str ) else None
         self.__bfy = BudgetFiscalYear( dt.datetime.year )
@@ -2485,7 +2708,18 @@ class ProgramResultsCode( ):
         if isinstance( self.__code ) and self.__code != '':
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Allocations
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY', 'RpioCode', 'AhCode', 'AccoutnCode', 'BocCode' ]
+        values = ( self.__bfy, self.__efy, self.__ahcode, self.__accountcode, self.__boccode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' RegionalOffice( code ) '''
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __resourceplanningofficesid = None
@@ -2552,7 +2786,18 @@ class RegionalOffice( ):
         if isinstance( self.__code ):
             return self.__code
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.RegionalOffices
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
+
+''' SiteProject( code ) '''
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
     __siteprojectcodesid = None
@@ -2667,87 +2912,18 @@ class SiteProject( ):
         if isinstance( self.__name, str ):
             return self.__name
 
-
-class HeadquartersOffice( ):
-    '''Defines the HQ class'''
-    __resourceplanningofficesid = None
-    __rpio = None
-    __name = None
-    __title = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__resourceplanningofficesid, int ):
-            return self.__resourceplanningofficesid
-
-    @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__accountsid = id
-
-    @property
-    def rpio( self ):
-        if self.__rpio is not None:
-            return self.__rpio
-
-    @rpio.setter
-    def rpio( self, code ):
-        if code is not None:
-            self.__rpio = str( code )
-            self.__data[ 'rpio' ] = ResourcePlanningOffice( self.__rpio )
-
-    @property
-    def name( self ):
-        if self.__name is not None:
-            return self.__name
-
-    @name.setter
-    def name( self, name ):
-        if name is not None:
-            self.__name = str( name )
-            self.__data[ 'name' ] = self.__name
-
-    @property
-    def title( self ):
-        if self.__title is not None:
-            return self.__title
-
-    @title.setter
-    def title( self, title ):
-        if title is not None:
-            self.__title = str( title )
-            self.__data[ 'title' ] = self.__title
-
-    @property
-    def data( self ):
-        if isinstance( self.__data, list ):
-            return self.__data
-
-    @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
-
-    @property
-    def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
-            return self.__frame
-
-    @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
-
-    def __init__( self, rpio ):
-        self.__rpio = rpio if isinstance( rpio, str ) else None
-
-    def __str__( self ):
-        if isinstance( self.__rpio, str ):
-            return self.__rpio
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.SiteProjectCodes
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
+''' FederalHoliday( bfy )'''
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
     __federalholidaysid = None
@@ -3029,10 +3205,6 @@ class FederalHoliday( ):
             self.__name = 'NS'
             return self.__name
 
-    def __str__( self ):
-        if not self.__name == '':
-            return self.__name
-
     def __init__( self, bfy, name ):
         self.__list = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                         'NewYearsDay', 'MartinLutherKing', 'Washingtons',
@@ -3059,11 +3231,25 @@ class FederalHoliday( ):
                         'name': self.__name }
         self.__frame = pd.DataFrame
 
+    def __str__( self ):
+        if not self.__name == '':
+            return self.__name
 
-class TreasuryAccountFundSymbol( ):
-    '''TreasuryAccountFundSymbol( code )
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.SiteProjectCodes
+        command = Command.SELECTALL
+        names = [ 'BFY', ]
+        values = ( self.__bfy, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
+
+''' TreasurySymbol( bfy, efy, code ) '''
+class TreasurySymbol( ):
+    '''TreasurySymbol( code )
     creates object that represents a TAFS'''
-
     __ombagencycode = None
     __treasuryagencycode = None
     __bfy = None
@@ -3135,8 +3321,100 @@ class TreasuryAccountFundSymbol( ):
         if isinstance( name, str ) and name != '':
             self.__ombaccountname = name
 
-    def __init__( self, bfy, efy, trescode ):
+    def __init__( self, bfy, efy, code ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
         self.__treasuryaccountcode = trescode if isinstance( trescode, str ) else None
+
+    def __str__( self ):
+        if isinstance( self.__treasuryaccountname, str ) and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.SiteProjectCodes
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
+        values = ( self.__bfy, self.__efy, self.__treasuryaccountcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
+
+''' WorkCode( code ) '''
+class WorkCode( ):
+    '''Defines the Organization Class'''
+    __workcodesid = None
+    __code = None
+    __name = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__workcodesid, int ):
+            return self.__workcodesid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__workcodesid = id
+
+    @property
+    def code( self ):
+        if isinstance( self.__code, str) and self.__code != '':
+            return self.__code
+
+    @code.setter
+    def code( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__code = code
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__name = name
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @data.setter
+    def data( self, cache ):
+        if isinstance( cache, list ):
+            self.__data = cache
+
+    @property
+    def table( self ):
+        if isinstance( self.__frame, pd.DataFrame ):
+            return self.__frame
+
+    @table.setter
+    def table( self, frame ):
+        if isinstance( frame, pd.DataFrame ):
+            self.__frame = frame
+
+    def __init__( self, code ):
+        self.__code = code if isinstance( code, str ) else None
+        self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.WorkCodes
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = ( self.__code, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 

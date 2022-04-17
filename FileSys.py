@@ -5,8 +5,9 @@ import openpyxl as xl
 from Enum import *
 
 
+''' BudgetPath( filepath ) '''
 class BudgetPath( ):
-    '''BudgetPath( filename ) initializes the
+    ''' BudgetPath( filename ) initializes the
     BudgetPath class providing filepath information of files
     used in the application'''
     __base = None
@@ -28,13 +29,13 @@ class BudgetPath( ):
 
     @property
     def name( self ):
-        '''Returns string representing the name of the path 'base' '''
+        '''Returns string representing the name of the filepath 'base' '''
         if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
     def name( self, path ):
-        '''Returns string representing the name of the path 'base' '''
+        '''Returns string representing the name of the filepath 'base' '''
         if isinstance( path, str ):
             self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
 
@@ -96,7 +97,7 @@ class BudgetPath( ):
 
     @current.setter
     def current( self, path ):
-        '''Set the current directory to 'path' '''
+        '''Set the current directory to 'filepath' '''
         if os.path.exists( path ):
             os.chdir( path )
             self.__currdir = path
@@ -136,8 +137,9 @@ class BudgetPath( ):
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
 
+''' BudgetFile( filepath ) '''
 class BudgetFile( ):
-    '''BudgetFile( path ) initializes the
+    '''BudgetFile( filepath ) initializes the
      BudgetFile Class providing file information for
      files used in the application'''
     __base = None
@@ -264,7 +266,7 @@ class BudgetFile( ):
 
     @current.setter
     def current( self, path ):
-        '''Set the current directory to 'path' '''
+        '''Set the current directory to 'filepath' '''
         if os.path.exists( path ) and os.path.isdir( path ):
             os.chdir( path )
             self.__currdir = path
@@ -282,7 +284,7 @@ class BudgetFile( ):
             return os.path.join( self.__name, destination )
 
     def create( self, other ):
-        ''' creates and returns 'path' file '''
+        ''' creates and returns 'filepath' file '''
         if other is not None:
             os.mkdir( other )
 
@@ -307,12 +309,12 @@ class BudgetFile( ):
             return str( list( os.path.splitdrive( other ) )[ 0 ] )
 
     def getextension( self, other ):
-        ''' gets and returns extension of 'path' 'file' '''
+        ''' gets and returns extension of 'filepath' 'file' '''
         if other is not None and os.path.isfile( other ):
             return str( list( os.path.splitext( other ) )[ 1 ] )
 
     def readlines( self, other ):
-        '''reads all lines in 'path' into a list
+        '''reads all lines in 'filepath' into a list
             then returns the list '''
         lines = [ ]
         count = len( self.__contents )
@@ -340,10 +342,6 @@ class BudgetFile( ):
             for line in lines:
                 self.__contents.append( open( self.__path, 'w' ).write( line ) )
 
-    def __str__( self ):
-        if self.__path is not None:
-            return self.__path
-
     def __init__( self, path ):
         self.__base = path if os.path.exists( path) else 'NS'
         self.__path = self.__base if not self.__base == '' else 'NS'
@@ -361,9 +359,14 @@ class BudgetFile( ):
             if not path == '' else 'NS'
         self.__content = list( )
 
+    def __str__( self ):
+        if self.__path is not None:
+            return self.__path
 
+
+''' BudgetFolder( filepath ) '''
 class BudgetFolder( ):
-    '''BudgetFolder( path ) initializes the
+    '''BudgetFolder( filepath ) initializes the
      BudgetFolder Class providing file directory information'''
     __base = None
     __name = None
@@ -387,25 +390,25 @@ class BudgetFolder( ):
 
     @property
     def name( self ):
-        '''Returns string representing the name of the path 'base' '''
+        '''Returns string representing the name of the filepath 'base' '''
         if os.path.exists( self.__base ):
             return str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @name.setter
     def name( self, path ):
-        '''Returns string representing the name of the path 'base' '''
+        '''Returns string representing the name of the filepath 'base' '''
         if path is not None:
             self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @property
     def directory( self ):
-        '''Returns string representing the name of the path 'base' '''
+        '''Returns string representing the name of the filepath 'base' '''
         if not self.__dir == '':
             return self.__dir
 
     @directory.setter
     def directory( self, path ):
-        '''Returns string representing the name of the path 'base' '''
+        '''Returns string representing the name of the filepath 'base' '''
         if os.path.isdir( path ):
             self.__dir = path
 
@@ -479,17 +482,17 @@ class BudgetFolder( ):
             os.mkdir( other )
 
     def delete( self, other ):
-        ''' deletes 'path' directory '''
+        ''' deletes 'filepath' directory '''
         if other is not None and os.path.isdir( other ):
             os.rmdir( other )
 
     def getsize( self, other ):
-        ''' gets and returns size of 'path' '''
+        ''' gets and returns size of 'filepath' '''
         if other is not None and os.path.isdir( other ):
             return os.path.getsize( other )
 
     def getdrive( self, other ):
-        ''' gets and returns parent directory of 'path' '''
+        ''' gets and returns parent directory of 'filepath' '''
         if other is not None and os.path.isdir( other ):
             return os.path.splitdrive( other )[ 0 ]
 
@@ -516,8 +519,9 @@ class BudgetFolder( ):
         self.__parent = os.path.dirname( path ) if path != '' else 'NS'
 
 
+''' EmailMessage( frm, to, body, subject, copy )'''
 class EmailMessage( ):
-    '''EmailMessage( frm, to, body, sub ) initializes
+    '''EmailMessage( frm, to, body, subject ) initializes
     class providing email behavior '''
     __from = None
     __to = None
@@ -585,18 +589,19 @@ class EmailMessage( ):
         if copy is not None:
             self.__others = list( copy )
 
-    def __init__( self, frm, to, body, sub, copy = None ):
-        self.__from = str( frm )
-        self.__to = str( to )
-        self.__message = str( body )
-        self.__others = list( copy )
-        self.__subject = str( sub )
+    def __init__( self, frm, to, body, subject, copy = None ):
+        self.__from = frm if isinstance( frm, str ) and str != '' else None
+        self.__to = ot if isinstance( ot, str ) and str != '' else None
+        self.__message = body if isinstance( body, str ) and str != '' else None
+        self.__others = copy if isinstance( copy, list ) else None
+        self.__subject = subject if isinstance( subject, str ) and str != '' else None
 
     def __str__( self ):
-        if self.__message is not None:
-            return self.__message
+        if isinstance( self.__subject, str ) and self.__subject != '':
+            return self.__subject
 
 
+''' EmailBuilder( frm, to, body, subject, copy )'''
 class EmailBuilder( ):
     ''' Helper class for generating email messages '''
     __from = None
@@ -665,21 +670,21 @@ class EmailBuilder( ):
         if copy is not None:
             self.__others = list( copy )
 
-    def __init__( self, frm, to,
-                  body, sub, copy = None ):
+    def __init__( self, frm, to, body, subject, copy = None ):
         self.__from = str( frm )
         self.__to = str( to )
         self.__message = str( body )
         self.__others = list( copy )
-        self.__subject = str( sub )
+        self.__subject = str( subject )
 
     def __str__( self ):
         if self.__message is not None:
             return self.__message
 
 
+''' ExcelFile( filepath ) '''
 class ExcelFile( ):
-    '''ExcelFile( name ) class provides
+    '''ExcelFile( filepath ) class provides
     the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
@@ -742,6 +747,7 @@ class ExcelFile( ):
         self.__name = os.path.split( self.__path )[ 1 ]
 
 
+''' ExcelReport( name, rows = 46, cols = 12 ) '''
 class ExcelReport( ):
     '''ExcelReport( name ) class provides
     the spreadsheet for Budget Py reports '''
@@ -822,12 +828,13 @@ class ExcelReport( ):
 
     def __init__( self, name, rows = 46, cols = 12 ):
         self.__path = r'etc/templates/report/Excel.xlsx'
-        self.__name = str( name )
-        self.__rows = int( rows )
-        self.__columns = int( cols )
+        self.__name = name if isinstance( name, str ) and name != '' else None
+        self.__rows = rows if isinstance( rows, int ) and rows > -1 else None
+        self.__columns = cols if isinstance( cols, int ) and cols > -1 else None
         self.__dimensions = (self.__rows, self.__columns)
 
 
+''' ZipFile( filepath ) '''
 class ZipFile( ):
     __name = None
     __filepath = None
@@ -867,9 +874,9 @@ class ZipFile( ):
             file = zp.ZipFile( self.__zippath )
             file.extractall( self.__zippath )
 
-    def __init__( self, path ):
+    def __init__( self, filepath ):
         self.__zipextension = '.zip'
-        self.__filepath = str( path )
+        self.__filepath = filepath if isinstance( filepath, str ) and os.path.isfile( filepath ) else None
         self.__base = BudgetFile( self.__filepath )
         self.__extension = self.__base.extension
         self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
