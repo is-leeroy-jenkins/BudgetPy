@@ -5,7 +5,7 @@ IMPORTANT: This stuff is touchy. If you modify anything above the
 test class you'll have to regenerate the stats by running the two
 test files.
 
-*ALL* NUMBERS in the expected output are relevant.  If you change
+*SELECTALL* NUMBERS in the expected output are relevant.  If you change
 the formatting of pstats, please don't just regenerate the expected
 output without checking very carefully that not a single number has
 changed.

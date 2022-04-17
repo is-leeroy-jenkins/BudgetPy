@@ -832,7 +832,7 @@ class SMTP:
 
          SMTPHeloError          The server didn't reply properly to
                                 the helo greeting.
-         SMTPRecipientsRefused  The server rejected ALL recipients
+         SMTPRecipientsRefused  The server rejected SELECTALL recipients
                                 (no mail was sent).
          SMTPSenderRefused      The server didn't accept the from_addr.
          SMTPDataError          The server replied with an unexpected

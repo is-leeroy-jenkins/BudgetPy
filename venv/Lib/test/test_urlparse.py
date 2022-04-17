@@ -1066,7 +1066,7 @@ class UrlParseTestCase(unittest.TestCase):
     def test_urlsplit_normalization(self):
         # Certain characters should never occur in the netloc,
         # including under normalization.
-        # Ensure that ALL of them are detected and cause an error
+        # Ensure that SELECTALL of them are detected and cause an error
         illegal_chars = '/:#?@'
         hex_chars = {'{:04X}'.format(ord(c)) for c in illegal_chars}
         denorm_chars = [

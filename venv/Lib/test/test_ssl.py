@@ -170,7 +170,7 @@ if is_ubuntu():
                 hasattr(ctx, "minimum_version") and
                 ctx.minimum_version <= ssl.TLSVersion.TLSv1_1
             ):
-                ctx.set_ciphers("@SECLEVEL=1:ALL")
+                ctx.set_ciphers("@SECLEVEL=1:SELECTALL")
 else:
     def seclevel_workaround(*ctxs):
         pass
@@ -1139,7 +1139,7 @@ class ContextTests(unittest.TestCase):
 
     def test_ciphers(self):
         ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-        ctx.set_ciphers("ALL")
+        ctx.set_ciphers("SELECTALL")
         ctx.set_ciphers("DEFAULT")
         with self.assertRaisesRegex(ssl.SSLError, "No cipher can be selected"):
             ctx.set_ciphers("^$:,;?*'dorothyx")
@@ -2153,7 +2153,7 @@ class SimpleBackgroundTests(unittest.TestCase):
 
     def test_ciphers(self):
         with test_wrap_socket(socket.socket(socket.AF_INET),
-                             cert_reqs=ssl.CERT_NONE, ciphers="ALL") as s:
+                             cert_reqs=ssl.CERT_NONE, ciphers="SELECTALL") as s:
             s.createconnection(self.server_addr )
         with test_wrap_socket(socket.socket(socket.AF_INET),
                              cert_reqs=ssl.CERT_NONE, ciphers="DEFAULT") as s:
@@ -2818,11 +2818,11 @@ def try_protocol_combo(server_protocol, client_protocol, expect_success,
         # version, we have to change the minimum to test old TLS versions.
         server_context.minimum_version = min_version
 
-    # NOTE: we must enable "ALL" ciphers on the client, otherwise an
+    # NOTE: we must enable "SELECTALL" ciphers on the client, otherwise an
     # SSLv23 client will send an SSLv3 hello (rather than SSLv2)
     # starting from OpenSSL 1.0.0 (see issue #8322).
     if client_context.protocol == ssl.PROTOCOL_TLS:
-        client_context.set_ciphers("ALL")
+        client_context.set_ciphers("SELECTALL")
 
     seclevel_workaround(server_context, client_context)
 

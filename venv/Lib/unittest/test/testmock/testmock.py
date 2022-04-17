@@ -954,7 +954,7 @@ class MockTest(unittest.TestCase):
             attrs = set(dir(Mock()))
             type_attrs = set(dir(Mock))
 
-            # ALL attributes from the type are included
+            # SELECTALL attributes from the type are included
             self.assertEqual(set(), type_attrs - attrs)
         finally:
             patcher.stop()

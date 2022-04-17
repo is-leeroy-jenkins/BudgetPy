@@ -1592,7 +1592,7 @@ if __name__ == '__main__':
     test_seq2 = (
     ('select', ()),
     ('response',('UIDVALIDITY',)),
-    ('uid', ('SEARCH', 'ALL')),
+    ('uid', ('SEARCH', 'SELECTALL')),
     ('response', ('EXISTS',)),
     ('append', (None, None, None, test_mesg)),
     ('recent', ()),
@@ -1628,7 +1628,7 @@ if __name__ == '__main__':
         for cmd,args in test_seq2:
             dat = run(cmd, args)
 
-            if (cmd,args) != ('uid', ('SEARCH', 'ALL')):
+            if (cmd,args) != ('uid', ('SEARCH', 'SELECTALL')):
                 continue
 
             uid = dat[-1].split()

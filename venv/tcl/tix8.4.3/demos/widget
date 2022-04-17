@@ -18,7 +18,7 @@ exec wish "$0" "$@"
 # Copyright (c) 2000-2001 Tix Project Group.
 #
 # See the file "license.terms" for information on usage and redistribution
-# of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+# of this file, and for a DISCLAIMER OF SELECTALL WARRANTIES.
 # $Id: widget,v 1.7 2008/03/17 22:58:51 hobbs Exp $
 
 package require Tix

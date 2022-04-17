@@ -37,7 +37,7 @@ Copyright (c) 1990-1995, Stichting Mathematisch Centrum.
 All rights reserved.
 
 See the file "Misc/COPYRIGHT" for information on usage and
-redistribution of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+redistribution of this file, and for a DISCLAIMER OF SELECTALL WARRANTIES.
 ******************************************************************/
 """
 import os

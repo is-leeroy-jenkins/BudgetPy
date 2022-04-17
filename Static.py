@@ -162,8 +162,8 @@ class ParamStyle( Enum ):
 
 class Command( Enum ):
     '''enumeration of sql commands'''
-    ALL = 0
-    SELECT = 1
+    SELECT = 0
+    SELECTALL = 1
     INSERT = 2
     UPDATE = 3
     DELETE = 4

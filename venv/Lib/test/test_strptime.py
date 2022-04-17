@@ -435,7 +435,7 @@ class StrptimeTests(unittest.TestCase):
         # Should handle names case-insensitively.
         strf_output = time.strftime("%B", self.time_tuple)
         self.assertTrue(_strptime._strptime_time(strf_output.upper(), "%B"),
-                        "strptime does not handle ALL-CAPS names properly")
+                        "strptime does not handle SELECTALL-CAPS names properly")
         self.assertTrue(_strptime._strptime_time(strf_output.lower(), "%B"),
                         "strptime does not handle lowercase names properly")
         self.assertTrue(_strptime._strptime_time(strf_output.capitalize(), "%B"),

@@ -995,7 +995,7 @@ _Validation_records = [
 ('Upgrade','Attributes','N',0,2147483647,None, None, None, None, 'The attributes of this product set.',),
 ('Upgrade','Language','Y',None, None, None, None, 'Language',None, 'A comma-separated list of languages for either products in this set or products not in this set.',),
 ('Upgrade','ActionProperty','N',None, None, None, None, 'UpperCase',None, 'The property to set when a product in this set is found.',),
-('Upgrade','Remove','Y',None, None, None, None, 'Formatted',None, 'The list of features to remove when uninstalling a product from this set.  The default is "ALL".',),
+('Upgrade','Remove','Y',None, None, None, None, 'Formatted',None, 'The list of features to remove when uninstalling a product from this set.  The default is "SELECTALL".',),
 ('Upgrade','UpgradeCode','N',None, None, None, None, 'Guid',None, 'The UpgradeCode GUID belonging to the products in this set.',),
 ('Upgrade','VersionMax','Y',None, None, None, None, 'Text',None, 'The maximum ProductVersion of the products in this set.  The set may or may not include products with this particular version.',),
 ('Upgrade','VersionMin','Y',None, None, None, None, 'Text',None, 'The minimum ProductVersion of the products in this set.  The set may or may not include products with this particular version.',),

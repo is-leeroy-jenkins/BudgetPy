@@ -445,7 +445,7 @@ class Appropriation( ):
         return self.__data
 
 
-''' BudgetFiscalYear( year: str ) '''
+''' BudgetFiscalYear( bfy ) '''
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
     __budgetfiscalyearsid = None

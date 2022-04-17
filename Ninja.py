@@ -500,7 +500,7 @@ class SqlStatement( ):
             return self.__commandtext
 
     def commandtext( self ):
-        if self.__command == Command.ALL:
+        if self.__command == Command.SELECTALL:
             self.__commandtext = f'SELECT ALL FROM { self.__table }' \
                                  + f'{ self.__sqlconfig.wheredump( ) };'
             return self.__commandtext
@@ -936,7 +936,7 @@ class QueryBuilder( ):
             self.__sqlconfig = sqlconfig
 
     def __init__( self, src = None, prov = Provider.SQLite,
-                  cmd = Command.ALL, names = None, values = None ):
+                  cmd = Command.SELECTALL, names = None, values = None ):
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__command = cmd if isinstance( cmd, Command ) else None
