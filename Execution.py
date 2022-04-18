@@ -3422,10 +3422,14 @@ class WorkCode( ):
         return self.__data
 
 
+''' Transfer( documentnumber ) '''
 class Transfer( ):
-    ''' Transfer( document ) initializes object
+    ''' Transfer( documentnumber ) initializes object
     representing EPA reprogrammings'''
     __transfersid = None
+    __documenttype = None
+    __documentnumber = None
+    __processeddate = None
     __budgetlevel = None
     __rpiocode = None
     __rpioname = None
@@ -3438,9 +3442,6 @@ class Transfer( ):
     __orgcode = None
     __orgname = None
     __accountcode = None
-    __accountname = None
-    __activitycode = None
-    __activityname = None
     __rccode = None
     __rcname = None
     __boccode = None
@@ -3480,6 +3481,46 @@ class Transfer( ):
     def efy( self, year ):
         if isinstance( year, str) and len( year ) == 4:
             self.__efy = year
+
+    @property
+    def budgetlevel( self ):
+        if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != '':
+            return self.__budgetlevel
+
+    @budgetlevel.setter
+    def budgetlevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__budgetlevel = value
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentnumber = value
+
+    @property
+    def processeddate( self ):
+        if isinstance( self.__processeddate, dt.datetime ):
+            return self.__processeddate
+
+    @processeddate.setter
+    def processeddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__processeddate = value
 
     @property
     def rpiocode( self ):
@@ -3670,3 +3711,6 @@ class Transfer( ):
     def programareaname( self, name ):
         if isinstance( name, str ) and name != '':
             self.__programareaname = name
+
+    def __init__( self, documentnumber ):
+        self.__documentnumber = documentnumber if isinstance( documentnumber, str ) else None
