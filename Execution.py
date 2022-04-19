@@ -347,11 +347,12 @@ class AllowanceHolder( ):
 class Appropriation( ):
     '''Defines the Appropriation Class'''
     __appropriationsid = None
+    __bfy = None
+    __efy = None
     __fund = None
     __code = None
     __name = None
     __title = None
-    __bfy = None
     __data = None
     __frame = None
 
@@ -364,6 +365,26 @@ class Appropriation( ):
     def id( self, id ):
         if isinstance( id, int ):
             self.__appropriationsid  = id
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @bfy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__efy = value
 
     @property
     def code( self ):
@@ -394,16 +415,6 @@ class Appropriation( ):
     def data( self, cache ):
         if isinstance( cache, list ):
             self.__data = cache
-
-    @property
-    def fiscalyear( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
-            return self.__bfy
-
-    @fiscalyear.setter
-    def fiscalyear( self, bfy ):
-        if isinstance( bfy, str) and bfy != '':
-            self.__bfy = bfy
 
     @property
     def fund( self ):
@@ -437,14 +448,14 @@ class Appropriation( ):
         provider = Provider.SQLite
         source = Source.Appropriations
         command = Command.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
+        names = [ 'BFY', 'EFY', 'Code', ]
+        values = ( self.__bfy, self.__code )
         df = DataFactory( provider, source, command, names, values )
         self.__data = df.create( )
         return self.__data
 
 
-''' BudgetFiscalYear( bfy ) '''
+''' BudgetFiscalYear( value ) '''
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
     __budgetfiscalyearsid = None
@@ -874,7 +885,7 @@ class FinanceObjectClass( ):
         return self.__data
 
 
-''' Fund( bfy, efy, code )'''
+''' Fund( value, efy, code )'''
 class Fund( ):
     '''Defines the Fund Class'''
     __fundsid = None
@@ -2362,7 +2373,7 @@ class ResourcePlanningOffice( ):
         return self.__data
 
 
-''' ProgramResultsCode( bfy, efy, rpiocode, ahcode, accountcode, boccode ) '''
+''' ProgramResultsCode( value, efy, rpiocode, ahcode, accountcode, boccode ) '''
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
     __allocationsid = None
@@ -2924,7 +2935,7 @@ class SiteProject( ):
         return self.__data
 
 
-''' FederalHoliday( bfy )'''
+''' FederalHoliday( value )'''
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
     __federalholidaysid = None
@@ -2969,7 +2980,7 @@ class FederalHoliday( ):
     def bfy( self, year ):
         if year is not None:
             self.__bfy = str( year )
-            self.__data[ 'bfy' ] = self.__bfy
+            self.__data[ 'value' ] = self.__bfy
 
     @property
     def name( self ):
@@ -3228,7 +3239,7 @@ class FederalHoliday( ):
         self.__dayofweek = self.__date.day
         self.__month = self.__date.month
         self.__day = self.__date.isoweekday()
-        self.__data = { 'bfy': self.__bfy,
+        self.__data = { 'value': self.__bfy,
                         'name': self.__name }
         self.__frame = pd.DataFrame
 
@@ -3247,7 +3258,7 @@ class FederalHoliday( ):
         return self.__data
 
 
-''' TreasurySymbol( bfy, efy, code ) '''
+''' TreasurySymbol( value, efy, code ) '''
 class TreasurySymbol( ):
     '''TreasurySymbol( code )
     creates object that represents a TAFS'''
