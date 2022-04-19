@@ -105,25 +105,23 @@ class Account( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ):
+        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
             return self.__goalcode
 
     @goalcode.setter
     def goalcode( self, goal ):
-        if isinstance( goal, str ):
+        if isinstance( goal, str ) and goal != '':
             self.__goalcode = goal
-            self.__data[ 'goal' ] = self.__goalcode
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ):
+        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
             return self.__objectivecode
 
     @objectivecode.setter
     def objectivecode( self, obj ):
-        if obj is not None:
-            self.__objectivecode = str( obj )
-            self.__data[ 'objective' ] = self.__objectivecode
+        if isinstance( obj, str ) and obj != '':
+            self.__objectivecode = obj
 
     @property
     def npmcode( self ):
