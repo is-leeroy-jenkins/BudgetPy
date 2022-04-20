@@ -211,12 +211,12 @@ class BudgetaryResourceExecution( ):
 
     @property
     def treasuryfundsymbol( self ):
-        if isinstance( self.__treasuryfundsymbol, TreasuryAccountFundSymbol ):
+        if isinstance( self.__treasuryfundsymbol, str ) and self.__treasuryfundsymbol != '':
             return self.__treasuryfundsymbol
 
     @treasuryfundsymbol.setter
     def treasuryfundsymbol( self, tafs ):
-        if isinstance( tafs, TreasuryAccountFundSymbol ):
+        if isinstance( tafs, str ) and tafs != '':
             self.__treasuryfundsymbol = tafs
 
     @property
