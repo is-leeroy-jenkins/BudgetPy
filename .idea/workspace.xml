@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40f2dc4-3e9e-4394-8d79-ad4ff57c9895" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/7/17dabf4f007d7cce2897536a31790a348b595693" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/25e320b55d443630a1ce03c213804f01e7f09c7e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6f61558d7c3dd6ffeaf68367bc625434c34b23df" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/b/8bd840fba2dbdab27f36c7587e14a47f48cdbb59" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enum.py" beforeDir="false" afterPath="$PROJECT_DIR$/Enum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reporting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +24,9 @@
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Execution.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/FileSys.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -57,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -124,14 +116,56 @@
       <option name="project" value="LOCAL" />
       <updated>1650237917993</updated>
     </task>
-    <task id="LOCAL-00009" summary="updates from main rig;">
-      <created>1650283874090</created>
+    <task id="LOCAL-00009" summary="updates from work rig;">
+      <created>1650288255731</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1650283874090</updated>
+      <updated>1650288255731</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updates from work rig;">
+      <created>1650289282236</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1650289282236</updated>
+    </task>
+    <task id="LOCAL-00011" summary="updates from work rig;">
+      <created>1650320411299</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1650320411299</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updates from work rig;">
+      <created>1650372513381</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1650372513381</updated>
+    </task>
+    <task id="LOCAL-00013" summary="updates from work rig;">
+      <created>1650372661265</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1650372661265</updated>
+    </task>
+    <task id="LOCAL-00014" summary="updates from work rig;">
+      <created>1650406396233</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1650406396233</updated>
+    </task>
+    <task id="LOCAL-00015" summary="updates from work rig;">
+      <created>1650406952578</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1650406952578</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,6 +181,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updates from main rig;" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;" />
+    <MESSAGE value="updates from work rig;" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates from work rig;" />
   </component>
 </project>
