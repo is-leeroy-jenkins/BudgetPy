@@ -1,0 +1,70 @@
+
+rpython:S1192Ë"ZDefine a constant instead of duplicating this literal "certificate verify failed" 3 times.(¾Àí&
+mpython:S1192á"TDefine a constant instead of duplicating this literal "ECDHE:!eNULL:!aNULL" 3 times.(ûŠşã
+gpython:S1192Q"ODefine a constant instead of duplicating this literal 'Castle Anthrax' 4 times.(ª‘ìõ
+npython:S1192€"PDefine a constant instead of duplicating this literal 'ipv6.google.com' 3 times.(ÙÈëşÿÿÿÿ
+epython:S1192Å "GDefine a constant instead of duplicating this literal 'spdy/2' 5 times.(ŒÍóşÿÿÿÿ
+_python:S1192Å"FDefine a constant instead of duplicating this literal 'a.com' 3 times.(·µé¯
+npython:S1192Š"PDefine a constant instead of duplicating this literal 'mail.google.com' 5 times.(ÿÎ˜ùÿÿÿÿ
+apython:S1192¸
+"HDefine a constant instead of duplicating this literal "PEM lib" 6 times.(ÛÁ´İ
+fpython:S1192Ë"HDefine a constant instead of duplicating this literal b"over\n" 5 times.(ˆ—Ê¡úÿÿÿÿ
+vpython:S1192Ñ"^Define a constant instead of duplicating this literal 'TLS Web Server Authentication' 3 times.(ë·Ñ
+ˆpython:S1192±"oDefine a constant instead of duplicating this literal 'xn--knigsgchen-b4a3dun.idna2008.pythontest.net' 3 times.(•çõé
+gpython:S1192ˆ"NDefine a constant instead of duplicating this literal 'Mountain View' 4 times.(™ı×
+epython:S1192Œ"LDefine a constant instead of duplicating this literal 'IP Address' 11 times.(Äêò­
+„python:S1192É"fDefine a constant instead of duplicating this literal 'called a function you should not call' 3 times.(õï››ÿÿÿÿÿ
+dpython:S1192‰"KDefine a constant instead of duplicating this literal 'Google Inc' 3 times.(Ìèıç
+gpython:S1192Å "IDefine a constant instead of duplicating this literal 'http/1.1' 5 times.(ŒÍóşÿÿÿÿ
+bpython:S1192¼"IDefine a constant instead of duplicating this literal b'FALSE\n' 6 times.(»µ…‰
+}python:S1192„"_Define a constant instead of duplicating this literal 'null.python.org\x00example.org' 3 times.(ÃÂÂııÿÿÿÿ
+xpython:S1192À"ZDefine a constant instead of duplicating this literal " client:  sending %r...\n" 3 times.(ûêÅ‚ùÿÿÿÿ
+apython:S1192º"HDefine a constant instead of duplicating this literal b'TRUE\n' 6 times.(Àµˆı
+apython:S1192ˆ"HDefine a constant instead of duplicating this literal 'TLSv1.3' 4 times.(ÓÉ¿¡
+`python:S1192Ç"HDefine a constant instead of duplicating this literal 'TLSv1.2' 5 times.(öô‹
+~python:S1192¢"`Define a constant instead of duplicating this literal 'xn--knig-5qa.idn.pythontest.net' 4 times.(¢“Ï¦úÿÿÿÿ
+apython:S1192µ"HDefine a constant instead of duplicating this literal 'TLSv1.1' 3 times.(áÊ°·
+python:S1192©"oDefine a constant instead of duplicating this literal 'xn--knigsgsschen-lcb0w.idna2003.pythontest.net' 4 times.(Æœ¹ùùÿÿÿÿ
+lpython:S1192"NDefine a constant instead of duplicating this literal '<unsupported>' 4 times.( µö„ÿÿÿÿÿ
+jpython:S1192º"LDefine a constant instead of duplicating this literal 'example.com' 8 times.(Ñ­ùÏúÿÿÿÿ
+ypython:S1192Î"`Define a constant instead of duplicating this literal " client:  closing connection.\n" 3 times.(–ú°©
+zpython:S1192í"\Define a constant instead of duplicating this literal "Can't get peer certificate." 7 times.(Ï¼ƒ¹üÿÿÿÿ
+spython:S1192R"[Define a constant instead of duplicating this literal 'Python Software Foundation' 6 times.(ĞîˆØ
+Mpython:S1066‚"/Merge this if statement with the enclosing one.(£‡è¡øÿÿÿÿ
+Mpython:S1066¾"/Merge this if statement with the enclosing one.(â›Ùæúÿÿÿÿ
+Mpython:S1066Ä"/Merge this if statement with the enclosing one.(â›Ùæúÿÿÿÿ
+Mpython:S1066Í"/Merge this if statement with the enclosing one.(â›Ùæúÿÿÿÿ
+tpython:S1186¯"[Add a nested comment explaining why this function is empty, or complete the implementation.(¬¼òÍ
+Qpython:S5754·"8Catch a more specific exception or reraise the exception(Ÿ­˜§
+spython:S117¾"[Rename this local variable "serverAuth" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ïº‰Æ
+[python:S112ë
+">Replace this generic exception class with a more specific one.(äãø°úÿÿÿÿ
+tpython:S1186"[Add a nested comment explaining why this function is empty, or complete the implementation.(Íç§Ì
+ypython:S1186—"[Add a nested comment explaining why this function is empty, or complete the implementation.(†ôÙÿÿÿÿÿ
+rpython:S3776”"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ß•ºŠûÿÿÿÿ
+mpython:S3776¯"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(à››€
+mpython:S3776ÿ"TRefactor this function to reduce its Cognitive Complexity from 82 to the 15 allowed.(¯Œåò
+rpython:S3776ç"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¿ğÑÜşÿÿÿÿ
+Vpython:S5754­"8Catch a more specific exception or reraise the exception(ê¥Ğ…úÿÿÿÿ
+[python:S5747î"BRemove this "raise" statement or move it inside an "except" block.(€³¢»
+[python:S5747ı"BRemove this "raise" statement or move it inside an "except" block.(€³¢»
+Upython:S5754¦"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S3776­"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ò½ÚÓüÿÿÿÿ
+mpython:S3776ß"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(´Äû«
+Ypython:S1135û"4Complete the task associated to this "TODO" comment.(ø˜ÀÖûÿÿÿÿ8ÛÈŒÅƒ0
+Jpython:S1481ª",Remove the unused local variable "ssl_sock".(ô‡ÚÚÿÿÿÿÿ
+rpython:S3776×"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(¶ÿ¦ûÿÿÿÿ
+rpython:S3776Ç"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(ï“¦òûÿÿÿÿ
+Bpython:S1481ã")Remove the unused local variable "stats".(•ÿªÙ
+Bpython:S1481ì")Remove the unused local variable "stats".(•ÿªÙ
+Bpython:S1481÷")Remove the unused local variable "stats".(•ÿªÙ
+Bpython:S1481œ!")Remove the unused local variable "stats".(•ÿªÙ
+Bpython:S1481¬!")Remove the unused local variable "stats".(•ÿªÙ
+Rpython:S905§!":Remove or refactor this statement; it has no side effects.(®æôè
+Bpython:S1481À!")Remove the unused local variable "stats".(•ÿªÙ
+Ypython:S1135ú!"4Complete the task associated to this "TODO" comment.(ãí‘Øúÿÿÿÿ8ÛÈŒÅƒ0
+Spython:S1135¶""4Complete the task associated to this "TODO" comment.(à»ÚR8ÛÈŒÅƒ0
+?python:S1481 #"&Remove the unused local variable "cm".(ÿòß
+ypython:S1186%"[Add a nested comment explaining why this function is empty, or complete the implementation.(Ğ°™ùÿÿÿÿ
+ypython:S1186¼%"[Add a nested comment explaining why this function is empty, or complete the implementation.(Ğ°™ùÿÿÿÿ
+Tpython:S1172Ï%"/Remove the unused function parameter "verbose".( Ü¿ºşÿÿÿÿ8ÛÈŒÅƒ0

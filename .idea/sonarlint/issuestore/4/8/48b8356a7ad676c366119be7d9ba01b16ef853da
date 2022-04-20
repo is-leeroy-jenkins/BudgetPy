@@ -1,0 +1,66 @@
+
+qpython:S1192ú"SDefine a constant instead of duplicating this literal "(unknown function)" 3 times.(‡¶ëÏÿÿÿÿÿ
+epython:S1192§	"MDefine a constant instead of duplicating this literal '<%s %s (%s)>' 3 times.(°­ÅY
+mpython:S1192ú"ODefine a constant instead of duplicating this literal "(unknown file)" 3 times.(‡¶ëÏÿÿÿÿÿ
+Mpython:S1066à	"/Merge this if statement with the enclosing one.(„øıÓıÿÿÿÿ
+Mpython:S1066«
+"/Merge this if statement with the enclosing one.(„øıÓıÿÿÿÿ
+opython:S1542w"RRename function "getLevelName" to match the regular expression ^[a-z_][a-z0-9_]*$.(©ààùÿÿÿÿ
+rpython:S117’"URename this parameter "levelName" to match the regular expression ^[_a-z][a-z0-9_]*$.(§‘±Ãÿÿÿÿÿ
+ppython:S1542’"RRename function "addLevelName" to match the regular expression ^[a-z_][a-z0-9_]*$.(§‘±Ãÿÿÿÿÿ
+Upython:S112¥">Replace this generic exception class with a more specific one.(Œåß%
+opython:S1542Á"QRename function "_checkLevel" to match the regular expression ^[a-z_][a-z0-9_]*$.(ú––¶üÿÿÿÿ
+kpython:S1542Ú"RRename function "_acquireLock" to match the regular expression ^[a-z_][a-z0-9_]*$.( ÒÇü
+ppython:S1542ã"RRename function "_releaseLock" to match the regular expression ^[a-z_][a-z0-9_]*$.(…»¯¡ùÿÿÿÿ
+opython:S116È"WRename this field "relativeCreated" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÚÔñ€
+hpython:S116Å"PRename this field "funcName" to match the regular expression ^[_a-z][_a-z0-9]*$.(®ùšë
+ppython:S116Ğ"SRename this field "processName" to match the regular expression ^[_a-z][_a-z0-9]*$.(›ŒÊØùÿÿÿÿ
+jpython:S116Ë"RRename this field "threadName" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ìá‚ã
+fpython:S100æ"NRename method "getMessage" to match the regular expression ^[a-z_][a-z0-9_]*$.(óÍİÇ
+rpython:S1542÷"YRename function "setLogRecordFactory" to match the regular expression ^[a-z_][a-z0-9_]*$.(å ç
+rpython:S1542"YRename function "getLogRecordFactory" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ğ¨°ö
+lpython:S1542ˆ"SRename function "makeLogRecord" to match the regular expression ^[a-z_][a-z0-9_]*$.(¢¯”·
+ipython:S100¥"LRename method "usesTime" to match the regular expression ^[a-z_][a-z0-9_]*$.(æ¤¿øşÿÿÿÿ
+mpython:S5843¼"TSimplify this regular expression to reduce its complexity from 30 to the 20 allowed.(¹Ñ½ñ
+fpython:S100Æ"NRename method "formatTime" to match the regular expression ^[a-z_][a-z0-9_]*$.(š…ßñ
+ppython:S100á"SRename method "formatException" to match the regular expression ^[a-z_][a-z0-9_]*$.(ª•Çòıÿÿÿÿ
+ipython:S100ô"LRename method "usesTime" to match the regular expression ^[a-z_][a-z0-9_]*$.(æ¤¿øşÿÿÿÿ
+npython:S100ú"QRename method "formatMessage" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õ°ˆìûÿÿÿÿ
+lpython:S100ı"ORename method "formatStack" to match the regular expression ^[a-z_][a-z0-9_]*$.(–ÿê×ûÿÿÿÿ
+Hpython:S1172½"/Remove the unused function parameter "records".(ß‹õ¬
+hpython:S100½"PRename method "formatHeader" to match the regular expression ^[a-z_][a-z0-9_]*$.(ß‹õ¬
+Mpython:S1172Ã"/Remove the unused function parameter "records".(Ê€ó¢ûÿÿÿÿ
+mpython:S100Ã"PRename method "formatFooter" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ê€ó¢ûÿÿÿÿ
+epython:S100‰"MRename method "addFilter" to match the regular expression ^[a-z_][a-z0-9_]*$.(Í¦ÿ
+Fpython:S1940"-Use the opposite operator ("not in") instead.(€Ù ì
+hpython:S100"PRename method "removeFilter" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÇË•œ
+ppython:S1542µ"WRename function "_removeHandlerRef" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õî´
+rpython:S1542Æ"TRename function "_addHandlerRef" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾µÚ–üÿÿÿÿ
+ipython:S116Ì	"QRename this field "loggerMap" to match the regular expression ^[_a-z][_a-z0-9]*$.(‡ˆ
+mpython:S1542Ù	"TRename function "setLoggerClass" to match the regular expression ^[a-z_][a-z0-9_]*$.(ıÔæ«
+mpython:S1542æ	"TRename function "getLoggerClass" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÌÇØò
+ppython:S116ù	"SRename this field "loggerClass" to match the regular expression ^[_a-z][_a-z0-9]*$.(²®îÁüÿÿÿÿ
+opython:S116ø	"RRename this field "loggerDict" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÄÛìüûÿÿÿÿ
+|python:S116÷	"_Rename this field "emittedNoHandlerWarning" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÜúÉ½ıÿÿÿÿ
+upython:S116ú	"XRename this field "logRecordFactory" to match the regular expression ^[_a-z][_a-z0-9]*$.(¸¬ôºûÿÿÿÿ
+jpython:S100„
+"MRename method "getLogger" to match the regular expression ^[a-z_][a-z0-9_]*$.(“‡Ç…ùÿÿÿÿ
+opython:S100¦
+"RRename method "setLoggerClass" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹Øƒ©ûÿÿÿÿ
+tpython:S100°
+"WRename method "setLogRecordFactory" to match the regular expression ^[a-z_][a-z0-9_]*$.(¨Û¼Øşÿÿÿÿ
+ipython:S100·
+"QRename method "_fixupParents" to match the regular expression ^[a-z_][a-z0-9_]*$.(³‰Ñô
+opython:S100Ï
+"RRename method "_fixupChildren" to match the regular expression ^[a-z_][a-z0-9_]*$.(†üŒˆùÿÿÿÿ
+Fpython:S1940Ç"-Use the opposite operator ("not in") instead.(µ—¯‰
+rpython:S3776í"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(æ€œíúÿÿÿÿ
+hpython:S100¶"PRename method "isEnabledFor" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÒÄ®¿
+ipython:S100¼"LRename method "setLevel" to match the regular expression ^[a-z_][a-z0-9_]*$.(ıŠâúÿÿÿÿ
+rpython:S100Â"URename method "getEffectiveLevel" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ç“÷Şúÿÿÿÿ
+gpython:S100È"ORename method "hasHandlers" to match the regular expression ^[a-z_][a-z0-9_]*$.( ‡Êˆ
+opython:S1542ô"QRename function "basicConfig" to match the regular expression ^[a-z_][a-z0-9_]*$.(·…÷úÿÿÿÿ
+rpython:S3776ô"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(·…÷úÿÿÿÿ
+hpython:S1542ò"ORename function "getLogger" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷Ûè¿
+tpython:S117Î"WRename this parameter "handlerList" to match the regular expression ^[_a-z][a-z0-9_]*$.(’û¹èüÿÿÿÿ
+spython:S1542"URename function "captureWarnings" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬Ù¬¡úÿÿÿÿ

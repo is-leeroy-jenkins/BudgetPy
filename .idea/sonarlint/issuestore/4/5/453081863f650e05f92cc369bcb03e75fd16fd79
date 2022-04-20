@@ -1,0 +1,12 @@
+
+qpython:S1192R"TDefine a constant instead of duplicating this literal r'\s*($|(?=[^\w\-]))' 4 times.(«¯£¿ûÿÿÿÿ
+jpython:S1192Q"RDefine a constant instead of duplicating this literal r'(^|(?<=[^\w\-]))' 3 times.(õ€Åò
+vpython:S5799«"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(öú¯øûÿÿÿÿ
+vpython:S5799Â"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(¬˜Æ’øÿÿÿÿ
+ppython:S5799É"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(¬ÄÉ8
+vpython:S5799ª"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(Žì˜€úÿÿÿÿ
+qpython:S5799½"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(’¦Þ
+qpython:S5799ö"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(¼ŸÒ™
+vpython:S5799—"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(à÷½–üÿÿÿÿ
+vpython:S5799¯"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(‘­ãóûÿÿÿÿ
+Upython:S5720ö"<Rename "text" to "self" or add the missing "self" parameter.(·ŸÔ˜

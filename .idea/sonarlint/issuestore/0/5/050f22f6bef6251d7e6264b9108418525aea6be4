@@ -1,0 +1,16 @@
+
+opython:S1192Â"QDefine a constant instead of duplicating this literal "%s.sqlite_master" 3 times.(„Â¹Ñùÿÿÿÿ
+Œpython:S4144Œ
+"nUpdate this function so that its implementation is not identical to visit_json_getitem_op_binary on line 1281.(„ç–“øÿÿÿÿ
+mpython:S3776Ê
+"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¥£Çß
+mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(éÂÅ
+Ypython:S1135ö"4Complete the task associated to this "TODO" comment.(–Š¹ıøÿÿÿÿ8›ñ‘Åƒ0
+`python:S5799Å"GMerge these implicitly concatenated strings; or did you forget a comma?(À„ò‚
+epython:S5799ñ"GMerge these implicitly concatenated strings; or did you forget a comma?(·°î¯ÿÿÿÿÿ
+Wpython:S5857"9Replace this use of a reluctant quantifier with "[^\)]*".(éÃØîıÿÿÿÿ
+mpython:S3776¹"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(ÿÅé“
+mpython:S5850×"TGroup parts of the regex together to make the intended operator precedence explicit.(öéü
+Rpython:S6395Ñ"-Unwrap this unnecessarily grouped subpattern.(«åíğùÿÿÿÿ8›ñ‘Åƒ0
+_python:S5799”"GMerge these implicitly concatenated strings; or did you forget a comma?(áÙ
+Spython:S2836÷"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ

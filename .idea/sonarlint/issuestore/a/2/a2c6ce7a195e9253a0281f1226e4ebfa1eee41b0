@@ -1,0 +1,9 @@
+
+dpython:S1192Ú"FDefine a constant instead of duplicating this literal '%I %p' 4 times.(§“üªûÿÿÿÿ
+cpython:S1192Ñ"JDefine a constant instead of duplicating this literal '%Y %W %w' 14 times.(À±Õ«
+hpython:S1192Ò"JDefine a constant instead of duplicating this literal '%G %V %u' 14 times.( ¸…¦úÿÿÿÿ
+dpython:S1192Î"FDefine a constant instead of duplicating this literal "%b %d" 3 times.(Œ÷¡™üÿÿÿÿ
+hpython:S1192Ð"JDefine a constant instead of duplicating this literal '%Y %U %w' 14 times.(™éæ¢ùÿÿÿÿ
+ƒpython:S101"gRename class "getlang_Tests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(´Õº´üÿÿÿÿ
+†python:S101"jRename class "LocaleTime_Tests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÍŠ¸¿ùÿÿÿÿ
+Gpython:S1481ÿ"/Remove the unused local variable "locale_time".(üÒ‰

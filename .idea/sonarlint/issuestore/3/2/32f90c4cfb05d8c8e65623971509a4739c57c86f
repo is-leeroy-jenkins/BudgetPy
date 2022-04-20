@@ -1,0 +1,15 @@
+
+~python:S1192Ó"`Define a constant instead of duplicating this literal 'MaintenanceForm_Action="Repair"' 4 times.(¼áéÅüÿÿÿÿ
+epython:S1192Ó"GDefine a constant instead of duplicating this literal "Next >" 3 times.(Üà…ãşÿÿÿÿ
+ypython:S1192Ú"`Define a constant instead of duplicating this literal 'MaintenanceForm_Action="Remove"' 4 times.(Ò¤·Ë
+python:S1192à"oDefine a constant instead of duplicating this literal "Click the Finish button to exit the Installer." 3 times.(±Ææÿüÿÿÿÿ
+`python:S1192Û"GDefine a constant instead of duplicating this literal "< Back" 6 times.(³ùÕƒ
+Hpython:S1481 "+Remove the unused local variable "bmwidth".(øÉ±ùûÿÿÿÿ
+5python:S125!"Remove this commented out code.(†´´K
+lpython:S3776’"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Â¬Ó
+mpython:S3776º"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¯Œåò
+rpython:S3776•"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(¬µÃ²ùÿÿÿÿ
+Ipython:S5806ª"+Rename this variable; it shadows a builtin.(¾„ÇÂùÿÿÿÿ
+rpython:S117ä"URename this local variable "Type" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿÄÒ‘øÿÿÿÿ
+Rpython:S1481±"4Remove the unused local variable "track_disk_space".(—É¤îùÿÿÿÿ
+<python:S125²"Remove this commented out code.(¦¯„èûÿÿÿÿ

@@ -1,0 +1,9 @@
+
+Lpython:S1172ä".Remove the unused function parameter "engine".(Ğ ğ•üÿÿÿÿ
+Gpython:S1172".Remove the unused function parameter "engine".(ÚŞƒ¬
+Jpython:S1172è",Remove the unused function parameter "path".(“‰ÿùÿÿÿÿ
+Qpython:S1172«	"3Remove the unused function parameter "merge_cells".(ˆœş‡ûÿÿÿÿ
+zpython:S100ì	"]Rename method "test_ExcelWriter_dispatch" to match the regular expression ^[a-z_][a-z0-9_]*$.(‘Ø†Äÿÿÿÿÿ
+|python:S100õ	"dRename method "test_ExcelWriter_dispatch_raises" to match the regular expression ^[a-z_][a-z0-9_]*$.(¼³´Ò
+Apython:S108©
+")Either remove or fill this block of code.(ã‘Û¾

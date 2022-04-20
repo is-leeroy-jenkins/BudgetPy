@@ -1,0 +1,48 @@
+
+Mpython:S1066˜"/Merge this if statement with the enclosing one.(Ş¹÷úÿÿÿÿ
+Mpython:S1066é"/Merge this if statement with the enclosing one.(§âÆúüÿÿÿÿ
+jpython:S107ˆ"MFunction "to_hdf" has 15 parameters, which is greater than the 13 authorized.(É‘€ãúÿÿÿÿ
+rpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(¢¿ƒşşÿÿÿÿ
+Apython:S108É")Either remove or fill this block of code.(ã‘Û¾
+epython:S107°"HMethod "put" has 14 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+Cpython:S5806à"+Rename this variable; it shadows a builtin.(Éªî?
+hpython:S107­	"KMethod "append" has 17 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+Ipython:S5806ì	"+Rename this variable; it shadows a builtin.(‡ÍÆÎÿÿÿÿÿ
+rpython:S3776
+"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(£¹çàûÿÿÿÿ
+rpython:S3776ğ"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ä½ÆÆıÿÿÿÿ
+mpython:S3776­"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(µ™İÉ
+Ipython:S5806ß"+Rename this variable; it shadows a builtin.(óŒ¼Àüÿÿÿÿ
+mpython:S3776å"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(ßŸıÀ
+qpython:S107Â"TMethod "_write_to_group" has 18 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+jpython:S107²"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
+Mpython:S1172‰"/Remove the unused function parameter "nan_rep".(ª¡ğæÿÿÿÿÿ
+wpython:S1186Ú"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ÕÍ°ßÿÿÿÿÿ
+rpython:S1186Ú"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¸¦’
+Rpython:S1135Æ"4Complete the task associated to this "TODO" comment.(òş‡·şÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ª¡ğæÿÿÿÿÿ
+Rpython:S1135‚"4Complete the task associated to this "TODO" comment.(Õ¶øêûÿÿÿÿ
+Kpython:S1172¡"-Remove the unused function parameter "where".(ÈÍ¢®ûÿÿÿÿ
+Hpython:S1172ñ"*Remove the unused function parameter "tz".(ˆğàüÿÿÿÿ
+mpython:S3776Ó"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(Šˆè¡
+Mpython:S1135Ö"4Complete the task associated to this "TODO" comment.(·ç¢ü
+Apython:S108‡")Either remove or fill this block of code.(ã‘Û¾
+Apython:S108‰")Either remove or fill this block of code.(ã‘Û¾
+Lpython:S1135–"4Complete the task associated to this "TODO" comment.(ş°öq
+Vpython:S112¦">Replace this generic exception class with a more specific one.(’‹â±
+Mpython:S1135‹"4Complete the task associated to this "TODO" comment.(¨ØëÅ
+Mpython:S1135“"4Complete the task associated to this "TODO" comment.(ˆìá
+mpython:S3776«"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ü’­Á
+mpython:S3776Ì"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(½ÍÃæ
+Rpython:S1135€"4Complete the task associated to this "TODO" comment.(ÆÕŞŸùÿÿÿÿ
+Rpython:S1135Ü"4Complete the task associated to this "TODO" comment.(Õ¶øêûÿÿÿÿ
+Mpython:S1135¬"4Complete the task associated to this "TODO" comment.(òÉ°–
+Lpython:S1135À"4Complete the task associated to this "TODO" comment.(ş°öq
+rpython:S3776õ"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(°¡ ¬üÿÿÿÿ
+mpython:S3776ó!"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(÷™…¡
+mpython:S3776Ú""TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(±ÇÁ
+rpython:S3776ª#"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(Êéíøùÿÿÿÿ
+Rpython:S1135İ$"4Complete the task associated to this "TODO" comment.(Äè€Öüÿÿÿÿ
+mpython:S3776Æ&"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(“ø¼Œ
+Mpython:S1135¶("4Complete the task associated to this "TODO" comment.(¬ÛíŞ
+rpython:S3776Ì("TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ú„Úüùÿÿÿÿ

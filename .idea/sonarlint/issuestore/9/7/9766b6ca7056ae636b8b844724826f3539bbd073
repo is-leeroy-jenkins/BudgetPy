@@ -1,0 +1,29 @@
+
+gpython:S1192ù"IDefine a constant instead of duplicating this literal r'//.*?\n' 3 times.(Ôêµ‰øÿÿÿÿ
+cpython:S1192¼"JDefine a constant instead of duplicating this literal r'[^\S\n]+' 4 times.(ùû†š
+jpython:S1192J"RDefine a constant instead of duplicating this literal r'(?i)\d+e[+-]?\d+' 3 times.(ëşø
+dpython:S1192¨"KDefine a constant instead of duplicating this literal r'\b(%s)\b' 10 times.(Ñ¶±¥
+xpython:S1192³"ZDefine a constant instead of duplicating this literal r'"(\\\\|\\[^\\]|[^"\\])*"' 3 times.(ì½ÜÅÿÿÿÿÿ
+}python:S1192I"eDefine a constant instead of duplicating this literal r'(?i)(\d*\.\d+|\d+\.\d*)(e[+-]?\d+)?' 3 times.(š–ş›
+Hpython:S1066Ê	"/Merge this if statement with the enclosing one.(ÓÓ®ş
+qpython:S5799"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(ÁñŞ¶
+ppython:S5799"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(›ˆŒ-
+Upython:S5720Ÿ"<Rename "text" to "self" or add the missing "self" parameter.(·ŸÔ˜
+wpython:S117«"ZRename this local variable "lowerText" to match the regular expression ^[_a-z][a-z0-9_]*$.(†ÜâŸùÿÿÿÿ
+qpython:S5799Ê"XAdd a "+" operator to make the string concatenation explicit; or did you forget a comma?(»èÜ
+Upython:S5720²"<Rename "text" to "self" or add the missing "self" parameter.(·ŸÔ˜
+Upython:S5720ª"<Rename "text" to "self" or add the missing "self" parameter.(·ŸÔ˜
+wpython:S117Î"ZRename this local variable "firstWord" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á¡«úÿÿÿÿ
+spython:S117°"[Rename this local variable "hasEndProc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÉÒÙµ
+ppython:S117²"XRename this local variable "hasFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨Ê¾Î
+~python:S117±"aRename this local variable "hasHeaderComment" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸©úşıÿÿÿÿ
+tpython:S117³"WRename this local variable "hasJob" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ¤ë—ùÿÿÿÿ
+ppython:S117µ"XRename this local variable "hasParm" to match the regular expression ^[_a-z][a-z0-9_]*$.(«…áñ
+ppython:S117´"XRename this local variable "hasProc" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş¡†ƒ
+rpython:S117¶"ZRename this local variable "hasReport" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì‹é£
+mpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 87 to the 15 allowed.(·ŸÔ˜
+Epython:S1172¸",Remove the unused function parameter "line".(ïÏô•
+lpython:S1542¸"SRename function "isCommentLine" to match the regular expression ^[a-z_][a-z0-9_]*$.(ïÏô•
+opython:S1542»"QRename function "isEmptyLine" to match the regular expression ^[a-z_][a-z0-9_]*$.(ì¼„úÿÿÿÿ
+Upython:S5720Ã	"<Rename "text" to "self" or add the missing "self" parameter.(·ŸÔ˜
+Rpython:S1135‘	"4Complete the task associated to this "TODO" comment.(Õòâúÿÿÿÿ

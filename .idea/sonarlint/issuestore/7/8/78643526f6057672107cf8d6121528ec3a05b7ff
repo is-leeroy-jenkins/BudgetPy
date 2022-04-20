@@ -1,0 +1,11 @@
+
+spython:S117<"\Rename this local variable "bakFileName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ð—Ü
+kpython:S1177"TRename this parameter "fileName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÝšù
+upython:S117B"YRename this local variable "tempPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(£¼¸¾þÿÿÿÿ
+Hpython:S5806:"+Rename this variable; it shadows a builtin.(ž‰–‚ÿÿÿÿÿ
+ppython:S117¼"XRename this local variable "mbStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÌÙÊ
+rpython:S3776™"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÿ”®Ãûÿÿÿÿ
+wpython:S117„"ZRename this local variable "defButton" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö”±Çÿÿÿÿÿ
+Upython:S5754™"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754°"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Ipython:S5806Ò"+Rename this variable; it shadows a builtin.(ÃËç‚ùÿÿÿÿ

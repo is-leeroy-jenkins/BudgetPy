@@ -1,0 +1,43 @@
+
+lpython:S116ˆ"ORename this field "IsAlive" to match the regular expression ^[_a-z][_a-z0-9]*$.(½«ÎÇşÿÿÿÿ
+6python:S125~"Remove this commented out code.(ÆØ¿¸
+lpython:S100Œ"ORename method "SignalExcel" to match the regular expression ^[a-z_][a-z0-9_]*$.(æ‰ÅŸÿÿÿÿÿ
+upython:S117’"XRename this parameter "GetNewValues" to match the regular expression ^[_a-z][a-z0-9_]*$.(şãÄìøÿÿÿÿ
+ppython:S117’"SRename this parameter "Strings" to match the regular expression ^[_a-z][a-z0-9_]*$.(şãÄìøÿÿÿÿ
+ppython:S117’"SRename this parameter "TopicID" to match the regular expression ^[_a-z][a-z0-9_]*$.(şãÄìøÿÿÿÿ
+lpython:S100’"ORename method "ConnectData" to match the regular expression ^[a-z_][a-z0-9_]*$.(şãÄìøÿÿÿÿ
+rpython:S1226’"TIntroduce a new variable or use its initial value before reassigning 'GetNewValues'.(şãÄìøÿÿÿÿ
+kpython:S117¥"SRename this parameter "TopicID" to match the regular expression ^[_a-z][a-z0-9_]*$.(äÖ©î
+jpython:S100¥"RRename method "DisconnectData" to match the regular expression ^[a-z_][a-z0-9_]*$.(äÖ©î
+epython:S100­"MRename method "Heartbeat" to match the regular expression ^[a-z_][a-z0-9_]*$.( èØ™
+spython:S117±"VRename this parameter "TopicCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡ÀïÙøÿÿÿÿ
+qpython:S117É"YRename this local variable "topicNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îáø¢
+lpython:S100±"ORename method "RefreshData" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡ÀïÙøÿÿÿÿ
+ppython:S1226±"RIntroduce a new variable or use its initial value before reassigning 'TopicCount'.(‡ÀïÙøÿÿÿÿ
+qpython:S117Ñ"ZRename this parameter "CallbackObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å‹ös
+}python:S117Ù"eRename this local variable "IRTDUpdateEventKlass" to match the regular expression ^[_a-z][a-z0-9_]*$.(îşÃá
+fpython:S100Ñ"ORename method "ServerStart" to match the regular expression ^[a-z_][a-z0-9_]*$.(Å‹ös
+ppython:S100â"SRename method "ServerTerminate" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï—¯»ıÿÿÿÿ
+upython:S117ç"XRename this parameter "TopicStrings" to match the regular expression ^[_a-z][a-z0-9_]*$.(’»öÖùÿÿÿÿ
+lpython:S100ç"ORename method "CreateTopic" to match the regular expression ^[a-z_][a-z0-9_]*$.(’»öÖùÿÿÿÿ
+gpython:S5632ï"IChange this code so that it raises an object deriving from BaseException.(¡¿¬Üûÿÿÿÿ
+kpython:S117ò"SRename this parameter "TopicID" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºó¹ñ
+ipython:S100ò"QRename method "OnConnectData" to match the regular expression ^[a-z_][a-z0-9_]*$.(ºó¹ñ
+ppython:S117ö"SRename this parameter "TopicID" to match the regular expression ^[_a-z][a-z0-9_]*$.(Çñïãûÿÿÿÿ
+qpython:S100ö"TRename method "OnDisconnectData" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çñïãûÿÿÿÿ
+ipython:S100ú"QRename method "OnRefreshData" to match the regular expression ^[a-z_][a-z0-9_]*$.(Î½¬œ
+ipython:S100ş"QRename method "OnServerStart" to match the regular expression ^[a-z_][a-z0-9_]*$.(¡´ƒ¸
+rpython:S100‚"URename method "OnServerTerminate" to match the regular expression ^[a-z_][a-z0-9_]*$.(˜Û¶™úÿÿÿÿ
+lpython:S116"TRename this field "TopicStrings" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷ç•¡
+npython:S116"VRename this field "__currentValue" to match the regular expression ^[_a-z][_a-z0-9]*$.(á±À
+upython:S117Œ"XRename this parameter "TopicStrings" to match the regular expression ^[_a-z][a-z0-9_]*$.( ‹¥©ûÿÿÿÿ
+gpython:S100’"JRename method "Update" to match the regular expression ^[a-z_][a-z0-9_]*$.(ûúÖ¤ÿÿÿÿÿ
+gpython:S5632–"IChange this code so that it raises an object deriving from BaseException.(‘Ö‹¾ıÿÿÿÿ
+apython:S100˜"IRename method "Reset" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓğÁú
+dpython:S100œ"LRename method "GetValue" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ä–› 
+ipython:S100Ÿ"LRename method "SetValue" to match the regular expression ^[a-z_][a-z0-9_]*$.(°§µ øÿÿÿÿ
+fpython:S100£"NRename method "HasChanged" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çò«˜
+upython:S117ò"XRename this parameter "TopicStrings" to match the regular expression ^[_a-z][a-z0-9_]*$.(’»öÖùÿÿÿÿ
+upython:S117‚"XRename this parameter "TopicStrings" to match the regular expression ^[_a-z][a-z0-9_]*$.( ‹¥©ûÿÿÿÿ
+>python:S1481†"%Remove the unused local variable "E".(×•Š
+<python:S125Œ"Remove this commented out code.(í§ŞÆüÿÿÿÿ

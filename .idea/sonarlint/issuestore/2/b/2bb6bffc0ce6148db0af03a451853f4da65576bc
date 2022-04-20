@@ -1,0 +1,16 @@
+
+dpython:S1192˜"KDefine a constant instead of duplicating this literal '__frame__:' 4 times.(ìë†þ
+Mpython:S1066Ã"/Merge this if statement with the enclosing one.(žèÇ©þÿÿÿÿ
+qpython:S116ƒ"ZRename this field "SourceMappingEntry" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÄðŽA
+Kpython:S1172€"-Remove the unused function parameter "py_db".(Âð‘šøÿÿÿÿ
+Ipython:S1172ç"+Remove the unused function parameter "seq".(Ž“Â–úÿÿÿÿ
+rpython:S3776‚"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(ç™’þúÿÿÿÿ
+mpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(ïô¡ü
+rpython:S3776Û"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(áˆñ‰úÿÿÿÿ
+Upython:S5754¼"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754Ú"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754’"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+mpython:S3776¹"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Í¼¹
+mpython:S3776Ò"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÒÜ¿Á
+Upython:S5754‰"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754‘"<Specify an exception class to catch or reraise the exception(ˆÊÉ·

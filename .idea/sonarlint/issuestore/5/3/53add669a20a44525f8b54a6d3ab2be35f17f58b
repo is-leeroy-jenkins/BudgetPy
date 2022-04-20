@@ -1,0 +1,14 @@
+
+vpython:S1192†"]Define a constant instead of duplicating this literal 'Unable to configure handler ' 3 times.(üÛ³²
+Mpython:S1066²"/Merge this if statement with the enclosing one.(ŒïËÊùÿÿÿÿ
+mpython:S15423"PRename function "fileConfig" to match the regular expression ^[a-z_][a-z0-9_]*$.(Çîòµÿÿÿÿÿ
+rpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(åæÕüÿÿÿÿ
+upython:S1542"\Rename function "_clearExistingHandlers" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾É®Å
+Jpython:S5707"1Replace this expression with an exception or None(‰ÚÊ¬
+mpython:S3776”"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(õ¿ÎÌ
+7python:S125"Remove this commented out code.(­£ËÂ
+rpython:S3776ì"TRefactor this function to reduce its Cognitive Complexity from 75 to the 15 allowed.(î‰¶Øûÿÿÿÿ
+mpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(¾„åû
+ipython:S1542§"PRename function "dictConfig" to match the regular expression ^[a-z_][a-z0-9_]*$.(Öã¦¦
+mpython:S3776¬"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(ØŠÂğ
+qpython:S1542¦"SRename function "stopListening" to match the regular expression ^[a-z_][a-z0-9_]*$.(²µ½‡ıÿÿÿÿ

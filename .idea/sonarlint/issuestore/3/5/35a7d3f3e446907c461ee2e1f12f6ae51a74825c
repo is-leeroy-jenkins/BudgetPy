@@ -1,0 +1,12 @@
+
+zpython:S1192’"\Define a constant instead of duplicating this literal "Unsupported argument(s): %s" 3 times.(ü  ùÿÿÿÿ
+mpython:S3776ë	"TRefactor this function to reduce its Cognitive Complexity from 46 to the 15 allowed.(Å¹”Ë
+:python:S2638"Add missing parameters flat.(Ò ½ºûÿÿÿÿ
+Cpython:S2638"Add missing parameters _force.(“Û¥¿ûÿÿÿÿ8Å¯‘Åƒ0
+qpython:S1186›"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¶Éšx
+wpython:S1186¤"YAdd a nested comment explaining why this method is empty, or complete the implementation.(é‰İ¯ùÿÿÿÿ
+qpython:S1186§"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¶Éšx
+Tpython:S1135Ñ"4Complete the task associated to this "TODO" comment.(´ØÍí8Å¯‘Åƒ0
+Spython:S2836ò "5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
+mpython:S3776®""TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(×ø£Ú
+rpython:S3776ò/"TRefactor this function to reduce its Cognitive Complexity from 68 to the 15 allowed.(Êáªœúÿÿÿÿ
