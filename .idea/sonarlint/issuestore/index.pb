@@ -1,11 +1,6 @@
 
-:
-
-Control.py,c\6\c63198ee48be4fba96bcb521300156a930f896fe
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-<
-Reporting.py,6\f\6f61558d7c3dd6ffeaf68367bc625434c34b23df
 i
 9install/Lib/site-packages/pip/_vendor/progress/counter.py,5\e\5efcc5f241b89584852f4b225721d262af558837
 j
@@ -46,8 +41,6 @@ e
 5Lib/site-packages/libpasteurize/fixes/fix_imports2.py,f\e\fe7f7709955260a06c500813a5e06558a0e03e83
 I
 venv/Lib/test/profilee.py,6\e\6e1f28cef26f60e33751d6522b48e41797672e69
-N
-.idea/dictionaries/teppler.xml,5\7\57a350243a86869ea39bf84932dd3d261910e534
 _
 /Lib/site-packages/adodbapi/test/adodbapitest.py,b\3\b3a00217a29a2bb094596bbb87ad43a4026b20b9
 `
@@ -260,12 +253,8 @@ j
 :install/Lib/site-packages/pip/_vendor/progress/__init__.py,3\d\3d515294d5c135dce08e067deca1c1879953db90
 j
 :venv/Lib/site-packages/libpasteurize/fixes/fix_imports2.py,3\7\37e78a3a5a8390b083674659729789495fac7fdd
-9
-	Static.py,3\e\3e231fda4efa302a265df1990e1bb836bdf1806a
 8
 Ninja.py,8\b\8bd840fba2dbdab27f36c7587e14a47f48cdbb59
 :
 
 FileSys.py,2\5\25e320b55d443630a1ce03c213804f01e7f09c7e
-<
-Execution.py,2\d\2df21b90c8ea48d7cc2f85009a182200e6888db7

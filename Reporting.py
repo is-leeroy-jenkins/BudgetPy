@@ -1,5 +1,5 @@
 from Execution import *
-from Enum import *
+from Static import *
 
 
 class Apportionment( ):
@@ -53,12 +53,12 @@ class Apportionment( ):
 
     @property
     def treasuryfundsymbol( self ):
-        if isinstance( self.__treasuryfundsymbol, TreasuryAccountFundSymbol ):
+        if isinstance( self.__treasuryfundsymbol, str ) and self.__treasuryfundsymbol != "":
             return self.__treasuryfundsymbol
 
     @treasuryfundsymbol.setter
     def treasuryfundsymbol( self, tafs ):
-        if isinstance( tafs, TreasuryAccountFundSymbol ):
+        if isinstance( tafs, str ) and tafs != '':
             self.__treasuryfundsymbol = tafs
 
     @property
@@ -243,6 +243,355 @@ class BudgetaryResourceExecution( ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
         self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
+
+
+class CarryoverEstimates( ):
+    '''CarryoverEstimates( bfy ) initializes object bfy
+    providing Carryover Estimate data for'''
+    __carryoverestimatesid = None
+    __budgetlevel = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __ahcode = None
+    __ahname = None
+    __fundcode = None
+    __fundname = None
+    __orgcode = None
+    __accountcode = None
+    __boccode = None
+    __bocname = None
+    __availablebalance = None
+    __opencommitments = None
+    __unobligatedauthority = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__allocationsid, int ):
+            return self.__allocationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__allocationsid = id
+
+    @property
+    def budgetlevel( self ):
+        if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != "":
+            return self.__budgetlevel
+
+    @budgetlevel.setter
+    def budgetlevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__budgetlevel = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, year ):
+        if isinstance( year, str) and len( year ) == 4:
+            self.__bfy = year
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, year ):
+        if isinstance( year, str) and len( year ) == 4:
+            self.__efy = year
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__rpiocode = code
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpioname.setter
+    def rpioname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__rpiocode = name
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__fundname = name
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__ahcode = code
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__ahname = name
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__accountcode = code
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__programprojectcode = code
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__programprojectname = name
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, code ):
+        if isinstance( code, str) and code != '':
+            self.__orgcode = code
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__boccode = code
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__bocname = name
+
+    @property
+    def availablebalance( self ):
+        if isinstance( self.__availablebalance, float ):
+            return self.__availablebalance
+
+    @availablebalance.setter
+    def availablebalance( self, value ):
+        if isinstance( value, float ):
+            self.__availablebalance = value
+
+    @property
+    def opencommitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if isinstance( value, float ):
+            self.__opencommitments = value
+
+    @property
+    def unobligatedauthority( self ):
+        if isinstance( self.__unobligatedauthority, float ):
+            return self.__unobligatedauthority
+
+    @unobligatedauthority.setter
+    def unobligatedauthority( self, value ):
+        if isinstance( value, float ):
+            self.__unobligatedauthority = value
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__programareacode = code
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__programareaname = name
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @data.setter
+    def data( self, cache ):
+        if isinstance( cache, list ):
+            self.__data = cache
+
+    @property
+    def table( self ):
+        if isinstance( self.__frame, pd.DataFrame ):
+            return self.__frame
+
+    @table.setter
+    def table( self, frame ):
+        if isinstance( frame, pd.DataFrame ):
+            self.__frame = frame
+
+    def __init__( self, bfy ):
+        '''Initializes the PRC class'''
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+
+    def __str__( self ):
+        if isinstance( self.__code ) and self.__code != '':
+            return self.__code
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Allocations
+        command = Command.SELECTALL
+        names = [ 'BFY',  ]
+        values = ( self.__bfy, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
+
+class CarryoverSurvey( ):
+    '''CarryoverSurvey( bfy ) initializes object
+    providing carryover survey data'''
+    __carryoversurveyid = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __amount = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__allocationsid, int ):
+            return self.__allocationsid
+
+    @id.setter
+    def id( self, id ):
+        if isinstance( id, int ):
+            self.__allocationsid = id
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__bfy = year
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, year ):
+        if isinstance( year, str ) and year != '':
+            self.__efy = year
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__fundname = name
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
 
 
 class StatusOfAppropriations( ):
@@ -853,4 +1202,5 @@ class StatusOfAppropriations( ):
     def availableamount( self, amount ):
         if isinstance( amount, float ):
             self.__availableamount = amount
+
 

@@ -4,6 +4,9 @@
       <w>altercolumn</w>
       <w>altertable</w>
       <w>apportionments</w>
+      <w>availablebalance</w>
+      <w>carryoverestimatesid</w>
+      <w>carryoversurveyid</w>
       <w>cpic</w>
       <w>createtable</w>
       <w>createview</w>
@@ -12,12 +15,14 @@
       <w>deobligations</w>
       <w>droptable</w>
       <w>dropview</w>
+      <w>getdata</w>
       <w>paramstyles</w>
       <w>reprogrammings</w>
       <w>selectall</w>
       <w>supplementals</w>
       <w>unliquidated</w>
       <w>unobligated</w>
+      <w>unobligatedauthority</w>
     </words>
   </dictionary>
 </component>
