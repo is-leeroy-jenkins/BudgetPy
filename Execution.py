@@ -1,6 +1,6 @@
 import datetime as dt
-from Ninja import *
 from Static import *
+from Ninja import *
 
 
 class Unit( ):
