@@ -3311,6 +3311,7 @@ class PayrollActivity( ):
             self.__npmname = code
 
 
+''' SiteActivity( bfy, fundcode ) '''
 class SiteActivity( ):
     '''provides data on superfund site spending'''
     __siteactivityid = None
@@ -3318,6 +3319,19 @@ class SiteActivity( ):
     __efy = None
     __rpiocode = None
     __rpioname = None
+    __city = None
+    __city = None
+    __siteprojectcode = None
+    __stieprojectname = None
+    __ssid = None
+    __actioncode = None
+    __operableunit = None
+    __city = None
+    __city = None
+    __congress = None
+    __startdate = None
+    __enddate = None
+    __lastactivitydate = None
     __fundcode = None
     __fundname = None
     __ahcode = None
@@ -3335,13 +3349,12 @@ class SiteActivity( ):
     __programareaname = None
     __foccode = None
     __focname = None
-    __goalcode = None
-    __goalname = None
-    __objectivecode = None
-    __objectivename = None
-    __npmcode = None
-    __npmname = None
-    __amount = None
+    __requested = None
+    __accepted = None
+    __closed = None
+    __outstanding = None
+    __refunded = None
+    __reversal = None
 
     @property
     def id( self ):
@@ -3544,76 +3557,187 @@ class SiteActivity( ):
             self.__programareaname = name
 
     @property
-    def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
-            return self.__goalcode
+    def epasiteid( self ):
+        if isinstance( self.__epasiteid, str ) and self.__epasiteid != '':
+            return self.__epasiteid
 
-    @goalcode.setter
-    def goalcode( self, code ):
+    @epasiteid.setter
+    def epasiteid( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+            self.__epasiteid = code
 
     @property
-    def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
-            return self.__goalname
+    def projecttype( self ):
+        if isinstance( self.__projecttype, str ) and self.__projecttype != '':
+            return self.__projecttype
 
-    @goalname.setter
-    def goalname( self, code ):
+    @epasiteid.setter
+    def projecttype( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__goalname = code
+            self.__projecttype = code
 
     @property
-    def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
-            return self.__objectivecode
+    def siteprojectcode( self ):
+        if isinstance( self.__siteprojectcode, str ) and self.__siteprojectcode != '':
+            return self.__siteprojectcode
 
-    @objectivecode.setter
-    def objectivecode( self, code ):
+    @siteprojectcode.setter
+    def siteprojectcode( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+            self.__siteprojectcode = code
 
     @property
-    def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
-            return self.__objectivename
+    def siteprojectname( self ):
+        if isinstance( self.__siteprojectname, str ) and self.__siteprojectname != '':
+            return self.__siteprojectname
 
-    @objectivename.setter
-    def objectivename( self, code ):
+    @siteprojectname.setter
+    def siteprojectname( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+            self.__siteprojectname = code
 
     @property
-    def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
-            return self.__npmcode
+    def ssid( self ):
+        if isinstance( self.__ssid, str ) and self.__ssid != '':
+            return self.__ssid
 
-    @npmcode.setter
-    def npmcode( self, code ):
+    @ssid.setter
+    def ssid( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+            self.__ssid = code
 
     @property
-    def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
-            return self.__npmname
+    def actioncode( self ):
+        if isinstance( self.__actioncode, str ) and self.__actioncode != '':
+            return self.__actioncode
 
-    @npmname.setter
-    def npmname( self, code ):
+    @actioncode.setter
+    def actioncode( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__npmname = code
+            self.__actioncode = code
 
     @property
-    def amount( self ):
-        if isinstance( self.__amount, float ):
-            return self.__amount
+    def operableunit( self ):
+        if isinstance( self.__operableunit, str ) and self.__operableunit != '':
+            return self.__operableunit
 
-    @amount.setter
-    def amount( self, value ):
+    @operableunit.setter
+    def operableunit( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__operableunit = code
+
+    @property
+    def state( self ):
+        if isinstance( self.__state, str ) and self.__state != '':
+            return self.__state
+
+    @state.setter
+    def state( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__state = code
+
+    @property
+    def city( self ):
+        if isinstance( self.__city, str ) and self.__city != '':
+            return self.__city
+
+    @city.setter
+    def city( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__city = code
+
+    @property
+    def congress( self ):
+        if isinstance( self.__congress, str ) and self.__congress != '':
+            return self.__congress
+
+    @congress.setter
+    def congress( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__congress = code
+
+    @property
+    def startdate( self ):
+        if isinstance( self.__startdate, str ) and self.__startdate != '':
+            return self.__startdate
+
+    @startdate.setter
+    def startdate( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__startdate = code
+
+    @property
+    def enddate( self ):
+        if isinstance( self.__enddate, str ) and self.__enddate != '':
+            return self.__enddate
+
+    @enddate.setter
+    def enddate( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__enddate = code
+
+    @property
+    def lastactivitydate( self ):
+        if isinstance( self.__lastactivitydate, str ) and self.__lastactivitydate != '':
+            return self.__lastactivitydate
+
+    @lastactivitydate.setter
+    def lastactivitydate( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__lastactivitydate = code
+
+    @property
+    def requested( self ):
+        if isinstance( self.__requested, float ):
+            return self.__requested
+
+    @requested.setter
+    def requested( self, value ):
         if isinstance( value, float ):
-            self.__amount = value
+            self.__requested = value
+
+    @property
+    def accepted( self ):
+        if isinstance( self.__accepted, float ):
+            return self.__accepted
+
+    @accepted.setter
+    def accepted( self, value ):
+        if isinstance( value, float ):
+            self.__accepted = value
+
+    @property
+    def closed( self ):
+        if isinstance( self.__closed, float ):
+            return self.__closed
+
+    @closed.setter
+    def closed( self, value ):
+        if isinstance( value, float ):
+            self.__closed = value
+
+    @property
+    def refunded( self ):
+        if isinstance( self.__refunded, float ):
+            return self.__refunded
+
+    @refunded.setter
+    def refunded( self, value ):
+        if isinstance( value, float ):
+            self.__refunded = value
+
+    @property
+    def reversal( self ):
+        if isinstance( self.__amount, float ):
+            return self.__reversal
+
+    @reversal.setter
+    def reversal( self, value ):
+        if isinstance( value, float ):
+            self.__reversal = value
 
 
+''' Acutals( bfy, efy, fundcode ) '''
 class Actuals( ):
     '''Object representing expenditure data'''
     __actualsid = None
@@ -3899,6 +4023,7 @@ class Actuals( ):
             self.__npmname = code
 
 
+''' AppropriationDocument( bfy, efy, fundcode ) '''
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
     __appropriationdocumentsid = None
@@ -4189,6 +4314,7 @@ class AppropriationDocument( ):
             self.__estimatedrecoveries = value
 
 
+''' BudgetDocument( bfy, efy, fundcode )'''
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
     __budgetdocumentsid = None
@@ -5189,6 +5315,7 @@ class CongressionalControls( ):
     def memorandumrequired( self, value ):
         if isinstance( value, bool ):
             self.__memorandumrequired = value
+
 
 '''TODO: properties'''
 class CompassLevels( ):

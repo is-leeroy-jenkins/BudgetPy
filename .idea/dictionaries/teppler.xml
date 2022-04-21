@@ -1,26 +1,126 @@
 <component name="ProjectDictionaryState">
   <dictionary name="teppler">
     <words>
+      <w>accrualcontrols</w>
+      <w>accrualspendigcontrolflag</w>
+      <w>accrualspendingcontrol</w>
+      <w>actioncode</w>
+      <w>actualrecoveries</w>
+      <w>actualrecoveriestranstype</w>
+      <w>actualreimbursements</w>
+      <w>acutals</w>
+      <w>agreementreimbursables</w>
       <w>altercolumn</w>
       <w>altertable</w>
       <w>apportionments</w>
+      <w>authoritydistributioncontrol</w>
       <w>availablebalance</w>
+      <w>budgetcontrolsid</w>
+      <w>budgetdefault</w>
+      <w>budgetdocumentsid</w>
+      <w>budgetedcontrol</w>
+      <w>budgetedtranstype</w>
+      <w>budgetestimatedlowerlevels</w>
+      <w>budgetingcontrols</w>
+      <w>carryoveravailabilitypercentage</w>
       <w>carryoverestimatesid</w>
+      <w>carryoverin</w>
+      <w>carryoverout</w>
       <w>carryoversurveyid</w>
+      <w>commitmentcontrols</w>
+      <w>commitmentsid</w>
+      <w>commitmentspendingcontrol</w>
+      <w>compasslevelsid</w>
+      <w>congressionalcontrolsid</w>
       <w>cpic</w>
       <w>createtable</w>
       <w>createview</w>
+      <w>decreaserestriction</w>
       <w>defactos</w>
       <w>deobligation</w>
       <w>deobligations</w>
+      <w>documentdate</w>
+      <w>documentnumber</w>
       <w>droptable</w>
       <w>dropview</w>
+      <w>enddate</w>
+      <w>epasiteid</w>
+      <w>estimatedrecoveries</w>
+      <w>estimatedreimbursements</w>
+      <w>estimatedreimbursementsbudgetingoptions</w>
+      <w>estimatedreimbursementsspendingoptions</w>
+      <w>expenditurecontrols</w>
+      <w>expenditurespendingcontrol</w>
+      <w>expensecontrols</w>
+      <w>expensespendingcontrol</w>
+      <w>foccode</w>
+      <w>focname</w>
+      <w>ftebudgetingcontrol</w>
+      <w>ftecontrolflag</w>
+      <w>ftespendingcontrol</w>
+      <w>fundsin</w>
+      <w>fundsout</w>
       <w>getdata</w>
+      <w>increaserestriction</w>
+      <w>lastactivitydate</w>
+      <w>lastdocumentdate</w>
+      <w>lowerchildexpenditurecontrolflag</w>
+      <w>lowerchildexpensespendingcontrolflag</w>
+      <w>lowercommitmentspendingcontrolflag</w>
+      <w>lowerexpenditurespendingcontrolflag</w>
+      <w>lowerexpensespendingcontrolflag</w>
+      <w>lowername</w>
+      <w>lowerobligationspendingcontrolflag</w>
+      <w>lowerpostedcontrolflag</w>
+      <w>lowerpostedflag</w>
+      <w>lowerpostedtranstype</w>
+      <w>lowerprecommitmentspendingcontrolflag</w>
+      <w>lowerrecoveriesoption</w>
+      <w>lowerrecoveriesspendingoption</w>
+      <w>lowerreimbursablespendingoption</w>
+      <w>memorandumrequired</w>
+      <w>obligationcontrols</w>
+      <w>obligationsid</w>
+      <w>obligationspendingcontrol</w>
+      <w>operableunit</w>
+      <w>originalauthority</w>
       <w>paramstyles</w>
+      <w>postedcontrol</w>
+      <w>postedtranstype</w>
+      <w>postingcontrols</w>
+      <w>precommitmentcontrols</w>
+      <w>precommitmentspendingcontrol</w>
+      <w>profitlossbudgetingoption</w>
+      <w>profitlossspendingoption</w>
+      <w>profitlosstranstype</w>
+      <w>projecttype</w>
+      <w>recoveriescarryinamountcontrol</w>
+      <w>recoveriescarryinlowerlevel</w>
+      <w>recoveriescarryinlowerlevelcontrol</w>
+      <w>recoverieswithdrawn</w>
+      <w>recoverybudgetmismatch</w>
+      <w>recoverynextlevel</w>
+      <w>reimbursableagreementcontrols</w>
+      <w>reimbursableagreementspendingcontrol</w>
+      <w>reimbursementcontrols</w>
+      <w>reimbursementspendingcontrol</w>
+      <w>reprogrammingrestriction</w>
       <w>reprogrammings</w>
       <w>selectall</w>
+      <w>siteactivityid</w>
+      <w>siteprojectcode</w>
+      <w>siteprojectname</w>
+      <w>spendingadjustmenttranstype</w>
+      <w>startdate</w>
+      <w>statusreservetranstype</w>
+      <w>stieprojectname</w>
+      <w>subprojectcode</w>
+      <w>subprojectname</w>
       <w>supplementals</w>
+      <w>trackagreementlowerlevels</w>
+      <w>transactiontypecontrol</w>
       <w>unliquidated</w>
+      <w>unliquidatedobligationsid</w>
       <w>unobligated</w>
       <w>unobligatedauthority</w>
     </words>

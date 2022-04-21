@@ -174,6 +174,7 @@ class Apportionment( ):
         self.__efy = efy if isinstance( efy, str ) else None
         self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
 
+
 '''TODO: properties'''
 class BudgetaryResourceExecution( ):
     '''BudgetaryResourceExecution( value ) initializes
