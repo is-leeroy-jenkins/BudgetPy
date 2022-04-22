@@ -26,6 +26,7 @@
       <w>carryoverestimatesid</w>
       <w>carryoverin</w>
       <w>carryoverout</w>
+      <w>carryoveroutlaysid</w>
       <w>carryoversurveyid</w>
       <w>commitmentcontrols</w>
       <w>commitmentsid</w>
@@ -35,6 +36,7 @@
       <w>cpic</w>
       <w>createtable</w>
       <w>createview</w>
+      <w>dataruledescriptionsid</w>
       <w>decreaserestriction</w>
       <w>defactos</w>
       <w>deobligation</w>
@@ -62,6 +64,8 @@
       <w>fundsin</w>
       <w>fundsout</w>
       <w>getdata</w>
+      <w>grossbudgetauthorityoutlaysid</w>
+      <w>growthratesid</w>
       <w>increaserestriction</w>
       <w>lastactivitydate</w>
       <w>lastdocumentdate</w>
@@ -83,6 +87,8 @@
       <w>lowerreimbursablespendingoption</w>
       <w>memorandumrequired</w>
       <w>monthlyoutlaysid</w>
+      <w>objectclassoutlays</w>
+      <w>objectclassoutlaysid</w>
       <w>obligationcontrols</w>
       <w>obligationsid</w>
       <w>obligationspendingcontrol</w>
@@ -107,6 +113,7 @@
       <w>recoverynextlevel</w>
       <w>reimbursableagreementcontrols</w>
       <w>reimbursableagreementspendingcontrol</w>
+      <w>reimbursablesurveyid</w>
       <w>reimbursementcontrols</w>
       <w>reimbursementspendingcontrol</w>
       <w>reportyear</w>
@@ -117,6 +124,7 @@
       <w>siteprojectcode</w>
       <w>siteprojectname</w>
       <w>spendingadjustmenttranstype</w>
+      <w>spendingratesid</w>
       <w>startdate</w>
       <w>statusreservetranstype</w>
       <w>stieprojectname</w>
@@ -133,6 +141,7 @@
       <w>unliquidatedobligationsid</w>
       <w>unobligated</w>
       <w>unobligatedauthority</w>
+      <w>unobligatedauthorityid</w>
     </words>
   </dictionary>
 </component>

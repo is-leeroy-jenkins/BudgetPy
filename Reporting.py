@@ -1349,31 +1349,39 @@ class MonthlyOutlays( ):
 
 class SpendingRates( ):
     '''object provides OMB spending rate data'''
+    __spendingratesid = None
 
 
 class ReimbursableSurvey( ):
     '''object provides Reimbursable Authority data'''
+    __reimbursablesurveyid = None
 
 
 class ObjectClassOutlays( ):
     '''object provides OMB outlay data'''
+    __objectclassoutlaysid = None
 
 
 class UnobligatedAuthority( ):
     '''object provides OMB data'''
+    __unobligatedauthorityid = None
 
 
 class GrossBudgetAuthorityOutlays( ):
     '''object provides OMB data'''
+    __grossbudgetauthorityoutlaysid = None
 
 
 class GrowthRates( ):
     ''' object provides OMB data'''
+    __growthratesid = None
 
 
 class DataRuleDescriptions( ):
     ''' object provides OMB MAX A11 rule data '''
+    __dataruledescriptionsid = None
 
 
 class CarryoverOutlays( ):
     ''' object provides OMB data '''
+    __carryoveroutlaysid = None
