@@ -3,6 +3,7 @@ from Static import *
 from Ninja import *
 
 
+''' Apportionment( bfy, efy, code ) '''
 class Apportionment( ):
     '''Apportionment( value ) creates
     object representing Letters Of Apportionment'''
@@ -175,7 +176,7 @@ class Apportionment( ):
         self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
 
 
-'''TODO: properties'''
+''' BudgetaryResourceExecution( bfy, efy, code ) '''
 class BudgetaryResourceExecution( ):
     '''BudgetaryResourceExecution( value ) initializes
     object representing MAX A-11 DE, SF-133'''
@@ -190,6 +191,11 @@ class BudgetaryResourceExecution( ):
     def id( self ):
         if isinstance( self.__budgetaryresourceexecutionid, int ):
             return self.__budgetaryresourceexecutionid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__budgetaryresourceexecutionid = value
 
     @property
     def bfy( self ):
@@ -247,6 +253,7 @@ class BudgetaryResourceExecution( ):
         self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
 
 
+''' CarryoverEstimates( bfy, efy, code ) '''
 class CarryoverEstimates( ):
     '''CarryoverEstimates( bfy ) initializes object bfy
     providing Carryover Estimate data for'''
@@ -523,6 +530,7 @@ class CarryoverEstimates( ):
         return self.__data
 
 
+''' CarryoverSurvey( bfy, efy, code ) '''
 class CarryoverSurvey( ):
     '''CarryoverSurvey( bfy ) initializes object
     providing carryover survey data'''
@@ -596,6 +604,7 @@ class CarryoverSurvey( ):
             self.__amount = value
 
 
+''' StatusOfAppropriations( bfy, efy, code ) '''
 class StatusOfAppropriations( ):
     '''object representing Appropriation-level execution data'''
     __statusofappropriationsid = None
@@ -897,19 +906,19 @@ class StatusOfAppropriations( ):
             return self.__postedcontrolflag
 
     @postedcontrolflag.setter
-    def postedcontrolflag( self, pcflag ):
-        if isinstance( pcflag, str ) and pcflag != '':
-            self.__expensespendingcontrolflag = pcflag
+    def postedcontrolflag( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__expensespendingcontrolflag = value
 
     @property
-    def postedflag( self ) -> object:
+    def postedflag( self ):
         if isinstance( self.__postedflag, str ) and self.__postedflag != '':
             return self.__postedflag
 
     @postedflag.setter
-    def postedflag( self, flag ):
-        if isinstance( flag, str ) and flag != '':
-            self.__postedflag = flag
+    def postedflag( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__postedflag = value
 
     @property
     def recordcarryoveratlowerlevel( self ):
@@ -918,9 +927,9 @@ class StatusOfAppropriations( ):
             return self.__recordcarryoveratlowerlevel
 
     @recordcarryoveratlowerlevel.setter
-    def recordcarryoveratlowerlevel( self, ttyp ):
-        if isinstance( ttyp, str ) and ttyp != '':
-            self.__recordcarryoveratlowerlevel = ttyp
+    def recordcarryoveratlowerlevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__recordcarryoveratlowerlevel = value
 
     @property
     def reimbursablespendingoption( self ):
@@ -929,9 +938,9 @@ class StatusOfAppropriations( ):
             return self.__reimbursablespendingoption
 
     @reimbursablespendingoption.setter
-    def reimbursablespendingoption( self, ttyp ):
-        if isinstance( ttyp, str ) and ttyp != '':
-            self.__reimbursablespendingoption = ttyp
+    def reimbursablespendingoption( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__reimbursablespendingoption = value
 
     @property
     def recoveriesoption( self ):
@@ -940,9 +949,9 @@ class StatusOfAppropriations( ):
             return self.__recoveriesoption
 
     @recoveriesoption.setter
-    def recoveriesoption( self, ttyp ):
-        if isinstance( ttyp, str ) and ttyp != '':
-            self.__recoveriesoption = ttyp
+    def recoveriesoption( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__recoveriesoption = value
 
     @property
     def recoveriesspendingoption( self ):
@@ -951,9 +960,9 @@ class StatusOfAppropriations( ):
             return self.__recoveriesspendingoption
 
     @recoveriesspendingoption.setter
-    def recoveriesspendingoption( self, ttyp ):
-        if isinstance( ttyp, str ) and ttyp != '':
-            self.__recoveriesspendingoption = ttyp
+    def recoveriesspendingoption( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__recoveriesspendingoption = value
 
     @property
     def originalbudgetedamount( self ):
@@ -961,9 +970,9 @@ class StatusOfAppropriations( ):
             return self.__originalbudgetedamount
 
     @originalbudgetedamount.setter
-    def originalbudgetedamount( self, amount ):
-        if isinstance( amount, float ):
-            self.__originalbudgetedamount = amount
+    def originalbudgetedamount( self, value ):
+        if isinstance( value, float ):
+            self.__originalbudgetedamount = value
 
     @property
     def apportionmentsposted( self ):
@@ -971,9 +980,9 @@ class StatusOfAppropriations( ):
             return self.__apportionmentsposted
 
     @apportionmentsposted.setter
-    def apportionmentsposted( self, amount ):
-        if isinstance( amount, float ):
-            self.__apportionmentsposted = amount
+    def apportionmentsposted( self, value ):
+        if isinstance( value, float ):
+            self.__apportionmentsposted = value
 
     @property
     def totalauthority( self ):
@@ -981,9 +990,9 @@ class StatusOfAppropriations( ):
             return self.__totalauthority
 
     @totalauthority.setter
-    def totalauthority( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalauthority = amount
+    def totalauthority( self, value ):
+        if isinstance( value, float ):
+            self.__totalauthority = value
 
     @property
     def totalbudgeted( self ):
@@ -991,9 +1000,9 @@ class StatusOfAppropriations( ):
             return self.__totalbudgeted
 
     @totalbudgeted.setter
-    def totalbudgeted( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalbudgeted = amount
+    def totalbudgeted( self, value ):
+        if isinstance( value, float ):
+            self.__totalbudgeted = value
 
     @property
     def totalpostedamount( self ):
@@ -1001,9 +1010,9 @@ class StatusOfAppropriations( ):
             return self.__totalpostedamount
 
     @totalpostedamount.setter
-    def totalpostedamount( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalpostedamount = amount
+    def totalpostedamount( self, value ):
+        if isinstance( value, float ):
+            self.__totalpostedamount = value
 
     @property
     def fundswithdrawnprioryearamounts( self ):
@@ -1011,9 +1020,9 @@ class StatusOfAppropriations( ):
             return self.__fundswithdrawnprioryearamounts
 
     @fundswithdrawnprioryearamounts.setter
-    def fundswithdrawnprioryearamounts( self, amount ):
-        if isinstance( amount, float ):
-            self.__fundswithdrawnprioryearamounts = amount
+    def fundswithdrawnprioryearamounts( self, value ):
+        if isinstance( value, float ):
+            self.__fundswithdrawnprioryearamounts = value
 
     @property
     def fundinginamount( self ):
@@ -1021,9 +1030,9 @@ class StatusOfAppropriations( ):
             return self.__fundinginamount
 
     @fundinginamount.setter
-    def fundinginamount( self, amount ):
-        if isinstance( amount, float ):
-            self.__fundinginamount = amount
+    def fundinginamount( self, value ):
+        if isinstance( value, float ):
+            self.__fundinginamount = value
 
     @property
     def fundingoutamount( self ):
@@ -1031,9 +1040,9 @@ class StatusOfAppropriations( ):
             return self.__fundingoutamount
 
     @fundingoutamount.setter
-    def fundingoutamount( self, amount ):
-        if isinstance( amount, float ):
-            self.__fundingoutamount = amount
+    def fundingoutamount( self, value ):
+        if isinstance( value, float ):
+            self.__fundingoutamount = value
 
     @property
     def totalaccrualrecoveries( self ):
@@ -1041,9 +1050,9 @@ class StatusOfAppropriations( ):
             return self.__totalaccrualrecoveries
 
     @totalaccrualrecoveries.setter
-    def totalaccrualrecoveries( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalaccrualrecoveries = amount
+    def totalaccrualrecoveries( self, value ):
+        if isinstance( value, float ):
+            self.__totalaccrualrecoveries = value
 
     @property
     def totalactualreimbursements( self ):
@@ -1051,9 +1060,9 @@ class StatusOfAppropriations( ):
             return self.__totalactualreimbursements
 
     @totalactualreimbursements.setter
-    def totalactualreimbursements( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalactualreimbursements = amount
+    def totalactualreimbursements( self, value ):
+        if isinstance( value, float ):
+            self.__totalactualreimbursements = value
 
     @property
     def totalagreementreimbursables( self ):
@@ -1061,9 +1070,9 @@ class StatusOfAppropriations( ):
             return self.__totalagreementreimbursables
 
     @totalagreementreimbursables.setter
-    def totalagreementreimbursables( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalagreementreimbursables = amount
+    def totalagreementreimbursables( self, value ):
+        if isinstance( value, float ):
+            self.__totalagreementreimbursables = value
 
     @property
     def totalcarriedforwardin( self ):
@@ -1071,9 +1080,9 @@ class StatusOfAppropriations( ):
             return self.__totalcarriedforwardin
 
     @totalcarriedforwardin.setter
-    def totalcarriedforwardin( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalcarriedforwardin = amount
+    def totalcarriedforwardin( self, value ):
+        if isinstance( value, float ):
+            self.__totalcarriedforwardin = value
 
     @property
     def totalcarriedforwardout( self ):
@@ -1081,9 +1090,9 @@ class StatusOfAppropriations( ):
             return self.__totalcarriedforwardout
 
     @totalcarriedforwardout.setter
-    def totalcarriedforwardout( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalcarriedforwardout = amount
+    def totalcarriedforwardout( self, value ):
+        if isinstance( value, float ):
+            self.__totalcarriedforwardout = value
 
     @property
     def totalestimatedrecoveries( self ):
@@ -1091,9 +1100,9 @@ class StatusOfAppropriations( ):
             return self.__totalestimatedrecoveries
 
     @totalestimatedrecoveries.setter
-    def totalestimatedrecoveries( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalestimatedrecoveries = amount
+    def totalestimatedrecoveries( self, value ):
+        if isinstance( value, float ):
+            self.__totalestimatedrecoveries = value
 
     @property
     def totalestimatedreimbursements( self ):
@@ -1101,9 +1110,9 @@ class StatusOfAppropriations( ):
             return self.__totalestimatedreimbursements
 
     @totalestimatedreimbursements.setter
-    def totalestimatedreimbursements( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalestimatedreimbursements = amount
+    def totalestimatedreimbursements( self, value ):
+        if isinstance( value, float ):
+            self.__totalestimatedreimbursements = value
 
     @property
     def totalexpenses( self ):
@@ -1111,9 +1120,9 @@ class StatusOfAppropriations( ):
             return self.__totalexpenses
 
     @totalexpenses.setter
-    def totalexpenses( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalexpenses = amount
+    def totalexpenses( self, value ):
+        if isinstance( value, float ):
+            self.__totalexpenses = value
 
     @property
     def totalexpenditureexpenses( self ):
@@ -1121,9 +1130,9 @@ class StatusOfAppropriations( ):
             return self.__totalexpenditureexpenses
 
     @totalexpenditureexpenses.setter
-    def totalexpenditureexpenses( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalexpenditureexpenses = amount
+    def totalexpenditureexpenses( self, value ):
+        if isinstance( value, float ):
+            self.__totalexpenditureexpenses = value
 
     @property
     def totalexpenseaccruals( self ):
@@ -1131,9 +1140,9 @@ class StatusOfAppropriations( ):
             return self.__totalexpenseaccruals
 
     @totalexpenseaccruals.setter
-    def totalexpenseaccruals( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalexpenseaccruals = amount
+    def totalexpenseaccruals( self, value ):
+        if isinstance( value, float ):
+            self.__totalexpenseaccruals = value
 
     @property
     def totalprecommitments( self ):
@@ -1141,9 +1150,9 @@ class StatusOfAppropriations( ):
             return self.__totalprecommitments
 
     @totalprecommitments.setter
-    def totalprecommitments( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalprecommitments = amount
+    def totalprecommitments( self, value ):
+        if isinstance( value, float ):
+            self.__totalprecommitments = value
 
     @property
     def unliquidatedprecommitments( self ):
@@ -1151,9 +1160,9 @@ class StatusOfAppropriations( ):
             return self.__unliquidatedprecommitments
 
     @unliquidatedprecommitments.setter
-    def unliquidatedprecommitments( self, amount ):
-        if isinstance( amount, float ):
-            self.__unliquidatedprecommitments = amount
+    def unliquidatedprecommitments( self, value ):
+        if isinstance( value, float ):
+            self.__unliquidatedprecommitments = value
 
     @property
     def totalobligations( self ):
@@ -1161,9 +1170,9 @@ class StatusOfAppropriations( ):
             return self.__totalobligations
 
     @totalobligations.setter
-    def totalobligations( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalobligations = amount
+    def totalobligations( self, value ):
+        if isinstance( value, float ):
+            self.__totalobligations = value
 
     @property
     def unliquidatedobligations( self ):
@@ -1171,9 +1180,9 @@ class StatusOfAppropriations( ):
             return self.__unliquidatedobligations
 
     @unliquidatedobligations.setter
-    def unliquidatedobligations( self, amount ):
-        if isinstance( amount, float ):
-            self.__unliquidatedobligations = amount
+    def unliquidatedobligations( self, value ):
+        if isinstance( value, float ):
+            self.__unliquidatedobligations = value
 
     @property
     def voidedamount( self ):
@@ -1181,9 +1190,9 @@ class StatusOfAppropriations( ):
             return self.__voidedamount
 
     @voidedamount.setter
-    def voidedamount( self, amount ):
-        if isinstance( amount, float ):
-            self.__voidedamount = amount
+    def voidedamount( self, value ):
+        if isinstance( value, float ):
+            self.__voidedamount = value
 
     @property
     def totalusedamount( self ):
@@ -1191,9 +1200,9 @@ class StatusOfAppropriations( ):
             return self.__totalusedamount
 
     @totalusedamount.setter
-    def totalusedamount( self, amount ):
-        if isinstance( amount, float ):
-            self.__totalusedamount = amount
+    def totalusedamount( self, value ):
+        if isinstance( value, float ):
+            self.__totalusedamount = value
 
     @property
     def availableamount( self ):
@@ -1201,8 +1210,170 @@ class StatusOfAppropriations( ):
             return self.__availableamount
 
     @availableamount.setter
-    def availableamount( self, amount ):
-        if isinstance( amount, float ):
-            self.__availableamount = amount
+    def availableamount( self, value ):
+        if isinstance( value, float ):
+            self.__availableamount = value
 
 
+''' MonthlyOutlays( bfy, efy, code ) '''
+class MonthlyOutlays( ):
+    '''object provides OMB outlay data'''
+    __monthlyoutlaysid = None
+    __reportyear = None
+    __bfy = None
+    __efy = None
+    __linenumber = None
+    __linename = None
+    __taxationcode = None
+    __treasuryagency = None
+    __treasuryaccount = None
+    __treasuryaccountname = None
+    __subaccount = None
+    __ombagency = None
+    __ombbureau = None
+    __ombaccount = None
+    __ombaccountname = None
+    __january = None
+    __feburary = None
+    __march = None
+    __april = None
+    __may = None
+    __june = None
+    __july = None
+    __august = None
+    __september = None
+    __october = None
+    __november = None
+    __december = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__monthlyoutlaysid, int ):
+            return self.__monthlyoutlaysid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__monthlyoutlaysid = value
+
+    @property
+    def linenumber( self ):
+        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+            return self.__linenumber
+
+    @linenumber.setter
+    def linenumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linenumber = value
+
+    @property
+    def linename( self ):
+        if isinstance( self.__linename, str ) and self.__linename != '':
+            return self.__linename
+
+    @linename.setter
+    def linename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linename = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def taxationcode( self ):
+        if isinstance( self.__taxationcode, str ) and self.__taxationcode != '':
+            return self.__taxationcode
+
+    @taxationcode.setter
+    def taxationcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__taxationcode = value
+
+    @property
+    def treasuryagency( self ):
+        if isinstance( self.__treasuryagency, str ) and self.__treasuryagency != '':
+            return self.__treasuryagency
+
+    @treasuryagency.setter
+    def treasuryagency( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryagency = value
+
+    @property
+    def treasuryaccount( self ):
+        if isinstance( self.__treasuryaccount, str ) and self.__treasuryaccount != '':
+            return self.__treasuryaccount
+
+    @treasuryaccount.setter
+    def treasuryaccount( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccount = value
+
+    @property
+    def ombaccount( self ):
+        if isinstance( self.__ombaccount, str ) and self.__ombaccount != '':
+            return self.__ombaccount
+
+    @ombaccount.setter
+    def ombaccount( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccount = value
+
+    @property
+    def ombaccountname( self ):
+        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
+
+
+class SpendingRates( ):
+    '''object provides OMB spending rate data'''
+
+
+class ReimbursableSurvey( ):
+    '''object provides Reimbursable Authority data'''
+
+
+class ObjectClassOutlays( ):
+    '''object provides OMB outlay data'''
+
+
+class UnobligatedAuthority( ):
+    '''object provides OMB data'''
+
+
+class GrossBudgetAuthorityOutlays( ):
+    '''object provides OMB data'''
+
+
+class GrowthRates( ):
+    ''' object provides OMB data'''
+
+
+class DataRuleDescriptions( ):
+    ''' object provides OMB MAX A11 rule data '''
+
+
+class CarryoverOutlays( ):
+    ''' object provides OMB data '''

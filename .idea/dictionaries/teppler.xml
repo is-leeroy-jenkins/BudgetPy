@@ -53,6 +53,7 @@
       <w>expenditurespendingcontrol</w>
       <w>expensecontrols</w>
       <w>expensespendingcontrol</w>
+      <w>feburary</w>
       <w>foccode</w>
       <w>focname</w>
       <w>ftebudgetingcontrol</w>
@@ -64,6 +65,8 @@
       <w>increaserestriction</w>
       <w>lastactivitydate</w>
       <w>lastdocumentdate</w>
+      <w>linename</w>
+      <w>linetitle</w>
       <w>lowerchildexpenditurecontrolflag</w>
       <w>lowerchildexpensespendingcontrolflag</w>
       <w>lowercommitmentspendingcontrolflag</w>
@@ -79,9 +82,11 @@
       <w>lowerrecoveriesspendingoption</w>
       <w>lowerreimbursablespendingoption</w>
       <w>memorandumrequired</w>
+      <w>monthlyoutlaysid</w>
       <w>obligationcontrols</w>
       <w>obligationsid</w>
       <w>obligationspendingcontrol</w>
+      <w>ombbureau</w>
       <w>operableunit</w>
       <w>originalauthority</w>
       <w>paramstyles</w>
@@ -104,6 +109,7 @@
       <w>reimbursableagreementspendingcontrol</w>
       <w>reimbursementcontrols</w>
       <w>reimbursementspendingcontrol</w>
+      <w>reportyear</w>
       <w>reprogrammingrestriction</w>
       <w>reprogrammings</w>
       <w>selectall</w>
@@ -114,11 +120,15 @@
       <w>startdate</w>
       <w>statusreservetranstype</w>
       <w>stieprojectname</w>
+      <w>subaccount</w>
       <w>subprojectcode</w>
       <w>subprojectname</w>
       <w>supplementals</w>
+      <w>taxationcode</w>
+      <w>totalagreementreimbursables</w>
       <w>trackagreementlowerlevels</w>
       <w>transactiontypecontrol</w>
+      <w>treasuryaccount</w>
       <w>unliquidated</w>
       <w>unliquidatedobligationsid</w>
       <w>unobligated</w>
