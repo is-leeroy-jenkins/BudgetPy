@@ -13,6 +13,7 @@
       <w>altercolumn</w>
       <w>altertable</w>
       <w>apportionments</w>
+      <w>appropriationdocumentsid</w>
       <w>authoritydistributioncontrol</w>
       <w>availablebalance</w>
       <w>budgetcontrolsid</w>
@@ -22,6 +23,7 @@
       <w>budgetedtranstype</w>
       <w>budgetestimatedlowerlevels</w>
       <w>budgetingcontrols</w>
+      <w>carryin</w>
       <w>carryoveravailabilitypercentage</w>
       <w>carryoverestimatesid</w>
       <w>carryoverin</w>
@@ -52,6 +54,7 @@
       <w>estimatedreimbursementsbudgetingoptions</w>
       <w>estimatedreimbursementsspendingoptions</w>
       <w>expenditurecontrols</w>
+      <w>expendituresid</w>
       <w>expenditurespendingcontrol</w>
       <w>expensecontrols</w>
       <w>expensespendingcontrol</w>

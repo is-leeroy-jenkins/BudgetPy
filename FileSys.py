@@ -23,9 +23,9 @@ class BudgetPath( ):
             return self.__base
 
     @base.setter
-    def base( self, path ):
-        if isinstance( path, str ):
-            self.__base = path
+    def base( self, value ):
+        if isinstance( value, str ):
+            self.__base = value
 
     @property
     def name( self ):
@@ -34,9 +34,9 @@ class BudgetPath( ):
             return self.__name
 
     @name.setter
-    def name( self, path ):
+    def name( self, value ):
         '''Returns string representing the name of the filepath 'base' '''
-        if isinstance( path, str ):
+        if isinstance( value, str ):
             self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
 
     @property
@@ -45,9 +45,9 @@ class BudgetPath( ):
             return self.__path
 
     @path.setter
-    def path( self, base ):
-        if os.path.exists( base ):
-            self.__path = base
+    def path( self, value ):
+        if os.path.exists( value ):
+            self.__path = value
 
     @property
     def drive( self ):
@@ -55,9 +55,9 @@ class BudgetPath( ):
             return self.__drive
 
     @drive.setter
-    def drive( self, base ):
-        if isinstance( base, str ):
-            self.__drive = os.path.splitdrive( base )[ 0 ]
+    def drive( self, value ):
+        if isinstance( value, str ):
+            self.__drive = os.path.splitdrive( value )[ 0 ]
 
     @property
     def exists( self ):
@@ -86,9 +86,9 @@ class BudgetPath( ):
             return str( self.__ext )
 
     @extension.setter
-    def extension( self, ext ):
-        if  isinstance( ext, str ):
-            self.__ext = str( ext )
+    def extension( self, value ):
+        if  isinstance( value, str ):
+            self.__ext = str( value )
 
     @property
     def current( self ):

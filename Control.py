@@ -4048,8 +4048,8 @@ class AppropriationDocument( ):
     __reimbursableagreementcontrols = None
     __budgeted = None
     __posted = None
-    __carryout = None
-    __carryin = None
+    __carryoverout = None
+    __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
 
@@ -4149,9 +4149,9 @@ class AppropriationDocument( ):
             return self.__budgetlevel
 
     @budgetlevel.setter
-    def budgetlevel( self, level ):
-        if isinstance( level, str ) and level != '':
-            self.__budgetlevel = level
+    def budgetlevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__budgetlevel = value
 
     @property
     def budgetingcontrols( self ):
@@ -4373,9 +4373,9 @@ class BudgetDocument( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -4383,9 +4383,9 @@ class BudgetDocument( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def budgetlevel( self ):
@@ -4393,9 +4393,9 @@ class BudgetDocument( ):
             return self.__budgetlevel
 
     @budgetlevel.setter
-    def budgetlevel( self, level ):
-        if isinstance( level, str ) and level != '':
-            self.__budgetlevel = level
+    def budgetlevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__budgetlevel = value
 
     @property
     def rpiocode( self ):
@@ -4403,9 +4403,9 @@ class BudgetDocument( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -4413,9 +4413,9 @@ class BudgetDocument( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -4423,9 +4423,9 @@ class BudgetDocument( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -4433,9 +4433,9 @@ class BudgetDocument( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -4443,9 +4443,9 @@ class BudgetDocument( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -4453,9 +4453,9 @@ class BudgetDocument( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def documenttype( self ):
@@ -4503,9 +4503,9 @@ class BudgetDocument( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -4513,9 +4513,9 @@ class BudgetDocument( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -4523,9 +4523,9 @@ class BudgetDocument( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def programprojectcode( self ):
@@ -4533,9 +4533,9 @@ class BudgetDocument( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -4543,9 +4543,9 @@ class BudgetDocument( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def programareacode( self ):
@@ -4553,9 +4553,9 @@ class BudgetDocument( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -4563,9 +4563,9 @@ class BudgetDocument( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def boccode( self ):
@@ -4573,9 +4573,9 @@ class BudgetDocument( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -4583,9 +4583,9 @@ class BudgetDocument( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def budgetingcontrols( self ):
@@ -5182,9 +5182,9 @@ class CongressionalControls( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -5192,9 +5192,9 @@ class CongressionalControls( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def fundcode( self ):
@@ -5202,9 +5202,9 @@ class CongressionalControls( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -5212,9 +5212,9 @@ class CongressionalControls( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def programprojectcode( self ):
@@ -5222,9 +5222,9 @@ class CongressionalControls( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -5232,9 +5232,9 @@ class CongressionalControls( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def subprojectcode( self ):
@@ -5242,9 +5242,9 @@ class CongressionalControls( ):
             return self.__subprojectcode
 
     @subprojectcode.setter
-    def subprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__subprojectcode = code
+    def subprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subprojectcode = value
 
     @property
     def subprojectname( self ):
@@ -5252,9 +5252,9 @@ class CongressionalControls( ):
             return self.__subprojectname
 
     @subprojectname.setter
-    def subprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__subprojectname = name
+    def subprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subprojectname = value
 
     @property
     def programareacode( self ):
@@ -5262,9 +5262,9 @@ class CongressionalControls( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -5272,9 +5272,9 @@ class CongressionalControls( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def reprogrammingrestriction( self ):
@@ -5382,9 +5382,9 @@ class CompassLevels( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -5392,9 +5392,9 @@ class CompassLevels( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def fundcode( self ):
@@ -5402,9 +5402,9 @@ class CompassLevels( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -5412,9 +5412,9 @@ class CompassLevels( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def appropriationcode( self ):
@@ -5423,9 +5423,9 @@ class CompassLevels( ):
             return self.__appropriationcode
 
     @appropriationcode.setter
-    def appropriationcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__appropriationcode = code
+    def appropriationcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__appropriationcode = value
 
     @property
     def appropriationname( self ):
@@ -5434,9 +5434,9 @@ class CompassLevels( ):
             return self.__appropriationname
 
     @appropriationname.setter
-    def appropriationname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__appropriationname = code
+    def appropriationname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__appropriationname = value
 
     @property
     def subappropriationcode( self ):
@@ -5445,9 +5445,9 @@ class CompassLevels( ):
             return self.__subappropriationcode
 
     @subappropriationcode.setter
-    def subappropriationcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__subappropriationcode = code
+    def subappropriationcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subappropriationcode = value
 
 
 class Commitments( ):
@@ -5489,9 +5489,9 @@ class Commitments( ):
             return self.__obligationsid
 
     @id.setter
-    def id( self, cid ):
-        if isinstance( cid, int ):
-            self.__obligationsid = cid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__obligationsid = value
 
     @property
     def bfy( self ):
@@ -5499,9 +5499,9 @@ class Commitments( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -5509,9 +5509,9 @@ class Commitments( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -5519,9 +5519,9 @@ class Commitments( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -5529,9 +5529,9 @@ class Commitments( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -5549,9 +5549,9 @@ class Commitments( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -5559,9 +5559,9 @@ class Commitments( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -5569,9 +5569,9 @@ class Commitments( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -5579,9 +5579,9 @@ class Commitments( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -5589,9 +5589,9 @@ class Commitments( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -5599,9 +5599,9 @@ class Commitments( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -5609,9 +5609,9 @@ class Commitments( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -5619,9 +5619,9 @@ class Commitments( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def rccode( self ):
@@ -5629,9 +5629,9 @@ class Commitments( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -5639,9 +5639,9 @@ class Commitments( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def amount( self ):
@@ -5659,9 +5659,9 @@ class Commitments( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -5669,9 +5669,9 @@ class Commitments( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def programareacode( self ):
@@ -5679,9 +5679,9 @@ class Commitments( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -5689,9 +5689,9 @@ class Commitments( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def goalcode( self ):
@@ -5699,9 +5699,9 @@ class Commitments( ):
             return self.__goalcode
 
     @goalcode.setter
-    def goalcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
 
     @property
     def goalname( self ):
@@ -5709,9 +5709,9 @@ class Commitments( ):
             return self.__goalname
 
     @goalname.setter
-    def goalname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalname = code
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
 
     @property
     def objectivecode( self ):
@@ -5719,9 +5719,9 @@ class Commitments( ):
             return self.__objectivecode
 
     @objectivecode.setter
-    def objectivecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
 
     @property
     def objectivename( self ):
@@ -5729,9 +5729,9 @@ class Commitments( ):
             return self.__objectivename
 
     @objectivename.setter
-    def objectivename( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
 
     @property
     def npmcode( self ):
@@ -5739,9 +5739,9 @@ class Commitments( ):
             return self.__npmcode
 
     @npmcode.setter
-    def npmcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
 
     @property
     def npmname( self ):
@@ -5749,9 +5749,9 @@ class Commitments( ):
             return self.__npmname
 
     @npmname.setter
-    def npmname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmname = code
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
 
     def __init__( self, amount ):
         self.__amount = amount if isinstance( amount, float ) else None
@@ -5800,9 +5800,9 @@ class OpenCommitments( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -5810,9 +5810,9 @@ class OpenCommitments( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -5830,9 +5830,9 @@ class OpenCommitments( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -5840,9 +5840,9 @@ class OpenCommitments( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -5850,9 +5850,9 @@ class OpenCommitments( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -5860,9 +5860,9 @@ class OpenCommitments( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -5870,9 +5870,9 @@ class OpenCommitments( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -5880,9 +5880,9 @@ class OpenCommitments( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -5890,9 +5890,9 @@ class OpenCommitments( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -5900,9 +5900,9 @@ class OpenCommitments( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -5910,9 +5910,9 @@ class OpenCommitments( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -5920,9 +5920,9 @@ class OpenCommitments( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def rccode( self ):
@@ -5930,9 +5930,9 @@ class OpenCommitments( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -5940,9 +5940,9 @@ class OpenCommitments( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def amount( self ):
@@ -5960,9 +5960,9 @@ class OpenCommitments( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -5970,9 +5970,9 @@ class OpenCommitments( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def programareacode( self ):
@@ -5980,9 +5980,9 @@ class OpenCommitments( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -5990,9 +5990,9 @@ class OpenCommitments( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def goalcode( self ):
@@ -6000,9 +6000,9 @@ class OpenCommitments( ):
             return self.__goalcode
 
     @goalcode.setter
-    def goalcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
 
     @property
     def goalname( self ):
@@ -6010,9 +6010,9 @@ class OpenCommitments( ):
             return self.__goalname
 
     @goalname.setter
-    def goalname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalname = code
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
 
     @property
     def objectivecode( self ):
@@ -6020,9 +6020,9 @@ class OpenCommitments( ):
             return self.__objectivecode
 
     @objectivecode.setter
-    def objectivecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
 
     @property
     def objectivename( self ):
@@ -6030,9 +6030,9 @@ class OpenCommitments( ):
             return self.__objectivename
 
     @objectivename.setter
-    def objectivename( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
 
     @property
     def npmcode( self ):
@@ -6040,9 +6040,9 @@ class OpenCommitments( ):
             return self.__npmcode
 
     @npmcode.setter
-    def npmcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
 
     @property
     def npmname( self ):
@@ -6050,9 +6050,9 @@ class OpenCommitments( ):
             return self.__npmname
 
     @npmname.setter
-    def npmname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmname = code
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
 
     def __init__( self, amount ):
         self.__amount = float( amount )
@@ -6109,9 +6109,9 @@ class Obligations( ):
             return self.__obligationsid
 
     @id.setter
-    def id( self, cid ):
-        if isinstance( cid, int ):
-            self.__obligationsid = cid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__obligationsid = value
 
     @property
     def bfy( self ):
@@ -6119,9 +6119,9 @@ class Obligations( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -6129,9 +6129,9 @@ class Obligations( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -6139,9 +6139,9 @@ class Obligations( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -6149,9 +6149,9 @@ class Obligations( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -6159,9 +6159,9 @@ class Obligations( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -6169,9 +6169,9 @@ class Obligations( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -6179,9 +6179,9 @@ class Obligations( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -6189,9 +6189,9 @@ class Obligations( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -6199,9 +6199,9 @@ class Obligations( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -6209,9 +6209,9 @@ class Obligations( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -6219,9 +6219,9 @@ class Obligations( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -6229,9 +6229,9 @@ class Obligations( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -6239,9 +6239,9 @@ class Obligations( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def rccode( self ):
@@ -6249,9 +6249,9 @@ class Obligations( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -6259,9 +6259,9 @@ class Obligations( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def amount( self ):
@@ -6279,9 +6279,9 @@ class Obligations( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -6289,9 +6289,9 @@ class Obligations( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def programareacode( self ):
@@ -6299,9 +6299,9 @@ class Obligations( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -6309,9 +6309,9 @@ class Obligations( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def goalcode( self ):
@@ -6319,9 +6319,9 @@ class Obligations( ):
             return self.__goalcode
 
     @goalcode.setter
-    def goalcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
 
     @property
     def goalname( self ):
@@ -6329,9 +6329,9 @@ class Obligations( ):
             return self.__goalname
 
     @goalname.setter
-    def goalname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalname = code
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
 
     @property
     def objectivecode( self ):
@@ -6339,9 +6339,9 @@ class Obligations( ):
             return self.__objectivecode
 
     @objectivecode.setter
-    def objectivecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
 
     @property
     def objectivename( self ):
@@ -6349,9 +6349,9 @@ class Obligations( ):
             return self.__objectivename
 
     @objectivename.setter
-    def objectivename( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
 
     @property
     def npmcode( self ):
@@ -6359,9 +6359,9 @@ class Obligations( ):
             return self.__npmcode
 
     @npmcode.setter
-    def npmcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
 
     @property
     def npmname( self ):
@@ -6369,9 +6369,9 @@ class Obligations( ):
             return self.__npmname
 
     @npmname.setter
-    def npmname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmname = code
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
 
     def __init__( self, amount ):
         self.__amount = float( amount )
@@ -6428,9 +6428,9 @@ class Deobligations( ):
             return self.__deobligationsid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__deobligationsid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__deobligationsid = value
 
     @property
     def amount( self ):
@@ -6448,9 +6448,9 @@ class Deobligations( ):
             return self.__account
 
     @account.setter
-    def account( self, acct ):
-        if isinstance( acct, Account ):
-            self.__account = acct
+    def account( self, value ):
+        if isinstance( value, Account ):
+            self.__account = value
 
     @property
     def document( self ):
@@ -6458,9 +6458,9 @@ class Deobligations( ):
             return self.__document
 
     @document.setter
-    def document( self, doc ):
-        if isinstance( doc, str ) and doc != '':
-            self.__document = doc
+    def document( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__document = value
 
     @property
     def org( self ):
@@ -6468,9 +6468,9 @@ class Deobligations( ):
             return self.__org
 
     @org.setter
-    def org( self, org ):
-        if isinstance( org, Organization ):
-            self.__org = org
+    def org( self, value ):
+        if isinstance( value, Organization ):
+            self.__org = value
 
     @property
     def bfy( self ):
@@ -6478,9 +6478,9 @@ class Deobligations( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, bfy ):
-        if isinstance( bfy, BudgetFiscalYear ):
-            self.__bfy = bfy
+    def bfy( self, value ):
+        if isinstance( value, BudgetFiscalYear ):
+            self.__bfy = value
 
     @property
     def fund( self ):
@@ -6488,9 +6488,9 @@ class Deobligations( ):
             return self.__fund
 
     @fund.setter
-    def fund( self, fund ):
-        if isinstance( fund, Fund ):
-            self.__fund = fund
+    def fund( self, value ):
+        if isinstance( value, Fund ):
+            self.__fund = value
 
     @property
     def boc( self ):
@@ -6498,9 +6498,9 @@ class Deobligations( ):
             return self.__boc
 
     @boc.setter
-    def boc( self, boc ):
-        if isinstance( boc, BudgetObjectClass ):
-            self.__boc = boc
+    def boc( self, value ):
+        if isinstance( value, BudgetObjectClass ):
+            self.__boc = value
 
     @property
     def data( self ):
@@ -6508,9 +6508,9 @@ class Deobligations( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -6518,9 +6518,9 @@ class Deobligations( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, amount ):
         self.__amount = float( amount )
@@ -6578,9 +6578,9 @@ class UnliquidatedObligations( ):
             return self.__unliquidatedobligationsid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__unliquidatedobligationsid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__unliquidatedobligationsid = value
 
     @property
     def bfy( self ):
@@ -6588,9 +6588,9 @@ class UnliquidatedObligations( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -6598,9 +6598,9 @@ class UnliquidatedObligations( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -6608,9 +6608,9 @@ class UnliquidatedObligations( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -6618,9 +6618,9 @@ class UnliquidatedObligations( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -6628,9 +6628,9 @@ class UnliquidatedObligations( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -6638,9 +6638,9 @@ class UnliquidatedObligations( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -6648,9 +6648,9 @@ class UnliquidatedObligations( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -6658,9 +6658,9 @@ class UnliquidatedObligations( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -6668,9 +6668,9 @@ class UnliquidatedObligations( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -6678,9 +6678,9 @@ class UnliquidatedObligations( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -6688,9 +6688,9 @@ class UnliquidatedObligations( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -6698,9 +6698,9 @@ class UnliquidatedObligations( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -6708,9 +6708,9 @@ class UnliquidatedObligations( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def rccode( self ):
@@ -6718,9 +6718,9 @@ class UnliquidatedObligations( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -6728,9 +6728,9 @@ class UnliquidatedObligations( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def amount( self ):
@@ -6748,9 +6748,9 @@ class UnliquidatedObligations( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -6758,9 +6758,9 @@ class UnliquidatedObligations( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def programareacode( self ):
@@ -6768,9 +6768,9 @@ class UnliquidatedObligations( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -6778,9 +6778,9 @@ class UnliquidatedObligations( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def goalcode( self ):
@@ -6788,9 +6788,9 @@ class UnliquidatedObligations( ):
             return self.__goalcode
 
     @goalcode.setter
-    def goalcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
 
     @property
     def goalname( self ):
@@ -6798,9 +6798,9 @@ class UnliquidatedObligations( ):
             return self.__goalname
 
     @goalname.setter
-    def goalname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalname = code
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
 
     @property
     def objectivecode( self ):
@@ -6808,9 +6808,9 @@ class UnliquidatedObligations( ):
             return self.__objectivecode
 
     @objectivecode.setter
-    def objectivecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
 
     @property
     def objectivename( self ):
@@ -6818,9 +6818,9 @@ class UnliquidatedObligations( ):
             return self.__objectivename
 
     @objectivename.setter
-    def objectivename( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
 
     @property
     def npmcode( self ):
@@ -6828,9 +6828,9 @@ class UnliquidatedObligations( ):
             return self.__npmcode
 
     @npmcode.setter
-    def npmcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
 
     @property
     def npmname( self ):
@@ -6838,9 +6838,9 @@ class UnliquidatedObligations( ):
             return self.__npmname
 
     @npmname.setter
-    def npmname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmname = code
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
 
     def __init__( self, amount ):
         self.__amount = float( amount )
@@ -6908,9 +6908,9 @@ class Expenditures:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -6918,9 +6918,9 @@ class Expenditures:
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -6928,9 +6928,9 @@ class Expenditures:
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -6938,9 +6938,9 @@ class Expenditures:
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -6948,9 +6948,9 @@ class Expenditures:
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -6958,9 +6958,9 @@ class Expenditures:
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -6968,9 +6968,9 @@ class Expenditures:
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -6978,9 +6978,9 @@ class Expenditures:
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -6988,9 +6988,9 @@ class Expenditures:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -6998,9 +6998,9 @@ class Expenditures:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -7008,9 +7008,9 @@ class Expenditures:
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -7018,9 +7018,9 @@ class Expenditures:
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -7028,9 +7028,9 @@ class Expenditures:
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def rccode( self ):
@@ -7038,9 +7038,9 @@ class Expenditures:
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -7048,9 +7048,9 @@ class Expenditures:
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def amount( self ):
@@ -7068,9 +7068,9 @@ class Expenditures:
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -7078,9 +7078,9 @@ class Expenditures:
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def programareacode( self ):
@@ -7088,9 +7088,9 @@ class Expenditures:
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -7098,9 +7098,9 @@ class Expenditures:
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def goalcode( self ):
@@ -7108,9 +7108,9 @@ class Expenditures:
             return self.__goalcode
 
     @goalcode.setter
-    def goalcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
 
     @property
     def goalname( self ):
@@ -7118,9 +7118,9 @@ class Expenditures:
             return self.__goalname
 
     @goalname.setter
-    def goalname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalname = code
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
 
     @property
     def objectivecode( self ):
@@ -7128,9 +7128,9 @@ class Expenditures:
             return self.__objectivecode
 
     @objectivecode.setter
-    def objectivecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
 
     @property
     def objectivename( self ):
@@ -7138,9 +7138,9 @@ class Expenditures:
             return self.__objectivename
 
     @objectivename.setter
-    def objectivename( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
 
     @property
     def npmcode( self ):
@@ -7148,9 +7148,9 @@ class Expenditures:
             return self.__npmcode
 
     @npmcode.setter
-    def npmcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
 
     @property
     def npmname( self ):
@@ -7158,9 +7158,9 @@ class Expenditures:
             return self.__npmname
 
     @npmname.setter
-    def npmname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmname = code
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
 
     def __init__( self, amount ):
         self.__amount = float( amount )

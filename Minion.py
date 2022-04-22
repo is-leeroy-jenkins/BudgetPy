@@ -1,6 +1,6 @@
 import subprocess as sp
 import os
-from Enum import *
+from Static import *
 
 
 class App( ):
@@ -61,7 +61,7 @@ class App( ):
             sp.Popen( self.__chrome )
 
     def runargs( self, args ):
-        '''instance method that runs client program provided 'args' '''
+        '''runargs( args ) instance method that runs client application with provided string 'args' '''
         if isinstance( args, str ) and self.__app == Client.SQLite:
             if os.path.isfile( args ):
                 sp.Popen( [ self.__sqliteclient, args ] )
