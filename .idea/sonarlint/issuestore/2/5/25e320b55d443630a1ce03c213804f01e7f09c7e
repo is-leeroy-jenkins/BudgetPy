@@ -1,22 +1,0 @@
-
-dpython:S2208"GImport only needed names or import the module and then use its members.(ÍŠ¶–şÿÿÿÿ
-Gpython:S1940¥")Use the opposite operator ("!=") instead.(‚»Õøøÿÿÿÿ
-Gpython:S1940«")Use the opposite operator ("!=") instead.(ÓÙÅ¯øÿÿÿÿ
-Bpython:S1940”")Use the opposite operator ("!=") instead.(ã’™ò
-Bpython:S1940•")Use the opposite operator ("!=") instead.(à¨¼¾
-Bpython:S1940–")Use the opposite operator ("!=") instead.(³ˆ—å
-Gpython:S1940š")Use the opposite operator ("!=") instead.(Ëì¼Ğıÿÿÿÿ
-Bpython:S1940›")Use the opposite operator ("!=") instead.(…”ª
-Apython:S1940œ")Use the opposite operator ("!=") instead.(Êµ¦
-Gpython:S1940")Use the opposite operator ("!=") instead.(ş«îÏøÿÿÿÿ
-Gpython:S1940 ")Use the opposite operator ("!=") instead.(Ëì¼Ğıÿÿÿÿ
-Apython:S1940©")Use the opposite operator ("!=") instead.(ˆÅô^
-Gpython:S1940–")Use the opposite operator ("!=") instead.(õîÜøÿÿÿÿ
-Gpython:S1940¡")Use the opposite operator ("!=") instead.(ËØ€©øÿÿÿÿ
-Bpython:S1940ã")Use the opposite operator ("!=") instead.(«âßì
-Bpython:S1940è")Use the opposite operator ("!=") instead.(õÕ•‹
-Bpython:S1940â")Use the opposite operator ("!=") instead.(ïº„Ô
-Apython:S1940Ğ")Use the opposite operator ("!=") instead.(“¼ñ/
-Gpython:S1940Ú")Use the opposite operator ("!=") instead.(ÓÙÅ¯øÿÿÿÿ
-Bpython:S1940ß")Use the opposite operator ("!=") instead.(Ñï·Û
-Apython:S1940ä")Use the opposite operator ("!=") instead.(“¼ñ/

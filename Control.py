@@ -5762,6 +5762,15 @@ class Commitments( ):
             return str( self.__amount )
 
 
+class DocumentControlNumbers( ):
+    ''' object provides DCN data'''
+    __documentcontrolnumbersid = None
+
+class HumanResourceOrganizations( ):
+    ''' object providing HR Org data'''
+    __humanresourceorganizationsid = None
+
+
 class OpenCommitments( ):
     '''Defines the OpenCommitments class.'''
     __obligationsid = None
@@ -7177,3 +7186,13 @@ class Expenditures:
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
+
+
+class SpecialAccounts( ):
+    '''' object providing SF Special Account data'''
+    __specialaccountsid = None
+
+
+class SuperfundSites( ):
+    ''' object providing SF Site data '''
+    __superfundsitesid = None
