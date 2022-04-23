@@ -2,13 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40f2dc4-3e9e-4394-8d79-ad4ff57c9895" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2df21b90c8ea48d7cc2f85009a182200e6888db7" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Execution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reporting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mssql/datamodels/Data.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/datamodels/Data.mdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mssql/datamodels/Data_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/datamodels/Data_log.ldf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mssql/referencemodels/References.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/referencemodels/References.mdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mssql/referencemodels/References_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/referencemodels/References_log.ldf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/datamodels/Data.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/datamodels/Data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/referencemodels/References.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/referencemodels/References.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,6 +71,34 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../compilers/py/ipy" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Booger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BudgetPy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Booger.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Booger" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -272,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650724379317</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="updates from main rig;">
+      <created>1650735605667</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1650735605667</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
