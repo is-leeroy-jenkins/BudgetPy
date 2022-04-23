@@ -50,6 +50,7 @@
       <w>dataruledescriptionsid</w>
       <w>decreaserestriction</w>
       <w>defactos</w>
+      <w>defeacto</w>
       <w>deobligation</w>
       <w>deobligations</w>
       <w>deobligationsid</w>
@@ -87,6 +88,7 @@
       <w>growthratesid</w>
       <w>hrorgcode</w>
       <w>hrorgname</w>
+      <w>humanresourceorganizationsid</w>
       <w>increaserestriction</w>
       <w>lastactivitydate</w>
       <w>lastdocumentdate</w>
@@ -161,6 +163,7 @@
       <w>siteactivityid</w>
       <w>siteprojectcode</w>
       <w>siteprojectname</w>
+      <w>specialaccountsid</w>
       <w>spendingadjustmenttranstype</w>
       <w>spendingratesid</w>
       <w>startdate</w>
@@ -175,6 +178,7 @@
       <w>subprojectname</w>
       <w>subrccode</w>
       <w>subrcname</w>
+      <w>superfundsitesid</w>
       <w>supplementals</w>
       <w>taxationcode</w>
       <w>totalagreementreimbursables</w>

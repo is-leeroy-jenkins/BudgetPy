@@ -3,6 +3,7 @@ from Static import *
 from Ninja import *
 
 
+''' OperatingPlan( bfy, fund )'''
 class OperatingPlan( ):
     '''object representing Operating plan allocations'''
     __operatingplansid = None
@@ -293,8 +294,13 @@ class OperatingPlan( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
 
-class FullTimeEquivalents( ):
+
+''' FullTimeEquivalent( bfy, fund ) '''
+class FullTimeEquivalent( ):
     '''object representing Operating Plan FTE'''
     __fulltimeequivalentsid = None
     __operatingplansid = None
@@ -585,7 +591,12 @@ class FullTimeEquivalents( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
 
+
+''' StatusOfFunds( bfy, fund )'''
 class StatusOfFunds( ):
     '''Object representing execution data'''
     __statusoffundsid = None
@@ -974,8 +985,13 @@ class StatusOfFunds( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
-class Defactos( ):
+
+''' Defacto( bfy, fund ) '''
+class Defacto( ):
     '''object representing defacto obligations'''
     __defactosid = None
     __statusoffundsid = None
@@ -1364,7 +1380,11 @@ class Defactos( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
+''' StatusOfSupplementalFunds( bfy, fund ) '''
 class StatusOfSupplementalFunds( ):
     '''object representing Supplemental Funds execution data'''
     __statusofsupplementalfundsid = None
@@ -1754,8 +1774,13 @@ class StatusOfSupplementalFunds( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
-class StateGrantObligations( ):
+
+''' StateGrantObligation( bfy, rpio )'''
+class StateGrantObligation( ):
     '''object representing the BIS'''
     __stategrantobligationsid = None
     __bfy = None
@@ -1967,7 +1992,12 @@ class StateGrantObligations( ):
         if isinstance( value, float ):
             self.__amount = value
 
+    def __init__( self, bfy, rpio ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
 
+
+''' Allocation( bfy, fund )'''
 class Allocations( ):
     '''object representing operating plan data'''
     __allocationsid = None
@@ -2269,7 +2299,12 @@ class Allocations( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
+
+''' RegionalAuthority( bfy, rpio )'''
 class RegionalAuthority( ):
     '''object representing Regional Allocations'''
     __regionalauthorityid = None
@@ -2551,7 +2586,12 @@ class RegionalAuthority( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
+
+''' HeadquartersAuthority( bfy, rpio ) '''
 class HeadquartersAuthority( ):
     '''object representing HQ Allocations'''
     __headquartersauthorityid = None
@@ -2833,7 +2873,12 @@ class HeadquartersAuthority( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, rpio ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
 
+
+''' PayrollActivity( bfy, fund ) '''
 class PayrollActivity( ):
     '''provides payroll data'''
     __payrollactivityid = None
@@ -3312,8 +3357,12 @@ class PayrollActivity( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
-''' SiteActivity( bfy, fundcode ) '''
+
+''' SiteActivity( bfy, rpio  ) '''
 class SiteActivity( ):
     '''provides data on superfund site spending'''
     __siteactivityid = None
@@ -3738,8 +3787,12 @@ class SiteActivity( ):
         if isinstance( value, float ):
             self.__reversal = value
 
+    def __init__( self, bfy, rpio ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
 
-''' Acutals( bfy, efy, fundcode ) '''
+
+''' Acutals( bfy, fund  ) '''
 class Actuals( ):
     '''Object representing expenditure data'''
     __actualsid = None
@@ -4024,8 +4077,12 @@ class Actuals( ):
         if isinstance( code, str ) and code != '':
             self.__npmname = code
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
 
-''' AppropriationDocument( bfy, efy, fundcode ) '''
+
+''' AppropriationDocument( bfy, fund  ) '''
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
     __appropriationdocumentsid = None
@@ -4315,8 +4372,12 @@ class AppropriationDocument( ):
         if isinstance( value, float ):
             self.__estimatedrecoveries = value
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
-''' BudgetDocument( bfy, efy, fundcode )'''
+
+''' BudgetDocument( bfy, fund )'''
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
     __budgetdocumentsid = None
@@ -5156,7 +5217,7 @@ class BudgetControl( ):
             self.__authoritydistributioncontrol = value
 
 
-''' CongressionalControl( bfy, efy, fundcode ) '''
+''' CongressionalControl( bfy, fund ) '''
 class CongressionalControl( ):
     '''object representing congressional control data'''
     __congressionalcontrolsid = None
@@ -5325,12 +5386,11 @@ class CongressionalControl( ):
         if isinstance( value, bool ):
             self.__memorandumrequired = value
 
-    def __init__( self, bfy, efy, fundcode ):
+    def __init__( self, bfy, fundcode ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
 
-'''TODO: properties'''
+
 class CompassLevels( ):
     '''object representing Compass data levels 1-7'''
     __compasslevelsid = None
