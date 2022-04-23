@@ -1,8 +1,6 @@
 
 9
 	Static.py,3\e\3e231fda4efa302a265df1990e1bb836bdf1806a
-8
-Ninja.py,8\b\8bd840fba2dbdab27f36c7587e14a47f48cdbb59
 9
 	Minion.py,1\7\17dabf4f007d7cce2897536a31790a348b595693
 :
