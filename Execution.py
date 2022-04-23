@@ -885,7 +885,7 @@ class FinanceObjectClass( ):
         return self.__data
 
 
-''' Fund( value, efy, code )'''
+''' Fund( bfy, code )'''
 class Fund( ):
     '''Defines the Fund Class'''
     __fundsid = None
@@ -919,6 +919,7 @@ class Fund( ):
     __ombaccountcode = None
     __ombaccountname = None
     __apportionmentaccountcode = None
+    __data = None
     __frame = None
 
     @property
@@ -1222,9 +1223,9 @@ class Fund( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -1232,13 +1233,12 @@ class Fund( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
-    def __init__( self, bfy, efy, code ):
+    def __init__( self, bfy, code ):
         self.__bfy = bfy if isinstance( bfy, str ) and bfy != '' else None
-        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__code = code if isinstance( code, str ) and code != '' else None
         self.__frame = pd.DataFrame
 
@@ -1247,14 +1247,17 @@ class Fund( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
-        source = Source.Funds
-        command = Command.SELECTALL
-        names = [ 'BFY', 'EFY', 'Code' ]
-        values = ( self.__bfy, self.__efy, self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
-        return self.__data
+        try:
+            provider = Provider.SQLite
+            source = Source.Funds
+            command = Command.SELECTALL
+            names = [ 'BFY', 'Code' ]
+            values = ( self.__bfy, self.__code, )
+            df = DataFactory( provider, source, command, names, values )
+            self.__data = df.create( )
+            return self.__data
+        except Exception as e:
+            print( e )
 
 
 ''' Goal( code ) '''
@@ -3460,6 +3463,8 @@ class Transfer( ):
     __programprojectname = None
     __programareacode = None
     __programareaname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):

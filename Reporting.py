@@ -21,6 +21,7 @@ class Apportionment( ):
     __subline = None
     __amount = None
     __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -185,6 +186,8 @@ class BudgetaryResourceExecution( ):
     __treasuryfundsymbol = None
     __ombaccountcode = None
     __ombaccountname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -660,6 +663,8 @@ class StatusOfAppropriations( ):
     __voidedamount = None
     __totalusedamount = None
     __availableamount = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -1388,6 +1393,8 @@ class SpendingRates( ):
     __outyear10 = None
     __outyear11 = None
     __totalspendout = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -1681,6 +1688,8 @@ class ReimbursableSurvey( ):
     __fundcode = None
     __fundname = None
     __amount = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -1751,6 +1760,8 @@ class ObjectClassOutlays( ):
     __prioryear = None
     __currentyear = None
     __budgetyear = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -1906,6 +1917,7 @@ class ObjectClassOutlays( ):
         self.__reportyear = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
+
 ''' UnobligatedAuthority( bfy, code )'''
 class UnobligatedAuthority( ):
     '''object provides OMB data'''
@@ -1919,6 +1931,8 @@ class UnobligatedAuthority( ):
     __prioryear = None
     __currentyear = None
     __budgetyear = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -2036,6 +2050,8 @@ class BudgetOutlays( ):
     __outyear7 = None
     __outyear8 = None
     __outyear9 = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -2274,6 +2290,8 @@ class GrowthRates( ):
     __outyear7 = None
     __outyear8 = None
     __outyear9 = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):

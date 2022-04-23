@@ -33,6 +33,8 @@ class OperatingPlan( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def bfy( self ):
@@ -330,6 +332,8 @@ class FullTimeEquivalent( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def bfy( self ):
@@ -634,6 +638,8 @@ class StatusOfFunds( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -1029,6 +1035,8 @@ class Defacto( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -1384,6 +1392,7 @@ class Defacto( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
+
 ''' StatusOfSupplementalFunds( bfy, fund ) '''
 class StatusOfSupplementalFunds( ):
     '''object representing Supplemental Funds execution data'''
@@ -1423,6 +1432,8 @@ class StatusOfSupplementalFunds( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -1801,6 +1812,8 @@ class StateGrantObligation( ):
     __statecode = None
     __statename = None
     __amount = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -2028,6 +2041,8 @@ class Allocations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -2335,6 +2350,8 @@ class RegionalAuthority( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -2622,6 +2639,8 @@ class HeadquartersAuthority( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -2926,6 +2945,8 @@ class PayrollActivity( ):
     __benefits = None
     __overtimepaid = None
     __overtimehours = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -3406,6 +3427,8 @@ class SiteActivity( ):
     __outstanding = None
     __refunded = None
     __reversal = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -3826,6 +3849,8 @@ class Actuals( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -4111,6 +4136,8 @@ class AppropriationDocument( ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -4419,6 +4446,8 @@ class BudgetDocument( ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -4855,6 +4884,8 @@ class BudgetControl( ):
     __ftespendingcontrol = None
     __transactiontypecontrol = None
     __authoritydistributioncontrol = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -5235,6 +5266,8 @@ class CongressionalControl( ):
     __increaserestriction = None
     __decreaserestriction = None
     __memorandumrequired = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -5389,6 +5422,7 @@ class CongressionalControl( ):
     def __init__( self, bfy, fundcode ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+
 
 
 class CompassLevels( ):
