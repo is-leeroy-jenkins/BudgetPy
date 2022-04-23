@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
 
-class BudgetWindow( QWidget ):
+class Window( QWidget ):
     '''Basic Window Class'''
     def __init__( self ):
         super( ).__init__( )
@@ -21,5 +21,5 @@ class BudgetWindow( QWidget ):
 
 if __name__ == '__main__':
     app = QApplication( sys.argv )
-    window = BudgetWindow( )
+    window = Window( )
     sys.exit( app.exec_( ) )
