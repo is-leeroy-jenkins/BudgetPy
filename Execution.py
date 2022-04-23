@@ -2376,7 +2376,7 @@ class ResourcePlanningOffice( ):
         return self.__data
 
 
-''' ProgramResultsCode( value, efy, rpiocode, ahcode, accountcode, boccode ) '''
+''' ProgramResultsCode( bfy, efy, rpiocode, ahcode, accountcode, boccode ) '''
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
     __allocationsid = None
@@ -3261,7 +3261,7 @@ class FederalHoliday( ):
         return self.__data
 
 
-''' TreasurySymbol( value, efy, code ) '''
+''' TreasurySymbol( bfy, efy, code ) '''
 class TreasurySymbol( ):
     '''TreasurySymbol( code )
     creates object that represents a TAFS'''

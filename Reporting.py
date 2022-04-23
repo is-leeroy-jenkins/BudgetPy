@@ -2,7 +2,7 @@ from Execution import *
 from Static import *
 from Ninja import *
 
-''' Apportionment( bfy, efy, code ) '''
+''' Apportionment( bfy, efy, omb ) '''
 class Apportionment( ):
     '''Apportionment( value ) creates
     object representing Letters Of Apportionment'''
@@ -170,10 +170,10 @@ class Apportionment( ):
         if isinstance( value, float ):
             self.__amount = value
 
-    def __init__( self, bfy, efy, code ):
-        self.__bfy = bfy if isinstance( bfy, str ) else None
-        self.__efy = efy if isinstance( efy, str ) else None
-        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
+    def __init__( self, bfy, efy, omb ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
+        self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
 
 ''' BudgetaryResourceExecution( bfy, efy, code ) '''
@@ -255,7 +255,7 @@ class BudgetaryResourceExecution( ):
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
 
-''' CarryoverEstimates( bfy, efy, code ) '''
+''' CarryoverEstimates( bfy, efy, fund ) '''
 class CarryoverEstimates( ):
     '''CarryoverEstimates( bfy ) initializes object bfy
     providing Carryover Estimate data for'''
@@ -532,7 +532,7 @@ class CarryoverEstimates( ):
         return self.__data
 
 
-''' CarryoverSurvey( bfy, efy, code ) '''
+''' CarryoverSurvey( bfy, efy, fund ) '''
 class CarryoverSurvey( ):
     '''CarryoverSurvey( bfy ) initializes object
     providing carryover survey data'''
@@ -606,7 +606,7 @@ class CarryoverSurvey( ):
             self.__amount = value
 
 
-''' StatusOfAppropriations( bfy, efy, code ) '''
+''' StatusOfAppropriations( bfy, efy, fund ) '''
 class StatusOfAppropriations( ):
     '''object representing Appropriation-level execution data'''
     __statusofappropriationsid = None
@@ -1223,7 +1223,7 @@ class StatusOfAppropriations( ):
         self.__appropriationfundcode = code if isinstance( code, str ) and code != '' else None
 
 
-''' MonthlyOutlays( bfy, efy, code ) '''
+''' MonthlyOutlays( bfy, efy, omb ) '''
 class MonthlyOutlays( ):
     '''object provides OMB outlay data'''
     __monthlyoutlaysid = None
@@ -1253,6 +1253,8 @@ class MonthlyOutlays( ):
     __october = None
     __november = None
     __december = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -1680,7 +1682,7 @@ class SpendingRates( ):
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
 
-''' ReimbursableSurvey( bfy, fundcode ) '''
+''' ReimbursableSurvey( bfy, fund ) '''
 class ReimbursableSurvey( ):
     '''object provides Reimbursable Authority data'''
     __reimbursablesurveyid = None
@@ -1742,7 +1744,7 @@ class ReimbursableSurvey( ):
             self.__amount = value
 
 
-''' ObjectClassOutlays( bfy, code ) '''
+''' ObjectClassOutlays( bfy, omb ) '''
 class ObjectClassOutlays( ):
     '''object provides OMB outlay data'''
     __objectclassoutlaysid = None
@@ -1913,12 +1915,12 @@ class ObjectClassOutlays( ):
         if isinstance( value, float ):
             self.__budgetyear = value
 
-    def __init__( self, bfy, code ):
+    def __init__( self, bfy, omb ):
         self.__reportyear = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
+        self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
 
-''' UnobligatedAuthority( bfy, code )'''
+''' UnobligatedAuthority( bfy, omb )'''
 class UnobligatedAuthority( ):
     '''object provides OMB data'''
     __unobligatedauthorityid = None
@@ -2024,8 +2026,12 @@ class UnobligatedAuthority( ):
         if isinstance( value, float ):
             self.__budgetyear = value
 
+    def __init__( self, bfy, omb ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
-''' BudgetOutlays( bfy, code ) '''
+
+''' BudgetOutlays( bfy, omb ) '''
 class BudgetOutlays( ):
     '''object provides OMB data'''
     __budgetoutlaysid = None
@@ -2272,6 +2278,10 @@ class BudgetOutlays( ):
     def outyear9( self, value ):
         if isinstance( value, float ):
             self.__outyear9 = value
+
+    def __init__( self, bfy, omb ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
 
 ''' GrowthRates( bfy, id ) '''

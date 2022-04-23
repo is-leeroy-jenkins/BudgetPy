@@ -1,33 +1,0 @@
-
-kpython:S2208"GImport only needed names or import the module and then use its members.(ÍŠ¶–şÿÿÿÿ8ºœ­µ„0
-fpython:S2208"GImport only needed names or import the module and then use its members.(ú¶8ºœ­µ„0
-xpython:S4144/"TUpdate this function so that its implementation is not identical to name on line 37.(à”•Œúÿÿÿÿ8ºœ­µ„0
-tpython:S4144¯"TUpdate this function so that its implementation is not identical to code on line 87.(ŒüÂ¶8ºœ­µ„0
-upython:S4144ı"UUpdate this function so that its implementation is not identical to code on line 210.(ŒüÂ¶8ºœ­µ„0
-upython:S4144Ë"UUpdate this function so that its implementation is not identical to code on line 288.(ŒüÂ¶8ºœ­µ„0
-upython:S4144»"UUpdate this function so that its implementation is not identical to code on line 390.(ŒüÂ¶8ºœ­µ„0
-upython:S4144×"UUpdate this function so that its implementation is not identical to code on line 672.(ŒüÂ¶8ºœ­µ„0
-upython:S4144"UUpdate this function so that its implementation is not identical to code on line 750.(ŒüÂ¶8Éœ­µ„0
-upython:S4144é"UUpdate this function so that its implementation is not identical to code on line 810.(ŒüÂ¶8Éœ­µ„0
-‡python:S4144â"bUpdate this function so that its implementation is not identical to applyatalllevels on line 1117.(ÄµœÙùÿÿÿÿ8Éœ­µ„0
-upython:S4144İ	"UUpdate this function so that its implementation is not identical to code on line 935.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144ª
-"VUpdate this function so that its implementation is not identical to code on line 1280.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144"VUpdate this function so that its implementation is not identical to code on line 1359.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144Ü"VUpdate this function so that its implementation is not identical to code on line 1457.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144ª"VUpdate this function so that its implementation is not identical to code on line 1535.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144ø"VUpdate this function so that its implementation is not identical to code on line 1613.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144Æ"VUpdate this function so that its implementation is not identical to code on line 1691.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144”"VUpdate this function so that its implementation is not identical to code on line 1769.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144Ú"VUpdate this function so that its implementation is not identical to code on line 1850.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144ö"VUpdate this function so that its implementation is not identical to code on line 1995.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144Ä"VUpdate this function so that its implementation is not identical to code on line 2073.(ŒüÂ¶8Éœ­µ„0
-vpython:S4144"VUpdate this function so that its implementation is not identical to code on line 2152.(ŒüÂ¶8Éœ­µ„0
-zpython:S4144•"ZUpdate this function so that its implementation is not identical to rpiocode on line 2443.(°Û¯Š8Éœ­µ„0
-Ppython:S1481å"+Remove the unused local variable "__delta".(“ğÿ°øÿÿÿÿ8Éœ­µ„0
-Ppython:S1481÷"+Remove the unused local variable "__delta".(“ğÿ°øÿÿÿÿ8Éœ­µ„0
-Ppython:S1481§"+Remove the unused local variable "__delta".(“ğÿ°øÿÿÿÿ8Éœ­µ„0
-Npython:S1940¯")Use the opposite operator ("!=") instead.(ÓÙÅ¯øÿÿÿÿ8Ùœ­µ„0
-…python:S4144"eUpdate this function so that its implementation is not identical to treasuryaccountname on line 3306.(ŒüÂ¶8Ùœ­µ„0
-vpython:S4144Û"VUpdate this function so that its implementation is not identical to code on line 3376.(ŒüÂ¶8Ùœ­µ„0
-zpython:S4144Ù"ZUpdate this function so that its implementation is not identical to rpiocode on line 3535.(°Û¯Š8Ùœ­µ„0
