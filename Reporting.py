@@ -1,7 +1,6 @@
 from Execution import *
 from Static import *
 from Ninja import *
-from Tools.scripts.make_ctype import values
 
 ''' Apportionment( bfy, efy, code ) '''
 class Apportionment( ):
