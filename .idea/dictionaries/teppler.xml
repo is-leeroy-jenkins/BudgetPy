@@ -16,6 +16,10 @@
       <w>appropriationdocumentsid</w>
       <w>authoritydistributioncontrol</w>
       <w>availablebalance</w>
+      <w>basehours</w>
+      <w>basepaid</w>
+      <w>beacategory</w>
+      <w>beacategoryname</w>
       <w>budgetauthority</w>
       <w>budgetcontrolsid</w>
       <w>budgetdefault</w>
@@ -24,6 +28,8 @@
       <w>budgetedtranstype</w>
       <w>budgetestimatedlowerlevels</w>
       <w>budgetingcontrols</w>
+      <w>budgetoutlaysid</w>
+      <w>budgetyear</w>
       <w>carryin</w>
       <w>carryoveravailabilitypercentage</w>
       <w>carryoverestimatesid</w>
@@ -31,6 +37,7 @@
       <w>carryoverout</w>
       <w>carryoveroutlaysid</w>
       <w>carryoversurveyid</w>
+      <w>checkdate</w>
       <w>commitmentcontrols</w>
       <w>commitmentsid</w>
       <w>commitmentspendingcontrol</w>
@@ -39,13 +46,19 @@
       <w>cpic</w>
       <w>createtable</w>
       <w>createview</w>
+      <w>currentyear</w>
       <w>dataruledescriptionsid</w>
       <w>decreaserestriction</w>
       <w>defactos</w>
       <w>deobligation</w>
       <w>deobligations</w>
+      <w>deobligationsid</w>
+      <w>directreimbursabletitle</w>
+      <w>documentcontrolnumber</w>
       <w>documentcontrolnumbersid</w>
       <w>documentdate</w>
+      <w>documentname</w>
+      <w>documentnumbe</w>
       <w>documentnumber</w>
       <w>droptable</w>
       <w>dropview</w>
@@ -61,6 +74,7 @@
       <w>expensecontrols</w>
       <w>expensespendingcontrol</w>
       <w>feburary</w>
+      <w>financeobjectclass</w>
       <w>foccode</w>
       <w>focname</w>
       <w>ftebudgetingcontrol</w>
@@ -71,10 +85,14 @@
       <w>getdata</w>
       <w>grossbudgetauthorityoutlaysid</w>
       <w>growthratesid</w>
+      <w>hrorgcode</w>
+      <w>hrorgname</w>
       <w>increaserestriction</w>
       <w>lastactivitydate</w>
       <w>lastdocumentdate</w>
+      <w>linecategory</w>
       <w>linename</w>
+      <w>linesection</w>
       <w>linetitle</w>
       <w>lowerchildexpenditurecontrolflag</w>
       <w>lowerchildexpensespendingcontrolflag</w>
@@ -92,33 +110,45 @@
       <w>lowerreimbursablespendingoption</w>
       <w>memorandumrequired</w>
       <w>monthlyoutlaysid</w>
+      <w>objectclassgroupname</w>
+      <w>objectclassgroupnumber</w>
       <w>objectclassoutlays</w>
       <w>objectclassoutlaysid</w>
       <w>obligationcontrols</w>
       <w>obligationsid</w>
       <w>obligationspendingcontrol</w>
+      <w>obligationtype</w>
       <w>ombaccounttitle</w>
       <w>ombagencyname</w>
       <w>ombbureau</w>
+      <w>opencommitmentsid</w>
       <w>operableunit</w>
       <w>originalauthority</w>
       <w>outyear</w>
+      <w>overtimehours</w>
+      <w>overtimepaid</w>
       <w>paramstyles</w>
+      <w>payperiod</w>
+      <w>payrollactivityid</w>
       <w>postedcontrol</w>
       <w>postedtranstype</w>
       <w>postingcontrols</w>
       <w>precommitmentcontrols</w>
       <w>precommitmentspendingcontrol</w>
+      <w>prioryear</w>
+      <w>processeddate</w>
       <w>profitlossbudgetingoption</w>
       <w>profitlossspendingoption</w>
       <w>profitlosstranstype</w>
       <w>projecttype</w>
+      <w>rateid</w>
       <w>recoveriescarryinamountcontrol</w>
       <w>recoveriescarryinlowerlevel</w>
       <w>recoveriescarryinlowerlevelcontrol</w>
       <w>recoverieswithdrawn</w>
       <w>recoverybudgetmismatch</w>
       <w>recoverynextlevel</w>
+      <w>referencedocumentnumber</w>
       <w>reimbursableagreementcontrols</w>
       <w>reimbursableagreementspendingcontrol</w>
       <w>reimbursablesurveyid</w>
@@ -134,6 +164,8 @@
       <w>spendingadjustmenttranstype</w>
       <w>spendingratesid</w>
       <w>startdate</w>
+      <w>statecode</w>
+      <w>statename</w>
       <w>statusreservetranstype</w>
       <w>stieprojectname</w>
       <w>subaccount</w>
@@ -141,6 +173,8 @@
       <w>subfunction</w>
       <w>subprojectcode</w>
       <w>subprojectname</w>
+      <w>subrccode</w>
+      <w>subrcname</w>
       <w>supplementals</w>
       <w>taxationcode</w>
       <w>totalagreementreimbursables</w>
@@ -154,6 +188,11 @@
       <w>unobligated</w>
       <w>unobligatedauthority</w>
       <w>unobligatedauthorityid</w>
+      <w>vendorage</w>
+      <w>vendorcode</w>
+      <w>vendorname</w>
+      <w>workcode</w>
+      <w>workcodename</w>
       <w>yearofauthority</w>
     </words>
   </dictionary>

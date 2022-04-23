@@ -2872,6 +2872,8 @@ class PayrollActivity( ):
     __startdate = None
     __enddate = None
     __checkdate = None
+    __foccode = None
+    __focname = None
     __amount = None
     __hours = None
     __basepaid = None
@@ -4747,8 +4749,14 @@ class BudgetDocument( ):
         if isinstance( value, float ):
             self.__estimatedrecoveries = value
 
+    def __init__( self, bfy, efy, fundcode ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
+        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
 
-class BudgetControls( ):
+
+''' BudgetControl( code ) '''
+class BudgetControl( ):
     '''object representing compass control data'''
     __budgetcontrolsid = None
     __code = None
@@ -5148,7 +5156,8 @@ class BudgetControls( ):
             self.__authoritydistributioncontrol = value
 
 
-class CongressionalControls( ):
+''' CongressionalControl( bfy, efy, fundcode ) '''
+class CongressionalControl( ):
     '''object representing congressional control data'''
     __congressionalcontrolsid = None
     __bfy = None
@@ -5316,6 +5325,10 @@ class CongressionalControls( ):
         if isinstance( value, bool ):
             self.__memorandumrequired = value
 
+    def __init__( self, bfy, efy, fundcode ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
+        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
 
 '''TODO: properties'''
 class CompassLevels( ):
@@ -5450,7 +5463,8 @@ class CompassLevels( ):
             self.__subappropriationcode = value
 
 
-class Commitments( ):
+''' Commitment( bfy, fund, account, boc ) '''
+class Commitment( ):
     '''Defines the CommitmentS class.'''
     __commitmentsid = None
     __obligationsid = None
@@ -5465,1432 +5479,25 @@ class Commitments( ):
     __orgcode = None
     __orgname = None
     __accountcode = None
+    __programprojectname = None
     __boccode = None
     __bocname = None
     __rccode = None
     __rcname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentcontrolnumber = None
+    __referencedocumentnumber = None
     __programprojectcode = None
-    __programprojectname = None
     __programareacode = None
     __programareaname = None
-    __amount = None
-    __goalcode = None
-    __goalname = None
-    __objectivecode = None
-    __objectivename = None
-    __npmcode = None
-    __npmname = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__obligationsid, int ):
-            return self.__obligationsid
-
-    @id.setter
-    def id( self, value ):
-        if isinstance( value, int ):
-            self.__obligationsid = value
-
-    @property
-    def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bfy = value
-
-    @property
-    def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__efy = value
-
-    @property
-    def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
-            return self.__rpiocode
-
-    @rpiocode.setter
-    def rpiocode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
-
-    @property
-    def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
-            return self.__rpioname
-
-    @rpiocode.setter
-    def rpiocode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
-
-    @property
-    def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
-            return self.__ahcode
-
-    @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
-
-    @property
-    def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
-            return self.__ahname
-
-    @ahname.setter
-    def ahname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__ahname = value
-
-    @property
-    def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
-            return self.__fundcode
-
-    @fundcode.setter
-    def fundcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__fundcode = value
-
-    @property
-    def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
-            return self.__fundname
-
-    @fundname.setter
-    def fundname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__fundname = value
-
-    @property
-    def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
-            return self.__orgcode
-
-    @orgcode.setter
-    def orgcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__orgcode = value
-
-    @property
-    def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
-            return self.__orgname
-
-    @orgname.setter
-    def orgname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__orgname = value
-
-    @property
-    def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
-            return self.__accountcode
-
-    @accountcode.setter
-    def accountcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accountcode = value
-
-    @property
-    def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
-            return self.__boccode
-
-    @boccode.setter
-    def boccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__boccode = value
-
-    @property
-    def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
-            return self.__bocname
-
-    @bocname.setter
-    def bocname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bocname = value
-
-    @property
-    def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
-            return self.__rccode
-
-    @rccode.setter
-    def rccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rccode = value
-
-    @property
-    def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
-            return self.__rcname
-
-    @rcname.setter
-    def rcname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rcname = value
-
-    @property
-    def amount( self ):
-        if isinstance( self.__amount, float ):
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value ):
-        if isinstance( value, float ):
-            self.__amount = value
-
-    @property
-    def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
-            return self.__programprojectcode
-
-    @programprojectcode.setter
-    def programprojectcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programprojectcode = value
-
-    @property
-    def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
-            return self.__programprojectname
-
-    @programprojectname.setter
-    def programprojectname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programprojectname = value
-
-    @property
-    def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
-            return self.__programareacode
-
-    @programareacode.setter
-    def programareacode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programareacode = value
-
-    @property
-    def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
-            return self.__programareaname
-
-    @programareaname.setter
-    def programareaname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programareaname = value
-
-    @property
-    def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
-            return self.__goalcode
-
-    @goalcode.setter
-    def goalcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__goalcode = value
-
-    @property
-    def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
-            return self.__goalname
-
-    @goalname.setter
-    def goalname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__goalname = value
-
-    @property
-    def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
-            return self.__objectivecode
-
-    @objectivecode.setter
-    def objectivecode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__objectivecode = value
-
-    @property
-    def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
-            return self.__objectivename
-
-    @objectivename.setter
-    def objectivename( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__objectivename = value
-
-    @property
-    def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
-            return self.__npmcode
-
-    @npmcode.setter
-    def npmcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__npmcode = value
-
-    @property
-    def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
-            return self.__npmname
-
-    @npmname.setter
-    def npmname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__npmname = value
-
-    def __init__( self, amount ):
-        self.__amount = amount if isinstance( amount, float ) else None
-        self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if isinstance( self.__amount, float ):
-            return str( self.__amount )
-
-
-class DocumentControlNumbers( ):
-    ''' object provides DCN data'''
-    __documentcontrolnumbersid = None
-
-class HumanResourceOrganizations( ):
-    ''' object providing HR Org data'''
-    __humanresourceorganizationsid = None
-
-
-class OpenCommitments( ):
-    '''Defines the OpenCommitments class.'''
-    __obligationsid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __rpioname = None
-    __fundcode = None
-    __fundname = None
-    __ahcode = None
-    __ahname = None
-    __orgcode = None
-    __orgname = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
-    __rccode = None
-    __rcname = None
-    __programprojectcode = None
-    __programprojectname = None
-    __programareacode = None
-    __programareaname = None
-    __amount = None
-    __goalcode = None
-    __goalname = None
-    __objectivecode = None
-    __objectivename = None
-    __npmcode = None
-    __npmname = None
-    __data = None
-    __frame = None
-
-    @property
-    def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bfy = value
-
-    @property
-    def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__efy = value
-
-    @property
-    def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
-            return self.__rpiocode
-
-    @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
-
-    @property
-    def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
-            return self.__rpioname
-
-    @rpiocode.setter
-    def rpiocode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
-
-    @property
-    def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
-            return self.__ahcode
-
-    @ahcode.setter
-    def ahcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__ahcode = value
-
-    @property
-    def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
-            return self.__ahname
-
-    @ahname.setter
-    def ahname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__ahname = value
-
-    @property
-    def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
-            return self.__fundcode
-
-    @fundcode.setter
-    def fundcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__fundcode = value
-
-    @property
-    def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
-            return self.__fundname
-
-    @fundname.setter
-    def fundname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__fundname = value
-
-    @property
-    def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
-            return self.__orgcode
-
-    @orgcode.setter
-    def orgcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__orgcode = value
-
-    @property
-    def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
-            return self.__orgname
-
-    @orgname.setter
-    def orgname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__orgname = value
-
-    @property
-    def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
-            return self.__accountcode
-
-    @accountcode.setter
-    def accountcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accountcode = value
-
-    @property
-    def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
-            return self.__boccode
-
-    @boccode.setter
-    def boccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__boccode = value
-
-    @property
-    def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
-            return self.__bocname
-
-    @bocname.setter
-    def bocname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bocname = value
-
-    @property
-    def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
-            return self.__rccode
-
-    @rccode.setter
-    def rccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rccode = value
-
-    @property
-    def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
-            return self.__rcname
-
-    @rcname.setter
-    def rcname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rcname = value
-
-    @property
-    def amount( self ):
-        if isinstance( self.__amount, float ):
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value ):
-        if isinstance( value, float ):
-            self.__amount = value
-
-    @property
-    def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
-            return self.__programprojectcode
-
-    @programprojectcode.setter
-    def programprojectcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programprojectcode = value
-
-    @property
-    def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
-            return self.__programprojectname
-
-    @programprojectname.setter
-    def programprojectname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programprojectname = value
-
-    @property
-    def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
-            return self.__programareacode
-
-    @programareacode.setter
-    def programareacode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programareacode = value
-
-    @property
-    def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
-            return self.__programareaname
-
-    @programareaname.setter
-    def programareaname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programareaname = value
-
-    @property
-    def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
-            return self.__goalcode
-
-    @goalcode.setter
-    def goalcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__goalcode = value
-
-    @property
-    def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
-            return self.__goalname
-
-    @goalname.setter
-    def goalname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__goalname = value
-
-    @property
-    def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
-            return self.__objectivecode
-
-    @objectivecode.setter
-    def objectivecode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__objectivecode = value
-
-    @property
-    def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
-            return self.__objectivename
-
-    @objectivename.setter
-    def objectivename( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__objectivename = value
-
-    @property
-    def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
-            return self.__npmcode
-
-    @npmcode.setter
-    def npmcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__npmcode = value
-
-    @property
-    def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
-            return self.__npmname
-
-    @npmname.setter
-    def npmname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__npmname = value
-
-    def __init__( self, amount ):
-        self.__amount = float( amount )
-        self.__data = {
-                'amount':   self.__amount,
-                'account':  None,
-                'document': None,
-                'org':      None,
-                'bfy':      None,
-                'fund':     None,
-                'boc':      None }
-        self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if isinstance( self.__amount, float ):
-            return str( self.__amount )
-
-
-class Obligations( ):
-    '''Defines the Obligations class.'''
-    __obligationsid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __rpioname = None
-    __fundcode = None
-    __fundname = None
-    __ahcode = None
-    __ahname = None
-    __orgcode = None
-    __orgname = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
-    __rccode = None
-    __rcname = None
-    __programprojectcode = None
-    __programprojectname = None
-    __programareacode = None
-    __programareaname = None
-    __amount = None
-    __goalcode = None
-    __goalname = None
-    __objectivecode = None
-    __objectivename = None
-    __npmcode = None
-    __npmname = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__obligationsid, int ):
-            return self.__obligationsid
-
-    @id.setter
-    def id( self, value ):
-        if isinstance( value, int ):
-            self.__obligationsid = value
-
-    @property
-    def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bfy = value
-
-    @property
-    def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__efy = value
-
-    @property
-    def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
-            return self.__rpiocode
-
-    @rpiocode.setter
-    def rpiocode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
-
-    @property
-    def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
-            return self.__rpioname
-
-    @rpiocode.setter
-    def rpiocode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
-
-    @property
-    def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
-            return self.__ahcode
-
-    @ahcode.setter
-    def ahcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__ahcode = value
-
-    @property
-    def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
-            return self.__ahname
-
-    @ahname.setter
-    def ahname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__ahname = value
-
-    @property
-    def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
-            return self.__fundcode
-
-    @fundcode.setter
-    def fundcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__fundcode = value
-
-    @property
-    def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
-            return self.__fundname
-
-    @fundname.setter
-    def fundname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__fundname = value
-
-    @property
-    def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
-            return self.__orgcode
-
-    @orgcode.setter
-    def orgcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__orgcode = value
-
-    @property
-    def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
-            return self.__orgname
-
-    @orgname.setter
-    def orgname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__orgname = value
-
-    @property
-    def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
-            return self.__accountcode
-
-    @accountcode.setter
-    def accountcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accountcode = value
-
-    @property
-    def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
-            return self.__boccode
-
-    @boccode.setter
-    def boccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__boccode = value
-
-    @property
-    def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
-            return self.__bocname
-
-    @bocname.setter
-    def bocname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bocname = value
-
-    @property
-    def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
-            return self.__rccode
-
-    @rccode.setter
-    def rccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rccode = value
-
-    @property
-    def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
-            return self.__rcname
-
-    @rcname.setter
-    def rcname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rcname = value
-
-    @property
-    def amount( self ):
-        if isinstance( self.__amount, float ):
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value ):
-        if isinstance( value, float ):
-            self.__amount = value
-
-    @property
-    def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
-            return self.__programprojectcode
-
-    @programprojectcode.setter
-    def programprojectcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programprojectcode = value
-
-    @property
-    def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
-            return self.__programprojectname
-
-    @programprojectname.setter
-    def programprojectname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programprojectname = value
-
-    @property
-    def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
-            return self.__programareacode
-
-    @programareacode.setter
-    def programareacode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programareacode = value
-
-    @property
-    def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
-            return self.__programareaname
-
-    @programareaname.setter
-    def programareaname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programareaname = value
-
-    @property
-    def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
-            return self.__goalcode
-
-    @goalcode.setter
-    def goalcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__goalcode = value
-
-    @property
-    def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
-            return self.__goalname
-
-    @goalname.setter
-    def goalname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__goalname = value
-
-    @property
-    def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
-            return self.__objectivecode
-
-    @objectivecode.setter
-    def objectivecode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__objectivecode = value
-
-    @property
-    def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
-            return self.__objectivename
-
-    @objectivename.setter
-    def objectivename( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__objectivename = value
-
-    @property
-    def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
-            return self.__npmcode
-
-    @npmcode.setter
-    def npmcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__npmcode = value
-
-    @property
-    def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
-            return self.__npmname
-
-    @npmname.setter
-    def npmname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__npmname = value
-
-    def __init__( self, amount ):
-        self.__amount = float( amount )
-        self.__data = {
-                'amount':   self.__amount,
-                'account':  None,
-                'document': None,
-                'org':      None,
-                'bfy':      None,
-                'fund':     None,
-                'boc':      None }
-        self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if isinstance( self.__amount, float ):
-            return str( self.__amount )
-
-
-class Deobligations( ):
-    '''Defines the Deobligations class.'''
-    __obligationsid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __rpioname = None
-    __fundcode = None
-    __fundname = None
-    __ahcode = None
-    __ahname = None
-    __orgcode = None
-    __orgname = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
-    __rccode = None
-    __rcname = None
-    __programprojectcode = None
-    __programprojectname = None
-    __programareacode = None
-    __programareaname = None
-    __amount = None
-    __goalcode = None
-    __goalname = None
-    __objectivecode = None
-    __objectivename = None
-    __npmcode = None
-    __npmname = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__deobligationsid, int ):
-            return self.__deobligationsid
-
-    @id.setter
-    def id( self, value ):
-        if isinstance( value, int ):
-            self.__deobligationsid = value
-
-    @property
-    def amount( self ):
-        if isinstance( self.__amount, float ):
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value ):
-        if isinstance( value, float ):
-            self.__amount = value
-
-    @property
-    def account( self ):
-        if isinstance( self.__account, Account ):
-            return self.__account
-
-    @account.setter
-    def account( self, value ):
-        if isinstance( value, Account ):
-            self.__account = value
-
-    @property
-    def document( self ):
-        if isinstance( self.__document, str ) and self.__document != '':
-            return self.__document
-
-    @document.setter
-    def document( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__document = value
-
-    @property
-    def org( self ):
-        if isinstance( self.__org, Organization ):
-            return self.__org
-
-    @org.setter
-    def org( self, value ):
-        if isinstance( value, Organization ):
-            self.__org = value
-
-    @property
-    def bfy( self ):
-        if isinstance( self.__bfy, BudgetFiscalYear ):
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value ):
-        if isinstance( value, BudgetFiscalYear ):
-            self.__bfy = value
-
-    @property
-    def fund( self ):
-        if isinstance( self.__fund, Fund ):
-            return self.__fund
-
-    @fund.setter
-    def fund( self, value ):
-        if isinstance( value, Fund ):
-            self.__fund = value
-
-    @property
-    def boc( self ):
-        if isinstance( self.__boc, BudgetObjectClass ):
-            return self.__boc
-
-    @boc.setter
-    def boc( self, value ):
-        if isinstance( value, BudgetObjectClass ):
-            self.__boc = value
-
-    @property
-    def data( self ):
-        if isinstance( self.__data, list ):
-            return self.__data
-
-    @data.setter
-    def data( self, value ):
-        if isinstance( value, list ):
-            self.__data = value
-
-    @property
-    def table( self ):
-        if self.__frame is not None:
-            return self.__frame
-
-    @table.setter
-    def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
-            self.__frame = value
-
-    def __init__( self, amount ):
-        self.__amount = float( amount )
-        self.__data = {
-                'amount':   self.__amount,
-                'account':  None,
-                'document': None,
-                'org':      None,
-                'bfy':      None,
-                'fund':     None,
-                'boc':      None }
-        self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if isinstance( self.__amount, float ):
-            return str( self.__amount )
-
-
-class UnliquidatedObligations( ):
-    '''Defines the UnliquidatedObligations class.'''
-    __unliquidatedobligationsid = None
-    __obligationsid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __rpioname = None
-    __fundcode = None
-    __fundname = None
-    __ahcode = None
-    __ahname = None
-    __orgcode = None
-    __orgname = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
-    __rccode = None
-    __rcname = None
-    __programprojectcode = None
-    __programprojectname = None
-    __programareacode = None
-    __programareaname = None
-    __amount = None
-    __goalcode = None
-    __goalname = None
-    __objectivecode = None
-    __objectivename = None
-    __npmcode = None
-    __npmname = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__unliquidatedobligationsid, int ):
-            return self.__unliquidatedobligationsid
-
-    @id.setter
-    def id( self, value ):
-        if isinstance( value, int ):
-            self.__unliquidatedobligationsid = value
-
-    @property
-    def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bfy = value
-
-    @property
-    def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__efy = value
-
-    @property
-    def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
-            return self.__rpiocode
-
-    @rpiocode.setter
-    def rpiocode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
-
-    @property
-    def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
-            return self.__rpioname
-
-    @rpiocode.setter
-    def rpiocode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
-
-    @property
-    def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
-            return self.__ahcode
-
-    @ahcode.setter
-    def ahcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__ahcode = value
-
-    @property
-    def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
-            return self.__ahname
-
-    @ahname.setter
-    def ahname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__ahname = value
-
-    @property
-    def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
-            return self.__fundcode
-
-    @fundcode.setter
-    def fundcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__fundcode = value
-
-    @property
-    def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
-            return self.__fundname
-
-    @fundname.setter
-    def fundname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__fundname = value
-
-    @property
-    def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
-            return self.__orgcode
-
-    @orgcode.setter
-    def orgcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__orgcode = value
-
-    @property
-    def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
-            return self.__orgname
-
-    @orgname.setter
-    def orgname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__orgname = value
-
-    @property
-    def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
-            return self.__accountcode
-
-    @accountcode.setter
-    def accountcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accountcode = value
-
-    @property
-    def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
-            return self.__boccode
-
-    @boccode.setter
-    def boccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__boccode = value
-
-    @property
-    def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
-            return self.__bocname
-
-    @bocname.setter
-    def bocname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bocname = value
-
-    @property
-    def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
-            return self.__rccode
-
-    @rccode.setter
-    def rccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rccode = value
-
-    @property
-    def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
-            return self.__rcname
-
-    @rcname.setter
-    def rcname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__rcname = value
-
-    @property
-    def amount( self ):
-        if isinstance( self.__amount, float ):
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value ):
-        if isinstance( value, float ):
-            self.__amount = value
-
-    @property
-    def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
-            return self.__programprojectcode
-
-    @programprojectcode.setter
-    def programprojectcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programprojectcode = value
-
-    @property
-    def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
-            return self.__programprojectname
-
-    @programprojectname.setter
-    def programprojectname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programprojectname = value
-
-    @property
-    def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
-            return self.__programareacode
-
-    @programareacode.setter
-    def programareacode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programareacode = value
-
-    @property
-    def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
-            return self.__programareaname
-
-    @programareaname.setter
-    def programareaname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__programareaname = value
-
-    @property
-    def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
-            return self.__goalcode
-
-    @goalcode.setter
-    def goalcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__goalcode = value
-
-    @property
-    def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
-            return self.__goalname
-
-    @goalname.setter
-    def goalname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__goalname = value
-
-    @property
-    def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
-            return self.__objectivecode
-
-    @objectivecode.setter
-    def objectivecode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__objectivecode = value
-
-    @property
-    def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
-            return self.__objectivename
-
-    @objectivename.setter
-    def objectivename( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__objectivename = value
-
-    @property
-    def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
-            return self.__npmcode
-
-    @npmcode.setter
-    def npmcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__npmcode = value
-
-    @property
-    def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
-            return self.__npmname
-
-    @npmname.setter
-    def npmname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__npmname = value
-
-    def __init__( self, amount ):
-        self.__amount = float( amount )
-        self.__data = {
-                'amount':   self.__amount,
-                'account':  None,
-                'document': None,
-                'org':      None,
-                'bfy':      None,
-                'fund':     None,
-                'boc':      None }
-        self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if isinstance( self.__amount, float ):
-            return str( self.__amount )
-
-
-class Expenditures:
-    '''Defines the Expenditures class.'''
-    __expendituresid = None
-    __obligationsid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __rpioname = None
-    __fundcode = None
-    __fundname = None
-    __ahcode = None
-    __ahname = None
-    __orgcode = None
-    __orgname = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
-    __rccode = None
-    __rcname = None
-    __programprojectcode = None
-    __programprojectname = None
-    __programareacode = None
-    __programareaname = None
+    __processeddate = None
+    __lastactivitydate = None
+    __age = None
+    __vendorcode = None
+    __vendorage = None
+    __foccode = None
+    __focname = None
     __amount = None
     __goalcode = None
     __goalname = None
@@ -7062,6 +5669,117 @@ class Expenditures:
             self.__rcname = value
 
     @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentnumber = value
+
+    @property
+    def documentcontrolnumber( self ):
+        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+            return self.__documentcontrolnumber
+
+    @documentcontrolnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentcontrolnumber = value
+
+    @property
+    def referencedocumentnumber( self ):
+        if isinstance( self.__referencedocumentnumber,
+                str ) and self.__referencedocumentnumber != '':
+            return self.__referencedocumentnumber
+
+    @referencedocumentnumber.setter
+    def referencedocumentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__referencedocumentnumber = value
+
+    @property
+    def processeddate( self ):
+        if isinstance( self.__processeddate, dt.datetime ):
+            return self.__processeddate
+
+    @processeddate.setter
+    def processeddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__processeddate = value
+
+    @property
+    def lastactivitydate( self ):
+        if isinstance( self.__lastactivitydate, dt.datetime ):
+            return self.__lastactivitydate
+
+    @lastactivitydate.setter
+    def lastactivitydate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__lastactivitydate = value
+
+    @property
+    def age( self ):
+        if isinstance( self.__age, int ):
+            return self.__age
+
+    @age.setter
+    def age( self, value ):
+        if isinstance( value, int ):
+            self.__age = value
+
+    @property
+    def vendorcode( self ):
+        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+            return self.__vendorcode
+
+    @vendorcode.setter
+    def vendorcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorcode = value
+
+    @property
+    def vendorname( self ):
+        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+            return self.__vendorname
+
+    @vendorname.setter
+    def vendorname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorname = value
+
+    @property
+    def foccode( self ):
+        if isinstance( self.__foccode, str ) and self.__foccode != '':
+            return self.__foccode
+
+    @foccode.setter
+    def foccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def focname( self ):
+        if isinstance( self.__focname, str ) and self.__focname != '':
+            return self.__focname
+
+    @focname.setter
+    def focname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__focname = value
+
+    @property
     def amount( self ):
         if isinstance( self.__amount, float ):
             return self.__amount
@@ -7171,8 +5889,11 @@ class Expenditures:
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
-    def __init__( self, amount ):
-        self.__amount = float( amount )
+    def __init__( self, bfy, fund, account, boc ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__accountcode = account if isinstance( account, str ) and account != '' else None
+        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
         self.__data = {
                 'amount':   self.__amount,
                 'account':  None,
@@ -7182,6 +5903,2214 @@ class Expenditures:
                 'fund':     None,
                 'boc':      None }
         self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__amount, float ):
+            return str( self.__amount )
+
+
+class DocumentControlNumbers( ):
+    ''' object provides DCN data'''
+    __documentcontrolnumbersid = None
+
+
+class HumanResourceOrganizations( ):
+    ''' object providing HR Org data'''
+    __humanresourceorganizationsid = None
+
+
+''' OpenCommitment( bfy, fund, account, boc ) '''
+class OpenCommitment( ):
+    ''' OpenCommitment( bfy, fund, account, boc )
+    initializes object providing OpenCommitment data.'''
+    __opencommitmentsid = None
+    __obligationsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __programprojectname = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentcontrolnumber = None
+    __referencedocumentnumber = None
+    __programprojectcode = None
+    __programareacode = None
+    __programareaname = None
+    __processeddate = None
+    __lastactivitydate = None
+    __age = None
+    __vendorcode = None
+    __vendorage = None
+    __foccode = None
+    __focname = None
+    __amount = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__expendituresid, int ):
+            return self.__expendituresid
+
+    @id.setter
+    def id( self, iid ):
+        if isinstance( iid, int ):
+            self.__expendituresid = iid
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if isinstance( self.__orgname, str ) and self.__orgname != '':
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if isinstance( self.__rccode, str ) and self.__rccode != '':
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if isinstance( self.__rcname, str ) and self.__rcname != '':
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentnumber = value
+
+    @property
+    def documentcontrolnumber( self ):
+        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+            return self.__documentcontrolnumber
+
+    @documentcontrolnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentcontrolnumber = value
+
+    @property
+    def referencedocumentnumber( self ):
+        if isinstance( self.__referencedocumentnumber,
+                str ) and self.__referencedocumentnumber != '':
+            return self.__referencedocumentnumber
+
+    @referencedocumentnumber.setter
+    def referencedocumentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__referencedocumentnumber = value
+
+    @property
+    def processeddate( self ):
+        if isinstance( self.__processeddate, dt.datetime ):
+            return self.__processeddate
+
+    @processeddate.setter
+    def processeddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__processeddate = value
+
+    @property
+    def lastactivitydate( self ):
+        if isinstance( self.__lastactivitydate, dt.datetime ):
+            return self.__lastactivitydate
+
+    @lastactivitydate.setter
+    def lastactivitydate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__lastactivitydate = value
+
+    @property
+    def age( self ):
+        if isinstance( self.__age, int ):
+            return self.__age
+
+    @age.setter
+    def age( self, value ):
+        if isinstance( value, int ):
+            self.__age = value
+
+    @property
+    def vendorcode( self ):
+        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+            return self.__vendorcode
+
+    @vendorcode.setter
+    def vendorcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorcode = value
+
+    @property
+    def vendorname( self ):
+        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+            return self.__vendorname
+
+    @vendorname.setter
+    def vendorname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorname = value
+
+    @property
+    def foccode( self ):
+        if isinstance( self.__foccode, str ) and self.__foccode != '':
+            return self.__foccode
+
+    @foccode.setter
+    def foccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def focname( self ):
+        if isinstance( self.__focname, str ) and self.__focname != '':
+            return self.__focname
+
+    @focname.setter
+    def focname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__focname = value
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float ):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if isinstance( self.__goalname, str ) and self.__goalname != '':
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if isinstance( self.__npmname, str ) and self.__npmname != '':
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
+
+    def __init__( self, bfy, fund, account, boc ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__accountcode = account if isinstance( account, str ) and account != '' else None
+        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+        self.__data = {
+                'amount':   self.__amount,
+                'account':  None,
+                'document': None,
+                'org':      None,
+                'bfy':      None,
+                'fund':     None,
+                'boc':      None }
+        self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if isinstance( self.__amount, float ):
+            return str( self.__amount )
+
+
+''' Obligation( bfy, fund, account, boc ) '''
+class Obligation( ):
+    '''Obligation( bfy, fund, account, boc )
+    initializes object providing Obligation data'''
+    __obligationsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __programprojectname = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentcontrolnumber = None
+    __referencedocumentnumber = None
+    __programprojectcode = None
+    __programareacode = None
+    __programareaname = None
+    __processeddate = None
+    __lastactivitydate = None
+    __age = None
+    __vendorcode = None
+    __vendorage = None
+    __foccode = None
+    __focname = None
+    __amount = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__obligationsid, int ):
+            return self.__obligationsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__obligationsid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if isinstance( self.__orgname, str ) and self.__orgname != '':
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if isinstance( self.__rccode, str ) and self.__rccode != '':
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if isinstance( self.__rcname, str ) and self.__rcname != '':
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentnumber = value
+
+    @property
+    def documentcontrolnumber( self ):
+        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+            return self.__documentcontrolnumber
+
+    @documentcontrolnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentcontrolnumber = value
+
+    @property
+    def referencedocumentnumber( self ):
+        if isinstance( self.__referencedocumentnumber,
+                str ) and self.__referencedocumentnumber != '':
+            return self.__referencedocumentnumber
+
+    @referencedocumentnumber.setter
+    def referencedocumentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__referencedocumentnumber = value
+
+    @property
+    def processeddate( self ):
+        if isinstance( self.__processeddate, dt.datetime ):
+            return self.__processeddate
+
+    @processeddate.setter
+    def processeddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__processeddate = value
+
+    @property
+    def lastactivitydate( self ):
+        if isinstance( self.__lastactivitydate, dt.datetime ):
+            return self.__lastactivitydate
+
+    @lastactivitydate.setter
+    def lastactivitydate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__lastactivitydate = value
+
+    @property
+    def age( self ):
+        if isinstance( self.__age, int ):
+            return self.__age
+
+    @age.setter
+    def age( self, value ):
+        if isinstance( value, int ):
+            self.__age = value
+
+    @property
+    def vendorcode( self ):
+        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+            return self.__vendorcode
+
+    @vendorcode.setter
+    def vendorcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorcode = value
+
+    @property
+    def vendorname( self ):
+        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+            return self.__vendorname
+
+    @vendorname.setter
+    def vendorname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorname = value
+
+    @property
+    def foccode( self ):
+        if isinstance( self.__foccode, str ) and self.__foccode != '':
+            return self.__foccode
+
+    @foccode.setter
+    def foccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def focname( self ):
+        if isinstance( self.__focname, str ) and self.__focname != '':
+            return self.__focname
+
+    @focname.setter
+    def focname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__focname = value
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float ):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if isinstance( self.__goalname, str ) and self.__goalname != '':
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if isinstance( self.__npmname, str ) and self.__npmname != '':
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
+
+    def __init__( self, bfy, fund, account, boc ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__accountcode = account if isinstance( account, str ) and account != '' else None
+        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+
+    def __str__( self ):
+        if isinstance( self.__amount, float ):
+            return str( self.__amount )
+
+
+''' Deobligation( bfy, fund, account, boc ) '''
+class Deobligation( ):
+    '''Deobligation( bfy, fund, account, boc )
+    initializes object providing Deobligation data '''
+    __deobligationsid = None
+    __obligationsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __programprojectname = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentcontrolnumber = None
+    __referencedocumentnumber = None
+    __programprojectcode = None
+    __programareacode = None
+    __programareaname = None
+    __processeddate = None
+    __lastactivitydate = None
+    __age = None
+    __vendorcode = None
+    __vendorage = None
+    __foccode = None
+    __focname = None
+    __amount = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__expendituresid, int ):
+            return self.__expendituresid
+
+    @id.setter
+    def id( self, iid ):
+        if isinstance( iid, int ):
+            self.__expendituresid = iid
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if isinstance( self.__orgname, str ) and self.__orgname != '':
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if isinstance( self.__rccode, str ) and self.__rccode != '':
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if isinstance( self.__rcname, str ) and self.__rcname != '':
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentnumber = value
+
+    @property
+    def documentcontrolnumber( self ):
+        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+            return self.__documentcontrolnumber
+
+    @documentcontrolnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentcontrolnumber = value
+
+    @property
+    def referencedocumentnumber( self ):
+        if isinstance( self.__referencedocumentnumber,
+                str ) and self.__referencedocumentnumber != '':
+            return self.__referencedocumentnumber
+
+    @referencedocumentnumber.setter
+    def referencedocumentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__referencedocumentnumber = value
+
+    @property
+    def processeddate( self ):
+        if isinstance( self.__processeddate, dt.datetime ):
+            return self.__processeddate
+
+    @processeddate.setter
+    def processeddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__processeddate = value
+
+    @property
+    def lastactivitydate( self ):
+        if isinstance( self.__lastactivitydate, dt.datetime ):
+            return self.__lastactivitydate
+
+    @lastactivitydate.setter
+    def lastactivitydate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__lastactivitydate = value
+
+    @property
+    def age( self ):
+        if isinstance( self.__age, int ):
+            return self.__age
+
+    @age.setter
+    def age( self, value ):
+        if isinstance( value, int ):
+            self.__age = value
+
+    @property
+    def vendorcode( self ):
+        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+            return self.__vendorcode
+
+    @vendorcode.setter
+    def vendorcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorcode = value
+
+    @property
+    def vendorname( self ):
+        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+            return self.__vendorname
+
+    @vendorname.setter
+    def vendorname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorname = value
+
+    @property
+    def foccode( self ):
+        if isinstance( self.__foccode, str ) and self.__foccode != '':
+            return self.__foccode
+
+    @foccode.setter
+    def foccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def focname( self ):
+        if isinstance( self.__focname, str ) and self.__focname != '':
+            return self.__focname
+
+    @focname.setter
+    def focname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__focname = value
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float ):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if isinstance( self.__goalname, str ) and self.__goalname != '':
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if isinstance( self.__npmname, str ) and self.__npmname != '':
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
+
+    def __init__( self, bfy, fund, account, boc ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__accountcode = account if isinstance( account, str ) and account != '' else None
+        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+
+    def __str__( self ):
+        if isinstance( self.__amount, float ):
+            return str( self.__amount )
+
+
+''' UnliquidatedObligation( bfy, fund, account, boc ) '''
+class UnliquidatedObligation( ):
+    '''UnliquidatedObligation( bfy, fund, account, boc )
+    initializes object providing ULO data'''
+    __unliquidatedobligationsid = None
+    __obligationsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __programprojectname = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentcontrolnumber = None
+    __referencedocumentnumber = None
+    __programprojectcode = None
+    __programareacode = None
+    __programareaname = None
+    __processeddate = None
+    __lastactivitydate = None
+    __age = None
+    __vendorcode = None
+    __vendorage = None
+    __foccode = None
+    __focname = None
+    __amount = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__expendituresid, int ):
+            return self.__expendituresid
+
+    @id.setter
+    def id( self, iid ):
+        if isinstance( iid, int ):
+            self.__expendituresid = iid
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if isinstance( self.__orgname, str ) and self.__orgname != '':
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if isinstance( self.__rccode, str ) and self.__rccode != '':
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if isinstance( self.__rcname, str ) and self.__rcname != '':
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentnumber = value
+
+    @property
+    def documentcontrolnumber( self ):
+        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+            return self.__documentcontrolnumber
+
+    @documentcontrolnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentcontrolnumber = value
+
+    @property
+    def referencedocumentnumber( self ):
+        if isinstance( self.__referencedocumentnumber,
+                str ) and self.__referencedocumentnumber != '':
+            return self.__referencedocumentnumber
+
+    @referencedocumentnumber.setter
+    def referencedocumentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__referencedocumentnumber = value
+
+    @property
+    def processeddate( self ):
+        if isinstance( self.__processeddate, dt.datetime ):
+            return self.__processeddate
+
+    @processeddate.setter
+    def processeddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__processeddate = value
+
+    @property
+    def lastactivitydate( self ):
+        if isinstance( self.__lastactivitydate, dt.datetime ):
+            return self.__lastactivitydate
+
+    @lastactivitydate.setter
+    def lastactivitydate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__lastactivitydate = value
+
+    @property
+    def age( self ):
+        if isinstance( self.__age, int ):
+            return self.__age
+
+    @age.setter
+    def age( self, value ):
+        if isinstance( value, int ):
+            self.__age = value
+
+    @property
+    def vendorcode( self ):
+        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+            return self.__vendorcode
+
+    @vendorcode.setter
+    def vendorcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorcode = value
+
+    @property
+    def vendorname( self ):
+        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+            return self.__vendorname
+
+    @vendorname.setter
+    def vendorname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorname = value
+
+    @property
+    def foccode( self ):
+        if isinstance( self.__foccode, str ) and self.__foccode != '':
+            return self.__foccode
+
+    @foccode.setter
+    def foccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def focname( self ):
+        if isinstance( self.__focname, str ) and self.__focname != '':
+            return self.__focname
+
+    @focname.setter
+    def focname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__focname = value
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float ):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if isinstance( self.__goalname, str ) and self.__goalname != '':
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if isinstance( self.__npmname, str ) and self.__npmname != '':
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
+
+    def __init__( self, bfy, fund, account, boc ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__accountcode = account if isinstance( account, str ) and account != '' else None
+        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+
+    def __str__( self ):
+        if isinstance( self.__amount, float ):
+            return str( self.__amount )
+
+
+''' Expenditure( bfy, fund, account, code ) '''
+class Expenditures:
+    '''Expenditure( bfy, fund, account, code )
+    initializes object providing Expenditure data'''
+    __expendituresid = None
+    __obligationsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __programprojectname = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentcontrolnumber = None
+    __referencedocumentnumber = None
+    __programprojectcode = None
+    __programareacode = None
+    __programareaname = None
+    __processeddate = None
+    __lastactivitydate = None
+    __age = None
+    __vendorcode = None
+    __vendorage = None
+    __foccode = None
+    __focname = None
+    __amount = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__expendituresid, int ):
+            return self.__expendituresid
+
+    @id.setter
+    def id( self, iid ):
+        if isinstance( iid, int ):
+            self.__expendituresid = iid
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if isinstance( self.__ahname, str ) and self.__ahname != '':
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if isinstance( self.__orgname, str ) and self.__orgname != '':
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if isinstance( self.__rccode, str ) and self.__rccode != '':
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if isinstance( self.__rcname, str ) and self.__rcname != '':
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentnumber = value
+
+    @property
+    def documentcontrolnumber( self ):
+        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+            return self.__documentcontrolnumber
+
+    @documentcontrolnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentcontrolnumber = value
+
+    @property
+    def referencedocumentnumber( self ):
+        if isinstance( self.__referencedocumentnumber,
+                str ) and self.__referencedocumentnumber != '':
+            return self.__referencedocumentnumber
+
+    @referencedocumentnumber.setter
+    def referencedocumentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__referencedocumentnumber = value
+
+    @property
+    def processeddate( self ):
+        if isinstance( self.__processeddate, dt.datetime ):
+            return self.__processeddate
+
+    @processeddate.setter
+    def processeddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__processeddate = value
+
+    @property
+    def lastactivitydate( self ):
+        if isinstance( self.__lastactivitydate, dt.datetime ):
+            return self.__lastactivitydate
+
+    @lastactivitydate.setter
+    def lastactivitydate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__lastactivitydate = value
+
+    @property
+    def age( self ):
+        if isinstance( self.__age, int ):
+            return self.__age
+
+    @age.setter
+    def age( self, value ):
+        if isinstance( value, int ):
+            self.__age = value
+
+    @property
+    def vendorcode( self ):
+        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+            return self.__vendorcode
+
+    @vendorcode.setter
+    def vendorcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorcode = value
+
+    @property
+    def vendorname( self ):
+        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+            return self.__vendorname
+
+    @vendorname.setter
+    def vendorname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorname = value
+
+    @property
+    def foccode( self ):
+        if isinstance( self.__foccode, str ) and self.__foccode != '':
+            return self.__foccode
+
+    @foccode.setter
+    def foccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def focname( self ):
+        if isinstance( self.__focname, str ) and self.__focname != '':
+            return self.__focname
+
+    @focname.setter
+    def focname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__focname = value
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float ):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
+
+    @property
+    def programprojectcode( self ):
+        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if isinstance( self.__goalname, str ) and self.__goalname != '':
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if isinstance( self.__npmname, str ) and self.__npmname != '':
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
+
+    def __init__( self, bfy, fund, account, boc ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__accountcode = account if isinstance( account, str ) and account != '' else None
+        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
 
     def __str__( self ):
         if isinstance( self.__amount, float ):

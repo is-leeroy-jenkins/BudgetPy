@@ -1,7 +1,7 @@
 from Execution import *
 from Static import *
 from Ninja import *
-
+from Tools.scripts.make_ctype import values
 
 ''' Apportionment( bfy, efy, code ) '''
 class Apportionment( ):
@@ -170,10 +170,10 @@ class Apportionment( ):
         if isinstance( value, float ):
             self.__amount = value
 
-    def __init__( self, bfy, efy, ombaccount ):
+    def __init__( self, bfy, efy, code ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
-        self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
+        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
 
 ''' BudgetaryResourceExecution( bfy, efy, code ) '''
@@ -247,10 +247,10 @@ class BudgetaryResourceExecution( ):
         if isinstance( name, str ) and name != '':
             self.__ombaccountname = name
 
-    def __init__( self, bfy, efy, ombaccount ):
+    def __init__( self, bfy, efy, code ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
-        self.__ombaccountcode = ombaccount if isinstance( ombaccount, str ) else None
+        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
 
 ''' CarryoverEstimates( bfy, efy, code ) '''
@@ -1214,6 +1214,10 @@ class StatusOfAppropriations( ):
         if isinstance( value, float ):
             self.__availableamount = value
 
+    def __init__( self, bfy, code ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__appropriationfundcode = code if isinstance( code, str ) and code != '' else None
+
 
 ''' MonthlyOutlays( bfy, efy, code ) '''
 class MonthlyOutlays( ):
@@ -1346,7 +1350,12 @@ class MonthlyOutlays( ):
         if isinstance( value, str ) and value != '':
             self.__ombaccountname = value
 
+    def __init__( self, bfy, code ):
+        self.__reportyear = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
+
+''' SpendingRates( code ) '''
 class SpendingRates( ):
     '''object provides OMB spending rate data'''
     __spendingratesid = None
@@ -1661,41 +1670,770 @@ class SpendingRates( ):
         if isinstance( value, float ):
             self.__totalspendout = value
 
+    def __init__( self, code ):
+        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
 
-
+''' ReimbursableSurvey( bfy, fundcode ) '''
 class ReimbursableSurvey( ):
     '''object provides Reimbursable Authority data'''
     __reimbursablesurveyid = None
+    __bfy = None
+    __fundcode = None
+    __fundname = None
+    __amount = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__reimbursablesurveyid, int ):
+            return self.__reimbursablesurveyid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__reimbursablesurveyid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, yr ):
+        if isinstance( yr, str ) and yr != '':
+            self.__bfy = yr
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__fundcode = code
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__fundname = name
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float ):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
 
 
+''' ObjectClassOutlays( bfy, code ) '''
 class ObjectClassOutlays( ):
     '''object provides OMB outlay data'''
     __objectclassoutlaysid = None
+    __reportyear = None
+    __ombagencycode = None
+    __ombaccountcode = None
+    __ombaccountname = None
+    __obligationtype = None
+    __directreimbursabletitle = None
+    __objectclassgroupnumber = None
+    __objectclassgroupname = None
+    __boccode = None
+    __bocname = None
+    __financeobjectclass = None
+    __prioryear = None
+    __currentyear = None
+    __budgetyear = None
 
+    @property
+    def id( self ):
+        if isinstance( self.__objectclassoutlaysid, int ):
+            return self.__objectclassoutlaysid
 
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__objectclassoutlaysid = value
+
+    @property
+    def reportyear( self ):
+        if isinstance( self.__reportyear, str ) and len( self.__reportyear ) == 4:
+            return self.__reportyear
+
+    @reportyear.setter
+    def reportyear( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__reportyear = value
+
+    @property
+    def ombagencycode( self ):
+        if isinstance( self.__ombagencycode, str ) and self.__ombagencycode != '':
+            return self.__ombagencycode
+
+    @ombagencycode.setter
+    def ombagencycode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombagencycode = value
+
+    @property
+    def ombaccountcode( self ):
+        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
+            return self.__ombaccountcode
+
+    @ombaccountcode.setter
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
+
+    @property
+    def ombaccountname( self ):
+        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
+
+    @property
+    def obligationtype( self ):
+        if isinstance( self.__obligationtype, str ) and self.__obligationtype != '':
+            return self.__obligationtype
+
+    @obligationtype.setter
+    def obligationtype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__obligationtype = value
+
+    @property
+    def directreimbursabletitle( self ):
+        if isinstance( self.__directreimbursabletitle, str ) and self.__directreimbursabletitle != '':
+            return self.__directreimbursabletitle
+
+    @directreimbursabletitle.setter
+    def directreimbursabletitle( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__directreimbursabletitle = value
+
+    @property
+    def objectclassgroupnumber( self ):
+        if isinstance( self.__objectclassgroupnumber, str ) and self.__objectclassgroupnumber != '':
+            return self.__objectclassgroupnumber
+
+    @objectclassgroupnumber.setter
+    def objectclassgroupnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectclassgroupnumber = value
+
+    @property
+    def objectclassgroupname( self ):
+        if isinstance( self.__objectclassgroupname, str ) and self.__objectclassgroupname != '':
+            return self.__objectclassgroupname
+
+    @objectclassgroupname.setter
+    def objectclassgroupname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectclassgroupname = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, code ):
+        if isinstance( code, str ) and code != '':
+            self.__boccode = code
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__bocname = name
+
+    @property
+    def financeobjectclass( self ):
+        if isinstance( self.__financeobjectclass, str ) and self.__financeobjectclass != '':
+            return self.__financeobjectclass
+
+    @financeobjectclass.setter
+    def financeobjectclass( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__financeobjectclass = value
+
+    @property
+    def prioryear( self ):
+        if isinstance( self.__prioryear, float ):
+            return self.__prioryear
+
+    @prioryear.setter
+    def prioryear( self, value ):
+        if isinstance( value, float ):
+            self.__prioryear = value
+
+    @property
+    def currentyear( self ):
+        if isinstance( self.__currentyear, float ):
+            return self.__currentyear
+
+    @currentyear.setter
+    def currentyear( self, value ):
+        if isinstance( value, float ):
+            self.__currentyear = value
+
+    @property
+    def budgetyear( self ):
+        if isinstance( self.__budgetyear, float ):
+            return self.__budgetyear
+
+    @budgetyear.setter
+    def budgetyear( self, value ):
+        if isinstance( value, float ):
+            self.__budgetyear = value
+
+    def __init__( self, bfy, code ):
+        self.__reportyear = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
+
+''' UnobligatedAuthority( bfy, code )'''
 class UnobligatedAuthority( ):
     '''object provides OMB data'''
     __unobligatedauthorityid = None
+    __reportyear = None
+    __ombaccountcode = None
+    __ombaccountname = None
+    __ombaccounttitle = None
+    __linenumber = None
+    __linename = None
+    __prioryear = None
+    __currentyear = None
+    __budgetyear = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__unobligatedauthorityid, int ):
+            return self.__unobligatedauthorityid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__unobligatedauthorityid = value
+
+    @property
+    def reportyear( self ):
+        if isinstance( self.__reportyear, str ) and len( self.__reportyear ) == 4:
+            return self.__reportyear
+
+    @reportyear.setter
+    def reportyear( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__reportyear = value
+
+    @property
+    def linenumber( self ):
+        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+            return self.__linenumber
+
+    @linenumber.setter
+    def linenumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linenumber = value
+
+    @property
+    def linename( self ):
+        if isinstance( self.__linename, str ) and self.__linename != '':
+            return self.__linename
+
+    @linename.setter
+    def linename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linename = value
+
+    @property
+    def ombaccountcode( self ):
+        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
+            return self.__ombaccountcode
+
+    @ombaccountcode.setter
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
+
+    @property
+    def ombaccountname( self ):
+        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
+
+    @property
+    def prioryear( self ):
+        if isinstance( self.__prioryear, float ):
+            return self.__prioryear
+
+    @prioryear.setter
+    def prioryear( self, value ):
+        if isinstance( value, float ):
+            self.__prioryear = value
+
+    @property
+    def currentyear( self ):
+        if isinstance( self.__currentyear, float ):
+            return self.__currentyear
+
+    @currentyear.setter
+    def currentyear( self, value ):
+        if isinstance( value, float ):
+            self.__currentyear = value
+
+    @property
+    def budgetyear( self ):
+        if isinstance( self.__budgetyear, float ):
+            return self.__budgetyear
+
+    @budgetyear.setter
+    def budgetyear( self, value ):
+        if isinstance( value, float ):
+            self.__budgetyear = value
 
 
-class BudgetAuthorityOutlays( ):
+''' BudgetOutlays( bfy, code ) '''
+class BudgetOutlays( ):
     '''object provides OMB data'''
-    __grossbudgetauthorityoutlaysid = None
+    __budgetoutlaysid = None
+    __reportyear = None
+    __ombaccountcode = None
+    __ombaccountname = None
+    __linenumber = None
+    __linesection = None
+    __linename = None
+    __linecategory = None
+    __beacategory = None
+    __beacategoryname = None
+    __prioryear = None
+    __currentyear = None
+    __budgetyear = None
+    __outyear1 = None
+    __outyear2 = None
+    __outyear3 = None
+    __outyear4 = None
+    __outyear5 = None
+    __outyear6 = None
+    __outyear7 = None
+    __outyear8 = None
+    __outyear9 = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__budgetoutlaysid, int ):
+            return self.__budgetoutlaysid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__budgetoutlaysid = value
+
+    @property
+    def reportyear( self ):
+        if isinstance( self.__reportyear, str ) and len( self.__reportyear ) == 4:
+            return self.__reportyear
+
+    @reportyear.setter
+    def reportyear( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__reportyear = value
+
+    @property
+    def linenumber( self ):
+        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+            return self.__linenumber
+
+    @linenumber.setter
+    def linenumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linenumber = value
+
+    @property
+    def linesection( self ):
+        if isinstance( self.__linesection, str ) and self.__linesection != '':
+            return self.__linesection
+
+    @linesection.setter
+    def linesection( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linesection = value
+
+    @property
+    def linename( self ):
+        if isinstance( self.__linename, str ) and self.__linename != '':
+            return self.__linename
+
+    @linename.setter
+    def linename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linename = value
+
+    @property
+    def linecategory( self ):
+        if isinstance( self.__linecategory, str ) and self.__linecategory != '':
+            return self.__linecategory
+
+    @linecategory.setter
+    def linecategory( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linecategory = value
+
+    @property
+    def beacategory( self ):
+        if isinstance( self.__beacategory, str ) and self.__beacategory != '':
+            return self.__beacategory
+
+    @beacategory.setter
+    def beacategory( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__beacategory = value
+
+    @property
+    def beacategoryname( self ):
+        if isinstance( self.__beacategoryname, str ) and self.__beacategoryname != '':
+            return self.__beacategoryname
+
+    @beacategoryname.setter
+    def beacategoryname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__beacategoryname = value
+
+    @property
+    def ombaccountcode( self ):
+        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
+            return self.__ombaccountcode
+
+    @ombaccountcode.setter
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
+
+    @property
+    def ombaccountname( self ):
+        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
+
+    @property
+    def prioryear( self ):
+        if isinstance( self.__prioryear, float ):
+            return self.__prioryear
+
+    @prioryear.setter
+    def prioryear( self, value ):
+        if isinstance( value, float ):
+            self.__prioryear = value
+
+    @property
+    def currentyear( self ):
+        if isinstance( self.__currentyear, float ):
+            return self.__currentyear
+
+    @currentyear.setter
+    def currentyear( self, value ):
+        if isinstance( value, float ):
+            self.__currentyear = value
+
+    @property
+    def budgetyear( self ):
+        if isinstance( self.__budgetyear, float ):
+            return self.__budgetyear
+
+    @budgetyear.setter
+    def budgetyear( self, value ):
+        if isinstance( value, float ):
+            self.__budgetyear = value
+
+    @property
+    def outyear1( self ):
+        if isinstance( self.__outyear1, float ):
+            return self.__outyear1
+
+    @outyear1.setter
+    def outyear1( self, value ):
+        if isinstance( value, float ):
+            self.__outyear1 = value
+
+    @property
+    def outyear2( self ):
+        if isinstance( self.__outyear2, float ):
+            return self.__outyear2
+
+    @outyear2.setter
+    def outyear2( self, value ):
+        if isinstance( value, float ):
+            self.__outyear2 = value
+
+    @property
+    def outyear3( self ):
+        if isinstance( self.__outyear3, float ):
+            return self.__outyear3
+
+    @outyear3.setter
+    def outyear3( self, value ):
+        if isinstance( value, float ):
+            self.__outyear3 = value
+
+    @property
+    def outyear4( self ):
+        if isinstance( self.__outyear4, float ):
+            return self.__outyear4
+
+    @outyear4.setter
+    def outyear4( self, value ):
+        if isinstance( value, float ):
+            self.__outyear4 = value
+
+    @property
+    def outyear5( self ):
+        if isinstance( self.__outyear5, float ):
+            return self.__outyear5
+
+    @outyear5.setter
+    def outyear5( self, value ):
+        if isinstance( value, float ):
+            self.__outyear5 = value
+
+    @property
+    def outyear6( self ):
+        if isinstance( self.__outyear6, float ):
+            return self.__outyear6
+
+    @outyear6.setter
+    def outyear6( self, value ):
+        if isinstance( value, float ):
+            self.__outyear6 = value
+
+    @property
+    def outyear7( self ):
+        if isinstance( self.__outyear7, float ):
+            return self.__outyear7
+
+    @outyear7.setter
+    def outyear7( self, value ):
+        if isinstance( value, float ):
+            self.__outyear7 = value
+
+    @property
+    def outyear8( self ):
+        if isinstance( self.__outyear8, float ):
+            return self.__outyear8
+
+    @outyear8.setter
+    def outyear8( self, value ):
+        if isinstance( value, float ):
+            self.__outyear8 = value
+
+    @property
+    def outyear9( self ):
+        if isinstance( self.__outyear9, float ):
+            return self.__outyear9
+
+    @outyear9.setter
+    def outyear9( self, value ):
+        if isinstance( value, float ):
+            self.__outyear9 = value
 
 
+''' GrowthRates( bfy, id ) '''
 class GrowthRates( ):
     ''' object provides OMB data'''
     __growthratesid = None
+    __rateid = None
+    __description = None
+    __budgetyear = None
+    __outyear1 = None
+    __outyear2 = None
+    __outyear3 = None
+    __outyear4 = None
+    __outyear5 = None
+    __outyear6 = None
+    __outyear7 = None
+    __outyear8 = None
+    __outyear9 = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__growthratesid, int ):
+            return self.__growthratesid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__growthratesid = value
+
+    @property
+    def rateid( self ):
+        if isinstance( self.__rateid, int ):
+            return self.__rateid
+
+    @id.setter
+    def rateid( self, value ):
+        if isinstance( value, int ):
+            self.__rateid = value
+
+    @property
+    def description( self ):
+        if isinstance( self.__description, str ) and self.__description != '':
+            return self.__description
+
+    @description.setter
+    def description( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__description = value
+
+    @property
+    def budgetyear( self ):
+        if isinstance( self.__budgetyear, float ):
+            return self.__budgetyear
+
+    @budgetyear.setter
+    def budgetyear( self, value ):
+        if isinstance( value, float ):
+            self.__budgetyear = value
+
+    @property
+    def outyear1( self ):
+        if isinstance( self.__outyear1, float ):
+            return self.__outyear1
+
+    @outyear1.setter
+    def outyear1( self, value ):
+        if isinstance( value, float ):
+            self.__outyear1 = value
+
+    @property
+    def outyear2( self ):
+        if isinstance( self.__outyear2, float ):
+            return self.__outyear2
+
+    @outyear2.setter
+    def outyear2( self, value ):
+        if isinstance( value, float ):
+            self.__outyear2 = value
+
+    @property
+    def outyear3( self ):
+        if isinstance( self.__outyear3, float ):
+            return self.__outyear3
+
+    @outyear3.setter
+    def outyear3( self, value ):
+        if isinstance( value, float ):
+            self.__outyear3 = value
+
+    @property
+    def outyear4( self ):
+        if isinstance( self.__outyear4, float ):
+            return self.__outyear4
+
+    @outyear4.setter
+    def outyear4( self, value ):
+        if isinstance( value, float ):
+            self.__outyear4 = value
+
+    @property
+    def outyear5( self ):
+        if isinstance( self.__outyear5, float ):
+            return self.__outyear5
+
+    @outyear5.setter
+    def outyear5( self, value ):
+        if isinstance( value, float ):
+            self.__outyear5 = value
+
+    @property
+    def outyear6( self ):
+        if isinstance( self.__outyear6, float ):
+            return self.__outyear6
+
+    @outyear6.setter
+    def outyear6( self, value ):
+        if isinstance( value, float ):
+            self.__outyear6 = value
+
+    @property
+    def outyear7( self ):
+        if isinstance( self.__outyear7, float ):
+            return self.__outyear7
+
+    @outyear7.setter
+    def outyear7( self, value ):
+        if isinstance( value, float ):
+            self.__outyear7 = value
+
+    @property
+    def outyear8( self ):
+        if isinstance( self.__outyear8, float ):
+            return self.__outyear8
+
+    @outyear8.setter
+    def outyear8( self, value ):
+        if isinstance( value, float ):
+            self.__outyear8 = value
+
+    @property
+    def outyear9( self ):
+        if isinstance( self.__outyear9, float ):
+            return self.__outyear9
+
+    @outyear9.setter
+    def outyear9( self, value ):
+        if isinstance( value, float ):
+            self.__outyear9 = value
 
 
 class DataRuleDescriptions( ):
     ''' object provides OMB MAX A11 rule data '''
     __dataruledescriptionsid = None
 
+    @property
+    def id( self ):
+        if isinstance( self.__dataruledescriptionsid, int ):
+            return self.__dataruledescriptionsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__dataruledescriptionsid = value
+
 
 class CarryoverOutlays( ):
     ''' object provides OMB data '''
     __carryoveroutlaysid = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__carryoveroutlaysid, int ):
+            return self.__carryoveroutlaysid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__carryoveroutlaysid = value
 
 
