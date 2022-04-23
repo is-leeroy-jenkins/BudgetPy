@@ -1350,6 +1350,318 @@ class MonthlyOutlays( ):
 class SpendingRates( ):
     '''object provides OMB spending rate data'''
     __spendingratesid = None
+    __ombagencycode = None
+    __ombagencyname = None
+    __treasuryagencycode = None
+    __treasuryagencyname = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __ombaccountcode = None
+    __ombaccountname = None
+    __ombaccounttitle = None
+    __subfunction = None
+    __linenumber = None
+    __linename = None
+    __category = None
+    __subcategory = None
+    __subcategoryname = None
+    __jurisdiction = None
+    __yearofauthority = None
+    __budgetauthority = None
+    __outyear1 = None
+    __outyear2 = None
+    __outyear3 = None
+    __outyear4 = None
+    __outyear5 = None
+    __outyear6 = None
+    __outyear7 = None
+    __outyear8 = None
+    __outyear9 = None
+    __outyear10 = None
+    __outyear11 = None
+    __totalspendout = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__spendingratesid, int ):
+            return self.__spendingratesid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__spendingratesid = value
+
+    @property
+    def treasuryagencycode( self ):
+        if isinstance( self.__treasuryagencycode, str ) and self.__treasuryagencycode != '':
+            return self.__treasuryagencycode
+
+    @treasuryagencycode.setter
+    def treasuryagencycode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryagencycode = value
+
+    @property
+    def treasuryagencyname( self ):
+        if isinstance( self.__treasuryagencyname, str ) and self.__treasuryagencyname != '':
+            return self.__treasuryagencyname
+
+    @treasuryagencyname.setter
+    def treasuryagencyname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryagencyname = value
+
+    @property
+    def treasuryaccountcode( self ):
+        if isinstance( self.__treasuryaccountcode, str ) and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasuryaccountcode.setter
+    def treasuryaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasuryaccountname( self ):
+        if isinstance( self.__treasuryaccountname, str ) and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasuryaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccountname = value
+
+    @property
+    def ombagencycode( self ):
+        if isinstance( self.__ombagencycode, str ) and self.__ombagencycode != '':
+            return self.__ombagencycode
+
+    @ombagencycode.setter
+    def ombagencycode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombagencycode = value
+
+    @property
+    def ombagencyname( self ):
+        if isinstance( self.__ombagencyname, str ) and self.__ombagencyname != '':
+            return self.__ombagencyname
+
+    @ombagencyname.setter
+    def ombagencyname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombagencyname = value
+
+    @property
+    def ombaccountcode( self ):
+        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
+            return self.__ombaccountcode
+
+    @ombaccountcode.setter
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
+
+    @property
+    def ombaccountname( self ):
+        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
+
+    @property
+    def subfunction( self ):
+        if isinstance( self.__subfunction, str ) and self.__subfunction != '':
+            return self.__subfunction
+
+    @subfunction.setter
+    def subfunction( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subfunction = value
+
+    @property
+    def category( self ):
+        if isinstance( self.__category, str ) and self.__category != '':
+            return self.__category
+
+    @category.setter
+    def category( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__category = value
+
+    @property
+    def subcategory( self ):
+        if isinstance( self.__subcategory, str ) and self.__subcategory != '':
+            return self.__subcategory
+
+    @subcategory.setter
+    def subcategory( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subcategory = value
+
+    @property
+    def linenumber( self ):
+        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+            return self.__linenumber
+
+    @linenumber.setter
+    def linenumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linenumber = value
+
+    @property
+    def linename( self ):
+        if isinstance( self.__linename, str ) and self.__linename != '':
+            return self.__linename
+
+    @linename.setter
+    def linename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linename = value
+
+    @property
+    def yearofauthority( self ):
+        if isinstance( self.__yearofauthority, str ) and self.__yearofauthority != '':
+            return self.__yearofauthority
+
+    @yearofauthority.setter
+    def yearofauthority( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__yearofauthority = value
+
+    @property
+    def budgetauthority( self ):
+        if isinstance( self.__budgetauthority, float ):
+            return self.__budgetauthority
+
+    @budgetauthority.setter
+    def budgetauthority( self, value ):
+        if isinstance( value, float ):
+            self.__budgetauthority = value
+
+    @property
+    def outyear1( self ):
+        if isinstance( self.__outyear1, float ):
+            return self.__outyear1
+
+    @outyear1.setter
+    def outyear1( self, value ):
+        if isinstance( value, float ):
+            self.__outyear1 = value
+
+    @property
+    def outyear2( self ):
+        if isinstance( self.__outyear2, float ):
+            return self.__outyear2
+
+    @outyear2.setter
+    def outyear2( self, value ):
+        if isinstance( value, float ):
+            self.__outyear2 = value
+
+    @property
+    def outyear3( self ):
+        if isinstance( self.__outyear3, float ):
+            return self.__outyear3
+
+    @outyear3.setter
+    def outyear3( self, value ):
+        if isinstance( value, float ):
+            self.__outyear3 = value
+
+    @property
+    def outyear4( self ):
+        if isinstance( self.__outyear4, float ):
+            return self.__outyear4
+
+    @outyear4.setter
+    def outyear4( self, value ):
+        if isinstance( value, float ):
+            self.__outyear4 = value
+
+    @property
+    def outyear5( self ):
+        if isinstance( self.__outyear5, float ):
+            return self.__outyear5
+
+    @outyear5.setter
+    def outyear5( self, value ):
+        if isinstance( value, float ):
+            self.__outyear5 = value
+
+    @property
+    def outyear6( self ):
+        if isinstance( self.__outyear6, float ):
+            return self.__outyear6
+
+    @outyear6.setter
+    def outyear6( self, value ):
+        if isinstance( value, float ):
+            self.__outyear6 = value
+
+    @property
+    def outyear7( self ):
+        if isinstance( self.__outyear7, float ):
+            return self.__outyear7
+
+    @outyear7.setter
+    def outyear7( self, value ):
+        if isinstance( value, float ):
+            self.__outyear7 = value
+
+    @property
+    def outyear8( self ):
+        if isinstance( self.__outyear8, float ):
+            return self.__outyear8
+
+    @outyear8.setter
+    def outyear8( self, value ):
+        if isinstance( value, float ):
+            self.__outyear8 = value
+
+    @property
+    def outyear9( self ):
+        if isinstance( self.__outyear9, float ):
+            return self.__outyear9
+
+    @outyear9.setter
+    def outyear9( self, value ):
+        if isinstance( value, float ):
+            self.__outyear9 = value
+
+    @property
+    def outyear10( self ):
+        if isinstance( self.__outyear10, float ):
+            return self.__outyear10
+
+    @outyear10.setter
+    def outyear10( self, value ):
+        if isinstance( value, float ):
+            self.__outyear10 = value
+
+    @property
+    def outyear11( self ):
+        if isinstance( self.__outyear11, float ):
+            return self.__outyear11
+
+    @outyear11.setter
+    def outyear11( self, value ):
+        if isinstance( value, float ):
+            self.__outyear11 = value
+
+    @property
+    def totalspendout( self ):
+        if isinstance( self.__totalspendout, float ):
+            return self.__totalspendout
+
+    @totalspendout.setter
+    def totalspendout( self, value ):
+        if isinstance( value, float ):
+            self.__totalspendout = value
+
+
 
 
 class ReimbursableSurvey( ):
@@ -1367,7 +1679,7 @@ class UnobligatedAuthority( ):
     __unobligatedauthorityid = None
 
 
-class GrossBudgetAuthorityOutlays( ):
+class BudgetAuthorityOutlays( ):
     '''object provides OMB data'''
     __grossbudgetauthorityoutlaysid = None
 

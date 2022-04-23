@@ -1,0 +1,8 @@
+
+kpython:S2208"GImport only needed names or import the module and then use its members.(ÍŠ¶–þÿÿÿÿ8É¤­……0
+upython:S4144ž"UUpdate this function so that its implementation is not identical to table on line 52.(ŒüÂ¶8É¤­……0
+ˆpython:S1871ø"cEither merge this branch with the identical one on line "238" or change one of the implementations.(ô› çýÿÿÿÿ8É¤­……0
+Ppython:S5806Å"+Rename this variable; it shadows a builtin.(¦²Ï„ùÿÿÿÿ8É¤­……0
+Ppython:S5806Õ"+Rename this variable; it shadows a builtin.(¦²Ï„ùÿÿÿÿ8É¤­……0
+vpython:S4144ö"WUpdate this function so that its implementation is not identical to server on line 748.(ö‰ÁT8É¤­……0
+„python:S1871ˆ"dEither merge this branch with the identical one on line "1020" or change one of the implementations.(Õ˜µí8É¤­……0

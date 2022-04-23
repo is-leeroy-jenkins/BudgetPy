@@ -16,6 +16,7 @@
       <w>appropriationdocumentsid</w>
       <w>authoritydistributioncontrol</w>
       <w>availablebalance</w>
+      <w>budgetauthority</w>
       <w>budgetcontrolsid</w>
       <w>budgetdefault</w>
       <w>budgetdocumentsid</w>
@@ -96,9 +97,12 @@
       <w>obligationcontrols</w>
       <w>obligationsid</w>
       <w>obligationspendingcontrol</w>
+      <w>ombaccounttitle</w>
+      <w>ombagencyname</w>
       <w>ombbureau</w>
       <w>operableunit</w>
       <w>originalauthority</w>
+      <w>outyear</w>
       <w>paramstyles</w>
       <w>postedcontrol</w>
       <w>postedtranstype</w>
@@ -133,19 +137,24 @@
       <w>statusreservetranstype</w>
       <w>stieprojectname</w>
       <w>subaccount</w>
+      <w>subcategoryname</w>
+      <w>subfunction</w>
       <w>subprojectcode</w>
       <w>subprojectname</w>
       <w>supplementals</w>
       <w>taxationcode</w>
       <w>totalagreementreimbursables</w>
+      <w>totalspendout</w>
       <w>trackagreementlowerlevels</w>
       <w>transactiontypecontrol</w>
       <w>treasuryaccount</w>
+      <w>treasuryagencyname</w>
       <w>unliquidated</w>
       <w>unliquidatedobligationsid</w>
       <w>unobligated</w>
       <w>unobligatedauthority</w>
       <w>unobligatedauthorityid</w>
+      <w>yearofauthority</w>
     </words>
   </dictionary>
 </component>
