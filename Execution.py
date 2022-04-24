@@ -2376,7 +2376,7 @@ class ResourcePlanningOffice( ):
         return self.__data
 
 
-''' ProgramResultsCode( bfy, efy, rpiocode, ahcode, accountcode, boccode ) '''
+''' ProgramResultsCode( bfy, efy, rpio, ah, account, boc ) '''
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
     __allocationsid = None
@@ -2712,7 +2712,7 @@ class ProgramResultsCode( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __init__( self, bfy, efy, rpiocode, ahcode, accountcode, boccode, amount = 0.0 ):
+    def __init__( self, bfy, efy, rpio, ah, account, boc, amount = 0.0 ):
         '''Initializes the PRC class'''
         self.__accountcode = code if isinstance( code, str ) else None
         self.__bfy = BudgetFiscalYear( dt.datetime.year )
@@ -3726,5 +3726,16 @@ class Transfer( ):
         if isinstance( name, str ) and name != '':
             self.__programareaname = name
 
-    def __init__( self, documentnumber ):
-        self.__documentnumber = documentnumber if isinstance( documentnumber, str ) else None
+    def __init__( self, rpnumber = None ):
+        self.__documentnumber = rpnumber if isinstance( rpnumber, str ) else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Transfers
+        command = Command.SELECTALL
+        names = [ 'DocumentNumber', ]
+        values = ( self.__documentnumber, )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+

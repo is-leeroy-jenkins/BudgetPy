@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40f2dc4-3e9e-4394-8d79-ad4ff57c9895" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2df21b90c8ea48d7cc2f85009a182200e6888db7" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Booger/content/Dialog.ui.qml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/Booger.qmlproject.qtds" beforeDir="false" afterPath="$PROJECT_DIR$/Booger/Booger.qmlproject.qtds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/content/MainForm.ui.qml" beforeDir="false" afterPath="$PROJECT_DIR$/Booger/content/MainForm.ui.qml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Execution.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reporting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mssql/datamodels/Data.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/datamodels/Data.mdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mssql/datamodels/Data_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/datamodels/Data_log.ldf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mssql/referencemodels/References.mdf" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/referencemodels/References.mdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mssql/referencemodels/References_log.ldf" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/referencemodels/References_log.ldf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/datamodels/Data.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/datamodels/Data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/referencemodels/References.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/referencemodels/References.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,7 +335,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650739529162</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="updates from main rig;">
+      <created>1650742404383</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1650742404383</updated>
+    </task>
+    <task id="LOCAL-00035" summary="updates from main rig;">
+      <created>1650742451052</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1650742451052</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

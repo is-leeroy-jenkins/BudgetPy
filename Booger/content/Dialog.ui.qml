@@ -7,24 +7,9 @@ Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on
 
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import Booger 1.0
 
-Rectangle {
-    width: Constants.width
-    height: 800
-    color: "#101111"
-    border.color: "#1c86e0"
-
-
-    Image {
-        id: image
-        x: 549
-        y: 317
-        width: 353
-        height: 262
-        source: "../../etc/img/BudgetExecution.png"
-        fillMode: Image.PreserveAspectFit
-    }
+Item {
+    width: 600
+    height: 400
+    layer.format: ShaderEffectSource.RGBA
 }
-
-

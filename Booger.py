@@ -9,7 +9,7 @@ class Window( QWidget ):
     def __init__( self ):
         super( ).__init__( )
         __black = '#050505'
-        __blue = '#2041F1'
+        __blue = '#1697FD'
 
         self.initializeUI( )
 

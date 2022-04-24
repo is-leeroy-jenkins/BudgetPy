@@ -5556,11 +5556,26 @@ class CompassLevels( ):
         if isinstance( value, str ) and value != '':
             self.__subappropriationcode = value
 
+    def __init__( self, bfy, efy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.CompassLevels
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY, 'FundCode' ]
+        values = ( self.__bfy, self.__efy, self.__fundcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' Commitment( bfy, fund, account, boc ) '''
 class Commitment( ):
     '''Defines the CommitmentS class.'''
-    __commitmentsid = None
+    __opencommitmentsid = None
     __obligationsid = None
     __bfy = None
     __efy = None
@@ -6001,6 +6016,17 @@ class Commitment( ):
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.OpenCommitments
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
+        values = ( self.__bfy, self.__fundcode, self.__accounttcode, self.__boccode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 
 class DocumentControlNumbers( ):
@@ -6459,6 +6485,17 @@ class OpenCommitment( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.OpenCommitments
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
+        values = ( self.__bfy, self.__fundcode, self.__accounttcode, self.__boccode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
+
 
 ''' Obligation( bfy, fund, account, boc ) '''
 class Obligation( ):
@@ -6895,6 +6932,16 @@ class Obligation( ):
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Obligations
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
+        values = ( self.__bfy, self.__fundcode, self.__accounttcode, self.__boccode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
 
 
 ''' Deobligation( bfy, fund, account, boc ) '''
@@ -7334,6 +7381,17 @@ class Deobligation( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Deobligations
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
+        values = ( self.__bfy, self.__fundcode, self.__accounttcode, self.__boccode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
+
 
 ''' UnliquidatedObligation( bfy, fund, account, boc ) '''
 class UnliquidatedObligation( ):
@@ -7772,6 +7830,17 @@ class UnliquidatedObligation( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.UnliquidatedObligations
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
+        values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
+
 
 ''' Expenditure( bfy, fund, account, code ) '''
 class Expenditures:
@@ -8209,6 +8278,17 @@ class Expenditures:
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Expenditures
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
+        values = ( self.__bfy, self.__accountcode, self.__boccode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 
 class SpecialAccounts( ):

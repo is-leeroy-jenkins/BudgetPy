@@ -4,8 +4,8 @@ from Ninja import *
 
 ''' Apportionment( bfy, efy, omb ) '''
 class Apportionment( ):
-    '''Apportionment( value ) creates
-    object representing Letters Of Apportionment'''
+    '''Apportionment( bfy, efy, omb )
+    initializes object representing Letters Of Apportionment'''
     __apportionmentsid = None
     __bfy = None
     __efy = None
@@ -39,9 +39,9 @@ class Apportionment( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__bfy = yr
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -49,9 +49,9 @@ class Apportionment( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__efy = yr
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def treasuryfundsymbol( self ):
@@ -59,9 +59,9 @@ class Apportionment( ):
             return self.__treasuryfundsymbol
 
     @treasuryfundsymbol.setter
-    def treasuryfundsymbol( self, tafs ):
-        if isinstance( tafs, str ) and tafs != '':
-            self.__treasuryfundsymbol = tafs
+    def treasuryfundsymbol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryfundsymbol = value
 
     @property
     def ombaccountcode( self ):
@@ -69,9 +69,9 @@ class Apportionment( ):
             return self.__ombaccountcode
 
     @ombaccountcode.setter
-    def ombaccountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ombaccountcode = code
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
 
     @property
     def ombaccountname( self ):
@@ -79,9 +79,9 @@ class Apportionment( ):
             return self.__ombaccountname
 
     @ombaccountname.setter
-    def ombaccountname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ombaccountname = name
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
 
     @property
     def ombagency( self ):
@@ -90,9 +90,9 @@ class Apportionment( ):
             return self.__ombagency
 
     @ombagency.setter
-    def ombagency( self, agency ):
-        if isinstance( agency, str ) and agency != '':
-            self.__ombagency = agency
+    def ombagency( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombagency = value
 
     @property
     def treasuryagency( self ):
@@ -101,9 +101,9 @@ class Apportionment( ):
             return self.__treasuryagency
 
     @treasuryagency.setter
-    def treasuryagency( self, agency ):
-        if isinstance( agency, str ) and agency != '':
-            self.__treasuryagency = agency
+    def treasuryagency( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryagency = value
 
     @property
     def linenumber( self ):
@@ -112,9 +112,9 @@ class Apportionment( ):
             return self.__linenumber
 
     @linenumber.setter
-    def linenumber( self, nbr ):
-        if isinstance( nbr, str ) and nbr != '':
-            self.__linenumber = nbr
+    def linenumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linenumber = value
 
     @property
     def linedescription( self ):
@@ -123,9 +123,9 @@ class Apportionment( ):
             return self.__linedescription
 
     @linedescription.setter
-    def linedescription( self, desc ):
-        if isinstance( desc, str ) and desc != '':
-            self.__linedescription = desc
+    def linedescription( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linedescription = value
 
     @property
     def sectionnumber( self ):
@@ -134,9 +134,9 @@ class Apportionment( ):
             return self.__sectionnumber
 
     @sectionnumber.setter
-    def sectionnumber( self, section ):
-        if isinstance( section, str ) and section != '':
-            self.__sectionnumber = section
+    def sectionnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sectionnumber = value
 
     @property
     def sectiondescription( self ):
@@ -145,9 +145,9 @@ class Apportionment( ):
             return self.__sectiondescription
 
     @sectiondescription.setter
-    def sectiondescription( self, description ):
-        if isinstance( description, str ) and description != '':
-            self.__sectiondescription = description
+    def sectiondescription( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sectiondescription = value
 
     @property
     def subline( self ):
@@ -156,9 +156,9 @@ class Apportionment( ):
             return self.__subline
 
     @subline.setter
-    def subline( self, line ):
-        if isinstance( line, str ) and line != '':
-            self.__subline = line
+    def subline( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subline = value
 
     @property
     def amount( self ):
@@ -175,11 +175,21 @@ class Apportionment( ):
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Apportionments
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+        values = ( self.__bfy, self.__efy, self.__ombaccountcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' BudgetaryResourceExecution( bfy, efy, code ) '''
 class BudgetaryResourceExecution( ):
-    '''BudgetaryResourceExecution( value ) initializes
-    object representing MAX A-11 DE, SF-133'''
+    '''BudgetaryResourceExecution( bfy, efy, code )
+    initializes object representing MAX A-11 DE, SF-133'''
     __budgetaryresourceexecutionid = None
     __bfy = None
     __efy = None
@@ -205,9 +215,9 @@ class BudgetaryResourceExecution( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__bfy = yr
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -215,9 +225,9 @@ class BudgetaryResourceExecution( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__efy = yr
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def treasuryfundsymbol( self ):
@@ -225,9 +235,9 @@ class BudgetaryResourceExecution( ):
             return self.__treasuryfundsymbol
 
     @treasuryfundsymbol.setter
-    def treasuryfundsymbol( self, tafs ):
-        if isinstance( tafs, str ) and tafs != '':
-            self.__treasuryfundsymbol = tafs
+    def treasuryfundsymbol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryfundsymbol = value
 
     @property
     def ombaccountcode( self ):
@@ -235,9 +245,9 @@ class BudgetaryResourceExecution( ):
             return self.__ombaccountcode
 
     @ombaccountcode.setter
-    def ombaccountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ombaccountcode = code
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
 
     @property
     def ombaccountname( self ):
@@ -245,17 +255,27 @@ class BudgetaryResourceExecution( ):
             return self.__ombaccountname
 
     @ombaccountname.setter
-    def ombaccountname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ombaccountname = name
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
 
     def __init__( self, bfy, efy, code ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Apportionments
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+        values = ( self.__bfy, self.__efy, self.__ombaccountcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
 
-''' CarryoverEstimates( bfy, efy, fund ) '''
+
+''' CarryoverEstimates( bfy ) '''
 class CarryoverEstimates( ):
     '''CarryoverEstimates( bfy ) initializes object bfy
     providing Carryover Estimate data for'''
@@ -523,7 +543,7 @@ class CarryoverEstimates( ):
 
     def getdata( self ):
         provider = Provider.SQLite
-        source = Source.Allocations
+        source = Source.CarryoverEstimates
         command = Command.SELECTALL
         names = [ 'BFY',  ]
         values = ( self.__bfy, )
@@ -605,10 +625,24 @@ class CarryoverSurvey( ):
         if isinstance( value, float ):
             self.__amount = value
 
+    def __init__( self, bfy ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Apportionments
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+        values = ( self.__bfy, self.__efy, self.__ombaccountcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' StatusOfAppropriations( bfy, efy, fund ) '''
 class StatusOfAppropriations( ):
-    '''object representing Appropriation-level execution data'''
+    '''StatusOfAppropriations( bfy, efy, fund )
+    object representing Appropriation-level execution data'''
     __statusofappropriationsid = None
     __bfy = None
     __efy = None
@@ -1222,10 +1256,21 @@ class StatusOfAppropriations( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__appropriationfundcode = code if isinstance( code, str ) and code != '' else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.StatusOfAppropriations
+        command = Command.SELECTALL
+        names = [ 'BFY', 'AppropriationFundCode', ]
+        values = ( self.__bfy, self.__appropriationfundcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' MonthlyOutlays( bfy, efy, omb ) '''
 class MonthlyOutlays( ):
-    '''object provides OMB outlay data'''
+    '''MonthlyOutlays( bfy, efy, omb ) initializes
+    object providing OMB outlay data'''
     __monthlyoutlaysid = None
     __reportyear = None
     __bfy = None
@@ -1360,10 +1405,21 @@ class MonthlyOutlays( ):
         self.__reportyear = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.MonthlyOutlays
+        command = Command.SELECTALL
+        names = [ 'BFY', 'OmbAccountCode', ]
+        values = ( self.__bfy, self.__ombaccountcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' SpendingRates( code ) '''
 class SpendingRates( ):
-    '''object provides OMB spending rate data'''
+    '''SpendingRates( code ) initializes
+    object providing OMB spending rate data'''
     __spendingratesid = None
     __ombagencycode = None
     __ombagencyname = None
@@ -1681,10 +1737,21 @@ class SpendingRates( ):
     def __init__( self, code ):
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Apportionments
+        command = Command.SELECTALL
+        names = [ 'OmbAccountCode', ]
+        values = ( self.__ombaccountcode, )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' ReimbursableSurvey( bfy, fund ) '''
 class ReimbursableSurvey( ):
-    '''object provides Reimbursable Authority data'''
+    '''ReimbursableSurvey( bfy, fund ) initializes
+    object providing Reimbursable Authority data'''
     __reimbursablesurveyid = None
     __bfy = None
     __fundcode = None
@@ -1743,10 +1810,25 @@ class ReimbursableSurvey( ):
         if isinstance( value, float ):
             self.__amount = value
 
+    def __init__( self, bfy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.ReimbursableSurvey
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' ObjectClassOutlays( bfy, omb ) '''
 class ObjectClassOutlays( ):
-    '''object provides OMB outlay data'''
+    '''ObjectClassOutlays( bfy, omb )
+    object provides OMB outlay data'''
     __objectclassoutlaysid = None
     __reportyear = None
     __ombagencycode = None
@@ -1919,10 +2001,21 @@ class ObjectClassOutlays( ):
         self.__reportyear = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.ObjectClassOutlays
+        command = Command.SELECTALL
+        names = [ 'ReportYear', 'OmbAccountCode', ]
+        values = ( self.__reportyear, self.__ombaccountcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
 
-''' UnobligatedAuthority( bfy, omb )'''
+
+''' UnobligatedAuthority( bfy, omb ) '''
 class UnobligatedAuthority( ):
-    '''object provides OMB data'''
+    '''UnobligatedAuthority( bfy, omb )
+    object provides OMB data'''
     __unobligatedauthorityid = None
     __reportyear = None
     __ombaccountcode = None
@@ -2030,10 +2123,21 @@ class UnobligatedAuthority( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.UnobligatedAuthority
+        command = Command.SELECTALL
+        names = [ 'BFY', 'OmbAccountCode', ]
+        values = ( self.__bfy, self.__ombaccountcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' BudgetOutlays( bfy, omb ) '''
 class BudgetOutlays( ):
-    '''object provides OMB data'''
+    '''BudgetOutlays( bfy, omb )
+    object provides OMB data'''
     __budgetoutlaysid = None
     __reportyear = None
     __ombaccountcode = None
@@ -2283,10 +2387,21 @@ class BudgetOutlays( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.BudgetOutlays
+        command = Command.SELECTALL
+        names = [ 'BFY', 'OmbAccountCode', ]
+        values = ( self.__bfy, self.__ombaccountcode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 ''' GrowthRates( bfy, id ) '''
 class GrowthRates( ):
-    ''' object provides OMB data'''
+    '''GrowthRates( bfy, id )
+    initializes object providing OMB growth rate data'''
     __growthratesid = None
     __rateid = None
     __description = None
@@ -2433,10 +2548,31 @@ class GrowthRates( ):
         if isinstance( value, float ):
             self.__outyear9 = value
 
+    def __init__( self, bfy, id ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__rateid = id if isinstance( id, str ) and id != '' else None
 
-class DataRuleDescriptions( ):
-    ''' object provides OMB MAX A11 rule data '''
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.GrowthRates
+        command = Command.SELECTALL
+        names = [ 'BFY', 'RateId', ]
+        values = ( self.__bfy, self.__rateid )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
+
+''' DataRuleDescription( schedule, line, rule ) '''
+class DataRuleDescription( ):
+    ''' DataRuleDescription( schedule, line, rule )
+    initializes object providing OMB MAX A11 rule data '''
     __dataruledescriptionsid = None
+    __schedule = None
+    __linenumber = None
+    __rulenumber = None
+    __ruledescription = None
+    __scheduleorder = None
 
     @property
     def id( self ):
@@ -2447,6 +2583,72 @@ class DataRuleDescriptions( ):
     def id( self, value ):
         if isinstance( value, int ):
             self.__dataruledescriptionsid = value
+
+    @property
+    def schedule( self ):
+        if isinstance( self.__schedule, str ) and self.__schedule != '':
+            return self.__schedule
+
+    @schedule.setter
+    def schedule( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__schedule = value
+
+    @property
+    def linenumber( self ):
+        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+            return self.__linenumber
+
+    @linenumber.setter
+    def linenumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linenumber = value
+
+    @property
+    def linedescription( self ):
+        if isinstance( self.__linedescription, str ) and self.__linedescription != '':
+            return self.__linedescription
+
+    @linedescription.setter
+    def linedescription( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__linedescription = value
+
+    @property
+    def rulenumber( self ):
+        if isinstance( self.__rulenumber, str ) and self.__rulenumber != '':
+            return self.__rulenumber
+
+    @rulenumber.setter
+    def rulenumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rulenumber = value
+
+    @property
+    def ruledescription( self ):
+        if isinstance( self.__ruledescription, str ) and self.__ruledescription != '':
+            return self.__ruledescription
+
+    @ruledescription.setter
+    def ruledescription( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ruledescription = value
+
+    def __init__( self, schedule, line, rule ):
+        self.__schedule = schedule if isinstance( schedule, str ) and schedule != '' else None
+        self.__linenumber = line if isinstance( line, str ) and line != '' else None
+        self.__rulenumber = rule if isinstance( rule, str ) and rule != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.DataRuleDescription
+        command = Command.SELECTALL
+        names = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
+        values = ( self.__schedule, self.__linenumber, self.__rulenumber )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
 
 
 class CarryoverOutlays( ):
