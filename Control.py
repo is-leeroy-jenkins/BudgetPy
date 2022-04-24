@@ -3392,13 +3392,11 @@ class SiteActivity( ):
     __rpiocode = None
     __rpioname = None
     __city = None
-    __city = None
     __siteprojectcode = None
     __stieprojectname = None
     __ssid = None
     __actioncode = None
     __operableunit = None
-    __city = None
     __city = None
     __congress = None
     __startdate = None
@@ -3645,7 +3643,7 @@ class SiteActivity( ):
         if isinstance( self.__projecttype, str ) and self.__projecttype != '':
             return self.__projecttype
 
-    @epasiteid.setter
+    @projecttype.setter
     def projecttype( self, code ):
         if isinstance( code, str ) and code != '':
             self.__projecttype = code
@@ -3802,7 +3800,7 @@ class SiteActivity( ):
 
     @property
     def reversal( self ):
-        if isinstance( self.__amount, float ):
+        if isinstance( self.__reversal, float ):
             return self.__reversal
 
     @reversal.setter
@@ -4504,10 +4502,10 @@ class BudgetDocument( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpioname.setter
+    def rpioname( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ahcode( self ):
@@ -5239,8 +5237,8 @@ class BudgetControl( ):
 
     @property
     def authoritydistributioncontrol( self ):
-        if isinstance( self.__transactiontypecontrol, str ) and self.__transactiontypecontrol != '':
-            return self.__transactiontypecontrol
+        if isinstance( self.__authoritydistributioncontrol, str ) and self.__authoritydistributioncontrol != '':
+            return self.__authoritydistributioncontrol
 
     @authoritydistributioncontrol.setter
     def authoritydistributioncontrol( self, value ):
@@ -5565,7 +5563,7 @@ class CompassLevels( ):
         provider = Provider.SQLite
         source = Source.CompassLevels
         command = Command.SELECTALL
-        names = [ 'BFY', 'EFY, 'FundCode' ]
+        names = [ 'BFY', 'EFY', 'FundCode' ]
         values = ( self.__bfy, self.__efy, self.__fundcode )
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
@@ -5662,10 +5660,10 @@ class Commitment( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpioname.setter
+    def rpioname( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ahcode( self ):
@@ -5803,7 +5801,7 @@ class Commitment( ):
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
-    def documentnumber( self, value ):
+    def documentcontrolnumber( self, value ):
         if isinstance( value, str ) and value != '':
             self.__documentcontrolnumber = value
 
@@ -5876,7 +5874,7 @@ class Commitment( ):
     @foccode.setter
     def foccode( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__rccode = value
+            self.__foccode = value
 
     @property
     def focname( self ):
@@ -6022,22 +6020,146 @@ class Commitment( ):
         source = Source.OpenCommitments
         command = Command.SELECTALL
         names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-        values = ( self.__bfy, self.__fundcode, self.__accounttcode, self.__boccode )
+        values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
 
 
-
-class DocumentControlNumbers( ):
+''' DocumentControlNumber( dcn ) '''
+class DocumentControlNumber( ):
     ''' object provides DCN data'''
     __documentcontrolnumbersid = None
+    __rpiocode = None
+    __rpioname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentprefix = None
+    __documentcontrolnumber = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__documentcontrolnumbersid, int ):
+            return self.__documentcontrolnumbersid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__documentcontrolnumbersid = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpioname.setter
+    def rpioname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpioname = value
+
+    @property
+    def documenttype( self ):
+        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
+
+    @property
+    def documentprefix( self ):
+        if isinstance( self.__documentprefix, str ) and self.__documentprefix != '':
+            return self.__documentprefix
+
+    @documentprefix.setter
+    def documentprefix( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentprefix = value
+
+    @property
+    def documentnumber( self ):
+        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentnumber = value
+
+    @property
+    def documentcontrolnumber( self ):
+        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+            return self.__documentcontrolnumber
+
+    @documentcontrolnumber.setter
+    def documentcontrolnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documentcontrolnumber = value
+
+    def __init__( self, dcn ):
+        self.__documentcontrolnumber = dcn if isinstance( dcn, str ) and dcn != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.OpenCommitments
+        command = Command.SELECTALL
+        names = [ 'DocumentControlNumber', ]
+        values = ( self.__documentcontrolnumber, )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
 
 
-
-class HumanResourceOrganizations( ):
+''' HumanResourceOrganization( code ) '''
+class HumanResourceOrganization( ):
     ''' object providing HR Org data'''
     __humanresourceorganizationsid = None
+    __code = None
+    __name = None
+
+    @property
+    def code( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
+
+    @code.setter
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
+
+    def __init__( self, code ):
+        self.__code = code if isinstance( code, str ) and code != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.HumanResourceOrganizations
+        command = Command.SELECTALL
+        names = [ 'Code', ]
+        values = (self.__code, )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
 
 
 ''' OpenCommitment( bfy, fund, account, boc ) '''
@@ -6131,10 +6253,10 @@ class OpenCommitment( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpioname.setter
+    def rpioname( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ahcode( self ):
@@ -6272,7 +6394,7 @@ class OpenCommitment( ):
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
-    def documentnumber( self, value ):
+    def documentcontrolnumber( self, value ):
         if isinstance( value, str ) and value != '':
             self.__documentcontrolnumber = value
 
@@ -6345,7 +6467,7 @@ class OpenCommitment( ):
     @foccode.setter
     def foccode( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__rccode = value
+            self.__foccode = value
 
     @property
     def focname( self ):
@@ -6491,11 +6613,10 @@ class OpenCommitment( ):
         source = Source.OpenCommitments
         command = Command.SELECTALL
         names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-        values = ( self.__bfy, self.__fundcode, self.__accounttcode, self.__boccode )
+        values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
-
 
 
 ''' Obligation( bfy, fund, account, boc ) '''
@@ -6589,9 +6710,9 @@ class Obligation( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, value ):
+    def rpioname( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ahcode( self ):
@@ -6729,7 +6850,7 @@ class Obligation( ):
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
-    def documentnumber( self, value ):
+    def documentcontrolnumber( self, value ):
         if isinstance( value, str ) and value != '':
             self.__documentcontrolnumber = value
 
@@ -6802,7 +6923,7 @@ class Obligation( ):
     @foccode.setter
     def foccode( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__rccode = value
+            self.__foccode = value
 
     @property
     def focname( self ):
@@ -6939,7 +7060,7 @@ class Obligation( ):
         source = Source.Obligations
         command = Command.SELECTALL
         names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-        values = ( self.__bfy, self.__fundcode, self.__accounttcode, self.__boccode )
+        values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
