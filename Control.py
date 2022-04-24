@@ -5424,7 +5424,7 @@ class CongressionalControl( ):
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
 
 
-
+''' CompassLevel( bfy, efy, fund ) '''
 class CompassLevels( ):
     '''object representing Compass data levels 1-7'''
     __compasslevelsid = None
@@ -6032,6 +6032,7 @@ class Commitment( ):
 class DocumentControlNumbers( ):
     ''' object provides DCN data'''
     __documentcontrolnumbersid = None
+
 
 
 class HumanResourceOrganizations( ):
