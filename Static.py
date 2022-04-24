@@ -185,3 +185,4 @@ class Client( Enum ):
     Linq = auto( )
     Edge = auto( )
     Chrome = auto( )
+
