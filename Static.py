@@ -62,7 +62,6 @@ class Source( Enum ):
     OperatingPlanUpdates = auto( )
     ObjectClassOutlays = auto( )
     CarryoverOutlays = auto( )
-    UnobligatedAuthority = auto( )
     QueryDefinitions = auto( )
     RegionalAuthority = auto( )
     SpendingRates = auto( )

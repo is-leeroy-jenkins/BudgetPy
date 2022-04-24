@@ -1185,7 +1185,7 @@ class DataRow( sl.Row ):
         if isinstance( self.__id, int ):
             return self.__id
 
-    @index.setter
+    @id.setter
     def id( self, value ):
         if isinstance( value, int ):
             self.__id = value
