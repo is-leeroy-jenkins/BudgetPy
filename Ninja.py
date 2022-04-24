@@ -156,7 +156,7 @@ class DataConfig( ):
                            r'\db\mssql\referencemodels\References.mdf;'
 
     def __str__( self ):
-        if isinstance( self.__table, str ) and self.__table != '':
+        if isinstance( self.__table, str ) :
             return self.__table
 
 
@@ -234,21 +234,14 @@ class DataConnection(  ):
 
     def open( self ):
             __path = self.__provider.getpath( )
-            if self.__provider.name == Provider.SQLite.name:
-                self.__connection = sl.connect( __path )
-                if isinstance( self.__connection, Connection ):
-                    self.__isopen = True
-                    return self.__connection
-            elif self.__provider.name != Provider.SQLite.name:
+            if self.__provider.name != Provider.SQLite.name:
                 self.__connection = db.connect( self.__connectionstring )
-                if isinstance( self.__connection, db.Connection ):
-                    self.__isopen = True
-                    return self.__connection
+                self.__isopen = True
+                return self.__connection
             else:
                 self.__connection = sl.connect( __path )
-                if isinstance( self.__connection, Connection ):
-                    self.__isopen = True
-                    return self.__connection
+                self.__isopen = True
+                return self.__connection
 
     def close( self ):
         if self.__isopen == True:
@@ -322,10 +315,10 @@ class SqlConfig( ):
     @pairs.setter
     def pairs( self, kvp: dict ):
         if isinstance( kvp, dict ):
-            map = dict( )
+            kvp = dict( )
             for k, v in kvp.items( ):
-                    map.update( k, v )
-            self.__predicate = map
+                    kvp.update( k, v )
+            self.__predicate = kvp
 
     def __init__( self, command, names, values, params  = None ):
         self.__command = command if isinstance( command, Command ) else Command.SELECTALL
@@ -338,12 +331,12 @@ class SqlConfig( ):
         '''__map( ) returns dictionary built from
         lists self.__names and self.__values'''
         if isinstance( self.__names, list ) and isinstance( self.__values, list ):
-            map = dict( )
+            kvpmap = dict( )
             kvp = zip( self.__names, self.__values )
             for k, v in kvp:
                 kvp = { k: v }
-                map.update( kvp )
-            return map
+                kvpmap.update( kvp )
+            return kvpmap
 
     def pairdump( self ):
         '''dump( ) returns string of 'values = index AND' pairs'''
@@ -757,7 +750,7 @@ class SqlServerQuery( ):
     @driver.setter
     def driver( self, value ):
         if isinstance( value, str ):
-            self.__server = value
+            self.__driver = value
 
     @property
     def source( self ):
@@ -1017,8 +1010,8 @@ class DataFactory( ):
 
     def create( self ):
         if self.__provider == Provider.SQLite:
-            __query = SQLiteQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
+            __sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in __sqlite.getdata( ) ]
             return self.__data
         elif self.__provider == Provider.Access:
             __query = AccessQuery( self.__connection, self.__sqlstatement )
