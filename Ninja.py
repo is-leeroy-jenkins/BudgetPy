@@ -996,13 +996,12 @@ class DataFactory( ):
         if isinstance( self.__sqlconfig, SqlConfig ):
             return self.__sqlconfig
 
-    def __init__( self, querybuilder ):
-        self.__query = querybuilder if isinstance( querybuilder, QueryBuilder ) else None
-        self.__name = querybuilder.names if isinstance( querybuilder.names, list ) else None
-        self.__values = querybuilder.values if isinstance( querybuilder.values, tuple ) else None
-        self.__command = querybuilder.command if isinstance( querybuilder.command, Command ) else None
-        self.__source = querybuilder.source if isinstance( querybuilder.source, Source ) else None
-        self.__provider = querybuilder.provider if isinstance( querybuilder.provider, Provider ) else None
+    def __init__( self, provider, source, command, names, values ):
+        self.__name = names if isinstance( names, list ) else None
+        self.__values = values if isinstance( values, tuple ) else None
+        self.__command = command if isinstance( command, Command ) else None
+        self.__source = source if isinstance( source, Source ) else None
+        self.__provider = provider if isinstance( provider, Provider ) else None
         self.__dbconfig = DataConfig( self.__source, self.__provider )
         self.__connection = DataConnection( self.__dbconfig )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )

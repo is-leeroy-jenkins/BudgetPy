@@ -56,6 +56,7 @@ class Source( Enum ):
     Deobligations = auto( )
     Defactos = auto( )
     DocumentControlNumbers = auto( )
+    DataRuleDescriptions = auto( )
     HumanResourceOrganizations = auto( )
     Obligations = auto( )
     OperatingPlans = auto( )
@@ -99,6 +100,7 @@ class Source( Enum ):
     Expenditures = auto( )
     UnliquidatedObligations = auto( )
     UnobligatedAuthority = auto( )
+    MonthlyOutlays = auto( )
     '''Reference Models'''
     Accounts = auto( )
     ActivityCodes = auto( )

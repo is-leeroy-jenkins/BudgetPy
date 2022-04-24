@@ -1,5 +1,4 @@
 from Execution import *
-from Static import *
 from Ninja import *
 
 ''' Apportionment( bfy, efy, omb ) '''
@@ -349,19 +348,19 @@ class CarryoverEstimates( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
-            return self.__rpiocode
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
 
     @rpioname.setter
-    def rpioname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpioname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpioname = value
 
     @property
     def fundcode( self ):
@@ -538,8 +537,8 @@ class CarryoverEstimates( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
 
     def __str__( self ):
-        if isinstance( self.__code ) and self.__code != '':
-            return self.__code
+        if isinstance( self.__unobligatedauthority, float ):
+            return str( self.__unobligatedauthority )
 
     def getdata( self ):
         provider = Provider.SQLite
@@ -632,8 +631,8 @@ class CarryoverSurvey( ):
         provider = Provider.SQLite
         source = Source.Apportionments
         command = Command.SELECTALL
-        names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-        values = ( self.__bfy, self.__efy, self.__ombaccountcode )
+        names = [ 'BFY', ]
+        values = ( self.__bfy, )
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
@@ -2433,7 +2432,7 @@ class GrowthRates( ):
         if isinstance( self.__rateid, int ):
             return self.__rateid
 
-    @id.setter
+    @rateid.setter
     def rateid( self, value ):
         if isinstance( value, int ):
             self.__rateid = value
@@ -2641,14 +2640,13 @@ class DataRuleDescription( ):
 
     def getdata( self ):
         provider = Provider.SQLite
-        source = Source.DataRuleDescription
+        source = Source.DataRuleDescriptions
         command = Command.SELECTALL
         names = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
         values = ( self.__schedule, self.__linenumber, self.__rulenumber )
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
-
 
 
 class CarryoverOutlays( ):
