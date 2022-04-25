@@ -7674,7 +7674,7 @@ class Deobligation( ):
         source = Source.Deobligations
         command = Command.SELECTALL
         names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-        values = ( self.__bfy, self.__fundcode, self.__accounttcode, self.__boccode )
+        values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
@@ -7913,7 +7913,7 @@ class UnliquidatedObligation( ):
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
-    def documentnumber( self, value ):
+    def documentcontrolnumber( self, value ):
         if isinstance( value, str ) and value != '':
             self.__documentcontrolnumber = value
 
