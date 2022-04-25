@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Badger.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/Booger.qmlproject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/Booger.qmlproject.qtds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/content/App.qml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/content/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/content/Dialog.ui.qml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/content/MainForm.ui.qml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/content/fonts/fonts.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/Constants.qml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/DirectoryFontLoader.qml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/EventListModel.qml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/EventListSimulator.qml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/designer/plugin.metainfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/qmldir" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/imports/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/main.qml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/qmlmodules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/qtquickcontrols2.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/src/app_environment.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/src/import_qml_plugins.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger/src/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/budget.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/budget.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/logs/xvba_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/logs/xvba_debug.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,21 +44,56 @@
       </list>
     </option>
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Execution.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/FileSys.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="28GAJUaQzGhudsqpPis1TSoJi0M" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="2" id="Remove" />
   </component>
+  <component name="ProjectViewState">
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="GitStage.ChangesTree.GroupingKeys" value="directory&#10;module&#10;repository" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Colors" />
   </component>
   <component name="RunManager">
     <configuration name="Booger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -42,6 +108,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Booger.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -56,6 +123,10 @@
         <item itemvalue="Python.Booger" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\terry\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="updates from main rig;">
@@ -79,8 +150,30 @@
       <option name="project" value="LOCAL" />
       <updated>1650815822100</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updates from main rig;">
+      <created>1650824878659</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650824878659</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="" />
+      <created>1650832497931</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650832497931</updated>
+      <workItem from="1650836521442" duration="160000" />
+      <workItem from="1650838073232" duration="551000" />
+      <workItem from="1650838730664" duration="459000" />
+      <workItem from="1650839260524" duration="449000" />
+      <workItem from="1650839766145" duration="1594000" />
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
