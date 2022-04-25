@@ -3499,7 +3499,6 @@ class SiteActivity( ):
     __ssid = None
     __actioncode = None
     __operableunit = None
-    __city = None
     __congress = None
     __startdate = None
     __enddate = None
@@ -6876,7 +6875,7 @@ class Obligation( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
+    @rpioname.setter
     def rpioname( self, value ):
         if isinstance( value, str ) and value != '':
             self.__rpioname = value
@@ -7465,7 +7464,7 @@ class Deobligation( ):
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
-    def documentnumber( self, value ):
+    def documentcontrolnumber( self, value ):
         if isinstance( value, str ) and value != '':
             self.__documentcontrolnumber = value
 
@@ -8363,7 +8362,7 @@ class Expenditures:
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
-    def documentnumber( self, value ):
+    def documentcontrolnumber( self, value ):
         if isinstance( value, str ) and value != '':
             self.__documentcontrolnumber = value
 
