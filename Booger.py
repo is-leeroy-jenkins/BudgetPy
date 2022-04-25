@@ -15,8 +15,7 @@ class FileBrowser(  ):
                    [ sg.OK( ), sg.Cancel( ) ] ]
         window = sg.Window( 'Budget Execution', layout,
             background_color = __backcolor,
-            font = __font,
-            text_color = __textcolor )
+            font = __font )
         event, values = window.read( )
         window.close( )
 
