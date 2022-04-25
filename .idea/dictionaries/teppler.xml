@@ -20,6 +20,7 @@
       <w>basepaid</w>
       <w>beacategory</w>
       <w>beacategoryname</w>
+      <w>bodoni</w>
       <w>budgetauthority</w>
       <w>budgetcontrolsid</w>
       <w>budgetdefault</w>
@@ -92,6 +93,7 @@
       <w>hrorgname</w>
       <w>humanresourceorganizationsid</w>
       <w>increaserestriction</w>
+      <w>interframe</w>
       <w>lastactivitydate</w>
       <w>lastdocumentdate</w>
       <w>linecategory</w>
