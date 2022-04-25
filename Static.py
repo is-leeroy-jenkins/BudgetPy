@@ -47,6 +47,7 @@ class NPM( Enum ):
 class Source( Enum ):
     '''enumeration of table names'''
     NS = auto( )
+    Actuals = auto( )
     Allocations = auto( )
     ApplicationTables = auto( )
     CarryoverEstimates = auto( )
@@ -88,11 +89,14 @@ class Source( Enum ):
     StatusOfAppropriations = auto( )
     StatusOfJobsActFunding = auto( )
     StatusOfSupplementalFunding = auto( )
+    StateGrantObligations = auto( )
     SuperfundSites = auto( )
     PayrollAuthority = auto( )
+    PayrollActivity = auto( )
     TransTypes = auto( )
     ProgramFinancingSchedule = auto( )
     PayrollRequests = auto( )
+    FullTimeEquivalents = auto( )
     CarryoverRequests = auto( )
     CompassLevels = auto( )
     AdministrativeRequests = auto( )
@@ -101,6 +105,7 @@ class Source( Enum ):
     UnliquidatedObligations = auto( )
     UnobligatedAuthority = auto( )
     MonthlyOutlays = auto( )
+    CongressionalControls = auto( )
     '''Reference Models'''
     Accounts = auto( )
     ActivityCodes = auto( )

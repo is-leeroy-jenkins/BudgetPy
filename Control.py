@@ -300,6 +300,17 @@ class OperatingPlan( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.OperatingPlans
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
+
 
 ''' FullTimeEquivalent( bfy, fund ) '''
 class FullTimeEquivalent( ):
@@ -598,6 +609,16 @@ class FullTimeEquivalent( ):
     def __init__( self, bfy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.FullTimeEquivalents
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
 ''' StatusOfFunds( bfy, fund )'''
@@ -994,6 +1015,16 @@ class StatusOfFunds( ):
     def __init__( self, bfy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.StatusOfFunds
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
 ''' Defacto( bfy, fund ) '''
@@ -1392,6 +1423,16 @@ class Defacto( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Defactos
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
 
 ''' StatusOfSupplementalFunds( bfy, fund ) '''
 class StatusOfSupplementalFunds( ):
@@ -1789,6 +1830,16 @@ class StatusOfSupplementalFunds( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.StatusOfSupplementalFunding
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
 
 ''' StateGrantObligation( bfy, rpio )'''
 class StateGrantObligation( ):
@@ -2008,6 +2059,16 @@ class StateGrantObligation( ):
     def __init__( self, bfy, rpio ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.StateGrantObligations
+        command = Command.SELECTALL
+        names = [ 'BFY', 'RpioCode', ]
+        values = ( self.__bfy, self.__rpiocode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
 ''' Allocation( bfy, fund )'''
@@ -2318,8 +2379,18 @@ class Allocations( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Allocations
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
-''' RegionalAuthority( bfy, rpio )'''
+
+''' RegionalAuthority( bfy, fund )'''
 class RegionalAuthority( ):
     '''object representing Regional Allocations'''
     __regionalauthorityid = None
@@ -2606,6 +2677,16 @@ class RegionalAuthority( ):
     def __init__( self, bfy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.RegionalAuthority
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
 ''' HeadquartersAuthority( bfy, rpio ) '''
@@ -2895,6 +2976,16 @@ class HeadquartersAuthority( ):
     def __init__( self, bfy, rpio ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.HeadquartersAuthority
+        command = Command.SELECTALL
+        names = [ 'BFY', 'RpioCode', ]
+        values = ( self.__bfy, self.__rpiocode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
 ''' PayrollActivity( bfy, fund ) '''
@@ -3383,6 +3474,17 @@ class PayrollActivity( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.PayrollActivity
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
+
 ''' SiteActivity( bfy, rpio  ) '''
 class SiteActivity( ):
     '''provides data on superfund site spending'''
@@ -3812,6 +3914,16 @@ class SiteActivity( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.SiteActivity
+        command = Command.SELECTALL
+        names = [ 'BFY', 'RpioCode', ]
+        values = ( self.__bfy, self.__rpiocode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
 
 ''' Acutals( bfy, fund  ) '''
 class Actuals( ):
@@ -4103,6 +4215,16 @@ class Actuals( ):
     def __init__( self, bfy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.Actuals
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
 ''' AppropriationDocument( bfy, fund  ) '''
@@ -4400,6 +4522,16 @@ class AppropriationDocument( ):
     def __init__( self, bfy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.AppropriationDocuments
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
 ''' BudgetDocument( bfy, fund )'''
@@ -4842,6 +4974,16 @@ class BudgetDocument( ):
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
 
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.BudgetDocuments
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY', 'FundCode', ]
+        values = ( self.__bfy, self.__efy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
 
 ''' BudgetControl( code ) '''
 class BudgetControl( ):
@@ -5245,6 +5387,21 @@ class BudgetControl( ):
         if isinstance( value, str ) and value != '':
             self.__authoritydistributioncontrol = value
 
+    def __init__( self, bfy, efy, fund ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.BudgetControls
+        command = Command.SELECTALL
+        names = [ 'BFY', 'EFY', 'FundCode', ]
+        values = ( self.__bfy, self.__efy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
+
 
 ''' CongressionalControl( bfy, fund ) '''
 class CongressionalControl( ):
@@ -5420,6 +5577,16 @@ class CongressionalControl( ):
     def __init__( self, bfy, fundcode ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.CongressionalControls
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', ]
+        values = ( self.__bfy, self.__fundcode )
+        df = DataFactory( provider, source, command, names, values )
+        self.__data = df.create( )
+        return self.__data
 
 
 ''' CompassLevel( bfy, efy, fund ) '''

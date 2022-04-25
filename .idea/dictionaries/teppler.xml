@@ -138,10 +138,12 @@
       <w>payperiod</w>
       <w>payrollactivityid</w>
       <w>postedcontrol</w>
+      <w>postedcontrolflag</w>
       <w>postedtranstype</w>
       <w>postingcontrols</w>
       <w>precommitmentcontrols</w>
       <w>precommitmentspendingcontrol</w>
+      <w>precommitmentspendingcontrolflag</w>
       <w>prioryear</w>
       <w>processeddate</w>
       <w>profitlossbudgetingoption</w>
@@ -150,6 +152,7 @@
       <w>projecttype</w>
       <w>rateid</w>
       <w>recoveriescarryinamountcontrol</w>
+      <w>recoveriescarryinlowerelevelcontrol</w>
       <w>recoveriescarryinlowerlevel</w>
       <w>recoveriescarryinlowerlevelcontrol</w>
       <w>recoverieswithdrawn</w>
@@ -190,6 +193,7 @@
       <w>supplementals</w>
       <w>taxationcode</w>
       <w>totalagreementreimbursables</w>
+      <w>totalauthority</w>
       <w>totalspendout</w>
       <w>trackagreementlowerlevels</w>
       <w>transactiontypecontrol</w>

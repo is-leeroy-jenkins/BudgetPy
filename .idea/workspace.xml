@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/teppler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Badger.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/Booger.qmlproject" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/Booger.qmlproject.qtds" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/content/App.qml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/content/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/content/Dialog.ui.qml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/content/MainForm.ui.qml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/content/fonts/fonts.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/Constants.qml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/DirectoryFontLoader.qml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/EventListModel.qml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/EventListSimulator.qml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/designer/plugin.metainfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/imports/Booger/qmldir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/imports/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/main.qml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/qmlmodules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/qtquickcontrols2.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/src/app_environment.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/src/import_qml_plugins.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger/src/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/budget.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/budget.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/logs/xvba_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/logs/xvba_debug.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +65,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Colors" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="Booger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
