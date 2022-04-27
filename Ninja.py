@@ -8,7 +8,7 @@ from Static import *
 from numpy import ndarray
 
 
-''' DataConfig( value, provider ) '''
+# DataConfig( value, provider )
 class DataConfig( ):
     '''DataConfig( value, provider  ) provides list of Budget Execution
     tables across two databases ( values and references ) '''
@@ -160,7 +160,7 @@ class DataConfig( ):
             return self.__table
 
 
-''' DataConnection( dataconfig ) '''
+# DataConnection( dataconfig )
 class DataConnection(  ):
     '''DataConnection( dataconfig, value = '' ) initializes
     object used to connect to Budget databases'''
@@ -249,7 +249,7 @@ class DataConnection(  ):
             self.__isopen = False
 
 
-''' SqlConfig( command, names, values ) '''
+# SqlConfig( command, names, values )
 class SqlConfig( ):
     '''SqlConfig( command, value, values, paramstyle  ) provides the
      predicate provider index pairs for sqlconfig queries'''
@@ -394,7 +394,7 @@ class SqlConfig( ):
             return values
 
 
-''' SqlStatement(  dataconfig,  sqlconfig ) '''
+# SqlStatement(  dataconfig,  sqlconfig )
 class SqlStatement( ):
     '''SqlStatement( dataconfig, sqlconfig ) Class
     represents the values models used in the SQLite database'''
@@ -510,7 +510,7 @@ class SqlStatement( ):
                                  + f'( { self.__sqlconfig.wheredump( ) };'
 
 
-''' SQLiteQuery( connection, sqlstatement ) '''
+# SQLiteQuery( connection, sqlstatement )
 class SQLiteQuery( ):
     '''SQLiteQuery( value, sqlconfig ) represents
      the budget execution values classes'''
@@ -608,7 +608,7 @@ class SQLiteQuery( ):
         return __cursor.fetchall()
 
 
-''' AccessQuery( connection, sqlstatement ) '''
+# AccessQuery( connection, sqlstatement )
 class AccessQuery( ):
     '''AccessQuery( value, sqlconfig ) class
       represents the budget execution
@@ -704,7 +704,7 @@ class AccessQuery( ):
         return __cursor.fetchall()
 
 
-''' SqlServerQuery( connection, sqlstatement ) '''
+# SqlServerQuery( connection, sqlstatement )
 class SqlServerQuery( ):
     '''SqlServerQuery( value, sqlconfig ) object
     represents the values models in the MS SQL Server
@@ -824,7 +824,7 @@ class SqlServerQuery( ):
             return self.__data
 
 
-''' QueryBuilder( value, provider, command,  names, values ) '''
+# QueryBuilder( value, provider, command,  names, values )
 class QueryBuilder( ):
     '''QueryBuilder( value, provider, command, names, values )
     initializes object used as argument for the DataFactory'''
@@ -940,7 +940,7 @@ class QueryBuilder( ):
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
 
 
-''' DataFactory( querybuilder ) '''
+# DataFactory( querybuilder )
 class DataFactory( ):
     '''DataFactory( QueryBuilder ) object
     provides factory method for value values'''
@@ -1026,7 +1026,7 @@ class DataFactory( ):
             return self.__data
 
 
-''' DataColumn( value,  values ) '''
+#  DataColumn( value,  values )
 class DataColumn( pd.Series ):
     '''Defines the DataColumn Class'''
     __series = None
@@ -1162,7 +1162,7 @@ class DataColumn( pd.Series ):
             return self.__name
 
 
-''' DataRow( value, items, names ) '''
+# DataRow( value, items, names )
 class DataRow( sl.Row ):
     '''Defines the DataRow Class'''
     __source = None

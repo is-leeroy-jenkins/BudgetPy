@@ -3,7 +3,7 @@ from Static import *
 from Ninja import *
 
 
-''' OperatingPlan( bfy, fund )'''
+# OperatingPlan( bfy, fund )
 class OperatingPlan( ):
     '''object representing Operating plan allocations'''
     __operatingplansid = None
@@ -312,7 +312,7 @@ class OperatingPlan( ):
 
 
 
-''' FullTimeEquivalent( bfy, fund ) '''
+# FullTimeEquivalent( bfy, fund )
 class FullTimeEquivalent( ):
     '''object representing Operating Plan FTE'''
     __fulltimeequivalentsid = None
@@ -621,7 +621,7 @@ class FullTimeEquivalent( ):
         return self.__data
 
 
-''' StatusOfFunds( bfy, fund )'''
+# StatusOfFunds( bfy, fund )
 class StatusOfFunds( ):
     '''Object representing execution data'''
     __statusoffundsid = None
@@ -1027,7 +1027,7 @@ class StatusOfFunds( ):
         return self.__data
 
 
-''' Defacto( bfy, fund ) '''
+# Defacto( bfy, fund )
 class Defacto( ):
     '''object representing defacto obligations'''
     __defactosid = None
@@ -1434,7 +1434,7 @@ class Defacto( ):
         return self.__data
 
 
-''' StatusOfSupplementalFunds( bfy, fund ) '''
+# StatusOfSupplementalFunds( bfy, fund )
 class StatusOfSupplementalFunds( ):
     '''object representing Supplemental Funds execution data'''
     __statusofsupplementalfundsid = None
@@ -1841,7 +1841,7 @@ class StatusOfSupplementalFunds( ):
         return self.__data
 
 
-''' StateGrantObligation( bfy, rpio )'''
+# StateGrantObligation( bfy, rpio )
 class StateGrantObligation( ):
     '''object representing the BIS'''
     __stategrantobligationsid = None
@@ -2071,7 +2071,7 @@ class StateGrantObligation( ):
         return self.__data
 
 
-''' Allocation( bfy, fund )'''
+# Allocation( bfy, fund )
 class Allocations( ):
     '''object representing operating plan data'''
     __allocationsid = None
@@ -2390,7 +2390,7 @@ class Allocations( ):
         return self.__data
 
 
-''' RegionalAuthority( bfy, fund )'''
+# RegionalAuthority( bfy, fund )
 class RegionalAuthority( ):
     '''object representing Regional Allocations'''
     __regionalauthorityid = None
@@ -2689,7 +2689,7 @@ class RegionalAuthority( ):
         return self.__data
 
 
-''' HeadquartersAuthority( bfy, rpio ) '''
+# HeadquartersAuthority( bfy, rpio )
 class HeadquartersAuthority( ):
     '''object representing HQ Allocations'''
     __headquartersauthorityid = None
@@ -2988,7 +2988,7 @@ class HeadquartersAuthority( ):
         return self.__data
 
 
-''' PayrollActivity( bfy, fund ) '''
+# PayrollActivity( bfy, fund )
 class PayrollActivity( ):
     '''provides payroll data'''
     __payrollactivityid = None
@@ -3485,7 +3485,7 @@ class PayrollActivity( ):
         return self.__data
 
 
-''' SiteActivity( bfy, rpio  ) '''
+# SiteActivity( bfy, rpio  )
 class SiteActivity( ):
     '''provides data on superfund site spending'''
     __siteactivityid = None
@@ -3924,7 +3924,7 @@ class SiteActivity( ):
         return self.__data
 
 
-''' Acutals( bfy, fund  ) '''
+# Acutals( bfy, fund  )
 class Actuals( ):
     '''Object representing expenditure data'''
     __actualsid = None
@@ -4226,7 +4226,7 @@ class Actuals( ):
         return self.__data
 
 
-''' AppropriationDocument( bfy, fund  ) '''
+# AppropriationDocument( bfy, fund )
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
     __appropriationdocumentsid = None
@@ -4533,7 +4533,7 @@ class AppropriationDocument( ):
         return self.__data
 
 
-''' BudgetDocument( bfy, fund )'''
+# BudgetDocument( bfy, fund )
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
     __budgetdocumentsid = None
@@ -4984,7 +4984,7 @@ class BudgetDocument( ):
         return self.__data
 
 
-''' BudgetControl( code ) '''
+# BudgetControl( code )
 class BudgetControl( ):
     '''object representing compass control data'''
     __budgetcontrolsid = None
@@ -5402,7 +5402,7 @@ class BudgetControl( ):
         return self.__data
 
 
-''' CongressionalControl( bfy, fund ) '''
+# CongressionalControl( bfy, fund )
 class CongressionalControl( ):
     '''object representing congressional control data'''
     __congressionalcontrolsid = None
@@ -5588,7 +5588,7 @@ class CongressionalControl( ):
         return self.__data
 
 
-''' CompassLevel( bfy, efy, fund ) '''
+# CompassLevel( bfy, efy, fund )
 class CompassLevels( ):
     '''object representing Compass data levels 1-7'''
     __compasslevelsid = None
@@ -5736,7 +5736,7 @@ class CompassLevels( ):
         return self.__data
 
 
-''' Commitment( bfy, fund, account, boc ) '''
+# Commitment( bfy, fund, account, boc )
 class Commitment( ):
     '''Defines the CommitmentS class.'''
     __opencommitmentsid = None
@@ -6192,7 +6192,7 @@ class Commitment( ):
         return self.__data
 
 
-''' DocumentControlNumber( dcn ) '''
+# DocumentControlNumber( dcn )
 class DocumentControlNumber( ):
     ''' object provides DCN data'''
     __documentcontrolnumbersid = None
@@ -6287,7 +6287,7 @@ class DocumentControlNumber( ):
         return self.__data
 
 
-''' HumanResourceOrganization( code ) '''
+# HumanResourceOrganization( code )
 class HumanResourceOrganization( ):
     ''' object providing HR Org data'''
     __humanresourceorganizationsid = None
@@ -6328,7 +6328,7 @@ class HumanResourceOrganization( ):
         return self.__data
 
 
-''' OpenCommitment( bfy, fund, account, boc ) '''
+# OpenCommitment( bfy, fund, account, boc )
 class OpenCommitment( ):
     ''' OpenCommitment( bfy, fund, account, boc )
     initializes object providing OpenCommitment data.'''
@@ -6785,7 +6785,7 @@ class OpenCommitment( ):
         return self.__data
 
 
-''' Obligation( bfy, fund, account, boc ) '''
+# Obligation( bfy, fund, account, boc )
 class Obligation( ):
     '''Obligation( bfy, fund, account, boc )
     initializes object providing Obligation data'''
@@ -7232,7 +7232,7 @@ class Obligation( ):
         return self.__data
 
 
-''' Deobligation( bfy, fund, account, boc ) '''
+# Deobligation( bfy, fund, account, boc )
 class Deobligation( ):
     '''Deobligation( bfy, fund, account, boc )
     initializes object providing Deobligation data '''
@@ -7681,7 +7681,7 @@ class Deobligation( ):
 
 
 
-''' UnliquidatedObligation( bfy, fund, account, boc ) '''
+# UnliquidatedObligation( bfy, fund, account, boc )
 class UnliquidatedObligation( ):
     '''UnliquidatedObligation( bfy, fund, account, boc )
     initializes object providing ULO data'''
@@ -8130,7 +8130,7 @@ class UnliquidatedObligation( ):
 
 
 
-''' Expenditure( bfy, fund, account, code ) '''
+# Expenditure( bfy, fund, account, code )
 class Expenditures:
     '''Expenditure( bfy, fund, account, code )
     initializes object providing Expenditure data'''
@@ -8582,6 +8582,7 @@ class Expenditures:
 class SpecialAccounts( ):
     '''' object providing SF Special Account data'''
     __specialaccountsid = None
+
 
 
 class SuperfundSites( ):

@@ -60,7 +60,7 @@ class Element( Unit ):
             return self.__code
 
 
-''' Account( code ) '''
+# Account( code )
 class Account( ):
     '''defines the Account Code class'''
     __accountsid = None
@@ -187,7 +187,7 @@ class Account( ):
         return self.__data
 
 
-''' Activity( code  ) '''
+# Activity( code  )
 class Activity( ):
     '''Defines the Activity Class'''
     __activitycodesid = None
@@ -265,7 +265,7 @@ class Activity( ):
         return self.__data
 
 
-''' AllowanceHolder( code  ) '''
+# AllowanceHolder( code  )
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
     __allowancholdersid = None
@@ -343,7 +343,7 @@ class AllowanceHolder( ):
         return self.__data
 
 
-''' Appropriation( code  ) '''
+# Appropriation( code  )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
     __appropriationsid = None
@@ -455,7 +455,7 @@ class Appropriation( ):
         return self.__data
 
 
-''' BudgetFiscalYear( value ) '''
+# BudgetFiscalYear( value )
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
     __budgetfiscalyearsid = None
@@ -647,7 +647,7 @@ class BudgetFiscalYear( ):
         return self.__data
 
 
-''' BudgetObjectClass( code ) '''
+# BudgetObjectClass( code )
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
     __budgetobjectclassesid = None
@@ -739,7 +739,7 @@ class BudgetObjectClass( ):
         return self.__data
 
 
-''' Division( code ) '''
+# Division( code )
 class Division( ):
     '''Defines the Division Class'''
     __code = None
@@ -785,7 +785,7 @@ class Division( ):
             return self.__code
 
 
-''' FinanceObjectClass( code )'''
+# FinanceObjectClass( code )
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
     __financeobjectclassesid = None
@@ -885,7 +885,7 @@ class FinanceObjectClass( ):
         return self.__data
 
 
-''' Fund( bfy, code )'''
+# Fund( bfy, code )
 class Fund( ):
     '''Defines the Fund Class'''
     __fundsid = None
@@ -1260,7 +1260,7 @@ class Fund( ):
             print( e )
 
 
-''' Goal( code ) '''
+# Goal( code )
 class Goal( ):
     '''Defines the Goal Class'''
     __goalsid = None
@@ -1337,7 +1337,7 @@ class Goal( ):
         return self.__data
 
 
-''' NationalProgram( code ) '''
+# NationalProgram( code )
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
     __nationalprogramsid = None
@@ -1437,7 +1437,7 @@ class NationalProgram( ):
         return self.__data
 
 
-''' Objective( code )'''
+# Objective( code )
 class Objective( ):
     '''Defines the Objective Class'''
     __objectivesid = None
@@ -1515,7 +1515,7 @@ class Objective( ):
         return self.__data
 
 
-''' Organization( code ) '''
+# Organization( code )
 class Organization( ):
     '''Defines the Organization Class'''
     __organizationsid = None
@@ -1593,7 +1593,7 @@ class Organization( ):
         return self.__data
 
 
-''' Project( code ) '''
+# Project( code )
 class Project( ):
     '''Defines the Organization Class'''
     __projectsid = None
@@ -1671,7 +1671,7 @@ class Project( ):
         return self.__data
 
 
-''' ItProjectCode( code ) '''
+# ItProjectCode( code )
 class ItProjectCode( ):
     '''Defines the Organization Class'''
     __cpicid = None
@@ -1749,7 +1749,7 @@ class ItProjectCode( ):
         return self.__data
 
 
-''' SiteProjectCode( code ) '''
+# SiteProjectCode( code )
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
     __siteprojectcodesid = None
@@ -1827,7 +1827,7 @@ class SiteProjectCode( ):
         return self.__data
 
 
-''' StateOrganization( code ) '''
+# StateOrganization( code )
 class StateOrganization( ):
     '''StateOrganization( fgrp ) class
     representing state codes'''
@@ -1897,7 +1897,7 @@ class StateOrganization( ):
         return self.__data
 
 
-''' HeadquartersOffice( code ) '''
+# HeadquartersOffice( code )
 class HeadquartersOffice( ):
     '''Defines a regional RPIO'''
     __resourceplanningofficesid = None
@@ -1975,7 +1975,7 @@ class HeadquartersOffice( ):
         return self.__data
 
 
-''' HumanResourceOrganization( code ) '''
+# HumanResourceOrganization( code )
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
     __humanresourceorganizationsid = None
@@ -2053,7 +2053,7 @@ class HumanResourceOrganization( ):
         return self.__data
 
 
-''' ProgramArea( code ) '''
+# ProgramArea( code )
 class ProgramArea( ):
     '''defines the ProgramArea class'''
     __programareasid = None
@@ -2131,7 +2131,7 @@ class ProgramArea( ):
         return self.__data
 
 
-''' ProgramProject( code ) '''
+# ProgramProject( code )
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
     __programprojectsid = None
@@ -2220,7 +2220,7 @@ class ProgramProject( ):
         return self.__data
 
 
-''' ResponsibilityCenter( code ) '''
+# ResponsibilityCenter( code )
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
     __responsibilitycentersid = None
@@ -2298,7 +2298,7 @@ class ResponsibilityCenter( ):
         return self.__data
 
 
-''' ResourcePlanningOffice( code ) '''
+# ResourcePlanningOffice( code )
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __resourceplanningofficesid = None
@@ -2376,7 +2376,7 @@ class ResourcePlanningOffice( ):
         return self.__data
 
 
-''' ProgramResultsCode( bfy, efy, rpio, ah, account, boc ) '''
+# ProgramResultsCode( bfy, efy, rpio, ah, account, boc )
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
     __allocationsid = None
@@ -2734,7 +2734,7 @@ class ProgramResultsCode( ):
         return self.__data
 
 
-''' RegionalOffice( code ) '''
+# RegionalOffice( code )
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __resourceplanningofficesid = None
@@ -2812,7 +2812,7 @@ class RegionalOffice( ):
         return self.__data
 
 
-''' SiteProject( code ) '''
+# SiteProject( code )
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
     __siteprojectcodesid = None
@@ -2938,7 +2938,7 @@ class SiteProject( ):
         return self.__data
 
 
-''' FederalHoliday( value )'''
+# FederalHoliday( value )
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
     __federalholidaysid = None
@@ -3261,7 +3261,7 @@ class FederalHoliday( ):
         return self.__data
 
 
-''' TreasurySymbol( bfy, efy, code ) '''
+# TreasurySymbol( bfy, efy, code )
 class TreasurySymbol( ):
     '''TreasurySymbol( code )
     creates object that represents a TAFS'''
@@ -3356,7 +3356,7 @@ class TreasurySymbol( ):
         return self.__data
 
 
-''' WorkCode( code ) '''
+# WorkCode( code )
 class WorkCode( ):
     '''Defines the Organization Class'''
     __workcodesid = None
@@ -3434,7 +3434,7 @@ class WorkCode( ):
         return self.__data
 
 
-''' Transfer( documentnumber ) '''
+# Transfer( documentnumber )
 class Transfer( ):
     ''' Transfer( documentnumber ) initializes object
     representing EPA reprogrammings'''

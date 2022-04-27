@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="teppler">
     <words>
+      <w>accessclient</w>
       <w>accrualcontrols</w>
       <w>accrualspendigcontrolflag</w>
       <w>accrualspendingcontrol</w>
@@ -13,6 +14,7 @@
       <w>altercolumn</w>
       <w>altertable</w>
       <w>apportionments</w>
+      <w>apportionmentsid</w>
       <w>appropriationdocumentsid</w>
       <w>authoritydistributioncontrol</w>
       <w>availablebalance</w>
@@ -21,6 +23,7 @@
       <w>beacategory</w>
       <w>beacategoryname</w>
       <w>bodoni</w>
+      <w>budgetaryresourceexecutionid</w>
       <w>budgetauthority</w>
       <w>budgetcontrolsid</w>
       <w>budgetdefault</w>
@@ -71,6 +74,7 @@
       <w>estimatedreimbursements</w>
       <w>estimatedreimbursementsbudgetingoptions</w>
       <w>estimatedreimbursementsspendingoptions</w>
+      <w>excelapp</w>
       <w>expenditurecontrols</w>
       <w>expendituresid</w>
       <w>expenditurespendingcontrol</w>
@@ -177,6 +181,7 @@
       <w>specialaccountsid</w>
       <w>spendingadjustmenttranstype</w>
       <w>spendingratesid</w>
+      <w>sqliteclient</w>
       <w>startdate</w>
       <w>statecode</w>
       <w>statename</w>

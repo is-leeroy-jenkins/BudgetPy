@@ -5,7 +5,7 @@ import openpyxl as xl
 from Static import *
 
 
-''' BudgetPath( filepath ) '''
+# BudgetPath( filepath )
 class BudgetPath( ):
     ''' BudgetPath( filename ) initializes the
     BudgetPath class providing filepath information of files
@@ -137,7 +137,7 @@ class BudgetPath( ):
             return os.path.join( first, second )
 
 
-''' BudgetFile( filepath ) '''
+# BudgetFile( filepath )
 class BudgetFile( ):
     '''BudgetFile( filepath ) initializes the
      BudgetFile Class providing file information for
@@ -364,7 +364,7 @@ class BudgetFile( ):
                 self.__contents.append( open( self.__path, 'w' ).write( line ) )
 
 
-''' BudgetFolder( filepath ) '''
+# BudgetFolder( filepath )
 class BudgetFolder( ):
     '''BudgetFolder( filepath ) initializes the
      BudgetFolder Class providing file directory information'''
@@ -519,7 +519,7 @@ class BudgetFolder( ):
             yield from os.scandir( self.__base )
 
 
-''' EmailMessage( frm, to, body, subject, copy )'''
+# EmailMessage( frm, to, body, subject, copy )
 class EmailMessage( ):
     '''EmailMessage( frm, to, body, subject ) initializes
     class providing email behavior '''
@@ -601,7 +601,7 @@ class EmailMessage( ):
             return self.__subject
 
 
-''' EmailBuilder( frm, to, body, subject, copy )'''
+# EmailBuilder( frm, to, body, subject, copy )
 class EmailBuilder( ):
     ''' Helper class for generating email messages '''
     __from = None
@@ -682,7 +682,7 @@ class EmailBuilder( ):
             return self.__message
 
 
-''' ExcelFile( filepath ) '''
+# ExcelFile( filepath )
 class ExcelFile( ):
     '''ExcelFile( filepath ) class provides
     the spreadsheet for Budget Py reports '''
@@ -747,7 +747,7 @@ class ExcelFile( ):
         self.__name = os.path.split( self.__path )[ 1 ]
 
 
-''' ExcelReport( name, rows = 46, cols = 12 ) '''
+# ExcelReport( name, rows = 46, cols = 12 )
 class ExcelReport( ):
     '''ExcelReport( name ) class provides
     the spreadsheet for Budget Py reports '''
@@ -834,7 +834,7 @@ class ExcelReport( ):
         self.__dimensions = (self.__rows, self.__columns)
 
 
-''' ZipFile( filepath ) '''
+# ZipFile( filepath )
 class ZipFile( ):
     __name = None
     __filepath = None

@@ -1,7 +1,7 @@
 from Execution import *
 from Ninja import *
 
-''' Apportionment( bfy, efy, omb ) '''
+# Apportionment( bfy, efy, omb )
 class Apportionment( ):
     '''Apportionment( bfy, efy, omb )
     initializes object representing Letters Of Apportionment'''
@@ -185,7 +185,7 @@ class Apportionment( ):
         return self.__data
 
 
-''' BudgetaryResourceExecution( bfy, efy, code ) '''
+# BudgetaryResourceExecution( bfy, efy, code )
 class BudgetaryResourceExecution( ):
     '''BudgetaryResourceExecution( bfy, efy, code )
     initializes object representing MAX A-11 DE, SF-133'''
@@ -274,7 +274,7 @@ class BudgetaryResourceExecution( ):
         return self.__data
 
 
-''' CarryoverEstimates( bfy ) '''
+# CarryoverEstimates( bfy )
 class CarryoverEstimates( ):
     '''CarryoverEstimates( bfy ) initializes object bfy
     providing Carryover Estimate data for'''
@@ -551,7 +551,7 @@ class CarryoverEstimates( ):
         return self.__data
 
 
-''' CarryoverSurvey( bfy, efy, fund ) '''
+# CarryoverSurvey( bfy, efy, fund )
 class CarryoverSurvey( ):
     '''CarryoverSurvey( bfy ) initializes object
     providing carryover survey data'''
@@ -638,7 +638,7 @@ class CarryoverSurvey( ):
         return self.__data
 
 
-''' StatusOfAppropriations( bfy, efy, fund ) '''
+# StatusOfAppropriations( bfy, efy, fund )
 class StatusOfAppropriations( ):
     '''StatusOfAppropriations( bfy, efy, fund )
     object representing Appropriation-level execution data'''
@@ -1266,7 +1266,7 @@ class StatusOfAppropriations( ):
         return self.__data
 
 
-''' MonthlyOutlays( bfy, efy, omb ) '''
+# MonthlyOutlays( bfy, efy, omb )
 class MonthlyOutlays( ):
     '''MonthlyOutlays( bfy, efy, omb ) initializes
     object providing OMB outlay data'''
@@ -1415,7 +1415,7 @@ class MonthlyOutlays( ):
         return self.__data
 
 
-''' SpendingRates( code ) '''
+# SpendingRates( code )
 class SpendingRates( ):
     '''SpendingRates( code ) initializes
     object providing OMB spending rate data'''
@@ -1747,7 +1747,7 @@ class SpendingRates( ):
         return self.__data
 
 
-''' ReimbursableSurvey( bfy, fund ) '''
+# ReimbursableSurvey( bfy, fund )
 class ReimbursableSurvey( ):
     '''ReimbursableSurvey( bfy, fund ) initializes
     object providing Reimbursable Authority data'''
@@ -1824,7 +1824,7 @@ class ReimbursableSurvey( ):
         return self.__data
 
 
-''' ObjectClassOutlays( bfy, omb ) '''
+# ObjectClassOutlays( bfy, omb )
 class ObjectClassOutlays( ):
     '''ObjectClassOutlays( bfy, omb )
     object provides OMB outlay data'''
@@ -2011,7 +2011,7 @@ class ObjectClassOutlays( ):
         return self.__data
 
 
-''' UnobligatedAuthority( bfy, omb ) '''
+# UnobligatedAuthority( bfy, omb )
 class UnobligatedAuthority( ):
     '''UnobligatedAuthority( bfy, omb )
     object provides OMB data'''
@@ -2133,7 +2133,7 @@ class UnobligatedAuthority( ):
         return self.__data
 
 
-''' BudgetOutlays( bfy, omb ) '''
+# BudgetOutlays( bfy, omb )
 class BudgetOutlays( ):
     '''BudgetOutlays( bfy, omb )
     object provides OMB data'''
@@ -2397,7 +2397,7 @@ class BudgetOutlays( ):
         return self.__data
 
 
-''' GrowthRates( bfy, id ) '''
+# GrowthRates( bfy, id )
 class GrowthRates( ):
     '''GrowthRates( bfy, id )
     initializes object providing OMB growth rate data'''
@@ -2562,7 +2562,7 @@ class GrowthRates( ):
         return self.__data
 
 
-''' DataRuleDescription( schedule, line, rule ) '''
+# DataRuleDescription( schedule, line, rule )
 class DataRuleDescription( ):
     ''' DataRuleDescription( schedule, line, rule )
     initializes object providing OMB MAX A11 rule data '''
