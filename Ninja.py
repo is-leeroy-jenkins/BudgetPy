@@ -8,7 +8,7 @@ from Static import *
 from numpy import ndarray
 
 
-# DataConfig( value, provider )
+# DataConfig( source, provider )
 class DataConfig( ):
     '''DataConfig( value, provider  ) provides list of Budget Execution
     tables across two databases ( values and references ) '''
@@ -824,7 +824,7 @@ class SqlServerQuery( ):
             return self.__data
 
 
-# QueryBuilder( value, provider, command,  names, values )
+# QueryBuilder( source, provider, command,  names, values )
 class QueryBuilder( ):
     '''QueryBuilder( value, provider, command, names, values )
     initializes object used as argument for the DataFactory'''
@@ -1026,7 +1026,7 @@ class DataFactory( ):
             return self.__data
 
 
-#  DataColumn( value,  values )
+#  DataColumn( source,  values )
 class DataColumn( pd.Series ):
     '''Defines the DataColumn Class'''
     __series = None
@@ -1162,7 +1162,7 @@ class DataColumn( pd.Series ):
             return self.__name
 
 
-# DataRow( value, items, names )
+# DataRow( source, items, names )
 class DataRow( sl.Row ):
     '''Defines the DataRow Class'''
     __source = None

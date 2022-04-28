@@ -90,7 +90,7 @@ class LoadingDialog( ):
     '''object providing form loading behavior '''
 
     def show( self ):
-        gif_filename = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
+        gif_filename = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loading.gif'
         layout = [ [ sg.Text( '',
             background_color = '#000000',
             text_color = '#FFF000',
@@ -100,6 +100,7 @@ class LoadingDialog( ):
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
             margins = ( 0, 0 ),
+            size = ( 500, 450 ),
             element_padding = ( 0, 0 ), finalize = True )
         window[ '-T-' ].expand( True, True, True )
         interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
@@ -115,7 +116,7 @@ class LoaderDialog( ):
     '''object providing form loader behavior '''
 
     def show( self ):
-        gif_filename = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
+        gif_filename = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         layout = [ [ sg.Text( '',
             background_color = '#000000',
             text_color = '#FFF000',
@@ -124,8 +125,10 @@ class LoaderDialog( ):
             font = ("Bodoni MT", 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
-            margins = (0, 0),
-            element_padding = (0, 0), finalize = True )
+            margins = ( 0, 0 ),
+            element_padding = ( 0, 0 ),
+            size = ( 500, 450 ),
+            finalize = True )
         window[ '-T-' ].expand( True, True, True )
         interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
         while True:
@@ -140,7 +143,7 @@ class ProcessingDialog( ):
     '''object providing form processing behavior '''
 
     def show( self ):
-        gif_filename = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        gif_filename = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\processing.gif'
         layout = [ [ sg.Text( '',
             background_color = '#000000',
             text_color = '#FFF000',
@@ -149,8 +152,9 @@ class ProcessingDialog( ):
             font = ("Bodoni MT", 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
-            margins = (0, 0),
-            element_padding = (0, 0), finalize = True )
+            margins = ( 0, 0 ),
+            size = ( 500, 450 ),
+            element_padding = ( 0, 0 ), finalize = True )
         window[ '-T-' ].expand( True, True, True )
         interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
         while True:
