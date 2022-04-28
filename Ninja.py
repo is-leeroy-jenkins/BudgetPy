@@ -492,22 +492,31 @@ class SqlStatement( ):
             return self.__commandtext
 
     def commandtext( self ):
-        if self.__command == Command.SELECTALL:
-            self.__commandtext = f'SELECT ALL FROM { self.__table }' \
-                                 + f'{ self.__sqlconfig.wheredump( ) };'
-            return self.__commandtext
-        elif self.__command == Command.SELECT:
-            self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
-                                 + f' FROM { self.__table }' \
-                                 + f'{ self.__sqlconfig.wheredump( ) };'
-            return self.__commandtext
-        elif self.__command == 'INSERT':
-            self.__commandtext = 'INSERT INTO ' + self.__table \
-                                 + f'{ self.__sqlconfig.columndump( ) }' \
-                                 + f'VALUES { self.__sqlconfig.valuedump( ) }'
-        elif self.__command == 'DELETE':
-            self.__commandtext = 'DELETE FROM ' + self.__table \
-                                 + f'( { self.__sqlconfig.wheredump( ) };'
+        if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
+            if self.__command == Command.SELECTALL:
+                self.__commandtext = f'SELECT ALL FROM { self.__table }' \
+                                     + f'{ self.__sqlconfig.wheredump( ) };'
+                return self.__commandtext
+            elif self.__command == Command.SELECT:
+                self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
+                                     + f' FROM { self.__table }' \
+                                     + f'{ self.__sqlconfig.wheredump( ) };'
+                return self.__commandtext
+            elif self.__command == 'INSERT':
+                self.__commandtext = 'INSERT INTO ' + self.__table \
+                                     + f'{ self.__sqlconfig.columndump( ) }' \
+                                     + f'VALUES { self.__sqlconfig.valuedump( ) }'
+            elif self.__command == 'DELETE':
+                self.__commandtext = 'DELETE FROM ' + self.__table \
+                                     + f'( { self.__sqlconfig.wheredump( ) };'
+        else:
+            if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
+                if self.__command == Command.SELECTALL:
+                    self.__commandtext = f'SELECT ALL FROM { self.__table };'
+                    return self.__commandtext
+            elif self.__command == 'DELETE':
+                self.__commandtext = f'DELETE FROM { self.__table };'
+
 
 
 # SQLiteQuery( connection, sqlstatement )
