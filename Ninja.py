@@ -394,7 +394,7 @@ class SqlConfig( ):
             return values
 
 
-# SqlStatement(  dataconfig,  sqlconfig )
+# SqlStatement( dataconfig,  sqlconfig )
 class SqlStatement( ):
     '''SqlStatement( dataconfig, sqlconfig ) Class
     represents the values models used in the SQLite database'''
