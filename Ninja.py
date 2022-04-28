@@ -484,8 +484,8 @@ class SqlStatement( ):
         self.__provider = self.__dataconfig.provider
         self.__source = self.__dataconfig.source
         self.__table = self.__source.name
-        self.__names = self.__sqlconfig.names
-        self.__values = self.__sqlconfig.values
+        self.__names = self.__sqlconfig.names if isinstance( self.__sqlconfig.names, list ) else None
+        self.__values = self.__sqlconfig.values if isinstance( self.__sqlconfig.values, tuple ) else None
 
     def __str__( self ):
         if isinstance( self.__commandtext, str ):
