@@ -1,5 +1,6 @@
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
+from sys import exit
 
 
 class FileDialog( ):
@@ -52,17 +53,25 @@ class ErrorDialog( ):
 
 class ContactForm( ):
     '''class that produces a contact input form'''
-    sg.theme( 'Dark Grey 14')
 
     def show( self ):
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#ADDFF7' )
+        sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_text_color( '#ADDFF7' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_text_element_background_color( '#0F0F0F' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
-        layout = [
-                [ sg.Text( 'Please enter your Name, Address, Phone' ) ],
-                [ sg.Text( 'Name', size = (15, 1) ), sg.InputText( '1', key = '-NAME-' ) ],
-                [ sg.Text( 'Address', size = (15, 1) ), sg.InputText( '2', key = '-ADDRESS-' ) ],
-                [ sg.Text( 'Phone', size = (15, 1) ), sg.InputText( '3', key = '-PHONE-' ) ],
-                [ sg.Submit( ), sg.Cancel( ) ] ]
-        window = sg.Window( 'Budget Contact Form', layout, font = __font )
+        __size = ( 15, 1 )
+        layout = [ [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
+                   [ sg.Text( 'Name', size = __size ), sg.InputText( '1', key = '-NAME-' ) ],
+                   [ sg.Text( 'Address', size = __size ), sg.InputText( '2', key = '-ADDRESS-' ) ],
+                   [ sg.Text( 'Phone', size = __size ), sg.InputText( '3', key = '-PHONE-' ) ],
+                   [ sg.Submit( ), sg.Cancel( ) ] ]
+        window = sg.Window( 'Budget Contact Form', layout,
+            font = __font,
+            titlebar_icon = __icon )
         event, values = window.read( )
         window.close( )
         sg.popup( event, values, values[ '-NAME-' ], values[ '-ADDRESS-' ], values[ '-PHONE-' ] )
@@ -124,7 +133,7 @@ class Waiting( ):
             element_justification = 'c',
             margins = ( 0, 0 ),
             element_padding = ( 0, 0 ),
-            size = ( 700, 500 ),
+            size = ( 600, 600 ),
             finalize = True )
         window[ '-T-' ].expand( True, True, True )
         interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
