@@ -226,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651225349064</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="updates from main rig;">
+      <created>1651225630862</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1651225630862</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,8 +251,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updates from main rig;" />
     <MESSAGE value="updates from work rig;" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from work rig;" />
+    <MESSAGE value="updates from main rig;" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;" />
   </component>
 </project>
