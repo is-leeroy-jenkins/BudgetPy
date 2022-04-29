@@ -107,9 +107,10 @@ class LoadingDialog( ):
         while True:
             for frame in ImageSequence.Iterator( Image.open( gif_filename ) ):
                 event, values = window.read( timeout = interframe_duration )
-                if event == sg.WIN_CLOSED:
+                if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+        window.close()
 
 
 class WaitDialog( ):
@@ -137,6 +138,7 @@ class WaitDialog( ):
                 if event == sg.WIN_CLOSED:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+        window.close()
 
 
 class ProcessingDialog( ):
@@ -160,6 +162,7 @@ class ProcessingDialog( ):
         while True:
             for frame in ImageSequence.Iterator( Image.open( gif_filename ) ):
                 event, values = window.read( timeout = interframe_duration )
-                if event == sg.WIN_CLOSED:
+                if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+        window.close()
