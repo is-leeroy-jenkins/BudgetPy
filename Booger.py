@@ -7,7 +7,6 @@ class FileDialog( ):
     sg.theme( 'Dark Grey 14' )
 
     def show( self ):
-        __textcolor = '#d3d3d3'
         __backcolor = '#222323'
         __font = 'Roboto 9'
         layout = [ [ sg.Text( 'Search for File' ) ],
@@ -25,7 +24,6 @@ class FolderDialog( ):
     sg.theme( 'Dark Grey 14' )
 
     def show( self ):
-        __textcolor = '#d3d3d3'
         __backcolor = '#222323'
         __font = 'Roboto 9'
         layout = [ [ sg.Text( 'Search for Directory' ) ],
@@ -57,8 +55,6 @@ class ContactForm( ):
     sg.theme( 'Dark Grey 14')
 
     def show( self ):
-        __textcolor = '#d3d3d3'
-        __backcolor = '#222323'
         __font = 'Roboto 9'
         layout = [
                 [ sg.Text( 'Please enter your Name, Address, Phone' ) ],
@@ -66,7 +62,7 @@ class ContactForm( ):
                 [ sg.Text( 'Address', size = (15, 1) ), sg.InputText( '2', key = '-ADDRESS-' ) ],
                 [ sg.Text( 'Phone', size = (15, 1) ), sg.InputText( '3', key = '-PHONE-' ) ],
                 [ sg.Submit( ), sg.Cancel( ) ] ]
-        window = sg.Window( 'Budget Contact Form', layout )
+        window = sg.Window( 'Budget Contact Form', layout, font = __font )
         event, values = window.read( )
         window.close( )
         sg.popup( event, values, values[ '-NAME-' ], values[ '-ADDRESS-' ], values[ '-PHONE-' ] )
@@ -86,7 +82,7 @@ class GridForm( ):
         event, values = window.read( )
 
 
-class LoadingDialog( ):
+class Loading( ):
     '''object providing form loading behavior '''
 
     def show( self ):
@@ -110,10 +106,10 @@ class LoadingDialog( ):
                 if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-        window.close()
+            window.close()
 
 
-class WaitDialog( ):
+class Waiting( ):
     '''object providing form loader behavior '''
 
     def show( self ):
@@ -138,10 +134,10 @@ class WaitDialog( ):
                 if event == sg.WIN_CLOSED:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-        window.close()
+            window.close()
 
 
-class ProcessingDialog( ):
+class Processing( ):
     '''object providing form processing behavior '''
 
     def show( self ):
@@ -165,4 +161,4 @@ class ProcessingDialog( ):
                 if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-        window.close()
+            window.close()
