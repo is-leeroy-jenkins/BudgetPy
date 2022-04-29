@@ -3,8 +3,6 @@
 Reporting.py,6\f\6f61558d7c3dd6ffeaf68367bc625434c34b23df
 D
 ipynb/BudgetPy.ipynb,0\f\0f7b7fe337a6d0c0ae1600c4b12c555bebd37f5a
-N
-.idea/dictionaries/teppler.xml,5\7\57a350243a86869ea39bf84932dd3d261910e534
 9
 	Static.py,3\e\3e231fda4efa302a265df1990e1bb836bdf1806a
 9
