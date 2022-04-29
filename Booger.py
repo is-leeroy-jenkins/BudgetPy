@@ -61,7 +61,7 @@ class ContactForm( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\img\NinjaIcons\LittleNinja.png'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __size = ( 15, 1 )
         layout = [ [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
@@ -71,7 +71,7 @@ class ContactForm( ):
                    [ sg.Submit( ), sg.Cancel( ) ] ]
         window = sg.Window( 'Budget Contact Form', layout,
             font = __font,
-            titlebar_icon = __icon )
+            icon = __icon )
         event, values = window.read( )
         window.close( )
         sg.popup( event, values, values[ '-NAME-' ], values[ '-ADDRESS-' ], values[ '-PHONE-' ] )
