@@ -190,4 +190,5 @@ class Client( Enum ):
     Linq = auto( )
     Edge = auto( )
     Chrome = auto( )
-
+    ControlPanel = auto( )
+    Calculator = auto( )

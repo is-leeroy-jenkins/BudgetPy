@@ -13,6 +13,8 @@ class App( ):
     __excelapp = None
     __edge = None
     __chrome = None
+    __control = None
+    __calculator = None
 
     @property
     def sqlite( self ):
