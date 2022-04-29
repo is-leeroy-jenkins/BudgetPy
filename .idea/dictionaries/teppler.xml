@@ -2,6 +2,7 @@
   <dictionary name="teppler">
     <words>
       <w>accessclient</w>
+      <w>accountstatus</w>
       <w>accrualcontrols</w>
       <w>accrualspendigcontrolflag</w>
       <w>accrualspendingcontrol</w>
@@ -41,6 +42,7 @@
       <w>carryoverout</w>
       <w>carryoveroutlaysid</w>
       <w>carryoversurveyid</w>
+      <w>cerclisid</w>
       <w>checkdate</w>
       <w>commitmentcontrols</w>
       <w>commitmentsid</w>
@@ -120,6 +122,11 @@
       <w>lowerreimbursablespendingoption</w>
       <w>memorandumrequired</w>
       <w>monthlyoutlaysid</w>
+      <w>msaccess</w>
+      <w>msedge</w>
+      <w>nplstatus</w>
+      <w>nplstatuscode</w>
+      <w>nplstatusname</w>
       <w>objectclassgroupname</w>
       <w>objectclassgroupnumber</w>
       <w>objectclassoutlays</w>
@@ -141,6 +148,8 @@
       <w>paramstyles</w>
       <w>payperiod</w>
       <w>payrollactivityid</w>
+      <w>pipelinecode</w>
+      <w>pipelinedescription</w>
       <w>postedcontrol</w>
       <w>postedcontrolflag</w>
       <w>postedtranstype</w>
@@ -176,8 +185,15 @@
       <w>scheduleorder</w>
       <w>selectall</w>
       <w>siteactivityid</w>
+      <w>sitecode</w>
+      <w>siteid</w>
+      <w>sitename</w>
       <w>siteprojectcode</w>
       <w>siteprojectname</w>
+      <w>specialaccountfundcode</w>
+      <w>specialaccountfundname</w>
+      <w>specialaccountname</w>
+      <w>specialaccountnumber</w>
       <w>specialaccountsid</w>
       <w>spendingadjustmenttranstype</w>
       <w>spendingratesid</w>
@@ -202,7 +218,9 @@
       <w>totalauthority</w>
       <w>totalspendout</w>
       <w>trackagreementlowerlevels</w>
+      <w>transactiontype</w>
       <w>transactiontypecontrol</w>
+      <w>transactiontypename</w>
       <w>treasuryaccount</w>
       <w>treasuryagencyname</w>
       <w>unliquidated</w>
@@ -210,6 +228,7 @@
       <w>unobligated</w>
       <w>unobligatedauthority</w>
       <w>unobligatedauthorityid</w>
+      <w>unpaidbalances</w>
       <w>vendorage</w>
       <w>vendorcode</w>
       <w>vendorname</w>

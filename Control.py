@@ -8582,6 +8582,36 @@ class Expenditures:
 class SpecialAccounts( ):
     '''' object providing SF Special Account data'''
     __specialaccountsid = None
+    __fundcode = None
+    __specialaccountfundcode = None
+    __fundname = None
+    __specialaccountfundname = None
+    __specialaccountnumber = None
+    __specialaccountname = None
+    __accountstatus = None
+    __nplstatus = None
+    __nplstatusname = None
+    __nplstatuscode = None
+    __siteid = None
+    __cerclisid = None
+    __sitecode = None
+    __sitename = None
+    __operableunit = None
+    __pipelinecode = None
+    __pipelinedescription = None
+    __accountcode = None
+    __boccode = None
+    __bocname = None
+    __transactiontype = None
+    __transactiontypename = None
+    __availablebalance = None
+    __opencommitments = None
+    __obligations = None
+    __unliquidatedobligations = None
+    __disbursements = None
+    __unpaidbalances = None
+    __collections = None
+    __cumulativereciepts = None
 
 
 
