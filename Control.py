@@ -8582,9 +8582,13 @@ class Expenditures:
 class SpecialAccounts( ):
     '''' object providing SF Special Account data'''
     __specialaccountsid = None
+    __bfy = None
+    __efy = None
     __fundcode = None
-    __specialaccountfundcode = None
     __fundname = None
+    __rpiocode = None
+    __rpioname = None
+    __specialaccountfundcode = None
     __specialaccountfundname = None
     __specialaccountnumber = None
     __specialaccountname = None
