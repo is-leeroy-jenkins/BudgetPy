@@ -48,6 +48,8 @@ class App( ):
         self.__excelapp = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
         self.__edge = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
         self.__chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
+        self.__control = r'C:\Windows\System32\control.exe'
+        self.__calculator = r'C:\Windows\System32\calc.exe'
 
     def run( self ):
         '''instance method that runs a client program with know path'''
@@ -61,6 +63,10 @@ class App( ):
             sp.Popen( self.__edge )
         elif isinstance( self.__app, Client ) and self.__app == Client.Chrome:
             sp.Popen( self.__chrome )
+        elif isinstance( self.__app, Client ) and self.__app == Client.ControlPanel:
+            sp.Popen( self.__control )
+        elif isinstance( self.__app, Client ) and self.__app == Client.Calculator:
+            sp.Popen( self.__calculator )
 
     def runargs( self, args ):
         '''runargs( args ) instance method that runs client application with provided string 'args' '''
