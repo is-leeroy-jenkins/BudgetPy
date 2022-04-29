@@ -61,7 +61,7 @@ class ContactForm( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\img\NinjaIcons\LittleNinja.png'
         __font = 'Roboto 9'
         __size = ( 15, 1 )
         layout = [ [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
