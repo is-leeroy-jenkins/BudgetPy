@@ -1312,3 +1312,45 @@ class DataTable( pd.DataFrame ):
         if self.__name is not None:
             return self.__name
 
+
+class Error( Exception ):
+    '''class provides Error and Exception data'''
+    __cause = None
+    __method = None
+    __message = None
+
+    @property
+    def cause( self ):
+        if isinstance( self.__cause, str ) and self.__cause != '':
+            return self.__cause
+
+    @cause.setter
+    def cause( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__cause = value
+
+    @property
+    def method( self ):
+        if isinstance( self.__method, str ) and self.__method != '':
+            return self.__method
+
+    @method.setter
+    def method( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__method = value
+
+    @property
+    def message( self ):
+        if isinstance( self.__message, str ) and self.__message != '':
+            return self.__message
+
+    @message.setter
+    def message( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__message = value
+
+    def __init__( self, msg = None, cause = None, meth = None ):
+        super( ).__init__( )
+        self.__cause = cause if isinstance( cause, str ) and cause != '' else None
+        self.__method = meth if isinstance( meth, str ) and meth != '' else None
+        self.__message = msg if isinstance( msg, str ) and msg != '' else None

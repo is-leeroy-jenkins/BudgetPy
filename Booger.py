@@ -1,6 +1,7 @@
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from sys import exit
+from Ninja import *
 
 
 class FileDialog( ):
@@ -61,7 +62,7 @@ class FolderDialog( ):
         window.close( )
 
 
-class Message( ):
+class MessageDialog( ):
     ''' class that provides form to display informational messages '''
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
@@ -97,8 +98,23 @@ class Message( ):
             window.close( )
 
 
-class Error( ):
+class ErrorDialog( ):
     '''class that displays error message'''
+    __cause = None
+    __method = None
+    __message = None
+    __error = None
+
+    @property
+    def message( self ):
+        if isinstance( self.__message, str ) and self.__message != '':
+            return self.__message
+
+    @message.setter
+    def message( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__message = value
+
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#ADDFF7' )
@@ -110,11 +126,11 @@ class Error( ):
         __font = 'Roboto 9'
         __size = ( 500, 250 )
         layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( r'This is error text', font = 'Roboto 10', text_color = '#FF0820' ) ],
+                   [ sg.Text( self.__message, font = 'Roboto 10', text_color = '#FF0820' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( 'Module:', size = ( 10, 1 ) ), sg.Text( __class__.__module__, key = '-MOD-', size = ( 150, 1 )  ) ],
-                   [ sg.Text( 'Class:', size = ( 10, 1 ) ), sg.Text( __class__.__name__, key = '-CLS-', size = ( 150, 1 )  ) ],
-                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( 'show( )', key = '-MTH-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Cause:', size = ( 10, 1 ) ), sg.Text( self.__cause, key = '-SRC-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, key = '-MTH-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, key = '-MSG-', size = ( 150, 1 )  ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ] ]
         window = sg.Window( r'  Budget Execution', layout,
@@ -123,14 +139,20 @@ class Error( ):
             size = __size,
             titlebar_background_color = '#0F0F0F' )
         event, values = window.read( )
-        sg.popup( 'Budget Error', event, values, values[ '-MOD-' ],
-            values[ '-CLS-' ],
+        sg.popup( 'Budget Error', event, values, values[ '-SRC-' ],
             values[ '-MTH-' ],
+            values[ '-MSG-' ],
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
         if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
             window.close( )
+
+    def __init__( self, error = None ):
+        self.__error = error if isinstance( error, Error ) else None
+        self.__cause = error.cause if isinstance( error, Error ) else None
+        self.__method = error.method if isinstance( error, Error ) else None
+        self.__message = error.message if isinstance( error, Error ) else None
 
 
 class Input( ):
