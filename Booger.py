@@ -9,6 +9,7 @@ class FileDialog( ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#ADDFF7' )
         sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_input_text_color( '#ADDFF7' )
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
@@ -20,11 +21,13 @@ class FileDialog( ):
                    [ sg.Text( r'' ) ],
                    [ sg.Input( ), sg.FileBrowse( size = ( 15, 1 ) ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.OK( size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
+                   [ sg.Text( r'' ) ],
+                   [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
             icon = __icon,
-            size = __size )
+            size = __size,
+            titlebar_background_color = '#0F0F0F' )
         event, values = window.read( )
         window.close( )
 
@@ -35,6 +38,7 @@ class FolderDialog( ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#ADDFF7' )
         sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_input_text_color( '#ADDFF7' )
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
@@ -46,11 +50,13 @@ class FolderDialog( ):
                    [ sg.Text( r'' ) ],
                    [ sg.Input( ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.OK( size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
+                   [ sg.Text( r'' ) ],
+                   [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
             icon = __icon,
-            size = __size )
+            size = __size,
+            titlebar_background_color = '#0F0F0F' )
         event, values = window.read( )
         window.close( )
 
@@ -78,7 +84,8 @@ class Message( ):
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
             font = __font,
-            size = __size )
+            size = __size,
+            titlebar_background_color = '#0F0F0F' )
         event, values = window.read( )
         sg.popup( 'Budget Message', event, values, values[ '-FIRST-' ],
             values[ '-SECOND-' ],
@@ -105,19 +112,20 @@ class Error( ):
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( r'This is error text', font = 'Roboto 10', text_color = '#FF0820' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( 'Module:', size = ( 10, 1 ) ), sg.Text( __name__, key = '-MOD-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Module:', size = ( 10, 1 ) ), sg.Text( __class__.__module__, key = '-MOD-', size = ( 150, 1 )  ) ],
                    [ sg.Text( 'Class:', size = ( 10, 1 ) ), sg.Text( __class__.__name__, key = '-CLS-', size = ( 150, 1 )  ) ],
-                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( 'show( )', key = '-METHOD-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( 'show( )', key = '-MTH-', size = ( 150, 1 )  ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ] ]
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
             font = __font,
-            size = __size )
+            size = __size,
+            titlebar_background_color = '#0F0F0F' )
         event, values = window.read( )
         sg.popup( 'Budget Error', event, values, values[ '-MOD-' ],
             values[ '-CLS-' ],
-            values[ '-METHOD-' ],
+            values[ '-MTH-' ],
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
@@ -131,31 +139,32 @@ class Input( ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#ADDFF7' )
         sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_input_text_color( '#ADDFF7' )
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
         sg.theme_input_text_color( '#ADDFF7' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\question.ico'
-        __font = 'Roboto 8'
-        __size = ( 400, 200 )
+        __font = 'Roboto 9'
+        __size = ( 450, 200 )
         layout =  [ [ sg.Text( r'' ) ],
                     [ sg.Text( r'Please enter your input...' ) ],
                     [ sg.Text( r'' ) ],
-                    [ sg.Text( 'Input', size = ( 15, 1 ) ), sg.InputText( '1', key = '-INPUT-' ) ],
+                    [ sg.Text( 'Input', size = ( 15, 2 ) ), sg.InputText( '1', key = '-INPUT-' ) ],
                     [ sg.Text( r'' ) ],
-                   [ sg.Submit( ), sg.Cancel( ) ] ]
+                    [ sg.Text( r'' ) ],
+                   [ sg.Submit( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
         window = sg.Window( ' Budget Input', layout,
             font = __font,
             icon = __icon,
-            size = __size )
+            size = __size,
+            titlebar_background_color = '#0F0F0F' )
         event, values = window.read( )
-        sg.popup( event, values, values[ '-NAME-' ],
-            values[ '-ADDRESS-' ],
-            values[ '-PHONE-' ],
+        sg.popup( event, values, values[ '-INPUT-' ],
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
-        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+        if event == sg.WIN_X_EVENT or event == sg.WIN_CLOSED or event == 'Cancel':
             window.close( )
 
 
