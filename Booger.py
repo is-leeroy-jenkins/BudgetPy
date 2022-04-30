@@ -92,25 +92,28 @@ class ContactForm( ):
         sg.theme_text_element_background_color( '#0F0F0F' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 8'
-        __size = ( 15, 1 )
-        layout = [ [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
-                   [ sg.Text( 'Name', size = __size ), sg.InputText( '1', key = '-NAME-' ) ],
-                   [ sg.Text( 'Address', size = __size ), sg.InputText( '2', key = '-ADDRESS-' ) ],
-                   [ sg.Text( 'Phone', size = __size ), sg.InputText( '3', key = '-PHONE-' ) ],
+        __size = ( 400, 200 )
+        layout =  [ [ sg.Text( r'' ) ],
+                    [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
+                    [ sg.Text( r'' ) ],
+                    [ sg.Text( 'Name', size = ( 15, 1 ) ), sg.InputText( '1', key = '-NAME-' ) ],
+                    [ sg.Text( 'Address', size = ( 15, 1 ) ), sg.InputText( '2', key = '-ADDRESS-' ) ],
+                    [ sg.Text( 'Phone', size = ( 15, 1 ) ), sg.InputText( '3', key = '-PHONE-' ) ],
+                    [ sg.Text( r'' ) ],
                    [ sg.Submit( ), sg.Cancel( ) ] ]
         window = sg.Window( 'Budget Contact Form', layout,
             font = __font,
             icon = __icon,
             size = __size )
         event, values = window.read( )
-        window.close( )
         sg.popup( event, values, values[ '-NAME-' ],
             values[ '-ADDRESS-' ],
             values[ '-PHONE-' ],
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
-
+        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+            window.close( )
 
 class GridForm( ):
     '''object providing form that simulates a datagrid '''
@@ -123,16 +126,18 @@ class GridForm( ):
         sg.theme_text_element_background_color( '#0F0F0F' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 8'
-        __size = ( 15, 1 )
+        __size = ( 17, 1 )
         headings = [ 'HEADER 1', 'HEADER 2', 'HEADER 3', 'HEADER 4' ]
         header = [ [ sg.Text( '  ' ) ] \
                    + [ sg.Text( h, size = ( 15, 1 ) ) for h in headings ] ]
-        input_rows = [ [ sg.Input( size = ( 17, 1 ), pad = ( 0, 0 ), font = __font ) for col in range( 4 ) ] for row in range( 10 ) ]
+        input_rows = [ [ sg.Input( size = __size, pad = ( 0, 0 ), font = __font ) for col in range( 4 ) ] for row in range( 10 ) ]
         layout = header + input_rows
         window = sg.Window( 'Budget Grid', layout,
             font = __font,
             icon = __icon )
         event, values = window.read( )
+        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+            window.close( )
 
 
 class Loading( ):
