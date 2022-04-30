@@ -12,14 +12,20 @@ class FileDialog( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
         __font = 'Roboto 8'
-        layout = [ [ sg.Text( 'Search for File' ) ],
-                   [ sg.Input( ), sg.FileBrowse( ) ],
+        __size = ( 300, 250 )
+        layout = [ [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( 'Search for File', size = ( 100, 1 )  ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Input( size = ( 100, 1 ) ), sg.FileBrowse( ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
                    [ sg.OK( ), sg.Cancel( ) ] ]
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
-            icon = __icon )
+            icon = __icon,
+            size = __size )
         event, values = window.read( )
         window.close( )
 
@@ -33,7 +39,7 @@ class FolderDialog( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\folder_browse.ico'
         __font = 'Roboto 8'
         layout = [ [ sg.Text( 'Search for Directory' ) ],
                    [ sg.Input( ), sg.FolderBrowse( ) ],
@@ -42,6 +48,42 @@ class FolderDialog( ):
             font = __font,
             icon = __icon )
         event, values = window.read( )
+        window.close( )
+
+
+class Message( ):
+    ''' class that provides form to display informational messages '''
+    def show( self ):
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#ADDFF7' )
+        sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_text_color( '#ADDFF7' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_text_element_background_color( '#0F0F0F' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\notification.ico'
+        __font = 'Roboto 9'
+        __size = ( 500, 250 )
+        layout = [ [ sg.Text( r'' ) ],
+                   [ sg.Text( r'This is message text', font = 'Roboto 10', text_color = '#FF0820' ) ],
+                   [ sg.Text( r'' ) ],
+                   [ sg.Text( 'Message line 1....', key = '-FIRST-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Message line 2', key = '-SECOND-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Message line 3', key = '-THIRD-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( r'', size = ( 1, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 1, 1 ) ) ] ]
+        window = sg.Window( r'  Budget Execution', layout,
+            icon = __icon,
+            font = __font,
+            size = __size )
+        event, values = window.read( )
+        sg.popup( 'Budget Messge', event, values, values[ '-FIRST-' ],
+            values[ '-SECOND-' ],
+            values[ '-THIRD-' ],
+            text_color = r'#ADDFF7',
+            font = __font,
+            icon = __icon )
+        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+            exit( 0 )
         window.close( )
 
 
@@ -81,6 +123,40 @@ class Error( ):
         window.close( )
 
 
+class Input( ):
+    '''class that produces a contact input form'''
+    def show( self ):
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#ADDFF7' )
+        sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_text_color( '#ADDFF7' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_input_text_color( '#ADDFF7' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\question.ico'
+        __font = 'Roboto 8'
+        __size = ( 400, 200 )
+        layout =  [ [ sg.Text( r'' ) ],
+                    [ sg.Text( r'Please enter your input...' ) ],
+                    [ sg.Text( r'' ) ],
+                    [ sg.Text( 'Input', size = ( 15, 1 ) ), sg.InputText( '1', key = '-INPUT-' ) ],
+                    [ sg.Text( r'' ) ],
+                   [ sg.Submit( ), sg.Cancel( ) ] ]
+        window = sg.Window( ' Budget Input', layout,
+            font = __font,
+            icon = __icon,
+            size = __size )
+        event, values = window.read( )
+        sg.popup( event, values, values[ '-NAME-' ],
+            values[ '-ADDRESS-' ],
+            values[ '-PHONE-' ],
+            text_color = r'#ADDFF7',
+            font = __font,
+            icon = __icon )
+        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT or event == sg.POPUP_BUTTONS_CANCELLED:
+            window.close( )
+
+
 class ContactForm( ):
     '''class that produces a contact input form'''
     def show( self ):
@@ -90,9 +166,10 @@ class ContactForm( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        sg.theme_input_text_color( '#ADDFF7' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\contact.ico'
         __font = 'Roboto 8'
-        __size = ( 400, 200 )
+        __size = ( 400, 250 )
         layout =  [ [ sg.Text( r'' ) ],
                     [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
                     [ sg.Text( r'' ) ],
@@ -112,8 +189,9 @@ class ContactForm( ):
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
-        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT or event == sg.POPUP_BUTTONS_CANCELLED:
             window.close( )
+
 
 class GridForm( ):
     '''object providing form that simulates a datagrid '''
