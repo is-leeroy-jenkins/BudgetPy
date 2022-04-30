@@ -50,18 +50,23 @@ class ErrorDialog( ):
     sg.theme( 'Dark Grey 14' )
 
     def show( self ):
-        __textcolor = '#d3d3d3'
-        __backcolor = '#222323'
-        __font = 'Roboto 9'
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#ADDFF7' )
+        sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_text_color( '#ADDFF7' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_text_element_background_color( '#0F0F0F' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\error.ico'
+        __font = 'Roboto 8'
+        __size = ( 600, 600 )
         sg.popup_error( title = 'Budget Execution Error',
-            background_color = __backcolor,
+            icon = __icon,
             font = __font,
-            text_color = __textcolor )
+            size = __size )
 
 
 class ContactForm( ):
     '''class that produces a contact input form'''
-
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#ADDFF7' )
