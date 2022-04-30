@@ -5,34 +5,42 @@ from sys import exit
 
 class FileDialog( ):
     '''class that renames a file'''
-    sg.theme( 'Dark Grey 14' )
-
     def show( self ):
-        __backcolor = '#222323'
-        __font = 'Roboto 9'
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#ADDFF7' )
+        sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_text_color( '#ADDFF7' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_text_element_background_color( '#0F0F0F' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        __font = 'Roboto 8'
         layout = [ [ sg.Text( 'Search for File' ) ],
                    [ sg.Input( ), sg.FileBrowse( ) ],
                    [ sg.OK( ), sg.Cancel( ) ] ]
         window = sg.Window( 'Budget Execution', layout,
-            background_color = __backcolor,
-            font = __font )
+            font = __font,
+            icon = __icon )
         event, values = window.read( )
         window.close( )
 
 
 class FolderDialog( ):
     '''class that renames a folder'''
-    sg.theme( 'Dark Grey 14' )
-
     def show( self ):
-        __backcolor = '#222323'
-        __font = 'Roboto 9'
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#ADDFF7' )
+        sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_text_color( '#ADDFF7' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_text_element_background_color( '#0F0F0F' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        __font = 'Roboto 8'
         layout = [ [ sg.Text( 'Search for Directory' ) ],
                    [ sg.Input( ), sg.FolderBrowse( ) ],
                    [ sg.OK( ), sg.Cancel( ) ] ]
         window = sg.Window( 'Budget Execution', layout,
-            background_color = __backcolor,
-            font = __font )
+            font = __font,
+            icon = __icon )
         event, values = window.read( )
         window.close( )
 
@@ -119,7 +127,7 @@ class Loading( ):
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
             margins = ( 0, 0 ),
-            size = ( 700, 500 ),
+            size = ( 600, 600 ),
             element_padding = ( 0, 0 ), finalize = True )
         window[ '-T-' ].expand( True, True, True )
         interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
@@ -174,7 +182,7 @@ class Processing( ):
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
             margins = ( 0, 0 ),
-            size = ( 700, 500 ),
+            size = ( 600, 600 ),
             element_padding = ( 0, 0 ), finalize = True )
         window[ '-T-' ].expand( True, True, True )
         interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
