@@ -15,11 +15,11 @@ class FileDialog( ):
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
         __font = 'Roboto 8'
         __size = ( 300, 200 )
-        layout = [ [ sg.Text( r'', size = ( 50, 1 ) ) ],
-                   [ sg.Text( 'Search for File', size = ( 50, 1 )  ) ],
-                   [ sg.Text( r'', size = ( 50, 1 ) ) ],
+        layout = [ [ sg.Text( r'' ) ],
+                   [ sg.Text( 'Search for File' ) ],
+                   [ sg.Text( r'' ) ],
                    [ sg.Input( ), sg.FileBrowse( ) ],
-                   [ sg.Text( r'', size = ( 50, 1 ) ) ],
+                   [ sg.Text( r'' ) ],
                    [ sg.OK( ), sg.Cancel( ) ] ]
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
