@@ -14,13 +14,12 @@ class FileDialog( ):
         sg.theme_text_element_background_color( '#0F0F0F' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
         __font = 'Roboto 8'
-        __size = ( 300, 250 )
-        layout = [ [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [ sg.Text( 'Search for File', size = ( 100, 1 )  ) ],
-                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [ sg.Input( size = ( 100, 1 ) ), sg.FileBrowse( ) ],
-                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+        __size = ( 300, 200 )
+        layout = [ [ sg.Text( r'', size = ( 50, 1 ) ) ],
+                   [ sg.Text( 'Search for File', size = ( 50, 1 )  ) ],
+                   [ sg.Text( r'', size = ( 50, 1 ) ) ],
+                   [ sg.Input( ), sg.FileBrowse( ) ],
+                   [ sg.Text( r'', size = ( 50, 1 ) ) ],
                    [ sg.OK( ), sg.Cancel( ) ] ]
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
