@@ -61,7 +61,7 @@ class ContactForm( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\EpaHorizontal.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 8'
         __size = ( 15, 1 )
         layout = [ [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
@@ -91,7 +91,7 @@ class GridForm( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\EpaHorizontal.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 8'
         __size = ( 15, 1 )
         headings = [ 'HEADER 1', 'HEADER 2', 'HEADER 3', 'HEADER 4' ]
