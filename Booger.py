@@ -14,7 +14,7 @@ class FileDialog( ):
         sg.theme_text_element_background_color( '#0F0F0F' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
         __font = 'Roboto 8'
-        __size = ( 300, 200 )
+        __size = ( 300, 100 )
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( 'Search for File' ) ],
                    [ sg.Text( r'' ) ],
