@@ -61,7 +61,7 @@ class ContactForm( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\EpaHorizontal.ico'
         __font = 'Roboto 8'
         __size = ( 15, 1 )
         layout = [ [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
@@ -84,15 +84,24 @@ class ContactForm( ):
 
 class GridForm( ):
     '''object providing form that simulates a datagrid '''
-    sg.theme( 'Dark Grey 14' )
-
     def show( self ):
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#ADDFF7' )
+        sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_text_color( '#ADDFF7' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_text_element_background_color( '#0F0F0F' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\EpaHorizontal.ico'
+        __font = 'Roboto 8'
+        __size = ( 15, 1 )
         headings = [ 'HEADER 1', 'HEADER 2', 'HEADER 3', 'HEADER 4' ]
         header = [ [ sg.Text( '  ' ) ] \
                    + [ sg.Text( h, size = ( 15, 1 ) ) for h in headings ] ]
-        input_rows = [ [ sg.Input( size = ( 17, 1 ), pad = ( 0, 0 ) ) for col in range( 4 ) ] for row in range( 10 ) ]
+        input_rows = [ [ sg.Input( size = ( 17, 1 ), pad = ( 0, 0 ), font = __font ) for col in range( 4 ) ] for row in range( 10 ) ]
         layout = header + input_rows
-        window = sg.Window( 'Budget Grid', layout, font = 'Roboto 11' )
+        window = sg.Window( 'Budget Grid', layout,
+            font = __font,
+            icon = __icon )
         event, values = window.read( )
 
 
