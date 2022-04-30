@@ -13,14 +13,14 @@ class FileDialog( ):
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
-        __font = 'Roboto 8'
-        __size = ( 300, 100 )
+        __font = 'Roboto 9'
+        __size = ( 450, 200 )
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( 'Search for File' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Input( ), sg.FileBrowse( ) ],
+                   [ sg.Input( ), sg.FileBrowse( size = ( 15, 1 ) ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.OK( ), sg.Cancel( ) ] ]
+                   [ sg.OK( size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
             icon = __icon,
@@ -39,13 +39,18 @@ class FolderDialog( ):
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\folder_browse.ico'
-        __font = 'Roboto 8'
-        layout = [ [ sg.Text( 'Search for Directory' ) ],
-                   [ sg.Input( ), sg.FolderBrowse( ) ],
-                   [ sg.OK( ), sg.Cancel( ) ] ]
+        __font = 'Roboto 9'
+        __size = ( 450, 200 )
+        layout = [ [ sg.Text( r'' ) ],
+                   [ sg.Text( 'Search for Directory' ) ],
+                   [ sg.Text( r'' ) ],
+                   [ sg.Input( ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
+                   [ sg.Text( r'' ) ],
+                   [ sg.OK( size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
-            icon = __icon )
+            icon = __icon,
+            size = __size )
         event, values = window.read( )
         window.close( )
 
@@ -65,25 +70,24 @@ class Message( ):
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( r'This is message text', font = 'Roboto 10', text_color = '#FF0820' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( 'Message line 1....', key = '-FIRST-', size = ( 150, 1 )  ) ],
-                   [ sg.Text( 'Message line 2', key = '-SECOND-', size = ( 150, 1 )  ) ],
-                   [ sg.Text( 'Message line 3', key = '-THIRD-', size = ( 150, 1 )  ) ],
-                   [ sg.Text( r'', size = ( 1, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 1, 1 ) ) ] ]
+                   [ sg.Text( 'Message line 1....', key = '-FIRST-' ) ],
+                   [ sg.Text( 'Message line 2', key = '-SECOND-' ) ],
+                   [ sg.Text( 'Message line 3', key = '-THIRD-' ) ],
+                   [ sg.Text( r'' ) ],
+                   [ sg.Text( r'' ) ] ]
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
             font = __font,
             size = __size )
         event, values = window.read( )
-        sg.popup( 'Budget Messge', event, values, values[ '-FIRST-' ],
+        sg.popup( 'Budget Message', event, values, values[ '-FIRST-' ],
             values[ '-SECOND-' ],
             values[ '-THIRD-' ],
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
         if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
-            exit( 0 )
-        window.close( )
+            window.close( )
 
 
 class Error( ):
@@ -118,8 +122,7 @@ class Error( ):
             font = __font,
             icon = __icon )
         if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
-            exit( 0 )
-        window.close( )
+            window.close( )
 
 
 class Input( ):
@@ -152,7 +155,7 @@ class Input( ):
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
-        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT or event == sg.POPUP_BUTTONS_CANCELLED:
+        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
             window.close( )
 
 
@@ -188,7 +191,7 @@ class ContactForm( ):
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
-        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT or event == sg.POPUP_BUTTONS_CANCELLED:
+        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
             window.close( )
 
 

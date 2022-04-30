@@ -21,3 +21,5 @@ W
 'etc/theme/Budget Execution DarkMode.xml,b\3\b3f31016f927082f1e2d8f64e444f97da46a19df
 U
 %etc/theme/Budget Execution.exportedUI,d\1\d1d08fd2d31e6757290075763f64ec418542aa92
+N
+.idea/dictionaries/teppler.xml,5\7\57a350243a86869ea39bf84932dd3d261910e534
