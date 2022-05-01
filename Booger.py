@@ -697,7 +697,7 @@ class CalendarDialog( ):
         sg.theme_text_element_background_color('#0F0F0F' )
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
-        sg.theme_button_color( '#050F2E' )
+        sg.theme_button_color( '#162140' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __window = ( 400, 250 )
@@ -725,7 +725,8 @@ class CalendarDialog( ):
                    [ sg.Text( r'', size = ( 100, 1 )  ) ],
                    [ sg.Button( 'Read', size = __button ), sg.Button( 'Date Picker', size = __button ), sg.Exit( size = __button ) ] ]
 
-        window = sg.Window( 'Budget Calendar', layout, font = __font, icon = __icon, size = __window )
+        window = sg.Window( 'Budget Calendar', layout,
+            font = __font, icon = __icon, size = __window )
 
         while True:
             event, values = window.read( )
@@ -733,5 +734,6 @@ class CalendarDialog( ):
             if event in ( sg.WIN_CLOSED, 'Exit' ):
                 break
             elif event == 'Date Picker':
-                sg.popup( 'You chose:', sg.popup_get_date( ), icon = __icon, font = __font, size = __window )
+                sg.popup( 'Result', sg.popup_get_date( ),
+                    icon = __icon, font = __font, size = __window )
         window.close( )
