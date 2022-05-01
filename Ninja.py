@@ -562,7 +562,6 @@ class SqlStatement( ):
                 self.__commandtext = f'DELETE FROM { self.__table };'
 
 
-
 # SQLiteQuery( connection, sqlstatement )
 class SQLiteQuery( ):
     '''SQLiteQuery( value, sqlconfig ) represents

@@ -3,6 +3,7 @@ import PySimpleGUI as sg
 from sys import exit
 from Ninja import *
 from Static import *
+import fitz
 import textwrap
 
 
@@ -391,7 +392,7 @@ class Loading( ):
             text_color = '#FFF000',
             justification = 'c',
             key = '-T-',
-            font = ( "Bodoni MT", 40 ) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
+            font = ( 'Bodoni MT', 40 ) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
             margins = ( 0, 0 ),
@@ -418,7 +419,7 @@ class Waiting( ):
             text_color = '#FFF000',
             justification = 'c',
             key = '-T-',
-            font = ("Bodoni MT", 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
+            font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
             margins = ( 0, 0 ),
@@ -446,7 +447,7 @@ class Processing( ):
             text_color = '#FFF000',
             justification = 'c',
             key = '-T-',
-            font = ("Bodoni MT", 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
+            font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
             margins = ( 0, 0 ),
@@ -467,8 +468,8 @@ class Notification( ):
     '''Class provides splash notification behaviors'''
     USE_FADE_IN = True
     WIN_MARGIN = 60
-    WIN_COLOR = "#282828"
-    TEXT_COLOR = "#ffffff"
+    WIN_COLOR = '#282828'
+    TEXT_COLOR = '#ffffff'
     DEFAULT_DISPLAY_DURATION_IN_MILLISECONDS = 10000
 
     # Base64 Images to use as icons in the window
@@ -500,7 +501,7 @@ class Notification( ):
 
         # Compute location and size of the window
         message = textwrap.fill( message, 50 )
-        win_msg_lines = message.count( "\n" ) + 1
+        win_msg_lines = message.count( '\n' ) + 1
 
         screen_res_x, screen_res_y = sg.Window.get_screen_size( )
         win_margin = WIN_MARGIN  # distance from screen edges
@@ -509,7 +510,7 @@ class Notification( ):
         screen_res_x - win_width - win_margin, screen_res_y - win_height - win_margin)
 
         layout = [ [ sg.Graph( canvas_size = (win_width, win_height),
-            graph_bottom_left = (0, win_height), graph_top_right = (win_width, 0), key = "-GRAPH-",
+            graph_bottom_left = (0, win_height), graph_top_right = (win_width, 0), key = '-GRAPH-',
             background_color = WIN_COLOR, enable_events = True ) ] ]
 
         window = sg.Window( title, layout, background_color = WIN_COLOR, no_titlebar = True,
@@ -517,15 +518,15 @@ class Notification( ):
             element_padding = (0, 0),
             finalize = True )
 
-        window[ "-GRAPH-" ].draw_rectangle( (win_width, win_height), (-win_width, -win_height),
+        window[ '-GRAPH-' ].draw_rectangle( (win_width, win_height), (-win_width, -win_height),
             fill_color = WIN_COLOR, line_color = WIN_COLOR )
-        window[ "-GRAPH-" ].draw_image( data = icon, location = (20, 20) )
-        window[ "-GRAPH-" ].draw_text( title, location = (64, 20), color = TEXT_COLOR,
-            font = ("Arial", 12, "bold"), text_location = sg.TEXT_LOCATION_TOP_LEFT )
-        window[ "-GRAPH-" ].draw_text( message, location = (64, 44), color = TEXT_COLOR,
-            font = ("Arial", 9), text_location = sg.TEXT_LOCATION_TOP_LEFT )
+        window[ '-GRAPH-' ].draw_image( data = icon, location = (20, 20) )
+        window[ '-GRAPH-' ].draw_text( title, location = (64, 20), color = TEXT_COLOR,
+            font = ('Arial', 12, 'bold'), text_location = sg.TEXT_LOCATION_TOP_LEFT )
+        window[ '-GRAPH-' ].draw_text( message, location = (64, 44), color = TEXT_COLOR,
+            font = ('Arial', 9), text_location = sg.TEXT_LOCATION_TOP_LEFT )
 
-        # change the cursor into a "hand" when hovering over the window to give user hint that
+        # change the cursor into a 'hand' when hovering over the window to give user hint that
         # clicking does something
         window[ '-GRAPH-' ].set_cursor( 'hand2' )
 
@@ -550,6 +551,115 @@ class Notification( ):
         window.close( )
 
     if __name__ == '__main__':
-        title = "Action completed successfully"
-        message = "This message is intended to inform you that the action you have performed has been successful. There is no need for further action."
+        title = 'Action completed successfully'
+        message = 'This message is intended to inform you that the action you have performed has been successful. There is no need for further action.'
         display_notification( title, message, img_success, 10000, use_fade_in = True )
+
+
+class PdfViewer( ):
+    '''Creates form to view a PDF'''
+    def show( self ):
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#ADDFF7' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_input_text_color( '#ADDFF7' )
+        sg.theme_text_color( '#ADDFF7' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_input_text_color( '#ADDFF7' )
+        filename = sg.popup_get_file( 'Budget Execution PDF Browser', 'PDF file to open', file_types = ( ( 'PDF Files', '*.pdf' ), ) )
+        if filename is None:
+            sg.popup_cancel( 'Cancelling' )
+            exit( 0 )
+        document = fitz.open( filename )
+        pages = len( document )
+        tablist = [ None ] * pages
+        title = f'Budget Execution display of { filename }, pages: { pages }'
+
+        def get_page( pno, zoom = 0 ):
+            displaylist = tablist[ pno ]
+            if not displaylist:
+                tablist[ pno ] = document[ pno ].getDisplayList( )
+                displaylist = tablist[ pno ]
+            r = displaylist.rect
+            mp = r.tl + ( r.br - r.tl ) * 0.5
+            mt = r.tl + ( r.tr - r.tl ) * 0.5
+            ml = r.tl + ( r.bl - r.tl ) * 0.5
+            mr = r.tr + ( r.br - r.tr ) * 0.5
+            mb = r.bl + ( r.br - r.bl ) * 0.5
+            mat = fitz.Matrix( 2, 2 )
+            if zoom == 1:
+                clip = fitz.Rect( r.tl, mp )
+            elif zoom == 4:
+                clip = fitz.Rect( mp, r.br )
+            elif zoom == 2:
+                clip = fitz.Rect( mt, mr )
+            elif zoom == 3:
+                clip = fitz.Rect( ml, mb )
+            if zoom == 0:
+                pix = displaylist.getPixmap( alpha = False )
+            else:
+                pix = displaylist.getPixmap( alpha = False, matrix = mat, clip = clip )
+            return pix.getPNGData( )
+
+        currentpage = 0
+        data = get_page( currentpage )
+        image_elem = sg.Image( data = data )
+        goto = sg.InputText( str( currentpage + 1 ), size = (5, 1) )
+        layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ), sg.Text( 'Page:' ), goto, ],
+                   [ sg.Text( 'Zoom:' ), sg.Button( 'Top-L' ), sg.Button( 'Top-R' ), sg.Button( 'Bot-L' ),  sg.Button( 'Bot-R' ), ],
+                   [ image_elem ],  ]
+        pdfkeys = ('Next', 'Next:34', 'Prev', 'Prior:33', 'Top-L', 'Top-R', 'Bot-L', 'Bot-R', 'MouseWheel:Down', 'MouseWheel:Up')
+        zoombuttons = ('Top-L', 'Top-R', 'Bot-L', 'Bot-R')
+        window = sg.Window( title, layout, return_keyboard_events = True, use_default_focus = False )
+        oldpage = 0
+        oldzoom = 0
+        while True:
+            event, values = window.read( timeout = 100 )
+            zoom = 0
+            forcepage = False
+            if event == sg.WIN_CLOSED:
+                break
+            if event in ( 'Escape:27', ):
+                break
+            if event[ 0 ] == chr( 13 ):
+                try:
+                    while currentpage < 0:
+                        currentpage += pages
+                except:
+                    currentpage = 0
+                goto.update( str( currentpage + 1 ) )
+            elif event in ( 'Next', 'Next:34', 'MouseWheel:Down' ):
+                currentpage += 1
+            elif event in ( 'Prev', 'Prior:33', 'MouseWheel:Up' ):
+                currentpage -= 1
+            elif event == 'Top-L':
+                zoom = 1
+            elif event == 'Top-R':
+                zoom = 2
+            elif event == 'Bot-L':
+                zoom = 3
+            elif event == 'Bot-R':
+                zoom = 4
+            if currentpage >= pages:
+                currentpage = 0
+            while currentpage < 0:
+                currentpage += pages
+            if currentpage != oldpage:
+                zoom = oldzoom = 0
+                forcepage = True
+            if event in zoombuttons:
+                if 0 < zoom == oldzoom:
+                    zoom = 0
+                    forcepage = True
+
+                if zoom != oldzoom:
+                    forcepage = True
+            if forcepage:
+                data = get_page( currentpage, zoom )
+                image_elem.update( data = data )
+                oldpage = currentpage
+            oldzoom = zoom
+            if event in pdfkeys or not values[ 0 ]:
+                goto.update( str( currentpage + 1 ) )
+

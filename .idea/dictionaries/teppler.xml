@@ -52,6 +52,7 @@
       <w>cpic</w>
       <w>createtable</w>
       <w>createview</w>
+      <w>currentpage</w>
       <w>currentyear</w>
       <w>dataruledescriptionsid</w>
       <w>decreaserestriction</w>
@@ -88,6 +89,7 @@
       <w>foccode</w>
       <w>focname</w>
       <w>folderpath</w>
+      <w>forcepage</w>
       <w>ftebudgetingcontrol</w>
       <w>ftecontrolflag</w>
       <w>ftespendingcontrol</w>
@@ -141,6 +143,8 @@
       <w>ocspp</w>
       <w>oeca</w>
       <w>oita</w>
+      <w>oldpage</w>
+      <w>oldzoom</w>
       <w>olem</w>
       <w>ombaccounttitle</w>
       <w>ombagencyname</w>
@@ -155,6 +159,7 @@
       <w>paramstyles</w>
       <w>payperiod</w>
       <w>payrollactivityid</w>
+      <w>pdfkeys</w>
       <w>pipelinecode</w>
       <w>pipelinedescription</w>
       <w>postedcontrol</w>
@@ -244,6 +249,7 @@
       <w>workcode</w>
       <w>workcodename</w>
       <w>yearofauthority</w>
+      <w>zoombuttons</w>
     </words>
   </dictionary>
 </component>
