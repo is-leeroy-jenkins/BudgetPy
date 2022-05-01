@@ -297,8 +297,29 @@ class PNG( Enum ):
     TableDelete = auto( )
     TableSettings = auto( )
     Travel = auto( )
+    TSCA = auto( )
     Undo = auto( )
     WCF = auto( )
+    WIFIA = auto( )
+    Windows = auto( )
     Word = auto( )
     XML = auto( )
     Yes = auto( )
+
+
+class RPIO( Enum ):
+    '''Enumeration of Resource Planning and Implementation Offices'''
+    NS = 0
+    R1 = 01
+    R2 = 02
+    R3 = 03
+    R4 = 04
+    R5 = 05
+    R6 = 06
+    R7 = 07
+    R8 = 08
+    R9 = 09
+    R10 = 10
+    OA = 11
+    OMS = 16
+    OCFO = 17
