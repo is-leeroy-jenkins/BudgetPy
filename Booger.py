@@ -686,3 +686,52 @@ class PdfViewer( ):
             if event in pdfkeys or not values[ 0 ]:
                 goto.update( str( currentpage + 1 ) )
 
+
+class CalendarDialog( ):
+    '''class creates form providing date selection behavior'''
+    def show( self ):
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_text_color( '#B0C4DE' )
+        sg.theme_button_color( '#1C1D1F' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        __font = 'Roboto 9'
+        __window = ( 400, 250 )
+        __button = ( 10, 1 )
+
+        layout = [ [ sg.Text( 'Choose Date', key = '-TXT-' ) ],
+                   [ sg.Input( key = '-IN-', size = ( 20, 1 ) ),
+                     sg.CalendarButton( 'US No Buttons Location (0,0)',
+                         close_when_date_chosen = True, target = '-IN-', location = ( 0, 0 ),
+                         no_titlebar = False ) ],
+                   [ sg.Input( key = '-IN3-', size = ( 20, 1 ) ),
+                     sg.CalendarButton( 'Monday', title = 'Pick date',
+                         no_titlebar = True, close_when_date_chosen = False, target = '-IN3-',
+                             begin_at_sunday_plus = 1, month_names = (
+                             'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL',
+                             'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ),
+                         day_abbreviations = ( 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN' ) ) ],
+                   [ sg.Input( key = '-IN2-', size = ( 20, 1 ) ),
+                     sg.CalendarButton( 'German Feb 2020', target = '-IN2-',
+                         default_date_m_d_y = ( 2, None, 2020 ), locale = 'de_DE',
+                         begin_at_sunday_plus = 1 ) ],
+                   [ sg.Input( key = '-IN4-', size = ( 20, 1 ) ),
+                     sg.CalendarButton( 'Format %m-%d Jan 2020', target = '-IN4-',
+                         format = '%m-%d', default_date_m_d_y = ( 1, None, 2020 ), ) ],
+                   [ sg.Text( r'', size = ( 100, 1 )  ) ],
+                   [ sg.Button( 'Read', size = __button ), sg.Button( 'Date Picker', size = __button ), sg.Exit( size = __button ) ] ]
+
+        window = sg.Window( 'Budget Calendar', layout, font = __font, icon = __icon, size = __window )
+
+        while True:
+            event, values = window.read( )
+            print( event, values )
+            if event in ( sg.WIN_CLOSED, 'Exit' ):
+                break
+            elif event == 'Date Picker':
+                sg.popup( 'You chose:', sg.popup_get_date( ), icon = __icon, font = __font, size = __window )
+        window.close( )
