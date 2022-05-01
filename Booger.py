@@ -105,12 +105,12 @@ class FileDialog( ):
     '''class that renames a file'''
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
-        sg.theme_element_text_color( '#ADDFF7' )
-        sg.theme_input_background_color( '#0F0F0F' )
-        sg.theme_input_text_color( '#ADDFF7' )
-        sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
-        sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
         __font = 'Roboto 9'
@@ -138,12 +138,12 @@ class FolderDialog( ):
     '''class that renames a folder'''
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
-        sg.theme_element_text_color( '#ADDFF7' )
-        sg.theme_input_background_color( '#0F0F0F' )
-        sg.theme_input_text_color( '#ADDFF7' )
-        sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
-        sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\folder_browse.ico'
         __font = 'Roboto 9'
@@ -155,7 +155,7 @@ class FolderDialog( ):
                    [ sg.Input( ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
                    [ sg.Text( r'' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
+                   [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
@@ -191,11 +191,13 @@ class Message( ):
 
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
-        sg.theme_element_text_color( '#ADDFF7' )
-        sg.theme_input_background_color( '#0F0F0F' )
-        sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
-        sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_text_color( '#B0C4DE' )
+        sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\notification.ico'
         __font = 'Roboto 9'
         __size = ( 500, 250 )
@@ -253,11 +255,13 @@ class Error( ):
 
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
-        sg.theme_element_text_color( '#ADDFF7' )
-        sg.theme_input_background_color( '#0F0F0F' )
-        sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
-        sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_text_color( '#B0C4DE' )
+        sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\error.ico'
         __font = 'Roboto 9'
         __size = ( 500, 250 )
@@ -295,8 +299,9 @@ class Input( ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#D3D3D3' )
-        sg.theme_input_background_color( '#282828' )
         sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\question.ico'
@@ -318,7 +323,7 @@ class Input( ):
             titlebar_background_color = '#0F0F0F' )
         event, values = window.read( )
         sg.popup( event, values, values[ '-INPUT-' ],
-            text_color = r'#ADDFF7',
+            text_color = r'#B0C4DE',
             font = __font,
             icon = __icon )
         if event == sg.WIN_X_EVENT or event == sg.WIN_CLOSED:
@@ -329,14 +334,15 @@ class ContactForm( ):
     '''class that produces a contact input form'''
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
-        sg.theme_element_text_color( '#ADDFF7' )
-        sg.theme_input_background_color( '#0F0F0F' )
-        sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
-        sg.theme_text_element_background_color( '#0F0F0F' )
-        sg.theme_input_text_color( '#ADDFF7' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_text_color( '#B0C4DE' )
+        sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\contact.ico'
-        __font = 'Roboto 8'
+        __font = 'Roboto 9'
         __size = ( 400, 250 )
         layout =  [ [ sg.Text( r'' ) ],
                     [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
@@ -345,7 +351,8 @@ class ContactForm( ):
                     [ sg.Text( 'Address', size = ( 15, 1 ) ), sg.InputText( '2', key = '-ADDRESS-' ) ],
                     [ sg.Text( 'Phone', size = ( 15, 1 ) ), sg.InputText( '3', key = '-PHONE-' ) ],
                     [ sg.Text( r'' ) ],
-                   [ sg.Submit( ), sg.Cancel( ) ] ]
+                    [ sg.Text( r'' ) ],
+                   [ sg.Submit( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
         window = sg.Window( 'Budget Contact Form', layout,
             font = __font,
             icon = __icon,
@@ -354,7 +361,7 @@ class ContactForm( ):
         sg.popup( event, values, values[ '-NAME-' ],
             values[ '-ADDRESS-' ],
             values[ '-PHONE-' ],
-            text_color = r'#ADDFF7',
+            text_color = r'#B0C4DE',
             font = __font,
             icon = __icon )
         if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
@@ -367,12 +374,13 @@ class GridForm( ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#D3D3D3' )
-        sg.theme_input_background_color( '#282828' )
         sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
-        __font = 'Roboto 8'
+        __font = 'Roboto 9'
         __size = ( 17, 1 )
         headings = [ 'HEADER 1', 'HEADER 2', 'HEADER 3', 'HEADER 4' ]
         header = [ [ sg.Text( '  ' ) ] \
