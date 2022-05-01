@@ -162,7 +162,6 @@ class FolderDialog( ):
         event, values = window.read( )
         window.close( )
 
-
 # Message( text )
 class Message( ):
     ''' class that provides form to display informational messages '''
