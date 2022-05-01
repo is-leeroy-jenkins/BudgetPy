@@ -1313,11 +1313,22 @@ class DataTable( pd.DataFrame ):
             return self.__name
 
 
-class Error( Exception ):
+# BudgetException( message )
+class BudgetException( Exception ):
     '''class provides Error and Exception data'''
     __cause = None
     __method = None
     __message = None
+
+    @property
+    def message( self ):
+        if isinstance( self.__message, str ) and self.__message != '':
+            return self.__message
+
+    @message.setter
+    def message( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__message = value
 
     @property
     def cause( self ):
@@ -1339,18 +1350,8 @@ class Error( Exception ):
         if isinstance( value, str ) and value != '':
             self.__method = value
 
-    @property
-    def message( self ):
-        if isinstance( self.__message, str ) and self.__message != '':
-            return self.__message
-
-    @message.setter
-    def message( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__message = value
-
-    def __init__( self, msg = None, cause = None, meth = None ):
+    def __init__( self, message = '', cause = '', method = '' ):
         super( ).__init__( )
+        self.__message = message if isinstance( message, str ) and message != '' else None
         self.__cause = cause if isinstance( cause, str ) and cause != '' else None
-        self.__method = meth if isinstance( meth, str ) and meth != '' else None
-        self.__message = msg if isinstance( msg, str ) and msg != '' else None
+        self.__method = method if isinstance( method, str ) and method != '' else None

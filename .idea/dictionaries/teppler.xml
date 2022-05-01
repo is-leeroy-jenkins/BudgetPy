@@ -137,6 +137,11 @@
       <w>obligationsid</w>
       <w>obligationspendingcontrol</w>
       <w>obligationtype</w>
+      <w>ocfo</w>
+      <w>ocspp</w>
+      <w>oeca</w>
+      <w>oita</w>
+      <w>olem</w>
       <w>ombaccounttitle</w>
       <w>ombagencyname</w>
       <w>ombbureau</w>

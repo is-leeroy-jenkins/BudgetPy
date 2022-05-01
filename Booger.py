@@ -39,6 +39,7 @@ class ButtonIcon( ):
         if isinstance( value, str ):
             self.__name = value
 
+
     def __init__( self, img ):
         self.__name = img.name if isinstance( img, PNG ) else None
         self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
@@ -138,12 +139,12 @@ class MessageDialog( ):
             window.close( )
 
 
-class ErrorDialog( ):
+class Error( ):
     '''class that displays error message'''
     __cause = None
     __method = None
     __message = None
-    __error = None
+    __exception = None
 
     @property
     def message( self ):
@@ -154,6 +155,7 @@ class ErrorDialog( ):
     def message( self, value ):
         if isinstance( value, str ) and value != '':
             self.__message = value
+
 
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
@@ -168,7 +170,7 @@ class ErrorDialog( ):
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( self.__message, font = 'Roboto 10', text_color = '#FF0820' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( 'Cause:', size = ( 10, 1 ) ), sg.Text( self.__cause, key = '-SRC-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, key = '-SRC-', size = ( 150, 1 )  ) ],
                    [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, key = '-MTH-', size = ( 150, 1 )  ) ],
                    [ sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, key = '-MSG-', size = ( 150, 1 )  ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ],
@@ -188,11 +190,11 @@ class ErrorDialog( ):
         if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
             window.close( )
 
-    def __init__( self, error = None ):
-        self.__error = error if isinstance( error, Error ) else None
-        self.__cause = error.cause if isinstance( error, Error ) else None
-        self.__method = error.method if isinstance( error, Error ) else None
-        self.__message = error.message if isinstance( error, Error ) else None
+    def __init__( self, exception = None ):
+        self.__exception = exception if isinstance( exception, BudgetException ) else None
+        self.__message = self.__exception.message
+        self.__cause = self.__exception.cause
+        self.__method = self.__exception.method
 
 
 class Input( ):

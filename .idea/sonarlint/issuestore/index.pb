@@ -22,7 +22,3 @@ U
 :
 
 Control.py,c\6\c63198ee48be4fba96bcb521300156a930f896fe
-8
-Ninja.py,8\b\8bd840fba2dbdab27f36c7587e14a47f48cdbb59
-N
-.idea/dictionaries/teppler.xml,5\7\57a350243a86869ea39bf84932dd3d261910e534

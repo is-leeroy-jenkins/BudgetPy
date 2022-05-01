@@ -321,5 +321,13 @@ class RPIO( Enum ):
     R9 = 09
     R10 = 10
     OA = 11
+    OITA = 13
     OMS = 16
     OCFO = 17
+    OCSPP = 20
+    OAR = 27
+    OW = 30
+    OIG = 35
+    OGC = 39
+    OLEM = 75
+    OECA = 77
