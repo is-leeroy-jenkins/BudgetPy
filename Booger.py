@@ -36,11 +36,11 @@ class ButtonIcon( ):
 
     @name.setter
     def name( self, value ):
-        if isinstance( value, IMG ):
-            self.__name = value.name
+        if isinstance( value, str ):
+            self.__name = value
 
     def __init__( self, img ):
-        self.__name = img.name if isinstance( img, IMG ) else None
+        self.__name = img.name if isinstance( img, PNG ) else None
         self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
 
 
