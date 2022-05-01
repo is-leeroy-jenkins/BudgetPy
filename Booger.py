@@ -5,20 +5,29 @@ from Ninja import *
 from Static import *
 
 
-class Image( ):
+class ButtonIcon( ):
     '''class representing form images'''
-    __folder = None
+    __button = None
+    __toolbar = None
+    __rpio = None
+    __boc = None
+    __navigation = None
+    __database = None
+    __epa = None
+    __loaders = None
+    __ninja = None
+    __signature = None
     __name = None
 
     @property
     def folder( self ):
-        if isinstance( self.__folder, str ) and self.__folder != '':
-            return self.__folder
+        if isinstance( self.__button, str ) and self.__button != '':
+            return self.__button
 
     @folder.setter
     def folder( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__folder = value
+            self.__button = value
 
     @property
     def name( self ):
@@ -32,7 +41,7 @@ class Image( ):
 
     def __init__( self, img ):
         self.__name = img.name if isinstance( img, IMG ) else None
-        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
+        self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
 
 
 class FileDialog( ):
@@ -299,9 +308,9 @@ class Loading( ):
             size = ( 600, 600 ),
             element_padding = ( 0, 0 ), finalize = True )
         window[ '-T-' ].expand( True, True, True )
-        interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
+        interframe_duration = ButtonIcon.open( gif_filename ).info[ 'duration' ]
         while True:
-            for frame in ImageSequence.Iterator( Image.open( gif_filename ) ):
+            for frame in ImageSequence.Iterator( ButtonIcon.open( gif_filename ) ):
                 event, values = window.read( timeout = interframe_duration )
                 if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
@@ -327,9 +336,9 @@ class Waiting( ):
             size = ( 600, 600 ),
             finalize = True )
         window[ '-T-' ].expand( True, True, True )
-        interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
+        interframe_duration = ButtonIcon.open( gif_filename ).info[ 'duration' ]
         while True:
-            for frame in ImageSequence.Iterator( Image.open( gif_filename ) ):
+            for frame in ImageSequence.Iterator( ButtonIcon.open( gif_filename ) ):
                 event, values = window.read( timeout = interframe_duration )
                 if event == sg.WIN_CLOSED:
                     exit( 0 )
@@ -354,9 +363,9 @@ class Processing( ):
             size = ( 600, 600 ),
             element_padding = ( 0, 0 ), finalize = True )
         window[ '-T-' ].expand( True, True, True )
-        interframe_duration = Image.open( gif_filename ).info[ 'duration' ]
+        interframe_duration = ButtonIcon.open( gif_filename ).info[ 'duration' ]
         while True:
-            for frame in ImageSequence.Iterator( Image.open( gif_filename ) ):
+            for frame in ImageSequence.Iterator( ButtonIcon.open( gif_filename ) ):
                 event, values = window.read( timeout = interframe_duration )
                 if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
