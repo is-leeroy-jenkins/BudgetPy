@@ -53,6 +53,7 @@ class ButtonIcon( ):
         if isinstance( self.__filepath, str ):
             return self.__filepath
 
+
 # TitleIcon( ico )
 class TitleIcon( ):
     '''class representing form images'''
@@ -110,6 +111,7 @@ class FileDialog( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
@@ -142,6 +144,7 @@ class FolderDialog( ):
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
         sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\folder_browse.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
@@ -162,6 +165,7 @@ class FolderDialog( ):
 
         event, values = window.read( )
         window.close( )
+
 
 # Message( text )
 class Message( ):
@@ -223,6 +227,7 @@ class Message( ):
             window.close( )
 
 
+# Error( exception )
 class Error( ):
     '''class that displays error message'''
     __cause = None
@@ -288,13 +293,12 @@ class Input( ):
     '''class that produces a contact input form'''
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
-        sg.theme_element_text_color( '#ADDFF7' )
-        sg.theme_input_background_color( '#282828' )
-        sg.theme_input_text_color( '#ADDFF7' )
-        sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
-        sg.theme_text_element_background_color( '#0F0F0F' )
-        sg.theme_input_text_color( '#ADDFF7' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_color( '#B0C4DE' )
+        sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\question.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
@@ -361,11 +365,12 @@ class GridForm( ):
     '''object providing form that simulates a datagrid '''
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
-        sg.theme_element_text_color( '#ADDFF7' )
-        sg.theme_input_background_color( '#0F0F0F' )
-        sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
-        sg.theme_text_element_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_color( '#B0C4DE' )
+        sg.theme_button_color( '#2E2E2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 8'
         __size = ( 17, 1 )

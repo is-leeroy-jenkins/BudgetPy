@@ -24,3 +24,7 @@ U
 Control.py,c\6\c63198ee48be4fba96bcb521300156a930f896fe
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
+9
+	Static.py,3\e\3e231fda4efa302a265df1990e1bb836bdf1806a
+N
+.idea/dictionaries/teppler.xml,5\7\57a350243a86869ea39bf84932dd3d261910e534
