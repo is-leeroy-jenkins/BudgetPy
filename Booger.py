@@ -5,19 +5,12 @@ from Ninja import *
 from Static import *
 
 
+# ButtonIcon( png )
 class ButtonIcon( ):
     '''class representing form images'''
     __button = None
-    __toolbar = None
-    __rpio = None
-    __boc = None
-    __navigation = None
-    __database = None
-    __epa = None
-    __loaders = None
-    __ninja = None
-    __signature = None
     __name = None
+    __filepath = None
 
     @property
     def folder( self ):
@@ -39,10 +32,70 @@ class ButtonIcon( ):
         if isinstance( value, str ):
             self.__name = value
 
+    @property
+    def filepath( self ):
+        if isinstance( self.__filepath, str ) and self.__filepath != '':
+            return self.__filepath
 
-    def __init__( self, img ):
-        self.__name = img.name if isinstance( img, PNG ) else None
+    @filepath.setter
+    def filepath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__filepath = value
+
+    def __init__( self, png ):
+        self.__name = png.name if isinstance( png, PNG ) else None
         self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
+        self.__filepath = self.__button + r'\\' + self.__name + '.png'
+
+    def __str__( self ):
+        if isinstance( self.__filepath, str ):
+            return self.__filepath
+
+# TitleIcon( ico )
+class TitleIcon( ):
+    '''class representing form images'''
+    __folder = None
+    __name = None
+    __filepath = None
+
+    @property
+    def folder( self ):
+        if isinstance( self.__button, str ) and self.__button != '':
+            return self.__button
+
+    @folder.setter
+    def folder( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__button = value
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, value ):
+        if isinstance( value, str ):
+            self.__name = value
+
+    @property
+    def filepath( self ):
+        if isinstance( self.__filepath, str ) and self.__filepath != '':
+            return self.__filepath
+
+    @filepath.setter
+    def filepath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__filepath = value
+
+    def __init__( self, ico ):
+        self.__name = ico.name if isinstance( ico, ICO ) else None
+        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\ico'
+        self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
+
+    def __str__( self ):
+        if isinstance( self.__filepath, str ):
+            return self.__filepath
 
 
 class FileDialog( ):
@@ -58,6 +111,7 @@ class FileDialog( ):
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
+
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( 'Search for File' ) ],
                    [ sg.Text( r'' ) ],
@@ -65,11 +119,13 @@ class FileDialog( ):
                    [ sg.Text( r'' ) ],
                    [ sg.Text( r'' ) ],
                    [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
+
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
             icon = __icon,
             size = __size,
             titlebar_background_color = '#0F0F0F' )
+
         event, values = window.read( )
         window.close( )
 
@@ -87,6 +143,7 @@ class FolderDialog( ):
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\folder_browse.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
+
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( 'Search for Directory' ) ],
                    [ sg.Text( r'' ) ],
@@ -94,17 +151,39 @@ class FolderDialog( ):
                    [ sg.Text( r'' ) ],
                    [ sg.Text( r'' ) ],
                    [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 )  ) ] ]
+
         window = sg.Window( 'Budget Execution', layout,
             font = __font,
             icon = __icon,
             size = __size,
             titlebar_background_color = '#0F0F0F' )
+
         event, values = window.read( )
         window.close( )
 
 
-class MessageDialog( ):
+# Message( text )
+class Message( ):
     ''' class that provides form to display informational messages '''
+    __text = None
+
+    @property
+    def text( self ):
+        if isinstance( self.__text, str ) and self.__text != '':
+            return self.__text
+
+    @text.property
+    def text( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__text = value
+
+    def __init__( self, text ):
+        self.__text = text if isinstance( text, str ) and text != '' else None
+
+    def __str__( self ):
+        if isinstance( self.__text, str ):
+            return self.__text
+
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#ADDFF7' )
@@ -123,18 +202,22 @@ class MessageDialog( ):
                    [ sg.Text( 'Message line 3', key = '-THIRD-' ) ],
                    [ sg.Text( r'' ) ],
                    [ sg.Text( r'' ) ] ]
+
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
             font = __font,
             size = __size,
             titlebar_background_color = '#0F0F0F' )
+
         event, values = window.read( )
+
         sg.popup( 'Budget Message', event, values, values[ '-FIRST-' ],
             values[ '-SECOND-' ],
             values[ '-THIRD-' ],
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
+
         if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
             window.close( )
 
@@ -156,6 +239,11 @@ class Error( ):
         if isinstance( value, str ) and value != '':
             self.__message = value
 
+    def __init__( self, exception = None ):
+        self.__exception = exception if isinstance( exception, BudgetException ) else None
+        self.__message = self.__exception.message
+        self.__cause = self.__exception.cause
+        self.__method = self.__exception.method
 
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
@@ -175,26 +263,24 @@ class Error( ):
                    [ sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, key = '-MSG-', size = ( 150, 1 )  ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ] ]
+
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
             font = __font,
             size = __size,
             titlebar_background_color = '#0F0F0F' )
+
         event, values = window.read( )
+
         sg.popup( 'Budget Error', event, values, values[ '-SRC-' ],
             values[ '-MTH-' ],
             values[ '-MSG-' ],
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
+
         if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
             window.close( )
-
-    def __init__( self, exception = None ):
-        self.__exception = exception if isinstance( exception, BudgetException ) else None
-        self.__message = self.__exception.message
-        self.__cause = self.__exception.cause
-        self.__method = self.__exception.method
 
 
 class Input( ):
@@ -202,7 +288,7 @@ class Input( ):
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_text_color( '#ADDFF7' )
-        sg.theme_input_background_color( '#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
         sg.theme_input_text_color( '#ADDFF7' )
         sg.theme_text_color( '#ADDFF7' )
         sg.theme_element_background_color( '#0F0F0F' )
@@ -211,13 +297,15 @@ class Input( ):
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\question.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
+
         layout =  [ [ sg.Text( r'' ) ],
                     [ sg.Text( r'Please enter your input...' ) ],
                     [ sg.Text( r'' ) ],
-                    [ sg.Text( 'Input', size = ( 15, 2 ) ), sg.InputText( '1', key = '-INPUT-' ) ],
+                    [ sg.Text( 'Input', size = ( 10, 2 ) ), sg.InputText( '1', key = '-INPUT-' ) ],
                     [ sg.Text( r'' ) ],
                     [ sg.Text( r'' ) ],
-                   [ sg.Submit( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
+                    [ sg.Submit( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
+
         window = sg.Window( ' Budget Input', layout,
             font = __font,
             icon = __icon,
@@ -228,7 +316,7 @@ class Input( ):
             text_color = r'#ADDFF7',
             font = __font,
             icon = __icon )
-        if event == sg.WIN_X_EVENT or event == sg.WIN_CLOSED or event == 'Cancel':
+        if event == sg.WIN_X_EVENT or event == sg.WIN_CLOSED:
             window.close( )
 
 

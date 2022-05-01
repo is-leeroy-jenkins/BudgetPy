@@ -281,7 +281,7 @@ class PNG( Enum ):
     RowEdit = auto( )
     RowDelete = auto( )
     RowInsert = auto( )
-    Recert = auto( )
+    Recertification = auto( )
     Save = auto( )
     Scan = auto( )
     Sigma = auto( )
@@ -305,6 +305,21 @@ class PNG( Enum ):
     Word = auto( )
     XML = auto( )
     Yes = auto( )
+
+
+class ICO( Enum ):
+    '''Enumeration of ICO files'''
+    NS = auto( )
+    Access = auto( )
+    Browse = auto( )
+    CSV = auto( )
+    Database = auto( )
+    Error = auto( )
+    Excel = auto( )
+    Ninja = auto( )
+    Notification = auto( )
+    PDF = auto( )
+    Text = auto( )
 
 
 class RPIO( Enum ):
