@@ -2,6 +2,37 @@ from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from sys import exit
 from Ninja import *
+from Static import *
+
+
+class Image( ):
+    '''class representing form images'''
+    __folder = None
+    __name = None
+
+    @property
+    def folder( self ):
+        if isinstance( self.__folder, str ) and self.__folder != '':
+            return self.__folder
+
+    @folder.setter
+    def folder( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__folder = value
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, value ):
+        if isinstance( value, IMG ):
+            self.__name = value.name
+
+    def __init__( self, img ):
+        self.__name = img.name if isinstance( img, IMG ) else None
+        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
 
 
 class FileDialog( ):

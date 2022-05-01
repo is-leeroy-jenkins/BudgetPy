@@ -192,3 +192,19 @@ class Client( Enum ):
     Chrome = auto( )
     ControlPanel = auto( )
     Calculator = auto( )
+
+
+class IMG( Enum ):
+    '''Enumeration of images'''
+    NS = auto( )
+    First = auto( )
+    Previous = auto( )
+    Next = auto( )
+    Last = auto( )
+    Add = auto( )
+    Delete = auto( )
+    Save = auto( )
+    Refresh = auto( )
+    Excel = auto( )
+    Chart = auto( )
+    Browse = auto( )
