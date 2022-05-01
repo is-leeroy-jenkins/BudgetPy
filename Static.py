@@ -310,15 +310,15 @@ class PNG( Enum ):
 class RPIO( Enum ):
     '''Enumeration of Resource Planning and Implementation Offices'''
     NS = 0
-    R1 = 01
-    R2 = 02
-    R3 = 03
-    R4 = 04
-    R5 = 05
-    R6 = 06
-    R7 = 07
-    R8 = 08
-    R9 = 09
+    R1 = 1
+    R2 = 2
+    R3 = 3
+    R4 = 4
+    R5 = 5
+    R6 = 6
+    R7 = 7
+    R8 = 8
+    R9 = 9
     R10 = 10
     OA = 11
     OITA = 13
