@@ -697,7 +697,7 @@ class CalendarDialog( ):
         sg.theme_text_element_background_color('#0F0F0F' )
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
-        sg.theme_button_color( '#1C1D1F' )
+        sg.theme_button_color( '#050F2E' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __window = ( 400, 250 )
