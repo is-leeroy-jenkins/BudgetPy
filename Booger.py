@@ -169,7 +169,7 @@ class FolderDialog( ):
         window.close( )
 
 
-# Message( text )
+# Message( information )
 class Message( ):
     ''' class that provides form to display informational messages '''
     __text = None
@@ -184,8 +184,8 @@ class Message( ):
         if isinstance( value, str ) and value != '':
             self.__text = value
 
-    def __init__( self, text ):
-        self.__text = text if isinstance( text, str ) and text != '' else None
+    def __init__( self, information ):
+        self.__text = information if isinstance( information, str ) and information != '' else None
 
     def __str__( self ):
         if isinstance( self.__text, str ):
@@ -200,33 +200,21 @@ class Message( ):
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#163754' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\notification.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\message.ico'
         __font = 'Roboto 9'
-        __size = ( 500, 250 )
-        layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( self.__text, font = 'Roboto 10', text_color = '#FF0820' ) ],
-                   [ sg.Text( r'' ) ],
-                   [ sg.Text( 'Message line 1....', key = '-FIRST-' ) ],
-                   [ sg.Text( 'Message line 2', key = '-SECOND-' ) ],
-                   [ sg.Text( 'Message line 3', key = '-THIRD-' ) ],
-                   [ sg.Text( r'' ) ],
-                   [ sg.Text( r'' ) ] ]
+        __size = ( 400, 250 )
+        layout = [ [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( r'', size = (100, 1) ) ],
+                   [ sg.Text( self.__text, font = ( 'Roboto', 9, 'bold' ), text_color = '#FFFFFF' ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ], ]
 
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
             font = __font,
-            size = __size,
-            titlebar_background_color = '#0F0F0F' )
+            size = __size )
 
         event, values = window.read( )
-
-        sg.popup( 'Budget Message', event, values, values[ '-FIRST-' ],
-            values[ '-SECOND-' ],
-            values[ '-THIRD-' ],
-            text_color = r'#ADDFF7',
-            font = __font,
-            icon = __icon )
-
         if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
             window.close( )
 
@@ -295,8 +283,25 @@ class Error( ):
             window.close( )
 
 
+# Input( question )
 class Input( ):
     '''class that produces a contact input form'''
+    __question = None
+    __response = None
+
+    @property
+    def question( self ):
+        if isinstance( self.__question, str ) and self.__question != '':
+            return self.__question
+
+    @question.setter
+    def question( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__question = value
+
+    def __init__( self, question ):
+        self.__question = question if isinstance( question, str ) and question != '' else None
+
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_background_color( '#0F0F0F' )
@@ -311,12 +316,12 @@ class Input( ):
         __size = ( 450, 200 )
 
         layout =  [ [ sg.Text( r'' ) ],
-                    [ sg.Text( r'Please enter your input...' ) ],
+                    [ sg.Text( self.__question, font = ( 'Roboto', 9, 'bold' ) ) ],
                     [ sg.Text( r'' ) ],
-                    [ sg.Text( 'Input', size = ( 10, 2 ) ), sg.InputText( '1', key = '-INPUT-' ) ],
+                    [ sg.Text( 'Enter:', size = ( 7, 2 ) ), sg.InputText( '1', key = '-INPUT-', size = ( 40, 2 ) ) ],
                     [ sg.Text( r'' ) ],
                     [ sg.Text( r'' ) ],
-                    [ sg.Submit( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
+                    [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 10, 1 ) ), sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
         window = sg.Window( ' Budget Input', layout,
             font = __font,
