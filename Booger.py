@@ -937,6 +937,32 @@ class DateWidget( ):
 
 class DataSelector( ):
     '''List search and selection'''
+    __selecteditem = None
+    __items = None
+
+    @property
+    def selecteditem( self ):
+        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+            return self.__selecteditem
+
+    @selecteditem.setter
+    def selecteditem( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__selecteditem = value
+
+    @property
+    def items( self ):
+        if isinstance( self.__items, list ):
+            return self.__items
+
+    @selecteditem.setter
+    def items( self, value ):
+        if isinstance( value, list ):
+            self.__items = value
+
+    def __init__( self, data ):
+        self.__items = data if isinstance( data, list ) else None
+
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
         sg.theme_element_background_color( '#0F0F0F' )
@@ -952,7 +978,7 @@ class DataSelector( ):
         __button = ( 10, 1 )
         __calendar = ( 100, 100 )
 
-        names = [ src.name for src in list( Source ) ]
+        names = [ src for src in list( self.__items ) if src != 'NS' ]
         layout = [ [ sg.Text( 'Search:', size = ( 25, 1 )  ) ],
                    [ sg.Input( size = ( 25, 1 ), enable_events = True, key = '-INPUT-' ) ],
                    [ sg.Text( r'', size = (100, 1) ) ],
@@ -974,5 +1000,4 @@ class DataSelector( ):
                 window[ '-LIST-' ].update( names )
             if event == '-LIST-' and len( values[ '-LIST-' ] ):
                 sg.popup( 'Selected', values[ '-LIST-' ], font = __font, icon = __icon  )
-
         window.close( )
