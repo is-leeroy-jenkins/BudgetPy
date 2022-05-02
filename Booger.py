@@ -1,10 +1,10 @@
-from PIL import Image, ImageTk, ImageSequence
+from Pillow import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from sys import exit
 import Static
 from Ninja import *
 from Static import *
-import fitz
+import fits
 import textwrap
 import datetime
 
@@ -746,7 +746,7 @@ class CalendarDialog( ):
                 break
             elif event == 'Date Picker':
                 sg.popup( 'Choose Date', sg.popup_get_date( ),
-                    icon = __icon, font = __font, size = __calendar )
+                    icon = __icon, font = __font )
         window.close( )
 
 
