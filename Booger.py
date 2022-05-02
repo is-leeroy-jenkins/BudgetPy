@@ -200,14 +200,16 @@ class Message( ):
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#163754' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\message.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
-        __size = ( 400, 250 )
+        __size = ( 400, 200 )
         layout = [ [ sg.Text( r'', size = ( 100, 1 ) ) ],
                    [ sg.Text( r'', size = (100, 1) ) ],
-                   [ sg.Text( self.__text, font = ( 'Roboto', 9, 'bold' ), text_color = '#FFFFFF' ) ],
+                   [ sg.Text( r'', size = ( 5, 1 ) ),  sg.Text( self.__text, font = ( 'Roboto', 9, 'bold' ), text_color = '#FFFFFF', size = ( 80, 1 ) ) ],
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 100, 1 ) ) ], ]
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [  sg.Text( r'', size = (10, 1) ), sg.Ok( size = (10, 1) ), sg.Text( r'', size = (10, 1) ), sg.Cancel( size = (10, 1) ) ] ]
 
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
@@ -318,7 +320,7 @@ class Input( ):
         layout =  [ [ sg.Text( r'' ) ],
                     [ sg.Text( self.__question, font = ( 'Roboto', 9, 'bold' ) ) ],
                     [ sg.Text( r'' ) ],
-                    [ sg.Text( 'Enter:', size = ( 7, 2 ) ), sg.InputText( '1', key = '-INPUT-', size = ( 40, 2 ) ) ],
+                    [ sg.Text( 'Enter:', size = ( 10, 2 ) ), sg.InputText( '1', key = '-INPUT-', size = ( 40, 2 ) ) ],
                     [ sg.Text( r'' ) ],
                     [ sg.Text( r'' ) ],
                     [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 10, 1 ) ), sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
