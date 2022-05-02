@@ -209,7 +209,7 @@ class Message( ):
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [  sg.Text( r'', size = (10, 1) ), sg.Ok( size = (10, 1) ), sg.Text( r'', size = (10, 1) ), sg.Cancel( size = (10, 1) ) ] ]
+                   [  sg.Text( r'', size = (5, 1) ), sg.Ok( size = (10, 1) ), sg.Text( r'', size = (15, 1) ), sg.Cancel( size = (10, 1) ) ] ]
 
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
@@ -217,7 +217,7 @@ class Message( ):
             size = __size )
 
         event, values = window.read( )
-        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+        if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel' ):
             window.close( )
 
 
@@ -350,7 +350,7 @@ class ContactForm( ):
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#163754' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\contact.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __size = ( 400, 250 )
         layout =  [ [ sg.Text( r'' ) ],
@@ -361,8 +361,8 @@ class ContactForm( ):
                     [ sg.Text( 'Phone', size = ( 15, 1 ) ), sg.InputText( '3', key = '-PHONE-' ) ],
                     [ sg.Text( r'' ) ],
                     [ sg.Text( r'' ) ],
-                   [ sg.Submit( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
-        window = sg.Window( 'Budget Contact Form', layout,
+                    [ sg.Submit( size = ( 10, 1 ) ), sg.Text( r'', size = ( 20, 1) ),  sg.Cancel( size = ( 10, 1 ) ) ] ]
+        window = sg.Window( 'Budget Execution', layout,
             font = __font,
             icon = __icon,
             size = __size )
@@ -373,7 +373,7 @@ class ContactForm( ):
             text_color = r'#B0C4DE',
             font = __font,
             icon = __icon )
-        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+        if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
             window.close( )
 
 
