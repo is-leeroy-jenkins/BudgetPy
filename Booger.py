@@ -1,10 +1,12 @@
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from sys import exit
+import Static
 from Ninja import *
 from Static import *
 import fitz
 import textwrap
+import datetime
 
 
 # ButtonIcon( png )
@@ -697,17 +699,19 @@ class CalendarDialog( ):
         sg.theme_text_element_background_color('#0F0F0F' )
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
-        sg.theme_button_color( '#162140' )
+        sg.theme_button_color( '#34353B' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
-        __window = ( 400, 250 )
+        __window = ( 400, 225 )
         __button = ( 10, 1 )
+        __calendar = ( 100, 100 )
 
-        layout = [ [ sg.Text( 'Choose Date', key = '-TXT-' ) ],
+        layout = [ [ sg.Text( r'', size = ( 100, 1 )  ) ],
+                   [ sg.Text( 'Choose Date', key = '-TXT-' ) ],
                    [ sg.Input( key = '-IN-', size = ( 20, 1 ) ),
                      sg.CalendarButton( 'US No Buttons Location (0,0)',
                          close_when_date_chosen = True, target = '-IN-', location = ( 0, 0 ),
-                         no_titlebar = False ) ],
+                         no_titlebar = False, font = __font ) ],
                    [ sg.Input( key = '-IN3-', size = ( 20, 1 ) ),
                      sg.CalendarButton( 'Monday', title = 'Pick date',
                          no_titlebar = True, close_when_date_chosen = False, target = '-IN3-',
@@ -720,8 +724,8 @@ class CalendarDialog( ):
                          default_date_m_d_y = ( 2, None, 2020 ), locale = 'de_DE',
                          begin_at_sunday_plus = 1 ) ],
                    [ sg.Input( key = '-IN4-', size = ( 20, 1 ) ),
-                     sg.CalendarButton( 'Format %m-%d Jan 2020', target = '-IN4-',
-                         format = '%m-%d', default_date_m_d_y = ( 1, None, 2020 ), ) ],
+                     sg.CalendarButton( 'Format %Y-%m-%d Jan 2020', target = '-IN4-',
+                         format = '%Y-%m-%d', default_date_m_d_y = ( 1, None, 2020 ), ) ],
                    [ sg.Text( r'', size = ( 100, 1 )  ) ],
                    [ sg.Button( 'Read', size = __button ), sg.Button( 'Date Picker', size = __button ), sg.Exit( size = __button ) ] ]
 
@@ -734,6 +738,243 @@ class CalendarDialog( ):
             if event in ( sg.WIN_CLOSED, 'Exit' ):
                 break
             elif event == 'Date Picker':
-                sg.popup( 'Result', sg.popup_get_date( ),
-                    icon = __icon, font = __font, size = __window )
+                sg.popup( 'Choose Date', sg.popup_get_date( ),
+                    icon = __icon, font = __font, size = __calendar )
+        window.close( )
+
+
+class DateWidget( ):
+    ''' Desktop widget displaying date time information'''
+    def show( self ):
+        ALPHA = 0.9  # Initial alpha until user changes
+        THEME = 'Dark green 3'  # Initial theme until user changes
+        refresh_font = title_font = 'Courier 8'
+        main_info_font = 'Courier 20'
+        main_info_size = (10, 1)
+        UPDATE_FREQUENCY_MILLISECONDS = 1000 * 60 * 60  # update every hour by default until set
+        # by user
+
+        def choose_theme( location, size ):
+            """
+            A window to allow new themes to be tried out.
+            Changes the theme to the newly chosen one and returns theme's name
+            Automaticallyi switches to new theme and saves the setting in user settings file
+
+            :param location: (x,y) location of the Widget's window
+            :type location:  Tuple[int, int]
+            :param size: Size in pixels of the Widget's window
+            :type size: Tuple[int, int]
+            :return: The name of the newly selected theme
+            :rtype: None | str
+            """
+            layout = [ [ sg.Text( 'Try a theme' ) ],
+                       [ sg.Listbox( values = sg.theme_list( ), size = (20, 20), key = '-LIST-',
+                           enable_events = True ) ],
+                       [ sg.OK( ), sg.Cancel( ) ] ]
+
+            window = sg.Window( 'Look and Feel Browser', layout, location = location,
+                keep_on_top = True )
+            old_theme = sg.theme( )
+            while True:  # Event Loop
+                event, values = window.read( )
+                if event in (sg.WIN_CLOSED, 'Exit', 'OK', 'Cancel'):
+                    break
+                sg.theme( values[ '-LIST-' ][ 0 ] )
+                window.hide( )
+                # make at test window to the left of the current one
+                test_window = make_window(
+                    location = ((location[ 0 ] - size[ 0 ] * 1.2, location[ 1 ])),
+                    test_window = True )
+                test_window.read( close = True )
+                window.un_hide( )
+            window.close( )
+
+            # after choice made, save theme or restore the old one
+            if event == 'OK' and values[ '-LIST-' ]:
+                sg.theme( values[ '-LIST-' ][ 0 ] )
+                sg.user_settings_set_entry( '-theme-', values[ '-LIST-' ][ 0 ] )
+                return values[ '-LIST-' ][ 0 ]
+            else:
+                sg.theme( old_theme )
+            return None
+
+        def make_window( location, test_window = False ):
+            """
+            Defines the layout and creates the window for the main window
+            If the parm test_window is True, then a simplified, and EASY to close version is shown
+
+            :param location: (x,y) location to create the window
+            :type location: Tuple[int, int]
+            :param test_window: If True, then this is a test window & will close by clicking on it
+            :type test_window: bool
+            :return: newly created window
+            :rtype: sg.Window
+            """
+            title = sg.user_settings_get_entry( '-title-', '' )
+            if not test_window:
+                theme = sg.user_settings_get_entry( '-theme-', THEME )
+                sg.theme( theme )
+
+            # ------------------- Window Layout -------------------
+            # If this is a test window (for choosing theme), then uses some extra Text Elements
+            # to display theme info
+            # and also enables events for the elements to make the window easy to close
+            if test_window:
+                top_elements = [ [ sg.Text( title, size = (20, 1), font = title_font,
+                    justification = 'c', k = '-TITLE-', enable_events = True ) ],
+                                 [ sg.Text( 'Click to close', font = title_font,
+                                     enable_events = True ) ],
+                                 [ sg.Text( 'This is theme', font = title_font,
+                                     enable_events = True ) ],
+                                 [ sg.Text( sg.theme( ), font = title_font,
+                                     enable_events = True ) ] ]
+                right_click_menu = [ [ '' ], [ 'Exit', ] ]
+            else:
+                top_elements = [ [ sg.Text( title, size = (20, 1), font = title_font,
+                    justification = 'c', k = '-TITLE-' ) ] ]
+                right_click_menu = [ [ '' ],
+                                     [ 'Choose Title', 'Edit Me', 'New Theme', 'Save Location',
+                                       'Refresh', 'Set Refresh Rate', 'Show Refresh Info',
+                                       'Hide Refresh Info', 'Alpha',
+                                       [ str( x ) for x in range( 1, 11 ) ], 'Exit', ] ]
+
+            layout = top_elements + \
+                     [ [ sg.Text( '0', size = main_info_size, font = main_info_font,
+                         k = '-MAIN INFO-', justification = 'c', enable_events = test_window ) ],
+                       [ sg.pin( sg.Text( size = (15, 2), font = refresh_font, k = '-REFRESHED-',
+                           justification = 'c',
+                           visible = sg.user_settings_get_entry( '-show refresh-', True ) ) ) ] ]
+
+            # ------------------- Window Creation -------------------
+            return sg.Window( 'Desktop Widget Template', layout, location = location,
+                no_titlebar = True, grab_anywhere = True, margins = (0, 0),
+                element_justification = 'c',
+                element_padding = (0, 0),
+                alpha_channel = sg.user_settings_get_entry( '-alpha-', ALPHA ), finalize = True,
+                right_click_menu = right_click_menu, keep_on_top = True )
+
+        def main( location ):
+            """
+            Where execution begins
+            The Event Loop lives here, but the window creation is done in another function
+            This is an important design pattern
+
+            :param location: Location to create the main window if one is not found in the user
+            settings
+            :type location: Tuple[int, int]
+            """
+
+            window = make_window( sg.user_settings_get_entry( '-location-', location ) )
+
+            refresh_frequency = sg.user_settings_get_entry( '-fresh frequency-',
+                UPDATE_FREQUENCY_MILLISECONDS )
+
+            while True:  # Event Loop
+                # Normally a window.read goes here, but first we're updating the values in the
+                # window, then reading it
+                # First update the status information
+                window[ '-MAIN INFO-' ].update( 'Your Info' )
+                # for debugging show the last update date time
+                window[ '-REFRESHED-' ].update(
+                    datetime.datetime.now( ).strftime( "%m/%d/%Y\n%I:%M:%S %p" ) )
+
+                # -------------- Start of normal event loop --------------
+                event, values = window.read( timeout = refresh_frequency )
+                print( event, values )
+                if event in (sg.WIN_CLOSED, 'Exit'):  # standard exit test... ALWAYS do this
+                    break
+                if event == 'Edit Me':
+                    sg.execute_editor( __file__ )
+                elif event == 'Choose Title':
+                    new_title = sg.popup_get_text( 'Choose a title for your Widget',
+                        location = window.current_location( ), keep_on_top = True )
+                    if new_title is not None:
+                        window[ '-TITLE-' ].update( new_title )
+                        sg.user_settings_set_entry( '-title-', new_title )
+                elif event == 'Show Refresh Info':
+                    window[ '-REFRESHED-' ].update( visible = True )
+                    sg.user_settings_set_entry( '-show refresh-', True )
+                elif event == 'Save Location':
+                    sg.user_settings_set_entry( '-location-', window.current_location( ) )
+                elif event == 'Hide Refresh Info':
+                    window[ '-REFRESHED-' ].update( visible = False )
+                    sg.user_settings_set_entry( '-show refresh-', False )
+                elif event in [ str( x ) for x in range( 1, 11 ) ]:  # if Alpha Channel was chosen
+                    window.set_alpha( int( event ) / 10 )
+                    sg.user_settings_set_entry( '-alpha-', int( event ) / 10 )
+                elif event == 'Set Refresh Rate':
+                    choice = sg.popup_get_text(
+                        'How frequently to update window in seconds? (can be a float)',
+                        default_text = sg.user_settings_get_entry( '-fresh frequency-',
+                            UPDATE_FREQUENCY_MILLISECONDS ) / 1000,
+                        location = window.current_location( ), keep_on_top = True )
+                    if choice is not None:
+                        try:
+                            refresh_frequency = float( choice ) * 1000  # convert to milliseconds
+                            sg.user_settings_set_entry( '-fresh frequency-',
+                                float( refresh_frequency ) )
+                        except Exception as e:
+                            sg.popup_error( f'You entered an incorrect number of seconds: {choice}',
+                                f'Error: {e}', location = window.current_location( ),
+                                keep_on_top = True )
+                elif event == 'New Theme':
+                    loc = window.current_location( )
+                    if choose_theme( window.current_location( ), window.size ) is not None:
+                        window.close( )  # out with the old...
+                        window = make_window( loc )  # in with the new
+
+            window.close( )
+
+        if __name__ == '__main__':
+            # To start the window at a specific location, get this location on the command line
+            # The location should be in form x,y with no spaces
+            location = (None, None)  # assume no location provided
+            if len( sys.argv ) > 1:
+                location = sys.argv[ 1 ].split( ',' )
+                location = (int( location[ 0 ] ), int( location[ 1 ] ))
+            main( location )
+
+
+class DataSelector( ):
+    '''List search and selection'''
+    def show( self ):
+        sg.theme_background_color( '#0F0F0F' )
+        sg.theme_element_background_color( '#0F0F0F' )
+        sg.theme_element_text_color( '#D3D3D3' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_text_element_background_color('#0F0F0F' )
+        sg.theme_input_background_color( '#282828' )
+        sg.theme_text_color( '#B0C4DE' )
+        sg.theme_button_color( '#34353B' )
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        __font = 'Roboto 9'
+        __window = ( 200, 225 )
+        __button = ( 10, 1 )
+        __calendar = ( 100, 100 )
+
+        names = [ src.name for src in list( Source ) ]
+        layout = [ [ sg.Text( 'Search:', size = ( 25, 1 )  ) ],
+                   [ sg.Input( size = ( 25, 1 ), enable_events = True, key = '-INPUT-' ) ],
+                   [ sg.Text( r'', size = (100, 1) ) ],
+                   [ sg.Listbox( names, size = ( 25, 5 ), enable_events = True, key = '-LIST-', font = __font ) ],
+                   [ sg.Text( r'', size = (100, 1) ) ],
+                   [ sg.Button( 'Select', size = __button ), sg.Button( 'Exit', size = __button  ) ] ]
+
+        window = sg.Window( '', layout,
+            size = __window, font = __font, icon = __icon )
+        # Event Loop
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, 'Exit' ):  # always check for closed window
+                break
+            if values[ '-INPUT-' ] != '':  # if a keystroke entered in search field
+                search = values[ '-INPUT-' ]
+                new_values = [ x for x in names if search in x ]  # do the filtering
+                window[ '-LIST-' ].update( new_values )  # display in the listbox
+            else:
+                window[ '-LIST-' ].update( names )
+            if event == '-LIST-' and len( values[ '-LIST-' ] ):
+                sg.popup( 'Selected ', values[ '-LIST-' ],
+                    size = __window, font = __font, icon = __icon  )
+
         window.close( )
