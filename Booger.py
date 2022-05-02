@@ -960,8 +960,7 @@ class DataSelector( ):
                    [ sg.Text( r'', size = (100, 1) ) ],
                    [ sg.Button( 'Select', size = __button ), sg.Button( 'Exit', size = __button  ) ] ]
 
-        window = sg.Window( '', layout,
-            size = __window, font = __font, icon = __icon )
+        window = sg.Window( '', layout, size = __window, font = __font, icon = __icon )
         # Event Loop
         while True:
             event, values = window.read( )
@@ -974,7 +973,6 @@ class DataSelector( ):
             else:
                 window[ '-LIST-' ].update( names )
             if event == '-LIST-' and len( values[ '-LIST-' ] ):
-                sg.popup( 'Selected ', values[ '-LIST-' ],
-                    size = __window, font = __font, icon = __icon  )
+                sg.popup( 'Selected', values[ '-LIST-' ], font = __font, icon = __icon  )
 
         window.close( )
