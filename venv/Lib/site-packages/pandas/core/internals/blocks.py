@@ -708,9 +708,18 @@ class Block(PandasObject):
 
         else:
             # split so that we only upcast where necessary
-            return self.split_and_operate(
-                type(self).replace, to_replace, value, inplace=True
-            )
+            blocks = []
+            for i, nb in enumerate(self._split()):
+                blocks.extend(
+                    type(self).replace(
+                        nb,
+                        to_replace=to_replace,
+                        value=value,
+                        inplace=True,
+                        mask=mask[i : i + 1],
+                    )
+                )
+            return blocks
 
     @final
     def _replace_regex(
@@ -865,6 +874,13 @@ class Block(PandasObject):
                 mask=mask,
             )
         else:
+            if value is None:
+                # gh-45601, gh-45836
+                nb = self.astype(np.dtype(object), copy=False)
+                if nb is self and not inplace:
+                    nb = nb.copy()
+                putmask_inplace(nb.values, mask, value)
+                return [nb]
             return self.replace(
                 to_replace=to_replace, value=value, inplace=inplace, mask=mask
             )

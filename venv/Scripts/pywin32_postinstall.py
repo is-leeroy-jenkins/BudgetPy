@@ -285,7 +285,7 @@ def RegisterPythonwin(register=True, lib_dir=None):
 
     keys_vals = [
         (
-            "Software\\Microsoft\\Windows\\CurrentVersion\\Client Paths\\Pythonwin.exe",
+            "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Pythonwin.exe",
             "",
             pythonwin_exe,
         ),
@@ -684,7 +684,7 @@ def verify_destination(location):
     return location
 
 
-if __name__ == "__main__":
+def main():
     import argparse
 
     parser = argparse.ArgumentParser(
@@ -765,3 +765,7 @@ if __name__ == "__main__":
     if args.remove:
         if not is_bdist_wininst:
             uninstall(args.destination)
+
+
+if __name__ == "__main__":
+    main()

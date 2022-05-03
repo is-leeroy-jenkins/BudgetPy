@@ -1,7 +1,7 @@
+from libc.errno cimport EINTR, EAGAIN
 from cpython cimport PyErr_CheckSignals
-from libc.errno cimport EAGAIN, EINTR
 
-from .libzmq cimport ZMQ_ETERM, zmq_errno
+from .libzmq cimport zmq_errno, ZMQ_ETERM
 
 
 cdef inline int _check_rc(int rc, bint error_without_errno=True) except -1:

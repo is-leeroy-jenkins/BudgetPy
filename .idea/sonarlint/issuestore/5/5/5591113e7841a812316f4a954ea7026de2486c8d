@@ -1,8 +1,100 @@
 
-@python:S1481"'Remove the unused local variable "row".(ÿ¹œú
-@python:S1481"'Remove the unused local variable "col".(ÿ¹œú
-Kpython:S1481ü"-Remove the unused local variable "img_error".(»÷öúÿÿÿÿ
-Hpython:S1481õ"/Remove the unused local variable "USE_FADE_IN".(û•âå
-Upython:S5754•"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-?python:S1110™"!Remove those useless parentheses.(ù¤éúÿÿÿÿ
-Gpython:S1481Ú".Remove the unused local variable "__calendar".(ŞüÙÇ
+mpython:S1192v"IDefine a constant instead of duplicating this literal 'Roboto 9' 9 times.(¬êÊ÷ıÿÿÿÿ8ñ†Õ¸ˆ0
+˜python:S1192Ë"xDefine a constant instead of duplicating this literal r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico' 5 times.(İòã8ñ†Õ¸ˆ0
+wpython:S1192ì"RDefine a constant instead of duplicating this literal '-fresh frequency-' 3 times.(÷Àà©şÿÿÿÿ8ñ†Õ¸ˆ0
+tpython:S1192Õ"ODefine a constant instead of duplicating this literal '-show refresh-' 3 times.(ˆõÓÿıÿÿÿÿ8ñ†Õ¸ˆ0
+ipython:S1192¡"JDefine a constant instead of duplicating this literal 'Bodoni MT' 3 times.(¾üØv8ñ†Õ¸ˆ0
+qpython:S1192"QDefine a constant instead of duplicating this literal 'Budget Execution' 3 times.(úèô­8ñ†Õ¸ˆ0
+kpython:LineLengthĞ"FThe line contains 154 characters which is greater than 120 authorized.(¡î”†8ñ†Õ¸ˆ0
+ppython:LineLengthÔ"FThe line contains 141 characters which is greater than 120 authorized.(‘ğˆàúÿÿÿÿ8ñ†Õ¸ˆ0
+kpython:LineLength‡"FThe line contains 122 characters which is greater than 120 authorized.(¨æƒ¨8ñ†Õ¸ˆ0
+ppython:LineLengthˆ"FThe line contains 123 characters which is greater than 120 authorized.(»¬ûÿÿÿÿ8ñ†Õ¸ˆ0
+kpython:LineLength‰"FThe line contains 125 characters which is greater than 120 authorized.(ö±˜È8ñ†Õ¸ˆ0
+ppython:LineLengthÆ"FThe line contains 154 characters which is greater than 120 authorized.(ÏÎËµÿÿÿÿÿ8ñ†Õ¸ˆ0
+kpython:LineLength"FThe line contains 130 characters which is greater than 120 authorized.(ÿ¹œú8ñ†Õ¸ˆ0
+kpython:LineLengthş"FThe line contains 622 characters which is greater than 120 authorized.(Â’Ñ8ñ†Õ¸ˆ0
+jpython:LineLength"FThe line contains 604 characters which is greater than 120 authorized.(ÿ‡ë8ñ†Õ¸ˆ0
+ppython:LineLengthË"FThe line contains 155 characters which is greater than 120 authorized.(‰ÛÎóøÿÿÿÿ8ñ†Õ¸ˆ0
+kpython:LineLengthÚ"FThe line contains 134 characters which is greater than 120 authorized.(¬ÄÅ¹8ñ†Õ¸ˆ0
+kpython:LineLength‚"FThe line contains 132 characters which is greater than 120 authorized.(²‚“„8ñ†Õ¸ˆ0
+kpython:LineLength„"FThe line contains 129 characters which is greater than 120 authorized.(’ŠÉã8ñ†Õ¸ˆ0
+ppython:LineLengthá"FThe line contains 134 characters which is greater than 120 authorized.(²úøøøÿÿÿÿ8ñ†Õ¸ˆ0
+6python:S1720"Add a docstring to this module.8ñ†Õ¸ˆ0
+|python:S104"fFile "Booger.py" has 1,011 lines, which is greater than 1,000 authorized. Split it into smaller files.8ñ†Õ¸ˆ0
+fpython:S2208"GImport only needed names or import the module and then use its members.(ú¶8ñ†Õ¸ˆ0
+kpython:S2208"GImport only needed names or import the module and then use its members.(ÍŠ¶–şÿÿÿÿ8ñ†Õ¸ˆ0
+[python:S1722"<Add inheritance from "object" or some other new-style class.(ô–ƒÇ8ñ†Õ¸ˆ0
+Spython:S3801"4Refactor this function to use "return" consistently.(Ï±©¡8‡Õ¸ˆ0
+Xpython:S3801"4Refactor this function to use "return" consistently.(ê¹¨’ûÿÿÿÿ8‡Õ¸ˆ0
+Spython:S3801("4Refactor this function to use "return" consistently.(ŞüÄ¢8‡Õ¸ˆ0
+Spython:S38016"4Refactor this function to use "return" consistently.(ŒüÂ¶8‡Õ¸ˆ0
+Zpython:S1722<"<Add inheritance from "object" or some other new-style class.(ß½‰I8‡Õ¸ˆ0
+Spython:S3801C"4Refactor this function to use "return" consistently.(Ï±©¡8‡Õ¸ˆ0
+Xpython:S3801M"4Refactor this function to use "return" consistently.(ê¹¨’ûÿÿÿÿ8‡Õ¸ˆ0
+Spython:S3801W"4Refactor this function to use "return" consistently.(ŞüÄ¢8‡Õ¸ˆ0
+Spython:S3801e"4Refactor this function to use "return" consistently.(ŒüÂ¶8‡Õ¸ˆ0
+[python:S1722j"<Add inheritance from "object" or some other new-style class.(ÖÊäş8‡Õ¸ˆ0
+<python:S2325l"Make this method static.(Ö€Àÿÿÿÿÿ8‡Õ¸ˆ0
+apython:S1722‹"<Add inheritance from "object" or some other new-style class.(‚§¬ßıÿÿÿÿ8‡Õ¸ˆ0
+=python:S2325"Make this method static.(Ö€Àÿÿÿÿÿ8‡Õ¸ˆ0
+apython:S1722­"<Add inheritance from "object" or some other new-style class.(ˆ“±Öúÿÿÿÿ8‡Õ¸ˆ0
+Tpython:S3801²"4Refactor this function to use "return" consistently.(û­¬²8‡Õ¸ˆ0
+Tpython:S3801¾"4Refactor this function to use "return" consistently.(ŒüÂ¶8‡Õ¸ˆ0
+apython:S1722á"<Add inheritance from "object" or some other new-style class.(ó…æúÿÿÿÿ8‡Õ¸ˆ0
+Ypython:S3801é"4Refactor this function to use "return" consistently.(ğŠË¹ùÿÿÿÿ8‘‡Õ¸ˆ0
+[python:S1722¡"<Add inheritance from "object" or some other new-style class.(ê‘”G8‘‡Õ¸ˆ0
+xpython:S4487¤"XRemove this unread private attribute '__response' or refactor the code to use its value.(¹ìÕ©8‘‡Õ¸ˆ0
+Spython:S3801§"4Refactor this function to use "return" consistently.(¬G8‘‡Õ¸ˆ0
+apython:S1722Ö"<Add inheritance from "object" or some other new-style class.(Ÿ³‰¼üÿÿÿÿ8‘‡Õ¸ˆ0
+=python:S2325Ø"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+\python:S1722ü"<Add inheritance from "object" or some other new-style class.(›¯ì›8‘‡Õ¸ˆ0
+=python:S2325ş"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+Gpython:S1481"'Remove the unused local variable "row".(ÿ¹œú8‘‡Õ¸ˆ0
+Gpython:S1481"'Remove the unused local variable "col".(ÿ¹œú8‘‡Õ¸ˆ0
+\python:S1722—"<Add inheritance from "object" or some other new-style class.(…«ö8‘‡Õ¸ˆ0
+=python:S2325š"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+\python:S1722²"<Add inheritance from "object" or some other new-style class.(Ğ›‚è8‘‡Õ¸ˆ0
+=python:S2325µ"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+apython:S1722Î"<Add inheritance from "object" or some other new-style class.(³ŒÔİùÿÿÿÿ8‘‡Õ¸ˆ0
+=python:S2325Ñ"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+\python:S1722é"<Add inheritance from "object" or some other new-style class.(€œı8‘‡Õ¸ˆ0
+Opython:S1481õ"/Remove the unused local variable "USE_FADE_IN".(û•âå8‘‡Õ¸ˆ0
+Rpython:S1481ü"-Remove the unused local variable "img_error".(»÷öúÿÿÿÿ8‘‡Õ¸ˆ0
+=python:S2325ë"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+ypython:S3776ë"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+Zpython:S139›"6Move this trailing comment on the previous empty line.(ÖÈÀµúÿÿÿÿ8‘‡Õ¸ˆ0
+Upython:S139¶"6Move this trailing comment on the previous empty line.(»ª…Ì8‘‡Õ¸ˆ0
+Upython:S139¾"6Move this trailing comment on the previous empty line.(µĞ¬8‘‡Õ¸ˆ0
+\python:S1722Ï"<Add inheritance from "object" or some other new-style class.(ëßóı8‘‡Õ¸ˆ0
+vpython:FunctionComplexityÑ"DFunction has a complexity of 16 which is greater than 15 authorized.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+=python:S2325Ñ"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+ypython:S3776Ñ"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+Apython:S1720ã"!Add a docstring to this function.(š»‚­8‘‡Õ¸ˆ0
+\python:S5754•"<Specify an exception class to catch or reraise the exception(ˆÊÉ·8‘‡Õ¸ˆ0
+apython:S1722»"<Add inheritance from "object" or some other new-style class.(ÜÌÓ¥ûÿÿÿÿ8‘‡Õ¸ˆ0
+Npython:S1481Ê".Remove the unused local variable "__calendar".(ŞüÙÇ8‘‡Õ¸ˆ0
+=python:S2325½"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+apython:S1722ñ"<Add inheritance from "object" or some other new-style class.(•‚ÅÜıÿÿÿÿ8‘‡Õ¸ˆ0
+–python:S138ó"rThis method "show" has 158 lines of code, which is greater than the 100 authorized. Split it into smaller methods.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+=python:S2325ó"Make this method static.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+ypython:S3776ó"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(Ö€Àÿÿÿÿÿ8‘‡Õ¸ˆ0
+Zpython:S139ô"6Move this trailing comment on the previous empty line.(™çÄ¯ûÿÿÿÿ8‘‡Õ¸ˆ0
+Upython:S139õ"6Move this trailing comment on the previous empty line.(ÿ‚ß8‘‡Õ¸ˆ0
+Upython:S139ù"6Move this trailing comment on the previous empty line.(û´¾8‘‡Õ¸ˆ0
+Zpython:S139‘"6Move this trailing comment on the previous empty line.(¯ôşÍúÿÿÿÿ8‘‡Õ¸ˆ0
+Fpython:S1110™"!Remove those useless parentheses.(ù¤éúÿÿÿÿ8‘‡Õ¸ˆ0
+Zpython:S139ï"6Move this trailing comment on the previous empty line.(¯ôşÍúÿÿÿÿ8‘‡Õ¸ˆ0
+Zpython:S139û"6Move this trailing comment on the previous empty line.(–»éãşÿÿÿÿ8‘‡Õ¸ˆ0
+Upython:S139"6Move this trailing comment on the previous empty line.(›Ë®8‘‡Õ¸ˆ0
+Zpython:S139˜"6Move this trailing comment on the previous empty line.(©ğüÎÿÿÿÿÿ8‘‡Õ¸ˆ0
+Zpython:S139¢"6Move this trailing comment on the previous empty line.(ëÖòÖúÿÿÿÿ8‘‡Õ¸ˆ0
+Upython:S139£"6Move this trailing comment on the previous empty line.(Œ¦š—8‘‡Õ¸ˆ0
+Upython:S139ª"6Move this trailing comment on the previous empty line.(áºø‚8‘‡Õ¸ˆ0
+apython:S1722±"<Add inheritance from "object" or some other new-style class.(Øò‡¯üÿÿÿÿ8‘‡Õ¸ˆ0
+Ypython:S3801·"4Refactor this function to use "return" consistently.(›Â›øÿÿÿÿ8‘‡Õ¸ˆ0
+Ypython:S3801Á"4Refactor this function to use "return" consistently.(Â‚úèûÿÿÿÿ8‘‡Õ¸ˆ0
+Npython:S1481Ú".Remove the unused local variable "__calendar".(ŞüÙÇ8‘‡Õ¸ˆ0
+Upython:S139è"6Move this trailing comment on the previous empty line.(Âª§„8‘‡Õ¸ˆ0
+Zpython:S139ê"6Move this trailing comment on the previous empty line.(ÓÈŸ“üÿÿÿÿ8‘‡Õ¸ˆ0
+Zpython:S139ì"6Move this trailing comment on the previous empty line.(Á’ÖŞûÿÿÿÿ8 ‡Õ¸ˆ0
+Upython:S139í"6Move this trailing comment on the previous empty line.(Ïçêó8°‡Õ¸ˆ0
