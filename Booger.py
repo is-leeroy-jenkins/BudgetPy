@@ -1,10 +1,9 @@
-from Pillow import Image, ImageTk, ImageSequence
+from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from sys import exit
 import Static
 from Ninja import *
 from Static import *
-import fits
 import textwrap
 import datetime
 
@@ -114,7 +113,7 @@ class FileDialog( ):
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#163754' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\file_browse.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
 
@@ -147,7 +146,7 @@ class FolderDialog( ):
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#163754' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\folder_browse.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
 
@@ -224,9 +223,9 @@ class Message( ):
 # Error( exception )
 class Error( ):
     '''class that displays error message'''
+    __message = None
     __cause = None
     __method = None
-    __message = None
     __exception = None
 
     @property
@@ -241,9 +240,9 @@ class Error( ):
 
     def __init__( self, exception = None ):
         self.__exception = exception if isinstance( exception, BudgetException ) else None
-        self.__message = self.__exception.message
-        self.__cause = self.__exception.cause
-        self.__method = self.__exception.method
+        self.__message = self.__exception.message if isinstance( exception, BudgetException ) else None
+        self.__cause = self.__exception.cause if isinstance( exception, BudgetException ) else ''
+        self.__method = self.__exception.method if isinstance( exception, BudgetException ) else ''
 
     def show( self ):
         sg.theme_background_color( '#0F0F0F' )
@@ -254,17 +253,18 @@ class Error( ):
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#163754' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\error.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __size = ( 500, 250 )
         layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( self.__message, font = 'Roboto 10', text_color = '#FF0820' ) ],
+                   [ sg.Text( self.__message, font = ( 'Roboto', 9, 'bold' ), text_color = '#FF0820' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, key = '-SRC-', size = ( 150, 1 )  ) ],
-                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, key = '-MTH-', size = ( 150, 1 )  ) ],
-                   [ sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, key = '-MSG-', size = ( 150, 1 )  ) ],
+                   [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, key = '-SRC-', size = ( 150, 1 ) ) ],
+                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, key = '-MTH-', size = ( 150, 1 ) ) ],
+                   [ sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, key = '-MSG-', size = ( 150, 1 ) ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 1, 1 ) ) ] ]
+                   [ sg.Text( r'', size = ( 1, 1 ) ) ],
+                   [  sg.Text( r'', size = ( 15, 1 ) ), sg.Text( r'', size = ( 15, 1 ) ), sg.Text( r'', size = ( 15, 1 ) ), sg.Ok( size = ( 10, 1 ), key = '-OK-' ) ] ]
 
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
@@ -274,15 +274,18 @@ class Error( ):
 
         event, values = window.read( )
 
-        sg.popup( 'Budget Error', event, values, values[ '-SRC-' ],
-            values[ '-MTH-' ],
-            values[ '-MSG-' ],
-            text_color = r'#ADDFF7',
-            font = __font,
-            icon = __icon )
-
-        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+        if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT ):
             window.close( )
+        elif event == '-OK-':
+            sg.popup( 'Results', event, values, values[ '-SRC-' ],
+                values[ '-MTH-' ],
+                values[ '-MSG-' ],
+                text_color = r'#ADDFF7',
+                font = __font,
+                icon = __icon )
+
+        window.close()
+
 
 
 # Input( question )
@@ -313,7 +316,7 @@ class Input( ):
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#163754' )
-        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\question.ico'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __size = ( 450, 200 )
 
