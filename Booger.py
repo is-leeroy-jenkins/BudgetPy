@@ -118,16 +118,6 @@ class FileDialog( ):
     __filepath = None
 
     @property
-    def filepath( self ):
-        if isinstance( self.__filepath, str ) and self.__filepath != '':
-            return self.__filepath
-
-    @filepath.setter
-    def filepath( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__filepath = value
-
-    @property
     def themebackground( self ):
         if isinstance( self.__themebackground, str ) and self.__themebackground != '':
             return self.__themebackground
@@ -236,6 +226,16 @@ class FileDialog( ):
     def themefont( self, value ):
         if isinstance( value, tuple ) :
             self.__themefont = value
+
+    @property
+    def filepath( self ):
+        if isinstance( self.__filepath, str ) and self.__filepath != '':
+            return self.__filepath
+
+    @filepath.setter
+    def filepath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__filepath = value
 
     def __init__( self ):
         self.__themebackground = '#0F0F0F'
@@ -277,7 +277,11 @@ class FileDialog( ):
             icon = self.__icon,
             size = self.__formsize )
 
-        event, values = window.read( )
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
+                break
+
         window.close( )
 
 
@@ -294,17 +298,7 @@ class FolderDialog( ):
     __icon = None
     __formsize = None
     __themefont = None
-    __filepath = None
-
-    @property
-    def filepath( self ):
-        if isinstance( self.__filepath, str ) and self.__filepath != '':
-            return self.__filepath
-
-    @filepath.setter
-    def filepath( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__filepath = value
+    __folderpath = None
 
     @property
     def themebackground( self ):
@@ -416,6 +410,16 @@ class FolderDialog( ):
         if isinstance( value, tuple ) :
             self.__themefont = value
 
+    @property
+    def folderpath( self ):
+        if isinstance( self.__folderpath, str ) and self.__folderpath != '':
+            return self.__folderpath
+
+    @folderpath.setter
+    def folderpath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__folderpath = value
+
     def __init__( self ):
         self.__themebackground = '#0F0F0F'
         self.__themetextcolor = '#D3D3D3'
@@ -434,14 +438,14 @@ class FolderDialog( ):
             return self.__filepath
 
     def show( self ):
-        sg.theme_background_color( '#0F0F0F' )
-        sg.theme_element_background_color( '#0F0F0F' )
-        sg.theme_element_text_color( '#D3D3D3' )
-        sg.theme_input_text_color( '#FFFFFF' )
-        sg.theme_text_element_background_color('#0F0F0F' )
-        sg.theme_input_background_color( '#282828' )
-        sg.theme_text_color( '#B0C4DE' )
-        sg.theme_button_color( '#163754' )
+        sg.theme_background_color( self.__themebackground )
+        sg.theme_element_background_color( self.__elementbackcolor )
+        sg.theme_element_text_color( self.__elementforecolor )
+        sg.theme_input_text_color( self.__inputforecolor )
+        sg.theme_text_element_background_color( self.__textbackcolor )
+        sg.theme_input_background_color( self.__inputbackcolor )
+        sg.theme_text_color( self.__themetextcolor )
+        sg.theme_button_color( self.__buttoncolor )
 
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( 'Search for Directory' ) ],
@@ -452,12 +456,15 @@ class FolderDialog( ):
                    [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
         window = sg.Window( 'Budget Execution', layout,
-            font = __font,
-            icon = __icon,
-            size = __size,
-            titlebar_background_color = '#0F0F0F' )
+            font = self.__themefont,
+            icon = self.__icon,
+            size = self.__formsize )
 
-        event, values = window.read( )
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
+                break
+
         window.close( )
 
 
