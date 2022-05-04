@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;" />
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +42,14 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f2a5c594-cc93-4b58-a719-8d98bb0dc7ce" />
+        <option name="url" value="https://github.com/KarmaScripter/BudgetPy.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Execution.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/FileSys.py" root0="SKIP_INSPECTION" />
@@ -85,8 +78,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/teppler/source/repos/BudgetPy/venv/Scripts/python.exe&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;zielu.gittoolbox.app.config.v2&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/source/repos/BudgetPy&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
@@ -98,12 +91,11 @@
 }</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings module-name="BudgetPy" sdk-home="C:\Users\teppler\source\compilers\py\python\python.exe" working-directory="$PROJECT_DIR$">
-        <option name="mySdkHome" value="C:\Users\teppler\source\compilers\py\python\python.exe" />
+      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
+        <option name="myCustomStartScript" value="" />
+        <option name="mySdkHome" value="C:\Users\terry\source\repos\BudgetPy\venv\Scripts\python.exe" />
         <option name="myModuleName" value="BudgetPy" />
         <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
-        <option name="myAddContentRoots" value="false" />
-        <option name="myAddSourceRoots" value="false" />
       </console-settings>
     </option>
   </component>
@@ -152,41 +144,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00024" summary="updates from main rig;">
-      <created>1651275250166</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1651275250166</updated>
-    </task>
-    <task id="LOCAL-00025" summary="updates from main rig;">
-      <created>1651275475027</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1651275475027</updated>
-    </task>
-    <task id="LOCAL-00026" summary="updates from main rig;">
-      <created>1651275616443</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1651275616443</updated>
-    </task>
-    <task id="LOCAL-00027" summary="updates from main rig;">
-      <created>1651276101199</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1651276101199</updated>
-    </task>
-    <task id="LOCAL-00028" summary="updates from main rig;">
-      <created>1651276587259</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1651276587259</updated>
     </task>
     <task id="LOCAL-00029" summary="updates from main rig;">
       <created>1651277281362</created>
@@ -483,20 +440,55 @@
       <updated>1651490330404</updated>
     </task>
     <task id="LOCAL-00071" summary="updates from main rig;">
-      <created>1651503899913</created>
+      <created>1651490411285</created>
       <option name="number" value="00071" />
       <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1651503899913</updated>
+      <updated>1651490411285</updated>
     </task>
-    <task id="LOCAL-00072" summary="from other rig;">
-      <created>1651517697721</created>
+    <task id="LOCAL-00072" summary="updates from main rig;">
+      <created>1651531007260</created>
       <option name="number" value="00072" />
       <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1651517697722</updated>
+      <updated>1651531007260</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="updates from main rig;">
+      <created>1651619159679</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1651619159679</updated>
+    </task>
+    <task id="LOCAL-00074" summary="updates from main rig;">
+      <created>1651619616305</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1651619616305</updated>
+    </task>
+    <task id="LOCAL-00075" summary="updates from main rig;">
+      <created>1651623671613</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1651623671613</updated>
+    </task>
+    <task id="LOCAL-00076" summary="updates from main rig;">
+      <created>1651623874404</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1651623874404</updated>
+    </task>
+    <task id="LOCAL-00077" summary="updates from main rig;">
+      <created>1651660977241</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1651660977241</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
