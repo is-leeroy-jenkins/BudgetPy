@@ -35,6 +35,7 @@
       <w>budgetingcontrols</w>
       <w>budgetoutlaysid</w>
       <w>budgetyear</w>
+      <w>buttoncolor</w>
       <w>carryin</w>
       <w>carryoveravailabilitypercentage</w>
       <w>carryoverestimatesid</w>
@@ -72,6 +73,9 @@
       <w>droptable</w>
       <w>dropview</w>
       <w>eaed</w>
+      <w>elementbackcolor</w>
+      <w>elementbackground</w>
+      <w>elementforecolor</w>
       <w>enddate</w>
       <w>epasiteid</w>
       <w>estimatedrecoveries</w>
@@ -91,6 +95,8 @@
       <w>focname</w>
       <w>folderpath</w>
       <w>forcepage</w>
+      <w>formbackground</w>
+      <w>formsize</w>
       <w>ftebudgetingcontrol</w>
       <w>ftecontrolflag</w>
       <w>ftespendingcontrol</w>
@@ -102,8 +108,12 @@
       <w>hrorgcode</w>
       <w>hrorgname</w>
       <w>humanresourceorganizationsid</w>
+      <w>iconpath</w>
       <w>imagefolder</w>
       <w>increaserestriction</w>
+      <w>inputbackcolor</w>
+      <w>inputbackground</w>
+      <w>inputforecolor</w>
       <w>interframe</w>
       <w>lastactivitydate</w>
       <w>lastdocumentdate</w>
@@ -229,6 +239,11 @@
       <w>supplementals</w>
       <w>taxationcode</w>
       <w>teppler</w>
+      <w>textbackcolor</w>
+      <w>textforecolor</w>
+      <w>themebackground</w>
+      <w>themefont</w>
+      <w>themetextcolor</w>
       <w>totalagreementreimbursables</w>
       <w>totalauthority</w>
       <w>totalspendout</w>
