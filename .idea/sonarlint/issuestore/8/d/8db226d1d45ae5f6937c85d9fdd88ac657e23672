@@ -1,14 +1,0 @@
-
-{python:S1192û"bDefine a constant instead of duplicating this literal 'Foreign key into Component table.' 3 times.(î»®š
-ãpython:S1192­"ÉDefine a constant instead of duplicating this literal 'The visible text to be assigned to the item. Optional. If this entry or the entire column is missing, the text is the same as the value.' 3 times.(ÍóšÚ
-çpython:S1192˜"ÈDefine a constant instead of duplicating this literal 'Required foreign key into the Component Table, specifying the component for which to return a path when called through LocateComponent.' 3 times.(ƒó¸şÿÿÿÿ
-Õpython:S1192"¼Define a constant instead of duplicating this literal 'A positive integer used to determine the ordering of the items within one list..The integers do not have to be consecutive.' 3 times.(üéØ
-~python:S1192‹"`Define a constant instead of duplicating this literal 'The key for the registry value.' 3 times.(æÔ¤ıÿÿÿÿ
-Ïpython:S1192Ö"°Define a constant instead of duplicating this literal 'Number that determines the sort order in which the actions are to be executed.  Leave blank to suppress action.' 6 times.(ûÒŸÜûÿÿÿÿ
-¢python:S1192Ô"ƒDefine a constant instead of duplicating this literal 'Name of action to invoke, either in the engine or the handler DLL.' 6 times.(„¯ıÿÿÿÿ
-Èpython:S1192¯"¯Define a constant instead of duplicating this literal 'The value string associated with this item. Selecting the line will set the associated property to this value.' 3 times.(’à¾4
-xpython:S1192â"_Define a constant instead of duplicating this literal 'Source to associated component' 3 times.(ò‘¯æ
-rpython:S1192ˆ"YDefine a constant instead of duplicating this literal 'The registry value name.' 3 times.(• Ñ¶
-python:S1192Œ"aDefine a constant instead of duplicating this literal 'Size of file in bytes (integer).' 5 times.(»÷ÆØÿÿÿÿÿ
-úpython:S1192Õ"àDefine a constant instead of duplicating this literal 'Optional expression which skips the action if evaluates to expFalse.If the expression syntax is invalid, the engine will terminate, returning iesBadActionData.' 6 times.(¯±× 
-{python:S1192‡"bDefine a constant instead of duplicating this literal 'Primary key, non-localized token.' 7 times.(ØÖÚ‹

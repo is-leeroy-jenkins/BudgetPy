@@ -1,18 +1,0 @@
-
-npython:S117'"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-mpython:S1174"VRename this parameter "cxnSpLocks" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş Æ
-ipython:S1176"RRename this parameter "endCxn" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚Üô®
-npython:S1177"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-mpython:S1175"QRename this parameter "stCxn" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰‹›èûÿÿÿÿ
-rpython:S117H"VRename this parameter "cNvCxnSpPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢İËÜÿÿÿÿÿ
-mpython:S117G"QRename this parameter "cNvPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(È‚¼¦úÿÿÿÿ
-mpython:S117]"VRename this parameter "fPublished" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑİØÿ
-qpython:S117Y"URename this parameter "nvCxnSpPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(úâÊùúÿÿÿÿ
-lpython:S117Z"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
-hpython:S117m"QRename this parameter "cNvPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÌÈó˜
-jpython:S117m"SRename this parameter "cNvSpPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÌÈó˜
-spython:S117ƒ"VRename this parameter "fLocksText" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í„Öòüÿÿÿÿ
-npython:S117‚"VRename this parameter "fPublished" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑİØÿ
-jpython:S117„"RRename this parameter "nvSpPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(×µ“
-mpython:S117…"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
-opython:S117‡"RRename this parameter "txBody" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÜŒ–“ûÿÿÿÿ

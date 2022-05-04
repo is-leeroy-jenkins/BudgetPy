@@ -1,15 +1,0 @@
-
-lpython:S1192…"NDefine a constant instead of duplicating this literal r"'(''|[^'])*'" 4 times.(²Òâ‡ÿÿÿÿÿ
-gpython:S1192ç"NDefine a constant instead of duplicating this literal r'"(""|[^"])*"' 3 times.(´áÕı
-fpython:S1192¿"HDefine a constant instead of duplicating this literal r'[^/*]+' 3 times.(Ş¥é·ûÿÿÿÿ
-fpython:S1192°"HDefine a constant instead of duplicating this literal r'[0-9]+' 4 times.(ã¶ØÑÿÿÿÿÿ
-Vpython:S5857?"9Replace this use of a reluctant quantifier with "[^\n]*".(ŞÌ¹‹úÿÿÿÿ
-=python:S6326@"%Replace spaces with quantifier `{3}`.(š’¸Æ
-Spython:S2836‘"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-Rpython:S1135’"4Complete the task associated to this "TODO" comment.(ì¶æÕÿÿÿÿÿ
-Upython:S6019"<Remove the '?' from this unnecessarily reluctant quantifier.(Å´®À
-mpython:S3776¶"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(î“å¨
-Mpython:S1135Ó"4Complete the task associated to this "TODO" comment.(£–šî
-Rpython:S1135å"4Complete the task associated to this "TODO" comment.(ƒÈ“äıÿÿÿÿ
-Upython:S5720®"<Rename "text" to "self" or add the missing "self" parameter.(·ŸÔ˜
-Upython:S5720ï"<Rename "text" to "self" or add the missing "self" parameter.(·ŸÔ˜

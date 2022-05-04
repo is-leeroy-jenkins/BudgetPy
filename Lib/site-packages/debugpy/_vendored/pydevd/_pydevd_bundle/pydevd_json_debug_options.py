@@ -1,11 +1,5 @@
-import sys
 import json
-from _pydev_bundle import pydev_log
-try:
-    import urllib
-    urllib.unquote  # noqa
-except Exception:
-    import urllib.parse as urllib
+import urllib.parse as urllib_parse
 
 
 class DebugOptions(object):
@@ -19,6 +13,7 @@ class DebugOptions(object):
         'flask_debug',
         'stop_on_entry',
         'max_exception_stack_frames',
+        'gui_event_loop',
     ]
 
     def __init__(self):
@@ -30,6 +25,7 @@ class DebugOptions(object):
         self.flask_debug = False
         self.stop_on_entry = False
         self.max_exception_stack_frames = 0
+        self.gui_event_loop = 'matplotlib'
 
     def to_json(self):
         dct = {}
@@ -92,6 +88,9 @@ class DebugOptions(object):
 
         self.max_exception_stack_frames = int_parser(args.get('maxExceptionStackFrames', 0))
 
+        if 'guiEventLoop' in args:
+            self.gui_event_loop = str(args['guiEventLoop'])
+
 
 def int_parser(s, default_value=0):
     try:
@@ -104,24 +103,9 @@ def bool_parser(s):
     return s in ("True", "true", "1", True, 1)
 
 
-if sys.version_info >= (3,):
+def unquote(s):
+    return None if s is None else urllib_parse.unquote(s)
 
-    def unquote(s):
-        return None if s is None else urllib.unquote(s)
-
-else:
-
-    # In Python 2, urllib.unquote doesn't handle Unicode strings correctly,
-    # so we need to convert to ASCII first, unquote, and then decode.
-    def unquote(s):
-        if s is None:
-            return None
-        if not isinstance(s, bytes):
-            s = bytes(s)
-        s = urllib.unquote(s)
-        if isinstance(s, bytes):
-            s = s.decode('utf-8')
-        return s
 
 DEBUG_OPTIONS_PARSER = {
     'WAIT_ON_ABNORMAL_EXIT': bool_parser,

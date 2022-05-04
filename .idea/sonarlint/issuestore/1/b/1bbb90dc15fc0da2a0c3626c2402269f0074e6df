@@ -1,65 +1,0 @@
-
-Bpython:S5869"*Remove duplicates in this character class.(¿Àı
-ipython:S100X"RRename method "_bufferedBytes" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦ÅÖ¡
-fpython:S100["ORename method "_readStream" to match the regular expression ^[a-z_][a-z0-9_]*$.(‹Ùš
-spython:S117e"\Rename this local variable "bufferIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÏÚÒş
-tpython:S117f"]Rename this local variable "bufferOffset" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙÔ£ä
-ypython:S117i"]Rename this local variable "bufferedData" to match the regular expression ^[_a-z][a-z0-9_]*$.(­˜şÇşÿÿÿÿ
-rpython:S117l"\Rename this local variable "bytesToRead" to match the regular expression ^[_a-z][a-z0-9_]*$.(äÍå'
-vpython:S117c"_Rename this local variable "remainingBytes" to match the regular expression ^[_a-z][a-z0-9_]*$.(”ç˜
-jpython:S100b"SRename method "_readFromBuffer" to match the regular expression ^[a-z_][a-z0-9_]*$.(œ³Å
-rpython:S117„"ZRename this local variable "isUnicode" to match the regular expression ^[_a-z][a-z0-9_]*$.(äş©ˆ
-rpython:S1542}"URename function "HTMLInputStream" to match the regular expression ^[a-z_][a-z0-9_]*$.(È†éúÿÿÿÿ
-vpython:S116œ"YRename this field "_defaultChunkSize" to match the regular expression ^[_a-z][_a-z0-9]*$.(ïî©Çúÿÿÿÿ
-jpython:S116Á"SRename this field "chunkOffset" to match the regular expression ^[_a-z][_a-z0-9]*$.(”Ì‡s
-mpython:S116·"PRename this field "newLines" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÿ õˆøÿÿÿÿ
-qpython:S116¹"TRename this field "charEncoding" to match the regular expression ^[_a-z][_a-z0-9]*$.(¿¹˜Şüÿÿÿÿ
-ipython:S116À"QRename this field "chunkSize" to match the regular expression ^[_a-z][_a-z0-9]*$.(ª¡âã
-ppython:S116Ç"SRename this field "prevNumCols" to match the regular expression ^[_a-z][_a-z0-9]*$.(¹İ®³ûÿÿÿÿ
-lpython:S116Å"TRename this field "prevNumLines" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ë’…ä
-wpython:S116Ê"ZRename this field "_bufferedCharacter" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷íÌ€ÿÿÿÿÿ
-zpython:S116°"]Rename this field "reportCharacterErrors" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÊùÓıÿÿÿÿ
-opython:S116º"RRename this field "dataStream" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÉÊùäøÿÿÿÿ
-fpython:S100Ì"NRename method "openStream" to match the regular expression ^[a-z_][a-z0-9_]*$.(áµÊø
-ypython:S117Ş"\Rename this local variable "lastLinePos" to match the regular expression ^[_a-z][a-z0-9_]*$.(øØôùÿÿÿÿ
-tpython:S117Ü"WRename this local variable "nLines" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ôÛıÿÿÿÿ
-|python:S117à"_Rename this local variable "positionColumn" to match the regular expression ^[_a-z][a-z0-9_]*$.(±Á˜çùÿÿÿÿ
-zpython:S117İ"]Rename this local variable "positionLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬¹Ëíùÿÿÿÿ
-ypython:S117ó"\Rename this local variable "chunkOffset" to match the regular expression ^[_a-z][a-z0-9_]*$.(üç“²úÿÿÿÿ
-rpython:S117ù"URename this parameter "chunkSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÎÇµÿÿÿÿÿ
-jpython:S100ù"MRename method "readChunk" to match the regular expression ^[a-z_][a-z0-9_]*$.(ëÎÇµÿÿÿÿÿ
-opython:S100Ÿ"WRename method "characterErrorsUCS4" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÑçÏ»
-tpython:S100£"WRename method "characterErrorsUCS2" to match the regular expression ^[a-z_][a-z0-9_]*$.(ä‡¯¯ıÿÿÿÿ
-fpython:S100º"NRename method "charsUntil" to match the regular expression ^[a-z_][a-z0-9_]*$.(€¢…Ÿ
-mpython:S3776º"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(€¢…Ÿ
-npython:S117„"VRename this parameter "useChardet" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö“¬Å
-upython:S117Æ"]Rename this local variable "charEncoding" to match the regular expression ^[_a-z][a-z0-9_]*$.(íàŞÓ
-mpython:S3776Ã"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ŞôÄˆ
-opython:S117"WRename this parameter "newEncoding" to match the regular expression ^[_a-z][a-z0-9_]*$.(üÙ‚
-ppython:S117•"XRename this local variable "bomDict" to match the regular expression ^[_a-z][a-z0-9_]*$.(âèÛŞ
-opython:S2710Æ"QRename "self" to a valid class parameter name or add the missing class parameter.(·‰óÏÿÿÿÿÿ
-tpython:S117¸"\Rename this local variable "keepParsing" to match the regular expression ^[_a-z][a-z0-9_]*$.(®“ÑŸ
-wpython:S117°"_Rename this local variable "methodDispatch" to match the regular expression ^[_a-z][a-z0-9_]*$.(°àß
-lpython:S100¬"ORename method "getEncoding" to match the regular expression ^[a-z_][a-z0-9_]*$.(”Ä¬§ÿÿÿÿÿ
-npython:S100Ê"QRename method "handleComment" to match the regular expression ^[a-z_][a-z0-9_]*$.(œ“³•øÿÿÿÿ
-{python:S117ç"^Rename this local variable "contentParser" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªØ›‘ıÿÿÿÿ
-rpython:S117Ó"ZRename this local variable "hasPragma" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆŒ«õ
-xpython:S117Ô"`Rename this local variable "pendingEncoding" to match the regular expression ^[_a-z][a-z0-9_]*$.(İÔåº
-ypython:S117á"bRename this local variable "tentativeEncoding" to match the regular expression ^[_a-z][a-z0-9_]*$.(“ÚÎ
-fpython:S100Î"NRename method "handleMeta" to match the regular expression ^[a-z_][a-z0-9_]*$.(èİ¡
-mpython:S3776Î"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(èİ¡
-wpython:S100ò"ZRename method "handlePossibleStartTag" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹¼ôüÿÿÿÿ
-ppython:S100õ"XRename method "handlePossibleEndTag" to match the regular expression ^[a-z_][a-z0-9_]*$.(‚ËÖä
-Rpython:S3516ù"9Refactor this method to not always return the same value.(ü¾­³
-jpython:S117ù"RRename this parameter "endTag" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¾­³
-mpython:S100ù"URename method "handlePossibleTag" to match the regular expression ^[a-z_][a-z0-9_]*$.(ü¾­³
-lpython:S100"ORename method "handleOther" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÈØ­×øÿÿÿÿ
-qpython:S117"YRename this local variable "attrName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁäÙ¯
-wpython:S117Ÿ"ZRename this local variable "attrValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı¸ù„şÿÿÿÿ
-wpython:S117½"ZRename this local variable "quoteChar" to match the regular expression ^[_a-z][a-z0-9_]*$.(àîæêúÿÿÿÿ
-hpython:S100“"PRename method "getAttribute" to match the regular expression ^[a-z_][a-z0-9_]*$.(ù·íé
-mpython:S3776“"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(ù·íé
-spython:S117õ"\Rename this local variable "oldPosition" to match the regular expression ^[_a-z][a-z0-9_]*$.(“Ç
-
-wpython:S117ó"ZRename this local variable "quoteMark" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß¼Š­ÿÿÿÿÿ
-mpython:S1542‡"TRename function "lookupEncoding" to match the regular expression ^[a-z_][a-z0-9_]*$.(“Ã

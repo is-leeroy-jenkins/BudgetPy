@@ -1,17 +1,0 @@
-
-kpython:S117"TRename this local variable "Dom" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬°È¢
-ypython:S117"]Rename this parameter "DomImplementation" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¤æâùÿÿÿÿ
-ppython:S1542"SRename function "getDomBuilder" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰¤æâùÿÿÿÿ
-qpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 89 to the 15 allowed.(‰¤æâùÿÿÿÿ
-npython:S117D"XRename this parameter "insertBefore" to match the regular expression ^[_a-z][a-z0-9_]*$.(—óñ[
-opython:S117K"SRename this parameter "refNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š›€ªûÿÿÿÿ
-qpython:S117T"URename this parameter "newParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(º¤×øøÿÿÿÿ
-upython:S117c"^Rename this local variable "qualifiedName" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ã¶Ó
-=python:S5603{"%Remove this unused class declaration.(¡û¹
-qpython:S117‚"YRename this local variable "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç™¦ë
-qpython:S117ƒ"YRename this local variable "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àö¼
-Mpython:S1656¦"/Remove or correct this useless self-assignment.(´‰ºàøÿÿÿÿ
-rpython:S1542µ"TRename function "testSerializer" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÁÑ‘Õÿÿÿÿÿ
-vpython:S117½"YRename this local variable "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(œñŒùûÿÿÿÿ
-qpython:S117¾"YRename this local variable "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ò•ÂÖ
-tpython:S1542¹"VRename function "serializeElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒîíøÿÿÿÿ

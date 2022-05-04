@@ -1,5 +1,0 @@
-
-python:S101A"vRename class "MySQLExecutionContext_pyodbc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ז‹ƒ”
-„python:S101J"mRename class "MySQLDialect_pyodbc" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ת»ו
-|python:S117y"`Rename this local variable "pyodbc_SQL_CHAR" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü”Ûתÿÿÿÿ
-xpython:S117z"aRename this local variable "pyodbc_SQL_WCHAR" to match the regular expression ^[_a-z][a-z0-9_]*$.(קצֳ»

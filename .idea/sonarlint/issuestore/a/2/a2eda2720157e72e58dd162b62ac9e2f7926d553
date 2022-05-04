@@ -1,6 +1,0 @@
-
-_python:S2208"GImport only needed names or import the module and then use its members.(…»²Ê
-Ipython:S1481ˆ"+Remove the unused local variable "lastdir".(Àİøéúÿÿÿÿ
-rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(šß¾…ÿÿÿÿÿ
-Spython:S2836¦"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-Dpython:S5806Õ"+Rename this variable; it shadows a builtin.(£¬Ûõ

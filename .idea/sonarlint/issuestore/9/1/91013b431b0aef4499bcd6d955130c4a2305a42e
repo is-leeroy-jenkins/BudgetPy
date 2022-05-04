@@ -1,57 +1,0 @@
-
-rpython:S1192±"YDefine a constant instead of duplicating this literal 'found duplicate key "{}"' 3 times.(ˆ‹’ø
-opython:S1192®"VDefine a constant instead of duplicating this literal 'tag:yaml.org,2002:str' 4 times.(²«’Ù
-—python:S1192Ñ"yDefine a constant instead of duplicating this literal 'expected a mapping of length 1, but found {subnode_id!s}' 3 times.(ßş§Ìùÿÿÿÿ
-|python:S1192"cDefine a constant instead of duplicating this literal 'while constructing a Python module' 3 times.(Å·¨
-{python:S1192Æ"bDefine a constant instead of duplicating this literal 'while constructing an ordered map' 6 times.(œÉáÒ
-£python:S1192Û"„Define a constant instead of duplicating this literal 'expected a single mapping item, but found {len_subnode_val:d} items' 3 times.(ĞîçÍûÿÿÿÿ
-vpython:S1192ÿ"^Define a constant instead of duplicating this literal 'while constructing a mapping' 10 times.(ÚùÊj
-‰python:S1192È"kDefine a constant instead of duplicating this literal 'expected a sequence, but found {node_id!s}' 3 times.(ğ÷éÃıÿÿÿÿ
-vpython:S1192å"XDefine a constant instead of duplicating this literal 'tag:yaml.org,2002:value' 3 times.(ÆËä½ùÿÿÿÿ
-python:S1192ì"oDefine a constant instead of duplicating this literal 'expected a mapping node, but found {node_id!s}' 4 times.(æú‰£üÿÿÿÿ
-python:S1192¢"cDefine a constant instead of duplicating this literal 'while constructing a Python object' 3 times.(À‹âĞüÿÿÿÿ
-npython:S1192"UDefine a constant instead of duplicating this literal 'found unhashable key' 3 times.(Ôİ…ş
-qpython:S1192í"YDefine a constant instead of duplicating this literal 'while constructing pairs' 3 times.(Ÿ‡’[
-`python:S5797$"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
-Mpython:S1066­"/Merge this if statement with the enclosing one.(ä¸Ü°øÿÿÿÿ
-dpython:S2208"GImport only needed names or import the module and then use its members.(èù§úÿÿÿÿ
-_python:S2208"GImport only needed names or import the module and then use its members.(Î°Ú»
-Cpython:S1481ƒ"*Remove the unused local variable "_dummy".(¨…‡±
-Apython:S108„")Either remove or fill this block of code.(ã‘Û¾
-6python:S125–"Remove this commented out code.(ÿ‡Ÿ
-Cpython:S1481Ä"*Remove the unused local variable "_dummy".(¨…‡±
-mpython:S3776¢"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ÌëÇÀ
-Apython:S108Å")Either remove or fill this block of code.(ã‘Û¾
-rpython:S3776ã"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(§ŸàÉúÿÿÿÿ
-mpython:S3776é"TRefactor this function to reduce its Cognitive Complexity from 36 to the 15 allowed.(Œ¹ô„
-7python:S125°"Remove this commented out code.(®–©¨
-mpython:S3776‹"TRefactor this function to reduce its Cognitive Complexity from 43 to the 15 allowed.(ÇÎ±»
-rpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(ö‹·Õúÿÿÿÿ
-mpython:S3776š	"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(ŸùÀñ
-<python:S125¦	"Remove this commented out code.(àî©Òüÿÿÿÿ
-Wpython:S3516ç	"9Refactor this method to not always return the same value.(È‘®ÿÿÿÿÿ
-mpython:S3776î	"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(óÕ¬à
-mpython:S3776“
-"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(Œ¹ô„
-7python:S125§
-"Remove this commented out code.(ÒÍ££
-7python:S125Ç
-"Remove this commented out code.(ÿûúã
-7python:S125Ê
-"Remove this commented out code.(Â™Ù†
-<python:S125í
-"Remove this commented out code.(ìØ‚ûÿÿÿÿ
-npython:S3776ô
-"URefactor this function to reduce its Cognitive Complexity from 104 to the 15 allowed.(åÀú×
-<python:S125ş
-"Remove this commented out code.(Ãè¶‚ûÿÿÿÿ
-Gpython:S1481ƒ")Remove the unused local variable "value".(øºöùÿÿÿÿ
-mpython:S3776İ"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(ğâÁš
-7python:S125–"Remove this commented out code.(¹õÏä
-mpython:S3776Æ"TRefactor this function to reduce its Cognitive Complexity from 40 to the 15 allowed.(ÿşİß
-mpython:S3776‘"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(•ã›û
-Upython:S5754À"<Specify an exception class to catch or reraise the exception(Ãı¼¼
-mpython:S3776Ë"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¡Ğæ
-gpython:S1226Ë"NIntroduce a new variable or use its initial value before reassigning 'values'.(¡Ğæ
-<python:S125Û"Remove this commented out code.(ÂÆÿÎøÿÿÿÿ
-<python:S125á"Remove this commented out code.(ÂÆÿÎøÿÿÿÿ

@@ -1,6 +1,0 @@
-
-Vpython:S3516Q"9Refactor this method to not always return the same value.(ç›á¦ûÿÿÿÿ
-qpython:S3776Q"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ç›á¦ûÿÿÿÿ
-gpython:S3358à"IExtract this nested conditional expression into an independent statement.(ÇÒÖğùÿÿÿÿ
-jpython:S107±"RFunction "progressbar" has 15 parameters, which is greater than the 13 authorized.(êÔòŸ
-mpython:S3776ä"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(òËÇ

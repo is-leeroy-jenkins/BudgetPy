@@ -1,13 +1,0 @@
-
-jpython:S1173"SRename this parameter "altText" to match the regular expression ^[_a-z][a-z0-9_]*$.(àá˜ç
-ppython:S117/"TRename this parameter "autoFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(™ØŽ×ùÿÿÿÿ
-ppython:S1170"TRename this parameter "autoLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îöê‰ÿÿÿÿÿ
-jpython:S1171"TRename this parameter "autoPict" to match the regular expression ^[_a-z][a-z0-9_]*$.(åðÒ2
-npython:S117*"WRename this parameter "defaultSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ×¼¯
-mpython:S1174"VRename this parameter "linkedCell" to match the regular expression ^[_a-z][a-z0-9_]*$.(éþè¦
-upython:S1175"YRename this parameter "listFillRange" to match the regular expression ^[_a-z][a-z0-9_]*$.(×Ñ­âýÿÿÿÿ
-opython:S117-"XRename this parameter "recalcAlways" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÆÉÛ
-ppython:S117."TRename this parameter "uiObject" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ’Ð¤øÿÿÿÿ
-ipython:S107'"MMethod "__init__" has 16 parameters, which is greater than the 13 authorized.(ÄÁšÃþÿÿÿÿ
-qpython:S117V"URename this parameter "controlPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰äÄ½ûÿÿÿÿ
-opython:S117W"SRename this parameter "shapeId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ë÷Ÿ ÿÿÿÿÿ

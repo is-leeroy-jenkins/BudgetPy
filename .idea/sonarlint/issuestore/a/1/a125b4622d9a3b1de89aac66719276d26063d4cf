@@ -1,18 +1,0 @@
-
-Hpython:S1066à"/Merge this if statement with the enclosing one.(Òƒµü
-mpython:S3776¢"TRefactor this function to reduce its Cognitive Complexity from 45 to the 15 allowed.(Ð‘ÍÍ
-@python:S1481ž"'Remove the unused local variable "why".(¨‘…Ú
-rpython:S3776ç"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(´¨óÙýÿÿÿÿ
-<python:S125‚"Remove this commented out code.(»×Ø‡üÿÿÿÿ
-rpython:S3776ñ"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(µÏúþÿÿÿÿ
-kpython:S3923Š"RRemove this if statement or edit its code blocks so that they're not all the same.(ªÁ‘›
-mpython:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(·Éøâ
-8python:S5719ë"Add a "self" or class parameter(žÕÊÿ
-8python:S5719î"Add a "self" or class parameter(ÆŠ·£
-=python:S5719÷"Add a "self" or class parameter(¾ôÑ”ùÿÿÿÿ
-gpython:S100î"ORename method "get_OpenVMS" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÆŠ·£
-lpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(Ä«-
-rpython:S3776é"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ùü”äÿÿÿÿÿ
-rpython:S3776¢	"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(¡°´¥ýÿÿÿÿ
-Fpython:S1940ñ	"-Use the opposite operator ("not in") instead.(…Ä‚›
-Fpython:S1940ñ	"-Use the opposite operator ("not in") instead.(…Ä‚›

@@ -1,22 +1,0 @@
-
-npython:S1179"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-rpython:S1176"[Rename this parameter "noAdjustHandles" to match the regular expression ^[_a-z][a-z0-9_]*$.(©®µÀ
-upython:S1177"^Rename this parameter "noChangeArrowheads" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë¥º¬
-qpython:S1172"ZRename this parameter "noChangeAspect" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Î
-ypython:S1178"]Rename this parameter "noChangeShapeType" to match the regular expression ^[_a-z][a-z0-9_]*$.(åê§±şÿÿÿÿ
-ipython:S117."RRename this parameter "noCrop" to match the regular expression ^[_a-z][a-z0-9_]*$.(à¥¤„
-opython:S1175"XRename this parameter "noEditPoints" to match the regular expression ^[_a-z][a-z0-9_]*$.(×İ¥­
-hpython:S117/"QRename this parameter "noGrp" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š²º
-npython:S1173"RRename this parameter "noMove" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÆï…øÿÿÿÿ
-ppython:S1174"TRename this parameter "noResize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑêÔÿÿÿÿÿ
-mpython:S1171"QRename this parameter "noRot" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯²‚™øÿÿÿÿ
-ppython:S1170"TRename this parameter "noSelect" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ŸØÁøÿÿÿÿ
-npython:S117U"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-ppython:S117T"TRename this parameter "picLocks" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ­¢šøÿÿÿÿ
-|python:S117S"`Rename this parameter "preferRelativeResize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖØˆ²ıÿÿÿÿ
-kpython:S117f"TRename this parameter "cNvPicPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö…Â—
-mpython:S117e"QRename this parameter "cNvPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(È‚¼¦úÿÿÿÿ
-lpython:S117„"TRename this parameter "blipFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(«Ó–Ó
-npython:S117‚"VRename this parameter "fPublished" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑİØÿ
-ppython:S117ƒ"SRename this parameter "nvPicPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï¡Ü˜øÿÿÿÿ
-mpython:S117…"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ

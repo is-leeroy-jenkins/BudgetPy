@@ -1,32 +1,0 @@
-
-hpython:S117^"QRename this parameter "chExt" to match the regular expression ^[_a-z][a-z0-9_]*$.(©•…±
-hpython:S117]"QRename this parameter "chOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(»Ç¼
-mpython:S117Y"QRename this parameter "flipH" to match the regular expression ^[_a-z][a-z0-9_]*$.(á‡¢üÿÿÿÿ
-mpython:S117Z"QRename this parameter "flipV" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾¿ÍŞıÿÿÿÿ
-hpython:S117"QRename this parameter "chExt" to match the regular expression ^[_a-z][a-z0-9_]*$.(©•…±
-hpython:S117~"QRename this parameter "chOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(»Ç¼
-mpython:S117z"QRename this parameter "flipH" to match the regular expression ^[_a-z][a-z0-9_]*$.(á‡¢üÿÿÿÿ
-mpython:S117{"QRename this parameter "flipV" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾¿ÍŞıÿÿÿÿ
-opython:S117Œ"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-opython:S117Ÿ"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-qpython:S117"TRename this parameter "lightRig" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ–¨Ìşÿÿÿÿ
-jpython:S117Õ"RRename this parameter "bevelB" to match the regular expression ^[_a-z][a-z0-9_]*$.(³¦‹
-opython:S117Ô"RRename this parameter "bevelT" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦³”ÿÿÿÿÿ
-spython:S117×"VRename this parameter "contourClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(³ó½ûÿÿÿÿÿ
-qpython:S117Ò"TRename this parameter "contourW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÅ™úÿÿÿÿ
-opython:S117Ø"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-ppython:S117Ö"XRename this parameter "extrusionClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Äˆ¢½
-spython:S117Ñ"VRename this parameter "extrusionH" to match the regular expression ^[_a-z][a-z0-9_]*$.(é¢…øÿÿÿÿ
-ppython:S117Ó"XRename this parameter "prstMaterial" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïùï®
-opython:S117ò"WRename this parameter "extrusionOk" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÀÙÖï
-<python:S125İ"Remove this commented out code.(ÛÖ™Üşÿÿÿÿ
-ipython:S117ã"QRename this parameter "ahLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(±á®ç
-npython:S117á"QRename this parameter "avLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦Ì²²ûÿÿÿÿ
-jpython:S117ä"RRename this parameter "cxnLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(íÉ»Ô
-ipython:S117â"QRename this parameter "gdLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(Òşƒ­
-jpython:S117æ"SRename this parameter "pathLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ËºÔW
-npython:S117©"QRename this parameter "avLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦Ì²²ûÿÿÿÿ
-mpython:S117Í"URename this parameter "effectRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ïİî”
-ppython:S117Ì"SRename this parameter "fillRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚˜ÍÏøÿÿÿÿ
-kpython:S117Î"SRename this parameter "fontRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Š¸‡
-ipython:S117Ë"QRename this parameter "lnRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(©­æƒ

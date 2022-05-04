@@ -1,5 +1,0 @@
-
-Ipython:S5806Œ"+Rename this variable; it shadows a builtin.(ıìŠ ùÿÿÿÿ
-vpython:S117Ş"^Rename this local variable "ArgumentClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁÎÆœ
-ypython:S117ö"\Rename this local variable "OptionClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å›‰üÿÿÿÿ
-rpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÊßÒ’şÿÿÿÿ

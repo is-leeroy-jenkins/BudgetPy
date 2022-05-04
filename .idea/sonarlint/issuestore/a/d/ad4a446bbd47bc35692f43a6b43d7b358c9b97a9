@@ -1,4 +1,0 @@
-
-”python:S1192å"vDefine a constant instead of duplicating this literal "import faulthandler; print(faulthandler.is_enabled())" 3 times.( œœìûÿÿÿÿ
-lpython:S1192§"SDefine a constant instead of duplicating this literal 'Segmentation fault' 5 times.(”ÃóÀ
-`python:S54452"C'tempfile.mktemp' is insecure. Use 'tempfile.TemporaryFile' instead(›şæÌøÿÿÿÿ

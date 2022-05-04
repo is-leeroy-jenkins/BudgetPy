@@ -1,23 +1,0 @@
-
-ipython:S1192Ì"PDefine a constant instead of duplicating this literal "urllib.response" 4 times.(“©×ç
-vpython:S1192‘"XDefine a constant instead of duplicating this literal "not expecting type '%s'" 3 times.(şÌ€ıÿÿÿÿ
-epython:S1192¡"LDefine a constant instead of duplicating this literal "http.server" 3 times.(¿ÄÈË
-lpython:S1192»"NDefine a constant instead of duplicating this literal "urllib.parse" 26 times.(şú¦±şÿÿÿÿ
-kpython:S1192¼"MDefine a constant instead of duplicating this literal "urllib.error" 4 times.(™êó†øÿÿÿÿ
-lpython:S1192½"NDefine a constant instead of duplicating this literal ".moves.urllib" 3 times.(îù¿ƒÿÿÿÿÿ
-npython:S1192˜"PDefine a constant instead of duplicating this literal "urllib.request" 35 times.(øêÒ¥ÿÿÿÿÿ
-wpython:S1186ï"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Ñ»úıÿÿÿÿ
-”python:S101Ô"wRename class "Module_six_moves_urllib_parse" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÆÔıÿÿÿÿÿ
-python:S101ş"wRename class "Module_six_moves_urllib_error" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ƒ©õü
-–python:S101’"yRename class "Module_six_moves_urllib_request" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(‘ø¹Ïüÿÿÿÿ
-—python:S101Æ"zRename class "Module_six_moves_urllib_response" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(®ñºêÿÿÿÿÿ
-•python:S101Û"}Rename class "Module_six_moves_urllib_robotparser" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(â´Äê
-python:S101í"qRename class "Module_six_moves_urllib" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(à™ÚÛıÿÿÿÿ
-tpython:S1542¶"VRename function "assertCountEqual" to match the regular expression ^[a-z_][a-z0-9_]*$.(¼ŒĞÇşÿÿÿÿ
-upython:S1542º"WRename function "assertRaisesRegex" to match the regular expression ^[a-z_][a-z0-9_]*$.(§ˆ˜Úşÿÿÿÿ
-opython:S1542¾"QRename function "assertRegex" to match the regular expression ^[a-z_][a-z0-9_]*$.(‘º ûÿÿÿÿ
-rpython:S1542Â"TRename function "assertNotRegex" to match the regular expression ^[a-z_][a-z0-9_]*$.(¿À¥øÿÿÿÿ
-dpython:S1854Û"KRemove this assignment to local variable '_locs_'; the value is never used.(ëäÚª
-jpython:S1854Ù"LRemove this assignment to local variable '_globs_'; the value is never used.(•¯¥¹øÿÿÿÿ
-ipython:S1854Ş"KRemove this assignment to local variable '_locs_'; the value is never used.(‘ªğ‹ÿÿÿÿÿ
-rpython:S3776÷"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(™šÀñøÿÿÿÿ

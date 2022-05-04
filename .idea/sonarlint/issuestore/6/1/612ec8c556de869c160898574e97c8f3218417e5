@@ -1,116 +1,0 @@
-
-npython:S116."RRename this field "escapeFlag" to match the regular expression ^[_a-z][_a-z0-9]*$.(¨„¤øüÿÿÿÿ
-npython:S116>"RRename this field "tokenQueue" to match the regular expression ^[_a-z][_a-z0-9]*$.(ğóìüÿÿÿÿ
-kpython:S1164"TRename this field "currentToken" to match the regular expression ^[_a-z][_a-z0-9]*$.(Âô“ğ
-lpython:S116/"URename this field "lastFourChars" to match the regular expression ^[_a-z][_a-z0-9]*$.(«Ù·Ø
-tpython:S116Ë"WRename this field "temporaryBuffer" to match the regular expression ^[_a-z][_a-z0-9]*$.(»¥Å¢øÿÿÿÿ
-vpython:S117]"ZRename this local variable "charAsInt" to match the regular expression ^[_a-z][a-z0-9_]*$.(Áß†‡şÿÿÿÿ
-qpython:S117S"ZRename this local variable "charStack" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š³ş
-mpython:S117G"QRename this parameter "isHex" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶ü¿³ùÿÿÿÿ
-spython:S100G"WRename method "consumeNumberEntity" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶ü¿³ùÿÿÿÿ
-tpython:S117"WRename this parameter "allowedChar" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ¤óÁüÿÿÿÿ
-rpython:S117“"ZRename this local variable "charStack" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ“·
-zpython:S117¾"]Rename this local variable "entityLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(·£Áæûÿÿÿÿ
-xpython:S117½"[Rename this local variable "entityName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ˜¥Üùÿÿÿÿ
-vpython:S117"YRename this parameter "fromAttribute" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ¤óÁüÿÿÿÿ
-wpython:S117Ú"ZRename this local variable "tokenType" to match the regular expression ^[_a-z][a-z0-9_]*$.(âÃ²øÿÿÿÿ
-npython:S100"QRename method "consumeEntity" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒ¤óÁüÿÿÿÿ
-rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(ƒ¤óÁüÿÿÿÿ
-Dpython:S5806š"+Rename this variable; it shadows a builtin.(–ÙÃú
-tpython:S117ß"WRename this parameter "allowedChar" to match the regular expression ^[_a-z][a-z0-9_]*$.(öù¸Ñûÿÿÿÿ
-ypython:S100ß"\Rename method "processEntityInAttribute" to match the regular expression ^[a-z_][a-z0-9_]*$.(öù¸Ñûÿÿÿÿ
-lpython:S100ä"TRename method "emitCurrentToken" to match the regular expression ^[a-z_][a-z0-9_]*$.(“ÏöÎ
-epython:S100€"MRename method "dataState" to match the regular expression ^[a-z_][a-z0-9_]*$.(à¹ß
-ppython:S100"SRename method "entityDataState" to match the regular expression ^[a-z_][a-z0-9_]*$.(—±áµûÿÿÿÿ
-lpython:S100¢"ORename method "rcdataState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ì¹ƒúÿÿÿÿ
-vpython:S100¿"^Rename method "characterReferenceInRcdata" to match the regular expression ^[a-z_][a-z0-9_]*$.(¼‰Ö‘
-mpython:S100Ä"PRename method "rawtextState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÂÛ£ÿûÿÿÿÿ
-ppython:S100Ö"SRename method "scriptDataState" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï‡»¹úÿÿÿÿ
-opython:S100è"RRename method "plaintextState" to match the regular expression ^[a-z_][a-z0-9_]*$.(âÄçşÿÿÿÿ
-hpython:S100÷"PRename method "tagOpenState" to match the regular expression ^[a-z_][a-z0-9_]*$.(¢ç¥¥
-rpython:S100š"URename method "closeTagOpenState" to match the regular expression ^[a-z_][a-z0-9_]*$.(êú’ıüÿÿÿÿ
-hpython:S100²"PRename method "tagNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÑÜò±
-spython:S100È"[Rename method "rcdataLessThanSignState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÈÈŞù
-qpython:S100Ó"YRename method "rcdataEndTagOpenState" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ö —“
-ppython:S100Ş"YRename method "rcdataEndTagNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ê±ª
-tpython:S100ú"\Rename method "rawtextLessThanSignState" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶­Ö
-wpython:S100…"ZRename method "rawtextEndTagOpenState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ìõù¾ÿÿÿÿÿ
-rpython:S100"ZRename method "rawtextEndTagNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(£Œ„Ğ
-wpython:S100¬"_Rename method "scriptDataLessThanSignState" to match the regular expression ^[a-z_][a-z0-9_]*$.(™©‡ã
-zpython:S100º"]Rename method "scriptDataEndTagOpenState" to match the regular expression ^[a-z_][a-z0-9_]*$.(“×†ªÿÿÿÿÿ
-upython:S100Å"]Rename method "scriptDataEndTagNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ĞÊË¾
-{python:S100á"^Rename method "scriptDataEscapeStartState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ò¬”ıÿÿÿÿ
-python:S100ë"bRename method "scriptDataEscapeStartDashState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ùìíòşÿÿÿÿ
-wpython:S100õ"ZRename method "scriptDataEscapedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿê€¥ùÿÿÿÿ
-{python:S100‰"^Rename method "scriptDataEscapedDashState" to match the regular expression ^[a-z_][a-z0-9_]*$.(’Ğœîüÿÿÿÿ
-python:S100"bRename method "scriptDataEscapedDashDashState" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯´ìùÿÿÿÿÿ
-~python:S100³"fRename method "scriptDataEscapedLessThanSignState" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤‘«
-python:S100Â"dRename method "scriptDataEscapedEndTagOpenState" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸’Ë„øÿÿÿÿ
-|python:S100Í"dRename method "scriptDataEscapedEndTagNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(©ÓÇü
-python:S100é"dRename method "scriptDataDoubleEscapeStartState" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ë÷öÅüÿÿÿÿ
-xpython:S100ù"`Rename method "scriptDataDoubleEscapedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ğüİ×
-python:S100"dRename method "scriptDataDoubleEscapedDashState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ïé‚ùÿÿÿÿ
-…python:S100¥"hRename method "scriptDataDoubleEscapedDashDashState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÄÕ¾Öùÿÿÿÿ
-„python:S100¾"lRename method "scriptDataDoubleEscapedLessThanSignState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓÀÄ·
-zpython:S100É"bRename method "scriptDataDoubleEscapeEndState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒ–£ç
-tpython:S100Ù"\Rename method "beforeAttributeNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤†Ì’
-|python:S1871ó"cEither merge this branch with the identical one on line "862" or change one of the implementations.(ÌšØÜ
-wpython:S117ú"ZRename this local variable "emitToken" to match the regular expression ^[_a-z][a-z0-9_]*$.(şÀ¢•ùÿÿÿÿ
-xpython:S117ù"aRename this local variable "leavingThisState" to match the regular expression ^[_a-z][a-z0-9_]*$.(€–ñ>
-npython:S100÷"VRename method "attributeNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(Î­”ñ
-mpython:S3776÷"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Î­”ñ
-spython:S100­"[Rename method "afterAttributeNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(úÃšÇ
-|python:S1871É"cEither merge this branch with the identical one on line "950" or change one of the implementations.(ÌšØÜ
-zpython:S100Í"]Rename method "beforeAttributeValueState" to match the regular expression ^[a-z_][a-z0-9_]*$.(æøˆÊûÿÿÿÿ
-€python:S100ï"cRename method "attributeValueDoubleQuotedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(˜îÇşÿÿÿÿ
-€python:S100‚"cRename method "attributeValueSingleQuotedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(„‰Ôûÿÿÿÿ
-|python:S100•"_Rename method "attributeValueUnQuotedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÊŸËÕşÿÿÿÿ
-tpython:S100®"\Rename method "afterAttributeValueState" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷ïôµ
-ypython:S100Â"\Rename method "selfClosingStartTagState" to match the regular expression ^[a-z_][a-z0-9_]*$.(»Œ­®úÿÿÿÿ
-mpython:S100Ô"URename method "bogusCommentState" to match the regular expression ^[a-z_][a-z0-9_]*$.(€Ùğı
-Rpython:S3516ã"9Refactor this method to not always return the same value.(áÙË»
-rpython:S117ä"ZRename this local variable "charStack" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ“·
-vpython:S100ã"^Rename method "markupDeclarationOpenState" to match the regular expression ^[a-z_][a-z0-9_]*$.(áÙË»
-mpython:S3776ã"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(áÙË»
-mpython:S100	"URename method "commentStartState" to match the regular expression ^[a-z_][a-z0-9_]*$.(„ñ±
-vpython:S100§	"YRename method "commentStartDashState" to match the regular expression ^[a-z_][a-z0-9_]*$.(… İèúÿÿÿÿ
-mpython:S100¾	"PRename method "commentState" to match the regular expression ^[a-z_][a-z0-9_]*$.(®Ê´şÿÿÿÿ
-opython:S100Ğ	"WRename method "commentEndDashState" to match the regular expression ^[a-z_][a-z0-9_]*$.(±ë§à
-ppython:S100ã	"SRename method "commentEndState" to match the regular expression ^[a-z_][a-z0-9_]*$.(”É÷Ûüÿÿÿÿ
-opython:S100‚
-"WRename method "commentEndBangState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ãõí
-hpython:S100™
-"PRename method "doctypeState" to match the regular expression ^[a-z_][a-z0-9_]*$.(·¢ÂÁ
-wpython:S100ª
-"ZRename method "beforeDoctypeNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(àØµ˜ıÿÿÿÿ
-Apython:S108­
-")Either remove or fill this block of code.(ã‘Û¾
-lpython:S100Ä
-"TRename method "doctypeNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õ¸ìã
-Rpython:S3516İ
-"9Refactor this method to not always return the same value.(’ÓĞ»
-qpython:S100İ
-"YRename method "afterDoctypeNameState" to match the regular expression ^[a-z_][a-z0-9_]*$.(’ÓĞ»
-mpython:S3776İ
-"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(’ÓĞ»
-Apython:S108à
-")Either remove or fill this block of code.(ã‘Û¾
-zpython:S100"bRename method "afterDoctypePublicKeywordState" to match the regular expression ^[a-z_][a-z0-9_]*$.(•á³©
-ƒpython:S100¤"fRename method "beforeDoctypePublicIdentifierState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ğ¨Òûÿÿÿÿ
-Apython:S108§")Either remove or fill this block of code.(ã‘Û¾
-‰python:S100Á"lRename method "doctypePublicIdentifierDoubleQuotedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷æ˜µüÿÿÿÿ
-„python:S100Ù"lRename method "doctypePublicIdentifierSingleQuotedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(Œ­ùĞ
-}python:S100ñ"eRename method "afterDoctypePublicIdentifierState" to match the regular expression ^[a-z_][a-z0-9_]*$.(¢ë‰»
-‰python:S100"qRename method "betweenDoctypePublicAndSystemIdentifiersState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÉĞÆ
-Apython:S108’")Either remove or fill this block of code.(ã‘Û¾
-python:S100©"bRename method "afterDoctypeSystemKeywordState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ñæå±úÿÿÿÿ
-}python:S100½"fRename method "beforeDoctypeSystemIdentifierState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒùÊ@
-Apython:S108À")Either remove or fill this block of code.(ã‘Û¾
-‰python:S100Ú"lRename method "doctypeSystemIdentifierDoubleQuotedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(á‹øÿÿÿÿ
-‰python:S100ò"lRename method "doctypeSystemIdentifierSingleQuotedState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ü¶ñşÿÿÿÿ
-}python:S100Š"eRename method "afterDoctypeSystemIdentifierState" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾¶¾æ
-Apython:S108")Either remove or fill this block of code.(ã‘Û¾
-rpython:S100"URename method "bogusDoctypeState" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÌÃÃÚøÿÿÿÿ
-Apython:S108¨")Either remove or fill this block of code.(ã‘Û¾
-wpython:S117½"ZRename this local variable "nullCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡ÀäÊøÿÿÿÿ
-lpython:S100«"URename method "cdataSectionState" to match the regular expression ^[a-z_][a-z0-9_]*$.(—ò‰(

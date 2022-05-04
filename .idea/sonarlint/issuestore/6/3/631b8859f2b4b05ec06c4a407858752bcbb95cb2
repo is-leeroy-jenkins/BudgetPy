@@ -1,12 +1,0 @@
-
-Äpython:S101&"jRename class "UNICODE_OR_ASCII" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÑŒ¢8
-Åpython:S1011"jRename class "KEY_EVENT_RECORD" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(è∞å≤
-àpython:S101H"lRename class "MOUSE_EVENT_RECORD" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Èû‡™˝ˇˇˇˇ
-äpython:S101["sRename class "WINDOW_BUFFER_SIZE_RECORD" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(°´¡Ä
-Çpython:S101f"kRename class "MENU_EVENT_RECORD" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(‚•ÆÉ
-Épython:S101q"lRename class "FOCUS_EVENT_RECORD" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ΩëÚÌ
-}python:S101|"fRename class "EVENT_RECORD" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(“µ·®
-~python:S101ç"fRename class "INPUT_RECORD" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(˝í¿é
-Åpython:S101¢"dRename class "SMALL_RECT" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(∞∂õù˝ˇˇˇˇ
-ëpython:S101≥"tRename class "CONSOLE_SCREEN_BUFFER_INFO" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(‚ÍÑ¸˛ˇˇˇˇ
-äpython:S101’"mRename class "SECURITY_ATTRIBUTES" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ÿµã◊˙ˇˇˇˇ

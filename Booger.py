@@ -1,10 +1,9 @@
-from Pillow import Image, ImageTk, ImageSequence
+from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from sys import exit
 import Static
 from Ninja import *
 from Static import *
-import fits
 import textwrap
 import datetime
 

@@ -1,11 +1,0 @@
-
-Mpython:S1066”"/Merge this if statement with the enclosing one.(™±™ÿÿÿÿÿ
-;python:S125"Remove this commented out code.(ÔÜ½‡øÿÿÿÿ
-npython:S117b"XRename this local variable "envStrs" to match the regular expression ^[_a-z][a-z0-9_]*$.(”î†q
-6python:S125g"Remove this commented out code.(ÈìÑ¸
-<python:S125˜"Remove this commented out code.(­Ş–›ùÿÿÿÿ
-<python:S125¹"Remove this commented out code.(ÇÂÔúÿÿÿÿ
-Apython:S1481Õ"(Remove the unused local variable "call".(÷®¦œ
-Fpython:S1481è"(Remove the unused local variable "call".(¯ØÒ¾ıÿÿÿÿ
-Cpython:S1481é"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-Vpython:S1143æ"8Remove this "break" statement from this "finally" block.(²²ÒĞûÿÿÿÿ

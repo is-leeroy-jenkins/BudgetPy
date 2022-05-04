@@ -1,10 +1,0 @@
-
-qpython:S3776h"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(…“ìøÿÿÿÿ
-zpython:S117Ì"bRename this local variable "configurationDone" to match the regular expression ^[_a-z][a-z0-9_]*$.(—éÁÓ
-dpython:S100í"LRename method "dumpCell" to match the regular expression ^[a-z_][a-z0-9_]*$.(ËÖ
-ipython:S100ÿ"RRename method "setBreakpoints" to match the regular expression ^[a-z_][a-z0-9_]*$.(ü‡‚L
-fpython:S100˜"NRename method "stackTrace" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ş¢ı›
-rpython:S100ç"URename method "configurationDone" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾µÔøÿÿÿÿ
-epython:S100ñ"MRename method "debugInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(­ğÆß
-qpython:S100‹"TRename method "inspectVariables" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤âËüşÿÿÿÿ
-upython:S100•"XRename method "richInspectVariables" to match the regular expression ^[a-z_][a-z0-9_]*$.(…•Ûøÿÿÿÿ

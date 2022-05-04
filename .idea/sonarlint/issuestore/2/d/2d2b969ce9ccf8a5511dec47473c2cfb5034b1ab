@@ -1,24 +1,0 @@
-
-mpython:S117"VRename this parameter "formatCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÊôÖ
-tpython:S117"XRename this parameter "sourceLinked" to match the regular expression ^[_a-z][a-z0-9_]*$.(äÓ‘¯şÿÿÿÿ
-mpython:S117:"VRename this parameter "formatCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÊôÖ
-npython:S117O"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-mpython:S117L"VRename this parameter "formatCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÊôÖ
-jpython:S117M"SRename this parameter "ptCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(°ñ’ã
-npython:S117b"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-ppython:S117a"TRename this parameter "numCache" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈİÖıÿÿÿÿ
-opython:S117„"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-kpython:S117‚"SRename this parameter "ptCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(°ñ’ã
-opython:S117—"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-qpython:S117–"TRename this parameter "strCache" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ §çÿÿÿÿÿ
-jpython:S117¥"RRename this parameter "numLit" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç¨ù
-ipython:S117¤"RRename this parameter "numRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒŞ¹
-opython:S117Æ"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-kpython:S117Ä"SRename this parameter "ptCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(°ñ’ã
-opython:S117Ù"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-tpython:S117Ø"\Rename this parameter "multiLvlStrCache" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙÃ”ó
-wpython:S117î"ZRename this parameter "multiLvlStrRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(øıûşÿÿÿÿ
-jpython:S117ë"RRename this parameter "numLit" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç¨ù
-ipython:S117ê"RRename this parameter "numRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒŞ¹
-ipython:S117í"RRename this parameter "strLit" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºŠ¨
-jpython:S117ì"RRename this parameter "strRef" to match the regular expression ^[_a-z][a-z0-9_]*$.(†ƒ¹İ

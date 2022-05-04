@@ -1,20 +1,0 @@
-
-`python:S1192’"HDefine a constant instead of duplicating this literal '/nologo' 7 times.(Ş€°1
-epython:S1192Ş"GDefine a constant instead of duplicating this literal "cl.exe" 3 times.(Ú¦›ùÿÿÿÿ
-Cpython:S5806f"+Rename this variable; it shadows a builtin.(„ÅÈ
-upython:S117³"]Rename this local variable "majorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ²ç«
-upython:S117·"]Rename this local variable "minorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(“­ÄÜ
-ppython:S117Ò"XRename this local variable "newList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ä·Šï
-tpython:S117Ö"\Rename this local variable "newVariable" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜Şı
-ppython:S117Ñ"XRename this local variable "oldList" to match the regular expression ^[_a-z][a-z0-9_]*$.(–ÖÃµ
-tpython:S1542Î"VRename function "removeDuplicates" to match the regular expression ^[a-z_][a-z0-9_]*$.(«â™ùÿÿÿÿ
-7python:S125¨"Remove this commented out code.(Á¬Ì©
-rpython:S4487Ë"TRemove this unread private attribute '__root' or refactor the code to use its value.(¼öúÿÿÿÿ
-7python:S125Ì"Remove this commented out code.(î·•ü
-rpython:S3776Ó"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ğœªûùÿÿÿÿ
-7python:S125„"Remove this commented out code.(µãí 
-python:S1871¿"cEither merge this branch with the identical one on line "444" or change one of the implementations.(¦«ÈŠøÿÿÿÿ
-lpython:S3776Ç"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.( »ä
-rpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(ğ—Ùƒüÿÿÿÿ
-ppython:S1226Á"RIntroduce a new variable or use its initial value before reassigning 'build_temp'.(Óèùÿÿÿÿ
-Spython:S2836ú"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ

@@ -1,10 +1,0 @@
-
-qpython:S1192’"SDefine a constant instead of duplicating this literal 'distutils.commands' 3 times.(òçÂøÿÿÿÿ
-Ipython:S5806¾"+Rename this variable; it shadows a builtin.(›¥–•ÿÿÿÿÿ
-epython:S5799Å"GMerge these implicitly concatenated strings; or did you forget a comma?(…çÆ‡ÿÿÿÿÿ
-jpython:S1134ÿ"LTake the required action to fix the issue indicated by this "FIXME" comment.(­â›¦ÿÿÿÿÿ
-rpython:S3776€"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(™ƒššúÿÿÿÿ
-jpython:S1134ı"LTake the required action to fix the issue indicated by this "FIXME" comment.(¯±øÄüÿÿÿÿ
-mpython:S3776ş"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ôâæ
-Spython:S2836—"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-mpython:S3776¹"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ûÌÁ‹

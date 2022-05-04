@@ -1,8 +1,0 @@
-
-mpython:S1070"QMethod "alter_column" has 15 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
-lpython:S3776/"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(’’Šè
-apython:S3358_"IExtract this nested conditional expression into an independent statement.(ÏÃ
-apython:S3358|"IExtract this nested conditional expression into an independent statement.(ÏÃ
-rpython:S5850¼"TGroup parts of the regex together to make the intended operator precedence explicit.(Ö´Èüÿÿÿÿ
-|python:S1871Ô"cEither merge this branch with the identical one on line "210" or change one of the implementations.(³î
-rpython:S3776á"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(ùÉ´ñúÿÿÿÿ

@@ -1,26 +1,0 @@
-
-ypython:S1192±"[Define a constant instead of duplicating this literal 'asyncio.base_events.logger' 7 times.( ³ÎÃùÿÿÿÿ
-dpython:S1192¤"KDefine a constant instead of duplicating this literal 'python.org' 8 times.(åð˜Ñ
-`python:S1192¡"GDefine a constant instead of duplicating this literal 'exit 0' 3 times.(šž´å
-zpython:S1192·"\Define a constant instead of duplicating this literal 'Exception in callback.*zero' 3 times.(œõ®Äÿÿÿÿÿ
-fpython:S1192Ä"MDefine a constant instead of duplicating this literal 'example.com' 10 times.(í½×«
-lpython:S1542"TRename function "tearDownModule" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸ç¡‚
-tpython:S1186ì"[Add a nested comment explaining why this function is empty, or complete the implementation.(­„äÓ
-tpython:S1186ú"[Add a nested comment explaining why this function is empty, or complete the implementation.(­„äÓ
-tpython:S1186¢"[Add a nested comment explaining why this function is empty, or complete the implementation.(­„äÓ
->python:S1481¡"%Remove the unused local variable "x".(û˜Íï
->python:S1481§"%Remove the unused local variable "x".(û˜Íï
->python:S1481Å"%Remove the unused local variable "x".(€ºñ×
-Cpython:S1481Ê"%Remove the unused local variable "x".(ã–©‰ùÿÿÿÿ
-Ypython:S5709æ";Derive this class from "Exception" instead of "SystemExit".(¼ý€âþÿÿÿÿ
-Rpython:S905®":Remove or refactor this statement; it has no side effects.(®æôè
-Rpython:S905É":Remove or refactor this statement; it has no side effects.(®æôè
-Rpython:S905å":Remove or refactor this statement; it has no side effects.(®æôè
-Rpython:S905Š":Remove or refactor this statement; it has no side effects.(®æôè
-Rpython:S905°":Remove or refactor this statement; it has no side effects.(®æôè
-]python:S5644É"?Fix this code; "_context" does not have a "__getitem__" method.(ß©ˆÃûÿÿÿÿ
-ypython:S1186Ú"[Add a nested comment explaining why this function is empty, or complete the implementation.(Èöíðûÿÿÿÿ
-ypython:S1186‘"[Add a nested comment explaining why this function is empty, or complete the implementation.(¸¨œÈÿÿÿÿÿ
-ypython:S1186¤"[Add a nested comment explaining why this function is empty, or complete the implementation.(¸¨œÈÿÿÿÿÿ
-ypython:S1186³"[Add a nested comment explaining why this function is empty, or complete the implementation.(¸¨œÈÿÿÿÿÿ
-tpython:S1186à"[Add a nested comment explaining why this function is empty, or complete the implementation.(´¶·×

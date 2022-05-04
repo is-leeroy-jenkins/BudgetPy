@@ -1,20 +1,0 @@
-
-mpython:S3776å"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(ø€‚ø
-rpython:S1186µ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(½–½±
-rpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ô›×¶ûÿÿÿÿ
-rpython:S3776’"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ŠÄÅøÿÿÿÿ
-rpython:S3776Ÿ"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(·Ø«Ëûÿÿÿÿ
-epython:S1134Ì"LTake the required action to fix the issue indicated by this "FIXME" comment.(÷Ÿ‘Ï
-rpython:S3776Í"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ç ç™ÿÿÿÿÿ
-epython:S1134„"LTake the required action to fix the issue indicated by this "FIXME" comment.(Äãñó
-mpython:S3776…"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ËÜÿæ
-dpython:S1134è"LTake the required action to fix the issue indicated by this "FIXME" comment.(ÄîB
-rpython:S3776é"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(äóîòøÿÿÿÿ
-dpython:S1226ñ"KIntroduce a new variable or use its initial value before reassigning 'dst'.(¡‰
-Zpython:S5754û"BReraise this exception to stop the application as the user expects(š¿°u
-mpython:S3776¯	"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(­°­Ñ
-lpython:S3776›"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(”ŠŠ:
-rpython:S3776ò"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(àç­Ãøÿÿÿÿ
-rpython:S3776¥"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ˆ¶›‰ıÿÿÿÿ
-Spython:S2836ÿ"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-gpython:S5632¯"IChange this code so that it raises an object deriving from BaseException.(˜Ğğ½øÿÿÿÿ

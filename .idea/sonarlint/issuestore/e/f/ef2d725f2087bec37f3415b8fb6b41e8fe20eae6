@@ -1,5 +1,0 @@
-
-6python:S3626"Remove this redundant return.(ÙãŞŸ
-[python:S5747"BRemove this "raise" statement or move it inside an "except" block.(€³¢»
-Vpython:S112±">Replace this generic exception class with a more specific one.(’‹â±
-}python:S5890Î"_Assign to "orig_stream" a value of type "TextIO" instead of "NoneType" or update its type hint.(ÍÖÔûÿÿÿÿ

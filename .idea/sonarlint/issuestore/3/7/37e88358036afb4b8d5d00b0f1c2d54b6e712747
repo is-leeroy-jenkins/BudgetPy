@@ -1,5 +1,0 @@
-
-qpython:S5843"TSimplify this regular expression to reduce its complexity from 26 to the 20 allowed.(£ËŽŒøÿÿÿÿ
-mpython:S1542"PRename function "to_ISO8601" to match the regular expression ^[a-z_][a-z0-9_]*$.(´î¤«ûÿÿÿÿ
-jpython:S1542#"RRename function "from_ISO8601" to match the regular expression ^[a-z_][a-z0-9_]*$.(§»‰ø
-lpython:S3776#"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(§»‰ø

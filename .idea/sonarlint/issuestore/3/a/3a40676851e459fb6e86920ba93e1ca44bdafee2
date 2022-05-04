@@ -1,26 +1,0 @@
-
-ipython:S1192Ò"KDefine a constant instead of duplicating this literal 'text/plain' 3 times.(Ö×öÖûÿÿÿÿ
-‡python:S1192Ô"iDefine a constant instead of duplicating this literal 'application/vnd.jupyter.widget-view+json' 4 times.(í¯÷¤üÿÿÿÿ
-lpython:S1192´"NDefine a constant instead of duplicating this literal '"foo" = "bar"' 3 times.(»î÷Ôÿÿÿÿÿ
-npython:S1192•"PDefine a constant instead of duplicating this literal 'Interrupt.ipynb' 3 times.(İö½ºüÿÿÿÿ
-lpython:S1192Ö"NDefine a constant instead of duplicating this literal 'image/svg+xml' 3 times.(ƒƒ®úÿÿÿÿ
-ipython:S1192ç"QDefine a constant instead of duplicating this literal 'HelloWorld.ipynb' 8 times.(Úù¾-
-Cpython:S1481×"%Remove the unused local variable "i".(Ë¬óòøÿÿÿÿ
-Cpython:S1481‚"%Remove the unused local variable "i".(Ê……Ğøÿÿÿÿ
-Cpython:S1481ù"%Remove the unused local variable "i".(”àıÎüÿÿÿÿ
-Cpython:S1481‰"%Remove the unused local variable "i".(”àıÎüÿÿÿÿ
-Cpython:S1481—"%Remove the unused local variable "i".(”àıÎüÿÿÿÿ
-Cpython:S1481§"%Remove the unused local variable "i".(ú€ƒšıÿÿÿÿ
-Cpython:S1481·"%Remove the unused local variable "i".(ú€ƒšıÿÿÿÿ
-Œpython:S4144ã"nUpdate this function so that its implementation is not identical to test_message_for_wrong_parent on line 853.(øÒÀÜÿÿÿÿÿ
-Œpython:S4144¾"nUpdate this function so that its implementation is not identical to test_message_for_wrong_parent on line 853.(íòŸ¼üÿÿÿÿ
-œpython:S4144£"~Update this function so that its implementation is not identical to test_update_display_data_mismatch_id_message on line 1409.(ı–¿Êüÿÿÿÿ
-}python:S4144æ"dUpdate this function so that its implementation is not identical to test_error_message on line 1464.(´şƒ„
-opython:S1226¯"QIntroduce a new variable or use its initial value before reassigning 'cell_mock'.(×ã£¡ùÿÿÿÿ
-opython:S1226Á"QIntroduce a new variable or use its initial value before reassigning 'cell_mock'.(Íó²îøÿÿÿÿ
-Cpython:S1481Ó"%Remove the unused local variable "i".(”àıÎüÿÿÿÿ
-Cpython:S1481ê"%Remove the unused local variable "i".(”àıÎüÿÿÿÿ
-jpython:S1226ü"QIntroduce a new variable or use its initial value before reassigning 'cell_mock'.(ÚìòÇ
-Cpython:S1481ş"%Remove the unused local variable "i".(”àıÎüÿÿÿÿ
-Cpython:S1481‰"%Remove the unused local variable "i".(ú€ƒšıÿÿÿÿ
-Cpython:S1481 "%Remove the unused local variable "i".(ú€ƒšıÿÿÿÿ

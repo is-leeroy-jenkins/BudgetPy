@@ -1,34 +1,0 @@
-
-dpython:S1192"FDefine a constant instead of duplicating this literal "&amp;" 3 times.(Ù¤ºşÿÿÿÿÿ
-python:S1192ì"wDefine a constant instead of duplicating this literal "This search is broken in 1.3 and earlier, and will be " 4 times.(­•„Œ
-epython:S2208¥"GImport only needed names or import the module and then use its members.(Øã­şÿÿÿÿ
-7python:S125˜"Remove this commented out code.(”’ÇÏ
-npython:S1542ª"PRename function "SubElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(î°€ûÿÿÿÿ
-kpython:S1542¼"MRename function "Comment" to match the regular expression ^[a-z_][a-z0-9_]*$.(ä£–¢üÿÿÿÿ
-ypython:S1542Ê"[Rename function "ProcessingInstruction" to match the regular expression ^[a-z_][a-z0-9_]*$.(šßÉşÿÿÿÿ
-7python:S125™"Remove this commented out code.(šüş©
-7python:S125©"Remove this commented out code.(”’ÇÏ
-<python:S125Ú"Remove this commented out code.(ÿ¥„‰ıÿÿÿÿ
-<python:S125è"Remove this commented out code.(ÿ¥„‰ıÿÿÿÿ
-<python:S125ş"Remove this commented out code.(ÿ¥„‰ıÿÿÿÿ
-<python:S125”"Remove this commented out code.(ÿ¥„‰ıÿÿÿÿ
-<python:S125ª"Remove this commented out code.(ÿ¥„‰ıÿÿÿÿ
-rpython:S3776÷"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÚøÚ†ıÿÿÿÿ
-mpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 51 to the 15 allowed.(ıÄí
-epython:S1134Ç"LTake the required action to fix the issue indicated by this "FIXME" comment.(ò¢²°
-rpython:S3776ç"TRefactor this function to reduce its Cognitive Complexity from 60 to the 15 allowed.(î‡¦ûÿÿÿÿ
-rpython:S3776¡"TRefactor this function to reduce its Cognitive Complexity from 62 to the 15 allowed.(Ç»ªèùÿÿÿÿ
-epython:S1134Ã"LTake the required action to fix the issue indicated by this "FIXME" comment.(‡Ğ
-mpython:S3776	"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¬ÍÃ»
-gpython:S1542¶
-"IRename function "XML" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÈÜ¢úüÿÿÿÿ
-ipython:S1542Ç
-"KRename function "XMLID" to match the regular expression ^[a-z_][a-z0-9_]*$.(êÙ–Ïıÿÿÿÿ
-Dpython:S5806×
-"+Rename this variable; it shadows a builtin.(ŞÊÄÈ
-rpython:S3776£"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(±´òœşÿÿÿÿ
-Gpython:S1172Ê".Remove the unused function parameter "prefix".(×Ÿ¸Õ
-rpython:S3776ÿ"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(«·¥Êüÿÿÿÿ
-Dpython:S5806¡"+Rename this variable; it shadows a builtin.(ıíöÓ
-mpython:S3776¹"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(ìçÃ£
-mpython:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(ºÍöÉ

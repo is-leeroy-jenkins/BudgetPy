@@ -1,29 +1,0 @@
-
-npython:S1176"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-jpython:S117Q"SRename this parameter "iconSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒÕÓó
-qpython:S117R"URename this parameter "showValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(×»çïùÿÿÿÿ
-qpython:S117k"URename this parameter "maxLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô¢ÍÅÿÿÿÿÿ
-lpython:S117j"URename this parameter "minLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑÑè•
-qpython:S117l"URename this parameter "showValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(×»çïùÿÿÿÿ
-upython:S117²"XRename this parameter "aboveAverage" to match the regular expression ^[_a-z][a-z0-9_]*$.(›¦Óîøÿÿÿÿ
-npython:S117¼"VRename this parameter "colorScale" to match the regular expression ^[_a-z][a-z0-9_]*$.(­øœ˜
-kpython:S117½"SRename this parameter "dataBar" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Ş½ô
-ipython:S117¯"QRename this parameter "dxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü‰§
-ppython:S117º"XRename this parameter "equalAverage" to match the regular expression ^[_a-z][a-z0-9_]*$.(çğó
-opython:S117¿"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-kpython:S117¾"SRename this parameter "iconSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒÕÓó
-opython:S117¹"RRename this parameter "stdDev" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ”±üÿÿÿÿ
-npython:S117±"VRename this parameter "stopIfTrue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠÌìå
-npython:S117·"VRename this parameter "timePeriod" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡î©Ã
-jpython:S107­"MMethod "__init__" has 19 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
-rpython:S1542Ö"TRename function "ColorScaleRule" to match the regular expression ^[a-z_][a-z0-9_]*$.(İ¢Ñ‚ıÿÿÿÿ
-mpython:S117ó"VRename this parameter "stopIfTrue" to match the regular expression ^[_a-z][a-z0-9_]*$.(É’Ç}
-ipython:S1542ó"QRename function "FormulaRule" to match the regular expression ^[a-z_][a-z0-9_]*$.(É’Ç}
-spython:S117ı"VRename this parameter "stopIfTrue" to match the regular expression ^[_a-z][a-z0-9_]*$.(âÛÙëÿÿÿÿÿ
-npython:S1542ı"PRename function "CellIsRule" to match the regular expression ^[a-z_][a-z0-9_]*$.(âÛÙëÿÿÿÿÿ
-rpython:S117"URename this parameter "showValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß—Í€üÿÿÿÿ
-opython:S1542"QRename function "IconSetRule" to match the regular expression ^[a-z_][a-z0-9_]*$.(ß—Í€üÿÿÿÿ
-mpython:S117œ"URename this parameter "maxLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨å˜•
-mpython:S117œ"URename this parameter "minLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨å˜•
-mpython:S117œ"URename this parameter "showValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨å˜•
-jpython:S1542›"QRename function "DataBarRule" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤•œ‘

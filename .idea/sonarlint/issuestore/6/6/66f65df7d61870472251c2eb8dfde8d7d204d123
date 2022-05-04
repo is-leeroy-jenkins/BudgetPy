@@ -1,89 +1,0 @@
-
-_python:S2208%"GImport only needed names or import the module and then use its members.(Š©ù´
-zpython:S117I"cRename this local variable "_EnumDeviceDrivers" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆ¤Æ
-xpython:S117R"\Rename this local variable "lpImageBase" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÌòúÛùÿÿÿÿ
-rpython:S117O"[Rename this local variable "lpcbNeeded" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡½¿¶
-tpython:S1542H"WRename function "EnumDeviceDrivers" to match the regular expression ^[a-z_][a-z0-9_]*$.(·À¨Ñùÿÿÿÿ
-vpython:S117q"ZRename this local variable "ProcessId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬üÏäøÿÿÿÿ
-zpython:S117p"^Rename this local variable "ProcessIdList" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ş‘ûÿÿÿÿ
-wpython:S117i"[Rename this local variable "ProcessIds" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷¤ëºøÿÿÿÿ
-{python:S117`"_Rename this local variable "_EnumProcesses" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í´–Íûÿÿÿÿ
-wpython:S117f"`Rename this local variable "cbBytesReturned" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùØÄŒ
-kpython:S1542_"SRename function "EnumProcesses" to match the regular expression ^[a-z_][a-z0-9_]*$.(»ŞÑÃ
-€python:S117~"dRename this local variable "_EnumProcessModules" to match the regular expression ^[_a-z][a-z0-9_]*$.(œş×ışÿÿÿÿ
-kpython:S117}"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(®´
-spython:S117„"[Rename this local variable "lpcbNeeded" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡½¿¶
-rpython:S117‡"ZRename this local variable "lphModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îûí©
-ppython:S1542}"XRename function "EnumProcessModules" to match the regular expression ^[a-z_][a-z0-9_]*$.(®´
-ƒpython:S117—"fRename this local variable "_EnumProcessModulesEx" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºß—ƒÿÿÿÿÿ
-ppython:S117–"XRename this parameter "dwFilterFlag" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ„Æ 
-lpython:S117–"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ„Æ 
-spython:S117"[Rename this local variable "lpcbNeeded" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡½¿¶
-rpython:S117 "ZRename this local variable "lphModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îûí©
-spython:S1542–"ZRename function "EnumProcessModulesEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(µ„Æ 
-rpython:S117­"URename this parameter "ImageBase" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷İ±¦øÿÿÿÿ
-‚python:S117®"jRename this local variable "_GetDeviceDriverBaseNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(§°
-xpython:S117´"[Rename this local variable "lpBaseName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ¯Ç¤şÿÿÿÿ
-upython:S117µ"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜‹Ï¶ùÿÿÿÿ
-spython:S117²"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-|python:S1542­"^Rename function "GetDeviceDriverBaseNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷İ±¦øÿÿÿÿ
-mpython:S117½"URename this parameter "ImageBase" to match the regular expression ^[_a-z][a-z0-9_]*$.(õû©Î
-‚python:S117¾"jRename this local variable "_GetDeviceDriverBaseNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(È…¥Î
-spython:S117Ä"[Rename this local variable "lpBaseName" to match the regular expression ^[_a-z][a-z0-9_]*$.(É¥¨Â
-ppython:S117Å"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş»¸Ô
-spython:S117Â"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-wpython:S1542½"^Rename function "GetDeviceDriverBaseNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(õû©Î
-mpython:S117Ô"URename this parameter "ImageBase" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹Îë
-‡python:S117Õ"jRename this local variable "_GetDeviceDriverFileNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä¡¡ûÿÿÿÿ
-spython:S117Û"[Rename this local variable "lpFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁèÉˆ
-upython:S117Ü"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹“şÿüÿÿÿÿ
-spython:S117Ù"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-wpython:S1542Ô"^Rename function "GetDeviceDriverFileNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹Îë
-rpython:S117ä"URename this parameter "ImageBase" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁçÔäøÿÿÿÿ
-‡python:S117å"jRename this local variable "_GetDeviceDriverFileNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ÖúÅùÿÿÿÿ
-spython:S117ë"[Rename this local variable "lpFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëëÅá
-upython:S117ì"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¦Ìğûÿÿÿÿ
-spython:S117é"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-|python:S1542ä"^Rename function "GetDeviceDriverFileNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÁçÔäøÿÿÿÿ
-|python:S117ı"dRename this local variable "_GetMappedFileNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê•ÜÜ
-qpython:S117ü"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õµ¬ûÿÿÿÿ
-spython:S117ƒ"[Rename this local variable "lpFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁèÉˆ
-upython:S117„"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷“¯€ıÿÿÿÿ
-spython:S117"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-vpython:S1542ü"XRename function "GetMappedFileNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õµ¬ûÿÿÿÿ
-|python:S117"dRename this local variable "_GetMappedFileNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(â¥Ğ’
-lpython:S117Œ"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ØûƒĞ
-spython:S117“"[Rename this local variable "lpFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëëÅá
-opython:S117”"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôœ­@
-spython:S117‘"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-qpython:S1542Œ"XRename function "GetMappedFileNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ØûƒĞ
-ƒpython:S117¥"fRename this local variable "_GetModuleFileNameExA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÀÇ€ôÿÿÿÿÿ
-kpython:S117¤"SRename this parameter "hModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï¹„é
-lpython:S117¤"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï¹„é
-spython:S117«"[Rename this local variable "lpFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁèÉˆ
-ppython:S117¬"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡½£Ğ
-spython:S117©"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-spython:S1542¤"ZRename function "GetModuleFileNameExA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï¹„é
-ƒpython:S117µ"fRename this local variable "_GetModuleFileNameExW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ëÂ´ÿÿÿÿÿ
-ppython:S117´"SRename this parameter "hModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(æøÁ˜ùÿÿÿÿ
-qpython:S117´"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(æøÁ˜ùÿÿÿÿ
-spython:S117»"[Rename this local variable "lpFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëëÅá
-ppython:S117¼"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßêÚ
-spython:S117¹"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-xpython:S1542´"ZRename function "GetModuleFileNameExW" to match the regular expression ^[a-z_][a-z0-9_]*$.(æøÁ˜ùÿÿÿÿ
-ƒpython:S117Í"fRename this local variable "_GetModuleInformation" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ÕÛüÿÿÿÿ
-ppython:S117Ì"SRename this parameter "hModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù›¢îøÿÿÿÿ
-qpython:S117Ì"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ù›¢îøÿÿÿÿ
-xpython:S1542Ì"ZRename function "GetModuleInformation" to match the regular expression ^[a-z_][a-z0-9_]*$.(ù›¢îøÿÿÿÿ
-‚python:S117İ"jRename this local variable "_GetProcessImageFileNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒå§Å
-qpython:S117Ü"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.( Šìùÿÿÿÿ
-spython:S117ã"[Rename this local variable "lpFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁèÉˆ
-upython:S117ä"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó®Ğ½şÿÿÿÿ
-spython:S117á"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-|python:S1542Ü"^Rename function "GetProcessImageFileNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.( Šìùÿÿÿÿ
-‡python:S117í"jRename this local variable "_GetProcessImageFileNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê² ùÿÿÿÿ
-qpython:S117ì"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶Šğõşÿÿÿÿ
-spython:S117ó"[Rename this local variable "lpFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëëÅá
-opython:S117ô"XRename this local variable "nCopied" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éã¡ 
-spython:S117ñ"VRename this local variable "nSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(•°¹øşÿÿÿÿ
-|python:S1542ì"^Rename function "GetProcessImageFileNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶Šğõşÿÿÿÿ

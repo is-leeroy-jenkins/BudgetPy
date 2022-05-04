@@ -1,6 +1,0 @@
-
-mpython:S117("QRename this parameter "dLbls" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÛÞƒúÿÿÿÿ
-qpython:S117)"URename this parameter "dropLines" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡Ï¡»øÿÿÿÿ
-npython:S117,"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-mpython:S117*"VRename this parameter "hiLowLines" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÍâØé
-rpython:S117+"VRename this parameter "upDownBars" to match the regular expression ^[_a-z][a-z0-9_]*$.(§ö…´ýÿÿÿÿ

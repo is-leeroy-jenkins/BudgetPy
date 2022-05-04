@@ -1,84 +1,0 @@
-
-jpython:S1192â"LDefine a constant instead of duplicating this literal "varchar(10)" 3 times.(´ŞúÛùÿÿÿÿ
-`python:S1192Ü"GDefine a constant instead of duplicating this literal "spam  " 3 times.(ßø«
-}python:S1192Š"_Define a constant instead of duplicating this literal "SELECT abbtytddrf FROM dasdasd" 3 times.(ÍŞ‘®øÿÿÿÿ
-xpython:S1192Â"ZDefine a constant instead of duplicating this literal "SELECT fldData FROM xx_%s" 8 times.(Ãë•êşÿÿÿÿ
-€python:S1192á"gDefine a constant instead of duplicating this literal 'returned value:"%s" != test value:"%s"' 8 times.(ÆÃ’ä
-‡python:S1192ğ"iDefine a constant instead of duplicating this literal "SELECT fldData FROM xx_%s WHERE fldID=30" 3 times.(¢˜²øÿÿÿÿ
-gpython:S1192ğ"NDefine a constant instead of duplicating this literal "numeric(18,2)" 4 times.(Ç˜®³
-upython:S1192©"WDefine a constant instead of duplicating this literal 'was "%s" expected "%s"' 7 times.(´ØÊÚıÿÿÿÿ
-tpython:S1192³"VDefine a constant instead of duplicating this literal "-922337203685477.5808" 4 times.(ìÍ‘ëÿÿÿÿÿ
-python:S1192€"hDefine a constant instead of duplicating this literal "INSERT INTO xx_%s (fldData) VALUES(100)" 5 times.(÷»Ê€
-xpython:S1192‹"ZDefine a constant instead of duplicating this literal "SELECT fldData from xx_%s" 3 times.(äÕ·šùÿÿÿÿ
-‡python:S1192Ã	"iDefine a constant instead of duplicating this literal "DROP PROCEDURE sp_DeleteMeOnlyForTesting" 3 times.(´–¤«şÿÿÿÿ
-Špython:S1192‚"lDefine a constant instead of duplicating this literal "SELECT fldData FROM xx_%s WHERE fldData=100" 3 times.(©¹–ÿÿÿÿÿ
-Kpython:S1172A".Remove the unused function parameter "length".(…èô¤úÿÿÿÿ
-=python:S1481B"%Remove the unused local variable "n".(˜ÌŒ¼
-Tpython:S5754i"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Lpython:S1135o"4Complete the task associated to this "TODO" comment.(Û™ŸË
-Tpython:S5754~"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754‹"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Lpython:S1135‘"4Complete the task associated to this "TODO" comment.(©ûş:
-Upython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-}python:S117©"eRename this local variable "duplicatingConverter" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú¶º‹
-}python:S117Í"`Rename this local variable "upcaseConverter" to match the regular expression ^[_a-z][a-z0-9_]*$.(òøØşÿÿÿÿ
-Upython:S5754Ø"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-|python:S117Š"_Rename this parameter "DBAPIDataTypeString" to match the regular expression ^[_a-z][a-z0-9_]*$.(©€äÿÿÿÿÿ
-wpython:S117"_Rename this parameter "allowedReturnValues" to match the regular expression ^[_a-z][a-z0-9_]*$.(†Ø¥Ï
-upython:S117è"]Rename this local variable "allowedTypes" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ó®
-{python:S117"^Rename this parameter "compareAlmostEqual" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì”§êøÿÿÿÿ
-wpython:S117¨"ZRename this local variable "descTuple" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãâıòúÿÿÿÿ
-spython:S117Ô"VRename this local variable "fldId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼»ÒÂúÿÿÿÿ
-upython:S117Õ"XRename this local variable "inParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(úñ£¥ıÿÿÿÿ
-opython:S117‹"RRename this parameter "pyData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ï¤‘Óùÿÿÿÿ
-zpython:S117Œ"cRename this parameter "pyDataInputAlternatives" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¸ÀQ
-zpython:S117‰"]Rename this parameter "sqlDataTypeString" to match the regular expression ^[_a-z][a-z0-9_]*$.(û®šÀùÿÿÿÿ
-?python:S1481€"&Remove the unused local variable "ok".(ËŞ…
-rpython:S3776‡"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(ó¡«ıÿÿÿÿ
-spython:S117Ø"\Rename this local variable "sqlDataType" to match the regular expression ^[_a-z][a-z0-9_]*$.(±†Óa
-spython:S117í"\Rename this local variable "sqlDataType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆáÃy
-ypython:S117â"\Rename this local variable "stringKinds" to match the regular expression ^[_a-z][a-z0-9_]*$.(´ŞúÛùÿÿÿÿ
-Upython:S5754ª"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-spython:S117È"VRename this local variable "fldId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼»ÒÂúÿÿÿÿ
-upython:S117É"XRename this local variable "inParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(úñ£¥ıÿÿÿÿ
-lpython:S3776·"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ËÄÿZ
-spython:S117‘"VRename this local variable "fldId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬áÏúÿÿÿÿ
-upython:S117’"XRename this local variable "inParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(úñ£¥ıÿÿÿÿ
-mpython:S117Ò"VRename this local variable "fldId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÇßçG
-upython:S117Ó"XRename this local variable "inParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(úñ£¥ıÿÿÿÿ
-mpython:S117„"VRename this local variable "fldId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÇßçG
-upython:S117…"XRename this local variable "inParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(úñ£¥ıÿÿÿÿ
-spython:S117¸"VRename this local variable "fldId" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬áÏúÿÿÿÿ
-upython:S117¹"XRename this local variable "inParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(úñ£¥ıÿÿÿÿ
-lpython:S3776¨"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(“ÿ«
-<python:S125Õ"Remove this commented out code.(úîÜ‡øÿÿÿÿ
-wpython:S117‚"ZRename this local variable "selectSql" to match the regular expression ^[_a-z][a-z0-9_]*$.(©¹–ÿÿÿÿÿ
-wpython:S117œ"ZRename this local variable "selectSql" to match the regular expression ^[_a-z][a-z0-9_]*$.(©¹–ÿÿÿÿÿ
-wpython:S117´"ZRename this local variable "selectSql" to match the regular expression ^[_a-z][a-z0-9_]*$.(©¹–ÿÿÿÿÿ
-rpython:S117Ò"ZRename this local variable "selectSql" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ ©ö
-rpython:S117è"ZRename this local variable "selectSql" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ ©ö
-Fpython:S1481å"(Remove the unused local variable "conn".(€»ºúÿÿÿÿ
-gpython:S1854	"IRemove this assignment to local variable 'conn'; the value is never used.(€»ºúÿÿÿÿ
-qpython:S117	"ZRename this local variable "selectSql" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªéÿ]
-Upython:S5754§	"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754«	"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Zpython:S5754Å	"<Specify an exception class to catch or reraise the exception(ş«Åşÿÿÿÿ
-Fpython:S1481é	"-Remove the unused local variable "retvalues".(‡ì¤¾
-Zpython:S5754å	"<Specify an exception class to catch or reraise the exception(ş«Åşÿÿÿÿ
-Zpython:S5754‚
-"<Specify an exception class to catch or reraise the exception(ş«Åşÿÿÿÿ
-Zpython:S5754›
-"<Specify an exception class to catch or reraise the exception(ş«Åşÿÿÿÿ
-Upython:S5754¼
-"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754À
-"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754İ
-"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754á
-"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ÿ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754£"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-upython:S117à"XRename this local variable "comDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(×Â¶ÿÿÿÿÿÿ
-upython:S117æ"XRename this local variable "comDate" to match the regular expression ^[_a-z][a-z0-9_]*$.(×Â¶ÿÿÿÿÿÿ
-wpython:S1186ÿ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ˆµÇãøÿÿÿÿ

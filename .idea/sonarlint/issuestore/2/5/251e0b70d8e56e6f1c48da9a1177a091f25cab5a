@@ -1,14 +1,0 @@
-
-jpython:S107Å"MMethod "__init__" has 25 parameters, which is greater than the 13 authorized.( Ðàþüÿÿÿÿ
-rpython:S3776‚"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¡È€Çùÿÿÿÿ
-?python:S1481Ã"&Remove the unused local variable "ev".(±ÍÆö
-?python:S1481Ä"&Remove the unused local variable "ev".(ÀÞ£Ð
-?python:S1481Î"&Remove the unused local variable "ev".(±ÍÆö
-?python:S1481Ï"&Remove the unused local variable "ev".(“—Ñû
-mpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(ù¿§ø
-?python:S1481ˆ"&Remove the unused local variable "ev".(±ÍÆö
-?python:S1481‰"&Remove the unused local variable "ev".(ÀÞ£Ð
-Vpython:S5754ˆ"8Catch a more specific exception or reraise the exception(ê¥Ð…úÿÿÿÿ
-vpython:S117â"^Rename this local variable "TraceDispatch" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õšîæ
-Vpython:S112é">Replace this generic exception class with a more specific one.(Ì¬·Ç
-[python:S112ì">Replace this generic exception class with a more specific one.(©šä™úÿÿÿÿ

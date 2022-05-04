@@ -1,44 +1,0 @@
-
-lpython:S1192õ"NDefine a constant instead of duplicating this literal 'header offset' 4 times.(ªÇ¡çûÿÿÿÿ
-rpython:S1192°"YDefine a constant instead of duplicating this literal 'conky/mountpoint/foo/bar' 4 times.(’Êï
-`python:S1192ì	"HDefine a constant instead of duplicating this literal 'mod2.py' 3 times.(Äïê@
-gpython:S1192ş"IDefine a constant instead of duplicating this literal "test.txt" 7 times.(¦ß„Äúÿÿÿÿ
-npython:S1192“"UDefine a constant instead of duplicating this literal '../../foo../../ba..r' 3 times.(§×ë
-gpython:S1192»"IDefine a constant instead of duplicating this literal "foo.txt" 27 times.(ÁÒÈÁşÿÿÿÿ
-ipython:S1192ò"KDefine a constant instead of duplicating this literal 'zipdir.zip' 3 times.(£¾ˆüÿÿÿÿ
-gpython:S1192—"IDefine a constant instead of duplicating this literal 'foo/bar' 21 times.(èÁû†üÿÿÿÿ
-fpython:S1192Ş	"HDefine a constant instead of duplicating this literal "mod1.py" 6 times.(Ò¬Ñäúÿÿÿÿ
-lpython:S1192“"TDefine a constant instead of duplicating this literal 'zipfp is not closed' 3 times.(ÙµüO
-fpython:S1192ë	"HDefine a constant instead of duplicating this literal 'mod1.py' 4 times.(Èš¹Ûûÿÿÿÿ
-lpython:S1192¬"SDefine a constant instead of duplicating this literal b"this is a comment" 6 times.(²»¸©
-apython:S1192Š"HDefine a constant instead of duplicating this literal 'foo.txt' 4 times.(°¤„
-fpython:S1192÷"HDefine a constant instead of duplicating this literal "foo%08d" 7 times.(™í÷¥ıÿÿÿÿ
-vpython:S1192Ä"XDefine a constant instead of duplicating this literal "O, for a Muse of Fire!" 11 times.(ƒ®öâûÿÿÿÿ
-_python:S1192¶"FDefine a constant instead of duplicating this literal 'a.txt' 3 times.(­°·í
-jpython:S1192«"LDefine a constant instead of duplicating this literal "hello world" 3 times.(ŸË‡…şÿÿÿÿ
-jpython:S1192ß	"LDefine a constant instead of duplicating this literal "print(42)\n" 3 times.(Ï‡‚ˆÿÿÿÿÿ
-kpython:S1192>"NDefine a constant instead of duplicating this literal "another.name" 16 times.(™ëòóùÿÿÿÿ
-qpython:S1192"XDefine a constant instead of duplicating this literal b"O, for a Muse of Fire!" 4 times.(ÈÊõ÷
-spython:S1192ë"UDefine a constant instead of duplicating this literal b'I am not a ZipFile!' 3 times.(É×ê…ûÿÿÿÿ
-jpython:S100/"NRename method "setUpClass" to match the regular expression ^[a-z_][a-z0-9_]*$.(°¡­«úÿÿÿÿ
-epython:S1005"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(§˜œşÿÿÿÿ
-Apython:S108ß")Either remove or fill this block of code.(ã‘Û¾
-Apython:S108ç")Either remove or fill this block of code.(ã‘Û¾
-dpython:S100¼"LRename method "tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(•ûÜë
-kpython:S100£"NRename method "setUpClass" to match the regular expression ^[a-z_][a-z0-9_]*$.(°¡­«úÿÿÿÿ
-fpython:S100¨"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(§˜œşÿÿÿÿ
-dpython:S100©"LRename method "tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(•ûÜë
-dpython:S100È"LRename method "tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(•ûÜë
-rpython:S117¹	"ZRename this local variable "reportStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø²£è
-Dpython:S1481ò"&Remove the unused local variable "zf".(ï˜Éÿÿÿÿÿ
-Cpython:S1481ê"%Remove the unused local variable "i".(‰«å§øÿÿÿÿ
-Upython:S5754ñ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Apython:S108˜")Either remove or fill this block of code.(ã‘Û¾
-kpython:S100¼"NRename method "setUpClass" to match the regular expression ^[a-z_][a-z0-9_]*$.(°¡­«úÿÿÿÿ
-Cpython:S1481¿"%Remove the unused local variable "i".(•­±Õùÿÿÿÿ
-fpython:S100Á"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(§˜œşÿÿÿÿ
-dpython:S100Æ"LRename method "tearDown" to match the regular expression ^[a-z_][a-z0-9_]*$.(•ûÜë
->python:S1481á"%Remove the unused local variable "x".(ÀÓ¶
-Hpython:S1481ã"*Remove the unused local variable "zopen1".(é‚ß¦üÿÿÿÿ
-Apython:S108ä")Either remove or fill this block of code.(ã‘Û¾
-Wpython:S905í":Remove or refactor this statement; it has no side effects.(¾””´øÿÿÿÿ

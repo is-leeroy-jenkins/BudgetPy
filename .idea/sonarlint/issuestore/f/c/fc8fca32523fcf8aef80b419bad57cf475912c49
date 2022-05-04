@@ -1,20 +1,0 @@
-
-wpython:S1192“"^Define a constant instead of duplicating this literal "</dateTime.iso8601></value>\n" 4 times.(¥«Í‚
-spython:S1192‘"ZDefine a constant instead of duplicating this literal "<value><dateTime.iso8601>" 4 times.(Áîàº
-epython:S2208"GImport only needed names or import the module and then use its members.(”µÑóùÿÿÿÿ
-Lpython:S1135]"4Complete the task associated to this "TODO" comment.(ûÓÏú
-rpython:S117"URename this parameter "faultCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ÈÏ¾ÿÿÿÿÿ
-tpython:S117"WRename this parameter "faultString" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ÈÏ¾ÿÿÿÿÿ
-Cpython:S1172‡"+Remove the unused function parameter "tag".(­õ¥z
-epython:S1134í"LTake the required action to fix the issue indicated by this "FIXME" comment.(ôùù—
-Kpython:S1172¢"2Remove the unused function parameter "standalone".(ÒÚ…ë
-epython:S1134¤"LTake the required action to fix the issue indicated by this "FIXME" comment.(¯¿Ÿ¹
-Kpython:S1172¦"-Remove the unused function parameter "attrs".(¶¬¡şÿÿÿÿ
-Dpython:S5806ö"+Rename this variable; it shadows a builtin.(Šß™ö
-mpython:S100…"PRename method "end_dateTime" to match the regular expression ^[a-z_][a-z0-9_]*$.(ôşŞğúÿÿÿÿ
-jpython:S100œ"RRename method "end_methodName" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŸŠó
-Rpython:S1172ó	"4Remove the unused function parameter "request_body".(ÌÂà¥úÿÿÿÿ
-jpython:S1134É
-"LTake the required action to fix the issue indicated by this "FIXME" comment.(‰Ïÿúÿÿÿÿ
-Dpython:S5806†"+Rename this variable; it shadows a builtin.(õàíè
-7python:S125Ä"Remove this commented out code.(Àûû¯

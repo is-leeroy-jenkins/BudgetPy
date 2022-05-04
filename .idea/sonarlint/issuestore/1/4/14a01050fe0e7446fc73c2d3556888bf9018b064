@@ -1,12 +1,0 @@
-
-apython:S5797ˆ"HReplace this expression; used as a condition it will always be constant.(°Ð·ç
-|python:S1845A"dRename field "context" to prevent any misunderstanding/clash with field "Context" defined on line 33(÷ÖÃë
-Epython:S14811"(Remove the unused local variable "push".( Ê‰øÿÿÿÿ
-@python:S14813"(Remove the unused local variable "pull".(†þ¸ï
-=python:S1481A"%Remove the unused local variable "m".(÷ÖÃë
-@python:S108J")Either remove or fill this block of code.(ã‘Û¾
-Cpython:S1481™"%Remove the unused local variable "i".(þæßÇÿÿÿÿÿ
->python:S1481“"%Remove the unused local variable "i".(’ºµ‰
->python:S1481©"%Remove the unused local variable "i".(ÚéçÂ
-Cpython:S1481ª"%Remove the unused local variable "i".(—Çý‡ûÿÿÿÿ
-Cpython:S1481Ä"%Remove the unused local variable "i".(—Çý‡ûÿÿÿÿ

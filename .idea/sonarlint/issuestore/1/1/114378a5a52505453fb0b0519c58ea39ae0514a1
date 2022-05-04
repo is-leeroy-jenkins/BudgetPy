@@ -1,88 +1,0 @@
-
-Tpython:S5754B"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
->python:S1110J"!Remove those useless parentheses.(†¡÷îıÿÿÿÿ
-Dpython:S1172Y",Remove the unused function parameter "text".(¹ÄëÙ
-Cpython:S1172Y"+Remove the unused function parameter "seq".(¹ÄëÙ
-Fpython:S1172Y".Remove the unused function parameter "cmd_id".(¹ÄëÙ
-Dpython:S1172\",Remove the unused function parameter "text".(ìÂÙ
-Fpython:S1172\".Remove the unused function parameter "cmd_id".(ìÂÙ
-Fpython:S1172_".Remove the unused function parameter "cmd_id".(şıñÅ
-Kpython:S1172f".Remove the unused function parameter "cmd_id".(ÆÚ‰šÿÿÿÿÿ
-Kpython:S1172r".Remove the unused function parameter "cmd_id".(ğ¤´ûÿÿÿÿ
-Fpython:S1172u".Remove the unused function parameter "cmd_id".(Üœê«
-Cpython:S1172u"+Remove the unused function parameter "seq".(Üœê«
-Kpython:S1172x".Remove the unused function parameter "cmd_id".(ÏƒêÁıÿÿÿÿ
-Kpython:S1481ˆ"2Remove the unused local variable "_local_version".(”¤ŒÓ
-Lpython:S1172—".Remove the unused function parameter "cmd_id".(…„é¾şÿÿÿÿ
-Ipython:S1172—"+Remove the unused function parameter "seq".(…„é¾şÿÿÿÿ
-Kpython:S1172—"-Remove the unused function parameter "py_db".(…„é¾şÿÿÿÿ
-Lpython:S1172«".Remove the unused function parameter "cmd_id".(Ú‚ááşÿÿÿÿ
-Gpython:S1172À".Remove the unused function parameter "cmd_id".(úê—ş
-Lpython:S1172É".Remove the unused function parameter "cmd_id".(šßÁüÿÿÿÿ
-Gpython:S1172Ò".Remove the unused function parameter "cmd_id".(†Òî 
-Lpython:S1172Ş".Remove the unused function parameter "cmd_id".(ĞÃÃııÿÿÿÿ
-Cpython:S5806â"+Rename this variable; it shadows a builtin.(ÇèŞ5
-Dpython:S1172ë"+Remove the unused function parameter "seq".(äÕ×•
-Gpython:S1172ë".Remove the unused function parameter "cmd_id".(äÕ×•
-Lpython:S1172ï".Remove the unused function parameter "cmd_id".(ô¼Ùûÿÿÿÿ
-Dpython:S5806ò"+Rename this variable; it shadows a builtin.(¥Èö¨
-Lpython:S1172ö".Remove the unused function parameter "cmd_id".(¾…öÊıÿÿÿÿ
-Lpython:S1172û".Remove the unused function parameter "cmd_id".(¬”à§şÿÿÿÿ
-Ipython:S1172ÿ"+Remove the unused function parameter "seq".(˜çÅ°şÿÿÿÿ
-Lpython:S1172ÿ".Remove the unused function parameter "cmd_id".(˜çÅ°şÿÿÿÿ
-rpython:S3776ÿ"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(˜çÅ°şÿÿÿÿ
-Dpython:S1172Â"+Remove the unused function parameter "seq".(ÛËÅ
-Gpython:S1172Â".Remove the unused function parameter "cmd_id".(ÛËÅ
-Gpython:S1172â".Remove the unused function parameter "cmd_id".(À•ö¶
-Kpython:S1172é"-Remove the unused function parameter "py_db".(Ù¹çäøÿÿÿÿ
-Lpython:S1172é".Remove the unused function parameter "cmd_id".(Ù¹çäøÿÿÿÿ
-Ipython:S1172é"+Remove the unused function parameter "seq".(Ù¹çäøÿÿÿÿ
-wpython:S117ş"ZRename this local variable "localRoot" to match the regular expression ^[_a-z][a-z0-9_]*$.(«•ÆÓûÿÿÿÿ
-spython:S117ı"\Rename this local variable "pathMapping" to match the regular expression ^[_a-z][a-z0-9_]*$.(È“˜
-spython:S117ÿ"[Rename this local variable "remoteRoot" to match the regular expression ^[_a-z][a-z0-9_]*$.(†é©
-Ipython:S1172Š"+Remove the unused function parameter "seq".(óü¤Öùÿÿÿÿ
-Lpython:S1172Š".Remove the unused function parameter "cmd_id".(óü¤Öùÿÿÿÿ
-Upython:S5754°"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Lpython:S1172³".Remove the unused function parameter "cmd_id".(—˜±ıúÿÿÿÿ
-Ipython:S1172³"+Remove the unused function parameter "seq".(—˜±ıúÿÿÿÿ
-rpython:S3776³"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(—˜±ıúÿÿÿÿ
-Upython:S5754æ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Rpython:S1135ß"4Complete the task associated to this "TODO" comment.(ÊÏ‡şøÿÿÿÿ
-Lpython:S1172ñ".Remove the unused function parameter "cmd_id".(ÓÔ„Äÿÿÿÿÿ
-Dpython:S1172õ"+Remove the unused function parameter "seq".(éÏØ
-Gpython:S1172õ".Remove the unused function parameter "cmd_id".(éÏØ
-mpython:S3776õ"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(éÏØ
-Lpython:S1172".Remove the unused function parameter "cmd_id".(ôÎƒğûÿÿÿÿ
-Ipython:S1172"+Remove the unused function parameter "seq".(ôÎƒğûÿÿÿÿ
-Upython:S5754©"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Mpython:S1135Â"4Complete the task associated to this "TODO" comment.(¹§×¾
-Lpython:S1172É".Remove the unused function parameter "cmd_id".(âØÑüÿÿÿÿ
-Ipython:S1172É"+Remove the unused function parameter "seq".(âØÑüÿÿÿÿ
-Dpython:S1172Õ"+Remove the unused function parameter "seq".(ˆê÷¡
-Gpython:S1172Õ".Remove the unused function parameter "cmd_id".(ˆê÷¡
-Ipython:S1172Ø"+Remove the unused function parameter "seq".(õñ¬øÿÿÿÿ
-Lpython:S1172Ø".Remove the unused function parameter "cmd_id".(õñ¬øÿÿÿÿ
-Gpython:S1172Û".Remove the unused function parameter "cmd_id".(¡Áöö
-Lpython:S1172ñ".Remove the unused function parameter "cmd_id".(„åúıÿÿÿÿ
-Ipython:S1172‰"+Remove the unused function parameter "seq".(ØÆÊÃùÿÿÿÿ
-Lpython:S1172‰".Remove the unused function parameter "cmd_id".(ØÆÊÃùÿÿÿÿ
-rpython:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ØÆÊÃùÿÿÿÿ
-Gpython:S1172¤".Remove the unused function parameter "cmd_id".(ğò
-Fpython:S1172¤"-Remove the unused function parameter "py_db".(ğò
-Dpython:S1172¤"+Remove the unused function parameter "seq".(ğò
-Fpython:S1172­".Remove the unused function parameter "cmd_id".(ùÌÒ[
-Cpython:S1172­"+Remove the unused function parameter "seq".(ùÌÒ[
-Lpython:S1172±".Remove the unused function parameter "cmd_id".(¯Î¦…ùÿÿÿÿ
-Gpython:S1172·".Remove the unused function parameter "cmd_id".(ßù®¿
-Gpython:S1172½".Remove the unused function parameter "cmd_id".(ÌŸ’
-Dpython:S1172½"+Remove the unused function parameter "seq".(ÌŸ’
-Ipython:S1172À"+Remove the unused function parameter "seq".(üÊª—şÿÿÿÿ
-Lpython:S1172À".Remove the unused function parameter "cmd_id".(üÊª—şÿÿÿÿ
-Jpython:S1172À",Remove the unused function parameter "text".(üÊª—şÿÿÿÿ
-Kpython:S1172À"-Remove the unused function parameter "py_db".(üÊª—şÿÿÿÿ
-Gpython:S1172Ã".Remove the unused function parameter "cmd_id".(·”ÎÈ
-Fpython:S1172Ã"-Remove the unused function parameter "py_db".(·”ÎÈ
-Dpython:S1172Ã"+Remove the unused function parameter "seq".(·”ÎÈ
-Dpython:S1172Ç"+Remove the unused function parameter "seq".(‰ï·ı
-Gpython:S1172Ç".Remove the unused function parameter "cmd_id".(‰ï·ı
-Gpython:S1172Ú".Remove the unused function parameter "cmd_id".(ÀğÍŸ

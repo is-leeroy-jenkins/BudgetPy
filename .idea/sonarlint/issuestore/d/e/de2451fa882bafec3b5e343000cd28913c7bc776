@@ -1,46 +1,0 @@
-
-_python:S2208""GImport only needed names or import the module and then use its members.( ä†ğ
-mpython:S117A"QRename this parameter "bgClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ¥±Üÿÿÿÿÿ
-mpython:S117@"QRename this parameter "fgClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä¿Ïùÿÿÿÿ
-kpython:S117j"TRename this parameter "fillRect" to match the regular expression ^[_a-z][a-z0-9_]*$.(’¤—Ü
-jpython:S117…"RRename this parameter "hslClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(±Ùİ„
-ppython:S117ˆ"SRename this parameter "prstClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ…°øÿÿÿÿ
-rpython:S117‡"URename this parameter "schemeClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ôèİúÿÿÿÿ
-qpython:S117ƒ"TRename this parameter "scrgbClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÊ¾ôÿÿÿÿÿ
-kpython:S117„"SRename this parameter "srgbClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰Ê¯
-jpython:S117†"RRename this parameter "sysClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡‰©²
-spython:S117°"VRename this parameter "fillToRect" to match the regular expression ^[_a-z][a-z0-9_]*$.(“ŠŸæøÿÿÿÿ
-npython:S117Ì"QRename this parameter "gsLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ØŞñşÿÿÿÿ
-upython:S117Ë"XRename this parameter "rotWithShape" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ¨™Ñıÿÿÿÿ
-qpython:S117Ï"TRename this parameter "tileRect" to match the regular expression ^[_a-z][a-z0-9_]*$.(„›±½üÿÿÿÿ
-jpython:S117ì"RRename this parameter "hslClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(±Ùİ„
-ppython:S117ï"SRename this parameter "prstClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ…°øÿÿÿÿ
-rpython:S117î"URename this parameter "schemeClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ôèİúÿÿÿÿ
-qpython:S117ê"TRename this parameter "scrgbClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÊ¾ôÿÿÿÿÿ
-kpython:S117ë"SRename this parameter "srgbClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰Ê¯
-jpython:S117í"RRename this parameter "sysClr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡‰©²
-upython:S117³"XRename this parameter "alphaBiLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğã¦şÿÿÿÿ
-ppython:S117´"XRename this parameter "alphaCeiling" to match the regular expression ^[_a-z][a-z0-9_]*$.(°®üŠ
-spython:S117µ"VRename this parameter "alphaFloor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÕãùÿÿÿÿ
-qpython:S117¶"TRename this parameter "alphaInv" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒÙå£úÿÿÿÿ
-qpython:S117·"TRename this parameter "alphaMod" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÀàšùÿÿÿÿ
-tpython:S117¸"WRename this parameter "alphaModFix" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë¿Õÿÿÿÿÿ
-rpython:S117¹"URename this parameter "alphaRepl" to match the regular expression ^[_a-z][a-z0-9_]*$.(±î‰ıÿÿÿÿ
-kpython:S117º"SRename this parameter "biLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÄÍÚş
-rpython:S117¼"URename this parameter "clrChange" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªìİùÿÿÿÿ
-ppython:S117½"SRename this parameter "clrRepl" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡æâ¯ıÿÿÿÿ
-opython:S117²"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-opython:S117¿"WRename this parameter "fillOverlay" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì¤³ó
-spython:S117¯"[Rename this parameter "noAdjustHandles" to match the regular expression ^[_a-z][a-z0-9_]*$.(©®µÀ
-vpython:S117°"^Rename this parameter "noChangeArrowheads" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë¥º¬
-rpython:S117«"ZRename this parameter "noChangeAspect" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Î
-zpython:S117±"]Rename this parameter "noChangeShapeType" to match the regular expression ^[_a-z][a-z0-9_]*$.(åê§±şÿÿÿÿ
-ppython:S117®"XRename this parameter "noEditPoints" to match the regular expression ^[_a-z][a-z0-9_]*$.(×İ¥­
-ipython:S117¨"QRename this parameter "noGrp" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š²º
-opython:S117¬"RRename this parameter "noMove" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÆï…øÿÿÿÿ
-qpython:S117­"TRename this parameter "noResize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑêÔÿÿÿÿÿ
-npython:S117ª"QRename this parameter "noRot" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯²‚™øÿÿÿÿ
-qpython:S117©"TRename this parameter "noSelect" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ŸØÁøÿÿÿÿ
-jpython:S107¤"MMethod "__init__" has 31 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
-upython:S117"XRename this parameter "rotWithShape" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ¨™Ñıÿÿÿÿ
-ppython:S117“"SRename this parameter "srcRect" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ¼ÂÔûÿÿÿÿ

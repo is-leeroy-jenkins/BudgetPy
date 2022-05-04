@@ -1,9 +1,0 @@
-
-rpython:S3776Ò"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(™»úÄşÿÿÿÿ
-dpython:S1134ï"LTake the required action to fix the issue indicated by this "FIXME" comment.(É¸ºI
-python:S5886Ë"oRemove this yield statement or annotate function "join_lines" with "typing.Generator" or one of its supertypes.(ÖÓ´üÿÿÿÿ
-ˆpython:S5886Î"oRemove this yield statement or annotate function "join_lines" with "typing.Generator" or one of its supertypes.(ÄĞ¿ô
-python:S5886×"oRemove this yield statement or annotate function "join_lines" with "typing.Generator" or one of its supertypes.(ÖÓ´üÿÿÿÿ
-rpython:S3776½"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(µÇëéûÿÿÿÿ
-python:S5886ä"tRemove this yield statement or annotate function "ignore_comments" with "typing.Generator" or one of its supertypes.(ÄĞ¿ô
-’python:S5886ÿ"yRemove this yield statement or annotate function "expand_env_variables" with "typing.Generator" or one of its supertypes.(ÄĞ¿ô

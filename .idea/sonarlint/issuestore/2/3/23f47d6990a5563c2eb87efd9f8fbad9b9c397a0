@@ -1,11 +1,0 @@
-
-`python:S5797"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
-Gpython:S1066¾"/Merge this if statement with the enclosing one.(É¤â/
-Gpython:S1066Ù"/Merge this if statement with the enclosing one.(É¤â/
-6python:S125a"Remove this commented out code.(äéžŠ
-lpython:S3776y"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(üé¡Ú
-Upython:S5754ƒ"<Specify an exception class to catch or reraise the exception(Ãý¼¼
-Upython:S5754’"<Specify an exception class to catch or reraise the exception(Ãý¼¼
-rpython:S3776™"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(ˆ¢æúÿÿÿÿ
-<python:S125À"Remove this commented out code.(›ùŸ¯ûÿÿÿÿ
-<python:S125Û"Remove this commented out code.(›ùŸ¯ûÿÿÿÿ

@@ -1,86 +1,0 @@
-
-_python:S2208'"GImport only needed names or import the module and then use its members.(Š©ù´
-‘python:S101é"tRename class "_SYSTEM_INFO_OEM_ID_STRUCT" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(äéİâşÿÿÿÿ
-Špython:S101ï"mRename class "_SYSTEM_INFO_OEM_ID" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(”½ÄÎÿÿÿÿÿ
-}python:S101õ"eRename class "SYSTEM_INFO" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ªæî·
-|python:S117•"_Rename this local variable "_GetSystemInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÍôÄúÿÿÿÿ
-lpython:S1542”"SRename function "GetSystemInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(ØºŞ£
-}python:S117¡"eRename this local variable "_GetNativeSystemInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä³º™
-wpython:S1542 "YRename function "GetNativeSystemInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(ä¦“üÿÿÿÿ
-zpython:S117­"bRename this local variable "_GetSystemMetrics" to match the regular expression ^[_a-z][a-z0-9_]*$.(’º
-opython:S117¬"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(«×ııÿÿÿÿ
-tpython:S1542¬"VRename function "GetSystemMetrics" to match the regular expression ^[a-z_][a-z0-9_]*$.(«×ııÿÿÿÿ
-‚python:S117´"eRename this local variable "_GetLargePageMinimum" to match the regular expression ^[_a-z][a-z0-9_]*$.(ËÂèğùÿÿÿÿ
-rpython:S1542³"YRename function "GetLargePageMinimum" to match the regular expression ^[a-z_][a-z0-9_]*$.(†³¡°
-{python:S117¼"cRename this local variable "_GetCurrentProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğãÈ¹
-upython:S1542º"WRename function "GetCurrentProcess" to match the regular expression ^[a-z_][a-z0-9_]*$.(åÌæøÿÿÿÿ
-<python:S125»"Remove this commented out code.(ñôîşÿÿÿÿ
-python:S117Ä"bRename this local variable "_GetCurrentThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(á›§üûÿÿÿÿ
-opython:S1542Â"VRename function "GetCurrentThread" to match the regular expression ^[a-z_][a-z0-9_]*$.(óî€Ğ
-7python:S125Ã"Remove this commented out code.(àñ–Ã
-zpython:S117Ó"]Rename this local variable "Wow64Process" to match the regular expression ^[_a-z][a-z0-9_]*$.(øêšßıÿÿÿÿ
-}python:S117Î"`Rename this local variable "_IsWow64Process" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸Øõ şÿÿÿÿ
-lpython:S117Í"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò—Å“
-mpython:S1542Í"TRename function "IsWow64Process" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ò—Å“
-ypython:S117Ù"\Rename this local variable "_GetVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(á£°ÿÿÿÿÿ
-upython:S117å"XRename this local variable "dwBuild" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ìÿ–ıÿÿÿÿ
-|python:S117â"_Rename this local variable "dwMajorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿††ÿÿÿÿÿ
-wpython:S117ã"_Rename this local variable "dwMinorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚Ë»€
-wpython:S117á"ZRename this local variable "dwVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(“ßÆ­ÿÿÿÿÿ
-ipython:S1542Ø"PRename function "GetVersion" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦òÌä
-wpython:S117î"_Rename this local variable "_GetVersionExA" to match the regular expression ^[_a-z][a-z0-9_]*$.(“Øºœ
-lpython:S1542í"SRename function "GetVersionExA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ìóóô
-wpython:S117ÿ"_Rename this local variable "_GetVersionExW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïõÂÂ
-kpython:S1542ş"SRename function "GetVersionExW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŠÓ«9
-xpython:S117™"`Rename this local variable "_GetProductInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾•Ö‰
-ypython:S117˜"\Rename this parameter "dwOSMajorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(©×üáúÿÿÿÿ
-ypython:S117˜"\Rename this parameter "dwOSMinorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(©×üáúÿÿÿÿ
-~python:S117"fRename this local variable "dwReturnedProductType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã“²
-ypython:S117˜"\Rename this parameter "dwSpMajorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(©×üáúÿÿÿÿ
-ypython:S117˜"\Rename this parameter "dwSpMinorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(©×üáúÿÿÿÿ
-rpython:S1542˜"TRename function "GetProductInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(©×üáúÿÿÿÿ
-npython:S117§"VRename this parameter "dwTypeMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ØÖ
-tpython:S117§"\Rename this parameter "dwlConditionMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ØÖ
-qpython:S117§"YRename this parameter "lpVersionInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬ØÖ
-ppython:S1542§"WRename function "VerifyVersionInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬ØÖ
-|python:S117¯"dRename this local variable "_VerifyVersionInfoA" to match the regular expression ^[_a-z][a-z0-9_]*$.(³£ñ‹
-npython:S117®"VRename this parameter "dwTypeMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(§»¬Ğ
-tpython:S117®"\Rename this parameter "dwlConditionMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(§»¬Ğ
-qpython:S117®"YRename this parameter "lpVersionInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(§»¬Ğ
-qpython:S1542®"XRename function "VerifyVersionInfoA" to match the regular expression ^[a-z_][a-z0-9_]*$.(§»¬Ğ
-{python:S117µ"dRename this local variable "_VerifyVersionInfoW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦¢€o
-spython:S117´"VRename this parameter "dwTypeMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(£÷£Úÿÿÿÿÿ
-ypython:S117´"\Rename this parameter "dwlConditionMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(£÷£Úÿÿÿÿÿ
-vpython:S117´"YRename this parameter "lpVersionInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(£÷£Úÿÿÿÿÿ
-vpython:S1542´"XRename function "VerifyVersionInfoW" to match the regular expression ^[a-z_][a-z0-9_]*$.(£÷£Úÿÿÿÿÿ
-}python:S117À"eRename this local variable "_VerSetConditionMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïú‡‰
-xpython:S117¿"[Rename this parameter "dwConditionMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬€×íøÿÿÿÿ
-vpython:S117¿"YRename this parameter "dwTypeBitMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬€×íøÿÿÿÿ
-ypython:S117¿"\Rename this parameter "dwlConditionMask" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬€×íøÿÿÿÿ
-wpython:S1542¿"YRename function "VerSetConditionMask" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬€×íøÿÿÿÿ
-rpython:S3776â"TRefactor this function to reduce its Cognitive Complexity from 90 to the 15 allowed.(–å¢–ùÿÿÿÿ
-‚python:S101¬"jRename class "VS_FIXEDFILEINFO" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(‹šçÆ
-‚python:S117Ê"eRename this local variable "_GetFileVersionInfoA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãçæÿÿÿÿÿ
-python:S117Ï"iRename this local variable "_GetFileVersionInfoSizeA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àú¥ô
-spython:S117Ô"VRename this local variable "dwLen" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıÁÜìúÿÿÿÿ
-tpython:S117Õ"WRename this local variable "lpData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ø°´ùÿÿÿÿ
-wpython:S117É"ZRename this parameter "lptstrFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÆè›ûÿÿÿÿ
-wpython:S1542É"YRename function "GetFileVersionInfoA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÕÆè›ûÿÿÿÿ
-€python:S117ß"iRename this local variable "_GetFileVersionInfoSizeW" to match the regular expression ^[_a-z][a-z0-9_]*$.(†——(
-‚python:S117Ú"eRename this local variable "_GetFileVersionInfoW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦‰Öşÿÿÿÿ
-spython:S117ä"VRename this local variable "dwLen" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼¡ªÖşÿÿÿÿ
-tpython:S117å"WRename this local variable "lpData" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷øØòùÿÿÿÿ
-wpython:S117Ù"ZRename this parameter "lptstrFilename" to match the regular expression ^[_a-z][a-z0-9_]*$.(“ˆ Ïúÿÿÿÿ
-wpython:S1542Ù"YRename function "GetFileVersionInfoW" to match the regular expression ^[a-z_][a-z0-9_]*$.(“ˆ Ïúÿÿÿÿ
-}python:S117ò"`Rename this local variable "_VerQueryValueA" to match the regular expression ^[_a-z][a-z0-9_]*$.(šÑíÌşÿÿÿÿ
-qpython:S117÷"YRename this local variable "lpBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú°Åƒ
-npython:S117ñ"VRename this parameter "lpSubBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(šÇê÷
-jpython:S117ñ"RRename this parameter "pBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(šÇê÷
-rpython:S117ø"URename this local variable "uLen" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡ˆàªûÿÿÿÿ
-mpython:S1542ñ"TRename function "VerQueryValueA" to match the regular expression ^[a-z_][a-z0-9_]*$.(šÇê÷
-xpython:S117ı"`Rename this local variable "_VerQueryValueW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢³°À
-qpython:S117‚"YRename this local variable "lpBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú°Åƒ
-spython:S117ü"VRename this parameter "lpSubBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷©¹šıÿÿÿÿ
-opython:S117ü"RRename this parameter "pBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷©¹šıÿÿÿÿ
-rpython:S117ƒ"URename this local variable "uLen" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡ˆàªûÿÿÿÿ
-rpython:S1542ü"TRename function "VerQueryValueW" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷©¹šıÿÿÿÿ

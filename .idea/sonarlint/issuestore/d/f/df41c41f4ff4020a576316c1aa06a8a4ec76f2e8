@@ -1,14 +1,0 @@
-
-Jpython:S5855Ÿ",Remove or rework this redundant alternative.(÷æôüÿÿÿÿ
-Jpython:S5855¥",Remove or rework this redundant alternative.(ÀÍ»¯ıÿÿÿÿ
-mpython:S5843—"TSimplify this regular expression to reduce its complexity from 46 to the 20 allowed.(Ùô‹‹
-Ipython:S5806¹"+Rename this variable; it shadows a builtin.(‰š¾ ÿÿÿÿÿ
-Vpython:S112½">Replace this generic exception class with a more specific one.(îıñ÷
-rpython:S3776Â"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(áïË£ùÿÿÿÿ
-Vpython:S112ì">Replace this generic exception class with a more specific one.(Ô’Å
-Apython:S108„")Either remove or fill this block of code.(ã‘Û¾
-Vpython:S112ˆ">Replace this generic exception class with a more specific one.(Ê¤
-Vpython:S112‹">Replace this generic exception class with a more specific one.(÷’§“
-Apython:S108")Either remove or fill this block of code.(ã‘Û¾
-[python:S112’">Replace this generic exception class with a more specific one.(ÎÌƒÌùÿÿÿÿ
-[python:S112—">Replace this generic exception class with a more specific one.(ÄâĞúÿÿÿÿ

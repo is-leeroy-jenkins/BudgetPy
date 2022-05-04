@@ -1,17 +1,0 @@
-
-qpython:S1192:"TDefine a constant instead of duplicating this literal 'read:users:activity' 3 times.(íûÖ ùÿÿÿÿ
-jpython:S1192B"RDefine a constant instead of duplicating this literal 'read:roles:groups' 3 times.(¯ËÛØ
-jpython:S1192t"SDefine a constant instead of duplicating this literal 'read:services:name' 3 times.(Óé§
-npython:S1192h"QDefine a constant instead of duplicating this literal 'read:groups:name' 3 times.(×ŠãĞúÿÿÿÿ
-hpython:S11923"PDefine a constant instead of duplicating this literal 'read:users:name' 4 times.(‰‚£Ï
-ipython:S1192'"QDefine a constant instead of duplicating this literal 'read:roles:users' 3 times.(«—ıí
-bpython:S1192Å"IDefine a constant instead of duplicating this literal "only you" 3 times.(‡É¦¤
-rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 99 to the 15 allowed.(úˆØüÿÿÿÿ
-rpython:S3776“"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ÿªüÿÿÿÿ
-rpython:S3776Ò"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(›•¼ˆıÿÿÿÿ
-|python:S1871¡"cEither merge this branch with the identical one on line "543" or change one of the implementations.(³î
-Kpython:S1481½"-Remove the unused local variable "base_text".(õ—ˆûÿÿÿÿ
-Kpython:S1481Ç"-Remove the unused local variable "kind_text".(ä¢£§ıÿÿÿÿ
-Fpython:S1481É"-Remove the unused local variable "kind_text".(¸ßà
-rpython:S3776¶"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(Şô£”úÿÿÿÿ
-Kpython:S1481á"-Remove the unused local variable "base_text".(õ—ˆûÿÿÿÿ

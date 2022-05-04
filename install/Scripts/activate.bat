@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\users\terry\source\repos\BudgetPy\install
+set VIRTUAL_ENV=C:\Users\teppler\source\repos\BudgetPy\install
 
 if not defined PROMPT set PROMPT=$P$G
 

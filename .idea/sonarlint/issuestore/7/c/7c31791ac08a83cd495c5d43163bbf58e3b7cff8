@@ -1,10 +1,0 @@
-
-bpython:S1192ü"IDefine a constant instead of duplicating this literal "%r != %r" 3 times.(˜æœÂ
-rpython:S3776Ž"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(À¸Îìøÿÿÿÿ
-mpython:S5850Â"TGroup parts of the regex together to make the intended operator precedence explicit.(¶‹Ÿ·
-^python:S6019Â"EFix this reluctant quantifier that will only ever match 1 repetition.(¶‹Ÿ·
-mpython:S5850Ä"TGroup parts of the regex together to make the intended operator precedence explicit.(Ð±Õá
-^python:S6019Ä"EFix this reluctant quantifier that will only ever match 1 repetition.(Ð±Õá
-ppython:S107Ö"SMethod "assert_compile" has 20 parameters, which is greater than the 13 authorized.( Ðàþüÿÿÿÿ
-rpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 43 to the 15 allowed.(ÝýÓØøÿÿÿÿ
-rpython:S3776à"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(·×þ«ÿÿÿÿÿ

@@ -1,24 +1,0 @@
-
-Hpython:S1066Â"/Merge this if statement with the enclosing one.(µÔñ£
-mpython:S3776—"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(ïˆè‹
-rpython:S3776Ü"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(§Ğ«äúÿÿÿÿ
-rpython:S3776ş"TRefactor this function to reduce its Cognitive Complexity from 44 to the 15 allowed.(óÂ®±ÿÿÿÿÿ
-mpython:S3776Á"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(”´šÆ
-7python:S125	"Remove this commented out code.(²æáÑ
-tpython:S117â	"WRename this local variable "Select" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ›Íşÿÿÿÿ
-spython:S107Í	"VMethod "_select_statement" has 18 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
-rpython:S3776¸
-"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(±€Öôúÿÿÿÿ
-mpython:S3776ñ
-"TRefactor this function to reduce its Cognitive Complexity from 45 to the 15 allowed.(ÛóŞâ
-mpython:S3776å"TRefactor this function to reduce its Cognitive Complexity from 64 to the 15 allowed.( €°ˆ
-mpython:S3776ì"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(á´¹ö
-epython:S1226í"LIntroduce a new variable or use its initial value before reassigning 'left'.(«ŠÁ˜
-lpython:S3776˜"TRefactor this function to reduce its Cognitive Complexity from 54 to the 15 allowed.(şó°
-mpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(¯éµø
-mpython:S3776Ÿ"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(æŞÅú
-rpython:S3776ì"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(İ—¿Öşÿÿÿÿ
-‚python:S1871‹"dEither merge this branch with the identical one on line "2692" or change one of the implementations.(¨í‚ˆüÿÿÿÿ
-Spython:S2836²"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-Spython:S2836À"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-rpython:S1186‹"YAdd a nested comment explaining why this method is empty, or complete the implementation.(’ÚûÎ

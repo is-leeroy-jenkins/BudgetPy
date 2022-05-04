@@ -1,24 +1,0 @@
-
-lpython:S3776I"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(÷Î°½
-qpython:S3776o"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(ÌØÆúüÿÿÿÿ
-Gpython:S1172u"/Remove the unused function parameter "context".(Ğƒª›
-Gpython:S1172{"/Remove the unused function parameter "context".(Ğƒª›
-Hpython:S1172…"/Remove the unused function parameter "context".(Ğƒª›
-Hpython:S1172"/Remove the unused function parameter "context".(Ğƒª›
-rpython:S3776˜"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(†£¬Úşÿÿÿÿ
-Hpython:S1172¤"/Remove the unused function parameter "context".(Ğƒª›
-rpython:S3776¶"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(¾ğé™úÿÿÿÿ
-kpython:S1226¶"MIntroduce a new variable or use its initial value before reassigning 'token'.(¾ğé™úÿÿÿÿ
-Hpython:S1172Î"/Remove the unused function parameter "context".(Ğƒª›
-epython:S1134×"LTake the required action to fix the issue indicated by this "FIXME" comment.(ŒÔ¸³
-spython:S3776â"URefactor this function to reduce its Cognitive Complexity from 100 to the 15 allowed.(ø¼ûÜùÿÿÿÿ
-kpython:S1226â"MIntroduce a new variable or use its initial value before reassigning 'token'.(ø¼ûÜùÿÿÿÿ
-epython:S1134ã"LTake the required action to fix the issue indicated by this "FIXME" comment.(üœ‹Ú
-Hpython:S1172û"/Remove the unused function parameter "context".(Ğƒª›
-Hpython:S1172„"/Remove the unused function parameter "context".(Ğƒª›
-Hpython:S1172Œ"/Remove the unused function parameter "context".(Ğƒª›
-Hpython:S1172–"/Remove the unused function parameter "context".(Ğƒª›
-Hpython:S1172"/Remove the unused function parameter "context".(Ğƒª›
-jpython:S1134º"LTake the required action to fix the issue indicated by this "FIXME" comment.(şÓ·Êûÿÿÿÿ
-mpython:S3776Ø"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(÷†¤Ë
-Ipython:S5806è"+Rename this variable; it shadows a builtin.(Ÿ‚»Öøÿÿÿÿ

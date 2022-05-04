@@ -1,16 +1,0 @@
-
-[python:S5445Q"C'tempfile.mktemp' is insecure. Use 'tempfile.TemporaryFile' instead(Îì™º
-`python:S5445S"C'tempfile.mktemp' is insecure. Use 'tempfile.TemporaryFile' instead(„Â¬úÿÿÿÿ
-ppython:S117™"XRename this parameter "_CloseHandle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛÍŠ¯
-rpython:S3776«"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(×å˜»ùÿÿÿÿ
-Wpython:S1143Á"9Remove this "return" statement from this "finally" block.(›‹æäıÿÿÿÿ
-Wpython:S1143Ã"9Remove this "return" statement from this "finally" block.(¦İ‡Üşÿÿÿÿ
-jpython:S1542ò"LRename function "Client" to match the regular expression ^[a-z_][a-z0-9_]*$.(™ Íšúÿÿÿÿ
-cpython:S1542‰"JRename function "Pipe" to match the regular expression ^[a-z_][a-z0-9_]*$.(ãçü¤
-cpython:S1542œ"JRename function "Pipe" to match the regular expression ^[a-z_][a-z0-9_]*$.(ãçü¤
-ppython:S1542ô"RRename function "SocketClient" to match the regular expression ^[a-z_][a-z0-9_]*$.(’¶§øÿÿÿÿ
-Epython:S1481«"'Remove the unused local variable "res".(ì¬Œ‚şÿÿÿÿ
-npython:S1542¼"PRename function "PipeClient" to match the regular expression ^[a-z_][a-z0-9_]*$.(èçäÚøÿÿÿÿ
-[python:S5747Ğ"BRemove this "raise" statement or move it inside an "except" block.(€³¢»
-mpython:S1542Ÿ"ORename function "XmlClient" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ş­£óşÿÿÿÿ
-mpython:S3776À"TRefactor this function to reduce its Cognitive Complexity from 50 to the 15 allowed.(‡†µ

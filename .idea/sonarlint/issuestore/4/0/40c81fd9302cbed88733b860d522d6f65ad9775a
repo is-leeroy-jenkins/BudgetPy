@@ -1,19 +1,0 @@
-
-zpython:S1192Ó"aDefine a constant instead of duplicating this literal "class %s already has a method %s" 3 times.(şâ¾
-Gpython:S1066ü"/Merge this if statement with the enclosing one.(ı¡±J
-²python:S1515—"˜Add a parameter to the parent lambda function and use variable "base" as its default value; The value of "base" might change at the next loop iteration.(Øúôò
-[python:S112°">Replace this generic exception class with a more specific one.(®… Ùùÿÿÿÿ
-rpython:S3776è"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ıê§Œøÿÿÿÿ
-mpython:S3776¯"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(¨ÒÜ
-mpython:S3776ö"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(±‹ş
-mpython:S3776ˆ"TRefactor this function to reduce its Cognitive Complexity from 44 to the 15 allowed.(ä±»ƒ
-rpython:S3776î"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(³‰ÄÒúÿÿÿÿ
-rpython:S3776±"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(”ÇÛÃÿÿÿÿÿ
-rpython:S3776ø"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(îèõÓúÿÿÿÿ
-Zpython:S5720—"<Rename "desc" to "self" or add the missing "self" parameter.(‡“‚øÿÿÿÿ
-jpython:S2710¿"QRename "self" to a valid class parameter name or add the missing class parameter.(¤Á–Í
-‚python:S1871‘"dEither merge this branch with the identical one on line "1551" or change one of the implementations.(×ô¸•üÿÿÿÿ
-‚python:S1871“"dEither merge this branch with the identical one on line "1551" or change one of the implementations.(×ô¸•üÿÿÿÿ
-Upython:S5754ú"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Kpython:S1481—"-Remove the unused local variable "strong_fn".(åà•ñøÿÿÿÿ
-mpython:S3776Ô"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(ä‡Ë

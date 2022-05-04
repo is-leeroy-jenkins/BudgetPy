@@ -1,15 +1,0 @@
-
-rpython:S117õ"URename this parameter "faultCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ÈÏ¾ÿÿÿÿÿ
-tpython:S117õ"WRename this parameter "faultString" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ÈÏ¾ÿÿÿÿÿ
-7python:S125˜"Remove this commented out code.( ŒÿÏ
-epython:S1134"LTake the required action to fix the issue indicated by this "FIXME" comment.(ôùù—
-Kpython:S1172«"2Remove the unused function parameter "standalone".(ÒÚ…ë
-epython:S1134­"LTake the required action to fix the issue indicated by this "FIXME" comment.(¯¿Ÿ¹
-Kpython:S1172¯"-Remove the unused function parameter "attrs".(¶¬¡şÿÿÿÿ
-Dpython:S5806€"+Rename this variable; it shadows a builtin.(Šß™ö
-mpython:S100‘"PRename method "end_dateTime" to match the regular expression ^[a-z_][a-z0-9_]*$.(ôşŞğúÿÿÿÿ
-jpython:S100¨"RRename method "end_methodName" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŸŠó
-jpython:S1134¿
-"LTake the required action to fix the issue indicated by this "FIXME" comment.(‰Ïÿúÿÿÿÿ
-Cpython:S5806û
-"+Rename this variable; it shadows a builtin.(Åà’N

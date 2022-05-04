@@ -1,5 +1,0 @@
-
-mpython:S117+"QRename this parameter "dLbls" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÛÞƒúÿÿÿÿ
-npython:S117,"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-tpython:S117("XRename this parameter "scatterStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ãÁçÿÿÿÿÿ
-rpython:S117)"VRename this parameter "varyColors" to match the regular expression ^[_a-z][a-z0-9_]*$.(­« „ÿÿÿÿÿ

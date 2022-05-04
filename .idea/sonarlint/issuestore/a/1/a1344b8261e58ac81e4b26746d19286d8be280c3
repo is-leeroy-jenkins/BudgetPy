@@ -1,44 +1,0 @@
-
-gpython:S117/"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(µø’
-npython:S117D"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-opython:S117@"SRename this parameter "logBase" to match the regular expression ^[_a-z][a-z0-9_]*$.(œğúÿÿÿÿÿ
-gpython:S117i"PRename this parameter "axId" to match the regular expression ^[_a-z][a-z0-9_]*$.(£şÄº
-hpython:S117l"QRename this parameter "axPos" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßì“Ï
-opython:S117v"SRename this parameter "crossAx" to match the regular expression ^[_a-z][a-z0-9_]*$.(àá­Œşÿÿÿÿ
-qpython:S117x"URename this parameter "crossesAt" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸•»¶şÿÿÿÿ
-vpython:S117m"ZRename this parameter "majorGridlines" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠÃöİûÿÿÿÿ
-upython:S117q"YRename this parameter "majorTickMark" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÍÕÆúÿÿÿÿ
-vpython:S117n"ZRename this parameter "minorGridlines" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ëíš™øÿÿÿÿ
-upython:S117r"YRename this parameter "minorTickMark" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ§ºòøÿÿÿÿ
-npython:S117p"RRename this parameter "numFmt" to match the regular expression ^[_a-z][a-z0-9_]*$.(…«îŒÿÿÿÿÿ
-lpython:S117t"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
-mpython:S117s"VRename this parameter "tickLblPos" to match the regular expression ^[_a-z][a-z0-9_]*$.(š‚ßê
-gpython:S117u"PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ
-ipython:S107h"MMethod "__init__" has 16 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
-mpython:S117Ÿ"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
-hpython:S117 "PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ
-npython:S117·"WRename this parameter "builtInUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÏÁË=
-lpython:S117¶"TRename this parameter "custUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê™²
-upython:S117¸"XRename this parameter "dispUnitsLbl" to match the regular expression ^[_a-z][a-z0-9_]*$.(±ÙÂşÿÿÿÿ
-opython:S117¹"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-ppython:S117à"XRename this parameter "crossBetween" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãí³¡
-rpython:S117ã"URename this parameter "dispUnits" to match the regular expression ^[_a-z][a-z0-9_]*$.(şşŸ¸ÿÿÿÿÿ
-opython:S117ä"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-mpython:S117á"URename this parameter "majorUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢ûÒÆ
-mpython:S117â"URename this parameter "minorUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í¨ô…
-opython:S117¥"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-ppython:S117 "SRename this parameter "lblAlgn" to match the regular expression ^[_a-z][a-z0-9_]*$.(öØ·İúÿÿÿÿ
-rpython:S117¡"URename this parameter "lblOffset" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢£êÎúÿÿÿÿ
-ppython:S117¤"YRename this parameter "noMultiLvlLbl" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÃõÍ
-tpython:S117¢"WRename this parameter "tickLblSkip" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹¹òùÿÿÿÿ
-opython:S117£"XRename this parameter "tickMarkSkip" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á´
-upython:S117Ø"XRename this parameter "baseTimeUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôß»úşÿÿÿÿ
-opython:S117İ"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-mpython:S117×"URename this parameter "lblOffset" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÊÒçÓ
-vpython:S117Ú"YRename this parameter "majorTimeUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥±Œ©ùÿÿÿÿ
-mpython:S117Ù"URename this parameter "majorUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢ûÒÆ
-qpython:S117Ü"YRename this parameter "minorTimeUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í€µÔ
-mpython:S117Û"URename this parameter "minorUnit" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í¨ô…
-opython:S117Š"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-tpython:S117ˆ"WRename this parameter "tickLblSkip" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹¹òùÿÿÿÿ
-opython:S117‰"XRename this parameter "tickMarkSkip" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á´

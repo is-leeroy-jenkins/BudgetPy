@@ -1,7 +1,0 @@
-
-mpython:S117,"QRename this parameter "dLbls" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÛÞƒúÿÿÿÿ
-qpython:S117-"URename this parameter "dropLines" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡Ï¡»øÿÿÿÿ
-rpython:S117*"VRename this parameter "varyColors" to match the regular expression ^[_a-z][a-z0-9_]*$.(­« „ÿÿÿÿÿ
-gpython:S117J"PRename this parameter "axId" to match the regular expression ^[_a-z][a-z0-9_]*$.(£þÄº
-npython:S117K"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-kpython:S117e"TRename this parameter "gapDepth" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥Ýõ°

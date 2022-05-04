@@ -1,34 +1,0 @@
-
-rpython:S117)"VRename this parameter "customList" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¡¤¾úÿÿÿÿ
-hpython:S117*"QRename this parameter "dxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü‰§
-npython:S117,"RRename this parameter "iconId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê¬ÒÅùÿÿÿÿ
-jpython:S117+"SRename this parameter "iconSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒÕÓó
-ipython:S117("RRename this parameter "sortBy" to match the regular expression ^[_a-z][a-z0-9_]*$.(áÎ¸Õ
-upython:S117F"YRename this parameter "caseSensitive" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜í–àüÿÿÿÿ
-rpython:S117E"VRename this parameter "columnSort" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰İÛ•ùÿÿÿÿ
-npython:S117J"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-upython:S117I"YRename this parameter "sortCondition" to match the regular expression ^[_a-z][a-z0-9_]*$.(™µšºúÿÿÿÿ
-rpython:S117G"VRename this parameter "sortMethod" to match the regular expression ^[_a-z][a-z0-9_]*$.(º„™ƒıÿÿÿÿ
-npython:S117d"RRename this parameter "iconId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ê¬ÒÅùÿÿÿÿ
-jpython:S117c"SRename this parameter "iconSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÒÕÓó
-qpython:S117s"URename this parameter "cellColor" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëğ¿—ÿÿÿÿÿ
-hpython:S117r"QRename this parameter "dxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü‰§
-opython:S117Œ"RRename this parameter "maxVal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğŠ¤Îùÿÿÿÿ
-mpython:S117"URename this parameter "maxValIso" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºâÑã
-jpython:S117‹"RRename this parameter "valIso" to match the regular expression ^[_a-z][a-z0-9_]*$.(»´ûğ
-upython:S117±"XRename this parameter "customFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹ÛŒÃûÿÿÿÿ
-mpython:S117Ä"URename this parameter "filterVal" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥¥§§
-tpython:S117à"\Rename this parameter "dateTimeGrouping" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡©ÖÙ
-upython:S117û"XRename this parameter "calendarType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ²”ûÿÿÿÿ
-vpython:S117ı"YRename this parameter "dateGroupItem" to match the regular expression ^[_a-z][a-z0-9_]*$.(©êÁÈşÿÿÿÿ
-hpython:S117š"QRename this parameter "colId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö±¡u
-tpython:S117¡"WRename this parameter "colorFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(»À¦’øÿÿÿÿ
-ppython:S117Ÿ"YRename this parameter "customFilters" to match the regular expression ^[_a-z][a-z0-9_]*$.(½¦‹
-vpython:S117 "YRename this parameter "dynamicFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ™ú™ıÿÿÿÿ
-opython:S117£"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-ppython:S117›"XRename this parameter "hiddenButton" to match the regular expression ^[_a-z][a-z0-9_]*$.(§êÄÔ
-npython:S117¢"VRename this parameter "iconFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úˆö
-spython:S117œ"VRename this parameter "showButton" to match the regular expression ^[_a-z][a-z0-9_]*$.(”ÿôİşÿÿÿÿ
-opython:S117Å"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-upython:S117Ã"XRename this parameter "filterColumn" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘–¾ìüÿÿÿÿ
-rpython:S117Ä"URename this parameter "sortState" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶«ø²ÿÿÿÿÿ

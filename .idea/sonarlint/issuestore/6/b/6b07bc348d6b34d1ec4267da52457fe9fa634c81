@@ -1,17 +1,0 @@
-
-fpython:S1192‡
-"MDefine a constant instead of duplicating this literal "Activating.*" 3 times.(¬¸²ö
-ipython:S1192å"KDefine a constant instead of duplicating this literal "import sys" 3 times.(ä’Øµÿÿÿÿÿ
-qpython:S1192”"XDefine a constant instead of duplicating this literal "def b():\n  return a**2" 3 times.(îÄâ
-fpython:S1192æ"HDefine a constant instead of duplicating this literal "line1\n" 6 times.(Á®úÿÿÿÿ
-mpython:S1192B"PDefine a constant instead of duplicating this literal "class A: pass\n" 3 times.(ó£€øÿÿÿÿ
-~python:S1192ç"`Define a constant instead of duplicating this literal "print('hello', file=sys.stderr)" 3 times.(¾š‘Óüÿÿÿÿ
-jpython:S1192Ï"LDefine a constant instead of duplicating this literal "print('hi')" 5 times.(á»ÌŸşÿÿÿÿ
-Qpython:S905i":Remove or refactor this statement; it has no side effects.(®æôè
-6python:S125‰"Remove this commented out code.(ı‘äE
-rpython:S1186ğ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(«¯èÙ
-`python:S5799Ñ"GMerge these implicitly concatenated strings; or did you forget a comma?(±ÊĞ
-<python:S125ø"Remove this commented out code.(†ˆà°ùÿÿÿÿ
->python:S1481"%Remove the unused local variable "i".(¨ùÇ
-[python:S112ä">Replace this generic exception class with a more specific one.(Ğş¾°øÿÿÿÿ
-?python:S1481»"&Remove the unused local variable "td".(œ¹£Î

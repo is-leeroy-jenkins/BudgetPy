@@ -1,17 +1,0 @@
-
-jpython:S1192ñ"QDefine a constant instead of duplicating this literal "No module named " 3 times.(€Óğú
-mpython:S1192Á"TDefine a constant instead of duplicating this literal "determine_parent ->" 4 times.(¥şõÌ
-jpython:S1192³"QDefine a constant instead of duplicating this literal "import_module ->" 3 times.(øİ˜ 
-qpython:S1542&"TRename function "AddPackagePath" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤İ½’ıÿÿÿÿ
-lpython:S15421"TRename function "ReplacePackage" to match the regular expression ^[a-z_][a-z0-9_]*$.(»‰Üâ
-Cpython:S1481Š"%Remove the unused local variable "i".(Áàø¹øÿÿÿÿ
-Ipython:S5806¤"+Rename this variable; it shadows a builtin.(¸‘ö›üÿÿÿÿ
-Ipython:S5806‡"+Rename this variable; it shadows a builtin.(ŞÓıàøÿÿÿÿ
-mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(¯‘»ü
-Ipython:S5806Í"+Rename this variable; it shadows a builtin.(æ×£Èùÿÿÿÿ
-rpython:S3776ñ"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(¹ƒĞÃıÿÿÿÿ
-8python:S3626"Remove this redundant continue.(À–¬ˆ
-Fpython:S1481¡"(Remove the unused local variable "code".(ıè¥‘ûÿÿÿÿ
-rpython:S3776 "TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(î­ğùÿÿÿÿ
-<python:S125î"Remove this commented out code.(ƒ±™ñüÿÿÿÿ
-mpython:S3776î"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(¢¨Ş£

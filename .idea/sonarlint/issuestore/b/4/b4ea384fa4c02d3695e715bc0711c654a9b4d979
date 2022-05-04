@@ -1,4 +1,0 @@
-
-opython:S117"XRename this local variable "IPython" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø—ŒÅ
-wpython:S117"`Rename this local variable "IPython_version" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠÞ“ê
-Qpython:S5727,"4Remove this identity check; it will always be False.(ŒÙôåýÿÿÿÿ

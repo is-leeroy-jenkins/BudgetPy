@@ -1,23 +1,0 @@
-
-npython:S1542Í"PRename function "_new_Index" to match the regular expression ^[a-z_][a-z0-9_]*$.(è∫ÊΩ˛ˇˇˇˇ
-tpython:S5890Ò"[Assign to "_name" a value of type "Hashable" instead of "NoneType" or update its type hint.(”∆£¢
-mpython:S3776ç"TRefactor this function to reduce its Cognitive Complexity from 51 to the 15 allowed.(„ÿº±
-|python:S1871€"cEither merge this branch with the identical one on line "853" or change one of the implementations.(ß”Ú‚
-<python:S125ï
-"Remove this commented out code.(—ï§Î˙ˇˇˇˇ
-rpython:S3776∆"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(‰¥Ç˚ˇˇˇˇ
-rpython:S3776í"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(”ˇ˜Â¯ˇˇˇˇ
-mpython:S3776À"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(â£Òò
-rpython:S3776¸"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ƒ˛˝·˚ˇˇˇˇ
-rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÒåÔı˘ˇˇˇˇ
-rpython:S3776©"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ΩŒ‚Í¸ˇˇˇˇ
-mpython:S3776ç "TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(ÛŸ∆æ
-rpython:S3776‹!"TRefactor this function to reduce its Cognitive Complexity from 40 to the 15 allowed.(«èíÓ˚ˇˇˇˇ
-Apython:S108é"")Either remove or fill this block of code.(„ë€æ
-mpython:S3776Ÿ#"TRefactor this function to reduce its Cognitive Complexity from 43 to the 15 allowed.(Á≠õ¥
-rpython:S3776Ì$"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ø∫åƒ˙ˇˇˇˇ
-mpython:S3776û."TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(˝Ö£”
-epython:S1134Ì."LTake the required action to fix the issue indicated by this "FIXME" comment.(Œèì
-epython:S1134Ó."LTake the required action to fix the issue indicated by this "FIXME" comment.(âÜ¿°
-rpython:S3776õ2"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(üïÇõ˚ˇˇˇˇ
-mpython:S3776˚3"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(¯ÊΩ¢

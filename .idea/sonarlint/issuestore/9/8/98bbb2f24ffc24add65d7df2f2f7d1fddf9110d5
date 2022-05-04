@@ -1,24 +1,0 @@
-
-lpython:S1192±"SDefine a constant instead of duplicating this literal "invalid errors: %r" 3 times.(™É“„
-|python:S1192ê"^Define a constant instead of duplicating this literal "I/O operation on closed file." 5 times.(ãéý§üÿÿÿÿ
-spython:S1192À	"UDefine a constant instead of duplicating this literal "invalid whence value" 3 times.(Óî¯âúÿÿÿÿ
-spython:S1192º"UDefine a constant instead of duplicating this literal "write to closed file" 3 times.(µ¬æáþÿÿÿÿ
-spython:S1192¯"UDefine a constant instead of duplicating this literal "invalid encoding: %r" 3 times.(ßïÒÎûÿÿÿÿ
-Hpython:S1066²	"/Merge this if statement with the enclosing one.(¯ôÒÉ
-lpython:S3776+"TRefactor this function to reduce its Cognitive Complexity from 58 to the 15 allowed.(ÍñàŒ
-Upython:S5754®"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(¹ð€»þÿÿÿÿ
-xpython:S4144û"ZUpdate this function so that its implementation is not identical to readable on line 1014.(·ƒËÂÿÿÿÿÿ
-spython:S4144€"ZUpdate this function so that its implementation is not identical to readable on line 1014.(™Ãúî
-Ipython:S1481Â"0Remove the unused local variable "current_size".(¤Ö„Ž
-Ipython:S1481É"0Remove the unused local variable "current_size".(ÈæÕ
-mpython:S3776²"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(çÎÍÏ
-rpython:S3776	"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(ÙÏ„‘ùÿÿÿÿ
-mpython:S3776Í"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(¦þ‘—
-9python:S2638Þ"Add missing parameters msg.(±¦‰®ûÿÿÿÿ
-:python:S2638µ"Add missing parameters size.(–‰éÕþÿÿÿÿ
-mpython:S3776Ô"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ûÙÒ€
-rpython:S3776‘"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(Þõ°þýÿÿÿÿ
-rpython:S3776‚"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(Í‘À¨ÿÿÿÿÿ
-mpython:S3776ò"TRefactor this function to reduce its Cognitive Complexity from 44 to the 15 allowed.(Òùù½
-‚python:S1871¯"dEither merge this branch with the identical one on line "2595" or change one of the implementations.(¾Æ©µüÿÿÿÿ

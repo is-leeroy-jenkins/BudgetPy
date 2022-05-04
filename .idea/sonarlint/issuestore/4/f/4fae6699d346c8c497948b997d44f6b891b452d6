@@ -1,7 +1,0 @@
-
-npython:S117"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-mpython:S117"QRename this parameter "fmtId" to match the regular expression ^[_a-z][a-z0-9_]*$.(œµÈ‰şÿÿÿÿ
-lpython:S117:"PRename this parameter "dLbl" to match the regular expression ^[_a-z][a-z0-9_]*$.(­†Öáıÿÿÿÿ
-npython:S117;"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-lpython:S1177"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
-gpython:S1178"PRename this parameter "txPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(êàÒÁ

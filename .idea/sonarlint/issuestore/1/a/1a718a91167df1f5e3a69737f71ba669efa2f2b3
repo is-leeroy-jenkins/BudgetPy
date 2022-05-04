@@ -1,13 +1,0 @@
-
-epython:S5799ª"GMerge these implicitly concatenated strings; or did you forget a comma?(Ù”ûüûÿÿÿÿ
-mpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(éµ“î
-wpython:S1186ˆ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¦Üâøÿÿÿÿ
-Ypython:S1135¡"4Complete the task associated to this "TODO" comment.(´‹’½øÿÿÿÿ8º½‘Åƒ0
-<python:S125–"Remove this commented out code.(‡“Şøÿÿÿÿ
-ypython:S117İ"\Rename this local variable "DBAPIBinary" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈËºâşÿÿÿÿ
-Opython:S1172ì"/Remove the unused function parameter "coltype".(ÛçÑö8º½‘Åƒ0
-Opython:S1172ì"/Remove the unused function parameter "dialect".(ÛçÑö8º½‘Åƒ0
-Opython:S1172ñ"/Remove the unused function parameter "coltype".(ÛçÑö8º½‘Åƒ0
-Opython:S1172ñ"/Remove the unused function parameter "dialect".(ÛçÑö8º½‘Åƒ0
-Spython:S1135ù"4Complete the task associated to this "TODO" comment.(ŠëåL8º½‘Åƒ0
-mpython:S3776Ò"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(²¶Å„

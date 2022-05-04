@@ -1,19 +1,0 @@
-
-mpython:S3776¯"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(ŒÊÏ…
-python:S117‹"bRename this local variable "TransformFunction" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÜÏ‰Ïþÿÿÿÿ
-npython:S3776õ"URefactor this function to reduce its Cognitive Complexity from 247 to the 15 allowed.(ýŽ¡¡
-`python:S1542Æ"HRename function "_A" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿ˜¸5
-fpython:S1542£"HRename function "_I" to match the regular expression ^[a-z_][a-z0-9_]*$.(¨éËûÿÿÿÿ
->python:S1481Ú"%Remove the unused local variable "i".(÷ÃÇ»
->python:S1481â"%Remove the unused local variable "i".(÷ÃÇ»
->python:S1481½"%Remove the unused local variable "i".(÷ÃÇ»
-apython:S1542»	"HRename function "_B" to match the regular expression ^[a-z_][a-z0-9_]*$.(¡Êþ…
-qpython:S1542Ø	"SRename function "_WORD_forward" to match the regular expression ^[a-z_][a-z0-9_]*$.(ìóÅ†üÿÿÿÿ
-kpython:S1542ì	"RRename function "_end_of_WORD" to match the regular expression ^[a-z_][a-z0-9_]*$.(ºÆùŒ
-opython:S1542ˆ
-"QRename function "_inner_WORD" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿ¼´•øÿÿÿÿ
-fpython:S1542’
-"MRename function "_a_WORD" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤”–í
-apython:S1542°"HRename function "_T" to match the regular expression ^[a-z_][a-z0-9_]*$.(É·õä
-Ipython:S5806Ç"+Rename this variable; it shadows a builtin.( ç×·úÿÿÿÿ
-gpython:S1542Š"IRename function "_gE" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ï Íèüÿÿÿÿ

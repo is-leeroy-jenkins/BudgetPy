@@ -1,15 +1,0 @@
-
-Gpython:S1066T"/Merge this if statement with the enclosing one.(ë¥è›
-kpython:S1160"TRename this field "HeaderFooter" to match the regular expression ^[_a-z][_a-z0-9]*$.(ˆÂú˜
-dpython:S100i"MRename method "oddHeader" to match the regular expression ^[a-z_][a-z0-9_]*$.(Óâšî
-dpython:S100n"MRename method "oddHeader" to match the regular expression ^[a-z_][a-z0-9_]*$.(²Æ‡Ã
-ipython:S100s"MRename method "oddFooter" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ÿ«ù÷ûÿÿÿÿ
-ipython:S100x"MRename method "oddFooter" to match the regular expression ^[a-z_][a-z0-9_]*$.(µåªÊûÿÿÿÿ
-epython:S100}"NRename method "evenHeader" to match the regular expression ^[a-z_][a-z0-9_]*$.(íÖ£
-kpython:S100‚"NRename method "evenHeader" to match the regular expression ^[a-z_][a-z0-9_]*$.(„¶ìûûÿÿÿÿ
-fpython:S100‡"NRename method "evenFooter" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ó¶˜¿
-kpython:S100Œ"NRename method "evenFooter" to match the regular expression ^[a-z_][a-z0-9_]*$.(Å†Æøÿÿÿÿ
-lpython:S100‘"ORename method "firstHeader" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÒıßÁÿÿÿÿÿ
-lpython:S100–"ORename method "firstHeader" to match the regular expression ^[a-z_][a-z0-9_]*$.(í€’œÿÿÿÿÿ
-lpython:S100›"ORename method "firstFooter" to match the regular expression ^[a-z_][a-z0-9_]*$.(›Ş˜ıÿÿÿÿ
-gpython:S100 "ORename method "firstFooter" to match the regular expression ^[a-z_][a-z0-9_]*$.(áì¸©

@@ -1,17 +1,0 @@
-
-rpython:S117á"ZRename this local variable "cx_Oracle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅæØı
-rpython:S117ˆ"ZRename this local variable "cx_Oracle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅæØı
-mpython:S3776‡"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(Ûğ
-ppython:S3923"RRemove this if statement or edit its code blocks so that they're not all the same.(Ÿ»Ûˆşÿÿÿÿ
-…python:S101Æ"mRename class "_OracleBINARY_FLOAT" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(®µ 
-†python:S101Ê"nRename class "_OracleBINARY_DOUBLE" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(äìœı
-python:S101·"rRename class "OracleCompiler_cx_oracle" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ï³˜Šÿÿÿÿÿ
-’python:S101Î"zRename class "OracleExecutionContext_cx_oracle" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(‚ “
-wpython:S117â"ZRename this local variable "cx_Oracle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó¦‡üÿÿÿÿ
-lpython:S3776Ñ"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(Ùñák
-Çpython:S1515ø"¨Add a parameter to the parent lambda function and use variable "outconverter" as its default value; The value of "outconverter" might change at the next loop iteration.(¸ÚÅ¾ùÿÿÿÿ
-‰python:S101ğ"qRename class "OracleDialect_cx_oracle" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(µáí
-wpython:S117À"ZRename this local variable "cx_Oracle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô£ğÿúÿÿÿÿ
-rpython:S117ñ"ZRename this local variable "cx_Oracle" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅæØı
-rpython:S3776ê"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ğÖ‘£ùÿÿÿÿ
-rpython:S3776İ	"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(©Á•üÿÿÿÿ

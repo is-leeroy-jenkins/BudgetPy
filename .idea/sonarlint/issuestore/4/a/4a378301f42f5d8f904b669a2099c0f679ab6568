@@ -1,20 +1,0 @@
-
-jpython:S117c"SRename this parameter "clrFrom" to match the regular expression ^[_a-z][a-z0-9_]*$.(œÛÛÕ
-mpython:S117d"QRename this parameter "clrTo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾‹¸ıÿÿÿÿ
-fpython:S117b"PRename this parameter "useA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºôï,
-ppython:S117è"SRename this parameter "blurRad" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş—í”ÿÿÿÿÿ
-ppython:S117‹"SRename this parameter "blurRad" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş—í”ÿÿÿÿÿ
-upython:S117“"XRename this parameter "rotWithShape" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ¨™Ñıÿÿÿÿ
-ppython:S117Ñ"SRename this parameter "blurRad" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş—í”ÿÿÿÿÿ
-hpython:S117Ô"PRename this parameter "endA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùÕç¢
-jpython:S117Õ"RRename this parameter "endPos" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œƒ¬
-kpython:S117Ø"SRename this parameter "fadeDir" to match the regular expression ^[_a-z][a-z0-9_]*$.(´âÙæ
-upython:S117Ş"XRename this parameter "rotWithShape" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ¨™Ñıÿÿÿÿ
-gpython:S117Ò"ORename this parameter "stA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñú¾¤
-npython:S117Ó"QRename this parameter "stPos" to match the regular expression ^[_a-z][a-z0-9_]*$.(–ÁûŒüÿÿÿÿ
-jpython:S107Ğ"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
-opython:S117Š"WRename this parameter "fillOverlay" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì¤³ó
-mpython:S117Œ"URename this parameter "innerShdw" to match the regular expression ^[_a-z][a-z0-9_]*$.(óµëá
-rpython:S117"URename this parameter "outerShdw" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ…ÿ´ùÿÿÿÿ
-lpython:S117"TRename this parameter "prstShdw" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸ŠŒÖ
-lpython:S117"TRename this parameter "softEdge" to match the regular expression ^[_a-z][a-z0-9_]*$.(—ô­¢

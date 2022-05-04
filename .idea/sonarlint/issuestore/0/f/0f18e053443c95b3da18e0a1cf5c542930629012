@@ -1,7 +1,0 @@
-
-python:S1192&"wDefine a constant instead of duplicating this literal '  in "{sname!s}", line {sline1:d}, column {scolumn1:d}' 3 times.(”±¹Å
-`python:S5797"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
-upython:S4144u"XUpdate this function so that its implementation is not identical to __str__ on line 104.(Šûóúûÿÿÿÿ
-gpython:S1854\"JRemove this assignment to local variable 'caret'; the value is never used.(£Çî«ûÿÿÿÿ
-5python:S2772ú"Remove this unneeded "pass".(ã‘Û¾
-’python:S101€"uRename class "MantissaNoDotYAML1_1Warning" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Èì¡áıÿÿÿÿ

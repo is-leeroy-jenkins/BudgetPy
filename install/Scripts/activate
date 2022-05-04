@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\users\terry\source\repos\BudgetPy\install"
+VIRTUAL_ENV="C:\Users\teppler\source\repos\BudgetPy\install"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -1,11 +1,0 @@
-
-apython:S5797¬"HReplace this expression; used as a condition it will always be constant.(¦‹Å÷
-qpython:S3776Y"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(é¨÷Þüÿÿÿÿ
-Cpython:S5806\"+Rename this variable; it shadows a builtin.(¤ÌŠÀ
-´python:S1515q"›Add a parameter to function "_replacer" and use variable "variables" as its default value;The value of "variables" might change at the next loop iteration.(Æîüò
-Dpython:S5806ž"+Rename this variable; it shadows a builtin.(ƒª×•
-mpython:S3776Õ"TRefactor this function to reduce its Cognitive Complexity from 74 to the 15 allowed.(ƒÈí€
-Dpython:S5806ã"+Rename this variable; it shadows a builtin.(ƒª×•
-Dpython:S5806Š"+Rename this variable; it shadows a builtin.(ƒª×•
-rpython:S3776Í"TRefactor this function to reduce its Cognitive Complexity from 60 to the 15 allowed.(úèå‹úÿÿÿÿ
-rpython:S3776Ù"TRefactor this function to reduce its Cognitive Complexity from 58 to the 15 allowed.(‚©âëùÿÿÿÿ

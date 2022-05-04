@@ -1,52 +1,0 @@
-
-_python:S2208%"GImport only needed names or import the module and then use its members.(Š©ù´
-…python:S101a"iRename class "XMM_SAVE_AREA32" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(’®ç³ùÿÿÿÿ
-‰python:S101¡"qRename class "_CONTEXT_FLTSAVE_STRUCT" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÌÒÇ¯
-‡python:S101Ä"pRename class "_CONTEXT_FLTSAVE_UNION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¡ƒÙ
-zpython:S117®"]Rename this local variable "ContextFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘™ûãüÿÿÿÿ
-lpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(úä
-
-tpython:S117Ö"]Rename this local variable "ContextFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ½›*
-mpython:S3776Ó"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(Â‡í÷
-ˆpython:S101§"kRename class "_LDT_ENTRY_BYTES_" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ò…ìúÿÿÿÿ
-‚python:S101°"jRename class "_LDT_ENTRY_BITS_" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(İæÜ¥
-†python:S101¿"nRename class "_LDT_ENTRY_HIGHWORD_" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(œûŠ™
-zpython:S101Æ"cRename class "LDT_ENTRY" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ï”É
-python:S101æ"rRename class "WOW64_FLOATING_SAVE_AREA" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(œæøŸùÿÿÿÿ
-python:S101é"gRename class "WOW64_CONTEXT" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ñİ·Ä
-†python:S101ì"iRename class "WOW64_LDT_ENTRY" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Õ•úÂüÿÿÿÿ
-…python:S117û"hRename this local variable "_GetThreadSelectorEntry" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã£şÿÿÿÿ
-npython:S117ú"VRename this parameter "dwSelector" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛŒúĞ
-kpython:S117ú"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛŒúĞ
-upython:S1542ú"\Rename function "GetThreadSelectorEntry" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÛŒúĞ
-upython:S117"XRename this local variable "Context" to match the regular expression ^[_a-z][a-z0-9_]*$.(çøŒÿÿÿÿÿ
-ppython:S117ˆ"XRename this parameter "ContextFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÕ‘
-python:S117‰"bRename this local variable "_GetThreadContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÌæÁÒúÿÿÿÿ
-kpython:S117ˆ"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÕ‘
-opython:S1542ˆ"VRename function "GetThreadContext" to match the regular expression ^[a-z_][a-z0-9_]*$.(ûÕ‘
-zpython:S117œ"bRename this local variable "_SetThreadContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(©ìëÁ
-ppython:S117›"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôå¥Şùÿÿÿÿ
-rpython:S117›"URename this parameter "lpContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ôå¥Şùÿÿÿÿ
-tpython:S1542›"VRename function "SetThreadContext" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ôå¥Şùÿÿÿÿ
-Špython:S117«"mRename this local variable "_Wow64GetThreadSelectorEntry" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹èß£ùÿÿÿÿ
-npython:S117ª"VRename this parameter "dwSelector" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙË¾©
-kpython:S117ª"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙË¾©
-}python:S117°"`Rename this local variable "lpSelectorEntry" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ûß¶øÿÿÿÿ
-zpython:S1542ª"aRename function "Wow64GetThreadSelectorEntry" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÙË¾©
-{python:S117¸"cRename this local variable "_Wow64ResumeThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘æİ·
-kpython:S117·"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(€¯ó£
-upython:S117¼"^Rename this local variable "previousCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(Šà’%
-ppython:S1542·"WRename function "Wow64ResumeThread" to match the regular expression ^[a-z_][a-z0-9_]*$.(€¯ó£
-{python:S117Å"dRename this local variable "_Wow64SuspendThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿŒñd
-ppython:S117Ä"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ÛÒ§ùÿÿÿÿ
-vpython:S117É"^Rename this local variable "previousCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(€®­‚
-vpython:S1542Ä"XRename function "Wow64SuspendThread" to match the regular expression ^[a-z_][a-z0-9_]*$.(¿ÛÒ§ùÿÿÿÿ
-upython:S117İ"XRename this local variable "Context" to match the regular expression ^[_a-z][a-z0-9_]*$.(â¥Ã¯øÿÿÿÿ
-ppython:S117Õ"XRename this parameter "ContextFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰˜Ã“
-python:S117Ö"gRename this local variable "_Wow64GetThreadContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆŒæ‹
-kpython:S117Õ"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰˜Ã“
-tpython:S1542Õ"[Rename function "Wow64GetThreadContext" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰˜Ã“
-„python:S117ê"gRename this local variable "_Wow64SetThreadContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªû²¬ûÿÿÿÿ
-jpython:S117é"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úõæ`
-lpython:S117é"URename this parameter "lpContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úõæ`
-spython:S1542é"[Rename function "Wow64SetThreadContext" to match the regular expression ^[a-z_][a-z0-9_]*$.(Úõæ`

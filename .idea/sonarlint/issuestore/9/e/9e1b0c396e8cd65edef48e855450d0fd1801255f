@@ -1,8 +1,0 @@
-
-cpython:S1192"FDefine a constant instead of duplicating this literal '$base' 5 times.(‚äñ½ûÿÿÿÿ
-apython:S1192#"JDefine a constant instead of duplicating this literal '$base/bin' 3 times.(ùâÓ<
-bpython:S1192A"JDefine a constant instead of duplicating this literal '$usersite' 4 times.(÷ÇÑ½
-kpython:S1192/"TDefine a constant instead of duplicating this literal '$base/site-packages' 4 times.(±ä¯
-Mpython:S1066"/Merge this if statement with the enclosing one.(àØì†ıÿÿÿÿ
-lpython:S3776î"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(Â¬Ó
-rpython:S3776—"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(óòÅ™ùÿÿÿÿ

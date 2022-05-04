@@ -1,5 +1,0 @@
-
-6python:S125$"Remove this commented out code.(“„³õ
-6python:S125'"Remove this commented out code.(ñè˜Œ
-qpython:S117Ÿ"YRename this parameter "indexedColors" to match the regular expression ^[_a-z][a-z0-9_]*$.(ðÎÙØ
-mpython:S117 "URename this parameter "mruColors" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôÙÙã

@@ -1,5 +1,0 @@
-
-‚python:S1192z"eDefine a constant instead of duplicating this literal 'expected at most 1 arguments, got %d' 4 times.(ζ„ή΅ωÿÿÿÿ
-mpython:S117…"PRename this parameter "Link" to match the regular expression ^[_a-z][a-z0-9_]*$.(Γ™ψµÿÿÿÿÿ
-{python:S5717Ν"]Change this default value to "None" and initialize this parameter inside the function/method.(¦ών¥όÿÿÿÿ
-rpython:S3776½"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ό­άΰϊÿÿÿÿ

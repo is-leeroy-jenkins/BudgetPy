@@ -1,4 +1,4 @@
-from _pydevd_bundle.pydevd_constants import DebugInfoHolder, SHOW_COMPILE_CYTHON_COMMAND_LINE, NULL
+from _pydevd_bundle.pydevd_constants import DebugInfoHolder, SHOW_COMPILE_CYTHON_COMMAND_LINE, NULL, LOG_TIME
 from contextlib import contextmanager
 import traceback
 import os
@@ -90,6 +90,10 @@ def log_context(trace_level, stream):
         _LoggingGlobals._debug_stream_initialized = original_initialized
 
 
+import time
+_last_log_time = time.time()
+
+
 def _pydevd_log(level, msg, *args):
     '''
     Levels are:
@@ -107,7 +111,15 @@ def _pydevd_log(level, msg, *args):
                     msg = msg % args
             except:
                 msg = '%s - %s' % (msg, args)
-            msg = '%s\n' % (msg,)
+
+            if LOG_TIME:
+                global _last_log_time
+                new_log_time = time.time()
+                time_diff = new_log_time - _last_log_time
+                _last_log_time = new_log_time
+                msg = '%.2fs - %s\n' % (time_diff, msg,)
+            else:
+                msg = '%s\n' % (msg,)
             try:
                 try:
                     initialize_debug_stream()  # Do it as late as possible
@@ -212,5 +224,5 @@ def show_compile_cython_command_line():
     if SHOW_COMPILE_CYTHON_COMMAND_LINE:
         dirname = os.path.dirname(os.path.dirname(__file__))
         error_once("warning: Debugger speedups using cython not found. Run '\"%s\" \"%s\" build_ext --inplace' to build.",
-            sys.executable, os.path.join(dirname, 'setup_cython.py'))
+            sys.executable, os.path.join(dirname, 'setup_pydevd_cython.py'))
 

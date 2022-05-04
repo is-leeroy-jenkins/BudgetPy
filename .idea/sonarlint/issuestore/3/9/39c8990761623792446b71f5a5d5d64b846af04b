@@ -1,18 +1,0 @@
-
-upython:S117P"YRename this parameter "algorithmName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢“ÛÝúÿÿÿÿ
-mpython:S117O"VRename this parameter "autoFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(”‘­½
-ppython:S117N"YRename this parameter "deleteColumns" to match the regular expression ^[_a-z][a-z0-9_]*$.(øöé¢
-mpython:S117N"VRename this parameter "deleteRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(øöé¢
-spython:S117L"WRename this parameter "formatCells" to match the regular expression ^[_a-z][a-z0-9_]*$.(©†ŽÆùÿÿÿÿ
-upython:S117L"YRename this parameter "formatColumns" to match the regular expression ^[_a-z][a-z0-9_]*$.(©†ŽÆùÿÿÿÿ
-rpython:S117L"VRename this parameter "formatRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(©†ŽÆùÿÿÿÿ
-qpython:S117P"URename this parameter "hashValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢“ÛÝúÿÿÿÿ
-ppython:S117M"YRename this parameter "insertColumns" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŽÉµÅ
-spython:S117M"\Rename this parameter "insertHyperlinks" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŽÉµÅ
-mpython:S117M"VRename this parameter "insertRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŽÉµÅ
-npython:S117O"WRename this parameter "pivotTables" to match the regular expression ^[_a-z][a-z0-9_]*$.(”‘­½
-qpython:S117P"URename this parameter "saltValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢“ÛÝúÿÿÿÿ
-tpython:S117N"]Rename this parameter "selectLockedCells" to match the regular expression ^[_a-z][a-z0-9_]*$.(øöé¢
-vpython:S117O"_Rename this parameter "selectUnlockedCells" to match the regular expression ^[_a-z][a-z0-9_]*$.(”‘­½
-qpython:S117P"URename this parameter "spinCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢“ÛÝúÿÿÿÿ
-dpython:S107K"MMethod "__init__" has 21 parameters, which is greater than the 13 authorized.(ÓÜØë

@@ -1,6 +1,0 @@
-
-kpython:S116"ORename this field "maxDiff" to match the regular expression ^[_a-z][_a-z0-9]*$.(èëó›úÿÿÿÿ
-epython:S1005"IRename method "setUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(§˜œşÿÿÿÿ
-bpython:S100O"KRename method "runTest" to match the regular expression ^[a-z_][a-z0-9_]*$.(ó§¨
-ipython:S100´"LRename method "_runTest" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ø¥Çİşÿÿÿÿ
-Npython:S1481µ"5Remove the unused local variable "__tracebackhide__".(‰êÒô

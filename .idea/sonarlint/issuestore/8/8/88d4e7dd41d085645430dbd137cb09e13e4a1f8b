@@ -1,8 +1,0 @@
-
-lpython:S1192"SDefine a constant instead of duplicating this literal "invalid action: %r" 3 times.(ÍêŞ
-qpython:S3776#"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(²ªãûÿÿÿÿ
->python:S1481³"%Remove the unused local variable "x".(¨Ï¨™
-rpython:S3776Ÿ"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(é òúÿÿÿÿ
-Ipython:S5806¸"+Rename this variable; it shadows a builtin.(÷ıĞõùÿÿÿÿ
-mpython:S3776Ç"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(ÃóÍø
-Apython:S108û")Either remove or fill this block of code.(ã‘Û¾

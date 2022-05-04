@@ -1,14 +1,0 @@
-
-lpython:S1192È"NDefine a constant instead of duplicating this literal " (mergepoint)" 3 times.(àÿ¤”ûÿÿÿÿ
-fpython:S1192Æ"HDefine a constant instead of duplicating this literal " (head)" 3 times.(··Õîıÿÿÿÿ
-mpython:S1192Ç"ODefine a constant instead of duplicating this literal " (branchpoint)" 3 times.(Íô¹÷øÿÿÿÿ
-Hpython:S6035%"0Replace this alternation with a character class.(—ğµ‹
-`python:S5799™"GMerge these implicitly concatenated strings; or did you forget a comma?(îü˜
-8python:S3626‘"Remove this redundant continue.(À–¬ˆ
-8python:S3626¦"Remove this redundant continue.(À–¬ˆ
-8python:S3626"Remove this redundant continue.(À–¬ˆ
-mpython:S3776æ"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(Ú£Ã¿
-wpython:S5890¤"^Assign to "module" a value of type "ModuleType" instead of "NoneType" or update its type hint.(Ò¹ô¥
-npython:S5890§"UAssign to "path" a value of type "str" instead of "NoneType" or update its type hint.(î³ã¤
-mpython:S3776ğ"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(—ÙËæ
-rpython:S3776Ê"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(éÃÅäûÿÿÿÿ

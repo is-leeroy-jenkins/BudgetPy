@@ -1,10 +1,0 @@
-
-<python:S125Ð"Remove this commented out code.(¾€õÕûÿÿÿÿ
-ipython:S1764î"KCorrect one of the identical sub-expressions on both sides of operator "-".(ùÒê±ÿÿÿÿÿ
-7python:S125Ø"Remove this commented out code.(¯ËÁµ
-wpython:S1186å"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Ýæ‡“ÿÿÿÿÿ
-rpython:S1186è"YAdd a nested comment explaining why this method is empty, or complete the implementation.(—ÑÌÌ
-wpython:S1186ë"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ÄÆÖþÿÿÿÿ
-rpython:S1186î"YAdd a nested comment explaining why this method is empty, or complete the implementation.(×—Ç 
-€python:S101’"jRename class "FOREGROUND_COLOR" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ä‡P
-‚python:S101ž"jRename class "BACKGROUND_COLOR" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Åëå…

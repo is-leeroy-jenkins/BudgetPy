@@ -1,5 +1,0 @@
-
-spython:S117"WRename this local variable "verStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ Ğ§ıÿÿÿÿ
-epython:S1542"MRename function "splitUp" to match the regular expression ^[a-z_][a-z0-9_]*$.(¢±É
-vpython:S117b"_Rename this parameter "versionPredicateStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô¯èê
-Cpython:S5806u"+Rename this variable; it shadows a builtin.(ûßé»

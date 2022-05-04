@@ -29,26 +29,30 @@ def log_request(handler, log=access_log, log_json=False):
         log_method = log.warning
     else:
         log_method = log.error
-    
+
     request_time = 1000.0 * request.request_time()
     ns = dict(
         status=status,
         method=request.method,
         ip=request.remote_ip,
         uri=request.uri,
-        request_time=float('%.2f' % request_time),
+        request_time=float(f'{request_time:.2f}'),
     )
     msg = "{status} {method} {uri} ({ip}) {request_time:f}ms"
     if status >= 400:
         # log bad referers
         ns['referer'] = request.headers.get('Referer', 'None')
-        msg = msg + ' referer={referer}'
+        msg += ' referer={referer}'
     if status >= 500 and status != 502:
-        # log all headers if it caused an error
+        # Log a subset of the headers if it caused an error.
+        headers = {}
+        for header in ['Host', 'Accept', 'Referer', 'User-Agent']:
+            if header in request.headers:
+                headers[header] = request.headers[header]
         if log_json:
-            log_method("", extra=dict(props=dict(request.headers)))
+            log_method("", extra=dict(props=headers))
         else:
-            log_method(json.dumps(dict(request.headers), indent=2))
+            log_method(json.dumps(dict(headers), indent=2))
     if log_json:
         log_method("", extra=dict(props=ns))
     else:

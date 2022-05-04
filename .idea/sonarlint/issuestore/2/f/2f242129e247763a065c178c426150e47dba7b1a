@@ -1,222 +1,0 @@
-
-ipython:S1192?"LDefine a constant instead of duplicating this literal "dbghelp.dll" 3 times.(Ö¸„Ûÿÿÿÿÿ
-_python:S2208%"GImport only needed names or import the module and then use its members.(Š©ù´
-_python:S2208&"GImport only needed names or import the module and then use its members.(ˆ¥›¤
-_python:S2208'"GImport only needed names or import the module and then use its members.(à€
-†python:S101Û"iRename class "IMAGEHLP_MODULE" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(€âï½ÿÿÿÿÿ
-ˆpython:S101ê"kRename class "IMAGEHLP_MODULE64" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(«ª¨´ùÿÿÿÿ
-‡python:S101†"jRename class "IMAGEHLP_MODULEW" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ã¡®Ìıÿÿÿÿ
-„python:S101•"lRename class "IMAGEHLP_MODULEW64" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¢ñ»Š
-ppython:S117¸"SRename this parameter "DirPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(âÇöûşÿÿÿÿ
-…python:S117¹"mRename this local variable "_MakeSureDirectoryPathExists" to match the regular expression ^[_a-z][a-z0-9_]*$.(»Ïäˆ
-€python:S1542¸"bRename function "MakeSureDirectoryPathExistsA" to match the regular expression ^[a-z_][a-z0-9_]*$.(âÇöûşÿÿÿÿ
-rpython:S117Ç"ZRename this parameter "UserSearchPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(áæè»
-|python:S117È"_Rename this local variable "_SymInitialize" to match the regular expression ^[_a-z][a-z0-9_]*$.(™†Ã£øÿÿÿÿ
-rpython:S117Ç"ZRename this parameter "fInvadeProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(áæè»
-lpython:S117Ç"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(áæè»
-mpython:S1542Ç"TRename function "SymInitializeA" to match the regular expression ^[a-z_][a-z0-9_]*$.(áæè»
-tpython:S117×"\Rename this local variable "_SymCleanup" to match the regular expression ^[_a-z][a-z0-9_]*$.(†Ìôî
-qpython:S117Ö"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á·Ëàøÿÿÿÿ
-npython:S1542Ö"PRename function "SymCleanup" to match the regular expression ^[a-z_][a-z0-9_]*$.(Á·Ëàøÿÿÿÿ
-~python:S117á"fRename this local variable "_SymRefreshModuleList" to match the regular expression ^[_a-z][a-z0-9_]*$.(óÒŒË
-qpython:S117à"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºË¨Óüÿÿÿÿ
-xpython:S1542à"ZRename function "SymRefreshModuleList" to match the regular expression ^[a-z_][a-z0-9_]*$.(ºË¨Óüÿÿÿÿ
-|python:S117ë"dRename this local variable "_SymSetParentWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á¬ç
-qpython:S1542ê"XRename function "SymSetParentWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÑÚ‡œ
-npython:S117ô"VRename this parameter "SymOptions" to match the regular expression ^[_a-z][a-z0-9_]*$.(³“
-|python:S117õ"_Rename this local variable "_SymSetOptions" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤Ğ³£şÿÿÿÿ
-lpython:S1542ô"SRename function "SymSetOptions" to match the regular expression ^[a-z_][a-z0-9_]*$.(³“
-|python:S117ı"_Rename this local variable "_SymGetOptions" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œìæëøÿÿÿÿ
-lpython:S1542ü"SRename function "SymGetOptions" to match the regular expression ^[a-z_][a-z0-9_]*$.(§³Ç“
-mpython:S117Š"URename this parameter "BaseOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ÇñÆ
-mpython:S117Š"URename this parameter "ImageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ÇñÆ
-npython:S117Š"VRename this parameter "ModuleName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ÇñÆ
-mpython:S117Š"URename this parameter "SizeOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ÇñÆ
-wpython:S117‹"_Rename this local variable "_SymLoadModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(·û„Õ
-tpython:S117š"\Rename this local variable "dwErrorCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ó§Ş
-ipython:S117Š"QRename this parameter "hFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ÇñÆ
-lpython:S117Š"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯ÇñÆ
-vpython:S117˜"^Rename this local variable "lpBaseAddress" to match the regular expression ^[_a-z][a-z0-9_]*$.(£Ó®
-mpython:S1542Š"TRename function "SymLoadModuleA" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯ÇñÆ
-mpython:S117ª"URename this parameter "BaseOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(›óÚ¥
-mpython:S117ª"URename this parameter "ImageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(›óÚ¥
-npython:S117ª"VRename this parameter "ModuleName" to match the regular expression ^[_a-z][a-z0-9_]*$.(›óÚ¥
-mpython:S117ª"URename this parameter "SizeOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(›óÚ¥
-xpython:S117«"aRename this local variable "_SymLoadModule64" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÉÆØ<
-tpython:S117º"\Rename this local variable "dwErrorCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(£ó§Ş
-ipython:S117ª"QRename this parameter "hFile" to match the regular expression ^[_a-z][a-z0-9_]*$.(›óÚ¥
-lpython:S117ª"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(›óÚ¥
-{python:S117¸"^Rename this local variable "lpBaseAddress" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñÌÃÂùÿÿÿÿ
-opython:S1542ª"VRename function "SymLoadModule64A" to match the regular expression ^[a-z_][a-z0-9_]*$.(›óÚ¥
-rpython:S117Æ"URename this parameter "BaseOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(èêÿÏÿÿÿÿÿ
-~python:S117Ç"aRename this local variable "_SymUnloadModule" to match the regular expression ^[_a-z][a-z0-9_]*$.(µÔÙ¨ùÿÿÿÿ
-qpython:S117Æ"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(èêÿÏÿÿÿÿÿ
-spython:S1542Æ"URename function "SymUnloadModule" to match the regular expression ^[a-z_][a-z0-9_]*$.(èêÿÏÿÿÿÿÿ
-mpython:S117Ñ"URename this parameter "BaseOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶°»Ğ
-€python:S117Ò"cRename this local variable "_SymUnloadModule64" to match the regular expression ^[_a-z][a-z0-9_]*$.(øäá¸øÿÿÿÿ
-lpython:S117Ñ"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶°»Ğ
-ppython:S1542Ñ"WRename function "SymUnloadModule64" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶°»Ğ
-xpython:S117ã"[Rename this local variable "ModuleInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í€À´ùÿÿÿÿ
-python:S117Ş"bRename this local variable "_SymGetModuleInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿®¹÷úÿÿÿÿ
-ipython:S117İ"RRename this parameter "dwAddr" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ“œ)
-kpython:S117İ"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ“œ)
-opython:S1542İ"WRename function "SymGetModuleInfoA" to match the regular expression ^[a-z_][a-z0-9_]*$.(œ“œ)
-spython:S117î"[Rename this local variable "ModuleInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(„ÔÜü
-€python:S117é"cRename this local variable "_SymGetModuleInfoW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ÎÛıûÿÿÿÿ
-opython:S117è"RRename this parameter "dwAddr" to match the regular expression ^[_a-z][a-z0-9_]*$.(æù÷úÿÿÿÿ
-qpython:S117è"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(æù÷úÿÿÿÿ
-upython:S1542è"WRename function "SymGetModuleInfoW" to match the regular expression ^[a-z_][a-z0-9_]*$.(æù÷úÿÿÿÿ
-xpython:S117€"[Rename this local variable "ModuleInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(­»òöşÿÿÿÿ
-python:S117û"dRename this local variable "_SymGetModuleInfo64" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕİÛ¨ıÿÿÿÿ
-jpython:S117ú"RRename this parameter "dwAddr" to match the regular expression ^[_a-z][a-z0-9_]*$.(´õéå
-lpython:S117ú"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(´õéå
-rpython:S1542ú"YRename function "SymGetModuleInfo64A" to match the regular expression ^[a-z_][a-z0-9_]*$.(´õéå
-xpython:S117‹"[Rename this local variable "ModuleInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶—€ùÿÿÿÿ
-‚python:S117†"eRename this local variable "_SymGetModuleInfo64W" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ó‘±Éúÿÿÿÿ
-opython:S117…"RRename this parameter "dwAddr" to match the regular expression ^[_a-z][a-z0-9_]*$.(·´¹óüÿÿÿÿ
-qpython:S117…"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(·´¹óüÿÿÿÿ
-wpython:S1542…"YRename function "SymGetModuleInfo64W" to match the regular expression ^[a-z_][a-z0-9_]*$.(·´¹óüÿÿÿÿ
-|python:S117§"_Rename this parameter "EnumModulesCallback" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÍ¡œÿÿÿÿÿ
-tpython:S117§"WRename this parameter "UserContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÍ¡œÿÿÿÿÿ
-‚python:S117¨"eRename this local variable "_SymEnumerateModules" to match the regular expression ^[_a-z][a-z0-9_]*$.(§³æûÿÿÿÿ
-qpython:S117§"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÍ¡œÿÿÿÿÿ
-xpython:S1542§"ZRename function "SymEnumerateModulesA" to match the regular expression ^[a-z_][a-z0-9_]*$.(úÍ¡œÿÿÿÿÿ
-wpython:S117´"_Rename this parameter "EnumModulesCallback" to match the regular expression ^[_a-z][a-z0-9_]*$.(™öˆß
-opython:S117´"WRename this parameter "UserContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(™öˆß
-ƒpython:S117µ"fRename this local variable "_SymEnumerateModulesW" to match the regular expression ^[_a-z][a-z0-9_]*$.(»Éğ§ûÿÿÿÿ
-lpython:S117´"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(™öˆß
-spython:S1542´"ZRename function "SymEnumerateModulesW" to match the regular expression ^[a-z_][a-z0-9_]*$.(™öˆß
-|python:S117È"_Rename this parameter "EnumModulesCallback" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÑ¢„ÿÿÿÿÿ
-tpython:S117È"WRename this parameter "UserContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÑ¢„ÿÿÿÿÿ
-„python:S117É"gRename this local variable "_SymEnumerateModules64" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŸÆ‹èüÿÿÿÿ
-qpython:S117È"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÑ¢„ÿÿÿÿÿ
-zpython:S1542È"\Rename function "SymEnumerateModules64A" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÖÑ¢„ÿÿÿÿÿ
-vpython:S117Õ"_Rename this parameter "EnumModulesCallback" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾íÀ
-npython:S117Õ"WRename this parameter "UserContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾íÀ
-€python:S117Ö"hRename this local variable "_SymEnumerateModules64W" to match the regular expression ^[_a-z][a-z0-9_]*$.(²›ì¼
-kpython:S117Õ"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾íÀ
-tpython:S1542Õ"\Rename function "SymEnumerateModules64W" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾íÀ
-rpython:S117ü"URename this parameter "BaseOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñòØüÿÿÿÿ
-|python:S117ü"_Rename this parameter "EnumSymbolsCallback" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñòØüÿÿÿÿ
-tpython:S117ü"WRename this parameter "UserContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñòØüÿÿÿÿ
-‚python:S117ı"eRename this local variable "_SymEnumerateSymbols" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿæØ§ûÿÿÿÿ
-qpython:S117ü"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñòØüÿÿÿÿ
-xpython:S1542ü"ZRename function "SymEnumerateSymbolsA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ñòØüÿÿÿÿ
-mpython:S117‰"URename this parameter "BaseOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í—ÏÍ
-wpython:S117‰"_Rename this parameter "EnumSymbolsCallback" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í—ÏÍ
-opython:S117‰"WRename this parameter "UserContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í—ÏÍ
-ƒpython:S117Š"fRename this local variable "_SymEnumerateSymbolsW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ¡†ëûÿÿÿÿ
-lpython:S117‰"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í—ÏÍ
-spython:S1542‰"ZRename function "SymEnumerateSymbolsW" to match the regular expression ^[a-z_][a-z0-9_]*$.(Í—ÏÍ
-rpython:S117"URename this parameter "BaseOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä›ÓÜùÿÿÿÿ
-|python:S117"_Rename this parameter "EnumSymbolsCallback" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä›ÓÜùÿÿÿÿ
-tpython:S117"WRename this parameter "UserContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä›ÓÜùÿÿÿÿ
-„python:S117Ÿ"gRename this local variable "_SymEnumerateSymbols64" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú÷‡Ìüÿÿÿÿ
-qpython:S117"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä›ÓÜùÿÿÿÿ
-zpython:S1542"\Rename function "SymEnumerateSymbols64A" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ä›ÓÜùÿÿÿÿ
-mpython:S117«"URename this parameter "BaseOfDll" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôıâ‹
-wpython:S117«"_Rename this parameter "EnumSymbolsCallback" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôıâ‹
-opython:S117«"WRename this parameter "UserContext" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôıâ‹
-…python:S117¬"hRename this local variable "_SymEnumerateSymbols64W" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ²üøÿÿÿÿ
-lpython:S117«"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôıâ‹
-upython:S1542«"\Rename function "SymEnumerateSymbols64W" to match the regular expression ^[a-z_][a-z0-9_]*$.(ôıâ‹
-qpython:S117À"YRename this parameter "DecoratedName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿõ¼ü
-ipython:S117À"QRename this parameter "Flags" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿõ¼ü
-}python:S117Ç"`Rename this local variable "UnDecoratedName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢•è²ûÿÿÿÿ
-python:S117Æ"bRename this local variable "UndecoratedLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(“´ıøÿÿÿÿ
-„python:S117Á"gRename this local variable "_UnDecorateSymbolNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Äá¸¡øÿÿÿÿ
-tpython:S1542À"[Rename function "UnDecorateSymbolNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ÿõ¼ü
-vpython:S117Ë"YRename this parameter "DecoratedName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒöÕ†üÿÿÿÿ
-npython:S117Ë"QRename this parameter "Flags" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒöÕ†üÿÿÿÿ
-xpython:S117Ò"`Rename this local variable "UnDecoratedName" to match the regular expression ^[_a-z][a-z0-9_]*$.(óÒ°Î
-ypython:S117Ñ"bRename this local variable "UndecoratedLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŸŠü
-
-python:S117Ì"gRename this local variable "_UnDecorateSymbolNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢†×©
-ypython:S1542Ë"[Rename function "UnDecorateSymbolNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŒöÕ†üÿÿÿÿ
-xpython:S117ä"[Rename this local variable "SearchPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ïæØûÿÿÿÿ
-ypython:S117ã"aRename this local variable "SearchPathLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü©àı
-zpython:S117Ş"bRename this local variable "_SymGetSearchPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹€ïİ
-lpython:S117İ"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó™Œ¦
-ppython:S1542İ"WRename function "SymGetSearchPathA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ó™Œ¦
-xpython:S117ï"[Rename this local variable "SearchPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÒŠÿÿÿÿÿ
-ypython:S117î"aRename this local variable "SearchPathLength" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü©àı
-zpython:S117é"cRename this local variable "_SymGetSearchPathW" to match the regular expression ^[_a-z][a-z0-9_]*$.(»Â‰v
-lpython:S117è"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á¢€ÿ
-ppython:S1542è"WRename function "SymGetSearchPathW" to match the regular expression ^[a-z_][a-z0-9_]*$.(Á¢€ÿ
-spython:S117ù"VRename this parameter "SearchPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(úíúıÿÿÿÿ
-zpython:S117ú"bRename this local variable "_SymSetSearchPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅÏÃß
-qpython:S117ù"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(úíúıÿÿÿÿ
-upython:S1542ù"WRename function "SymSetSearchPathA" to match the regular expression ^[a-z_][a-z0-9_]*$.(úíúıÿÿÿÿ
-spython:S117‚"VRename this parameter "SearchPath" to match the regular expression ^[_a-z][a-z0-9_]*$.(é§ïÙşÿÿÿÿ
-€python:S117ƒ"cRename this local variable "_SymSetSearchPathW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ô¦˜üÿÿÿÿ
-qpython:S117‚"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(é§ïÙşÿÿÿÿ
-upython:S1542‚"WRename function "SymSetSearchPathW" to match the regular expression ^[a-z_][a-z0-9_]*$.(é§ïÙşÿÿÿÿ
-ƒpython:S117“"fRename this local variable "_SymGetHomeDirectoryA" to match the regular expression ^[_a-z][a-z0-9_]*$.(´¡ºŒøÿÿÿÿ
-xpython:S1542’"ZRename function "SymGetHomeDirectoryA" to match the regular expression ^[a-z_][a-z0-9_]*$.(÷²ãÖûÿÿÿÿ
-Ipython:S5806™"+Rename this variable; it shadows a builtin.(È¦²íùÿÿÿÿ
-ƒpython:S117"fRename this local variable "_SymGetHomeDirectoryW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú®å“üÿÿÿÿ
-xpython:S1542"ZRename function "SymGetHomeDirectoryW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒÌªŠùÿÿÿÿ
-Dpython:S5806¤"+Rename this variable; it shadows a builtin.(ê¢şğ
-~python:S117¯"fRename this local variable "_SymSetHomeDirectoryA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿÜƒŠ
-qpython:S117®"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Çúãüÿÿÿÿ
-xpython:S1542®"ZRename function "SymSetHomeDirectoryA" to match the regular expression ^[a-z_][a-z0-9_]*$.(½Çúãüÿÿÿÿ
-Dpython:S5806´"+Rename this variable; it shadows a builtin.(º´“Ó
-ƒpython:S117¹"fRename this local variable "_SymSetHomeDirectoryW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÃñŠ•ıÿÿÿÿ
-qpython:S117¸"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆïù·şÿÿÿÿ
-xpython:S1542¸"ZRename function "SymSetHomeDirectoryW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ˆïù·şÿÿÿÿ
-Dpython:S5806¾"+Rename this variable; it shadows a builtin.(º´“Ó
-python:S101Ñ"bRename class "SYM_INFO" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ó¥Ö¡ùÿÿÿÿ
-€python:S101å"cRename class "SYM_INFOW" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(¶³±Æúÿÿÿÿ
-hpython:S117€"PRename this parameter "Name" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕèÔœ
-upython:S117†"XRename this local variable "SymInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕË®´ÿÿÿÿÿ
-vpython:S117"^Rename this local variable "_SymFromNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Âª°
-lpython:S117€"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕèÔœ
-jpython:S1542€"QRename function "SymFromName" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÕèÔœ
-mpython:S117"PRename this parameter "Name" to match the regular expression ^[_a-z][a-z0-9_]*$.(†çÛäşÿÿÿÿ
-ppython:S117”"XRename this local variable "SymInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨èÚ‹
-vpython:S117"^Rename this local variable "_SymFromNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(®ÄÌ
-qpython:S117"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(†çÛäşÿÿÿÿ
-ppython:S1542"RRename function "SymFromNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(†çÛäşÿÿÿÿ
-ppython:S117¤"SRename this parameter "Address" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úø©éøÿÿÿÿ
-upython:S117®"]Rename this local variable "Displacement" to match the regular expression ^[_a-z][a-z0-9_]*$.(š°§¸
-upython:S117ª"XRename this local variable "SymInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕË®´ÿÿÿÿÿ
-upython:S117¥"]Rename this local variable "_SymFromAddr" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡‹ ¡
-qpython:S117¤"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úø©éøÿÿÿÿ
-opython:S1542¤"QRename function "SymFromAddr" to match the regular expression ^[a-z_][a-z0-9_]*$.(Úø©éøÿÿÿÿ
-ppython:S117³"SRename this parameter "Address" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÀ–Üÿÿÿÿÿ
-upython:S117½"]Rename this local variable "Displacement" to match the regular expression ^[_a-z][a-z0-9_]*$.(š°§¸
-ppython:S117¹"XRename this local variable "SymInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨èÚ‹
-upython:S117´"]Rename this local variable "_SymFromAddr" to match the regular expression ^[_a-z][a-z0-9_]*$.(†ª“Š
-qpython:S117³"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÀ–Üÿÿÿÿÿ
-ppython:S1542³"RRename function "SymFromAddrW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÖÀ–Üÿÿÿÿÿ
-ƒpython:S101Ì"kRename class "IMAGEHLP_SYMBOL64" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(„‰‡ø
-„python:S101á"lRename class "IMAGEHLP_SYMBOLW64" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ö¡´
-jpython:S117ô"SRename this parameter "Address" to match the regular expression ^[_a-z][a-z0-9_]*$.(†„O
-upython:S117ş"]Rename this local variable "Displacement" to match the regular expression ^[_a-z][a-z0-9_]*$.(š°§¸
-}python:S117õ"eRename this local variable "_SymGetSymFromAddr64" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÀçÒ
-kpython:S117ô"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(†„O
-qpython:S1542ô"YRename function "SymGetSymFromAddr64" to match the regular expression ^[a-z_][a-z0-9_]*$.(†„O
-}python:S101"eRename class "API_VERSION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(åƒÅö
-python:S117œ"dRename this local variable "_ImagehlpApiVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(îú¾ûÿÿÿÿ
-qpython:S1542›"XRename function "ImagehlpApiVersion" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ò‰ú¤
-ppython:S117¨"XRename this parameter "MajorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ßİ¹
-ppython:S117¨"XRename this parameter "MinorVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ßİ¹
-lpython:S117¨"TRename this parameter "Revision" to match the regular expression ^[_a-z][a-z0-9_]*$.(›ßİ¹
-}python:S117©"fRename this local variable "_ImagehlpApiVersionEx" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å¸°-
-spython:S1542¨"ZRename function "ImagehlpApiVersionEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(›ßİ¹
-vpython:S117Ç	"YRename this parameter "ContextRecord" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶Ü¹ıÿÿÿÿ
-~python:S117È	"fRename this parameter "FunctionTableAccessRoutine" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ÄĞğ
-xpython:S117È	"`Rename this parameter "GetModuleBaseRoutine" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨ÄĞğ
-tpython:S117Æ	"WRename this parameter "MachineType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç¾©¶ûÿÿÿÿ
-zpython:S117Ç	"]Rename this parameter "ReadMemoryRoutine" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶Ü¹ıÿÿÿÿ
-spython:S117Æ	"VRename this parameter "StackFrame" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç¾©¶ûÿÿÿÿ
-ypython:S117É	"\Rename this parameter "TranslateAddress" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¼Ìåúÿÿÿÿ
-upython:S117Ë	"]Rename this local variable "_StackWalk64" to match the regular expression ^[_a-z][a-z0-9_]*$.(óş‘…
-qpython:S117Æ	"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç¾©¶ûÿÿÿÿ
-ppython:S117Æ	"SRename this parameter "hThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç¾©¶ûÿÿÿÿ
-wpython:S117ë	"_Rename this local variable "pContextRecord" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã›¸
-„python:S117Ù	"lRename this local variable "pFunctionTableAccessRoutine" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¼ª
-ƒpython:S117ß	"fRename this local variable "pGetModuleBaseRoutine" to match the regular expression ^[_a-z][a-z0-9_]*$.(œÚøÿÿÿÿ
-{python:S117Ó	"cRename this local variable "pReadMemoryRoutine" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õ•ª‹
-zpython:S117å	"bRename this local variable "pTranslateAddress" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ûñ¢¸
-opython:S1542Æ	"QRename function "StackWalk64" to match the regular expression ^[a-z_][a-z0-9_]*$.(ç¾©¶ûÿÿÿÿ

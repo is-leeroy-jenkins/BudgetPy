@@ -1,14 +1,0 @@
-
-‘python:S101À"tRename class "PGExecutionContext_asyncpg" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Åû·ïıÿÿÿÿ
-‰python:S101ß"lRename class "PGCompiler_asyncpg" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(²à ÿÿÿÿÿ
-python:S101ã"vRename class "PGIdentifierPreparer_asyncpg" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ˆ¬ñî
-‹python:S101ç"sRename class "AsyncAdapt_asyncpg_cursor" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ø™ŒÅ
-python:S101ƒ"vRename class "AsyncAdapt_asyncpg_ss_cursor" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(³¢…¬
-8python:S3626Ì"Remove this redundant continue.(À–¬ˆ
-”python:S101×"wRename class "AsyncAdapt_asyncpg_connection" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(îè¥Ÿÿÿÿÿÿ
-Spython:S2836«"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-—python:S101ğ"Rename class "AsyncAdaptFallback_asyncpg_connection" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Å¿Ôã
-‚python:S1845Ü"dRename field "BINARY" to prevent any misunderstanding/clash with method "Binary" defined on line 836(ÊÙÛùÿÿÿÿ
-Špython:S101ö"rRename class "AsyncAdapt_asyncpg_dbapi" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(Ùªëç
-gpython:S100Ä"JRename method "Binary" to match the regular expression ^[a-z_][a-z0-9_]*$.(½¡ñÿÿÿÿÿ
-ˆpython:S101ö"kRename class "PGDialect_asyncpg" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(í“óüÿÿÿÿ

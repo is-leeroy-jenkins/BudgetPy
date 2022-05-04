@@ -1,60 +1,0 @@
-
-Œpython:S1192î"sDefine a constant instead of duplicating this literal 'expected call not found.\nExpected: %s\nActual: %s' 5 times.(ôù‰¯
-ppython:S1192Œ"RDefine a constant instead of duplicating this literal "call_args not set" 4 times.(ª§÷Œıÿÿÿÿ
-spython:S1192û"ZDefine a constant instead of duplicating this literal "foo(1, '2', 3, foo='foo')" 4 times.(İ¾ÜÔ
-ipython:S1192Å"KDefine a constant instead of duplicating this literal 'mock.child' 4 times.(¥ÂØêøÿÿÿÿ
-cpython:S1192{"KDefine a constant instead of duplicating this literal " spec='X' " 3 times.(‘Ò‚Ğ
-lpython:S1192…"NDefine a constant instead of duplicating this literal "name='mock.a'" 4 times.(ãÃû‹ùÿÿÿÿ
-vpython:S1186 "YAdd a nested comment explaining why this method is empty, or complete the implementation.(•Î÷Ãıÿÿÿÿ
-qpython:S1186#"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¦Êİ”
-vpython:S1186&"YAdd a nested comment explaining why this method is empty, or complete the implementation.(úØ²Çşÿÿÿÿ
-spython:S1186)"[Add a nested comment explaining why this function is empty, or complete the implementation.(•ƒïÚ
-rpython:S1186X"[Add a nested comment explaining why this function is empty, or complete the implementation.(¤Éß)
-rpython:S1186_"[Add a nested comment explaining why this function is empty, or complete the implementation.(¤Éß)
-spython:S1186´"[Add a nested comment explaining why this function is empty, or complete the implementation.(¤Éß)
-jpython:S1854ˆ"LRemove this assignment to local variable 'ret_val'; the value is never used.(ò±šóüÿÿÿÿ
-jpython:S1764¾"LCorrect one of the identical sub-expressions on both sides of operator "==".(Ğ‰İ¨øÿÿÿÿ
-jpython:S1764¿"LCorrect one of the identical sub-expressions on both sides of operator "!=".(æšó¤ùÿÿÿÿ
-ypython:S1186ì"[Add a nested comment explaining why this function is empty, or complete the implementation.(˜„Ø¨ùÿÿÿÿ
-ypython:S1186¸"[Add a nested comment explaining why this function is empty, or complete the implementation.(˜„Ø¨ùÿÿÿÿ
-wpython:S1186 "YAdd a nested comment explaining why this method is empty, or complete the implementation.(æºÿêüÿÿÿÿ
-rpython:S1186ö"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤ôõø
-rpython:S1186ƒ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤ôõø
-rpython:S1186"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤ôõø
-rpython:S1186›"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤ôõø
-rpython:S1186§"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤ôõø
-rpython:S1186¶"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤ôõø
-rpython:S1186Â"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¤ôõø
-\python:S5644Ö"CFix this code; "wrapped_dict" does not have a "__getitem__" method.(Î¾Ê‡
-apython:S5644ã"CFix this code; "wrapped_dict" does not have a "__getitem__" method.(â¦Îôùÿÿÿÿ
-apython:S5644è"CFix this code; "wrapped_dict" does not have a "__getitem__" method.(â¦Îôùÿÿÿÿ
-Fpython:S2201¥	"(The return value of "repr" must be used.(³ÈŒ±şÿÿÿÿ
-npython:S117‹
-"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á‹õ
-wpython:S1186…"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ãóÓúÿÿÿÿ
-wpython:S1186†"YAdd a nested comment explaining why this method is empty, or complete the implementation.(•Î÷Ãıÿÿÿÿ
-wpython:S1186Š"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ò«»¢ÿÿÿÿÿ
-wpython:S1186‹"YAdd a nested comment explaining why this method is empty, or complete the implementation.(®¡œ¦ûÿÿÿÿ
-ypython:S1186³"[Add a nested comment explaining why this function is empty, or complete the implementation.(˜„Ø¨ùÿÿÿÿ
-tpython:S1186Ò"[Add a nested comment explaining why this function is empty, or complete the implementation.(£Ó°°
-ypython:S1186‡"[Add a nested comment explaining why this function is empty, or complete the implementation.(˜„Ø¨ùÿÿÿÿ
-tpython:S1186š"[Add a nested comment explaining why this function is empty, or complete the implementation.(Êøíé
-rpython:S1186³"YAdd a nested comment explaining why this method is empty, or complete the implementation.(•óç
-wpython:S1186¶"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¾˜Øöûÿÿÿÿ
-spython:S117¶"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(çÕê¦ıÿÿÿÿ
-lpython:S117À"TRename this local variable "One" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬¨„ 
-lpython:S117À"TRename this local variable "Two" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬¨„ 
-mpython:S3776«"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(…Íº¼
-npython:S117á"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îİ¾ú
-²python:S1515î"˜Add a parameter to the parent lambda function and use variable "mock" as its default value; The value of "mock" might change at the next loop iteration.(Æé°ó
-spython:S117ò"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(–Õ±áùÿÿÿÿ
-npython:S117‹"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á‹õ
-npython:S117ª"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á‹õ
-npython:S117ø"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á‹õ
-spython:S117–"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(üºÎûÿÿÿÿ
-opython:S117—"WRename this local variable "Klass2" to match the regular expression ^[_a-z][a-z0-9_]*$.(°şÖ›
-npython:S117§"VRename this local variable "Klass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á‹õ
-opython:S117¨"WRename this local variable "Klass2" to match the regular expression ^[_a-z][a-z0-9_]*$.(°şÖ›
-tpython:S1186±"[Add a nested comment explaining why this function is empty, or complete the implementation.(¤¿½Ô
-tpython:S1186½"[Add a nested comment explaining why this function is empty, or complete the implementation.(¤¿½Ô
-Apython:S108õ")Either remove or fill this block of code.(ö­¨Ú

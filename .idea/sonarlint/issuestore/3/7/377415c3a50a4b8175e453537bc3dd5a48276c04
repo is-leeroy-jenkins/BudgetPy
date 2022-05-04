@@ -1,9 +1,0 @@
-
-npython:S1192›"PDefine a constant instead of duplicating this literal "unsigned char[]" 3 times.(—¬êğúÿÿÿÿ
-python:S1192ß
-"pDefine a constant instead of duplicating this literal "encoding must be an item from the Encoding enum" 3 times.(¾‚ÿÊøÿÿÿÿ
-mpython:S3776Ú
-"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(è¡îß
-mpython:S3776Ú"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Â€ì’
-mpython:S3776Ï"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(× ñ
-rpython:S3776 "TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÉìÅáøÿÿÿÿ

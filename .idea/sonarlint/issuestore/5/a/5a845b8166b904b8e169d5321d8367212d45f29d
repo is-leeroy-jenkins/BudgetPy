@@ -1,7 +1,0 @@
-
-cpython:S1192Ğ"JDefine a constant instead of duplicating this literal "modify_%s" 3 times.(ÖóÚß
-tpython:S107Í"WMethod "create_foreign_key" has 14 parameters, which is greater than the 13 authorized.(ÎÉ½Ğÿÿÿÿÿ
-Spython:S2836µ"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-npython:S107Û"QMethod "alter_column" has 14 parameters, which is greater than the 13 authorized.(ÎÉ½Ğÿÿÿÿÿ
-tpython:S107Ü"WMethod "batch_alter_column" has 14 parameters, which is greater than the 13 authorized.(ÎÉ½Ğÿÿÿÿÿ
-{python:S5717ò"]Change this default value to "None" and initialize this parameter inside the function/method.(ßÃÌıÿÿÿÿ

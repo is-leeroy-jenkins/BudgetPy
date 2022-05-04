@@ -1,17 +1,0 @@
-
-Hpython:S1066Ë"/Merge this if statement with the enclosing one.(êŠÜÂ
-‡python:S101ö"jRename class "DOUBLE_PRECISION" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(î“Ìşÿÿÿÿ
-„python:S101ú"gRename class "BINARY_DOUBLE" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ìâø„øÿÿÿÿ
-~python:S101ş"fRename class "BINARY_FLOAT" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(´î‡‚
-ˆpython:S1845Ÿ"oRename method "visit_FLOAT" to prevent any misunderstanding/clash with method "visit_float" defined on line 762(ÕôôÀ
-mpython:S3776Ë"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(‹¼ÄË
-mpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 81 to the 15 allowed.(¶ Òì
-ppython:S3923†	"RRemove this if statement or edit its code blocks so that they're not all the same.(¬ˆ¼Äûÿÿÿÿ
-Upython:S5754‚"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754À"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-lpython:S1226º"NIntroduce a new variable or use its initial value before reassigning 'dblink'.(á™²¯ùÿÿÿÿ
-`python:S5799Ñ"GMerge these implicitly concatenated strings; or did you forget a comma?(œ‚
-`python:S5799ñ"GMerge these implicitly concatenated strings; or did you forget a comma?(îş“
-mpython:S3776Ö"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(»ü…
-Mpython:S1135¸"4Complete the task associated to this "TODO" comment.(±¢Ì´
-mpython:S3776è"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(ÿÅé“

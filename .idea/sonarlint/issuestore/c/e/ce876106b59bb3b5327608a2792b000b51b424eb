@@ -1,50 +1,0 @@
-
-dpython:S1192¸
-"FDefine a constant instead of duplicating this literal 'Bin%s' 3 times.(§èÏüÿÿÿÿ
-gpython:S3358¶"IExtract this nested conditional expression into an independent statement.(´‘§´úÿÿÿÿ
-gpython:S3358Ì"IExtract this nested conditional expression into an independent statement.(ı„ù¦ıÿÿÿÿ
-opython:S116°"WRename this field "ProgramFilesx86" to match the regular expression ^[_a-z][_a-z0-9]*$.(¾œµÑ
-lpython:S116¯"TRename this field "ProgramFiles" to match the regular expression ^[_a-z][_a-z0-9]*$.(®ãÁÌ
-kpython:S116®"NRename this field "WinDir" to match the regular expression ^[_a-z][_a-z0-9]*$.(¹µÏ“şÿÿÿÿ
-gpython:S100ª"PRename method "VSInstallDir" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬¦µy
-hpython:S100»"PRename method "VCInstallDir" to match the regular expression ^[a-z_][a-z0-9_]*$.(Şª­ 
-rpython:S100ÿ"URename method "WindowsSdkVersion" to match the regular expression ^[a-z_][a-z0-9_]*$.(®É·Ğıÿÿÿÿ
-vpython:S100”"YRename method "WindowsSdkLastVersion" to match the regular expression ^[a-z_][a-z0-9_]*$.(şÕñıÿÿÿÿ
-npython:S100 "QRename method "WindowsSdkDir" to match the regular expression ^[a-z_][a-z0-9_]*$.(ßêÉıÿÿÿÿ
-rpython:S3776 "TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ßêÉıÿÿÿÿ
-tpython:S100Ë"\Rename method "WindowsSDKExecutablePath" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ûı½˜
-qpython:S100î"TRename method "FSharpInstallDir" to match the regular expression ^[a-z_][a-z0-9_]*$.(”¬¹ûÿÿÿÿ
-spython:S100û"VRename method "UniversalCRTSdkDir" to match the regular expression ^[a-z_][a-z0-9_]*$.(éìØ®ùÿÿÿÿ
-{python:S100"^Rename method "UniversalCRTSdkLastVersion" to match the regular expression ^[a-z_][a-z0-9_]*$.(–Â½ÿÿÿÿÿ
-kpython:S100›"SRename method "NetFxSdkVersion" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓëÄ
-lpython:S100«"ORename method "NetFxSdkDir" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡İˆšúÿÿÿÿ
-jpython:S100½"RRename method "FrameworkDir32" to match the regular expression ^[a-z_][a-z0-9_]*$.(³º
-jpython:S100Í"RRename method "FrameworkDir64" to match the regular expression ^[a-z_][a-z0-9_]*$.(À´šŠ
-spython:S100İ"VRename method "FrameworkVersion32" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÕÚÃÄıÿÿÿÿ
-npython:S100é"VRename method "FrameworkVersion64" to match the regular expression ^[a-z_][a-z0-9_]*$.(”ıäì
-hpython:S100å	"KRename method "VSTools" to match the regular expression ^[a-z_][a-z0-9_]*$.(—“è’øÿÿÿÿ
-kpython:S100ù	"NRename method "VCIncludes" to match the regular expression ^[a-z_][a-z0-9_]*$.(­…¢ùıÿÿÿÿ
-lpython:S100†
-"ORename method "VCLibraries" to match the regular expression ^[a-z_][a-z0-9_]*$.(üĞÛÿÿÿÿÿÿ
-lpython:S100›
-"ORename method "VCStoreRefs" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ú”…«ùÿÿÿÿ
-hpython:S100©
-"KRename method "VCTools" to match the regular expression ^[a-z_][a-z0-9_]*$.(èÒ¥ùùÿÿÿÿ
-gpython:S100Î
-"ORename method "OSLibraries" to match the regular expression ^[a-z_][a-z0-9_]*$.(éÏõü
-fpython:S100â
-"NRename method "OSIncludes" to match the regular expression ^[a-z_][a-z0-9_]*$.(×Ì­å
-epython:S100ú
-"MRename method "OSLibpath" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÏÖ®©
-ipython:S100"LRename method "SdkTools" to match the regular expression ^[a-z_][a-z0-9_]*$.(”›ÚÙşÿÿÿÿ
-dpython:S100Ú"LRename method "SdkSetup" to match the regular expression ^[a-z_][a-z0-9_]*$.( öà±
-cpython:S100é"KRename method "FxTools" to match the regular expression ^[a-z_][a-z0-9_]*$.(‹Á
-rpython:S100†"URename method "NetFxSDKLibraries" to match the regular expression ^[a-z_][a-z0-9_]*$.(œğ•”ÿÿÿÿÿ
-qpython:S100–"TRename method "NetFxSDKIncludes" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ÿ®¢¯ÿÿÿÿÿ
-apython:S100¥"IRename method "VsTDb" to match the regular expression ^[a-z_][a-z0-9_]*$.(ğø”Ô
-cpython:S100±"KRename method "MSBuild" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿ¤ å
-qpython:S100Í"TRename method "HTMLHelpWorkshop" to match the regular expression ^[a-z_][a-z0-9_]*$.(×ƒçÕúÿÿÿÿ
-ipython:S100Ü"QRename method "UCRTLibraries" to match the regular expression ^[a-z_][a-z0-9_]*$.(‹à¬Ì
-mpython:S100î"PRename method "UCRTIncludes" to match the regular expression ^[a-z_][a-z0-9_]*$.(‹°ˆ­ıÿÿÿÿ
-gpython:S100‹"JRename method "FSharp" to match the regular expression ^[a-z_][a-z0-9_]*$.(İÿËáúÿÿÿÿ
-ppython:S100š"SRename method "VCRuntimeRedist" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶€œ‹şÿÿÿÿ

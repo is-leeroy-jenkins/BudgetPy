@@ -1,25 +1,0 @@
-
-ipython:S117"RRename this parameter "bwMode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å„¡Ô
-npython:S117""RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-npython:S117K"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-rpython:S117I"[Rename this parameter "noAdjustHandles" to match the regular expression ^[_a-z][a-z0-9_]*$.(©®µÀ
-upython:S117E"^Rename this parameter "noChangeArrowheads" to match the regular expression ^[_a-z][a-z0-9_]*$.(ë¥º¬
-qpython:S117D"ZRename this parameter "noChangeAspect" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Î
-ypython:S117J"]Rename this parameter "noChangeShapeType" to match the regular expression ^[_a-z][a-z0-9_]*$.(åê§±şÿÿÿÿ
-opython:S117H"XRename this parameter "noEditPoints" to match the regular expression ^[_a-z][a-z0-9_]*$.(×İ¥­
-hpython:S117@"QRename this parameter "noGrp" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š²º
-npython:S117F"RRename this parameter "noMove" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÆï…øÿÿÿÿ
-ppython:S117G"TRename this parameter "noResize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑêÔÿÿÿÿÿ
-mpython:S117C"QRename this parameter "noRot" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯²‚™øÿÿÿÿ
-ppython:S117B"TRename this parameter "noSelect" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ŸØÁøÿÿÿÿ
-jpython:S117A"SRename this parameter "noUngrp" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡”—»
-npython:S117e"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-mpython:S117d"VRename this parameter "grpSpLocks" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷Ê×Ç
-npython:S117w"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-opython:S117u"SRename this parameter "spLocks" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆ©Åãıÿÿÿÿ
-mpython:S117v"QRename this parameter "txBox" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬©œùûÿÿÿÿ
-opython:S117”"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-npython:S117’"VRename this parameter "hlinkClick" to match the regular expression ^[_a-z][a-z0-9_]*$.(º·İ±
-spython:S117“"VRename this parameter "hlinkHover" to match the regular expression ^[_a-z][a-z0-9_]*$.(É»şşúÿÿÿÿ
-spython:S117ª"VRename this parameter "cNvGrpSpPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ı’Â·øÿÿÿÿ
-npython:S117©"QRename this parameter "cNvPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(È‚¼¦úÿÿÿÿ

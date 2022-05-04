@@ -1,18 +1,0 @@
-
-Hpython:S1066ö"/Merge this if statement with the enclosing one.(ºèíë
-lpython:S3776«"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(”¶Ği
-qpython:S1186©"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¶Éšx
-wpython:S1186¬"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ºÓ¦ùÿÿÿÿÿ
-mpython:S3776ã"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(’Åµ»
-mpython:S3776û"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(ˆ¡ù•
-`python:S5799Š"GMerge these implicitly concatenated strings; or did you forget a comma?(Ššµ
-Spython:S2836š"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-rpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(ºÜúÿÿÿÿ
-<python:S125Ü"Remove this commented out code.(å³ÎÁùÿÿÿÿ
-bpython:S3358‚"IExtract this nested conditional expression into an independent statement.(µŞí˜
-gpython:S3358ˆ"IExtract this nested conditional expression into an independent statement.(É©Âçûÿÿÿÿ
-jpython:S107"MMethod "__init__" has 17 parameters, which is greater than the 13 authorized.( Ğàşüÿÿÿÿ
-mpython:S3776ó"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(É¹ıŞ
-Spython:S2836¹"5Add a "break" statement or remove this "else" clause.(³£œ‰øÿÿÿÿ
-mpython:S3776Á"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(©ÖÄÙ
-lpython:S3776Å$"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ÏÏ¸:

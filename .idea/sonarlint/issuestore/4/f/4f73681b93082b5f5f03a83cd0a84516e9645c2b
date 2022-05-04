@@ -1,10 +1,0 @@
-
-opython:S116C"SRename this field "LoadStringW" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ù³ô‘øÿÿÿÿ
-upython:S117Z"YRename this local variable "lpBuffer" to match the regular expression ^[_a-z][a-z0-9_]*$.(òö¼Êûÿÿÿÿ
-Tpython:S5754w"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125î"Remove this commented out code.(¼óë±
-<python:S125ï"Remove this commented out code.(¯½Èùÿÿÿÿ
-<python:S125ô"Remove this commented out code.(ççúúýÿÿÿÿ
-<python:S125õ"Remove this commented out code.(ŸÓÓ£ýÿÿÿÿ
-<python:S125°"Remove this commented out code.(¯½Èùÿÿÿÿ
-<python:S125¹"Remove this commented out code.(ŸÓÓ£ýÿÿÿÿ

@@ -1,11 +1,0 @@
-
-_python:S2208"GImport only needed names or import the module and then use its members.(´°¢è
-^python:S2208"GImport only needed names or import the module and then use its members.(È¯Êa
-dpython:S2208"GImport only needed names or import the module and then use its members.(éÅÊÁùÿÿÿÿ
-npython:S117."RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-lpython:S117-"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ
-kpython:S117L"TRename this parameter "bubble3D" to match the regular expression ^[_a-z][a-z0-9_]*$.(£Í°è
-npython:S117P"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-spython:S117J"\Rename this parameter "invertIfNegative" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢¢®
-qpython:S117O"ZRename this parameter "pictureOptions" to match the regular expression ^[_a-z][a-z0-9_]*$.(«œâ
-lpython:S117N"PRename this parameter "spPr" to match the regular expression ^[_a-z][a-z0-9_]*$.(àµ×ìüÿÿÿÿ

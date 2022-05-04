@@ -1,9 +1,0 @@
-
-cpython:S1192"JDefine a constant instead of duplicating this literal "test.json" 3 times.(¾ï—
-ipython:S1192ù"PDefine a constant instead of duplicating this literal "timedelta64[ns]" 3 times.(áŒš™
-fpython:S1192x"ODefine a constant instead of duplicating this literal "datetime64[ns]" 4 times.(ê³€
-ipython:S1192­
-"KDefine a constant instead of duplicating this literal b"E\xc9, 17" 3 times.(ùı‰¯ùÿÿÿÿ
-zpython:S100ê"]Rename method "test_blocks_compat_GH9037" to match the regular expression ^[a-z_][a-z0-9_]*$.(€·õ²üÿÿÿÿ
-opython:S117î	"RRename this parameter "bigNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ïäùºşÿÿÿÿ
-opython:S117û	"RRename this parameter "bigNum" to match the regular expression ^[_a-z][a-z0-9_]*$.(°é «ÿÿÿÿÿ

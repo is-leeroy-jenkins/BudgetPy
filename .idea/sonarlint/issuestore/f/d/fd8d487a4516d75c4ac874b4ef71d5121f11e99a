@@ -1,20 +1,0 @@
-
-epython:S1192²"LDefine a constant instead of duplicating this literal 'empty.ipynb' 4 times.(ÎÆŸ„
-dpython:S11923"MDefine a constant instead of duplicating this literal 'notebook2.py' 8 times.(»‚2
-cpython:S1192Ö"JDefine a constant instead of duplicating this literal "In&nbsp;[" 4 times.(÷œØ’
-wpython:S1192ô"_Define a constant instead of duplicating this literal 'containerized_deployments.jpeg' 4 times.(òæ©x
-mpython:S1192Ó"ODefine a constant instead of duplicating this literal 'notebook1.html' 4 times.(„ò¦½úÿÿÿÿ
-mpython:S1192d"PDefine a constant instead of duplicating this literal 'notebook1.ipynb' 6 times.(’„ú‡şÿÿÿÿ
-lpython:S1192t"ODefine a constant instead of duplicating this literal 'notebook2.html' 8 times.(¶á¢ùÿÿÿÿ
-npython:S1192ó"UDefine a constant instead of duplicating this literal 'notebook4_jpeg.ipynb' 4 times.(öéò
-`python:S1192×"GDefine a constant instead of duplicating this literal "Out[6]" 4 times.(Ş¦•ò
-hpython:S1192Â"JDefine a constant instead of duplicating this literal '```python' 3 times.(ÅëÇ•ÿÿÿÿÿ
-npython:S11920"QDefine a constant instead of duplicating this literal 'notebook*.ipynb' 12 times.(É²«Íøÿÿÿÿ
-_python:S1192<"HDefine a constant instead of duplicating this literal '*.ipynb' 3 times.(‘Í¢
-mpython:S1192Ô"ODefine a constant instead of duplicating this literal "notebook1.html" 4 times.(ßÖæùÿÿÿÿ
-npython:S1192Œ"PDefine a constant instead of duplicating this literal 'notebook2.ipynb' 7 times.(ÈéÄèûÿÿÿÿ
-npython:S1192Ñ"PDefine a constant instead of duplicating this literal "notebook1.ipynb" 4 times.(Äœµ÷ıÿÿÿÿ
-epython:S11922"MDefine a constant instead of duplicating this literal 'notebook1.py' 8 times.(şƒ€¢
-Cpython:S1481b"&Remove the unused local variable "td".(¢³¢“ùÿÿÿÿ
-tpython:S117Û"]Rename this local variable "notebookName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼´<
-tpython:S117ç"]Rename this local variable "notebookName" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼´<

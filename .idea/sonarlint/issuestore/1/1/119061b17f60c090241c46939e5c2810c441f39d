@@ -1,13 +1,0 @@
-
-gpython:S1192Ù"IDefine a constant instead of duplicating this literal 'connect:' 3 times.(Œ¿•‚øÿÿÿÿ
-Dpython:S5806ò"+Rename this variable; it shadows a builtin.(Éú
-Opython:S1172œ"1Remove the unused function parameter "challenge".(½÷ğüÿÿÿÿ
-<python:S125á"Remove this commented out code.(•®Áñıÿÿÿÿ
-mpython:S3776ë"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(©›”
-^python:S4830"@Enable server certificate validation on this SSL/TLS connection.(ŞĞ±Œüÿÿÿÿ
-]python:S5527"?Enable server hostname verification on this SSL/TLS connection.(ŞĞ±Œüÿÿÿÿ
-rpython:S3776£"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(„Ô’Ûÿÿÿÿÿ
-Lpython:S1135¦"4Complete the task associated to this "TODO" comment.(şŒ„o
-python:S101ñ"bRename class "SMTP_SSL" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(íçƒäşÿÿÿÿ
-^python:S4830’"@Enable server certificate validation on this SSL/TLS connection.(ŞĞ±Œüÿÿÿÿ
-]python:S5527’"?Enable server hostname verification on this SSL/TLS connection.(ŞĞ±Œüÿÿÿÿ

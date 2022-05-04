@@ -1,37 +1,0 @@
-
-bpython:S1192¶"IDefine a constant instead of duplicating this literal '<module>' 3 times.(âÄ™–
-Hpython:S1066¿"/Merge this if statement with the enclosing one.(²»ü¶
-Hpython:S1066é"/Merge this if statement with the enclosing one.(¶³’Ï
-Fpython:S1172".Remove the unused function parameter "kwargs".(£Åõ—
-Dpython:S1172",Remove the unused function parameter "args".(£Åõ—
-lpython:S3776C"TRefactor this function to reduce its Cognitive Complexity from 34 to the 15 allowed.(»›–ˆ
-mpython:S3776«"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(„ÉÏÈ
-Fpython:S1172É"-Remove the unused function parameter "event".(Ú÷ÓÉ
-npython:S3776É"URefactor this function to reduce its Cognitive Complexity from 101 to the 15 allowed.(Ú÷ÓÉ
-<python:S125Ì"Remove this commented out code.(ø¼—‘üÿÿÿÿ
-7python:S125Ñ"Remove this commented out code.(å³•ù
-Upython:S5754ß"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Apython:S108å")Either remove or fill this block of code.(ã‘Û¾
-Apython:S108í")Either remove or fill this block of code.(ã‘Û¾
-Upython:S5754¯"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-mpython:S3776Ï"TRefactor this function to reduce its Cognitive Complexity from 44 to the 15 allowed.(ñ°ß³
-Upython:S5754ñ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ú"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125‰"Remove this commented out code.(Êû¥¿
-Upython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754±"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ò"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754å"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Spython:S1172í"5Remove the unused function parameter "main_debugger".(ë“ôÆüÿÿÿÿ
-Upython:S5754ø"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Spython:S1481Ù"5Remove the unused local variable "stopped_on_plugin".(ô¦áÁûÿÿÿÿ
-spython:S3776¯"URefactor this function to reduce its Cognitive Complexity from 468 to the 15 allowed.(¶‘ïþúÿÿÿÿ
-<python:S125¹"Remove this commented out code.(‹çÁ÷þÿÿÿÿ
-<python:S125»"Remove this commented out code.(æä¶•øÿÿÿÿ
-7python:S125Î"Remove this commented out code.(þ Î„
-<python:S125ß"Remove this commented out code.(€¯ù×úÿÿÿÿ
-Upython:S5754¬"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754„	"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125±"Remove this commented out code.(øÃ±®
-6python:S125Þ"Remove this commented out code.(ãçÈ4
-Upython:S5754Š	"<Specify an exception class to catch or reraise the exception(ˆÊÉ·

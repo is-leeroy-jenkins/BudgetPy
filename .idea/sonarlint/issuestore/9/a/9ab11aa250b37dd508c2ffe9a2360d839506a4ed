@@ -1,22 +1,0 @@
-
-ˆpython:S1192"oDefine a constant instead of duplicating this literal "insert into %sbooze values ('Victoria Bitter')" 3 times.(‘çÉ
-bpython:S1192µ"IDefine a constant instead of duplicating this literal "Cooper's" 9 times.(Øû÷Î
-spython:S1192 "ZDefine a constant instead of duplicating this literal "select name from %sbooze" 12 times.(³† °
-ipython:S1192¤"PDefine a constant instead of duplicating this literal "Victoria Bitter" 4 times.(Úèè‡
-epython:S1192õ"GDefine a constant instead of duplicating this literal "Boag's" 3 times.(ÇÍåòøÿÿÿÿ
-hpython:S1542"QRename function "_failUnless" to match the regular expression ^[a-z_][a-z0-9_]*$.(ùÌ€'
-hpython:S1542"QRename function "_failUnless" to match the regular expression ^[a-z_][a-z0-9_]*$.(ùÌ€'
-ˆpython:S1845˜"oRename method "test_BINARY" to prevent any misunderstanding/clash with method "test_Binary" defined on line 911(´éöİ
-Epython:S1481‘"'Remove the unused local variable "cur".(¥¶øûÿÿÿÿ
-`python:S5799Û"GMerge these implicitly concatenated strings; or did you forget a comma?(§Ä‚
-`python:S5799à"GMerge these implicitly concatenated strings; or did you forget a comma?(§Ä‚
-_python:S5799´"GMerge these implicitly concatenated strings; or did you forget a comma?(¬ÊÚD
-<python:S125œ"Remove this commented out code.(’Ÿ‘øÿÿÿÿ
-Dpython:S1481ı"&Remove the unused local variable "d2".(Å·ª™üÿÿÿÿ
-Dpython:S1481ü"&Remove the unused local variable "d1".(µÕ¢¥ùÿÿÿÿ
-Dpython:S1481‚"&Remove the unused local variable "t1".(×ú˜Øüÿÿÿÿ
-?python:S1481ƒ"&Remove the unused local variable "t2".(¿Œ¨ª
->python:S1481‰"&Remove the unused local variable "t2".(ÓõX
-?python:S1481ˆ"&Remove the unused local variable "t1".(šŠÒÒ
-Cpython:S1481"%Remove the unused local variable "b".(ûíŞşÿÿÿÿ
->python:S1481‘"%Remove the unused local variable "b".(ÕÙ

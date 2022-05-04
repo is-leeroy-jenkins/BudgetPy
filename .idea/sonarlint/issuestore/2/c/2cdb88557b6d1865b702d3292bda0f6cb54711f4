@@ -1,24 +1,0 @@
-
-opython:S117>"XRename this parameter "lockRevision" to match the regular expression ^[_a-z][a-z0-9_]*$.(á‡§¨
-ppython:S117<"YRename this parameter "lockStructure" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùºš
-npython:S117="WRename this parameter "lockWindows" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡‘ð
-~python:S117?"bRename this parameter "revisionsAlgorithmName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïã“þÿÿÿÿ
-tpython:S117@"^Rename this parameter "revisionsHashValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÅè.
-ypython:S117:"]Rename this parameter "revisionsPassword" to match the regular expression ^[_a-z][a-z0-9_]*$.(òúÕÛÿÿÿÿÿ
-…python:S117;"iRename this parameter "revisionsPasswordCharacterSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ò‚âÈúÿÿÿÿ
-upython:S117A"^Rename this parameter "revisionsSaltValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(’­½Å
-zpython:S117B"^Rename this parameter "revisionsSpinCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(›§÷ÿÿÿÿÿ
-}python:S117C"aRename this parameter "workbookAlgorithmName" to match the regular expression ^[_a-z][a-z0-9_]*$.(“È€ùÿÿÿÿ
-ypython:S117D"]Rename this parameter "workbookHashValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ýÈëÊÿÿÿÿÿ
-spython:S1178"\Rename this parameter "workbookPassword" to match the regular expression ^[_a-z][a-z0-9_]*$.(Øùñ¼
-„python:S1179"hRename this parameter "workbookPasswordCharacterSet" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÆÕÝ”üÿÿÿÿ
-spython:S117E"]Rename this parameter "workbookSaltValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(ðîç
-ypython:S117F"]Rename this parameter "workbookSpinCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(€ä©•üÿÿÿÿ
-ipython:S1077"MMethod "__init__" has 15 parameters, which is greater than the 13 authorized.(ÄÁšÃþÿÿÿÿ
-qpython:S117˜"YRename this parameter "algorithmName" to match the regular expression ^[_a-z][a-z0-9_]*$.(…ðð
-rpython:S117™"URename this parameter "hashValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘Ë¦·þÿÿÿÿ
-|python:S117•"_Rename this parameter "readOnlyRecommended" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾»‘Àýÿÿÿÿ
-|python:S117—"_Rename this parameter "reservationPassword" to match the regular expression ^[_a-z][a-z0-9_]*$.(Êÿ¹¹ùÿÿÿÿ
-mpython:S117š"URename this parameter "saltValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(Á©ß–
-rpython:S117›"URename this parameter "spinCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(»Ù–Üüÿÿÿÿ
-lpython:S117–"TRename this parameter "userName" to match the regular expression ^[_a-z][a-z0-9_]*$.(§Ò¼í

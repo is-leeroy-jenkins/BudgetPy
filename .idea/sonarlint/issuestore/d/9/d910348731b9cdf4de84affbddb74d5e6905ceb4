@@ -1,11 +1,0 @@
-
-ppython:S117"TRename this parameter "custDash" to match the regular expression ^[_a-z][a-z0-9_]*$.(µÔù˜øÿÿÿÿ
-opython:S117…"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-ppython:S117|"TRename this parameter "gradFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Œàúÿÿÿÿ
-ppython:S117ƒ"SRename this parameter "headEnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(´Íüºıÿÿÿÿ
-npython:S117z"RRename this parameter "noFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(…Éøÿÿÿÿ
-kpython:S117}"TRename this parameter "pattFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾åĞ¢
-ppython:S117~"TRename this parameter "prstDash" to match the regular expression ^[_a-z][a-z0-9_]*$.(İ¹ üÿÿÿÿ
-qpython:S117{"URename this parameter "solidFill" to match the regular expression ^[_a-z][a-z0-9_]*$.(ã©Ö ıÿÿÿÿ
-kpython:S117„"SRename this parameter "tailEnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(š¢ÎÂ
-ipython:S107u"MMethod "__init__" has 16 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

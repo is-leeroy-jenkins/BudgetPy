@@ -1,17 +1,0 @@
-
-Hpython:S1066µ"/Merge this if statement with the enclosing one.(›êôè
-Tpython:S5754V"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Tpython:S5754^"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Tpython:S5754f"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Tpython:S5754z"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-qpython:S3776}"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(žÃÒÉûÿÿÿÿ
-Hpython:S5806"+Rename this variable; it shadows a builtin.(Ñ±Ê÷üÿÿÿÿ
-mpython:S3776¤"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.( ÓÛº
-Ipython:S5806§"+Rename this variable; it shadows a builtin.(Ñ±Ê÷üÿÿÿÿ
-Ipython:S5806Â"+Rename this variable; it shadows a builtin.(Ñ±Ê÷üÿÿÿÿ
-Cpython:S5806Œ"+Rename this variable; it shadows a builtin.(›ÏÚ
-Cpython:S5806’"+Rename this variable; it shadows a builtin.(›ÏÚ
-Upython:S5754Î"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Epython:S1172í",Remove the unused function parameter "addr".(é™‘¼
-Ipython:S5806«"+Rename this variable; it shadows a builtin.(Ñ±Ê÷üÿÿÿÿ
-Apython:S108±")Either remove or fill this block of code.(ã‘Û¾

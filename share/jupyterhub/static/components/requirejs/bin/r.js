@@ -2092,7 +2092,7 @@ var requirejs, require, define, xpcUtil;
         'defined',
         'specified'
     ], function (prop) {
-        //Source from contexts instead of early binding to default context,
+        //Reference from contexts instead of early binding to default context,
         //so that during builds, the latest instance of the default context
         //with its config gets used.
         req[prop] = function () {
@@ -15495,11 +15495,11 @@ var AST_Label = DEFNODE("Label", "references", {
 }, AST_Symbol);
 
 var AST_SymbolRef = DEFNODE("SymbolRef", null, {
-    $documentation: "Source to some symbol (not definition/declaration)",
+    $documentation: "Reference to some symbol (not definition/declaration)",
 }, AST_Symbol);
 
 var AST_LabelRef = DEFNODE("LabelRef", null, {
-    $documentation: "Source to a label symbol",
+    $documentation: "Reference to a label symbol",
 }, AST_Symbol);
 
 var AST_This = DEFNODE("This", null, {

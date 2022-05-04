@@ -1,8 +1,10 @@
+import os
 from threading import Lock
 import time
 import types
 from typing import (
-    Any, Callable, Dict, Iterable, Optional, Sequence, Type, TypeVar,
+    Any, Callable, Dict, Iterable, List, Optional, Sequence, Type, TypeVar,
+    Union,
 )
 
 from . import values  # retain this import style for testability
@@ -11,7 +13,7 @@ from .metrics_core import (
     Metric, METRIC_LABEL_NAME_RE, METRIC_NAME_RE,
     RESERVED_METRIC_LABEL_NAME_RE,
 )
-from .registry import CollectorRegistry, REGISTRY
+from .registry import Collector, CollectorRegistry, REGISTRY
 from .samples import Exemplar, Sample
 from .utils import floatToGoString, INF
 
@@ -61,7 +63,14 @@ def _validate_exemplar(exemplar):
         raise ValueError('Exemplar labels have %d UTF-8 characters, exceeding the limit of 128')
 
 
-class MetricWrapperBase:
+def _get_use_created() -> bool:
+    return os.environ.get("PROMETHEUS_DISABLE_CREATED_SERIES", 'False').lower() not in ('true', '1', 't')
+
+
+_use_created = _get_use_created()
+
+
+class MetricWrapperBase(Collector):
     _type: Optional[str] = None
     _reserved_labelnames: Sequence[str] = ()
 
@@ -84,19 +93,19 @@ class MetricWrapperBase:
     def _get_metric(self):
         return Metric(self._name, self._documentation, self._type, self._unit)
 
-    def describe(self):
+    def describe(self) -> Iterable[Metric]:
         return [self._get_metric()]
 
-    def collect(self):
+    def collect(self) -> Iterable[Metric]:
         metric = self._get_metric()
         for suffix, labels, value, timestamp, exemplar in self._samples():
             metric.add_sample(self._name + suffix, labels, value, timestamp, exemplar)
         return [metric]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self._type}:{self._name}"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         metric_type = type(self)
         return f"{metric_type.__module__}.{metric_type.__name__}({self._name})"
 
@@ -188,7 +197,7 @@ class MetricWrapperBase:
                 )
             return self._metrics[labelvalues]
 
-    def remove(self, *labelvalues):
+    def remove(self, *labelvalues: Any) -> None:
         if not self._labelnames:
             raise ValueError('No label names were set when constructing %s' % self)
 
@@ -290,10 +299,13 @@ class Counter(MetricWrapperBase):
         return ExceptionCounter(self, exception)
 
     def _child_samples(self) -> Iterable[Sample]:
-        return (
-            Sample('_total', {}, self._value.get(), None, self._value.get_exemplar()),
-            Sample('_created', {}, self._created, None, None),
-        )
+        sample = Sample('_total', {}, self._value.get(), None, self._value.get_exemplar())
+        if _use_created:
+            return (
+                sample,
+                Sample('_created', {}, self._created, None, None)
+            )
+        return (sample,)
 
 
 class Gauge(MetricWrapperBase):
@@ -337,15 +349,15 @@ class Gauge(MetricWrapperBase):
     _MULTIPROC_MODES = frozenset(('min', 'max', 'livesum', 'liveall', 'all'))
 
     def __init__(self,
-                 name,
-                 documentation,
-                 labelnames=(),
-                 namespace='',
-                 subsystem='',
-                 unit='',
-                 registry=REGISTRY,
-                 _labelvalues=None,
-                 multiprocess_mode='all',
+                 name: str,
+                 documentation: str,
+                 labelnames: Iterable[str] = (),
+                 namespace: str = '',
+                 subsystem: str = '',
+                 unit: str = '',
+                 registry: Optional[CollectorRegistry] = REGISTRY,
+                 _labelvalues: Optional[Sequence[str]] = None,
+                 multiprocess_mode: str = 'all',
                  ):
         self._multiprocess_mode = multiprocess_mode
         if multiprocess_mode not in self._MULTIPROC_MODES:
@@ -362,32 +374,32 @@ class Gauge(MetricWrapperBase):
         )
         self._kwargs['multiprocess_mode'] = self._multiprocess_mode
 
-    def _metric_init(self):
+    def _metric_init(self) -> None:
         self._value = values.ValueClass(
             self._type, self._name, self._name, self._labelnames, self._labelvalues,
             multiprocess_mode=self._multiprocess_mode
         )
 
-    def inc(self, amount=1):
+    def inc(self, amount: float = 1) -> None:
         """Increment gauge by the given amount."""
         self._raise_if_not_observable()
         self._value.inc(amount)
 
-    def dec(self, amount=1):
+    def dec(self, amount: float = 1) -> None:
         """Decrement gauge by the given amount."""
         self._raise_if_not_observable()
         self._value.inc(-amount)
 
-    def set(self, value):
+    def set(self, value: float) -> None:
         """Set gauge to the given value."""
         self._raise_if_not_observable()
         self._value.set(float(value))
 
-    def set_to_current_time(self):
+    def set_to_current_time(self) -> None:
         """Set gauge to the current unixtime."""
         self.set(time.time())
 
-    def track_inprogress(self):
+    def track_inprogress(self) -> InprogressTracker:
         """Track inprogress blocks of code or functions.
 
         Can be used as a function decorator or context manager.
@@ -397,14 +409,14 @@ class Gauge(MetricWrapperBase):
         self._raise_if_not_observable()
         return InprogressTracker(self)
 
-    def time(self):
+    def time(self) -> Timer:
         """Time a block of code or function, and set the duration in seconds.
 
         Can be used as a function decorator or context manager.
         """
         return Timer(self, 'set')
 
-    def set_function(self, f):
+    def set_function(self, f: Callable[[], float]) -> None:
         """Call the provided function to return the Gauge value.
 
         The function must return a float, and may be called from
@@ -413,10 +425,10 @@ class Gauge(MetricWrapperBase):
 
         self._raise_if_not_observable()
 
-        def samples(self) -> Iterable[Sample]:
+        def samples(_: Gauge) -> Iterable[Sample]:
             return (Sample('', {}, float(f()), None, None),)
 
-        self._child_samples = types.MethodType(samples, self)
+        self._child_samples = types.MethodType(samples, self)  # type: ignore
 
     def _child_samples(self) -> Iterable[Sample]:
         return (Sample('', {}, self._value.get(), None, None),)
@@ -455,13 +467,13 @@ class Summary(MetricWrapperBase):
     _type = 'summary'
     _reserved_labelnames = ['quantile']
 
-    def _metric_init(self):
+    def _metric_init(self) -> None:
         self._count = values.ValueClass(self._type, self._name, self._name + '_count', self._labelnames,
                                         self._labelvalues)
         self._sum = values.ValueClass(self._type, self._name, self._name + '_sum', self._labelnames, self._labelvalues)
         self._created = time.time()
 
-    def observe(self, amount):
+    def observe(self, amount: float) -> None:
         """Observe the given amount.
 
         The amount is usually positive or zero. Negative values are
@@ -475,7 +487,7 @@ class Summary(MetricWrapperBase):
         self._count.inc(1)
         self._sum.inc(amount)
 
-    def time(self):
+    def time(self) -> Timer:
         """Time a block of code or function, and observe the duration in seconds.
 
         Can be used as a function decorator or context manager.
@@ -483,11 +495,13 @@ class Summary(MetricWrapperBase):
         return Timer(self, 'observe')
 
     def _child_samples(self) -> Iterable[Sample]:
-        return (
+        samples = [
             Sample('_count', {}, self._count.get(), None, None),
             Sample('_sum', {}, self._sum.get(), None, None),
-            Sample('_created', {}, self._created, None, None),
-        )
+        ]
+        if _use_created:
+            samples.append(Sample('_created', {}, self._created, None, None))
+        return tuple(samples)
 
 
 class Histogram(MetricWrapperBase):
@@ -530,15 +544,15 @@ class Histogram(MetricWrapperBase):
     DEFAULT_BUCKETS = (.005, .01, .025, .05, .075, .1, .25, .5, .75, 1.0, 2.5, 5.0, 7.5, 10.0, INF)
 
     def __init__(self,
-                 name,
-                 documentation,
-                 labelnames=(),
-                 namespace='',
-                 subsystem='',
-                 unit='',
-                 registry=REGISTRY,
-                 _labelvalues=None,
-                 buckets=DEFAULT_BUCKETS,
+                 name: str,
+                 documentation: str,
+                 labelnames: Iterable[str] = (),
+                 namespace: str = '',
+                 subsystem: str = '',
+                 unit: str = '',
+                 registry: Optional[CollectorRegistry] = REGISTRY,
+                 _labelvalues: Optional[Sequence[str]] = None,
+                 buckets: Sequence[Union[float, str]] = DEFAULT_BUCKETS,
                  ):
         self._prepare_buckets(buckets)
         super().__init__(
@@ -553,8 +567,8 @@ class Histogram(MetricWrapperBase):
         )
         self._kwargs['buckets'] = buckets
 
-    def _prepare_buckets(self, buckets):
-        buckets = [float(b) for b in buckets]
+    def _prepare_buckets(self, source_buckets: Sequence[Union[float, str]]) -> None:
+        buckets = [float(b) for b in source_buckets]
         if buckets != sorted(buckets):
             # This is probably an error on the part of the user,
             # so raise rather than sorting for them.
@@ -565,8 +579,8 @@ class Histogram(MetricWrapperBase):
             raise ValueError('Must have at least two buckets')
         self._upper_bounds = buckets
 
-    def _metric_init(self):
-        self._buckets = []
+    def _metric_init(self) -> None:
+        self._buckets: List[values.ValueClass] = []
         self._created = time.time()
         bucket_labelnames = self._labelnames + ('le',)
         self._sum = values.ValueClass(self._type, self._name, self._name + '_sum', self._labelnames, self._labelvalues)
@@ -579,7 +593,7 @@ class Histogram(MetricWrapperBase):
                 self._labelvalues + (floatToGoString(b),))
             )
 
-    def observe(self, amount, exemplar=None):
+    def observe(self, amount: float, exemplar: Optional[Dict[str, str]] = None) -> None:
         """Observe the given amount.
 
         The amount is usually positive or zero. Negative values are
@@ -599,7 +613,7 @@ class Histogram(MetricWrapperBase):
                     self._buckets[i].set_exemplar(Exemplar(exemplar, amount, time.time()))
                 break
 
-    def time(self):
+    def time(self) -> Timer:
         """Time a block of code or function, and observe the duration in seconds.
 
         Can be used as a function decorator or context manager.
@@ -608,14 +622,15 @@ class Histogram(MetricWrapperBase):
 
     def _child_samples(self) -> Iterable[Sample]:
         samples = []
-        acc = 0
+        acc = 0.0
         for i, bound in enumerate(self._upper_bounds):
             acc += self._buckets[i].get()
             samples.append(Sample('_bucket', {'le': floatToGoString(bound)}, acc, None, self._buckets[i].get_exemplar()))
         samples.append(Sample('_count', {}, acc, None, None))
         if self._upper_bounds[0] >= 0:
             samples.append(Sample('_sum', {}, self._sum.get(), None, None))
-        samples.append(Sample('_created', {}, self._created, None, None))
+        if _use_created:
+            samples.append(Sample('_created', {}, self._created, None, None))
         return tuple(samples)
 
 
@@ -642,7 +657,7 @@ class Info(MetricWrapperBase):
         self._lock = Lock()
         self._value = {}
 
-    def info(self, val):
+    def info(self, val: Dict[str, str]) -> None:
         """Set info metric."""
         if self._labelname_set.intersection(val.keys()):
             raise ValueError('Overlapping labels for Info metric, metric: {} child: {}'.format(

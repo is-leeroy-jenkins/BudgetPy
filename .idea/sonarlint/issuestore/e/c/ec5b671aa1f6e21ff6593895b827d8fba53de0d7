@@ -1,7 +1,0 @@
-
-jpython:S1542>"SRename function "pixels_to_EMU" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÎÇ÷X
-ppython:S1542B"SRename function "EMU_to_pixels" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰ýÏ¤ýÿÿÿÿ
-gpython:S1542F"ORename function "cm_to_EMU" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾‡ìÅ
-gpython:S1542J"ORename function "EMU_to_cm" to match the regular expression ^[a-z_][a-z0-9_]*$.(€ãÛ›
-npython:S1542N"QRename function "inch_to_EMU" to match the regular expression ^[a-z_][a-z0-9_]*$.(»ë£Üþÿÿÿÿ
-ipython:S1542R"QRename function "EMU_to_inch" to match the regular expression ^[a-z_][a-z0-9_]*$.(ß¹ÒÇ

@@ -1,14 +1,11 @@
 from _pydev_bundle import pydev_log
-from _pydevd_bundle.pydevd_utils import hasattr_checked, DAPGrouper
-try:
-    import StringIO
-except:
-    import io as StringIO
+from _pydevd_bundle.pydevd_utils import hasattr_checked, DAPGrouper, Timer
+from io import StringIO
 import traceback
 from os.path import basename
 
 from functools import partial
-from _pydevd_bundle.pydevd_constants import dict_iter_items, dict_keys, xrange, IS_PY36_OR_GREATER, \
+from _pydevd_bundle.pydevd_constants import IS_PY36_OR_GREATER, \
     MethodWrapperType, RETURN_VALUES_DICT, DebugInfoHolder, IS_PYPY, GENERATED_LEN_ATTR_NAME
 from _pydevd_bundle.pydevd_safe_repr import SafeRepr
 
@@ -75,7 +72,7 @@ class DefaultResolver:
         else:
             dct = self._get_jy_dictionary(obj)[0]
 
-        lst = sorted(dict_iter_items(dct), key=lambda tup: sorted_attributes_key(tup[0]))
+        lst = sorted(dct.items(), key=lambda tup: sorted_attributes_key(tup[0]))
         if used___dict__:
             eval_name = '.__dict__[%s]'
         else:
@@ -120,12 +117,12 @@ class DefaultResolver:
 
                 declaredMethods = obj.getDeclaredMethods()
                 declaredFields = obj.getDeclaredFields()
-                for i in xrange(len(declaredMethods)):
+                for i in range(len(declaredMethods)):
                     name = declaredMethods[i].getName()
                     ret[name] = declaredMethods[i].toString()
                     found.put(name, 1)
 
-                for i in xrange(len(declaredFields)):
+                for i in range(len(declaredFields)):
                     name = declaredFields[i].getName()
                     found.put(name, 1)
                     # if declaredFields[i].isAccessible():
@@ -158,7 +155,7 @@ class DefaultResolver:
             names = []
         if not names:
             if hasattr_checked(var, '__dict__'):
-                names = dict_keys(var.__dict__)
+                names = list(var.__dict__)
                 used___dict__ = True
         return names, used___dict__
 
@@ -183,6 +180,8 @@ class DefaultResolver:
         # optimize the operation by removing as many items as possible in the
         # first filters, leaving fewer items for later filters
 
+        timer = Timer()
+        cls = type(var)
         for name in names:
             try:
                 name_as_str = name
@@ -200,9 +199,12 @@ class DefaultResolver:
                         continue
             except:
                 # if some error occurs getting it, let's put it to the user.
-                strIO = StringIO.StringIO()
+                strIO = StringIO()
                 traceback.print_exc(file=strIO)
                 attr = strIO.getvalue()
+
+            finally:
+                timer.report_if_getting_attr_slow(cls, name_as_str)
 
             d[name_as_str] = attr
 
@@ -216,10 +218,6 @@ class DAPGrouperResolver:
 
 
 _basic_immutable_types = (int, float, complex, str, bytes, type(None), bool, frozenset)
-try:
-    _basic_immutable_types += (long, unicode)  # Py2 types
-except NameError:
-    pass
 
 
 def _does_obj_repr_evaluate_to_obj(obj):
@@ -246,7 +244,7 @@ class DictResolver:
 
     sort_keys = not IS_PY36_OR_GREATER
 
-    def resolve(self, dict, key):
+    def resolve(self, dct, key):
         if key in (GENERATED_LEN_ATTR_NAME, TOO_LARGE_ATTR):
             return None
 
@@ -254,14 +252,14 @@ class DictResolver:
             # we have to treat that because the dict resolver is also used to directly resolve the global and local
             # scopes (which already have the items directly)
             try:
-                return dict[key]
+                return dct[key]
             except:
-                return getattr(dict, key)
+                return getattr(dct, key)
 
         # ok, we have to iterate over the items to find the one that matches the id, because that's the only way
         # to actually find the reference from the string we have before.
         expected_id = int(key.split('(')[-1][:-1])
-        for key, val in dict_iter_items(dict):
+        for key, val in dct.items():
             if id(key) == expected_id:
                 return val
 
@@ -294,7 +292,7 @@ class DictResolver:
 
         found_representations = set()
 
-        for key, val in dict_iter_items(dct):
+        for key, val in dct.items():
             i += 1
             key_as_str = self.key_to_str(key, fmt)
 
@@ -329,11 +327,11 @@ class DictResolver:
         ret.append((GENERATED_LEN_ATTR_NAME, len(dct), partial(_apply_evaluate_name, evaluate_name='len(%s)')))
         return ret
 
-    def get_dictionary(self, dict):
+    def get_dictionary(self, dct):
         ret = self.init_dict()
 
         i = 0
-        for key, val in dict_iter_items(dict):
+        for key, val in dct.items():
             i += 1
             # we need to add the id because otherwise we cannot find the real object to get its contents later on.
             key = '%s (%s)' % (self.key_to_str(key), id(key))
@@ -343,9 +341,9 @@ class DictResolver:
                 break
 
         # in case if the class extends built-in type and has some additional fields
-        additional_fields = defaultResolver.get_dictionary(dict)
+        additional_fields = defaultResolver.get_dictionary(dct)
         ret.update(additional_fields)
-        ret[GENERATED_LEN_ATTR_NAME] = len(dict)
+        ret[GENERATED_LEN_ATTR_NAME] = len(dct)
         return ret
 
 
@@ -512,7 +510,7 @@ class InstanceResolver:
         ret = {}
 
         declaredFields = obj.__class__.getDeclaredFields()
-        for i in xrange(len(declaredFields)):
+        for i in range(len(declaredFields)):
             name = declaredFields[i].getName()
             try:
                 declaredFields[i].setAccessible(True)
@@ -539,7 +537,7 @@ class JyArrayResolver:
     def get_dictionary(self, obj):
         ret = {}
 
-        for i in xrange(len(obj)):
+        for i in range(len(obj)):
             ret[ i ] = obj[i]
 
         ret[GENERATED_LEN_ATTR_NAME] = len(obj)
@@ -551,15 +549,15 @@ class JyArrayResolver:
 #=======================================================================================================================
 class MultiValueDictResolver(DictResolver):
 
-    def resolve(self, dict, key):
+    def resolve(self, dct, key):
         if key in (GENERATED_LEN_ATTR_NAME, TOO_LARGE_ATTR):
             return None
 
         # ok, we have to iterate over the items to find the one that matches the id, because that's the only way
         # to actually find the reference from the string we have before.
         expected_id = int(key.split('(')[-1][:-1])
-        for key in dict_keys(dict):
-            val = dict.getlist(key)
+        for key in list(dct.keys()):
+            val = dct.getlist(key)
             if id(key) == expected_id:
                 return val
 

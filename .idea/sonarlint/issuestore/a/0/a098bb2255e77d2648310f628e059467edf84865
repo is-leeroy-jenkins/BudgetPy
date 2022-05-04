@@ -1,56 +1,0 @@
-
-ipython:S116)"RRename this field "childNodes" to match the regular expression ^[_a-z][_a-z0-9]*$.(’ÛÑ
-zpython:S117."^Rename this local variable "attributesStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(—­´Êıÿÿÿÿ
-fpython:S1009"ORename method "appendChild" to match the regular expression ^[a-z_][a-z0-9_]*$.(·¸
-npython:S117A"XRename this parameter "insertBefore" to match the regular expression ^[_a-z][a-z0-9_]*$.(—óñ[
-dpython:S100A"NRename method "insertText" to match the regular expression ^[a-z_][a-z0-9_]*$.(—óñ[
-opython:S117M"SRename this parameter "refNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š›€ªûÿÿÿÿ
-lpython:S100M"PRename method "insertBefore" to match the regular expression ^[a-z_][a-z0-9_]*$.(Š›€ªûÿÿÿÿ
-fpython:S100Y"ORename method "removeChild" to match the regular expression ^[a-z_][a-z0-9_]*$.(‚ğ´¨
-qpython:S117a"URename this parameter "newParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(º¤×øøÿÿÿÿ
-ppython:S100a"TRename method "reparentChildren" to match the regular expression ^[a-z_][a-z0-9_]*$.(º¤×øøÿÿÿÿ
-dpython:S100n"MRename method "cloneNode" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ã…Âì
-jpython:S100t"NRename method "hasContent" to match the regular expression ^[a-z_][a-z0-9_]*$.(ı¹¦âüÿÿÿÿ
-wpython:S117|"[Rename this local variable "equalCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(§„ıÿÿÿÿ
-lpython:S116§"TRename this field "doctypeClass" to match the regular expression ^[_a-z][_a-z0-9]*$.(òí­
-lpython:S116¡"TRename this field "elementClass" to match the regular expression ^[_a-z][_a-z0-9]*$.(×¯ÅÄ
-opython:S116Á"WRename this field "insertFromTable" to match the regular expression ^[_a-z][_a-z0-9]*$.(ë³éÆ
-mpython:S116ª"URename this field "fragmentClass" to match the regular expression ^[_a-z][_a-z0-9]*$.(îù°
-lpython:S116"URename this field "documentClass" to match the regular expression ^[_a-z][_a-z0-9]*$.(¡ãß
-qpython:S116¤"TRename this field "commentClass" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ÿ—µÅùÿÿÿÿ
-kpython:S116½"SRename this field "headPointer" to match the regular expression ^[_a-z][_a-z0-9]*$.(Âıá¨
-lpython:S116½"URename this field "insertElement" to match the regular expression ^[_a-z][_a-z0-9]*$.(è¬º 
-upython:S116»"XRename this field "_insertFromTable" to match the regular expression ^[_a-z][_a-z0-9]*$.(¾Ëàôüÿÿÿÿ
-ppython:S116¾"SRename this field "formPointer" to match the regular expression ^[_a-z][_a-z0-9]*$.(ı›‰ÿÿÿÿÿ
-xpython:S116º"`Rename this field "activeFormattingElements" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÃæÇ²
-upython:S116³"XRename this field "defaultNamespace" to match the regular expression ^[_a-z][_a-z0-9]*$.(±’Ñ½üÿÿÿÿ
-lpython:S116¹"TRename this field "openElements" to match the regular expression ^[_a-z][_a-z0-9]*$.(ƒàªÈ
-ypython:S117¬"aRename this parameter "namespaceHTMLElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÒá
-wpython:S117È"ZRename this local variable "exactNode" to match the regular expression ^[_a-z][a-z0-9_]*$.(Â°Â—şÿÿÿÿ
-zpython:S117Î"]Rename this local variable "listElements" to match the regular expression ^[_a-z][a-z0-9_]*$.(àíÚ†ûÿÿÿÿ
-opython:S100Ä"RRename method "elementInScope" to match the regular expression ^[a-z_][a-z0-9_]*$.(ıæ©Èıÿÿÿÿ
-python:S100Ú"gRename method "reconstructActiveFormattingElements" to match the regular expression ^[a-z_][a-z0-9_]*$.(şÃ«è
-~python:S100ˆ"aRename method "clearActiveFormattingElements" to match the regular expression ^[a-z_][a-z0-9_]*$.(­ìº»şÿÿÿÿ
-}python:S100"eRename method "elementInActiveFormattingElements" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÁÀ î
-fpython:S100›"NRename method "insertRoot" to match the regular expression ^[a-z_][a-z0-9_]*$.(“ÀÒã
-qpython:S117¢"YRename this local variable "publicId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ç™¦ë
-qpython:S117£"YRename this local variable "systemId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Àö¼
-npython:S100 "QRename method "insertDoctype" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŒöÓÏûÿÿÿÿ
-npython:S100¨"QRename method "insertComment" to match the regular expression ^[a-z_][a-z0-9_]*$.(üôßøÿÿÿÿ
-ipython:S100­"QRename method "createElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(»¸½ı
-opython:S100µ"WRename method "_getInsertFromTable" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸ôåï
-tpython:S100¸"WRename method "_setInsertFromTable" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÜÁúÿÿÿÿÿ
-tpython:S100Ã"WRename method "insertElementNormal" to match the regular expression ^[a-z_][a-z0-9_]*$.(ô°ıÿÿÿÿ
-upython:S117Õ"]Rename this local variable "insertBefore" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡ó
-npython:S100Í"VRename method "insertElementTable" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÑËóş
-upython:S117é"]Rename this local variable "insertBefore" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡ó
-fpython:S100İ"NRename method "insertText" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŞûÊ÷
-upython:S117ó"]Rename this local variable "fosterParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾Øå‰
-zpython:S117ô"]Rename this local variable "insertBefore" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥µÃÇÿÿÿÿÿ
-wpython:S117ò"ZRename this local variable "lastTable" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦£ËŸıÿÿÿÿ
-ypython:S100ì"aRename method "getTableMisnestedNodePosition" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ô¿¸™
-wpython:S100†"ZRename method "generateImpliedEndTags" to match the regular expression ^[a-z_][a-z0-9_]*$.(ú¥û¶ıÿÿÿÿ
-fpython:S100"ORename method "getDocument" to match the regular expression ^[a-z_][a-z0-9_]*$.(µö¨=
-gpython:S100”"ORename method "getFragment" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬ˆ¸€
-7python:S125–"Remove this commented out code.(ÕÄÁ
-ipython:S100›"RRename method "testSerializer" to match the regular expression ^[a-z_][a-z0-9_]*$.(æŞˆv

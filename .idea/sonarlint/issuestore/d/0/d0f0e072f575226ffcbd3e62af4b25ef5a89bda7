@@ -1,57 +1,0 @@
-
-qpython:S1192£"XDefine a constant instead of duplicating this literal '\0 \r\n\x85\u2028\u2029' 6 times.(›äõ£
-|python:S1192‡
-"^Define a constant instead of duplicating this literal 'while scanning a block scalar' 5 times.(™°îñıÿÿÿÿ
-”python:S1192"{Define a constant instead of duplicating this literal 'expected alphabetic or numeric character, but found {ch!r}' 4 times.(Ÿ¸åÆ
-mpython:S1192İ
-"UDefine a constant instead of duplicating this literal '\r\n\x85\u2028\u2029' 5 times.(ÊíŠa
-tpython:S1192›"[Define a constant instead of duplicating this literal 'while scanning a directive' 8 times.(é€ø˜
-python:S1192“"uDefine a constant instead of duplicating this literal 'expected a comment or a line break, but found {ch!r}' 3 times.(±ûÎ¤
-}python:S1192ñ"_Define a constant instead of duplicating this literal "expected ' ', but found {ch!r}" 3 times.(ŸäÓğıÿÿÿÿ
-ypython:S1192³"[Define a constant instead of duplicating this literal 'while scanning an {name!s}' 6 times.(µíÆÔşÿÿÿÿ
-`python:S5797$"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
-apython:S5797ş"HReplace this expression; used as a condition it will always be constant.(¦‹Å÷
-Hpython:S1066œ"/Merge this if statement with the enclosing one.(£¼ÁĞ
-Mpython:S1066Û	"/Merge this if statement with the enclosing one.(ÏŒä•üÿÿÿÿ
-_python:S2208!"GImport only needed names or import the module and then use its members.(µìå¥
-_python:S17633"GDelete this unreachable code or refactor the code to make it reachable.(ã‘Û¾
-4python:S27723"Remove this unneeded "pass".(ã‘Û¾
-mpython:S3776Ü"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(ßåúî
-npython:S117ê"VRename this parameter "TokenClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ¤üñ
-npython:S117‚"VRename this parameter "TokenClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(×É¹Å
-npython:S117˜"VRename this parameter "TokenClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆéƒÂ
-Hpython:S1481"*Remove the unused local variable "popped".(÷£©Êşÿÿÿÿ
-Apython:S108Ç")Either remove or fill this block of code.(ã‘Û¾
-mpython:S3776ï"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(µæÅƒ
-rpython:S3776›"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(Û³Šºûÿÿÿÿ
-python:S1871¨"cEither merge this branch with the identical one on line "804" or change one of the implementations.(§Î¢¼ùÿÿÿÿ
-mpython:S3776Ó"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(–íšú
-npython:S117˜"VRename this parameter "TokenClass" to match the regular expression ^[_a-z][a-z0-9_]*$.(°ÔÁœ
-7python:S125º"Remove this commented out code.(´“âÌ
-dpython:S1854æ"KRemove this assignment to local variable 'handle'; the value is never used.(îÆÎ
-rpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 65 to the 15 allowed.(Â·²ãúÿÿÿÿ
-rpython:S3776õ	"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ñ™û…ıÿÿÿÿ
-epython:S5799‰
-"GMerge these implicitly concatenated strings; or did you forget a comma?(ÍÖµ®øÿÿÿÿ
-epython:S5799“
-"GMerge these implicitly concatenated strings; or did you forget a comma?(ÍÖµ®øÿÿÿÿ
-rpython:S3776”"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(§°²İşÿÿÿÿ
-rpython:S3776„"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(ë‰½Éÿÿÿÿÿ
-Apython:S108")Either remove or fill this block of code.(ã‘Û¾
-Apython:S108Ÿ")Either remove or fill this block of code.(ã‘Û¾
-rpython:S3776İ"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(æÌ’Ÿşÿÿÿÿ
-mpython:S1854§"ORemove this assignment to local variable 'start_mark'; the value is never used.(ú¾´÷ÿÿÿÿÿ
-mpython:S3776ñ"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(–íšú
-}python:S1871Ï"dEither merge this branch with the identical one on line "1996" or change one of the implementations.(´ãÑ
-7python:S125Ü"Remove this commented out code.(ø§Œ 
-<python:S125é"Remove this commented out code.(ÔûÚÚıÿÿÿÿ
-rpython:S3776†"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(¡¾¸¬şÿÿÿÿ
-5python:S2772¨"Remove this unneeded "pass".(ã‘Û¾
-5python:S2772¶"Remove this unneeded "pass".(ã‘Û¾
-mpython:S1854º"ORemove this assignment to local variable 'start_mark'; the value is never used.(ú¾´÷ÿÿÿÿÿ
-`python:S1763¸"GDelete this unreachable code or refactor the code to make it reachable.(ÀÊÓÎ
-mpython:S3776ˆ"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(–íšú
-7python:S125³"Remove this commented out code.(…ûï§
-mpython:S3776È"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(–ç ÿ
-Hpython:S1481õ"*Remove the unused local variable "prefix".(ŒŒÿÿÿÿÿÿ
-Cpython:S1481ø"*Remove the unused local variable "prefix".(ê¹Àé

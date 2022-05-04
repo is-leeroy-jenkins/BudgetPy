@@ -1,43 +1,0 @@
-
-rpython:S117h"[Rename this local variable "charRanges" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶¾ó£
-rpython:S117k"[Rename this local variable "foundMatch" to match the regular expression ^[_a-z][a-z0-9_]*$.(£è¨µ
-npython:S1542g"VRename function "charStringToList" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ä˜¿©
-kpython:S117|"TRename this parameter "charList" to match the regular expression ^[_a-z][a-z0-9_]*$.(°àÿ“
-opython:S1542|"WRename function "normaliseCharList" to match the regular expression ^[a-z_][a-z0-9_]*$.(°àÿ“
-qpython:S117"TRename this parameter "charList" to match the regular expression ^[_a-z][a-z0-9_]*$.(™‰¯™úÿÿÿÿ
-qpython:S1542"SRename function "missingRanges" to match the regular expression ^[a-z_][a-z0-9_]*$.(™‰¯™úÿÿÿÿ
-lpython:S117›"TRename this parameter "charList" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰Ÿãş
-npython:S1542›"URename function "listToRegexpStr" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰Ÿãş
-lpython:S1542¦"NRename function "hexToInt" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÊŸÅŒÿÿÿÿÿ
-python:S117«"bRename this local variable "specialCharacters" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì†ëªûÿÿÿÿ
-ppython:S1542ª"RRename function "escapeRegexp" to match the regular expression ^[a-z_][a-z0-9_]*$.(óÁ€¾şÿÿÿÿ
-vpython:S116¼"YRename this field "replacementRegexp" to match the regular expression ^[_a-z][_a-z0-9]*$.(œ¦“Îüÿÿÿÿ
-|python:S116Î"_Rename this field "preventSingleQuotePubid" to match the regular expression ^[_a-z][_a-z0-9]*$.(øÑŞ™şÿÿÿÿ
-wpython:S116Æ"ZRename this field "dropXmlnsLocalName" to match the regular expression ^[_a-z][_a-z0-9]*$.(Î®¡ğÿÿÿÿÿ
-~python:S116Ì"aRename this field "replaceFormFeedCharacters" to match the regular expression ^[_a-z][_a-z0-9]*$.(Åí™ùúÿÿÿÿ
-~python:S116É"aRename this field "preventDoubleDashComments" to match the regular expression ^[_a-z][_a-z0-9]*$.(É¬¥Ãøÿÿÿÿ
-lpython:S116Ğ"TRename this field "replaceCache" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ìê
-wpython:S116Ê"_Rename this field "preventDashAtCommentEnd" to match the regular expression ^[_a-z][_a-z0-9]*$.(‘×®ê
-opython:S116Ç"WRename this field "dropXmlnsAttrNs" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ñ•ú´
-xpython:S117À"[Rename this parameter "dropXmlnsAttrNs" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹éÏÿÿÿÿÿ
-{python:S117¿"^Rename this parameter "dropXmlnsLocalName" to match the regular expression ^[_a-z][a-z0-9_]*$.(®ÍŸîûÿÿÿÿ
-{python:S117Â"cRename this parameter "preventDashAtCommentEnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÒåı
-‚python:S117Á"eRename this parameter "preventDoubleDashComments" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãû®×ıÿÿÿÿ
-{python:S117Ä"cRename this parameter "preventSingleQuotePubid" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÉØ‡
-}python:S117Ã"eRename this parameter "replaceFormFeedCharacters" to match the regular expression ^[_a-z][a-z0-9_]*$.(«’«Š
-kpython:S100Ò"SRename method "coerceAttribute" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ëì Õ
-npython:S100İ"QRename method "coerceElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(©¾°Ìúÿÿÿÿ
-npython:S100à"QRename method "coerceComment" to match the regular expression ^[a-z_][a-z0-9_]*$.(»ø¢‹ıÿÿÿÿ
-qpython:S100ê"TRename method "coerceCharacters" to match the regular expression ^[a-z_][a-z0-9_]*$.(—”‹Èÿÿÿÿÿ
-spython:S117ó"[Rename this local variable "dataOutput" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú‡Á
-gpython:S100ò"ORename method "coercePubid" to match the regular expression ^[a-z_][a-z0-9_]*$.(ê¼Ñ
-rpython:S117ş"ZRename this local variable "nameFirst" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹²Ì¤
-xpython:S117ƒ"`Rename this local variable "nameFirstOutput" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹ºî÷
-vpython:S117ÿ"YRename this local variable "nameRest" to match the regular expression ^[_a-z][a-z0-9_]*$.(²Ëüßúÿÿÿÿ
-wpython:S117‡"_Rename this local variable "nameRestOutput" to match the regular expression ^[_a-z][a-z0-9_]*$.(âÕ†Ì
-upython:S117ˆ"]Rename this local variable "replaceChars" to match the regular expression ^[_a-z][a-z0-9_]*$.( Ã•
-epython:S100ı"MRename method "toXmlName" to match the regular expression ^[a-z_][a-z0-9_]*$.(¾İí
-xpython:S100"[Rename method "getReplacementCharacter" to match the regular expression ^[a-z_][a-z0-9_]*$.(À›àæşÿÿÿÿ
-gpython:S100–"ORename method "fromXmlName" to match the regular expression ^[a-z_][a-z0-9_]*$.(ù–ŞÇ
-fpython:S100›"NRename method "escapeChar" to match the regular expression ^[a-z_][a-z0-9_]*$.(áÈ¦Ş
-hpython:S100 "PRename method "unescapeChar" to match the regular expression ^[a-z_][a-z0-9_]*$.(†ç¬ô

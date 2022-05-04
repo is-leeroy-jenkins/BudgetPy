@@ -1,8 +1,0 @@
-
-rpython:S117/"[Rename this parameter "justifyLastLine" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôú×£
-qpython:S1170"URename this parameter "mergeCell" to match the regular expression ^[_a-z][a-z0-9_]*$.(Áüåıÿÿÿÿ
-opython:S117/"XRename this parameter "readingOrder" to match the regular expression ^[_a-z][a-z0-9_]*$.(ôú×£
-vpython:S117."ZRename this parameter "relativeIndent" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ŠğÇøÿÿÿÿ
-spython:S117."WRename this parameter "shrinkToFit" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ŠğÇøÿÿÿÿ
-tpython:S117."XRename this parameter "textRotation" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ŠğÇøÿÿÿÿ
-ppython:S117."TRename this parameter "wrapText" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ŠğÇøÿÿÿÿ

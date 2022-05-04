@@ -458,7 +458,7 @@ class NDFrame(PandasObject, indexing.IndexingMixin):
     # Construction
 
     @property
-    def _constructor(self: NDFrameT) -> type[NDFrameT]:
+    def _constructor(self: NDFrameT) -> Callable[..., NDFrameT]:
         """
         Used when a manipulation result has the same dimensions as the
         original.
@@ -793,17 +793,9 @@ class NDFrame(PandasObject, indexing.IndexingMixin):
         if copy:
             new_values = new_values.copy()
 
-        # ignore needed because of NDFrame constructor is different than
-        # DataFrame/Series constructors.
         return self._constructor(
-            # error: Argument 1 to "NDFrame" has incompatible type "ndarray"; expected
-            # "Union[ArrayManager, BlockManager]"
-            # error: Argument 2 to "NDFrame" has incompatible type "*Generator[Index,
-            # None, None]"; expected "bool" [arg-type]
-            # error: Argument 2 to "NDFrame" has incompatible type "*Generator[Index,
-            # None, None]"; expected "Optional[Mapping[Hashable, Any]]"
-            new_values,  # type: ignore[arg-type]
-            *new_axes,  # type: ignore[arg-type]
+            new_values,
+            *new_axes,
         ).__finalize__(self, method="swapaxes")
 
     @final
@@ -2100,11 +2092,7 @@ class NDFrame(PandasObject, indexing.IndexingMixin):
             # ptp also requires the item_from_zerodim
             return res
         d = self._construct_axes_dict(self._AXIS_ORDERS, copy=False)
-        # error: Argument 1 to "NDFrame" has incompatible type "ndarray";
-        # expected "BlockManager"
-        return self._constructor(res, **d).__finalize__(  # type: ignore[arg-type]
-            self, method="__array_wrap__"
-        )
+        return self._constructor(res, **d).__finalize__(self, method="__array_wrap__")
 
     @final
     def __array_ufunc__(
@@ -4351,6 +4339,10 @@ class NDFrame(PandasObject, indexing.IndexingMixin):
                 if errors == "raise" and labels_missing:
                     raise KeyError(f"{labels} not found in axis")
 
+            if is_extension_array_dtype(mask.dtype):
+                # GH#45860
+                mask = mask.to_numpy(dtype=bool)
+
             indexer = mask.nonzero()[0]
             new_axis = axis.take(indexer)
 
@@ -4385,7 +4377,7 @@ class NDFrame(PandasObject, indexing.IndexingMixin):
         self._reset_cache()
         self._clear_item_cache()
         self._mgr = result._mgr
-        self._maybe_update_cacher(verify_is_copy=verify_is_copy)
+        self._maybe_update_cacher(verify_is_copy=verify_is_copy, inplace=True)
 
     @final
     def add_prefix(self: NDFrameT, prefix: str) -> NDFrameT:
@@ -6608,8 +6600,10 @@ class NDFrame(PandasObject, indexing.IndexingMixin):
 
             if isinstance(to_replace, (tuple, list)):
                 if isinstance(self, ABCDataFrame):
+                    from pandas import Series
+
                     result = self.apply(
-                        self._constructor_sliced._replace_single,
+                        Series._replace_single,
                         args=(to_replace, method, inplace, limit),
                     )
                     if inplace:
@@ -9133,11 +9127,7 @@ class NDFrame(PandasObject, indexing.IndexingMixin):
 
             # we are the same shape, so create an actual object for alignment
             else:
-                # error: Argument 1 to "NDFrame" has incompatible type "ndarray";
-                # expected "BlockManager"
-                other = self._constructor(
-                    other, **self._construct_axes_dict()  # type: ignore[arg-type]
-                )
+                other = self._constructor(other, **self._construct_axes_dict())
 
         if axis is None:
             axis = 0

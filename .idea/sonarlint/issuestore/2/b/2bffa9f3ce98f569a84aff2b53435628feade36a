@@ -1,46 +1,0 @@
-
-dpython:S1192«"KDefine a constant instead of duplicating this literal '/tmp/yyz 2' 3 times.(´¨Ñ…
-Mpython:S1066"/Merge this if statement with the enclosing one.(øàüûÿÿÿÿ
-Mpython:S1066ª"/Merge this if statement with the enclosing one.(øàüûÿÿÿÿ
-Mpython:S1066ü"/Merge this if statement with the enclosing one.(èïÀüúÿÿÿÿ
-Mpython:S1066µ"/Merge this if statement with the enclosing one.(·Æöñøÿÿÿÿ
-Mpython:S1066‚"/Merge this if statement with the enclosing one.(ÌÈÊ•şÿÿÿÿ
-Mpython:S1066à"/Merge this if statement with the enclosing one.(ÌÈÊ•şÿÿÿÿ
-Mpython:S1066ö"/Merge this if statement with the enclosing one.(×Â‹úúÿÿÿÿ
-Mpython:S1066˜	"/Merge this if statement with the enclosing one.(èïÀüúÿÿÿÿ
-Hpython:S1066·	"/Merge this if statement with the enclosing one.(ÂÅãÜ
-Mpython:S1066Ø	"/Merge this if statement with the enclosing one.(·Æöñøÿÿÿÿ
-~python:S1845Ø"eRename field "Literal" to prevent any misunderstanding/clash with field "literal" defined on line 191(áú©Ö
-opython:S116Ù"WRename this field "Untagged_status" to match the regular expression ^[_a-z][_a-z0-9]*$.(¿Ëõ°
-gpython:S116Ø"ORename this field "Literal" to match the regular expression ^[_a-z][_a-z0-9]*$.(áú©Ö
-Kpython:S1940…"-Use the opposite operator ("not in") instead.(Ğš»Öúÿÿÿÿ
-opython:S100ò"RRename method "_CRAM_MD5_AUTH" to match the regular expression ^[a-z_][a-z0-9_]*$.(•·Óüÿÿÿÿ
-Fpython:S1481Ä"(Remove the unused local variable "name".(‰¡î¶şÿÿÿÿ
-<python:S125¡"Remove this commented out code.(Ãş Ïúÿÿÿÿ
-^python:S4830³"@Enable server certificate validation on this SSL/TLS connection.(Õ¡Ëáıÿÿÿÿ
-]python:S5527³"?Enable server hostname verification on this SSL/TLS connection.(Õ¡Ëáıÿÿÿÿ
-7python:S125Æ"Remove this commented out code.(€ü€ä
-Epython:S1940ò"-Use the opposite operator ("not in") instead.(ˆ®Z
-<python:S125¥"Remove this commented out code.(Ãş Ïúÿÿÿÿ
-Kpython:S1940§"-Use the opposite operator ("not in") instead.(†ñ¯Éşÿÿÿÿ
-rpython:S3776Ä"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(ŞÏëùÿÿÿÿ
-mpython:S3776¬"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(éÑ¦†
-Kpython:S1940¹"-Use the opposite operator ("not in") instead.(ÈÂ‹Âşÿÿÿÿ
-Epython:S1481–	"'Remove the unused local variable "val".(¹àëùÿÿÿÿ
-mpython:S3776ü"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ûÔ²“
-Kpython:S1940Ô	"-Use the opposite operator ("not in") instead.(ËîˆÃşÿÿÿÿ
-Upython:S5754û	"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-{python:S101…
-"cRename class "IMAP4_SSL" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(£Áá
-^python:S4830©
-"@Enable server certificate validation on this SSL/TLS connection.(©ùĞÔúÿÿÿÿ
-]python:S5527©
-"?Enable server hostname verification on this SSL/TLS connection.(©ùĞÔúÿÿÿÿ
-~python:S101¾
-"fRename class "IMAP4_stream" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ëé“ˆ
-qpython:S1542¦"XRename function "Internaldate2tuple" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÕòÈ•
-Dpython:S5806·"+Rename this variable; it shadows a builtin.(šÆÁè
-epython:S1542É"LRename function "Int2AP" to match the regular expression ^[a-z_][a-z0-9_]*$.(ËÛÔ„
-npython:S1542Ö"PRename function "ParseFlags" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯ŒÑ¥üÿÿÿÿ
-upython:S1542á"WRename function "Time2Internaldate" to match the regular expression ^[a-z_][a-z0-9_]*$.(ô¬°ÿùÿÿÿÿ
-rpython:S3776á"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ô¬°ÿùÿÿÿÿ

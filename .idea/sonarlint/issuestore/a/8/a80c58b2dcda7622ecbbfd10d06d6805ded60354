@@ -1,7 +1,0 @@
-
-dpython:S1226é"KIntroduce a new variable or use its initial value before reassigning 'cls'.(È½Á
-mpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ö¼Ê
-Ppython:S5857Å"8Replace this use of a reluctant quantifier with "[^}]+".(Î…°_
-Vpython:S5857Ù"8Replace this use of a reluctant quantifier with "[^}]+".(åşÊÅúÿÿÿÿ
-Cpython:S5869Ğ"*Remove duplicates in this character class.(Î ‘î
-Hpython:S5869"*Remove duplicates in this character class.(·èá³úÿÿÿÿ

@@ -1,4 +1,0 @@
-
-lpython:S1192!"ODefine a constant instead of duplicating this literal ' -shared-intel' 4 times.(Ø¿¡Øùÿÿÿÿ
-tpython:S4487Y"WRemove this unread private attribute '__version' or refactor the code to use its value.(¨˜£ ûÿÿÿÿ
-tpython:S4487o"WRemove this unread private attribute '__version' or refactor the code to use its value.(¨˜£ ûÿÿÿÿ

@@ -1,20 +1,0 @@
-
-ipython:S1192¾"PDefine a constant instead of duplicating this literal 'Created by test' 3 times.(•ù›¼
-ppython:S1192å"WDefine a constant instead of duplicating this literal u'Ã¥ b/Ã§ d-Copy1.ipynb' 3 times.(ÂªŠè
-_python:S1192O"GDefine a constant instead of duplicating this literal '.ipynb' 4 times.(»´¤Ô
-jpython:S1192§"LDefine a constant instead of duplicating this literal 'foo/z.ipynb' 7 times.(Ö¼Šşÿÿÿÿ
-kpython:S1192§"MDefine a constant instead of duplicating this literal 'foo/a.ipynb' 19 times.(Ö¼Šşÿÿÿÿ
-cpython:S1192ƒ"JDefine a constant instead of duplicating this literal u'unicodÃ©' 3 times.(¢ËÑ
-opython:S1192ä"QDefine a constant instead of duplicating this literal u'Ã¥ b/Ã§ d.ipynb' 4 times.(ÇÖØÎùÿÿÿÿ
-fpython:S1192ˆ"HDefine a constant instead of duplicating this literal 'foo/bar' 4 times.(şÛ„ùÿÿÿÿ
-fpython:S1192¨"HDefine a constant instead of duplicating this literal 'z.ipynb' 3 times.(ÏÈ¢Áùÿÿÿÿ
-Mpython:S1066Ÿ"/Merge this if statement with the enclosing one.(ÿ±ääøÿÿÿÿ
-=python:S1481Ï"%Remove the unused local variable "e".(˜³ÜD
-@python:S1481¯"(Remove the unused local variable "resp".(×ûğ<
-bpython:S1854¹"IRemove this assignment to local variable 'resp'; the value is never used.(ŞÃè—
-bpython:S1854Ë"IRemove this assignment to local variable 'resp'; the value is never used.(ŞÃè—
-Fpython:S1481ú"(Remove the unused local variable "resp".(»²Æøÿÿÿÿ
-Apython:S1481ÿ"(Remove the unused local variable "resp".(ßİœ’
-bpython:S1854İ"IRemove this assignment to local variable 'resp'; the value is never used.(Äó›­
-bpython:S1854ó"IRemove this assignment to local variable 'resp'; the value is never used.(Äó›­
-apython:S1854 "IRemove this assignment to local variable 'resp'; the value is never used.(ˆÎüy

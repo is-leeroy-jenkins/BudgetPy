@@ -1,38 +1,0 @@
-
-“python:S1192¾"zDefine a constant instead of duplicating this literal "Can't perform this operation for unregistered loader type" 3 times.(—İÑè
-ipython:S1192Ğ"KDefine a constant instead of duplicating this literal '.dist-info' 3 times.(üÓ»¯úÿÿÿÿ
-hpython:S1192Ğ"JDefine a constant instead of duplicating this literal '.egg-info' 3 times.(üÓ»¯úÿÿÿÿ
-Mpython:S1066ò"/Merge this if statement with the enclosing one.(İµ´îüÿÿÿÿ
-tpython:S117Ş"WRename this parameter "moduleOrReq" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü¬³ ùÿÿÿÿ
-xpython:S117²"[Rename this local variable "provDarwin" to match the regular expression ^[_a-z][a-z0-9_]*$.(´€¹ùÿÿÿÿ
-ppython:S117«"XRename this local variable "provMac" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÆ
-tpython:S117©"WRename this local variable "reqMac" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü§íúşÿÿÿÿ
-mpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(©±…ò
-Zpython:S5720ó"<Rename "name" to "self" or add the missing "self" parameter.(áœ€ßûÿÿÿÿ
-Upython:S5720ö"<Rename "name" to "self" or add the missing "self" parameter.(ƒ•Ã‡
-Upython:S5720ù"<Rename "name" to "self" or add the missing "self" parameter.(ŒÌ‘ñ
-Upython:S5720ÿ"<Rename "name" to "self" or add the missing "self" parameter.(ı±Çà
-Upython:S5720‚"<Rename "name" to "self" or add the missing "self" parameter.(²ÙİÕ
-\python:S5720…"CRename "script_name" to "self" or add the missing "self" parameter.(ÛŒÇÆ
-Xpython:S5720Œ"?Rename "manager" to "self" or add the missing "self" parameter.(ü³¢
-Xpython:S5720‘"?Rename "manager" to "self" or add the missing "self" parameter.(«©¸
-]python:S5720–"?Rename "manager" to "self" or add the missing "self" parameter.(¶ì×æûÿÿÿÿ
-^python:S5720›"ERename "resource_name" to "self" or add the missing "self" parameter.(íŞ÷õ
-]python:S5720"ERename "resource_name" to "self" or add the missing "self" parameter.(²Ì‚
-^python:S5720¡"ERename "resource_name" to "self" or add the missing "self" parameter.(²ø‚
-jpython:S1134Ç"LTake the required action to fix the issue indicated by this "FIXME" comment.(ó…Úåıÿÿÿÿ
-rpython:S3776È"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(—Çêúÿÿÿÿ
-wpython:S1186ñ"YAdd a nested comment explaining why this method is empty, or complete the implementation.(Áû¹Çûÿÿÿÿ
-jpython:S1134á"LTake the required action to fix the issue indicated by this "FIXME" comment.(£Ë˜ÿÿÿÿÿ
-bpython:S3358³"IExtract this nested conditional expression into an independent statement.(Ãˆ€Ó
-gpython:S3358µ"IExtract this nested conditional expression into an independent statement.(¨ÿşßøÿÿÿÿ
-tpython:S117"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(’¥æÕüÿÿÿÿ
-tpython:S117ä"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹ù¡Ìúÿÿÿÿ
-opython:S117’"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ññú
-opython:S117¦"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(š¸±Î
-opython:S117ß"WRename this parameter "packageName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õİ¹£
-gpython:S1854Ÿ"NRemove this assignment to local variable 'new_extra'; the value is never used.(ÿ×ø
-epython:S1134¸"LTake the required action to fix the issue indicated by this "FIXME" comment.(ù†Šé
-6python:S3626û"Remove this redundant return.(ÙãŞŸ
-rpython:S3776¹"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(£ˆòŠşÿÿÿÿ
-{python:S5717š"]Change this default value to "None" and initialize this parameter inside the function/method.(Ôö…–úÿÿÿÿ

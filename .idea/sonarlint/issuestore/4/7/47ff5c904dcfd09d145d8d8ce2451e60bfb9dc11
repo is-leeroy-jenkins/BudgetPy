@@ -1,12 +1,0 @@
-
-spython:S117ë"VRename this parameter "LegalChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁØÄşÿÿÿÿ
-Npython:S6397ù"5Replace this character class by the character itself.(û”ÓÍ
-rpython:S3776û"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(§Îäğıÿÿÿÿ
-dpython:S930Ü"GAdd 3 missing arguments; 'set' expects at least 4 positional arguments.(©¹å½ÿÿÿÿÿ
-epython:S117æ"MRename this parameter "K" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÂœ
-epython:S117æ"MRename this parameter "V" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÂœ
-Fpython:S1940è"-Use the opposite operator ("not in") instead.(îÍ¢š
-jpython:S117ì"MRename this parameter "K" to match the regular expression ^[_a-z][a-z0-9_]*$.(œÓ¥Åşÿÿÿÿ
-mpython:S117ï"VRename this parameter "LegalChars" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿³­>
-6python:S3626¤"Remove this redundant return.(ÙãŞŸ
-rpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(‡ôÅÒúÿÿÿÿ

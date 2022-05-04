@@ -1,29 +1,0 @@
-
-_python:S1192¤"FDefine a constant instead of duplicating this literal '/test' 8 times.(ëÇì¥
-upython:S1192°	"WDefine a constant instead of duplicating this literal 'c:\\c:..\\foo/filename' 3 times.(ş¡Ùøÿÿÿÿ
-hpython:S1192ö"JDefine a constant instead of duplicating this literal '/filename' 3 times.(Ôâ îıÿÿÿÿ
-kpython:S1192ö"MDefine a constant instead of duplicating this literal b'Hello World' 7 times.(ş„¾µıÿÿÿÿ
-ppython:S1192ı"RDefine a constant instead of duplicating this literal '/filename?foo=bar' 3 times.(±‰Î„ÿÿÿÿÿ
-python:S1192Õ"pDefine a constant instead of duplicating this literal b'GET / HTTP/1.1\r\nExpect: 100-continue\r\n\r\n' 3 times.( ­Êîşÿÿÿÿ
-qpython:S1192“	"SDefine a constant instead of duplicating this literal '//filename?foo=bar' 3 times.(ÚÈşåûÿÿÿÿ
-ipython:S1192¦	"PDefine a constant instead of duplicating this literal '\\c:../filename' 3 times.(İÚ®ä
-hpython:S1192]"KDefine a constant instead of duplicating this literal 'text/html' 15 times.(ğ¤·¶üÿÿÿÿ
-kpython:S1192Ò"RDefine a constant instead of duplicating this literal '/cgi-bin/file1.py' 6 times.(œ‘³
-spython:S1192º	"ZDefine a constant instead of duplicating this literal 'c:c:foo\\c:c:bar/filename' 3 times.(®Ü°è
-dpython:S1192Œ	"KDefine a constant instead of duplicating this literal '//filename' 3 times.(„ˆÊÈ
-qpython:S1192œ	"SDefine a constant instead of duplicating this literal 'c:c:c:foo/filename' 3 times.(ˆÚóıÿÿÿÿ
-dpython:S1192Ú"FDefine a constant instead of duplicating this literal '/a/b/' 4 times.(»ÁÂÿÿÿÿÿ
-qpython:S1192 "XDefine a constant instead of duplicating this literal b'GET / HTTP/1.1\r\n\r\n' 4 times.(ã§•¯
-zpython:S1192„	"\Define a constant instead of duplicating this literal '/filename?a=b&spam=eggs#zot' 3 times.(×çÈæùÿÿÿÿ
-‚python:S1192å"dDefine a constant instead of duplicating this literal b'<html><body>Data</body></html>\r\n' 6 times.(Éì·•ùÿÿÿÿ
-Upython:S5754ç"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-wpython:S1186ç"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ÆÈõşÿÿÿÿ
-cpython:S100ø"KRename method "getData" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ì—”Ö
-epython:S100ü"MRename method "numWrites" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿûÄ
-Ipython:S5806Œ"+Rename this variable; it shadows a builtin.(¯•À„ùÿÿÿÿ
-rpython:S117˜"ZRename this local variable "fieldName" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¤¥Ê
-Dpython:S5806å"+Rename this variable; it shadows a builtin.(˜÷í
-Dpython:S5806ó"+Rename this variable; it shadows a builtin.(˜÷í
-Dpython:S5806"+Rename this variable; it shadows a builtin.(˜÷í
-mpython:S1542‘"TRename function "_readAndReseek" to match the regular expression ^[a-z_][a-z0-9_]*$.(½óÙ¯
-Dpython:S5806˜"+Rename this variable; it shadows a builtin.(Â³Ä

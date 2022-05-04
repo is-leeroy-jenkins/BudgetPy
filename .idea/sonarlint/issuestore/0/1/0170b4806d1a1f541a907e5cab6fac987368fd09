@@ -1,8 +1,0 @@
-
-|python:S1845C"dRename field "context" to prevent any misunderstanding/clash with field "Context" defined on line 51(ø¨ ú
-cpython:S1854µ"JRemove this assignment to local variable 'recvd'; the value is never used.(°ò
-cpython:S1854¸"JRemove this assignment to local variable 'recvd'; the value is never used.(°ò
-@python:S1481ü"'Remove the unused local variable "msg".(Ğäëí
->python:S1481•"%Remove the unused local variable "i".(¹½ğ
-Fpython:S5603œ"(Remove this unused function declaration.(¸¨œÈÿÿÿÿÿ
-ƒpython:S1845Í"eRename field "context" to prevent any misunderstanding/clash with field "Context" defined on line 438(’µåÌûÿÿÿÿ

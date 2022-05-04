@@ -1,391 +1,0 @@
-
-_python:S2208%"GImport only needed names or import the module and then use its members.(Š©ù´
-ipython:S1172"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö‹í…
-ipython:S15422"QRename function "MAKE_WPARAM" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ö‹í…
-npython:S117="RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(«‡„çùÿÿÿÿ
-npython:S1542="QRename function "MAKE_LPARAM" to match the regular expression ^[a-z_][a-z0-9_]*$.(«‡„çùÿÿÿÿ
-ipython:S117K"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(çÒ’
-6python:S125L"Remove this commented out code.(©şÒ¶
-mpython:S117½"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦¬Š³ûÿÿÿÿ
-hpython:S117Ë"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îáò
-lpython:S117Ù"TRename this parameter "hWndFrom" to match the regular expression ^[_a-z][a-z0-9_]*$.(›Å§ê
-jpython:S117Ù"RRename this parameter "hWndTo" to match the regular expression ^[_a-z][a-z0-9_]*$.(›Å§ê
-mpython:S117¿"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦¬Š³ûÿÿÿÿ
-hpython:S117Ï"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îáò
-lpython:S117ß"TRename this parameter "hWndFrom" to match the regular expression ^[_a-z][a-z0-9_]*$.(›Å§ê
-jpython:S117ß"RRename this parameter "hWndTo" to match the regular expression ^[_a-z][a-z0-9_]*$.(›Å§ê
-gpython:S116€"ORename this field "showCmd" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ê¸›
-upython:S116ƒ"XRename this field "rcNormalPosition" to match the regular expression ^[_a-z][_a-z0-9]*$.(©•²Úûÿÿÿÿ
-rpython:S116‚"URename this field "ptMaxPosition" to match the regular expression ^[_a-z][_a-z0-9]*$.(øï¹Şùÿÿÿÿ
-mpython:S116"URename this field "ptMinPosition" to match the regular expression ^[_a-z][_a-z0-9]*$.(ˆ§°¿
-}python:S117­"`Rename this local variable "_SetLastErrorEx" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä†æùÿÿÿÿ
-lpython:S117¬"URename this parameter "dwErrCode" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶ö·'
-ipython:S117¬"RRename this parameter "dwType" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶ö·'
-lpython:S1542¬"TRename function "SetLastErrorEx" to match the regular expression ^[a-z_][a-z0-9_]*$.(¶ö·'
-upython:S117·"]Rename this local variable "_FindWindowA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Óé¸ü
-rpython:S117»"URename this local variable "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã»—Üûÿÿÿÿ
-tpython:S117¶"WRename this parameter "lpClassName" to match the regular expression ^[_a-z][a-z0-9_]*$.(•Ğß¨ÿÿÿÿÿ
-upython:S117¶"XRename this parameter "lpWindowName" to match the regular expression ^[_a-z][a-z0-9_]*$.(•Ğß¨ÿÿÿÿÿ
-opython:S1542¶"QRename function "FindWindowA" to match the regular expression ^[a-z_][a-z0-9_]*$.(•Ğß¨ÿÿÿÿÿ
-upython:S117Ã"]Rename this local variable "_FindWindowW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãø¸ä
-rpython:S117Ç"URename this local variable "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ììàâøÿÿÿÿ
-tpython:S117Â"WRename this parameter "lpClassName" to match the regular expression ^[_a-z][a-z0-9_]*$.(«®«‡øÿÿÿÿ
-upython:S117Â"XRename this parameter "lpWindowName" to match the regular expression ^[_a-z][a-z0-9_]*$.(«®«‡øÿÿÿÿ
-opython:S1542Â"QRename function "FindWindowW" to match the regular expression ^[a-z_][a-z0-9_]*$.(«®«‡øÿÿÿÿ
-wpython:S117×"_Rename this local variable "_FindWindowExA" to match the regular expression ^[_a-z][a-z0-9_]*$.(×îøº
-mpython:S117Û"URename this local variable "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(À¸»æ
-wpython:S117Ö"ZRename this parameter "hwndChildAfter" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åàöûÿÿÿÿ
-spython:S117Ö"VRename this parameter "hwndParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åàöûÿÿÿÿ
-tpython:S117Ö"WRename this parameter "lpClassName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åàöûÿÿÿÿ
-upython:S117Ö"XRename this parameter "lpWindowName" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åàöûÿÿÿÿ
-qpython:S1542Ö"SRename function "FindWindowExA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Åàöûÿÿÿÿ
-|python:S117ã"_Rename this local variable "_FindWindowExW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒÇıüÿÿÿÿ
-rpython:S117ç"URename this local variable "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Òı¨üÿÿÿÿ
-wpython:S117â"ZRename this parameter "hwndChildAfter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª ĞËøÿÿÿÿ
-spython:S117â"VRename this parameter "hwndParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª ĞËøÿÿÿÿ
-tpython:S117â"WRename this parameter "lpClassName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª ĞËøÿÿÿÿ
-upython:S117â"XRename this parameter "lpWindowName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª ĞËøÿÿÿÿ
-qpython:S1542â"SRename function "FindWindowExW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ª ĞËøÿÿÿÿ
-wpython:S117ö"_Rename this local variable "_GetClassNameA" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨¶ô€
-xpython:S117û"[Rename this local variable "dwCharSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥Á‡Äúÿÿÿÿ
-hpython:S117õ"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(œªõ
-ypython:S117ı"\Rename this local variable "lpClassName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿîİ—øÿÿÿÿ
-opython:S117ş"WRename this local variable "nCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(”±„û
-qpython:S117ú"ZRename this local variable "nMaxCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(óÇÅ8
-lpython:S1542õ"SRename function "GetClassNameA" to match the regular expression ^[a-z_][a-z0-9_]*$.(œªõ
-vpython:S117‡"_Rename this local variable "_GetClassNameW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿœ¯H
-xpython:S117Œ"[Rename this local variable "dwCharSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÙÍÿşÿÿÿÿ
-hpython:S117†"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(á©ÿØ
-tpython:S117"\Rename this local variable "lpClassName" to match the regular expression ^[_a-z][a-z0-9_]*$.(²ú¼
-opython:S117"WRename this local variable "nCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(â †Ş
-qpython:S117‹"ZRename this local variable "nMaxCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(óÇÅ8
-lpython:S1542†"SRename function "GetClassNameW" to match the regular expression ^[a-z_][a-z0-9_]*$.(á©ÿØ
-xpython:S117Ÿ"`Rename this local variable "_GetWindowTextA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ËÂô‘
-xpython:S117¤"[Rename this local variable "dwCharSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥Á‡Äúÿÿÿÿ
-hpython:S117"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ë¨¹
-qpython:S117¦"YRename this local variable "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞÓ¶
-tpython:S117§"WRename this local variable "nCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ö¹£øÿÿÿÿ
-qpython:S117£"ZRename this local variable "nMaxCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(óÇÅ8
-mpython:S1542"TRename function "GetWindowTextA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ë¨¹
-}python:S117°"`Rename this local variable "_GetWindowTextW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹²”úÿÿÿÿ
-xpython:S117µ"[Rename this local variable "dwCharSize" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥Á‡Äúÿÿÿÿ
-mpython:S117¯"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢¾…‰øÿÿÿÿ
-qpython:S117·"YRename this local variable "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞÓ¶
-tpython:S117¸"WRename this local variable "nCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘°Äşÿÿÿÿ
-qpython:S117´"ZRename this local variable "nMaxCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(óÇÅ8
-rpython:S1542¯"TRename function "GetWindowTextW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¢¾…‰øÿÿÿÿ
-xpython:S117Ç"`Rename this local variable "_SetWindowTextA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß½À·
-gpython:S117Æ"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛĞN
-kpython:S117Æ"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛĞN
-lpython:S1542Æ"TRename function "SetWindowTextA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÛĞN
-xpython:S117Î"`Rename this local variable "_SetWindowTextW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ¼üù
-hpython:S117Í"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü ïÃ
-lpython:S117Í"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü ïÃ
-mpython:S1542Í"TRename function "SetWindowTextW" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ü ïÃ
-}python:S117Û"`Rename this local variable "_GetWindowLongA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÑÜÎ¬şÿÿÿÿ
-mpython:S117Ú"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹¼Éµıÿÿÿÿ
-opython:S117Ú"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹¼Éµıÿÿÿÿ
-rpython:S1542Ú"TRename function "GetWindowLongA" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹¼Éµıÿÿÿÿ
-}python:S117è"`Rename this local variable "_GetWindowLongW" to match the regular expression ^[_a-z][a-z0-9_]*$.(â—ııúÿÿÿÿ
-mpython:S117ç"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïš£ùÿÿÿÿÿ
-opython:S117ç"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïš£ùÿÿÿÿÿ
-rpython:S1542ç"TRename function "GetWindowLongW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ïš£ùÿÿÿÿÿ
-{python:S117„"cRename this local variable "_GetWindowLongPtrA" to match the regular expression ^[_a-z][a-z0-9_]*$.(»êÃß
-mpython:S117ƒ"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Âèµ‰úÿÿÿÿ
-opython:S117ƒ"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(Âèµ‰úÿÿÿÿ
-upython:S1542ƒ"WRename function "GetWindowLongPtrA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Âèµ‰úÿÿÿÿ
-€python:S117‘"cRename this local variable "_GetWindowLongPtrW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Â¥§§ÿÿÿÿÿ
-mpython:S117"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¦Ù–ıÿÿÿÿ
-opython:S117"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¦Ù–ıÿÿÿÿ
-upython:S1542"WRename function "GetWindowLongPtrW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ş¦Ù–ıÿÿÿÿ
-}python:S117¦"`Rename this local variable "_SetWindowLongA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úõöƒøÿÿÿÿ
-mpython:S117¥"URename this parameter "dwNewLong" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìº¸Ã
-hpython:S117¥"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìº¸Ã
-jpython:S117¥"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(ìº¸Ã
-mpython:S1542¥"TRename function "SetWindowLongA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ìº¸Ã
-wpython:S117³"`Rename this local variable "_SetWindowLongW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü §
-
-rpython:S117²"URename this parameter "dwNewLong" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬‹çúÿÿÿÿ
-mpython:S117²"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬‹çúÿÿÿÿ
-opython:S117²"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬‹çúÿÿÿÿ
-rpython:S1542²"TRename function "SetWindowLongW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬‹çúÿÿÿÿ
-{python:S117Ğ"cRename this local variable "_SetWindowLongPtrA" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ÄˆÏ
-lpython:S117Ï"URename this parameter "dwNewLong" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãı–
-gpython:S117Ï"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãı–
-ipython:S117Ï"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãı–
-opython:S1542Ï"WRename function "SetWindowLongPtrA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ãı–
-€python:S117İ"cRename this local variable "_SetWindowLongPtrW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ôóúşÿÿÿÿ
-mpython:S117Ü"URename this parameter "dwNewLong" to match the regular expression ^[_a-z][a-z0-9_]*$.(«üú†
-hpython:S117Ü"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(«üú†
-jpython:S117Ü"RRename this parameter "nIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(«üú†
-ppython:S1542Ü"WRename function "SetWindowLongPtrW" to match the regular expression ^[a-z_][a-z0-9_]*$.(«üú†
-}python:S117í"`Rename this local variable "_GetShellWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÍå¸ùÿÿÿÿ
-rpython:S1542ì"TRename function "GetShellWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ê†¡ıøÿÿÿÿ
-‡python:S117ø"jRename this local variable "_GetWindowThreadProcessId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëá¨Çûÿÿÿÿ
-tpython:S117ı"\Rename this local variable "dwProcessId" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÉÑ
-xpython:S117ş"[Rename this local variable "dwThreadId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Óñª³øÿÿÿÿ
-mpython:S117÷"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëüıÿÿÿÿ
-|python:S1542÷"^Rename function "GetWindowThreadProcessId" to match the regular expression ^[a-z_][a-z0-9_]*$.(ëüıÿÿÿÿ
-spython:S117†"[Rename this local variable "_GetWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(ú·Øº
-hpython:S117…"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞŞĞ…
-xpython:S117‹"[Rename this local variable "hWndTarget" to match the regular expression ^[_a-z][a-z0-9_]*$.(°”Ô·øÿÿÿÿ
-hpython:S117…"PRename this parameter "uCmd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŞŞĞ…
-hpython:S1542…"ORename function "GetWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŞŞĞ…
-spython:S117–"[Rename this local variable "_GetParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(†ß˜˜
-mpython:S117•"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸²¢øÿÿÿÿ
-xpython:S117›"[Rename this local variable "hWndParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ã£·Íûÿÿÿÿ
-mpython:S1542•"ORename function "GetParent" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸²¢øÿÿÿÿ
-zpython:S117§"]Rename this local variable "_GetAncestor" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦½ÂÆùÿÿÿÿ
-ppython:S117¦"SRename this parameter "gaFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÄ³ğúÿÿÿÿ
-mpython:S117¦"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÄ³ğúÿÿÿÿ
-xpython:S117¬"[Rename this local variable "hWndParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜†Ş¾ÿÿÿÿÿ
-opython:S1542¦"QRename function "GetAncestor" to match the regular expression ^[a-z_][a-z0-9_]*$.(ãÄ³ğúÿÿÿÿ
-vpython:S117¸"^Rename this local variable "_EnableWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦™„Ô
-ppython:S117·"SRename this parameter "bEnable" to match the regular expression ^[_a-z][a-z0-9_]*$.(²Ùıúúÿÿÿÿ
-mpython:S117·"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(²Ùıúúÿÿÿÿ
-ppython:S1542·"RRename function "EnableWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(²Ùıúúÿÿÿÿ
-ypython:S117Â"\Rename this local variable "_ShowWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ²Èæÿÿÿÿÿ
-mpython:S117Á"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô­úúÿÿÿÿ
-qpython:S117Á"TRename this parameter "nCmdShow" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ô­úúÿÿÿÿ
-npython:S1542Á"PRename function "ShowWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ô­úúÿÿÿÿ
-~python:S117Ì"aRename this local variable "_ShowWindowAsync" to match the regular expression ^[_a-z][a-z0-9_]*$.(¯‚şçøÿÿÿÿ
-mpython:S117Ë"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿î†øÿÿÿÿ
-qpython:S117Ë"TRename this parameter "nCmdShow" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿î†øÿÿÿÿ
-spython:S1542Ë"URename function "ShowWindowAsync" to match the regular expression ^[a-z_][a-z0-9_]*$.(¿î†øÿÿÿÿ
-zpython:S117Ó"bRename this local variable "_GetDesktopWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤²‰Í
-tpython:S1542Ò"VRename function "GetDesktopWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÚôÚ™ûÿÿÿÿ
-‚python:S117Û"eRename this local variable "_GetForegroundWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(èË³€şÿÿÿÿ
-rpython:S1542Ú"YRename function "GetForegroundWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(½Úøò
-rpython:S117å"ZRename this local variable "_IsWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(»Ô´×
-hpython:S117ä"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñ³Õ»
-gpython:S1542ä"NRename function "IsWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(ñ³Õ»
-~python:S117î"aRename this local variable "_IsWindowVisible" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ ˜Ûıÿÿÿÿ
-hpython:S117í"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ÷òÛ
-npython:S1542í"URename function "IsWindowVisible" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ÿ÷òÛ
-xpython:S117÷"aRename this local variable "_IsWindowEnabled" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğŸC
-mpython:S117ö"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š¾Á úÿÿÿÿ
-spython:S1542ö"URename function "IsWindowEnabled" to match the regular expression ^[a-z_][a-z0-9_]*$.(Š¾Á úÿÿÿÿ
-rpython:S117€	"ZRename this local variable "_IsZoomed" to match the regular expression ^[_a-z][a-z0-9_]*$.(«Ö«è
-mpython:S117ÿ"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(±èŠÓùÿÿÿÿ
-lpython:S1542ÿ"NRename function "IsZoomed" to match the regular expression ^[a-z_][a-z0-9_]*$.(±èŠÓùÿÿÿÿ
-rpython:S117‰	"ZRename this local variable "_IsIconic" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚š‚ë
-mpython:S117ˆ	"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(šÃŠÜúÿÿÿÿ
-lpython:S1542ˆ	"NRename function "IsIconic" to match the regular expression ^[a-z_][a-z0-9_]*$.(šÃŠÜúÿÿÿÿ
-vpython:S117’	"YRename this local variable "_IsChild" to match the regular expression ^[_a-z][a-z0-9_]*$.(ØñŒ³ıÿÿÿÿ
-mpython:S117‘	"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û¶øÿÿÿÿ
-kpython:S1542‘	"MRename function "IsChild" to match the regular expression ^[a-z_][a-z0-9_]*$.(Û¶øÿÿÿÿ
-xpython:S117›	"aRename this local variable "_WindowFromPoint" to match the regular expression ^[_a-z][a-z0-9_]*$.(œŸ¶s
-spython:S1542š	"URename function "WindowFromPoint" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÌÎş¿şÿÿÿÿ
-}python:S117¨	"fRename this local variable "_ChildWindowFromPoint" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ù¼
-npython:S117§	"VRename this parameter "hWndParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜ï
-spython:S1542§	"ZRename function "ChildWindowFromPoint" to match the regular expression ^[a-z_][a-z0-9_]*$.(˜ï
-‚python:S117µ	"jRename this local variable "_RealChildWindowFromPoint" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Ôè¿
-spython:S117´	"VRename this parameter "hWndParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğù³ˆıÿÿÿÿ
-}python:S117´	"`Rename this parameter "ptParentClientCoords" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğù³ˆıÿÿÿÿ
-|python:S1542´	"^Rename function "RealChildWindowFromPoint" to match the regular expression ^[a-z_][a-z0-9_]*$.(ğù³ˆıÿÿÿÿ
-xpython:S117Â	"`Rename this local variable "_ScreenToClient" to match the regular expression ^[_a-z][a-z0-9_]*$.(±¸Œ
-mpython:S117Á	"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(À¹ê øÿÿÿÿ
-ppython:S117Á	"SRename this parameter "lpPoint" to match the regular expression ^[_a-z][a-z0-9_]*$.(À¹ê øÿÿÿÿ
-rpython:S1542Á	"TRename function "ScreenToClient" to match the regular expression ^[a-z_][a-z0-9_]*$.(À¹ê øÿÿÿÿ
-}python:S117Ó	"`Rename this local variable "_ClientToScreen" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó…ÇÎÿÿÿÿÿ
-hpython:S117Ò	"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.( à­ÿ
-kpython:S117Ò	"SRename this parameter "lpPoint" to match the regular expression ^[_a-z][a-z0-9_]*$.( à­ÿ
-mpython:S1542Ò	"TRename function "ClientToScreen" to match the regular expression ^[a-z_][a-z0-9_]*$.( à­ÿ
-ypython:S117æ	"aRename this local variable "_MapWindowPoints" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñÜÂ·
-upython:S117ê	"XRename this local variable "cPoints" to match the regular expression ^[_a-z][a-z0-9_]*$.(’ğëëüÿÿÿÿ
-lpython:S117å	"TRename this parameter "hWndFrom" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õãˆß
-jpython:S117å	"RRename this parameter "hWndTo" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õãˆß
-lpython:S117å	"TRename this parameter "lpPoints" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õãˆß
-npython:S1542å	"URename function "MapWindowPoints" to match the regular expression ^[a-z_][a-z0-9_]*$.(Õãˆß
-}python:S117ú	"eRename this local variable "_SetForegroundWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßçÒ“
-hpython:S117ù	"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(û³©
-rpython:S1542ù	"YRename function "SetForegroundWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(û³©
-python:S117…
-"dRename this local variable "_GetWindowPlacement" to match the regular expression ^[_a-z][a-z0-9_]*$.(³»•úÿÿÿÿ
-mpython:S117„
-"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.( Ä¯˜ıÿÿÿÿ
-vpython:S1542„
-"XRename function "GetWindowPlacement" to match the regular expression ^[a-z_][a-z0-9_]*$.( Ä¯˜ıÿÿÿÿ
-python:S117”
-"dRename this local variable "_SetWindowPlacement" to match the regular expression ^[_a-z][a-z0-9_]*$.(óƒ™Òşÿÿÿÿ
-mpython:S117“
-"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ¹á“üÿÿÿÿ
-vpython:S1542“
-"XRename function "SetWindowPlacement" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿ¹á“üÿÿÿÿ
-|python:S117¢
-"_Rename this local variable "_GetWindowRect" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚Š’³şÿÿÿÿ
-hpython:S117¡
-"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(½“´ó
-opython:S117§
-"WRename this local variable "lpRect" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Ø—Ù
-lpython:S1542¡
-"SRename function "GetWindowRect" to match the regular expression ^[a-z_][a-z0-9_]*$.(½“´ó
-|python:S117°
-"_Rename this local variable "_GetClientRect" to match the regular expression ^[_a-z][a-z0-9_]*$.(úŞš˜ûÿÿÿÿ
-mpython:S117¯
-"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(§¶Ë³üÿÿÿÿ
-opython:S117µ
-"WRename this local variable "lpRect" to match the regular expression ^[_a-z][a-z0-9_]*$.(·Ø—Ù
-qpython:S1542¯
-"SRename function "GetClientRect" to match the regular expression ^[a-z_][a-z0-9_]*$.(§¶Ë³üÿÿÿÿ
-jpython:S117Á
-"MRename this parameter "X" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ‹ùÿÿÿÿ
-jpython:S117Á
-"MRename this parameter "Y" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ‹ùÿÿÿÿ
-spython:S117Â
-"\Rename this local variable "_MoveWindow" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ä¯Ç
-qpython:S117Á
-"TRename this parameter "bRepaint" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ‹ùÿÿÿÿ
-mpython:S117Á
-"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ‹ùÿÿÿÿ
-ppython:S117Á
-"SRename this parameter "nHeight" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ‹ùÿÿÿÿ
-opython:S117Á
-"RRename this parameter "nWidth" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ‹ùÿÿÿÿ
-npython:S1542Á
-"PRename function "MoveWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ñ‹ùÿÿÿÿ
-zpython:S117Í
-"bRename this local variable "_GetGUIThreadInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÛÅå¸
-lpython:S117Ì
-"TRename this parameter "idThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(šÃ™Ô
-opython:S1542Ì
-"VRename function "GetGUIThreadInfo" to match the regular expression ^[a-z_][a-z0-9_]*$.(šÃ™Ô
-qpython:S117æ
-"YRename this local variable "EnumFunc" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŠÕ·ÿ
-upython:S117â
-"]Rename this local variable "_EnumWindows" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û¿åØ
-xpython:S117ç
-"[Rename this local variable "lpEnumFunc" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãäºìûÿÿÿÿ
-jpython:S1542á
-"QRename function "EnumWindows" to match the regular expression ^[a-z_][a-z0-9_]*$.(Û Ó®
-{python:S117û
-"cRename this local variable "_EnumThreadWindows" to match the regular expression ^[_a-z][a-z0-9_]*$.(øÅ½
-npython:S117ú
-"VRename this parameter "dwThreadId" to match the regular expression ^[_a-z][a-z0-9_]*$.(—ÙÒó
-ppython:S1542ú
-"WRename function "EnumThreadWindows" to match the regular expression ^[a-z_][a-z0-9_]*$.(—ÙÒó
-vpython:S117˜"YRename this local variable "EnumFunc" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ŒñÂıÿÿÿÿ
-zpython:S117”"bRename this local variable "_EnumChildWindows" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñáŞµ
-spython:S117“"VRename this parameter "hWndParent" to match the regular expression ^[_a-z][a-z0-9_]*$.(±¤Œşşÿÿÿÿ
-xpython:S117™"[Rename this local variable "lpEnumFunc" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãäºìûÿÿÿÿ
-tpython:S1542“"VRename function "EnumChildWindows" to match the regular expression ^[a-z_][a-z0-9_]*$.(±¤Œşşÿÿÿÿ
-gpython:S117§"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š…ÏŠ
-vpython:S117¨"^Rename this local variable "_SendMessageA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Â“Ø™
-hpython:S117§"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š…ÏŠ
-jpython:S117§"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š…ÏŠ
-jpython:S117§"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š…ÏŠ
-kpython:S1542§"RRename function "SendMessageA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Š…ÏŠ
-lpython:S117°"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ì„ÿÿÿÿÿ
-{python:S117±"^Rename this local variable "_SendMessageW" to match the regular expression ^[_a-z][a-z0-9_]*$.(®”¼¹ıÿÿÿÿ
-mpython:S117°"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ì„ÿÿÿÿÿ
-opython:S117°"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ì„ÿÿÿÿÿ
-opython:S117°"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥ì„ÿÿÿÿÿ
-ppython:S1542°"RRename function "SendMessageW" to match the regular expression ^[a-z_][a-z0-9_]*$.(¥ì„ÿÿÿÿÿ
-gpython:S117Á"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(À™†Ğ
-vpython:S117Â"^Rename this local variable "_PostMessageA" to match the regular expression ^[_a-z][a-z0-9_]*$.(úœàï
-hpython:S117Á"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(À™†Ğ
-jpython:S117Á"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(À™†Ğ
-jpython:S117Á"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(À™†Ğ
-kpython:S1542Á"RRename function "PostMessageA" to match the regular expression ^[a-z_][a-z0-9_]*$.(À™†Ğ
-gpython:S117Ë"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºïä
-vpython:S117Ì"^Rename this local variable "_PostMessageW" to match the regular expression ^[_a-z][a-z0-9_]*$.(å½Ú¶
-hpython:S117Ë"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºïä
-jpython:S117Ë"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºïä
-jpython:S117Ë"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(ºïä
-kpython:S1542Ë"RRename function "PostMessageW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ºïä
-lpython:S117İ"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(—§Šûüÿÿÿÿ
-python:S117Ş"dRename this local variable "_PostThreadMessageA" to match the regular expression ^[_a-z][a-z0-9_]*$.(®í—¿úÿÿÿÿ
-qpython:S117İ"TRename this parameter "idThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(—§Šûüÿÿÿÿ
-opython:S117İ"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(—§Šûüÿÿÿÿ
-opython:S117İ"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(—§Šûüÿÿÿÿ
-vpython:S1542İ"XRename function "PostThreadMessageA" to match the regular expression ^[a-z_][a-z0-9_]*$.(—§Šûüÿÿÿÿ
-gpython:S117ç"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅîóÎ
-python:S117è"dRename this local variable "_PostThreadMessageW" to match the regular expression ^[_a-z][a-z0-9_]*$.(µ‚ûÿÿÿÿÿ
-lpython:S117ç"TRename this parameter "idThread" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅîóÎ
-jpython:S117ç"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅîóÎ
-jpython:S117ç"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÅîóÎ
-qpython:S1542ç"XRename function "PostThreadMessageW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÅîóÎ
-lpython:S117ü"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÚş«ÿÿÿÿÿ
-}python:S117ı"eRename this local variable "_SendMessageTimeoutA" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶Íô
-qpython:S117„"YRename this local variable "dwResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(î±Œ³
-ppython:S117ü"SRename this parameter "fuFlags" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÚş«ÿÿÿÿÿ
-mpython:S117ü"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÚş«ÿÿÿÿÿ
-opython:S117ü"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÚş«ÿÿÿÿÿ
-qpython:S117ü"TRename this parameter "uTimeout" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÚş«ÿÿÿÿÿ
-opython:S117ü"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÚş«ÿÿÿÿÿ
-wpython:S1542ü"YRename function "SendMessageTimeoutA" to match the regular expression ^[a-z_][a-z0-9_]*$.(ëÚş«ÿÿÿÿÿ
-gpython:S117ˆ"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(å´¯Á
-}python:S117‰"eRename this local variable "_SendMessageTimeoutW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Š¦ŸÖ
-qpython:S117"YRename this local variable "dwResult" to match the regular expression ^[_a-z][a-z0-9_]*$.(î±Œ³
-hpython:S117ˆ"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(å´¯Á
-jpython:S117ˆ"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(å´¯Á
-jpython:S117ˆ"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(å´¯Á
-rpython:S1542ˆ"YRename function "SendMessageTimeoutW" to match the regular expression ^[a-z_][a-z0-9_]*$.(å´¯Á
-lpython:S117œ"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(Íıéüüÿÿÿÿ
-python:S117"dRename this local variable "_SendNotifyMessageA" to match the regular expression ^[_a-z][a-z0-9_]*$.(ùº®Íúÿÿÿÿ
-mpython:S117œ"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Íıéüüÿÿÿÿ
-opython:S117œ"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(Íıéüüÿÿÿÿ
-opython:S117œ"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(Íıéüüÿÿÿÿ
-vpython:S1542œ"XRename function "SendNotifyMessageA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Íıéüüÿÿÿÿ
-gpython:S117¦"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ½İå
-|python:S117§"dRename this local variable "_SendNotifyMessageW" to match the regular expression ^[_a-z][a-z0-9_]*$.(úìçâ
-hpython:S117¦"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ½İå
-jpython:S117¦"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ½İå
-jpython:S117¦"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒ½İå
-qpython:S1542¦"XRename function "SendNotifyMessageW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ƒ½İå
-lpython:S117¹"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡æ»Şÿÿÿÿÿ
-}python:S117º"eRename this local variable "_SendDlgItemMessageA" to match the regular expression ^[_a-z][a-z0-9_]*$.(€Æ€È
-mpython:S117¹"PRename this parameter "hDlg" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡æ»Şÿÿÿÿÿ
-opython:S117¹"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡æ»Şÿÿÿÿÿ
-spython:S117¹"VRename this parameter "nIDDlgItem" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡æ»Şÿÿÿÿÿ
-opython:S117¹"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡æ»Şÿÿÿÿÿ
-wpython:S1542¹"YRename function "SendDlgItemMessageA" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡æ»Şÿÿÿÿÿ
-lpython:S117Â"ORename this parameter "Msg" to match the regular expression ^[_a-z][a-z0-9_]*$.(É’éÛùÿÿÿÿ
-‚python:S117Ã"eRename this local variable "_SendDlgItemMessageW" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÜÌ‹ûÿÿÿÿ
-mpython:S117Â"PRename this parameter "hDlg" to match the regular expression ^[_a-z][a-z0-9_]*$.(É’éÛùÿÿÿÿ
-opython:S117Â"RRename this parameter "lParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(É’éÛùÿÿÿÿ
-spython:S117Â"VRename this parameter "nIDDlgItem" to match the regular expression ^[_a-z][a-z0-9_]*$.(É’éÛùÿÿÿÿ
-opython:S117Â"RRename this parameter "wParam" to match the regular expression ^[_a-z][a-z0-9_]*$.(É’éÛùÿÿÿÿ
-wpython:S1542Â"YRename function "SendDlgItemMessageW" to match the regular expression ^[a-z_][a-z0-9_]*$.(É’éÛùÿÿÿÿ
-python:S117Ò"bRename this local variable "_WaitForInputIdle" to match the regular expression ^[_a-z][a-z0-9_]*$.(’‘à»ıÿÿÿÿ
-wpython:S117Ñ"ZRename this parameter "dwMilliseconds" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í¦Îüÿÿÿÿ
-qpython:S117Ñ"TRename this parameter "hProcess" to match the regular expression ^[_a-z][a-z0-9_]*$.(Í¦Îüÿÿÿÿ
-tpython:S1542Ñ"VRename function "WaitForInputIdle" to match the regular expression ^[a-z_][a-z0-9_]*$.(Í¦Îüÿÿÿÿ
-€python:S117ß"hRename this local variable "_RegisterWindowMessageA" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÕ—œ
-lpython:S117Ş"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(³§áƒ
-upython:S1542Ş"\Rename function "RegisterWindowMessageA" to match the regular expression ^[a-z_][a-z0-9_]*$.(³§áƒ
-…python:S117æ"hRename this local variable "_RegisterWindowMessageW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÍÈ«¨şÿÿÿÿ
-lpython:S117å"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(±îÿ§
-upython:S1542å"\Rename function "RegisterWindowMessageW" to match the regular expression ^[a-z_][a-z0-9_]*$.(±îÿ§
-‡python:S117ò"jRename this local variable "_RegisterClipboardFormatA" to match the regular expression ^[_a-z][a-z0-9_]*$.(úÀ±³şÿÿÿÿ
-lpython:S117ñ"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(×ú½½
-wpython:S1542ñ"^Rename function "RegisterClipboardFormatA" to match the regular expression ^[a-z_][a-z0-9_]*$.(×ú½½
-‡python:S117ù"jRename this local variable "_RegisterClipboardFormatW" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş»›‰úÿÿÿÿ
-lpython:S117ø"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(áøÉÁ
-wpython:S1542ø"^Rename function "RegisterClipboardFormatW" to match the regular expression ^[a-z_][a-z0-9_]*$.(áøÉÁ
-rpython:S117†"ZRename this local variable "_GetPropA" to match the regular expression ^[_a-z][a-z0-9_]*$.(“©ü
-mpython:S117…"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ôæ½ıÿÿÿÿ
-qpython:S117…"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ôæ½ıÿÿÿÿ
-lpython:S1542…"NRename function "GetPropA" to match the regular expression ^[a-z_][a-z0-9_]*$.(‰ôæ½ıÿÿÿÿ
-wpython:S117Œ"ZRename this local variable "_GetPropW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ê­–‚şÿÿÿÿ
-mpython:S117‹"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ¿©×øÿÿÿÿ
-qpython:S117‹"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ¿©×øÿÿÿÿ
-lpython:S1542‹"NRename function "GetPropW" to match the regular expression ^[a-z_][a-z0-9_]*$.(œ¿©×øÿÿÿÿ
-wpython:S117™"ZRename this local variable "_SetPropA" to match the regular expression ^[_a-z][a-z0-9_]*$.(«‰ÂÛüÿÿÿÿ
-ipython:S117˜"QRename this parameter "hData" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘Ü€î
-hpython:S117˜"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘Ü€î
-lpython:S117˜"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘Ü€î
-gpython:S1542˜"NRename function "SetPropA" to match the regular expression ^[a-z_][a-z0-9_]*$.(‘Ü€î
-wpython:S117 "ZRename this local variable "_SetPropW" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÃÎÎúÿÿÿÿ
-ipython:S117Ÿ"QRename this parameter "hData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïö¸ÿ
-hpython:S117Ÿ"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïö¸ÿ
-lpython:S117Ÿ"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïö¸ÿ
-gpython:S1542Ÿ"NRename function "SetPropW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ïö¸ÿ
-upython:S117­"]Rename this local variable "_RemovePropA" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú—†
-mpython:S117¬"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úİ¤ûÿÿÿÿ
-qpython:S117¬"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(Úİ¤ûÿÿÿÿ
-opython:S1542¬"QRename function "RemovePropA" to match the regular expression ^[a-z_][a-z0-9_]*$.(Úİ¤ûÿÿÿÿ
-zpython:S117³"]Rename this local variable "_RemovePropW" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤¼§¯ùÿÿÿÿ
-mpython:S117²"PRename this parameter "hWnd" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎÉü‘şÿÿÿÿ
-qpython:S117²"TRename this parameter "lpString" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎÉü‘şÿÿÿÿ
-opython:S1542²"QRename function "RemovePropW" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÎÉü‘şÿÿÿÿ

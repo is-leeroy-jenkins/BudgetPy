@@ -1,199 +1,0 @@
-
-qpython:S1176"ZRename this parameter "hierarchyUsage" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïá®
-ypython:S117F"]Rename this parameter "colHierarchyUsage" to match the regular expression ^[_a-z][a-z0-9_]*$.(´…š¿úÿÿÿÿ
-ypython:S117["]Rename this parameter "rowHierarchyUsage" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹ÀšÎÿÿÿÿÿ
-npython:S117’"VRename this parameter "autoFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì¯¯Ì
-mpython:S117Š"URename this parameter "evalOrder" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶Œ·Ì
-opython:S117“"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-tpython:S117"WRename this parameter "iMeasureFld" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªª§şÿÿÿÿ
-upython:S117Œ"XRename this parameter "iMeasureHier" to match the regular expression ^[_a-z][a-z0-9_]*$.(û”«Ãúÿÿÿÿ
-ipython:S117ˆ"QRename this parameter "mpFld" to match the regular expression ^[_a-z][a-z0-9_]*$.(Èú´¥
-ppython:S117"XRename this parameter "stringValue1" to match the regular expression ^[_a-z][a-z0-9_]*$.(ä¥Í
-upython:S117‘"XRename this parameter "stringValue2" to match the regular expression ^[_a-z][a-z0-9_]*$.(’¶Åªûÿÿÿÿ
-rpython:S117¿"ZRename this parameter "showColHeaders" to match the regular expression ^[_a-z][a-z0-9_]*$.( şÀ›
-rpython:S117Á"ZRename this parameter "showColStripes" to match the regular expression ^[_a-z][a-z0-9_]*$.(Î×êà
-rpython:S117Â"ZRename this parameter "showLastColumn" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒâŞª
-rpython:S117¾"ZRename this parameter "showRowHeaders" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕÕšÌ
-wpython:S117À"ZRename this parameter "showRowStripes" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñÏû¥üÿÿÿÿ
-kpython:S117õ"SRename this parameter "nameLen" to match the regular expression ^[_a-z][a-z0-9_]*$.(È¶ÇÆ
-hpython:S117÷"PRename this parameter "pLen" to match the regular expression ^[_a-z][a-z0-9_]*$.(“ç¡Í
-hpython:S117ö"PRename this parameter "pPos" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬å™ô
-vpython:S117ô"YRename this parameter "showAsCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(Éã—…ùÿÿÿÿ
-qpython:S117ò"TRename this parameter "showCell" to match the regular expression ^[_a-z][a-z0-9_]*$.(Äêºôùÿÿÿÿ
-ppython:S117ó"SRename this parameter "showTip" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ÿ¸ çúÿÿÿÿ
-ppython:S117¤"SRename this parameter "dragOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(”Ìëêûÿÿÿÿ
-mpython:S117¡"URename this parameter "dragToCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(àº…©
-npython:S117£"VRename this parameter "dragToData" to match the regular expression ^[_a-z][a-z0-9_]*$.(Øœï¸
-spython:S117¢"VRename this parameter "dragToPage" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶Ëà­ûÿÿÿÿ
-mpython:S117 "URename this parameter "dragToRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(ıóª“
-opython:S117©"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-€python:S117¥"cRename this parameter "includeNewItemsInFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(âõ¸»ıÿÿÿÿ
-…python:S117"hRename this parameter "multipleItemSelectionAllowed" to match the regular expression ^[_a-z][a-z0-9_]*$.(­Ğ„êıÿÿÿÿ
-xpython:S117Ÿ"[Rename this parameter "showInFieldList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ğ±®¡ùÿÿÿÿ
-tpython:S117"WRename this parameter "subtotalTop" to match the regular expression ^[_a-z][a-z0-9_]*$.(Îàèûÿÿÿÿ
-jpython:S107›"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
-opython:S117İ"WRename this parameter "avgSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(—¬¾¢
-npython:S117Ø"VRename this parameter "byPosition" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ï¤¤ô
-wpython:S117Ü"ZRename this parameter "countASubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß¥£Äüÿÿÿÿ
-qpython:S117á"YRename this parameter "countSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(öö¯Ê
-spython:S117Ú"[Rename this parameter "defaultSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(«ôÌ
-opython:S117ç"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-tpython:S117Ş"WRename this parameter "maxSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕŒà»ıÿÿÿÿ
-tpython:S117ß"WRename this parameter "minSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú‡šşÿÿÿÿÿ
-xpython:S117à"[Rename this parameter "productSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÅÂüÿÿÿÿ
-spython:S117ã"[Rename this parameter "stdDevPSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü™Â
-rpython:S117â"ZRename this parameter "stdDevSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦œ³®
-tpython:S117Û"WRename this parameter "sumSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(äæ¥—ıÿÿÿÿ
-opython:S117å"XRename this parameter "varPSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÙÙj
-opython:S117ä"WRename this parameter "varSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿‡Ì½
-jpython:S107Ô"MMethod "__init__" has 19 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
-mpython:S117 "VRename this parameter "cacheIndex" to match the regular expression ^[_a-z][a-z0-9_]*$.(öÏ”,
-„python:S117£"gRename this parameter "collapsedLevelsAreSubtotals" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¤òÿÿÿÿÿ
-lpython:S117œ"TRename this parameter "dataOnly" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎõÃ„
-opython:S117™"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-vpython:S117¥"YRename this parameter "fieldPosition" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾ñ—Ÿøÿÿÿÿ
-lpython:S117Ÿ"TRename this parameter "grandCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(øüÉ
-qpython:S117"TRename this parameter "grandRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(«•»Èıÿÿÿÿ
-rpython:S117"URename this parameter "labelOnly" to match the regular expression ^[_a-z][a-z0-9_]*$.(â¾É…úÿÿÿÿ
-jpython:S107—"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
-rpython:S117Æ"URename this parameter "pivotArea" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó¬‰üÿÿÿÿ
-opython:S117ß"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-npython:S117Ş"VRename this parameter "pivotAreas" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ûí­Ê
-ipython:S117õ"QRename this parameter "dxfId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ü‰§
-opython:S117÷"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-rpython:S117ö"URename this parameter "pivotArea" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó¬‰üÿÿÿÿ
-rpython:S117—"URename this parameter "baseField" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ì¡Œéûÿÿÿÿ
-qpython:S117˜"TRename this parameter "baseItem" to match the regular expression ^[_a-z][a-z0-9_]*$.(Å‡²ˆıÿÿÿÿ
-opython:S117š"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-qpython:S117™"TRename this parameter "numFmtId" to match the regular expression ^[_a-z][a-z0-9_]*$.(­äÊ³øÿÿÿÿ
-spython:S117–"VRename this parameter "showDataAs" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÎ×ûÿÿÿÿ
-opython:S117¹"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-rpython:S117ï"URename this parameter "pivotArea" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó¬‰üÿÿÿÿ
-spython:S117å"VRename this parameter "allDrilled" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ïêíûÿÿÿÿ
-qpython:S117ó"TRename this parameter "autoShow" to match the regular expression ^[_a-z][a-z0-9_]*$.(µÌÿÌùÿÿÿÿ
-qpython:S117Ü"YRename this parameter "autoSortScope" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦­÷ù
-opython:S117€"WRename this parameter "avgSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(—¬¾¢
-wpython:S117ÿ"ZRename this parameter "countASubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ß¥£Äüÿÿÿÿ
-qpython:S117„"YRename this parameter "countSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(öö¯Ê
-mpython:S117ß"URename this parameter "dataField" to match the regular expression ^[_a-z][a-z0-9_]*$.(æ‹¥Ø
-qpython:S117ú"ZRename this parameter "dataSourceSort" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ş±Å7
-ƒpython:S117Œ"fRename this parameter "defaultAttributeDrillState" to match the regular expression ^[_a-z][a-z0-9_]*$.(”òÀØøÿÿÿÿ
-spython:S117ı"[Rename this parameter "defaultSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ¸¢
-kpython:S117î"SRename this parameter "dragOff" to match the regular expression ^[_a-z][a-z0-9_]*$.(°”¯í
-rpython:S117ê"URename this parameter "dragToCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûí‹»øÿÿÿÿ
-npython:S117í"VRename this parameter "dragToData" to match the regular expression ^[_a-z][a-z0-9_]*$.(í‹¥Í
-npython:S117ì"VRename this parameter "dragToPage" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¨Ô
-mpython:S117é"URename this parameter "dragToRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(É”Ãæ
-opython:S117"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-tpython:S117â"WRename this parameter "hiddenLevel" to match the regular expression ^[_a-z][a-z0-9_]*$.(™ƒª•úÿÿÿÿ
-upython:S117õ"XRename this parameter "hideNewItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(„Âøñıÿÿÿÿ
-€python:S117÷"cRename this parameter "includeNewItemsInFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(âõ¸»ıÿÿÿÿ
-qpython:S117ğ"ZRename this parameter "insertBlankRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(éˆåh
-xpython:S117ò"[Rename this parameter "insertPageBreak" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿ãöúÿÿÿÿ
-vpython:S117ø"YRename this parameter "itemPageCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(õš«ñşÿÿÿÿ
-tpython:S117"WRename this parameter "maxSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕŒà»ıÿÿÿÿ
-vpython:S117ö"YRename this parameter "measureFilter" to match the regular expression ^[_a-z][a-z0-9_]*$.(õâÙÛşÿÿÿÿ
-tpython:S117‚"WRename this parameter "minSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú‡šşÿÿÿÿÿ
-…python:S117ë"hRename this parameter "multipleItemSelectionAllowed" to match the regular expression ^[_a-z][a-z0-9_]*$.(­Ğ„êıÿÿÿÿ
-{python:S117û"^Rename this parameter "nonAutoSortDefault" to match the regular expression ^[_a-z][a-z0-9_]*$.(»å¸ôüÿÿÿÿ
-qpython:S117æ"TRename this parameter "numFmtId" to match the regular expression ^[_a-z][a-z0-9_]*$.(­äÊ³øÿÿÿÿ
-xpython:S117ƒ"[Rename this parameter "productSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÖÅÂüÿÿÿÿ
-jpython:S117ü"RRename this parameter "rankBy" to match the regular expression ^[_a-z][a-z0-9_]*$.(ŒıÅ—
-tpython:S117ñ"WRename this parameter "serverField" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰ºÙşÿÿÿÿ
-ppython:S117ï"SRename this parameter "showAll" to match the regular expression ^[_a-z][a-z0-9_]*$.(õ©†Åıÿÿÿÿ
-vpython:S117á"YRename this parameter "showDropDowns" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼ªûøÿÿÿÿ
-upython:S117‹"]Rename this parameter "showPropAsCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸æ»”
-upython:S117‰"XRename this parameter "showPropCell" to match the regular expression ^[_a-z][a-z0-9_]*$.(æ¬·ğøÿÿÿÿ
-npython:S117Š"WRename this parameter "showPropTip" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì±Ù~
-lpython:S117ù"TRename this parameter "sortType" to match the regular expression ^[_a-z][a-z0-9_]*$.(´ºÔ
-spython:S117†"[Rename this parameter "stdDevPSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü™Â
-rpython:S117…"ZRename this parameter "stdDevSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦œ³®
-xpython:S117à"[Rename this parameter "subtotalCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(‡±Âäûÿÿÿÿ
-opython:S117è"WRename this parameter "subtotalTop" to match the regular expression ^[_a-z][a-z0-9_]*$.(¹Ãí®
-tpython:S117ş"WRename this parameter "sumSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(äæ¥—ıÿÿÿÿ
-tpython:S117ô"WRename this parameter "topAutoShow" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ´à¹úÿÿÿÿ
-xpython:S117ã"`Rename this parameter "uniqueMemberProperty" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü˜ÕÌ
-opython:S117ˆ"XRename this parameter "varPSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÙÙj
-opython:S117‡"WRename this parameter "varSubtotal" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿‡Ì½
-jpython:S107Ú"MMethod "__init__" has 51 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ
-opython:S117Ô"XRename this parameter "colPageCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õû¼i
-ppython:S117Ò"XRename this parameter "firstDataCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(íËÛÅ
-upython:S117Ñ"XRename this parameter "firstDataRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(íĞáíüÿÿÿÿ
-wpython:S117Ğ"ZRename this parameter "firstHeaderRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û¡óüÿÿÿÿ
-upython:S117Ó"XRename this parameter "rowPageCount" to match the regular expression ^[_a-z][a-z0-9_]*$.(º¢‰ãÿÿÿÿÿ
-xpython:S117ˆ"aRename this parameter "applyAlignmentFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿÍ³v
-{python:S117…"^Rename this parameter "applyBorderFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰•£üÿÿÿÿ
-tpython:S117†"\Rename this parameter "applyFontFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(ƒÈœ›
-vpython:S117„"^Rename this parameter "applyNumberFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(Èâ™€
-wpython:S117‡"_Rename this parameter "applyPatternFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÍùÁ¤
-€python:S117‰"cRename this parameter "applyWidthHeightFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(­ì€Àşÿÿÿÿ
-rpython:S117Ö"ZRename this parameter "asteriskTotals" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù®—ô
-ppython:S117ƒ"XRename this parameter "autoFormatId" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÕŒˆÜ
-ppython:S117Ç"SRename this parameter "cacheId" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú°šøşÿÿÿÿ
-tpython:S117ı"WRename this parameter "chartFormat" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰œ´áøÿÿÿÿ
-ppython:S117”"XRename this parameter "chartFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(¶±üÜ
-rpython:S117"URename this parameter "colFields" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢´¿Éùÿÿÿÿ
-wpython:S117ë"ZRename this parameter "colGrandTotals" to match the regular expression ^[_a-z][a-z0-9_]*$.(˜Å»¡ÿÿÿÿÿ
-ypython:S117ÿ"\Rename this parameter "colHeaderCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹¨„ˆûÿÿÿÿ
-|python:S117™"_Rename this parameter "colHierarchiesUsage" to match the regular expression ^[_a-z][a-z0-9_]*$.(“…×¸ùÿÿÿÿ
-qpython:S117"TRename this parameter "colItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿÏãœıÿÿÿÿ
-opython:S117ø"WRename this parameter "compactData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÎŒÙ¾
-vpython:S117“"^Rename this parameter "conditionalFormats" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘ÎŒ
-rpython:S117ğ"ZRename this parameter "createdVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(ßÕÛş
-wpython:S117‚"ZRename this parameter "customListSort" to match the regular expression ^[_a-z][a-z0-9_]*$.(¥óÂ˜úÿÿÿÿ
-opython:S117Ê"WRename this parameter "dataCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñç‚
-spython:S117‘"VRename this parameter "dataFields" to match the regular expression ^[_a-z][a-z0-9_]*$.(‚Õ€²ùÿÿÿÿ
-npython:S117È"VRename this parameter "dataOnRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÑµÁ
-ppython:S117É"XRename this parameter "dataPosition" to match the regular expression ^[_a-z][a-z0-9_]*$.(Åÿ…Â
-tpython:S117Ù"\Rename this parameter "disableFieldList" to match the regular expression ^[_a-z][a-z0-9_]*$.(è²ÂÉ
-lpython:S117Ø"TRename this parameter "editData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔÆÈ½
-tpython:S117ã"WRename this parameter "enableDrill" to match the regular expression ^[_a-z][a-z0-9_]*$.(¦ğæîıÿÿÿÿ
-~python:S117ä"aRename this parameter "enableFieldProperties" to match the regular expression ^[_a-z][a-z0-9_]*$.(áÓšâøÿÿÿÿ
-opython:S117â"XRename this parameter "enableWizard" to match the regular expression ^[_a-z][a-z0-9_]*$.(™·‚]
-upython:S117Ì"XRename this parameter "errorCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(„©Õøÿÿÿÿ
-opython:S117š"RRename this parameter "extLst" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÈÊÏêüÿÿÿÿ
-ypython:S117€"bRename this parameter "fieldListSortAscending" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ë•æ_
-ypython:S117ì"\Rename this parameter "fieldPrintTitles" to match the regular expression ^[_a-z][a-z0-9_]*$.(ì‹²¿ûÿÿÿÿ
-zpython:S117Ë"]Rename this parameter "grandTotalCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(”Ô£ñøÿÿÿÿ
-vpython:S117ú"YRename this parameter "gridDropZones" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ãæéüÿÿÿÿ
-spython:S117í"[Rename this parameter "itemPrintTitles" to match the regular expression ^[_a-z][a-z0-9_]*$.(í¸‡‹
-ppython:S117"YRename this parameter "mdxSubqueries" to match the regular expression ^[_a-z][a-z0-9_]*$.(«Å‚
-lpython:S117î"URename this parameter "mergeItem" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ¬l
-~python:S117Õ"aRename this parameter "minRefreshableVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(“î¥÷úÿÿÿÿ
-wpython:S117Î"ZRename this parameter "missingCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸‘¶Êøÿÿÿÿ
-}python:S117ü"`Rename this parameter "multipleFieldFilters" to match the regular expression ^[_a-z][a-z0-9_]*$.(œ´ËÉùÿÿÿÿ
-tpython:S117÷"WRename this parameter "outlineData" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÉˆƒÚÿÿÿÿÿ
-npython:S117"VRename this parameter "pageFields" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡Ù±»
-spython:S117è"\Rename this parameter "pageOverThenDown" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ø…ø
-rpython:S117Ğ"URename this parameter "pageStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ë¹óúÿÿÿÿ
-lpython:S117ç"TRename this parameter "pageWrap" to match the regular expression ^[_a-z][a-z0-9_]*$.(Æ°×Ú
-tpython:S117‹"WRename this parameter "pivotFields" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤ŞÍ€øÿÿÿÿ
-tpython:S117•"\Rename this parameter "pivotHierarchies" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñ·¬ô
-spython:S117Ñ"[Rename this parameter "pivotTableStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù•åº
-wpython:S117–"_Rename this parameter "pivotTableStyleInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ‚µ
-vpython:S117å"^Rename this parameter "preserveFormatting" to match the regular expression ^[_a-z][a-z0-9_]*$.(ïÎ
-spython:S117ß"VRename this parameter "printDrill" to match the regular expression ^[_a-z][a-z0-9_]*$.(­ÚÅÌıÿÿÿÿ
-rpython:S117Œ"URename this parameter "rowFields" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾Æ»Òÿÿÿÿÿ
-rpython:S117ê"ZRename this parameter "rowGrandTotals" to match the regular expression ^[_a-z][a-z0-9_]*$.(ª…
-ypython:S117ş"\Rename this parameter "rowHeaderCaption" to match the regular expression ^[_a-z][a-z0-9_]*$.(€€“ºıÿÿÿÿ
-wpython:S117˜"_Rename this parameter "rowHierarchiesUsage" to match the regular expression ^[_a-z][a-z0-9_]*$.(æ¸ÖŸ
-qpython:S117"TRename this parameter "rowItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(åÎäûÿÿÿÿ
-upython:S117Ú"XRename this parameter "showCalcMbrs" to match the regular expression ^[_a-z][a-z0-9_]*$.(—”¿Ğıÿÿÿÿ
-spython:S117İ"\Rename this parameter "showDataDropDown" to match the regular expression ^[_a-z][a-z0-9_]*$.(•ùi
-upython:S117á"XRename this parameter "showDataTips" to match the regular expression ^[_a-z][a-z0-9_]*$.(£×Ï÷üÿÿÿÿ
-rpython:S117Ş"URename this parameter "showDrill" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÙ íüÿÿÿÿ
-qpython:S117ï"YRename this parameter "showDropZones" to match the regular expression ^[_a-z][a-z0-9_]*$.(éÏñ§
-upython:S117ó"XRename this parameter "showEmptyCol" to match the regular expression ^[_a-z][a-z0-9_]*$.(º…Èùÿÿÿÿ
-upython:S117ò"XRename this parameter "showEmptyRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(¢É…Ñıÿÿÿÿ
-rpython:S117Í"URename this parameter "showError" to match the regular expression ^[_a-z][a-z0-9_]*$.(üİŸ÷ıÿÿÿÿ
-opython:S117ô"WRename this parameter "showHeaders" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤í±½
-mpython:S117×"URename this parameter "showItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(¤‚ñö
-zpython:S117à"bRename this parameter "showMemberPropertyTips" to match the regular expression ^[_a-z][a-z0-9_]*$.(ş¶Ë¬
-opython:S117Ï"WRename this parameter "showMissing" to match the regular expression ^[_a-z][a-z0-9_]*$.(µÈå
-upython:S117Ü"]Rename this parameter "showMultipleLabel" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷ÿ£›
-|python:S117é"_Rename this parameter "subtotalHiddenItems" to match the regular expression ^[_a-z][a-z0-9_]*$.(½Ş¬¥ùÿÿÿÿ
-rpython:S117Ô"ZRename this parameter "updatedVersion" to match the regular expression ^[_a-z][a-z0-9_]*$.(çÙÎ´
-tpython:S117æ"]Rename this parameter "useAutoFormatting" to match the regular expression ^[_a-z][a-z0-9_]*$.(Õâg
-upython:S117Ò"XRename this parameter "vacatedStyle" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹ğğëùÿÿÿÿ
-upython:S117Û"XRename this parameter "visualTotals" to match the regular expression ^[_a-z][a-z0-9_]*$.(„ˆİáüÿÿÿÿ
-jpython:S107Å"MMethod "__init__" has 86 parameters, which is greater than the 13 authorized.(ÄÁšÃşÿÿÿÿ

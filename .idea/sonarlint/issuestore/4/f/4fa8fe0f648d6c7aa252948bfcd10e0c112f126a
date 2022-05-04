@@ -1,76 +1,0 @@
-
-jpython:S1192ø"LDefine a constant instead of duplicating this literal 'http://a/b/' 9 times.(è›Ìÿÿÿÿÿ
-fpython:S1192½"MDefine a constant instead of duplicating this literal 'dead:beef::1' 3 times.(ƒŠ®ä
-fpython:S1192ø"HDefine a constant instead of duplicating this literal 'foo.com' 4 times.(¹äíÿùÿÿÿÿ
-kpython:S1192ì"RDefine a constant instead of duplicating this literal 'http://python.org' 3 times.(ğ²±ù
-cpython:S1192û"JDefine a constant instead of duplicating this literal 'http://a/' 7 times.(ó”ßÂ
-mpython:S1192¸"ODefine a constant instead of duplicating this literal 'www.python.org' 8 times.(¼İ¯ÿÿÿÿÿ
-gpython:S1192•	"NDefine a constant instead of duplicating this literal 'parrot:cheese' 4 times.(‹Íç
-kpython:S1192Ö"RDefine a constant instead of duplicating this literal '/foo/bar/baz.html' 3 times.(×¦¯
-epython:S1192ê"LDefine a constant instead of duplicating this literal 'example.net' 3 times.(‚àüß
-fpython:S1192ï"HDefine a constant instead of duplicating this literal 'g?y/./x' 4 times.(ÔäÌÓşÿÿÿÿ
-spython:S1192ğ"UDefine a constant instead of duplicating this literal 'http://a/b/c/d;p?q#s' 3 times.(ÌÏ…Æüÿÿÿÿ
-kpython:S1192"SDefine a constant instead of duplicating this literal 'http://a/b/c/d;p?q' 4 times.(œ¯Êº
-dpython:S1192‡"FDefine a constant instead of duplicating this literal 'g/./h' 4 times.(ç’‚£ıÿÿÿÿ
-gpython:S1192í"IDefine a constant instead of duplicating this literal 'http://g' 4 times.(êøğñùÿÿÿÿ
-lpython:S1192ö"NDefine a constant instead of duplicating this literal 'http://a/b/c/' 8 times.(ˆÌá—ıÿÿÿÿ
-npython:S1192‚"PDefine a constant instead of duplicating this literal 'http://a/b/c/.g' 3 times.(ÁçÉòşÿÿÿÿ
-dpython:S1192$"LDefine a constant instead of duplicating this literal "a=a+b;b=b+c" 4 times.(»®„¦
-npython:S1192Ã"PDefine a constant instead of duplicating this literal b"www.python.org" 9 times.(´¯²¡şÿÿÿÿ
-apython:S1192ı"HDefine a constant instead of duplicating this literal '../../g' 4 times.(§ÒØÔ
-fpython:S1192ú"MDefine a constant instead of duplicating this literal 'http://a/b/g' 8 times.(Í…âŞ
-`python:S1192¾"GDefine a constant instead of duplicating this literal b"/doc/" 3 times.(‚„ì°
-opython:S1192„"QDefine a constant instead of duplicating this literal 'http://a/b/c/..g' 3 times.(»¨Òºüÿÿÿÿ
-hpython:S1192º"PDefine a constant instead of duplicating this literal 'test.python.org' 3 times.(Å³r
-spython:S1192õ"UDefine a constant instead of duplicating this literal 'http://a/b/c/g;x?y#s' 3 times.(âß³²şÿÿÿÿ
-gpython:S1192°"NDefine a constant instead of duplicating this literal 'http://a/f/g/' 3 times.(èÕ›Ú
-ipython:S1192"QDefine a constant instead of duplicating this literal "Error parsing %r" 8 times.(ğ¨Ï«
-^python:S1192"FDefine a constant instead of duplicating this literal "/doc/" 3 times.(š«ÇR
-qpython:S1192ó"SDefine a constant instead of duplicating this literal 'www.python.org:080' 5 times.(øÑÈüÿÿÿÿ
-jpython:S1192ô"QDefine a constant instead of duplicating this literal 'http://a/b/c/g;x' 3 times.(·ŠÖ÷
-jpython:S1192&"MDefine a constant instead of duplicating this literal b"a=a+b;b=b+c" 4 times.(ÖŸ±÷ÿÿÿÿÿ
-apython:S1192«	"HDefine a constant instead of duplicating this literal 'foo=bar' 3 times.(­‰İ»
-ppython:S1192®"RDefine a constant instead of duplicating this literal 'http://a/b/c/d/e/' 3 times.(òÀàğşÿÿÿÿ
-_python:S1192†"FDefine a constant instead of duplicating this literal './g/.' 4 times.(Ş¦´ÿ
-opython:S1192ƒ"QDefine a constant instead of duplicating this literal 'http://a/b/c/g..' 3 times.(á¿ØŞûÿÿÿÿ
-spython:S1192ğ"UDefine a constant instead of duplicating this literal 'http://python.org/?q' 3 times.(© ¹àÿÿÿÿÿ
-ipython:S1192Ê"PDefine a constant instead of duplicating this literal 'http://a/b/c/;x' 3 times.(§ÙÓì
-ppython:S1192Ô"RDefine a constant instead of duplicating this literal 'www.python.org:80' 3 times.(Ñğî÷ıÿÿÿÿ
-fpython:S1192õ"HDefine a constant instead of duplicating this literal 'g;x?y#s' 3 times.(âß³²şÿÿÿÿ
-lpython:S1192	"ODefine a constant instead of duplicating this literal 'http://a/b/c/d' 3 times.(›‚ƒçúÿÿÿÿ
-_python:S1192Á	"FDefine a constant instead of duplicating this literal '/path' 4 times.(•Ü§‡
-qpython:S1192î"SDefine a constant instead of duplicating this literal 'http://python.org/' 3 times.(¶Ü›üÿÿÿÿ
-€python:S1192À"hDefine a constant instead of duplicating this literal 'dead:beef:cafe:5417:affe:8fa3:deaf:feed' 3 times.(¿´Äu
-qpython:S1192ó"SDefine a constant instead of duplicating this literal 'http://a/b/c/g?y#s' 3 times.(Êâ­ßøÿÿÿÿ
-jpython:S1192ø"QDefine a constant instead of duplicating this literal "key=\u0141%C3%A9" 4 times.(‚×ãÎ
-dpython:S1192¢"FDefine a constant instead of duplicating this literal "@frag" 3 times.(Ç¦Ôşÿÿÿÿÿ
-ipython:S1192"PDefine a constant instead of duplicating this literal 'http://a/b/c/g.' 3 times.(¸©’±
-`python:S1192…"GDefine a constant instead of duplicating this literal './../g' 4 times.(”ˆñü
-apython:S1192“	"HDefine a constant instead of duplicating this literal 'parrot:' 3 times.(äåÚ™
-apython:S1192‚"HDefine a constant instead of duplicating this literal b'/stuff' 4 times.(Ì±ê…
-apython:S1192ò"HDefine a constant instead of duplicating this literal 'g#s/./x' 3 times.(â¤œ
-tpython:S1192µ	"[Define a constant instead of duplicating this literal 'http://example.com?foo=bar' 4 times.(åÛöÄ
-dpython:S1192ó"FDefine a constant instead of duplicating this literal 'g?y#s' 3 times.(Êâ­ßøÿÿÿÿ
-epython:S1192ˆ"GDefine a constant instead of duplicating this literal 'g/../h' 4 times.(Ì©ë¼ûÿÿÿÿ
-epython:S1192ì"LDefine a constant instead of duplicating this literal 'http://a/g' 13 times.(‰¡Îß
-mpython:S1192”"ODefine a constant instead of duplicating this literal "www.python.org" 9 times.(’Ùš•ıÿÿÿÿ
-ipython:S1192®"KDefine a constant instead of duplicating this literal '../../f/g/' 3 times.(òÀàğşÿÿÿÿ
-spython:S1192ï"UDefine a constant instead of duplicating this literal 'http://a/b/c/g?y/./x' 7 times.(ÔäÌÓşÿÿÿÿ
-mpython:S1192ˆ"ODefine a constant instead of duplicating this literal 'http://a/b/c/h' 4 times.(Ì©ë¼ûÿÿÿÿ
-`python:S1192ü"GDefine a constant instead of duplicating this literal 'http:g' 3 times.(÷î¦
-jpython:S1192î"QDefine a constant instead of duplicating this literal 'http://a/b/c/g?y' 5 times.(¼çı’
-lpython:S1192Û"SDefine a constant instead of duplicating this literal b'www.python.org:80' 3 times.(½æã
-npython:S1192ë"PDefine a constant instead of duplicating this literal 'http://a/b/c/g/' 8 times.(ë¡éËüÿÿÿÿ
-epython:S1192¾"LDefine a constant instead of duplicating this literal 'dead:beef::' 3 times.(ÈØÂ
-npython:S1192é"PDefine a constant instead of duplicating this literal 'http://a/b/c/g' 11 times.(›¤Ìûÿÿÿÿ
-opython:S1192‡"QDefine a constant instead of duplicating this literal 'http://a/b/c/g/h' 4 times.(ç’‚£ıÿÿÿÿ
-opython:S1192ñ"QDefine a constant instead of duplicating this literal 'http://a/b/c/g#s' 3 times.(ÁÈ ¾úÿÿÿÿ
-bpython:S1192‚"IDefine a constant instead of duplicating this literal b'foo.com' 4 times.(Ì±ê…
-npython:S1192½"PDefine a constant instead of duplicating this literal "Cannot mix str" 10 times.(Ã²µÒøÿÿÿÿ
-mpython:S1192ü"ODefine a constant instead of duplicating this literal "key=\u0141%E9-" 4 times.(¿Åëıÿÿÿÿÿ
-npython:S1192ò"UDefine a constant instead of duplicating this literal 'http://a/b/c/g#s/./x' 3 times.(â¤œ
-epython:S1192ø"GDefine a constant instead of duplicating this literal '/stuff' 4 times.(¹äíÿùÿÿÿÿ
-ppython:S1192«	"WDefine a constant instead of duplicating this literal 'http://python.org/fake' 3 times.(­‰İ»
-Rpython:S1481Û"4Remove the unused local variable "bytes_components".(ëÍ¾ˆøÿÿÿÿ
-Cpython:S5806¥"+Rename this variable; it shadows a builtin.(ÆË£/
-python:S101Ç"gRename class "Utility_Tests" to match the regular expression ^_?([A-Z_][a-zA-Z0-9]*|[a-z_][a-z0-9_]*)$.(ÏîÏ¤

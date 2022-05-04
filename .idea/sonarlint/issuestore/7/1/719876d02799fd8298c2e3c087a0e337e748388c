@@ -1,5 +1,0 @@
-
-_python:S1854…"HRemove this assignment to local variable 'cmd'; the value is never used.(…ø?
-apython:S1854ƒ"HRemove this assignment to local variable 'cmd'; the value is never used.(±„à“
-mpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 31 to the 15 allowed.(”ÑŸ˛
-Dpython:S5806π"+Rename this variable; it shadows a builtin.(⁄è∏Î

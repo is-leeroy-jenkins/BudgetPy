@@ -1,7 +1,0 @@
-
-npython:S1179"WRename this parameter "ContentType" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù—Ü
-lpython:S1179"URename this parameter "Extension" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ù—Ü
-npython:S117E"WRename this parameter "ContentType" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁÒöŸ
-kpython:S117E"TRename this parameter "PartName" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÁÒöŸ
-opython:S117b"SRename this parameter "Default" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ğ•Òşùÿÿÿÿ
-ppython:S117c"TRename this parameter "Override" to match the regular expression ^[_a-z][a-z0-9_]*$.(«“¡şÿÿÿÿ

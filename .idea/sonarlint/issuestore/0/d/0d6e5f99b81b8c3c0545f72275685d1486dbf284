@@ -1,32 +1,0 @@
-
-opython:S1192Á"VDefine a constant instead of duplicating this literal 'tag:yaml.org,2002:map' 3 times.(‹æ±¦
-vpython:S1192¬"XDefine a constant instead of duplicating this literal 'tag:yaml.org,2002:float' 3 times.(”ûäùÿÿÿÿ
-tpython:S1192’"VDefine a constant instead of duplicating this literal 'tag:yaml.org,2002:int' 3 times.(–ÃÄ·üÿÿÿÿ
-tpython:S1192ú"VDefine a constant instead of duplicating this literal 'tag:yaml.org,2002:str' 6 times.(–µ”Ãıÿÿÿÿ
-tpython:S1192Ñ"\Define a constant instead of duplicating this literal 'tag:yaml.org,2002:timestamp' 3 times.(À°Ô
-tpython:S1192·"VDefine a constant instead of duplicating this literal 'tag:yaml.org,2002:seq' 3 times.(…ÄÀ¸üÿÿÿÿ
-ppython:S1192ö"WDefine a constant instead of duplicating this literal 'tag:yaml.org,2002:null' 3 times.(¸ ²
-`python:S5797&"HReplace this expression; used as a condition it will always be constant.(ÒóÜ©
-_python:S2208"GImport only needed names or import the module and then use its members.(‘¼ö
-dpython:S2208"GImport only needed names or import the module and then use its members.(èù§úÿÿÿÿ
-qpython:S3776V"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(¨”ÔÀúÿÿÿÿ
-;python:S125_"Remove this commented out code.(ÖöÔˆùÿÿÿÿ
-;python:S125c"Remove this commented out code.(ëœ‚ïÿÿÿÿÿ
-;python:S125t"Remove this commented out code.(ŠÙ•¤ùÿÿÿÿ
-7python:S125»"Remove this commented out code.(ÀÒº
-mpython:S3776Æ"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ƒ³Šã
-jpython:S1764š"LCorrect one of the identical sub-expressions on both sides of operator "!=".(åı°ßøÿÿÿÿ
-7python:S125¹"Remove this commented out code.(Îôİ¢
-lpython:S3776©"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(§©°
-rpython:S3776“"TRefactor this function to reduce its Cognitive Complexity from 56 to the 15 allowed.(Âô²úÿÿÿÿ
-jpython:S1764˜"LCorrect one of the identical sub-expressions on both sides of operator "!=".(åı°ßøÿÿÿÿ
-rpython:S3776Ş"TRefactor this function to reduce its Cognitive Complexity from 27 to the 15 allowed.(Ú£â°ÿÿÿÿÿ
-Mpython:S1656ç"/Remove or correct this useless self-assignment.(Ù¤ßÁÿÿÿÿÿ
-mpython:S3776¯"TRefactor this function to reduce its Cognitive Complexity from 50 to the 15 allowed.(ƒ³Šã
-Mpython:S1656µ"/Remove or correct this useless self-assignment.(Ù¤ßÁÿÿÿÿÿ
-mpython:S3776‡"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(İÉÂÓ
-Mpython:S1656"/Remove or correct this useless self-assignment.(Ù¤ßÁÿÿÿÿÿ
-7python:S125¼"Remove this commented out code.(ÀÒº
-rpython:S3776Ç"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ß¼¯Äüÿÿÿÿ
-7python:S125Ë"Remove this commented out code.(‚ˆ‡ú
-Mpython:S1656ù"/Remove or correct this useless self-assignment.(÷ØÚ§úÿÿÿÿ
