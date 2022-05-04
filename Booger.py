@@ -259,9 +259,9 @@ class Error( ):
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( self.__message, font = ( 'Roboto', 9, 'bold' ), text_color = '#FF0820' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, key = '-SRC-', size = ( 150, 1 ) ) ],
-                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, key = '-MTH-', size = ( 150, 1 ) ) ],
-                   [ sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, key = '-MSG-', size = ( 150, 1 ) ) ],
+                   [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 150, 1 ) ) ],
+                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 150, 1 ) ) ],
+                   [ sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, size = ( 150, 1 ) ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ],
                    [ sg.Text( r'', size = ( 1, 1 ) ) ],
                    [  sg.Text( r'', size = ( 15, 1 ) ), sg.Text( r'', size = ( 15, 1 ) ), sg.Text( r'', size = ( 15, 1 ) ), sg.Ok( size = ( 10, 1 ), key = '-OK-' ) ] ]
@@ -274,18 +274,8 @@ class Error( ):
 
         event, values = window.read( )
 
-        if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT ):
+        if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-OK-' ):
             window.close( )
-        elif event == '-OK-':
-            sg.popup( 'Results', event, values, values[ '-SRC-' ],
-                values[ '-MTH-' ],
-                values[ '-MSG-' ],
-                text_color = r'#ADDFF7',
-                font = __font,
-                icon = __icon )
-
-        window.close()
-
 
 
 # Input( question )
