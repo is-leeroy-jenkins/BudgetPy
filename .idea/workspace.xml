@@ -150,13 +150,6 @@
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
     </task>
-    <task id="LOCAL-00033" summary="updates from main rig;">
-      <created>1651330713915</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1651330713915</updated>
-    </task>
     <task id="LOCAL-00034" summary="updates from main rig;">
       <created>1651333872273</created>
       <option name="number" value="00034" />
@@ -493,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651692926581</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="from other rig;">
+      <created>1651693525655</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1651693525655</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

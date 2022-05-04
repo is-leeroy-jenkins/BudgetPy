@@ -45,6 +45,7 @@
       <w>carryoversurveyid</w>
       <w>cerclisid</w>
       <w>checkdate</w>
+      <w>columnwidth</w>
       <w>commitmentcontrols</w>
       <w>commitmentsid</w>
       <w>commitmentspendingcontrol</w>
@@ -89,6 +90,7 @@
       <w>expensecontrols</w>
       <w>expensespendingcontrol</w>
       <w>feburary</w>
+      <w>fieldwidth</w>
       <w>filepath</w>
       <w>financeobjectclass</w>
       <w>foccode</w>
