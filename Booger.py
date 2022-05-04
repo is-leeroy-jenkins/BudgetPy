@@ -154,8 +154,8 @@ class FolderDialog( ):
                    [ sg.Text( 'Search for Directory' ) ],
                    [ sg.Text( r'' ) ],
                    [ sg.Input( ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
-                   [ sg.Text( r'' ) ],
-                   [ sg.Text( r'' ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
                    [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
         window = sg.Window( 'Budget Execution', layout,
@@ -208,16 +208,19 @@ class Message( ):
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [  sg.Text( r'', size = (5, 1) ), sg.Ok( size = (10, 1) ), sg.Text( r'', size = (15, 1) ), sg.Cancel( size = (10, 1) ) ] ]
+                   [ sg.Text( r'', size = (5, 1) ), sg.Ok( size = (10, 1) ), sg.Text( r'', size = (15, 1) ), sg.Cancel( size = (10, 1) ) ] ]
 
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
             font = __font,
             size = __size )
 
-        event, values = window.read( )
-        if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel' ):
-            window.close( )
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel' ):
+                break
+
+        window.close( )
 
 
 # Error( exception )
@@ -257,14 +260,15 @@ class Error( ):
         __font = 'Roboto 9'
         __size = ( 500, 250 )
         layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( self.__message, font = ( 'Roboto', 9, 'bold' ), text_color = '#FF0820' ) ],
+                   [ sg.Text( self.__message, font = ( 'Roboto', 9, 'bold' ), text_color = '#80091B' ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 150, 1 ) ) ],
-                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 150, 1 ) ) ],
-                   [ sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, size = ( 150, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 1, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 1, 1 ) ) ],
-                   [  sg.Text( r'', size = ( 15, 1 ) ), sg.Text( r'', size = ( 15, 1 ) ), sg.Text( r'', size = ( 15, 1 ) ), sg.Ok( size = ( 10, 1 ), key = '-OK-' ) ] ]
+                   [ sg.Text( r'', size = (5, 1) ), sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 150, 1 ) ) ],
+                   [ sg.Text( r'', size = (5, 1) ), sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 150, 1 ) ) ],
+                   [ sg.Text( r'', size = (5, 1) ), sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, size = ( 150, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 15, 1 ) ), sg.Text( r'', size = ( 15, 1 ) ),
+                      sg.Text( r'', size = ( 15, 1 ) ), sg.Ok( size = ( 10, 1 ), key = '-OK-' ) ] ]
 
         window = sg.Window( r'  Budget Execution', layout,
             icon = __icon,
@@ -272,10 +276,12 @@ class Error( ):
             size = __size,
             titlebar_background_color = '#0F0F0F' )
 
-        event, values = window.read( )
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-OK-' ):
+                break
 
-        if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-OK-' ):
-            window.close( )
+        window.close( )
 
 
 # Input( question )
@@ -314,22 +320,27 @@ class Input( ):
                     [ sg.Text( self.__question, font = ( 'Roboto', 9, 'bold' ) ) ],
                     [ sg.Text( r'' ) ],
                     [ sg.Text( 'Enter:', size = ( 10, 2 ) ), sg.InputText( '1', key = '-INPUT-', size = ( 40, 2 ) ) ],
-                    [ sg.Text( r'' ) ],
-                    [ sg.Text( r'' ) ],
-                    [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 10, 1 ) ), sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
+                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                    [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 10, 1 ), key = '-SUBMIT-' ),
+                      sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 ), key = '-CANCEL-' ) ] ]
 
         window = sg.Window( ' Budget Input', layout,
             font = __font,
             icon = __icon,
             size = __size,
             titlebar_background_color = '#0F0F0F' )
-        event, values = window.read( )
-        sg.popup( event, values, values[ '-INPUT-' ],
-            text_color = r'#B0C4DE',
-            font = __font,
-            icon = __icon )
-        if event == sg.WIN_X_EVENT or event == sg.WIN_CLOSED:
-            window.close( )
+
+        while True:
+            event, values = window.read( )
+            sg.popup( event, values, values[ '-INPUT-' ],
+                text_color = r'#B0C4DE',
+                font = __font,
+                icon = __icon )
+            if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED ):
+                break
+
+        window.close( )
 
 
 class ContactForm( ):
@@ -345,29 +356,36 @@ class ContactForm( ):
         sg.theme_button_color( '#163754' )
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
-        __size = ( 400, 250 )
-        layout =  [ [ sg.Text( r'' ) ],
-                    [ sg.Text( r'Please enter your Name, Address, Phone' ) ],
-                    [ sg.Text( r'' ) ],
-                    [ sg.Text( 'Name', size = ( 15, 1 ) ), sg.InputText( '1', key = '-NAME-' ) ],
-                    [ sg.Text( 'Address', size = ( 15, 1 ) ), sg.InputText( '2', key = '-ADDRESS-' ) ],
-                    [ sg.Text( 'Phone', size = ( 15, 1 ) ), sg.InputText( '3', key = '-PHONE-' ) ],
-                    [ sg.Text( r'' ) ],
-                    [ sg.Text( r'' ) ],
-                    [ sg.Submit( size = ( 10, 1 ) ), sg.Text( r'', size = ( 20, 1) ),  sg.Cancel( size = ( 10, 1 ) ) ] ]
+        __size = ( 450, 250 )
+
+        layout =  [ [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                    [ sg.Text( r'Enter Contact Details' ) ],
+                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                    [ sg.Text( 'Name', size = ( 10, 1 ) ), sg.InputText( '1', size = ( 80, 1 ),  key = '-NAME-' ) ],
+                    [ sg.Text( 'Address', size = ( 10, 1 ) ), sg.InputText( '2', size = ( 80, 1 ), key = '-ADDRESS-' ) ],
+                    [ sg.Text( 'Phone', size = ( 10, 1 ) ), sg.InputText( '3', size = ( 80, 1 ), key = '-PHONE-' ) ],
+                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                    [ sg.Text( r'', size = ( 10, 1) ), sg.Submit( size = ( 10, 1 ) ),
+                      sg.Text( r'', size = ( 20, 1) ),  sg.Cancel( size = ( 10, 1 ) ) ] ]
+
         window = sg.Window( 'Budget Execution', layout,
-            font = __font,
             icon = __icon,
-            size = __size )
-        event, values = window.read( )
-        sg.popup( event, values, values[ '-NAME-' ],
-            values[ '-ADDRESS-' ],
-            values[ '-PHONE-' ],
-            text_color = r'#B0C4DE',
             font = __font,
-            icon = __icon )
-        if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
-            window.close( )
+            size = __size )
+
+        while True:
+            event, values = window.read( )
+            sg.popup( 'Results', values, values[ '-NAME-' ],
+                values[ '-ADDRESS-' ],
+                values[ '-PHONE-' ],
+                text_color = r'#B0C4DE',
+                font = __font,
+                icon = __icon )
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
+                break
+
+        window.close( )
 
 
 class GridForm( ):
@@ -384,99 +402,129 @@ class GridForm( ):
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         __font = 'Roboto 9'
         __size = ( 17, 1 )
+        __columns = 4
+        __rows = 10
+
         headings = [ 'HEADER 1', 'HEADER 2', 'HEADER 3', 'HEADER 4' ]
-        header = [ [ sg.Text( '  ' ) ] \
-                   + [ sg.Text( h, size = ( 15, 1 ) ) for h in headings ] ]
-        input_rows = [ [ sg.Input( size = __size, pad = ( 0, 0 ), font = __font ) for col in range( 4 ) ] for row in range( 10 ) ]
-        layout = header + input_rows
-        window = sg.Window( 'Budget Grid', layout,
+        space = [ [ sg.Text( ' ' ) ] ]
+        header = [ [ sg.Text( ' ' ) ] + [ sg.Text( h, size = ( 15, 1 ) ) for h in headings ] ]
+        rows = [ [ [ sg.Input( size = __size, pad = ( 0, 0 ), font = __font ) for c in range( __columns ) ] for r in range( __rows ) ],
+                 [ sg.Text( '' ) ] ]
+        buttons = [ [ sg.Text( '', size = ( 35, 1 ) ), sg.Submit( size = ( 10, 1 ), key = '-SUBMIT-'  ),
+                      sg.Text( '', size = ( 5, 1 ) ), sg.Cancel( size = ( 10, 1 ), key = '-CANCEL-' ) ] ]
+        layout = space + header + rows + buttons
+
+        window = sg.Window( 'Budget Execution', layout,
             font = __font,
             icon = __icon )
-        event, values = window.read( )
-        if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
-            window.close( )
+
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-CANCEL-' ):
+                break
+
+        window.close( )
 
 
 class Loading( ):
     '''object providing form loading behavior '''
 
     def show( self ):
-        gif_filename = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        filepath = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
         layout = [ [ sg.Text( '',
             background_color = '#000000',
             text_color = '#FFF000',
             justification = 'c',
             key = '-T-',
             font = ( 'Bodoni MT', 40 ) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
+
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
             margins = ( 0, 0 ),
             size = ( 600, 600 ),
             element_padding = ( 0, 0 ), finalize = True )
+
         window[ '-T-' ].expand( True, True, True )
-        interframe_duration = ButtonIcon.open( gif_filename ).info[ 'duration' ]
+        interframe_duration = Image.open( filepath ).info[ 'duration' ]
+
         while True:
-            for frame in ImageSequence.Iterator( ButtonIcon.open( gif_filename ) ):
+            for frame in ImageSequence.Iterator( Image.open( filepath ) ):
                 event, values = window.read( timeout = interframe_duration )
                 if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-            window.close()
+
+        window.close()
 
 
 class Waiting( ):
     '''object providing form loader behavior '''
 
     def show( self ):
-        gif_filename = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        filepath = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         layout = [ [ sg.Text( '',
+            icon = __icon,
             background_color = '#000000',
             text_color = '#FFF000',
             justification = 'c',
             key = '-T-',
             font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
+
         window = sg.Window( 'Loading', layout,
+            icon = __icon,
             element_justification = 'c',
             margins = ( 0, 0 ),
             element_padding = ( 0, 0 ),
             size = ( 600, 600 ),
             finalize = True )
+
         window[ '-T-' ].expand( True, True, True )
-        interframe_duration = ButtonIcon.open( gif_filename ).info[ 'duration' ]
+        interframe_duration = Image.open( filepath ).info[ 'duration' ]
+
         while True:
-            for frame in ImageSequence.Iterator( ButtonIcon.open( gif_filename ) ):
+            for frame in ImageSequence.Iterator( Image.open( filepath ) ):
                 event, values = window.read( timeout = interframe_duration )
                 if event == sg.WIN_CLOSED:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-            window.close()
+
+        window.close()
 
 
 class Processing( ):
     '''object providing form processing behavior '''
 
     def show( self ):
-        gif_filename = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        filepath = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
         layout = [ [ sg.Text( '',
             background_color = '#000000',
             text_color = '#FFF000',
             justification = 'c',
             key = '-T-',
             font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
+
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
+            icon = __icon,
             margins = ( 0, 0 ),
-            size = ( 600, 600 ),
-            element_padding = ( 0, 0 ), finalize = True )
+            size = ( 800, 600 ),
+            element_padding = ( 0, 0 ),
+            finalize = True )
+
         window[ '-T-' ].expand( True, True, True )
-        interframe_duration = ButtonIcon.open( gif_filename ).info[ 'duration' ]
+        interframe_duration = Image.open( filepath ).info[ 'duration' ]
+
         while True:
-            for frame in ImageSequence.Iterator( ButtonIcon.open( gif_filename ) ):
+            for frame in ImageSequence.Iterator( Image.open( filepath ) ):
                 event, values = window.read( timeout = interframe_duration )
                 if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-            window.close()
+
+        window.close()
 
 
 class Notification( ):
@@ -592,6 +640,7 @@ class PdfViewer( ):
         sg.theme_input_background_color( '#282828' )
         sg.theme_text_color( '#B0C4DE' )
         sg.theme_button_color( '#163754' )
+
         filename = sg.popup_get_file( 'Budget Execution PDF Browser', 'PDF file to open', file_types = ( ( 'PDF Files', '*.pdf' ), ) )
         if filename is None:
             sg.popup_cancel( 'Cancelling' )
@@ -636,7 +685,9 @@ class PdfViewer( ):
                    [ image_elem ],  ]
         pdfkeys = ('Next', 'Next:34', 'Prev', 'Prior:33', 'Top-L', 'Top-R', 'Bot-L', 'Bot-R', 'MouseWheel:Down', 'MouseWheel:Up')
         zoombuttons = ('Top-L', 'Top-R', 'Bot-L', 'Bot-R')
-        window = sg.Window( title, layout, return_keyboard_events = True, use_default_focus = False )
+        window = sg.Window( title, layout,
+            return_keyboard_events = True,
+            use_default_focus = False )
         oldpage = 0
         oldzoom = 0
         while True:
@@ -740,7 +791,7 @@ class CalendarDialog( ):
             elif event == 'Date Picker':
                 sg.popup( 'Choose Date', sg.popup_get_date( ),
                     icon = __icon, font = __font )
-        window.close( )
+                window.close( )
 
 
 class DateWidget( ):
