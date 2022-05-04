@@ -440,9 +440,10 @@ class Loading( ):
             font = ( 'Bodoni MT', 40 ) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
         window = sg.Window( 'Loading', layout,
+            icon = __icon,
             element_justification = 'c',
             margins = ( 0, 0 ),
-            size = ( 600, 600 ),
+            size = ( 800, 600 ),
             element_padding = ( 0, 0 ), finalize = True )
 
         window[ '-T-' ].expand( True, True, True )
@@ -465,7 +466,6 @@ class Waiting( ):
         __icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         filepath = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         layout = [ [ sg.Text( '',
-            icon = __icon,
             background_color = '#000000',
             text_color = '#FFF000',
             justification = 'c',
@@ -477,7 +477,7 @@ class Waiting( ):
             element_justification = 'c',
             margins = ( 0, 0 ),
             element_padding = ( 0, 0 ),
-            size = ( 600, 600 ),
+            size = ( 800, 600 ),
             finalize = True )
 
         window[ '-T-' ].expand( True, True, True )
