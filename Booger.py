@@ -3281,3 +3281,222 @@ class SaveDialog( ):
         self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
+
+
+class Dashboard( ):
+    '''class defining basic dashboard for the application'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+    __text = None
+
+    @property
+    def text( self ):
+        if isinstance( self.__text, str ) and self.__text != '':
+            return self.__text
+
+    @text.setter
+    def text( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__text = value
+
+    @property
+    def themebackground( self ):
+        if isinstance( self.__themebackground, str ) and self.__themebackground != '':
+            return self.__themebackground
+
+    @themebackground.setter
+    def themebackground( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__themebackground = value
+
+    @property
+    def elementbackcolor( self ):
+        if isinstance( self.__elementbackcolor, str ) and self.__elementbackcolor != '':
+            return self.__elementbackcolor
+
+    @elementbackcolor.setter
+    def elementbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__elementbackcolor = value
+
+    @property
+    def elementforecolor( self ):
+        if isinstance( self.__elementforecolor, str ) and self.__elementforecolor != '':
+            return self.__elementforecolor
+
+    @elementbackcolor.setter
+    def elementforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__elementforecolor = value
+
+    @property
+    def textforecolor( self ):
+        if isinstance( self.__themetextcolor, str ) and self.__themetextcolor != '':
+            return self.__themetextcolor
+
+    @textforecolor.setter
+    def textforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__themetextcolor = value
+
+    @property
+    def textbackcolor( self ):
+        if isinstance( self.__textbackcolor, str ) and self.__textbackcolor != '':
+            return self.__textbackcolor
+
+    @textbackcolor.setter
+    def textbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__textbackcolor = value
+
+    @property
+    def inputbackcolor( self ):
+        if isinstance( self.__inputbackcolor, str ) and self.__inputbackcolor != '':
+            return self.__inputbackcolor
+
+    @inputbackcolor.setter
+    def inputbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__inputbackcolor = value
+
+    @property
+    def inputforecolor( self ):
+        if isinstance( self.__inputforecolor, str ) and self.__inputforecolor != '':
+            return self.__inputforecolor
+
+    @inputforecolor.setter
+    def inputforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__inputforecolor = value
+
+    @property
+    def buttoncolor( self ):
+        if isinstance( self.__buttoncolor, str ) and self.__buttoncolor != '':
+            return self.__buttoncolor
+
+    @buttoncolor.setter
+    def buttoncolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__buttoncolor = value
+
+    @property
+    def formsize( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @formsize.setter
+    def formsize( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    @property
+    def iconpath( self ):
+        if isinstance( self.__iconpath, str ) and self.__iconpath != '':
+            return self.__iconpath
+
+    @iconpath.setter
+    def iconpath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__iconpath = value
+
+    @property
+    def themefont( self ):
+        if isinstance( self.__themefont, tuple ) :
+            return self.__themefont
+
+    @themefont.setter
+    def themefont( self, value ):
+        if isinstance( value, tuple ) :
+            self.__themefont = value
+
+    def __init__( self ):
+        self.__themebackground = '#0F0F0F'
+        self.__themetextcolor = '#D3D3D3'
+        self.__elementbackcolor = '#0F0F0F'
+        self.__elementforecolor = '#D3D3D3'
+        self.__textbackcolor = '#0F0F0F'
+        self.__inputforecolor = '#FFFFFF'
+        self.__inputbackcolor = '#282828'
+        self.__buttoncolor = '#163754'
+        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__themefont = ( 'Roboto', 9 )
+        self.__formsize = ( 960, 450 )
+
+    def show( self ):
+        theme_dict = {'BACKGROUND': '#2B475D',
+                      'TEXT': '#FFFFFF',
+                      'INPUT': '#F2EFE8',
+                      'TEXT_INPUT': '#000000',
+                      'SCROLL': '#F2EFE8',
+                      'BUTTON': ('#000000', '#C2D4D8'),
+                      'PROGRESS': ('#FFFFFF', '#C7D5E0'),
+                      'BORDER': 0,'SLIDER_DEPTH': 0, 'PROGRESS_DEPTH': 0}
+
+        sg.theme_add_new('Dashboard', theme_dict)
+        sg.theme('Dashboard')
+
+        BORDER_COLOR = '#C7D5E0'
+        DARK_HEADER_COLOR = '#1B2838'
+        BPAD_TOP = ((20,20), (20, 10))
+        BPAD_LEFT = ((20,10), (0, 0))
+        BPAD_LEFT_INSIDE = (0, (10, 0))
+        BPAD_RIGHT = ((10,20), (10, 0))
+
+        top_banner = [
+                [sg.Text('Dashboard', font='Any 20', background_color=DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
+                 sg.Text('Wednesday 27 Oct 2021', font='Any 20', background_color=DARK_HEADER_COLOR)],
+        ]
+
+        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Any 20'), sg.Push()],
+                [sg.T('This Frame has a relief while the others do not')],
+                [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
+
+        block_3 = [[sg.Text('Block 3', font='Any 20')],
+                   [sg.Input(), sg.Text('Some Text')],
+                   [sg.T('This frame has element_justification="c"')],
+                   [sg.Button('Go'), sg.Button('Exit')]  ]
+
+
+        block_2 = [[sg.Text('Block 2', font='Any 20')],
+                   [sg.T('This is some random text')],
+                   [sg.Image(data=sg.DEFAULT_BASE64_ICON, enable_events=True)]  ]
+
+        block_4 = [[sg.Text('Block 4', font='Any 20')],
+                   [sg.T('You can move the window by grabbing this block (and the top banner)')],
+                   [sg.T('This block is a Column Element')],
+                   [sg.T('The others are all frames')],
+                   [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
+                   [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
+
+
+        layout = [
+                [sg.Frame('', top_banner,   pad=(0,0), background_color=DARK_HEADER_COLOR,  expand_x=True, border_width=0, grab=True)],
+                [sg.Frame('', top, size=(920, 100), pad=BPAD_TOP,  expand_x=True,  relief=sg.RELIEF_GROOVE, border_width=3)],
+                [sg.Frame('', [[sg.Frame('', block_2, size=(450,150), pad=BPAD_LEFT_INSIDE, border_width=0, expand_x=True, expand_y=True, )],
+                               [sg.Frame('', block_3, size=(450,150),  pad=BPAD_LEFT_INSIDE, border_width=0, expand_x=True, expand_y=True, element_justification='c')]],
+                    pad=BPAD_LEFT, background_color=BORDER_COLOR, border_width=0, expand_x=True, expand_y=True),
+                 sg.Column(block_4, size=(450, 320), pad=BPAD_RIGHT,  expand_x=True, expand_y=True, grab=True),],[sg.Sizegrip(background_color=BORDER_COLOR)]]
+
+        window = sg.Window('Dashboard PySimpleGUI-Style', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, resizable=True, right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT)
+
+        while True:             # Event Loop
+            event, values = window.read()
+            print(event, values)
+            if event == sg.WIN_CLOSED or event == 'Exit':
+                break
+            elif event == 'Edit Me':
+                sg.execute_editor(__file__)
+            elif event == 'Version':
+                sg.popup_scrolled(sg.get_versions(), keep_on_top=True)
+            elif event == 'File Location':
+                sg.popup_scrolled('This Python file is:', __file__)
+        window.close()
