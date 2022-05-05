@@ -47,7 +47,7 @@ class ButtonIcon( ):
 
     def __init__( self, png ):
         self.__name = png.name if isinstance( png, PNG ) else None
-        self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
+        self.__button = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\button'
         self.__filepath = self.__button + r'\\' + self.__name + '.png'
 
     def __str__( self ):
@@ -94,7 +94,7 @@ class TitleIcon( ):
 
     def __init__( self, ico ):
         self.__name = ico.name if isinstance( ico, ICO ) else None
-        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\ico'
+        self.__folder = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico'
         self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
     def __str__( self ):
@@ -246,7 +246,7 @@ class FileDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -429,7 +429,7 @@ class FolderDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -614,7 +614,7 @@ class Message( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
@@ -804,7 +804,7 @@ class Error( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 500, 250 )
 
@@ -992,7 +992,7 @@ class Input( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -1166,7 +1166,7 @@ class ContactForm( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -1377,7 +1377,7 @@ class GridForm( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__fieldwidth = ( 17, 1 )
         self.__rows = rows
@@ -1548,8 +1548,8 @@ class Loading( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loading.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1715,8 +1715,8 @@ class Waiting( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1883,8 +1883,8 @@ class Processing( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\processing.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -2284,7 +2284,7 @@ class PdfViewer( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
@@ -2545,7 +2545,7 @@ class CalendarDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -2950,7 +2950,7 @@ class ListDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 200, 225 )
 
@@ -3140,7 +3140,7 @@ class ColorDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
@@ -3289,7 +3289,7 @@ class SaveDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
@@ -3438,7 +3438,7 @@ class Dashboard( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 960, 450 )
 
