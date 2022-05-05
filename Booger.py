@@ -2303,8 +2303,9 @@ class PdfViewer( ):
             icon = self.__icon )
 
         if filename is None:
-            sg.popup_cancel( 'Cancelling' )
+            sg.popup_cancel( 'Cancelling', icon = self.__icon  )
             exit( 0 )
+
         document = fitz.open( filename )
         pages = len( document )
         tablist = [ None ] * pages
@@ -2315,6 +2316,7 @@ class PdfViewer( ):
             if not displaylist:
                 tablist[ pno ] = document[ pno ].getDisplayList( )
                 displaylist = tablist[ pno ]
+
             r = displaylist.rect
             mp = r.tl + ( r.br - r.tl ) * 0.5
             mt = r.tl + ( r.tr - r.tl ) * 0.5
@@ -2322,6 +2324,7 @@ class PdfViewer( ):
             mr = r.tr + ( r.br - r.tr ) * 0.5
             mb = r.bl + ( r.br - r.bl ) * 0.5
             mat = fitz.Matrix( 2, 2 )
+
             if zoom == 1:
                 clip = fitz.Rect( r.tl, mp )
             elif zoom == 4:
@@ -2333,23 +2336,31 @@ class PdfViewer( ):
             if zoom == 0:
                 pix = displaylist.getPixmap( alpha = False )
             else:
-                pix = displaylist.getPixmap( alpha = False, matrix = mat, clip = clip )
+                pix = displaylist.getPixmap( alpha = False,
+                    matrix = mat, clip = clip )
+
             return pix.getPNGData( )
 
         currentpage = 0
         data = get_page( currentpage )
         image_elem = sg.Image( data = data )
-        goto = sg.InputText( str( currentpage + 1 ), size = (5, 1) )
+        goto = sg.InputText( str( currentpage + 1 ), size = ( 5, 1 ) )
+
         layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ), sg.Text( 'Page:' ), goto, ],
                    [ sg.Text( 'Zoom:' ), sg.Button( 'Top-L' ), sg.Button( 'Top-R' ), sg.Button( 'Bot-L' ),  sg.Button( 'Bot-R' ), ],
                    [ image_elem ],  ]
-        pdfkeys = ('Next', 'Next:34', 'Prev', 'Prior:33', 'Top-L', 'Top-R', 'Bot-L', 'Bot-R', 'MouseWheel:Down', 'MouseWheel:Up')
-        zoombuttons = ('Top-L', 'Top-R', 'Bot-L', 'Bot-R')
+
+        pdfkeys = ( 'Next', 'Next:34', 'Prev', 'Prior:33',
+            'Top-L', 'Top-R', 'Bot-L', 'Bot-R', 'MouseWheel:Down', 'MouseWheel:Up' )
+        zoombuttons = ( 'Top-L', 'Top-R', 'Bot-L', 'Bot-R' )
         window = sg.Window( title, layout,
             return_keyboard_events = True,
+            icon = self.__icon,
             use_default_focus = False )
+
         oldpage = 0
         oldzoom = 0
+
         while True:
             event, values = window.read( timeout = 100 )
             zoom = 0
