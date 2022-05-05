@@ -38,10 +38,10 @@
     <codeStyleSettings language="Python">
       <option name="RIGHT_MARGIN" value="100" />
       <option name="KEEP_BLANK_LINES_IN_CODE" value="0" />
-      <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
-      <option name="ALIGN_MULTILINE_PARAMETERS_IN_CALLS" value="false" />
       <option name="SPACE_WITHIN_METHOD_CALL_PARENTHESES" value="true" />
+      <option name="SPACE_WITHIN_EMPTY_METHOD_CALL_PARENTHESES" value="true" />
       <option name="SPACE_WITHIN_METHOD_PARENTHESES" value="true" />
+      <option name="SPACE_WITHIN_EMPTY_METHOD_PARENTHESES" value="true" />
       <option name="SPACE_WITHIN_BRACKETS" value="true" />
       <option name="WRAP_LONG_LINES" value="true" />
       <indentOptions>
