@@ -6,6 +6,7 @@ from Ninja import *
 from Static import *
 import textwrap
 import datetime
+import random
 
 
 # ButtonIcon( png )
@@ -653,7 +654,7 @@ class Message( ):
 
 
 # Error( exception )
-class Error( ):
+class ErrorDialog( ):
     '''class that displays error message'''
     __message = None
     __cause = None
@@ -806,7 +807,7 @@ class Error( ):
         self.__buttoncolor = '#163754'
         self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
-        self.__formsize = ( 500, 250 )
+        self.__formsize = ( 500, 275 )
 
     def __str__( self ):
         if isinstance( self.__message, str ):
@@ -821,16 +822,14 @@ class Error( ):
         sg.theme_input_background_color( self.__inputbackcolor )
         sg.theme_text_color( self.__themetextcolor )
         sg.theme_button_color( self.__buttoncolor )
-        layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( self.__message, font = ( 'Roboto', 9, 'bold' ), text_color = '#80091B' ) ],
+        layout = [ [ sg.Text( r'', size = ( 150, 1 ) ) ],
+                   [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 80, 1 ) ) ],
+                   [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 80, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 150, 1 ) ) ],
+                   [ sg.Multiline( self.__message, size = ( 80, 7 ) ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( r'', size = (5, 1) ), sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 150, 1 ) ) ],
-                   [ sg.Text( r'', size = (5, 1) ), sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 150, 1 ) ) ],
-                   [ sg.Text( r'', size = (5, 1) ), sg.Text( 'Message:', size = ( 10, 1 ) ), sg.Text( self.__message, size = ( 150, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [ sg.Text( r'', size = ( 15, 1 ) ), sg.Text( r'', size = ( 15, 1 ) ),
-                      sg.Text( r'', size = ( 15, 1 ) ), sg.Ok( size = ( 10, 1 ), key = '-OK-' ) ] ]
+                   [ sg.Text( r'', size = ( 20, 1 ) ), sg.Cancel( size = ( 15, 1 ) ),
+                     sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
 
         window = sg.Window( r'  Budget Execution', layout,
             icon = self.__icon,
@@ -846,7 +845,7 @@ class Error( ):
 
 
 # Input( question )
-class Input( ):
+class InputDialog( ):
     '''class that produces a contact input form'''
     __question = None
     __response = None
@@ -1414,7 +1413,7 @@ class GridForm( ):
         window.close( )
 
 
-class Loading( ):
+class LoadingPanel( ):
     '''object providing form loading behavior '''
     __themebackground = None
     __elementbackcolor = None
@@ -1581,7 +1580,7 @@ class Loading( ):
         window.close()
 
 
-class Waiting( ):
+class WaitingPanel( ):
     '''object providing form loader behavior '''
     __themebackground = None
     __elementbackcolor = None
@@ -1749,7 +1748,7 @@ class Waiting( ):
         window.close()
 
 
-class Processing( ):
+class ProcessingPanel( ):
     '''object providing form processing behavior '''
     __themebackground = None
     __elementbackcolor = None
@@ -2151,7 +2150,7 @@ class Notification( ):
             display_notification( title, message, img_success, 10000, use_fade_in = True )
 
 
-class PdfViewer( ):
+class PdfForm( ):
     '''Creates form to view a PDF'''
     __themebackground = None
     __elementbackcolor = None
@@ -3145,7 +3144,7 @@ class ColorDialog( ):
         self.__formsize = ( 400, 200 )
 
 
-class SaveDialog( ):
+class SaveFileDialog( ):
     '''class provides form to located file destinations'''
     __themebackground = None
     __elementbackcolor = None
@@ -3293,6 +3292,35 @@ class SaveDialog( ):
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
+    def show( self ):
+        sg.theme_background_color( self.__themebackground )
+        sg.theme_element_background_color( self.__elementbackcolor )
+        sg.theme_element_text_color( self.__elementforecolor )
+        sg.theme_input_text_color( self.__inputforecolor )
+        sg.theme_text_element_background_color( self.__textbackcolor )
+        sg.theme_input_background_color( self.__inputbackcolor )
+        sg.theme_text_color( self.__themetextcolor )
+        sg.theme_button_color( self.__buttoncolor )
+
+        layout = [ [ sg.Text( r'' ) ],
+                   [ sg.Text( 'Save As' ) ],
+                   [ sg.Text( r'' ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                   [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
+
+        window = sg.Windo(  'Budget Execution', layout,
+            font = self.__themefont,
+            icon = self.__icon,
+            size = self.__formsize )
+
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
+                break
+
+        window.close( )
+
 
 class Dashboard( ):
     '''class defining basic dashboard for the application'''
@@ -3307,17 +3335,28 @@ class Dashboard( ):
     __icon = None
     __formsize = None
     __themefont = None
-    __text = None
+    __title = None
+    __header = None
 
     @property
-    def text( self ):
-        if isinstance( self.__text, str ) and self.__text != '':
-            return self.__text
+    def title( self ):
+        if isinstance( self.__title, str ) and self.__title != '':
+            return self.__title
 
-    @text.setter
-    def text( self, value ):
+    @title.setter
+    def title( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__text = value
+            self.__title = value
+
+    @property
+    def header( self ):
+        if isin( self.__header, str ) and self.__header != '':
+            return self.__header
+
+    @header.setter
+    def header( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__header = value
 
     @property
     def themebackground( self ):
@@ -3511,3 +3550,191 @@ class Dashboard( ):
             elif event == 'File Location':
                 sg.popup_scrolled('This Python file is:', __file__)
         window.close()
+
+
+class ChartPanel( ):
+    ''' Provides form with a bar chart '''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+
+    @property
+    def header( self ):
+        if isin( self.__header, str ) and self.__header != '':
+            return self.__header
+
+    @header.setter
+    def header( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__header = value
+
+    @property
+    def themebackground( self ):
+        if isinstance( self.__themebackground, str ) and self.__themebackground != '':
+            return self.__themebackground
+
+    @themebackground.setter
+    def themebackground( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__themebackground = value
+
+    @property
+    def elementbackcolor( self ):
+        if isinstance( self.__elementbackcolor, str ) and self.__elementbackcolor != '':
+            return self.__elementbackcolor
+
+    @elementbackcolor.setter
+    def elementbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__elementbackcolor = value
+
+    @property
+    def elementforecolor( self ):
+        if isinstance( self.__elementforecolor, str ) and self.__elementforecolor != '':
+            return self.__elementforecolor
+
+    @elementbackcolor.setter
+    def elementforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__elementforecolor = value
+
+    @property
+    def textforecolor( self ):
+        if isinstance( self.__themetextcolor, str ) and self.__themetextcolor != '':
+            return self.__themetextcolor
+
+    @textforecolor.setter
+    def textforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__themetextcolor = value
+
+    @property
+    def textbackcolor( self ):
+        if isinstance( self.__textbackcolor, str ) and self.__textbackcolor != '':
+            return self.__textbackcolor
+
+    @textbackcolor.setter
+    def textbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__textbackcolor = value
+
+    @property
+    def inputbackcolor( self ):
+        if isinstance( self.__inputbackcolor, str ) and self.__inputbackcolor != '':
+            return self.__inputbackcolor
+
+    @inputbackcolor.setter
+    def inputbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__inputbackcolor = value
+
+    @property
+    def inputforecolor( self ):
+        if isinstance( self.__inputforecolor, str ) and self.__inputforecolor != '':
+            return self.__inputforecolor
+
+    @inputforecolor.setter
+    def inputforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__inputforecolor = value
+
+    @property
+    def buttoncolor( self ):
+        if isinstance( self.__buttoncolor, str ) and self.__buttoncolor != '':
+            return self.__buttoncolor
+
+    @buttoncolor.setter
+    def buttoncolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__buttoncolor = value
+
+    @property
+    def formsize( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @formsize.setter
+    def formsize( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    @property
+    def iconpath( self ):
+        if isinstance( self.__iconpath, str ) and self.__iconpath != '':
+            return self.__iconpath
+
+    @iconpath.setter
+    def iconpath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__iconpath = value
+
+    @property
+    def themefont( self ):
+        if isinstance( self.__themefont, tuple ) :
+            return self.__themefont
+
+    @themefont.setter
+    def themefont( self, value ):
+        if isinstance( value, tuple ) :
+            self.__themefont = value
+
+    def __init__( self ):
+        self.__themebackground = '#0F0F0F'
+        self.__themetextcolor = '#D3D3D3'
+        self.__elementbackcolor = '#0F0F0F'
+        self.__elementforecolor = '#D3D3D3'
+        self.__textbackcolor = '#0F0F0F'
+        self.__inputforecolor = '#FFFFFF'
+        self.__inputbackcolor = '#282828'
+        self.__buttoncolor = '#163754'
+        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__themefont = ( 'Roboto', 9 )
+        self.__formsize = ( 960, 450 )
+
+    def show( self ):
+        self.__themebackground = '#0F0F0F'
+        self.__themetextcolor = '#D3D3D3'
+        self.__elementbackcolor = '#0F0F0F'
+        self.__elementforecolor = '#D3D3D3'
+        self.__textbackcolor = '#0F0F0F'
+        self.__inputforecolor = '#FFFFFF'
+        self.__inputbackcolor = '#282828'
+        self.__buttoncolor = '#163754'
+        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__themefont = ( 'Roboto', 9 )
+        BAR_WIDTH = 50
+        BAR_SPACING = 75
+        EDGE_OFFSET = 3
+        GRAPH_SIZE= DATA_SIZE = ( 500,500 )
+
+        layout = [[ sg.Text(' Labelled Bar graphs using PySimpleGUI' ) ],
+                  [ sg.Graph( GRAPH_SIZE, ( 0,0 ), DATA_SIZE, k='-GRAPH-' ) ],
+                  [ sg.Button( 'OK' ), sg.T( 'Click to display more data' ), sg.Exit( ) ] ]
+
+        window = sg.Window( 'Bar Graph', layout, finalize = True )
+        graph = window[ '-GRAPH-' ]
+
+        while True:
+            graph.erase( )
+            for i in range( 7 ):
+                graph_value = random.randint( 0, GRAPH_SIZE[ 1 ] )
+                graph.draw_rectangle( top_left = ( i * BAR_SPACING + EDGE_OFFSET, graph_value ),
+                    bottom_right = (i * BAR_SPACING + EDGE_OFFSET + BAR_WIDTH, 0 ),
+                    fill_color = sg.theme_button_color( )[ 1 ] )
+
+                graph.draw_text( text = graph_value,
+                    location = ( i*BAR_SPACING+EDGE_OFFSET+25, graph_value+10 ) )
+
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, 'Exit' ):
+                break
+
+        window.close( )
