@@ -48,7 +48,7 @@ class ButtonIcon( ):
 
     def __init__( self, png ):
         self.__name = png.name if isinstance( png, PNG ) else None
-        self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
+        self.__button = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\button'
         self.__filepath = self.__button + r'\\' + self.__name + '.png'
 
     def __str__( self ):
@@ -95,7 +95,7 @@ class TitleIcon( ):
 
     def __init__( self, ico ):
         self.__name = ico.name if isinstance( ico, ICO ) else None
-        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\ico'
+        self.__folder = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico'
         self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
     def __str__( self ):
@@ -247,7 +247,7 @@ class FileDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -430,7 +430,7 @@ class FolderDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -615,7 +615,7 @@ class Message( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
@@ -805,7 +805,7 @@ class ErrorDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 500, 275 )
 
@@ -991,7 +991,7 @@ class InputDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -1165,7 +1165,7 @@ class ContactForm( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -1376,7 +1376,7 @@ class GridForm( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__fieldwidth = ( 17, 1 )
         self.__rows = rows
@@ -1547,8 +1547,8 @@ class LoadingPanel( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loading.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1714,8 +1714,8 @@ class WaitingPanel( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1882,8 +1882,8 @@ class ProcessingPanel( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\processing.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -2283,7 +2283,7 @@ class PdfForm( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
@@ -2544,7 +2544,7 @@ class CalendarDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
 
@@ -2949,7 +2949,7 @@ class ListDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 200, 225 )
 
@@ -3139,7 +3139,7 @@ class ColorDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
@@ -3288,7 +3288,7 @@ class SaveFileDialog( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 400, 200 )
 
@@ -3477,55 +3477,58 @@ class Dashboard( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 960, 450 )
 
     def show( self ):
-        theme_dict = {'BACKGROUND': '#2B475D',
-                      'TEXT': '#FFFFFF',
-                      'INPUT': '#F2EFE8',
-                      'TEXT_INPUT': '#000000',
-                      'SCROLL': '#F2EFE8',
-                      'BUTTON': ('#000000', '#C2D4D8'),
-                      'PROGRESS': ('#FFFFFF', '#C7D5E0'),
-                      'BORDER': 0,'SLIDER_DEPTH': 0, 'PROGRESS_DEPTH': 0}
+        BORDER_COLOR = '#22262E'
+        DARK_HEADER_COLOR = self.__buttoncolor
+        BPAD_TOP = ( ( 20,20 ), ( 20, 10 ) )
+        BPAD_LEFT = ( ( 20,10 ), ( 0, 0 ) )
+        BPAD_LEFT_INSIDE = ( 0, ( 10, 0 ) )
+        BPAD_RIGHT = ( ( 10,20 ), ( 10, 0 ) )
 
-        sg.theme_add_new('Dashboard', theme_dict)
-        sg.theme('Dashboard')
+        theme_dict = { 'BACKGROUND': self.__elementbackcolor,
+                        'TEXT': self.__themetextcolor,
+                        'INPUT': self.__inputbackcolor,
+                        'TEXT_INPUT': self.__inputforecolor,
+                        'SCROLL': self.__buttoncolor,
+                        'BUTTON': self.__buttoncolor,
+                        'PROGRESS': ( 'Blue', '#C7D5E0' ),
+                        'BORDER': 0,
+                        'SLIDER_DEPTH': 0,
+                        'PROGRESS_DEPTH': 0 }
 
-        BORDER_COLOR = '#C7D5E0'
-        DARK_HEADER_COLOR = '#1B2838'
-        BPAD_TOP = ((20,20), (20, 10))
-        BPAD_LEFT = ((20,10), (0, 0))
-        BPAD_LEFT_INSIDE = (0, (10, 0))
-        BPAD_RIGHT = ((10,20), (10, 0))
+        sg.theme_add_new( 'Dashboard', theme_dict )
+        sg.theme( 'Dashboard' )
 
         top_banner = [
-                [sg.Text('Dashboard', font='Any 20', background_color=DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
-                 sg.Text('Wednesday 27 Oct 2021', font='Any 20', background_color=DARK_HEADER_COLOR)],
+                [sg.Text('Budget Execution', font='Any 20', background_color = DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
+                 sg.Text( 'Wednesday 27 Oct 2021', font='Any 20', background_color = DARK_HEADER_COLOR ) ],
         ]
 
         top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Any 20'), sg.Push()],
                 [sg.T('This Frame has a relief while the others do not')],
                 [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
 
-        block_3 = [[sg.Text('Block 3', font='Any 20')],
-                   [sg.Input(), sg.Text('Some Text')],
-                   [sg.T('This frame has element_justification="c"')],
-                   [sg.Button('Go'), sg.Button('Exit')]  ]
+        block_3 = [ [ sg.Text( 'Block 3', font='Any 20' ) ],
+                    [ sg.Input( ), sg.Text( 'Some Text' ) ],
+                    [ sg.T( 'This frame has element_justification="c"' ) ],
+                    [ sg.Button('Go', button_color = self.__buttoncolor, size = ( 10, 1 ) ),
+                      sg.Button( 'Exit', button_color = self.__buttoncolor, size = ( 10, 1 ) ) ]  ]
 
 
-        block_2 = [[sg.Text('Block 2', font='Any 20')],
-                   [sg.T('This is some random text')],
-                   [sg.Image(data=sg.DEFAULT_BASE64_ICON, enable_events=True)]  ]
+        block_2 = [ [ sg.Text( 'Block 2', font='Any 20' ) ],
+                    [ sg.T( 'This is some random text' ) ],
+                    [ sg.Image( data=sg.DEFAULT_BASE64_ICON, enable_events=True ) ] ]
 
-        block_4 = [[sg.Text('Block 4', font='Any 20')],
-                   [sg.T('You can move the window by grabbing this block (and the top banner)')],
-                   [sg.T('This block is a Column Element')],
-                   [sg.T('The others are all frames')],
-                   [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
-                   [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
+        block_4 = [ [ sg.Text('Block 4', font='Any 20')],
+                    [ sg.T('You can move the window by grabbing this block (and the top banner)')],
+                    [ sg.T('This block is a Column Element')],
+                    [ sg.T('The others are all frames')],
+                    [ sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
+                    [ sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
 
 
         layout = [
@@ -3536,20 +3539,25 @@ class Dashboard( ):
                     pad=BPAD_LEFT, background_color=BORDER_COLOR, border_width=0, expand_x=True, expand_y=True),
                  sg.Column(block_4, size=(450, 320), pad=BPAD_RIGHT,  expand_x=True, expand_y=True, grab=True),],[sg.Sizegrip(background_color=BORDER_COLOR)]]
 
-        window = sg.Window('Dashboard PySimpleGUI-Style', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, resizable=True, right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT)
+        window = sg.Window( 'Budget Execution', layout,
+            margins = ( 0,0 ),
+            background_color = BORDER_COLOR,
+            no_titlebar = True,
+            resizable = True,
+            right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
 
-        while True:             # Event Loop
-            event, values = window.read()
-            print(event, values)
+        while True:
+            event, values = window.read( )
+            print( event, values )
             if event == sg.WIN_CLOSED or event == 'Exit':
                 break
             elif event == 'Edit Me':
-                sg.execute_editor(__file__)
+                sg.execute_editor( __file__ )
             elif event == 'Version':
-                sg.popup_scrolled(sg.get_versions(), keep_on_top=True)
+                sg.popup_scrolled( sg.get_versions( ), keep_on_top=True )
             elif event == 'File Location':
-                sg.popup_scrolled('This Python file is:', __file__)
-        window.close()
+                sg.popup_scrolled( 'This Python file is:', __file__ )
+        window.close( )
 
 
 class ChartPanel( ):
@@ -3695,7 +3703,7 @@ class ChartPanel( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 960, 450 )
 
@@ -3708,7 +3716,7 @@ class ChartPanel( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         BAR_WIDTH = 50
         BAR_SPACING = 75
@@ -3719,7 +3727,11 @@ class ChartPanel( ):
                   [ sg.Graph( GRAPH_SIZE, ( 0,0 ), DATA_SIZE, k='-GRAPH-' ) ],
                   [ sg.Button( 'OK' ), sg.T( 'Click to display more data' ), sg.Exit( ) ] ]
 
-        window = sg.Window( 'Bar Graph', layout, finalize = True )
+        window = sg.Window( 'Budget Execution', layout,
+            finalize = True,
+            icon = self.__icon,
+            font = self.__themefont )
+
         graph = window[ '-GRAPH-' ]
 
         while True:
