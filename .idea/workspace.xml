@@ -96,7 +96,7 @@
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/source/repos/BudgetPy&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
@@ -163,13 +163,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00042" summary="updates from main rig;">
-      <created>1651353150383</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1651353150383</updated>
     </task>
     <task id="LOCAL-00043" summary="updates from main rig;">
       <created>1651363732520</created>
@@ -507,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651857395780</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="from other rig;">
+      <created>1651865745945</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1651865745945</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
