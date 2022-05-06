@@ -533,8 +533,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="updates from work rig;" />
-    <MESSAGE value="from other rig;" />
     <MESSAGE value="updates from main rig;" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;" />
+    <MESSAGE value="from other rig;" />
+    <option name="LAST_COMMIT_MESSAGE" value="from other rig;" />
   </component>
 </project>
