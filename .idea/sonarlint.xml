@@ -3,6 +3,6 @@
   <component name="SonarLintProjectSettings">
     <option name="bindingEnabled" value="true" />
     <option name="projectKey" value="KarmaScripter_BudgetPy" />
-    <option name="serverId" value="Budget" />
+    <option name="serverId" value="BudgetPy" />
   </component>
 </project>
