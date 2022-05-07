@@ -8,84 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/LICENSE.APACHE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/LICENSE.BSD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/LICENSE.PSF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.2.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.5.1.dist-info/COPYING" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.5.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.5.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.5.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.5.1.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.5.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.5.1.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.5.1.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/jsonschema.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/LICENSE.APACHE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/LICENSE.BSD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/LICENSE.PSF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-37.0.1.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography/__about__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography/__about__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography/hazmat/bindings/_openssl.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography/hazmat/bindings/_openssl.pyd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography/hazmat/bindings/_rust.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography/hazmat/bindings/_rust.pyd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography/hazmat/bindings/openssl/_conditional.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography/hazmat/bindings/openssl/_conditional.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.4.0.dist-info/COPYING" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.4.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.4.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.4.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.4.0.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.4.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.4.0.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema-4.4.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_format.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_format.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_legacy_validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_legacy_validators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_reflect.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_reflect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_types.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/_validators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/benchmarks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/benchmarks/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/benchmarks/issue232.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/benchmarks/issue232.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/benchmarks/json_schema_test_suite.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/benchmarks/json_schema_test_suite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/protocols.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/protocols.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft2019-09.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft2019-09.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft2020-12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft2020-12.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/draft7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/vocabularies.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/schemas/vocabularies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/_helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/_helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/_suite.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/_suite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/fuzz_validate.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/fuzz_validate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_deprecations.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_deprecations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_format.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_format.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_jsonschema_test_suite.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_jsonschema_test_suite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_types.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/tests/test_validators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/jsonschema/validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/jsonschema/validators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +41,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -172,7 +98,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "MTProjectConfigurable"
+    "settings.editor.selected.configurable": "vcs.Git"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -184,9 +110,9 @@
 }]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings custom-start-script="" module-name="BudgetPy" is-module-sdk="true" working-directory="$PROJECT_DIR$">
+      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\repos\BudgetPy\venv\python.exe" working-directory="$PROJECT_DIR$">
         <option name="myCustomStartScript" value="" />
-        <option name="myUseModuleSdk" value="true" />
+        <option name="mySdkHome" value="C:\Users\terry\source\repos\BudgetPy\venv\python.exe" />
         <option name="myModuleName" value="BudgetPy" />
         <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
         <option name="myAddContentRoots" value="false" />
@@ -239,13 +165,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00043" summary="updates from main rig;">
-      <created>1651363732520</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1651363732520</updated>
     </task>
     <task id="LOCAL-00044" summary="updates from main rig;">
       <created>1651367621229</created>
@@ -583,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651873199301</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="updates from main rig;">
+      <created>1651875237714</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1651875237714</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
