@@ -2409,7 +2409,7 @@ class PdfForm( ):
             if event in pdfkeys or not values[ 0 ]:
                 goto.update( str( currentpage + 1 ) )
 
-
+# CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( ):
     '''class creates form providing date selection behavior'''
     __themebackground = None
@@ -2563,7 +2563,7 @@ class CalendarDialog( ):
         months = [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL',
         'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ]
 
-        days = [ 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN' ]
+        days = [ 'SUN', 'MON', 'TUE', 'WEC', 'THU', 'FRI', 'SAT' ]
 
         cal = sg.popup_get_date( title = 'Calendar',
                                  no_titlebar = False,
@@ -2571,12 +2571,6 @@ class CalendarDialog( ):
                                  month_names = months,
                                  day_abbreviations = days,
                                  close_when_chosen = True )
-
-        sg.popup_no_buttons( f'Month: { cal[ 0 ] }, Day: { cal[ 1 ] }, Year: { cal[ 2 ] }',
-            no_titlebar = False,
-            icon = self.__icon,
-            background_color = self.__themebackground,
-            text_color = self.__elementforecolor )
 
 
 class DatePanel( ):
@@ -2907,6 +2901,7 @@ class DatePanel( ):
             main( location )
 
 
+# ListDialog( data )
 class ListDialog( ):
     '''List search and selection'''
     __themebackground = None
@@ -3819,32 +3814,35 @@ class ChartPanel( ):
         self.__buttoncolor = '#163754'
         self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
-        self.__formsize = ( 960, 450 )
+        self.__formsize = ( 700, 600 )
 
     def show( self ):
-        self.__themebackground = '#0F0F0F'
-        self.__themetextcolor = '#D3D3D3'
-        self.__elementbackcolor = '#0F0F0F'
-        self.__elementforecolor = '#D3D3D3'
-        self.__textbackcolor = '#0F0F0F'
-        self.__inputforecolor = '#FFFFFF'
-        self.__inputbackcolor = '#282828'
-        self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
-        self.__themefont = ( 'Roboto', 9 )
+        sg.theme_background_color( self.__themebackground )
+        sg.theme_element_background_color( self.__elementbackcolor )
+        sg.theme_element_text_color( self.__elementforecolor )
+        sg.theme_input_text_color( self.__inputforecolor )
+        sg.theme_text_element_background_color( self.__textbackcolor )
+        sg.theme_input_background_color( self.__inputbackcolor )
+        sg.theme_text_color( self.__themetextcolor )
+        sg.theme_button_color( self.__buttoncolor )
+        __buttonsize = ( 15, 1 )
         BAR_WIDTH = 50
         BAR_SPACING = 75
         EDGE_OFFSET = 3
-        GRAPH_SIZE= DATA_SIZE = ( 500,500 )
+        GRAPH_SIZE = DATA_SIZE = ( 600, 500 )
 
-        layout = [[ sg.Text(' Labelled Bar graphs using PySimpleGUI' ) ],
-                  [ sg.Graph( GRAPH_SIZE, ( 0,0 ), DATA_SIZE, k='-GRAPH-' ) ],
-                  [ sg.Button( 'OK' ), sg.T( 'Click to display more data' ), sg.Exit( ) ] ]
+        layout = [ [ sg.Text( '', size = ( 10, 1 ) ), sg.Text( '', size = ( 100, 1 ) ) ],
+                   [ sg.Text( '', size = ( 10, 1 ) ), sg.Graph( GRAPH_SIZE, ( 0,0 ), DATA_SIZE, k='-GRAPH-', pad = 3 ) ],
+                   [ sg.Text( '', size = ( 10, 1 ) ), sg.Text( '', size = ( 100, 1 ) ) ],
+                   [ sg.Text( '', size = ( 20, 1 ) ), sg.Button( 'Next', size = __buttonsize ),
+                     sg.Text( '', size = ( 20, 1 ) ), sg.Exit( size = __buttonsize ) ] ]
 
         window = sg.Window( 'Budget Execution', layout,
             finalize = True,
             icon = self.__icon,
-            font = self.__themefont )
+            font = self.__themefont,
+            size = self.__formsize,
+            resizable = True )
 
         graph = window[ '-GRAPH-' ]
 
@@ -3854,10 +3852,10 @@ class ChartPanel( ):
                 graph_value = random.randint( 0, GRAPH_SIZE[ 1 ] )
                 graph.draw_rectangle( top_left = ( i * BAR_SPACING + EDGE_OFFSET, graph_value ),
                     bottom_right = (i * BAR_SPACING + EDGE_OFFSET + BAR_WIDTH, 0 ),
-                    fill_color = sg.theme_button_color( )[ 1 ] )
+                    fill_color = self.__buttoncolor )
 
-                graph.draw_text( text = graph_value,
-                    location = ( i*BAR_SPACING+EDGE_OFFSET+25, graph_value+10 ) )
+                graph.draw_text( text = graph_value, color = self.__themetextcolor,
+                    location = ( i * BAR_SPACING + EDGE_OFFSET + 25, graph_value + 10 ) )
 
             event, values = window.read( )
             if event in ( sg.WIN_CLOSED, 'Exit' ):
