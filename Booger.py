@@ -1,5 +1,6 @@
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
+import fitz
 from sys import exit
 import Static
 from Ninja import *
@@ -7,6 +8,7 @@ from Static import *
 import textwrap
 import datetime
 import random
+import io
 
 
 # ButtonIcon( png )
@@ -2285,7 +2287,7 @@ class PdfForm( ):
         self.__buttoncolor = '#163754'
         self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
-        self.__formsize = ( 400, 200 )
+        self.__formsize = ( 600, 400 )
 
     def show( self ):
         sg.theme_background_color( self.__themebackground )
@@ -2297,8 +2299,13 @@ class PdfForm( ):
         sg.theme_text_color( self.__themetextcolor )
         sg.theme_button_color( self.__buttoncolor )
 
-        filename = sg.popup_get_file( 'Budget Execution PDF Browser', 'PDF file to open',
-            file_types = ( ( 'PDF Files', '*.pdf' ), ),
+        filename = sg.popup_get_file( 'Budget PDF', 'PDF file to open',
+            file_types = ( ("PDF Files", "*.pdf"),
+                           ("XPS Files", "*.*xps"),
+                           ("Epub Files", "*.epub"),
+                           ("Fiction Books", "*.fb2"),
+                           ("Comic Books", "*.cbz"),
+                           ("HTML",   "*.htm*") ),
             icon = self.__icon )
 
         if filename is None:
@@ -2313,7 +2320,7 @@ class PdfForm( ):
         def get_page( pno, zoom = 0 ):
             displaylist = tablist[ pno ]
             if not displaylist:
-                tablist[ pno ] = document[ pno ].getDisplayList( )
+                tablist[ pno ] = document[ pno ].get_displaylist( )
                 displaylist = tablist[ pno ]
 
             r = displaylist.rect
@@ -2333,12 +2340,12 @@ class PdfForm( ):
             elif zoom == 3:
                 clip = fitz.Rect( ml, mb )
             if zoom == 0:
-                pix = displaylist.getPixmap( alpha = False )
+                pix = displaylist.get_pixmap( alpha = False )
             else:
-                pix = displaylist.getPixmap( alpha = False,
+                pix = displaylist.get_pixmap( alpha = False,
                     matrix = mat, clip = clip )
 
-            return pix.getPNGData( )
+            return pix
 
         currentpage = 0
         data = get_page( currentpage )
@@ -2346,7 +2353,8 @@ class PdfForm( ):
         goto = sg.InputText( str( currentpage + 1 ), size = ( 5, 1 ) )
 
         layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ), sg.Text( 'Page:' ), goto, ],
-                   [ sg.Text( 'Zoom:' ), sg.Button( 'Top-L' ), sg.Button( 'Top-R' ), sg.Button( 'Bot-L' ),  sg.Button( 'Bot-R' ), ],
+                   [ sg.Text( 'Zoom:' ), sg.Button( 'Top-L' ), sg.Button( 'Top-R' ),
+                     sg.Button( 'Bot-L' ),  sg.Button( 'Bot-R' ), ],
                    [ image_elem ],  ]
 
         pdfkeys = ( 'Next', 'Next:34', 'Prev', 'Prior:33',
@@ -2408,6 +2416,7 @@ class PdfForm( ):
             oldzoom = zoom
             if event in pdfkeys or not values[ 0 ]:
                 goto.update( str( currentpage + 1 ) )
+
 
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( ):
