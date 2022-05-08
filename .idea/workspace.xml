@@ -8,8 +8,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/InfoDialog.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyAlarm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyContact.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyError.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyImportant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyInformation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyQuestion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyUrgent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/notify.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/question.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/ico/ninja.ico" beforeDir="false" afterPath="$PROJECT_DIR$/etc/ico/ninja.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/InfoDialog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyAlarm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyContact.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyError.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyImportant.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyInformation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyQuestion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyUrgent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/notify.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/question.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,23 +114,23 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/source/repos/BudgetPy&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\compilers\py\python\python.exe" working-directory="$PROJECT_DIR$">
@@ -162,13 +186,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00051" summary="updates from main rig;">
-      <created>1651416709870</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1651416709870</updated>
     </task>
     <task id="LOCAL-00052" summary="updates from main rig;">
       <created>1651421684912</created>
@@ -506,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652033704801</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="updates from main rig;">
+      <created>1652033922281</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1652033922296</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
