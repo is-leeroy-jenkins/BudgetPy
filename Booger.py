@@ -2338,7 +2338,7 @@ class WaitingPanel( ):
         interframe_duration = Image.open( self.__image ).info[ 'duration' ]
 
         while True:
-            for frame in ImageSequence.Iterator( Image.open( self.__image ).info ):
+            for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
                 event, values = window.read( timeout = interframe_duration )
                 if event == sg.WIN_CLOSED:
                     exit( 0 )
