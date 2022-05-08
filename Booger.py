@@ -10,6 +10,11 @@ import textwrap
 import datetime
 import random
 import io
+from googlesearch import search
+from Minion import App
+import smtplib as smtp
+from email.message import EmailMessage
+
 
 
 # ButtonIcon( png )
@@ -665,7 +670,7 @@ class SaveFileDialog( ):
             new = io.open( filename, 'w+' ).write( src )
 
 
-# GoogleDialog( ) -> list
+# GoogleDialog(  ) -> list
 class GoogleDialog( ):
     '''class that renames a folder'''
     __themebackground = None
@@ -679,7 +684,8 @@ class GoogleDialog( ):
     __icon = None
     __formsize = None
     __themefont = None
-    __folderpath = None
+    __image = None
+    __querytext = None
 
     @property
     def themebackground( self ):
@@ -792,14 +798,14 @@ class GoogleDialog( ):
             self.__themefont = value
 
     @property
-    def folderpath( self ):
-        if isinstance( self.__folderpath, str ) and self.__folderpath != '':
-            return self.__folderpath
+    def search( self ):
+        if isinstance( self.__querytext, str ) and self.__querytext != '':
+            return self.__querytext
 
-    @folderpath.setter
-    def folderpath( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__folderpath = value
+    @search.setter
+    def search( self, value ):
+        if isinstance( value, str ) and str != '':
+            self.__querytext = value
 
     def __init__( self ):
         self.__themebackground = '#0F0F0F'
@@ -813,6 +819,7 @@ class GoogleDialog( ):
         self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 450, 200 )
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\google.png'
 
     def __str__( self ):
         if isinstance( self.__filepath, str ):
@@ -828,8 +835,36 @@ class GoogleDialog( ):
         sg.theme_text_color( self.__themetextcolor )
         sg.theme_button_color( self.__buttoncolor )
 
+        layout =  [ [ sg.Text( r'' ) ],
+                    [ sg.Image( filename = self.__image ) ],
+                    [ sg.Text( '', size = ( 10, 1 ) ),
+                      sg.InputText( '', key = '-QUERY-', size = ( 40, 2 ) ) ],
+                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                    [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ) ),
+                      sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
 
-# EmailDialog( email )
+        window = sg.Window( 'Budget Execution', layout,
+            icon = self.__icon,
+            font = self.__themefont,
+            size = self.__formsize )
+
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel' ):
+                break
+            elif event == 'Submit':
+                self.__querytext = values[ '-QUERY-' ]
+                window.close( )
+                query = search( term = self.__querytext, num_results = 5, lang = 'en' )
+                chrome = Client.Chrome
+                app = App( chrome )
+                for result in query:
+                    app.runargs( result )
+
+        window.close( )
+
+
 class EmailDialog( ):
     '''class that renames a folder'''
     __themebackground = None
@@ -841,6 +876,7 @@ class EmailDialog( ):
     __inputforecolor = None
     __buttoncolor = None
     __icon = None
+    __image = None
     __formsize = None
     __themefont = None
     __folderpath = None
@@ -976,7 +1012,8 @@ class EmailDialog( ):
         self.__buttoncolor = '#163754'
         self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
-        self.__formsize = ( 450, 200 )
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__formsize = ( 600, 500 )
 
     def __str__( self ):
         if isinstance( self.__filepath, str ):
@@ -991,6 +1028,43 @@ class EmailDialog( ):
         sg.theme_input_background_color( self.__inputbackcolor )
         sg.theme_text_color( self.__themetextcolor )
         sg.theme_button_color( self.__buttoncolor )
+
+        layout = [ [ sg.T( ' ', size = ( 5, 1 ) ), ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), sg.Image( filename = self.__image ) ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), sg.T( 'From:', size = ( 20, 1 ) ), sg.Input( key = '-EMAIL FROM-', size = ( 35,1 ) ) ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), sg.T( 'To:', size = ( 20, 1 ) ), sg.Input(key = '-EMAIL TO-', size = ( 35,1 ) ) ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), sg.T( 'Subject:', size = ( 20, 1 ) ), sg.Input( key = '-EMAIL SUBJECT-', size = ( 35,1 ) ) ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), sg.T( '' ) ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), sg.T( 'Username:', size = ( 20, 1 ) ), sg.Input( key='-USER-', size=( 35,1 ) ) ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), sg.T( 'Password:', size = ( 20, 1 ) ), sg.Input(password_char='*', key = '-PASSWORD-', size= ( 35,1 ) ) ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ) ],
+                   [ sg.T( ' ', size = ( 5, 1 ) ), sg.Multiline( 'Type your message here', size = ( 65, 10 ), key = '-EMAIL TEXT-' ) ],
+                   [ sg.T( ' ', size = ( 100, 1 ) ) ],
+                   [ sg.T( ' ', size = ( 5, 1) ),  sg.Button( 'Send', size = ( 20, 1 ) ),
+                     sg.T( ' ', size = ( 20, 1 ) ), sg.Button( 'Cancel', size = ( 20, 1 ) ) ] ]
+
+        window = sg.Window( 'Budget Execution', layout,
+            icon = self.__icon,
+            background_color = self.__themebackground,
+            font = self.__themefont,
+            button_color = self.__buttoncolor,
+            size = self.__formsize )
+
+        while True:  # Event Loop
+            event, values = window.read()
+            if event in (sg.WIN_CLOSED, 'Cancel', 'Exit' ):
+                break
+            if event == 'Send':
+                sg.popup_quick_message( 'Sending your message... this will take a moment...', background_color='red')
+                send_an_email( from_address = values[ '-EMAIL FROM-' ],
+                    to_address=values['-EMAIL TO-'],
+                    subject=values['-EMAIL SUBJECT-'],
+                    message_text=values['-EMAIL TEXT-'],
+                    user=values['-USER-'],
+                    password=values['-PASSWORD-'])
+
+        window.close()
 
 
 # Message( text )
@@ -3609,7 +3683,7 @@ class ListDialog( ):
         layout = [ [ sg.Text( 'Search:', size = ( 25, 1 )  ) ],
                    [ sg.Input( size = ( 25, 1 ), enable_events = True, key = '-INPUT-' ) ],
                    [ sg.Text( r'', size = (100, 1) ) ],
-                   [ sg.Listbox( names, size = ( 25, 5 ), enable_events = True, key = '-LIST-', font = __font ) ],
+                   [ sg.Listbox( names, size = ( 25, 5 ), enable_events = True, key = '-LIST-', font = self.__themefont ) ],
                    [ sg.Text( r'', size = (100, 1) ) ],
                    [ sg.Button( 'Select', size = __button ), sg.Button( 'Exit', size = __button  ) ] ]
 
