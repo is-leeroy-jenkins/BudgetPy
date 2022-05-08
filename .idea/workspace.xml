@@ -8,32 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/InfoDialog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyAlarm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyContact.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyError.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyImportant.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyInformation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyQuestion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyUrgent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/notify.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/question.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyNinja.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/ico/ninja.ico" beforeDir="false" afterPath="$PROJECT_DIR$/etc/ico/ninja.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/InfoDialog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyAlarm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyContact.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyError.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyImportant.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyInformation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyQuestion.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/NotifyUrgent.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/error.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/notify.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/notify/question.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,13 +163,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00052" summary="updates from main rig;">
-      <created>1651421684912</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1651421684912</updated>
     </task>
     <task id="LOCAL-00053" summary="updates from main rig;">
       <created>1651422727089</created>
@@ -530,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652033922296</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="updates from main rig;">
+      <created>1652039084048</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1652039084048</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

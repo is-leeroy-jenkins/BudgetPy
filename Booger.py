@@ -2674,7 +2674,7 @@ class Notification( ):
         sg.theme_button_color( self.__buttoncolor )
 
         sg.popup_notify( self.__message,
-            title = '   Budget Execution',
+            title = 'Budget Execution',
             icon = self.__image,
             display_duration_in_ms = 9000,
             fade_in_duration = 5000,
