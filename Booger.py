@@ -2496,7 +2496,7 @@ class ProcessingPanel( ):
 
         window = sg.Window( 'Loading', layout,
             element_justification = 'c',
-            icon = __icon,
+            icon = self.__icon,
             margins = ( 0, 0 ),
             size = ( 800, 600 ),
             element_padding = ( 0, 0 ),
