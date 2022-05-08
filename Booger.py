@@ -1,3 +1,5 @@
+import os.path
+
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 import fitz
@@ -105,6 +107,7 @@ class TitleIcon( ):
             return self.__filepath
 
 
+# FileDialog( ) -> str
 class FileDialog( ):
     '''class that renames a file'''
     __themebackground = None
@@ -288,6 +291,7 @@ class FileDialog( ):
         window.close( )
 
 
+# FolderDialog( ) -> str
 class FolderDialog( ):
     '''class that renames a folder'''
     __themebackground = None
@@ -471,7 +475,335 @@ class FolderDialog( ):
         window.close( )
 
 
-# Message( info )
+# GoogleDialog( ) -> list
+class GoogleDialog( ):
+    '''class that renames a folder'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+    __folderpath = None
+
+    @property
+    def themebackground( self ):
+        if isinstance( self.__themebackground, str ) and self.__themebackground != '':
+            return self.__themebackground
+
+    @themebackground.setter
+    def themebackground( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__themebackground = value
+
+    @property
+    def elementbackcolor( self ):
+        if isinstance( self.__elementbackcolor, str ) and self.__elementbackcolor != '':
+            return self.__elementbackcolor
+
+    @elementbackcolor.setter
+    def elementbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__elementbackcolor = value
+
+    @property
+    def elementforecolor( self ):
+        if isinstance( self.__elementforecolor, str ) and self.__elementforecolor != '':
+            return self.__elementforecolor
+
+    @elementbackcolor.setter
+    def elementforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__elementforecolor = value
+
+    @property
+    def textforecolor( self ):
+        if isinstance( self.__themetextcolor, str ) and self.__themetextcolor != '':
+            return self.__themetextcolor
+
+    @textforecolor.setter
+    def textforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__themetextcolor = value
+
+    @property
+    def textbackcolor( self ):
+        if isinstance( self.__textbackcolor, str ) and self.__textbackcolor != '':
+            return self.__textbackcolor
+
+    @textbackcolor.setter
+    def textbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__textbackcolor = value
+
+    @property
+    def inputbackcolor( self ):
+        if isinstance( self.__inputbackcolor, str ) and self.__inputbackcolor != '':
+            return self.__inputbackcolor
+
+    @inputbackcolor.setter
+    def inputbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__inputbackcolor = value
+
+    @property
+    def inputforecolor( self ):
+        if isinstance( self.__inputforecolor, str ) and self.__inputforecolor != '':
+            return self.__inputforecolor
+
+    @inputforecolor.setter
+    def inputforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__inputforecolor = value
+
+    @property
+    def buttoncolor( self ):
+        if isinstance( self.__buttoncolor, str ) and self.__buttoncolor != '':
+            return self.__buttoncolor
+
+    @buttoncolor.setter
+    def buttoncolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__buttoncolor = value
+
+    @property
+    def formsize( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @formsize.setter
+    def formsize( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    @property
+    def iconpath( self ):
+        if isinstance( self.__iconpath, str ) and self.__iconpath != '':
+            return self.__iconpath
+
+    @iconpath.setter
+    def iconpath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__iconpath = value
+
+    @property
+    def themefont( self ):
+        if isinstance( self.__themefont, tuple ) :
+            return self.__themefont
+
+    @themefont.setter
+    def themefont( self, value ):
+        if isinstance( value, tuple ) :
+            self.__themefont = value
+
+    @property
+    def folderpath( self ):
+        if isinstance( self.__folderpath, str ) and self.__folderpath != '':
+            return self.__folderpath
+
+    @folderpath.setter
+    def folderpath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__folderpath = value
+
+    def __init__( self ):
+        self.__themebackground = '#0F0F0F'
+        self.__themetextcolor = '#D3D3D3'
+        self.__elementbackcolor = '#0F0F0F'
+        self.__elementforecolor = '#D3D3D3'
+        self.__textbackcolor = '#0F0F0F'
+        self.__inputforecolor = '#FFFFFF'
+        self.__inputbackcolor = '#282828'
+        self.__buttoncolor = '#163754'
+        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__themefont = ( 'Roboto', 9 )
+        self.__formsize = ( 450, 200 )
+
+    def __str__( self ):
+        if isinstance( self.__filepath, str ):
+            return self.__filepath
+
+    def show( self ):
+        sg.theme_background_color( self.__themebackground )
+        sg.theme_element_background_color( self.__elementbackcolor )
+        sg.theme_element_text_color( self.__elementforecolor )
+        sg.theme_input_text_color( self.__inputforecolor )
+        sg.theme_text_element_background_color( self.__textbackcolor )
+        sg.theme_input_background_color( self.__inputbackcolor )
+        sg.theme_text_color( self.__themetextcolor )
+        sg.theme_button_color( self.__buttoncolor )
+
+
+# EmailDialog( email )
+class EmailDialog( ):
+    '''class that renames a folder'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+    __folderpath = None
+
+    @property
+    def themebackground( self ):
+        if isinstance( self.__themebackground, str ) and self.__themebackground != '':
+            return self.__themebackground
+
+    @themebackground.setter
+    def themebackground( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__themebackground = value
+
+    @property
+    def elementbackcolor( self ):
+        if isinstance( self.__elementbackcolor, str ) and self.__elementbackcolor != '':
+            return self.__elementbackcolor
+
+    @elementbackcolor.setter
+    def elementbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__elementbackcolor = value
+
+    @property
+    def elementforecolor( self ):
+        if isinstance( self.__elementforecolor, str ) and self.__elementforecolor != '':
+            return self.__elementforecolor
+
+    @elementbackcolor.setter
+    def elementforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__elementforecolor = value
+
+    @property
+    def textforecolor( self ):
+        if isinstance( self.__themetextcolor, str ) and self.__themetextcolor != '':
+            return self.__themetextcolor
+
+    @textforecolor.setter
+    def textforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__themetextcolor = value
+
+    @property
+    def textbackcolor( self ):
+        if isinstance( self.__textbackcolor, str ) and self.__textbackcolor != '':
+            return self.__textbackcolor
+
+    @textbackcolor.setter
+    def textbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__textbackcolor = value
+
+    @property
+    def inputbackcolor( self ):
+        if isinstance( self.__inputbackcolor, str ) and self.__inputbackcolor != '':
+            return self.__inputbackcolor
+
+    @inputbackcolor.setter
+    def inputbackcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__inputbackcolor = value
+
+    @property
+    def inputforecolor( self ):
+        if isinstance( self.__inputforecolor, str ) and self.__inputforecolor != '':
+            return self.__inputforecolor
+
+    @inputforecolor.setter
+    def inputforecolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__inputforecolor = value
+
+    @property
+    def buttoncolor( self ):
+        if isinstance( self.__buttoncolor, str ) and self.__buttoncolor != '':
+            return self.__buttoncolor
+
+    @buttoncolor.setter
+    def buttoncolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__buttoncolor = value
+
+    @property
+    def formsize( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @formsize.setter
+    def formsize( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    @property
+    def iconpath( self ):
+        if isinstance( self.__iconpath, str ) and self.__iconpath != '':
+            return self.__iconpath
+
+    @iconpath.setter
+    def iconpath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__iconpath = value
+
+    @property
+    def themefont( self ):
+        if isinstance( self.__themefont, tuple ) :
+            return self.__themefont
+
+    @themefont.setter
+    def themefont( self, value ):
+        if isinstance( value, tuple ) :
+            self.__themefont = value
+
+    @property
+    def folderpath( self ):
+        if isinstance( self.__folderpath, str ) and self.__folderpath != '':
+            return self.__folderpath
+
+    @folderpath.setter
+    def folderpath( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__folderpath = value
+
+    def __init__( self ):
+        self.__themebackground = '#0F0F0F'
+        self.__themetextcolor = '#D3D3D3'
+        self.__elementbackcolor = '#0F0F0F'
+        self.__elementforecolor = '#D3D3D3'
+        self.__textbackcolor = '#0F0F0F'
+        self.__inputforecolor = '#FFFFFF'
+        self.__inputbackcolor = '#282828'
+        self.__buttoncolor = '#163754'
+        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__themefont = ( 'Roboto', 9 )
+        self.__formsize = ( 450, 200 )
+
+    def __str__( self ):
+        if isinstance( self.__filepath, str ):
+            return self.__filepath
+
+    def show( self ):
+        sg.theme_background_color( self.__themebackground )
+        sg.theme_element_background_color( self.__elementbackcolor )
+        sg.theme_element_text_color( self.__elementforecolor )
+        sg.theme_input_text_color( self.__inputforecolor )
+        sg.theme_text_element_background_color( self.__textbackcolor )
+        sg.theme_input_background_color( self.__inputbackcolor )
+        sg.theme_text_color( self.__themetextcolor )
+        sg.theme_button_color( self.__buttoncolor )
+
+
+# Message( text )
 class MessageDialog( ):
     ''' class that provides form to display informational messages '''
     __themebackground = None
@@ -607,8 +939,8 @@ class MessageDialog( ):
         if isinstance( value, tuple ) :
             self.__themefont = value
 
-    def __init__( self, info ):
-        self.__text = info if isinstance( info, str ) and info != '' else None
+    def __init__( self, text ):
+        self.__text = text if isinstance( text, str ) and text != '' else None
         self.__themebackground = '#0F0F0F'
         self.__themetextcolor = '#D3D3D3'
         self.__elementbackcolor = '#0F0F0F'
@@ -1034,6 +1366,7 @@ class InputDialog( ):
         window.close( )
 
 
+# ContactForm( contact )
 class ContactForm( ):
     '''class that produces a contact input form'''
     __themebackground = None
@@ -2583,7 +2916,7 @@ class CalendarDialog( ):
 
 
 class DatePanel( ):
-    ''' Desktop widget displaying date time info'''
+    ''' Desktop widget displaying date time text'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -2792,7 +3125,7 @@ class DatePanel( ):
 
             # ------------------- Window Layout -------------------
             # If this is a test window (for choosing theme), then uses some extra Text Elements
-            # to display theme info
+            # to display theme text
             # and also enables events for the elements to make the window easy to close
             if test_window:
                 top_elements = [ [ sg.Text( title, size = (20, 1), font = title_font,
@@ -2847,7 +3180,7 @@ class DatePanel( ):
             while True:  # Event Loop
                 # Normally a window.read goes here, but first we're updating the values in the
                 # window, then reading it
-                # First update the status info
+                # First update the status text
                 window[ '-MAIN INFO-' ].update( 'Your Info' )
                 # for debugging show the last update date time
                 window[ '-REFRESHED-' ].update(
@@ -3425,9 +3758,9 @@ class SaveFileDialog( ):
                    [ sg.Text( r'' ) ],
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
                    [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                   [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
+                   [ sg.SaveAs( 'Save As..', size = ( 10, 1 ), key = '-PATH-' ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
-        window = sg.Windo(  'Budget Execution', layout,
+        window = sg.Window( 'Budget Execution', layout,
             font = self.__themefont,
             icon = self.__icon,
             size = self.__formsize )
@@ -3436,6 +3769,8 @@ class SaveFileDialog( ):
             event, values = window.read( )
             if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
                 break
+            elif event == '-PATH-':
+                sg.popup( values[ '-PATH-' ] )
 
         window.close( )
 
