@@ -1374,7 +1374,7 @@ class Notification( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\budget.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\Ninja.png'
         self.__message = message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
