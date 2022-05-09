@@ -8221,10 +8221,10 @@ class Expenditures:
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpioname.setter
+    def rpioname( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ahcode( self ):
@@ -8617,8 +8617,266 @@ class SpecialAccounts( ):
     __collections = None
     __cumulativereciepts = None
 
+    @property
+    def id( self ):
+        if isinstance( self.__specialaccountsid, int ):
+            return self.__specialaccountsid
+
+    @id.setter
+    def id( self, iid ):
+        if isinstance( iid, int ):
+            self.__specialaccountsid = iid
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpioname.setter
+    def rpioname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpioname = value
+
+    @property
+    def foccode( self ):
+        if isinstance( self.__foccode, str ) and self.__foccode != '':
+            return self.__foccode
+
+    @foccode.setter
+    def foccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def focname( self ):
+        if isinstance( self.__focname, str ) and self.__focname != '':
+            return self.__focname
+
+    @focname.setter
+    def focname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__focname = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
+
+    @property
+    def specialaccountfundcode( self ):
+        if isinstance( self.__specialaccountfundcode, str ) and self.__specialaccountfundcode != '':
+            return self.__specialaccountfundcode
+
+    @specialaccountfundcode.setter
+    def specialaccountfundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__specialaccountfundcode = value
+
+    @property
+    def specialaccountfundname( self ):
+        if isinstance( self.__specialaccountfundname, str ) and self.__specialaccountfundname != '':
+            return self.__specialaccountfundname
+
+    @specialaccountfundname.setter
+    def specialaccountfundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__specialaccountfundname = value
+
+    @property
+    def specialaccountnumber( self ):
+        if isinstance( self.__specialaccountnumber, str ) and self.__specialaccountnumber != '':
+            return self.__specialaccountnumber
+
+    @specialaccountfundcode.setter
+    def specialaccountnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__specialaccountnumber = value
+
+    @property
+    def specialaccountname( self ):
+        if isinstance( self.__specialaccountnumber, str ) and self.__specialaccountnumber != '':
+            return self.__specialaccountnumber
+
+    @specialaccountname.setter
+    def specialaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__specialaccountnumber = value
+
+    @property
+    def accountstatus( self ):
+        if isinstance( self.__accountstatus, str ) and self.__accountstatus != '':
+            return self.__accountstatus
+
+    @acccountstatus.setter
+    def accountstatus( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountstatus = value
+
+    @property
+    def nplstatus( self ):
+        if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
+            return self.__nplstatus
+
+    @acccountstatus.setter
+    def nplstatus( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatus = value
+
+    @property
+    def nplstatuscode( self ):
+        if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
+            return self.__nplstatuscode
+
+    @acccountstatus.setter
+    def nplstatuscode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatuscode = value
+
+    @property
+    def nplstatusname( self ):
+        if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
+            return self.__nplstatusname
+
+    @nplstatusname.setter
+    def nplstatusname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatusname = value
+
+    @property
+    def siteid( self ):
+        if isinstance( self.__siteid, str ) and self.__siteid != '':
+            return self.__siteid
+
+    @siteid.setter
+    def siteid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__value = value
+
+    @property
+    def cerclisid( self ):
+        if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
+            return self.__cerclisid
+
+    @cerclisid.setter
+    def cerclisid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__cerclisid = value
+
+
+
+    def __init__( self, bfy, fund, account, boc ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__accountcode = account if isinstance( account, str ) and account != '' else None
+        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+
+    def __str__( self ):
+        if isinstance( self.__amount, float ):
+            return str( self.__amount )
+
+    def getdata( self ):
+        provider = Provider.SQLite
+        source = Source.SpecialAccounts
+        command = Command.SELECTALL
+        names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
+        values = ( self.__bfy, self.__accountcode, self.__boccode )
+        data = DataFactory( provider, source, command, names, values )
+        self.__data = data.create( )
+        return self.__data
+
+
 
 
 class SuperfundSites( ):
     ''' object providing SF Site data '''
     __superfundsitesid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __specialaccountfund = None
+    __specialaccountnumber = None
+    __specialaccountname = None
+    __accountstatus = None
+    __nplstatuscode = None
+    __nplstatusname = None
+    __siteid = None
+    __cerclisid = None
+    __sitecode = None
+    __sitename = None
+    __operableunit = None
+    __pipelinecode = None
+    __pipelinedescription = None
+    __accountcode = None
+    __bocccode = None
+    __bocname = None
+    __transactiontype = None
+    __transactiontypename = None
+    __foccode = None
+    __focname = None
+    __transactiondate = None
+    __availablebalance = None
+    __opencommitments = None
+    __obligations = None
+    __disbursements = None
+    __cumulativereciepts = None
+    __unpaidbalances = None
+    __collections = None
+    __unliquidatedobligations = None

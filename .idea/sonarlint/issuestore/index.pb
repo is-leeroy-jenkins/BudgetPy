@@ -2,10 +2,3 @@
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-:
-
-Control.py,c\6\c63198ee48be4fba96bcb521300156a930f896fe
-9
-	Static.py,3\e\3e231fda4efa302a265df1990e1bb836bdf1806a
-9
-	Minion.py,1\7\17dabf4f007d7cce2897536a31790a348b595693
