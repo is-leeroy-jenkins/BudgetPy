@@ -311,7 +311,6 @@ class OperatingPlan( ):
         return self.__data
 
 
-
 # FullTimeEquivalent( bfy, fund )
 class FullTimeEquivalent( ):
     '''object representing Operating Plan FTE'''
