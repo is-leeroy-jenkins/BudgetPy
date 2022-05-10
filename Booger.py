@@ -1147,7 +1147,7 @@ class LoadingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1214,7 +1214,7 @@ class WaitingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1283,7 +1283,7 @@ class ProcessingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1374,7 +1374,7 @@ class Notification( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\Ninja.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\ninja.png'
         self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
@@ -2050,42 +2050,43 @@ class Dashboard( Sith ):
                         'PROGRESS_DEPTH': 0 }
 
         sg.theme_add_new( 'Dashboard', theme_dict )
-        sg.theme( 'Dashboard' )
+        sg.theme('Dashboard' )
 
         top_banner = [
-                [sg.Text('Budget Execution', font='Any 20', background_color = DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
+                [ sg.Text( 'Budget Execution', font='Any 20', background_color = DARK_HEADER_COLOR,
+                    enable_events=True, grab=False), sg.Push( background_color=DARK_HEADER_COLOR ),
                  sg.Text( 'Wednesday 27 Oct 2021', font='Any 20', background_color = DARK_HEADER_COLOR ) ],
         ]
 
-        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Any 20'), sg.Push()],
-                [sg.T('This Frame has a relief while the others do not')],
-                [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
+        top  = [[ sg.Push( ), sg.Text( 'Weather Could Go Here', font='Any 20'), sg.Push( ) ],
+                [ sg.T( 'This Frame has a relief while the others do not') ],
+                [ sg.T( 'This window is resizable ( see that sizegrip in the bottom right?)') ]]
 
-        block_3 = [ [ sg.Text( 'Block 3', font='Any 20' ) ],
-                    [ sg.Input( ), sg.Text( 'Some Text' ) ],
-                    [ sg.T( 'This frame has element_justification="c"' ) ],
-                    [ sg.Button('Go', button_color = self.__buttoncolor, size = ( 10, 1 ) ),
-                      sg.Button( 'Exit', button_color = self.__buttoncolor, size = ( 10, 1 ) ) ]  ]
+        block_3 = [ [ sg.Text(  'Block 3', font='Any 20' ) ],
+                    [ sg.Input(  ), sg.Text(  'Some Text' ) ],
+                    [ sg.T(  'This frame has element_justification="c"' ) ],
+                    [ sg.Button( 'Go', button_color = self.__buttoncolor, size = (  10, 1 ) ),
+                      sg.Button(  'Exit', button_color = self.__buttoncolor, size = (  10, 1 ) ) ]  ]
 
 
         block_2 = [ [ sg.Text( 'Block 2', font='Any 20' ) ],
                     [ sg.T( 'This is some random text' ) ],
                     [ sg.Image( data=sg.DEFAULT_BASE64_ICON, enable_events=True ) ] ]
 
-        block_4 = [ [ sg.Text('Block 4', font='Any 20')],
-                    [ sg.T('You can move the window by grabbing this block (and the top banner)')],
-                    [ sg.T('This block is a Column Element')],
-                    [ sg.T('The others are all frames')],
-                    [ sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
-                    [ sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
+        block_4 = [ [ sg.Text( 'Block 4', font='Any 20') ],
+                    [ sg.T( 'You can move the window by grabbing this block ( and the top banner)') ],
+                    [ sg.T( 'This block is a Column Element') ],
+                    [ sg.T( 'The others are all frames') ],
+                    [ sg.T( 'The Frame Element, with a border_width=0\n    and no title is just like a Column') ],
+                    [ sg.T( 'Frames that have a fixed size \n    handle element_justification better than Columns') ]]
 
 
         layout = [
-            [ sg.Frame('', top_banner,   pad=( 0, 0 ), background_color = DARK_HEADER_COLOR,  expand_x = True, border_width = 0, grab = True)],
+            [ sg.Frame('', top_banner,   pad=( 0, 0 ), background_color = DARK_HEADER_COLOR,  expand_x = True, border_width = 0, grab = True) ],
             [ sg.Frame('', top, size = ( 920, 100 ), pad = BPAD_TOP,  expand_x = True,  relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
-             [ sg.Frame('', [ [ sg.Frame( '', block_2, size = ( 450, 150), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True, ) ],
+            [ sg.Frame('', [ [ sg.Frame( '', block_2, size = ( 450, 150 ), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True, ) ],
                            [ sg.Frame('', block_3, size = ( 450, 150 ),  pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True, element_justification = 'c' ) ] ],
-                pad=BPAD_LEFT, background_color = BORDER_COLOR, border_width = 0, expand_x = True, expand_y = True),
+                pad=BPAD_LEFT, background_color = BORDER_COLOR, border_width = 0, expand_x = True, expand_y = True ),
              sg.Column( block_4, size = ( 450, 320 ), pad = BPAD_RIGHT,  expand_x = True, expand_y = True, grab = True ), ],[ sg.Sizegrip( background_color = BORDER_COLOR ) ] ]
 
         window = sg.Window( 'Budget Execution', layout,
