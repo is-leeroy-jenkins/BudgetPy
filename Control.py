@@ -9059,3 +9059,13 @@ class SuperfundSites( ):
     def transactiontype( self, value ):
         if isinstance( value, str ) and value != '':
             self.__transactiontype = value
+
+    @property
+    def transactiontypename( self ):
+        if isinstance( self.__transactiontypename, str ) and self.__transactiontypename != '':
+            return self.__transactiontypename
+
+    @transactiontype.setter
+    def transactiontypename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__transactiontypename = value
