@@ -8999,3 +8999,23 @@ class SuperfundSites( ):
     def cerclisid( self, value ):
         if isinstance( value, str ) and value != '':
             self.__cerclisid = value
+
+    @property
+    def pipelinecode( self ):
+        if isinstance( self.__pipelinecode, str ) and self.__pipelinecode != '':
+            return self.__pipelinecode
+
+    @pipelinecode.setter
+    def pipelinecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__pipelinecode = value
+
+    @property
+    def pipelinename( self ):
+        if isinstance( self.__pipelinename, str ) and self.__pipelinename!= '':
+            return self.__pipelinename
+
+    @pipelinename.setter
+    def pipelinename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__pipelinename = value
