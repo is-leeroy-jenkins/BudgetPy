@@ -164,13 +164,6 @@
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
     </task>
-    <task id="LOCAL-00062" summary="updates from main rig;">
-      <created>1651443893488</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1651443893488</updated>
-    </task>
     <task id="LOCAL-00063" summary="updates from main rig;">
       <created>1651444023596</created>
       <option name="number" value="00063" />
@@ -507,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652278635181</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="updates from main rig;">
+      <created>1652279018638</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1652279018638</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

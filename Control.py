@@ -9019,3 +9019,43 @@ class SuperfundSites( ):
     def pipelinename( self, value ):
         if isinstance( value, str ) and value != '':
             self.__pipelinename = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
+
+    @property
+    def transactiontype( self ):
+        if isinstance( self.__transactiontype, str ) and self.__transactiontype != '':
+            return self.__transactiontype
+
+    @transactiontype.setter
+    def transactiontype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__transactiontype = value
