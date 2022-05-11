@@ -8879,3 +8879,123 @@ class SuperfundSites( ):
     __unpaidbalances = None
     __collections = None
     __unliquidatedobligations = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__specialaccountsid, int ):
+            return self.__specialaccountsid
+
+    @id.setter
+    def id( self, iid ):
+        if isinstance( iid, int ):
+            self.__specialaccountsid = iid
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpioname.setter
+    def rpioname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpioname = value
+
+    @property
+    def nplstatus( self ):
+        if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
+            return self.__nplstatus
+
+    @acccountstatus.setter
+    def nplstatus( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatus = value
+
+    @property
+    def nplstatuscode( self ):
+        if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
+            return self.__nplstatuscode
+
+    @acccountstatus.setter
+    def nplstatuscode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatuscode = value
+
+    @property
+    def nplstatusname( self ):
+        if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
+            return self.__nplstatusname
+
+    @nplstatusname.setter
+    def nplstatusname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatusname = value
+
+    @property
+    def siteid( self ):
+        if isinstance( self.__siteid, str ) and self.__siteid != '':
+            return self.__siteid
+
+    @siteid.setter
+    def siteid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__value = value
+
+    @property
+    def sitecode( self ):
+        if isinstance( self.__sitecode, str ) and self.__sitecode != '':
+            return self.__sitecode
+
+    @sitecode.setter
+    def sitecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__value = value
+
+    @property
+    def sitename( self ):
+        if isinstance( self.__sitename, str ) and self.__sitename != '':
+            return self.__sitename
+
+    @sitename.setter
+    def sitename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__value = value
+
+    @property
+    def cerclisid( self ):
+        if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
+            return self.__cerclisid
+
+    @cerclisid.setter
+    def cerclisid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__cerclisid = value
