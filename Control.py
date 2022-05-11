@@ -8817,7 +8817,6 @@ class SpecialAccounts( ):
             self.__cerclisid = value
 
 
-
     def __init__( self, bfy, fund, account, boc ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
@@ -8837,8 +8836,6 @@ class SpecialAccounts( ):
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
-
-
 
 
 class SuperfundSites( ):
@@ -9069,3 +9066,12 @@ class SuperfundSites( ):
     def transactiontypename( self, value ):
         if isinstance( value, str ) and value != '':
             self.__transactiontypename = value
+
+    @property
+    def availablebalance( self ):
+        if isinstance( self.__availablebalance, float ):
+            return self.__availablebalance
+
+    @availablebalance.setter
+    def availablebalance( self, value ):
+
