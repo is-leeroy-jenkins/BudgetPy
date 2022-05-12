@@ -9074,4 +9074,6 @@ class SuperfundSites( ):
 
     @availablebalance.setter
     def availablebalance( self, value ):
+        if isinstance( value, float ):
+            self.__availablebalance = value
 
