@@ -8817,7 +8817,6 @@ class SpecialAccounts( ):
             self.__cerclisid = value
 
 
-
     def __init__( self, bfy, fund, account, boc ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
@@ -8837,8 +8836,6 @@ class SpecialAccounts( ):
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
-
-
 
 
 class SuperfundSites( ):
@@ -8879,3 +8876,202 @@ class SuperfundSites( ):
     __unpaidbalances = None
     __collections = None
     __unliquidatedobligations = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__specialaccountsid, int ):
+            return self.__specialaccountsid
+
+    @id.setter
+    def id( self, iid ):
+        if isinstance( iid, int ):
+            self.__specialaccountsid = iid
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
+
+    @rpioname.setter
+    def rpioname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpioname = value
+
+    @property
+    def nplstatus( self ):
+        if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
+            return self.__nplstatus
+
+    @acccountstatus.setter
+    def nplstatus( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatus = value
+
+    @property
+    def nplstatuscode( self ):
+        if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
+            return self.__nplstatuscode
+
+    @acccountstatus.setter
+    def nplstatuscode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatuscode = value
+
+    @property
+    def nplstatusname( self ):
+        if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
+            return self.__nplstatusname
+
+    @nplstatusname.setter
+    def nplstatusname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__nplstatusname = value
+
+    @property
+    def siteid( self ):
+        if isinstance( self.__siteid, str ) and self.__siteid != '':
+            return self.__siteid
+
+    @siteid.setter
+    def siteid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__value = value
+
+    @property
+    def sitecode( self ):
+        if isinstance( self.__sitecode, str ) and self.__sitecode != '':
+            return self.__sitecode
+
+    @sitecode.setter
+    def sitecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__value = value
+
+    @property
+    def sitename( self ):
+        if isinstance( self.__sitename, str ) and self.__sitename != '':
+            return self.__sitename
+
+    @sitename.setter
+    def sitename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__value = value
+
+    @property
+    def cerclisid( self ):
+        if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
+            return self.__cerclisid
+
+    @cerclisid.setter
+    def cerclisid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__cerclisid = value
+
+    @property
+    def pipelinecode( self ):
+        if isinstance( self.__pipelinecode, str ) and self.__pipelinecode != '':
+            return self.__pipelinecode
+
+    @pipelinecode.setter
+    def pipelinecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__pipelinecode = value
+
+    @property
+    def pipelinename( self ):
+        if isinstance( self.__pipelinename, str ) and self.__pipelinename!= '':
+            return self.__pipelinename
+
+    @pipelinename.setter
+    def pipelinename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__pipelinename = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if isinstance( self.__boccode, str ) and self.__boccode != '':
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if isinstance( self.__bocname, str ) and self.__bocname != '':
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
+
+    @property
+    def transactiontype( self ):
+        if isinstance( self.__transactiontype, str ) and self.__transactiontype != '':
+            return self.__transactiontype
+
+    @transactiontype.setter
+    def transactiontype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__transactiontype = value
+
+    @property
+    def transactiontypename( self ):
+        if isinstance( self.__transactiontypename, str ) and self.__transactiontypename != '':
+            return self.__transactiontypename
+
+    @transactiontype.setter
+    def transactiontypename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__transactiontypename = value
+
+    @property
+    def availablebalance( self ):
+        if isinstance( self.__availablebalance, float ):
+            return self.__availablebalance
+
+    @availablebalance.setter
+    def availablebalance( self, value ):
+
