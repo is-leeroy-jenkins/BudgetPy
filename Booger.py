@@ -1935,17 +1935,50 @@ class ColorDialog( Sith ):
     __icon = None
     __formsize = None
     __themefont = None
-    __text = None
+    __rgb = None
+    __hex = None
+    __html = None
+    __argb = None
 
     @property
-    def text( self ):
-        if isinstance( self.__text, str ) and self.__text != '':
-            return self.__text
+    def rgb( self ):
+        if isinstance( self.__rgb, str ) and self.__rgb != '':
+            return self.__rgb
 
-    @text.setter
-    def text( self, value ):
+    @rgb.setter
+    def rgb( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__text = value
+            self.__rgb = value
+
+    @property
+    def hex( self ):
+        if isinstance( self.__hex, str ) and self.__hex != '':
+            return self.__hex
+
+    @hex.setter
+    def hex( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__hex = value
+
+    @property
+    def argb( self ):
+        if isinstance( self.__argb, str ) and self.__argb != '':
+            return self.__argb
+
+    @argb.setter
+    def argb( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__argb = value
+
+    @property
+    def html( self ):
+        if isinstance( self.__html, str ) and self.__html != '':
+            return self.__html
+
+    @html.setter
+    def html( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__html = value
 
     @property
     def formsize( self ):
