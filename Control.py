@@ -7679,7 +7679,6 @@ class Deobligation( ):
         return self.__data
 
 
-
 # UnliquidatedObligation( bfy, fund, account, boc )
 class UnliquidatedObligation( ):
     '''UnliquidatedObligation( bfy, fund, account, boc )
@@ -8128,7 +8127,6 @@ class UnliquidatedObligation( ):
         return self.__data
 
 
-
 # Expenditure( bfy, fund, account, code )
 class Expenditures:
     '''Expenditure( bfy, fund, account, code )
@@ -8575,7 +8573,6 @@ class Expenditures:
         data = DataFactory( provider, source, command, names, values )
         self.__data = data.create( )
         return self.__data
-
 
 
 class SpecialAccounts( ):
