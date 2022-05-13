@@ -16,7 +16,6 @@ import smtplib as smtp
 from email.message import EmailMessage
 
 
-
 # ButtonIcon( png )
 class ButtonIcon( ):
     '''class representing form images'''
