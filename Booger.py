@@ -2848,14 +2848,6 @@ class Dashboard( Sith ):
         self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
 
     def show( self ):
-        theme_dict = {'SCROLL': '#F2EFE8',
-                      'PROGRESS': ('#FFFFFF', '#C7D5E0'),
-                      'BORDER': 0,'SLIDER_DEPTH': 0,
-                      'PROGRESS_DEPTH': 0}
-
-        sg.theme_add_new('Dashboard', theme_dict)
-        sg.theme('Dashboard')
-
         BORDER_COLOR = '#C7D5E0'
         DARK_HEADER_COLOR = '#1B2838'
         BPAD_TOP = ((20,20), (20, 10))
@@ -2864,25 +2856,25 @@ class Dashboard( Sith ):
         BPAD_RIGHT = ((10,20), (10, 0))
 
         top_banner = [
-                [sg.Text('Dashboard', font='Any 20', background_color=DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
-                 sg.Text('Wednesday 27 Oct 2021', font='Any 20', background_color=DARK_HEADER_COLOR)],
+                [sg.Text('Budget Execution', font='Roboto 20', background_color=DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
+                 sg.Text('Wednesday 27 Oct 2021', font='Roboto20', background_color=DARK_HEADER_COLOR)],
         ]
 
-        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Any 20'), sg.Push()],
+        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Roboto 20'), sg.Push()],
                 [sg.T('This Frame has a relief while the others do not')],
                 [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
 
-        block_3 = [[sg.Text('Block 3', font='Any 20')],
+        block_3 = [[sg.Text('Block 3', font='Roboto 20')],
                    [sg.Input(), sg.Text('Some Text')],
                    [sg.T('This frame has element_justification="c"')],
                    [sg.Button('Go'), sg.Button('Exit')]  ]
 
 
-        block_2 = [[sg.Text('Block 2', font='Any 20')],
+        block_2 = [[sg.Text('Block 2', font='Roboto 20')],
                    [sg.T('This is some random text')],
-                   [sg.Image(data = self.__image, enable_events = True ) ]  ]
+                   [sg.Image( source = self.__image, enable_events = True ) ]  ]
 
-        block_4 = [[sg.Text('Block 4', font='Any 20')],
+        block_4 = [[sg.Text('Block 4', font='Roboto 20')],
                    [sg.T('You can move the window by grabbing this block (and the top banner)')],
                    [sg.T('This block is a Column Element')],
                    [sg.T('The others are all frames')],
@@ -2898,7 +2890,7 @@ class Dashboard( Sith ):
                     pad=BPAD_LEFT, background_color=BORDER_COLOR, border_width=0, expand_x=True, expand_y=True),
                  sg.Column(block_4, size=(450, 320), pad=BPAD_RIGHT,  expand_x=True, expand_y=True, grab=True),],[sg.Sizegrip(background_color=BORDER_COLOR)]]
 
-        window = sg.Window('Dashboard PySimpleGUI-Style', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, resizable=True, right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT)
+        window = sg.Window('Budget Execution', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, resizable=True, right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT)
 
         while True:             # Event Loop
             event, values = window.read()
