@@ -2,6 +2,7 @@ import os
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 import fitz
+import tkinter as tk
 from sys import exit
 import Static
 from Ninja import *
@@ -122,6 +123,8 @@ class Sith( ):
     __buttoncolor = None
     __icon = None
     __themefont = None
+    __scrollbar = None
+    __progressbar = None
 
     @property
     def themebackground( self ):
@@ -223,6 +226,26 @@ class Sith( ):
         if isinstance( value, tuple ) :
             self.__themefont = value
 
+    @property
+    def scrollbarcolor( self ):
+        if isinstance( self.__scrollbar, str ) and self.__scrollbar != '':
+            return self.__scrollbar
+
+    @scrollbarcolor.setter
+    def scrollbarcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__scrollbar = value
+
+    @property
+    def progressbarcolor( self ):
+        if isinstance( self.__progressbar, tuple ) :
+            return self.__progressbar
+
+    @progressbarcolor.setter
+    def progressbarcolor( self, value ):
+        if isinstance( value, tuple ) :
+            self.__progressbar = value
+
     def __init__( self ):
         self.__themebackground = '#0F0F0F'
         self.__themetextcolor = '#D3D3D3'
@@ -234,6 +257,8 @@ class Sith( ):
         self.__buttoncolor = '#163754'
         self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
+        self.__scrollbar = '#A87C03'
+        self.__progressbar = '#18ADF2'
         sg.theme_background_color( self.__themebackground )
         sg.theme_element_background_color( self.__elementbackcolor )
         sg.theme_element_text_color( self.__elementforecolor )
@@ -242,6 +267,7 @@ class Sith( ):
         sg.theme_input_background_color( self.__inputbackcolor )
         sg.theme_text_color( self.__themetextcolor )
         sg.theme_button_color( self.__buttoncolor )
+        sg.theme_progress_bar_color( self.__progressbar )
 
 
 # FileDialog( ) -> str
@@ -1494,7 +1520,8 @@ class PdfForm( Sith ):
         self.__formsize = ( 600, 400 )
 
     def show( self ):
-        filename = sg.popup_get_file( 'Budget Execution', 'PDF to open',
+        filename = sg.popup_get_file( title = 'Budget Execution',
+            message = 'PDF to open',
             file_types = ( ("PDF Files", "*.pdf"),
                            ("XPS Files", "*.*xps"),
                            ("Epub Files", "*.epub"),
@@ -1553,7 +1580,8 @@ class PdfForm( Sith ):
         pdfkeys = ( 'Next', 'Next:34', 'Prev', 'Prior:33',
             'Top-L', 'Top-R', 'Bot-L', 'Bot-R', 'MouseWheel:Down', 'MouseWheel:Up' )
         zoombuttons = ( 'Top-L', 'Top-R', 'Bot-L', 'Bot-R' )
-        window = sg.Window( title, layout,
+
+        window = sg.Window( 'Budget Executon', layout,
             return_keyboard_events = True,
             icon = self.__icon,
             use_default_focus = False )
@@ -2768,6 +2796,7 @@ class Dashboard( Sith ):
     __inputforecolor = None
     __buttoncolor = None
     __icon = None
+    __image = None
     __formsize = None
     __themefont = None
     __title = None
@@ -2816,16 +2845,13 @@ class Dashboard( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 960, 600 )
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
 
     def show( self ):
-        theme_dict = {'BACKGROUND': '#2B475D',
-                      'TEXT': '#FFFFFF',
-                      'INPUT': '#F2EFE8',
-                      'TEXT_INPUT': '#000000',
-                      'SCROLL': '#F2EFE8',
-                      'BUTTON': ('#000000', '#C2D4D8'),
+        theme_dict = {'SCROLL': '#F2EFE8',
                       'PROGRESS': ('#FFFFFF', '#C7D5E0'),
-                      'BORDER': 0,'SLIDER_DEPTH': 0, 'PROGRESS_DEPTH': 0}
+                      'BORDER': 0,'SLIDER_DEPTH': 0,
+                      'PROGRESS_DEPTH': 0}
 
         sg.theme_add_new('Dashboard', theme_dict)
         sg.theme('Dashboard')
@@ -2854,7 +2880,7 @@ class Dashboard( Sith ):
 
         block_2 = [[sg.Text('Block 2', font='Any 20')],
                    [sg.T('This is some random text')],
-                   [sg.Image(data=sg.DEFAULT_BASE64_ICON, enable_events=True)]  ]
+                   [sg.Image(data = self.__image, enable_events = True ) ]  ]
 
         block_4 = [[sg.Text('Block 4', font='Any 20')],
                    [sg.T('You can move the window by grabbing this block (and the top banner)')],
