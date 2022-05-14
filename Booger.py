@@ -261,12 +261,12 @@ class FileDialog( Sith ):
     __formsize = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -281,7 +281,8 @@ class FileDialog( Sith ):
             self.__filepath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -344,12 +345,12 @@ class FolderDialog( Sith ):
 
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -364,7 +365,8 @@ class FolderDialog( Sith ):
             self.__folderpath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -431,12 +433,12 @@ class SaveFileDialog( Sith ):
             self.__text = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -451,7 +453,8 @@ class SaveFileDialog( Sith ):
             self_original = value
 
     def __init__( self, path = None ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -498,12 +501,12 @@ class GoogleDialog( Sith ):
     __results = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -538,7 +541,8 @@ class GoogleDialog( Sith ):
             self.__results = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -605,12 +609,12 @@ class EmailDialog( Sith ):
 
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -625,7 +629,8 @@ class EmailDialog( Sith ):
             self.__folderpath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -712,18 +717,19 @@ class MessageDialog( Sith ):
             self.__text = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self, text ):
         self.__text = text if isinstance( text, str ) and text != '' else None
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -782,12 +788,12 @@ class ErrorDialog( Sith ):
     __themefont = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -802,7 +808,8 @@ class ErrorDialog( Sith ):
             self.__message = value
 
     def __init__( self, exception = None ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__exception = exception if isinstance( exception, BudgetException ) else None
         self.__message = self.__exception.message if isinstance( exception, BudgetException ) else None
         self.__cause = self.__exception.cause if isinstance( exception, BudgetException ) else ''
@@ -863,12 +870,12 @@ class InputDialog( Sith ):
     __themefont = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -893,7 +900,8 @@ class InputDialog( Sith ):
             self.__response= value
 
     def __init__( self, question ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__question = question if isinstance( question, str ) and question != '' else None
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -951,17 +959,18 @@ class ContactForm( Sith ):
     __themefont = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1033,12 +1042,12 @@ class GridForm( Sith ):
     __columns = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -1073,7 +1082,8 @@ class GridForm( Sith ):
             self.__columns = value
 
     def __init__( self, rows = 10, columns = 4 ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1126,17 +1136,18 @@ class LoadingPanel( Sith ):
     __image = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1193,17 +1204,18 @@ class WaitingPanel( Sith ):
     __image = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1262,17 +1274,18 @@ class ProcessingPanel( Sith ):
     __image = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1310,6 +1323,62 @@ class ProcessingPanel( Sith ):
                 if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                     exit( 0 )
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+
+        window.close()
+
+
+class SplashPanel( Sith ):
+    '''Class providing splash dialog behavior'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+    __image = None
+
+    @property
+    def formsize( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @formsize.setter
+    def formsize( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    def __init__( self ):
+        super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
+        self.__themefont = Sith( ).themefont
+        self.__icon = Sith( ).iconpath
+        self.__elementbackcolor = Sith( ).elementbackcolor
+        self.__elementforecolor = Sith( ).elementforecolor
+        self.__themetextcolor = Sith( ).textforecolor
+        self.__textbackcolor = Sith( ).textbackcolor
+        self.__inputbackcolor = Sith( ).inputbackcolor
+        self.__inputforecolor = Sith( ).inputforecolor
+        self.__buttoncolor = Sith( ).buttoncolor
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        self.__formsize = ( 800, 600 )
+        self.__timeout = 4000
+
+    def show( self ):
+        layout = [ [ sg.Image( data=image ) ] ]
+        window = sg.Window( 'Window Title', layout,
+                    transparent_color = self.__themebackground,
+                    no_titlebar = True,
+                    keep_on_top = True )
+
+        while True:
+            event, values = window.read( timeout = self.__timeout, close = True )
+            if event in ( sg.WIN_CLOSED, 'Exit' ):  # always check for closed window
+                break
 
         window.close()
 
@@ -1365,6 +1434,7 @@ class Notification( Sith ):
     def __init__( self, message ):
         super( Sith, self ).__init__()
         self.__themefont = Sith( ).themefont
+        self.__themebackground = Sith( ).themebackground
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
         self.__elementforecolor = Sith( ).elementforecolor
@@ -1400,17 +1470,18 @@ class PdfForm( Sith ):
     __themefont = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1427,8 +1498,6 @@ class PdfForm( Sith ):
             file_types = ( ("PDF Files", "*.pdf"),
                            ("XPS Files", "*.*xps"),
                            ("Epub Files", "*.epub"),
-                           ("Fiction Books", "*.fb2"),
-                           ("Comic Books", "*.cbz"),
                            ("HTML",   "*.htm*") ),
             icon = self.__icon )
 
@@ -1559,17 +1628,18 @@ class CalendarDialog( Sith ):
     __date = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1614,17 +1684,18 @@ class DatePanel( Sith ):
     __date = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1639,8 +1710,8 @@ class DatePanel( Sith ):
     def show( self ):
         ALPHA = 0.9  # Initial alpha until user changes
         THEME = 'Dark green 3'  # Initial theme until user changes
-        refresh_font = title_font = 'Courier 8'
-        main_info_font = 'Courier 20'
+        refresh_font = title_font = 'Roboto 8'
+        main_info_font = 'Roboto 20'
         main_info_size = (10, 1)
         UPDATE_FREQUENCY_MILLISECONDS = 1000 * 60 * 60  # update every hour by default until set
         # by user
@@ -1844,12 +1915,12 @@ class ListDialog( Sith ):
     __items = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -1876,6 +1947,7 @@ class ListDialog( Sith ):
     def __init__( self, data ):
         self.__items = data if isinstance( data, list ) else None
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1980,17 +2052,18 @@ class ColorDialog( Sith ):
             self.__html = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -2721,17 +2794,18 @@ class Dashboard( Sith ):
             self.__header = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -2848,17 +2922,18 @@ class ChartPanel( Sith ):
             self.__header = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
