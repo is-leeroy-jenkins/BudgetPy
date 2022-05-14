@@ -2763,7 +2763,7 @@ class ColorDialog( Sith ):
         def make_window( ):
             layout = [ [ sg.Text( '' ), ],
                        [ sg.Text( f'{ len( color_list ) } Colors', font = self.__themefont ), ],
-                       [ sg.Text( ' ', size = ( 5, 1 ) ), sg.Cancel( size = ( 20, 1 ), key = '-Cancel-' ) ] ]
+                       [ sg.Text( ' ', size = ( 5, 1 ) ), ] ]
 
             for rows in range( len( color_list ) // COLORS_PER_ROW+1 ):
                 row = [ ]
@@ -2780,6 +2780,8 @@ class ColorDialog( Sith ):
                             f'rows = { rows }  i = { i }' )
                         break
                 layout.append( row )
+            layout.append( [ sg.Text( ' ', size = ( 100, 1 ) ), ] )
+            layout.append( [ sg.Text( ' ', size = ( 100, 1 ) ), sg.Cancel( size = ( 20, 1 ), key = '-Cancel-' ), ] )
 
             return sg.Window( 'Budget Execution', layout,
                 font = self.__themefont,
@@ -2794,7 +2796,7 @@ class ColorDialog( Sith ):
 
         while True:
             event, values = window.read( )
-            if event == sg.WIN_CLOSED:
+            if event in ( sg.WIN_CLOSED, '-Cancel-' ):
                 break
             if event == 'Edit me':
                 sg.execute_editor( __file__ )
