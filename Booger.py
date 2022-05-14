@@ -2101,7 +2101,7 @@ class ColorDialog( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 450, 400 )
+        self.__formsize = ( 450, 450 )
 
     def show( self ):
         import sys
@@ -2781,7 +2781,7 @@ class ColorDialog( Sith ):
                         break
                 layout.append( row )
             layout.append( [ sg.Text( ' ', size = ( 100, 1 ) ), ] )
-            layout.append( [ sg.Text( ' ', size = ( 100, 1 ) ), sg.Cancel( size = ( 20, 1 ), key = '-Cancel-' ), ] )
+            layout.append( [ sg.Text( ' ', size = ( 100, 1 ) ), sg.Cancel( size = ( 20, 1 )  ), ] )
 
             return sg.Window( 'Budget Execution', layout,
                 font = self.__themefont,
@@ -2796,7 +2796,7 @@ class ColorDialog( Sith ):
 
         while True:
             event, values = window.read( )
-            if event in ( sg.WIN_CLOSED, '-Cancel-' ):
+            if event in ( sg.WIN_CLOSED, 'Cancel' ):
                 break
             if event == 'Edit me':
                 sg.execute_editor( __file__ )
