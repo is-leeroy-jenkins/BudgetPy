@@ -2780,8 +2780,9 @@ class ColorDialog( Sith ):
                             f'rows = { rows }  i = { i }' )
                         break
                 layout.append( row )
-            layout.append( [ sg.Text( ' ', size = ( 100, 1 ) ), ] )
-            layout.append( [ sg.Text( ' ', size = ( 100, 1 ) ), sg.Cancel( size = ( 20, 1 )  ), ] )
+            layout.append( [ sg.Text( ' ', size = ( 10, 1 ) ), ] )
+            layout.append( [ sg.Text( ' ', size = ( 10, 1 ) ), ] )
+            layout.append( [ sg.Text( ' ', size = ( 50, 1 ) ), sg.Cancel( size = ( 20, 1 )  ), ] )
 
             return sg.Window( 'Budget Execution', layout,
                 font = self.__themefont,
@@ -2796,7 +2797,7 @@ class ColorDialog( Sith ):
 
         while True:
             event, values = window.read( )
-            if event in ( sg.WIN_CLOSED, 'Cancel' ):
+            if event in ( sg.WIN_CLOSED, 'Cancel', 'Exit' ):
                 break
             if event == 'Edit me':
                 sg.execute_editor( __file__ )
