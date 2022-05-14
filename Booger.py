@@ -2101,7 +2101,7 @@ class ColorDialog( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 600, 400 )
+        self.__formsize = ( 450, 400 )
 
     def show( self ):
         import sys
@@ -2761,29 +2761,27 @@ class ColorDialog( Sith ):
         font_size = 9
 
         def make_window( ):
-            layout = [ [ sg.Text( f'Swatches for { len( color_list ) } Colors', font = self.__themefont ) , ],
-                       [ sg.Text( f'Hover - see color "name"\nRight click - see hex value\nClick - see buttons & hex value copied to clipboard', font='Default 12')],
-                       [ sg.Text( f'PySimpleGUI version: {sg.ver}', font = self.__themefont ) ],
-                       [ sg.Text( f'Python version: {sys.version}', font = self.__themefont ) ],
-                       [ sg.Text( f'tkinter version: {sg.tclversion_detailed}', font = self.__themefont ) ], ]
+            layout = [ [ sg.Text( '' ), ],
+                       [ sg.Text( f'{ len( color_list ) } Colors', font = self.__themefont ), ],
+                       [ sg.Text( ' ', size = ( 5, 1 ) ), sg.Cancel( size = ( 20, 1 ), key = '-Cancel-' ) ] ]
 
             for rows in range( len( color_list ) // COLORS_PER_ROW+1 ):
                 row = [ ]
 
                 for i in range( COLORS_PER_ROW ):
                     try:
-                        color = color_list[rows*COLORS_PER_ROW+i]
-                        row.append(sg.T(' ', s=1, background_color=color, text_color=color, font=('Default', font_size), right_click_menu=['_', color_map[color]],
-                            tooltip=color, enable_events=True, key=(color, color_map[color])))
+                        color = color_list[ rows * COLORS_PER_ROW + i ]
+                        row.append( sg.T( ' ', s = 1, background_color = color, text_color = color, font = self.__themefont , right_click_menu = [ '_', color_map[ color ] ],
+                            tooltip = color, enable_events = True, key = ( color, color_map[ color ] ) ) )
                     except IndexError as e:
                         break
                     except Exception as e:
-                        sg.popup_error(f'Error while creating color window. Something with the Text elements perhaps....', e,
-                            f'rows = {rows}  i = {i}')
+                        sg.popup_error( f'Error while creating color window....', e,
+                            f'rows = { rows }  i = { i }' )
                         break
-                layout.append(row)
+                layout.append( row )
 
-            return sg.Window('Colors', layout,
+            return sg.Window( 'Budget Execution', layout,
                 font = self.__themefont,
                 size = self.__formsize,
                 element_padding = ( 1, 1 ),
@@ -2798,7 +2796,7 @@ class ColorDialog( Sith ):
             event, values = window.read( )
             if event == sg.WIN_CLOSED:
                 break
-            if event == 'Edit Me':
+            if event == 'Edit me':
                 sg.execute_editor( __file__ )
                 continue
             elif isinstance(event, tuple):
@@ -2806,7 +2804,7 @@ class ColorDialog( Sith ):
             else:
                 color, color_hex = hex_to_color[ event ], event
 
-            layout2 = [ [ sg.Text(color_hex + ' on clipboard' ) ],
+            layout2 = [ [ sg.Text( color_hex + ' on clipboard' ) ],
                        [ sg.DummyButton( color, button_color = self.__buttoncolor, tooltip = color_hex ),
                         sg.DummyButton( color, button_color = self.__buttoncolor, tooltip = color_hex ) ] ]
 
