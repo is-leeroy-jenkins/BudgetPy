@@ -8,12 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/ico/ninja.ico" beforeDir="false" afterPath="$PROJECT_DIR$/etc/ico/ninja.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/img/app/notification/Ninja.png" beforeDir="false" afterPath="$PROJECT_DIR$/etc/img/app/notification/Ninja.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/etc/img/app/notification/NotifyNinja.png" beforeDir="false" afterPath="$PROJECT_DIR$/etc/img/app/notification/NotifyNinja.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/ui/time.png" beforeDir="false" afterPath="$PROJECT_DIR$/etc/img/app/ui/time.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,9 +99,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "last_opened_file_path": "C:/Users/terry/source/compilers/py/python",
+    "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/venv/Scripts",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "MTCustomThemeConfigurable"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -113,11 +113,11 @@
 }]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\compilers\py\python\python.exe" working-directory="$SYSTEM$">
+      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$/venv/Scripts">
         <option name="myCustomStartScript" value="" />
-        <option name="mySdkHome" value="C:\Users\terry\source\compilers\py\python\python.exe" />
+        <option name="mySdkHome" value="C:\Users\terry\source\repos\BudgetPy\venv\Scripts\python.exe" />
         <option name="myModuleName" value="BudgetPy" />
-        <option name="myWorkingDirectory" value="$SYSTEM$" />
+        <option name="myWorkingDirectory" value="$PROJECT_DIR$/venv/Scripts" />
       </console-settings>
     </option>
   </component>
@@ -167,13 +167,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00071" summary="updates from main rig;">
-      <created>1651490411285</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1651490411285</updated>
     </task>
     <task id="LOCAL-00072" summary="updates from main rig;">
       <created>1651531007260</created>
@@ -511,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652488061583</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="updates from main rig;">
+      <created>1652516657654</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1652516657655</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

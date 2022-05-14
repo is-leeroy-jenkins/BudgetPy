@@ -1364,12 +1364,12 @@ class SplashPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
         self.__formsize = ( 800, 600 )
         self.__timeout = 4000
 
     def show( self ):
-        layout = [ [ sg.Image( data=image ) ] ]
+        layout = [ [ sg.Image( filename=self.__image ) ] ]
         window = sg.Window( 'Window Title', layout,
                     transparent_color = self.__themebackground,
                     no_titlebar = True,
@@ -1443,12 +1443,12 @@ class Notification( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\ninja.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\NotifyNinja.png'
         self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
         return sg.popup_notify( self.__message,
-            title = ' ' + 'Notification',
+            title = ' ' + 'Budget Execution',
             icon = self.__image,
             display_duration_in_ms = 9000,
             fade_in_duration = 5000,
@@ -1494,7 +1494,7 @@ class PdfForm( Sith ):
         self.__formsize = ( 600, 400 )
 
     def show( self ):
-        filename = sg.popup_get_file( 'Budget PDF', 'PDF file to open',
+        filename = sg.popup_get_file( 'Budget Execution', 'PDF to open',
             file_types = ( ("PDF Files", "*.pdf"),
                            ("XPS Files", "*.*xps"),
                            ("Epub Files", "*.epub"),
@@ -2785,7 +2785,7 @@ class Dashboard( Sith ):
 
     @property
     def header( self ):
-        if isin( self.__header, str ) and self.__header != '':
+        if isinstance( self.__header, str ) and self.__header != '':
             return self.__header
 
     @header.setter
@@ -2804,7 +2804,7 @@ class Dashboard( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -2815,86 +2815,77 @@ class Dashboard( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 960, 450 )
+        self.__formsize = ( 960, 600 )
 
     def show( self ):
-        BORDER_COLOR = '#22262E'
-        DARK_HEADER_COLOR = self.__buttoncolor
-        BPAD_TOP = ( ( 20,20 ), ( 20, 10 ) )
-        BPAD_LEFT = ( ( 20,10 ), ( 0, 0 ) )
-        BPAD_LEFT_INSIDE = ( 0, ( 10, 0 ) )
-        BPAD_RIGHT = ( ( 10,20 ), ( 10, 0 ) )
+        theme_dict = {'BACKGROUND': '#2B475D',
+                      'TEXT': '#FFFFFF',
+                      'INPUT': '#F2EFE8',
+                      'TEXT_INPUT': '#000000',
+                      'SCROLL': '#F2EFE8',
+                      'BUTTON': ('#000000', '#C2D4D8'),
+                      'PROGRESS': ('#FFFFFF', '#C7D5E0'),
+                      'BORDER': 0,'SLIDER_DEPTH': 0, 'PROGRESS_DEPTH': 0}
 
-        theme_dict = { 'BACKGROUND': self.__elementbackcolor,
-                        'TEXT': self.__themetextcolor,
-                        'INPUT': self.__inputbackcolor,
-                        'TEXT_INPUT': self.__inputforecolor,
-                        'SCROLL': self.__buttoncolor,
-                        'BUTTON': self.__buttoncolor,
-                        'PROGRESS': ( 'Blue', '#C7D5E0' ),
-                        'BORDER': 0,
-                        'SLIDER_DEPTH': 0,
-                        'PROGRESS_DEPTH': 0 }
+        sg.theme_add_new('Dashboard', theme_dict)
+        sg.theme('Dashboard')
 
-        sg.theme_add_new( 'Dashboard', theme_dict )
-        sg.theme('Dashboard' )
+        BORDER_COLOR = '#C7D5E0'
+        DARK_HEADER_COLOR = '#1B2838'
+        BPAD_TOP = ((20,20), (20, 10))
+        BPAD_LEFT = ((20,10), (0, 0))
+        BPAD_LEFT_INSIDE = (0, (10, 0))
+        BPAD_RIGHT = ((10,20), (10, 0))
 
         top_banner = [
-                [ sg.Text( 'Budget Execution', font='Any 20', background_color = DARK_HEADER_COLOR,
-                    enable_events=True, grab=False), sg.Push( background_color=DARK_HEADER_COLOR ),
-                 sg.Text( 'Wednesday 27 Oct 2021', font='Any 20', background_color = DARK_HEADER_COLOR ) ],
+                [sg.Text('Dashboard', font='Any 20', background_color=DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
+                 sg.Text('Wednesday 27 Oct 2021', font='Any 20', background_color=DARK_HEADER_COLOR)],
         ]
 
-        top  = [[ sg.Push( ), sg.Text( 'Weather Could Go Here', font='Any 20'), sg.Push( ) ],
-                [ sg.T( 'This Frame has a relief while the others do not') ],
-                [ sg.T( 'This window is resizable ( see that sizegrip in the bottom right?)') ]]
+        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Any 20'), sg.Push()],
+                [sg.T('This Frame has a relief while the others do not')],
+                [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
 
-        block_3 = [ [ sg.Text(  'Block 3', font='Any 20' ) ],
-                    [ sg.Input(  ), sg.Text(  'Some Text' ) ],
-                    [ sg.T(  'This frame has element_justification="c"' ) ],
-                    [ sg.Button( 'Go', button_color = self.__buttoncolor, size = (  10, 1 ) ),
-                      sg.Button(  'Exit', button_color = self.__buttoncolor, size = (  10, 1 ) ) ]  ]
+        block_3 = [[sg.Text('Block 3', font='Any 20')],
+                   [sg.Input(), sg.Text('Some Text')],
+                   [sg.T('This frame has element_justification="c"')],
+                   [sg.Button('Go'), sg.Button('Exit')]  ]
 
 
-        block_2 = [ [ sg.Text( 'Block 2', font='Any 20' ) ],
-                    [ sg.T( 'This is some random text' ) ],
-                    [ sg.Image( data=sg.DEFAULT_BASE64_ICON, enable_events=True ) ] ]
+        block_2 = [[sg.Text('Block 2', font='Any 20')],
+                   [sg.T('This is some random text')],
+                   [sg.Image(data=sg.DEFAULT_BASE64_ICON, enable_events=True)]  ]
 
-        block_4 = [ [ sg.Text( 'Block 4', font='Any 20') ],
-                    [ sg.T( 'You can move the window by grabbing this block ( and the top banner)') ],
-                    [ sg.T( 'This block is a Column Element') ],
-                    [ sg.T( 'The others are all frames') ],
-                    [ sg.T( 'The Frame Element, with a border_width=0\n    and no title is just like a Column') ],
-                    [ sg.T( 'Frames that have a fixed size \n    handle element_justification better than Columns') ]]
+        block_4 = [[sg.Text('Block 4', font='Any 20')],
+                   [sg.T('You can move the window by grabbing this block (and the top banner)')],
+                   [sg.T('This block is a Column Element')],
+                   [sg.T('The others are all frames')],
+                   [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
+                   [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
 
 
         layout = [
-            [ sg.Frame('', top_banner,   pad=( 0, 0 ), background_color = DARK_HEADER_COLOR,  expand_x = True, border_width = 0, grab = True) ],
-            [ sg.Frame('', top, size = ( 920, 100 ), pad = BPAD_TOP,  expand_x = True,  relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
-            [ sg.Frame('', [ [ sg.Frame( '', block_2, size = ( 450, 150 ), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True, ) ],
-                           [ sg.Frame('', block_3, size = ( 450, 150 ),  pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True, element_justification = 'c' ) ] ],
-                pad=BPAD_LEFT, background_color = BORDER_COLOR, border_width = 0, expand_x = True, expand_y = True ),
-             sg.Column( block_4, size = ( 450, 320 ), pad = BPAD_RIGHT,  expand_x = True, expand_y = True, grab = True ), ],[ sg.Sizegrip( background_color = BORDER_COLOR ) ] ]
+                [sg.Frame('', top_banner,   pad=(0,0), background_color=DARK_HEADER_COLOR,  expand_x=True, border_width=0, grab=True)],
+                [sg.Frame('', top, size=(920, 100), pad=BPAD_TOP,  expand_x=True,  relief=sg.RELIEF_GROOVE, border_width=3)],
+                [sg.Frame('', [[sg.Frame('', block_2, size=(450,150), pad=BPAD_LEFT_INSIDE, border_width=0, expand_x=True, expand_y=True, )],
+                               [sg.Frame('', block_3, size=(450,150),  pad=BPAD_LEFT_INSIDE, border_width=0, expand_x=True, expand_y=True, element_justification='c')]],
+                    pad=BPAD_LEFT, background_color=BORDER_COLOR, border_width=0, expand_x=True, expand_y=True),
+                 sg.Column(block_4, size=(450, 320), pad=BPAD_RIGHT,  expand_x=True, expand_y=True, grab=True),],[sg.Sizegrip(background_color=BORDER_COLOR)]]
 
-        window = sg.Window( 'Budget Execution', layout,
-            margins = ( 0,0 ),
-            background_color = BORDER_COLOR,
-            no_titlebar = True,
-            resizable = True,
-            right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
+        window = sg.Window('Dashboard PySimpleGUI-Style', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, resizable=True, right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT)
 
-        while True:
-            event, values = window.read( )
-            print( event, values )
+        while True:             # Event Loop
+            event, values = window.read()
+            print(event, values)
             if event == sg.WIN_CLOSED or event == 'Exit':
                 break
             elif event == 'Edit Me':
-                sg.execute_editor( __file__ )
+                sg.execute_editor(__file__)
             elif event == 'Version':
-                sg.popup_scrolled( sg.get_versions( ), keep_on_top=True )
+                sg.popup_scrolled(sg.get_versions(), keep_on_top=True)
             elif event == 'File Location':
-                sg.popup_scrolled( 'This Python file is:', __file__ )
-        window.close( )
+                sg.popup_scrolled('This Python file is:', __file__)
+        window.close()
 
 
 class ChartPanel( Sith ):
@@ -2946,17 +2937,20 @@ class ChartPanel( Sith ):
         self.__formsize = ( 700, 600 )
 
     def show( self ):
-        __btnsize = ( 15, 1 )
-        BAR_WIDTH = 50
-        BAR_SPACING = 75
-        EDGE_OFFSET = 3
-        GRAPH_SIZE = DATA_SIZE = ( 600, 500 )
+        small = ( 10, 1 )
+        medium = ( 15, 1 )
+        large = ( 20, 1 )
+        xlarge = ( 100, 1 )
+        barwidth = 50
+        barspacing = 75
+        edgeoffset = 3
+        graphsize = datasize = ( 600, 500 )
 
-        layout = [ [ sg.Text( '', size = ( 10, 1 ) ), sg.Text( '', size = ( 100, 1 ) ) ],
-                   [ sg.Text( '', size = ( 10, 1 ) ), sg.Graph( GRAPH_SIZE, ( 0,0 ), DATA_SIZE, k='-GRAPH-', pad = 3 ) ],
-                   [ sg.Text( '', size = ( 10, 1 ) ), sg.Text( '', size = ( 100, 1 ) ) ],
-                   [ sg.Text( '', size = ( 20, 1 ) ), sg.Button( 'Next', size = __btnsize ),
-                     sg.Text( '', size = ( 20, 1 ) ), sg.Exit( size = __btnsize ) ] ]
+        layout = [ [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
+                   [ sg.Text( '', size = small ), sg.Graph( graphsize, ( 0, 0 ), datasize, k='-GRAPH-', pad = 3 ) ],
+                   [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
+                   [ sg.Text( '', size = large ), sg.Button( 'Next', size = medium ),
+                     sg.Text( '', size = large ), sg.Exit( size = medium ) ] ]
 
         window = sg.Window( 'Budget Execution', layout,
             finalize = True,
@@ -2970,13 +2964,13 @@ class ChartPanel( Sith ):
         while True:
             graph.erase( )
             for i in range( 7 ):
-                graph_value = random.randint( 0, GRAPH_SIZE[ 1 ] )
-                graph.draw_rectangle( top_left = ( i * BAR_SPACING + EDGE_OFFSET, graph_value ),
-                    bottom_right = (i * BAR_SPACING + EDGE_OFFSET + BAR_WIDTH, 0 ),
+                graph_value = random.randint( 0, graphsize[ 1 ] )
+                graph.draw_rectangle( top_left = ( i * barspacing + edgeoffset, graph_value ),
+                    bottom_right = (i * barspacing + edgeoffset + barwidth, 0 ),
                     fill_color = self.__buttoncolor )
 
                 graph.draw_text( text = graph_value, color = self.__themetextcolor,
-                    location = ( i * BAR_SPACING + EDGE_OFFSET + 25, graph_value + 10 ) )
+                    location = ( i * barspacing + edgeoffset + 25, graph_value + 10 ) )
 
             event, values = window.read( )
             if event in ( sg.WIN_CLOSED, 'Exit' ):
