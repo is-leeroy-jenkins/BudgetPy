@@ -15,6 +15,10 @@ from googlesearch import search
 from Minion import App
 import smtplib as smtp
 from email.message import EmailMessage
+import queue
+import logging
+import threading
+import time
 
 
 # ButtonIcon( png )
@@ -716,7 +720,7 @@ class EmailDialog( Sith ):
         window.close()
 
 
-# Message( text )
+# MessageDialog( text )
 class MessageDialog( Sith ):
     ''' class that provides form to display informational messages '''
     __themebackground = None
@@ -794,7 +798,7 @@ class MessageDialog( Sith ):
         window.close( )
 
 
-# Error( exception )
+# ErrorDialog( exception )
 class ErrorDialog( Sith ):
     '''class that displays error message'''
     __message = None
@@ -836,10 +840,10 @@ class ErrorDialog( Sith ):
     def __init__( self, exception = None ):
         super( Sith, self ).__init__( )
         self.__themebackground = Sith( ).themebackground
-        self.__exception = exception if isinstance( exception, BudgetException ) else None
-        self.__message = self.__exception.message if isinstance( exception, BudgetException ) else None
-        self.__cause = self.__exception.cause if isinstance( exception, BudgetException ) else ''
-        self.__method = self.__exception.method if isinstance( exception, BudgetException ) else ''
+        self.__exception = exception if isinstance( exception, BudgetError ) else None
+        self.__message = self.__exception.message if isinstance( exception, BudgetError ) else None
+        self.__cause = self.__exception.cause if isinstance( exception, BudgetError ) else ''
+        self.__method = self.__exception.method if isinstance( exception, BudgetError ) else ''
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1925,8 +1929,83 @@ class DatePanel( Sith ):
             main( location )
 
 
-# ListDialog( data )
-class ListDialog( Sith ):
+class ComboBoxDialog( Sith ):
+    '''Logger object provides form for log printing'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+    __items = None
+
+    @property
+    def size( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @size.setter
+    def size( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    @property
+    def entry( self ):
+        if isinstance( self.__entry, str )  and self.__entry != '':
+            return self.__entry
+
+    @entry.setter
+    def entry( self, value ):
+        if isinstance( value, str )  and value != '':
+            self.__entry = value
+
+    def __init__( self, data = None):
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
+        self.__themefont = Sith( ).themefont
+        self.__icon = Sith( ).iconpath
+        self.__elementbackcolor = Sith( ).elementbackcolor
+        self.__elementforecolor = Sith( ).elementforecolor
+        self.__themetextcolor = Sith( ).textforecolor
+        self.__textbackcolor = Sith( ).textbackcolor
+        self.__inputbackcolor = Sith( ).inputbackcolor
+        self.__inputforecolor = Sith( ).inputforecolor
+        self.__buttoncolor = Sith( ).buttoncolor
+        self.__formsize = ( 400, 150 )
+        self.__items = data if isinstance( data, list ) and len( data ) > 0 else None
+
+    def show( self ):
+        btnsize = ( 10 , 1 )
+        space = ( 5, 1 )
+        if self.__items == None:
+            self.__items = [ f'choice { x } ' for x in range( 30 ) ]
+            values = self.__items
+
+        layout = [ [ sg.Text( size = space ), sg.Text( size = space ) ],
+                   [ sg.Text( size = space ), sg.Text( 'Make Selection' ) ],
+                   [ sg.Text( size = space ) , sg.DropDown( values, key = '-ITEM-', size = ( 35, 1 ) ) ],
+                   [ sg.Text( size = space ), sg.Text( size = space ) ],
+                   [ sg.Text( size = space ), sg.OK( size = btnsize ), sg.Text( size = ( 8, 1 ) ), sg.Cancel( size = btnsize ) ] ]
+
+        window = sg.Window( 'Budget Execution', layout,
+            icon = self.__icon,
+            size = self.__formsize )
+
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, 'Exit', 'Cancel' ):
+                break
+
+        window.close()
+
+
+# ListBoxDialog( data )
+class ListBoxDialog( Sith ):
     '''List search and selection'''
     __themebackground = None
     __elementbackcolor = None
@@ -1941,6 +2020,7 @@ class ListDialog( Sith ):
     __themefont = None
     __selecteditem = None
     __items = None
+    __image = None
 
     @property
     def size( self ):
@@ -1972,8 +2052,8 @@ class ListDialog( Sith ):
         if isinstance( value, list ):
             self.__items = value
 
-    def __init__( self, data ):
-        self.__items = data if isinstance( data, list ) else None
+    def __init__( self, data = None ):
+        self.__items = data if isinstance( data, list ) else [ ]
         super( Sith, self ).__init__()
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
@@ -1985,20 +2065,27 @@ class ListDialog( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 200, 225 )
+        self.__formsize = ( 400, 250 )
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\dialog\lookup.png'
 
     def show( self ):
-        __btnsize = ( 10, 1 )
+        btnsize = ( 10, 1 )
+        space = ( 10, 1 )
+        line = ( 100, 1 )
+        txtsize = ( 25, 1 )
+        inpsize = ( 25, 1 )
+        lstsize = ( 25, 5 )
 
         names = [ src for src in list( self.__items ) if src != 'NS' ]
-        layout = [ [ sg.Text( 'Search:', size = ( 25, 1 )  ) ],
-                   [ sg.Input( size = ( 25, 1 ), enable_events = True, key = '-INPUT-' ) ],
-                   [ sg.Text( r'', size = (100, 1) ) ],
-                   [ sg.Listbox( names, size = ( 25, 5 ), enable_events = True, key = '-LIST-', font = self.__themefont ) ],
-                   [ sg.Text( r'', size = (100, 1) ) ],
-                   [ sg.Button( 'Select', size = __btnsize ), sg.Button( 'Exit', size = __btnsize  ) ] ]
+        layout = [ [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
+                   [ sg.Text( '', size = space ), sg.Text( r'Search:' ) ],
+                   [ sg.Text( '', size = space ), sg.Input( size = inpsize, enable_events = True, key = '-INPUT-' ) ],
+                   [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
+                   [ sg.Text( '', size = space ), sg.Listbox( names, size = lstsize, enable_events = True, key = '-LIST-', font = self.__themefont ) ],
+                   [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
+                   [ sg.Text( '', size = space ), sg.Button( 'Select', size = btnsize ), sg.Text( '', size = ( 3, 1 ) ), sg.Button( 'Exit', size = btnsize  ) ] ]
 
-        window = sg.Window( '', layout,
+        window = sg.Window( '  Budget Execution', layout,
             size = self.__formsize,
             font = self.__themefont,
             icon = self.__icon )
@@ -2832,6 +2919,7 @@ class ColorDialog( Sith ):
             auto_size_buttons = False,
             border_width = 1,
             tooltip_time = 100)
+
 
 class Dashboard( Sith ):
     '''class defining basic dashboard for the application'''
