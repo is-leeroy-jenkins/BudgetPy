@@ -3,6 +3,7 @@ import sqlite3 as sl
 import sys
 
 import pandas as pd
+from pandas.io import sql as sqlite
 import pyodbc as db
 import os
 from collections import namedtuple as ntuple
@@ -1505,11 +1506,13 @@ class DataTable( ):
             return self.__name
 
 
-# BudgetFrame( src, data, columns, index )
-class BudgetFrame( ):
+# BudgetData( src, data, columns, index )
+class BudgetData( ):
     '''Class representing pandas DataFrame'''
     __source = None
     __name = None
+    __path = None
+    __connection = None
     __sql = None
     __data = None
     __columns = None
@@ -1577,5 +1580,11 @@ class BudgetFrame( ):
 
     def __init__( self, src ):
         self.__source = src if isinstance( src, Source ) else None
-        self.__source = src.name if isinstance( src, Source ) else None
+        self.__name = src.name if isinstance( src, Source ) else None
+        self.__path = DataConfig( self.__source, Provider.SQLite ).getpath( )
         self.__sql = f'SELECT * FROM { self.__name };'
+
+    def getframe( self ):
+        if os.path.exists( self.__path ):
+            conn = sl.connect( self.__path )
+            data = [ tuple( i ) for i in sqlite.read_sql( self.__sql, conn ) ]
