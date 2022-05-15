@@ -7,18 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/adobe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/allocation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/control.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/lookup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/seurity.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;">
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/PDF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/SiteTravel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/allowanceholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/calculator.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/congess.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/purchaseorder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/reprogramfunds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/serviceagreement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/transfer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/xa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/ui/payroll.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/dialog/DataIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/etc/img/app/dialog/DataIcon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/dialog/FTE.png" beforeDir="false" afterPath="$PROJECT_DIR$/etc/img/app/dialog/FTE.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/dialog/captial.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/img/app/dialog/cdw.png" beforeDir="false" afterPath="$PROJECT_DIR$/etc/img/app/dialog/cdw.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,13 +174,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00081" summary="from other rig;">
-      <created>1651692926581</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1651692926581</updated>
     </task>
     <task id="LOCAL-00082" summary="from other rig;">
       <created>1651693525655</created>
@@ -516,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652617161154</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="updates from main rig;">
+      <created>1652620757640</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1652620757640</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

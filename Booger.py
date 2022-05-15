@@ -949,13 +949,13 @@ class InputDialog( Sith ):
         layout =  [ [ sg.Text( r'' ) ],
             [ sg.Text( self.__question, font = ( 'Roboto', 9, 'bold' ) ) ],
             [ sg.Text( r'' ) ],
-            [ sg.Text( 'Enter:', size = ( 10, 2 ) ), sg.InputText( '1', key = '-INPUT-', size = ( 40, 2 ) ) ],
+            [ sg.Text( 'Enter:', size = ( 10, 2 ) ), sg.InputText( key = '-INPUT-', size = ( 40, 2 ) ) ],
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
-            [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 10, 1 ), key = '-SUBMIT-' ),
-              sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 ), key = '-CANCEL-' ) ] ]
+            [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ), key = '-SUBMIT-' ),
+              sg.Text( r'', size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ), key = '-CANCEL-' ) ] ]
 
-        window = sg.Window( ' Budget Input', layout,
+        window = sg.Window( '  Budget Execution', layout,
             icon = self.__icon,
             font = self.__themefont,
             size = self.__formsize )
@@ -967,7 +967,7 @@ class InputDialog( Sith ):
                 font = self.__themefont,
                 icon = self.__icon )
 
-            if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel' ):
+            if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel', 'Exit' ):
                 break
 
         window.close( )
