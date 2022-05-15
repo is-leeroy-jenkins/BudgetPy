@@ -598,9 +598,9 @@ class GoogleDialog( Sith ):
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
             [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ) ),
-              sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
+              sg.Text( r'', size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
 
-        window = sg.Window( 'Budget Execution', layout,
+        window = sg.Window( '    Budget Execution', layout,
             icon = self.__icon,
             font = self.__themefont,
             size = self.__formsize )
@@ -683,7 +683,7 @@ class EmailDialog( Sith ):
         inp = ( 35, 1 )
         spc = ( 5, 1 )
         layout = [ [ sg.T( ' ', size = spc ), ],
-           [ sg.T( ' ', size = spc ), sg.Image( filename = self.__image ) ],
+           [ sg.T( ' ', size = spc ), sg.Image( filename = self.__image, size = ( 35, 16 ) ) ],
            [ sg.T( ' ', size = spc ), ],
            [ sg.T( ' ', size = spc ), sg.T( 'From:', size = btn ), sg.Input( key = '-EMAIL FROM-', size = ( 35,1 ) ) ],
            [ sg.T( ' ', size = spc ), sg.T( 'To:', size = btn ),  sg.Input(key = '-EMAIL TO-', size = ( 35,1 ) ) ],
@@ -1413,6 +1413,7 @@ class SplashPanel( Sith ):
         window.close()
 
 
+
 # Notification( message )
 class Notification( Sith ):
     '''Class provides splash notification behaviors'''
@@ -1483,6 +1484,7 @@ class Notification( Sith ):
             display_duration_in_ms = 9000,
             fade_in_duration = 5000,
             alpha = 1 )
+
 
 
 class PdfForm( Sith ):
@@ -1929,6 +1931,7 @@ class DatePanel( Sith ):
             main( location )
 
 
+# ComboBoxDialog( data )
 class ComboBoxDialog( Sith ):
     '''Logger object provides form for log printing'''
     __themebackground = None
@@ -1988,11 +1991,11 @@ class ComboBoxDialog( Sith ):
 
         layout = [ [ sg.Text( size = space ), sg.Text( size = space ) ],
                    [ sg.Text( size = space ), sg.Text( 'Make Selection' ) ],
-                   [ sg.Text( size = space ) , sg.DropDown( values, key = '-ITEM-', size = ( 35, 1 ) ) ],
+                   [ sg.Text( size = space ) , sg.DropDown( self.__items, key = '-ITEM-', size = ( 35, 1 ) ) ],
                    [ sg.Text( size = space ), sg.Text( size = space ) ],
                    [ sg.Text( size = space ), sg.OK( size = btnsize ), sg.Text( size = ( 8, 1 ) ), sg.Cancel( size = btnsize ) ] ]
 
-        window = sg.Window( 'Budget Execution', layout,
+        window = sg.Window( '    Budget Execution', layout,
             icon = self.__icon,
             size = self.__formsize )
 
@@ -2106,6 +2109,7 @@ class ListBoxDialog( Sith ):
                     icon = self.__icon  )
 
         window.close( )
+
 
 
 class ColorDialog( Sith ):
@@ -2921,7 +2925,7 @@ class ColorDialog( Sith ):
             tooltip_time = 100)
 
 
-class Dashboard( Sith ):
+class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
     __elementbackcolor = None
@@ -2980,16 +2984,16 @@ class Dashboard( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 960, 600 )
+        self.__formsize = ( 1400, 800 )
         self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
 
     def show( self ):
         BORDER_COLOR = '#C7D5E0'
         DARK_HEADER_COLOR = '#1B2838'
-        BPAD_TOP = ((20,20), (20, 10))
-        BPAD_LEFT = ((20,10), (0, 0))
-        BPAD_LEFT_INSIDE = (0, (10, 0))
-        BPAD_RIGHT = ((10,20), (10, 0))
+        BPAD_TOP = ( ( 20, 20 ), ( 20, 10 ) )
+        BPAD_LEFT = ( ( 20, 10 ), ( 0, 0 ) )
+        BPAD_LEFT_INSIDE = ( 0, ( 10, 0 ) )
+        BPAD_RIGHT = ( ( 10, 20 ), ( 10, 0 ) )
 
         top_banner = [
                 [sg.Text('Budget Execution', font='Roboto 20', background_color=DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
@@ -3026,7 +3030,14 @@ class Dashboard( Sith ):
                     pad=BPAD_LEFT, background_color=BORDER_COLOR, border_width=0, expand_x=True, expand_y=True),
                  sg.Column(block_4, size=(450, 320), pad=BPAD_RIGHT,  expand_x=True, expand_y=True, grab=True),],[sg.Sizegrip(background_color=BORDER_COLOR)]]
 
-        window = sg.Window('Budget Execution', layout, margins=(0,0), background_color=BORDER_COLOR, no_titlebar=True, resizable=True, right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT)
+        window = sg.Window( '    Budget Execution', layout,
+            size = self.__formsize,
+            margins = ( 0, 0 ),
+            icon = self.__icon,
+            background_color = BORDER_COLOR,
+            no_titlebar = True,
+            resizable = True,
+            right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
 
         while True:             # Event Loop
             event, values = window.read()
@@ -3039,7 +3050,7 @@ class Dashboard( Sith ):
                 sg.popup_scrolled(sg.get_versions(), keep_on_top=True)
             elif event == 'File Location':
                 sg.popup_scrolled('This Python file is:', __file__)
-        window.close()
+        window.close( )
 
 
 class ChartPanel( Sith ):

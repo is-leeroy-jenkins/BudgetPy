@@ -8,17 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;">
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/PDF.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/SiteTravel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/allowanceholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/calculator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/congess.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/purchaseorder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/reprogramfunds.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/serviceagreement.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/transfer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/xa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/img/app/ui/payroll.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
     </list>
@@ -174,13 +163,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00082" summary="from other rig;">
-      <created>1651693525655</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1651693525655</updated>
     </task>
     <task id="LOCAL-00083" summary="from other rig;">
       <created>1651696427169</created>
@@ -518,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652620757640</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="updates from main rig;">
+      <created>1652621424602</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1652621424602</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
