@@ -8,8 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;">
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/datatransfer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/img/app/dialog/transfers.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/dialog/DataTransfers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/dialog/transfer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/img/app/dialog/xa.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,13 +168,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00083" summary="from other rig;">
-      <created>1651696427169</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1651696427169</updated>
     </task>
     <task id="LOCAL-00084" summary="from other rig;">
       <created>1651699891543</created>
@@ -507,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652621424602</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="updates from main rig;">
+      <created>1652622932734</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1652622932734</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

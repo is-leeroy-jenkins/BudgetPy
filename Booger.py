@@ -19,6 +19,7 @@ import queue
 import logging
 import threading
 import time
+import pandas as pd
 
 
 # ButtonIcon( png )
@@ -973,6 +974,84 @@ class InputDialog( Sith ):
         window.close( )
 
 
+
+class ScrollingDialog( Sith ):
+    '''Provides form for multiline input/output'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+
+    @property
+    def text( self ):
+        if isinstance( self.__text, str ) and self.__text != '':
+            return self.__text
+
+    @text.setter
+    def text( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__text = value
+
+    @property
+    def size( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @size.setter
+    def size( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    def __init__( self ):
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
+        self.__themefont = Sith( ).themefont
+        self.__icon = Sith( ).iconpath
+        self.__elementbackcolor = Sith( ).elementbackcolor
+        self.__elementforecolor = Sith( ).elementforecolor
+        self.__themetextcolor = Sith( ).textforecolor
+        self.__textbackcolor = Sith( ).textbackcolor
+        self.__inputbackcolor = Sith( ).inputbackcolor
+        self.__inputforecolor = Sith( ).inputforecolor
+        self.__buttoncolor = Sith( ).buttoncolor
+        self.__formsize = ( 650, 500 )
+        self.__response = None
+
+    def show( self ):
+        line = ( 100, 1 )
+        space = ( 5, 1 )
+        btnsize = ( 25, 1 )
+
+        layout = [ [ sg.Text( ' ', size = line ) ],
+           [ sg.Text( ' ', size = line ) ],
+           [ sg.Text( '', size = space ), sg.Multiline( size = ( 70, 20 ), key = '-MLINE-' ), sg.Text( '', size = space ) ],
+           [ sg.Text( ' ', size = line ) ],
+           [ sg.Text( ' ', size = space ), sg.Input( k = '-IN-', size = ( 70, 20 ) ), sg.Text( '', size = space )  ],
+           [ sg.Text( ' ', size = line ) ],
+           [ sg.Text( '', size = space ), sg.Button( 'Submit', size = btnsize ),
+             sg.Text( '', size = ( 15, 1 ) ), sg.Button( 'Exit', size = btnsize ), sg.Text( '', size = space ), ] ]
+
+        window = sg.Window( '    Budget Execution', layout,
+            icon = self.__icon,
+            size = self.__formsize,
+            font = self.__themefont,
+            resizable = True )
+
+        while True:
+            event, values = window.read( )
+            if event in (sg.WIN_CLOSED, 'Exit'):
+                break
+
+        window.close( )
+
+
 # ContactForm( contact )
 class ContactForm( Sith ):
     '''class that produces a contact input form'''
@@ -1014,15 +1093,6 @@ class ContactForm( Sith ):
         self.__formsize = ( 450, 200 )
 
     def show( self ):
-        sg.theme_background_color( self.__themebackground )
-        sg.theme_element_background_color( self.__elementbackcolor )
-        sg.theme_element_text_color( self.__elementforecolor )
-        sg.theme_input_text_color( self.__inputforecolor )
-        sg.theme_text_element_background_color( self.__textbackcolor )
-        sg.theme_input_background_color( self.__inputbackcolor )
-        sg.theme_text_color( self.__themetextcolor )
-        sg.theme_button_color( self.__buttoncolor )
-
         layout =  [ [ sg.Text( r'', size = ( 100, 1 ) ) ],
                     [ sg.Text( r'Enter Contact Details' ) ],
                     [ sg.Text( r'', size = ( 100, 1 ) ) ],
@@ -1150,6 +1220,7 @@ class GridForm( Sith ):
         window.close( )
 
 
+
 class LoadingPanel( Sith ):
     '''object providing form loading behavior '''
     __themebackground = None
@@ -1216,6 +1287,7 @@ class LoadingPanel( Sith ):
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
         window.close()
+
 
 
 class WaitingPanel( Sith ):
@@ -1288,6 +1360,7 @@ class WaitingPanel( Sith ):
         window.close()
 
 
+
 class ProcessingPanel( Sith ):
     '''object providing form processing behavior '''
     __themebackground = None
@@ -1355,6 +1428,7 @@ class ProcessingPanel( Sith ):
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
         window.close()
+
 
 
 class SplashPanel( Sith ):
@@ -3141,4 +3215,104 @@ class ChartPanel( Sith ):
             if event in ( sg.WIN_CLOSED, 'Exit' ):
                 break
 
+        window.close( )
+
+
+class CsvForm( Sith ):
+    '''Provides form that reads CSV file with pandas'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+
+    @property
+    def header( self ):
+        if isin( self.__header, str ) and self.__header != '':
+            return self.__header
+
+    @header.setter
+    def header( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__header = value
+
+    @property
+    def size( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @size.setter
+    def size( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    def __init__( self ):
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
+        self.__themefont = Sith( ).themefont
+        self.__icon = Sith( ).iconpath
+        self.__elementbackcolor = Sith( ).elementbackcolor
+        self.__elementforecolor = Sith( ).elementforecolor
+        self.__themetextcolor = Sith( ).textforecolor
+        self.__textbackcolor = Sith( ).textbackcolor
+        self.__inputbackcolor = Sith( ).inputbackcolor
+        self.__inputforecolor = Sith( ).inputforecolor
+        self.__buttoncolor = Sith( ).buttoncolor
+        self.__formsize = ( 800, 600 )
+
+    def show( self ):
+        sg.set_options( auto_size_buttons = True )
+        filename = sg.popup_get_file( title = '    Budget Execution',
+            message = 'Browse to CSV file',
+            icon = self.__icon,
+            font = self.__themefont,
+            file_types = ( ( "CSV Files", "*.csv" ), ) )
+
+        if filename == '':
+            return
+
+        data = [ ]
+        header_list = [ ]
+
+        button = sg.popup_yes_no( 'Does this file have column names already?',
+            icon = self.__icon,
+            font = self.__themefont )
+
+        if filename is not None:
+            try:
+                df = pd.read_csv( filename, sep = ',', engine = 'python', header = None )
+                data = df.values.tolist( )
+                if button == 'Yes':
+                    header_list = df.iloc[ 0 ].tolist( )
+                    data = df[ 1: ].values.tolist( )
+                elif button == 'No':
+                    header_list = [ 'column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
+            except:
+                sg.popup_error( 'Error reading file' )
+                return
+
+        layout = [  [ sg.Text( '', size = ( 100, 1 ) ) ],
+                    [ sg.Text( '', size = (100, 1) ) ],
+                    [ sg.Text( '', size = (100, 1) ) ],
+                    [ sg.Table( values = data,
+                            headings = header_list,
+                            display_row_numbers = True,
+                            auto_size_columns = False,
+                            num_rows = min( 25, len( data ) ) ) ],
+                    [ sg.Text( '', size = (100, 1) ) ],
+                    [ sg.Text( '', size = (100, 1) ) ], ]
+
+        window = sg.Window( '    Budget Execution', layout,
+            grab_anywhere = False,
+            icon = self.__icon,
+            font = self.__themefont,
+            size = self.__formsize )
+
+        event, values = window.read( )
         window.close( )
