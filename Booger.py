@@ -2999,6 +2999,7 @@ class ColorDialog( Sith ):
             tooltip_time = 100)
 
 
+
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
@@ -3127,6 +3128,7 @@ class BudgetForm( Sith ):
         window.close( )
 
 
+
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
     __themebackground = None
@@ -3216,6 +3218,7 @@ class ChartPanel( Sith ):
                 break
 
         window.close( )
+
 
 
 class CsvForm( Sith ):
