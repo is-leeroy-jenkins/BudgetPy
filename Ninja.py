@@ -11,8 +11,8 @@ from Static import *
 from numpy import ndarray
 
 
-# BudgetError( message )
-class BudgetError( Exception ):
+# Error( message )
+class Error( Exception ):
     '''class provides Error and Exception data'''
     __cause = None
     __method = None
@@ -162,19 +162,19 @@ class DataConfig( ):
         self.__source = source if isinstance( source, Source ) else None
         self.__table = self.__source.name if isinstance( self.__source, Source ) else None
         self.__sqlitedriver = r'DRIVER=SQLite3 ODBC Driver;'
-        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlitedatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db;'
-        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlitereferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
                             r'\db\sqlite\referencemodels\References.db;'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
-        self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__accessdatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb;'
-        self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__accessreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
                             r'\db\access\referencemodels\References.accdb;'
-        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqldatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
                            r'\db\mssql\datamodels\Data.mdf;'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;'
-        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
                            r'\db\mssql\referencemodels\References.mdf;'
 
     def __str__( self ):

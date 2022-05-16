@@ -97,7 +97,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "last_opened_file_path": "C:/Users/teppler/source/compilers/py/python/python.exe",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "PyConsoleConfigurable.Python Console"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -114,8 +114,6 @@
         <option name="mySdkHome" value="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" />
         <option name="myModuleName" value="BudgetPy" />
         <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
-        <option name="myAddContentRoots" value="false" />
-        <option name="myAddSourceRoots" value="false" />
       </console-settings>
     </option>
   </component>
@@ -164,13 +162,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00075" summary="updates from main rig;">
-      <created>1651623671613</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1651623671613</updated>
     </task>
     <task id="LOCAL-00076" summary="updates from main rig;">
       <created>1651623874404</created>
@@ -508,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652717161889</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="updates from main rig;">
+      <created>1652717391998</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1652717391998</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
