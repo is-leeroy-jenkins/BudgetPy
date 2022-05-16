@@ -86,8 +86,8 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="C:\Users\terry\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
-            <file path="C:\Users\terry\source\repos\BudgetPy\db\sqlite\referencemodels\References.db" schema="References" />
+            <file path="C:\Users\teppler\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
+            <file path="C:\Users\teppler\source\repos\BudgetPy\db\sqlite\referencemodels\References.db" schema="References" />
           </files>
           <type value="NONE" />
           <user value="" />
