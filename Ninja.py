@@ -1,6 +1,9 @@
 import collections
 import sqlite3 as sl
+import sys
+
 import pandas as pd
+from pandas.io import sql as pdsql
 import pyodbc as db
 import os
 from collections import namedtuple as ntuple
@@ -8,12 +11,13 @@ from Static import *
 from numpy import ndarray
 
 
-# BudgetException( message )
-class BudgetException( Exception ):
+# BudgetError( message )
+class BudgetError( Exception ):
     '''class provides Error and Exception data'''
     __cause = None
     __method = None
     __message = None
+    __info = None
 
     @property
     def message( self ):
@@ -45,11 +49,12 @@ class BudgetException( Exception ):
         if isinstance( value, str ) and value != '':
             self.__method = value
 
-    def __init__( self, message = '', cause = '', method = '' ):
+    def __init__( self, message, cause = '', method = '' ):
         super( ).__init__( )
         self.__message = message if isinstance( message, str ) and message != '' else None
         self.__cause = cause if isinstance( cause, str ) and cause != '' else None
         self.__method = method if isinstance( method, str ) and method != '' else None
+        self.__info = None
 
 
 # DataConfig( source, provider )
@@ -122,33 +127,6 @@ class DataConfig( ):
         else:
             return False
 
-    def getdriver( self ):
-        if isinstance( self.__provider, Provider ) and self.__provider != Provider.NS:
-            if self.__provider == Provider.SQLite:
-                return self.__sqlitedriver
-            elif self.__provider == Provider.Access:
-                return self.__accessdriver
-            elif self.__provider == Provider.SqlServer:
-                return self.__sqldriver
-            else:
-                return self.__sqlitedriver
-
-    def getpath( self ):
-        if self.__provider == Provider.SQLite and self.isreference():
-            return self.__sqlitereferencepath
-        elif self.__provider == Provider.SQLite and self.isdata():
-            return self.__sqlitedatapath
-        elif self.__provider == Provider.Access and self.isdata():
-            return self.__accessdatapath
-        elif self.__provider == Provider.Access and self.isreference():
-            return self.__accessreferencepath
-        elif self.__provider == Provider.SqlServer and self.isdata():
-            return self.__sqldatapath
-        elif self.__provider == Provider.SqlServer and self.isreference():
-            return self.__sqlreferencepath
-        else:
-            return self.__sqlitedatapath
-
     def __init__( self, source, provider ):
         '''Constructor for the DataConfig class providing
         values value details'''
@@ -185,9 +163,9 @@ class DataConfig( ):
         self.__table = self.__source.name if isinstance( self.__source, Source ) else None
         self.__sqlitedriver = r'DRIVER=SQLite3 ODBC Driver;'
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\dataconfig\sqlite\datamodels\Data.dataconfig;'
+                            r'\db\sqlite\datamodels\Data.db;'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\dataconfig\sqlite\referencemodels\References.dataconfig;'
+                            r'\db\sqlite\referencemodels\References.db;'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
         self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb;'
@@ -202,6 +180,33 @@ class DataConfig( ):
     def __str__( self ):
         if isinstance( self.__table, str ) :
             return self.__table
+
+    def getdriver( self ):
+        if isinstance( self.__provider, Provider ) and self.__provider != Provider.NS:
+            if self.__provider == Provider.SQLite:
+                return self.__sqlitedriver
+            elif self.__provider == Provider.Access:
+                return self.__accessdriver
+            elif self.__provider == Provider.SqlServer:
+                return self.__sqldriver
+            else:
+                return self.__sqlitedriver
+
+    def getpath( self ):
+        if self.__provider == Provider.SQLite and self.isreference():
+            return self.__sqlitereferencepath
+        elif self.__provider == Provider.SQLite and self.isdata():
+            return self.__sqlitedatapath
+        elif self.__provider == Provider.Access and self.isdata():
+            return self.__accessdatapath
+        elif self.__provider == Provider.Access and self.isreference():
+            return self.__accessreferencepath
+        elif self.__provider == Provider.SqlServer and self.isdata():
+            return self.__sqldatapath
+        elif self.__provider == Provider.SqlServer and self.isreference():
+            return self.__sqlreferencepath
+        else:
+            return self.__sqlitedatapath
 
 
 # DataConnection( dataconfig )
@@ -271,8 +276,8 @@ class DataConnection(  ):
         self.__source = dataconfig.source if isinstance( dataconfig.source, Source ) else None
         self.__provider = dataconfig.provider if isinstance( dataconfig.provider, Provider ) else None
         self.__path = self.__configuration.getpath( )
-        self.__driver = self.__configuration.getdriver( )
-        self.__dsn = self.__source.name + ';'
+        self.__driver = self.__configuration.getdriver()
+        self.__dsn = dataconfig.source.name + ';'
         self.__connectionstring = 'Provider=' + self.__provider.name + ';' \
                                   + self.__dsn + 'DBQ=' + self.__path
 
@@ -293,9 +298,9 @@ class DataConnection(  ):
             self.__isopen = False
 
 
-# SqlConfig( command, names, values )
+# SqlConfig( names, values )
 class SqlConfig( ):
-    '''SqlConfig( command, value, values, paramstyle  ) provides the
+    '''SqlConfig( names, values ) provides the
      predicate provider index pairs for sqlconfig queries'''
     __predicate = None
     __names = None
@@ -338,13 +343,13 @@ class SqlConfig( ):
             self.__values = value
 
     @property
-    def param( self ):
+    def paramstyle( self ):
         ''' Property representing the DBI paramstyle'''
         if isinstance( self.__paramstyle, ParamStyle ):
             return self.__paramstyle
 
     @values.setter
-    def param( self, value ):
+    def paramstyle( self, value ):
         ''' Property representing the DBI paramstyle attribute'''
         if isinstance( value, ParamStyle ):
             self.__paramstyle = value
@@ -352,44 +357,31 @@ class SqlConfig( ):
             self.__paramstyle = ParamStyle.qmark
 
     @property
-    def pairs( self ):
+    def keyvaluepairs( self ):
         if isinstance( self.__predicate, dict ):
             return self.__predicate
 
-    @pairs.setter
-    def pairs( self, kvp: dict ):
-        if isinstance( kvp, dict ):
-            kvp = dict( )
-            for k, v in kvp.items( ):
-                    kvp.update( k, v )
-            self.__predicate = kvp
+    @keyvaluepairs.setter
+    def keyvaluepairs( self, value ):
+        if isinstance( value, dict ):
+            self.__predicate = value
 
-    def __init__( self, command, names, values, params  = None ):
+    def __init__( self, names = None, values = None, command = Command.SELECTALL, params  = None ):
         self.__command = command if isinstance( command, Command ) else Command.SELECTALL
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
-        self.__predicate = self.__map( )
+        self.__predicate = dict( zip( names, list( values ) ) ) if isinstance( names, list ) and isinstance( values, list ) else None
 
-    def __map( self ):
-        '''__map( ) returns dictionary built from
-        lists self.__names and self.__values'''
-        if isinstance( self.__names, list ) and isinstance( self.__values, list ):
-            kvpmap = dict( )
-            kvp = zip( self.__names, self.__values )
-            for k, v in kvp:
-                kvp = { k: v }
-                kvpmap.update( kvp )
-            return kvpmap
 
-    def pairdump( self ):
+    def kvpdump( self ):
         '''dump( ) returns string of 'values = index AND' pairs'''
         if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             pairs = ''
             criteria = ''
             kvp = zip( self.__names, self.__values )
             for k, v in kvp:
-                pairs += f'{ k } = { v } AND '
+                pairs += f'{ k } = \'{ v }\' AND '
             criteria = pairs.rstrip( ' AND ' )
             return criteria
 
@@ -400,18 +392,18 @@ class SqlConfig( ):
             pairs = ''
             criteria = ''
             for k, v in zip( self.__names, self.__values ):
-                pairs += f'{ k } = { v } AND '
+                pairs += f'{ k } = \'{ v }\' AND '
             criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
             return criteria
 
     def setdump( self ):
         '''setdump( ) returns a string
         using list arguments names and values'''
-        if isinstance( self.__names, list ) and isinstance( self.__values, list ):
+        if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             pairs = ''
             criteria = ''
             for k, v in zip( self.__names, self.__values ):
-                pairs += f'{ k } = { v }, '
+                pairs += f'{ k } = \'{ v }\', '
             criteria = 'SET ' + pairs.rstrip( ', ' )
             return criteria
 
@@ -429,12 +421,12 @@ class SqlConfig( ):
     def valuedump( self ):
         '''valuedump( ) returns a string of values
         used in select statements from list self.__names'''
-        if isinstance( self.__values, list ):
+        if isinstance( self.__values, tuple ):
             vals = ''
             values = ''
             for v in self.__values:
                 vals += f'{ v }, '
-            values = '(' + vals.rstrip( ', ' ) + ')'
+            values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
             return values
 
 
@@ -525,20 +517,20 @@ class SqlStatement( ):
         self.__sqlconfig = sqlconfig if isinstance( sqlconfig, SqlConfig ) else None
         self.__dataconfig = dataconfig if isinstance( dataconfig, DataConfig ) else None
         self.__command = sqlconfig.command
-        self.__provider = self.__dataconfig.provider
-        self.__source = self.__dataconfig.source
-        self.__table = self.__source.name
-        self.__names = self.__sqlconfig.names if isinstance( self.__sqlconfig.names, list ) else None
-        self.__values = self.__sqlconfig.values if isinstance( self.__sqlconfig.values, tuple ) else None
+        self.__provider = dataconfig.provider
+        self.__source = dataconfig.source
+        self.__table = dataconfig.source.name
+        self.__names = sqlconfig.names
+        self.__values = sqlconfig.values
 
     def __str__( self ):
         if isinstance( self.__commandtext, str ):
             return self.__commandtext
 
-    def commandtext( self ):
+    def getcommandtext( self ):
         if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             if self.__command == Command.SELECTALL:
-                self.__commandtext = f'SELECT ALL FROM { self.__table }' \
+                self.__commandtext = f'SELECT * FROM { self.__table }' \
                                      + f'{ self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
             elif self.__command == Command.SELECT:
@@ -556,7 +548,7 @@ class SqlStatement( ):
         else:
             if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
                 if self.__command == Command.SELECTALL:
-                    self.__commandtext = f'SELECT ALL FROM { self.__table };'
+                    self.__commandtext = f'SELECT * FROM { self.__table };'
                     return self.__commandtext
             elif self.__command == 'DELETE':
                 self.__commandtext = f'DELETE FROM { self.__table };'
@@ -587,7 +579,6 @@ class SQLiteQuery( ):
             self.__path = value
 
     @property
-
     def driver( self ):
         if isinstance( self.__driver, str ):
             return self.__driver
@@ -643,10 +634,10 @@ class SQLiteQuery( ):
     def __init__( self, connection, sqlstatement ):
         self.__connection = connection if isinstance( connection, DataConnection ) else None
         self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__table = self.__sqlstatement.source.name
-        self.__path = self.__connection.path
-        self.__driver = self.__sqlstatement.getdriver( )
-        self.__command = self.__sqlstatement.command
+        self.__table = sqlstatement.source.name
+        self.__path = connection.path
+        self.__driver = connection.driver
+        self.__command = sqlstatement.command
         self.__connectionstring = self.__path
 
     def __str__( self ):
@@ -654,10 +645,12 @@ class SQLiteQuery( ):
             return self.__path
 
     def getdata( self ):
-        __query = self.__sqlstatement.commandtext()
-        __conn = self.__connection.open()
-        __cursor = __conn.execute( __query )
-        return __cursor.fetchall()
+        path = self.__connectionstring
+        query = self.__sqlstatement.getcommandtext( )
+        conn = sl.connect( path )
+        cursor = conn.execute(  query )
+        data = [ tuple( i ) for i in cursor.fetchall( ) ]
+        return data
 
 
 # AccessQuery( connection, sqlstatement )
@@ -750,7 +743,7 @@ class AccessQuery( ):
             return self.__source.name
 
     def getdata( self ):
-        __query = self.__sqlstatement.commandtext()
+        __query = self.__sqlstatement.getcommandtext( )
         __conn = self.__connection.open()
         __cursor = __conn.execute( __query )
         return __cursor.fetchall()
@@ -878,8 +871,10 @@ class SqlServerQuery( ):
 
 # QueryBuilder( source, provider, command,  names, values )
 class QueryBuilder( ):
-    '''QueryBuilder( value, provider, command, names, values )
-    initializes object used as argument for the DataFactory'''
+    '''QueryBuilder class generates queries used as the input arguement
+    for the DataFactory class. Class contructor initializes object with optional
+    arguments ( source: Source, provider: Provider, command: DataCommand,
+    names: list, values: tuple )'''
     __names = None
     __values = None
     __command = None
@@ -958,23 +953,23 @@ class QueryBuilder( ):
             self.__source = DataConfig( 'StatusOfFunds' )
 
     @property
-    def dataconfig( self ):
+    def dataconfiguration( self ):
         if isinstance( self.__dbconfig, DataConfig ):
             return self.__dbconfig
 
-    @dataconfig.setter
-    def dataconfig( self, value ):
+    @dataconfiguration.setter
+    def dataconfiguration( self, value ):
         if isinstance( value, DataConfig ):
             self.__dbconfig = value
 
     @property
-    def sqlconfig( self ):
+    def sqlconfiguration( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlconfig, SqlConfig ):
             return self.__sqlconfig
 
-    @sqlconfig.setter
-    def sqlconfig( self, value ):
+    @sqlconfiguration.setter
+    def sqlconfiguration( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
         if isinstance( value, SqlConfig ):
             self.__sqlconfig = value
@@ -992,10 +987,12 @@ class QueryBuilder( ):
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
 
 
-# DataFactory( querybuilder )
+# DataFactory( provider, source, command, names, values )
 class DataFactory( ):
-    '''DataFactory( QueryBuilder ) object
-    provides factory method for value values'''
+    '''DataFactory class creates factory method providing
+    application data. Constructor creates object using
+    optional arguments ( provider: Provider, source: Source,
+    command: DataCommand, names: list, values: tuple ) '''
     __names = None
     __values = None
     __command = None
@@ -1009,16 +1006,16 @@ class DataFactory( ):
     __data = None
 
     @property
-    def names( self ):
-        '''Provides list of value names'''
-        if isinstance( self.__names, list ):
-            return self.__names
+    def source( self ):
+        if self.__source is not None:
+            return self.__source
 
-    @property
-    def values( self ):
-        '''Provides tuple of value values'''
-        if isinstance( self.__values, tuple ):
-            return self.__values
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, DataConfig ):
+            self.__source = value
+        else:
+            self.__source = DataConfig( 'StatusOfFunds' )
 
     @property
     def provider( self ):
@@ -1026,34 +1023,82 @@ class DataFactory( ):
         if isinstance( self.__provider, Provider ):
             return self.__provider
 
+    @provider.setter
+    def provider( self, value ):
+        '''Sets the provider'''
+        if isinstance( value, Provider ):
+            self.__provider = value
+        else:
+            self.__provider = Provider.SQLite
+
     @property
     def command( self ):
         '''Gets an instance of the DataCommand object'''
         if isinstance( self.__command, Command ):
             return self.__command
 
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
+    @command.setter
+    def command( self, value ):
+        '''Set the command property to a DataCommand instance'''
+        if isinstance( value, Command ):
+            self.__command = value
+        else:
+            command = Command( 'SELECT' )
+            self.__command = command
 
     @property
-    def dataconfig( self ):
+    def names( self ):
+        '''Provides list of value names'''
+        if isinstance( self.__names, list ):
+            return self.__names
+
+    @names.setter
+    def names( self, value ):
+        '''Sets the list of value names'''
+        if isinstance( value, list ):
+            self.__names = value
+
+    @property
+    def values( self ):
+        '''Provides tuple of value values'''
+        if isinstance( self.__values, tuple ):
+            return self.__values
+
+    @values.setter
+    def values( self, value ):
+        '''Sets tuple of value values'''
+        if isinstance( value, tuple ):
+            self.__values = value
+
+    @property
+    def dataconfiguration( self ):
         if isinstance( self.__dbconfig, DataConfig ):
             return self.__dbconfig
 
+    @dataconfiguration.setter
+    def dataconfiguration( self, value ):
+        if isinstance( value, DataConfig ):
+            self.__dbconfig = value
+
     @property
-    def sqlconfig( self ):
+    def sqlconfiguration( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlconfig, SqlConfig ):
             return self.__sqlconfig
 
-    def __init__( self, provider, source, command, names, values ):
-        self.__name = names if isinstance( names, list ) else None
-        self.__values = values if isinstance( values, tuple ) else None
-        self.__command = command if isinstance( command, Command ) else None
+    @sqlconfiguration.setter
+    def sqlconfiguration( self, value ):
+        '''Sets property to an instance of the SqlConfig class'''
+        if isinstance( value, SqlConfig ):
+            self.__sqlconfig = value
+
+    def __init__( self, source, provider, command = Command.SELECTALL,
+                  names = None, values = None ):
         self.__source = source if isinstance( source, Source ) else None
         self.__provider = provider if isinstance( provider, Provider ) else None
+        self.__command = command if isinstance( command, Command ) else Command.SELECTALL
+        self.__name = names if isinstance( names, list ) else None
+        self.__values = values if isinstance( values, tuple ) else None
         self.__dbconfig = DataConfig( self.__source, self.__provider )
         self.__connection = DataConnection( self.__dbconfig )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
@@ -1061,32 +1106,89 @@ class DataFactory( ):
 
     def create( self ):
         if self.__provider == Provider.SQLite:
-            __sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __sqlite.getdata( ) ]
+            sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
             return self.__data
         elif self.__provider == Provider.Access:
-            __query = AccessQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
+            access = AccessQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in access.getdata( ) ]
             return self.__data
         elif self.__provider == Provider.SqlServer:
-            __query = SqlServerQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
+            sqlserver = SqlServerQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
             return self.__data
         else:
-            __query = SQLiteQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in __query.getdata( ) ]
+            sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
+            self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
             return self.__data
 
 
-#  DataColumn( source,  values )
-class DataColumn( pd.Series ):
-    '''Defines the DataColumn Class'''
+# DataSchema( name, datatype )
+class DataSchema( ):
+    '''Provides the name and data types used by the
+    DataColumn class.  Contructor uses opetional
+    arguments ( name: str, datatype: type, source: Source )'''
+    __name = None
+    __dtype = None
+    __source = None
+    __ordinal = None
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
+
+    @property
+    def datatype( self ):
+        if isinstance( self.__type, type ):
+            return self.__type
+
+    @datatype.setter
+    def datatype( self, value ):
+        if isinstance( value, type ):
+            self.__type = type
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, DataSource ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, DataSource ):
+            self.__source = value
+
+    @property
+    def ordinal( self ):
+        if isinstance( self.__id, int ):
+            return self.__id
+
+    @ordinal.setter
+    def ordinal( self, value ):
+        if isinstance( value, int ):
+            self.__id = value
+
+    def __init__( self, name = '', datatype = None ):
+        self.__name = name if isinstance( name, str ) and name != '' else November
+        self.__dtype = datatype if isinstance( datatype, type ) else None
+
+
+# DataColumn( name, datatype, value, series  )
+class DataColumn(  ):
+    '''Defines the DataColumn Class providing schema information.
+    Constructor uses optional arguments ( name: str, datatype: type,
+     value: object, series: DataSeries )'''
     __series = None
     __source = None
     __row = None
     __name = None
-    __values = None
-    __labels = None
+    __value = None
+    __label = None
     __index = None
     __type = None
     __caption = None
@@ -1096,35 +1198,33 @@ class DataColumn( pd.Series ):
 
     @property
     def name( self ):
-        if isinstance( self.__name, pd.Series.name ):
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
     def name( self, value ):
-        if isinstance( value, pd.Series.name ):
+        if isinstance( value, str ) and value != '':
             self.__name = value
 
     @property
-    def values( self ):
-        if isinstance( self.__values, ndarray ):
-            return self.__values
+    def value( self ):
+        if isinstance( self.__value, object ):
+            return self.__value
 
-    @values.setter
-    def values( self, value ):
-        if isinstance( value, ndarray ):
-            self.__values = value
+    @value.setter
+    def value( self, value ):
+        if isinstance( value, object ):
+            self.__value = value
 
     @property
     def datatype( self ):
-        if isinstance( self.__type, pd.Series.dtype ):
+        if isinstance( self.__type, type ):
             return self.__type
-        else:
-            return 'NS'
 
     @datatype.setter
     def datatype( self, value ):
-        if isinstance( value, pd.Series.dtype ):
-            self.__type = value
+        if isinstance( value, type ):
+            self.__type = type
 
     @property
     def caption( self ):
@@ -1148,12 +1248,12 @@ class DataColumn( pd.Series ):
 
     @property
     def index( self ):
-        if isinstance( self.__index, pd.Series.index ):
+        if isinstance( self.__index, int ) and self.__index > -1:
             return self.__index
 
     @index.setter
     def index( self, value ):
-        if isinstance( value, pd.Series.index ):
+        if isinstance( value, int ) and value > -1:
             self.__index = value
 
     @property
@@ -1194,34 +1294,38 @@ class DataColumn( pd.Series ):
 
     @property
     def isnumeric( self ):
-        if not isinstance( self.__values, str ):
+        if not isinstance( self.__value, str ):
             return True
 
     @property
     def istext( self ):
-        if isinstance( self.__values, str ):
+        if isinstance( self.__value, str ):
             return True
 
-    def __init__( self, name, values ):
-        super( ).__init__( self, values )
+    def __init__( self, name = None, datatype = None, value = None, series = None ):
         self.__name = name if isinstance( name, str ) and name != '' else None
-        self.__values = values if isinstance( values, list ) else None
-        self.__series = pd.Series( self.__values )
-        self.__index = self.__series.index if isinstance( self.__series, pd.Series ) else None
+        self.__label = self.__name
+        self.__type = datatype if isinstance( datatype, type ) else None
+        self.__value = value if isinstance( value, object ) and value is not None else None
+        self.__series = series if isinstance( series, pd.Series ) else None
+        self.__index = series.index.get_loc( self.__name )
+        self.__ordinal = self.__index
 
     def __str__( self ):
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
 
-# DataRow( source, items, names )
-class DataRow( sl.Row ):
-    '''Defines the DataRow Class'''
+# DataRow( names, values, source )
+class DataRow( ):
+    '''Defines the DataRow Class with optional arguments
+    ( names: list, values: list, source: Source )'''
     __source = None
     __names = None
     __items = None
     __data = None
     __values = None
+    __key = None
     __id = None
 
     @property
@@ -1235,13 +1339,23 @@ class DataRow( sl.Row ):
             self.__id = value
 
     @property
+    def key( self ):
+        if isinstance( self.__key, str ) and self.__key != '':
+            return self.__key
+
+    @key.setter
+    def key( self, value ):
+        if isinstance( value, int ) and value != '':
+            self.__key = value
+
+    @property
     def data( self ):
-        if isinstance( self.__data, pd.DataFrame ):
-            return dict( self.__data )
+        if isinstance( self.__data, list ) and len( self.__data ) > 0:
+            return self.__data
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, pd.Dd.DataFrame ):
+        if isinstance( value, list ) and len( value ) > 0:
             self.__data = value
 
     @property
@@ -1256,22 +1370,22 @@ class DataRow( sl.Row ):
 
     @property
     def names( self ):
-        if self.__names is not None:
+        if isinstance( self.__names, list ) and len( self.__names ) > 0:
             return self.__names
 
     @names.setter
     def names( self, value ):
-        if isinstance( value, dict ):
-            self.__names = value.keys( )
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__names = value
 
     @property
     def values( self ):
-        if isinstance( self.__values, list ):
-            return list( self.__values )
+        if isinstance( self.__values, list ) and len( self.__values ) > 0:
+            return self.__values
 
     @values.setter
     def values( self, value ):
-        if isinstance( value, pd.DataFrame.values ):
+        if isinstance( value, list ) and len( value ) > 0:
             self.__values = value
 
     @property
@@ -1284,24 +1398,31 @@ class DataRow( sl.Row ):
         if isinstance( value, Source ):
             self.__source = value
 
-    def __init__( self, source, items = ( ), names = None ):
-        super( ) .__init__( self, items )
+    def __init__( self, names = None, values = None, source = None ):
         self.__source = source if isinstance( source, Source ) else None
-        self.__items = items if isinstance( items, tuple ) else ( )
-        self.__names = names if isinstance( names, list ) else [ ]
-        self.__values = list( self.__items )
-        self.__id = int( self.__values[ 0 ] )
+        self.__names = names if isinstance( names, list ) else None
+        self.__values = value if isinstance( values, list ) else None
+        self.__items = zip( names, values )
+        self.__key = str( self.__names[ 0 ] ) if isinstance( self.__names, list ) else None
+        self.__id = int( self.__values[ 0 ] ) if isinstance( self.__values, list ) else None
 
     def __str__( self ):
-        return 'Row ID: ' + str( self.__id )
+        if isinstance( self.__id, int ) and self.__id > -1:
+            return 'Row ID: ' + str( self.__id )
 
 
-class DataTable( pd.DataFrame ):
-    '''Defines the DataTable Class'''
-    __base = None
+# DataTable( columns, rows, source, dataframe )
+class DataTable( ):
+    '''Defines the DataTable Class with optional arguments
+    ( columns: list( str ), rows: list( tuple ), source: Source,
+     dataframe: DataFrame )'''
     __name = None
     __data = None
+    __frame = None
+    __rows = None
     __columns = None
+    __schema = None
+    __source = None
 
     @property
     def name( self ):
@@ -1315,27 +1436,37 @@ class DataTable( pd.DataFrame ):
 
     @property
     def data( self ):
-        if self.__data is not None:
-            return self.__data
+        if isinstance( self.__rows, list( tuple ) ):
+            return self.__rows
 
     @data.setter
     def data( self, value ):
+        if isinstance( value, list( tuple ) ):
+            self.__rows = value
+
+    @property
+    def frame( self ):
+        if isinstance( self.__frame, pd.DataFrame ):
+            return self.__frame
+
+    @frame.setter
+    def frame( self, value ):
         if isinstance( value, pd.DataFrame ):
-            self.__data = pd.DataFrame( value )
+            self.__frame = value
 
     @property
     def schema( self ):
-        if self.__columns is not None:
+        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
             return self.__columns
 
     @schema.setter
     def schema( self, value ):
-        if isinstance( value, dict ):
-            self.__columns = pd.Series( value ) .index
+        if isinstance( value, list ):
+            self.__columns = value
 
     @property
     def rows( self ):
-        if self.__rows is not None:
+        if isinstance( self.__rows, list ) and len( self.__rows ) > 0:
             return self.__rows
 
     @rows.setter
@@ -1343,15 +1474,119 @@ class DataTable( pd.DataFrame ):
         if isinstance( value, list ):
             self.__rows = value
 
-    def __init__( self, name ):
-        super( ).__init__( )
-        self.__base = str( name )
-        self.__name = self.__base
-        self.__data = pd.DataFrame( self.__name )
-        self.__rows = [tuple( r ) for r in self.__data[0:]]
-        self.__columns = self.__data.columns
+    @property
+    def columns( self ):
+        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
+            return self.__columns
+
+    @columns.setter
+    def columns( self, value ):
+        if isinstance( value, list ):
+            self.__columns = value
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = value
+
+    def __init__( self, columns = None, rows = None,
+                  source = None,  dataframe = None ):
+        self.__frame = dataframe if isinstance( dataframe, pd.DataFrame ) else None
+        self.__name = name if isinstance( name, str ) and name != '' else None
+        self.__rows = [ tuple( r ) for r in dataframe.items ]
+        self.__data = self.__rows
+        self.__columns = [ str( c ) for c in columns ] if isinstance( columns, list ) else None
+        self.__schema = [ DataColumn( c ) for c in columns ] if isinstance( columns, list ) else None
 
     def __str__( self ):
         if self.__name is not None:
             return self.__name
 
+
+# BudgetData( src, data, columns, index )
+class BudgetData( ):
+    '''Class representing pandas DataFrame'''
+    __source = None
+    __name = None
+    __path = None
+    __connection = None
+    __sql = None
+    __data = None
+    __columns = None
+    __index = None
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = value
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ):
+            return self.__name
+
+    @name.setter
+    def name( self, value ):
+        if value is not None:
+            self.__name = str( value )
+
+    @property
+    def data( self ):
+        if isinstance( self.__rows, list( tuple ) ):
+            return self.__rows
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list( tuple ) ):
+            self.__rows = value
+
+    @property
+    def query( self ):
+        if isinstance( self.__sql, str ) and self.__sql != '':
+            return self.__sql
+
+    @query.setter
+    def query( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sql = value
+
+    @property
+    def columns( self ):
+        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
+            return self.__columns
+
+    @columns.setter
+    def columns( self, value ):
+        if isinstance( value, list ):
+            self.__columns = value
+
+    @property
+    def index( self ):
+        if isinstance( self.__index, pd.DataFrame.index ):
+            return self.__index
+
+    @index.setter
+    def index( self, value ):
+        if isinstance( value, pd.DataFrame.index ):
+            self.__index = value
+
+    def __init__( self, src ):
+        self.__source = src if isinstance( src, Source ) else None
+        self.__name = src.name if isinstance( src, Source ) else None
+        self.__path = DataConfig( self.__source, Provider.SQLite ).getpath( )
+        self.__sql = f'SELECT * FROM { self.__name };'
+
+    def getframe( self ):
+        if os.path.exists( self.__path ):
+            conn = sl.connect( self.__path )
+            data = [ tuple( i ) for i in sqlite.read_sql( self.__sql, conn ) ]

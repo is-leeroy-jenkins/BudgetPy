@@ -2,6 +2,7 @@ import os
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 import fitz
+import tkinter as tk
 from sys import exit
 import Static
 from Ninja import *
@@ -14,6 +15,11 @@ from googlesearch import search
 from Minion import App
 import smtplib as smtp
 from email.message import EmailMessage
+import queue
+import logging
+import threading
+import time
+import pandas as pd
 
 
 # ButtonIcon( png )
@@ -55,7 +61,7 @@ class ButtonIcon( ):
 
     def __init__( self, png ):
         self.__name = png.name if isinstance( png, PNG ) else None
-        self.__button = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\button'
+        self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
         self.__filepath = self.__button + r'\\' + self.__name + '.png'
 
     def __str__( self ):
@@ -102,7 +108,7 @@ class TitleIcon( ):
 
     def __init__( self, ico ):
         self.__name = ico.name if isinstance( ico, ICO ) else None
-        self.__folder = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico'
+        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\ico'
         self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
     def __str__( self ):
@@ -122,6 +128,8 @@ class Sith( ):
     __buttoncolor = None
     __icon = None
     __themefont = None
+    __scrollbar = None
+    __progressbar = None
 
     @property
     def themebackground( self ):
@@ -223,6 +231,26 @@ class Sith( ):
         if isinstance( value, tuple ) :
             self.__themefont = value
 
+    @property
+    def scrollbarcolor( self ):
+        if isinstance( self.__scrollbar, str ) and self.__scrollbar != '':
+            return self.__scrollbar
+
+    @scrollbarcolor.setter
+    def scrollbarcolor( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__scrollbar = value
+
+    @property
+    def progressbarcolor( self ):
+        if isinstance( self.__progressbar, tuple ) :
+            return self.__progressbar
+
+    @progressbarcolor.setter
+    def progressbarcolor( self, value ):
+        if isinstance( value, tuple ) :
+            self.__progressbar = value
+
     def __init__( self ):
         self.__themebackground = '#0F0F0F'
         self.__themetextcolor = '#D3D3D3'
@@ -232,8 +260,10 @@ class Sith( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
+        self.__scrollbar = '#A87C03'
+        self.__progressbar = '#18ADF2'
         sg.theme_background_color( self.__themebackground )
         sg.theme_element_background_color( self.__elementbackcolor )
         sg.theme_element_text_color( self.__elementforecolor )
@@ -242,6 +272,7 @@ class Sith( ):
         sg.theme_input_background_color( self.__inputbackcolor )
         sg.theme_text_color( self.__themetextcolor )
         sg.theme_button_color( self.__buttoncolor )
+        sg.theme_progress_bar_color( self.__progressbar )
 
 
 # FileDialog( ) -> str
@@ -261,12 +292,12 @@ class FileDialog( Sith ):
     __formsize = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -281,7 +312,8 @@ class FileDialog( Sith ):
             self.__filepath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -344,12 +376,12 @@ class FolderDialog( Sith ):
 
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -364,7 +396,8 @@ class FolderDialog( Sith ):
             self.__folderpath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -431,12 +464,12 @@ class SaveFileDialog( Sith ):
             self.__text = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -451,7 +484,8 @@ class SaveFileDialog( Sith ):
             self_original = value
 
     def __init__( self, path = None ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -498,12 +532,12 @@ class GoogleDialog( Sith ):
     __results = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -538,7 +572,8 @@ class GoogleDialog( Sith ):
             self.__results = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -549,7 +584,7 @@ class GoogleDialog( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\google.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\google.png'
         self.__querytext = None
         self.__results = [ ]
 
@@ -564,9 +599,9 @@ class GoogleDialog( Sith ):
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
             [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ) ),
-              sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
+              sg.Text( r'', size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
 
-        window = sg.Window( 'Budget Execution', layout,
+        window = sg.Window( '    Budget Execution', layout,
             icon = self.__icon,
             font = self.__themefont,
             size = self.__formsize )
@@ -605,12 +640,12 @@ class EmailDialog( Sith ):
 
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -625,7 +660,8 @@ class EmailDialog( Sith ):
             self.__folderpath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -635,7 +671,7 @@ class EmailDialog( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__formsize = ( 600, 500 )
         self.__folderpath = None
 
@@ -648,7 +684,7 @@ class EmailDialog( Sith ):
         inp = ( 35, 1 )
         spc = ( 5, 1 )
         layout = [ [ sg.T( ' ', size = spc ), ],
-           [ sg.T( ' ', size = spc ), sg.Image( filename = self.__image ) ],
+           [ sg.T( ' ', size = spc ), sg.Image( filename = self.__image, size = ( 35, 16 ) ) ],
            [ sg.T( ' ', size = spc ), ],
            [ sg.T( ' ', size = spc ), sg.T( 'From:', size = btn ), sg.Input( key = '-EMAIL FROM-', size = ( 35,1 ) ) ],
            [ sg.T( ' ', size = spc ), sg.T( 'To:', size = btn ),  sg.Input(key = '-EMAIL TO-', size = ( 35,1 ) ) ],
@@ -685,7 +721,7 @@ class EmailDialog( Sith ):
         window.close()
 
 
-# Message( text )
+# MessageDialog( text )
 class MessageDialog( Sith ):
     ''' class that provides form to display informational messages '''
     __themebackground = None
@@ -712,18 +748,19 @@ class MessageDialog( Sith ):
             self.__text = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self, text ):
         self.__text = text if isinstance( text, str ) and text != '' else None
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -762,7 +799,7 @@ class MessageDialog( Sith ):
         window.close( )
 
 
-# Error( exception )
+# ErrorDialog( exception )
 class ErrorDialog( Sith ):
     '''class that displays error message'''
     __message = None
@@ -782,12 +819,12 @@ class ErrorDialog( Sith ):
     __themefont = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -802,11 +839,12 @@ class ErrorDialog( Sith ):
             self.__message = value
 
     def __init__( self, exception = None ):
-        super( Sith, self ).__init__()
-        self.__exception = exception if isinstance( exception, BudgetException ) else None
-        self.__message = self.__exception.message if isinstance( exception, BudgetException ) else None
-        self.__cause = self.__exception.cause if isinstance( exception, BudgetException ) else ''
-        self.__method = self.__exception.method if isinstance( exception, BudgetException ) else ''
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
+        self.__exception = exception if isinstance( exception, BudgetError ) else None
+        self.__message = self.__exception.message if isinstance( exception, BudgetError ) else None
+        self.__cause = self.__exception.cause if isinstance( exception, BudgetError ) else ''
+        self.__method = self.__exception.method if isinstance( exception, BudgetError ) else ''
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -863,12 +901,12 @@ class InputDialog( Sith ):
     __themefont = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -893,7 +931,8 @@ class InputDialog( Sith ):
             self.__response= value
 
     def __init__( self, question ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__question = question if isinstance( question, str ) and question != '' else None
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -911,13 +950,13 @@ class InputDialog( Sith ):
         layout =  [ [ sg.Text( r'' ) ],
             [ sg.Text( self.__question, font = ( 'Roboto', 9, 'bold' ) ) ],
             [ sg.Text( r'' ) ],
-            [ sg.Text( 'Enter:', size = ( 10, 2 ) ), sg.InputText( '1', key = '-INPUT-', size = ( 40, 2 ) ) ],
+            [ sg.Text( 'Enter:', size = ( 10, 2 ) ), sg.InputText( key = '-INPUT-', size = ( 40, 2 ) ) ],
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
-            [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 10, 1 ), key = '-SUBMIT-' ),
-              sg.Text( r'', size = ( 10, 1 ) ), sg.Cancel( size = ( 10, 1 ), key = '-CANCEL-' ) ] ]
+            [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ), key = '-SUBMIT-' ),
+              sg.Text( r'', size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ), key = '-CANCEL-' ) ] ]
 
-        window = sg.Window( ' Budget Input', layout,
+        window = sg.Window( '  Budget Execution', layout,
             icon = self.__icon,
             font = self.__themefont,
             size = self.__formsize )
@@ -929,7 +968,85 @@ class InputDialog( Sith ):
                 font = self.__themefont,
                 icon = self.__icon )
 
-            if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel' ):
+            if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel', 'Exit' ):
+                break
+
+        window.close( )
+
+
+
+class ScrollingDialog( Sith ):
+    '''Provides form for multiline input/output'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+
+    @property
+    def text( self ):
+        if isinstance( self.__text, str ) and self.__text != '':
+            return self.__text
+
+    @text.setter
+    def text( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__text = value
+
+    @property
+    def size( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @size.setter
+    def size( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    def __init__( self ):
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
+        self.__themefont = Sith( ).themefont
+        self.__icon = Sith( ).iconpath
+        self.__elementbackcolor = Sith( ).elementbackcolor
+        self.__elementforecolor = Sith( ).elementforecolor
+        self.__themetextcolor = Sith( ).textforecolor
+        self.__textbackcolor = Sith( ).textbackcolor
+        self.__inputbackcolor = Sith( ).inputbackcolor
+        self.__inputforecolor = Sith( ).inputforecolor
+        self.__buttoncolor = Sith( ).buttoncolor
+        self.__formsize = ( 650, 500 )
+        self.__response = None
+
+    def show( self ):
+        line = ( 100, 1 )
+        space = ( 5, 1 )
+        btnsize = ( 25, 1 )
+
+        layout = [ [ sg.Text( ' ', size = line ) ],
+           [ sg.Text( ' ', size = line ) ],
+           [ sg.Text( '', size = space ), sg.Multiline( size = ( 70, 20 ), key = '-MLINE-' ), sg.Text( '', size = space ) ],
+           [ sg.Text( ' ', size = line ) ],
+           [ sg.Text( ' ', size = space ), sg.Input( k = '-IN-', size = ( 70, 20 ) ), sg.Text( '', size = space )  ],
+           [ sg.Text( ' ', size = line ) ],
+           [ sg.Text( '', size = space ), sg.Button( 'Submit', size = btnsize ),
+             sg.Text( '', size = ( 15, 1 ) ), sg.Button( 'Exit', size = btnsize ), sg.Text( '', size = space ), ] ]
+
+        window = sg.Window( '    Budget Execution', layout,
+            icon = self.__icon,
+            size = self.__formsize,
+            font = self.__themefont,
+            resizable = True )
+
+        while True:
+            event, values = window.read( )
+            if event in (sg.WIN_CLOSED, 'Exit'):
                 break
 
         window.close( )
@@ -951,17 +1068,18 @@ class ContactForm( Sith ):
     __themefont = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -971,19 +1089,10 @@ class ContactForm( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__formsize = ( 450, 200 )
 
     def show( self ):
-        sg.theme_background_color( self.__themebackground )
-        sg.theme_element_background_color( self.__elementbackcolor )
-        sg.theme_element_text_color( self.__elementforecolor )
-        sg.theme_input_text_color( self.__inputforecolor )
-        sg.theme_text_element_background_color( self.__textbackcolor )
-        sg.theme_input_background_color( self.__inputbackcolor )
-        sg.theme_text_color( self.__themetextcolor )
-        sg.theme_button_color( self.__buttoncolor )
-
         layout =  [ [ sg.Text( r'', size = ( 100, 1 ) ) ],
                     [ sg.Text( r'Enter Contact Details' ) ],
                     [ sg.Text( r'', size = ( 100, 1 ) ) ],
@@ -1033,12 +1142,12 @@ class GridForm( Sith ):
     __columns = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -1073,7 +1182,8 @@ class GridForm( Sith ):
             self.__columns = value
 
     def __init__( self, rows = 10, columns = 4 ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1083,7 +1193,7 @@ class GridForm( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__fieldwidth = ( 17, 1 )
         self.__rows = rows
         self.__columns = columns
@@ -1110,6 +1220,7 @@ class GridForm( Sith ):
         window.close( )
 
 
+
 class LoadingPanel( Sith ):
     '''object providing form loading behavior '''
     __themebackground = None
@@ -1126,17 +1237,18 @@ class LoadingPanel( Sith ):
     __image = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1146,7 +1258,7 @@ class LoadingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loading.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1177,6 +1289,7 @@ class LoadingPanel( Sith ):
         window.close()
 
 
+
 class WaitingPanel( Sith ):
     '''object providing form loader behavior '''
     __themebackground = None
@@ -1193,17 +1306,18 @@ class WaitingPanel( Sith ):
     __image = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1213,7 +1327,7 @@ class WaitingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loader.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1246,6 +1360,7 @@ class WaitingPanel( Sith ):
         window.close()
 
 
+
 class ProcessingPanel( Sith ):
     '''object providing form processing behavior '''
     __themebackground = None
@@ -1262,17 +1377,18 @@ class ProcessingPanel( Sith ):
     __image = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1282,7 +1398,7 @@ class ProcessingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1312,6 +1428,64 @@ class ProcessingPanel( Sith ):
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
         window.close()
+
+
+
+class SplashPanel( Sith ):
+    '''Class providing splash dialog behavior'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+    __image = None
+
+    @property
+    def formsize( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @formsize.setter
+    def formsize( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    def __init__( self ):
+        super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
+        self.__themefont = Sith( ).themefont
+        self.__icon = Sith( ).iconpath
+        self.__elementbackcolor = Sith( ).elementbackcolor
+        self.__elementforecolor = Sith( ).elementforecolor
+        self.__themetextcolor = Sith( ).textforecolor
+        self.__textbackcolor = Sith( ).textbackcolor
+        self.__inputbackcolor = Sith( ).inputbackcolor
+        self.__inputforecolor = Sith( ).inputforecolor
+        self.__buttoncolor = Sith( ).buttoncolor
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
+        self.__formsize = ( 800, 600 )
+        self.__timeout = 4000
+
+    def show( self ):
+        layout = [ [ sg.Image( filename=self.__image ) ] ]
+        window = sg.Window( 'Window Title', layout,
+                    transparent_color = self.__themebackground,
+                    no_titlebar = True,
+                    keep_on_top = True )
+
+        while True:
+            event, values = window.read( timeout = self.__timeout, close = True )
+            if event in ( sg.WIN_CLOSED, 'Exit' ):  # always check for closed window
+                break
+
+        window.close()
+
 
 
 # Notification( message )
@@ -1365,6 +1539,7 @@ class Notification( Sith ):
     def __init__( self, message ):
         super( Sith, self ).__init__()
         self.__themefont = Sith( ).themefont
+        self.__themebackground = Sith( ).themebackground
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
         self.__elementforecolor = Sith( ).elementforecolor
@@ -1373,16 +1548,17 @@ class Notification( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\notification\ninja.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\NotifyNinja.png'
         self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
-        sg.popup_notify( self.__message,
-            title = ' ' + 'Notification',
+        return sg.popup_notify( self.__message,
+            title = ' ' + 'Budget Execution',
             icon = self.__image,
             display_duration_in_ms = 9000,
             fade_in_duration = 5000,
             alpha = 1 )
+
 
 
 class PdfForm( Sith ):
@@ -1400,17 +1576,18 @@ class PdfForm( Sith ):
     __themefont = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1423,12 +1600,11 @@ class PdfForm( Sith ):
         self.__formsize = ( 600, 400 )
 
     def show( self ):
-        filename = sg.popup_get_file( 'Budget PDF', 'PDF file to open',
+        filename = sg.popup_get_file( title = 'Budget Execution',
+            message = 'PDF to open',
             file_types = ( ("PDF Files", "*.pdf"),
                            ("XPS Files", "*.*xps"),
                            ("Epub Files", "*.epub"),
-                           ("Fiction Books", "*.fb2"),
-                           ("Comic Books", "*.cbz"),
                            ("HTML",   "*.htm*") ),
             icon = self.__icon )
 
@@ -1484,7 +1660,8 @@ class PdfForm( Sith ):
         pdfkeys = ( 'Next', 'Next:34', 'Prev', 'Prior:33',
             'Top-L', 'Top-R', 'Bot-L', 'Bot-R', 'MouseWheel:Down', 'MouseWheel:Up' )
         zoombuttons = ( 'Top-L', 'Top-R', 'Bot-L', 'Bot-R' )
-        window = sg.Window( title, layout,
+
+        window = sg.Window( 'Budget Executon', layout,
             return_keyboard_events = True,
             icon = self.__icon,
             use_default_focus = False )
@@ -1559,17 +1736,18 @@ class CalendarDialog( Sith ):
     __date = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1614,17 +1792,18 @@ class DatePanel( Sith ):
     __date = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1639,8 +1818,8 @@ class DatePanel( Sith ):
     def show( self ):
         ALPHA = 0.9  # Initial alpha until user changes
         THEME = 'Dark green 3'  # Initial theme until user changes
-        refresh_font = title_font = 'Courier 8'
-        main_info_font = 'Courier 20'
+        refresh_font = title_font = 'Roboto 8'
+        main_info_font = 'Roboto 20'
         main_info_size = (10, 1)
         UPDATE_FREQUENCY_MILLISECONDS = 1000 * 60 * 60  # update every hour by default until set
         # by user
@@ -1826,8 +2005,84 @@ class DatePanel( Sith ):
             main( location )
 
 
-# ListDialog( data )
-class ListDialog( Sith ):
+# ComboBoxDialog( data )
+class ComboBoxDialog( Sith ):
+    '''Logger object provides form for log printing'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+    __items = None
+
+    @property
+    def size( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @size.setter
+    def size( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    @property
+    def entry( self ):
+        if isinstance( self.__entry, str )  and self.__entry != '':
+            return self.__entry
+
+    @entry.setter
+    def entry( self, value ):
+        if isinstance( value, str )  and value != '':
+            self.__entry = value
+
+    def __init__( self, data = None):
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
+        self.__themefont = Sith( ).themefont
+        self.__icon = Sith( ).iconpath
+        self.__elementbackcolor = Sith( ).elementbackcolor
+        self.__elementforecolor = Sith( ).elementforecolor
+        self.__themetextcolor = Sith( ).textforecolor
+        self.__textbackcolor = Sith( ).textbackcolor
+        self.__inputbackcolor = Sith( ).inputbackcolor
+        self.__inputforecolor = Sith( ).inputforecolor
+        self.__buttoncolor = Sith( ).buttoncolor
+        self.__formsize = ( 400, 150 )
+        self.__items = data if isinstance( data, list ) and len( data ) > 0 else None
+
+    def show( self ):
+        btnsize = ( 10 , 1 )
+        space = ( 5, 1 )
+        if self.__items == None:
+            self.__items = [ f'choice { x } ' for x in range( 30 ) ]
+            values = self.__items
+
+        layout = [ [ sg.Text( size = space ), sg.Text( size = space ) ],
+                   [ sg.Text( size = space ), sg.Text( 'Make Selection' ) ],
+                   [ sg.Text( size = space ) , sg.DropDown( self.__items, key = '-ITEM-', size = ( 35, 1 ) ) ],
+                   [ sg.Text( size = space ), sg.Text( size = space ) ],
+                   [ sg.Text( size = space ), sg.OK( size = btnsize ), sg.Text( size = ( 8, 1 ) ), sg.Cancel( size = btnsize ) ] ]
+
+        window = sg.Window( '    Budget Execution', layout,
+            icon = self.__icon,
+            size = self.__formsize )
+
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, 'Exit', 'Cancel' ):
+                break
+
+        window.close()
+
+
+# ListBoxDialog( data )
+class ListBoxDialog( Sith ):
     '''List search and selection'''
     __themebackground = None
     __elementbackcolor = None
@@ -1842,14 +2097,15 @@ class ListDialog( Sith ):
     __themefont = None
     __selecteditem = None
     __items = None
+    __image = None
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
@@ -1873,9 +2129,10 @@ class ListDialog( Sith ):
         if isinstance( value, list ):
             self.__items = value
 
-    def __init__( self, data ):
-        self.__items = data if isinstance( data, list ) else None
+    def __init__( self, data = None ):
+        self.__items = data if isinstance( data, list ) else [ ]
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -1885,20 +2142,27 @@ class ListDialog( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 200, 225 )
+        self.__formsize = ( 400, 250 )
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\dialog\lookup.png'
 
     def show( self ):
-        __btnsize = ( 10, 1 )
+        btnsize = ( 10, 1 )
+        space = ( 10, 1 )
+        line = ( 100, 1 )
+        txtsize = ( 25, 1 )
+        inpsize = ( 25, 1 )
+        lstsize = ( 25, 5 )
 
         names = [ src for src in list( self.__items ) if src != 'NS' ]
-        layout = [ [ sg.Text( 'Search:', size = ( 25, 1 )  ) ],
-                   [ sg.Input( size = ( 25, 1 ), enable_events = True, key = '-INPUT-' ) ],
-                   [ sg.Text( r'', size = (100, 1) ) ],
-                   [ sg.Listbox( names, size = ( 25, 5 ), enable_events = True, key = '-LIST-', font = self.__themefont ) ],
-                   [ sg.Text( r'', size = (100, 1) ) ],
-                   [ sg.Button( 'Select', size = __btnsize ), sg.Button( 'Exit', size = __btnsize  ) ] ]
+        layout = [ [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
+                   [ sg.Text( '', size = space ), sg.Text( r'Search:' ) ],
+                   [ sg.Text( '', size = space ), sg.Input( size = inpsize, enable_events = True, key = '-INPUT-' ) ],
+                   [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
+                   [ sg.Text( '', size = space ), sg.Listbox( names, size = lstsize, enable_events = True, key = '-LIST-', font = self.__themefont ) ],
+                   [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
+                   [ sg.Text( '', size = space ), sg.Button( 'Select', size = btnsize ), sg.Text( '', size = ( 3, 1 ) ), sg.Button( 'Exit', size = btnsize  ) ] ]
 
-        window = sg.Window( '', layout,
+        window = sg.Window( '  Budget Execution', layout,
             size = self.__formsize,
             font = self.__themefont,
             icon = self.__icon )
@@ -1919,6 +2183,7 @@ class ListDialog( Sith ):
                     icon = self.__icon  )
 
         window.close( )
+
 
 
 class ColorDialog( Sith ):
@@ -1980,17 +2245,18 @@ class ColorDialog( Sith ):
             self.__html = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -2000,9 +2266,10 @@ class ColorDialog( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 400, 200 )
+        self.__formsize = ( 450, 450 )
 
     def show( self ):
+        import sys
         color_map = { 'alice blue': '#F0F8FF', 
                       'AliceBlue': '#F0F8FF',
                       'antique white': '#FAEBD7', 
@@ -2653,38 +2920,87 @@ class ColorDialog( Sith ):
                       'yellow3':  '#CDCD00',
                       'yellow4':  '#8B8B00',
                       'YellowGreen':  '#9ACD32' }
+        hex_to_color = { v: k for k, v in color_map.items( ) }
+        color_list = list( color_map.keys( ) )
+        COLORS_PER_ROW = 40
+        font_size = 9
 
         def make_window( ):
-            layout = [ [ sg.Text( f'Swatches for { len( color_list ) } Colors', font = self.__themefont ), ],
-              [ sg.Text( f'Hover - see color "name"\n', font = self.__themefont ) ],
-              [ sg.Text( f'PySimpleGUI version: { sg.ver }', font = self.__themefont ) ],
-              [ sg.Text( f'Python version: { sys.version }', font = self.__themefont ) ],
-              [ sg.Text( f'tkinter version: { sg.tclversion_detailed }', font = self.__themefont ) ],]
+            layout = [ [ sg.Text( '' ), ],
+                       [ sg.Text( f'{ len( color_list ) } Colors', font = self.__themefont ), ],
+                       [ sg.Text( ' ', size = ( 5, 1 ) ), ] ]
 
-            for rows in range( len( color_list ) // COLORS_PER_ROW + 1 ):
+            for rows in range( len( color_list ) // COLORS_PER_ROW+1 ):
                 row = [ ]
+
                 for i in range( COLORS_PER_ROW ):
                     try:
                         color = color_list[ rows * COLORS_PER_ROW + i ]
-                        row.append( sg.T( ' ', s = 1, background_color = color, text_color = color, font = ( 'Default', font_size ), right_click_menu = [ '_', color_map[ color ] ],
+                        row.append( sg.T( ' ', s = 1, background_color = color, text_color = color, font = self.__themefont , right_click_menu = [ '_', color_map[ color ] ],
                             tooltip = color, enable_events = True, key = ( color, color_map[ color ] ) ) )
                     except IndexError as e:
                         break
                     except Exception as e:
-                        sg.popup_error( f'Error while creating color window. Something with the Text elements perhaps....', e,
+                        sg.popup_error( f'Error while creating color window....', e,
                             f'rows = { rows }  i = { i }' )
                         break
                 layout.append( row )
+            layout.append( [ sg.Text( ' ', size = ( 10, 1 ) ), ] )
+            layout.append( [ sg.Text( ' ', size = ( 10, 1 ) ), ] )
+            layout.append( [ sg.Text( ' ', size = ( 50, 1 ) ), sg.Cancel( size = ( 20, 1 )  ), ] )
 
-            return sg.Window( 'Colors', layout,
+            return sg.Window( 'Budget Execution', layout,
                 font = self.__themefont,
+                size = self.__formsize,
                 element_padding = ( 1, 1 ),
                 border_depth = 0,
+                icon = self.__icon,
                 right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_EXIT,
                 use_ttk_buttons = True )
 
+        window = make_window( )
 
-class Dashboard( Sith ):
+        while True:
+            event, values = window.read( )
+            if event in ( sg.WIN_CLOSED, 'Cancel', 'Exit' ):
+                break
+            if event == 'Edit me':
+                sg.execute_editor( __file__ )
+                continue
+            elif isinstance(event, tuple):
+                color, color_hex = event[ 0 ], event[ 1 ]
+            else:
+                color, color_hex = hex_to_color[ event ], event
+
+            layout2 = [ [ sg.Text( color_hex + ' on clipboard' ) ],
+                       [ sg.DummyButton( color, button_color = self.__buttoncolor, tooltip = color_hex ),
+                        sg.DummyButton( color, button_color = self.__buttoncolor, tooltip = color_hex ) ] ]
+
+            window2 = sg.Window( 'Buttons with white and black text', layout2,
+                keep_on_top = True,
+                finalize = True,
+                size = self.__formsize,
+                icon = self.__icon )
+
+            sg.clipboard_set(color_hex)
+
+        window.close()
+
+        sg.popup_quick_message('Building window... one moment please...',
+            background_color = self.__themebackground,
+            icon = self.__icon,
+            text_color = self.__themetextcolor,
+            font = self.__themefont )
+
+        sg.set_options( button_element_size = (12, 1),
+            element_padding = (0, 0),
+            auto_size_buttons = False,
+            border_width = 1,
+            tooltip_time = 100)
+
+
+
+class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
     __elementbackcolor = None
@@ -2695,6 +3011,7 @@ class Dashboard( Sith ):
     __inputforecolor = None
     __buttoncolor = None
     __icon = None
+    __image = None
     __formsize = None
     __themefont = None
     __title = None
@@ -2712,7 +3029,7 @@ class Dashboard( Sith ):
 
     @property
     def header( self ):
-        if isin( self.__header, str ) and self.__header != '':
+        if isinstance( self.__header, str ) and self.__header != '':
             return self.__header
 
     @header.setter
@@ -2721,17 +3038,18 @@ class Dashboard( Sith ):
             self.__header = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -2741,86 +3059,74 @@ class Dashboard( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 960, 450 )
+        self.__formsize = ( 1400, 800 )
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
 
     def show( self ):
-        BORDER_COLOR = '#22262E'
-        DARK_HEADER_COLOR = self.__buttoncolor
-        BPAD_TOP = ( ( 20,20 ), ( 20, 10 ) )
-        BPAD_LEFT = ( ( 20,10 ), ( 0, 0 ) )
+        BORDER_COLOR = '#C7D5E0'
+        DARK_HEADER_COLOR = '#1B2838'
+        BPAD_TOP = ( ( 20, 20 ), ( 20, 10 ) )
+        BPAD_LEFT = ( ( 20, 10 ), ( 0, 0 ) )
         BPAD_LEFT_INSIDE = ( 0, ( 10, 0 ) )
-        BPAD_RIGHT = ( ( 10,20 ), ( 10, 0 ) )
-
-        theme_dict = { 'BACKGROUND': self.__elementbackcolor,
-                        'TEXT': self.__themetextcolor,
-                        'INPUT': self.__inputbackcolor,
-                        'TEXT_INPUT': self.__inputforecolor,
-                        'SCROLL': self.__buttoncolor,
-                        'BUTTON': self.__buttoncolor,
-                        'PROGRESS': ( 'Blue', '#C7D5E0' ),
-                        'BORDER': 0,
-                        'SLIDER_DEPTH': 0,
-                        'PROGRESS_DEPTH': 0 }
-
-        sg.theme_add_new( 'Dashboard', theme_dict )
-        sg.theme('Dashboard' )
+        BPAD_RIGHT = ( ( 10, 20 ), ( 10, 0 ) )
 
         top_banner = [
-                [ sg.Text( 'Budget Execution', font='Any 20', background_color = DARK_HEADER_COLOR,
-                    enable_events=True, grab=False), sg.Push( background_color=DARK_HEADER_COLOR ),
-                 sg.Text( 'Wednesday 27 Oct 2021', font='Any 20', background_color = DARK_HEADER_COLOR ) ],
+                [sg.Text('Budget Execution', font='Roboto 20', background_color=DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
+                 sg.Text('Wednesday 27 Oct 2021', font='Roboto20', background_color=DARK_HEADER_COLOR)],
         ]
 
-        top  = [[ sg.Push( ), sg.Text( 'Weather Could Go Here', font='Any 20'), sg.Push( ) ],
-                [ sg.T( 'This Frame has a relief while the others do not') ],
-                [ sg.T( 'This window is resizable ( see that sizegrip in the bottom right?)') ]]
+        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Roboto 20'), sg.Push()],
+                [sg.T('This Frame has a relief while the others do not')],
+                [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
 
-        block_3 = [ [ sg.Text(  'Block 3', font='Any 20' ) ],
-                    [ sg.Input(  ), sg.Text(  'Some Text' ) ],
-                    [ sg.T(  'This frame has element_justification="c"' ) ],
-                    [ sg.Button( 'Go', button_color = self.__buttoncolor, size = (  10, 1 ) ),
-                      sg.Button(  'Exit', button_color = self.__buttoncolor, size = (  10, 1 ) ) ]  ]
+        block_3 = [[sg.Text('Block 3', font='Roboto 20')],
+                   [sg.Input(), sg.Text('Some Text')],
+                   [sg.T('This frame has element_justification="c"')],
+                   [sg.Button('Go'), sg.Button('Exit')]  ]
 
 
-        block_2 = [ [ sg.Text( 'Block 2', font='Any 20' ) ],
-                    [ sg.T( 'This is some random text' ) ],
-                    [ sg.Image( data=sg.DEFAULT_BASE64_ICON, enable_events=True ) ] ]
+        block_2 = [[sg.Text('Block 2', font='Roboto 20')],
+                   [sg.T('This is some random text')],
+                   [sg.Image( source = self.__image, enable_events = True ) ]  ]
 
-        block_4 = [ [ sg.Text( 'Block 4', font='Any 20') ],
-                    [ sg.T( 'You can move the window by grabbing this block ( and the top banner)') ],
-                    [ sg.T( 'This block is a Column Element') ],
-                    [ sg.T( 'The others are all frames') ],
-                    [ sg.T( 'The Frame Element, with a border_width=0\n    and no title is just like a Column') ],
-                    [ sg.T( 'Frames that have a fixed size \n    handle element_justification better than Columns') ]]
+        block_4 = [[sg.Text('Block 4', font='Roboto 20')],
+                   [sg.T('You can move the window by grabbing this block (and the top banner)')],
+                   [sg.T('This block is a Column Element')],
+                   [sg.T('The others are all frames')],
+                   [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
+                   [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
 
 
         layout = [
-            [ sg.Frame('', top_banner,   pad=( 0, 0 ), background_color = DARK_HEADER_COLOR,  expand_x = True, border_width = 0, grab = True) ],
-            [ sg.Frame('', top, size = ( 920, 100 ), pad = BPAD_TOP,  expand_x = True,  relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
-            [ sg.Frame('', [ [ sg.Frame( '', block_2, size = ( 450, 150 ), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True, ) ],
-                           [ sg.Frame('', block_3, size = ( 450, 150 ),  pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True, element_justification = 'c' ) ] ],
-                pad=BPAD_LEFT, background_color = BORDER_COLOR, border_width = 0, expand_x = True, expand_y = True ),
-             sg.Column( block_4, size = ( 450, 320 ), pad = BPAD_RIGHT,  expand_x = True, expand_y = True, grab = True ), ],[ sg.Sizegrip( background_color = BORDER_COLOR ) ] ]
+                [sg.Frame('', top_banner,   pad=(0,0), background_color=DARK_HEADER_COLOR,  expand_x=True, border_width=0, grab=True)],
+                [sg.Frame('', top, size=(920, 100), pad=BPAD_TOP,  expand_x=True,  relief=sg.RELIEF_GROOVE, border_width=3)],
+                [sg.Frame('', [[sg.Frame('', block_2, size=(450,150), pad=BPAD_LEFT_INSIDE, border_width=0, expand_x=True, expand_y=True, )],
+                               [sg.Frame('', block_3, size=(450,150),  pad=BPAD_LEFT_INSIDE, border_width=0, expand_x=True, expand_y=True, element_justification='c')]],
+                    pad=BPAD_LEFT, background_color=BORDER_COLOR, border_width=0, expand_x=True, expand_y=True),
+                 sg.Column(block_4, size=(450, 320), pad=BPAD_RIGHT,  expand_x=True, expand_y=True, grab=True),],[sg.Sizegrip(background_color=BORDER_COLOR)]]
 
-        window = sg.Window( 'Budget Execution', layout,
-            margins = ( 0,0 ),
+        window = sg.Window( '    Budget Execution', layout,
+            size = self.__formsize,
+            margins = ( 0, 0 ),
+            icon = self.__icon,
             background_color = BORDER_COLOR,
             no_titlebar = True,
             resizable = True,
             right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
 
-        while True:
-            event, values = window.read( )
-            print( event, values )
+        while True:             # Event Loop
+            event, values = window.read()
+            print(event, values)
             if event == sg.WIN_CLOSED or event == 'Exit':
                 break
             elif event == 'Edit Me':
-                sg.execute_editor( __file__ )
+                sg.execute_editor(__file__)
             elif event == 'Version':
-                sg.popup_scrolled( sg.get_versions( ), keep_on_top=True )
+                sg.popup_scrolled(sg.get_versions(), keep_on_top=True)
             elif event == 'File Location':
-                sg.popup_scrolled( 'This Python file is:', __file__ )
+                sg.popup_scrolled('This Python file is:', __file__)
         window.close( )
+
 
 
 class ChartPanel( Sith ):
@@ -2848,17 +3154,18 @@ class ChartPanel( Sith ):
             self.__header = value
 
     @property
-    def formsize( self ):
+    def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @size.setter
+    def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
     def __init__( self ):
         super( Sith, self ).__init__()
+        self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -2871,17 +3178,20 @@ class ChartPanel( Sith ):
         self.__formsize = ( 700, 600 )
 
     def show( self ):
-        __btnsize = ( 15, 1 )
-        BAR_WIDTH = 50
-        BAR_SPACING = 75
-        EDGE_OFFSET = 3
-        GRAPH_SIZE = DATA_SIZE = ( 600, 500 )
+        small = ( 10, 1 )
+        medium = ( 15, 1 )
+        large = ( 20, 1 )
+        xlarge = ( 100, 1 )
+        barwidth = 50
+        barspacing = 75
+        edgeoffset = 3
+        graphsize = datasize = ( 600, 500 )
 
-        layout = [ [ sg.Text( '', size = ( 10, 1 ) ), sg.Text( '', size = ( 100, 1 ) ) ],
-                   [ sg.Text( '', size = ( 10, 1 ) ), sg.Graph( GRAPH_SIZE, ( 0,0 ), DATA_SIZE, k='-GRAPH-', pad = 3 ) ],
-                   [ sg.Text( '', size = ( 10, 1 ) ), sg.Text( '', size = ( 100, 1 ) ) ],
-                   [ sg.Text( '', size = ( 20, 1 ) ), sg.Button( 'Next', size = __btnsize ),
-                     sg.Text( '', size = ( 20, 1 ) ), sg.Exit( size = __btnsize ) ] ]
+        layout = [ [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
+                   [ sg.Text( '', size = small ), sg.Graph( graphsize, ( 0, 0 ), datasize, k='-GRAPH-', pad = 3 ) ],
+                   [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
+                   [ sg.Text( '', size = large ), sg.Button( 'Next', size = medium ),
+                     sg.Text( '', size = large ), sg.Exit( size = medium ) ] ]
 
         window = sg.Window( 'Budget Execution', layout,
             finalize = True,
@@ -2895,16 +3205,117 @@ class ChartPanel( Sith ):
         while True:
             graph.erase( )
             for i in range( 7 ):
-                graph_value = random.randint( 0, GRAPH_SIZE[ 1 ] )
-                graph.draw_rectangle( top_left = ( i * BAR_SPACING + EDGE_OFFSET, graph_value ),
-                    bottom_right = (i * BAR_SPACING + EDGE_OFFSET + BAR_WIDTH, 0 ),
+                graph_value = random.randint( 0, graphsize[ 1 ] )
+                graph.draw_rectangle( top_left = ( i * barspacing + edgeoffset, graph_value ),
+                    bottom_right = (i * barspacing + edgeoffset + barwidth, 0 ),
                     fill_color = self.__buttoncolor )
 
                 graph.draw_text( text = graph_value, color = self.__themetextcolor,
-                    location = ( i * BAR_SPACING + EDGE_OFFSET + 25, graph_value + 10 ) )
+                    location = ( i * barspacing + edgeoffset + 25, graph_value + 10 ) )
 
             event, values = window.read( )
             if event in ( sg.WIN_CLOSED, 'Exit' ):
                 break
 
+        window.close( )
+
+
+
+class CsvForm( Sith ):
+    '''Provides form that reads CSV file with pandas'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+
+    @property
+    def header( self ):
+        if isin( self.__header, str ) and self.__header != '':
+            return self.__header
+
+    @header.setter
+    def header( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__header = value
+
+    @property
+    def size( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @size.setter
+    def size( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    def __init__( self ):
+        super( Sith, self ).__init__( )
+        self.__themebackground = Sith( ).themebackground
+        self.__themefont = Sith( ).themefont
+        self.__icon = Sith( ).iconpath
+        self.__elementbackcolor = Sith( ).elementbackcolor
+        self.__elementforecolor = Sith( ).elementforecolor
+        self.__themetextcolor = Sith( ).textforecolor
+        self.__textbackcolor = Sith( ).textbackcolor
+        self.__inputbackcolor = Sith( ).inputbackcolor
+        self.__inputforecolor = Sith( ).inputforecolor
+        self.__buttoncolor = Sith( ).buttoncolor
+        self.__formsize = ( 800, 600 )
+
+    def show( self ):
+        sg.set_options( auto_size_buttons = True )
+        filename = sg.popup_get_file( title = '    Budget Execution',
+            message = 'Browse to CSV file',
+            icon = self.__icon,
+            font = self.__themefont,
+            file_types = ( ( "CSV Files", "*.csv" ), ) )
+
+        if filename == '':
+            return
+
+        data = [ ]
+        header_list = [ ]
+
+        button = sg.popup_yes_no( 'Does this file have column names already?',
+            icon = self.__icon,
+            font = self.__themefont )
+
+        if filename is not None:
+            try:
+                df = pd.read_csv( filename, sep = ',', engine = 'python', header = None )
+                data = df.values.tolist( )
+                if button == 'Yes':
+                    header_list = df.iloc[ 0 ].tolist( )
+                    data = df[ 1: ].values.tolist( )
+                elif button == 'No':
+                    header_list = [ 'column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
+            except:
+                sg.popup_error( 'Error reading file' )
+                return
+
+        layout = [  [ sg.Text( '', size = ( 100, 1 ) ) ],
+                    [ sg.Text( '', size = (100, 1) ) ],
+                    [ sg.Text( '', size = (100, 1) ) ],
+                    [ sg.Table( values = data,
+                            headings = header_list,
+                            display_row_numbers = True,
+                            auto_size_columns = False,
+                            num_rows = min( 25, len( data ) ) ) ],
+                    [ sg.Text( '', size = (100, 1) ) ],
+                    [ sg.Text( '', size = (100, 1) ) ], ]
+
+        window = sg.Window( '    Budget Execution', layout,
+            grab_anywhere = False,
+            icon = self.__icon,
+            font = self.__themefont,
+            size = self.__formsize )
+
+        event, values = window.read( )
         window.close( )
