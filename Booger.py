@@ -841,10 +841,10 @@ class ErrorDialog( Sith ):
     def __init__( self, exception = None ):
         super( Sith, self ).__init__( )
         self.__themebackground = Sith( ).themebackground
-        self.__exception = exception if isinstance( exception, BudgetError ) else None
-        self.__message = self.__exception.message if isinstance( exception, BudgetError ) else None
-        self.__cause = self.__exception.cause if isinstance( exception, BudgetError ) else ''
-        self.__method = self.__exception.method if isinstance( exception, BudgetError ) else ''
+        self.__exception = exception if isinstance( exception, Error ) else None
+        self.__message = self.__exception.message if isinstance( exception, Error ) else None
+        self.__cause = self.__exception.cause if isinstance( exception, Error ) else ''
+        self.__method = self.__exception.method if isinstance( exception, Error ) else ''
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
