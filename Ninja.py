@@ -3,7 +3,7 @@ import sqlite3 as sl
 import sys
 
 import pandas as pd
-from pandas.io import sql as sqlite
+from pandas.io import sql as pdsql
 import pyodbc as db
 import os
 from collections import namedtuple as ntuple
@@ -163,9 +163,9 @@ class DataConfig( ):
         self.__table = self.__source.name if isinstance( self.__source, Source ) else None
         self.__sqlitedriver = r'DRIVER=SQLite3 ODBC Driver;'
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\dataconfig\sqlite\datamodels\Data.dataconfig;'
+                            r'\db\sqlite\datamodels\Data.db;'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\dataconfig\sqlite\referencemodels\References.dataconfig;'
+                            r'\db\sqlite\referencemodels\References.db;'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
         self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb;'
@@ -276,8 +276,8 @@ class DataConnection(  ):
         self.__source = dataconfig.source if isinstance( dataconfig.source, Source ) else None
         self.__provider = dataconfig.provider if isinstance( dataconfig.provider, Provider ) else None
         self.__path = self.__configuration.getpath( )
-        self.__driver = self.__configuration.getdriver( )
-        self.__dsn = self.__source.name + ';'
+        self.__driver = self.__configuration.getdriver()
+        self.__dsn = dataconfig.source.name + ';'
         self.__connectionstring = 'Provider=' + self.__provider.name + ';' \
                                   + self.__dsn + 'DBQ=' + self.__path
 
@@ -366,12 +366,12 @@ class SqlConfig( ):
         if isinstance( value, dict ):
             self.__predicate = value
 
-    def __init__( self, names, values, command = Command.SELECTALL, params  = None ):
+    def __init__( self, names = None, values = None, command = Command.SELECTALL, params  = None ):
         self.__command = command if isinstance( command, Command ) else Command.SELECTALL
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
-        self.__predicate = dict( zip( names, list( values ) ) )
+        self.__predicate = dict( zip( names, list( values ) ) ) if isinstance( names, list ) and isinstance( values, list ) else None
 
 
     def kvpdump( self ):
@@ -516,21 +516,21 @@ class SqlStatement( ):
     def __init__( self, dataconfig, sqlconfig ):
         self.__sqlconfig = sqlconfig if isinstance( sqlconfig, SqlConfig ) else None
         self.__dataconfig = dataconfig if isinstance( dataconfig, DataConfig ) else None
-        self.__command = sqlconfig.command if isinstance( sqlconfig, SqlConfig ) else None
-        self.__provider = dataconfig.provider if isinstance( dataconfig, DataConfig ) else None
-        self.__source = dataconfig.source if isinstance( dataconfig, DataConfig ) else None
-        self.__table = source.name
-        self.__names = sqlconfig.names if isinstance( sqlconfig, SqlConfig ) else None
-        self.__values = sqlconfig.values if isinstance( sqlconfig, SqlConfig ) else None
+        self.__command = sqlconfig.command
+        self.__provider = dataconfig.provider
+        self.__source = dataconfig.source
+        self.__table = dataconfig.source.name
+        self.__names = sqlconfig.names
+        self.__values = sqlconfig.values
 
     def __str__( self ):
         if isinstance( self.__commandtext, str ):
             return self.__commandtext
 
-    def commandtext( self ):
+    def getcommandtext( self ):
         if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             if self.__command == Command.SELECTALL:
-                self.__commandtext = f'SELECT ALL FROM { self.__table }' \
+                self.__commandtext = f'SELECT * FROM { self.__table }' \
                                      + f'{ self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
             elif self.__command == Command.SELECT:
@@ -548,7 +548,7 @@ class SqlStatement( ):
         else:
             if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
                 if self.__command == Command.SELECTALL:
-                    self.__commandtext = f'SELECT ALL FROM { self.__table };'
+                    self.__commandtext = f'SELECT * FROM { self.__table };'
                     return self.__commandtext
             elif self.__command == 'DELETE':
                 self.__commandtext = f'DELETE FROM { self.__table };'
@@ -634,10 +634,10 @@ class SQLiteQuery( ):
     def __init__( self, connection, sqlstatement ):
         self.__connection = connection if isinstance( connection, DataConnection ) else None
         self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__table = sqlstatement.source.name if isinstance( sqlstatement, SqlStatement ) else None
-        self.__path = connection.path if isinstance( connection, DataConnection ) else None
-        self.__driver = sqlstatement.getdriver( ) if isinstance( sqlstatement, SqlStatement ) else None
-        self.__command = sqlstatement.command if isinstance( sqlstatement, SqlStatement ) else None
+        self.__table = sqlstatement.source.name
+        self.__path = connection.path
+        self.__driver = connection.driver
+        self.__command = sqlstatement.command
         self.__connectionstring = self.__path
 
     def __str__( self ):
@@ -645,10 +645,12 @@ class SQLiteQuery( ):
             return self.__path
 
     def getdata( self ):
-        __query = self.__sqlstatement.commandtext()
-        __conn = self.__connection.open()
-        __cursor = __conn.execute( __query )
-        return __cursor.fetchall()
+        path = self.__connectionstring
+        query = self.__sqlstatement.getcommandtext( )
+        conn = sl.connect( path )
+        cursor = conn.execute(  query )
+        data = [ tuple( i ) for i in cursor.fetchall( ) ]
+        return data
 
 
 # AccessQuery( connection, sqlstatement )
@@ -741,7 +743,7 @@ class AccessQuery( ):
             return self.__source.name
 
     def getdata( self ):
-        __query = self.__sqlstatement.commandtext()
+        __query = self.__sqlstatement.getcommandtext( )
         __conn = self.__connection.open()
         __cursor = __conn.execute( __query )
         return __cursor.fetchall()
