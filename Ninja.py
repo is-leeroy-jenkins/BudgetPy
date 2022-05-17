@@ -245,10 +245,20 @@ class DataConnection(  ):
         if isinstance( self.__source, Source ):
             return self.__source
 
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = value
+
     @property
     def provider( self ):
         if isinstance( self.__provider, Provider ):
             return self.__provider
+
+    @provider.setter
+    def provider( self, value ):
+        if isinstance( value, Provider ):
+            self.__provider = value
 
     @property
     def driver( self ):
@@ -742,6 +752,7 @@ class AccessQuery( ):
         self.__source = sqlstatement.source
         self.__table = sqlstatement.source.name
         self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
+        self.__connectionstring = connection.connectionstring
         self.__path = connection.path
         self.__command = sqlstatement.command
 
