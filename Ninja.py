@@ -162,19 +162,19 @@ class DataConfig( ):
         self.__source = source if isinstance( source, Source ) else None
         self.__table = self.__source.name if isinstance( self.__source, Source ) else None
         self.__sqlitedriver = r'DRIVER=SQLite3 ODBC Driver;'
-        self.__sqlitedatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db;'
-        self.__sqlitereferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\referencemodels\References.db;'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
-        self.__accessdatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb;'
-        self.__accessreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\referencemodels\References.accdb;'
-        self.__sqldatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                            r'\db\mssql\datamodels\Data.mdf;'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;'
-        self.__sqlreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                            r'\db\mssql\referencemodels\References.mdf;'
 
     def __str__( self ):
@@ -194,19 +194,26 @@ class DataConfig( ):
 
     def getpath( self ):
         if self.__provider == Provider.SQLite and self.isreference():
-            return self.__sqlitereferencepath
+            path = os.path.relpath( self.__sqlitereferencepath )
+            return path
         elif self.__provider == Provider.SQLite and self.isdata():
-            return self.__sqlitedatapath
+            path = os.path.relpath( self.__sqlitedatapath )
+            return path
         elif self.__provider == Provider.Access and self.isdata():
-            return self.__accessdatapath
+            path = os.path.relpath( self.__accessdatapath )
+            return path
         elif self.__provider == Provider.Access and self.isreference():
-            return self.__accessreferencepath
+            path = os.path.relpath( self.__accessreferencepath )
+            return path
         elif self.__provider == Provider.SqlServer and self.isdata():
-            return self.__sqldatapath
+            path = os.path.relpath( self.__sqldatapath )
+            return path
         elif self.__provider == Provider.SqlServer and self.isreference():
-            return self.__sqlreferencepath
+            path = os.path.relpath( self.__sqlreferencepath )
+            return path
         else:
-            return self.__sqlitedatapath
+            path = os.path.relpath( self.__sqlitedatapath )
+            return path
 
 
 # DataConnection( dataconfig )
@@ -531,20 +538,20 @@ class SqlStatement( ):
         if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
             if self.__command == Command.SELECTALL:
                 self.__commandtext = f'SELECT * FROM { self.__table }' \
-                                     + f'{ self.__sqlconfig.wheredump( ) };'
+                                     + f' { self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
             elif self.__command == Command.SELECT:
                 self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
                                      + f' FROM { self.__table }' \
-                                     + f'{ self.__sqlconfig.wheredump( ) };'
+                                     + f' { self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
             elif self.__command == 'INSERT':
                 self.__commandtext = 'INSERT INTO ' + self.__table \
-                                     + f'{ self.__sqlconfig.columndump( ) }' \
-                                     + f'VALUES { self.__sqlconfig.valuedump( ) }'
+                                     + f' { self.__sqlconfig.columndump( ) }' \
+                                     + f' VALUES { self.__sqlconfig.valuedump( ) }'
             elif self.__command == 'DELETE':
                 self.__commandtext = 'DELETE FROM ' + self.__table \
-                                     + f'( { self.__sqlconfig.wheredump( ) };'
+                                     + f' { self.__sqlconfig.wheredump( ) };'
         else:
             if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
                 if self.__command == Command.SELECTALL:
@@ -732,21 +739,26 @@ class AccessQuery( ):
     def __init__( self, connection, sqlstatement ):
         self.__connection = connection if isinstance( connection, DataConnection ) else None
         self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__source = self.__sqlstatment.source
-        self.__table = self.__source.table.name
+        self.__source = sqlstatement.source
+        self.__table = sqlstatement.source.name
         self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
-        self.__path = self.__connection.path
-        self.__command = self.__sqlstatment.command
+        self.__path = connection.path
+        self.__command = sqlstatement.command
 
     def __str__( self ):
         if isinstance( self.__source, DataConfig ):
             return self.__source.name
 
     def getdata( self ):
-        __query = self.__sqlstatement.getcommandtext( )
-        __conn = self.__connection.open()
-        __cursor = __conn.execute( __query )
-        return __cursor.fetchall()
+        path = self.__path
+        query = self.__sqlstatement.getcommandtext( )
+        cxnstr = self.__connection.connectionstring
+        conn = db.connect( cxnstr )
+        crsr = conn.execute( query )
+        data = [ tuple( i ) for i in crsr.fetchall( ) ]
+        crsr.close( )
+        conn.close( )
+        return data
 
 
 # SqlServerQuery( connection, sqlstatement )
@@ -862,11 +874,14 @@ class SqlServerQuery( ):
             return self.__source.name
 
     def getdata( self ):
-        if isinstance( self.__connection, DataConnection ):
-            __connection = self.__connection.open()
-            __cursor = __connection.cursor()
-            self.__data = __cursor.fetchall
-            return self.__data
+        path = self.__path
+        query = self.__sqlstatement.getcommandtext( )
+        conn = pd.connect( path )
+        crsr = conn.execute( query )
+        data = [ tuple( i ) for i in crsr.fetchall( ) ]
+        crsr.close( )
+        conn.close( )
+        return data
 
 
 # QueryBuilder( source, provider, command,  names, values )
