@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pyOutlook
+Version: 4.2.2
+Summary: A Python module for connecting to the Outlook REST API, without the hassle of dealing with the JSON formatting for requests/responses and the REST endpoints and their varying requirements
+Home-page: https://pypi.python.org/pypi/pyOutlook
+Author: Jens Astrup
+Author-email: jensaiden@gmail.com
+License: MIT
+Keywords: outlook office365 microsoft email
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Communications :: Email :: Email Clients (MUA)
+Classifier: Topic :: Office/Business
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Natural Language :: English
+Requires-Dist: requests
+Requires-Dist: python-dateutil
+
+Documentation is available at `ReadTheDocs <http://pyoutlook.readthedocs.io/en/latest/>`_.
+
+

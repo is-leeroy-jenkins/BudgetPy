@@ -1,0 +1,32 @@
+CREATE TABLE TravelObligations
+(
+	TravelObligationId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyTravelObligations PRIMARY KEY,
+	RpioCode TEXT(255) NULL,
+	BFY TEXT(255) NULL,
+	AhCode TEXT(255) NULL,
+	AhName TEXT(255) NULL,
+	FundCode TEXT(255) NULL,
+	FundName TEXT(255) NULL,
+	AccountCode TEXT(255) NULL,
+	ProgramProjectCode TEXT(255) NULL,
+	ProgramProjectName TEXT(255) NULL,
+	OrgCode TEXT(255) NULL,
+	OrgName TEXT(255) NULL,
+	BocCode TEXT(255) NULL,
+	BocName TEXT(255) NULL,
+	RcCode TEXT(255) NULL,
+	RcName TEXT(255) NULL,
+	FocCode TEXT(255) NULL,
+	FocName TEXT(255) NULL,
+	FirstName TEXT(255) NULL,
+	LastName TEXT(255) NULL,
+	DepartureDate DATETIME NULL,
+	ReturnDate DATETIME NULL,
+	DocumentType TEXT(255) NULL,
+	DCN TEXT(255) NULL,
+	Obligations DOUBLE NULL,
+	ULO DOUBLE NULL,
+	Expenditures DOUBLE NULL,
+	NpmCode TEXT(255) NULL
+);
+

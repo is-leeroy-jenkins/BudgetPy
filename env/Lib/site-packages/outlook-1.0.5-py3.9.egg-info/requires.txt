@@ -1,0 +1,4 @@
+myHttp
+mySecrets
+msal
+myBasics

@@ -1,0 +1,28 @@
+CREATE TABLE "BudgetOutlays" 
+(
+	"BudgetOutlaysId"	INTEGER NOT NULL UNIQUE,
+	"ReportYear"	TEXT,
+	"Category"	TEXT,
+	"AgencyName"	TEXT,
+	"LineNumber"	TEXT,
+	"LineSection"	TEXT,
+	"OmbAccount"	TEXT,
+	"LineTitle"	TEXT,
+	"AccountType"	TEXT,
+	"AuthorityTypeName"	TEXT,
+	"Line"	TEXT,
+	"AuthorityType"	TEXT,
+	"PriorYear"	REAL,
+	"CurrentYear"	REAL,
+	"BudgetYear"	REAL,
+	"BudgetYear1"	REAL,
+	"BudgetYear2"	REAL,
+	"BudgetYear3"	REAL,
+	"BudgetYear4"	REAL,
+	"BudgetYear5"	REAL,
+	"BudgetYear6"	REAL,
+	"BudgetYear7"	REAL,
+	"BudgetYear8"	REAL,
+	"BudgetYear9"	REAL,
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);

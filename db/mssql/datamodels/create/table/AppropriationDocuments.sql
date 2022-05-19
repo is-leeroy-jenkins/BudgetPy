@@ -1,0 +1,30 @@
+CREATE TABLE [dbo].[AppropriationDocuments]
+(
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[BFY] [nvarchar](50) NOT NULL,
+	[EFY] [nvarchar](50) NOT NULL,
+	[Fund] [nvarchar](50) NOT NULL,
+	[FundCode] [nvarchar](50) NOT NULL,
+	[DocumentType] [nvarchar](50) NOT NULL,
+	[DocumentNumber] [nvarchar](50) NOT NULL,
+	[DocumentDate] [date] NOT NULL,
+	[LastDocumentDate] [date] NOT NULL,
+	[BudgetLevel] [nvarchar](50) NOT NULL,
+	[BudgetingControls] [nvarchar](50) NOT NULL,
+	[PostingControls] [nvarchar](50) NOT NULL,
+	[PreCommitmentControls] [nvarchar](50) NOT NULL,
+	[CommitmentControls] [nvarchar](50) NOT NULL,
+	[ObligationControls] [nvarchar](50) NOT NULL,
+	[AccrualControls] [nvarchar](50) NOT NULL,
+	[ExpenditureControls] [nvarchar](50) NOT NULL,
+	[ExpenseControls] [nvarchar](50) NOT NULL,
+	[ReimbursementControls] [nvarchar](50) NOT NULL,
+	[ReimbursableAgreementControls] [nvarchar](50) NOT NULL,
+	[Budgeted] [float] NOT NULL,
+	[Posted] [float] NOT NULL,
+	[CarryOut] [float] NOT NULL,
+	[CarryIn] [float] NOT NULL,
+	[EstimatedReimbursements] [float] NOT NULL,
+	[EstimatedRecoveries] [float] NOT NULL
+);
+

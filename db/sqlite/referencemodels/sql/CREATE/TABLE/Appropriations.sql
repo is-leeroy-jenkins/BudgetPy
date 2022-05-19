@@ -1,0 +1,9 @@
+CREATE TABLE Appropriations
+(
+	AppropriationId  INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyAppropriations PRIMARY KEY AUTOINCREMENT,
+	BFY TEXT(255) NOT NULL,
+	Title TEXT(255) NULL,
+	PublicLaw TEXT(255) NULL,
+	EnactedDate DATETIME NULL
+);
+

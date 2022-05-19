@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: outlook
+Version: 1.0.5
+Summary: A simple email sender for Outlook
+Home-page: https://github.com/jtc1246/outlook
+Author: Tiancheng Jiao
+Author-email: jtc1246@outlook.com
+License: GPL-2.0 License
+Platform: all
+Requires-Python: >=3
+License-File: LICENSE
+
+UNKNOWN
+
