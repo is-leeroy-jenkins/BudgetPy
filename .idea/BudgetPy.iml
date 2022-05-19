@@ -34,4 +34,7 @@
     <option name="myDocStringFormat" value="Plain" />
     <option name="renderExternalDocumentation" value="true" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="sqPathPrefix" value="env/Lib/site-packages/pythonwin/pywin/scintilla" />
+  </component>
 </module>

@@ -265,10 +265,20 @@ class DataConnection(  ):
         if isinstance( self.__driver, str):
             return self.__driver
 
+    @driver.setter
+    def driver( self, value ):
+        if value is not None:
+            self.__driver = value
+
     @property
     def path( self ):
         if isinstance( self.__path, str ):
             return self.__path
+
+    @path.setter
+    def path( self, value ):
+        if isinstance( value, str ):
+            self.__path = value
 
     @property
     def connectionstring( self ):
@@ -287,6 +297,11 @@ class DataConnection(  ):
             self.__connectionstring = f'DRIVER=SQLite3 ODBC Driver;SERVER=localhost;' \
                                       + f'Database={self.__path}'
             return self.__connectionstring
+
+    @connectionstring.setter
+    def connectionstring( self, value ):
+        if isinstance( value, str ):
+            self.__connectionstring = value
 
     def __init__( self, dataconfig ):
         self.__configuration = dataconfig if isinstance( dataconfig, DataConfig ) else None
