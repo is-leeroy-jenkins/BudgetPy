@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: myHttp
+Version: 1.1.3
+Summary: A very easy http tool
+Home-page: https://github.com/jtc1246/myHttp
+Author: Tiancheng Jiao
+Author-email: jtc1246@outlook.com
+License: GPL-2.0 License
+Platform: all
+Requires-Python: >=3
+License-File: LICENSE
+
+UNKNOWN
+

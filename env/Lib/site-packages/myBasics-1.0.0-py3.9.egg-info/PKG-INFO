@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: myBasics
+Version: 1.0.0
+Summary: Some basic python tools.
+Home-page: https://github.com/jtc1246/myBasics
+Author: Tiancheng Jiao
+Author-email: jtc1246@outlook.com
+License: GPL-2.0 License
+Platform: all
+Requires-Python: >=3
+
+UNKNOWN
+

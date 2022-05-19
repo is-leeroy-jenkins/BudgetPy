@@ -1,5 +1,4 @@
 import datetime as dt
-from Static import *
 from Ninja import *
 
 

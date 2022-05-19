@@ -2,8 +2,6 @@ import datetime as dt
 import os
 import zipfile as zp
 import openpyxl as xl
-from Static import *
-
 
 # BudgetPath( filepath )
 class BudgetPath( ):
