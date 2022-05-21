@@ -175,11 +175,11 @@ class DataConfig( ):
             return False
 
     def getdriver( self ):
-        if self.__provider == Provider.SQLite:
+        if self.__provider.name == Provider.SQLite.name:
             return self.__sqlitedriver
-        elif self.__provider == Provider.Access:
+        elif self.__provider.name == Provider.Access.name:
             return self.__accessdriver
-        elif self.__provider == Provider.SqlServer:
+        elif self.__provider.name == Provider.SqlServer.name:
             return self.__sqldriver
         else:
             return self.__sqlitedriver
