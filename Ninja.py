@@ -215,7 +215,7 @@ class DataConfig( ):
         elif self.__provider.name == Provider.SqlServer.name:
             return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
                           + f'AttachDBFileName={ path }' \
-                          + f'DATABASE={ self.__table };Trusted_Connection=yes;'
+                          + f'DATABASE={ path }Trusted_Connection=yes;'
         else:
             return f'{ path } '
 
