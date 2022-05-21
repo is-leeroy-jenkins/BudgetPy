@@ -106,22 +106,6 @@ class DataConfig( ):
         else:
             self.__table = None
 
-    def isdata( self ):
-        '''Determines if the values value is a memeber of the values models'''
-        if self.__table is not None \
-                and self.__table in self.__data:
-            return True
-        else:
-            return False
-
-    def isreference( self ):
-        '''Determines if the values value is a memeber of the reference models'''
-        if self.__table is not None  \
-                and self.__table in self.__references:
-            return True
-        else:
-            return False
-
     def __init__( self, source, provider ):
         '''Constructor for the DataConfig class providing
         values value details'''
@@ -156,59 +140,84 @@ class DataConfig( ):
         self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
         self.__source = source if isinstance( source, Source ) else None
         self.__table = self.__source.name if isinstance( self.__source, Source ) else None
-        self.__sqlitedriver = r'DRIVER=SQLite3 ODBC Driver;'
-        self.__sqlitedatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db;'
-        self.__sqlitereferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\referencemodels\References.db;'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
-        self.__accessdatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb;'
-        self.__accessreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\referencemodels\References.accdb;'
-        self.__sqldatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
+        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                            r'\db\mssql\datamodels\Data.mdf;'
-        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;'
-        self.__sqlreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                            r'\db\mssql\referencemodels\References.mdf;'
 
     def __str__( self ):
         if isinstance( self.__table, str ) :
             return self.__table
 
+    def isdatamodel( self ):
+        '''Determines if the values value is a memeber of the values models'''
+        if self.__table != '' and self.__table in self.__data:
+            return True
+        else:
+            return False
+
+    def isreferencemodel( self ):
+        '''Determines if the values value is a memeber of the reference models'''
+        if self.__table is not None  \
+                and self.__table in self.__references:
+            return True
+        else:
+            return False
+
     def getdriver( self ):
-        if isinstance( self.__provider, Provider ) and self.__provider != Provider.NS:
-            if self.__provider == Provider.SQLite:
-                return self.__sqlitedriver
-            elif self.__provider == Provider.Access:
-                return self.__accessdriver
-            elif self.__provider == Provider.SqlServer:
-                return self.__sqldriver
-            else:
-                return self.__sqlitedriver
+        if self.__provider == Provider.SQLite:
+            return self.__sqlitedriver
+        elif self.__provider == Provider.Access:
+            return self.__accessdriver
+        elif self.__provider == Provider.SqlServer:
+            return self.__sqldriver
+        else:
+            return self.__sqlitedriver
 
     def getpath( self ):
-        if self.__provider == Provider.SQLite and self.isreference():
+        if self.__provider == Provider.SQLite and self.isreferencemodel( ):
             path = os.path.relpath( self.__sqlitereferencepath )
             return path
-        elif self.__provider == Provider.SQLite and self.isdata():
+        elif self.__provider == Provider.SQLite and self.isdatamodel( ):
             path = os.path.relpath( self.__sqlitedatapath )
             return path
-        elif self.__provider == Provider.Access and self.isdata():
+        elif self.__provider == Provider.Access and self.isdatamodel( ):
             path = os.path.relpath( self.__accessdatapath )
             return path
-        elif self.__provider == Provider.Access and self.isreference():
+        elif self.__provider == Provider.Access and self.isreferencemodel( ):
             path = os.path.relpath( self.__accessreferencepath )
             return path
-        elif self.__provider == Provider.SqlServer and self.isdata():
+        elif self.__provider == Provider.SqlServer and self.isdatamodel( ):
             path = os.path.relpath( self.__sqldatapath )
             return path
-        elif self.__provider == Provider.SqlServer and self.isreference():
+        elif self.__provider == Provider.SqlServer and self.isreferencemodel( ):
             path = os.path.relpath( self.__sqlreferencepath )
             return path
         else:
             path = os.path.relpath( self.__sqlitedatapath )
             return path
+
+    def getconnectionstring( self ):
+        if self.__provider == Provider.Access:
+            path = self.getpath()
+            return r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
+                                      + f'Dbq={ path }'
+        elif self.__provider == Provider.SqlServer:
+            return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
+                          + f'AttachDBFileName={ path }' \
+                          + f'DATABASE={ self.__table };Trusted_Connection=yes;'
+        else:
+            return f'{ path } '
 
 
 # DataConnection( dataconfig )
@@ -222,8 +231,6 @@ class DataConnection(  ):
     __dsn = None
     __path = None
     __connectionstring = None
-    __sqliteconnection = None
-    __pyodbcconnection = None
     __connection = None
 
     @property
@@ -290,8 +297,7 @@ class DataConnection(  ):
                                       + f'DATABASE={ self.__path }'
             return self.__connectionstring
         else:
-            self.__connectionstring = f'DRIVER=SQLite3 ODBC Driver;SERVER=localhost;' \
-                                      + f'Database={self.__path}'
+            self.__connectionstring = f'{self.__path}'
             return self.__connectionstring
 
     @connectionstring.setter
@@ -311,11 +317,13 @@ class DataConnection(  ):
 
     def __init__( self, dataconfig ):
         self.__configuration = dataconfig if isinstance( dataconfig, DataConfig ) else None
-        self.__source = dataconfig.source if isinstance( dataconfig.source, Source ) else None
-        self.__provider = dataconfig.provider if isinstance( dataconfig.provider, Provider ) else None
+        self.__source = dataconfig.source
+        self.__provider = dataconfig.provider
         self.__path = dataconfig.getpath( )
         self.__driver = dataconfig.getdriver()
         self.__dsn = dataconfig.source.name + ';'
+        self.__sqliteconnectionstring = dataconfig.getpath( )
+        self.__sqlseverconnectionstring = f'Driver={{ODBC Driver 17 for SQL Server}};Server=.\SQLExpress;AttachDBFileName={ self.__path };Database=dbName;Trusted_Connection=yes;'
         self.__connectionstring = 'Provider=' + self.__provider.name + ';' \
                                   + self.__dsn + 'DBQ=' + self.__path
 
@@ -335,6 +343,7 @@ class DataConnection(  ):
             self.__connection.flush( )
             self.__connection.close( )
             self.__connection = None
+
 
 # SqlConfig( names, values )
 class SqlConfig( ):
