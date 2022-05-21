@@ -3067,10 +3067,11 @@ class BudgetForm( Sith ):
         BPAD_LEFT = ( ( 20, 10 ), ( 0, 0 ) )
         BPAD_LEFT_INSIDE = ( 0, ( 10, 0 ) )
         BPAD_RIGHT = ( ( 10, 20 ), ( 10, 0 ) )
+        imgsize = ( 150, 50 )
 
         top_banner = [
-                [sg.Text('Budget Execution', font='Roboto 20', background_color=DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
-                 sg.Text('Wednesday 27 Oct 2021', font='Roboto20', background_color=DARK_HEADER_COLOR)],
+                [ sg.Text('Budget Execution', font='Roboto 20', background_color = DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
+                  sg.Text('Wednesday 27 Oct 2021', font='Roboto 20', background_color = DARK_HEADER_COLOR)],
         ]
 
         top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Roboto 20'), sg.Push()],
@@ -3085,7 +3086,7 @@ class BudgetForm( Sith ):
 
         block_2 = [[sg.Text('Block 2', font='Roboto 20')],
                    [sg.T('This is some random text')],
-                   [sg.Image( source = self.__image, enable_events = True ) ]  ]
+                   [sg.Image( source = self.__image, size = imgsize,  enable_events = True ) ]  ]
 
         block_4 = [[sg.Text('Block 4', font='Roboto 20')],
                    [sg.T('You can move the window by grabbing this block (and the top banner)')],
