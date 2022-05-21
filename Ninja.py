@@ -320,11 +320,11 @@ class DataConnection(  ):
 class SqlConfig( ):
     '''SqlConfig( names, values ) provides the
      predicate provider index pairs for sqlconfig queries'''
-    __predicate = None
     __names = None
     __values = None
     __command = None
     __paramstyle = None
+    __predicate = None
 
     @property
     def command( self ):
@@ -384,12 +384,12 @@ class SqlConfig( ):
         if isinstance( value, dict ):
             self.__predicate = value
 
-    def __init__( self, names = None, values = None, command = Command.SELECTALL, params  = None ):
+    def __init__( self, command = Command.SELECTALL, names = None, values = None,  params  = None ):
         self.__command = command if isinstance( command, Command ) else Command.SELECTALL
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
-        self.__predicate = dict( zip( names, list( values ) ) ) if isinstance( names, list ) and isinstance( values, list ) else None
+        self.__predicate = dict( zip( names, values ) )
 
 
     def kvpdump( self ):
@@ -537,7 +537,7 @@ class SqlStatement( ):
         self.__command = sqlconfig.command
         self.__provider = dataconfig.provider
         self.__source = dataconfig.source
-        self.__table = dataconfig.source.name
+        self.__table = dataconfig.table
         self.__names = sqlconfig.names
         self.__values = sqlconfig.values
 
@@ -560,9 +560,11 @@ class SqlStatement( ):
                 self.__commandtext = 'INSERT INTO ' + self.__table \
                                      + f' { self.__sqlconfig.columndump( ) }' \
                                      + f' VALUES { self.__sqlconfig.valuedump( ) }'
+                return self.__commandtext
             elif self.__command == 'DELETE':
                 self.__commandtext = 'DELETE FROM ' + self.__table \
                                      + f' { self.__sqlconfig.wheredump( ) };'
+                return self.__commandtext
         else:
             if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
                 if self.__command == Command.SELECTALL:
