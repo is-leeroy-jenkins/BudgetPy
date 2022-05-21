@@ -556,14 +556,14 @@ class SqlStatement( ):
                                      + f' FROM { self.__table }' \
                                      + f' { self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
-            elif self.__command == 'INSERT':
-                self.__commandtext = 'INSERT INTO ' + self.__table \
-                                     + f' { self.__sqlconfig.columndump( ) }' \
-                                     + f' VALUES { self.__sqlconfig.valuedump( ) }'
+            elif self.__command == Command.INSERT:
+                self.__commandtext = f'INSERT INTO { self.__table } ' \
+                                     + f'{ self.__sqlconfig.columndump( ) } ' \
+                                     + f'VALUES { self.__sqlconfig.valuedump( ) };'
                 return self.__commandtext
-            elif self.__command == 'DELETE':
-                self.__commandtext = 'DELETE FROM ' + self.__table \
-                                     + f' { self.__sqlconfig.wheredump( ) };'
+            elif self.__command == Command.DELETE:
+                self.__commandtext = f'DELETE FROM { self.__table } '\
+                                     + f'{ self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
         else:
             if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
