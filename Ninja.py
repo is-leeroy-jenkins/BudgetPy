@@ -109,6 +109,23 @@ class DataConfig( ):
     def __init__( self, source, provider ):
         '''Constructor for the DataConfig class providing
         values value details'''
+        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
+        self.__source = source if isinstance( source, Source ) else None
+        self.__table = source.name
+        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\datamodels\Data.db;'
+        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\referencemodels\References.db;'
+        self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
+        self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\Data.accdb;'
+        self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\referencemodels\References.accdb;'
+        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
+        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\datamodels\Data.mdf;'
+        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\referencemodels\References.mdf;'
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
                        'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
@@ -137,23 +154,6 @@ class DataConfig( ):
                              'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
                              'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                              'SchemaTypes', 'StateOrganizations', 'Sources' ]
-        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
-        self.__source = source if isinstance( source, Source ) else None
-        self.__table = self.__source.name if isinstance( self.__source, Source ) else None
-        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db;'
-        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db;'
-        self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
-        self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb;'
-        self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb;'
-        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf;'
-        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf;'
 
     def __str__( self ):
         if isinstance( self.__table, str ) :
@@ -208,11 +208,11 @@ class DataConfig( ):
             return path
 
     def getconnectionstring( self ):
-        if self.__provider == Provider.Access:
-            path = self.getpath()
+        path = self.getpath()
+        if self.__provider.name == Provider.Access.name:
             return r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
                                       + f'Dbq={ path }'
-        elif self.__provider == Provider.SqlServer:
+        elif self.__provider.name == Provider.SqlServer.name:
             return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
                           + f'AttachDBFileName={ path }' \
                           + f'DATABASE={ self.__table };Trusted_Connection=yes;'
@@ -228,7 +228,6 @@ class DataConnection(  ):
     __provider = None
     __source = None
     __driver = None
-    __dsn = None
     __path = None
     __connectionstring = None
     __connection = None
@@ -285,35 +284,13 @@ class DataConnection(  ):
 
     @property
     def connectionstring( self ):
-        if isinstance( self.__provider, Provider ) and self.__provider == Provider.SQLite:
-            self.__connectionstring = f'Database={ self.__path }'
-            return self.__connectionstring
-        elif isinstance( self.__provider, Provider ) and self.__provider == Provider.Access:
-            self.__connectionstring = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
-                                      + f'DBQ={ self.__path }'
-            return self.__connectionstring
-        elif isinstance( self.__provider, Provider ) and self.__provider == Provider.SqlServer:
-            self.__connectionstring = r'DRIVER={ODBC Driver 17 for SQL Server};' \
-                                      + f'DATABASE={ self.__path }'
-            return self.__connectionstring
-        else:
-            self.__connectionstring = f'{self.__path}'
+        if isinstance( self.__connectionstring, str ) and self.__connectionstring != '':
             return self.__connectionstring
 
     @connectionstring.setter
     def connectionstring( self, value ):
-        if isinstance( value, str ):
+        if isinstance( value, str ) and value != '':
             self.__connectionstring = value
-
-    @property
-    def connection( self ):
-        if isinstance( self.__connection, object ) and self.__connection is not None:
-            return self.__connection
-
-    @connection.setter
-    def connection( self, value ):
-        if isinstance( value, object ) and value is not None:
-            self.__connection = value
 
     def __init__( self, dataconfig ):
         self.__configuration = dataconfig if isinstance( dataconfig, DataConfig ) else None
@@ -322,21 +299,15 @@ class DataConnection(  ):
         self.__path = dataconfig.getpath( )
         self.__driver = dataconfig.getdriver()
         self.__dsn = dataconfig.source.name + ';'
-        self.__sqliteconnectionstring = dataconfig.getpath( )
-        self.__sqlseverconnectionstring = f'Driver={{ODBC Driver 17 for SQL Server}};Server=.\SQLExpress;AttachDBFileName={ self.__path };Database=dbName;Trusted_Connection=yes;'
-        self.__connectionstring = 'Provider=' + self.__provider.name + ';' \
-                                  + self.__dsn + 'DBQ=' + self.__path
+        self.__connectionstring = dataconfig.getconnectionstring( )
 
     def connect( self ):
             if self.__provider.name == Provider.Access.name:
-                self.__connection = db.connect( self.__connectionstring )
-                return self.__connection
+                return db.connect( self.__connectionstring )
             elif self.__provider.name == Provider.SqlServer.name:
-                self.__connection = db.connect( self.__connectionstring )
-                return self.__connection
+                return db.connect( self.__connectionstring )
             else:
-                self.__connection = sl.connect( self.__connectionstring )
-                return self.__connection
+                return sl.connect( self.__connectionstring )
 
     def disconnect( self ):
         if self.__connection is not None:
