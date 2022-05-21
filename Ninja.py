@@ -54,7 +54,7 @@ class Error( Exception ):
 
 # DataConfig( source, provider )
 class DataConfig( ):
-    '''DataConfig( value, provider  ) provides list of Budget Execution
+    '''DataConfig( source, provider  ) provides list of Budget Execution
     tables across two databases ( values and references ) '''
     __data = [ ]
     __references = [ ]
@@ -66,9 +66,9 @@ class DataConfig( ):
     __sqldriver = None
     __sqldatapath = None
     __sqlreferencepath = None
-    __sqlitedriver = None
     __sqlitedatapath = None
     __sqlitereferencepath = None
+    __sqlitedriver = None
     __table = None
     __name = None
 
@@ -116,7 +116,7 @@ class DataConfig( ):
                             r'\db\sqlite\datamodels\Data.db;'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\referencemodels\References.db;'
-        self.__accessdriver = r'DRIVER={Microsoft Access Driver ( *.mdb, *.accdb ) };'
+        self.__accessdriver = r'DRIVER={Microsoft Access Driver(*.mdb, *.accdb)};'
         self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb;'
         self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -176,7 +176,7 @@ class DataConfig( ):
 
     def getdriver( self ):
         if self.__provider.name == Provider.SQLite.name:
-            return self.__sqlitedriver
+            return self.getpath( )
         elif self.__provider.name == Provider.Access.name:
             return self.__accessdriver
         elif self.__provider.name == Provider.SqlServer.name:
@@ -559,7 +559,12 @@ class SqlStatement( ):
             elif self.__command == Command.INSERT:
                 self.__commandtext = f'INSERT INTO { self.__table } ' \
                                      + f'{ self.__sqlconfig.columndump( ) } ' \
-                                     + f'VALUES { self.__sqlconfig.valuedump( ) };'
+                                     + f'{ self.__sqlconfig.valuedump( ) };'
+                return self.__commandtext
+            elif self.__command == Command.UPDATE:
+                self.__commandtext = f'UPDATE { self.__table } ' \
+                                     + f'{ self.__sqlconfig.setdump( ) } ' \
+                                     + f'{ self.__sqlconfig.valuedump( ) };'
                 return self.__commandtext
             elif self.__command == Command.DELETE:
                 self.__commandtext = f'DELETE FROM { self.__table } '\
