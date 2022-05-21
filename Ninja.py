@@ -331,10 +331,10 @@ class DataConnection(  ):
                 return self.__connection
 
     def disconnect( self ):
-            if self.__connection is not None:
-                self.__connection.f
-                self.__connection.close( )
-                self.__connection = None
+        if self.__connection is not None:
+            self.__connection.flush( )
+            self.__connection.close( )
+            self.__connection = None
 
 # SqlConfig( names, values )
 class SqlConfig( ):
