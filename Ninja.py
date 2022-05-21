@@ -113,19 +113,19 @@ class DataConfig( ):
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db;'
+                            r'\db\sqlite\datamodels\Data.db'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\referencemodels\References.db;'
-        self.__accessdriver = r'DRIVER={Microsoft Access Driver(*.mdb, *.accdb)};'
-        self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb;'
-        self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb;'
+        self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
+        self.__accessdatapath = r'C:\\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\Data.accdb'
+        self.__accessreferencepath = r'C:\\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
         self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf;'
+                           r'\db\mssql\datamodels\Data.mdf'
         self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf;'
+                           r'\db\mssql\referencemodels\References.mdf'
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
                        'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
@@ -186,32 +186,31 @@ class DataConfig( ):
 
     def getpath( self ):
         if self.__provider == Provider.SQLite and self.isreferencemodel( ):
-            path = os.path.relpath( self.__sqlitereferencepath )
+            path = os.path.abspath( self.__sqlitereferencepath )
             return path
         elif self.__provider == Provider.SQLite and self.isdatamodel( ):
-            path = os.path.relpath( self.__sqlitedatapath )
+            path = os.path.abspath( self.__sqlitedatapath )
             return path
         elif self.__provider == Provider.Access and self.isdatamodel( ):
-            path = os.path.relpath( self.__accessdatapath )
+            path = os.path.abspath( self.__accessdatapath )
             return path
         elif self.__provider == Provider.Access and self.isreferencemodel( ):
-            path = os.path.relpath( self.__accessreferencepath )
+            path = os.path.abspath( self.__accessreferencepath )
             return path
         elif self.__provider == Provider.SqlServer and self.isdatamodel( ):
-            path = os.path.relpath( self.__sqldatapath )
+            path = os.path.abspath( self.__sqldatapath )
             return path
         elif self.__provider == Provider.SqlServer and self.isreferencemodel( ):
-            path = os.path.relpath( self.__sqlreferencepath )
+            path = os.path.abspath( self.__sqlreferencepath )
             return path
         else:
-            path = os.path.relpath( self.__sqlitedatapath )
+            path = os.path.abspath( self.__sqlitedatapath )
             return path
 
     def getconnectionstring( self ):
         path = self.getpath()
         if self.__provider.name == Provider.Access.name:
-            return r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};' \
-                                      + f'Dbq={ path }'
+            return self.getdriver() + path
         elif self.__provider.name == Provider.SqlServer.name:
             return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
                           + f'AttachDBFileName={ path }' \
@@ -389,7 +388,7 @@ class SqlConfig( ):
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
-        self.__predicate = dict( zip( names, values ) )
+        self.__predicate = dict( zip( names,  values ) )
 
 
     def kvpdump( self ):
