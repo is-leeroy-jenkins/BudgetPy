@@ -222,8 +222,9 @@ class DataConnection(  ):
     __dsn = None
     __path = None
     __connectionstring = None
+    __sqliteconnection = None
+    __pyodbcconnection = None
     __connection = None
-    __isopen = None
 
     @property
     def configuration( self ):
@@ -298,32 +299,42 @@ class DataConnection(  ):
         if isinstance( value, str ):
             self.__connectionstring = value
 
+    @property
+    def connection( self ):
+        if isinstance( self.__connection, object ) and self.__connection is not None:
+            return self.__connection
+
+    @connection.setter
+    def connection( self, value ):
+        if isinstance( value, object ) and value is not None:
+            self.__connection = value
+
     def __init__( self, dataconfig ):
         self.__configuration = dataconfig if isinstance( dataconfig, DataConfig ) else None
         self.__source = dataconfig.source if isinstance( dataconfig.source, Source ) else None
         self.__provider = dataconfig.provider if isinstance( dataconfig.provider, Provider ) else None
-        self.__path = self.__configuration.getpath( )
-        self.__driver = self.__configuration.getdriver()
+        self.__path = dataconfig.getpath( )
+        self.__driver = dataconfig.getdriver()
         self.__dsn = dataconfig.source.name + ';'
         self.__connectionstring = 'Provider=' + self.__provider.name + ';' \
                                   + self.__dsn + 'DBQ=' + self.__path
 
-    def open( self ):
-            __path = self.__provider.getpath( )
-            if self.__provider.name != Provider.SQLite.name:
+    def connect( self ):
+            if self.__provider.name == Provider.Access.name:
                 self.__connection = db.connect( self.__connectionstring )
-                self.__isopen = True
+                return self.__connection
+            elif self.__provider.name == Provider.SqlServer.name:
+                self.__connection = db.connect( self.__connectionstring )
                 return self.__connection
             else:
-                self.__connection = sl.connect( __path )
-                self.__isopen = True
+                self.__connection = sl.connect( self.__connectionstring )
                 return self.__connection
 
-    def close( self ):
-        if self.__isopen == True:
-            self.__connection.close( )
-            self.__isopen = False
-
+    def disconnect( self ):
+            if self.__connection is not None:
+                self.__connection.f
+                self.__connection.close( )
+                self.__connection = None
 
 # SqlConfig( names, values )
 class SqlConfig( ):
