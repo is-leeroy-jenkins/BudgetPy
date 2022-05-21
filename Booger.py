@@ -1447,7 +1447,7 @@ class SplashPanel( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( Sith, self ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1460,18 +1460,27 @@ class SplashPanel( Sith ):
         self.__buttoncolor = Sith( ).buttoncolor
         self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
         self.__formsize = ( 800, 600 )
-        self.__timeout = 4000
+        self.__timeout = 6000
 
     def show( self ):
-        layout = [ [ sg.Image( filename=self.__image ) ] ]
+        img = self.__image
+        imgsize = ( 500, 400 )
+        line = ( 100, 2 )
+        space = ( 15, 1 )
+        layout = [ [ sg.Text( '', size = space ), sg.Text( '', size = line ) ],
+                   [ sg.Text( '', size = space ), sg.Text( '', size = line ) ],
+                   [ sg.Text( '', size = space ),
+                        sg.Image( filename = self.__image, size = imgsize ) ] ]
+
         window = sg.Window( 'Window Title', layout,
-                    transparent_color = self.__themebackground,
                     no_titlebar = True,
-                    keep_on_top = True )
+                    keep_on_top = True,
+                    grab_anywhere = True,
+                    size = self.__formsize )
 
         while True:
             event, values = window.read( timeout = self.__timeout, close = True )
-            if event in ( sg.WIN_CLOSED, 'Exit' ):  # always check for closed window
+            if event in ( sg.WIN_CLOSED, 'Exit' ):
                 break
 
         window.close()
