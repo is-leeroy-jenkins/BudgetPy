@@ -186,26 +186,19 @@ class DataConfig( ):
 
     def getpath( self ):
         if self.__provider == Provider.SQLite and self.isreferencemodel( ):
-            path = os.path.abspath( self.__sqlitereferencepath )
-            return path
+            return self.__sqlitereferencepath
         elif self.__provider == Provider.SQLite and self.isdatamodel( ):
-            path = os.path.abspath( self.__sqlitedatapath )
-            return path
+            return self.__sqlitedatapath
         elif self.__provider == Provider.Access and self.isdatamodel( ):
-            path = os.path.abspath( self.__accessdatapath )
-            return path
+            return self.__accessdatapath
         elif self.__provider == Provider.Access and self.isreferencemodel( ):
-            path = os.path.abspath( self.__accessreferencepath )
-            return path
+            return self.__accessreferencepath
         elif self.__provider == Provider.SqlServer and self.isdatamodel( ):
-            path = os.path.abspath( self.__sqldatapath )
-            return path
+            return self.__sqldatapath
         elif self.__provider == Provider.SqlServer and self.isreferencemodel( ):
-            path = os.path.abspath( self.__sqlreferencepath )
-            return path
+            return self.__sqlreferencepath
         else:
-            path = os.path.abspath( self.__sqlitedatapath )
-            return path
+            return self.__sqlitedatapath
 
     def getconnectionstring( self ):
         path = self.getpath()
