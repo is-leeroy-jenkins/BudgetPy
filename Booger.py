@@ -3061,54 +3061,63 @@ class BudgetForm( Sith ):
         self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
 
     def show( self ):
-        BORDER_COLOR = '#C7D5E0'
-        DARK_HEADER_COLOR = '#1B2838'
-        BPAD_TOP = ( ( 20, 20 ), ( 20, 10 ) )
-        BPAD_LEFT = ( ( 20, 10 ), ( 0, 0 ) )
-        BPAD_LEFT_INSIDE = ( 0, ( 10, 0 ) )
-        BPAD_RIGHT = ( ( 10, 20 ), ( 10, 0 ) )
-        imgsize = ( 150, 50 )
+        blue = '#0C396E'
+        black = '#1E1E1E'
+        BPAD_TOP = ( ( 10, 10 ), ( 10, 5 ) )
+        BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+        BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
+        BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
+        hdr = 'Roboto 20'
 
         top_banner = [
-                [ sg.Text('Budget Execution', font='Roboto 20', background_color = DARK_HEADER_COLOR, enable_events=True, grab=False), sg.Push(background_color=DARK_HEADER_COLOR),
-                  sg.Text('Wednesday 27 Oct 2021', font='Roboto 20', background_color = DARK_HEADER_COLOR)],
+                [ sg.Text('Budget Execution', font = hdr, background_color = black, enable_events=True, grab=False ), sg.Push(background_color=black ),
+                  sg.Text('Wednesday 27 Oct 2021', font = hdr, background_color = black ) ],
         ]
 
-        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font='Roboto 20'), sg.Push()],
+        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font = hdr), sg.Push()],
                 [sg.T('This Frame has a relief while the others do not')],
                 [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
 
-        block_3 = [[sg.Text('Block 3', font='Roboto 20')],
+        block_3 = [[sg.Text('Block 3', font = hdr )],
                    [sg.Input(), sg.Text('Some Text')],
                    [sg.T('This frame has element_justification="c"')],
                    [sg.Button('Go'), sg.Button('Exit')]  ]
 
 
-        block_2 = [[sg.Text('Block 2', font='Roboto 20')],
+        block_2 = [[sg.Text('Block 2', font = hdr)],
                    [sg.T('This is some random text')],
-                   [sg.Image( source = self.__image, size = imgsize,  enable_events = True ) ]  ]
+                   [sg.Image( source = self.__image, subsample = 3,  enable_events = True ) ]  ]
 
-        block_4 = [[sg.Text('Block 4', font='Roboto 20')],
+        block_4 = [[sg.Text('Block 4', font = hdr)],
                    [sg.T('You can move the window by grabbing this block (and the top banner)')],
                    [sg.T('This block is a Column Element')],
                    [sg.T('The others are all frames')],
                    [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
                    [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
 
+        block_5 = [[sg.Text('Block 5', font = hdr)],
+                   [sg.T('You can move the window by grabbing this block (and the top banner)')],
+                   [sg.T('This block is a Column Element')],
+                   [sg.T('The others are all frames')],
+                   [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
+                   [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
 
         layout = [
-                [sg.Frame('', top_banner,   pad=(0,0), background_color=DARK_HEADER_COLOR,  expand_x=True, border_width=0, grab=True)],
-                [sg.Frame('', top, size=(920, 100), pad=BPAD_TOP,  expand_x=True,  relief=sg.RELIEF_GROOVE, border_width=3)],
-                [sg.Frame('', [[sg.Frame('', block_2, size=(450,150), pad=BPAD_LEFT_INSIDE, border_width=0, expand_x=True, expand_y=True, )],
-                               [sg.Frame('', block_3, size=(450,150),  pad=BPAD_LEFT_INSIDE, border_width=0, expand_x=True, expand_y=True, element_justification='c')]],
-                    pad=BPAD_LEFT, background_color=BORDER_COLOR, border_width=0, expand_x=True, expand_y=True),
-                 sg.Column(block_4, size=(450, 320), pad=BPAD_RIGHT,  expand_x=True, expand_y=True, grab=True),],[sg.Sizegrip(background_color=BORDER_COLOR)]]
+          [ sg.Frame( '', top_banner,   pad=(0,0), background_color = black,  expand_x = True, border_width = 0, grab=True ) ],
+          [ sg.Frame( '', top, size=(920, 100), pad=BPAD_TOP,  expand_x=True,  relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
+          [ sg.Frame( '', [ [ sg.Frame('', block_2, size=(450,150), pad = BPAD_LEFT_INSIDE, border_width=0, expand_x = True, expand_y = True, ) ],
+                        [ sg.Frame('', block_3, size=(450,150),  pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ] ],
+               pad = BPAD_LEFT, background_color=black, border_width = 0, expand_x = True, expand_y = True ),
+           sg.Frame( '', [ [ sg.Frame( '', block_4, size = (450, 150), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ],
+                           [ sg.Frame( '', block_5, size = (450, 150), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ] ],
+               pad = BPAD_LEFT, background_color = black, border_width = 0, expand_x = True, expand_y = True ), ],
+                        [ sg.Sizegrip( background_color = blue ) ] ]
 
         window = sg.Window( '    Budget Execution', layout,
             size = self.__formsize,
             margins = ( 0, 0 ),
             icon = self.__icon,
-            background_color = BORDER_COLOR,
+            background_color = blue,
             no_titlebar = True,
             resizable = True,
             right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
