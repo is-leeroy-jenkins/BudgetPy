@@ -1919,9 +1919,9 @@ class StateGrantObligation( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -1929,9 +1929,9 @@ class StateGrantObligation( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -1939,9 +1939,9 @@ class StateGrantObligation( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -1949,9 +1949,9 @@ class StateGrantObligation( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -1959,9 +1959,9 @@ class StateGrantObligation( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -1969,9 +1969,9 @@ class StateGrantObligation( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -1979,9 +1979,9 @@ class StateGrantObligation( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -1989,9 +1989,9 @@ class StateGrantObligation( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -1999,9 +1999,9 @@ class StateGrantObligation( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -2009,9 +2009,9 @@ class StateGrantObligation( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -2019,9 +2019,9 @@ class StateGrantObligation( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -2029,9 +2029,9 @@ class StateGrantObligation( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -2039,9 +2039,9 @@ class StateGrantObligation( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def rccode( self ):
@@ -2049,9 +2049,9 @@ class StateGrantObligation( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -2059,9 +2059,9 @@ class StateGrantObligation( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def statecode( self ):
@@ -2069,9 +2069,9 @@ class StateGrantObligation( ):
             return self.__statecode
 
     @statecode.setter
-    def statecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__statecode = code
+    def statecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__statecode = value
 
     @property
     def statename( self ):
@@ -2079,9 +2079,9 @@ class StateGrantObligation( ):
             return self.__statename
 
     @statename.setter
-    def statename( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__statename = name
+    def statename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__statename = value
 
     @property
     def amount( self ):
