@@ -8,22 +8,12 @@ class BudgetPath( ):
     ''' BudgetPath( filename ) initializes the
     BudgetPath class providing filepath information of files
     used in the application'''
-    __base = None
+    __inpath = None
     __path = None
     __ext = None
     __currdir = None
     __report = None
     __drive = None
-
-    @property
-    def base( self ):
-        if self.__base is not None:
-            return self.__base
-
-    @base.setter
-    def base( self, value ):
-        if isinstance( value, str ):
-            self.__base = value
 
     @property
     def name( self ):
@@ -35,7 +25,7 @@ class BudgetPath( ):
     def name( self, value ):
         '''Returns string representing the name of the filepath 'base' '''
         if isinstance( value, str ):
-            self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
+            self.__path = str( list( os.path.split( self.__inpath ) )[ 1 ] )
 
     @property
     def path( self ):
@@ -58,27 +48,6 @@ class BudgetPath( ):
             self.__drive = os.path.splitdrive( value )[ 0 ]
 
     @property
-    def exists( self ):
-        if os.path.exists( self.__base ):
-            return True
-        else:
-            return False
-
-    @property
-    def isfolder( self ):
-        if os.path.isdir( self.__base ):
-            return True
-        else:
-            return False
-
-    @property
-    def isfile( self ):
-        if os.path.isfile( self.__base ):
-            return True
-        else:
-            return False
-
-    @property
     def extension( self ):
         if  isinstance( self.__ext, str ):
             return str( self.__ext )
@@ -89,29 +58,47 @@ class BudgetPath( ):
             self.__ext = str( value )
 
     @property
-    def current( self ):
+    def currentdirectory( self ):
         if os.path.exists( self.__currdir ):
             return self.__currdir
 
-    @current.setter
-    def current( self, value ):
-        '''Set the current directory to 'filepath' '''
+    @currentdirectory.setter
+    def currentdirectory( self, value ):
+        '''Set the currentdirectory directory to 'filepath' '''
         if os.path.exists( value ):
             os.chdir( value )
             self.__currdir = value
 
     def __init__( self, filepath ):
-        self.__base = filepath if isinstance( filepath, str ) else None
-        self.__path = filepath if os.path.isfile( filepath ) else None
-        self.__name = os.path.split( self.__base )[ 1 ]
+        self.__inpath = filepath if isinstance( filepath, str ) else None
+        self.__path = filepath if os.path.exists( filepath ) else None
+        self.__name = os.path.split( self.__inpath )[ 1 ]
         self.__currdir = os.getcwd( )
-        self.__ext = os.path.splitext( self.__base )[ 1 ]
-        self.__drive = os.path.splitdrive( self.__base )[ 0 ]
+        self.__ext = os.path.splitext( self.__inpath )[ 1 ]
+        self.__drive = os.path.splitdrive( self.__inpath )[ 0 ]
         self.__report = r'etc\templates\report\ReportBase.xlsx'
 
     def __str__( self ):
        if self.__path is not None:
            return str( self.__path )
+
+    def exists( self ):
+        if os.path.exists( self.__inpath ):
+            return True
+        else:
+            return False
+
+    def isfolder( self ):
+        if os.path.isdir( self.__inpath ):
+            return True
+        else:
+            return False
+
+    def isfile( self ):
+        if os.path.isfile( self.__inpath ):
+            return True
+        else:
+            return False
 
     def verify( self, other ):
         '''Verifies if the parameter 'other' exists'''
@@ -140,7 +127,7 @@ class BudgetFile( ):
     '''BudgetFile( filepath ) initializes the
      BudgetFile Class providing file information for
      files used in the application'''
-    __base = None
+    __infile = None
     __name = None
     __path = None
     __size = None
@@ -154,26 +141,16 @@ class BudgetFile( ):
     __contents = [ ]
 
     @property
-    def base( self ):
-        if self.__base is not None:
-            return self.__base
-
-    @base.setter
-    def base( self, path ):
-        if isinstance( path, str ) and not path == '':
-            self.__base = path
-
-    @property
     def name( self ):
         '''Get the name property'''
         if not self.__name == '':
             return self.__name
 
     @name.setter
-    def name( self, path ):
+    def name( self, value ):
         '''Set the name property'''
-        if os.path.exists( path ):
-            self.__name = os.path.basename( path )
+        if os.path.exists( value ):
+            self.__name = os.path.basename( value )
 
     @property
     def path( self ):
@@ -181,9 +158,9 @@ class BudgetFile( ):
             return str( self.__path )
 
     @path.setter
-    def path( self, base ):
-        if os.path.exists( base ):
-            self.__path = str( base )
+    def path( self, value ):
+        if os.path.exists( value ):
+            self.__path = str( value )
 
     @property
     def size( self ):
@@ -191,9 +168,9 @@ class BudgetFile( ):
             return self.__size
 
     @size.setter
-    def size( self, num ):
-        if isinstance( num, float ):
-            self.__size = float( num )
+    def size( self, value ):
+        if isinstance( value, float ):
+            self.__size = float( value )
 
     @property
     def directory( self ):
@@ -201,9 +178,9 @@ class BudgetFile( ):
             return self.__directory
 
     @directory.setter
-    def directory( self, path ):
-        if os.path.isdir( path ):
-            self.__directory = str( os.path.dirname( path ) )
+    def directory( self, value ):
+        if os.path.isdir( value ):
+            self.__directory = str( os.path.dirname( value ) )
 
     @property
     def extension( self ):
@@ -213,9 +190,9 @@ class BudgetFile( ):
             return 'NS'
 
     @extension.setter
-    def extension( self, ext ):
-        if ext is not None:
-            self.__extension = ext
+    def extension( self, value ):
+        if value is not None:
+            self.__extension = value
 
     @property
     def drive( self ):
@@ -223,9 +200,9 @@ class BudgetFile( ):
             return self.__drive
 
     @drive.setter
-    def drive( self, path ):
-        if os.path.ismount( path ):
-            self.__drive = str( path )
+    def drive( self, value ):
+        if os.path.ismount( value ):
+            self.__drive = str( value )
 
     @property
     def modified( self ):
@@ -233,9 +210,9 @@ class BudgetFile( ):
             return self.__modified
 
     @modified.setter
-    def modified( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__modified = dt.date( yr, mo, dy )
+    def modified( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__modified = value
 
     @property
     def accessed( self ):
@@ -243,9 +220,9 @@ class BudgetFile( ):
             return self.__accessed
 
     @accessed.setter
-    def accessed( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__accessed = dt.date( yr, mo, dy )
+    def accessed( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__accessed = value
 
     @property
     def created( self ):
@@ -253,9 +230,9 @@ class BudgetFile( ):
             return self.__created
 
     @created.setter
-    def created( self, yr, mo = 1, dy = 1 ):
-        if dt.date( yr, mo, dy ):
-            self.__created = dt.datetime( yr, mo, dy )
+    def created( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__created = value
 
     @property
     def current( self ):
@@ -263,15 +240,15 @@ class BudgetFile( ):
             return str( self.__currdir )
 
     @current.setter
-    def current( self, path ):
-        '''Set the current directory to 'filepath' '''
-        if os.path.exists( path ) and os.path.isdir( path ):
-            os.chdir( path )
-            self.__currdir = path
+    def current( self, value ):
+        '''Set the currentdirectory directory to 'filepath' '''
+        if os.path.exists( value ) and os.path.isdir( value ):
+            os.chdir( value )
+            self.__currdir = value
 
     def __init__( self, filepath ):
-        self.__base = filepath if os.path.exists( filepath ) else 'NS'
-        self.__path = self.__base if not self.__base == '' else 'NS'
+        self.__infile = filepath if os.path.exists( filepath ) else 'NS'
+        self.__path = self.__infile if not self.__infile == '' else 'NS'
         self.__name = os.path.basename( filepath ) if not filepath == '' else 'NS'
         self.__size = os.path.getsize( filepath ) if not filepath == '' else 'NS'
         self.__directory = os.path.dirname( self.__path ) \
@@ -282,7 +259,7 @@ class BudgetFile( ):
         self.__accessed = os.path.getatime( filepath ) if not filepath == '' else 'NS'
         self.__modified = os.path.getmtime( filepath ) if not filepath == '' else 'NS'
         self.__currdir = os.getcwd( )
-        self.__drive = str( list( os.path.splitdrive( self.__base ) )[ 0 ] ) \
+        self.__drive = str( list( os.path.splitdrive( self.__infile ) )[ 0 ] ) \
             if not filepath == '' else 'NS'
         self.__content = list( )
 
@@ -291,15 +268,15 @@ class BudgetFile( ):
             return self.__path
 
     def rename( self, other ):
-        '''Renames the current file to 'other' '''
+        '''Renames the currentdirectory file to 'other' '''
         if isinstance( other, str ) and not other == '':
             os.rename( self.__name, other )
             self.__name = other
             return self.__name
 
     def move( self, destination ):
-        '''renames current file'''
-        if os.path.exists( self.__base ):
+        '''renames currentdirectory file'''
+        if os.path.exists( self.__infile ):
             return os.path.join( self.__name, destination )
 
     def create( self, other ):
@@ -319,7 +296,7 @@ class BudgetFile( ):
 
     def getsize( self, other ):
         '''gets the size of another file'''
-        if self.__base is not None and os.path.exists( other ):
+        if self.__infile is not None and os.path.exists( other ):
             return os.path.getsize( other )
 
     def getdrive( self, other ):
@@ -366,7 +343,7 @@ class BudgetFile( ):
 class BudgetFolder( ):
     '''BudgetFolder( filepath ) initializes the
      BudgetFolder Class providing file directory information'''
-    __base = None
+    __infile = None
     __name = None
     __path = None
     __parent = None
@@ -375,28 +352,16 @@ class BudgetFolder( ):
     __current = None
 
     @property
-    def base( self ):
-        '''Get the base property'''
-        if self.__base is not None:
-            return self.__base
-
-    @base.setter
-    def base( self, path ):
-        '''Set the base property'''
-        if path is not None:
-            self.__base = str( path )
-
-    @property
     def name( self ):
         '''Returns string representing the name of the filepath 'base' '''
-        if os.path.exists( self.__base ):
-            return str( list( os.path.split( self.__base ) )[ 1 ] )
+        if os.path.exists( self.__infile ):
+            return str( list( os.path.split( self.__infile ) )[ 1 ] )
 
     @name.setter
     def name( self, path ):
         '''Returns string representing the name of the filepath 'base' '''
         if path is not None:
-            self.__path = str( list( os.path.split( self.__base ) )[ 1 ] )
+            self.__path = str( list( os.path.split( self.__infile ) )[ 1 ] )
 
     @property
     def directory( self ):
@@ -451,9 +416,9 @@ class BudgetFolder( ):
             os.chdir( path )
 
     def __init__( self, folderpath ):
-        self.__base = folderpath if isinstance( folderpath, str ) else None
+        self.__infile = folderpath if isinstance( folderpath, str ) else None
         self.__name = os.path.basename( folderpath )
-        self.__path = self.__base
+        self.__path = self.__infile
         self.__dir = os.path.dirname( self.__path )
         self.__parent = os.path.dirname( folderpath )
 
@@ -463,21 +428,21 @@ class BudgetFolder( ):
 
     def files( self ):
         '''Iterates files in the base directory'''
-        if os.path.isdir( self.__base ):
+        if os.path.isdir( self.__infile ):
             file_list = [ ]
-            for file in os.listdir( self.__base ):
+            for file in os.listdir( self.__infile ):
                 if os.path.isfile( file ):
                     file_list.append( file )
 
             return file_list
 
     def rename( self, new_name ):
-        '''renames current file'''
+        '''renames currentdirectory file'''
         if self.__name is not None and isinstance( new_name, str ):
             return os.rename( self.__name, new_name )
 
     def move( self, destination ):
-        '''renames current file'''
+        '''renames currentdirectory file'''
         if not destination == '' and not os.path.exists( destination ):
             return os.path.join( self.__name, destination )
 
@@ -507,17 +472,17 @@ class BudgetFolder( ):
 
     def iterate( self ):
         '''iterates files in the base directory'''
-        if os.path.isdir( self.__base ):
-            for i in os.scandir( self.__base ):
+        if os.path.isdir( self.__infile ):
+            for i in os.scandir( self.__infile ):
                 yield i
 
     def getfiles( self, other ):
         '''iterates files in the directory provided by 'other' '''
         if os.path.exists( other ) and os.path.isdir( other ):
-            yield from os.scandir( self.__base )
+            yield from os.scandir( self.__infile )
 
 
-# EmailMessage( from, to, body, subject, copy )
+# EmailMessage( sender, receiver, body, subject, copy )
 class EmailMessage( ):
     '''EmailMessage( frm, to, body, subject ) initializes
     class providing email behavior '''
@@ -615,10 +580,10 @@ class EmailBuilder( ):
             return self.__from
 
     @sender.setter
-    def sender( self, frm ):
+    def sender( self, value ):
         ''' Set the sender's email address '''
-        if frm is not None:
-            self.__from = str( frm )
+        if value is not None:
+            self.__from = str( value )
 
     @property
     def receiver( self ):
@@ -627,10 +592,10 @@ class EmailBuilder( ):
             return self.__to
 
     @receiver.setter
-    def receiver( self, rec ):
+    def receiver( self, value ):
         ''' Sets the receiver's email address '''
-        if rec is not None:
-            self.__to = str( rec )
+        if value is not None:
+            self.__to = str( value )
 
     @property
     def subject( self ):
@@ -639,10 +604,10 @@ class EmailBuilder( ):
             return self.__subject
 
     @subject.setter
-    def subject( self, sub ):
+    def subject( self, value ):
         ''' Sets the email's subject line '''
-        if sub is not None:
-            self.__to = str( sub )
+        if value is not None:
+            self.__to = str( value )
 
     @property
     def body( self ):
@@ -651,10 +616,10 @@ class EmailBuilder( ):
             return self.__message
 
     @body.setter
-    def body( self, msg ):
+    def body( self, value ):
         ''' Sets the email's subject line '''
-        if msg is not None:
-            self.__to = str( msg )
+        if value is not None:
+            self.__to = str( value )
 
     @property
     def copy( self ):
@@ -663,10 +628,10 @@ class EmailBuilder( ):
             return self.__others
 
     @copy.setter
-    def copy( self, copy ):
+    def copy( self, value ):
         ''' Sets the address's to send copies  '''
-        if copy is not None:
-            self.__others = list( copy )
+        if value is not None:
+            self.__others = list( value )
 
     def __init__( self, frm, to, body, subject, copy = None ):
         self.__from = str( frm )
@@ -696,9 +661,9 @@ class ExcelFile( ):
             return self.__path
 
     @path.setter
-    def path( self, filepath ):
-        if os.path.exists( filepath ):
-            self.__path = filepath
+    def path( self, value ):
+        if os.path.exists( value ):
+            self.__path = value
 
     @property
     def name( self ):
@@ -707,9 +672,9 @@ class ExcelFile( ):
             return self.__name
 
     @name.setter
-    def name( self, filename ):
-        if filename is not None and len( filename ) > 0:
-            self.__name = str( filename )
+    def name( self, value ):
+        if value is not None and len( value ) > 0:
+            self.__name = str( value )
 
     @property
     def workbook( self ):
@@ -719,10 +684,10 @@ class ExcelFile( ):
             return self.__workbook
 
     @workbook.setter
-    def workbook( self, path ):
+    def workbook( self, value ):
         ''' Gets the report template '''
-        if os.path.exists( path ):
-            self.__workbook = path
+        if os.path.exists( value ):
+            self.__workbook = value
 
     @property
     def worksheet( self ):
@@ -731,10 +696,10 @@ class ExcelFile( ):
             return self.__worksheet
 
     @worksheet.setter
-    def worksheet( self, name ):
+    def worksheet( self, value ):
         ''' Gets the workbooks worksheet '''
-        if not name == '':
-            self.__worksheet = name
+        if not value == '':
+            self.__worksheet = value
 
     def __str__( self ):
         if self.__path is not None:
@@ -764,9 +729,9 @@ class ExcelReport( ):
             return self.__name
 
     @name.setter
-    def name( self, filename ):
-        if filename is not None and len( filename ) > 0:
-            self.__name = str( filename )
+    def name( self, value ):
+        if value is not None and len( value ) > 0:
+            self.__name = str( value )
 
     @property
     def rows( self ):
@@ -774,9 +739,9 @@ class ExcelReport( ):
             return self.__rows
 
     @rows.setter
-    def rows( self, count ):
-        if isinstance( count, int ) and count > 0:
-            self.__rows = count
+    def rows( self, value ):
+        if isinstance( value, int ) and value > 0:
+            self.__rows = value
 
     @property
     def columns( self ):
@@ -784,9 +749,9 @@ class ExcelReport( ):
             return self.__columns
 
     @columns.setter
-    def columns( self, count ):
-        if isinstance( count, int ) and count > 0:
-            self.__columns = count
+    def columns( self, value ):
+        if isinstance( value, int ) and value > 0:
+            self.__columns = value
 
     @property
     def dimensions( self ):
@@ -794,9 +759,9 @@ class ExcelReport( ):
             return self.__dimensions
 
     @dimensions.setter
-    def dimensions( self, grid = () ):
-        if isinstance( grid, tuple ) and len( grid ) < 3:
-            self.__dimensions = grid
+    def dimensions( self, value ):
+        if isinstance( value, tuple ) and len( value ) <= 2:
+            self.__dimensions = value
 
     @property
     def workbook( self ):
@@ -806,10 +771,10 @@ class ExcelReport( ):
             return self.__workbook
 
     @workbook.setter
-    def workbook( self, path ):
+    def workbook( self, value ):
         ''' Gets the report template '''
-        if path is not None and os.path.exists( path ):
-            self.__workbook = xl.open( path )
+        if value is not None and os.path.exists( value ):
+            self.__workbook = xl.open( value )
 
     @property
     def worksheet( self ):
@@ -818,11 +783,11 @@ class ExcelReport( ):
             return self.__worksheet
 
     @worksheet.setter
-    def worksheet( self, name ):
+    def worksheet( self, value ):
         ''' Gets the workbooks worksheet '''
-        if self.__workbook is not None and name is not None:
+        if self.__workbook is not None and value is not None:
             self.__workbook.worksheets.clear( )
-            self.__worksheet = self.__workbook.create_sheet( title = name, index = 1 )
+            self.__worksheet = self.__workbook.create_sheet( title = value, index = 1 )
 
     def __init__( self, name, rows = 46, cols = 12 ):
         self.__path = r'etc/templates/report/Excel.xlsx'
@@ -834,12 +799,12 @@ class ExcelReport( ):
 
 # ZipFile( filepath )
 class ZipFile( ):
+    __infile = None
     __name = None
     __filepath = None
     __extension = None
     __zippath = None
     __zipextension = None
-    __base = None
 
     @property
     def path( self ):
@@ -847,9 +812,9 @@ class ZipFile( ):
             return self.__filepath
 
     @path.setter
-    def path( self, pt ):
-        if os.path.exists( pt ) and os.path.isfile( pt ):
-            self.__filepath = pt
+    def path( self, value ):
+        if os.path.exists( value ) and os.path.isfile( value ):
+            self.__filepath = value
 
     @property
     def name( self ):
@@ -857,9 +822,17 @@ class ZipFile( ):
             return self.__name
 
     @name.setter
-    def name( self, nm ):
-        if not nm == '':
-            self.__name = nm
+    def name( self, value ):
+        if not value == '':
+            self.__name = value
+
+    def __init__( self, filepath ):
+        self.__infile = filepath if isinstance( filepath, str ) and filepath != '' else None
+        self.__zipextension = '.zip'
+        self.__filepath = filepath if os.path.isfile( filepath ) else None
+        self.__extension = os.path.splitext( filepath )
+        self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
+        self.__name = os.path.basename( filepath )
 
     def create( self ):
         ''' Creates zip file'''
@@ -871,11 +844,3 @@ class ZipFile( ):
         if os.path.exists( self.__zippath ):
             file = zp.ZipFile( self.__zippath )
             file.extractall( self.__zippath )
-
-    def __init__( self, filepath ):
-        self.__zipextension = '.zip'
-        self.__filepath = filepath if isinstance( filepath, str ) and os.path.isfile( filepath ) else None
-        self.__base = BudgetFile( self.__filepath )
-        self.__extension = self.__base.extension
-        self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
-        self.__name = os.path.basename( self.__filepath )
