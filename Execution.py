@@ -263,11 +263,15 @@ class Activity( ):
     def getdata( self ):
         source = Source.ActivityCodes
         provider = Provider.SQLite
-        db = DataConfig( source, provider )
-        dc = DataConnection( db )
-        sqlite = dc.connect( )
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( n, v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
         cursor = sqlite.cursor( )
-        query = f'SELECT * FROM { source.name };'
+        query = sql.getcommandtext( )
         data = cursor.execute( query )
         self.__data =  [ i for i in data.fetchall( ) ]
         cursor.close( )

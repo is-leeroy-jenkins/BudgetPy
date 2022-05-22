@@ -314,11 +314,11 @@ class DataConnection(  ):
 class SqlConfig( ):
     '''SqlConfig( names, values ) provides database
     interaction behavior'''
+    __command = None
     __names = None
     __values = None
-    __command = None
     __paramstyle = None
-    __predicate = None
+    __kvp = None
 
     @property
     def command( self ):
@@ -370,20 +370,20 @@ class SqlConfig( ):
 
     @property
     def keyvaluepairs( self ):
-        if isinstance( self.__predicate, dict ):
-            return self.__predicate
+        if isinstance( self.__kvp, dict ):
+            return self.__kvp
 
     @keyvaluepairs.setter
     def keyvaluepairs( self, value ):
         if isinstance( value, dict ):
-            self.__predicate = value
+            self.__kvp = value
 
     def __init__( self, command = SQL.SELECTALL, names = None, values = None, params  = None ):
         self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
-        self.__predicate = dict( zip( names,  values ) )
+        self.__kvp = dict( zip( names,  values ) )
 
 
     def kvpdump( self ):
@@ -517,12 +517,12 @@ class SqlStatement( ):
 
     @property
     def values( self ):
-        if isinstance( self.__values, list ):
+        if isinstance( self.__values, tuple ):
             return self.__values
 
     @values.setter
     def values( self, value ):
-        if isinstance( value, list ):
+        if isinstance( value, tuple ):
             self.__values = value
 
     def __init__( self, dataconfig, sqlconfig ):
