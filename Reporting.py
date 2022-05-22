@@ -1,7 +1,6 @@
-from Execution import *
-from Ninja import *
+from Control import *
 
-# Apportionment( bfy, efy, omb )
+# Apportionment( bfy, efy, code )
 class Apportionment( ):
     '''Apportionment( bfy, efy, omb )
     initializes object representing Letters Of Apportionment'''
@@ -175,13 +174,21 @@ class Apportionment( ):
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.Apportionments
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-        values = ( self.__bfy, self.__efy, self.__ombaccountcode )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        provider = Provider.SQLite
+        n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+        v = ( self.__bfy, self.__efy, self.__ombaccountcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -264,13 +271,21 @@ class BudgetaryResourceExecution( ):
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
     def getdata( self ):
+        source = Source.BudgetResourceExecution
         provider = Provider.SQLite
-        source = Source.Apportionments
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-        values = ( self.__bfy, self.__efy, self.__ombaccountcode )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+        v = ( self.__bfy, self.__efy, self.__ombaccountcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -308,9 +323,9 @@ class CarryoverEstimates( ):
             return self.__allocationsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__allocationsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__allocationsid = value
 
     @property
     def budgetlevel( self ):
@@ -328,9 +343,9 @@ class CarryoverEstimates( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str) and len( year ) == 4:
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -338,9 +353,9 @@ class CarryoverEstimates( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str) and len( year ) == 4:
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -368,9 +383,9 @@ class CarryoverEstimates( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -378,9 +393,9 @@ class CarryoverEstimates( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def ahcode( self ):
@@ -388,9 +403,9 @@ class CarryoverEstimates( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -398,9 +413,9 @@ class CarryoverEstimates( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def accountcode( self ):
@@ -408,9 +423,9 @@ class CarryoverEstimates( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def programprojectcode( self ):
@@ -418,9 +433,9 @@ class CarryoverEstimates( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -428,9 +443,9 @@ class CarryoverEstimates( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def orgcode( self ):
@@ -438,9 +453,9 @@ class CarryoverEstimates( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def boccode( self ):
@@ -448,9 +463,9 @@ class CarryoverEstimates( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -458,9 +473,9 @@ class CarryoverEstimates( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def availablebalance( self ):
@@ -498,9 +513,9 @@ class CarryoverEstimates( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -508,9 +523,9 @@ class CarryoverEstimates( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def data( self ):
@@ -518,9 +533,9 @@ class CarryoverEstimates( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -528,9 +543,9 @@ class CarryoverEstimates( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, bfy ):
         '''Initializes the PRC class'''
@@ -541,13 +556,21 @@ class CarryoverEstimates( ):
             return str( self.__unobligatedauthority )
 
     def getdata( self ):
+        source = Source.UnobligatedAuthority
         provider = Provider.SQLite
-        source = Source.CarryoverEstimates
-        command = SQL.SELECTALL
-        names = [ 'BFY',  ]
-        values = ( self.__bfy, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        n = [ 'BFY', 'EFY' ]
+        v = ( self.__bfy, self.__efy )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -624,17 +647,27 @@ class CarryoverSurvey( ):
         if isinstance( value, float ):
             self.__amount = value
 
-    def __init__( self, bfy ):
+    def __init__( self, bfy, efy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
+        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
+        source = Source.CarryoverSurvey
         provider = Provider.SQLite
-        source = Source.Apportionments
-        command = SQL.SELECTALL
-        names = [ 'BFY', ]
-        values = ( self.__bfy, )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        n = [ 'BFY', 'EFY', 'FundCode', ]
+        v = ( self.__bfy, self.__efy, self.__fundcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -715,9 +748,9 @@ class StatusOfAppropriations( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -725,9 +758,9 @@ class StatusOfAppropriations( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def budgetlevel( self ):
@@ -735,9 +768,9 @@ class StatusOfAppropriations( ):
             return self.__budgetlevel
 
     @budgetlevel.setter
-    def budgetlevel( self, level ):
-        if isinstance( level, str ) and level != '':
-            self.__budgetlevel = level
+    def budgetlevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__budgetlevel = value
 
     @property
     def appropriationfundcode( self ):
@@ -746,9 +779,9 @@ class StatusOfAppropriations( ):
             return self.__appropriationfundcode
 
     @appropriationfundcode.setter
-    def appropriationfundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__appropriationfundcode = code
+    def appropriationfundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__appropriationfundcode = value
 
     @property
     def appropriationfundname( self ):
@@ -757,9 +790,9 @@ class StatusOfAppropriations( ):
             return self.__appropriationfundname
 
     @appropriationfundname.setter
-    def appropriationfundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__appropriationfundname = name
+    def appropriationfundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__appropriationfundname = value
 
     @property
     def appropriationcreationdate( self ):
@@ -767,9 +800,9 @@ class StatusOfAppropriations( ):
             return self.__appropriationcreationdate
 
     @appropriationcreationdate.setter
-    def appropriationcreationdate( self, date ):
-        if isinstance( date, dt.datetime ):
-            self.__appropriationcreationdate = date
+    def appropriationcreationdate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__appropriationcreationdate = value
 
     @property
     def appropriationcode( self ):
@@ -778,9 +811,9 @@ class StatusOfAppropriations( ):
             return self.__appropriationcode
 
     @appropriationcode.setter
-    def appropriationcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__appropriationcode = code
+    def appropriationcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__appropriationcode = value
 
     @property
     def subappropriationcode( self ):
@@ -789,9 +822,9 @@ class StatusOfAppropriations( ):
             return self.__subappropriationcode
 
     @subappropriationcode.setter
-    def subappropriationcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__subappropriationcode = code
+    def subappropriationcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subappropriationcode = value
 
     @property
     def appropriationdescription( self ):
@@ -800,9 +833,9 @@ class StatusOfAppropriations( ):
             return self.__appropriationdescription
 
     @appropriationdescription.setter
-    def appropriationdescription( self, desc ):
-        if isinstance( desc, str ) and desc != '':
-            self.__appropriationdescription = desc
+    def appropriationdescription( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__appropriationdescription = value
 
     @property
     def fundgroup( self ):
@@ -811,9 +844,9 @@ class StatusOfAppropriations( ):
             return self.__fundgroup
 
     @fundgroup.setter
-    def fundgroup( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundgroup = code
+    def fundgroup( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundgroup = value
 
     @property
     def fundgroupname( self ):
@@ -822,9 +855,9 @@ class StatusOfAppropriations( ):
             return self.__fundgroupname
 
     @fundgroupname.setter
-    def fundgroupname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundgroupname = name
+    def fundgroupname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundgroupname = value
 
     @property
     def documenttype( self ):
@@ -833,9 +866,9 @@ class StatusOfAppropriations( ):
             return self.__documenttype
 
     @documenttype.setter
-    def documenttype( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__documenttype = code
+    def documenttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__documenttype = value
 
     @property
     def transtype( self ):
@@ -844,9 +877,9 @@ class StatusOfAppropriations( ):
             return self.__transtype
 
     @transtype.setter
-    def transtype( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__transtype = code
+    def transtype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__transtype = value
 
     @property
     def actualrecoverytranstype( self ):
@@ -855,9 +888,9 @@ class StatusOfAppropriations( ):
             return self.__actualrecoverytranstype
 
     @actualrecoverytranstype.setter
-    def actualrecoverytranstype( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__actualrecoverytranstype = code
+    def actualrecoverytranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__actualrecoverytranstype = value
 
     @property
     def commitmentspendingcontrolflag( self ):
@@ -866,9 +899,9 @@ class StatusOfAppropriations( ):
             return self.__commitmentspendingcontrolflag
 
     @commitmentspendingcontrolflag.setter
-    def commitmentspendingcontrolflag( self, flag ):
-        if isinstance( flag, str ) and flag != '':
-            self.__commitmentspendingcontrolflag = flag
+    def commitmentspendingcontrolflag( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__commitmentspendingcontrolflag = value
 
     @property
     def agreementlimit( self ):
@@ -877,9 +910,9 @@ class StatusOfAppropriations( ):
             return self.__agreementlimit
 
     @agreementlimit.setter
-    def agreementlimit( self, lim ):
-        if isinstance( lim, str ) and lim != '':
-            self.__agreementlimit = lim
+    def agreementlimit( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__agreementlimit = value
 
     @property
     def estimatedrecoveriestranstype( self ):
@@ -888,9 +921,9 @@ class StatusOfAppropriations( ):
             return self.__estimatedrecoveriestranstype
 
     @estimatedrecoveriestranstype.setter
-    def estimatedrecoveriestranstype( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__estimatedrecoveriestranstype = code
+    def estimatedrecoveriestranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__estimatedrecoveriestranstype = value
 
     @property
     def estimatedreimbursementstranstype( self ):
@@ -899,9 +932,9 @@ class StatusOfAppropriations( ):
             return self.__estimatedreimbursementstranstype
 
     @estimatedreimbursementstranstype.setter
-    def estimatedreimbursementstranstype( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__estimatedreimbursementstranstype = code
+    def estimatedreimbursementstranstype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__estimatedreimbursementstranstype = value
 
     @property
     def expensespendingcontrolflag( self ):
@@ -910,9 +943,9 @@ class StatusOfAppropriations( ):
             return self.__expensespendingcontrolflag
 
     @expensespendingcontrolflag.setter
-    def expensespendingcontrolflag( self, flag ):
-        if isinstance( flag, str ) and flag != '':
-            self.__expensespendingcontrolflag = flag
+    def expensespendingcontrolflag( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__expensespendingcontrolflag = value
 
     @property
     def obligationspendingcontrolflag( self ):
@@ -1251,22 +1284,31 @@ class StatusOfAppropriations( ):
         if isinstance( value, float ):
             self.__availableamount = value
 
-    def __init__( self, bfy, code ):
+    def __init__( self, bfy, efy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__appropriationfundcode = code if isinstance( code, str ) and code != '' else None
+        self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
+        self.__appropriationfundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.StatusOfAppropriations
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'AppropriationFundCode', ]
-        values = ( self.__bfy, self.__appropriationfundcode )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        provider = Provider.SQLite
+        n = [ 'BFY', 'EFY', 'AppropriationFundCode', ]
+        v = ( self.__bfy, self.__efy, self.__appropriationfundcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
-# MonthlyOutlays( bfy, efy, omb )
+# MonthlyOutlays( bfy, efy, account )
 class MonthlyOutlays( ):
     '''MonthlyOutlays( bfy, efy, omb ) initializes
     object providing OMB outlay data'''
@@ -1400,22 +1442,31 @@ class MonthlyOutlays( ):
         if isinstance( value, str ) and value != '':
             self.__ombaccountname = value
 
-    def __init__( self, bfy, code ):
-        self.__reportyear = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
+    def __init__( self, bfy, efy, account ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
+        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) <= 5 else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.MonthlyOutlays
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'OmbAccountCode', ]
-        values = ( self.__bfy, self.__ombaccountcode )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        provider = Provider.SQLite
+        n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+        v = ( self.__bfy, self.__efy, self.__ombaccountcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
-# SpendingRates( code )
+# SpendingRates( account )
 class SpendingRates( ):
     '''SpendingRates( code ) initializes
     object providing OMB spending rate data'''
@@ -1733,8 +1784,8 @@ class SpendingRates( ):
         if isinstance( value, float ):
             self.__totalspendout = value
 
-    def __init__( self, code ):
-        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
+    def __init__( self, account ):
+        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
         provider = Provider.SQLite
@@ -1775,9 +1826,9 @@ class ReimbursableSurvey( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__bfy = yr
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def fundcode( self ):
@@ -1785,9 +1836,9 @@ class ReimbursableSurvey( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -1795,9 +1846,9 @@ class ReimbursableSurvey( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def amount( self ):
@@ -1809,22 +1860,30 @@ class ReimbursableSurvey( ):
         if isinstance( value, float ):
             self.__amount = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy, efy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.ReimbursableSurvey
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'FundCode', ]
-        values = ( self.__bfy, self.__fundcode )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        provider = Provider.SQLite
+        n = [ 'BFY', 'FundCode', ]
+        v = ( self.__bfy, self.__fundcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
-# ObjectClassOutlays( bfy, omb )
+# ObjectClassOutlays( account )
 class ObjectClassOutlays( ):
     '''ObjectClassOutlays( bfy, omb )
     object provides OMB outlay data'''
@@ -1942,9 +2001,9 @@ class ObjectClassOutlays( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -1952,9 +2011,9 @@ class ObjectClassOutlays( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def financeobjectclass( self ):
@@ -1996,22 +2055,29 @@ class ObjectClassOutlays( ):
         if isinstance( value, float ):
             self.__budgetyear = value
 
-    def __init__( self, bfy, omb ):
-        self.__reportyear = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
+    def __init__( self, account ):
+        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.ObjectClassOutlays
-        command = SQL.SELECTALL
-        names = [ 'ReportYear', 'OmbAccountCode', ]
-        values = ( self.__reportyear, self.__ombaccountcode )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        provider = Provider.SQLite
+        n = [ 'OmbAccountCode', ]
+        v = ( self.__ombaccountcode, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
-# UnobligatedAuthority( bfy, omb )
+# UnobligatedAuthority( account )
 class UnobligatedAuthority( ):
     '''UnobligatedAuthority( bfy, omb )
     object provides OMB data'''
@@ -2118,22 +2184,29 @@ class UnobligatedAuthority( ):
         if isinstance( value, float ):
             self.__budgetyear = value
 
-    def __init__( self, bfy, omb ):
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
+    def __init__( self, account ):
+        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
+        source = Source.MonthlyOutlays
         provider = Provider.SQLite
-        source = Source.UnobligatedAuthority
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'OmbAccountCode', ]
-        values = ( self.__bfy, self.__ombaccountcode )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        n = [ 'OmbAccountCode', ]
+        v = ( self.__ombaccountcode, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
-# BudgetOutlays( bfy, omb )
+# BudgetOutlays( account )
 class BudgetOutlays( ):
     '''BudgetOutlays( bfy, omb )
     object provides OMB data'''
@@ -2382,18 +2455,25 @@ class BudgetOutlays( ):
         if isinstance( value, float ):
             self.__outyear9 = value
 
-    def __init__( self, bfy, omb ):
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
+    def __init__( self, account ):
+        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.BudgetOutlays
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'OmbAccountCode', ]
-        values = ( self.__bfy, self.__ombaccountcode )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        provider = Provider.SQLite
+        n = [ 'OmbAccountCode', ]
+        v = ( self.__ombaccountcode, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -2552,13 +2632,21 @@ class GrowthRates( ):
         self.__rateid = id if isinstance( id, str ) and id != '' else None
 
     def getdata( self ):
+        source = Source.MonthlyOutlays
         provider = Provider.SQLite
-        source = Source.GrowthRates
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'RateId', ]
-        values = ( self.__bfy, self.__rateid )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        n = [ 'BFY', 'RateId', ]
+        v = ( self.__bfy, self.__rateid )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -2639,13 +2727,21 @@ class DataRuleDescription( ):
         self.__rulenumber = rule if isinstance( rule, str ) and rule != '' else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.DataRuleDescriptions
-        command = SQL.SELECTALL
-        names = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
-        values = ( self.__schedule, self.__linenumber, self.__rulenumber )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        provider = Provider.SQLite
+        n = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
+        v = ( self.__schedule, self.__linenumber, self.__rulenumber )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
