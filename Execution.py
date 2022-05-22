@@ -1,6 +1,6 @@
 import datetime as dt
+from datetime import datetime, date
 from Ninja import *
-from Static import *
 
 
 
@@ -554,32 +554,32 @@ class BudgetFiscalYear( ):
 
     @property
     def startdate( self ):
-        if isinstance( self.__startdate, dt.datetime ):
+        if isinstance( self.__startdate, datetime ):
             return self.__startdate
 
     @startdate.setter
     def startdate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__startdate = value
 
     @property
     def enddate( self ):
-        if isinstance( self.__enddate, dt.datetime ):
+        if isinstance( self.__enddate, datetime ):
             return self.__enddate
 
     @enddate.setter
     def enddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__enddate = value
 
     @property
     def expiration( self ):
-        if isinstance( self.__expiration, dt.datetime):
+        if isinstance( self.__expiration, datetime):
             return self.__expiration
 
     @expiration.setter
     def expiration( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__expiration = value
 
     @property
@@ -604,12 +604,12 @@ class BudgetFiscalYear( ):
 
     @property
     def date( self ):
-        if isinstance( self.__date, dt.datetime ):
+        if isinstance( self.__date, datetime ):
             return self.__date
 
     @date.setter
     def date( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__date = value
 
     @property
@@ -653,15 +653,15 @@ class BudgetFiscalYear( ):
             self.__frame = frame
 
     def __init__( self, bfy, efy ):
-        self.__today = dt.datetime.today()
+        self.__today = datetime.today()
         self.__date = self.__today
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__day = self.__date.day
         self.__month = self.__date.month
         self.__year = int( self.__input ) if isinstance( self.__input, str ) else None
-        self.__startdate = dt.datetime( self.__year, 10, 1 ) if isinstance( self.__year, int ) else None
-        self.__enddate = dt.datetime( self.__year + 1, 9, 30 ) if isinstance( self.__year, int ) else None
+        self.__startdate = datetime( self.__year, 10, 1 ) if isinstance( self.__year, int ) else None
+        self.__enddate = datetime( self.__year + 1, 9, 30 ) if isinstance( self.__year, int ) else None
         self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                             'NewYearsDay', 'MartinLutherKing', 'Washingtons',
                             'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
@@ -1146,12 +1146,12 @@ class Fund( ):
 
     @property
     def batsenddate( self ):
-        if isinstance( self.__batsenddate, dt.datetime ):
+        if isinstance( self.__batsenddate, datetime ):
             return self.__batsenddate
 
     @batsenddate.setter
     def batsenddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__batsenddate = value
 
     @property
@@ -2848,7 +2848,7 @@ class ProgramResultsCode( ):
     def __init__( self, bfy, efy, rpio, ah, account, boc, amount = 0.0 ):
         '''Initializes the PRC class'''
         self.__accountcode = code if isinstance( code, str ) else None
-        self.__bfy = BudgetFiscalYear( dt.datetime.year )
+        self.__bfy = BudgetFiscalYear( datetime.year )
         self.__amount = amount
         self.__frame = pd.DataFrame
 
@@ -3240,91 +3240,91 @@ class FederalHoliday( ):
     def columbusday( self ):
         '''The second Monday in October'''
         if self.__year is not None:
-            __start = dt.datetime( self.__year, 10, 1 )
-            __end = dt.datetime( self.__year, 10, 31 )
+            __start = datetime( self.__year, 10, 1 )
+            __end = datetime( self.__year, 10, 31 )
             __delta = ( __start - __end ).days
             for i in range( 1, 31 ):
-                d = dt.datetime( self.__year, 10, __start.day + i )
-                if ( 15 < d.day < 28 ) and dt.datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
-                    self.__columbus = dt.datetime( self.__year, 10, d.day )
+                d = datetime( self.__year, 10, __start.day + i )
+                if ( 15 < d.day < 28 ) and datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
+                    self.__columbus = datetime( self.__year, 10, d.day )
                     return self.__columbus
 
     def veteransday( self ):
         '''Veterans Day, November 11'''
         if self.__year is not None:
-            self.__veterans = dt.datetime( self.__year, 11, 11 )
+            self.__veterans = datetime( self.__year, 11, 11 )
             return self.__veterans
 
     def thanksgivingday( self ):
         '''The fourth Thursday in November'''
         if self.__year is not None:
-            __start = dt.datetime( self.__year, 11, 15 )
-            __end = dt.datetime( self.__year, 11, 30 )
+            __start = datetime( self.__year, 11, 15 )
+            __end = datetime( self.__year, 11, 30 )
             __delta = ( __start - __end ).days
             for i in range( 15, 31 ):
-                d = dt.datetime( self.__year, 11, i )
-                if ( 21 < d.day < 31 ) and dt.datetime( self.__year, 11, d.day ).isoweekday( ) == 4:
-                    self.__thanksgiving = dt.datetime( self.__year, 11, d.day )
+                d = datetime( self.__year, 11, i )
+                if ( 21 < d.day < 31 ) and datetime( self.__year, 11, d.day ).isoweekday( ) == 4:
+                    self.__thanksgiving = datetime( self.__year, 11, d.day )
                     return self.__thanksgiving
 
     def christmasday( self ):
         '''Christmas Day, December 25'''
         if self.__year is not None:
-            self.__christmas = dt.datetime( self.__year, 12, 25 )
+            self.__christmas = datetime( self.__year, 12, 25 )
             return self.__christmas
 
     def newyearsday( self ):
         '''January 1'''
         if self.__year is not None:
-            self.__newyearsday = dt.datetime( self.__year, 1, 1 )
+            self.__newyearsday = datetime( self.__year, 1, 1 )
             return self.__newyearsday
 
     def martinlutherkingday( self ):
         '''The third Monday in January'''
         if self.__year is not None:
-            __start = dt.datetime( self.__year, 1, 15 )
-            __end = dt.datetime( self.__year, 1, 31 )
+            __start = datetime( self.__year, 1, 15 )
+            __end = datetime( self.__year, 1, 31 )
             __delta = ( __start - __end ).days
             for i in range( __delta ):
-                d = dt.datetime( self.__year, 1, __start.day + i )
-                if ( 15 < d.day < 31) and dt.datetime( self.__year, 1, d.day ).isoweekday( ) == 1:
-                    self.__martinlutherking = dt.datetime( self.__year, 1, d.day )
+                d = datetime( self.__year, 1, __start.day + i )
+                if ( 15 < d.day < 31) and datetime( self.__year, 1, d.day ).isoweekday( ) == 1:
+                    self.__martinlutherking = datetime( self.__year, 1, d.day )
                     return self.__martinlutherking
 
     def washingtonsday( self ):
         '''The third Monday in February'''
         if self.__year is not None:
-            __start = dt.datetime( self.__year, 2, 15 )
-            __end = dt.datetime( self.__year, 2, 28 )
+            __start = datetime( self.__year, 2, 15 )
+            __end = datetime( self.__year, 2, 28 )
             __delta = ( __start - __end ).days
             for i in range( __delta ):
-                d = dt.datetime( self.__year, 2, __start.day + i )
-                if (15 < d.day < 28) and dt.datetime( self.__year, 2, d.day ).isoweekday( ) == 1:
-                    self.__washingtons = dt.datetime( self.__year, 2, d.day )
+                d = datetime( self.__year, 2, __start.day + i )
+                if (15 < d.day < 28) and datetime( self.__year, 2, d.day ).isoweekday( ) == 1:
+                    self.__washingtons = datetime( self.__year, 2, d.day )
                     return self.__washingtons
 
     def memorialday( self ):
         '''The last Monday in May'''
         if self.__year is not None:
-            __start = dt.datetime( self.__year, 5, 1 )
-            __end = dt.datetime( self.__year, 5, 31 )
+            __start = datetime( self.__year, 5, 1 )
+            __end = datetime( self.__year, 5, 31 )
             __delta = ( __start - __end ).days
             for i in range( 15, 31 ):
-                d = dt.datetime( self.__year, 5, i )
-                if ( 21 < d.day < 31 ) and dt.datetime( self.__year, 5, d.day ).isoweekday( ) == 1:
-                    self.__memorial = dt.datetime( self.__year, 5, d.day )
+                d = datetime( self.__year, 5, i )
+                if ( 21 < d.day < 31 ) and datetime( self.__year, 5, d.day ).isoweekday( ) == 1:
+                    self.__memorial = datetime( self.__year, 5, d.day )
                     return self.__memorial
 
     def juneteenthday( self ):
         '''Juneteenth National Independence Day, June 19'''
         if self.__year is not None:
-            self.__juneteenth = dt.datetime( self.__year, 6, 19 )
+            self.__juneteenth = datetime( self.__year, 6, 19 )
             return self.__juneteenth
 
     def independence( self ):
         '''Independence Day, July 4'''
         if self.__year is not None:
-            self.__independence = dt.datetime( self.__year, 7, 4 )
+            self.__independence = datetime( self.__year, 7, 4 )
             return self.__independence
 
     def laborday( self ):
@@ -3333,12 +3333,12 @@ class FederalHoliday( ):
             __monday = list( )
             __month = dt.date( self.__year, 9, 1 ) - dt.date( self.__year, 9, 31 )
             for i in range( 1, __month.days - 1 ):
-                if dt.datetime( self.__year, 9, i ).isoweekday( ) == 1:
-                    __monday.append( dt.datetime( self.__year, 9, i ) )
+                if datetime( self.__year, 9, i ).isoweekday( ) == 1:
+                    __monday.append( datetime( self.__year, 9, i ) )
             y = __monday[ 0 ].date( ).year
             m = __monday[ 0 ].date( ).month
             d = __monday[ 0 ].date( ).day
-            self.__labor = dt.datetime( y, m, d )
+            self.__labor = datetime( y, m, d )
             return self.__labor
 
     def dayofweek( self ):
@@ -3693,12 +3693,12 @@ class Transfer( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, dt.datetime ):
+        if isinstance( self.__processeddate, datetime ):
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property

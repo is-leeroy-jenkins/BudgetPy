@@ -1,5 +1,4 @@
 import sqlite3 as sl
-
 import pandas as pd
 import pyodbc as db
 import os
