@@ -3,13 +3,11 @@ import PySimpleGUI as sg
 import fitz
 from sys import exit
 from Ninja import *
-from Static import *
-import datetime
+from datetime import datetime, date
 import random
 import io
 from googlesearch import search
 from Minion import App
-import pandas as pd
 
 
 # ButtonIcon( png )

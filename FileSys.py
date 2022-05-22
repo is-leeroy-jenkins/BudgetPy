@@ -1,4 +1,4 @@
-import datetime as dt
+from datetime import datetime, date
 import os
 import zipfile as zp
 import openpyxl as xl
@@ -206,12 +206,12 @@ class BudgetFile( ):
 
     @property
     def modified( self ):
-        if self.__modified is not None:
+        if isinstance( self.__modified, datetime ):
             return self.__modified
 
     @modified.setter
     def modified( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__modified = value
 
     @property
@@ -221,7 +221,7 @@ class BudgetFile( ):
 
     @accessed.setter
     def accessed( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__accessed = value
 
     @property
@@ -231,7 +231,7 @@ class BudgetFile( ):
 
     @created.setter
     def created( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__created = value
 
     @property
