@@ -8267,7 +8267,7 @@ class UnliquidatedObligation( ):
         return self.__data
 
 
-# Expenditure( bfy, fund, account, code )
+# Expenditure( bfy, fund, account, boc )
 class Expenditures:
     '''Expenditure( bfy, fund, account, code )
     initializes object providing Expenditure data'''
@@ -8723,7 +8723,7 @@ class Expenditures:
         return self.__data
 
 
-# SpecialAccount( bfy, rpio )
+# SpecialAccount( bfy, fund, account, boc )
 class SpecialAccounts( ):
     '''' object providing SF Special Account data'''
     __specialaccountsid = None
@@ -8992,7 +8992,7 @@ class SpecialAccounts( ):
         return self.__data
 
 
-# SuperfundSite( rpio )
+# SuperfundSite( bfy, rpio )
 class SuperfundSites( ):
     ''' object providing SF Site data '''
     __superfundsitesid = None
