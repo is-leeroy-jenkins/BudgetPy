@@ -8,7 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATE/TABLE/SpendingRates.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reporting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,13 +165,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00133" summary="updates from main rig;">
-      <created>1652629155855</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1652629155855</updated>
     </task>
     <task id="LOCAL-00134" summary="updates from main rig;">
       <created>1652629196760</created>
@@ -509,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653239671566</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="updates from main rig;">
+      <created>1653242324118</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1653242324118</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

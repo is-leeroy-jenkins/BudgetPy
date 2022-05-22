@@ -593,9 +593,9 @@ class CarryoverSurvey( ):
             return self.__allocationsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__allocationsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__allocationsid = value
 
     @property
     def bfy( self ):
@@ -603,9 +603,9 @@ class CarryoverSurvey( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -613,9 +613,9 @@ class CarryoverSurvey( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def fundcode( self ):
@@ -623,9 +623,9 @@ class CarryoverSurvey( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -633,9 +633,9 @@ class CarryoverSurvey( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def amount( self ):
