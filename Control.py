@@ -1031,10 +1031,10 @@ class StatusOfFunds( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.Accounts
+        source = Source.StatusOfFunds
         provider = Provider.SQLite
-        n = [ 'Code', ]
-        v = ( self.__code, )
+        n = [ 'BFY', 'FundCode', ]
+        v = ( self.__bfy, self.__fundcode, )
         dconfig = DataConfig( source, provider )
         sconfig = SqlConfig( names = n, values = v )
         cnx = DataConnection( dconfig )
@@ -1107,9 +1107,9 @@ class Defacto( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -1117,9 +1117,9 @@ class Defacto( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -1446,13 +1446,21 @@ class Defacto( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.Defactos
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'FundCode', ]
-        values = ( self.__bfy, self.__fundcode )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'BFY', 'FundCode' ]
+        v = ( self.__bfy, self.__fundcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1853,13 +1861,21 @@ class StatusOfSupplementalFunds( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.StatusOfSupplementalFunding
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'FundCode', ]
-        values = ( self.__bfy, self.__fundcode )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'BFY', 'FundCode' ]
+        v = ( self.__bfy, self.__fundcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
