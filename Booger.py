@@ -7,7 +7,7 @@ from datetime import datetime, date
 import random
 import io
 from googlesearch import search
-from Minion import App
+from Minion import App, Client
 
 
 # ButtonIcon( png )
@@ -327,7 +327,7 @@ class FileDialog( Sith ):
            [ sg.Text( r'' ) ],
            [ sg.OK( size = ( 8, 1 ),  ), sg.Cancel( size = ( 10, 1 )  ) ] ]
 
-        window = sg.Window( 'Budget Execution', layout,
+        window = sg.Window( '    Budget Execution', layout,
             font = self.__themefont,
             icon = self.__icon,
             size = self.__formsize )
@@ -411,7 +411,7 @@ class FolderDialog( Sith ):
            [ sg.Text( r'', size = ( 100, 1 ) ) ],
            [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
-        window = sg.Window( 'Budget Execution', layout,
+        window = sg.Window( '    Budget Execution', layout,
             font = self.__themefont,
             icon = self.__icon,
             size = self.__formsize )
@@ -491,7 +491,7 @@ class SaveFileDialog( Sith ):
         startpath = f'C:\\Users\\{username}\\Desktop'
         filename = sg.popup_get_file( 'Select Location / Enter File Name',
             default_path = startpath,
-            title = 'Budget Execution',
+            title = '    Budget Execution',
             font = self.__themefont,
             icon = self.__icon,
             save_as = True )
@@ -686,7 +686,7 @@ class EmailDialog( Sith ):
            [ sg.T( ' ', size = spc ),  sg.Button( 'Send', size = btn ),
              sg.T( ' ', size = btn ), sg.Button( 'Cancel', size = ( 20, 1 ) ) ] ]
 
-        window = sg.Window( 'Budget Execution', layout,
+        window = sg.Window( '    Budget Execution', layout,
             icon = self.__icon,
             background_color = self.__themebackground,
             font = self.__themefont,
