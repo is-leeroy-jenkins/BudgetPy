@@ -4,7 +4,7 @@ import pandas as pd
 import pyodbc as db
 import os
 from collections import namedtuple as ntuple
-from Static import *
+from Static import Source, Provider, SQL
 
 # Error( message )
 class Error( Exception ):

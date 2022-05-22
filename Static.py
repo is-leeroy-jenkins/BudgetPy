@@ -1,7 +1,5 @@
 from enum import Enum, auto
 
-from Control import SpecialAccounts
-
 class EXT( Enum ):
     '''Enumeration of database file extensions'''
     NS = auto( )

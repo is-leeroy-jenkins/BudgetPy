@@ -1,6 +1,6 @@
 import subprocess as sp
 import os
-from Static import *
+from Static import Client
 
 
 class App( ):
