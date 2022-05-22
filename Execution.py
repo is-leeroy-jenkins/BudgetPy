@@ -3068,21 +3068,30 @@ class SiteProject( ):
             return self.__name
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.SiteProjectCodes
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
-# FederalHoliday( bfy )
+# FederalHoliday( bfy, efy, name )
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
     __federalholidaysid = None
     __bfy = None
+    __efy = None
     __name = None
     __newyearsday = None
     __martinlutherking = None
@@ -3391,13 +3400,21 @@ class FederalHoliday( ):
             return self.__name
 
     def getdata( self ):
+        source = Source.FederalHolidays
         provider = Provider.SQLite
-        source = Source.SiteProjectCodes
-        command = SQL.SELECTALL
-        names = [ 'BFY', ]
-        values = ( self.__bfy, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        n = [ 'BFY', 'EFY', 'Name', ]
+        v = ( self.__bfy, self.__efy, self.__name, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -3564,13 +3581,21 @@ class WorkCode( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.WorkCodes
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
