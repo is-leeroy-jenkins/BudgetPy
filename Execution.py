@@ -366,6 +366,7 @@ class AllowanceHolder( ):
         sqlite.close( )
         return self.__data
 
+
 # Appropriation( code  )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
@@ -459,33 +460,13 @@ class Appropriation( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
-
-    @property
-    def fund( self ):
-        if isinstance( self.__fund, Fund ):
-            return self.__fund
-
-    @fund.setter
-    def fund( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fund = Fund( code )
-
-    @property
-    def title( self ):
-        if self.__title is not None:
-            return self.__title
-
-    @title.setter
-    def title( self, title ):
-        if isinstance( title, str ) and title != '':
-            self.__title = title
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     def __init__( self, bfy, law ):
-        self.__code = code if isinstance( code, str ) else None
-        self.__fund = Fund( self.__code )
+        self.__code = code if isinstance( code, str ) and code != '' else None
+        self.__law = law if isinstance( law, str ) and law != '' else None
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -537,9 +518,9 @@ class BudgetFiscalYear( ):
             return self.__budgetfiscalyearsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__budgetfiscalyearsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__budgetfiscalyearsid = value
 
     @property
     def startyear( self ):
@@ -547,9 +528,9 @@ class BudgetFiscalYear( ):
             return self.__bfy
 
     @startyear.setter
-    def startyear( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__bfy = yr
+    def startyear( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def endyear( self ):
@@ -557,9 +538,9 @@ class BudgetFiscalYear( ):
             return self.__efy
 
     @endyear.setter
-    def endyear( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__efy = yr
+    def endyear( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def calendaryear( self ):
@@ -567,9 +548,9 @@ class BudgetFiscalYear( ):
             return self.__year
 
     @calendaryear.setter
-    def calendaryear( self, cyr ):
-        if isinstance( cyr, int ):
-            self.__year = cyr
+    def calendaryear( self, value ):
+        if isinstance( value, int ):
+            self.__year = value
 
     @property
     def startdate( self ):
@@ -577,9 +558,9 @@ class BudgetFiscalYear( ):
             return self.__startdate
 
     @startdate.setter
-    def startdate( self, start ):
-        if isinstance( start, dt.datetime ):
-            self.__startdate = start
+    def startdate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__startdate = value
 
     @property
     def enddate( self ):
@@ -587,9 +568,9 @@ class BudgetFiscalYear( ):
             return self.__enddate
 
     @enddate.setter
-    def enddate( self, end ):
-        if isinstance( end, dt.datetime ):
-            self.__enddate = end
+    def enddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__enddate = value
 
     @property
     def expiration( self ):
@@ -597,9 +578,9 @@ class BudgetFiscalYear( ):
             return self.__expiration
 
     @expiration.setter
-    def expiration( self, exp ):
-        if isinstance( exp, dt.datetime ):
-            self.__expiration = exp
+    def expiration( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__expiration = value
 
     @property
     def weekends( self ):
@@ -607,9 +588,9 @@ class BudgetFiscalYear( ):
             return self.__weekends
 
     @weekends.setter
-    def weekends( self, end ):
-        if isinstance( end, int ):
-            self.__weekends = end
+    def weekends( self, value ):
+        if isinstance( value, int ):
+            self.__weekends = value
 
     @property
     def workdays( self ):
@@ -617,9 +598,9 @@ class BudgetFiscalYear( ):
             return self.__workdays
 
     @workdays.setter
-    def workdays( self, work ):
-        if isinstance( work, float ):
-            self.__workdays = work
+    def workdays( self, value ):
+        if isinstance( value, float ):
+            self.__workdays = value
 
     @property
     def date( self ):
@@ -627,9 +608,9 @@ class BudgetFiscalYear( ):
             return self.__date
 
     @date.setter
-    def date( self, today ):
-        if isinstance( today, dt.datetime ):
-            self.__date = today
+    def date( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__date = value
 
     @property
     def day( self ):
@@ -637,9 +618,9 @@ class BudgetFiscalYear( ):
             return self.__day
 
     @day.setter
-    def day( self, today ):
-        if isinstance( today, int ) and ( 0 <= today <= 7 ):
-            self.__day = today
+    def day( self, value ):
+        if isinstance( value, int ) and (0 <= value <= 7):
+            self.__day = value
 
     @property
     def month( self ):
@@ -657,9 +638,9 @@ class BudgetFiscalYear( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -671,18 +652,16 @@ class BudgetFiscalYear( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __init__( self, bfy ):
+    def __init__( self, bfy, efy ):
         self.__today = dt.datetime.today()
         self.__date = self.__today
-        self.__input = bfy if isinstance( bfy, str ) else str( self.__today.year )
-        self.__year = int( self.__input ) if isinstance( self.__input, str ) else None
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__day = self.__date.day
         self.__month = self.__date.month
+        self.__year = int( self.__input ) if isinstance( self.__input, str ) else None
         self.__startdate = dt.datetime( self.__year, 10, 1 ) if isinstance( self.__year, int ) else None
-        self.__bfy = bfy if isinstance( bfy, str ) else str( self.__today.year )
         self.__enddate = dt.datetime( self.__year + 1, 9, 30 ) if isinstance( self.__year, int ) else None
-        self.__efy = str( self.__enddate.year ) if isinstance( self.__enddate, dt.datetime ) else None
-        self.__frame = pd.DataFrame
         self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                             'NewYearsDay', 'MartinLutherKing', 'Washingtons',
                             'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
@@ -692,13 +671,21 @@ class BudgetFiscalYear( ):
             return self.__bfy
 
     def getdata( self ):
+        source = Source.BudgetFiscalYear
         provider = Provider.SQLite
-        source = Source.FiscalYears
-        command = SQL.SELECTALL
-        names = [ 'BFY', ]
-        values = ( self.__bfy, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        n = [ 'BFY', 'EFY' ]
+        v = ( self.__bfy, self.__efy )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -719,9 +706,9 @@ class BudgetObjectClass( ):
             return self.__accountsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__accountsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__accountsid = value
 
     @property
     def code( self ):
@@ -729,9 +716,9 @@ class BudgetObjectClass( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -739,9 +726,9 @@ class BudgetObjectClass( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def value( self ):
@@ -749,9 +736,9 @@ class BudgetObjectClass( ):
             return self.__value
 
     @value.setter
-    def value( self, val ):
-        if isinstance( val, object ):
-            self.__value = val
+    def value( self, value ):
+        if isinstance( value, object ):
+            self.__value = value
 
     @property
     def data( self ):
@@ -759,9 +746,9 @@ class BudgetObjectClass( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -769,75 +756,34 @@ class BudgetObjectClass( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
-    def __init__( self, boc ):
-        self.__boc = boc if isinstance( boc, BOC ) else BOC.NS
-        self.__code = self.__boc.value
-        self.__name = self.__boc.name
-        self.__frame = pd.DataFrame
+    def __init__( self, code ):
+        self.__code = code if isinstance( code, str ) and code != '' else None
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.BudgetObjectClasses
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
-
-
-# Division( code )
-class Division( ):
-    '''Defines the Division Class'''
-    __code = None
-    __name = None
-    __data = None
-
-    @property
-    def code( self ):
-        if isinstance( self.__code, str) and self.__code != '':
-            return self.__code
-
-    @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
-
-    @property
-    def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
-            return self.__name
-
-    @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
-
-    @property
-    def data( self ):
-        if isinstance( self.__data, list ):
-            return self.__data
-
-    @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
-
-    def __init__( self, code ):
-        self.__code =  code if isinstance( code, str ) else None
-        self.__data = { 'fund': self.__code }
-
-    def __str__( self ):
-        if isinstance( self.__code, str ) and self.__code != '':
-            return self.__code
 
 
 # FinanceObjectClass( code )
@@ -923,24 +869,31 @@ class FinanceObjectClass( ):
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.FinanceObjectClasses
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
-# Fund( bfy, code )
+# Fund( bfy, efy, code )
 class Fund( ):
     '''Defines the Fund Class'''
     __fundsid = None
@@ -983,9 +936,9 @@ class Fund( ):
             self.__fundsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__fundsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__fundsid = value
 
     @property
     def code( self ):
@@ -993,9 +946,9 @@ class Fund( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -1003,9 +956,9 @@ class Fund( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def shortname( self ):
@@ -1013,9 +966,9 @@ class Fund( ):
             return self.__shortname
 
     @shortname.setter
-    def shortname( self, title ):
-        if isinstance( title , str ) and title != '':
-            self.__shortname = title
+    def shortname( self, value ):
+        if isinstance( value , str ) and value != '':
+            self.__shortname = value
 
     @property
     def status( self ):
@@ -1023,9 +976,9 @@ class Fund( ):
             return self.__status
 
     @status.setter
-    def status( self, stat ):
-        if isinstance( stat, str ) and stat in [ 'ACTIVE', 'INACTIVE' ]:
-            self.__status = stat
+    def status( self, value ):
+        if isinstance( value, str ) and value in [ 'ACTIVE', 'INACTIVE' ]:
+            self.__status = value
 
     @property
     def bpoa( self ):
@@ -1033,27 +986,29 @@ class Fund( ):
             return self.__bpoa
 
     @bpoa.setter
-    def bpoa( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__bpoa = yr
+    def bpoa( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bpoa = value
+
     @property
     def epoa( self ):
         if isinstance( self.__epoa, str ) and self.__epoa != '':
             return self.__epoa
 
     @epoa.setter
-    def epoa( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__epoa = yr
+    def epoa( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__epoa = value
+
     @property
     def main( self ):
         if isinstance( self.__main, str ) and self.__main != '':
             return self.__main
 
     @main.setter
-    def main( self, code ):
-        if isinstance( code, str ) and code != '':
-           self.__main = code
+    def main( self, value ):
+        if isinstance( value, str ) and value != '':
+           self.__main = value
 
     @property
     def multiyearindicator( self ):
@@ -1062,9 +1017,9 @@ class Fund( ):
             return self.__multiyearindicator
 
     @multiyearindicator.setter
-    def multiyearindicator( self, multi ):
-        if isinstance( multi, str ) and multi != '':
-            self.__multiyearindicator = multi
+    def multiyearindicator( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__multiyearindicator = value
 
     @property
     def sublevel( self ):
@@ -1072,9 +1027,9 @@ class Fund( ):
             return self.__sublevel
 
     @sublevel.setter
-    def sublevel( self, sub ):
-        if isinstance( sub, str ) and sub != '':
-            self.__sublevel = sub
+    def sublevel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sublevel = value
 
     @property
     def ata( self ):
@@ -1082,9 +1037,9 @@ class Fund( ):
             return self.__ata
 
     @ata.setter
-    def ata( self, ata ):
-        if isinstance( ata, str ) and ata != '':
-            self.__ata = ata
+    def ata( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ata = value
 
     @property
     def aid( self ):
@@ -1092,9 +1047,9 @@ class Fund( ):
             return self.__aid
 
     @aid.setter
-    def aid( self, aid ):
-        if isinstance( aid, str ) and aid != '':
-            self.__aid = aid
+    def aid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__aid = value
 
     @property
     def fundcategory( self ):
@@ -1102,9 +1057,9 @@ class Fund( ):
             return self.__fundcategory
 
     @fundcategory.setter
-    def fundcategory( self, catg ):
-        if isinstance( catg, str ) and catg != '':
-            self.__fundcategory = catg
+    def fundcategory( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcategory = value
 
     @property
     def appropriationcode( self ):
@@ -1113,9 +1068,9 @@ class Fund( ):
             return self.__appropriationcode
 
     @appropriationcode.setter
-    def appropriationcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__appropriationcode = code
+    def appropriationcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__appropriationcode = value
 
     @property
     def appropriationname( self ):
@@ -1134,9 +1089,9 @@ class Fund( ):
             return self.__fundgroup
 
     @fundgroup.setter
-    def fundgroup( self, group ):
-        if isinstance( group, str ) and group != '':
-            self.__fundgroup = group
+    def fundgroup( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundgroup = value
 
     @property
     def noyear( self ):
@@ -1144,9 +1099,9 @@ class Fund( ):
             return self.__noyear
 
     @noyear.setter
-    def noyear( self, noyr ):
-        if isinstance( noyr, str ) and noyr != '':
-            self.__noyear = noyr
+    def noyear( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__noyear = value
 
     @property
     def carryover( self ):
@@ -1154,9 +1109,9 @@ class Fund( ):
             return self.__carryover
 
     @carryover.setter
-    def carryover( self, carry ):
-        if isinstance( carry, str ) and carry != '':
-            self.__carryover = carry
+    def carryover( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__carryover = value
 
     @property
     def cancelledyearspendingaccount( self ):
@@ -1175,7 +1130,7 @@ class Fund( ):
             return self.__applyatalllevels
 
     @applyatalllevels.setter
-    def applyatalllevels( self, all ):
+    def applyatalllevels( self, value ):
         if isinstance( self.__applyatalllevels, str ) and self.__applyatalllevels != '':
             return self.__applyatalllevels
 
@@ -1185,9 +1140,9 @@ class Fund( ):
             return self.__batsfund
 
     @batsfund.setter
-    def batsfund( self, bats ):
-        if isinstance( bats, str ) and bats != '':
-            self.__batsfund = bats
+    def batsfund( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__batsfund = value
 
     @property
     def batsenddate( self ):
@@ -1195,9 +1150,9 @@ class Fund( ):
             return self.__batsenddate
 
     @batsenddate.setter
-    def batsenddate( self, end):
-        if isinstance( end, dt.datetime ):
-            self.__batsenddate = end
+    def batsenddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__batsenddate = value
 
     @property
     def batsoptionid( self ):
@@ -1205,9 +1160,9 @@ class Fund( ):
             return self.__batsoptionid
 
     @batsoptionid.setter
-    def batsoptionid( self, optid ):
-        if isinstance( optid, int ):
-            self.__batsoptionid = optid
+    def batsoptionid( self, value ):
+        if isinstance( value, int ):
+            self.__batsoptionid = value
 
     @property
     def securityorg( self ):
@@ -1215,9 +1170,9 @@ class Fund( ):
             return self.__securityorg
 
     @securityorg.setter
-    def securityorg( self, sec ):
-        if isinstance( sec, str ) and sec != '':
-            self.__securityorg = sec
+    def securityorg( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__securityorg = value
 
     @property
     def treasuryaccountcode( self ):
@@ -1226,9 +1181,9 @@ class Fund( ):
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, tres ):
-        if isinstance( tres, str ) and tres != '':
-            self.__treasuryaccountcode = tres
+    def treasuryaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccountcode = value
 
     @property
     def treasuryaccountname( self ):
@@ -1237,9 +1192,9 @@ class Fund( ):
             return self.__treasuryaccountname
 
     @treasuryaccountname.setter
-    def treasuryaccountname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__treasuryaccountname = name
+    def treasuryaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccountname = value
 
     @property
     def ombaccountcode( self ):
@@ -1247,9 +1202,9 @@ class Fund( ):
             return self.__ombaccountcode
 
     @ombaccountcode.setter
-    def ombaccountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ombaccountcode = code
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
 
     @property
     def ombaccountname( self ):
@@ -1257,9 +1212,9 @@ class Fund( ):
             return self.__ombaccountname
 
     @ombaccountname.setter
-    def ombaccountname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ombaccountname = name
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
 
     @property
     def apportionmentaccountcode( self ):
@@ -1268,9 +1223,9 @@ class Fund( ):
             return self.__apportionmentaccountcode
 
     @apportionmentaccountcode.setter
-    def apportionmentaccountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__apportionmentaccountcode = code
+    def apportionmentaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__apportionmentaccountcode = value
 
     @property
     def data( self ):
@@ -1292,27 +1247,32 @@ class Fund( ):
         if isinstance( value, pd.DataFrame ):
             self.__frame = value
 
-    def __init__( self, bfy, code ):
-        self.__bfy = bfy if isinstance( bfy, str ) and bfy != '' else None
+    def __init__( self, bfy, efy, code ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__code = code if isinstance( code, str ) and code != '' else None
-        self.__frame = pd.DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
-        try:
-            provider = Provider.SQLite
-            source = Source.Funds
-            command = SQL.SELECTALL
-            names = [ 'BFY', 'Code' ]
-            values = ( self.__bfy, self.__code, )
-            df = DataFactory( provider, source, command, names, values )
-            self.__data = df.create( )
-            return self.__data
-        except Exception as e:
-            print( e )
+        source = Source.Funds
+        provider = Provider.SQLite
+        n = [ 'BFY', 'EFY', 'Code', ]
+        v = ( self.__bfy, self.__efy, self.__code )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
+        return self.__data
 
 
 # Goal( code )
@@ -1330,9 +1290,9 @@ class Goal( ):
             return self.__goalsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__goalsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__goalsid = value
 
     @property
     def code( self ):
@@ -1340,9 +1300,9 @@ class Goal( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -1350,9 +1310,9 @@ class Goal( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -1360,9 +1320,9 @@ class Goal( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -1370,9 +1330,9 @@ class Goal( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -1382,13 +1342,21 @@ class Goal( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.Goals
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1482,13 +1450,21 @@ class NationalProgram( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.NationalPrograms
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1560,13 +1536,21 @@ class Objective( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.Objectives
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1638,13 +1622,21 @@ class Organization( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.Organizations
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1716,13 +1708,21 @@ class Project( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.Projects
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1794,13 +1794,21 @@ class ItProjectCode( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.CPIC
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1865,20 +1873,27 @@ class SiteProjectCode( ):
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.SiteProjectCodes
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1942,13 +1957,21 @@ class StateOrganization( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.StateOrganizations
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -1956,8 +1979,8 @@ class StateOrganization( ):
 class HeadquartersOffice( ):
     '''Defines a regional RPIO'''
     __resourceplanningofficesid = None
-    __rpio = None
-    __name = None
+    __rpiocode = None
+    __rpioname = None
     __data = None
     __frame = None
 
@@ -1972,24 +1995,24 @@ class HeadquartersOffice( ):
             self.___resourceplanningofficesid = id
 
     @property
-    def rpio( self ):
-        if isinstance( self.__rpio, ResourcePlanningOffice ):
-            return self.__rpio
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ):
+            return self.__rpiocode
 
-    @rpio.setter
-    def rpio( self, rpo ):
-        if isinstance( rpo, ResourcePlanningOffice ):
-            self.__rpio = rpo
+    @rpiocode.setter
+    def rpiocode( self, rpo ):
+        if isinstance( rpo, str ):
+            self.__rpiocode = rpo
 
     @property
-    def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
-            return self.__name
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
 
-    @name.setter
-    def name( self, name ):
+    @rpioname.setter
+    def rpioname( self, name ):
         if isinstance( name, str ) and name != '':
-            self.__name = name
+            self.__rpioname = name
 
     @property
     def data( self ):
@@ -2011,22 +2034,29 @@ class HeadquartersOffice( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __init__( self, rpio ):
-        self.__rpio = rpio if isinstance( rpio, ResourcePlanningOffice ) else None
-        self.__frame = pd.DataFrame
+    def __init__( self, code ):
+        self.__rpiocode = code if isinstance( code, str ) and len( code ) == 2 else None
 
     def __str__( self ):
         if isinstance( self.__code ):
             return self.__code
 
     def getdata( self ):
+        source = Source.HeadquartersOffice
         provider = Provider.SQLite
-        source = Source.HeadquartersOffices
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        n = [ 'RpioCode', ]
+        v = ( self.__rpiocode, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -2098,13 +2128,21 @@ class HumanResourceOrganization( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.HumanResourceOrganizations
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -2176,13 +2214,21 @@ class ProgramArea( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.ProgramAreas
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -2265,13 +2311,21 @@ class ProgramProject( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.ProgramProjects
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -2343,6 +2397,22 @@ class ResponsibilityCenter( ):
             return self.__code
 
     def getdata( self ):
+        source = Source.ResponsibilityCenters
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
+        return self.__data
         provider = Provider.SQLite
         source = Source.ResponsibilityCenters
         command = SQL.SELECTALL
@@ -2421,13 +2491,21 @@ class ResourcePlanningOffice( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.ResourcePlanningOffices
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
@@ -2793,8 +2871,8 @@ class ProgramResultsCode( ):
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __resourceplanningofficesid = None
-    __rpio = None
-    __name = None
+    __rpiocode = None
+    __rpioname = None
     __data = None
     __frame = None
 
@@ -2809,24 +2887,24 @@ class RegionalOffice( ):
             self.___resourceplanningofficesid = id
 
     @property
-    def rpio( self ):
-        if isinstance( self.__rpio, ResourcePlanningOffice ):
-            return self.__rpio
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str) and len( self.__rpio ) == 2:
+            return self.__rpiocode
 
-    @rpio.setter
-    def rpio( self, rpo ):
-        if isinstance( rpo, ResourcePlanningOffice ):
-            self.__rpio = rpo
+    @rpiocode.setter
+    def rpiocode( self, rpo ):
+        if isinstance( rpo, str ) and len( rpo ) == 2:
+            self.__rpiocode = rpo
 
     @property
-    def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
-            return self.__name
+    def rpioname( self ):
+        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+            return self.__rpioname
 
-    @name.setter
-    def name( self, name ):
+    @rpioname.setter
+    def rpioname( self, name ):
         if isinstance( name, str ) and name != '':
-            self.__name = name
+            self.__rpioname = name
 
     @property
     def data( self ):
@@ -2848,22 +2926,29 @@ class RegionalOffice( ):
         if isinstance( frame, pd.DataFrame ):
             self.__frame = frame
 
-    def __init__( self, rpio ):
-        self.__rpio = rpio if isinstance( rpio, ResourcePlanningOffice ) else None
-        self.__frame = pd.DataFrame
+    def __init__( self, code ):
+        self.__rpiocode = code if isinstance( code, str ) and len( code ) == 2 else None
 
     def __str__( self ):
         if isinstance( self.__code ):
             return self.__code
 
     def getdata( self ):
+        source = Source.ResourcePlanningOffices
         provider = Provider.SQLite
-        source = Source.RegionalOffices
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
