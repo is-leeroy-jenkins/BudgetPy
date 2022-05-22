@@ -2,6 +2,7 @@ import datetime as dt
 from Ninja import *
 
 
+
 class Unit( ):
     '''Unit( name, value ) initializes object
     representing fundemental unit of data
@@ -176,15 +177,17 @@ class Account( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
-        source = Source.Accounts
-        command = Command.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
-        return self.__data
-
+        pdr = Provider.SQLite
+        src = Source.Accounts
+        db = DataConfig( src, pdr )
+        cnx = DataConnection( db )
+        sqlite = cnx.connect( )
+        cur = sqlite.cursor( )
+        query = f'SELECT * FROM { src.name };'
+        data = cur.execute( query )
+        cur.close( )
+        sqlite.close( )
+        return data.fetchall( )
 
 # Activity( code  )
 class Activity( ):

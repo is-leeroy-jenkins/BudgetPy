@@ -115,7 +115,7 @@ class DataConfig( ):
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db;'
+                            r'\db\sqlite\referencemodels\References.db'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
         self.__accessdatapath = r'C:\\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb'
@@ -160,14 +160,16 @@ class DataConfig( ):
             return self.__table
 
     def isdatamodel( self ):
-        '''Determines if the values value is a memeber of the values models'''
+        '''Returns the boolean value 'True' if the
+        source is a memeber of datamodels else 'False' '''
         if self.__table != '' and self.__table in self.__data:
             return True
         else:
             return False
 
     def isreferencemodel( self ):
-        '''Determines if the values value is a memeber of the reference models'''
+        '''Returns boolean value 'True' if the
+        source is a memeber of the reference models else 'False' '''
         if self.__table is not None  \
                 and self.__table in self.__references:
             return True
@@ -214,8 +216,8 @@ class DataConfig( ):
 
 # DataConnection( dataconfig )
 class DataConnection(  ):
-    '''DataConnection( dataconfig, value = '' ) initializes
-    object used to connect to Budget databases'''
+    '''DataConnection( dataconfig ) initializes
+    object used to connect to the databases'''
     __configuration = None
     __provider = None
     __source = None
@@ -310,8 +312,8 @@ class DataConnection(  ):
 
 # SqlConfig( names, values )
 class SqlConfig( ):
-    '''SqlConfig( names, values ) provides the
-     predicate provider index pairs for sqlconfig queries'''
+    '''SqlConfig( names, values ) provides database
+    interaction behavior'''
     __names = None
     __values = None
     __command = None
@@ -675,6 +677,7 @@ class AccessQuery( ):
     '''AccessQuery( value, sqlconfig ) class
       represents the budget execution
       values model classes in the MS Access database'''
+    __provider = None
     __path = None
     __connection = None
     __sqlstatement = None
@@ -708,6 +711,16 @@ class AccessQuery( ):
             self.__source = value
 
     @property
+    def provider( self ):
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @provider.setter
+    def provider( self, value ):
+        if isinstance( value, Provider ):
+            self.__provider = value
+
+    @property
     def connectionstring( self ):
         if isinstance( self.__connectionstring, str ):
             return self.__connectionstring
@@ -729,12 +742,12 @@ class AccessQuery( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, ntuple ):
+        if isinstance( self.__data, list ):
             return self.__data
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, ntuple ):
+        if isinstance( value, list ):
             self.__data = value
 
     @property
@@ -777,21 +790,29 @@ class AccessQuery( ):
         self.__connectionstring = connection.connectionstring
         self.__path = connection.path
         self.__command = sqlstatement.command
+        self.__data = [ ]
 
     def __str__( self ):
         if isinstance( self.__source, DataConfig ):
             return self.__source.name
 
     def getdata( self ):
-        path = self.__path
-        query = self.__sqlstatement.getcommandtext( )
-        cxnstr = self.__connection.connectionstring
-        conn = db.connect( cxnstr )
-        crsr = conn.execute( query )
-        data = [ tuple( i ) for i in crsr.fetchall( ) ]
-        crsr.close( )
-        conn.close( )
-        return data
+        pdr = Provider.Access
+        src = self.__source
+        sql = self.__sqlstatement
+        names = self.__sqlstatment.names
+        values = self.__sqlstatment.values
+        cmd = SqlConfig( command = Command.SELECTALL,
+            names = names, values = values )
+        db = DataConfig( src, pdr )
+        cnx = DataConnection( db )
+        sqlite = cnx.connect( )
+        cur = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cur.execute( query )
+        cur.close( )
+        sqlite.close( )
+        data = [ i for i in data.fetchall( ) ]
 
 
 # SqlServerQuery( connection, sqlstatement )
@@ -919,14 +940,22 @@ class SqlServerQuery( ):
             return self.__source.name
 
     def getdata( self ):
-        path = self.__path
-        query = self.__sqlstatement.getcommandtext( )
-        conn = pd.connect( path )
-        crsr = conn.execute( query )
-        data = [ tuple( i ) for i in crsr.fetchall( ) ]
-        crsr.close( )
-        conn.close( )
-        return data
+        n = self.__sqlstatment.names
+        v = self.__sqlstatment.values
+        c = Command.SELECTALL
+        cmd = SqlConfig( command = c, names = n, values = v )
+        src = self.__source
+        pdr = Provider.SqlServer
+        db = DataConfig( src, pdr )
+        sql = SqlStatement( db, cmd )
+        cnx = DataConnection( db )
+        sqlite = cnx.connect( )
+        cur = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cur.execute( query )
+        cur.close( )
+        cnx.close( )
+        return [ i for i in data.fetchall( ) ]
 
 
 # QueryBuilder( source, provider, command,  names, values )
@@ -1034,6 +1063,18 @@ class QueryBuilder( ):
         if isinstance( value, SqlConfig ):
             self.__sqlconfig = value
 
+    @property
+    def query( self ):
+        '''Gets an instance of the DataCommand object'''
+        if isinstance( self.__query, str ):
+            return self.__query
+
+    @query.setter
+    def query( self, value ):
+        '''Set the command property to a DataCommand instance'''
+        if isinstance( value, str ):
+            self.__query = value
+
     def __init__( self, source = None, provider = Provider.SQLite,
                   command = Command.SELECTALL, names = None, values = None ):
         self.__name = names if isinstance( names, list ) else None
@@ -1045,6 +1086,7 @@ class QueryBuilder( ):
         self.__connection = DataConnection( self.__dbconfig )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
+        self.__query = self.__sqlstatement.getcommandtext( )
 
 
 # DataFactory( provider, source, command, names, values )
