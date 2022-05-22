@@ -1,6 +1,6 @@
 import datetime as dt
 from Ninja import *
-from Static import Source, Provider, SQL
+from Static import *
 
 
 
@@ -61,7 +61,7 @@ class Element( Unit ):
             return self.__code
 
 
-# Account( value )
+# Account( code )
 class Account( ):
     '''defines the Account Code class'''
     __accountsid = None
@@ -180,20 +180,21 @@ class Account( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.Accounts
+        provider = Provider.SQLite
         db = DataConfig( source, provider )
         dc = DataConnection( db )
         sqlite = dc.connect( )
         cursor = sqlite.cursor( )
         query = f'SELECT * FROM { source.name };'
         data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
         cursor.close( )
         sqlite.close( )
-        return data.fetchall( )
+        return self.__data
 
 
-# Activity( value  )
+# Activity( code  )
 class Activity( ):
     '''Defines the Activity Class'''
     __activitycodesid = None
@@ -208,9 +209,9 @@ class Activity( ):
             return self.__activitycodesid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__activitycodesid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__activitycodesid = value
 
     @property
     def code( self ):
@@ -218,9 +219,9 @@ class Activity( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -228,9 +229,9 @@ class Activity( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -238,9 +239,9 @@ class Activity( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -248,26 +249,29 @@ class Activity( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
-        self.__code = code if isinstance( code, str ) else None
-        self.__data = self.getdata( )
+        self.__code = code if isinstance( code, str ) and code != '' else None
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.ActivityCodes
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        db = DataConfig( source, provider )
+        dc = DataConnection( db )
+        sqlite = dc.connect( )
+        cursor = sqlite.cursor( )
+        query = f'SELECT * FROM { source.name };'
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
