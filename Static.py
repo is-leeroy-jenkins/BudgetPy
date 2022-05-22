@@ -1,5 +1,6 @@
 from enum import Enum, auto
 
+from Control import SpecialAccounts
 
 class EXT( Enum ):
     '''Enumeration of database file extensions'''
@@ -80,6 +81,7 @@ class Source( Enum ):
     BudgetResourceExecution = auto( )
     Reprogrammings = auto( )
     SiteActivity = auto( )
+    SpecialAccounts = auto()
     SiteProjectCodes = auto( )
     StatusOfFunds = auto( )
     Supplementals = auto( )
