@@ -94,11 +94,11 @@ class BudgetPath( ):
             return self.__currdir
 
     @current.setter
-    def current( self, path ):
+    def current( self, value ):
         '''Set the current directory to 'filepath' '''
-        if os.path.exists( path ):
-            os.chdir( path )
-            self.__currdir = path
+        if os.path.exists( value ):
+            os.chdir( value )
+            self.__currdir = value
 
     def __init__( self, filepath ):
         self.__base = filepath if isinstance( filepath, str ) else None
@@ -517,12 +517,12 @@ class BudgetFolder( ):
             yield from os.scandir( self.__base )
 
 
-# EmailMessage( frm, to, body, subject, copy )
+# EmailMessage( from, to, body, subject, copy )
 class EmailMessage( ):
     '''EmailMessage( frm, to, body, subject ) initializes
     class providing email behavior '''
-    __from = None
-    __to = None
+    __sender = None
+    __receiver = None
     __subject = None
     __message = None
     __others = None
@@ -530,26 +530,26 @@ class EmailMessage( ):
     @property
     def sender( self ):
         ''' Gets the sender's email address '''
-        if self.__from is not None:
-            return self.__from
+        if self.__sender is not None:
+            return self.__sender
 
     @sender.setter
-    def sender( self, frm ):
+    def sender( self, value ):
         ''' Set the sender's email address '''
-        if frm is not None:
-            self.__from = str( frm )
+        if value is not None:
+            self.__sender = str( value )
 
     @property
     def receiver( self ):
         ''' Gets the sender's email address '''
-        if self.__to is not None:
-            return self.__to
+        if self.__receiver is not None:
+            return self.__receiver
 
     @receiver.setter
-    def receiver( self, rec ):
+    def receiver( self, value ):
         ''' Sets the receiver's email address '''
-        if rec is not None:
-            self.__to = str( rec )
+        if value is not None:
+            self.__receiver = str( value )
 
     @property
     def subject( self ):
@@ -558,10 +558,10 @@ class EmailMessage( ):
             return self.__subject
 
     @subject.setter
-    def subject( self, sub ):
+    def subject( self, value ):
         ''' Sets the email's subject line '''
-        if sub is not None:
-            self.__to = str( sub )
+        if value is not None:
+            self.__receiver = str( value )
 
     @property
     def body( self ):
@@ -570,10 +570,10 @@ class EmailMessage( ):
             return self.__message
 
     @body.setter
-    def body( self, msg ):
+    def body( self, value ):
         ''' Sets the email's subject line '''
-        if msg is not None:
-            self.__to = str( msg )
+        if value is not None:
+            self.__receiver = str( value )
 
     @property
     def copy( self ):
@@ -582,24 +582,24 @@ class EmailMessage( ):
             return self.__others
 
     @copy.setter
-    def copy( self, copy ):
+    def copy( self, value ):
         ''' Sets the address's to send copies  '''
-        if copy is not None:
-            self.__others = list( copy )
+        if value is not None:
+            self.__others = list( value )
 
-    def __init__( self, frm, to, body, subject, copy = None ):
-        self.__from = frm if isinstance( frm, str ) and str != '' else None
-        self.__to = ot if isinstance( ot, str ) and str != '' else None
-        self.__message = body if isinstance( body, str ) and str != '' else None
-        self.__others = copy if isinstance( copy, list ) else None
-        self.__subject = subject if isinstance( subject, str ) and str != '' else None
+    def __init__( self, sender, receiver, body, subject, copy = None ):
+        self.__sender = sender if isinstance( sender, str ) and sender != '' else None
+        self.__receiver = receiver if isinstance( receiver, str ) and receiver != '' else None
+        self.__message = body if isinstance( body, str ) and bocy != '' else None
+        self.__others = copy if isinstance( copy, list ) and len( copy ) > 0 else None
+        self.__subject = subject if isinstance( subject, str ) and subject != '' else None
 
     def __str__( self ):
-        if isinstance( self.__subject, str ) and self.__subject != '':
-            return self.__subject
+        if isinstance( self.__body, str ) and self.__body != '':
+            return self.__body
 
 
-# EmailBuilder( frm, to, body, subject, copy )
+# EmailBuilder( sender, receiver, body, subject, copy )
 class EmailBuilder( ):
     ''' Helper class for generating email messages '''
     __from = None
