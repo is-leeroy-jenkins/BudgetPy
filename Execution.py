@@ -1377,9 +1377,9 @@ class NationalProgram( ):
             return self.__nationalprogramsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__nationalprogramsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__nationalprogramsid = value
 
     @property
     def code( self ):
@@ -1387,9 +1387,9 @@ class NationalProgram( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -1397,9 +1397,9 @@ class NationalProgram( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def rpio( self ):
@@ -1407,9 +1407,9 @@ class NationalProgram( ):
             return self.__rpio
 
     @rpio.setter
-    def rpio( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpio = code
+    def rpio( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpio = value
 
     @property
     def title( self ):
@@ -1417,9 +1417,9 @@ class NationalProgram( ):
             return self.__title
 
     @title.setter
-    def title( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__title = name
+    def title( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__title = value
 
     @property
     def data( self ):
@@ -1427,9 +1427,9 @@ class NationalProgram( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -1437,9 +1437,9 @@ class NationalProgram( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code
@@ -1483,9 +1483,9 @@ class Objective( ):
             return self.__objectivesid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__objectivesid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__objectivesid = value
 
     @property
     def code( self ):
@@ -1493,9 +1493,9 @@ class Objective( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -1503,9 +1503,9 @@ class Objective( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -1513,9 +1513,9 @@ class Objective( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -1523,9 +1523,9 @@ class Objective( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = Objective( str( code ) )
@@ -1655,9 +1655,9 @@ class Project( ):
             return self.__projectsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__accountsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__accountsid = value
 
     @property
     def code( self ):
@@ -1665,9 +1665,9 @@ class Project( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -1675,9 +1675,9 @@ class Project( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -1685,9 +1685,9 @@ class Project( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -1695,9 +1695,9 @@ class Project( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -1741,9 +1741,9 @@ class ItProjectCode( ):
             return self.__cpicid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__accountsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__accountsid = value
 
     @property
     def code( self ):
@@ -1751,9 +1751,9 @@ class ItProjectCode( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -1761,9 +1761,9 @@ class ItProjectCode( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -1771,9 +1771,9 @@ class ItProjectCode( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -1781,9 +1781,9 @@ class ItProjectCode( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -1827,9 +1827,9 @@ class SiteProjectCode( ):
             return self.__siteprojectcodesid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__siteprojectcodesid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__siteprojectcodesid = value
 
     @property
     def code( self ):
@@ -1837,9 +1837,9 @@ class SiteProjectCode( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -1847,9 +1847,9 @@ class SiteProjectCode( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -1857,9 +1857,9 @@ class SiteProjectCode( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -1867,9 +1867,9 @@ class SiteProjectCode( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -1915,9 +1915,9 @@ class StateOrganization( ):
             return self.__stateorganizationsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__stateorganizationsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__stateorganizationsid = value
 
     @property
     def code( self ):
@@ -1925,9 +1925,9 @@ class StateOrganization( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -1935,9 +1935,9 @@ class StateOrganization( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -1945,9 +1945,9 @@ class StateOrganization( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -1990,9 +1990,9 @@ class HeadquartersOffice( ):
             return self.__resourceplanningofficesid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.___resourceplanningofficesid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.___resourceplanningofficesid = value
 
     @property
     def rpiocode( self ):
@@ -2000,9 +2000,9 @@ class HeadquartersOffice( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, rpo ):
-        if isinstance( rpo, str ):
-            self.__rpiocode = rpo
+    def rpiocode( self, value ):
+        if isinstance( value, str ):
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -2010,9 +2010,9 @@ class HeadquartersOffice( ):
             return self.__rpioname
 
     @rpioname.setter
-    def rpioname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpioname = name
+    def rpioname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpioname = value
 
     @property
     def data( self ):
@@ -2020,9 +2020,9 @@ class HeadquartersOffice( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -2030,9 +2030,9 @@ class HeadquartersOffice( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__rpiocode = code if isinstance( code, str ) and len( code ) == 2 else None
@@ -2075,9 +2075,9 @@ class HumanResourceOrganization( ):
             return self.__humanresourceorganizationsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__humanresourceorganizationsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__humanresourceorganizationsid = value
 
     @property
     def code( self ):
@@ -2085,9 +2085,9 @@ class HumanResourceOrganization( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -2095,9 +2095,9 @@ class HumanResourceOrganization( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -2105,9 +2105,9 @@ class HumanResourceOrganization( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -2115,9 +2115,9 @@ class HumanResourceOrganization( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -2161,9 +2161,9 @@ class ProgramArea( ):
             return self.__programareasid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__accountsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__accountsid = value
 
     @property
     def code( self ):
@@ -2171,9 +2171,9 @@ class ProgramArea( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -2181,9 +2181,9 @@ class ProgramArea( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -2191,9 +2191,9 @@ class ProgramArea( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -2201,9 +2201,9 @@ class ProgramArea( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -2248,9 +2248,9 @@ class ProgramProject( ):
             return self.__programprojectsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__programprojectsid  = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__programprojectsid  = value
 
     @property
     def code( self ):
@@ -2258,9 +2258,9 @@ class ProgramProject( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -2268,9 +2268,9 @@ class ProgramProject( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def description( self ):
@@ -2278,9 +2278,9 @@ class ProgramProject( ):
             return self.__description
 
     @description.setter
-    def description( self, text ):
-        if isinstance( text, str ) and text != '':
-            self.__description = text
+    def description( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__description = value
 
     @property
     def data( self ):
@@ -2288,9 +2288,9 @@ class ProgramProject( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -2298,9 +2298,9 @@ class ProgramProject( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -2344,9 +2344,9 @@ class ResponsibilityCenter( ):
             return self.__responsibilitycentersid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__accountsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__accountsid = value
 
     @property
     def code( self ):
@@ -2354,9 +2354,9 @@ class ResponsibilityCenter( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -2364,9 +2364,9 @@ class ResponsibilityCenter( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -2374,9 +2374,9 @@ class ResponsibilityCenter( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -2384,9 +2384,9 @@ class ResponsibilityCenter( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -2438,9 +2438,9 @@ class ResourcePlanningOffice( ):
             return self.__resourceplanningofficesid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__resourceplanningofficesid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__resourceplanningofficesid = value
 
     @property
     def code( self ):
@@ -2448,9 +2448,9 @@ class ResourcePlanningOffice( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -2458,9 +2458,9 @@ class ResourcePlanningOffice( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -2468,9 +2468,9 @@ class ResourcePlanningOffice( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -2478,9 +2478,9 @@ class ResourcePlanningOffice( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -2882,9 +2882,9 @@ class RegionalOffice( ):
             return self.__resourceplanningofficesid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.___resourceplanningofficesid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.___resourceplanningofficesid = value
 
     @property
     def rpiocode( self ):
@@ -2892,9 +2892,9 @@ class RegionalOffice( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, rpo ):
-        if isinstance( rpo, str ) and len( rpo ) == 2:
-            self.__rpiocode = rpo
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and len( value ) == 2:
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -2902,9 +2902,9 @@ class RegionalOffice( ):
             return self.__rpioname
 
     @rpioname.setter
-    def rpioname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpioname = name
+    def rpioname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpioname = value
 
     @property
     def data( self ):
@@ -2912,9 +2912,9 @@ class RegionalOffice( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -2922,9 +2922,9 @@ class RegionalOffice( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__rpiocode = code if isinstance( code, str ) and len( code ) == 2 else None
@@ -2971,9 +2971,9 @@ class SiteProject( ):
             return self.___siteprojectcodesid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__siteprojectcodesid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__siteprojectcodesid = value
 
     @property
     def ssid( self ):
@@ -2981,9 +2981,9 @@ class SiteProject( ):
             return self.__ssid
 
     @ssid.setter
-    def ssid( self, ssid ):
-        if isinstance( ssid, str ) and ssid != '':
-            self.__ssid = ssid
+    def ssid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ssid = value
 
     @property
     def actioncode( self ):
@@ -2991,9 +2991,9 @@ class SiteProject( ):
             return self.__actioncode
 
     @actioncode.setter
-    def actioncode( self, code ):
+    def actioncode( self, value ):
         if isinstance( self.__actioncode, str ) and self.__actioncode != '':
-            self.__actioncode = code
+            self.__actioncode = value
 
     @property
     def operableunit( self ):
@@ -3001,9 +3001,9 @@ class SiteProject( ):
             return self.__operableunit
 
     @operableunit.setter
-    def operableunit( self, unit ):
-        if isinstance( unit, str ) and unit != '':
-            self.__operableunit =  unit
+    def operableunit( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__operableunit =  value
 
     @property
     def epaid( self ):
@@ -3011,9 +3011,9 @@ class SiteProject( ):
             return self.__epaid
 
     @epaid.setter
-    def epaid( self, eid ):
-        if isinstance( eid, str ) and eid != '':
-            self.__epaid =  eid
+    def epaid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__epaid =  value
 
     @property
     def code( self ):
@@ -3021,9 +3021,9 @@ class SiteProject( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -3031,9 +3031,9 @@ class SiteProject( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if name is not None:
-            self.__name = name
+    def name( self, value ):
+        if value is not None:
+            self.__name = value
 
     @property
     def data( self ):
@@ -3041,9 +3041,9 @@ class SiteProject( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -3051,9 +3051,9 @@ class SiteProject( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = str( code )
@@ -3119,9 +3119,9 @@ class FederalHoliday( ):
             return self.__accountsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__accountsid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__accountsid = value
 
     @property
     def bfy( self ):
@@ -3129,9 +3129,9 @@ class FederalHoliday( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if year is not None:
-            self.__bfy = str( year )
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = str( value )
             self.__data[ 'value' ] = self.__bfy
 
     @property
@@ -3140,9 +3140,9 @@ class FederalHoliday( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if name in self.__list:
-            self.__name = name
+    def name( self, value ):
+        if value in self.__list:
+            self.__name = value
 
     @property
     def date( self ):
@@ -3165,9 +3165,9 @@ class FederalHoliday( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def list( self ):
@@ -3180,14 +3180,62 @@ class FederalHoliday( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     @property
     def observance( self ):
         if self.__observance is not None:
             return self.__observance
+
+    def __init__( self, bfy, name ):
+        self.__list = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
+                        'NewYearsDay', 'MartinLutherKing', 'Washingtons',
+                        'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
+        self.__observance = { 'Columbus': 'The second Monday in October',
+                              'Veterans': 'Veterans Day, November 11',
+                              'Thanksgiving': 'The fourth Thursday in November',
+                              'Christmas': 'Christmas Day, December 25',
+                              'NewYearsDay': 'January 1',
+                              'MartinLutherKing': 'The third Monday in January',
+                              'Washingtons': 'The third Monday in February',
+                              'Memorial': 'The last Monday in May.',
+                              'Juneteenth': 'Juneteenth National Independence Day, June 19',
+                              'Independence': 'Independence Day, July 4',
+                              'Labor': 'The first Monday in September' }
+        self.__bfy = bfy
+        self.__year = int( bfy )
+        self.__name = self.setname( name )
+        self.__date = self.setdate( name )
+        self.__dayofweek = self.__date.day
+        self.__month = self.__date.month
+        self.__day = self.__date.isoweekday()
+        self.__data = { 'value': self.__bfy,
+                        'value': self.__name }
+        self.__frame = pd.DataFrame
+
+    def __str__( self ):
+        if not self.__name == '':
+            return self.__name
+
+    def getdata( self ):
+        source = Source.FederalHolidays
+        provider = Provider.SQLite
+        n = [ 'BFY', 'EFY', 'Name', ]
+        v = ( self.__bfy, self.__efy, self.__name, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
+        return self.__data
 
     def columbusday( self ):
         '''The second Monday in October'''
@@ -3369,54 +3417,6 @@ class FederalHoliday( ):
             self.__name = 'NS'
             return self.__name
 
-    def __init__( self, bfy, name ):
-        self.__list = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
-                        'NewYearsDay', 'MartinLutherKing', 'Washingtons',
-                        'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
-        self.__observance = { 'Columbus': 'The second Monday in October',
-                              'Veterans': 'Veterans Day, November 11',
-                              'Thanksgiving': 'The fourth Thursday in November',
-                              'Christmas': 'Christmas Day, December 25',
-                              'NewYearsDay': 'January 1',
-                              'MartinLutherKing': 'The third Monday in January',
-                              'Washingtons': 'The third Monday in February',
-                              'Memorial': 'The last Monday in May.',
-                              'Juneteenth': 'Juneteenth National Independence Day, June 19',
-                              'Independence': 'Independence Day, July 4',
-                              'Labor': 'The first Monday in September' }
-        self.__bfy = bfy
-        self.__year = int( bfy )
-        self.__name = self.setname( name )
-        self.__date = self.setdate( name )
-        self.__dayofweek = self.__date.day
-        self.__month = self.__date.month
-        self.__day = self.__date.isoweekday()
-        self.__data = { 'value': self.__bfy,
-                        'value': self.__name }
-        self.__frame = pd.DataFrame
-
-    def __str__( self ):
-        if not self.__name == '':
-            return self.__name
-
-    def getdata( self ):
-        source = Source.FederalHolidays
-        provider = Provider.SQLite
-        n = [ 'BFY', 'EFY', 'Name', ]
-        v = ( self.__bfy, self.__efy, self.__name, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
-
 
 # TreasurySymbol( bfy, efy, code )
 class TreasurySymbol( ):
@@ -3437,9 +3437,9 @@ class TreasurySymbol( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__bfy = yr
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -3447,9 +3447,9 @@ class TreasurySymbol( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, yr ):
-        if isinstance( yr, str ) and yr != '':
-            self.__efy = yr
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def treasuryaccountcode( self ):
@@ -3458,9 +3458,9 @@ class TreasurySymbol( ):
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, tres ):
-        if isinstance( tres, str ) and tres != '':
-            self.__treasuryaccountcode = tres
+    def treasuryaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccountcode = value
 
     @property
     def treasuryaccountname( self ):
@@ -3469,9 +3469,9 @@ class TreasurySymbol( ):
             return self.__treasuryaccountname
 
     @treasuryaccountname.setter
-    def treasuryaccountname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__treasuryaccountname = name
+    def treasuryaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccountname = value
 
     @property
     def ombaccountcode( self ):
@@ -3479,9 +3479,9 @@ class TreasurySymbol( ):
             return self.__ombaccountcode
 
     @ombaccountcode.setter
-    def ombaccountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ombaccountcode = code
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
 
     @property
     def ombaccountname( self ):
@@ -3489,9 +3489,9 @@ class TreasurySymbol( ):
             return self.__ombaccountname
 
     @ombaccountname.setter
-    def ombaccountname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ombaccountname = name
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
 
     def __init__( self, bfy, efy, code ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
@@ -3528,9 +3528,9 @@ class WorkCode( ):
             return self.__workcodesid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__workcodesid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__workcodesid = value
 
     @property
     def code( self ):
@@ -3538,9 +3538,9 @@ class WorkCode( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -3548,9 +3548,9 @@ class WorkCode( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__name = name
+    def name( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__name = value
 
     @property
     def data( self ):
@@ -3558,9 +3558,9 @@ class WorkCode( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -3568,9 +3568,9 @@ class WorkCode( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -3637,9 +3637,9 @@ class Transfer( ):
             return self.__transfersid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__transfersid = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__transfersid = value
 
     @property
     def bfy( self ):
@@ -3647,9 +3647,9 @@ class Transfer( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str) and len( year ) == 4:
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -3657,9 +3657,9 @@ class Transfer( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str) and len( year ) == 4:
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and len( value ) == 4:
+            self.__efy = value
 
     @property
     def budgetlevel( self ):
@@ -3707,9 +3707,9 @@ class Transfer( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -3727,9 +3727,9 @@ class Transfer( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -3737,9 +3737,9 @@ class Transfer( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def ahcode( self ):
@@ -3747,9 +3747,9 @@ class Transfer( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -3757,9 +3757,9 @@ class Transfer( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def accountcode( self ):
@@ -3767,8 +3767,8 @@ class Transfer( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
             self.__accountcode = acct
 
     @property
@@ -3777,9 +3777,9 @@ class Transfer( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -3787,9 +3787,9 @@ class Transfer( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def activitycode( self ):
@@ -3797,9 +3797,9 @@ class Transfer( ):
             return self.__activitycode
 
     @activitycode.setter
-    def activitycode( self, code ):
-        if isinstance( code, str ) and self.__activitycode != '':
-            self.__activitycode = code
+    def activitycode( self, value ):
+        if isinstance( value, str ) and self.__activitycode != '':
+            self.__activitycode = value
 
     @property
     def activityname( self ):
@@ -3807,9 +3807,9 @@ class Transfer( ):
             return self.__activityname
 
     @activityname.setter
-    def activityname( self, name ):
-        if isinstance( name, str ) and self.__activityname != '':
-            self.__activityname = name
+    def activityname( self, value ):
+        if isinstance( value, str ) and self.__activityname != '':
+            self.__activityname = value
 
     @property
     def orgcode( self ):
@@ -3817,9 +3817,9 @@ class Transfer( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def rccode( self ):
@@ -3827,9 +3827,9 @@ class Transfer( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -3837,9 +3837,9 @@ class Transfer( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def boccode( self ):
@@ -3847,9 +3847,9 @@ class Transfer( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -3857,9 +3857,9 @@ class Transfer( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def amount( self ):
@@ -3877,9 +3877,9 @@ class Transfer( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -3887,9 +3887,9 @@ class Transfer( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     def __init__( self, rpnumber = None ):
         self.__documentnumber = rpnumber if isinstance( rpnumber, str ) else None
