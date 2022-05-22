@@ -285,7 +285,7 @@ def _syscmd_ver(system='', release='', version='',
                                            text=True,
                                            shell=True)
         except (OSError, subprocess.CalledProcessError) as why:
-            #print('Command %s failed: %s' % (cmd, why))
+            #print('SQL %s failed: %s' % (cmd, why))
             continue
         else:
             break
@@ -1258,7 +1258,7 @@ def platform(aliased=0, terse=0):
     _platform_cache[(aliased, terse)] = platform
     return platform
 
-### Command line interface
+### SQL line interface
 
 if __name__ == '__main__':
     # Default is to print the aliased verbose platform string

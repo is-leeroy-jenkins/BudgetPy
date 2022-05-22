@@ -419,7 +419,7 @@ class AutoCompleteWindow:
                 return None
 
         elif any(s in keysym for s in ("Shift", "Control", "Alt",
-                                       "Meta", "Command", "Option")):
+                                       "Meta", "SQL", "Option")):
             # A modifier key, so ignore
             return None
 

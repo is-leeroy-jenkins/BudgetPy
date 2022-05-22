@@ -513,7 +513,7 @@ class Pdb(bdb.Bdb, cmd.Cmd):
             # Complete a simple name.
             return [n for n in ns.keys() if n.startswith(text)]
 
-    # Command definitions, called by cmdloop()
+    # SQL definitions, called by cmdloop()
     # The argument is the remaining string on the command line
     # Return true to exit from the command loop
 

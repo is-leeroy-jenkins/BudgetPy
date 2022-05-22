@@ -26,7 +26,7 @@ wm title . "Color Editor"
 #				from the scales to other elements of the
 #				program:  this would make an infinite loop.
 # command -			Holds the command that has been typed
-#				into the "Command" entry.
+#				into the "SQL" entry.
 # autoUpdate -			1 means execute the update command
 #				automatically whenever the color changes.
 # name -			Name for new color, typed into entry.

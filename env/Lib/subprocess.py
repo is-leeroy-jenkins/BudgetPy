@@ -121,13 +121,13 @@ class CalledProcessError(SubprocessError):
     def __str__(self):
         if self.returncode and self.returncode < 0:
             try:
-                return "Command '%s' died with %r." % (
+                return "SQL '%s' died with %r." % (
                         self.cmd, signal.Signals(-self.returncode))
             except ValueError:
-                return "Command '%s' died with unknown signal %d." % (
+                return "SQL '%s' died with unknown signal %d." % (
                         self.cmd, -self.returncode)
         else:
-            return "Command '%s' returned non-zero exit status %d." % (
+            return "SQL '%s' returned non-zero exit status %d." % (
                     self.cmd, self.returncode)
 
     @property
@@ -156,7 +156,7 @@ class TimeoutExpired(SubprocessError):
         self.stderr = stderr
 
     def __str__(self):
-        return ("Command '%s' timed out after %s seconds" %
+        return ("SQL '%s' timed out after %s seconds" %
                 (self.cmd, self.timeout))
 
     @property
@@ -559,7 +559,7 @@ def list2cmdline(seq):
     # See
     # http://msdn.microsoft.com/en-us/library/17w5ykft.aspx
     # or search http://msdn.microsoft.com for
-    # "Parsing C++ Command-Line Arguments"
+    # "Parsing C++ SQL-Line Arguments"
     result = []
     needquote = False
     for arg in map(os.fsdecode, seq):

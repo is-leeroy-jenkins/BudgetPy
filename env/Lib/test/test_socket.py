@@ -238,7 +238,7 @@ class SocketCANTest(unittest.TestCase):
     can_frame_fmt = "=IB3x8s"
     can_frame_size = struct.calcsize(can_frame_fmt)
 
-    """The Broadcast Management Command frame structure is defined
+    """The Broadcast Management SQL frame structure is defined
     in <linux/can/bcm.h>:
 
     struct bcm_msg_head {

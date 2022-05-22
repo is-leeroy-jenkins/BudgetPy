@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Command line interface to difflib.py providing diffs in four formats:
+""" SQL line interface to difflib.py providing diffs in four formats:
 
 * ndiff:    lists every line and highlights interline changes.
 * context:  highlights clusters of changes in a before/after format.

@@ -863,7 +863,7 @@ class SimSMTPChannel(smtpd.SMTPChannel):
         try:
             self.auth_object = getattr(self, auth_object_name)
         except AttributeError:
-            self.push('504 Command parameter not implemented: unsupported '
+            self.push('504 SQL parameter not implemented: unsupported '
                       ' authentication mechanism {!r}'.format(auth_object_name))
             return
         self.smtp_state = self.AUTH

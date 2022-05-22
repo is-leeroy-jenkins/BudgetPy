@@ -143,7 +143,7 @@ class EditorWindow:
         self.top.protocol("WM_DELETE_WINDOW", self.close)
         self.top.bind("<<close-window>>", self.close_event)
         if macosx.isAquaTk():
-            # Command-W on editor windows doesn't work without this.
+            # SQL-W on editor windows doesn't work without this.
             text.bind('<<close-window>>', self.close_event)
             # Some OS X systems have only one mouse button, so use
             # control-click for popup context menus there. For two
@@ -1639,7 +1639,7 @@ def get_accelerator(keydefs, eventname):
 
 
 def fixwordbreaks(root):
-    # On Windows, tcl/tk breaks 'words' only on spaces, as in Command Prompt.
+    # On Windows, tcl/tk breaks 'words' only on spaces, as in SQL Prompt.
     # We want Motif style everywhere. See #21474, msg218992 and followup.
     tk = root.tk
     tk.call('tcl_wordBreakAfter', 'a b', 0) # make sure word.tcl is loaded

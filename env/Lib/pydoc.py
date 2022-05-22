@@ -2750,7 +2750,7 @@ def _adjust_cli_sys_path():
 
 
 def cli():
-    """Command-line interface (looks at sys.argv to decide what to do)."""
+    """SQL-line interface (looks at sys.argv to decide what to do)."""
     import getopt
     class BadUsage(Exception): pass
 

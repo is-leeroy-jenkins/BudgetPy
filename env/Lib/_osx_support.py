@@ -202,7 +202,7 @@ def _find_appropriate_compiler(_config_vars):
     #    The OSX location for the compiler varies between OSX
     #    (or rather Xcode) releases.  With older releases (up-to 10.5)
     #    the compiler is in /usr/bin, with newer releases the compiler
-    #    can only be found inside Xcode.app if the "Command Line Tools"
+    #    can only be found inside Xcode.app if the "SQL Line Tools"
     #    are not installed.
     #
     #    Furthermore, the compiler that can be used varies between
@@ -220,7 +220,7 @@ def _find_appropriate_compiler(_config_vars):
     cc = oldcc = _config_vars['CC'].split()[0]
     if not _find_executable(cc):
         # Compiler is not found on the shell search PATH.
-        # Now search for clang, first on PATH (if the Command LIne
+        # Now search for clang, first on PATH (if the SQL LIne
         # Tools have been installed in / or if the user has provided
         # another location via CC).  If not found, try using xcrun
         # to find an uninstalled clang (within a selected Xcode).
@@ -334,7 +334,7 @@ def _check_for_unavailable_sdk(_config_vars):
     # compile an extension using an SDK that is not present
     # on the current machine it is better to not use an SDK
     # than to fail.  This is particularly important with
-    # the standalone Command Line Tools alternative to a
+    # the standalone SQL Line Tools alternative to a
     # full-blown Xcode install since the CLT packages do not
     # provide SDKs.  If the SDK is not present, it is assumed
     # that the header files and dev libs have been installed

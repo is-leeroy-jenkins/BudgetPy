@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Command line tool to bisect failing CPython tests.
+SQL line tool to bisect failing CPython tests.
 
 Find the test_os test method which alters the environment:
 

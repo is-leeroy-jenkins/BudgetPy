@@ -177,7 +177,7 @@ class Apportionment( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.Apportionments
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
         values = ( self.__bfy, self.__efy, self.__ombaccountcode )
         data = DataFactory( provider, source, command, names, values )
@@ -266,7 +266,7 @@ class BudgetaryResourceExecution( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.Apportionments
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
         values = ( self.__bfy, self.__efy, self.__ombaccountcode )
         data = DataFactory( provider, source, command, names, values )
@@ -543,7 +543,7 @@ class CarryoverEstimates( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.CarryoverEstimates
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY',  ]
         values = ( self.__bfy, )
         df = DataFactory( provider, source, command, names, values )
@@ -630,7 +630,7 @@ class CarryoverSurvey( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.Apportionments
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', ]
         values = ( self.__bfy, )
         data = DataFactory( provider, source, command, names, values )
@@ -1258,7 +1258,7 @@ class StatusOfAppropriations( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.StatusOfAppropriations
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', 'AppropriationFundCode', ]
         values = ( self.__bfy, self.__appropriationfundcode )
         data = DataFactory( provider, source, command, names, values )
@@ -1407,7 +1407,7 @@ class MonthlyOutlays( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.MonthlyOutlays
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', 'OmbAccountCode', ]
         values = ( self.__bfy, self.__ombaccountcode )
         data = DataFactory( provider, source, command, names, values )
@@ -1739,7 +1739,7 @@ class SpendingRates( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.Apportionments
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'OmbAccountCode', ]
         values = ( self.__ombaccountcode, )
         data = DataFactory( provider, source, command, names, values )
@@ -1816,7 +1816,7 @@ class ReimbursableSurvey( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.ReimbursableSurvey
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', 'FundCode', ]
         values = ( self.__bfy, self.__fundcode )
         data = DataFactory( provider, source, command, names, values )
@@ -2003,7 +2003,7 @@ class ObjectClassOutlays( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.ObjectClassOutlays
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'ReportYear', 'OmbAccountCode', ]
         values = ( self.__reportyear, self.__ombaccountcode )
         data = DataFactory( provider, source, command, names, values )
@@ -2125,7 +2125,7 @@ class UnobligatedAuthority( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.UnobligatedAuthority
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', 'OmbAccountCode', ]
         values = ( self.__bfy, self.__ombaccountcode )
         data = DataFactory( provider, source, command, names, values )
@@ -2389,7 +2389,7 @@ class BudgetOutlays( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.BudgetOutlays
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', 'OmbAccountCode', ]
         values = ( self.__bfy, self.__ombaccountcode )
         data = DataFactory( provider, source, command, names, values )
@@ -2554,7 +2554,7 @@ class GrowthRates( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.GrowthRates
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'BFY', 'RateId', ]
         values = ( self.__bfy, self.__rateid )
         data = DataFactory( provider, source, command, names, values )
@@ -2641,7 +2641,7 @@ class DataRuleDescription( ):
     def getdata( self ):
         provider = Provider.SQLite
         source = Source.DataRuleDescriptions
-        command = Command.SELECTALL
+        command = SQL.SELECTALL
         names = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
         values = ( self.__schedule, self.__linenumber, self.__rulenumber )
         data = DataFactory( provider, source, command, names, values )

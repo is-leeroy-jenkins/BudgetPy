@@ -574,7 +574,7 @@ Verb = Table('Verb')
 Verb.add_field(1,'Extension_',11775)
 Verb.add_field(2,'Verb',11552)
 Verb.add_field(3,'Sequence',5378)
-Verb.add_field(4,'Command',8191)
+Verb.add_field(4,'SQL',8191)
 Verb.add_field(5,'Argument',8191)
 
 tables=[_Validation, ActionText, AdminExecuteSequence, Condition, AdminUISequence, AdvtExecuteSequence, AdvtUISequence, AppId, AppSearch, Property, BBControl, Billboard, Feature, Binary, BindImage, File, CCPSearch, CheckBox, Class, Component, Icon, ProgId, ComboBox, CompLocator, Complus, Directory, Control, Dialog, ControlCondition, ControlEvent, CreateFolder, CustomAction, DrLocator, DuplicateFile, Environment, Error, EventMapping, Extension, MIME, FeatureComponents, FileSFPCatalog, SFPCatalog, Font, IniFile, IniLocator, InstallExecuteSequence, InstallUISequence, IsolatedComponent, LaunchCondition, ListBox, ListView, LockPermissions, Media, MoveFile, MsiAssembly, MsiAssemblyName, MsiDigitalCertificate, MsiDigitalSignature, MsiFileHash, MsiPatchHeaders, ODBCAttribute, ODBCDriver, ODBCDataSource, ODBCSourceAttribute, ODBCTranslator, Patch, PatchPackage, PublishComponent, RadioButton, Registry, RegLocator, RemoveFile, RemoveIniFile, RemoveRegistry, ReserveCost, SelfReg, ServiceControl, ServiceInstall, Shortcut, Signature, TextStyle, TypeLib, UIText, Upgrade, Verb]
@@ -1003,5 +1003,5 @@ _Validation_records = [
 ('Verb','Argument','Y',None, None, None, None, 'Formatted',None, 'Optional value for the command arguments.',),
 ('Verb','Extension_','N',None, None, 'Extension',1,'Text',None, 'The extension associated with the table row.',),
 ('Verb','Verb','N',None, None, None, None, 'Text',None, 'The verb for the command.',),
-('Verb','Command','Y',None, None, None, None, 'Formatted',None, 'The command text.',),
+('Verb','SQL','Y',None, None, None, None, 'Formatted',None, 'The command text.',),
 ]

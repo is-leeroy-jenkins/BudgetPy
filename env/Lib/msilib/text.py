@@ -37,7 +37,7 @@ ActionText = [
 ('RegisterUser', 'Registering user', '[1]'),
 ('RemoveDuplicateFiles', 'Removing duplicated files', 'File: [1], Directory: [9]'),
 ('RemoveEnvironmentStrings', 'Updating environment strings', 'Name: [1], Value: [2], Action [3]'),
-('RemoveExistingProducts', 'Removing applications', 'Application: [1], Command line: [2]'),
+('RemoveExistingProducts', 'Removing applications', 'Application: [1], SQL line: [2]'),
 ('RemoveFiles', 'Removing files', 'File: [1], Directory: [9]'),
 ('RemoveFolders', 'Removing folders', 'Folder: [1]'),
 ('RemoveIniValues', 'Removing INI files entries', 'File: [1],  Section: [2],  Key: [3], Value: [4]'),

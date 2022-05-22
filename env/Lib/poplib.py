@@ -54,7 +54,7 @@ class POP3:
     Arguments can be strings or integers (where appropriate)
     (e.g.: retr(1) and retr('1') both work equally well.
 
-    Minimal Command Set:
+    Minimal SQL Set:
             USER name               user(name)
             PASS string             pass_(string)
             STAT                    stat()

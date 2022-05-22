@@ -47,7 +47,7 @@ DEBUGLEVEL = 0
 TELNET_PORT = 23
 
 # Telnet protocol characters (don't change)
-IAC  = bytes([255]) # "Interpret As Command"
+IAC  = bytes([255]) # "Interpret As SQL"
 DONT = bytes([254])
 DO   = bytes([253])
 WONT = bytes([252])

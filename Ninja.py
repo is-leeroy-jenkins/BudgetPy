@@ -322,12 +322,12 @@ class SqlConfig( ):
 
     @property
     def command( self ):
-        if isinstance( self.__command, Command ):
+        if isinstance( self.__command, SQL ):
             return self.__command
 
     @command.setter
     def command( self, value ):
-        if isinstance( value, Command ):
+        if isinstance( value, SQL ):
             self.__command = value
 
     @property
@@ -378,8 +378,8 @@ class SqlConfig( ):
         if isinstance( value, dict ):
             self.__predicate = value
 
-    def __init__( self, command = Command.SELECTALL, names = None, values = None,  params  = None ):
-        self.__command = command if isinstance( command, Command ) else Command.SELECTALL
+    def __init__( self, command = SQL.SELECTALL, names = None, values = None, params  = None ):
+        self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
@@ -477,10 +477,10 @@ class SqlStatement( ):
 
     @command.setter
     def command( self, value ):
-        if isinstance( value, Command ):
+        if isinstance( value, SQL ):
             self.__command = value
         else:
-            command = Command( 'SELECT' ) 
+            command = SQL( 'SELECT' )
             self.__command = command
 
     @property
@@ -541,32 +541,32 @@ class SqlStatement( ):
 
     def getcommandtext( self ):
         if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-            if self.__command == Command.SELECTALL:
+            if self.__command == SQL.SELECTALL:
                 self.__commandtext = f'SELECT * FROM { self.__table }' \
                                      + f' { self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
-            elif self.__command == Command.SELECT:
+            elif self.__command == SQL.SELECT:
                 self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
                                      + f' FROM { self.__table }' \
                                      + f' { self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
-            elif self.__command == Command.INSERT:
+            elif self.__command == SQL.INSERT:
                 self.__commandtext = f'INSERT INTO { self.__table } ' \
                                      + f'{ self.__sqlconfig.columndump( ) } ' \
                                      + f'{ self.__sqlconfig.valuedump( ) };'
                 return self.__commandtext
-            elif self.__command == Command.UPDATE:
+            elif self.__command == SQL.UPDATE:
                 self.__commandtext = f'UPDATE { self.__table } ' \
                                      + f'{ self.__sqlconfig.setdump( ) } ' \
                                      + f'{ self.__sqlconfig.valuedump( ) };'
                 return self.__commandtext
-            elif self.__command == Command.DELETE:
+            elif self.__command == SQL.DELETE:
                 self.__commandtext = f'DELETE FROM { self.__table } '\
                                      + f'{ self.__sqlconfig.wheredump( ) };'
                 return self.__commandtext
         else:
             if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
-                if self.__command == Command.SELECTALL:
+                if self.__command == SQL.SELECTALL:
                     self.__commandtext = f'SELECT * FROM { self.__table };'
                     return self.__commandtext
             elif self.__command == 'DELETE':
@@ -642,12 +642,12 @@ class SQLiteQuery( ):
         if self.__command is not None:
             return self.__command
         if self.__command is None:
-            cmd = Command( 'SELECT' ) 
+            cmd = SQL( 'SELECT' )
             return cmd
 
     @command.setter
     def command( self, value ):
-        if isinstance( value, Command ):
+        if isinstance( value, SQL ):
             self.__command = value
 
     def __init__( self, connection, sqlstatement ):
@@ -762,12 +762,12 @@ class AccessQuery( ):
 
     @property
     def command( self ):
-        if isinstance( self.__command, Command ):
+        if isinstance( self.__command, SQL ):
             return self.__command
 
     @command.setter
     def command( self, value ):
-        if isinstance( value, Command ):
+        if isinstance( value, SQL ):
             self.__command = value
 
     @property
@@ -802,7 +802,7 @@ class AccessQuery( ):
         sql = self.__sqlstatement
         names = self.__sqlstatment.names
         values = self.__sqlstatment.values
-        cmd = SqlConfig( command = Command.SELECTALL,
+        cmd = SqlConfig( command = SQL.SELECTALL,
             names = names, values = values )
         db = DataConfig( src, pdr )
         cnx = DataConnection( db )
@@ -906,12 +906,12 @@ class SqlServerQuery( ):
 
     @property
     def command( self ):
-        if isinstance( self.__command, Command):
+        if isinstance( self.__command, SQL ):
             return self.__command
 
     @command.setter
     def command( self, value ):
-        if isinstance( value, Command ):
+        if isinstance( value, SQL ):
             self.__command = value
 
     @property
@@ -942,7 +942,7 @@ class SqlServerQuery( ):
     def getdata( self ):
         n = self.__sqlstatment.names
         v = self.__sqlstatment.values
-        c = Command.SELECTALL
+        c = SQL.SELECTALL
         cmd = SqlConfig( command = c, names = n, values = v )
         src = self.__source
         pdr = Provider.SqlServer
@@ -1017,16 +1017,16 @@ class QueryBuilder( ):
     @property
     def command( self ):
         '''Gets an instance of the DataCommand object'''
-        if isinstance( self.__command, Command ):
+        if isinstance( self.__command, SQL ):
             return self.__command
 
     @command.setter
     def command( self, value ):
         '''Set the command property to a DataCommand instance'''
-        if isinstance( value, Command ):
+        if isinstance( value, SQL ):
             self.__command = value
         else:
-            command = Command( 'SELECT' )
+            command = SQL( 'SELECT' )
             self.__command = command
 
     @property
@@ -1076,10 +1076,10 @@ class QueryBuilder( ):
             self.__query = value
 
     def __init__( self, source = None, provider = Provider.SQLite,
-                  command = Command.SELECTALL, names = None, values = None ):
+                  command = SQL.SELECTALL, names = None, values = None ):
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
-        self.__command = command if isinstance( command, Command ) else None
+        self.__command = command if isinstance( command, SQL ) else None
         self.__source = source if isinstance( source, Source ) else None
         self.__provider = provider if isinstance( provider, Provider ) else None
         self.__dbconfig = DataConfig( self.__source, self.__provider )
@@ -1136,16 +1136,16 @@ class DataFactory( ):
     @property
     def command( self ):
         '''Gets an instance of the DataCommand object'''
-        if isinstance( self.__command, Command ):
+        if isinstance( self.__command, SQL ):
             return self.__command
 
     @command.setter
     def command( self, value ):
         '''Set the command property to a DataCommand instance'''
-        if isinstance( value, Command ):
+        if isinstance( value, SQL ):
             self.__command = value
         else:
-            command = Command( 'SELECT' )
+            command = SQL( 'SELECT' )
             self.__command = command
 
     @property
@@ -1194,11 +1194,11 @@ class DataFactory( ):
         if isinstance( value, SqlConfig ):
             self.__sqlconfig = value
 
-    def __init__( self, source, provider, command = Command.SELECTALL,
+    def __init__( self, source, provider, command = SQL.SELECTALL,
                   names = None, values = None ):
         self.__source = source if isinstance( source, Source ) else None
         self.__provider = provider if isinstance( provider, Provider ) else None
-        self.__command = command if isinstance( command, Command ) else Command.SELECTALL
+        self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__dbconfig = DataConfig( self.__source, self.__provider )

@@ -537,7 +537,7 @@ class install(Command):
                 self.debug_print("os.makedirs('%s', 0o700)" % path)
                 os.makedirs(path, 0o700)
 
-    # -- Command execution methods -------------------------------------
+    # -- SQL execution methods -------------------------------------
 
     def run(self):
         """Runs the command."""

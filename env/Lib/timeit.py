@@ -8,7 +8,7 @@ the Python Cookbook, published by O'Reilly.
 
 Library usage: see the Timer class.
 
-Command line usage:
+SQL line usage:
     python timeit.py [-n N] [-r N] [-s S] [-p] [-h] [--] [statement]
 
 Options:

@@ -523,7 +523,7 @@ class BaseTestCase(unittest.TestCase):
                               stdout=subprocess.PIPE,
                               **kw)
         if proc.returncode != exitcode:
-            msg = ("Command %s failed with exit code %s\n"
+            msg = ("SQL %s failed with exit code %s\n"
                    "\n"
                    "stdout:\n"
                    "---\n"

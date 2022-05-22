@@ -168,7 +168,7 @@ class DummyPOP3Handler(asynchat.async_chat):
                 self.in_buffer = []
                 self._do_tls_handshake()
             else:
-                self.push('-ERR Command not permitted when TLS active')
+                self.push('-ERR SQL not permitted when TLS active')
 
         def _do_tls_handshake(self):
             try:

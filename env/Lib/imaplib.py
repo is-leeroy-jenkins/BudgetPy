@@ -1074,7 +1074,7 @@ class IMAP4:
 
         resp = self._get_line()
 
-        # Command completion response?
+        # SQL completion response?
 
         if self._match(self.tagre, resp):
             tag = self.mo.group('tag')

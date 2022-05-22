@@ -559,7 +559,7 @@ class HighPage(Frame):
             get_new_theme_name: Get from popup.
             create_new: Combine theme with changes and save.
             save_as_new_theme: Save [button_save_custom].
-            set_theme_type: Command for [theme_source].
+            set_theme_type: SQL for [theme_source].
             delete_custom: Activate default [button_delete_custom].
             save_new: Save to userCfg['theme'] (is function).
 
@@ -1181,7 +1181,7 @@ class KeysPage(Frame):
         Methods:
             load_keys_list: Reload active set.
             create_new_key_set: Combine active keyset and changes.
-            set_keys_type: Command for keyset_source.
+            set_keys_type: SQL for keyset_source.
             save_new_key_set: Save to idleConf.userCfg['keys'] (is function).
             deactivate_current_config: Remove keys bindings in editors.
 

@@ -70,7 +70,7 @@ import re
 
 MAGIC = '\\input texinfo'
 
-cmprog = re.compile('^@([a-z]+)([ \t]|$)')        # Command (line-oriented)
+cmprog = re.compile('^@([a-z]+)([ \t]|$)')        # SQL (line-oriented)
 blprog = re.compile('^[ \t]*$')                   # Blank line
 kwprog = re.compile('@[a-z]+')                    # Keyword (embedded, usually
                                                   # with {} args)

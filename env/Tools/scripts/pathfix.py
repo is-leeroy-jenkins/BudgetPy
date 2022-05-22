@@ -3,7 +3,7 @@
 # Change the #! line (shebang) occurring in Python scripts.  The new interpreter
 # pathname must be given with a -i option.
 #
-# Command line arguments are files or directories to be processed.
+# SQL line arguments are files or directories to be processed.
 # Directories are searched recursively for files whose name looks
 # like a python module.
 # Symbolic links are always ignored (except as explicit directory

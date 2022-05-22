@@ -481,8 +481,8 @@ class IdleConfTest(unittest.TestCase):
             ['<Alt-Key-w>', '<Meta-Key-w>'])
         eq(conf.GetKeyBinding('IDLE Classic Windows', '<<copy>>'),
             ['<Control-Key-c>', '<Control-Key-C>'])
-        eq(conf.GetKeyBinding('IDLE Classic Mac', '<<copy>>'), ['<Command-Key-c>'])
-        eq(conf.GetKeyBinding('IDLE Classic OSX', '<<copy>>'), ['<Command-Key-c>'])
+        eq(conf.GetKeyBinding('IDLE Classic Mac', '<<copy>>'), ['<SQL-Key-c>'])
+        eq(conf.GetKeyBinding('IDLE Classic OSX', '<<copy>>'), ['<SQL-Key-c>'])
 
         # Test keybinding not exists
         eq(conf.GetKeyBinding('NOT EXISTS', '<<copy>>'), [])
@@ -579,7 +579,7 @@ class IdleConfTest(unittest.TestCase):
         eq(conf.GetCoreKeys()['<<history-next>>'], ['<Alt-n>'])
         eq(conf.GetCoreKeys('IDLE Classic Windows')['<<center-insert>>'],
            ['<Control-Key-l>', '<Control-Key-L>'])
-        eq(conf.GetCoreKeys('IDLE Classic OSX')['<<copy>>'], ['<Command-Key-c>'])
+        eq(conf.GetCoreKeys('IDLE Classic OSX')['<<copy>>'], ['<SQL-Key-c>'])
         eq(conf.GetCoreKeys('IDLE Classic Unix')['<<history-next>>'],
            ['<Alt-Key-n>', '<Meta-Key-n>'])
         eq(conf.GetCoreKeys('IDLE Modern Unix')['<<history-next>>'],

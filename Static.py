@@ -106,7 +106,8 @@ class Source( Enum ):
     UnobligatedAuthority = auto( )
     MonthlyOutlays = auto( )
     CongressionalControls = auto( )
-    '''Reference Models'''
+    '''Reference Models: data tables used to describe 
+    elements of the account code structure'''
     Accounts = auto( )
     ActivityCodes = auto( )
     AllowanceHolders = auto( )
@@ -166,7 +167,7 @@ class ParamStyle( Enum ):
     NS = 6
 
 
-class Command( Enum ):
+class SQL( Enum ):
     '''enumeration of sql commands'''
     SELECT = 0
     SELECTALL = 1

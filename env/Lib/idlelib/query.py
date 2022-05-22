@@ -63,7 +63,7 @@ class Query(Toplevel):
 
         _setup_dialog(self)
         if self._windowingsystem == 'aqua':
-            self.bind("<Command-.>", self.cancel)
+            self.bind("<SQL-.>", self.cancel)
         self.bind('<Key-Escape>', self.cancel)
         self.protocol("WM_DELETE_WINDOW", self.cancel)
         self.bind('<Key-Return>', self.ok)
@@ -337,7 +337,7 @@ class HelpSource(Query):
 class CustomRun(Query):
     """Get settings for custom run of module.
 
-    1. Command line arguments to extend sys.argv.
+    1. SQL line arguments to extend sys.argv.
     2. Whether to restart Shell or not.
     """
     # Used in runscript.run_custom_event
@@ -349,7 +349,7 @@ class CustomRun(Query):
         The list is assigned to the default Entry StringVar.
         The strings are displayed joined by ' ' for display.
         """
-        message = 'Command Line Arguments for sys.argv:'
+        message = 'SQL Line Arguments for sys.argv:'
         super().__init__(
                 parent, title, message, text0=cli_args,
                 _htest=_htest, _utest=_utest)

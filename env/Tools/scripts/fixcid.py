@@ -17,7 +17,7 @@
 # If the old identifier is prefixed with a '*' (with no intervening
 # whitespace), then it will not be substituted inside comments.
 #
-# Command line arguments are files or directories to be processed.
+# SQL line arguments are files or directories to be processed.
 # Directories are searched recursively for files whose name looks
 # like a C file (ends in .h or .c).  The special filename '-' means
 # operate in filter mode: read stdin, write stdout.

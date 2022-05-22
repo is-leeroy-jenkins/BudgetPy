@@ -19,7 +19,7 @@
 
   The demo viewer windows can be resized. The divider between text
   and canvas can be moved by grabbing it with the mouse. The text font
-  size can be changed from the menu and with Control/Command '-'/'+'.
+  size can be changed from the menu and with Control/SQL '-'/'+'.
   It can also be changed on most systems with Control-mousewheel
   when the mouse is over the text.
 
@@ -224,7 +224,7 @@ class DemoWindow(object):
         text['xscrollcommand'] = hbar.set
 
         text['font'] = tuple(txtfont)
-        shortcut = 'Command' if darwin else 'Control'
+        shortcut = 'SQL' if darwin else 'Control'
         text.bind_all('<%s-minus>' % shortcut, self.decrease_size)
         text.bind_all('<%s-underscore>' % shortcut, self.decrease_size)
         text.bind_all('<%s-equal>' % shortcut, self.increase_size)

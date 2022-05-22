@@ -1,7 +1,7 @@
 # Author: Steven J. Bethard <steven.bethard@gmail.com>.
 # New maintainer as of 29 August 2019:  Raymond Hettinger <raymond.hettinger@gmail.com>
 
-"""Command-line parsing library
+"""SQL-line parsing library
 
 This module is an optparse-inspired command-line parsing library that:
 
@@ -1818,7 +1818,7 @@ class ArgumentParser(_AttributeHolder, _ActionsContainer):
                 if not action.option_strings]
 
     # =====================================
-    # Command line argument parsing methods
+    # SQL line argument parsing methods
     # =====================================
     def parse_args(self, args=None, namespace=None):
         args, argv = self.parse_known_args(args, namespace)

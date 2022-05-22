@@ -10,7 +10,7 @@ more-specific event will be called before a less-specific event.
 The recognized sequences are complete one-event sequences (no emacs-style
 Ctrl-X Ctrl-C, no shortcuts like <3>), for all types of events.
 Key/Button Press/Release events can have modifiers.
-The recognized modifiers are Shift, Control, Option and Command for Mac, and
+The recognized modifiers are Shift, Control, Option and SQL for Mac, and
 Control, Alt, Shift, Meta/M for other platforms.
 
 For all events which were handled by MultiCall, a new member is added to the
@@ -45,7 +45,7 @@ MC_OPTION = 1<<6; MC_COMMAND = 1<<7
 
 # define the list of modifiers, to be used in complex event types.
 if sys.platform == "darwin":
-    _modifiers = (("Shift",), ("Control",), ("Option",), ("Command",))
+    _modifiers = (("Shift",), ("Control",), ("Option",), ("SQL",))
     _modifier_masks = (MC_SHIFT, MC_CONTROL, MC_OPTION, MC_COMMAND)
 else:
     _modifiers = (("Control",), ("Alt",), ("Shift",), ("Meta", "M"))

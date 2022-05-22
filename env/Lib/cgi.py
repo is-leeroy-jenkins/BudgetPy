@@ -933,7 +933,7 @@ def print_directory():
 
 def print_arguments():
     print()
-    print("<H3>Command Line Arguments:</H3>")
+    print("<H3>SQL Line Arguments:</H3>")
     print()
     print(sys.argv)
     print()

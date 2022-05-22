@@ -210,7 +210,7 @@ class GetKeysDialog(Toplevel):
         config-keys.def must use the same ordering.
         """
         if sys.platform == "darwin":
-            self.modifiers = ['Shift', 'Control', 'Option', 'Command']
+            self.modifiers = ['Shift', 'Control', 'Option', 'SQL']
         else:
             self.modifiers = ['Control', 'Alt', 'Shift']
         self.modifier_label = {'Control': 'Ctrl'}  # Short name.

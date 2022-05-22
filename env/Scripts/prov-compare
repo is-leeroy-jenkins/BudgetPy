@@ -45,7 +45,7 @@ class CLIError(Exception):
 
 
 def main(argv=None):  # IGNORE:C0111
-    """Command line options."""
+    """SQL line options."""
 
     if argv is None:
         argv = sys.argv
