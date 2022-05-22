@@ -3114,9 +3114,9 @@ class PayrollActivity( ):
             return self.__payrollactivityid
 
     @id.setter
-    def id( self, pid ):
-        if isinstance( pid, int ):
-            self.__payrollactivityid = pid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__payrollactivityid = value
 
     @property
     def bfy( self ):
@@ -3124,9 +3124,9 @@ class PayrollActivity( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -3134,9 +3134,9 @@ class PayrollActivity( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -3144,9 +3144,9 @@ class PayrollActivity( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -3154,9 +3154,9 @@ class PayrollActivity( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -3164,9 +3164,9 @@ class PayrollActivity( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -3174,9 +3174,9 @@ class PayrollActivity( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -3184,9 +3184,9 @@ class PayrollActivity( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -3194,9 +3194,9 @@ class PayrollActivity( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -3204,9 +3204,9 @@ class PayrollActivity( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -3214,9 +3214,9 @@ class PayrollActivity( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -3224,9 +3224,9 @@ class PayrollActivity( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -3234,9 +3234,9 @@ class PayrollActivity( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -3244,9 +3244,9 @@ class PayrollActivity( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def rccode( self ):
@@ -3254,9 +3254,9 @@ class PayrollActivity( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -3264,9 +3264,9 @@ class PayrollActivity( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def subrccode( self ):
@@ -3274,9 +3274,9 @@ class PayrollActivity( ):
             return self.__subrccode
 
     @subrccode.setter
-    def subrccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__subrccode = code
+    def subrccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subrccode = value
 
     @property
     def subrcname( self ):
@@ -3284,9 +3284,9 @@ class PayrollActivity( ):
             return self.__subrcname
 
     @subrcname.setter
-    def subrcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__subrcname = name
+    def subrcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subrcname = value
 
     @property
     def programprojectcode( self ):
@@ -3294,9 +3294,9 @@ class PayrollActivity( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -3304,9 +3304,9 @@ class PayrollActivity( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def hrorgcode( self ):
@@ -3314,9 +3314,9 @@ class PayrollActivity( ):
             return self.__hrorgcode
 
     @hrorgcode.setter
-    def hrorgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__hrorgcode = code
+    def hrorgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__hrorgcode = value
 
     @property
     def hrorgname( self ):
@@ -3324,9 +3324,9 @@ class PayrollActivity( ):
             return self.__hrorgname
 
     @hrorgname.setter
-    def hrorgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__hrorgname = name
+    def hrorgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__hrorgname = value
 
     @property
     def workcode( self ):
@@ -3334,9 +3334,9 @@ class PayrollActivity( ):
             return self.__workcode
 
     @workcode.setter
-    def workcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__workcode = code
+    def workcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__workcode = value
 
     @property
     def workcodename( self ):
@@ -3344,9 +3344,9 @@ class PayrollActivity( ):
             return self.__workcodename
 
     @workcodename.setter
-    def workcodename( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__workcodename = name
+    def workcodename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__workcodename = value
 
     @property
     def payperiod( self ):
@@ -3354,9 +3354,9 @@ class PayrollActivity( ):
             return self.__payperiod
 
     @payperiod.setter
-    def payperiod( self, pd ):
-        if isinstance( pd, int ):
-            self.__payperiod = pd
+    def payperiod( self, value ):
+        if isinstance( value, int ):
+            self.__payperiod = value
 
     @property
     def startdate( self ):
@@ -3364,9 +3364,9 @@ class PayrollActivity( ):
             return self.__startdate
 
     @startdate.setter
-    def startdate( self, sd ):
-        if isinstance( sd, dt.datetime ):
-            self.__startdate = sd
+    def startdate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__startdate = value
 
     @property
     def enddate( self ):
@@ -3374,9 +3374,9 @@ class PayrollActivity( ):
             return self.__enddate
 
     @enddate.setter
-    def enddate( self, ed ):
-        if isinstance( ed, dt.datetime ):
-            self.__startdate = ed
+    def enddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__startdate = value
 
     @property
     def checkdate( self ):
@@ -3384,9 +3384,9 @@ class PayrollActivity( ):
             return self.__checkdate
 
     @checkdate.setter
-    def checkdate( self, cd ):
-        if isinstance( cd, dt.datetime ):
-            self.__checkdate = cd
+    def checkdate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__checkdate = value
 
     @property
     def amount( self ):
@@ -3464,9 +3464,9 @@ class PayrollActivity( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -3474,9 +3474,9 @@ class PayrollActivity( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def goalcode( self ):
@@ -3484,9 +3484,9 @@ class PayrollActivity( ):
             return self.__goalcode
 
     @goalcode.setter
-    def goalcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
 
     @property
     def goalname( self ):
@@ -3494,9 +3494,9 @@ class PayrollActivity( ):
             return self.__goalname
 
     @goalname.setter
-    def goalname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalname = code
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
 
     @property
     def objectivecode( self ):
@@ -3504,9 +3504,9 @@ class PayrollActivity( ):
             return self.__objectivecode
 
     @objectivecode.setter
-    def objectivecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
 
     @property
     def objectivename( self ):
@@ -3514,9 +3514,9 @@ class PayrollActivity( ):
             return self.__objectivename
 
     @objectivename.setter
-    def objectivename( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
 
     @property
     def npmcode( self ):
@@ -3524,9 +3524,9 @@ class PayrollActivity( ):
             return self.__npmcode
 
     @npmcode.setter
-    def npmcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
 
     @property
     def npmname( self ):
@@ -3534,9 +3534,9 @@ class PayrollActivity( ):
             return self.__npmname
 
     @npmname.setter
-    def npmname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmname = code
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
 
     def __init__( self, bfy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -3611,9 +3611,9 @@ class SiteActivity( ):
             return self.__siteactivityid
 
     @id.setter
-    def id( self, pid ):
-        if isinstance( pid, int ):
-            self.__siteactivityid = pid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__siteactivityid = value
 
     @property
     def bfy( self ):
@@ -3621,9 +3621,9 @@ class SiteActivity( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -3631,9 +3631,9 @@ class SiteActivity( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -3641,9 +3641,9 @@ class SiteActivity( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -3651,9 +3651,9 @@ class SiteActivity( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -3661,9 +3661,9 @@ class SiteActivity( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -3671,9 +3671,9 @@ class SiteActivity( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -3681,9 +3681,9 @@ class SiteActivity( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -3691,9 +3691,9 @@ class SiteActivity( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -3701,9 +3701,9 @@ class SiteActivity( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -3711,9 +3711,9 @@ class SiteActivity( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -3721,9 +3721,9 @@ class SiteActivity( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -3731,9 +3731,9 @@ class SiteActivity( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -3741,9 +3741,9 @@ class SiteActivity( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def rccode( self ):
@@ -3751,9 +3751,9 @@ class SiteActivity( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -3761,9 +3761,9 @@ class SiteActivity( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def programprojectcode( self ):
@@ -3771,9 +3771,9 @@ class SiteActivity( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -3781,9 +3781,9 @@ class SiteActivity( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def programareacode( self ):
@@ -3791,9 +3791,9 @@ class SiteActivity( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -3801,9 +3801,9 @@ class SiteActivity( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def epasiteid( self ):
@@ -3811,9 +3811,9 @@ class SiteActivity( ):
             return self.__epasiteid
 
     @epasiteid.setter
-    def epasiteid( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__epasiteid = code
+    def epasiteid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__epasiteid = value
 
     @property
     def projecttype( self ):
@@ -3821,9 +3821,9 @@ class SiteActivity( ):
             return self.__projecttype
 
     @projecttype.setter
-    def projecttype( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__projecttype = code
+    def projecttype( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__projecttype = value
 
     @property
     def siteprojectcode( self ):
@@ -3831,9 +3831,9 @@ class SiteActivity( ):
             return self.__siteprojectcode
 
     @siteprojectcode.setter
-    def siteprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__siteprojectcode = code
+    def siteprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__siteprojectcode = value
 
     @property
     def siteprojectname( self ):
@@ -3841,9 +3841,9 @@ class SiteActivity( ):
             return self.__siteprojectname
 
     @siteprojectname.setter
-    def siteprojectname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__siteprojectname = code
+    def siteprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__siteprojectname = value
 
     @property
     def ssid( self ):
@@ -3851,9 +3851,9 @@ class SiteActivity( ):
             return self.__ssid
 
     @ssid.setter
-    def ssid( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ssid = code
+    def ssid( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ssid = value
 
     @property
     def actioncode( self ):
@@ -3871,9 +3871,9 @@ class SiteActivity( ):
             return self.__operableunit
 
     @operableunit.setter
-    def operableunit( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__operableunit = code
+    def operableunit( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__operableunit = value
 
     @property
     def state( self ):
@@ -3881,9 +3881,9 @@ class SiteActivity( ):
             return self.__state
 
     @state.setter
-    def state( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__state = code
+    def state( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__state = value
 
     @property
     def city( self ):
@@ -3891,9 +3891,9 @@ class SiteActivity( ):
             return self.__city
 
     @city.setter
-    def city( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__city = code
+    def city( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__city = value
 
     @property
     def congress( self ):
@@ -3901,9 +3901,9 @@ class SiteActivity( ):
             return self.__congress
 
     @congress.setter
-    def congress( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__congress = code
+    def congress( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__congress = value
 
     @property
     def startdate( self ):
@@ -3911,9 +3911,9 @@ class SiteActivity( ):
             return self.__startdate
 
     @startdate.setter
-    def startdate( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__startdate = code
+    def startdate( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__startdate = value
 
     @property
     def enddate( self ):
@@ -3921,9 +3921,9 @@ class SiteActivity( ):
             return self.__enddate
 
     @enddate.setter
-    def enddate( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__enddate = code
+    def enddate( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__enddate = value
 
     @property
     def lastactivitydate( self ):
@@ -3931,9 +3931,9 @@ class SiteActivity( ):
             return self.__lastactivitydate
 
     @lastactivitydate.setter
-    def lastactivitydate( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__lastactivitydate = code
+    def lastactivitydate( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__lastactivitydate = value
 
     @property
     def requested( self ):
