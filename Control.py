@@ -4051,9 +4051,9 @@ class Actuals( ):
             return self.__actualsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ) and id > -1:
-            self.__id = id
+    def id( self, value ):
+        if isinstance( value, int ) and value > -1:
+            self.__id = value
 
     @property
     def bfy( self ):
@@ -4061,9 +4061,9 @@ class Actuals( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -4081,9 +4081,9 @@ class Actuals( ):
             return self.__rpiocode
 
     @rpiocode.setter
-    def rpiocode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rpiocode = code
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def rpioname( self ):
@@ -4091,9 +4091,9 @@ class Actuals( ):
             return self.__rpioname
 
     @rpiocode.setter
-    def rpiocode( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rpiocode = name
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
@@ -4101,9 +4101,9 @@ class Actuals( ):
             return self.__ahcode
 
     @ahcode.setter
-    def ahcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__ahcode = code
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
 
     @property
     def ahname( self ):
@@ -4111,9 +4111,9 @@ class Actuals( ):
             return self.__ahname
 
     @ahname.setter
-    def ahname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__ahname = name
+    def ahname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahname = value
 
     @property
     def fundcode( self ):
@@ -4121,9 +4121,9 @@ class Actuals( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fundname( self ):
@@ -4131,9 +4131,9 @@ class Actuals( ):
             return self.__fundname
 
     @fundname.setter
-    def fundname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__fundname = name
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
 
     @property
     def orgcode( self ):
@@ -4141,9 +4141,9 @@ class Actuals( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def orgname( self ):
@@ -4151,9 +4151,9 @@ class Actuals( ):
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__orgname = name
+    def orgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgname = value
 
     @property
     def accountcode( self ):
@@ -4161,9 +4161,9 @@ class Actuals( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = code
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -4171,9 +4171,9 @@ class Actuals( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -4181,9 +4181,9 @@ class Actuals( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def balance( self ):
@@ -4201,9 +4201,9 @@ class Actuals( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -4211,9 +4211,9 @@ class Actuals( ):
             return self.__programprojectname
 
     @programprojectname.setter
-    def programprojectname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programprojectname = name
+    def programprojectname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectname = value
 
     @property
     def programareacode( self ):
@@ -4221,9 +4221,9 @@ class Actuals( ):
             return self.__programareacode
 
     @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
 
     @property
     def programareaname( self ):
@@ -4231,9 +4231,9 @@ class Actuals( ):
             return self.__programareaname
 
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def goalcode( self ):
@@ -4241,9 +4241,9 @@ class Actuals( ):
             return self.__goalcode
 
     @goalcode.setter
-    def goalcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
 
     @property
     def goalname( self ):
@@ -4251,9 +4251,9 @@ class Actuals( ):
             return self.__goalname
 
     @goalname.setter
-    def goalname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalname = code
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
 
     @property
     def objectivecode( self ):
@@ -4261,9 +4261,9 @@ class Actuals( ):
             return self.__objectivecode
 
     @objectivecode.setter
-    def objectivecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
 
     @property
     def objectivename( self ):
@@ -4271,9 +4271,9 @@ class Actuals( ):
             return self.__objectivename
 
     @objectivename.setter
-    def objectivename( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
 
     @property
     def npmcode( self ):
@@ -4281,9 +4281,9 @@ class Actuals( ):
             return self.__npmcode
 
     @npmcode.setter
-    def npmcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
 
     @property
     def npmname( self ):
@@ -4291,9 +4291,9 @@ class Actuals( ):
             return self.__npmname
 
     @npmname.setter
-    def npmname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmname = code
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
 
     def __init__( self, bfy, fund ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -4366,9 +4366,9 @@ class AppropriationDocument( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__bfy = year
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def efy( self ):
@@ -4376,9 +4376,9 @@ class AppropriationDocument( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str ) and year != '':
-            self.__efy = year
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
 
     @property
     def fundcode( self ):
@@ -4386,9 +4386,9 @@ class AppropriationDocument( ):
             return self.__fundcode
 
     @fundcode.setter
-    def fundcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__fundcode = code
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
 
     @property
     def fund( self ):
@@ -5919,9 +5919,9 @@ class Commitment( ):
             return self.__expendituresid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__expendituresid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__expendituresid = value
 
     @property
     def bfy( self ):
@@ -6435,7 +6435,6 @@ class DocumentControlNumber( ):
         return self.__data
 
 
-
 # OpenCommitment( bfy, fund, account, boc )
 class OpenCommitment( ):
     ''' OpenCommitment( bfy, fund, account, boc )
@@ -6488,9 +6487,9 @@ class OpenCommitment( ):
             return self.__expendituresid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__expendituresid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__expendituresid = value
 
     @property
     def bfy( self ):
@@ -7408,9 +7407,9 @@ class Deobligation( ):
             return self.__expendituresid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__expendituresid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__expendituresid = value
 
     @property
     def bfy( self ):
@@ -7864,9 +7863,9 @@ class UnliquidatedObligation( ):
             return self.__expendituresid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__expendituresid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__expendituresid = value
 
     @property
     def bfy( self ):
@@ -8320,9 +8319,9 @@ class Expenditures:
             return self.__expendituresid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__expendituresid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__expendituresid = value
 
     @property
     def bfy( self ):
@@ -8724,6 +8723,7 @@ class Expenditures:
         return self.__data
 
 
+# SpecialAccount( bfy, rpio )
 class SpecialAccounts( ):
     '''' object providing SF Special Account data'''
     __specialaccountsid = None
@@ -8992,6 +8992,7 @@ class SpecialAccounts( ):
         return self.__data
 
 
+# SuperfundSite( rpio )
 class SuperfundSites( ):
     ''' object providing SF Site data '''
     __superfundsitesid = None
@@ -9037,9 +9038,9 @@ class SuperfundSites( ):
             return self.__specialaccountsid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__specialaccountsid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__specialaccountsid = value
 
     @property
     def bfy( self ):
