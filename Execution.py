@@ -153,9 +153,9 @@ class Account( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -163,12 +163,11 @@ class Account( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
 
     def __init__( self, code ):
-        self.__source = Source.Accounts
         self.__code = code if isinstance( code, str ) else None
         self.__goalcode = self.__code[ 0 ]
         self.__objectivecode = self.__code[ 1:3 ]
@@ -182,11 +181,15 @@ class Account( ):
     def getdata( self ):
         source = Source.Accounts
         provider = Provider.SQLite
-        db = DataConfig( source, provider )
-        dc = DataConnection( db )
-        sqlite = dc.connect( )
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
         cursor = sqlite.cursor( )
-        query = f'SELECT * FROM { source.name };'
+        query = sql.getcommandtext( )
         data = cursor.execute( query )
         self.__data =  [ i for i in data.fetchall( ) ]
         cursor.close( )
@@ -266,7 +269,7 @@ class Activity( ):
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( n, v )
+        sconfig = SqlConfig( names = n, values = v )
         cnx = DataConnection( dconfig )
         sql = SqlStatement( dconfig, sconfig )
         sqlite = cnx.connect( )
@@ -279,7 +282,7 @@ class Activity( ):
         return self.__data
 
 
-# AllowanceHolder( value  )
+# AllowanceHolder( code  )
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
     __allowancholdersid = None
@@ -340,33 +343,38 @@ class AllowanceHolder( ):
 
     def __init__( self, code ):
         self.__code = code if isinstance( self.__code, str ) else None
-        self.__frame = pd.DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
+        source = Source.ActivityCodes
         provider = Provider.SQLite
-        source = Source.AllowanceHolders
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        n = [ 'Code', ]
+        v = ( self.__code, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
-
-# Appropriation( value  )
+# Appropriation( code  )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
     __appropriationsid = None
     __bfy = None
     __efy = None
-    __fund = None
-    __code = None
+    __enacted = None
+    __law = None
     __name = None
-    __title = None
     __data = None
     __frame = None
 
@@ -376,9 +384,9 @@ class Appropriation( ):
             return self.__appropriationsid
 
     @id.setter
-    def id( self, id ):
-        if isinstance( id, int ):
-            self.__appropriationsid  = id
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__appropriationsid  = value
 
     @property
     def bfy( self ):
@@ -406,9 +414,9 @@ class Appropriation( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__code = code
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
 
     @property
     def name( self ):
@@ -419,6 +427,31 @@ class Appropriation( ):
     def name( self, name ):
         if isinstance( name, str ) and name != '':
             self.__name = name
+
+    @property
+    def publiclaw( self ):
+        if isinstance( self.__law, str ) and self.__law != '':
+            self.__law = name
+
+    @publiclaw.setter
+    def publiclaw( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__law = value
+
+    @property
+    def enacteddate( self ):
+        if isinstance( self.__enacted, dt.datetime ):
+            return self.__enacted
+
+    @enacteddate.setter
+    def enacteddate( self, value ):
+        if isinstance( value, dt.datetime ):
+            self.__enacted = value
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
 
     @property
     def data( self ):
@@ -450,7 +483,7 @@ class Appropriation( ):
         if isinstance( title, str ) and title != '':
             self.__title = title
 
-    def __init__( self, code ):
+    def __init__( self, bfy, law ):
         self.__code = code if isinstance( code, str ) else None
         self.__fund = Fund( self.__code )
 
@@ -459,17 +492,25 @@ class Appropriation( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
         source = Source.Appropriations
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'EFY', 'Code', ]
-        values = ( self.__bfy, self.__code )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        provider = Provider.SQLite
+        n = [ 'BFY', 'PublicLaw' ]
+        v = ( self.__bfy, self.__law )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
-# BudgetFiscalYear( value )
+# BudgetFiscalYear( bfy )
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
     __budgetfiscalyearsid = None
@@ -661,7 +702,7 @@ class BudgetFiscalYear( ):
         return self.__data
 
 
-# BudgetObjectClass( value )
+# BudgetObjectClass( code )
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
     __budgetobjectclassesid = None
@@ -753,7 +794,7 @@ class BudgetObjectClass( ):
         return self.__data
 
 
-# Division( value )
+# Division( code )
 class Division( ):
     '''Defines the Division Class'''
     __code = None
@@ -799,7 +840,7 @@ class Division( ):
             return self.__code
 
 
-# FinanceObjectClass( value )
+# FinanceObjectClass( code )
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
     __financeobjectclassesid = None
@@ -899,7 +940,7 @@ class FinanceObjectClass( ):
         return self.__data
 
 
-# Fund( bfy, value )
+# Fund( bfy, code )
 class Fund( ):
     '''Defines the Fund Class'''
     __fundsid = None
@@ -1274,7 +1315,7 @@ class Fund( ):
             print( e )
 
 
-# Goal( value )
+# Goal( code )
 class Goal( ):
     '''Defines the Goal Class'''
     __goalsid = None
@@ -1351,7 +1392,7 @@ class Goal( ):
         return self.__data
 
 
-# NationalProgram( value )
+# NationalProgram( code )
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
     __nationalprogramsid = None
@@ -1451,7 +1492,7 @@ class NationalProgram( ):
         return self.__data
 
 
-# Objective( value )
+# Objective( code )
 class Objective( ):
     '''Defines the Objective Class'''
     __objectivesid = None
@@ -1529,7 +1570,7 @@ class Objective( ):
         return self.__data
 
 
-# Organization( value )
+# Organization( code )
 class Organization( ):
     '''Defines the Organization Class'''
     __organizationsid = None
@@ -1607,7 +1648,7 @@ class Organization( ):
         return self.__data
 
 
-# Project( value )
+# Project( code )
 class Project( ):
     '''Defines the Organization Class'''
     __projectsid = None
@@ -1685,7 +1726,7 @@ class Project( ):
         return self.__data
 
 
-# ItProjectCode( value )
+# ItProjectCode( code )
 class ItProjectCode( ):
     '''Defines the Organization Class'''
     __cpicid = None
@@ -1763,7 +1804,7 @@ class ItProjectCode( ):
         return self.__data
 
 
-# SiteProjectCode( value )
+# SiteProjectCode( code )
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
     __siteprojectcodesid = None
@@ -1841,7 +1882,7 @@ class SiteProjectCode( ):
         return self.__data
 
 
-# StateOrganization( value )
+# StateOrganization( code )
 class StateOrganization( ):
     '''StateOrganization( fgrp ) class
     representing state codes'''
@@ -1911,7 +1952,7 @@ class StateOrganization( ):
         return self.__data
 
 
-# HeadquartersOffice( value )
+# HeadquartersOffice( code )
 class HeadquartersOffice( ):
     '''Defines a regional RPIO'''
     __resourceplanningofficesid = None
@@ -1989,7 +2030,7 @@ class HeadquartersOffice( ):
         return self.__data
 
 
-# HumanResourceOrganization( value )
+# HumanResourceOrganization( code )
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
     __humanresourceorganizationsid = None
@@ -2067,7 +2108,7 @@ class HumanResourceOrganization( ):
         return self.__data
 
 
-# ProgramArea( value )
+# ProgramArea( code )
 class ProgramArea( ):
     '''defines the ProgramArea class'''
     __programareasid = None
@@ -2145,7 +2186,7 @@ class ProgramArea( ):
         return self.__data
 
 
-# ProgramProject( value )
+# ProgramProject( code )
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
     __programprojectsid = None
@@ -2234,7 +2275,7 @@ class ProgramProject( ):
         return self.__data
 
 
-# ResponsibilityCenter( value )
+# ResponsibilityCenter( code )
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
     __responsibilitycentersid = None
@@ -2312,7 +2353,7 @@ class ResponsibilityCenter( ):
         return self.__data
 
 
-# ResourcePlanningOffice( value )
+# ResourcePlanningOffice( code )
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __resourceplanningofficesid = None
@@ -2748,7 +2789,7 @@ class ProgramResultsCode( ):
         return self.__data
 
 
-# RegionalOffice( value )
+# RegionalOffice( code )
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __resourceplanningofficesid = None
@@ -2826,7 +2867,7 @@ class RegionalOffice( ):
         return self.__data
 
 
-# SiteProject( value )
+# SiteProject( code )
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
     __siteprojectcodesid = None
@@ -2952,7 +2993,7 @@ class SiteProject( ):
         return self.__data
 
 
-# FederalHoliday( value )
+# FederalHoliday( bfy )
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
     __federalholidaysid = None
@@ -3275,7 +3316,7 @@ class FederalHoliday( ):
         return self.__data
 
 
-# TreasurySymbol( bfy, efy, value )
+# TreasurySymbol( bfy, efy, code )
 class TreasurySymbol( ):
     '''TreasurySymbol( value )
     creates object that represents a TAFS'''
@@ -3370,7 +3411,7 @@ class TreasurySymbol( ):
         return self.__data
 
 
-# WorkCode( value )
+# WorkCode( code )
 class WorkCode( ):
     '''Defines the Organization Class'''
     __workcodesid = None
