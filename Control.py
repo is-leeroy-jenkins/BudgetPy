@@ -8618,9 +8618,9 @@ class SpecialAccounts( ):
             return self.__specialaccountsid
 
     @id.setter
-    def id( self, iid ):
-        if isinstance( iid, int ):
-            self.__specialaccountsid = iid
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__specialaccountsid = value
 
     @property
     def bfy( self ):
@@ -8757,7 +8757,7 @@ class SpecialAccounts( ):
         if isinstance( self.__accountstatus, str ) and self.__accountstatus != '':
             return self.__accountstatus
 
-    @acccountstatus.setter
+    @accountstatus.setter
     def accountstatus( self, value ):
         if isinstance( value, str ) and value != '':
             self.__accountstatus = value
@@ -8767,7 +8767,7 @@ class SpecialAccounts( ):
         if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
             return self.__nplstatus
 
-    @acccountstatus.setter
+    @nplstatus.setter
     def nplstatus( self, value ):
         if isinstance( value, str ) and value != '':
             self.__nplstatus = value
@@ -8777,7 +8777,7 @@ class SpecialAccounts( ):
         if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
             return self.__nplstatuscode
 
-    @acccountstatus.setter
+    @nplstatuscode.setter
     def nplstatuscode( self, value ):
         if isinstance( value, str ) and value != '':
             self.__nplstatuscode = value
@@ -8928,7 +8928,7 @@ class SuperfundSites( ):
         if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
             return self.__nplstatus
 
-    @acccountstatus.setter
+    @nplstatus.setter
     def nplstatus( self, value ):
         if isinstance( value, str ) and value != '':
             self.__nplstatus = value
@@ -8938,7 +8938,7 @@ class SuperfundSites( ):
         if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
             return self.__nplstatuscode
 
-    @acccountstatus.setter
+    @nplstatuscode.setter
     def nplstatuscode( self, value ):
         if isinstance( value, str ) and value != '':
             self.__nplstatuscode = value
