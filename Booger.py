@@ -327,7 +327,7 @@ class FileDialog( Sith ):
            [ sg.Text( r'' ) ],
            [ sg.OK( size = ( 8, 1 ),  ), sg.Cancel( size = ( 10, 1 )  ) ] ]
 
-        window = sg.Window( '    Budget Execution', layout,
+        window = sg.Window( '  Budget Execution', layout,
             font = self.__themefont,
             icon = self.__icon,
             size = self.__formsize )
@@ -411,7 +411,7 @@ class FolderDialog( Sith ):
            [ sg.Text( r'', size = ( 100, 1 ) ) ],
            [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
-        window = sg.Window( '    Budget Execution', layout,
+        window = sg.Window( '  Budget Execution', layout,
             font = self.__themefont,
             icon = self.__icon,
             size = self.__formsize )
@@ -491,7 +491,7 @@ class SaveFileDialog( Sith ):
         startpath = f'C:\\Users\\{username}\\Desktop'
         filename = sg.popup_get_file( 'Select Location / Enter File Name',
             default_path = startpath,
-            title = '    Budget Execution',
+            title = '  Budget Execution',
             font = self.__themefont,
             icon = self.__icon,
             save_as = True )
@@ -589,7 +589,7 @@ class GoogleDialog( Sith ):
             [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ) ),
               sg.Text( r'', size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
 
-        window = sg.Window( '    Budget Execution', layout,
+        window = sg.Window( '  Budget Execution', layout,
             icon = self.__icon,
             font = self.__themefont,
             size = self.__formsize )
@@ -962,7 +962,6 @@ class InputDialog( Sith ):
         window.close( )
 
 
-
 class ScrollingDialog( Sith ):
     '''Provides form for multiline input/output'''
     __themebackground = None
@@ -1026,7 +1025,7 @@ class ScrollingDialog( Sith ):
            [ sg.Text( '', size = space ), sg.Button( 'Submit', size = btnsize ),
              sg.Text( '', size = ( 15, 1 ) ), sg.Button( 'Exit', size = btnsize ), sg.Text( '', size = space ), ] ]
 
-        window = sg.Window( '    Budget Execution', layout,
+        window = sg.Window( '  Budget Execution', layout,
             icon = self.__icon,
             size = self.__formsize,
             font = self.__themefont,
@@ -1092,7 +1091,7 @@ class ContactForm( Sith ):
                     [ sg.Text( r'', size = ( 10, 1) ), sg.Submit( size = ( 10, 1 ) ),
                       sg.Text( r'', size = ( 20, 1) ),  sg.Cancel( size = ( 10, 1 ) ) ] ]
 
-        window = sg.Window( 'Budget Execution', layout,
+        window = sg.Window( '  Budget Execution', layout,
             icon = self.__icon,
             font = self.__themefont,
             size = self.__formsize )
@@ -1196,7 +1195,7 @@ class GridForm( Sith ):
                       sg.Text( '', size = ( 5, 1 ) ), sg.Cancel( size = ( 10, 1 ), key = '-CANCEL-' ) ] ]
         layout = space + header + records + buttons
 
-        window = sg.Window( 'Budget Execution', layout,
+        window = sg.Window( '  Budget Execution', layout,
             icon = self.__icon,
             font = self.__themefont  )
 
@@ -1206,7 +1205,6 @@ class GridForm( Sith ):
                 break
 
         window.close( )
-
 
 
 class LoadingPanel( Sith ):
@@ -1257,7 +1255,7 @@ class LoadingPanel( Sith ):
             key = '-T-',
             font = ( 'Bodoni MT', 40 ) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
-        window = sg.Window( 'Loading', layout,
+        window = sg.Window( '  Loading...', layout,
             icon = self.__icon,
             element_justification = 'c',
             margins = ( 0, 0 ),
@@ -1275,7 +1273,6 @@ class LoadingPanel( Sith ):
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
         window.close()
-
 
 
 class WaitingPanel( Sith ):
@@ -1327,7 +1324,7 @@ class WaitingPanel( Sith ):
             key = '-T-',
             font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
-        window = sg.Window( 'Loading', layout,
+        window = sg.Window( '  Waiting...', layout,
             icon = self.__icon,
             element_justification = 'c',
             margins = ( 0, 0 ),
@@ -1346,7 +1343,6 @@ class WaitingPanel( Sith ):
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
         window.close()
-
 
 
 class ProcessingPanel( Sith ):
@@ -1397,7 +1393,7 @@ class ProcessingPanel( Sith ):
             key = '-T-',
             font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
-        window = sg.Window( 'Loading', layout,
+        window = sg.Window( '  Processing...', layout,
             element_justification = 'c',
             icon = self.__icon,
             margins = ( 0, 0 ),
@@ -1416,7 +1412,6 @@ class ProcessingPanel( Sith ):
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
         window.close()
-
 
 
 class SplashPanel( Sith ):
@@ -1482,7 +1477,6 @@ class SplashPanel( Sith ):
                 break
 
         window.close()
-
 
 
 # Notification( message )
@@ -1555,7 +1549,6 @@ class Notification( Sith ):
             display_duration_in_ms = 9000,
             fade_in_duration = 5000,
             alpha = 1 )
-
 
 
 class PdfForm( Sith ):
@@ -2180,7 +2173,6 @@ class ListBoxDialog( Sith ):
                     icon = self.__icon  )
 
         window.close( )
-
 
 
 class ColorDialog( Sith ):
@@ -2995,7 +2987,6 @@ class ColorDialog( Sith ):
             tooltip_time = 100)
 
 
-
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
@@ -3134,7 +3125,6 @@ class BudgetForm( Sith ):
         window.close( )
 
 
-
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
     __themebackground = None
@@ -3224,7 +3214,6 @@ class ChartPanel( Sith ):
                 break
 
         window.close( )
-
 
 
 class CsvForm( Sith ):
