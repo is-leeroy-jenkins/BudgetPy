@@ -180,15 +180,15 @@ class Account( ):
             return self.__code
 
     def getdata( self ):
-        pdr = Provider.SQLite
-        src = Source.Accounts
-        db = DataConfig( src, pdr )
-        cnx = DataConnection( db )
-        sqlite = cnx.connect( )
-        cur = sqlite.cursor( )
-        query = f'SELECT * FROM { src.name };'
-        data = cur.execute( query )
-        cur.close( )
+        provider = Provider.SQLite
+        source = Source.Accounts
+        db = DataConfig( source, provider )
+        dc = DataConnection( db )
+        sqlite = dc.connect( )
+        cursor = sqlite.cursor( )
+        query = f'SELECT * FROM { source.name };'
+        data = cursor.execute( query )
+        cursor.close( )
         sqlite.close( )
         return data.fetchall( )
 
