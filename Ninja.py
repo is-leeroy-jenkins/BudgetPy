@@ -612,7 +612,7 @@ class Badger( ):
     def __init__( self, connection, sqlstatement ):
         self.__connection = connection if isinstance( connection, DataConnection ) else None
         self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__source = sqlstatement.source
+        self.__source = connection.source
         self.__provider = connection.provider
         self.__command = sqlstatement.command
         self.__path = connection.path

@@ -7,8 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;">
       <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/sqlite/referencemodels/References.db;" beforeDir="false" />
     </list>
@@ -166,13 +165,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00141" summary="updates from main rig;">
-      <created>1653131744901</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1653131744901</updated>
     </task>
     <task id="LOCAL-00142" summary="updates from main rig;">
       <created>1653134559745</created>
@@ -510,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653313419798</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="updates from main rig;">
+      <created>1653339514727</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1653339514727</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
