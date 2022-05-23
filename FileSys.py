@@ -109,11 +109,11 @@ class BudgetPath( ):
 
     def getextension( self, other ):
         '''Returns string representing the file extension of 'other' '''
-        if os.path.exists( other ):
-            return list( os.path.splitext( other ) )[ 1 ]
+        if isinstance( other, str ):
+            return  os.path.splitext( other )[ 1 ]
 
     def getreportpath( self ):
-        if self.__report is not None:
+        if isinstance( self.__report, str ):
             return self.__report
 
     def join( self, first, second ):
@@ -646,7 +646,7 @@ class EmailBuilder( ):
 
 
 # ExcelFile( filepath )
-class ExcelFile( ):
+class ExcelFile(  ):
     '''ExcelFile( filepath ) class provides
     the spreadsheet for Budget Py reports '''
     __path = None

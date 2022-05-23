@@ -10,6 +10,52 @@ from googlesearch import search
 from Minion import App, Client
 
 
+# Error( message )
+class Error( Exception ):
+    '''class provides Error and Exception data'''
+    __cause = None
+    __method = None
+    __message = None
+    __info = None
+
+    @property
+    def message( self ):
+        if isinstance( self.__message, str ) and self.__message != '':
+            return self.__message
+
+    @message.setter
+    def message( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__message = value
+
+    @property
+    def cause( self ):
+        if isinstance( self.__cause, str ) and self.__cause != '':
+            return self.__cause
+
+    @cause.setter
+    def cause( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__cause = value
+
+    @property
+    def method( self ):
+        if isinstance( self.__method, str ) and self.__method != '':
+            return self.__method
+
+    @method.setter
+    def method( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__method = value
+
+    def __init__( self, message, cause = '', method = '' ):
+        super( ).__init__( )
+        self.__message = message if isinstance( message, str ) and message != '' else None
+        self.__cause = cause if isinstance( cause, str ) and cause != '' else None
+        self.__method = method if isinstance( method, str ) and method != '' else None
+        self.__info = None
+
+
 # ButtonIcon( png )
 class ButtonIcon( ):
     '''class representing form images'''

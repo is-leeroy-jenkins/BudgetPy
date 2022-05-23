@@ -1,55 +1,11 @@
 import sqlite3 as sl
-import pandas as pd
+import pandas
+from pandas import DataFrame, Index, MultiIndex, Series
 import pyodbc as db
 import os
 from collections import namedtuple as ntuple
-from Static import Source, Provider, SQL
-
-# Error( message )
-class Error( Exception ):
-    '''class provides Error and Exception data'''
-    __cause = None
-    __method = None
-    __message = None
-    __info = None
-
-    @property
-    def message( self ):
-        if isinstance( self.__message, str ) and self.__message != '':
-            return self.__message
-
-    @message.setter
-    def message( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__message = value
-
-    @property
-    def cause( self ):
-        if isinstance( self.__cause, str ) and self.__cause != '':
-            return self.__cause
-
-    @cause.setter
-    def cause( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__cause = value
-
-    @property
-    def method( self ):
-        if isinstance( self.__method, str ) and self.__method != '':
-            return self.__method
-
-    @method.setter
-    def method( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__method = value
-
-    def __init__( self, message, cause = '', method = '' ):
-        super( ).__init__( )
-        self.__message = message if isinstance( message, str ) and message != '' else None
-        self.__cause = cause if isinstance( cause, str ) and cause != '' else None
-        self.__method = method if isinstance( method, str ) and method != '' else None
-        self.__info = None
-
+from Static import Source, Provider, SQL, ParamStyle
+from Booger import Error
 
 # DataConfig( source, provider )
 class DataConfig( ):
@@ -382,8 +338,7 @@ class SqlConfig( ):
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
-        self.__kvp = dict( zip( names,  values ) )
-
+        self.__kvp = dict( zip( names,  list( values ) ) )
 
     def kvpdump( self ):
         '''dump( ) returns string of 'values = index AND' pairs'''
@@ -470,6 +425,16 @@ class SqlStatement( ):
             self.__provider = Database( 'SQLite' )
 
     @property
+    def path( self ):
+        if isinstance( self.__path, str ):
+            return self.__path
+
+    @path.setter
+    def path( self, value ):
+        if isinstance( value, str ):
+            self.__path = value
+
+    @property
     def command( self ):
         if self.__command is not None:
             return self.__command
@@ -481,18 +446,6 @@ class SqlStatement( ):
         else:
             command = SQL( 'SELECT' )
             self.__command = command
-
-    @property
-    def source( self ):
-        if self.__source is not None:
-            return self.__source
-
-    @source.setter
-    def source( self, value ):
-        if isinstance( value, DataConfig ):
-            self.__source = value
-        else:
-            self.__source = DataConfig( 'StatusOfFunds' )
 
     @property
     def table( self ):
@@ -571,40 +524,16 @@ class SqlStatement( ):
             elif self.__command == 'DELETE':
                 self.__commandtext = f'DELETE FROM { self.__table };'
 
-
-# SQLiteQuery( connection, sqlstatement )
-class SQLiteQuery( ):
-    '''SQLiteQuery( value, sqlconfig ) represents
-     the budget execution values classes'''
+# Badger( connection, sqlstatement )
+class Badger( ):
+    '''Base class for database interaction'''
     __connection = None
-    __path = None
-    __driver = None
-    __connectionstring = None
-    __data = None
     __sqlstatement = None
-    __table = None
-    __dsn = None
     __command = None
-
-    @property
-    def path( self ):
-        if isinstance( self.__path, str ):
-            return self.__path
-
-    @path.setter
-    def path( self, value ):
-        if isinstance( value, str ):
-            self.__path = value
-
-    @property
-    def driver( self ):
-        if isinstance( self.__driver, str ):
-            return self.__driver
-
-    @driver.setter
-    def driver( self, value ):
-        if isinstance( value, str ):
-            self.__driver = value
+    __source = None
+    __provider = None
+    __path = None
+    __connectionstring = None
 
     @property
     def source( self ):
@@ -617,24 +546,46 @@ class SQLiteQuery( ):
             self.__source = value
 
     @property
-    def connectionstring( self ):
-        if isinstance( self.__connectionstring, str ):
-            return self.__connectionstring
+    def provider( self ):
+        if self.__provider is not None:
+            return self.__provider
 
-    @connectionstring.setter
-    def connectionstring( self, value ):
-        if isinstance( value, str ):
-            self.__connectionstring = str( value )
+    @provider.setter
+    def provider( self, value ):
+        if isinstance( value, Provider ):
+            self.__provider = value
+        else:
+            self.__provider = Database( 'SQLite' )
 
     @property
-    def data( self ):
-        if isinstance( self.__data, ntuple ):
-            return self.__data
+    def path( self ):
+        if isinstance( self.__path, str ):
+            return self.__path
 
-    @data.setter
-    def data( self, value ):
-        if isinstance( value, ntuple ):
-            self.__data = value
+    @path.setter
+    def path( self, value ):
+        if isinstance( value, str ):
+            self.__path = value
+
+    @property
+    def connection( self ):
+        if isinstance( self.__connection, DataConnection ):
+            return self.__connection
+
+    @connection.setter
+    def connection( self, value ):
+        if isinstance( value, DataConnection ):
+            self.__connection = value
+
+    @property
+    def sqlstatement( self ):
+        if isinstance( self.__sqlstatement, SqlStatement ):
+            return self.__sqlstatement
+
+    @sqlstatement.setter
+    def sqlstatement( self, value ):
+        if isinstance( value, SqlStatement ):
+            self.__sqlstatement = value
 
     @property
     def command( self ):
@@ -649,76 +600,6 @@ class SQLiteQuery( ):
         if isinstance( value, SQL ):
             self.__command = value
 
-    def __init__( self, connection, sqlstatement ):
-        self.__connection = connection if isinstance( connection, DataConnection ) else None
-        self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__table = sqlstatement.source.name
-        self.__path = connection.path
-        self.__driver = connection.driver
-        self.__command = sqlstatement.command
-        self.__connectionstring = self.__path
-
-    def __str__( self ):
-        if self.__path is not None:
-            return self.__path
-
-    def getdata( self ):
-        path = self.__connectionstring
-        query = self.__sqlstatement.getcommandtext( )
-        conn = sl.connect( path )
-        cursor = conn.execute(  query )
-        data = [ tuple( i ) for i in cursor.fetchall( ) ]
-        return data
-
-
-# AccessQuery( connection, sqlstatement )
-class AccessQuery( ):
-    '''AccessQuery( value, sqlconfig ) class
-      represents the budget execution
-      values model classes in the MS Access database'''
-    __provider = None
-    __path = None
-    __connection = None
-    __sqlstatement = None
-    __query = None
-    __driver = None
-    __dsn = None
-    __connectionstring = None
-    __data = None
-    __source = None
-    __table = None
-    __command = None
-
-    @property
-    def path( self ):
-        if isinstance( self.__path, str ):
-            return self.__path
-
-    @path.setter
-    def path( self, value ):
-        if isinstance( value, str ):
-            self.__path = value
-
-    @property
-    def source( self ):
-        if isinstance( self.__source, Source ):
-            return self.__source
-
-    @source.setter
-    def source( self, value ):
-        if isinstance( value, Source ):
-            self.__source = value
-
-    @property
-    def provider( self ):
-        if isinstance( self.__provider, Provider ):
-            return self.__provider
-
-    @provider.setter
-    def provider( self, value ):
-        if isinstance( value, Provider ):
-            self.__provider = value
-
     @property
     def connectionstring( self ):
         if isinstance( self.__connectionstring, str ):
@@ -727,17 +608,105 @@ class AccessQuery( ):
     @connectionstring.setter
     def connectionstring( self, value ):
         if isinstance( value, str ):
-            self.__connectionstring = value
+            self.__connectionstring = str( value )
+
+    def __init__( self, connection, sqlstatement ):
+        self.__connection = connection if isinstance( connection, DataConnection ) else None
+        self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
+        self.__source = sqlstatement.source
+        self.__provider = connection.provider
+        self.__command = sqlstatement.command
+        self.__path = connection.path
+        self.__connectionstring = connection.connectionstring
+
+
+# SQLiteQuery( connection, sqlstatement )
+class SQLiteQuery( Badger ):
+    '''SQLiteQuery( value, sqlconfig ) represents
+     the budget execution values classes'''
+    __driver = None
+    __data = None
+    __table = None
+    __dsn = None
+    __query = None
 
     @property
-    def connection( self ):
-        if isinstance( self.__connection, Connection ):
-            return self.__connection
+    def driver( self ):
+        if isinstance( self.__driver, str ):
+            return self.__driver
 
-    @connection.setter
-    def connection( self, value ):
-        if isinstance( value, DataConnection ):
-            self.__connection = value
+    @driver.setter
+    def driver( self, value ):
+        if isinstance( value, str ):
+            self.__driver = value
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, ntuple ):
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, ntuple ):
+            self.__data = value
+
+    @property
+    def query( self ):
+        if isinstance( self.__query, str ) and self.__query != '':
+            return self.__query
+
+    @query.setter
+    def query( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__query = value
+
+    def __init__( self, connection, sqlstatement ):
+        Super( ).__init__( connection, sqlstatement)
+        self.__connection = Badger( ).connection
+        self.__sqlstatement = Badger( ).sqlstatement
+        self.__source = Badger( ).source
+        self.__provider = Badger( ).provider
+        self.__command = Badger( ).command
+        self.__path = Badger( ).path
+        self.__connectionstring = Badger( ).connectionstring
+        self.__table = sqlstatement.source.name
+        self.__driver = connection.driver
+        self.__query = sqlstatement.getcommandtext()
+
+    def __str__( self ):
+        if self.__path is not None:
+            return self.__path
+
+    def getdata( self ):
+        src = self.__source
+        pro = self.__provider
+        sql = self.__sqlstatement
+        n = sql.names
+        v = sql.values
+        db = DataConfig( src, pro )
+        cmd = SqlConfig( names = n, values = v )
+        dcnx = DataConnection( db )
+        sql = SqlStatement( db, cmd )
+        sqlite = dcnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
+        return self.__data
+
+
+# AccessQuery( connection, sqlstatement )
+class AccessQuery( Badger ):
+    '''AccessQuery( value, sqlconfig ) class
+      represents the budget execution
+      values model classes in the MS Access database'''
+    __query = None
+    __driver = None
+    __dsn = None
+    __data = None
+    __table = None
 
     @property
     def data( self ):
@@ -760,16 +729,6 @@ class AccessQuery( ):
             self.__driver = value
 
     @property
-    def command( self ):
-        if isinstance( self.__command, SQL ):
-            return self.__command
-
-    @command.setter
-    def command( self, value ):
-        if isinstance( value, SQL ):
-            self.__command = value
-
-    @property
     def query( self ):
         if isinstance( self.__query, str ) and self.__query != '':
             return self.__query
@@ -780,15 +739,17 @@ class AccessQuery( ):
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
-        self.__connection = connection if isinstance( connection, DataConnection ) else None
-        self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
+        Super( ).__init__( connection, sqlstatement)
+        self.__connection = Badger( ).connection
+        self.__sqlstatement = Badger( ).sqlstatement
+        self.__source = Badger( ).source
+        self.__provider = Badger( ).provider
+        self.__command = Badger( ).command
+        self.__path = Badger( ).path
+        self.__connectionstring = Badger( ).connectionstring
         self.__query = sqlstatement.getcommandtext( )
-        self.__source = sqlstatement.source
         self.__table = sqlstatement.source.name
         self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
-        self.__connectionstring = connection.connectionstring
-        self.__path = connection.path
-        self.__command = sqlstatement.command
         self.__data = [ ]
 
     def __str__( self ):
@@ -796,52 +757,37 @@ class AccessQuery( ):
             return self.__source.name
 
     def getdata( self ):
-        pdr = Provider.Access
         src = self.__source
+        pro = self.__provider
         sql = self.__sqlstatement
-        names = self.__sqlstatment.names
-        values = self.__sqlstatment.values
-        cmd = SqlConfig( command = SQL.SELECTALL,
-            names = names, values = values )
-        db = DataConfig( src, pdr )
-        cnx = DataConnection( db )
-        sqlite = cnx.connect( )
-        cur = sqlite.cursor( )
+        n = sql.names
+        v = sql.values
+        db = DataConfig( src, pro )
+        cmd = SqlConfig( names = n, values = v )
+        dcnx = DataConnection( db )
+        sql = SqlStatement( db, cmd )
+        sqlite = dcnx.connect( )
+        cursor = sqlite.cursor( )
         query = sql.getcommandtext( )
-        data = cur.execute( query )
-        cur.close( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
         sqlite.close( )
-        data = [ i for i in data.fetchall( ) ]
+        return self.__data
+
 
 
 # SqlServerQuery( connection, sqlstatement )
-class SqlServerQuery( ):
+class SqlServerQuery( Badger ):
     '''SqlServerQuery( value, sqlconfig ) object
     represents the values models in the MS SQL Server
     database'''
-    __connection = None
-    __sqlstatment = None
     __query = None
     __server = None
     __driver = None
     __dsn = None
-    __source = None
     __table = None
-    __path = None
     __data = None
-    __recordset = None
-    __connectionstring = None
-    __command = None
-
-    @property
-    def path( self ):
-        if isinstance( self.__path, str ):
-            return  self.__path
-
-    @path.setter
-    def path( self, value ):
-        if isinstance( value, str ):
-            self.__path = value
 
     @property
     def server( self ):
@@ -864,36 +810,6 @@ class SqlServerQuery( ):
             self.__driver = value
 
     @property
-    def source( self ):
-        if isinstance( self.__source, Source ):
-            return self.__source
-
-    @source.setter
-    def source( self, value ):
-        if isinstance( value, Source ):
-            self.__source = value
-
-    @property
-    def connectionstring( self ):
-        if isinstance( self.__connectionstring, str ):
-            return self.__connectionstring
-
-    @connectionstring.setter
-    def connectionstring( self, value ):
-        if isinstance( value, str ):
-            self.__connectionstring = value
-
-    @property
-    def connection( self ):
-        if isinstance( self.__connection, Connection ):
-            return self.__connection
-
-    @connection.setter
-    def connection( self, value ):
-        if isinstance( value, DataConnection ):
-            self.__connection = value
-
-    @property
     def data( self ):
         if isinstance( self.__data, ntuple ):
             return self.__data
@@ -902,16 +818,6 @@ class SqlServerQuery( ):
     def data( self, value ):
         if isinstance( value, ntuple ):
             self.__data = value
-
-    @property
-    def command( self ):
-        if isinstance( self.__command, SQL ):
-            return self.__command
-
-    @command.setter
-    def command( self, value ):
-        if isinstance( value, SQL ):
-            self.__command = value
 
     @property
     def query( self ):
@@ -924,37 +830,42 @@ class SqlServerQuery( ):
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
-        self.__connection = connection if isinstance( connection, DataConnection ) else None
-        self.__sqlstatment = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
+        Super( ).__init__( connection, sqlstatement)
+        self.__connection = Badger( ).connection
+        self.__sqlstatement = Badger( ).sqlstatement
+        self.__source = Badger( ).source
+        self.__provider = Badger( ).provider
+        self.__command = Badger( ).command
+        self.__path = Badger( ).path
+        self.__connectionstring = Badger( ).connectionstring
         self.__query = sqlstatement.getcommandtext()
-        self.__source = self.__sqlstatment.source
         self.__table = self.__source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{SQL Server Native Client 11.0};'
-        self.__command = self.__sqlstatment.command
-        self.__path = self.__connection.path
 
     def __str__( self ):
         if isinstance( self.__source, DataConfig ):
             return self.__source.name
 
     def getdata( self ):
-        n = self.__sqlstatment.names
-        v = self.__sqlstatment.values
-        c = SQL.SELECTALL
-        cmd = SqlConfig( command = c, names = n, values = v )
         src = self.__source
-        pdr = Provider.SqlServer
-        db = DataConfig( src, pdr )
+        pro = self.__provider
+        sql = self.__sqlstatement
+        n = sql.names
+        v = sql.values
+        db = DataConfig( src, pro )
+        cmd = SqlConfig( names = n, values = v )
+        dcnx = DataConnection( db )
         sql = SqlStatement( db, cmd )
-        cnx = DataConnection( db )
-        sqlite = cnx.connect( )
-        cur = sqlite.cursor( )
+        sqlite = dcnx.connect( )
+        cursor = sqlite.cursor( )
         query = sql.getcommandtext( )
-        data = cur.execute( query )
-        cur.close( )
-        cnx.close( )
-        return [ i for i in data.fetchall( ) ]
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
+        return self.__data
+
 
 
 # QueryBuilder( source, provider, command,  names, values )
@@ -1230,7 +1141,7 @@ class DataSchema( ):
     DataColumn class.  Contructor uses opetional
     arguments ( name: str, datatype: type, source: Source )'''
     __name = None
-    __dtype = None
+    __coltype = None
     __source = None
     __ordinal = None
 
@@ -1246,22 +1157,22 @@ class DataSchema( ):
 
     @property
     def datatype( self ):
-        if isinstance( self.__type, type ):
+        if isinstance( self.__type, object ):
             return self.__type
 
     @datatype.setter
     def datatype( self, value ):
-        if isinstance( value, type ):
-            self.__type = type
+        if isinstance( value, object ):
+            self.__type = value
 
     @property
     def source( self ):
-        if isinstance( self.__source, DataSource ):
+        if isinstance( self.__source, Source ):
             return self.__source
 
     @source.setter
     def source( self, value ):
-        if isinstance( value, DataSource ):
+        if isinstance( value, Source ):
             self.__source = value
 
     @property
@@ -1276,7 +1187,7 @@ class DataSchema( ):
 
     def __init__( self, name = '', datatype = None ):
         self.__name = name if isinstance( name, str ) and name != '' else November
-        self.__dtype = datatype if isinstance( datatype, type ) else None
+        self.__coltype = datatype if isinstance( datatype, object ) else None
 
 
 # DataColumn( name, datatype, value, series  )
@@ -1403,7 +1314,8 @@ class DataColumn(  ):
         if isinstance( self.__value, str ):
             return True
 
-    def __init__( self, name = None, datatype = None, value = None, series = None ):
+    def __init__( self, name = None, datatype = None,
+                  value = None, series = None ):
         self.__name = name if isinstance( name, str ) and name != '' else None
         self.__label = self.__name
         self.__type = datatype if isinstance( datatype, type ) else None
@@ -1618,6 +1530,7 @@ class BudgetData( ):
     __connection = None
     __sql = None
     __data = None
+    __frame = None
     __columns = None
     __index = None
 
@@ -1643,13 +1556,13 @@ class BudgetData( ):
 
     @property
     def data( self ):
-        if isinstance( self.__rows, list( tuple ) ):
-            return self.__rows
+        if isinstance( self.__data, list( tuple ) ):
+            return self.__data
 
     @data.setter
     def data( self, value ):
         if isinstance( value, list( tuple ) ):
-            self.__rows = value
+            self.__data = value
 
     @property
     def query( self ):
@@ -1681,6 +1594,16 @@ class BudgetData( ):
         if isinstance( value, pd.DataFrame.index ):
             self.__index = value
 
+    @property
+    def frame( self ):
+        if isinstance( self.__data, list( tuple ) ):
+            return self.__data
+
+    @frame.setter
+    def frame( self, value ):
+        if isinstance( value, pd.DataFrame ):
+            self.__frame = value
+
     def __init__( self, src ):
         self.__source = src if isinstance( src, Source ) else None
         self.__name = src.name if isinstance( src, Source ) else None
@@ -1688,6 +1611,10 @@ class BudgetData( ):
         self.__sql = f'SELECT * FROM { self.__name };'
 
     def getframe( self ):
-        if os.path.exists( self.__path ):
-            conn = sl.connect( self.__path )
-            data = [ tuple( i ) for i in sqlite.read_sql( self.__sql, conn ) ]
+        path = self.__path
+        src = self.__source
+        table = src.name
+        conn = sl.connect( path )
+        sql = f'SELECT * FROM { table };'
+        cursor = conn.execute( sql )
+        data = [ tuple( i ) for i in cursor.fetchall() ]
