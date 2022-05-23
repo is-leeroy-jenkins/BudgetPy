@@ -661,14 +661,7 @@ class SQLiteQuery( Badger ):
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement)
-        self.__connection = Badger( ).connection
-        self.__sqlstatement = Badger( ).sqlstatement
-        self.__source = Badger( ).source
-        self.__provider = Badger( ).provider
-        self.__command = Badger( ).command
-        self.__path = Badger( ).path
-        self.__connectionstring = Badger( ).connectionstring
-        self.__table = sqlstatement.source.name
+        self.__table = connection.source.name
         self.__driver = connection.driver
         self.__query = sqlstatement.getcommandtext()
 
@@ -739,15 +732,8 @@ class AccessQuery( Badger ):
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement)
-        self.__connection = Badger( ).connection
-        self.__sqlstatement = Badger( ).sqlstatement
-        self.__source = Badger( ).source
-        self.__provider = Badger( ).provider
-        self.__command = Badger( ).command
-        self.__path = Badger( ).path
-        self.__connectionstring = Badger( ).connectionstring
         self.__query = sqlstatement.getcommandtext( )
-        self.__table = sqlstatement.source.name
+        self.__table = connection.source.name
         self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
         self.__data = [ ]
 
