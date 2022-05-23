@@ -670,9 +670,9 @@ class SQLiteQuery( Badger ):
             return self.__path
 
     def getdata( self ):
-        src = self.__source
-        pro = self.__provider
-        sql = self.__sqlstatement
+        src = super( ).source
+        pro = super( ).provider
+        sql = super( ).sqlstatement
         n = sql.names
         v = sql.values
         db = DataConfig( src, pro )
@@ -742,9 +742,9 @@ class AccessQuery( Badger ):
             return self.__source.name
 
     def getdata( self ):
-        src = self.__source
-        pro = self.__provider
-        sql = self.__sqlstatement
+        src = super().source
+        pro = super().provider
+        sql = super().sqlstatement
         n = sql.names
         v = sql.values
         db = DataConfig( src, pro )
@@ -816,15 +816,8 @@ class SqlServerQuery( Badger ):
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement)
-        self.__connection = Badger( ).connection
-        self.__sqlstatement = Badger( ).sqlstatement
-        self.__source = Badger( ).source
-        self.__provider = Badger( ).provider
-        self.__command = Badger( ).command
-        self.__path = Badger( ).path
-        self.__connectionstring = Badger( ).connectionstring
         self.__query = sqlstatement.getcommandtext()
-        self.__table = self.__source.name
+        self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{SQL Server Native Client 11.0};'
 
@@ -833,9 +826,9 @@ class SqlServerQuery( Badger ):
             return self.__source.name
 
     def getdata( self ):
-        src = self.__source
-        pro = self.__provider
-        sql = self.__sqlstatement
+        src = super( ).source
+        pro = super( ).provider
+        sql = super( ).sqlstatement
         n = sql.names
         v = sql.values
         db = DataConfig( src, pro )
