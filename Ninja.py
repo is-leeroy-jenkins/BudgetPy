@@ -1,6 +1,7 @@
 import sqlite3 as sl
 import pandas
 from pandas import DataFrame, Index, MultiIndex, Series
+from pandas import read_sql as sqlreader
 import pyodbc as db
 import os
 from collections import namedtuple as ntuple
@@ -624,10 +625,11 @@ class SQLiteQuery( Badger ):
     '''SQLiteQuery( value, sqlconfig ) represents
      the budget execution values classes'''
     __driver = None
-    __data = None
     __table = None
     __dsn = None
     __query = None
+    __data = None
+    __frame = None
 
     @property
     def driver( self ):
@@ -648,6 +650,16 @@ class SQLiteQuery( Badger ):
     def data( self, value ):
         if isinstance( value, ntuple ):
             self.__data = value
+
+    @property
+    def frame( self ):
+        if isinstance( self.__frame, DataFrame ):
+            return self.__frame
+
+    @data.setter
+    def frame( self, value ):
+        if isinstance( value, DataFrame ):
+            self.__frame = value
 
     @property
     def query( self ):
@@ -688,6 +700,16 @@ class SQLiteQuery( Badger ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        src = super( ).source
+        pro = super( ).provider
+        query = f'SELECT * FROM { src.name }'
+        db = DataConfig( src, pro )
+        dcnx = DataConnection( db )
+        sqlite = dcnx.connect( )
+        self.__frame = sqlreader( query, sqlite )
+        sqlite.close( )
+        return self.__frame
 
 # AccessQuery( connection, sqlstatement )
 class AccessQuery( Badger ):
@@ -760,6 +782,16 @@ class AccessQuery( Badger ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        src = super( ).source
+        pro = super( ).provider
+        query = f'SELECT * FROM { src.name }'
+        db = DataConfig( src, pro )
+        dcnx = DataConnection( db )
+        access = dcnx.connect( )
+        self.__frame = sqlreader( query, access )
+        access.close( )
+        return self.__frame
 
 
 # SqlServerQuery( connection, sqlstatement )
@@ -845,7 +877,6 @@ class SqlServerQuery( Badger ):
         return self.__data
 
 
-
 # QueryBuilder( source, provider, command,  names, values )
 class QueryBuilder( ):
     '''QueryBuilder class generates queries used as the input arguement
@@ -899,8 +930,6 @@ class QueryBuilder( ):
         '''Sets the provider'''
         if isinstance( value, Provider ):
             self.__provider = value
-        else:
-            self.__provider = Provider.SQLite
 
     @property
     def command( self ):
@@ -919,15 +948,13 @@ class QueryBuilder( ):
 
     @property
     def source( self ):
-        if self.__source is not None:
+        if isinstance( self.__source, Source ):
             return self.__source
 
     @source.setter
     def source( self, value ):
-        if isinstance( value, DataConfig ):
+        if isinstance( value, Source ):
             self.__source = value
-        else:
-            self.__source = DataConfig( 'StatusOfFunds' )
 
     @property
     def dataconfiguration( self ):
@@ -1574,12 +1601,12 @@ class BudgetData( ):
 
     @property
     def frame( self ):
-        if isinstance( self.__data, list( tuple ) ):
+        if isinstance( self.__data, DataFrame ):
             return self.__data
 
     @frame.setter
     def frame( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, src ):
@@ -1594,5 +1621,5 @@ class BudgetData( ):
         table = src.name
         conn = sl.connect( path )
         sql = f'SELECT * FROM { table };'
-        cursor = conn.execute( sql )
-        data = [ tuple( i ) for i in cursor.fetchall() ]
+        frame = sqlreader( sql, conn )
+        return frame
