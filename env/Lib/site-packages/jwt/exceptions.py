@@ -51,7 +51,7 @@ class MissingRequiredClaimError(InvalidTokenError):
         self.claim = claim
 
     def __str__(self):
-        return f'Token is missing the "{self.claim}" claim'
+        return 'Token is missing the "%s" claim' % self.claim
 
 
 class PyJWKError(PyJWTError):
