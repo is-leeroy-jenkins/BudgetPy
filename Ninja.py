@@ -660,7 +660,7 @@ class SQLiteQuery( Badger ):
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
-        Super( ).__init__( connection, sqlstatement)
+        super( ).__init__( connection, sqlstatement)
         self.__connection = Badger( ).connection
         self.__sqlstatement = Badger( ).sqlstatement
         self.__source = Badger( ).source
@@ -738,7 +738,7 @@ class AccessQuery( Badger ):
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
-        Super( ).__init__( connection, sqlstatement)
+        super( ).__init__( connection, sqlstatement)
         self.__connection = Badger( ).connection
         self.__sqlstatement = Badger( ).sqlstatement
         self.__source = Badger( ).source
@@ -829,7 +829,7 @@ class SqlServerQuery( Badger ):
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
-        Super( ).__init__( connection, sqlstatement)
+        super( ).__init__( connection, sqlstatement)
         self.__connection = Badger( ).connection
         self.__sqlstatement = Badger( ).sqlstatement
         self.__source = Badger( ).source
