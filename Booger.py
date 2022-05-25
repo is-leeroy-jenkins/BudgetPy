@@ -346,7 +346,7 @@ class FileDialog( Sith ):
             self.__filepath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -430,7 +430,7 @@ class FolderDialog( Sith ):
             self.__folderpath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -518,7 +518,7 @@ class SaveFileDialog( Sith ):
             self_original = value
 
     def __init__( self, path = None ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -606,7 +606,7 @@ class GoogleDialog( Sith ):
             self.__results = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -793,7 +793,7 @@ class MessageDialog( Sith ):
 
     def __init__( self, text ):
         self.__text = text if isinstance( text, str ) and text != '' else None
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -873,7 +873,7 @@ class ErrorDialog( Sith ):
             self.__message = value
 
     def __init__( self, exception = None ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__exception = exception if isinstance( exception, Error ) else None
         self.__message = self.__exception.message if isinstance( exception, Error ) else None
@@ -965,7 +965,7 @@ class InputDialog( Sith ):
             self.__response= value
 
     def __init__( self, question ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__question = question if isinstance( question, str ) and question != '' else None
         self.__themefont = Sith( ).themefont
@@ -1043,7 +1043,7 @@ class ScrollingDialog( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1111,7 +1111,7 @@ class ContactForm( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1215,7 +1215,7 @@ class GridForm( Sith ):
             self.__columns = value
 
     def __init__( self, rows = 10, columns = 4 ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1279,7 +1279,7 @@ class LoadingPanel( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1347,7 +1347,7 @@ class WaitingPanel( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1417,7 +1417,7 @@ class ProcessingPanel( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( ).__init__()
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1486,7 +1486,7 @@ class SplashPanel( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1574,7 +1574,7 @@ class Notification( Sith ):
 
 
     def __init__( self, message ):
-        super( Sith, self ).__init__()
+        super( ).__init__()
         self.__themefont = Sith( ).themefont
         self.__themebackground = Sith( ).themebackground
         self.__icon = Sith( ).iconpath
@@ -1622,7 +1622,7 @@ class PdfForm( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( ).__init__()
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1782,7 +1782,7 @@ class CalendarDialog( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( ).__init__()
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -1838,7 +1838,7 @@ class DatePanel( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( ).__init__()
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -2078,7 +2078,7 @@ class ComboBoxDialog( Sith ):
             self.__entry = value
 
     def __init__( self, data = None):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -2167,7 +2167,7 @@ class ListBoxDialog( Sith ):
 
     def __init__( self, data = None ):
         self.__items = data if isinstance( data, list ) else [ ]
-        super( Sith, self ).__init__()
+        super( ).__init__()
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -2290,7 +2290,7 @@ class ColorDialog( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( ).__init__()
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -3081,7 +3081,7 @@ class BudgetForm( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -3206,7 +3206,7 @@ class ChartPanel( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__()
+        super( ).__init__()
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -3297,7 +3297,7 @@ class CsvForm( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath

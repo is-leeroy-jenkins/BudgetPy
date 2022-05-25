@@ -8,14 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BudgetPy.code-workspace" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/budget.code-workspace" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/budget.code-workspace" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/default_notebook.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/budget.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/budget.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,13 +165,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00146" summary="updates from main rig;">
-      <created>1653139459226</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1653139459226</updated>
     </task>
     <task id="LOCAL-00147" summary="updates from main rig;">
       <created>1653140834624</created>
@@ -515,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653342627543</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="updates from main rig;">
+      <created>1653498805788</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1653498805789</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
