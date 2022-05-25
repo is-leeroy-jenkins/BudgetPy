@@ -694,7 +694,7 @@ class EmailDialog( Sith ):
             self.__folderpath = value
 
     def __init__( self ):
-        super( Sith, self ).__init__( )
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -717,8 +717,8 @@ class EmailDialog( Sith ):
         btn = ( 20, 1 )
         inp = ( 35, 1 )
         spc = ( 5, 1 )
+        img = ( 50, 22 )
         layout = [ [ sg.T( ' ', size = spc ), ],
-           [ sg.T( ' ', size = spc ), sg.Image( filename = self.__image, size = ( 35, 16 ) ) ],
            [ sg.T( ' ', size = spc ), ],
            [ sg.T( ' ', size = spc ), sg.T( 'From:', size = btn ), sg.Input( key = '-EMAIL FROM-', size = ( 35,1 ) ) ],
            [ sg.T( ' ', size = spc ), sg.T( 'To:', size = btn ),  sg.Input(key = '-EMAIL TO-', size = ( 35,1 ) ) ],

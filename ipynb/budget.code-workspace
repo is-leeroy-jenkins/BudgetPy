@@ -6,7 +6,7 @@
 	],
 	"settings": {
 		"git.ignoreLimitWarning": true,
-		"python.pythonPath": "C:\\Users\\terry\\source\\compilers\\py\\python\\python.exe",
+		"python.pythonPath": "C:\\Users\\terry\\source\\repos\\BudgetPy\\env\\python.exe",
 		"cSpell.words": [
 			"Roboto",
 			"monospace"

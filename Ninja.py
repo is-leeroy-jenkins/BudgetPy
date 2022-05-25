@@ -524,6 +524,7 @@ class SqlStatement( ):
             elif self.__command == 'DELETE':
                 self.__commandtext = f'DELETE FROM { self.__table };'
 
+
 # Badger( connection, sqlstatement )
 class Badger( ):
     '''Base class for database interaction'''
@@ -710,6 +711,7 @@ class SQLiteQuery( Badger ):
         self.__frame = sqlreader( query, sqlite )
         sqlite.close( )
         return self.__frame
+
 
 # AccessQuery( connection, sqlstatement )
 class AccessQuery( Badger ):
