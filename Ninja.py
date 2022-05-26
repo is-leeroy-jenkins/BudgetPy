@@ -1357,9 +1357,9 @@ class DataColumn(  ):
         dcnx = DataConnection( db )
         sqlite = dcnx.connect( )
         self.__frame = sqlreader( query, sqlite )
+        frame = DataFrame( self.__frame )
         sqlite.close( )
-        return self.__frame
-
+        return frame
 
 
 # DataRow( names, values, source )
