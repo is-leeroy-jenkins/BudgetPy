@@ -1203,17 +1203,16 @@ class DataColumn(  ):
     Constructor uses optional arguments ( name: str, datatype: type,
      value: object, series: DataSeries )'''
     __series = None
-    __source = None
     __row = None
     __name = None
     __value = None
     __label = None
-    __index = None
+    __id = None
     __type = None
     __caption = None
     __id = None
     __table = None
-    __data = None
+    __frame = None
 
     @property
     def name( self ):
@@ -1267,13 +1266,13 @@ class DataColumn(  ):
 
     @property
     def id( self ):
-        if isinstance( self.__index, int ):
-            return self.__index
+        if isinstance( self.__id, int ):
+            return self.__id
 
     @id.setter
     def id( self, value ):
         if isinstance( value, int ):
-            self.__index = value
+            self.__id = value
 
     @property
     def table( self ):
@@ -1297,32 +1296,32 @@ class DataColumn(  ):
             self.__row = self.__series
 
     @property
-    def source( self ):
-        if isinstance( self.__source, DataSource ):
-            return self.__source
+    def frame( self ):
+        if isinstance( self.__frame, DataFrame ):
+            return self.__frame
 
-    @source.setter
-    def source( self, value ):
-        if isinstance( value, DataSource ):
-            self.__source = value
+    @data.setter
+    def frame( self, value ):
+        if isinstance( value, DataFrame ):
+            self.__frame = value
 
     def __init__( self, name = None, datatype = None,
-                  value = None, series = None ):
+                  value = None, series = None, source = None ):
         self.__name = name if isinstance( name, str ) and name != '' else None
-        self.__label = self.__name
+        self.__label = name
+        self.__caption = name
         self.__type = datatype if isinstance( datatype, type ) else None
-        self.__value = value if isinstance( value, object ) and value is not None else None
+        self.__value = value if isinstance( value, object ) else None
         self.__series = series if isinstance( series, pd.Series ) else None
-        self.__index = series.index.get_loc( self.__name )
-        self.__ordinal = self.__index
+        self.__id = series.index.get_loc( name )
+        self.__ordinal = self.__id
+        self.__source = source if isinstance( source, Source ) else None
+        self.__table = source.name if isinstance( source, Source ) else None
+        self.__frame = None
 
     def __str__( self ):
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
-
-    def data( self ):
-        if isinstance( self.__series, DataFrame ):
-            return self.__data
 
     def isnumeric( self ):
         if not isinstance( self.__value, str ):
@@ -1335,6 +1334,32 @@ class DataColumn(  ):
             return True
         else:
             return False
+
+    def getdata( self ):
+        src = self.__source
+        name = self.__name
+        pro = Provider.SQLite
+        query = f'SELECT * FROM { src.name }'
+        db = DataConfig( src, pro )
+        dcnx = DataConnection( db )
+        sqlite = dcnx.connect( )
+        self.__frame = sqlreader( query, sqlite )
+        data = [ i for i in self.__frame ]
+        sqlite.close( )
+        return data
+
+    def getframe( self ):
+        src = self.__source
+        name = self.__name
+        pro = Provider.SQLite
+        query = f'SELECT * FROM { src.name }'
+        db = DataConfig( src, pro )
+        dcnx = DataConnection( db )
+        sqlite = dcnx.connect( )
+        self.__frame = sqlreader( query, sqlite )
+        sqlite.close( )
+        return self.__frame
+
 
 
 # DataRow( names, values, source )
