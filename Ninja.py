@@ -1528,7 +1528,7 @@ class DataTable( ):
             return self.__name
 
 
-# BudgetData( src, data, columns, index )
+# BudgetData( src )
 class BudgetData( ):
     '''Class representing pandas DataFrame'''
     __source = None
@@ -1614,8 +1614,8 @@ class BudgetData( ):
     def __init__( self, src ):
         self.__source = src if isinstance( src, Source ) else None
         self.__name = src.name if isinstance( src, Source ) else None
-        self.__path = DataConfig( self.__source, Provider.SQLite ).getpath( )
-        self.__sql = f'SELECT * FROM { self.__name };'
+        self.__path = DataConfig( src, Provider.SQLite ).getpath( )
+        self.__sql = f'SELECT * FROM { src.name };'
 
     def getframe( self ):
         path = self.__path

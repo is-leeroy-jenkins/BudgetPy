@@ -3,11 +3,10 @@
 # Copyright (C) PyZMQ Developers
 # Distributed under the terms of the Modified BSD License.
 
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple
 
-import zmq
 from zmq.backend import zmq_poll
-from .constants import POLLIN, POLLOUT, POLLERR
+from zmq.constants import POLLERR, POLLIN, POLLOUT
 
 # -----------------------------------------------------------------------------
 # Polling related methods
@@ -20,14 +19,14 @@ class Poller:
     sockets: List[Tuple[Any, int]]
     _map: Dict
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.sockets = []
         self._map = {}
 
-    def __contains__(self, socket):
+    def __contains__(self, socket: Any) -> bool:
         return socket in self._map
 
-    def register(self, socket, flags: int = POLLIN | POLLOUT):
+    def register(self, socket: Any, flags: int = POLLIN | POLLOUT):
         """p.register(socket, flags=POLLIN|POLLOUT)
 
         Register a 0MQ socket or native fd for I/O monitoring.
@@ -62,7 +61,7 @@ class Poller:
         """Modify the flags for an already registered 0MQ socket or native fd."""
         self.register(socket, flags)
 
-    def unregister(self, socket):
+    def unregister(self, socket: Any):
         """Remove a 0MQ socket or native fd for I/O monitoring.
 
         Parameters
@@ -76,7 +75,7 @@ class Poller:
         for socket, flags in self.sockets[idx:]:
             self._map[socket] -= 1
 
-    def poll(self, timeout: Optional[int] = None):
+    def poll(self, timeout: Optional[int] = None) -> List[Tuple[Any, int]]:
         """Poll the registered 0MQ or native fds for I/O.
 
         If there are currently events ready to be processed, this function will return immediately.
@@ -85,7 +84,7 @@ class Poller:
 
         Parameters
         ----------
-        timeout : float, int
+        timeout : int
             The timeout in milliseconds. If None, no `timeout` (infinite). This
             is in milliseconds to be compatible with ``select.poll()``.
 
@@ -105,7 +104,7 @@ class Poller:
         return zmq_poll(self.sockets, timeout=timeout)
 
 
-def select(rlist: List, wlist: List, xlist: List, timeout: Optional[int] = None):
+def select(rlist: List, wlist: List, xlist: List, timeout: Optional[float] = None):
     """select(rlist, wlist, xlist, timeout=None) -> (rlist, wlist, xlist)
 
     Return the result of poll as a lists of sockets ready for r/w/exception.
@@ -131,7 +130,7 @@ def select(rlist: List, wlist: List, xlist: List, timeout: Optional[int] = None)
     """
     if timeout is None:
         timeout = -1
-    # Convert from sec -> us for zmq_poll.
+    # Convert from sec -> ms for zmq_poll.
     # zmq_poll accepts 3.x style timeout in ms
     timeout = int(timeout * 1000.0)
     if timeout < 0:

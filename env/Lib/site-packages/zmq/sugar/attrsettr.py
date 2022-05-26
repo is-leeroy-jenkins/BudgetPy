@@ -1,23 +1,27 @@
-# coding: utf-8
 """Mixin for mapping set/getattr to self.set/get"""
 
 # Copyright (C) PyZMQ Developers
 # Distributed under the terms of the Modified BSD License.
 
 import errno
-from . import constants
+from typing import TypeVar, Union
+
+from .. import constants
+
+T = TypeVar("T")
+OptValT = Union[str, bytes, int]
 
 
-class AttributeSetter(object):
-    def __setattr__(self, key, value):
+class AttributeSetter:
+    def __setattr__(self, key: str, value: OptValT) -> None:
         """set zmq options by attribute"""
 
         if key in self.__dict__:
             object.__setattr__(self, key, value)
             return
         # regular setattr only allowed for class-defined attributes
-        for obj in self.__class__.mro():
-            if key in obj.__dict__:
+        for cls in self.__class__.mro():
+            if key in cls.__dict__ or key in getattr(cls, "__annotations__", {}):
                 object.__setattr__(self, key, value)
                 return
 
@@ -26,24 +30,24 @@ class AttributeSetter(object):
             opt = getattr(constants, upper_key)
         except AttributeError:
             raise AttributeError(
-                "%s has no such option: %s" % (self.__class__.__name__, upper_key)
+                f"{self.__class__.__name__} has no such option: {upper_key}"
             )
         else:
             self._set_attr_opt(upper_key, opt, value)
 
-    def _set_attr_opt(self, name, opt, value):
+    def _set_attr_opt(self, name: str, opt: int, value: OptValT) -> None:
         """override if setattr should do something other than call self.set"""
         self.set(opt, value)
 
-    def __getattr__(self, key):
+    def __getattr__(self, key: str) -> OptValT:
         """get zmq options by attribute"""
         upper_key = key.upper()
         try:
             opt = getattr(constants, upper_key)
         except AttributeError:
             raise AttributeError(
-                "%s has no such option: %s" % (self.__class__.__name__, upper_key)
-            )
+                f"{self.__class__.__name__} has no such option: {upper_key}"
+            ) from None
         else:
             from zmq import ZMQError
 
@@ -54,13 +58,19 @@ class AttributeSetter(object):
                 # Turn that into an AttributeError
                 # necessary for mocking
                 if e.errno in {errno.EINVAL, errno.EFAULT}:
-                    raise AttributeError("{} attribute is write-only".format(key))
+                    raise AttributeError(f"{key} attribute is write-only")
                 else:
                     raise
 
-    def _get_attr_opt(self, name, opt):
+    def _get_attr_opt(self, name, opt) -> OptValT:
         """override if getattr should do something other than call self.get"""
         return self.get(opt)
+
+    def get(self, opt: int) -> OptValT:
+        pass
+
+    def set(self, opt: int, val: OptValT) -> None:
+        pass
 
 
 __all__ = ['AttributeSetter']

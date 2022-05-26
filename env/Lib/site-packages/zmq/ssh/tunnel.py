@@ -8,8 +8,6 @@ zeromq connections.
 # Redistributed from IPython under the terms of the BSD License.
 
 
-from __future__ import print_function
-
 import atexit
 import os
 import re
@@ -18,7 +16,6 @@ import socket
 import sys
 import warnings
 from getpass import getpass, getuser
-from typing import Type
 from multiprocessing import Process
 
 try:
@@ -33,7 +30,6 @@ except ImportError:
     class SSHException(Exception):  # type: ignore
         pass
 
-
 else:
     from .forward import forward_tunnel
 
@@ -41,8 +37,6 @@ try:
     import pexpect
 except ImportError:
     pexpect = None
-
-from ..utils.strtypes import b
 
 
 def select_random_ports(n):
@@ -62,7 +56,7 @@ def select_random_ports(n):
 # -----------------------------------------------------------------------------
 # Check for passwordless login
 # -----------------------------------------------------------------------------
-_password_pat = re.compile(b(r'pass(word|phrase):'), re.IGNORECASE)
+_password_pat = re.compile(rb'pass(word|phrase):', re.IGNORECASE)
 
 
 def try_passwordless_ssh(server, keyfile, paramiko=None):
@@ -249,7 +243,7 @@ def openssh_tunnel(
         server, port = server.split(':')
         ssh += " -p %s" % port
 
-    cmd = "%s -O check %s" % (ssh, server)
+    cmd = f"{ssh} -O check {server}"
     (output, exitstatus) = pexpect.run(cmd, withexitstatus=True)
     if not exitstatus:
         pid = int(output[output.find(b"(pid=") + 5 : output.find(b")")])

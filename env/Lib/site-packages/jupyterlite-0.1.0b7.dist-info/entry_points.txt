@@ -1,0 +1,17 @@
+[console_scripts]
+jupyter-lite=jupyterlite.app:main
+
+[jupyterlite.addon.v0]
+archive=jupyterlite.addons.archive:ArchiveAddon
+contents=jupyterlite.addons.contents:ContentsAddon
+federated_extensions=jupyterlite.addons.federated_extensions:FederatedExtensionAddon
+lite=jupyterlite.addons.lite:LiteAddon
+mathjax=jupyterlite.addons.mathjax:MathjaxAddon
+piplite=jupyterlite.addons.piplite:PipliteAddon
+pyodide=jupyterlite.addons.pyodide:PyodideAddon
+report=jupyterlite.addons.report:ReportAddon
+serve=jupyterlite.addons.serve:ServeAddon
+settings=jupyterlite.addons.settings:SettingsAddon
+static=jupyterlite.addons.static:StaticAddon
+translation=jupyterlite.addons.translation:TranslationAddon
+
