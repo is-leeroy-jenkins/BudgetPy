@@ -1237,13 +1237,13 @@ class DataColumn(  ):
 
     @property
     def datatype( self ):
-        if isinstance( self.__type, type ):
+        if isinstance( self.__type, object ):
             return self.__type
 
     @datatype.setter
     def datatype( self, value ):
-        if isinstance( value, type ):
-            self.__type = type
+        if isinstance( value, object ):
+            self.__type = value
 
     @property
     def caption( self ):
@@ -1266,13 +1266,13 @@ class DataColumn(  ):
             self.__id = value
 
     @property
-    def index( self ):
-        if isinstance( self.__index, int ) and self.__index > -1:
+    def id( self ):
+        if isinstance( self.__index, int ):
             return self.__index
 
-    @index.setter
-    def index( self, value ):
-        if isinstance( value, int ) and value > -1:
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
             self.__index = value
 
     @property
@@ -1306,21 +1306,6 @@ class DataColumn(  ):
         if isinstance( value, DataSource ):
             self.__source = value
 
-    @property
-    def data( self ):
-        if isinstance( self.__series, pd.Series ):
-            return self.__data
-
-    @property
-    def isnumeric( self ):
-        if not isinstance( self.__value, str ):
-            return True
-
-    @property
-    def istext( self ):
-        if isinstance( self.__value, str ):
-            return True
-
     def __init__( self, name = None, datatype = None,
                   value = None, series = None ):
         self.__name = name if isinstance( name, str ) and name != '' else None
@@ -1334,6 +1319,22 @@ class DataColumn(  ):
     def __str__( self ):
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
+
+    def data( self ):
+        if isinstance( self.__series, DataFrame ):
+            return self.__data
+
+    def isnumeric( self ):
+        if not isinstance( self.__value, str ):
+            return True
+        else:
+            return False
+
+    def istext( self ):
+        if isinstance( self.__value, str ):
+            return True
+        else:
+            return False
 
 
 # DataRow( names, values, source )
@@ -1593,12 +1594,12 @@ class BudgetData( ):
 
     @property
     def index( self ):
-        if isinstance( self.__index, pd.DataFrame.index ):
+        if isinstance( self.__index, pd.DataFrame.id ):
             return self.__index
 
     @index.setter
     def index( self, value ):
-        if isinstance( value, pd.DataFrame.index ):
+        if isinstance( value, pd.DataFrame.id ):
             self.__index = value
 
     @property
