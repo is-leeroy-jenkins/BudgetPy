@@ -38,17 +38,17 @@ class BudgetPath( ):
 
     @property
     def path( self ):
-        if isinstance( self.__path, str ):
+        if isinstance( self.__path, str ) and self.__path != '':
             return self.__path
 
     @path.setter
     def path( self, value ):
-        if os.path.exists( value ):
+        if isinstance( value, str ) and value != '':
             self.__path = value
 
     @property
     def drive( self ):
-        if  isinstance( self.__drive, str ):
+        if isinstance( self.__drive, str ) and self.__drive != '':
             return self.__drive
 
     @drive.setter
@@ -77,6 +77,71 @@ class BudgetPath( ):
         if os.path.exists( value ):
             os.chdir( value )
             self.__currdir = value
+
+    def __init__( self, filepath ):
+        self.__inpath = filepath if isinstance( filepath, str ) else None
+        self.__path = self.__inpath if isinstance( filepath, str ) else None
+        self.__name = os.path.split( self.__inpath )[ 1 ] if isinstance( filepath, str ) else None
+        self.__currdir = os.getcwd( )
+        self.__ext = os.path.splitext( self.__inpath )[ 1 ] if isinstance( filepath, str ) else None
+        self.__drive = os.path.splitdrive( self.__inpath )[ 0 ] if isinstance( filepath, str ) else None
+        self.__report = r'etc\templates\report\ReportBase.xlsx'
+
+    def __str__( self ):
+       if self.__path is not None:
+           return str( self.__path )
+
+    def exists( self ):
+        if os.path.exists( self.__inpath ):
+            return True
+        else:
+            return False
+
+    def isfolder( self ):
+        if not self.__inpath is None and  os.path.isdir( self.__inpath ):
+            return True
+        else:
+            return False
+
+    def isfile( self ):
+        if os.path.isfile( self.__inpath ):
+            return True
+        else:
+            return False
+
+    def verify( self, other ):
+        '''Verifies if the parameter 'other' exists'''
+        if os.path.exists( other ):
+            return True
+        else:
+            return False
+
+    def getextension( self, other ):
+        '''Returns string representing the file extension of 'other' '''
+        if isinstance( other, str ):
+            return  os.path.splitext( other )[ 1 ]
+
+    def getreportpath( self ):
+        if isinstance( self.__report, str ):
+            return self.__report
+
+    def join( self, first, second ):
+        ''' Concatenates 'first' to 'second' '''
+        if os.path.exists( first ) and os.path.exists( second ):
+            return os.path.join( first, second )
+
+
+class DataPath( ):
+    '''class providing database paths'''
+    __accessdriver = None
+    __accessdata = None
+    __accessreference = None
+    __sqlitedriver = None
+    __sqlitedata = None
+    __sqlitereference = None
+    __sqldriver = None
+    __sqldata = None
+    __sqlreference = None
 
     @property
     def accessdata( self ):
@@ -138,72 +203,21 @@ class BudgetPath( ):
         if isinstance( value, str ) and value != '':
             self.__sqlitereference = value
 
-    def __init__( self, filepath = None ):
-        self.__inpath = filepath if isinstance( filepath, str ) else None
-        self.__path = filepath
-        self.__name = os.path.split( self.__inpath )[ 1 ]
-        self.__currdir = os.getcwd( )
-        self.__ext = os.path.splitext( self.__inpath )[ 1 ]
-        self.__drive = os.path.splitdrive( self.__inpath )[ 0 ]
-        self.__report = r'etc\templates\report\ReportBase.xlsx'
+    def __init__( self ):
         self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db'
         self.__sqlitereference = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db'
+                                 r'\db\sqlite\referencemodels\References.db'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
         self.__accessdata = r'C:\\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb'
         self.__accessreference = r'C:\\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb'
+                                 r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
         self.__sqldata = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf'
+                         r'\db\mssql\datamodels\Data.mdf'
         self.__sqlreference = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf'
-
-    def __str__( self ):
-       if self.__path is not None:
-           return str( self.__path )
-
-    def exists( self ):
-        if os.path.exists( self.__inpath ):
-            return True
-        else:
-            return False
-
-    def isfolder( self ):
-        if os.path.isdir( self.__inpath ):
-            return True
-        else:
-            return False
-
-    def isfile( self ):
-        if os.path.isfile( self.__inpath ):
-            return True
-        else:
-            return False
-
-    def verify( self, other ):
-        '''Verifies if the parameter 'other' exists'''
-        if os.path.exists( other ):
-            return True
-        else:
-            return False
-
-    def getextension( self, other ):
-        '''Returns string representing the file extension of 'other' '''
-        if isinstance( other, str ):
-            return  os.path.splitext( other )[ 1 ]
-
-    def getreportpath( self ):
-        if isinstance( self.__report, str ):
-            return self.__report
-
-    def join( self, first, second ):
-        ''' Concatenates 'first' to 'second' '''
-        if os.path.exists( first ) and os.path.exists( second ):
-            return os.path.join( first, second )
-
+                              r'\db\mssql\referencemodels\References.mdf'
 
 # BudgetFile( filepath )
 class BudgetFile( ):
