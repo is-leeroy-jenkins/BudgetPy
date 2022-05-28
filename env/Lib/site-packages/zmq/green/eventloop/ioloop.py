@@ -1,1 +1,1 @@
-from zmq.eventloop.ioloop import *  # noqa
+from zmq.eventloop.ioloop import *
