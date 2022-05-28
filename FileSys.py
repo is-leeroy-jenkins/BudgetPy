@@ -132,7 +132,7 @@ class BudgetPath( ):
             return os.path.join( first, second )
 
 
-class DataPath( ):
+class DbPath( ):
     '''class providing database paths'''
     __accessdriver = None
     __accessdata = None
@@ -147,62 +147,62 @@ class DataPath( ):
     @property
     def accessdata( self ):
         if isinstance( self.__accessdata, str ) and self.__accessdata != '':
-            return self.__accessdata
+            return os.path.relpath( self.__accessdata )
 
     @accessdata.setter
     def accessdata( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__accessdata = value
+            self.__accessdata = os.path.relpath( value )
 
     @property
     def accessreference( self ):
         if isinstance( self.__accessreference, str ) and self.__accessreference != '':
-            return self.__accessreference
+            return os.path.relpath( self.__accessreference )
 
     @accessreference.setter
     def accessreference( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__accessreference = value
+            self.__accessreference = os.path.relpath( value )
 
     @property
     def sqlitedata( self ):
         if isinstance( self.__sqlitedata, str ) and self.__sqlitedata != '':
-            return self.__sqlitedata
+            return os.path.relpath( self.__sqlitedata )
 
     @sqlitedata.setter
     def sqlitedata( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__sqlitedata = value
+            self.__sqlitedata = os.path.relpath( value )
 
     @property
     def sqlitereference( self ):
         if isinstance( self.__sqlitereference, str ) and self.__sqlitereference != '':
-            return self.__sqlitereference
+            return os.path.relpath( self.__sqlitereference )
 
     @sqlitereference.setter
     def sqlitereference( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__sqlitereference = value
+            self.__sqlitereference = os.path.relpath( value )
 
     @property
     def sqldata( self ):
         if isinstance( self.__sqldata, str ) and self.__sqldata != '':
-            return self.__sqldata
+            return os.path.relpath( self.__sqldata )
 
     @sqldata.setter
     def sqldata( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__sqldata = value
+            self.__sqldata = os.path.relpath( value )
 
     @property
     def sqlreference( self ):
         if isinstance( self.__sqlreference, str ) and self.__sqlreference != '':
-            return self.__sqlreference
+            return os.path.relpath( self.__sqlreference )
 
     @sqlreference.setter
     def sqlreference( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__sqlitereference = value
+            self.__sqlitereference = os.path.relpath( value )
 
     def __init__( self ):
         self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
@@ -221,8 +221,172 @@ class DataPath( ):
                               r'\db\mssql\referencemodels\References.mdf'
 
 
+# DataConfig( source, provider )
+class DataConfig( ):
+    '''DataConfig( source, provider  ) provides list of Budget Execution
+    tables across two databases ( values and references ) '''
+    __data = [ ]
+    __references = [ ]
+    __source = None
+    __provider = None
+    __accessdriver = None
+    __accessdatapath = None
+    __accessreferencepath = None
+    __sqldriver = None
+    __sqldatapath = None
+    __sqlreferencepath = None
+    __sqlitedatapath = None
+    __sqlitereferencepath = None
+    __sqlitedriver = None
+    __table = None
+    __name = None
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = value
+
+    @property
+    def provider( self ):
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @provider.setter
+    def provider( self, value ):
+        if isinstance( value, Provider ):
+            self.__provider = value
+
+    @property
+    def table( self ):
+        if isinstance( self.__table, str ) and self.__table != '':
+            return self.__table
+
+    @table.setter
+    def table( self, value ):
+        if isinstance( value, str ) and value in self.__data:
+            self.__table = value
+        elif value in self.__references:
+            self.__table = value
+        else:
+            self.__table = None
+
+    def __init__( self, source, provider ):
+        '''Constructor for the DataConfig class providing
+        values value details'''
+        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
+        self.__source = source if isinstance( source, Source ) else None
+        self.__table = source.name
+        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\datamodels\Data.db'
+        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\referencemodels\References.db'
+        self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
+        self.__accessdatapath = r'C:\\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\Data.accdb'
+        self.__accessreferencepath = r'C:\\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\referencemodels\References.accdb'
+        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
+        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\datamodels\Data.mdf'
+        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\referencemodels\References.mdf'
+        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
+                       'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
+                       'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
+                       'Deobligations', 'Defactos', 'DocumentControlNumbers',
+                       'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
+                       'ObjectClassOutlays', 'CarryoverOutlays',
+                       'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
+                       'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
+                       'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations' 
+                       'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
+                       'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
+                       'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
+                       'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                       'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
+                       'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
+                       'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
+                       'UnliquidatedObligations', 'UnobligatedAuthority' ]
+        self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
+                             'Appropriations', 'BudgetObjectClasses',
+                             'CostAreas', 'CPIC', 'Divisions',
+                             'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                             'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                             'FundSymbols', 'Goals', 'GsPayScales', 'Images',
+                             'Messages', 'NationalPrograms', 'Objectives',
+                             'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                             'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
+                             'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                             'SchemaTypes', 'StateOrganizations', 'Sources' ]
+
+    def __str__( self ):
+        if isinstance( self.__table, str ) :
+            return self.__table
+
+    def isdatamodel( self ):
+        '''Returns the boolean value 'True' if the
+        source is a memeber of datamodels else 'False' '''
+        if self.__table != '' and self.__table in self.__data:
+            return True
+        else:
+            return False
+
+    def isreferencemodel( self ):
+        '''Returns boolean value 'True' if the
+        source is a memeber of the reference models else 'False' '''
+        if self.__table is not None  \
+                and self.__table in self.__references:
+            return True
+        else:
+            return False
+
+    def getdriver( self ):
+        if self.__provider.name == Provider.SQLite.name:
+            return self.getpath( )
+        elif self.__provider.name == Provider.Access.name:
+            return self.__accessdriver
+        elif self.__provider.name == Provider.SqlServer.name:
+            return self.__sqldriver
+        else:
+            return self.__sqlitedriver
+
+    def getpath( self ):
+        if self.__provider == Provider.SQLite and self.isreferencemodel( ):
+            return self.__sqlitereferencepath
+        elif self.__provider == Provider.SQLite and self.isdatamodel( ):
+            return self.__sqlitedatapath
+        elif self.__provider == Provider.Access and self.isdatamodel( ):
+            return self.__accessdatapath
+        elif self.__provider == Provider.Access and self.isreferencemodel( ):
+            return self.__accessreferencepath
+        elif self.__provider == Provider.SqlServer and self.isdatamodel( ):
+            return self.__sqldatapath
+        elif self.__provider == Provider.SqlServer and self.isreferencemodel( ):
+            return self.__sqlreferencepath
+        else:
+            return self.__sqlitedatapath
+
+    def getconnectionstring( self ):
+        path = self.getpath()
+        if self.__provider.name == Provider.Access.name:
+            return self.getdriver() + path
+        elif self.__provider.name == Provider.SqlServer.name:
+            return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
+                          + f'AttachDBFileName={ path }' \
+                          + f'DATABASE={ path }Trusted_Connection=yes;'
+        else:
+            return f'{ path } '
+
+
 class SqlFile( ):
     '''class providing access to sql files in the application'''
+    __data = None
+    __reference = None
     __command = None
     __model = None
     __source = None
@@ -258,22 +422,106 @@ class SqlFile( ):
         if isinstance( value, SQL ):
             self.__command = value
 
-    @property
-    def source( self ):
-        if isinstance( self.__source, Source ):
-            return self.__source
-
-    @source.setter
-    def source( self, value ):
-        if isinstance( value, Source ):
-            self.__source = value
-
-    def __init__( self, provider = None, model = None,
-                  command = None, source = None ):
+    def __init__( self, provider = None, source = None,
+                  command = None ):
+        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
+                       'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
+                       'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
+                       'Deobligations', 'Defactos', 'DocumentControlNumbers',
+                       'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
+                       'ObjectClassOutlays', 'CarryoverOutlays',
+                       'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
+                       'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
+                       'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations' 
+                       'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
+                       'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
+                       'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
+                       'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                       'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
+                       'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
+                       'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
+                       'UnliquidatedObligations', 'UnobligatedAuthority' ]
+        self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
+                             'Appropriations', 'BudgetObjectClasses',
+                             'CostAreas', 'CPIC', 'Divisions',
+                             'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                             'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                             'FundSymbols', 'Goals', 'GsPayScales', 'Images',
+                             'Messages', 'NationalPrograms', 'Objectives',
+                             'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                             'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
+                             'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                             'SchemaTypes', 'StateOrganizations', 'Sources' ]
         self.__command = command if isinstance( command, SQL ) else None
-        self.__model = model if isinstance( model, Model ) else None
         self.__source = source if isinstance( source, Source ) else None
         self.__provider = provider if isinstance( provider, Provider ) else None
+
+    def getnames( self ):
+        sd = SqlDirectory( )
+        data = self.__data
+        references = self.__references
+        folder = ''
+        if self.__provider.name == 'SQLite' and self.__source.name in data:
+            folder = f'{ sd.sqlitedatamodels }\\{self.__command.name}'
+            return os.listdir( folder )
+        elif self.__provider.name == 'SQLite' and self.__source.name in references:
+            folder = f'{ sd.sqlitereferencemodels }\\{self.__command.name}'
+            return os.listdir( folder )
+        elif self.__provider.name == 'Access' and self.__source.name in data:
+            folder = f'{ sd.accessdatamodels }\\{self.__command.name}'
+            return os.listdir( folder )
+        elif self.__provider.name == 'Access' and self.__source.name in references:
+            folder = f'{ sd.accessreferencemodels }\\{self.__command.name}'
+            return os.listdir( folder )
+        elif self.__provider.name == 'SqlServer' and self.__source.name in data:
+            folder = f'{ sd.sqldatamodels }\\{self.__command.name}'
+            return os.listdir( folder )
+        elif self.__provider.name == 'SqlServer' and self.__source.name in references:
+            folder = f'{ sd.sqlreferencemodels }\\{self.__command.name}'
+            return os.listdir( folder )
+        else:
+            folder = f'{sd.sqlitedatamodels}\\{self.__command.name}'
+            return os.listdir( folder )
+
+    def getdirectory( self ):
+        sd = SqlDirectory( )
+        data = self.__data
+        reference = self.__references
+        name = self.__source.name
+        folder = ''
+        if self.__provider.name == 'SQLite' and self.__source.name in data:
+            path = f'{ sd.sqlitedatamodels }\\{ self.__command.name }'
+            return os.path.relpath( path )
+        elif self.__provider.name == 'SQLite' and self.__source.name in reference:
+            path = f'{ sd.sqlitereferencemodels }\\{ self.__command.name }'
+            return os.path.relpath( path )
+        elif self.__provider.name == 'Access' and self.__source.name in data:
+            path = f'{ sd.accessdatamodels }\\{ self.__command.name }'
+            return os.path.relpath( path )
+        elif self.__provider.name == 'Access' and self.__source.name in reference:
+            path = f'{ sd.accessreferencemodels }\\{ self.__command.name }'
+            return os.path.relpath( path )
+        elif self.__provider.name == 'SqlServer' and self.__source.name in data:
+            path = f'{ sd.sqldatamodels }\\{ self.__command.name }'
+            return os.path.relpath( path )
+        elif self.__provider.name == 'SqlServer' and self.__source.name in reference:
+            path = f'{ sd.sqlreferencemodels }\\{ self.__command.name }'
+            return os.path.relpath( path )
+        else:
+            path = f'{ sd.sqlitedatamodels }\\{ self.__command.name }'
+            return os.path.relpath( path )
+
+    def getquery( self ):
+        table = self.__source.name
+        names = self.getnames( )
+        folder = self.getdirectory( )
+        query = ''
+        for i in names:
+            if i.startswith( table ):
+                path = folder + f'\\{ i }'
+                query = open( path )
+                sql = query.read( )
+                return sql
 
 
 class SqlDirectory( ):
