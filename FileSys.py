@@ -371,7 +371,6 @@ class BudgetFile( ):
     '''BudgetFile( filepath ) initializes the
      BudgetFile Class providing file information for
      files used in the application'''
-    __infile = None
     __name = None
     __path = None
     __size = None
@@ -408,13 +407,13 @@ class BudgetFile( ):
 
     @property
     def size( self ):
-        if isinstance( self.__size, float ):
+        if isinstance( self.__size, int ):
             return self.__size
 
     @size.setter
     def size( self, value ):
-        if isinstance( value, float ):
-            self.__size = float( value )
+        if isinstance( value, int ):
+            self.__size = value
 
     @property
     def directory( self ):
@@ -655,10 +654,9 @@ class BudgetFolder( ):
             os.chdir( path )
 
     def __init__( self, folderpath ):
-        self.__infile = folderpath if isinstance( folderpath, str ) else None
+        self.__path = folderpath if isinstance( folderpath, str ) else None
         self.__name = os.path.basename( folderpath )
-        self.__path = self.__infile
-        self.__dir = os.path.dirname( self.__path )
+        self.__dir = os.path.dirname( folderpath )
         self.__parent = os.path.dirname( folderpath )
 
     def __str__( self ):
