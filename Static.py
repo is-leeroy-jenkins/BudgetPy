@@ -157,6 +157,12 @@ class Provider( Enum ):
     NS = 5
 
 
+class Model( Enum ):
+    '''enumeration of model types'''
+    Data = auto( )
+    Reference = auto( )
+
+
 class ParamStyle( Enum ):
     '''Enumeration of paramstyles'''
     format = 1

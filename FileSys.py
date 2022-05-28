@@ -2,6 +2,7 @@ from datetime import datetime, date
 import os
 import zipfile as zp
 import openpyxl as xl
+from Static import Source, Provider, SQL, Model
 
 # BudgetPath( filepath )
 class BudgetPath( ):
@@ -98,7 +99,7 @@ class BudgetPath( ):
             return False
 
     def isfolder( self ):
-        if not self.__inpath is None and  os.path.isdir( self.__inpath ):
+        if os.path.isdir( self.__inpath ):
             return True
         else:
             return False
@@ -218,6 +219,152 @@ class DataPath( ):
                          r'\db\mssql\datamodels\Data.mdf'
         self.__sqlreference = r'C:\Users\terry\source\repos\BudgetPy' \
                               r'\db\mssql\referencemodels\References.mdf'
+
+
+class SqlFile( ):
+    '''class providing access to sql files in the application'''
+    __command = None
+    __model = None
+    __source = None
+    __provider = None
+
+    @property
+    def provider( self ):
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @provider.setter
+    def provider( self, value ):
+        if isinstance( value, Provider ):
+            self.__provider = value
+
+    @property
+    def model( self ):
+        if isinstance( self.__model, Model ):
+            return self.__model
+
+    @model.setter
+    def model( self, value ):
+        if isinstance( value, Model ):
+            self.__model = value
+
+    @property
+    def command( self ):
+        if isinstance( self.__command, SQL ):
+            return self.__command
+
+    @command.setter
+    def command( self, value ):
+        if isinstance( value, SQL ):
+            self.__command = value
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = value
+
+    def __init__( self, provider = None, model = None,
+                  command = None, source = None ):
+        self.__command = command if isinstance( command, SQL ) else None
+        self.__model = model if isinstance( model, Model ) else None
+        self.__source = source if isinstance( source, Source ) else None
+        self.__provider = provider if isinstance( provider, Provider ) else None
+
+
+class SqlDirectory( ):
+    '''class providing database paths'''
+    __accessdatamodels = None
+    __accessreferencemodels = None
+    __sqlitedatamodels = None
+    __sqlitereferencemodels = None
+    __sqldatamodels = None
+    __sqlreferencemodels = None
+
+    @property
+    def accessdatamodels( self ):
+        if isinstance( self.__accessdatamodels, str ) \
+                and self.__accessdatamodels != '':
+            return self.__accessdatamodels
+
+    @accessdatamodels.setter
+    def accessdatamodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accessdatamodels = value
+
+    @property
+    def accessreferencemodels( self ):
+        if isinstance( self.__accessreferencemodels, str ) \
+                and self.__accessreferencemodels != '':
+            return self.__accessreferencemodels
+
+    @accessreferencemodels.setter
+    def accessreferencemodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accessreferencemodels = value
+
+    @property
+    def sqlitedatamodels( self ):
+        if isinstance( self.__sqlitedatamodels, str ) \
+                and self.__sqlitedatamodels != '':
+            return self.__sqlitedatamodels
+
+    @sqlitedatamodels.setter
+    def sqlitedatamodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitedatamodels = value
+
+    @property
+    def sqlitereferencemodels( self ):
+        if isinstance( self.__sqlitereferencemodels, str ) \
+                and self.__sqlitereferencemodels != '':
+            return self.__sqlitereferencemodels
+
+    @sqlitereferencemodels.setter
+    def sqlitereferencemodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitereferencemodels = value
+
+    @property
+    def sqldatamodels( self ):
+        if isinstance( self.__sqldatamodels, str ) \
+                and self.__sqldatamodels != '':
+            return self.__sqldatamodels
+
+    @sqldatamodels.setter
+    def sqldatamodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqldatamodels = value
+
+    @property
+    def sqlreferencemodels( self ):
+        if isinstance( self.__sqlreferencemodels, str ) \
+                and self.__sqlreferencemodels != '':
+            return self.__sqlreferencemodels
+
+    @sqlreferencemodels.setter
+    def sqlreferencemodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitereferencemodels= value
+
+    def __init__( self ):
+        self.__sqlitedatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\datamodels\sql'
+        self.__sqlitereferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
+                                 r'\db\sqlite\referencemodels\sql'
+        self.__accessdatamodels = r'C:\\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\sql'
+        self.__accessreferencemodels = r'C:\\Users\terry\source\repos\BudgetPy' \
+                                 r'\db\access\referencemodels\sql'
+        self.__sqldatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
+                         r'\db\mssql\datamodels\sql'
+        self.__sqlreferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
+                                 r'\db\mssql\referencemodels\sql'
+
 
 # BudgetFile( filepath )
 class BudgetFile( ):

@@ -1,9 +1,0 @@
-CREATE TABLE NationalPrograms
-(
-	NationalProgramId INTEGER NOT NULL UNIQUE CONSTRAINT PK_NationalPrograms PRIMARY KEY AUTOINCREMENT,
-	Code TEXT(255) NOT NULL,
-	Name TEXT(255) NULL,
-	RpioCode TEXT(255) NULL,
-	Title TEXT(255) NULL
-);
-
