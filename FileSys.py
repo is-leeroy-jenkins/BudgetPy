@@ -14,6 +14,15 @@ class BudgetPath( ):
     __currdir = None
     __report = None
     __drive = None
+    __accessdriver = None
+    __accessdata = None
+    __accessreference = None
+    __sqlitedriver = None
+    __sqlitedata = None
+    __sqlitereference = None
+    __sqldriver = None
+    __sqldata = None
+    __sqlreference = None
 
     @property
     def name( self ):
@@ -69,14 +78,88 @@ class BudgetPath( ):
             os.chdir( value )
             self.__currdir = value
 
-    def __init__( self, filepath ):
+    @property
+    def accessdata( self ):
+        if isinstance( self.__accessdata, str ) and self.__accessdata != '':
+            return self.__accessdata
+
+    @accessdata.setter
+    def accessdata( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accessdata = value
+
+    @property
+    def accessreference( self ):
+        if isinstance( self.__accessreference, str ) and self.__accessreference != '':
+            return self.__accessreference
+
+    @accessreference.setter
+    def accessreference( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accessreference = value
+
+    @property
+    def sqlitedata( self ):
+        if isinstance( self.__sqlitedata, str ) and self.__sqlitedata != '':
+            return self.__sqlitedata
+
+    @sqlitedata.setter
+    def sqlitedata( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitedata = value
+
+    @property
+    def sqlitereference( self ):
+        if isinstance( self.__sqlitereference, str ) and self.__sqlitereference != '':
+            return self.__sqlitereference
+
+    @sqlitereference.setter
+    def sqlitereference( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitereference = value
+
+    @property
+    def sqldata( self ):
+        if isinstance( self.__sqldata, str ) and self.__sqldata != '':
+            return self.__sqldata
+
+    @sqldata.setter
+    def sqldata( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqldata = value
+
+    @property
+    def sqlreference( self ):
+        if isinstance( self.__sqlreference, str ) and self.__sqlreference != '':
+            return self.__sqlreference
+
+    @sqlreference.setter
+    def sqlreference( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitereference = value
+
+    def __init__( self, filepath = None ):
         self.__inpath = filepath if isinstance( filepath, str ) else None
-        self.__path = filepath if os.path.exists( filepath ) else None
+        self.__path = filepath
         self.__name = os.path.split( self.__inpath )[ 1 ]
         self.__currdir = os.getcwd( )
         self.__ext = os.path.splitext( self.__inpath )[ 1 ]
         self.__drive = os.path.splitdrive( self.__inpath )[ 0 ]
         self.__report = r'etc\templates\report\ReportBase.xlsx'
+        self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\datamodels\Data.db'
+        self.__sqlitereference = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\referencemodels\References.db'
+        self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
+        self.__accessdata = r'C:\\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\Data.accdb'
+        self.__accessreference = r'C:\\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\referencemodels\References.accdb'
+        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
+        self.__sqldata = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\datamodels\Data.mdf'
+        self.__sqlreference = r'C:\Users\terry\source\repos\BudgetPy' \
+                           r'\db\mssql\referencemodels\References.mdf'
 
     def __str__( self ):
        if self.__path is not None:
@@ -246,25 +329,25 @@ class BudgetFile( ):
             os.chdir( value )
             self.__currdir = value
 
-    def __init__( self, filepath ):
-        self.__infile = filepath if os.path.exists( filepath ) else 'NS'
-        self.__path = self.__infile if not self.__infile == '' else 'NS'
-        self.__name = os.path.basename( filepath ) if not filepath == '' else 'NS'
-        self.__size = os.path.getsize( filepath ) if not filepath == '' else 'NS'
+    def __init__( self, filepath = None ):
+        self.__infile = filepath if os.path.exists( filepath ) else None
+        self.__path = self.__infile if not self.__infile == '' else None
+        self.__name = os.path.basename( filepath ) if not filepath == '' else None
+        self.__size = os.path.getsize( filepath ) if not filepath == '' else None
         self.__directory = os.path.dirname( self.__path ) \
-            if os.path.exists( filepath ) else 'NS'
+            if os.path.exists( filepath )  else None
         self.__extension = list( os.path.splitext( filepath ) )[ 1 ] \
-            if not filepath == '' else 'NS'
-        self.__created = os.path.getctime( filepath ) if not filepath == '' else 'NS'
-        self.__accessed = os.path.getatime( filepath ) if not filepath == '' else 'NS'
-        self.__modified = os.path.getmtime( filepath ) if not filepath == '' else 'NS'
+            if not filepath == ''  else None
+        self.__created = os.path.getctime( filepath ) if not filepath == '' else None
+        self.__accessed = os.path.getatime( filepath ) if not filepath == '' else None
+        self.__modified = os.path.getmtime( filepath ) if not filepath == '' else None
         self.__currdir = os.getcwd( )
         self.__drive = str( list( os.path.splitdrive( self.__infile ) )[ 0 ] ) \
-            if not filepath == '' else 'NS'
+            if not filepath == '' else None
         self.__content = list( )
 
     def __str__( self ):
-        if self.__path is not None:
+        if isinstance( self.__path, str ) and self.__path != '':
             return self.__path
 
     def rename( self, other ):
