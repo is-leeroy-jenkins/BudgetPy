@@ -455,7 +455,7 @@ class BudgetFile( ):
 
     @modified.setter
     def modified( self, value ):
-        if isinstance( value, datetime ):
+        if isinstance( value, float ):
             self.__modified = value
 
     @property
@@ -465,7 +465,7 @@ class BudgetFile( ):
 
     @accessed.setter
     def accessed( self, value ):
-        if isinstance( value, datetime ):
+        if isinstance( value, float ):
             self.__accessed = value
 
     @property
@@ -475,7 +475,7 @@ class BudgetFile( ):
 
     @created.setter
     def created( self, value ):
-        if isinstance( value, datetime ):
+        if isinstance( value, float ):
             self.__created = value
 
     @property
@@ -496,9 +496,9 @@ class BudgetFile( ):
         self.__size = os.path.getsize( filepath )
         self.__directory = os.path.dirname( filepath )
         self.__extension = list( os.path.splitext( filepath ) )[ 1 ]
-        self.__created = datetime( int( os.path.getctime( filepath ) ) )
-        self.__accessed = datetime( int( os.path.getatime( filepath ) ) )
-        self.__modified = datetime( int( os.path.getmtime( filepath ) ) )
+        self.__created = os.path.getctime( filepath )
+        self.__accessed = os.path.getatime( filepath )
+        self.__modified = os.path.getmtime( filepath )
         self.__currdir = os.getcwd( )
         self.__drive = str( list( os.path.splitdrive( filepath ) )[ 0 ] )
 
