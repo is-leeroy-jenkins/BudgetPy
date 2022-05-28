@@ -491,21 +491,16 @@ class BudgetFile( ):
             self.__currdir = value
 
     def __init__( self, filepath = None ):
-        self.__infile = filepath if os.path.exists( filepath ) else None
-        self.__path = self.__infile if not self.__infile == '' else None
-        self.__name = os.path.basename( filepath ) if not filepath == '' else None
-        self.__size = os.path.getsize( filepath ) if not filepath == '' else None
-        self.__directory = os.path.dirname( self.__path ) \
-            if os.path.exists( filepath )  else None
-        self.__extension = list( os.path.splitext( filepath ) )[ 1 ] \
-            if not filepath == ''  else None
-        self.__created = os.path.getctime( filepath ) if not filepath == '' else None
-        self.__accessed = os.path.getatime( filepath ) if not filepath == '' else None
-        self.__modified = os.path.getmtime( filepath ) if not filepath == '' else None
+        self.__path = filepath if isinstance( filepath, str ) and filepath != '' else None
+        self.__name = os.path.basename( filepath )
+        self.__size = os.path.getsize( filepath )
+        self.__directory = os.path.dirname( filepath )
+        self.__extension = list( os.path.splitext( filepath ) )[ 1 ]
+        self.__created = datetime( int( os.path.getctime( filepath ) ) )
+        self.__accessed = datetime( int( os.path.getatime( filepath ) ) )
+        self.__modified = datetime( int( os.path.getmtime( filepath ) ) )
         self.__currdir = os.getcwd( )
-        self.__drive = str( list( os.path.splitdrive( self.__infile ) )[ 0 ] ) \
-            if not filepath == '' else None
-        self.__content = list( )
+        self.__drive = str( list( os.path.splitdrive( filepath ) )[ 0 ] )
 
     def __str__( self ):
         if isinstance( self.__path, str ) and self.__path != '':

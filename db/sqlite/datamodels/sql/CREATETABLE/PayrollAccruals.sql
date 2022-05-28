@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS PayrollCostCodes
+(
+	PayrollCostCodeId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyPayrollCostCodes PRIMARY KEY AUTOINCREMENT,
+    RPIO TEXT(255) NULL,
+    AhCode TEXT(255) NULL,
+    BFY TEXT(255) NULL,
+	RcCode TEXT(255) NULL,
+	DivisionName TEXT(255) NULL,
+    WorkCode TEXT(255) NULL,
+    WorkCodeName TEXT(255) NULL,
+    HrOrgCode TEXT(255) NULL,
+    HrOrgName TEXT(255) NULL
+);
