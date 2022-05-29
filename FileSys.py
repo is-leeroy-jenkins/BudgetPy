@@ -1,3 +1,4 @@
+import io
 from datetime import datetime, date
 import os
 import zipfile as zp
@@ -7,7 +8,7 @@ from Static import Source, Provider, SQL, Model
 # BudgetPath( filepath )
 class BudgetPath( ):
     ''' BudgetPath( filename ) initializes the
-    BudgetPath class providing filepath information of files
+    BudgetPath class providing filepath information of getfilenames
     used in the application'''
     __inpath = None
     __path = None
@@ -221,25 +222,113 @@ class DbPath( ):
                               r'\db\mssql\referencemodels\References.mdf'
 
 
-# DataConfig( source, provider )
-class DataConfig( ):
-    '''DataConfig( source, provider  ) provides list of Budget Execution
-    tables across two databases ( values and references ) '''
-    __data = [ ]
-    __references = [ ]
+class SqlDirectory( ):
+    '''class providing paths to the sql getfilenames'''
+    __accessdatamodels = None
+    __accessreferencemodels = None
+    __sqlitedatamodels = None
+    __sqlitereferencemodels = None
+    __sqldatamodels = None
+    __sqlreferencemodels = None
+
+    @property
+    def accessdatamodels( self ):
+        if isinstance( self.__accessdatamodels, str ) \
+                and self.__accessdatamodels != '':
+            return self.__accessdatamodels
+
+    @accessdatamodels.setter
+    def accessdatamodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accessdatamodels = value
+
+    @property
+    def accessreferencemodels( self ):
+        if isinstance( self.__accessreferencemodels, str ) \
+                and self.__accessreferencemodels != '':
+            return self.__accessreferencemodels
+
+    @accessreferencemodels.setter
+    def accessreferencemodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accessreferencemodels = value
+
+    @property
+    def sqlitedatamodels( self ):
+        if isinstance( self.__sqlitedatamodels, str ) \
+                and self.__sqlitedatamodels != '':
+            return self.__sqlitedatamodels
+
+    @sqlitedatamodels.setter
+    def sqlitedatamodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitedatamodels = value
+
+    @property
+    def sqlitereferencemodels( self ):
+        if isinstance( self.__sqlitereferencemodels, str ) \
+                and self.__sqlitereferencemodels != '':
+            return self.__sqlitereferencemodels
+
+    @sqlitereferencemodels.setter
+    def sqlitereferencemodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitereferencemodels = value
+
+    @property
+    def sqldatamodels( self ):
+        if isinstance( self.__sqldatamodels, str ) \
+                and self.__sqldatamodels != '':
+            return self.__sqldatamodels
+
+    @sqldatamodels.setter
+    def sqldatamodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqldatamodels = value
+
+    @property
+    def sqlreferencemodels( self ):
+        if isinstance( self.__sqlreferencemodels, str ) \
+                and self.__sqlreferencemodels != '':
+            return self.__sqlreferencemodels
+
+    @sqlreferencemodels.setter
+    def sqlreferencemodels( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqlitereferencemodels = value
+
+    def __init__( self ):
+        self.__sqlitedatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
+                            r'\db\sqlite\datamodels\sql'
+        self.__sqlitereferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
+                                 r'\db\sqlite\referencemodels\sql'
+        self.__accessdatamodels = r'C:\\Users\terry\source\repos\BudgetPy' \
+                            r'\db\access\datamodels\sql'
+        self.__accessreferencemodels = r'C:\\Users\terry\source\repos\BudgetPy' \
+                                 r'\db\access\referencemodels\sql'
+        self.__sqldatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
+                         r'\db\mssql\datamodels\sql'
+        self.__sqlreferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
+                                 r'\db\mssql\referencemodels\sql'
+
+
+class SqlFile( ):
+    '''class providing access to sql getfilenames in the application'''
+    __data = None
+    __reference = None
+    __command = None
     __source = None
     __provider = None
-    __accessdriver = None
-    __accessdatapath = None
-    __accessreferencepath = None
-    __sqldriver = None
-    __sqldatapath = None
-    __sqlreferencepath = None
-    __sqlitedatapath = None
-    __sqlitereferencepath = None
-    __sqlitedriver = None
-    __table = None
-    __name = None
+
+    @property
+    def provider( self ):
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @provider.setter
+    def provider( self, value ):
+        if isinstance( value, Provider ):
+            self.__provider = value
 
     @property
     def source( self ):
@@ -250,167 +339,6 @@ class DataConfig( ):
     def source( self, value ):
         if isinstance( value, Source ):
             self.__source = value
-
-    @property
-    def provider( self ):
-        if isinstance( self.__provider, Provider ):
-            return self.__provider
-
-    @provider.setter
-    def provider( self, value ):
-        if isinstance( value, Provider ):
-            self.__provider = value
-
-    @property
-    def table( self ):
-        if isinstance( self.__table, str ) and self.__table != '':
-            return self.__table
-
-    @table.setter
-    def table( self, value ):
-        if isinstance( value, str ) and value in self.__data:
-            self.__table = value
-        elif value in self.__references:
-            self.__table = value
-        else:
-            self.__table = None
-
-    def __init__( self, source, provider ):
-        '''Constructor for the DataConfig class providing
-        values value details'''
-        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
-        self.__source = source if isinstance( source, Source ) else None
-        self.__table = source.name
-        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db'
-        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db'
-        self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdatapath = r'C:\\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb'
-        self.__accessreferencepath = r'C:\\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb'
-        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf'
-        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf'
-        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
-                       'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
-                       'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
-                       'Deobligations', 'Defactos', 'DocumentControlNumbers',
-                       'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
-                       'ObjectClassOutlays', 'CarryoverOutlays',
-                       'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
-                       'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
-                       'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations' 
-                       'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
-                       'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
-                       'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
-                       'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-                       'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
-                       'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
-                       'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
-                       'UnliquidatedObligations', 'UnobligatedAuthority' ]
-        self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
-                             'Appropriations', 'BudgetObjectClasses',
-                             'CostAreas', 'CPIC', 'Divisions',
-                             'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                             'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                             'FundSymbols', 'Goals', 'GsPayScales', 'Images',
-                             'Messages', 'NationalPrograms', 'Objectives',
-                             'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                             'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
-                             'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                             'SchemaTypes', 'StateOrganizations', 'Sources' ]
-
-    def __str__( self ):
-        if isinstance( self.__table, str ) :
-            return self.__table
-
-    def isdatamodel( self ):
-        '''Returns the boolean value 'True' if the
-        source is a memeber of datamodels else 'False' '''
-        if self.__table != '' and self.__table in self.__data:
-            return True
-        else:
-            return False
-
-    def isreferencemodel( self ):
-        '''Returns boolean value 'True' if the
-        source is a memeber of the reference models else 'False' '''
-        if self.__table is not None  \
-                and self.__table in self.__references:
-            return True
-        else:
-            return False
-
-    def getdriver( self ):
-        if self.__provider.name == Provider.SQLite.name:
-            return self.getpath( )
-        elif self.__provider.name == Provider.Access.name:
-            return self.__accessdriver
-        elif self.__provider.name == Provider.SqlServer.name:
-            return self.__sqldriver
-        else:
-            return self.__sqlitedriver
-
-    def getpath( self ):
-        if self.__provider == Provider.SQLite and self.isreferencemodel( ):
-            return self.__sqlitereferencepath
-        elif self.__provider == Provider.SQLite and self.isdatamodel( ):
-            return self.__sqlitedatapath
-        elif self.__provider == Provider.Access and self.isdatamodel( ):
-            return self.__accessdatapath
-        elif self.__provider == Provider.Access and self.isreferencemodel( ):
-            return self.__accessreferencepath
-        elif self.__provider == Provider.SqlServer and self.isdatamodel( ):
-            return self.__sqldatapath
-        elif self.__provider == Provider.SqlServer and self.isreferencemodel( ):
-            return self.__sqlreferencepath
-        else:
-            return self.__sqlitedatapath
-
-    def getconnectionstring( self ):
-        path = self.getpath()
-        if self.__provider.name == Provider.Access.name:
-            return self.getdriver() + path
-        elif self.__provider.name == Provider.SqlServer.name:
-            return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
-                          + f'AttachDBFileName={ path }' \
-                          + f'DATABASE={ path }Trusted_Connection=yes;'
-        else:
-            return f'{ path } '
-
-
-class SqlFile( ):
-    '''class providing access to sql files in the application'''
-    __data = None
-    __reference = None
-    __command = None
-    __model = None
-    __source = None
-    __provider = None
-
-    @property
-    def provider( self ):
-        if isinstance( self.__provider, Provider ):
-            return self.__provider
-
-    @provider.setter
-    def provider( self, value ):
-        if isinstance( value, Provider ):
-            self.__provider = value
-
-    @property
-    def model( self ):
-        if isinstance( self.__model, Model ):
-            return self.__model
-
-    @model.setter
-    def model( self, value ):
-        if isinstance( value, Model ):
-            self.__model = value
 
     @property
     def command( self ):
@@ -524,101 +452,11 @@ class SqlFile( ):
                 return sql
 
 
-class SqlDirectory( ):
-    '''class providing database paths'''
-    __accessdatamodels = None
-    __accessreferencemodels = None
-    __sqlitedatamodels = None
-    __sqlitereferencemodels = None
-    __sqldatamodels = None
-    __sqlreferencemodels = None
-
-    @property
-    def accessdatamodels( self ):
-        if isinstance( self.__accessdatamodels, str ) \
-                and self.__accessdatamodels != '':
-            return self.__accessdatamodels
-
-    @accessdatamodels.setter
-    def accessdatamodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accessdatamodels = value
-
-    @property
-    def accessreferencemodels( self ):
-        if isinstance( self.__accessreferencemodels, str ) \
-                and self.__accessreferencemodels != '':
-            return self.__accessreferencemodels
-
-    @accessreferencemodels.setter
-    def accessreferencemodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accessreferencemodels = value
-
-    @property
-    def sqlitedatamodels( self ):
-        if isinstance( self.__sqlitedatamodels, str ) \
-                and self.__sqlitedatamodels != '':
-            return self.__sqlitedatamodels
-
-    @sqlitedatamodels.setter
-    def sqlitedatamodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__sqlitedatamodels = value
-
-    @property
-    def sqlitereferencemodels( self ):
-        if isinstance( self.__sqlitereferencemodels, str ) \
-                and self.__sqlitereferencemodels != '':
-            return self.__sqlitereferencemodels
-
-    @sqlitereferencemodels.setter
-    def sqlitereferencemodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__sqlitereferencemodels = value
-
-    @property
-    def sqldatamodels( self ):
-        if isinstance( self.__sqldatamodels, str ) \
-                and self.__sqldatamodels != '':
-            return self.__sqldatamodels
-
-    @sqldatamodels.setter
-    def sqldatamodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__sqldatamodels = value
-
-    @property
-    def sqlreferencemodels( self ):
-        if isinstance( self.__sqlreferencemodels, str ) \
-                and self.__sqlreferencemodels != '':
-            return self.__sqlreferencemodels
-
-    @sqlreferencemodels.setter
-    def sqlreferencemodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__sqlitereferencemodels= value
-
-    def __init__( self ):
-        self.__sqlitedatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\sql'
-        self.__sqlitereferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
-                                 r'\db\sqlite\referencemodels\sql'
-        self.__accessdatamodels = r'C:\\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\sql'
-        self.__accessreferencemodels = r'C:\\Users\terry\source\repos\BudgetPy' \
-                                 r'\db\access\referencemodels\sql'
-        self.__sqldatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
-                         r'\db\mssql\datamodels\sql'
-        self.__sqlreferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
-                                 r'\db\mssql\referencemodels\sql'
-
-
 # BudgetFile( filepath )
 class BudgetFile( ):
     '''BudgetFile( filepath ) initializes the
      BudgetFile Class providing file information for
-     files used in the application'''
+     getfilenames used in the application'''
     __name = None
     __path = None
     __size = None
@@ -747,7 +585,8 @@ class BudgetFile( ):
         self.__accessed = os.path.getatime( filepath )
         self.__modified = os.path.getmtime( filepath )
         self.__currdir = os.getcwd( )
-        self.__drive = str( list( os.path.splitdrive( filepath ) )[ 0 ] )
+        self.__drive = os.path.splitdrive( filepath )[ 0 ] if os.path.isabs( filepath ) \
+            else os.path.splitdrive( os.path.join( self.__currdir, filepath ) )[ 0 ]
 
     def __str__( self ):
         if isinstance( self.__path, str ) and self.__path != '':
@@ -756,19 +595,25 @@ class BudgetFile( ):
     def rename( self, other ):
         '''Renames the currentdirectory file to 'other' '''
         if isinstance( other, str ) and not other == '':
-            os.rename( self.__name, other )
-            self.__name = other
-            return self.__name
+            src = os.path.abspath( self.__path )
+            dst = os.path.join( self.directory, other )
+            os.rename( src, dst )
+            return dst
 
     def move( self, destination ):
         '''renames currentdirectory file'''
-        if os.path.exists( self.__infile ):
+        if os.path.isdir( destination ):
             return os.path.join( self.__name, destination )
 
-    def create( self, other ):
+    def create( self, other, lines = None ):
         ''' creates and returns 'filepath' file '''
-        if other is not None:
-            os.mkdir( other )
+        if isinstance( other, str ):
+            newfile = open( other, 'w' )
+            if isinstance( lines, list ) and len( lines ) > 0:
+                for line in lines:
+                    newfile.write( line )
+
+                newfile.flush( )
 
     def exists( self, other ):
         '''determines if an external file exists'''
@@ -782,7 +627,7 @@ class BudgetFile( ):
 
     def getsize( self, other ):
         '''gets the size of another file'''
-        if self.__infile is not None and os.path.exists( other ):
+        if self.__path is not None and os.path.isfile( other ):
             return os.path.getsize( other )
 
     def getdrive( self, other ):
@@ -796,42 +641,55 @@ class BudgetFile( ):
             return str( list( os.path.splitext( other ) )[ 1 ] )
 
     def readlines( self, other ):
-        '''reads all lines in 'filepath' into a list
+        '''reads all lines in 'other' into a list
             then returns the list '''
-        lines = [ ]
-        count = len( self.__contents )
-        if other is not None and os.path.isfile( other ):
+        if os.path.isfile( other ):
             file = open( other, 'r' )
-            for line in file.readlines( ):
-                lines.append( line )
-            self.__contents.append( lines )
-        if len( lines ) > 0 and len( self.__contents ) > count:
-            return lines
+            contents = file.readlines( )
+            file.close( )
+            return contents
 
-    def readline( self, other ):
+    def readall( self, other ):
         '''reads a single line from the file into a string
             then returns the string'''
-        count = len( self.__content )
+        contents = ''
         if os.path.isfile( other ):
-            line = open( self.__path, 'r' ).readline( )
-            self.__content.append( line )
-            if len( self.__content ) > count:
-                yield from iter( self.__content )
+            file = open( other, 'r' )
+            contents = file.read( )
+            file.close( )
+            return contents
 
     def writelines( self, lines = None ):
         ''' writes the contents of 'lines' to self.__contents '''
-        if os.path.isfile( self.__path ) and isinstance( lines, list ):
+        if isinstance( lines, list ):
+            path = os.path.relpath( self.__path )
+            contents = open( path, 'a' )
             for line in lines:
-                self.__contents.append( open( self.__path, 'w' ).write( line ) )
+                contents.write( line )
+            contents.flush( )
+            return contents
+
+    def writeall( self, other ):
+        ''' writes the contents of 'lines' to self.__contents '''
+        contents = [ ]
+        lines = [ ]
+        if os.path.isfile( other ):
+            path = os.path.relpath( self.__path )
+            contents = open( path, 'a' )
+            lines = open( other, 'r' )
+            for line in lines.readlines( ):
+                contents.write( line )
+            contents.flush( )
+            lines.close( )
+            return contents
 
 
 # BudgetFolder( filepath )
 class BudgetFolder( ):
     '''BudgetFolder( filepath ) initializes the
      BudgetFolder Class providing file directory information'''
-    __infile = None
-    __name = None
     __path = None
+    __name = None
     __parent = None
     __dir = None
     __drive = None
@@ -840,14 +698,14 @@ class BudgetFolder( ):
     @property
     def name( self ):
         '''Returns string representing the name of the filepath 'base' '''
-        if os.path.exists( self.__infile ):
-            return str( list( os.path.split( self.__infile ) )[ 1 ] )
+        if os.path.exists( self.__path ):
+            return str( list( os.path.split( self.__path ) )[ 1 ] )
 
     @name.setter
-    def name( self, path ):
+    def name( self, value ):
         '''Returns string representing the name of the filepath 'base' '''
-        if path is not None:
-            self.__path = str( list( os.path.split( self.__infile ) )[ 1 ] )
+        if isinstance( value, str ):
+            self.__path = value
 
     @property
     def directory( self ):
@@ -856,10 +714,10 @@ class BudgetFolder( ):
             return self.__dir
 
     @directory.setter
-    def directory( self, path ):
+    def directory( self, value ):
         '''Returns string representing the name of the filepath 'base' '''
-        if os.path.isdir( path ):
-            self.__dir = path
+        if os.path.isdir( value ):
+            self.__dir = value
 
     @property
     def path( self ):
@@ -867,9 +725,9 @@ class BudgetFolder( ):
             return self.__path
 
     @path.setter
-    def path( self, base ):
-        if os.path.exists( base ):
-            self.__path = str( base )
+    def path( self, value ):
+        if os.path.exists( value ):
+            self.__path = str( value )
 
     @property
     def parent( self ):
@@ -877,9 +735,9 @@ class BudgetFolder( ):
             return self.__parent
 
     @parent.setter
-    def parent( self, path ):
-        if os.path.isdir( path ):
-            self.__parent = str( path )
+    def parent( self, value ):
+        if os.path.isdir( value ):
+            self.__parent = str( value )
 
     @property
     def drive( self ):
@@ -887,9 +745,9 @@ class BudgetFolder( ):
             return self.__drive
 
     @drive.setter
-    def drive( self, path ):
-        if os.path.ismount( path ):
-            self.__drive = str( path )
+    def drive( self, value ):
+        if os.path.ismount( value ):
+            self.__drive = str( value )
 
     @property
     def current( self ):
@@ -897,12 +755,12 @@ class BudgetFolder( ):
             return self.__current
 
     @current.setter
-    def current( self, path ):
-        if os.path.exists( path ):
-            os.chdir( path )
+    def current( self, value ):
+        if os.path.exists( value ):
+            os.chdir( value )
 
     def __init__( self, folderpath ):
-        self.__path = folderpath if isinstance( folderpath, str ) else None
+        self.__path = folderpath if os.path.isdir( folderpath ) else None
         self.__name = os.path.basename( folderpath )
         self.__dir = os.path.dirname( folderpath )
         self.__parent = os.path.dirname( folderpath )
@@ -911,15 +769,18 @@ class BudgetFolder( ):
         if self.__path is not None:
             return self.__path
 
-    def files( self ):
-        '''Iterates files in the base directory'''
-        if os.path.isdir( self.__infile ):
-            file_list = [ ]
-            for file in os.listdir( self.__infile ):
-                if os.path.isfile( file ):
-                    file_list.append( file )
+    def getfilenames( self ):
+        '''Iterates getfilenames in the base directory'''
+        path = self.__path
+        filenames = [ ]
+        for i in os.scandir( path ):
+            if os.path.isfile( i ):
+                name = os.path.basename( i )
+                filenames.append( name )
+            return filenames
 
-            return file_list
+
+        return filenames
 
     def rename( self, new_name ):
         '''renames currentdirectory file'''
@@ -956,15 +817,15 @@ class BudgetFolder( ):
             return os.path.splitdrive( other )[ 0 ]
 
     def iterate( self ):
-        '''iterates files in the base directory'''
-        if os.path.isdir( self.__infile ):
-            for i in os.scandir( self.__infile ):
+        '''iterates getfilenames in the base directory'''
+        if os.path.isdir( self.__path ):
+            for i in os.scandir( self.__path ):
                 yield i
 
     def getfiles( self, other ):
-        '''iterates files in the directory provided by 'other' '''
+        '''iterates getfilenames in the directory provided by 'other' '''
         if os.path.exists( other ) and os.path.isdir( other ):
-            yield from os.scandir( self.__infile )
+            yield from os.scandir( self.__path )
 
 
 # EmailMessage( sender, receiver, body, subject, copy )
@@ -993,7 +854,7 @@ class EmailMessage( ):
     def receiver( self ):
         ''' Gets the sender's email address '''
         if self.__receiver is not None:
-            return self.__receiver
+            return [ self.__receiver, ]
 
     @receiver.setter
     def receiver( self, value ):
@@ -1118,12 +979,12 @@ class EmailBuilder( ):
         if value is not None:
             self.__others = list( value )
 
-    def __init__( self, frm, to, body, subject, copy = None ):
-        self.__from = str( frm )
-        self.__to = str( to )
-        self.__message = str( body )
-        self.__others = list( copy )
-        self.__subject = str( subject )
+    def __init__( self, sender, receiver, body, subject, copy = None ):
+        self.__from = sender if isinstance( sender, str ) and sender != '' else None
+        self.__to = receiver if isinstance( receiver, str ) and receiver != '' else None
+        self.__message = body if isinstance( body, str ) and body != '' else None
+        self.__others = copy if isinstance( copy, str ) and copy != '' else None
+        self.__subject = subject if isinstance( subject, str ) and subject != '' else None
 
     def __str__( self ):
         if self.__message is not None:
