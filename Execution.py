@@ -1,6 +1,7 @@
 import datetime as dt
 from datetime import datetime, date
 from Ninja import *
+from Static import Source, Provider, SQL
 
 
 
@@ -64,6 +65,8 @@ class Element( Unit ):
 # Account( code )
 class Account( ):
     '''defines the Account Code class'''
+    __source = None
+    __provider = None
     __accountsid = None
     __code = None
     __name = None
@@ -168,6 +171,8 @@ class Account( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.Accounts
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__goalcode = self.__code[ 0 ]
         self.__objectivecode = self.__code[ 1:3 ]
@@ -200,6 +205,8 @@ class Account( ):
 # Activity( code  )
 class Activity( ):
     '''Defines the Activity Class'''
+    __source = None
+    __provider = None
     __activitycodesid = None
     __code = None
     __name = None
@@ -257,6 +264,8 @@ class Activity( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.ActivityCodes
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) and code != '' else None
 
     def __str__( self ):
@@ -264,8 +273,8 @@ class Activity( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.ActivityCodes
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -285,6 +294,8 @@ class Activity( ):
 # AllowanceHolder( code  )
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
+    __source = None
+    __provider = None
     __allowancholdersid = None
     __code = None
     __name = None
@@ -349,8 +360,8 @@ class AllowanceHolder( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.ActivityCodes
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -370,6 +381,8 @@ class AllowanceHolder( ):
 # Appropriation( code  )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
+    __source = None
+    __provider = None
     __appropriationsid = None
     __bfy = None
     __efy = None
@@ -465,6 +478,8 @@ class Appropriation( ):
             self.__data = value
 
     def __init__( self, bfy, law ):
+        self.__source = Source.FederalHolidays
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) and code != '' else None
         self.__law = law if isinstance( law, str ) and law != '' else None
 
@@ -473,8 +488,8 @@ class Appropriation( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.Appropriations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'PublicLaw' ]
         v = ( self.__bfy, self.__law )
         dconfig = DataConfig( source, provider )
@@ -494,6 +509,8 @@ class Appropriation( ):
 # BudgetFiscalYear( bfy )
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
+    __source = None
+    __provider = None
     __budgetfiscalyearsid = None
     __input = None
     __bfy = None
@@ -653,6 +670,8 @@ class BudgetFiscalYear( ):
             self.__frame = frame
 
     def __init__( self, bfy, efy ):
+        self.__source  = Source.FiscalYears
+        self.__provider = Provider.SQLite
         self.__today = datetime.today()
         self.__date = self.__today
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -671,8 +690,8 @@ class BudgetFiscalYear( ):
             return self.__bfy
 
     def getdata( self ):
-        source = Source.BudgetFiscalYear
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY' ]
         v = ( self.__bfy, self.__efy )
         dconfig = DataConfig( source, provider )
@@ -692,6 +711,8 @@ class BudgetFiscalYear( ):
 # BudgetObjectClass( code )
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
+    __source = None
+    __provider = None
     __budgetobjectclassesid = None
     __code = None
     __boc = None
@@ -761,6 +782,8 @@ class BudgetObjectClass( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.BudgetObjectClasses
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) and code != '' else None
 
     def __str__( self ):
@@ -768,8 +791,8 @@ class BudgetObjectClass( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.BudgetObjectClasses
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -789,6 +812,8 @@ class BudgetObjectClass( ):
 # FinanceObjectClass( code )
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
+    __source = None
+    __provider = None
     __financeobjectclassesid = None
     __code = None
     __name = None
@@ -875,8 +900,8 @@ class FinanceObjectClass( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.FinanceObjectClasses
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -896,6 +921,8 @@ class FinanceObjectClass( ):
 # Fund( bfy, efy, code )
 class Fund( ):
     '''Defines the Fund Class'''
+    __source = None
+    __provider = None
     __fundsid = None
     __code = None
     __name = None
@@ -1248,6 +1275,8 @@ class Fund( ):
             self.__frame = value
 
     def __init__( self, bfy, efy, code ):
+        self.__source = Source.Funds
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__code = code if isinstance( code, str ) and code != '' else None
@@ -1257,8 +1286,8 @@ class Fund( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.Funds
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'Code', ]
         v = ( self.__bfy, self.__efy, self.__code )
         dconfig = DataConfig( source, provider )
@@ -1278,6 +1307,8 @@ class Fund( ):
 # Goal( code )
 class Goal( ):
     '''Defines the Goal Class'''
+    __source = None
+    __provider = None
     __goalsid = None
     __code = None
     __name = None
@@ -1335,6 +1366,8 @@ class Goal( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.Goals
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
 
     def __str__( self ):
@@ -1342,8 +1375,8 @@ class Goal( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.Goals
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -1363,6 +1396,8 @@ class Goal( ):
 # NationalProgram( code )
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
+    __source = None
+    __provider = None
     __nationalprogramsid = None
     __code = None
     __name = None
@@ -1442,6 +1477,8 @@ class NationalProgram( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.NationalPrograms
+        self.__provider = Provider.SQLite
         self.__code = code
         self.__frame = pd.DataFrame
 
@@ -1450,8 +1487,8 @@ class NationalProgram( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.NationalPrograms
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -1471,6 +1508,8 @@ class NationalProgram( ):
 # Objective( code )
 class Objective( ):
     '''Defines the Objective Class'''
+    __source = None
+    __provider = None
     __objectivesid = None
     __code = None
     __name = None
@@ -1557,6 +1596,8 @@ class Objective( ):
 # Organization( code )
 class Organization( ):
     '''Defines the Organization Class'''
+    __source = None
+    __provider = None
     __organizationsid = None
     __code = None
     __name = None
@@ -1614,6 +1655,8 @@ class Organization( ):
             self.__frame = frame
 
     def __init__( self, code ):
+        self.__source = Source.Organizations
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -1622,8 +1665,8 @@ class Organization( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.Organizations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -1643,6 +1686,7 @@ class Organization( ):
 # Project( code )
 class Project( ):
     '''Defines the Organization Class'''
+    __source = None
     __projectsid = None
     __code = None
     __name = None
@@ -1700,6 +1744,8 @@ class Project( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.Projects
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -1708,8 +1754,8 @@ class Project( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.Projects
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -1729,6 +1775,8 @@ class Project( ):
 # ItProjectCode( code )
 class ItProjectCode( ):
     '''Defines the Organization Class'''
+    __source = None
+    __provider = None
     __cpicid = None
     __code = None
     __name = None
@@ -1786,6 +1834,8 @@ class ItProjectCode( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.CPIC
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -1794,8 +1844,8 @@ class ItProjectCode( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.CPIC
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -1815,6 +1865,8 @@ class ItProjectCode( ):
 # SiteProjectCode( code )
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
+    __source = None
+    __provider = None
     __siteprojectcodesid = None
     __code = None
     __name = None
@@ -1872,6 +1924,8 @@ class SiteProjectCode( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.SiteProjectCodes
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
 
     def __str__( self ):
@@ -1879,8 +1933,8 @@ class SiteProjectCode( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.SiteProjectCodes
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -1901,6 +1955,8 @@ class SiteProjectCode( ):
 class StateOrganization( ):
     '''StateOrganization( fgrp ) class
     representing state codes'''
+    __source = None
+    __provider = None
     __stateorganizationsid = None
     __code = None
     __name = None
@@ -1950,6 +2006,8 @@ class StateOrganization( ):
             self.__data = value
 
     def __init__( self, code ):
+        self.__source = Source.StateOrganizations
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
 
     def __str__( self ):
@@ -1957,8 +2015,8 @@ class StateOrganization( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.StateOrganizations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -1978,6 +2036,8 @@ class StateOrganization( ):
 # HeadquartersOffice( code )
 class HeadquartersOffice( ):
     '''Defines a regional RPIO'''
+    __source = None
+    __provider = None
     __resourceplanningofficesid = None
     __rpiocode = None
     __rpioname = None
@@ -2035,6 +2095,8 @@ class HeadquartersOffice( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.HeadquartersOffices
+        self.__provider = Provider.SQLite
         self.__rpiocode = code if isinstance( code, str ) and len( code ) == 2 else None
 
     def __str__( self ):
@@ -2042,8 +2104,8 @@ class HeadquartersOffice( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.HeadquartersOffice
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'RpioCode', ]
         v = ( self.__rpiocode, )
         dconfig = DataConfig( source, provider )
@@ -2063,6 +2125,8 @@ class HeadquartersOffice( ):
 # HumanResourceOrganization( code )
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
+    __source = None
+    __provider = None
     __humanresourceorganizationsid = None
     __code = None
     __name = None
@@ -2120,6 +2184,8 @@ class HumanResourceOrganization( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.HumanResourceOrganizations
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -2128,8 +2194,8 @@ class HumanResourceOrganization( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.HumanResourceOrganizations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -2149,6 +2215,8 @@ class HumanResourceOrganization( ):
 # ProgramArea( code )
 class ProgramArea( ):
     '''defines the ProgramArea class'''
+    __source = None
+    __provider = None
     __programareasid = None
     __code = None
     __name = None
@@ -2206,6 +2274,8 @@ class ProgramArea( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.ProgramAreas
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -2214,8 +2284,8 @@ class ProgramArea( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.ProgramAreas
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -2235,6 +2305,8 @@ class ProgramArea( ):
 # ProgramProject( code )
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
+    __source = None
+    __provider = None
     __programprojectsid = None
     __code = None
     __name = None
@@ -2303,6 +2375,8 @@ class ProgramProject( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.ProgramProjects
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -2311,8 +2385,8 @@ class ProgramProject( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.ProgramProjects
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -2332,6 +2406,8 @@ class ProgramProject( ):
 # ResponsibilityCenter( code )
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
+    __source = None
+    __provider = None
     __responsibilitycentersid = None
     __code = None
     __name = None
@@ -2389,6 +2465,8 @@ class ResponsibilityCenter( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.ResponsibilityCenters
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -2397,8 +2475,8 @@ class ResponsibilityCenter( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.ResponsibilityCenters
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -2426,6 +2504,8 @@ class ResponsibilityCenter( ):
 # ResourcePlanningOffice( code )
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
+    __source = None
+    __provider = None
     __resourceplanningofficesid = None
     __code = None
     __name = None
@@ -2483,6 +2563,8 @@ class ResourcePlanningOffice( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.ResourcePlanningOffices
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -2491,8 +2573,8 @@ class ResourcePlanningOffice( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.ResourcePlanningOffices
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -2512,6 +2594,8 @@ class ResourcePlanningOffice( ):
 # ProgramResultsCode( bfy, efy, rpio, ah, account, boc )
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
+    __source = None
+    __provider = None
     __allocationsid = None
     __rpiocode = None
     __rpioname = None
@@ -2847,6 +2931,8 @@ class ProgramResultsCode( ):
 
     def __init__( self, bfy, efy, rpio, ah, account, boc, amount = 0.0 ):
         '''Initializes the PRC class'''
+        self.__source = Source.Allocations
+        self.__provider = Provider.SQLite
         self.__accountcode = code if isinstance( code, str ) else None
         self.__bfy = BudgetFiscalYear( datetime.year )
         self.__amount = amount
@@ -2857,11 +2943,13 @@ class ProgramResultsCode( ):
             return self.__code
 
     def getdata( self ):
-        provider = Provider.SQLite
-        source = Source.Allocations
+        source = self.__source
+        provider = self.__provider
         command = SQL.SELECTALL
-        names = [ 'BFY', 'EFY', 'RpioCode', 'AhCode', 'AccoutnCode', 'BocCode' ]
-        values = ( self.__bfy, self.__efy, self.__ahcode, self.__accountcode, self.__boccode )
+        names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
+                  'AccoutnCode', 'BocCode', 'Amount' ]
+        values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+                   self.__ahcode, self.__accountcode, self.__boccode, self.__amount )
         df = DataFactory( provider, source, command, names, values )
         self.__data = df.create( )
         return self.__data
@@ -2870,6 +2958,8 @@ class ProgramResultsCode( ):
 # RegionalOffice( code )
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
+    __source = None
+    __provider = None
     __resourceplanningofficesid = None
     __rpiocode = None
     __rpioname = None
@@ -2927,6 +3017,8 @@ class RegionalOffice( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.ResourcePlanningOffices
+        self.__provider = Provider.SQLite
         self.__rpiocode = code if isinstance( code, str ) and len( code ) == 2 else None
 
     def __str__( self ):
@@ -2934,8 +3026,8 @@ class RegionalOffice( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.ResourcePlanningOffices
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -2955,6 +3047,8 @@ class RegionalOffice( ):
 # SiteProject( code )
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
+    __source = None
+    __provider = None
     __siteprojectcodesid = None
     __epaid = None
     __ssid = None
@@ -3056,6 +3150,8 @@ class SiteProject( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.SiteProjectCodes
+        self.__provider = Provider.SQLite
         self.__code = str( code )
         self.__ssid = self.__code[ 0: 4 ]
         self.__actioncode = self.__code[ 4:6 ]
@@ -3068,8 +3164,8 @@ class SiteProject( ):
             return self.__name
 
     def getdata( self ):
-        source = Source.SiteProjectCodes
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -3089,6 +3185,8 @@ class SiteProject( ):
 # FederalHoliday( bfy, efy, name )
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
+    __source = None
+    __provider = None
     __federalholidaysid = None
     __bfy = None
     __efy = None
@@ -3190,6 +3288,8 @@ class FederalHoliday( ):
             return self.__observance
 
     def __init__( self, bfy, name ):
+        self.__source = Source.FederalHolidays
+        self.__provider = Provider.SQLite
         self.__list = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                         'NewYearsDay', 'MartinLutherKing', 'Washingtons',
                         'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
@@ -3220,8 +3320,8 @@ class FederalHoliday( ):
             return self.__name
 
     def getdata( self ):
-        source = Source.FederalHolidays
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'Name', ]
         v = ( self.__bfy, self.__efy, self.__name, )
         dconfig = DataConfig( source, provider )
@@ -3422,6 +3522,8 @@ class FederalHoliday( ):
 class TreasurySymbol( ):
     '''TreasurySymbol( value )
     creates object that represents a TAFS'''
+    __source = None
+    __provider = None
     __ombagencycode = None
     __treasuryagencycode = None
     __bfy = None
@@ -3494,6 +3596,8 @@ class TreasurySymbol( ):
             self.__ombaccountname = value
 
     def __init__( self, bfy, efy, code ):
+        self.__soruce = Source.FundSymbols
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
         self.__treasuryaccountcode = trescode if isinstance( trescode, str ) else None
@@ -3503,19 +3607,30 @@ class TreasurySymbol( ):
             return self.__treasuryaccountname
 
     def getdata( self ):
-        provider = Provider.SQLite
-        source = Source.SiteProjectCodes
+        source = self.__source
+        provider = self.__provider
         command = SQL.SELECTALL
-        names = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
-        values = ( self.__bfy, self.__efy, self.__treasuryaccountcode )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        n = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
+        v = ( self.__bfy, self.__efy, self.__treasuryaccountcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
 
 # WorkCode( code )
 class WorkCode( ):
     '''Defines the Organization Class'''
+    __source = None
+    __provider = None
     __workcodesid = None
     __code = None
     __name = None
@@ -3573,6 +3688,8 @@ class WorkCode( ):
             self.__frame = value
 
     def __init__( self, code ):
+        self.__source = Source.WorkCodes
+        self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = pd.DataFrame
 
@@ -3581,8 +3698,8 @@ class WorkCode( ):
             return self.__code
 
     def getdata( self ):
-        source = Source.WorkCodes
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Code', ]
         v = ( self.__code, )
         dconfig = DataConfig( source, provider )
@@ -3603,6 +3720,8 @@ class WorkCode( ):
 class Transfer( ):
     ''' Transfer( documentnumber ) initializes object
     representing EPA reprogrammings'''
+    __source = None
+    __provider = None
     __transfersid = None
     __documenttype = None
     __documentnumber = None
@@ -3892,15 +4011,26 @@ class Transfer( ):
             self.__programareaname = value
 
     def __init__( self, rpnumber = None ):
+        self.__source = Source.Transfers
+        self.__provider = Provider.SQLite
         self.__documentnumber = rpnumber if isinstance( rpnumber, str ) else None
 
     def getdata( self ):
-        provider = Provider.SQLite
-        source = Source.Transfers
+        source = self.__source
+        provider = self.__provider
         command = SQL.SELECTALL
-        names = [ 'DocumentNumber', ]
-        values = ( self.__documentnumber, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        n = [ 'DocumentNumber', ]
+        v = ( self.__documentnumber, )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
         return self.__data
 
