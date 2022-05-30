@@ -4,6 +4,8 @@ from Control import *
 class Apportionment( ):
     '''Apportionment( bfy, efy, omb )
     initializes object representing Letters Of Apportionment'''
+    __source = None
+    __provider = None
     __apportionmentsid = None
     __bfy = None
     __efy = None
@@ -169,13 +171,15 @@ class Apportionment( ):
             self.__amount = value
 
     def __init__( self, bfy, efy, omb ):
+        self.__source = Source.Apportionments
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
     def getdata( self ):
-        source = Source.Apportionments
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
         v = ( self.__bfy, self.__efy, self.__ombaccountcode )
         dconfig = DataConfig( source, provider )
@@ -196,6 +200,8 @@ class Apportionment( ):
 class BudgetaryResourceExecution( ):
     '''BudgetaryResourceExecution( bfy, efy, code )
     initializes object representing MAX A-11 DE, SF-133'''
+    __source = None
+    __provider = None
     __budgetaryresourceexecutionid = None
     __bfy = None
     __efy = None
@@ -266,13 +272,15 @@ class BudgetaryResourceExecution( ):
             self.__ombaccountname = value
 
     def __init__( self, bfy, efy, code ):
+        self.__source = Source.BudgetResourceExecution
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
     def getdata( self ):
-        source = Source.BudgetResourceExecution
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
         v = ( self.__bfy, self.__efy, self.__ombaccountcode )
         dconfig = DataConfig( source, provider )
@@ -293,6 +301,8 @@ class BudgetaryResourceExecution( ):
 class CarryoverEstimates( ):
     '''CarryoverEstimates( bfy ) initializes object bfy
     providing Carryover Estimate data for'''
+    __source = None
+    __provider = None
     __carryoverestimatesid = None
     __budgetlevel = None
     __bfy = None
@@ -549,6 +559,8 @@ class CarryoverEstimates( ):
 
     def __init__( self, bfy ):
         '''Initializes the PRC class'''
+        self.__source = Source.CarryoverEstimates
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
 
     def __str__( self ):
@@ -556,8 +568,8 @@ class CarryoverEstimates( ):
             return str( self.__unobligatedauthority )
 
     def getdata( self ):
-        source = Source.UnobligatedAuthority
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY' ]
         v = ( self.__bfy, self.__efy )
         dconfig = DataConfig( source, provider )
@@ -578,6 +590,8 @@ class CarryoverEstimates( ):
 class CarryoverSurvey( ):
     '''CarryoverSurvey( bfy ) initializes object
     providing carryover survey data'''
+    __source = None
+    __provider = None
     __carryoversurveyid = None
     __bfy = None
     __efy = None
@@ -648,13 +662,15 @@ class CarryoverSurvey( ):
             self.__amount = value
 
     def __init__( self, bfy, efy, fund ):
+        self.__source = Source.CarryoverSurvey
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.CarryoverSurvey
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'FundCode', ]
         v = ( self.__bfy, self.__efy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -675,6 +691,8 @@ class CarryoverSurvey( ):
 class StatusOfAppropriations( ):
     '''StatusOfAppropriations( bfy, efy, fund )
     object representing Appropriation-level execution data'''
+    __source = None
+    __provider = None
     __statusofappropriationsid = None
     __bfy = None
     __efy = None
@@ -1285,13 +1303,15 @@ class StatusOfAppropriations( ):
             self.__availableamount = value
 
     def __init__( self, bfy, efy, fund ):
+        self.__source = Source.StatusOfAppropriations
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__appropriationfundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.StatusOfAppropriations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'AppropriationFundCode', ]
         v = ( self.__bfy, self.__efy, self.__appropriationfundcode )
         dconfig = DataConfig( source, provider )
@@ -1312,6 +1332,8 @@ class StatusOfAppropriations( ):
 class MonthlyOutlays( ):
     '''MonthlyOutlays( bfy, efy, omb ) initializes
     object providing OMB outlay data'''
+    __source = None
+    __provider = None
     __monthlyoutlaysid = None
     __reportyear = None
     __bfy = None
@@ -1443,13 +1465,15 @@ class MonthlyOutlays( ):
             self.__ombaccountname = value
 
     def __init__( self, bfy, efy, account ):
+        self.__source = Source.MonthlyOutlays
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) <= 5 else None
 
     def getdata( self ):
-        source = Source.MonthlyOutlays
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
         v = ( self.__bfy, self.__efy, self.__ombaccountcode )
         dconfig = DataConfig( source, provider )
@@ -1470,6 +1494,8 @@ class MonthlyOutlays( ):
 class SpendingRates( ):
     '''SpendingRates( code ) initializes
     object providing OMB spending rate data'''
+    __source = None
+    __provider = None
     __spendingratesid = None
     __ombagencycode = None
     __ombagencyname = None
@@ -1785,11 +1811,13 @@ class SpendingRates( ):
             self.__totalspendout = value
 
     def __init__( self, account ):
+        self.__source = Source.SpendingRates
+        self.__provider = Provider.SQLite
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        provider = Provider.SQLite
-        source = Source.Apportionments
+        source = self.__source
+        provider = self.__provider
         command = SQL.SELECTALL
         names = [ 'OmbAccountCode', ]
         values = ( self.__ombaccountcode, )
@@ -1802,6 +1830,8 @@ class SpendingRates( ):
 class ReimbursableSurvey( ):
     '''ReimbursableSurvey( bfy, fund ) initializes
     object providing Reimbursable Authority data'''
+    __source = None
+    __provider = None
     __reimbursablesurveyid = None
     __bfy = None
     __fundcode = None
@@ -1861,12 +1891,14 @@ class ReimbursableSurvey( ):
             self.__amount = value
 
     def __init__( self, bfy, efy, fund ):
+        self.__source = Source.ReimbursableSurvey
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.ReimbursableSurvey
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', ]
         v = ( self.__bfy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -1887,6 +1919,8 @@ class ReimbursableSurvey( ):
 class ObjectClassOutlays( ):
     '''ObjectClassOutlays( bfy, omb )
     object provides OMB outlay data'''
+    __source = None
+    __provider = None
     __objectclassoutlaysid = None
     __reportyear = None
     __ombagencycode = None
@@ -2056,6 +2090,8 @@ class ObjectClassOutlays( ):
             self.__budgetyear = value
 
     def __init__( self, account ):
+        source = self.__source
+        provider = self.__provider
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
@@ -2081,6 +2117,8 @@ class ObjectClassOutlays( ):
 class UnobligatedAuthority( ):
     '''UnobligatedAuthority( bfy, omb )
     object provides OMB data'''
+    __source = None
+    __provider = None
     __unobligatedauthorityid = None
     __reportyear = None
     __ombaccountcode = None
@@ -2185,11 +2223,13 @@ class UnobligatedAuthority( ):
             self.__budgetyear = value
 
     def __init__( self, account ):
+        self.__source = Source.UnobligatedAuthority
+        self.__provider = Provider.SQLite
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        source = Source.MonthlyOutlays
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'OmbAccountCode', ]
         v = ( self.__ombaccountcode, )
         dconfig = DataConfig( source, provider )
@@ -2210,6 +2250,8 @@ class UnobligatedAuthority( ):
 class BudgetOutlays( ):
     '''BudgetOutlays( bfy, omb )
     object provides OMB data'''
+    __source = None
+    __provider = None
     __budgetoutlaysid = None
     __reportyear = None
     __ombaccountcode = None
@@ -2456,11 +2498,13 @@ class BudgetOutlays( ):
             self.__outyear9 = value
 
     def __init__( self, account ):
+        self.__source = Source.BudgetOutlays
+        self.__provider = Provider.SQLite
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        source = Source.BudgetOutlays
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'OmbAccountCode', ]
         v = ( self.__ombaccountcode, )
         dconfig = DataConfig( source, provider )
@@ -2481,6 +2525,8 @@ class BudgetOutlays( ):
 class GrowthRates( ):
     '''GrowthRates( bfy, id )
     initializes object providing OMB growth rate data'''
+    __source = None
+    __provider = None
     __growthratesid = None
     __rateid = None
     __description = None
@@ -2628,12 +2674,14 @@ class GrowthRates( ):
             self.__outyear9 = value
 
     def __init__( self, bfy, id ):
+        self.__source = Source.GrowthRates
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rateid = id if isinstance( id, str ) and id != '' else None
 
     def getdata( self ):
-        source = Source.MonthlyOutlays
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'RateId', ]
         v = ( self.__bfy, self.__rateid )
         dconfig = DataConfig( source, provider )
@@ -2654,6 +2702,8 @@ class GrowthRates( ):
 class DataRuleDescription( ):
     ''' DataRuleDescription( schedule, line, rule )
     initializes object providing OMB MAX A11 rule data '''
+    __source = None
+    __provider = None
     __dataruledescriptionsid = None
     __schedule = None
     __linenumber = None
@@ -2722,13 +2772,15 @@ class DataRuleDescription( ):
             self.__ruledescription = value
 
     def __init__( self, schedule, line, rule ):
+        self.__source = Source.DataRuleDescriptions
+        self.__provider = Provider.SQLite
         self.__schedule = schedule if isinstance( schedule, str ) and schedule != '' else None
         self.__linenumber = line if isinstance( line, str ) and line != '' else None
         self.__rulenumber = rule if isinstance( rule, str ) and rule != '' else None
 
     def getdata( self ):
-        source = Source.DataRuleDescriptions
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
         v = ( self.__schedule, self.__linenumber, self.__rulenumber )
         dconfig = DataConfig( source, provider )
@@ -2747,6 +2799,8 @@ class DataRuleDescription( ):
 
 class CarryoverOutlays( ):
     ''' object provides OMB data '''
+    __source = None
+    __provider = None
     __carryoveroutlaysid = None
 
     @property
