@@ -1,7 +1,7 @@
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 import fitz
-from sys import exit
+from sys import exit, exc_info
 from Ninja import *
 from datetime import datetime, date
 import random
@@ -53,7 +53,7 @@ class Error( Exception ):
         self.__message = message if isinstance( message, str ) and message != '' else None
         self.__cause = cause if isinstance( cause, str ) and cause != '' else None
         self.__method = method if isinstance( method, str ) and method != '' else None
-        self.__info = None
+        self.__info = exc_info( )
 
 
 # ButtonIcon( png )
@@ -895,7 +895,9 @@ class ErrorDialog( Sith ):
             return self.__message
 
     def show( self ):
+        msg = self.__message if isinstance( self.__message, str ) and self.__message != '' else None
         layout = [ [ sg.Text( r'', size = ( 150, 1 ) ) ],
+           [ sg.Text( f'{ msg }', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 80, 1 ) ) ],
            [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 80, 1 ) ) ],
            [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 80, 1 ) ) ],
            [ sg.Text( r'', size = ( 150, 1 ) ) ],
