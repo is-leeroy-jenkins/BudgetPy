@@ -732,7 +732,7 @@ class EmailDialog( Sith ):
            [ sg.T( ' ', size = spc ),  sg.Button( 'Send', size = btn ),
              sg.T( ' ', size = btn ), sg.Button( 'Cancel', size = ( 20, 1 ) ) ] ]
 
-        window = sg.Window( '    Budget Execution', layout,
+        window = sg.Window( '  Budget Execution', layout,
             icon = self.__icon,
             background_color = self.__themebackground,
             font = self.__themefont,
@@ -896,7 +896,7 @@ class ErrorDialog( Sith ):
 
     def show( self ):
         msg = self.__message if isinstance( self.__message, str ) and self.__message != '' else None
-        clr = '#520B0E'
+        red = '#520B0E'
         layout = [ [ sg.Text( f'{ msg }', size = ( 10, 1 ) ) ],
            [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 80, 1 ) ) ],
            [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 80, 1 ) ) ],

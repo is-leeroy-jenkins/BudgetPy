@@ -9,6 +9,8 @@
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="C:\Users\terry\source\repos\BudgetPy\requirements.txt" />
+    <option name="removeUnused" value="true" />
+    <option name="modifyBaseFiles" value="true" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />

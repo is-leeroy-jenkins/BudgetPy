@@ -1,8 +1,5 @@
-from __future__ import print_function
-
-import os
-import time
 import sys
+import time
 from functools import wraps
 
 from pytest import mark
@@ -53,9 +50,9 @@ class TestWindowsConsoleControlHandler(BaseZMQTestCase):
             pass
         else:
             if result == 0:
-                raise WindowsError()
+                raise OSError()
             else:
                 self.fail('Expecting `KeyboardInterrupt` exception!')
 
         # Make sure our handler was called.
-        self.assertEqual(interrupt_polling.__calls__, 1)
+        assert interrupt_polling.__calls__ == 1
