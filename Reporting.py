@@ -539,12 +539,12 @@ class CarryoverEstimates( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, bfy ):
