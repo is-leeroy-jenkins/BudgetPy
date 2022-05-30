@@ -4,6 +4,8 @@ from Execution import *
 # OperatingPlan( bfy )
 class OperatingPlan( ):
     '''object representing Operating plan allocations'''
+    __source = None
+    __provider = None
     __operatingplansid = None
     __bfy = None
     __efy = None
@@ -295,12 +297,14 @@ class OperatingPlan( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.OperatingPlans
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.OperatingPlans
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', ]
         v = ( self.__bfy, )
         dconfig = DataConfig( source, provider )
@@ -320,6 +324,8 @@ class OperatingPlan( ):
 # FullTimeEquivalent( bfy, fund )
 class FullTimeEquivalent( ):
     '''object representing Operating Plan FTE'''
+    __source = None
+    __provider = None
     __fulltimeequivalentsid = None
     __operatingplansid = None
     __bfy = None
@@ -612,12 +618,14 @@ class FullTimeEquivalent( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.FullTimeEquivalents
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.Accounts
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode' ]
         v = ( self.__bfy, self.__fundcode, )
         dconfig = DataConfig( source, provider )
@@ -637,6 +645,8 @@ class FullTimeEquivalent( ):
 # StatusOfFunds( bfy, fund )
 class StatusOfFunds( ):
     '''Object representing execution data'''
+    __source = None
+    __provider = None
     __statusoffundsid = None
     __bfy = None
     __efy = None
@@ -1026,12 +1036,14 @@ class StatusOfFunds( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.StatusOfFunds
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.StatusOfFunds
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', ]
         v = ( self.__bfy, self.__fundcode, )
         dconfig = DataConfig( source, provider )
@@ -1051,6 +1063,8 @@ class StatusOfFunds( ):
 # Defacto( bfy, fund )
 class Defacto( ):
     '''object representing defacto obligations'''
+    __source = None
+    __provider = None
     __defactosid = None
     __statusoffundsid = None
     __bfy = None
@@ -1441,12 +1455,14 @@ class Defacto( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.Defactos
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.Defactos
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode' ]
         v = ( self.__bfy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -1466,6 +1482,8 @@ class Defacto( ):
 # StatusOfSupplementalFunds( bfy, fund )
 class StatusOfSupplementalFunds( ):
     '''object representing Supplemental Funds execution data'''
+    __source = None
+    __provider = None
     __statusofsupplementalfundsid = None
     __statusoffundsid = None
     __bfy = None
@@ -1856,12 +1874,14 @@ class StatusOfSupplementalFunds( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.StatusOfSupplementalFunding
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.StatusOfSupplementalFunding
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode' ]
         v = ( self.__bfy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -1881,6 +1901,8 @@ class StatusOfSupplementalFunds( ):
 # StateGrantObligation( bfy, rpio )
 class StateGrantObligation( ):
     '''object representing the BIS'''
+    __source = None
+    __provider = None
     __stategrantobligationsid = None
     __bfy = None
     __efy = None
@@ -2094,12 +2116,14 @@ class StateGrantObligation( ):
             self.__amount = value
 
     def __init__( self, bfy, rpio ):
+        self.__source = Source.StateGrantObligations
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
 
     def getdata( self ):
-        source = Source.StateGrantObligations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'RpioCode' ]
         v = ( self.__rpiocode, self.__rpiocode )
         dconfig = DataConfig( source, provider )
@@ -2119,6 +2143,8 @@ class StateGrantObligation( ):
 # Allocation( bfy, fund )
 class Allocations( ):
     '''object representing operating plan data'''
+    __source = None
+    __provider = None
     __allocationsid = None
     __statusoffundsid = None
     __bfy = None
@@ -2421,12 +2447,14 @@ class Allocations( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.Allocations
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.Allocations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode' ]
         v = ( self.__bfy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -2446,6 +2474,8 @@ class Allocations( ):
 # RegionalAuthority( bfy, fund )
 class RegionalAuthority( ):
     '''object representing Regional Allocations'''
+    __source = None
+    __provider = None
     __regionalauthorityid = None
     __statusoffundsid = None
     __bfy = None
@@ -2728,12 +2758,14 @@ class RegionalAuthority( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.RegionalAuthority
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.RegionalAuthority
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'RpioCode' ]
         v = ( self.__bfy, self.__rpiocode )
         dconfig = DataConfig( source, provider )
@@ -2753,6 +2785,8 @@ class RegionalAuthority( ):
 # HeadquartersAuthority( bfy, rpio )
 class HeadquartersAuthority( ):
     '''object representing HQ Allocations'''
+    __source = None
+    __provider = None
     __headquartersauthorityid = None
     __statusoffundsid = None
     __bfy = None
@@ -3035,12 +3069,14 @@ class HeadquartersAuthority( ):
             self.__npmname = value
 
     def __init__( self, bfy, rpio ):
+        self.__source = Source.HeadquartersAuthority
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
 
     def getdata( self ):
-        source = Source.HeadquartersAuthority
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'RpioCode' ]
         v = ( self.__bfy, self.__rpiocode )
         dconfig = DataConfig( source, provider )
@@ -3060,6 +3096,8 @@ class HeadquartersAuthority( ):
 # PayrollActivity( bfy, fund )
 class PayrollActivity( ):
     '''provides payroll data'''
+    __source = None
+    __provider = None
     __payrollactivityid = None
     __bfy = None
     __efy = None
@@ -3539,12 +3577,14 @@ class PayrollActivity( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.PayrollActivity
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.PayrollActivity
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode' ]
         v = ( self.__bfy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -3564,6 +3604,8 @@ class PayrollActivity( ):
 # SiteActivity( bfy, rpio  )
 class SiteActivity( ):
     '''provides data on superfund site spending'''
+    __source = None
+    __provider = None
     __siteactivityid = None
     __bfy = None
     __efy = None
@@ -3986,12 +4028,14 @@ class SiteActivity( ):
             self.__reversal = value
 
     def __init__( self, bfy, rpio ):
+        self.__source = Source.SiteActivity
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
 
     def getdata( self ):
-        source = Source.SiteActivity
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'RpioCode' ]
         v = ( self.__bfy, self.__rpiocode )
         dconfig = DataConfig( source, provider )
@@ -4011,6 +4055,8 @@ class SiteActivity( ):
 # Acutals( bfy, fund  )
 class Actuals( ):
     '''Object representing expenditure data'''
+    __source = None
+    __provider = None
     __actualsid = None
     __bfy = None
     __efy = None
@@ -4296,12 +4342,14 @@ class Actuals( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.Actuals
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.Actuals
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode' ]
         v = ( self.__bfy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -4321,6 +4369,8 @@ class Actuals( ):
 # AppropriationDocument( bfy, fund )
 class AppropriationDocument( ):
     '''object representing Level 1 documents'''
+    __source = None
+    __provider = None
     __appropriationdocumentsid = None
     __bfy = None
     __efy = None
@@ -4611,12 +4661,14 @@ class AppropriationDocument( ):
             self.__estimatedrecoveries = value
 
     def __init__( self, bfy, fund ):
+        self.__source = Source.AppropriationDocuments
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.AppropriationDocuments
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode' ]
         v = ( self.__bfy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -4636,6 +4688,8 @@ class AppropriationDocument( ):
 # BudgetDocument( bfy, fund )
 class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
+    __source = None
+    __provider = None
     __budgetdocumentsid = None
     __bfy = None
     __efy = None
@@ -5069,13 +5123,15 @@ class BudgetDocument( ):
             self.__estimatedrecoveries = value
 
     def __init__( self, bfy, efy, fundcode ):
+        self.__source = Source.BudgetDocuments
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
 
     def getdata( self ):
-        source = Source.BudgetDocuments
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'FundCode' ]
         v = ( self.__bfy, self.__efy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -5095,6 +5151,8 @@ class BudgetDocument( ):
 # BudgetControl( code )
 class BudgetControl( ):
     '''object representing compass control data'''
+    __source = None
+    __provider = None
     __budgetcontrolsid = None
     __code = None
     __name = None
@@ -5495,13 +5553,15 @@ class BudgetControl( ):
             self.__authoritydistributioncontrol = value
 
     def __init__( self, bfy, efy, fund ):
+        self.__source = Source.BudgetControls
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.BudgetControls
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'FundCode' ]
         v = ( self.__bfy, self.__efy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -5521,6 +5581,8 @@ class BudgetControl( ):
 # CongressionalControl( bfy, fund )
 class CongressionalControl( ):
     '''object representing congressional control data'''
+    __source = None
+    __provider = None
     __congressionalcontrolsid = None
     __bfy = None
     __efy = None
@@ -5690,12 +5752,14 @@ class CongressionalControl( ):
             self.__memorandumrequired = value
 
     def __init__( self, bfy, fundcode ):
+        self.__source = Source.CongressionalControls
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
 
     def getdata( self ):
-        source = Source.CongressionalControls
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode' ]
         v = ( self.__bfy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -5715,6 +5779,8 @@ class CongressionalControl( ):
 # CompassLevel( bfy, efy, fund )
 class CompassLevels( ):
     '''object representing Compass data levels 1-7'''
+    __source = None
+    __provider = None
     __compasslevelsid = None
     __bfy = None
     __efy = None
@@ -5845,13 +5911,15 @@ class CompassLevels( ):
             self.__subappropriationcode = value
 
     def __init__( self, bfy, efy, fund ):
+        self.__source = Source.CompassLevels
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = Source.Allocations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'EFY', 'FundCode' ]
         v = ( self.__bfy, self.__efy, self.__fundcode )
         dconfig = DataConfig( source, provider )
@@ -5871,6 +5939,8 @@ class CompassLevels( ):
 # Commitment( bfy, fund, account, boc )
 class Commitment( ):
     '''Defines the CommitmentS class.'''
+    __source = None
+    __provider = None
     __opencommitmentsid = None
     __obligationsid = None
     __bfy = None
@@ -6295,6 +6365,8 @@ class Commitment( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund, account, boc ):
+        self.__source = Source.OpenCommitments
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
@@ -6307,15 +6379,14 @@ class Commitment( ):
                 'bfy':      None,
                 'fund':     None,
                 'boc':      None }
-        self.__frame = pd.DataFrame
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
     def getdata( self ):
-        source = Source.OpenCommitments
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
         v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         dconfig = DataConfig( source, provider )
@@ -6335,6 +6406,8 @@ class Commitment( ):
 # DocumentControlNumber( dcn )
 class DocumentControlNumber( ):
     ''' object provides DCN data'''
+    __source = None
+    __provider = None
     __documentcontrolnumbersid = None
     __rpiocode = None
     __rpioname = None
@@ -6414,11 +6487,13 @@ class DocumentControlNumber( ):
             self.__documentcontrolnumber = value
 
     def __init__( self, dcn ):
+        self.__source = Source.DocumentControlNumbers
+        self.__provider = Provider.SQLite
         self.__documentcontrolnumber = dcn if isinstance( dcn, str ) and dcn != '' else None
 
     def getdata( self ):
-        source = Source.DocumentControlNumbers
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'DocumentControlNumber', ]
         v = ( self.__dcn, )
         dconfig = DataConfig( source, provider )
@@ -6439,6 +6514,8 @@ class DocumentControlNumber( ):
 class OpenCommitment( ):
     ''' OpenCommitment( bfy, fund, account, boc )
     initializes object providing OpenCommitment data.'''
+    __source = None
+    __provider = None
     __opencommitmentsid = None
     __obligationsid = None
     __bfy = None
@@ -6863,6 +6940,8 @@ class OpenCommitment( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund, account, boc ):
+        self.__source = Source.OpenCommitments
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
@@ -6875,15 +6954,14 @@ class OpenCommitment( ):
                 'bfy':      None,
                 'fund':     None,
                 'boc':      None }
-        self.__frame = pd.DataFrame
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
     def getdata( self ):
-        source = Source.OpenCommitments
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
         v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         dconfig = DataConfig( source, provider )
@@ -6904,6 +6982,8 @@ class OpenCommitment( ):
 class Obligation( ):
     '''Obligation( bfy, fund, account, boc )
     initializes object providing Obligation data'''
+    __source = None
+    __provider = None
     __obligationsid = None
     __bfy = None
     __efy = None
@@ -7327,6 +7407,8 @@ class Obligation( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund, account, boc ):
+        self.__source = Source.Obligations
+        self.__provider = Provider.SQlite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
@@ -7337,8 +7419,8 @@ class Obligation( ):
             return str( self.__amount )
 
     def getdata( self ):
-        source = Source.Obligations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
         v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         dconfig = DataConfig( source, provider )
@@ -7359,6 +7441,8 @@ class Obligation( ):
 class Deobligation( ):
     '''Deobligation( bfy, fund, account, boc )
     initializes object providing Deobligation data '''
+    __source = None
+    __provider = None
     __deobligationsid = None
     __obligationsid = None
     __bfy = None
@@ -7783,6 +7867,8 @@ class Deobligation( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund, account, boc ):
+        self.__source = Source.Deobligations
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
@@ -7793,8 +7879,8 @@ class Deobligation( ):
             return str( self.__amount )
 
     def getdata( self ):
-        source = Source.Deobligations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
         v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         dconfig = DataConfig( source, provider )
@@ -7815,6 +7901,8 @@ class Deobligation( ):
 class UnliquidatedObligation( ):
     '''UnliquidatedObligation( bfy, fund, account, boc )
     initializes object providing ULO data'''
+    __source = None
+    __provider = None
     __unliquidatedobligationsid = None
     __obligationsid = None
     __bfy = None
@@ -8239,6 +8327,8 @@ class UnliquidatedObligation( ):
             self.__npmname = value
 
     def __init__( self, bfy, fund, account, boc ):
+        self.__source = Source.UnliquidatedObligations
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
@@ -8249,8 +8339,8 @@ class UnliquidatedObligation( ):
             return str( self.__amount )
 
     def getdata( self ):
-        source = Source.UnliquidatedObligations
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
         v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         dconfig = DataConfig( source, provider )
@@ -8271,6 +8361,8 @@ class UnliquidatedObligation( ):
 class Expenditures:
     '''Expenditure( bfy, fund, account, code )
     initializes object providing Expenditure data'''
+    __source = None
+    __provider = None
     __expendituresid = None
     __obligationsid = None
     __bfy = None
@@ -8695,6 +8787,8 @@ class Expenditures:
             self.__npmname = value
 
     def __init__( self, bfy, fund, account, boc ):
+        self.__source = Source.Expenditures
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
@@ -8705,8 +8799,8 @@ class Expenditures:
             return str( self.__amount )
 
     def getdata( self ):
-        source = Source.Expenditures
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
         v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         dconfig = DataConfig( source, provider )
@@ -8726,6 +8820,8 @@ class Expenditures:
 # SpecialAccount( bfy, fund, account, boc )
 class SpecialAccounts( ):
     '''' object providing SF Special Account data'''
+    __source = None
+    __provider = None
     __specialaccountsid = None
     __bfy = None
     __efy = None
@@ -8964,6 +9060,8 @@ class SpecialAccounts( ):
 
 
     def __init__( self, bfy, fund, account, boc ):
+        self.__source = Source.SpecialAccounts
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
@@ -8974,8 +9072,8 @@ class SpecialAccounts( ):
             return str( self.__amount )
 
     def getdata( self ):
-        source = Source.SpecialAccounts
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
         v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
         dconfig = DataConfig( source, provider )
@@ -8995,6 +9093,8 @@ class SpecialAccounts( ):
 # SuperfundSite( bfy, rpio )
 class SuperfundSites( ):
     ''' object providing SF Site data '''
+    __source = None
+    __provider = None
     __superfundsitesid = None
     __bfy = None
     __efy = None
@@ -9233,12 +9333,14 @@ class SuperfundSites( ):
             self.__availablebalance = value
 
     def __init__( self, bfy, rpiocode ):
+        self.__source = Source.SuperfundSites
+        self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpiocode if isinstance( rpiocode, str ) and rpiocode != '' else None
 
     def getdata( self ):
-        source = Source.SuperfundSites
-        provider = Provider.SQLite
+        source = self.__source
+        provider = self.__provider
         n = [ 'BFY', 'RpioCode' ]
         v = ( self.__bfy, self.__rpiocode )
         dconfig = DataConfig( source, provider )
