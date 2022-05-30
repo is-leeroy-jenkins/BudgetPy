@@ -195,6 +195,14 @@ class Apportionment( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # BudgetaryResourceExecution( bfy, efy, code )
 class BudgetaryResourceExecution( ):
@@ -295,6 +303,14 @@ class BudgetaryResourceExecution( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # CarryoverEstimates( bfy )
@@ -585,6 +601,14 @@ class CarryoverEstimates( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # CarryoverSurvey( bfy, efy, fund )
 class CarryoverSurvey( ):
@@ -685,6 +709,14 @@ class CarryoverSurvey( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # StatusOfAppropriations( bfy, efy, fund )
@@ -1327,6 +1359,14 @@ class StatusOfAppropriations( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # MonthlyOutlays( bfy, efy, account )
 class MonthlyOutlays( ):
@@ -1488,6 +1528,14 @@ class MonthlyOutlays( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # SpendingRates( account )
@@ -1825,6 +1873,14 @@ class SpendingRates( ):
         self.__data = data.create( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # ReimbursableSurvey( bfy, fund )
 class ReimbursableSurvey( ):
@@ -1913,6 +1969,14 @@ class ReimbursableSurvey( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # ObjectClassOutlays( account )
@@ -2112,6 +2176,14 @@ class ObjectClassOutlays( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # UnobligatedAuthority( account )
 class UnobligatedAuthority( ):
@@ -2244,6 +2316,14 @@ class UnobligatedAuthority( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # BudgetOutlays( account )
@@ -2520,6 +2600,14 @@ class BudgetOutlays( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # GrowthRates( bfy, id )
 class GrowthRates( ):
@@ -2697,6 +2785,14 @@ class GrowthRates( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # DataRuleDescription( schedule, line, rule )
 class DataRuleDescription( ):
@@ -2795,6 +2891,14 @@ class DataRuleDescription( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 class CarryoverOutlays( ):

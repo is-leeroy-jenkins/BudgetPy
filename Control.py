@@ -320,6 +320,14 @@ class OperatingPlan( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # FullTimeEquivalent( bfy, fund )
 class FullTimeEquivalent( ):
@@ -640,6 +648,14 @@ class FullTimeEquivalent( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # StatusOfFunds( bfy, fund )
@@ -1058,6 +1074,14 @@ class StatusOfFunds( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # Defacto( bfy, fund )
@@ -1478,6 +1502,14 @@ class Defacto( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # StatusOfSupplementalFunds( bfy, fund )
 class StatusOfSupplementalFunds( ):
@@ -1897,6 +1929,14 @@ class StatusOfSupplementalFunds( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # StateGrantObligation( bfy, rpio )
 class StateGrantObligation( ):
@@ -2138,6 +2178,14 @@ class StateGrantObligation( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # Allocation( bfy, fund )
@@ -2470,6 +2518,14 @@ class Allocations( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # RegionalAuthority( bfy, fund )
 class RegionalAuthority( ):
@@ -2781,6 +2837,14 @@ class RegionalAuthority( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # HeadquartersAuthority( bfy, rpio )
 class HeadquartersAuthority( ):
@@ -3091,6 +3155,14 @@ class HeadquartersAuthority( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # PayrollActivity( bfy, fund )
@@ -3600,6 +3672,14 @@ class PayrollActivity( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # SiteActivity( bfy, rpio  )
 class SiteActivity( ):
@@ -4051,6 +4131,14 @@ class SiteActivity( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # Acutals( bfy, fund  )
 class Actuals( ):
@@ -4364,6 +4452,14 @@ class Actuals( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # AppropriationDocument( bfy, fund )
@@ -4683,6 +4779,14 @@ class AppropriationDocument( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # BudgetDocument( bfy, fund )
@@ -5147,6 +5251,14 @@ class BudgetDocument( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # BudgetControl( code )
 class BudgetControl( ):
@@ -5577,6 +5689,14 @@ class BudgetControl( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # CongressionalControl( bfy, fund )
 class CongressionalControl( ):
@@ -5934,6 +6054,14 @@ class CompassLevels( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # Commitment( bfy, fund, account, boc )
@@ -6402,6 +6530,14 @@ class Commitment( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # DocumentControlNumber( dcn )
 class DocumentControlNumber( ):
@@ -6508,6 +6644,14 @@ class DocumentControlNumber( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # OpenCommitment( bfy, fund, account, boc )
@@ -6977,6 +7121,14 @@ class OpenCommitment( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # Obligation( bfy, fund, account, boc )
 class Obligation( ):
@@ -7435,6 +7587,14 @@ class Obligation( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # Deobligation( bfy, fund, account, boc )
@@ -7896,6 +8056,14 @@ class Deobligation( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # UnliquidatedObligation( bfy, fund, account, boc )
 class UnliquidatedObligation( ):
@@ -8355,6 +8523,14 @@ class UnliquidatedObligation( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 
 # Expenditure( bfy, fund, account, boc )
@@ -8816,6 +8992,14 @@ class Expenditures:
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # SpecialAccount( bfy, fund, account, boc )
 class SpecialAccounts( ):
@@ -9089,6 +9273,14 @@ class SpecialAccounts( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 # SuperfundSite( bfy, rpio )
 class SuperfundSites( ):
@@ -9355,3 +9547,11 @@ class SuperfundSites( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
