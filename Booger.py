@@ -896,8 +896,8 @@ class ErrorDialog( Sith ):
 
     def show( self ):
         msg = self.__message if isinstance( self.__message, str ) and self.__message != '' else None
-        layout = [ [ sg.Text( r'', size = ( 150, 1 ) ) ],
-           [ sg.Text( f'{ msg }', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 80, 1 ) ) ],
+        clr = '#520B0E'
+        layout = [ [ sg.Text( f'{ msg }', size = ( 10, 1 ) ) ],
            [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 80, 1 ) ) ],
            [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 80, 1 ) ) ],
            [ sg.Text( r'', size = ( 150, 1 ) ) ],
