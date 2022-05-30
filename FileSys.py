@@ -8,7 +8,7 @@ from Static import Source, Provider, SQL, Model
 # BudgetPath( filepath )
 class BudgetPath( ):
     ''' BudgetPath( filename ) initializes the
-    BudgetPath class providing filepath information of getfilenames
+    BudgetPath class providing filepath information of getsubfolders
     used in the application'''
     __inpath = None
     __path = None
@@ -222,8 +222,8 @@ class DbPath( ):
                               r'\db\mssql\referencemodels\References.mdf'
 
 
-class SqlDirectory( ):
-    '''class providing paths to the sql getfilenames'''
+class SqlRepo( ):
+    '''class providing paths to the sql getsubfolders'''
     __accessdatamodels = None
     __accessreferencemodels = None
     __sqlitedatamodels = None
@@ -313,7 +313,7 @@ class SqlDirectory( ):
 
 
 class SqlFile( ):
-    '''class providing access to sql getfilenames in the application'''
+    '''class providing access to sql getsubfolders in the application'''
     __data = None
     __reference = None
     __command = None
@@ -384,35 +384,35 @@ class SqlFile( ):
         self.__source = source if isinstance( source, Source ) else None
         self.__provider = provider if isinstance( provider, Provider ) else None
 
-    def getnames( self ):
-        sd = SqlDirectory( )
+    def getpaths( self ):
+        sd = SqlRepo( )
         data = self.__data
         references = self.__references
         folder = ''
         if self.__provider.name == 'SQLite' and self.__source.name in data:
             folder = f'{ sd.sqlitedatamodels }\\{self.__command.name}'
-            return os.listdir( folder )
+            return BudgetFolder( folder ).getsubfiles( )
         elif self.__provider.name == 'SQLite' and self.__source.name in references:
             folder = f'{ sd.sqlitereferencemodels }\\{self.__command.name}'
-            return os.listdir( folder )
+            return BudgetFolder( folder ).getsubfiles( )
         elif self.__provider.name == 'Access' and self.__source.name in data:
             folder = f'{ sd.accessdatamodels }\\{self.__command.name}'
-            return os.listdir( folder )
+            return BudgetFolder( folder ).getsubfiles( )
         elif self.__provider.name == 'Access' and self.__source.name in references:
             folder = f'{ sd.accessreferencemodels }\\{self.__command.name}'
-            return os.listdir( folder )
+            return BudgetFolder( folder ).getsubfiles( )
         elif self.__provider.name == 'SqlServer' and self.__source.name in data:
             folder = f'{ sd.sqldatamodels }\\{self.__command.name}'
-            return os.listdir( folder )
+            return BudgetFolder( folder ).getsubfiles( )
         elif self.__provider.name == 'SqlServer' and self.__source.name in references:
             folder = f'{ sd.sqlreferencemodels }\\{self.__command.name}'
-            return os.listdir( folder )
+            return BudgetFolder( folder ).getsubfiles( )
         else:
             folder = f'{sd.sqlitedatamodels}\\{self.__command.name}'
-            return os.listdir( folder )
+            return BudgetFolder( folder ).getsubfiles( )
 
     def getdirectory( self ):
-        sd = SqlDirectory( )
+        sd = SqlRepo( )
         data = self.__data
         reference = self.__references
         name = self.__source.name
@@ -441,13 +441,13 @@ class SqlFile( ):
 
     def getquery( self ):
         table = self.__source.name
-        names = self.getnames( )
+        names = self.getpaths( )
         folder = self.getdirectory( )
         query = ''
         for i in names:
-            if i.startswith( table ):
-                path = folder + f'\\{ i }'
-                query = open( path )
+            name = os.path.basename( i )
+            if name.endswith( table + '.sql' ):
+                query = open( i )
                 sql = query.read( )
                 return sql
 
@@ -456,7 +456,7 @@ class SqlFile( ):
 class BudgetFile( ):
     '''BudgetFile( filepath ) initializes the
      BudgetFile Class providing file information for
-     getfilenames used in the application'''
+     getsubfolders used in the application'''
     __name = None
     __path = None
     __size = None
@@ -760,7 +760,7 @@ class BudgetFolder( ):
             os.chdir( value )
 
     def __init__( self, folderpath ):
-        self.__path = folderpath if os.path.isdir( folderpath ) else None
+        self.__path = folderpath if isinstance( folderpath, str ) else None
         self.__name = os.path.basename( folderpath )
         self.__dir = os.path.dirname( folderpath )
         self.__parent = os.path.dirname( folderpath )
@@ -769,16 +769,29 @@ class BudgetFolder( ):
         if self.__path is not None:
             return self.__path
 
-    def getfilenames( self ):
-        '''Iterates getfilenames in the base directory'''
+    def getsubfiles( self ):
+        '''Iterates getsubfolders in the base directory'''
         path = self.__path
         filenames = [ ]
-        for i in os.scandir( path ):
-            if os.path.isfile( i ):
-                name = os.path.basename( i )
-                filenames.append( name )
-            return filenames
+        for i in os.walk( path ):
+            if len( i[ 2 ] ) > 0 and len( i[ 0 ] ) > 0:
+                for file in i[ 2 ]:
+                    path = os.path.join( i[ 0 ], file )
+                    if os.path.isfile( path ):
+                        filenames.append( path )
 
+        return filenames
+
+    def getsubfolders( self ):
+        '''Iterates getsubfolders in the base directory'''
+        path = self.__path
+        filenames = [ ]
+        for i in os.walk( path ):
+            if len( i[ 1 ] ) > 0 and len( i[ 0 ] ) > 0:
+                for file in i[ 1 ]:
+                    path = os.path.join( i[ 0 ], file )
+                    if not os.path.isfile( path ):
+                        filenames.append( path )
 
         return filenames
 
@@ -817,15 +830,22 @@ class BudgetFolder( ):
             return os.path.splitdrive( other )[ 0 ]
 
     def iterate( self ):
-        '''iterates getfilenames in the base directory'''
+        '''iterates getsubfolders in the base directory'''
         if os.path.isdir( self.__path ):
             for i in os.scandir( self.__path ):
                 yield i
 
     def getfiles( self, other ):
-        '''iterates getfilenames in the directory provided by 'other' '''
-        if os.path.exists( other ) and os.path.isdir( other ):
-            yield from os.scandir( self.__path )
+        '''iterates getsubfolders in the directory provided by 'other' '''
+        if os.path.isdir( other ):
+            names = os.listdir( other )
+            files = [ ]
+            for i in names:
+                file = os.path.join( other, i )
+                if os.path.isfile( file ):
+                    files.append( file )
+
+            return files
 
 
 # EmailMessage( sender, receiver, body, subject, copy )

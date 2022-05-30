@@ -526,7 +526,7 @@ class SqlStatement( ):
 
 
 # Badger( connection, sqlstatement )
-class Badger( ):
+class Data( ):
     '''Base class for database interaction'''
     __connection = None
     __sqlstatement = None
@@ -622,7 +622,7 @@ class Badger( ):
 
 
 # SQLiteQuery( connection, sqlstatement )
-class SQLiteQuery( Badger ):
+class SQLiteQuery( Data ):
     '''SQLiteQuery( value, sqlconfig ) represents
      the budget execution values classes'''
     __driver = None
@@ -714,7 +714,7 @@ class SQLiteQuery( Badger ):
 
 
 # AccessQuery( connection, sqlstatement )
-class AccessQuery( Badger ):
+class AccessQuery( Data ):
     '''AccessQuery( value, sqlconfig ) class
       represents the budget execution
       values model classes in the MS Access database'''
@@ -797,7 +797,7 @@ class AccessQuery( Badger ):
 
 
 # SqlServerQuery( connection, sqlstatement )
-class SqlServerQuery( Badger ):
+class SqlServerQuery( Data ):
     '''SqlServerQuery( value, sqlconfig ) object
     represents the values models in the MS SQL Server
     database'''
