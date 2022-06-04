@@ -1455,6 +1455,13 @@ class Goal( ):
         sqlite.close( )
         return self.__data
 
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
 
 # NationalProgram( code )
 class NationalProgram( ):
@@ -1760,6 +1767,13 @@ class Organization( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
 
 
 # Project( code )
@@ -2536,6 +2550,13 @@ class ProgramProject( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
 
 
 # ResponsibilityCenter( code )
@@ -3510,7 +3531,6 @@ class FederalHoliday( ):
         src = self.__source
         data = BudgetData( src )
         return data.getframe( )
-
 
     def columbusday( self ):
         '''The second Monday in October'''
