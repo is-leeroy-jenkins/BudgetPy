@@ -67,19 +67,19 @@ class DataConfig( ):
         self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name
-        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlitedatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db'
-        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlitereferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
                             r'\db\sqlite\referencemodels\References.db'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdatapath = r'C:\\Users\terry\source\repos\BudgetPy' \
+        self.__accessdatapath = r'C:\\Users\teppler\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb'
-        self.__accessreferencepath = r'C:\\Users\terry\source\repos\BudgetPy' \
+        self.__accessreferencepath = r'C:\\Users\teppler\source\repos\BudgetPy' \
                             r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqldatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
                            r'\db\mssql\datamodels\Data.mdf'
-        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
                            r'\db\mssql\referencemodels\References.mdf'
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
