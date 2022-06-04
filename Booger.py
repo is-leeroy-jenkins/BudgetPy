@@ -96,7 +96,7 @@ class ButtonIcon( ):
 
     def __init__( self, png ):
         self.__name = png.name if isinstance( png, PNG ) else None
-        self.__button = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\button'
+        self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
         self.__filepath = self.__button + r'\\' + self.__name + '.png'
 
     def __str__( self ):
@@ -143,7 +143,7 @@ class TitleIcon( ):
 
     def __init__( self, ico ):
         self.__name = ico.name if isinstance( ico, ICO ) else None
-        self.__folder = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico'
+        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\ico'
         self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
     def __str__( self ):
@@ -295,7 +295,7 @@ class Sith( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__scrollbar = '#A87C03'
         self.__progressbar = '#18ADF2'
@@ -619,7 +619,7 @@ class GoogleDialog( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\google.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\google.png'
         self.__querytext = None
         self.__results = [ ]
 
@@ -706,7 +706,7 @@ class EmailDialog( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__formsize = ( 600, 500 )
         self.__folderpath = None
 
@@ -1125,7 +1125,7 @@ class ContactForm( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__formsize = ( 450, 200 )
 
     def show( self ):
@@ -1229,7 +1229,7 @@ class GridForm( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__fieldwidth = ( 17, 1 )
         self.__rows = rows
         self.__columns = columns
@@ -1293,7 +1293,7 @@ class LoadingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loading.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1361,7 +1361,7 @@ class WaitingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loader.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1431,7 +1431,7 @@ class ProcessingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1500,7 +1500,7 @@ class SplashPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\BudgetEx.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
         self.__formsize = ( 800, 600 )
         self.__timeout = 6000
 
@@ -1588,7 +1588,7 @@ class Notification( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\notification\NotifyNinja.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\NotifyNinja.png'
         self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
@@ -2169,7 +2169,7 @@ class ListBoxDialog( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 400, 250 )
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\dialog\lookup.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\dialog\lookup.png'
 
     def show( self ):
         btnsize = ( 10, 1 )
@@ -3083,7 +3083,7 @@ class BudgetForm( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 1400, 800 )
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\BudgetEx.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
 
     def show( self ):
         blue = '#0C396E'
