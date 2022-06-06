@@ -1,36 +1,37 @@
-CREATE TABLE BackUpAllocations
+CREATE TABLE IF NOT EXISTS BackUpAllocations
 (
-	BackupAllocationId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyBackUpAllocations PRIMARY KEY,
-	PrcId INTEGER NOT NULL UNIQUE,
-	BudgetLevel TEXT(255) NULL,
-	RPIO TEXT(255) NULL,
-	BFY TEXT(255) NULL,
-	FundCode TEXT(255) NULL,
-	AhCode TEXT(255) NULL,
-	OrgCode TEXT(255) NULL,
-	RcCode TEXT(255) NULL,
-	AccountCode TEXT(255) NULL,
-	BocCode TEXT(255) NULL,
+	BackupAllocationsId INTEGER NOT NULL UNIQUE,
+	AllocationsId INTEGER NOT NULL UNIQUE,
+	BudgetLevel TEXT(80) NULL DEFAULT 'NS',
+	RPIO TEXT(80) NULL DEFAULT 'NS',
+	BFY TEXT(80) NULL DEFAULT 'NS',
+	FundCode TEXT(80) NULL DEFAULT 'NS',
+	AhCode TEXT(80) NULL DEFAULT 'NS',
+	OrgCode TEXT(80) NULL DEFAULT 'NS',
+	RcCode TEXT(80) NULL DEFAULT 'NS',
+	AccountCode TEXT(80) NULL DEFAULT 'NS',
+	BocCode TEXT(80) NULL DEFAULT 'NS',
 	Amount DOUBLE NULL,
 	AllocationRatio INTEGER NULL,
-	FundName TEXT(255) NULL,
-	BocName TEXT(255) NULL,
-	Division TEXT(255) NULL,
-	DivisionName TEXT(255) NULL,
-	ActivityCode TEXT(255) NULL,
-	NpmName TEXT(255) NULL,
-	NpmCode TEXT(255) NULL,
-	ProgramProjectCode TEXT(255) NULL,
-	ProgramProjectName TEXT(255) NULL,
-	ProgramAreaCode TEXT(255) NULL,
-	ProgramAreaName TEXT(255) NULL,
-	GoalCode TEXT(255) NULL,
-	GoalName TEXT(255) NULL,
-	ObjectiveCode TEXT(255) NULL,
-	ObjectiveName TEXT(255) NULL,
+	FundName TEXT(80) NULL DEFAULT 'NS',
+	BocName TEXT(80) NULL DEFAULT 'NS',
+	Division TEXT(80) NULL DEFAULT 'NS',
+	DivisionName TEXT(80) NULL DEFAULT 'NS',
+	ActivityCode TEXT(80) NULL DEFAULT 'NS',
+	NpmName TEXT(80) NULL DEFAULT 'NS',
+	NpmCode TEXT(80) NULL DEFAULT 'NS',
+	ProgramProjectCode TEXT(80) NULL DEFAULT 'NS',
+	ProgramProjectName TEXT(80) NULL DEFAULT 'NS',
+	ProgramAreaCode TEXT(80) NULL DEFAULT 'NS',
+	ProgramAreaName TEXT(80) NULL DEFAULT 'NS',
+	GoalCode TEXT(80) NULL DEFAULT 'NS',
+	GoalName TEXT(80) NULL DEFAULT 'NS',
+	ObjectiveCode TEXT(80) NULL DEFAULT 'NS',
+	ObjectiveName TEXT(80) NULL DEFAULT 'NS',
 	ChangeDate DATETIME NULL,
-	CONSTRAINT ForeignKeyBackUpAllocations
-	FOREIGN KEY (PrcId)
+	CONSTRAINT BackUpAllocationsPrimaryKey 
+	PRIMARY KEY ("BackUpAllocationsId" AUTOINCREMENT)
+	CONSTRAINT BackUpAllocationsForeignKey
+	FOREIGN KEY (AllocationsId)
 	REFERENCES Allocations
 );
-

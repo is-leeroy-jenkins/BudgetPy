@@ -1,7 +1,7 @@
-CREATE TABLE BudgetObjectClasses
+CREATE TABLE IF NOT EXISTS BudgetObjectClasses 
 (
-	BudgetObjectClassId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyBudgetObjectClasses PRIMARY KEY AUTOINCREMENT,
-	Code TEXT(255) NOT NULL,
-	Name TEXT(255) NULL
-);
-
+	BudgetObjectClassesId	INTEGER NOT NULL UNIQUE,
+	Code	TEXT(255) NOT NULL,
+	Name	TEXT(255),
+	CONSTRAINT PrimaryKeyBudgetObjectClasses PRIMARY KEY(BudgetObjectClassesId AUTOINCREMENT)
+)v

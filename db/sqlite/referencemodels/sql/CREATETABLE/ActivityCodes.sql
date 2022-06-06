@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS ActivityCodes (
+	ActivityCodesId	INTEGER NOT NULL UNIQUE,
+	Code	TEXT(255),
+	Name	TEXT(255),
+	Title	TEXT(255)
+	PRIMARY KEY(ActivityCodesId AUTOINCREMENT)
+);

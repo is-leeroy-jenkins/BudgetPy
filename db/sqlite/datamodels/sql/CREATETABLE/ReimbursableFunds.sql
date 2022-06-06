@@ -1,8 +1,19 @@
-CREATE TABLE ReimbursableSurvey (
-	ReimbursableSurveyId	INTEGER NOT NULL UNIQUE,
-	BFY	 TEXT(255),
-	FundCode	 TEXT(255),
-	FundName	 TEXT(255),
-	Amount	NUMERIC,
-	PRIMARY KEY(ReimbursableSurveyId AUTOINCREMENT)
-)
+CREATE TABLE IF NOT EXISTS "ReimbursableFunds" 
+(
+	"ReimbursableFundsId"	INTEGER NOT NULL UNIQUE,
+	"RpioCode"	TEXT(80) NULL DEFAULT 'NS',
+	"BFY"	TEXT(80) NULL DEFAULT 'NS',
+	"FundCode"	TEXT(80) NULL DEFAULT 'NS',
+	"AccountCode"	TEXT(80) NULL DEFAULT 'NS',
+	"RcCode"	TEXT(80) NULL DEFAULT 'NS',
+	"RcName"	TEXT(80) NULL DEFAULT 'NS',
+	"BocCode"	TEXT(80) NULL DEFAULT 'NS',
+	"DocumentControlNumber"	TEXT(80) NULL DEFAULT 'NS',
+	"AgreeementNumber"	TEXT(80) NULL DEFAULT 'NS',
+	"Amount"	NUMERIC NULL DEFAULT 0,
+	"OpenCommitments"	NUMERIC NULL DEFAULT 0,
+	"Obligations"	NUMERIC NULL DEFAULT 0,
+	"ULO"	NUMERIC NULL DEFAULT 0,
+	"Available"	NUMERIC NULL DEFAULT 0,
+	PRIMARY KEY("ReimbursableFundsId" AUTOINCREMENT)
+);

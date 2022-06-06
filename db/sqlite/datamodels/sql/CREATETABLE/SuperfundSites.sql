@@ -1,12 +1,12 @@
-CREATE TABLE 'SuperfundSites' 
+CREATE TABLE IF NOT EXISTS "SuperfundSites" 
 (
-	'SiteId' INTEGER NOT NULL,
-	'RpioCode' TEXT(255),
-	'RpioName' TEXT(255),
-	'City' TEXT(255),
-	'State' TEXT(255),
-	'SSID' TEXT(255),
-	'SiteProjectName' TEXT(255),
-	'EpaSiteId' TEXT(255),
-	PRIMARY KEY('SiteId' AUTOINCREMENT)
+	"SuperfundSitesId"	INTEGER NOT NULL UNIQUE,
+	"RpioCode"	TEXT(80) NULL DEFAULT 'NS',
+	"RpioName"	TEXT(80) NULL DEFAULT 'NS',
+	"City"	TEXT(80) NULL DEFAULT 'NS',
+	"State"	TEXT(80) NULL DEFAULT 'NS',
+	"SSID"	TEXT(80) NULL DEFAULT 'NS',
+	"SiteProjectName"	TEXT(80) NULL DEFAULT 'NS',
+	"EpaSiteId"	TEXT(80) NULL DEFAULT 'NS',
+	PRIMARY KEY("SuperfundSitesId" AUTOINCREMENT)
 );
