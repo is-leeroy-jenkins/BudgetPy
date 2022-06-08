@@ -1,6 +1,6 @@
-CREATE TABLE ExecutionTables
+CREATE TABLE IF NOT EXISTS ExecutionTables
 (
-	ExecutionTableId INTEGER NOT NULL UNIQUE CONSTRAINT PK_ExecutionTables PRIMARY KEY,
-	TableName TEXT(255) NULL,
-	TableType TEXT(50) NULL
+	ExecutionTablesId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyExecutionTables PRIMARY KEY,
+	TableName TEXT(80) NULL DEFAULT "NS",
+	TableType TEXT(80) NULL DEFAULT "NS"
 );

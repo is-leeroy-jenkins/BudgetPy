@@ -1,6 +1,7 @@
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 import fitz
+import sys
 from sys import exit, exc_info
 from Ninja import *
 from datetime import datetime, date
@@ -95,7 +96,7 @@ class ButtonIcon( ):
 
     def __init__( self, png ):
         self.__name = png.name if isinstance( png, PNG ) else None
-        self.__button = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\button'
+        self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
         self.__filepath = self.__button + r'\\' + self.__name + '.png'
 
     def __str__( self ):
@@ -142,7 +143,7 @@ class TitleIcon( ):
 
     def __init__( self, ico ):
         self.__name = ico.name if isinstance( ico, ICO ) else None
-        self.__folder = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico'
+        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\ico'
         self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
     def __str__( self ):
@@ -294,7 +295,7 @@ class Sith( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\teppler\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__scrollbar = '#A87C03'
         self.__progressbar = '#18ADF2'
@@ -618,7 +619,7 @@ class GoogleDialog( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\google.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\google.png'
         self.__querytext = None
         self.__results = [ ]
 
@@ -705,7 +706,7 @@ class EmailDialog( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__formsize = ( 600, 500 )
         self.__folderpath = None
 
@@ -1124,7 +1125,7 @@ class ContactForm( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__formsize = ( 450, 200 )
 
     def show( self ):
@@ -1228,7 +1229,7 @@ class GridForm( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
         self.__fieldwidth = ( 17, 1 )
         self.__rows = rows
         self.__columns = columns
@@ -1292,7 +1293,7 @@ class LoadingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loading.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1360,7 +1361,7 @@ class WaitingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\loader.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1430,7 +1431,7 @@ class ProcessingPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1499,7 +1500,7 @@ class SplashPanel( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\BudgetEx.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
         self.__formsize = ( 800, 600 )
         self.__timeout = 6000
 
@@ -1587,7 +1588,7 @@ class Notification( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\notification\NotifyNinja.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\NotifyNinja.png'
         self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
@@ -1597,6 +1598,7 @@ class Notification( Sith ):
             display_duration_in_ms = 9000,
             fade_in_duration = 5000,
             alpha = 1 )
+
 
 
 class PdfForm( Sith ):
@@ -1635,126 +1637,112 @@ class PdfForm( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__formsize = ( 600, 400 )
+        self.__formsize = ( 600, 800 )
 
     def show( self ):
-        filename = sg.popup_get_file( title = 'Budget Execution',
-            message = 'PDF to open',
-            file_types = ( ("PDF Files", "*.pdf"),
-                           ("XPS Files", "*.*xps"),
-                           ("Epub Files", "*.epub"),
-                           ("HTML",   "*.htm*") ),
-            icon = self.__icon )
-
-        if filename is None:
-            sg.popup_cancel( 'Cancelling', icon = self.__icon  )
-            exit( 0 )
-
-        document = fitz.open( filename )
-        pages = len( document )
-        tablist = [ None ] * pages
-        title = f'Budget Execution display of { filename }, pages: { pages }'
-
-        def get_page( pno, zoom = 0 ):
-            displaylist = tablist[ pno ]
-            if not displaylist:
-                tablist[ pno ] = document[ pno ].get_displaylist( )
-                displaylist = tablist[ pno ]
-
-            r = displaylist.rect
-            mp = r.tl + ( r.br - r.tl ) * 0.5
-            mt = r.tl + ( r.tr - r.tl ) * 0.5
-            ml = r.tl + ( r.bl - r.tl ) * 0.5
-            mr = r.tr + ( r.br - r.tr ) * 0.5
-            mb = r.bl + ( r.br - r.bl ) * 0.5
-            mat = fitz.Matrix( 2, 2 )
-
-            if zoom == 1:
-                clip = fitz.Rect( r.tl, mp )
-            elif zoom == 4:
-                clip = fitz.Rect( mp, r.br )
-            elif zoom == 2:
-                clip = fitz.Rect( mt, mr )
-            elif zoom == 3:
-                clip = fitz.Rect( ml, mb )
-            if zoom == 0:
-                pix = displaylist.get_pixmap( alpha = False )
-            else:
-                pix = displaylist.get_pixmap( alpha = False,
-                    matrix = mat, clip = clip )
-
-            return pix
-
-        currentpage = 0
-        data = get_page( currentpage )
-        image_elem = sg.Image( data = data )
-        goto = sg.InputText( str( currentpage + 1 ), size = ( 5, 1 ) )
-
-        layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ), sg.Text( 'Page:' ), goto, ],
-                   [ sg.Text( 'Zoom:' ), sg.Button( 'Top-L' ), sg.Button( 'Top-R' ),
-                     sg.Button( 'Bot-L' ),  sg.Button( 'Bot-R' ), ],
-                   [ image_elem ],  ]
-
-        pdfkeys = ( 'Next', 'Next:34', 'Prev', 'Prior:33',
-            'Top-L', 'Top-R', 'Bot-L', 'Bot-R', 'MouseWheel:Down', 'MouseWheel:Up' )
-        zoombuttons = ( 'Top-L', 'Top-R', 'Bot-L', 'Bot-R' )
-
-        window = sg.Window( 'Budget Executon', layout,
-            return_keyboard_events = True,
-            icon = self.__icon,
-            use_default_focus = False )
-
         oldpage = 0
+        zoom = 0
         oldzoom = 0
 
+        filename = sg.popup_get_file( 'Select file', ' Budget PDF Viewer',
+            icon = self.__icon,
+            font = self.__themefont,
+            file_types = ( ( 'PDF Files', '*.pdf' ), ) )
+
+        if filename is None:
+            sg.popup_cancel( 'Cancelling' )
+            exit( 0 )
+
+        pdf = fitz.open( filename )
+        pages = len( pdf )
+        displaylist = [ None ] * pages
+        title =  ' Budget Execution'
+
+        def getpage( pno, zoom = 0 ):
+            display = displaylist[ pno ]
+            if not display:
+                displaylist[ pno ] = pdf[ pno ].get_displaylist( )
+                display = displaylist[ pno ]
+
+            r = display.rect
+            mp = r.tl + ( r.br - r.tl ) * 0.5  # rect middle point
+            mt = r.tl + (r.tr - r.tl ) * 0.5  # middle of top edge
+            ml = r.tl + (r.bl - r.tl) * 0.5  # middle of left edge
+            mr = r.tr + (r.br - r.tr) * 0.5  # middle of right egde
+            mb = r.bl + (r.br - r.bl) * 0.5  # middle of bottom edge
+            mat = fitz.Matrix( 2, 2 )
+            if zoom == 1:
+                clip = fitz.Rect(r.tl, mp)
+            elif zoom == 4:
+                clip = fitz.Rect(mp, r.br)
+            elif zoom == 2:
+                clip = fitz.Rect(mt, mr)
+            elif zoom == 3:
+                clip = fitz.Rect(ml, mb)
+            if zoom == 0:
+                pix = display.get_pixmap( alpha = False )
+            else:
+                pix = display.get_pixmap( alpha = False, matrix = mat, clip = clip )
+            return pix.tobytes( )
+
+        currentpage = 0
+        data = getpage( currentpage )
+        image = sg.Image( data = data )
+        goto = sg.InputText( f'{ str( currentpage + 1 ) } of { str( pages ) }', size = ( 10, 1 ) )
+        layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ),
+                     sg.Text( '' ),
+                     sg.Text( 'Page:' ),  goto,
+                     sg.Text( '', size = ( 10, 1) ), sg.Text( 'Zoom: '),
+                     sg.Button( ' In ', key = '-IN-' ), sg.Button( ' Out', key = '-OUT-' ), ],
+                   [ image ], ]
+
+        keys = ( 'Next', 'Next:34', 'Prev', 'Prior:33', 'MouseWheel:Down', 'MouseWheel:Up', '-IN-', '-OUT-' )
+
+        window = sg.Window( title, layout,
+            size = self.__formsize,
+            font = self.__themefont,
+            modal = True,
+            resizable = True,
+            grab_anywhere = True,
+            icon = self.__icon )
+
         while True:
-            event, values = window.read( timeout = 100 )
-            zoom = 0
+            event, values = window.read( )
             forcepage = False
             if event == sg.WIN_CLOSED:
                 break
-            if event in ( 'Escape:27', ):
-                break
-            if event[ 0 ] == chr( 13 ):
-                try:
-                    while currentpage < 0:
-                        currentpage += pages
-                except:
-                    currentpage = 0
-                goto.update( str( currentpage + 1 ) )
             elif event in ( 'Next', 'Next:34', 'MouseWheel:Down' ):
                 currentpage += 1
+                goto.Update( f'{ str( currentpage + 1 ) } of { str( pages ) }' )
             elif event in ( 'Prev', 'Prior:33', 'MouseWheel:Up' ):
                 currentpage -= 1
-            elif event == 'Top-L':
-                zoom = 1
-            elif event == 'Top-R':
-                zoom = 2
-            elif event == 'Bot-L':
-                zoom = 3
-            elif event == 'Bot-R':
-                zoom = 4
+                goto.Update( f'{ str( currentpage + 1 ) } of { str( pages ) }' )
+            elif event == '-IN-':
+                zoom += 1
+            elif event == '-OUT-':
+                zoom -= 1
+
             if currentpage >= pages:
                 currentpage = 0
+
             while currentpage < 0:
                 currentpage += pages
+
             if currentpage != oldpage:
                 zoom = oldzoom = 0
                 forcepage = True
-            if event in zoombuttons:
-                if 0 < zoom == oldzoom:
-                    zoom = 0
-                    forcepage = True
-
                 if zoom != oldzoom:
                     forcepage = True
+
             if forcepage:
-                data = get_page( currentpage, zoom )
-                image_elem.update( data = data )
+                data = getpage( currentpage, zoom )
+                image.update( data = data )
                 oldpage = currentpage
+
             oldzoom = zoom
-            if event in pdfkeys or not values[ 0 ]:
-                goto.update( str( currentpage + 1 ) )
+
+            if event in keys or not values[ 0 ]:
+                goto.update( f'{ str( currentpage + 1 ) } of { str( pages ) }' )
 
 
 # CalendarDialog( ) -> ( mm, dd, yyyy )
@@ -2181,7 +2169,7 @@ class ListBoxDialog( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 400, 250 )
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\app\dialog\lookup.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\dialog\lookup.png'
 
     def show( self ):
         btnsize = ( 10, 1 )
@@ -3095,7 +3083,7 @@ class BudgetForm( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 1400, 800 )
-        self.__image = r'C:\Users\teppler\source\repos\BudgetPy\etc\img\BudgetEx.png'
+        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
 
     def show( self ):
         blue = '#0C396E'

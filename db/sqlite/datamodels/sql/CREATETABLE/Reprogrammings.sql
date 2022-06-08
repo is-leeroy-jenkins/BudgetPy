@@ -1,25 +1,29 @@
-CREATE TABLE Reprogrammings
+CREATE TABLE IF NOT EXISTS Reprogrammings
 (
-	ReprogrammingId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyReprogrammings PRIMARY KEY,
-	TransferId INTEGER NOT NULL UNIQUE,
-	ReprogrammingNumber TEXT(255) NULL,
+	ReprogrammingsId INTEGER NOT NULL UNIQUE,
+	TransfersId INTEGER NOT NULL UNIQUE,
+	ReprogrammingNumber TEXT(80) DEFAULT 'NS',
 	ProcessedDate DATETIME NULL,
-	RPIO TEXT(255) NULL,
-	AhCode TEXT(255) NULL,
-	BFY TEXT(255) NULL,
-	FundCode TEXT(255) NULL,
-	OrgCode TEXT(255) NULL,
-	AccountCode TEXT(255) NULL,
-	FromTo TEXT(255) NULL,
-	BocCode TEXT(255) NULL,
-	RcCode TEXT(255) NULL,
-	Amount DOUBLE NULL,
-	FundName TEXT(255) NULL,
-	ProgramProjectCode TEXT(255) NULL,
-	ProgramProjectName TEXT(255) NULL,
-	ProgramAreaCode TEXT(255) NULL,
-	ProgramAreaName TEXT(255) NULL,
-	BocName TEXT(255) NULL,
-	DocPrefix TEXT(255) NULL
+	RPIO TEXT(80) DEFAULT 'NS',
+	AhCode TEXT(80) DEFAULT 'NS',
+	BFY TEXT(80) DEFAULT 'NS',
+	FundCode TEXT(80) DEFAULT 'NS',
+	OrgCode TEXT(80) DEFAULT 'NS',
+	AccountCode TEXT(80) DEFAULT 'NS',
+	FromTo TEXT(80) DEFAULT 'NS',
+	BocCode TEXT(80) DEFAULT 'NS',
+	RcCode TEXT(80) DEFAULT 'NS',
+	Amount REAL DEFAULT 0.0,
+	FundName TEXT(80) DEFAULT 'NS',
+	ProgramProjectCode TEXT(80) DEFAULT 'NS',
+	ProgramProjectName TEXT(80) DEFAULT 'NS',
+	ProgramAreaCode TEXT(80) DEFAULT 'NS',
+	ProgramAreaName TEXT(80) DEFAULT 'NS',
+	BocName TEXT(80) DEFAULT 'NS',
+	DocPrefix TEXT(80) DEFAULT 'NS', 
+	CONSTRAINT PrimaryKeyReprogrammings 
+	PRIMARY KEY(ReprogrammingsId AUTOINCREMENT),
+	CONSTRAINT ReprogrammingsForeignKey 
+	FOREIGN KEY("TransfersId") 
+	REFERENCES "Transfers"("TransfersId")
 );
-

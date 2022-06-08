@@ -401,8 +401,6 @@ class AllowanceHolder( ):
         data = BudgetData( src )
         return data.getframe( )
 
-
-
 # Appropriation( code  )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
@@ -1457,15 +1455,6 @@ class Goal( ):
         sqlite.close( )
         return self.__data
 
-    def getframe( self ):
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
-
-
-
 
 # NationalProgram( code )
 class NationalProgram( ):
@@ -1771,14 +1760,6 @@ class Organization( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
-
-    def getframe( self ):
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
-
 
 
 # Project( code )
@@ -2556,14 +2537,6 @@ class ProgramProject( ):
         sqlite.close( )
         return self.__data
 
-    def getframe( self ):
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
-
-
 
 # ResponsibilityCenter( code )
 class ResponsibilityCenter( ):
@@ -3229,14 +3202,6 @@ class RegionalOffice( ):
         sqlite.close( )
         return self.__data
 
-    def getframe( self ):
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
-
-
 
 # SiteProject( code )
 class SiteProject( ):
@@ -3546,6 +3511,7 @@ class FederalHoliday( ):
         data = BudgetData( src )
         return data.getframe( )
 
+
     def columbusday( self ):
         '''The second Monday in October'''
         if self.__year is not None:
@@ -3741,8 +3707,6 @@ class TreasurySymbol( ):
     __ombaccountname = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
-    __data = None
-    __frame = None
 
     @property
     def bfy( self ):

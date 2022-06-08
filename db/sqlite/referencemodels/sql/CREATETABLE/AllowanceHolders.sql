@@ -1,7 +1,7 @@
-CREATE TABLE AllowanceHolders
+CREATE TABLE IF NOT EXISTS AllowanceHolders 
 (
-	AllowanceHolderId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyAllowanceHolders PRIMARY KEY AUTOINCREMENT,
-	Code TEXT(255) NOT NULL,
-	Name TEXT(255) NULL
+	AllowanceHoldersId	INTEGER NOT NULL UNIQUE,
+	Code	TEXT(255) NOT NULL,
+	Name	TEXT(255),
+	CONSTRAINT PrimaryKeyAllowanceHolders PRIMARY KEY(AllowanceHoldersId AUTOINCREMENT)
 );
-

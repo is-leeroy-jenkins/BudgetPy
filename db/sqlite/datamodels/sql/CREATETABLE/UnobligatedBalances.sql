@@ -1,20 +1,14 @@
-CREATE TABLE "UnobligatedBalances" 
+CREATE TABLE IF NOT EXISTS "UnobligatedBalances" 
 (
 	"UnobligatedBalancesId"	INTEGER NOT NULL UNIQUE,
-	"BudgetYear"	TEXT,
-	"AgencyTitle"	TEXT,
-	"BureauTitle"	TEXT,
-	"OmbAccount"	TEXT,
-	"AgencyCode"	TEXT,
-	"BureauCode"	TEXT,
-	"AccountCode"	TEXT,
-	"Transmit"	TEXT,
-	"AgencySequence"	TEXT,
-	"OmbAccountTitle"	TEXT,
-	"LineName"	TEXT,
-	"LineNumber"	TEXT,
-	"PriorYearAmount"	REAL,
-	"CurrentYearAmount"	REAL,
-	"BudgetYearAmount"	REAL,
-	PRIMARY KEY("UnobligatedBalanceId" AUTOINCREMENT)
+	"BudgetYear" TEXT(80) DEFAULT 'NS',
+	"BFY" TEXT(80) DEFAULT 'NS',
+	"EFY" TEXT(80) DEFAULT 'NS',
+	"TreasurySymbol" TEXT(80) DEFAULT 'NS',
+	"FundCode" TEXT(80) DEFAULT 'NS',
+	"FundName" TEXT(80) DEFAULT 'NS',
+	"AccountNumber" TEXT(80) DEFAULT 'NS',
+	"AccountName" TEXT(80) DEFAULT 'NS',
+	"Amount" NUMERIC DEFAULT 0.0,
+	PRIMARY KEY("UnobligatedBalancesId" AUTOINCREMENT)
 );

@@ -1,7 +1,7 @@
-CREATE TABLE ResourcePlanningImplentationOffices
+CREATE TABLE IF NOT EXISTS ResourcePlanningOffices 
 (
-	RpioId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyResourcePlanningImplementationOffices PRIMARY KEY AUTOINCREMENT,
-	Code TEXT(255) NULL,
-	Name TEXT(255) NULL
+	ResourcePlanningOfficesId	INTEGER NOT NULL UNIQUE,
+	Code	TEXT(255),
+	Name	TEXT(255),
+	CONSTRAINT PrimaryKeyResourcePlanningOffices PRIMARY KEY(ResourcePlanningOfficesId AUTOINCREMENT)
 );
-

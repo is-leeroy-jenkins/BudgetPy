@@ -1,30 +1,30 @@
-CREATE TABLE "AppropriationDocuments" 
+CREATE TABLE IF NOT EXISTS "AppropriationDocuments" 
 (
 	"AppropriationDocumentsId"	INTEGER NOT NULL UNIQUE,
-	"BFY"	TEXT,
-	"EFY"	TEXT,
-	"Fund"	TEXT,
-	"FundCode"	TEXT,
-	"DocumentType"	TEXT,
-	"DocumentNumber"	TEXT,
-	"DocumentDate"	TEXT,
-	"LastDocumentDate"	TEXT,
-	"BudgetLevel"	TEXT,
-	"BudgetingControls"	TEXT,
-	"PostingControls"	TEXT,
-	"PreCommitmentControls"	TEXT,
-	"CommitmentControls"	TEXT,
-	"ObligationControls"	TEXT,
-	"AccrualControls"	TEXT,
-	"ExpenditureControls"	TEXT,
-	"ExpenseControls"	TEXT,
-	"ReimbursementControls"	TEXT,
-	"ReimbursableAgreementControls"	TEXT,
-	"Budgeted"	REAL,
-	"Posted"	REAL,
-	"CarryOut"	REAL,
-	"CarryIn"	REAL,
-	"EstimatedReimbursements"	REAL,
-	"EstimatedRecoveries"	REAL,
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	"BFY"	TEXT(80) NULL DEFAULT 'NS'
+	"EFY"	TEXT(80) NULL DEFAULT 'NS'
+	"FundCode"	TEXT(80) NULL DEFAULT 'NS'
+	"Fund"	TEXT(80) NULL DEFAULT 'NS'
+	"DocumentType"	TEXT(80) NULL DEFAULT 'NS'
+	"DocumentNumber"	TEXT(80) NULL DEFAULT 'NS'
+	"DocumentDate"	TEXT(80) NULL DEFAULT 'NS'
+	"LastDocumentDate"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetLevel"	TEXT(80) NULL DEFAULT 'NS'
+	"BudgetingControls"	TEXT(80) NULL DEFAULT 'NS'
+	"PostingControls"	TEXT(80) NULL DEFAULT 'NS'
+	"PreCommitmentControls"	TEXT(80) NULL DEFAULT 'NS'
+	"CommitmentControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ObligationControls"	TEXT(80) NULL DEFAULT 'NS'
+	"AccrualControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ExpenditureControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ExpenseControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ReimbursementControls"	TEXT(80) NULL DEFAULT 'NS'
+	"ReimbursableAgreementControls"	TEXT(80) NULL DEFAULT 'NS'
+	"Budgeted"	NUMERIC NULL DEFAULT 0.0,
+	"Posted"	NUMERIC NULL DEFAULT 0.0,
+	"CarryOut"	NUMERIC NULL DEFAULT 0.0,
+	"CarryIn"	NUMERIC NULL DEFAULT 0.0,
+	"EstimatedReimbursements"	NUMERIC NULL DEFAULT 0,
+	"EstimatedRecoveries"	NUMERIC NULL DEFAULT 0,
+	PRIMARY KEY("AppropriationDocumentsId" AUTOINCREMENT)
 );

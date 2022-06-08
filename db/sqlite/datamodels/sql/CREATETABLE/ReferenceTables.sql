@@ -1,6 +1,8 @@
 CREATE TABLE IF NOT EXISTS ReferenceTables
 (
-   ReferenceTableId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyReferenceTables PRIMARY KEY,
-   TableName TEXT(255),
-   Type TEXT(255)
+   ReferenceTablesId INTEGER NOT NULL UNIQUE,
+   TableName TEXT(80) NULL DEFAULT 'NS'
+   Type TEXT(80) NULL DEFAULT 'NS' 
+   CONSTRAINT ReferenceTablesPrimaryKey
+   PRIMARY KEY ("ReferenceTablesId" AUTOINCREMENT)
 );
