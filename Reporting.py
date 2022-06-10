@@ -203,7 +203,6 @@ class Apportionment( ):
         return data.getframe( )
 
 
-
 # BudgetaryResourceExecution( bfy, efy, code )
 class BudgetaryResourceExecution( ):
     '''BudgetaryResourceExecution( bfy, efy, code )
@@ -310,7 +309,6 @@ class BudgetaryResourceExecution( ):
         src = self.__source
         data = BudgetData( src )
         return data.getframe( )
-
 
 
 # CarryoverEstimates( bfy )
@@ -609,7 +607,6 @@ class CarryoverEstimates( ):
         return data.getframe( )
 
 
-
 # CarryoverSurvey( bfy, efy, fund )
 class CarryoverSurvey( ):
     '''CarryoverSurvey( bfy ) initializes object
@@ -716,7 +713,6 @@ class CarryoverSurvey( ):
         src = self.__source
         data = BudgetData( src )
         return data.getframe( )
-
 
 
 # StatusOfAppropriations( bfy, efy, fund )
@@ -1367,7 +1363,6 @@ class StatusOfAppropriations( ):
         return data.getframe( )
 
 
-
 # MonthlyOutlays( bfy, efy, account )
 class MonthlyOutlays( ):
     '''MonthlyOutlays( bfy, efy, omb ) initializes
@@ -1535,7 +1530,6 @@ class MonthlyOutlays( ):
         src = self.__source
         data = BudgetData( src )
         return data.getframe( )
-
 
 
 # SpendingRates( account )
@@ -1881,7 +1875,6 @@ class SpendingRates( ):
         return data.getframe( )
 
 
-
 # ReimbursableSurvey( bfy, fund )
 class ReimbursableSurvey( ):
     '''ReimbursableSurvey( bfy, fund ) initializes
@@ -1976,7 +1969,6 @@ class ReimbursableSurvey( ):
         src = self.__source
         data = BudgetData( src )
         return data.getframe( )
-
 
 
 # ObjectClassOutlays( account )
@@ -2184,7 +2176,6 @@ class ObjectClassOutlays( ):
         return data.getframe( )
 
 
-
 # UnobligatedAuthority( account )
 class UnobligatedAuthority( ):
     '''UnobligatedAuthority( bfy, omb )
@@ -2323,7 +2314,6 @@ class UnobligatedAuthority( ):
         src = self.__source
         data = BudgetData( src )
         return data.getframe( )
-
 
 
 # BudgetOutlays( account )
@@ -2608,7 +2598,6 @@ class BudgetOutlays( ):
         return data.getframe( )
 
 
-
 # GrowthRates( bfy, id )
 class GrowthRates( ):
     '''GrowthRates( bfy, id )
@@ -2793,7 +2782,6 @@ class GrowthRates( ):
         return data.getframe( )
 
 
-
 # DataRuleDescription( schedule, line, rule )
 class DataRuleDescription( ):
     ''' DataRuleDescription( schedule, line, rule )
@@ -2900,7 +2888,7 @@ class DataRuleDescription( ):
         return data.getframe( )
 
 
-
+# CarryoverOutlays( bfy, omb )
 class CarryoverOutlays( ):
     ''' object provides OMB data '''
     __source = None
@@ -3192,7 +3180,7 @@ class CarryoverOutlays( ):
 
 
 
-
+# UnobligatedBalance( bfy, efy, fundcode )
 class UnobligatedBalances( ):
     '''object provides OMB data on unobligated
     balances by Fund Code and General Ledger Account'''

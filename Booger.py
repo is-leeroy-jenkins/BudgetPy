@@ -834,6 +834,7 @@ class MessageDialog( Sith ):
         window.close( )
 
 
+
 # ErrorDialog( exception )
 class ErrorDialog( Sith ):
     '''class that displays error message'''
@@ -918,6 +919,7 @@ class ErrorDialog( Sith ):
                 break
 
         window.close( )
+
 
 
 # Input( question )
@@ -1011,6 +1013,7 @@ class InputDialog( Sith ):
         window.close( )
 
 
+
 class ScrollingDialog( Sith ):
     '''Provides form for multiline input/output'''
     __themebackground = None
@@ -1088,6 +1091,7 @@ class ScrollingDialog( Sith ):
         window.close( )
 
 
+
 # ContactForm( contact )
 class ContactForm( Sith ):
     '''class that produces a contact input form'''
@@ -1158,6 +1162,7 @@ class ContactForm( Sith ):
                 break
 
         window.close( )
+
 
 
 class GridForm( Sith ):
@@ -1256,6 +1261,7 @@ class GridForm( Sith ):
         window.close( )
 
 
+
 class LoadingPanel( Sith ):
     '''object providing form loading behavior '''
     __themebackground = None
@@ -1322,6 +1328,7 @@ class LoadingPanel( Sith ):
                 window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
         window.close()
+
 
 
 class WaitingPanel( Sith ):
@@ -1394,6 +1401,7 @@ class WaitingPanel( Sith ):
         window.close()
 
 
+
 class ProcessingPanel( Sith ):
     '''object providing form processing behavior '''
     __themebackground = None
@@ -1463,6 +1471,7 @@ class ProcessingPanel( Sith ):
         window.close()
 
 
+
 class SplashPanel( Sith ):
     '''Class providing splash dialog behavior'''
     __themebackground = None
@@ -1526,6 +1535,7 @@ class SplashPanel( Sith ):
                 break
 
         window.close()
+
 
 
 # Notification( message )
@@ -1745,6 +1755,7 @@ class PdfForm( Sith ):
                 goto.update( f'{ str( currentpage + 1 ) } of { str( pages ) }' )
 
 
+
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
     '''class creates form providing date selection behavior'''
@@ -1802,6 +1813,7 @@ class CalendarDialog( Sith ):
                                  close_when_chosen = True )
 
 
+
 class DatePanel( Sith ):
     ''' Desktop widget displaying date time text'''
     __themebackground = None
@@ -1847,8 +1859,61 @@ class DatePanel( Sith ):
         refresh_font = title_font = 'Roboto 8'
         main_info_font = 'Roboto 20'
         main_info_size = (10, 1)
-        UPDATE_FREQUENCY_MILLISECONDS = 1000 * 60 * 60  # update every hour by default until set
-        # by user
+        UPDATE_FREQUENCY_MILLISECONDS = 1000 * 60 * 60
+        window = make_window( sg.user_settings_get_entry( '-location-', location ) )
+
+        refresh_frequency = sg.user_settings_get_entry( '-fresh frequency-',
+            UPDATE_FREQUENCY_MILLISECONDS )
+
+        while True:
+            window[ '-MAIN INFO-' ].update( 'Your Info' )
+            window[ '-REFRESHED-' ].update(
+                datetime.datetime.now( ).strftime( "%m/%d/%Y\n%I:%M:%S %p" ) )
+            event, values = window.read( timeout = refresh_frequency )
+            print( event, values )
+            if event in (sg.WIN_CLOSED, 'Exit'):
+                break
+            if event == 'Edit Me':
+                sg.execute_editor( __file__ )
+            elif event == 'Choose Title':
+                new_title = sg.popup_get_text( 'Choose a title for your Widget',
+                    location = window.current_location( ), keep_on_top = True )
+                if new_title is not None:
+                    window[ '-TITLE-' ].update( new_title )
+                    sg.user_settings_set_entry( '-title-', new_title )
+            elif event == 'Show Refresh Info':
+                window[ '-REFRESHED-' ].update( visible = True )
+                sg.user_settings_set_entry( '-show refresh-', True )
+            elif event == 'Save Location':
+                sg.user_settings_set_entry( '-location-', window.current_location( ) )
+            elif event == 'Hide Refresh Info':
+                window[ '-REFRESHED-' ].update( visible = False )
+                sg.user_settings_set_entry( '-show refresh-', False )
+            elif event in [ str( x ) for x in range( 1, 11 ) ]:
+                window.set_alpha( int( event ) / 10 )
+                sg.user_settings_set_entry( '-alpha-', int( event ) / 10 )
+            elif event == 'Set Refresh Rate':
+                choice = sg.popup_get_text(
+                    'How frequently to update window in seconds? (can be a float)',
+                    default_text = sg.user_settings_get_entry( '-fresh frequency-',
+                        UPDATE_FREQUENCY_MILLISECONDS ) / 1000,
+                    location = window.current_location( ), keep_on_top = True )
+                if choice is not None:
+                    try:
+                        refresh_frequency = float( choice ) * 1000
+                        sg.user_settings_set_entry( '-fresh frequency-',
+                            float( refresh_frequency ) )
+                    except Exception as e:
+                        sg.popup_error( f'You entered an incorrect number of seconds: {choice}',
+                            f'Error: {e}', location = window.current_location( ),
+                            keep_on_top = True )
+            elif event == 'New Theme':
+                loc = window.current_location( )
+                if choose_theme( window.current_location( ), window.size ) is not None:
+                    window.close( )
+                    window = make_window( loc )
+
+        window.close( )
 
         def choose_theme( location, size ):
             """
@@ -1960,75 +2025,6 @@ class DatePanel( Sith ):
             :type location: Tuple[int, int]
             """
 
-            window = make_window( sg.user_settings_get_entry( '-location-', location ) )
-
-            refresh_frequency = sg.user_settings_get_entry( '-fresh frequency-',
-                UPDATE_FREQUENCY_MILLISECONDS )
-
-            while True:  # Event Loop
-                # Normally a window.read goes here, but first we're updating the values in the
-                # window, then reading it
-                # First update the status text
-                window[ '-MAIN INFO-' ].update( 'Your Info' )
-                # for debugging show the last update date time
-                window[ '-REFRESHED-' ].update(
-                    datetime.datetime.now( ).strftime( "%m/%d/%Y\n%I:%M:%S %p" ) )
-
-                # -------------- Start of normal event loop --------------
-                event, values = window.read( timeout = refresh_frequency )
-                print( event, values )
-                if event in (sg.WIN_CLOSED, 'Exit'):  # standard exit test... ALWAYS do this
-                    break
-                if event == 'Edit Me':
-                    sg.execute_editor( __file__ )
-                elif event == 'Choose Title':
-                    new_title = sg.popup_get_text( 'Choose a title for your Widget',
-                        location = window.current_location( ), keep_on_top = True )
-                    if new_title is not None:
-                        window[ '-TITLE-' ].update( new_title )
-                        sg.user_settings_set_entry( '-title-', new_title )
-                elif event == 'Show Refresh Info':
-                    window[ '-REFRESHED-' ].update( visible = True )
-                    sg.user_settings_set_entry( '-show refresh-', True )
-                elif event == 'Save Location':
-                    sg.user_settings_set_entry( '-location-', window.current_location( ) )
-                elif event == 'Hide Refresh Info':
-                    window[ '-REFRESHED-' ].update( visible = False )
-                    sg.user_settings_set_entry( '-show refresh-', False )
-                elif event in [ str( x ) for x in range( 1, 11 ) ]:  # if Alpha Channel was chosen
-                    window.set_alpha( int( event ) / 10 )
-                    sg.user_settings_set_entry( '-alpha-', int( event ) / 10 )
-                elif event == 'Set Refresh Rate':
-                    choice = sg.popup_get_text(
-                        'How frequently to update window in seconds? (can be a float)',
-                        default_text = sg.user_settings_get_entry( '-fresh frequency-',
-                            UPDATE_FREQUENCY_MILLISECONDS ) / 1000,
-                        location = window.current_location( ), keep_on_top = True )
-                    if choice is not None:
-                        try:
-                            refresh_frequency = float( choice ) * 1000  # convert to milliseconds
-                            sg.user_settings_set_entry( '-fresh frequency-',
-                                float( refresh_frequency ) )
-                        except Exception as e:
-                            sg.popup_error( f'You entered an incorrect number of seconds: {choice}',
-                                f'Error: {e}', location = window.current_location( ),
-                                keep_on_top = True )
-                elif event == 'New Theme':
-                    loc = window.current_location( )
-                    if choose_theme( window.current_location( ), window.size ) is not None:
-                        window.close( )  # out with the old...
-                        window = make_window( loc )  # in with the new
-
-            window.close( )
-
-        if __name__ == '__main__':
-            # To start the window at a specific location, get this location on the command line
-            # The location should be in form x,y with no spaces
-            location = (None, None)  # assume no location provided
-            if len( sys.argv ) > 1:
-                location = sys.argv[ 1 ].split( ',' )
-                location = (int( location[ 0 ] ), int( location[ 1 ] ))
-            main( location )
 
 
 # ComboBoxDialog( data )
@@ -2209,6 +2205,7 @@ class ListBoxDialog( Sith ):
                     icon = self.__icon  )
 
         window.close( )
+
 
 
 class ColorDialog( Sith ):
@@ -3023,6 +3020,7 @@ class ColorDialog( Sith ):
             tooltip_time = 100)
 
 
+
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
@@ -3161,6 +3159,7 @@ class BudgetForm( Sith ):
         window.close( )
 
 
+
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
     __themebackground = None
@@ -3250,6 +3249,7 @@ class ChartPanel( Sith ):
                 break
 
         window.close( )
+
 
 
 class CsvForm( Sith ):
