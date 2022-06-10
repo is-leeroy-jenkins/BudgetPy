@@ -2918,7 +2918,6 @@ class CarryoverOutlays( ):
     __delta = None
     __avaiablebalance = None
     __ulo = None
-    __prioryear = None
     __outyear1 = None
     __outyear2 = None
     __outyear3 = None
@@ -2928,6 +2927,8 @@ class CarryoverOutlays( ):
     __outyear7 = None
     __outyear8 = None
     __outyear9 = None
+    __data = None
+    __frame = None
 
 
     @property
@@ -2981,6 +2982,26 @@ class CarryoverOutlays( ):
             self.__ombaccountname = value
 
     @property
+    def carryover( self ):
+        if isinstance( self.__carryover, float ):
+            return self.__carryover
+
+    @carryover.setter
+    def carryover( self, value ):
+        if isinstance( value, float ):
+            self.__carryover = value
+
+    @property
+    def carryoveroutlays( self ):
+        if isinstance( self.__carryoveroutlays, float ):
+            return self.__carryoveroutlays
+
+    @carryoveroutlays.setteroutlays
+    def carryoveroutlays( self, value ):
+        if isinstance( value, float ):
+            self.__carryoveroutlays = value
+
+    @property
     def ulo( self ):
         if isinstance( self.__ulo, float ) and self.__ulo > 0:
             return self.__ulo
@@ -3009,26 +3030,6 @@ class CarryoverOutlays( ):
     def availablebalance( self, value ):
         if isinstance( value, float ) and value > 0:
             self.__availablebalance = value
-
-    @property
-    def prioryear( self ):
-        if isinstance( self.__prioryear, float ):
-            return self.__prioryear
-
-    @prioryear.setter
-    def prioryear( self, value ):
-        if isinstance( value, float ):
-            self.__prioryear = value
-
-    @property
-    def carryover( self ):
-        if isinstance( self.__carryover, float ):
-            return self.__carryover
-
-    @carryover.setter
-    def carryover( self, value ):
-        if isinstance( value, float ):
-            self.__carryover = value
 
     @property
     def currentyear( self ):
@@ -3160,6 +3161,36 @@ class CarryoverOutlays( ):
         if isinstance( value, float ):
             self.__outyear9 = value
 
+    def __init__( self, bfy, omb ):
+        self.__budgetyear = bfy if isinstance( bfy, str ) and bfy != '' else None
+        self.__ombaccountcode = omb if isinstance( omb, str ) and omb != '' else None
+
+    def getdata( self ):
+        source = Source.CarryoverOutlays
+        provider = Provider.SQLite
+        n = [ 'BudgetYear', 'OmbAccountCode' ]
+        v = ( self.__budgetyear, self.__ombaccountcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
+        return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
+
 
 
 class UnobligatedBalances( ):
@@ -3274,3 +3305,29 @@ class UnobligatedBalances( ):
         self.__bfy = bfy if isinstance( bfy, str ) and bfy != '' else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+
+    def getdata( self ):
+        source = Source.CarryoverOutlays
+        provider = Provider.SQLite
+        n = [ 'BFY', 'EFY', 'FundCode' ]
+        v = ( self.__bfy, self.__efy, self.__fundcode )
+        dconfig = DataConfig( source, provider )
+        sconfig = SqlConfig( names = n, values = v )
+        cnx = DataConnection( dconfig )
+        sql = SqlStatement( dconfig, sconfig )
+        sqlite = cnx.connect( )
+        cursor = sqlite.cursor( )
+        query = sql.getcommandtext( )
+        data = cursor.execute( query )
+        self.__data =  [ i for i in data.fetchall( ) ]
+        cursor.close( )
+        sqlite.close( )
+        return self.__data
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        src = self.__source
+        data = BudgetData( src )
+        return data.getframe( )
+
