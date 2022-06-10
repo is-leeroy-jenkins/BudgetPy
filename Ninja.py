@@ -67,19 +67,19 @@ class DataConfig( ):
         self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name
-        self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlitedatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db'
-        self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlitereferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
                             r'\db\sqlite\referencemodels\References.db'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdatapath = r'C:\\Users\terry\source\repos\BudgetPy' \
+        self.__accessdatapath = r'C:\\Users\teppler\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb'
-        self.__accessreferencepath = r'C:\\Users\terry\source\repos\BudgetPy' \
+        self.__accessreferencepath = r'C:\\Users\teppler\source\repos\BudgetPy' \
                             r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqldatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
                            r'\db\mssql\datamodels\Data.mdf'
-        self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
+        self.__sqlreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
                            r'\db\mssql\referencemodels\References.mdf'
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
@@ -1492,12 +1492,12 @@ class DataTable( ):
 
     @property
     def frame( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @frame.setter
     def frame( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     @property
@@ -1542,7 +1542,7 @@ class DataTable( ):
 
     def __init__( self, columns = None, rows = None,
                   source = None,  dataframe = None ):
-        self.__frame = dataframe if isinstance( dataframe, pd.DataFrame ) else None
+        self.__frame = dataframe if isinstance( dataframe, DataFrame ) else None
         self.__name = name if isinstance( name, str ) and name != '' else None
         self.__rows = [ tuple( r ) for r in dataframe.items ]
         self.__data = self.__rows
@@ -1619,12 +1619,12 @@ class BudgetData( ):
 
     @property
     def index( self ):
-        if isinstance( self.__index, pd.DataFrame.id ):
+        if isinstance( self.__index, DataFrame.id ):
             return self.__index
 
     @index.setter
     def index( self, value ):
-        if isinstance( value, pd.DataFrame.id ):
+        if isinstance( value, DataFrame.id ):
             self.__index = value
 
     @property

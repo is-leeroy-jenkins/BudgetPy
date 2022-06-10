@@ -7130,8 +7130,8 @@ class OpenCommitment( ):
 
 
 
-# Obligation( bfy, fund, account, boc )
-class Obligation( ):
+# Obligations( bfy, fund, account, boc )
+class Obligations( ):
     '''Obligation( bfy, fund, account, boc )
     initializes object providing Obligation data'''
     __source = None

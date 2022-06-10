@@ -162,12 +162,12 @@ class Account( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
@@ -262,12 +262,12 @@ class Activity( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
@@ -359,12 +359,12 @@ class AllowanceHolder( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
+        if isinstance( frame, DataFrame ):
             self.__frame = frame
 
     def __init__( self, code ):
@@ -692,12 +692,12 @@ class BudgetFiscalYear( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
+        if isinstance( frame, DataFrame ):
             self.__frame = frame
 
     def __init__( self, bfy, efy ):
@@ -812,12 +812,12 @@ class BudgetObjectClass( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
@@ -931,12 +931,12 @@ class FinanceObjectClass( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
+        if isinstance( frame, DataFrame ):
             self.__frame = frame
 
     def __init__( self, code ):
@@ -1321,12 +1321,12 @@ class Fund( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, bfy, efy, code ):
@@ -1420,12 +1420,12 @@ class Goal( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
@@ -1531,19 +1531,19 @@ class NationalProgram( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.NationalPrograms
         self.__provider = Provider.SQLite
         self.__code = code
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1629,17 +1629,17 @@ class Objective( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__code = Objective( str( code ) )
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1725,19 +1725,19 @@ class Organization( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
+        if isinstance( frame, DataFrame ):
             self.__frame = frame
 
     def __init__( self, code ):
         self.__source = Source.Organizations
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1814,19 +1814,19 @@ class Project( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.Projects
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1912,19 +1912,19 @@ class ItProjectCode( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.CPIC
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2010,12 +2010,12 @@ class SiteProjectCode( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
@@ -2197,12 +2197,12 @@ class HeadquartersOffice( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
@@ -2294,19 +2294,19 @@ class HumanResourceOrganization( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.HumanResourceOrganizations
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2392,19 +2392,19 @@ class ProgramArea( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.ProgramAreas
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2501,19 +2501,19 @@ class ProgramProject( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.ProgramProjects
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2591,19 +2591,19 @@ class ResponsibilityCenter( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.ResponsibilityCenters
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code ) and self.__code != '':
@@ -2697,19 +2697,19 @@ class ResourcePlanningOffice( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.ResourcePlanningOffices
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code ) and self.__code != '':
@@ -3072,12 +3072,12 @@ class ProgramResultsCode( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, frame ):
-        if isinstance( frame, pd.DataFrame ):
+        if isinstance( frame, DataFrame ):
             self.__frame = frame
 
     def __init__( self, bfy, efy, rpio, ah, account, boc, amount = 0.0 ):
@@ -3087,7 +3087,7 @@ class ProgramResultsCode( ):
         self.__accountcode = code if isinstance( code, str ) else None
         self.__bfy = BudgetFiscalYear( datetime.year )
         self.__amount = amount
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code ) and self.__code != '':
@@ -3167,12 +3167,12 @@ class RegionalOffice( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
@@ -3300,12 +3300,12 @@ class SiteProject( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
@@ -3316,7 +3316,7 @@ class SiteProject( ):
         self.__actioncode = self.__code[ 4:6 ]
         self.__operableunit = self.__code[ 6:9 ]
         self.__data = { 'fund': self.__code }
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__name, str ):
@@ -3446,7 +3446,7 @@ class FederalHoliday( ):
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     @property
@@ -3480,7 +3480,7 @@ class FederalHoliday( ):
         self.__day = self.__date.isoweekday()
         self.__data = { 'value': self.__bfy,
                         'value': self.__name }
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if not self.__name == '':
@@ -3862,19 +3862,19 @@ class WorkCode( ):
 
     @property
     def table( self ):
-        if isinstance( self.__frame, pd.DataFrame ):
+        if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, pd.DataFrame ):
+        if isinstance( value, DataFrame ):
             self.__frame = value
 
     def __init__( self, code ):
         self.__source = Source.WorkCodes
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = pd.DataFrame
+        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
