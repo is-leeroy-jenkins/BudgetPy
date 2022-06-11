@@ -8,103 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/ipykernel-6.13.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/ipykernel-6.13.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/ipykernel-6.13.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/ipykernel-6.13.1.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/ipykernel-6.13.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/ipykernel-6.13.1.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/ipykernel-6.13.1.dist-info/license_files/COPYING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/jsonschema-4.6.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/jsonschema-4.6.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/jsonschema-4.6.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/jsonschema-4.6.0.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/jsonschema-4.6.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/jsonschema-4.6.0.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/jsonschema-4.6.0.dist-info/license_files/COPYING" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/jsonschema/benchmarks/issue232/issue.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune-2.0.2.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune-2.0.2.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune-2.0.2.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune-2.0.2.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune-2.0.2.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune-2.0.2.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune-2.0.2.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/block_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/directives/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/directives/admonition.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/directives/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/directives/include.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/directives/toc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/inline_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/markdown.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/plugins/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/plugins/abbr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/plugins/def_list.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/plugins/extra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/plugins/footnotes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/plugins/table.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/plugins/task_lists.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/renderers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/scanner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/mistune/util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/msal-1.18.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/msal-1.18.0.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/msal-1.18.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/msal-1.18.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/msal-1.18.0.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/msal-1.18.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/msal-1.18.0.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/msal/cloudshell.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.12.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.12.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.12.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.12.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.12.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.12.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.12.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.12.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/AUTHORS.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/COPYING.BSD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/COPYING.LESSER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/DELVEWHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq-23.1.0.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyzmq.libs/.load-order-pyzmq-23.1.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/qtconsole-5.3.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/qtconsole-5.3.1.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/qtconsole-5.3.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/qtconsole-5.3.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/qtconsole-5.3.1.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/qtconsole-5.3.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/qtconsole-5.3.1.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/qtconsole-5.3.1.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.28.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.28.0.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.28.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.28.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.28.0.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.28.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.28.0.dist-info/top_level.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook-6.4.11.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/fr_FR/LC_MESSAGES/nbui.mo" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/fr_FR/LC_MESSAGES/nbui.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/fr_FR/LC_MESSAGES/notebook.mo" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/fr_FR/LC_MESSAGES/notebook.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/ja_JP/LC_MESSAGES/nbui.mo" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/ja_JP/LC_MESSAGES/nbui.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/ja_JP/LC_MESSAGES/notebook.mo" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/ja_JP/LC_MESSAGES/notebook.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/ru_RU/LC_MESSAGES/nbui.mo" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/ru_RU/LC_MESSAGES/nbui.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/ru_RU/LC_MESSAGES/notebook.mo" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/ru_RU/LC_MESSAGES/notebook.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/zh_CN/LC_MESSAGES/nbui.mo" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/zh_CN/LC_MESSAGES/nbui.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/zh_CN/LC_MESSAGES/notebook.mo" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/i18n/zh_CN/LC_MESSAGES/notebook.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/static/style/ipython.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/static/style/ipython.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/static/style/style.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/static/style/style.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.27.1.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/requests-2.27.1.dist-info/REQUESTED" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +98,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Colors"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Python"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -260,13 +164,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00176" summary="updates from main rig;">
-      <created>1653237079075</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1653237079075</updated>
     </task>
     <task id="LOCAL-00177" summary="updates from main rig;">
       <created>1653237266659</created>
@@ -604,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654957877471</updated>
     </task>
-    <option name="localTasksCounter" value="225" />
+    <task id="LOCAL-00225" summary="updates from main rig;">
+      <created>1654959698720</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1654959698720</updated>
+    </task>
+    <option name="localTasksCounter" value="226" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
