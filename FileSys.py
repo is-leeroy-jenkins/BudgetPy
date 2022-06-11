@@ -206,19 +206,19 @@ class DbPath( ):
             self.__sqlitereference = os.path.relpath( value )
 
     def __init__( self ):
-        self.__sqlitedata = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\Data.db'
-        self.__sqlitereference = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlitereference = r'C:\Users\terry\source\repos\BudgetPy' \
                                  r'\db\sqlite\referencemodels\References.db'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdata = r'C:\\Users\teppler\source\repos\BudgetPy' \
+        self.__accessdata = r'C:\\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\Data.accdb'
-        self.__accessreference = r'C:\\Users\teppler\source\repos\BudgetPy' \
+        self.__accessreference = r'C:\\Users\terry\source\repos\BudgetPy' \
                                  r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldata = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqldata = r'C:\Users\terry\source\repos\BudgetPy' \
                          r'\db\mssql\datamodels\Data.mdf'
-        self.__sqlreference = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlreference = r'C:\Users\terry\source\repos\BudgetPy' \
                               r'\db\mssql\referencemodels\References.mdf'
 
 
@@ -298,17 +298,17 @@ class SqlRepo( ):
             self.__sqlitereferencemodels = value
 
     def __init__( self ):
-        self.__sqlitedatamodels = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlitedatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
                             r'\db\sqlite\datamodels\sql'
-        self.__sqlitereferencemodels = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlitereferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
                                  r'\db\sqlite\referencemodels\sql'
-        self.__accessdatamodels = r'C:\\Users\teppler\source\repos\BudgetPy' \
+        self.__accessdatamodels = r'C:\\Users\terry\source\repos\BudgetPy' \
                             r'\db\access\datamodels\sql'
-        self.__accessreferencemodels = r'C:\\Users\teppler\source\repos\BudgetPy' \
+        self.__accessreferencemodels = r'C:\\Users\terry\source\repos\BudgetPy' \
                                  r'\db\access\referencemodels\sql'
-        self.__sqldatamodels = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqldatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
                          r'\db\mssql\datamodels\sql'
-        self.__sqlreferencemodels = r'C:\Users\teppler\source\repos\BudgetPy' \
+        self.__sqlreferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
                                  r'\db\mssql\referencemodels\sql'
 
 
