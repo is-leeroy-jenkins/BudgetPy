@@ -1,9 +1,31 @@
-CREATE TABLE Funds
+CREATE TABLE IF NOT EXISTS Funds 
 (
-	FundsId INTEGER NOT NULL UNIQUE CONSTRAINT PK_Funds PRIMARY KEY AUTOINCREMENT,
-	Code TEXT(255) NOT NULL,
-	Name TEXT(255) NULL,
-	TreasurySymbol TEXT(255) NULL,
-	Title TEXT(255) NULL
+	FundsId	INTEGER NOT NULL UNIQUE,
+	BFY	TEXT(255),
+	EFY	TEXT(255),
+	Code	TEXT(255),
+	Name	TEXT(255),
+	ShortName	TEXT(255),
+	Status	TEXT(255),
+	SubLevelPrefix	TEXT(255),
+	ATA	TEXT(255),
+	BeginningPeriodOfAvailability	TEXT(255),
+	EndingPeriodOfAvailability	TEXT(255),
+	MAIN	TEXT(255),
+	A	TEXT(255),
+	AID	TEXT(255),
+	SUB	TEXT(255),
+	FundCategory	TEXT(255),
+	AppropriationCode	TEXT(255),
+	SubAppropriationCode	TEXT(255),
+	FundGroup	TEXT(255),
+	NoYear	TEXT(255),
+	Carryover	TEXT(255),
+	CancelledYearSpendingAccount	TEXT(255),
+	ApplyAtAllLevels	TEXT(255),
+	BatsFund	TEXT(255),
+	BatsEndDate	TEXT(255),
+	BatsOptionId	TEXT(255),
+	SecurityOrg	TEXT(255),
+	PRIMARY KEY(FundsId AUTOINCREMENT)
 );
-
