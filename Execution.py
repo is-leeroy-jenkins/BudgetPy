@@ -3478,9 +3478,8 @@ class FederalHoliday( ):
         self.__dayofweek = self.__date.day
         self.__month = self.__date.month
         self.__day = self.__date.isoweekday()
-        self.__data = { 'value': self.__bfy,
-                        'value': self.__name }
-        self.__frame = DataFrame
+        self.__data = None
+        self.__frame = None
 
     def __str__( self ):
         if not self.__name == '':
@@ -3503,6 +3502,7 @@ class FederalHoliday( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
 
     def getframe( self ):
         '''Method returning pandas dataframe
