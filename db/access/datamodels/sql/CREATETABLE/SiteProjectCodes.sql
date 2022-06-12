@@ -1,7 +1,7 @@
-CREATE TABLE IF NOT EXISTS SiteProjectCodes
+CREATE TABLE SiteProjectCodes
 (
 	SiteProjectCodeId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeySiteProjectCodes PRIMARY KEY AUTOINCREMENT,
-    RcCode TEXT(255) NULL,
-    DivisionName TEXT(255) NULL,
-	SiteProjectCode TEXT(255) NULL
+    RcCode TEXT(80) NULL DEFAULT NS,
+    DivisionName TEXT(80) NULL DEFAULT NS,
+	SiteProjectCode TEXT(80) NULL DEFAULT NS
 );

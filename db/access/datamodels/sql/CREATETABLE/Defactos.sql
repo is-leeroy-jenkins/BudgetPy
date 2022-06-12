@@ -34,5 +34,5 @@ CREATE TABLE Defactos
     Available FLOAT DEFAULT 0.0,
     NpmCode TEXT(80) NULL DEFAULT NS,
     NpmName TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(DefactosId AUTOINCREMENT)
+    PRIMARY KEY(DefactosId)
 );

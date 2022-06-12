@@ -1,11 +1,11 @@
-CREATE TABLE 'Contacts' 
+CREATE TABLE Contacts 
 (
-	'ContactsId'	INTEGER NOT NULL UNIQUE,
-	'FirstName'	TEXT,
-	'LastName'	TEXT,
-	'FullName'	TEXT,
-	'Email'	TEXT,
-	'RPIO'	TEXT,
-	'Section'	TEXT,
-	PRIMARY KEY('ContactsId' AUTOINCREMENT)
+    ContactsId INTEGER NOT NULL UNIQUE,
+    FirstName TEXT(80) NULL DEFAULT NS,
+    LastName TEXT(80) NULL DEFAULT NS,
+    FullName TEXT(80) NULL DEFAULT NS,
+    Email TEXT(80) NULL DEFAULT NS,
+    RPIO TEXT(80) NULL DEFAULT NS,
+    Section TEXT(80) NULL DEFAULT NS,
+    PRIMARY KEY(ContactsId)
 );

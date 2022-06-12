@@ -1,19 +1,19 @@
-CREATE TABLE IF NOT EXISTS "ProjectCostCodes" 
+CREATE TABLE ProjectCostCodes 
 (
-	"ProjectCostCodeId"	INTEGER,
-	"BFY"	INTEGER,
-	"RpioCode"	INTEGER,
-	"RpioName"	TEXT,
-	"AhCode"	INTEGER,
-	"AhName"	TEXT,
-	"FundCode"	TEXT,
-	"FundName"	TEXT,
-	"AccountCode"	TEXT,
-	"ProgramProjectName"	TEXT,
-	"BocCode"	INTEGER,
-	"BocName"	TEXT,
-	"OrgCode"	TEXT,
-	"OrgName"	TEXT,
-	"VendorCode"	TEXT,
-	"VendorName"	TEXT
-)
+    ProjectCostCodeId INTEGER NOT NULL UNIQUE,
+    BFY TEXT(80) NULL DEFAULT NS,
+    RpioCode TEXT(80) NULL DEFAULT NS,
+    RpioName TEXT(80) NULL DEFAULT NS,
+    AhCode TEXT(80) NULL DEFAULT NS,
+    AhName TEXT(80) NULL DEFAULT NS,
+    FundCode TEXT(80) NULL DEFAULT NS,
+    FundName TEXT(80) NULL DEFAULT NS,
+    AccountCode TEXT(80) NULL DEFAULT NS,
+    ProgramProjectName TEXT(80) NULL DEFAULT NS,
+    BocCode TEXT(80) NULL DEFAULT NS,
+    BocName TEXT(80) NULL DEFAULT NS,
+    OrgCode TEXT(80) NULL DEFAULT NS,
+    OrgName TEXT(80) NULL DEFAULT NS,
+    VendorCode TEXT(80) NULL DEFAULT NS,
+    VendorName TEXT(80) NULL DEFAULT NS
+);
