@@ -401,6 +401,7 @@ class AllowanceHolder( ):
         data = BudgetData( src )
         return data.getframe( )
 
+
 # Appropriation( code  )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
