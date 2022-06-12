@@ -16,7 +16,7 @@ import unittest
 import warnings
 
 
-# count the number of test runs, used to create unique
+# count the number of test runs, used to createtable unique
 # strings to intern in test_intern()
 INTERN_NUMRUNS = 0
 
@@ -503,7 +503,7 @@ class SysModuleTest(unittest.TestCase):
         # Subclasses of string can't be interned, because they
         # provide too much opportunity for insane things to happen.
         # We don't want them in the interned dict and if they aren't
-        # actually interned, we don't want to create the appearance
+        # actually interned, we don't want to createtable the appearance
         # that they are by allowing intern() to succeed.
         class S(str):
             def __hash__(self):

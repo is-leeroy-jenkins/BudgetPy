@@ -45,7 +45,7 @@ class BuildDumbTestCase(support.TempdirManager,
     @unittest.skipUnless(ZLIB_SUPPORT, 'Need zlib support to run')
     def test_simple_built(self):
 
-        # let's create a simple package
+        # let's createtable a simple package
         tmp_dir = self.mkdtemp()
         pkg_dir = os.path.join(tmp_dir, 'foo')
         os.mkdir(pkg_dir)

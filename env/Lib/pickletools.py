@@ -96,7 +96,7 @@ bytes_types = pickle.bytes_types
 # pickle opcodes in all protocol versions to date.  So old pickles continue to
 # be readable forever.  The pickler can generally be told to restrict itself to
 # the subset of opcodes available under previous protocol versions too, so that
-# users can create pickles under the current version readable by older
+# users can createtable pickles under the current version readable by older
 # versions.  However, a pickle does not contain its version number embedded
 # within it.  If an older unpickler tries to read a pickle using a later
 # protocol, the result is most likely an exception due to seeing an unknown (in
@@ -1970,7 +1970,7 @@ opcodes = [
       supposed to reproduce the original object, or at least get it started.
       If the __reduce__ method returns a 3-tuple, the last component is an
       argument to be passed to the object's __setstate__, and then the REDUCE
-      opcode is followed by code to create setstate's argument, and then a
+      opcode is followed by code to createtable setstate's argument, and then a
       BUILD opcode to apply  __setstate__ to that argument.
 
       If not isinstance(callable, type), REDUCE complains unless the
@@ -2031,7 +2031,7 @@ opcodes = [
 
         + The class object does not have a __getinitargs__ attribute.
 
-      then we want to create an old-style class instance without invoking
+      then we want to createtable an old-style class instance without invoking
       its __init__() method (pickle has waffled on this over the years; not
       calling __init__() is current wisdom).  In this case, an instance of
       an old-style dummy class is created, and then we try to rebind its

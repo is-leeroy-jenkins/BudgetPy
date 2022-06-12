@@ -55,7 +55,7 @@ def int_to_float(n):
         return -int_to_float(-n)
 
     # Convert n to a 'floating-point' number q * 2**shift, where q is an
-    # integer with 'PRECISION' significant bits.  When shifting n to create q,
+    # integer with 'PRECISION' significant bits.  When shifting n to createtable q,
     # the least significant bit of q is treated as 'sticky'.  That is, the
     # least significant bit of q is set if either the corresponding bit of n
     # was already set, or any one of the bits of n lost in the shift was set.

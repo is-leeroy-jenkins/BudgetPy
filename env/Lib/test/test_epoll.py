@@ -160,7 +160,7 @@ class TestEPoll(unittest.TestCase):
             self.fail("epoll on closed fd didn't raise EBADF")
 
     def test_control_and_wait(self):
-        # create the epoll object
+        # createtable the epoll object
         client, server = self._connected_pair()
         ep = select.epoll(16)
         ep.register(server.fileno(),

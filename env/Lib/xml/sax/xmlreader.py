@@ -194,7 +194,7 @@ class InputSource:
     system identifier, byte stream (possibly with character encoding
     information) and/or the character stream of an entity.
 
-    Applications will create objects of this class for use in the
+    Applications will createtable objects of this class for use in the
     XMLReader.parse method and for returning from
     EntityResolver.resolveEntity.
 

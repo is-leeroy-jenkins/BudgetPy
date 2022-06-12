@@ -608,7 +608,7 @@ class MSVCCompiler(CCompiler) :
                     return self.__macros.sub(d[path]).split(";")
                 else:
                     return d[path].split(";")
-        # MSVC 6 seems to create the registry entries we need only when
+        # MSVC 6 seems to createtable the registry entries we need only when
         # the GUI is run.
         if self.__version == 6:
             for base in HKEYS:

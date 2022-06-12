@@ -36,7 +36,7 @@ class ListViewer:
         root.bind('<Alt-w>', self.withdraw)
         root.bind('<Alt-W>', self.withdraw)
         #
-        # create the canvas which holds everything, and its scrollbar
+        # createtable the canvas which holds everything, and its scrollbar
         #
         frame = self.__frame = Frame(root)
         frame.pack()
@@ -67,7 +67,7 @@ class ListViewer:
 
     def __populate(self):
         #
-        # create all the buttons
+        # createtable all the buttons
         colordb = self.__sb.colordb()
         canvas = self.__canvas
         row = 0

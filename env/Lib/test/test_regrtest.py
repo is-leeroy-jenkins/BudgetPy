@@ -1190,7 +1190,7 @@ class ArgsTestCase(BaseTestCase):
 
             class Tests(unittest.TestCase):
                 def test_garbage(self):
-                    # create an uncollectable object
+                    # createtable an uncollectable object
                     obj = Garbage()
                     obj.ref_cycle = obj
                     obj = None

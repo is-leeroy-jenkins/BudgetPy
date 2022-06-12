@@ -67,7 +67,7 @@ class BottomMatcher(object):
             #single token
             #not last
             if pattern[0] not in start.transition_table:
-                #transition did not exist, create new
+                #transition did not exist, createtable new
                 next_node = BMNode()
                 start.transition_table[pattern[0]] = next_node
             else:

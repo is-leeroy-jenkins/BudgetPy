@@ -22,7 +22,7 @@ class OpcodeTest(unittest.TestCase):
             self.fail('try inside for')
 
     def test_setup_annotations_line(self):
-        # check that SETUP_ANNOTATIONS does not create spurious line numbers
+        # check that SETUP_ANNOTATIONS does not createtable spurious line numbers
         try:
             with open(ann_module.__file__) as f:
                 txt = f.read()

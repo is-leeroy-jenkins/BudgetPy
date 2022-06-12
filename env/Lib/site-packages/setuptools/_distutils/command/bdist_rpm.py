@@ -1,6 +1,6 @@
 """distutils.command.bdist_rpm
 
-Implements the Distutils 'bdist_rpm' command (create RPM source and binary
+Implements the Distutils 'bdist_rpm' command (createtable RPM source and binary
 distributions)."""
 
 import subprocess, sys, os
@@ -13,7 +13,7 @@ from distutils import log
 
 class bdist_rpm(Command):
 
-    description = "create an RPM distribution"
+    description = "createtable an RPM distribution"
 
     user_options = [
         ('bdist-base=', None,
@@ -37,7 +37,7 @@ class bdist_rpm(Command):
         ('binary-only', None,
          "only generate binary RPM"),
         ('use-bzip2', None,
-         "use bzip2 instead of gzip to create source distribution"),
+         "use bzip2 instead of gzip to createtable source distribution"),
 
         # More meta-data: too RPM-specific to put in the setup script,
         # but needs to go in the .spec file -- so we make these options
@@ -195,7 +195,7 @@ class bdist_rpm(Command):
                   "--python and --fix-python are mutually exclusive options")
 
         if os.name != 'posix':
-            raise DistutilsPlatformError("don't know how to create RPM "
+            raise DistutilsPlatformError("don't know how to createtable RPM "
                    "distributions on platform %s" % os.name)
         if self.binary_only and self.source_only:
             raise DistutilsOptionError(
@@ -430,7 +430,7 @@ class bdist_rpm(Command):
             'Release: %{release}',])
 
         # XXX yuck! this filename is available from the "sdist" command,
-        # but only after it has run: and we create the spec file before
+        # but only after it has run: and we createtable the spec file before
         # running "sdist", in case of --spec-only.
         if self.use_bzip2:
             spec_file.append('Source0: %{name}-%{unmangled_version}.tar.bz2')

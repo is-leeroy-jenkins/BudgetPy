@@ -72,7 +72,7 @@ def test_factory(abc_ABCMeta, abc_get_cache_token):
     class TestABC(unittest.TestCase):
 
         def test_ABC_helper(self):
-            # create an ABC using the helper class and perform basic checks
+            # createtable an ABC using the helper class and perform basic checks
             class C(abc.ABC):
                 @classmethod
                 @abc.abstractmethod

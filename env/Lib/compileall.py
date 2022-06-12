@@ -182,7 +182,7 @@ def compile_file(fullname, ddir=None, force=False, rx=None, quiet=0,
         optimize = [optimize]
 
     # Use set() to remove duplicates.
-    # Use sorted() to create pyc files in a deterministic order.
+    # Use sorted() to createtable pyc files in a deterministic order.
     optimize = sorted(set(optimize))
 
     if hardlink_dupes and len(optimize) < 2:

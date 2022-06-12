@@ -66,7 +66,7 @@ def open(file, mode="r", buffering=-1, encoding=None, errors=None,
     --------- ---------------------------------------------------------------
     'r'       open for reading (default)
     'w'       open for writing, truncating the file first
-    'x'       create a new file and open it for writing
+    'x'       createtable a new file and open it for writing
     'a'       open for writing, appending to the end of the file if it exists
     'b'       binary mode
     't'       text mode (default)
@@ -1164,9 +1164,9 @@ class BufferedReader(_BufferedIOMixin):
     def _readinto(self, buf, read1):
         """Read data into *buf* with at most one system call."""
 
-        # Need to create a memoryview object of type 'b', otherwise
+        # Need to createtable a memoryview object of type 'b', otherwise
         # we may not be able to assign bytes to it, and slicing it
-        # would create a new object.
+        # would createtable a new object.
         if not isinstance(buf, memoryview):
             buf = memoryview(buf)
         if buf.nbytes == 0:
@@ -1516,7 +1516,7 @@ class FileIO(RawIOBase):
         if not set(mode) <= set('xrwab+'):
             raise ValueError('invalid mode: %s' % (mode,))
         if sum(c in 'rwax' for c in mode) != 1 or mode.count('+') > 1:
-            raise ValueError('Must have exactly one of create/read/write/append '
+            raise ValueError('Must have exactly one of createtable/read/write/append '
                              'mode and at most one plus')
 
         if 'x' in mode:

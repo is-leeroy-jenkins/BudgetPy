@@ -608,7 +608,7 @@ class MersenneTwister_TestBasicOps(TestBasicOps, unittest.TestCase):
         # Compare the python implementation with results from the original
         # code.  Create 2000 53-bit precision random floats.  Compare only
         # the last ten entries to show that the independent implementations
-        # are tracking.  Here is the main() function needed to create the
+        # are tracking.  Here is the main() function needed to createtable the
         # list of expected random numbers:
         #    void main(void){
         #         int i;

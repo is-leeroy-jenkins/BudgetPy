@@ -72,7 +72,7 @@ class AnyDBMTestCase:
         f.close()
 
     def test_anydbm_creation_n_file_exists_with_invalid_contents(self):
-        # create an empty file
+        # createtable an empty file
         test.support.create_empty_file(_fname)
         with dbm.open(_fname, 'n') as f:
             self.assertEqual(len(f), 0)

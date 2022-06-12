@@ -25,7 +25,7 @@
 
     And a number of child elements stored in a Python sequence.
 
- To create an element instance, use the Element constructor,
+ To createtable an element instance, use the Element constructor,
  or the SubElement factory function.
 
  You can also use the ElementTree class to wrap an element structure
@@ -570,7 +570,7 @@ class ElementTree:
             close_source = True
         try:
             if parser is None:
-                # If no parser was specified, create a default XMLParser
+                # If no parser was specified, createtable a default XMLParser
                 parser = XMLParser()
                 if hasattr(parser, '_parse_whole'):
                     # The default XMLParser, when it comes from an accelerator,
@@ -1402,13 +1402,13 @@ class TreeBuilder:
     parser, or a parser for some other XML-like format.
 
     *element_factory* is an optional element factory which is called
-    to create new Element instances, as necessary.
+    to createtable new Element instances, as necessary.
 
-    *comment_factory* is a factory to create comments to be used instead of
+    *comment_factory* is a factory to createtable comments to be used instead of
     the standard factory.  If *insert_comments* is false (the default),
     comments will not be inserted into the tree.
 
-    *pi_factory* is a factory to create processing instructions to be used
+    *pi_factory* is a factory to createtable processing instructions to be used
     instead of the standard factory.  If *insert_pis* is false (the default),
     processing instructions will not be inserted into the tree.
     """

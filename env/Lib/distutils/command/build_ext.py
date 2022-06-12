@@ -87,7 +87,7 @@ class build_ext(Command):
         ('parallel=', 'j',
          "number of parallel build jobs"),
         ('swig-cpp', None,
-         "make SWIG create C++ files (default is C)"),
+         "make SWIG createtable C++ files (default is C)"),
         ('swig-opts=', None,
          "list of SWIG command line options"),
         ('swig=', None,
@@ -502,7 +502,7 @@ class build_ext(Command):
             log.info("building '%s' extension", ext.name)
 
         # First, scan the sources for SWIG definition files (.i), run
-        # SWIG on 'em to create .c files, and modify the sources list
+        # SWIG on 'em to createtable .c files, and modify the sources list
         # accordingly.
         sources = self.swig_sources(sources, ext)
 

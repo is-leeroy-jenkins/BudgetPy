@@ -547,7 +547,7 @@ class CommandLineTestsBase:
         quiet = self.assertRunOK('-q', PYTHONPATH=self.directory)
         self.assertNotIn(b'Listing ', quiet)
 
-    # Ensure that the default behavior of compileall's CLI is to create
+    # Ensure that the default behavior of compileall's CLI is to createtable
     # PEP 3147/PEP 488 pyc files.
     for name, ext, switch in [
         ('normal', 'pyc', []),

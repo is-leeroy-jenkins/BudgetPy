@@ -3,7 +3,7 @@
 
 """Convert graminit.[ch] spit out by pgen to Python code.
 
-Pgen is the Python parser generator.  It is useful to quickly create a
+Pgen is the Python parser generator.  It is useful to quickly createtable a
 parser from a grammar file in Python's grammar notation.  But I don't
 want my parsers to be written in C (yet), so I'm translating the
 parsing tables to Python data structures and writing a Python parse

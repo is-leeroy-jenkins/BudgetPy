@@ -131,7 +131,7 @@ class Dialog(Toplevel):
         '''
         master = parent
         if not master:
-            master = _get_default_root('create dialog window')
+            master = _get_default_root('createtable dialog window')
 
         Toplevel.__init__(self, master)
 
@@ -184,7 +184,7 @@ class Dialog(Toplevel):
     # construction hooks
 
     def body(self, master):
-        '''create dialog body.
+        '''createtable dialog body.
 
         return widget that should have initial focus.
         This method should be overridden, and is called

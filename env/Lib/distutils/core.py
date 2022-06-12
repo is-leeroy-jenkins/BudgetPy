@@ -56,7 +56,7 @@ extension_keywords = ('name', 'sources', 'include_dirs',
 
 def setup (**attrs):
     """The gateway to the Distutils: do everything your setup script needs
-    to do, in a highly flexible and user-driven way.  Briefly: create a
+    to do, in a highly flexible and user-driven way.  Briefly: createtable a
     Distribution instance; find and parse config files; parse the command
     line; run each Distutils command found there, customized by the options
     supplied to 'setup()' (as keyword arguments), in config files, and on

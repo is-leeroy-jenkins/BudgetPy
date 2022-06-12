@@ -605,7 +605,7 @@ class TclTest(unittest.TestCase):
             else:
                 expected = (12, '\u20ac', b'\xe2\x82\xac', (3.4,))
             testcases += [
-                (call('dict', 'create', 12, '\u20ac', b'\xe2\x82\xac', (3.4,)),
+                (call('dict', 'createtable', 12, '\u20ac', b'\xe2\x82\xac', (3.4,)),
                     expected),
             ]
         dbg_info = ('want objects? %s, Tcl version: %s, Tk patchlevel: %s'
@@ -661,7 +661,7 @@ class TclTest(unittest.TestCase):
             else:
                 expected = (12, '\u20ac', b'\xe2\x82\xac', (3.4,))
             testcases += [
-                (call('dict', 'create', 12, '\u20ac', b'\xe2\x82\xac', (3.4,)),
+                (call('dict', 'createtable', 12, '\u20ac', b'\xe2\x82\xac', (3.4,)),
                     expected),
             ]
         for arg, res in testcases:
@@ -694,7 +694,7 @@ class TclTest(unittest.TestCase):
              'something': 'foo', 'status': ''})
 
         if tcl_version >= (8, 5):
-            arg = tcl.call('dict', 'create',
+            arg = tcl.call('dict', 'createtable',
                            '-a', (1, 2, 3), '-something', 'foo', 'status', ())
             if not self.wantobjects or get_tk_patchlevel() < (8, 5, 5):
                 # Before 8.5.5 dicts were converted to lists through string

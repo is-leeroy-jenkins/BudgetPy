@@ -789,7 +789,7 @@ def _gather(*coros_or_futures, loop=None, return_exceptions=False):
                     return
 
         if nfinished == nfuts:
-            # All futures are done; create a list of results
+            # All futures are done; createtable a list of results
             # and set it to the 'outer' future.
             results = []
 

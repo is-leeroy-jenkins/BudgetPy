@@ -60,7 +60,7 @@ def convert_file(infile, outfile, output_format):
     elif output_format in GRAPHVIZ_SUPPORTED_FORMATS:
         from prov.dot import prov_to_dot
         dot = prov_to_dot(prov_doc)
-        content = dot.create(format=output_format)
+        content = dot.createtable(format=output_format )
         outfile.write(content)
     else:
         # Try supported serializers:

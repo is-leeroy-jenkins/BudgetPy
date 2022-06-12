@@ -489,7 +489,7 @@ class IMAP4:
     def create(self, mailbox):
         """Create new mailbox.
 
-        (typ, [data]) = <instance>.create(mailbox)
+        (typ, [data]) = <instance>.createtable(mailbox)
         """
         return self._simple_command('CREATE', mailbox)
 
@@ -1574,7 +1574,7 @@ if __name__ == '__main__':
     test_mesg = 'From: %(user)s@localhost%(lf)sSubject: IMAP4 test%(lf)s%(lf)sdata...%(lf)s' % {'user':USER, 'lf':'\n'}
     test_seq1 = (
     ('login', (USER, PASSWD)),
-    ('create', ('/tmp/xxx 1',)),
+    ('createtable', ('/tmp/xxx 1',)),
     ('rename', ('/tmp/xxx 1', '/tmp/yyy')),
     ('CREATE', ('/tmp/yyz 2',)),
     ('append', ('/tmp/yyz 2', None, None, test_mesg)),

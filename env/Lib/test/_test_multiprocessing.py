@@ -734,7 +734,7 @@ class _TestProcess(BaseTestCase):
 
     def check_forkserver_death(self, signum):
         # bpo-31308: if the forkserver process has died, we should still
-        # be able to create and run new Process instances (the forkserver
+        # be able to createtable and run new Process instances (the forkserver
         # is implicitly restarted).
         if self.TYPE == 'threads':
             self.skipTest('test not appropriate for {}'.format(self.TYPE))
@@ -1047,7 +1047,7 @@ class _TestQueue(BaseTestCase):
         # pushing items onto the pipe.
 
     def test_fork(self):
-        # Old versions of Queue would fail to create a new feeder
+        # Old versions of Queue would fail to createtable a new feeder
         # thread for a forked process if the original process had its
         # own feeder thread.  This test checks that this no longer
         # happens.
@@ -3616,7 +3616,7 @@ class _TestHeap(BaseTestCase):
         heap = multiprocessing.heap.BufferWrapper._heap
         heap._DISCARD_FREE_SPACE_LARGER_THAN = 0
 
-        # create and destroy lots of blocks of different sizes
+        # createtable and destroy lots of blocks of different sizes
         for i in range(iterations):
             size = int(random.lognormvariate(0, 1) * 1000)
             b = multiprocessing.heap.BufferWrapper(size)
@@ -3861,7 +3861,7 @@ class _TestSharedMemory(BaseTestCase):
                     sms_uno.unlink()  # A second shm_unlink() call is bad.
 
         with self.assertRaises(FileExistsError):
-            # Attempting to create a new shared memory segment with a
+            # Attempting to createtable a new shared memory segment with a
             # name that is already in use triggers an exception.
             there_can_only_be_one_sms = shared_memory.SharedMemory(
                 name_tsmb,
@@ -4132,7 +4132,7 @@ class _TestSharedMemory(BaseTestCase):
             from multiprocessing import shared_memory
 
             # Create a shared_memory segment, and send the segment name
-            sm = shared_memory.SharedMemory(create=True, size=10)
+            sm = shared_memory.SharedMemory(createtable=True, size=10)
             sys.stdout.write(sm.name + '\\n')
             sys.stdout.flush()
             time.sleep(100)
@@ -4251,7 +4251,7 @@ class _TestFinalize(BaseTestCase):
 
         class Foo(object):
             def __init__(self):
-                self.ref = self  # create reference cycle
+                self.ref = self  # createtable reference cycle
                 # insert finalizer at random key
                 util.Finalize(self, cb, exitpriority=random.randint(1, 100))
 
@@ -5135,7 +5135,7 @@ class TestResourceTracker(unittest.TestCase):
                     lock = mp.Lock()
                     return lock, lock._semlock.name
                 elif rtype == "shared_memory":
-                    sm = SharedMemory(create=True, size=10)
+                    sm = SharedMemory(createtable=True, size=10)
                     return sm, sm._name
                 else:
                     raise ValueError(
@@ -5322,7 +5322,7 @@ class TestSimpleQueue(unittest.TestCase):
 class TestPoolNotLeakOnFailure(unittest.TestCase):
 
     def test_release_unused_processes(self):
-        # Issue #19675: During pool creation, if we can't create a process,
+        # Issue #19675: During pool creation, if we can't createtable a process,
         # don't leak already created ones.
         will_fail_in = 3
         forked_processes = []
@@ -5612,7 +5612,7 @@ class BaseMixin(object):
 
     @classmethod
     def tearDownClass(cls):
-        # bpo-26762: Some multiprocessing objects like Pool create reference
+        # bpo-26762: Some multiprocessing objects like Pool createtable reference
         # cycles. Trigger a garbage collection to break these cycles.
         test.support.gc_collect()
 
@@ -5735,7 +5735,7 @@ class ThreadsMixin(BaseMixin):
     Array = staticmethod(multiprocessing.dummy.Array)
 
 #
-# Functions used to create test cases from the base ones in this module
+# Functions used to createtable test cases from the base ones in this module
 #
 
 def install_tests_in_module_dict(remote_globs, start_method):
@@ -5795,7 +5795,7 @@ def install_tests_in_module_dict(remote_globs, start_method):
     def tearDownModule():
         need_sleep = False
 
-        # bpo-26762: Some multiprocessing objects like Pool create reference
+        # bpo-26762: Some multiprocessing objects like Pool createtable reference
         # cycles. Trigger a garbage collection to break these cycles.
         test.support.gc_collect()
 

@@ -854,7 +854,7 @@ class HighPage(Frame):
         """Handle button to select a new color for the target tag.
 
         If a new color is selected while using a builtin theme, a
-        name must be supplied to create a custom theme.
+        name must be supplied to createtable a custom theme.
 
         Attributes accessed:
             highlight_target
@@ -908,7 +908,7 @@ class HighPage(Frame):
         return new_theme
 
     def save_as_new_theme(self):
-        """Prompt for new theme name and create the theme.
+        """Prompt for new theme name and createtable the theme.
 
         Methods:
             get_new_theme_name
@@ -2342,7 +2342,7 @@ Shell Preferences: Auto-Squeeze Min. Lines is the minimum number of lines
 of output to automatically "squeeze".
 ''',
     'Extensions': '''
-ZzDummy: This extension is provided as an example for how to create and
+ZzDummy: This extension is provided as an example for how to createtable and
 use an extension.  Enable indicates whether the extension is active or
 not; likewise enable_editor and enable_shell indicate which windows it
 will be active on.  For this extension, z-text is the text that will be

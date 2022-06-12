@@ -220,8 +220,8 @@ def _script_from_settings(settings):
                 s, _ = _format_layoutlist(opts['layout'])
             script.append("ttk::style layout %s {\n%s\n}" % (name, s))
 
-        if opts.get('element create'): # format 'element create'
-            eopts = opts['element create']
+        if opts.get('element createtable'): # format 'element createtable'
+            eopts = opts['element createtable']
             etype = eopts[0]
 
             # find where args end, and where kwargs start
@@ -233,7 +233,7 @@ def _script_from_settings(settings):
             elemkw = eopts[argc] if argc < len(eopts) and eopts[argc] else {}
             spec, opts = _format_elemcreate(etype, True, *elemargs, **elemkw)
 
-            script.append("ttk::style element create %s %s %s %s" % (
+            script.append("ttk::style element createtable %s %s %s %s" % (
                 name, etype, spec, opts))
 
     return '\n'.join(script)
@@ -457,7 +457,7 @@ class Style(object):
     def element_create(self, elementname, etype, *args, **kw):
         """Create a new element in the current theme of given etype."""
         spec, opts = _format_elemcreate(etype, False, *args, **kw)
-        self.tk.call(self._name, "element", "create", elementname, etype,
+        self.tk.call(self._name, "element", "createtable", elementname, etype,
             spec, *opts)
 
 
@@ -483,10 +483,10 @@ class Style(object):
         script = _script_from_settings(settings) if settings else ''
 
         if parent:
-            self.tk.call(self._name, "theme", "create", themename,
+            self.tk.call(self._name, "theme", "createtable", themename,
                 "-parent", parent, "-settings", script)
         else:
-            self.tk.call(self._name, "theme", "create", themename,
+            self.tk.call(self._name, "theme", "createtable", themename,
                 "-settings", script)
 
 
@@ -495,7 +495,7 @@ class Style(object):
         settings and then restore the previous theme.
 
         Each key in settings is a style and each value may contain the
-        keys 'configure', 'map', 'layout' and 'element create' and they
+        keys 'configure', 'map', 'layout' and 'element createtable' and they
         are expected to have the same format as specified by the methods
         configure, map, layout and element_create respectively."""
         script = _script_from_settings(settings)
@@ -1348,7 +1348,7 @@ class Treeview(Widget, tkinter.XView, tkinter.YView):
         created item.
 
         parent is the item ID of the parent item, or the empty string
-        to create a new top-level item. index is an integer, or the value
+        to createtable a new top-level item. index is an integer, or the value
         end, specifying where in the list of parent's children to insert
         the new item. If index is less than or equal to zero, the new node
         is inserted at the beginning, if index is greater than or equal to

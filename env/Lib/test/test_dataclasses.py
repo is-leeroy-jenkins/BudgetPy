@@ -1776,7 +1776,7 @@ class TestCase(unittest.TestCase):
             x: int
             @classmethod
             def from_file(cls, filename):
-                # In a real example, create a new instance
+                # In a real example, createtable a new instance
                 #  and populate 'x' from contents of a file.
                 value_in_file = 20
                 return cls(value_in_file)
@@ -2532,7 +2532,7 @@ class TestHash(unittest.TestCase):
             ]:
 
             with self.subTest(frozen=frozen, eq=eq, base=base, expected=expected):
-                # First, create the class.
+                # First, createtable the class.
                 if frozen is None and eq is None:
                     @dataclass
                     class C(base):
@@ -2761,7 +2761,7 @@ class TestSlots(unittest.TestCase):
                                     r"__init__\(\) missing 1 required positional argument: 'x'"):
             C()
 
-        # We can create an instance, and assign to x.
+        # We can createtable an instance, and assign to x.
         c = C(10)
         self.assertEqual(c.x, 10)
         c.x = 5
@@ -2944,7 +2944,7 @@ class TestStringAnnotations(unittest.TestCase):
                 class C:
                     x: typestr
 
-                # x is an InitVar, so doesn't create a member.
+                # x is an InitVar, so doesn't createtable a member.
                 with self.assertRaisesRegex(AttributeError,
                                             "object has no attribute 'x'"):
                     C(1).x

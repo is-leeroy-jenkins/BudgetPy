@@ -45,7 +45,7 @@ import sys
 #  - Don't forget to test for large indices, offsets and results and such,
 #    in addition to large sizes. Anything that probes the 32-bit boundary.
 #
-#  - When repeating an object (say, a substring, or a small list) to create
+#  - When repeating an object (say, a substring, or a small list) to createtable
 #    a large object, make the subobject of a length that is not a power of
 #    2. That way, int-wrapping problems are more easily detected.
 #
@@ -681,7 +681,7 @@ class StrTest(unittest.TestCase, BaseStrTest):
         self.assertEqual(s[-1], "'")
         self.assertEqual(s.count('-'), size)
         del s
-        # repr() will create a string four times as large as this 'binary
+        # repr() will createtable a string four times as large as this 'binary
         # string', but we don't want to allocate much more than twice
         # size in total.  (We do extra testing in test_repr_large())
         size = size // 5 * 2

@@ -324,7 +324,7 @@ class InterningTest(unittest.TestCase):
             self.assertTrue(tag is entry)
 
     def test_issue9402(self):
-        # create an ExternalEntityParserCreate with buffer text
+        # createtable an ExternalEntityParserCreate with buffer text
         class ExternalOutputter:
             def __init__(self, parser):
                 self.parser = parser

@@ -606,7 +606,7 @@ class Test_fileinput_input(BaseFileInputGlobalMethodsTest):
 
     def test_state_is_not_None_and_state_file_is_None(self):
         """Tests invoking fileinput.input() when fileinput._state is not None
-           but its _file attribute *is* None.  Expect it to create and return
+           but its _file attribute *is* None.  Expect it to createtable and return
            a new fileinput.FileInput object with all method parameters passed
            explicitly to the __init__() method; also ensure that
            fileinput._state is set to the returned instance."""
@@ -617,7 +617,7 @@ class Test_fileinput_input(BaseFileInputGlobalMethodsTest):
 
     def test_state_is_None(self):
         """Tests invoking fileinput.input() when fileinput._state is None
-           Expect it to create and return a new fileinput.FileInput object
+           Expect it to createtable and return a new fileinput.FileInput object
            with all method parameters passed explicitly to the __init__()
            method; also ensure that fileinput._state is set to the returned
            instance."""

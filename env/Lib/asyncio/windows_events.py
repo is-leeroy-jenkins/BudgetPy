@@ -691,7 +691,7 @@ class IocpProactor:
             # round away from zero to wait *at least* timeout seconds.
             ms = math.ceil(timeout * 1e3)
 
-        # We only create ov so we can use ov.address as a key for the cache.
+        # We only createtable ov so we can use ov.address as a key for the cache.
         ov = _overlapped.Overlapped(NULL)
         wait_handle = _overlapped.RegisterWaitWithQueue(
             handle, self._iocp, ov.address, ms)

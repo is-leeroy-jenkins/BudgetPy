@@ -130,7 +130,7 @@ class Interpreter(namedtuple('Interpreter', 'name id')):
             name = 'main'
             id = main
         else:
-            id = interpreters.create()
+            id = interpreters.createtable( )
         self = super().__new__(cls, name, id)
         return self
 
@@ -424,15 +424,15 @@ class ListAllTests(TestBase):
 
     def test_after_creating(self):
         main = interpreters.get_main()
-        first = interpreters.create()
-        second = interpreters.create()
+        first = interpreters.createtable( )
+        second = interpreters.createtable( )
         ids = interpreters.list_all()
         self.assertEqual(ids, [main, first, second])
 
     def test_after_destroying(self):
         main = interpreters.get_main()
-        first = interpreters.create()
-        second = interpreters.create()
+        first = interpreters.createtable( )
+        second = interpreters.createtable( )
         interpreters.destroy(first)
         ids = interpreters.list_all()
         self.assertEqual(ids, [main, second])
@@ -448,7 +448,7 @@ class GetCurrentTests(TestBase):
 
     def test_subinterpreter(self):
         main = interpreters.get_main()
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         out = _run_output(interp, dedent("""
             import _xxsubinterpreters as _interpreters
             cur = _interpreters.get_current()
@@ -471,7 +471,7 @@ class GetMainTests(TestBase):
 
     def test_from_subinterpreter(self):
         [expected] = interpreters.list_all()
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         out = _run_output(interp, dedent("""
             import _xxsubinterpreters as _interpreters
             main = _interpreters.get_main()
@@ -489,7 +489,7 @@ class IsRunningTests(TestBase):
         self.assertTrue(interpreters.is_running(main))
 
     def test_subinterpreter(self):
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         self.assertFalse(interpreters.is_running(interp))
 
         with _running(interp):
@@ -497,7 +497,7 @@ class IsRunningTests(TestBase):
         self.assertFalse(interpreters.is_running(interp))
 
     def test_from_subinterpreter(self):
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         out = _run_output(interp, dedent(f"""
             import _xxsubinterpreters as _interpreters
             if _interpreters.is_running({interp}):
@@ -508,7 +508,7 @@ class IsRunningTests(TestBase):
         self.assertEqual(out.strip(), 'True')
 
     def test_already_destroyed(self):
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         interpreters.destroy(interp)
         with self.assertRaises(RuntimeError):
             interpreters.is_running(interp)
@@ -559,9 +559,9 @@ class InterpreterIDTests(TestBase):
         self.assertEqual(repr(id), 'InterpreterID(10)')
 
     def test_equality(self):
-        id1 = interpreters.create()
+        id1 = interpreters.createtable( )
         id2 = interpreters.InterpreterID(int(id1))
-        id3 = interpreters.create()
+        id3 = interpreters.createtable( )
 
         self.assertTrue(id1 == id1)
         self.assertTrue(id1 == id2)
@@ -584,7 +584,7 @@ class InterpreterIDTests(TestBase):
 class CreateTests(TestBase):
 
     def test_in_main(self):
-        id = interpreters.create()
+        id = interpreters.createtable( )
         self.assertIsInstance(id, interpreters.InterpreterID)
 
         self.assertIn(id, interpreters.list_all())
@@ -593,7 +593,7 @@ class CreateTests(TestBase):
     def test_unique_id(self):
         seen = set()
         for _ in range(100):
-            id = interpreters.create()
+            id = interpreters.createtable( )
             interpreters.destroy(id)
             seen.add(id)
 
@@ -604,7 +604,7 @@ class CreateTests(TestBase):
         id = None
         def f():
             nonlocal id
-            id = interpreters.create()
+            id = interpreters.createtable( )
             lock.acquire()
             lock.release()
 
@@ -616,10 +616,10 @@ class CreateTests(TestBase):
 
     def test_in_subinterpreter(self):
         main, = interpreters.list_all()
-        id1 = interpreters.create()
+        id1 = interpreters.createtable( )
         out = _run_output(id1, dedent("""
             import _xxsubinterpreters as _interpreters
-            id = _interpreters.create()
+            id = _interpreters.createtable()
             print(id)
             assert isinstance(id, _interpreters.InterpreterID)
             """))
@@ -629,13 +629,13 @@ class CreateTests(TestBase):
 
     def test_in_threaded_subinterpreter(self):
         main, = interpreters.list_all()
-        id1 = interpreters.create()
+        id1 = interpreters.createtable( )
         id2 = None
         def f():
             nonlocal id2
             out = _run_output(id1, dedent("""
                 import _xxsubinterpreters as _interpreters
-                id = _interpreters.create()
+                id = _interpreters.createtable()
                 print(id)
                 """))
             id2 = int(out.strip())
@@ -651,35 +651,35 @@ class CreateTests(TestBase):
         # Create 3 subinterpreters.
         ids = []
         for _ in range(3):
-            id = interpreters.create()
+            id = interpreters.createtable( )
             ids.append(id)
         # Now destroy them.
         for id in ids:
             interpreters.destroy(id)
-        # Finally, create another.
-        id = interpreters.create()
+        # Finally, createtable another.
+        id = interpreters.createtable( )
         self.assertEqual(set(interpreters.list_all()), before | {id})
 
     def test_after_destroy_some(self):
         before = set(interpreters.list_all())
         # Create 3 subinterpreters.
-        id1 = interpreters.create()
-        id2 = interpreters.create()
-        id3 = interpreters.create()
+        id1 = interpreters.createtable( )
+        id2 = interpreters.createtable( )
+        id3 = interpreters.createtable( )
         # Now destroy 2 of them.
         interpreters.destroy(id1)
         interpreters.destroy(id3)
-        # Finally, create another.
-        id = interpreters.create()
+        # Finally, createtable another.
+        id = interpreters.createtable( )
         self.assertEqual(set(interpreters.list_all()), before | {id, id2})
 
 
 class DestroyTests(TestBase):
 
     def test_one(self):
-        id1 = interpreters.create()
-        id2 = interpreters.create()
-        id3 = interpreters.create()
+        id1 = interpreters.createtable( )
+        id2 = interpreters.createtable( )
+        id3 = interpreters.createtable( )
         self.assertIn(id2, interpreters.list_all())
         interpreters.destroy(id2)
         self.assertNotIn(id2, interpreters.list_all())
@@ -690,7 +690,7 @@ class DestroyTests(TestBase):
         before = set(interpreters.list_all())
         ids = set()
         for _ in range(3):
-            id = interpreters.create()
+            id = interpreters.createtable( )
             ids.add(id)
         self.assertEqual(set(interpreters.list_all()), before | ids)
         for id in ids:
@@ -711,7 +711,7 @@ class DestroyTests(TestBase):
         t.join()
 
     def test_already_destroyed(self):
-        id = interpreters.create()
+        id = interpreters.createtable( )
         interpreters.destroy(id)
         with self.assertRaises(RuntimeError):
             interpreters.destroy(id)
@@ -726,7 +726,7 @@ class DestroyTests(TestBase):
 
     def test_from_current(self):
         main, = interpreters.list_all()
-        id = interpreters.create()
+        id = interpreters.createtable( )
         script = dedent(f"""
             import _xxsubinterpreters as _interpreters
             try:
@@ -740,8 +740,8 @@ class DestroyTests(TestBase):
 
     def test_from_sibling(self):
         main, = interpreters.list_all()
-        id1 = interpreters.create()
-        id2 = interpreters.create()
+        id1 = interpreters.createtable( )
+        id2 = interpreters.createtable( )
         script = dedent(f"""
             import _xxsubinterpreters as _interpreters
             _interpreters.destroy({id2})
@@ -751,7 +751,7 @@ class DestroyTests(TestBase):
         self.assertEqual(set(interpreters.list_all()), {main, id1})
 
     def test_from_other_thread(self):
-        id = interpreters.create()
+        id = interpreters.createtable( )
         def f():
             interpreters.destroy(id)
 
@@ -761,7 +761,7 @@ class DestroyTests(TestBase):
 
     def test_still_running(self):
         main, = interpreters.list_all()
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         with _running(interp):
             self.assertTrue(interpreters.is_running(interp),
                             msg=f"Interp {interp} should be running before destruction.")
@@ -782,7 +782,7 @@ class RunStringTests(TestBase):
 
     def setUp(self):
         super().setUp()
-        self.id = interpreters.create()
+        self.id = interpreters.createtable( )
         self._fs = None
 
     def tearDown(self):
@@ -812,7 +812,7 @@ class RunStringTests(TestBase):
         self.assertEqual(out, 'it worked!')
 
     def test_create_thread(self):
-        subinterp = interpreters.create(isolated=False)
+        subinterp = interpreters.createtable(isolated=False )
         script, file = _captured_script("""
             import threading
             def f():
@@ -1059,7 +1059,7 @@ class RunStringTests(TestBase):
         from textwrap import dedent
         import threading
         import _xxsubinterpreters as _interpreters
-        id = _interpreters.create()
+        id = _interpreters.createtable()
         def f():
             _interpreters.run_string(id, dedent('''
                 import time
@@ -1188,7 +1188,7 @@ class ChannelTests(TestBase):
         self.assertEqual(set(after) - set(before), {id1, id2, id3})
 
     def test_ids_global(self):
-        id1 = interpreters.create()
+        id1 = interpreters.createtable( )
         out = _run_output(id1, dedent("""
             import _xxsubinterpreters as _interpreters
             cid = _interpreters.channel_create()
@@ -1196,7 +1196,7 @@ class ChannelTests(TestBase):
             """))
         cid1 = int(out.strip())
 
-        id2 = interpreters.create()
+        id2 = interpreters.createtable( )
         out = _run_output(id2, dedent("""
             import _xxsubinterpreters as _interpreters
             cid = _interpreters.channel_create()
@@ -1226,7 +1226,7 @@ class ChannelTests(TestBase):
         self.assertEqual(send_interps, [interp0])
         self.assertEqual(recv_interps, [])
 
-        interp1 = interpreters.create()
+        interp1 = interpreters.createtable( )
         _run_output(interp1, dedent(f"""
             import _xxsubinterpreters as _interpreters
             obj = _interpreters.channel_recv({cid})
@@ -1240,9 +1240,9 @@ class ChannelTests(TestBase):
     def test_channel_list_interpreters_multiple(self):
         """Test listing interpreters for a channel with many associations."""
         interp0 = interpreters.get_main()
-        interp1 = interpreters.create()
-        interp2 = interpreters.create()
-        interp3 = interpreters.create()
+        interp1 = interpreters.createtable( )
+        interp2 = interpreters.createtable( )
+        interp3 = interpreters.createtable( )
         cid = interpreters.channel_create()
 
         interpreters.channel_send(cid, "send")
@@ -1266,7 +1266,7 @@ class ChannelTests(TestBase):
     def test_channel_list_interpreters_destroyed(self):
         """Test listing channel interpreters with a destroyed interpreter."""
         interp0 = interpreters.get_main()
-        interp1 = interpreters.create()
+        interp1 = interpreters.createtable( )
         cid = interpreters.channel_create()
         interpreters.channel_send(cid, "send")
         _run_output(interp1, dedent(f"""
@@ -1291,8 +1291,8 @@ class ChannelTests(TestBase):
         # Set up one channel with main interpreter on the send end and two
         # subinterpreters on the receive end.
         interp0 = interpreters.get_main()
-        interp1 = interpreters.create()
-        interp2 = interpreters.create()
+        interp1 = interpreters.createtable( )
+        interp2 = interpreters.createtable( )
         cid = interpreters.channel_create()
         interpreters.channel_send(cid, "data")
         _run_output(interp1, dedent(f"""
@@ -1332,7 +1332,7 @@ class ChannelTests(TestBase):
     def test_channel_list_interpreters_closed(self):
         """Test listing channel interpreters with a closed channel."""
         interp0 = interpreters.get_main()
-        interp1 = interpreters.create()
+        interp1 = interpreters.createtable( )
         cid = interpreters.channel_create()
         # Put something in the channel so that it's not empty.
         interpreters.channel_send(cid, "send")
@@ -1354,7 +1354,7 @@ class ChannelTests(TestBase):
     def test_channel_list_interpreters_closed_send_end(self):
         """Test listing channel interpreters with a channel's send end closed."""
         interp0 = interpreters.get_main()
-        interp1 = interpreters.create()
+        interp1 = interpreters.createtable( )
         cid = interpreters.channel_create()
         # Put something in the channel so that it's not empty.
         interpreters.channel_send(cid, "send")
@@ -1397,7 +1397,7 @@ class ChannelTests(TestBase):
         self.assertIsNot(obj, orig)
 
     def test_send_recv_same_interpreter(self):
-        id1 = interpreters.create()
+        id1 = interpreters.createtable( )
         out = _run_output(id1, dedent("""
             import _xxsubinterpreters as _interpreters
             cid = _interpreters.channel_create()
@@ -1410,7 +1410,7 @@ class ChannelTests(TestBase):
 
     def test_send_recv_different_interpreters(self):
         cid = interpreters.channel_create()
-        id1 = interpreters.create()
+        id1 = interpreters.createtable( )
         out = _run_output(id1, dedent(f"""
             import _xxsubinterpreters as _interpreters
             _interpreters.channel_send({cid}, b'spam')
@@ -1441,7 +1441,7 @@ class ChannelTests(TestBase):
 
     def test_send_recv_different_interpreters_and_threads(self):
         cid = interpreters.channel_create()
-        id1 = interpreters.create()
+        id1 = interpreters.createtable( )
         out = None
 
         def f():
@@ -1503,7 +1503,7 @@ class ChannelTests(TestBase):
 
     def test_run_string_arg_unresolved(self):
         cid = interpreters.channel_create()
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
 
         out = _run_output(interp, dedent("""
             import _xxsubinterpreters as _interpreters
@@ -1523,7 +1523,7 @@ class ChannelTests(TestBase):
     def test_run_string_arg_resolved(self):
         cid = interpreters.channel_create()
         cid = interpreters._channel_id(cid, _resolve=True)
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
 
         out = _run_output(interp, dedent("""
             import _xxsubinterpreters as _interpreters
@@ -1551,8 +1551,8 @@ class ChannelTests(TestBase):
 
     def test_close_multiple_users(self):
         cid = interpreters.channel_create()
-        id1 = interpreters.create()
-        id2 = interpreters.create()
+        id1 = interpreters.createtable( )
+        id2 = interpreters.createtable( )
         interpreters.run_string(id1, dedent(f"""
             import _xxsubinterpreters as _interpreters
             _interpreters.channel_send({cid}, b'spam')
@@ -1695,7 +1695,7 @@ class ChannelTests(TestBase):
     def test_close_by_unassociated_interp(self):
         cid = interpreters.channel_create()
         interpreters.channel_send(cid, b'spam')
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         interpreters.run_string(interp, dedent(f"""
             import _xxsubinterpreters as _interpreters
             _interpreters.channel_close({cid}, force=True)
@@ -1792,8 +1792,8 @@ class ChannelReleaseTests(TestBase):
 
     def test_multiple_users(self):
         cid = interpreters.channel_create()
-        id1 = interpreters.create()
-        id2 = interpreters.create()
+        id1 = interpreters.createtable( )
+        id2 = interpreters.createtable( )
         interpreters.run_string(id1, dedent(f"""
             import _xxsubinterpreters as _interpreters
             _interpreters.channel_send({cid}, b'spam')
@@ -1851,7 +1851,7 @@ class ChannelReleaseTests(TestBase):
     def test_by_unassociated_interp(self):
         cid = interpreters.channel_create()
         interpreters.channel_send(cid, b'spam')
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         interpreters.run_string(interp, dedent(f"""
             import _xxsubinterpreters as _interpreters
             _interpreters.channel_release({cid})
@@ -1866,7 +1866,7 @@ class ChannelReleaseTests(TestBase):
     def test_close_if_unassociated(self):
         # XXX Something's not right with this test...
         cid = interpreters.channel_create()
-        interp = interpreters.create()
+        interp = interpreters.createtable( )
         interpreters.run_string(interp, dedent(f"""
             import _xxsubinterpreters as _interpreters
             obj = _interpreters.channel_send({cid}, b'spam')

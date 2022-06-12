@@ -84,7 +84,7 @@ class PyDialog(Dialog):
 
 class bdist_msi(Command):
 
-    description = "create a Microsoft Installer (.msi) binary distribution"
+    description = "createtable a Microsoft Installer (.msi) binary distribution"
 
     user_options = [('bdist-dir=', None,
                      "temporary directory for creating the distribution"),

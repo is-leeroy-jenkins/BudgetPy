@@ -92,7 +92,7 @@ class BaseTestSuite(object):
 class TestSuite(BaseTestSuite):
     """A test suite is a composite test consisting of a number of TestCases.
 
-    For use, create an instance of TestSuite, then add test case instances.
+    For use, createtable an instance of TestSuite, then add test case instances.
     When all tests have been added, the suite can be passed to a test
     runner, such as TextTestRunner. It will run the individual test cases
     in the order in which they were added, aggregating the results. When

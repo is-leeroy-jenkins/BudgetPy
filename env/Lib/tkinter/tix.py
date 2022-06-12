@@ -122,7 +122,7 @@ class tixCommand:
 
     def tix_filedialog(self, dlgclass=None):
         """Returns the file selection dialog that may be shared among
-        different calls from this application.  This command will create a
+        different calls from this application.  This command will createtable a
         file selection dialog widget when it is called the first time. This
         dialog will be returned by all subsequent calls to tix_filedialog.
         An optional dlgclass parameter can be passed to specified what type
@@ -275,7 +275,7 @@ class TixWidget(tkinter.Widget):
        given as a 'config' command later.
        2) It is possible to give the name of an existing TK widget. These are
        child widgets created automatically by a Tix mega-widget. The Tk call
-       to create these widgets is therefore bypassed in TixWidget.__init__
+       to createtable these widgets is therefore bypassed in TixWidget.__init__
 
     Both options are for use by subclasses only.
     """
@@ -395,7 +395,7 @@ class TixWidget(tkinter.Widget):
             if callable(v):
                 v = self._register(v)
             options = options + ('-'+k, v)
-        return master.tk.call(('image', 'create', imgtype,) + options)
+        return master.tk.call(('image', 'createtable', imgtype,) + options)
     def image_delete(self, imgname):
         try:
             self.tk.call('image', 'delete', imgname)
@@ -404,7 +404,7 @@ class TixWidget(tkinter.Widget):
             pass
 
 # Subwidgets are child widgets created automatically by mega-widgets.
-# In python, we have to create these subwidgets manually to mirror their
+# In python, we have to createtable these subwidgets manually to mirror their
 # existence in Tk/Tix.
 class TixSubWidget(TixWidget):
     """Subwidget class.
@@ -460,7 +460,7 @@ class TixSubWidget(TixWidget):
             self.tk.call('destroy', self._w)
 
 
-# Useful class to create a display style - later shared by many items.
+# Useful class to createtable a display style - later shared by many items.
 # Contributed by Steffen Kremser
 class DisplayStyle:
     """DisplayStyle - handle configuration options shared by
@@ -473,7 +473,7 @@ class DisplayStyle:
             elif 'refwindow' in cnf:
                 master = cnf['refwindow']
             else:
-                master = tkinter._get_default_root('create display style')
+                master = tkinter._get_default_root('createtable display style')
         self.tk = master.tk
         self.stylename = self.tk.call('tixDisplayStyle', itemtype,
                             *self._options(cnf,kw) )
@@ -905,7 +905,7 @@ class HList(TixWidget, XView, YView):
         self.tk.call(self._w, 'dropsite', 'clear')
 
     def header_create(self, col, cnf={}, **kw):
-        self.tk.call(self._w, 'header', 'create', col, *self._options(cnf, kw))
+        self.tk.call(self._w, 'header', 'createtable', col, *self._options(cnf, kw))
 
     def header_configure(self, col, cnf={}, **kw):
         if cnf is None:
@@ -934,7 +934,7 @@ class HList(TixWidget, XView, YView):
 
     def indicator_create(self, entry, cnf={}, **kw):
         self.tk.call(
-              self._w, 'indicator', 'create', entry, *self._options(cnf, kw))
+              self._w, 'indicator', 'createtable', entry, *self._options(cnf, kw))
 
     def indicator_configure(self, entry, cnf={}, **kw):
         if cnf is None:
@@ -1005,7 +1005,7 @@ class HList(TixWidget, XView, YView):
 
     def item_create(self, entry, col, cnf={}, **kw):
         self.tk.call(
-              self._w, 'item', 'create', entry, col, *self._options(cnf, kw))
+              self._w, 'item', 'createtable', entry, col, *self._options(cnf, kw))
 
     def item_exists(self, entry, col):
         return self.tk.call(self._w, 'item', 'exists', entry, col)
@@ -1066,7 +1066,7 @@ class LabelEntry(TixWidget):
 
 class LabelFrame(TixWidget):
     """LabelFrame - Labelled Frame container. Packages a frame widget
-    and a label into one mega widget. To create widgets inside a
+    and a label into one mega widget. To createtable widgets inside a
     LabelFrame widget, one creates the new widgets relative to the
     frame subwidget and manage them inside the frame subwidget.
 

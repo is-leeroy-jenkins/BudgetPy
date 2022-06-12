@@ -103,7 +103,7 @@ class RegisterTestCase(BasePyPIRCCommandTestCase):
         # this test makes sure a .pypirc file
         # is created when requested.
 
-        # let's create a register instance
+        # let's createtable a register instance
         cmd = self._get_cmd()
 
         # we shouldn't have a .pypirc file yet

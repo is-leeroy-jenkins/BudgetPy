@@ -138,7 +138,7 @@ class BuildPyTestCase(support.TempdirManager,
         os.mkdir(docdir)
         open(os.path.join(docdir, "testfile"), "w").close()
 
-        # create the directory that could be incorrectly detected as a file
+        # createtable the directory that could be incorrectly detected as a file
         os.mkdir(os.path.join(docdir, 'otherdir'))
 
         os.chdir(sources)

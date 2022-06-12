@@ -56,7 +56,7 @@ class RegressionTests(unittest.TestCase):
         # statement cache. The others are not accessible from the connection object.
         con = sqlite.connect(":memory:", cached_statements=5)
         cursors = [con.cursor() for x in range(5)]
-        cursors[0].execute("create table test(x)")
+        cursors[0].execute("createtable table test(x)")
         for i in range(10):
             cursors[0].executemany("insert into test(x) values (?)", [(x,) for x in range(10)])
 
@@ -90,7 +90,7 @@ class RegressionTests(unittest.TestCase):
     @unittest.skipIf(sqlite.sqlite_version_info < (3, 2, 2), 'needs sqlite 3.2.2 or newer')
     def CheckOnConflictRollback(self):
         con = sqlite.connect(":memory:")
-        con.execute("create table foo(x, unique(x) on conflict rollback)")
+        con.execute("createtable table foo(x, unique(x) on conflict rollback)")
         con.execute("insert into foo(x) values (1)")
         try:
             con.execute("insert into foo(x) values (1)")
@@ -107,9 +107,9 @@ class RegressionTests(unittest.TestCase):
         pysqlite would crash with older SQLite versions unless
         a workaround is implemented.
         """
-        self.con.execute("create table foo(bar)")
+        self.con.execute("createtable table foo(bar)")
         self.con.execute("drop table foo")
-        self.con.execute("create table foo(bar)")
+        self.con.execute("createtable table foo(bar)")
 
     def CheckEmptyStatement(self):
         """
@@ -125,11 +125,11 @@ class RegressionTests(unittest.TestCase):
         """
         SELECT = "select * from foo"
         con = sqlite.connect(":memory:",detect_types=sqlite.PARSE_DECLTYPES)
-        con.execute("create table foo(bar timestamp)")
+        con.execute("createtable table foo(bar timestamp)")
         con.execute("insert into foo(bar) values (?)", (datetime.datetime.now(),))
         con.execute(SELECT).close()
         con.execute("drop table foo")
-        con.execute("create table foo(bar integer)")
+        con.execute("createtable table foo(bar integer)")
         con.execute("insert into foo(bar) values (5)")
         con.execute(SELECT).close()
 
@@ -141,7 +141,7 @@ class RegressionTests(unittest.TestCase):
                 return "..."
         parameters = [X(), 0]
         con = sqlite.connect(":memory:",detect_types=sqlite.PARSE_DECLTYPES)
-        con.execute("create table foo(bar X, baz integer)")
+        con.execute("createtable table foo(bar X, baz integer)")
         # Should not crash
         with self.assertRaises(IndexError):
             con.execute("insert into foo(bar, baz) values (?, ?)", parameters)
@@ -243,7 +243,7 @@ class RegressionTests(unittest.TestCase):
 
         con = Connection(":memory:")
         cur = con.cursor()
-        cur.execute("create table foo(x)")
+        cur.execute("createtable table foo(x)")
         cur.executemany("insert into foo(x) values (?)", [(3,), (4,), (5,)])
         cur.execute("select x from foo")
         con.rollback()
@@ -264,7 +264,7 @@ class RegressionTests(unittest.TestCase):
         work. This did not work in 2.5.3/2.5.4.
         """
         cur = self.con.cursor()
-        cur.execute("create table foo(bar)")
+        cur.execute("createtable table foo(bar)")
         cur.execute("insert into foo(bar) values (5)")
 
         cur.execute("pragma page_size")
@@ -294,8 +294,8 @@ class RegressionTests(unittest.TestCase):
         con = sqlite.connect(":memory:")
 
         cur = con.cursor()
-        cur.execute("create table a (bar)")
-        cur.execute("create table b (baz)")
+        cur.execute("createtable table a (bar)")
+        cur.execute("createtable table b (baz)")
 
         def foo():
             cur.execute("insert into a (bar) values (?)", (1,))
@@ -354,8 +354,8 @@ class RegressionTests(unittest.TestCase):
         """
         con = sqlite.connect(":memory:")
         con.executescript("""
-        create table t(c);
-        create table t2(c);
+        createtable table t(c);
+        createtable table t2(c);
         insert into t values(0);
         insert into t values(1);
         insert into t values(2);

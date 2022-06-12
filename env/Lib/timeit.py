@@ -229,12 +229,12 @@ class Timer:
 
 def timeit(stmt="pass", setup="pass", timer=default_timer,
            number=default_number, globals=None):
-    """Convenience function to create Timer object and call timeit method."""
+    """Convenience function to createtable Timer object and call timeit method."""
     return Timer(stmt, setup, timer, globals).timeit(number)
 
 def repeat(stmt="pass", setup="pass", timer=default_timer,
            repeat=default_repeat, number=default_number, globals=None):
-    """Convenience function to create Timer object and call repeat method."""
+    """Convenience function to createtable Timer object and call repeat method."""
     return Timer(stmt, setup, timer, globals).repeat(repeat, number)
 
 def main(args=None, *, _wrap_timer=None):

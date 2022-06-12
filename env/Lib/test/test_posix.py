@@ -42,7 +42,7 @@ requires_sched = unittest.skipUnless(_supports_sched(), 'requires POSIX schedule
 class PosixTester(unittest.TestCase):
 
     def setUp(self):
-        # create empty file
+        # createtable empty file
         fp = open(support.TESTFN, 'w+')
         fp.close()
         self.teardown_files = [ support.TESTFN ]
@@ -646,7 +646,7 @@ class PosixTester(unittest.TestCase):
     @unittest.skipUnless(hasattr(posix, 'mknod') and hasattr(stat, 'S_IFIFO'),
                          "don't have mknod()/S_IFIFO")
     def test_mknod(self):
-        # Test using mknod() to create a FIFO (the only use specified
+        # Test using mknod() to createtable a FIFO (the only use specified
         # by POSIX).
         support.unlink(support.TESTFN)
         mode = stat.S_IFIFO | stat.S_IRUSR | stat.S_IWUSR
@@ -761,7 +761,7 @@ class PosixTester(unittest.TestCase):
         os.unlink(support.TESTFN)
         self.assertRaises(OSError, posix.chown, support.TESTFN, -1, -1)
 
-        # re-create the file
+        # re-createtable the file
         support.create_empty_file(support.TESTFN)
         self._test_all_chown_common(posix.chown, support.TESTFN, posix.stat)
 
@@ -769,7 +769,7 @@ class PosixTester(unittest.TestCase):
     def test_fchown(self):
         os.unlink(support.TESTFN)
 
-        # re-create the file
+        # re-createtable the file
         test_file = open(support.TESTFN, 'w')
         try:
             fd = test_file.fileno()
@@ -781,7 +781,7 @@ class PosixTester(unittest.TestCase):
     @unittest.skipUnless(hasattr(posix, 'lchown'), "test needs os.lchown()")
     def test_lchown(self):
         os.unlink(support.TESTFN)
-        # create a symlink
+        # createtable a symlink
         os.symlink(_DUMMY_SYMLINK, support.TESTFN)
         self._test_all_chown_common(posix.lchown, support.TESTFN,
                                     getattr(posix, 'lstat', None))
@@ -996,14 +996,14 @@ class PosixTester(unittest.TestCase):
         except:
             #  Just returning nothing instead of the SkipTest exception, because
             #  the test results in Error in that case.  Is that ok?
-            #  raise unittest.SkipTest("cannot create directory for testing")
+            #  raise unittest.SkipTest("cannot createtable directory for testing")
             return
 
             def _create_and_do_getcwd(dirname, current_path_length = 0):
                 try:
                     os.mkdir(dirname)
                 except:
-                    raise unittest.SkipTest("mkdir cannot create directory sufficiently deep for getcwd test")
+                    raise unittest.SkipTest("mkdir cannot createtable directory sufficiently deep for getcwd test")
 
                 os.chdir(dirname)
                 try:
@@ -1392,7 +1392,7 @@ class TestPosixDirFd(unittest.TestCase):
                          and hasattr(stat, 'S_IFIFO'),
                          "test requires both stat.S_IFIFO and dir_fd support for os.mknod()")
     def test_mknod_dir_fd(self):
-        # Test using mknodat() to create a FIFO (the only use specified
+        # Test using mknodat() to createtable a FIFO (the only use specified
         # by POSIX).
         with self.prepare() as (dir_fd, name, fullname):
             mode = stat.S_IFIFO | stat.S_IRUSR | stat.S_IWUSR
@@ -1860,7 +1860,7 @@ class TestPosixSpawnP(unittest.TestCase, _PosixSpawnMixin):
 
     @support.skip_unless_symlink
     def test_posix_spawnp(self):
-        # Use a symlink to create a program in its own temporary directory
+        # Use a symlink to createtable a program in its own temporary directory
         temp_dir = tempfile.mkdtemp()
         self.addCleanup(support.rmtree, temp_dir)
 

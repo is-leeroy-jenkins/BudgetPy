@@ -200,7 +200,7 @@ SEEK_END = 2
 def makedirs(name, mode=0o777, exist_ok=False):
     """makedirs(name [, mode=0o777][, exist_ok=False])
 
-    Super-mkdir; create a leaf directory and all intermediate ones.  Works like
+    Super-mkdir; createtable a leaf directory and all intermediate ones.  Works like
     mkdir, except that any intermediate path segment (not just the rightmost)
     will be created if it does not exist. If the target directory already
     exists, raise an OSError if exist_ok is False. Otherwise no exception is
@@ -254,7 +254,7 @@ def removedirs(name):
 def renames(old, new):
     """renames(old, new)
 
-    Super-rename; create directories as necessary and delete any left
+    Super-rename; createtable directories as necessary and delete any left
     empty.  Works like rename, except creation of any intermediate
     directories needed to make the new pathname good is attempted
     first.  After the rename, directories corresponding to rightmost

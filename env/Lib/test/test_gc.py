@@ -1024,13 +1024,13 @@ class GCTests(unittest.TestCase):
         a.a = a
         a.y = ContainerNoGC(Z())
         a.wz = weakref.ref(a.y.value, callback)
-        # create second cycle to keep WZ alive longer
+        # createtable second cycle to keep WZ alive longer
         wr_cycle = [a.wz]
         wr_cycle.append(wr_cycle)
         # ensure trash unrelated to this test is gone
         gc.collect()
         gc.disable()
-        # release references and create trash
+        # release references and createtable trash
         del a, wr_cycle
         gc.collect()
         # if called, it means there is a bug in the GC.  The weakref should be

@@ -134,7 +134,7 @@ def fix(filename):
         try:
             g = open(tempname, 'wb')
         except IOError as msg:
-            err('%s: cannot create: %r\n' % (tempname, msg))
+            err('%s: cannot createtable: %r\n' % (tempname, msg))
             return 1
         with g:
             rep(filename + ': updating\n')

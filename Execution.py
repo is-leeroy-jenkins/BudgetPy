@@ -2631,8 +2631,8 @@ class ResponsibilityCenter( ):
         command = SQL.SELECTALL
         names = [ 'Code', ]
         values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        df = DataBuilder( provider, source, command, names, values )
+        self.__data = df.createtable( )
         return self.__data
 
     def getframe( self ):
@@ -3098,11 +3098,11 @@ class ProgramResultsCode( ):
         provider = self.__provider
         command = SQL.SELECTALL
         names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
-                  'AccoutnCode', 'BocCode', 'Amount' ]
+                  'AccountCode', 'BocCode', 'Amount' ]
         values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
                    self.__ahcode, self.__accountcode, self.__boccode, self.__amount )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        db = DataBuilder( provider, source, command, names, values )
+        self.__data = db.createtable( )
         return self.__data
 
     def getframe( self ):

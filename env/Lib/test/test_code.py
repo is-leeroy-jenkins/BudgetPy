@@ -331,7 +331,7 @@ class CodeWeakRefTest(unittest.TestCase):
             self.called = True
 
         # f is now the last reference to the function, and through it, the code
-        # object.  While we hold it, check that we can create a weakref and
+        # object.  While we hold it, check that we can createtable a weakref and
         # deref it.  Then delete it, and check that the callback gets called and
         # the reference dies.
         coderef = weakref.ref(f.__code__, callback)

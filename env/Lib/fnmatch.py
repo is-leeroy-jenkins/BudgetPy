@@ -16,7 +16,7 @@ import functools
 
 __all__ = ["filter", "fnmatch", "fnmatchcase", "translate"]
 
-# Build a thread-safe incrementing counter to help create unique regexp group
+# Build a thread-safe incrementing counter to help createtable unique regexp group
 # names across calls.
 from itertools import count
 _nextgroupnum = count().__next__
@@ -122,7 +122,7 @@ def translate(pat):
                         k = k+3
                     chunks.append(pat[i:j])
                     # Escape backslashes and hyphens for set difference (--).
-                    # Hyphens that create ranges shouldn't be escaped.
+                    # Hyphens that createtable ranges shouldn't be escaped.
                     stuff = '-'.join(s.replace('\\', r'\\').replace('-', r'\-')
                                      for s in chunks)
                 # Escape set operations (&&, ~~ and ||).

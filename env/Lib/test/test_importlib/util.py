@@ -343,7 +343,7 @@ def temporary_pycache_prefix(prefix):
 
 @contextlib.contextmanager
 def create_modules(*names):
-    """Temporarily create each named module with an attribute (named 'attr')
+    """Temporarily createtable each named module with an attribute (named 'attr')
     that contains the name passed into the context manager that caused the
     creation of the module.
 
@@ -352,8 +352,8 @@ def create_modules(*names):
     sys.path. When the context manager exits all created files (source and
     bytecode) are explicitly deleted.
 
-    No magic is performed when creating packages! This means that if you create
-    a module within a package you must also create the package's __init__ as
+    No magic is performed when creating packages! This means that if you createtable
+    a module within a package you must also createtable the package's __init__ as
     well.
 
     """

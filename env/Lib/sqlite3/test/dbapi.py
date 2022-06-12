@@ -90,7 +90,7 @@ class ConnectionTests(unittest.TestCase):
     def setUp(self):
         self.cx = sqlite.connect(":memory:")
         cu = self.cx.cursor()
-        cu.execute("create table test(id integer primary key, name text)")
+        cu.execute("createtable table test(id integer primary key, name text)")
         cu.execute("insert into test(name) values (?)", ("foo",))
 
     def tearDown(self):
@@ -145,7 +145,7 @@ class ConnectionTests(unittest.TestCase):
         cx = sqlite.connect(":memory:")
         cu = cx.cursor()
         self.assertEqual(cx.in_transaction, False)
-        cu.execute("create table transactiontest(id integer primary key, name text)")
+        cu.execute("createtable table transactiontest(id integer primary key, name text)")
         self.assertEqual(cx.in_transaction, False)
         cu.execute("insert into transactiontest(name) values (?)", ("foo",))
         self.assertEqual(cx.in_transaction, True)
@@ -171,7 +171,7 @@ class ConnectionTests(unittest.TestCase):
                 return TESTFN
         path = Path()
         with sqlite.connect(path) as cx:
-            cx.execute('create table test(id integer)')
+            cx.execute('createtable table test(id integer)')
 
     def CheckOpenUri(self):
         if sqlite.sqlite_version_info < (3, 7, 7):
@@ -180,7 +180,7 @@ class ConnectionTests(unittest.TestCase):
             return
         self.addCleanup(unlink, TESTFN)
         with sqlite.connect(TESTFN) as cx:
-            cx.execute('create table test(id integer)')
+            cx.execute('createtable table test(id integer)')
         with sqlite.connect('file:' + TESTFN, uri=True) as cx:
             cx.execute('insert into test(id) values(0)')
         with sqlite.connect('file:' + TESTFN + '?mode=ro', uri=True) as cx:
@@ -220,7 +220,7 @@ class CursorTests(unittest.TestCase):
         self.cx = sqlite.connect(":memory:")
         self.cu = self.cx.cursor()
         self.cu.execute(
-            "create table test(id integer primary key, name text, "
+            "createtable table test(id integer primary key, name text, "
             "income number, unique_test text unique)"
         )
         self.cu.execute("insert into test(name) values (?)", ("foo",))
@@ -553,7 +553,7 @@ class ThreadTests(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:")
         self.cur = self.con.cursor()
-        self.cur.execute("create table test(id integer primary key, name text, bin binary, ratio number, ts timestamp)")
+        self.cur.execute("createtable table test(id integer primary key, name text, bin binary, ratio number, ts timestamp)")
 
     def tearDown(self):
         self.cur.close()
@@ -735,7 +735,7 @@ class ExtensionTests(unittest.TestCase):
         cur.executescript("""
             -- bla bla
             /* a stupid comment */
-            create table a(i);
+            createtable table a(i);
             insert into a(i) values (5);
             """)
         cur.execute("select i from a")
@@ -746,19 +746,19 @@ class ExtensionTests(unittest.TestCase):
         con = sqlite.connect(":memory:")
         cur = con.cursor()
         with self.assertRaises(sqlite.OperationalError):
-            cur.executescript("create table test(x); asdf; create table test2(x)")
+            cur.executescript("createtable table test(x); asdf; createtable table test2(x)")
 
     def CheckScriptErrorNormal(self):
         con = sqlite.connect(":memory:")
         cur = con.cursor()
         with self.assertRaises(sqlite.OperationalError):
-            cur.executescript("create table test(sadfsadfdsa); select foo from hurz;")
+            cur.executescript("createtable table test(sadfsadfdsa); select foo from hurz;")
 
     def CheckCursorExecutescriptAsBytes(self):
         con = sqlite.connect(":memory:")
         cur = con.cursor()
         with self.assertRaises(ValueError) as cm:
-            cur.executescript(b"create table test(foo); insert into test(foo) values (5);")
+            cur.executescript(b"createtable table test(foo); insert into test(foo) values (5);")
         self.assertEqual(str(cm.exception), 'script argument must be unicode.')
 
     def CheckConnectionExecute(self):
@@ -768,7 +768,7 @@ class ExtensionTests(unittest.TestCase):
 
     def CheckConnectionExecutemany(self):
         con = sqlite.connect(":memory:")
-        con.execute("create table test(foo)")
+        con.execute("createtable table test(foo)")
         con.executemany("insert into test(foo) values (?)", [(3,), (4,)])
         result = con.execute("select foo from test order by foo").fetchall()
         self.assertEqual(result[0][0], 3, "Basic test of Connection.executemany")
@@ -776,7 +776,7 @@ class ExtensionTests(unittest.TestCase):
 
     def CheckConnectionExecutescript(self):
         con = sqlite.connect(":memory:")
-        con.executescript("create table test(foo); insert into test(foo) values (5);")
+        con.executescript("createtable table test(foo); insert into test(foo) values (5);")
         result = con.execute("select foo from test").fetchone()[0]
         self.assertEqual(result, 5, "Basic test of Connection.executescript")
 
@@ -976,7 +976,7 @@ class MultiprocessTests(unittest.TestCase):
             cx = sqlite3.connect("{TESTFN}", timeout={self.CONNECTION_TIMEOUT})
             cx.create_function("wait", 0, wait)
             with cx:
-                cx.execute("create table t(t)")
+                cx.execute("createtable table t(t)")
             try:
                 # execute two transactions; both will try to lock the db
                 cx.executescript('''

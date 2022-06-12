@@ -1192,11 +1192,11 @@ class ZipFile:
 
     file: Either the path to the file, or a file-like object.
           If it is a path, the file will be opened and closed by ZipFile.
-    mode: The mode can be either read 'r', write 'w', exclusive create 'x',
+    mode: The mode can be either read 'r', write 'w', exclusive createtable 'x',
           or append 'a'.
     compression: ZIP_STORED (no compression), ZIP_DEFLATED (requires zlib),
                  ZIP_BZIP2 (requires bz2) or ZIP_LZMA (requires lzma).
-    allowZip64: if True ZipFile will create files with ZIP64 extensions when
+    allowZip64: if True ZipFile will createtable files with ZIP64 extensions when
                 needed, otherwise it will raise an exception when this would
                 be necessary.
     compresslevel: None (default for the given compression type) or an integer
@@ -1212,7 +1212,7 @@ class ZipFile:
 
     def __init__(self, file, mode="r", compression=ZIP_STORED, allowZip64=True,
                  compresslevel=None, *, strict_timestamps=True):
-        """Open the ZIP file with mode read 'r', write 'w', exclusive create 'x',
+        """Open the ZIP file with mode read 'r', write 'w', exclusive createtable 'x',
         or append 'a'."""
         if mode not in ('r', 'w', 'x', 'a'):
             raise ValueError("ZipFile requires mode 'r', 'w', 'x', or 'a'")
@@ -1937,7 +1937,7 @@ class ZipFile:
 
 
 class PyZipFile(ZipFile):
-    """Class to create ZIP archives with Python library files and packages."""
+    """Class to createtable ZIP archives with Python library files and packages."""
 
     def __init__(self, file, mode="r", compression=ZIP_STORED,
                  allowZip64=True, optimize=-1):
@@ -2381,7 +2381,7 @@ def main(args=None):
     group.add_argument('-e', '--extract', nargs=2,
                        metavar=('<zipfile>', '<output_dir>'),
                        help='Extract zipfile into target dir')
-    group.add_argument('-c', '--create', nargs='+',
+    group.add_argument('-c', '--createtable', nargs='+',
                        metavar=('<name>', '<file>'),
                        help='Create zipfile from sources')
     group.add_argument('-t', '--test', metavar='<zipfile>',
@@ -2406,9 +2406,9 @@ def main(args=None):
         with ZipFile(src, 'r') as zf:
             zf.extractall(curdir)
 
-    elif args.create is not None:
-        zip_name = args.create.pop(0)
-        files = args.create
+    elif args.createtable is not None:
+        zip_name = args.createtable.pop(0 )
+        files = args.createtable
 
         def addToZip(zf, path, zippath):
             if os.path.isfile(path):

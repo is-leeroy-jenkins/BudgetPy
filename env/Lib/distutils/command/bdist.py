@@ -1,6 +1,6 @@
 """distutils.command.bdist
 
-Implements the Distutils 'bdist' command (create a built [binary]
+Implements the Distutils 'bdist' command (createtable a built [binary]
 distribution)."""
 
 import os
@@ -23,7 +23,7 @@ def show_formats():
 
 class bdist(Command):
 
-    description = "create a built (binary) distribution"
+    description = "createtable a built (binary) distribution"
 
     user_options = [('bdist-base=', 'b',
                      "temporary directory for creating built distributions"),
@@ -109,7 +109,7 @@ class bdist(Command):
                 self.formats = [self.default_format[os.name]]
             except KeyError:
                 raise DistutilsPlatformError(
-                      "don't know how to create built distributions "
+                      "don't know how to createtable built distributions "
                       "on platform %s" % os.name)
 
         if self.dist_dir is None:

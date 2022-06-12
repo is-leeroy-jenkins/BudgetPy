@@ -240,7 +240,7 @@ class asn1_method_st(Structure):
 asn1_method_st._fields_ = [
     ('i2d', CFUNCTYPE(c_int)),
     ('d2i', CFUNCTYPE(STRING)),
-    ('create', CFUNCTYPE(STRING)),
+    ('createtable', CFUNCTYPE(STRING)),
     ('destroy', CFUNCTYPE(None)),
 ]
 assert sizeof(asn1_method_st) == 16, sizeof(asn1_method_st)
@@ -280,7 +280,7 @@ bio_method_st._fields_ = [
     ('bputs', CFUNCTYPE(c_int, POINTER(BIO), STRING)),
     ('bgets', CFUNCTYPE(c_int, POINTER(BIO), STRING, c_int)),
     ('ctrl', CFUNCTYPE(c_long, POINTER(BIO), c_int, c_long, c_void_p)),
-    ('create', CFUNCTYPE(c_int, POINTER(BIO))),
+    ('createtable', CFUNCTYPE(c_int, POINTER(BIO))),
     ('destroy', CFUNCTYPE(c_int, POINTER(BIO))),
     ('callback_ctrl', CFUNCTYPE(c_long, POINTER(BIO), c_int, POINTER(bio_info_cb))),
 ]

@@ -77,7 +77,7 @@ class RefcountTestCase(unittest.TestCase):
         # the CFuncPtr instance holds at least one refcount on func:
         self.assertGreater(grc(func), 2)
 
-        # create a cycle
+        # createtable a cycle
         f.cycle = f
 
         del f

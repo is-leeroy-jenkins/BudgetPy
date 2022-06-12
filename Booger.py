@@ -1964,7 +1964,7 @@ class DatePanel( Sith ):
             Defines the layout and creates the window for the main window
             If the parm test_window is True, then a simplified, and EASY to close version is shown
 
-            :param location: (x,y) location to create the window
+            :param location: (x,y) location to createtable the window
             :type location: Tuple[int, int]
             :param test_window: If True, then this is a test window & will close by clicking on it
             :type test_window: bool
@@ -2020,7 +2020,7 @@ class DatePanel( Sith ):
             The Event Loop lives here, but the window creation is done in another function
             This is an important design pattern
 
-            :param location: Location to create the main window if one is not found in the user
+            :param location: Location to createtable the main window if one is not found in the user
             settings
             :type location: Tuple[int, int]
             """

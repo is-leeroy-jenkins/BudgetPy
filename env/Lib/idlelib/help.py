@@ -255,7 +255,7 @@ def copy_strip():
       sphinx-build -bhtml . build/html
       python_d.exe -c "from idlelib.help import copy_strip; copy_strip()"
     Check build/html/library/idle.html, the help.html diff, and the text
-    displayed by Help => IDLE Help.  Add a blurb and create a PR.
+    displayed by Help => IDLE Help.  Add a blurb and createtable a PR.
 
     It can be worthwhile to occasionally generate help.html without
     touching idle.rst.  Changes to the master version and to the doc

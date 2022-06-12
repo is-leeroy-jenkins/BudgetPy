@@ -15,7 +15,7 @@ class _IterationGuard:
     # This technique should be relatively thread-safe (since sets are).
 
     def __init__(self, weakcontainer):
-        # Don't create cycles
+        # Don't createtable cycles
         self.weakcontainer = ref(weakcontainer)
 
     def __enter__(self):

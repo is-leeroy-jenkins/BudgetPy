@@ -11,7 +11,7 @@ pyjson = support.import_fresh_module('json', blocked=['_json'])
 # JSONDecodeError is cached inside the _json module
 cjson.JSONDecodeError = cjson.decoder.JSONDecodeError = json.JSONDecodeError
 
-# create two base classes that will be used by the other tests
+# createtable two base classes that will be used by the other tests
 class PyTest(unittest.TestCase):
     json = pyjson
     loads = staticmethod(pyjson.loads)

@@ -524,7 +524,7 @@ class SheetGUI:
         self.entry.bind("<Shift-Tab>", self.shift_tab_event)
         self.entry.bind("<Delete>", self.delete_event)
         self.entry.bind("<Escape>", self.escape_event)
-        # Now create the cell grid
+        # Now createtable the cell grid
         self.makegrid(rows, columns)
         # Select the top-left cell
         self.currentxy = None
@@ -559,7 +559,7 @@ class SheetGUI:
         self.entry.selection_range(0, 'end')
 
     def makegrid(self, rows, columns):
-        """Helper to create the grid of GUI cells.
+        """Helper to createtable the grid of GUI cells.
 
         The edge (x==0 or y==0) is filled with labels; the rest is real cells.
         """

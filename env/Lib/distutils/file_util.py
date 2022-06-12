@@ -41,7 +41,7 @@ def _copy_file_contents(src, dst, buffer_size=16*1024):
             fdst = open(dst, 'wb')
         except OSError as e:
             raise DistutilsFileError(
-                  "could not create '%s': %s" % (dst, e.strerror))
+                  "could not createtable '%s': %s" % (dst, e.strerror))
 
         while True:
             try:

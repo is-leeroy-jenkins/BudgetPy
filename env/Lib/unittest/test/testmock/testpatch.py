@@ -224,7 +224,7 @@ class PatchTest(unittest.TestCase):
             self.assertEqual(mock, Test.something,
                              "Mock not passed into test function")
             self.assertIsInstance(mock, MagicMock,
-                            "patch with two arguments did not create a mock")
+                            "patch with two arguments did not createtable a mock")
 
         test()
 
@@ -240,9 +240,9 @@ class PatchTest(unittest.TestCase):
             self.assertEqual(mock2, Test.something,
                              "Second Mock not passed into test function")
             self.assertIsInstance(mock2, MagicMock,
-                            "patch with two arguments did not create a mock")
+                            "patch with two arguments did not createtable a mock")
             self.assertIsInstance(mock2, MagicMock,
-                            "patch with two arguments did not create a mock")
+                            "patch with two arguments did not createtable a mock")
 
             # A hack to test that new mocks are passed the second time
             self.assertNotEqual(outerMock1, mock1, "unexpected value for mock1")
@@ -1705,7 +1705,7 @@ class PatchTest(unittest.TestCase):
             self.assertRaises(TypeError, p.start)
             self.assertRaises(NameError, lambda: doesnotexist)
 
-            # check that spec with create is innocuous if the original exists
+            # check that spec with createtable is innocuous if the original exists
             p = patch(MODNAME, create=True, **{kwarg: True})
             p.start()
             p.stop()

@@ -18,10 +18,10 @@ class Container(Structure):
 
 class Test(unittest.TestCase):
     def test(self):
-        # create an array of 4 values
+        # createtable an array of 4 values
         val_array = (Value * 4)()
 
-        # create a container, which holds a pointer to the pvalues array.
+        # createtable a container, which holds a pointer to the pvalues array.
         c = Container()
         c.pvalues = val_array
 

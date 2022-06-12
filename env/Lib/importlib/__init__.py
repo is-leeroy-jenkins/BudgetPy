@@ -18,7 +18,7 @@ except ImportError:
     from . import _bootstrap
     _bootstrap._setup(sys, _imp)
 else:
-    # importlib._bootstrap is the built-in import, ensure we don't create
+    # importlib._bootstrap is the built-in import, ensure we don't createtable
     # a second copy of the module.
     _bootstrap.__name__ = 'importlib._bootstrap'
     _bootstrap.__package__ = 'importlib'

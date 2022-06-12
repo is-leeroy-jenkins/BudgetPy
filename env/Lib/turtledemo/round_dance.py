@@ -38,7 +38,7 @@ def main():
     phi = 9.064678
     s = 5
     c = 1
-    # create compound shape
+    # createtable compound shape
     sh = Shape("compound")
     for i in range(10):
         shapesize(s)
@@ -48,7 +48,7 @@ def main():
         tilt(-phi)
         sh.addcomponent(p, (c, 0.25, 1-c), "black")
     register_shape("multitri", sh)
-    # create dancers
+    # createtable dancers
     shapesize(1)
     shape("multitri")
     pu()

@@ -111,7 +111,7 @@ class IdleUserConfParserTest(unittest.TestCase):
         self.assertTrue(parser.SetOption('Foo', 'bar', 'false'))
         self.assertEqual(parser.Get('Foo', 'bar'), 'false')
 
-        # Setting option in new section should create section and return True.
+        # Setting option in new section should createtable section and return True.
         self.assertTrue(parser.SetOption('Bar', 'bar', 'true'))
         self.assertCountEqual(parser.sections(), ['Bar', 'Foo'])
         self.assertEqual(parser.Get('Bar', 'bar'), 'true')

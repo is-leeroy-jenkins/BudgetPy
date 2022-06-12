@@ -602,7 +602,7 @@ class BasicSocketTests(unittest.TestCase):
 
     @support.cpython_only
     def test_refcycle(self):
-        # Issue #7943: an SSL object doesn't create reference cycles with
+        # Issue #7943: an SSL object doesn't createtable reference cycles with
         # itself.
         s = socket.socket(socket.AF_INET)
         ss = test_wrap_socket(s)
@@ -3474,7 +3474,7 @@ class ThreadedTests(unittest.TestCase):
                 s.close()
 
     def test_socketserver(self):
-        """Using socketserver to create and manage SSL connections."""
+        """Using socketserver to createtable and manage SSL connections."""
         server = make_https_server(self, certfile=SIGNED_CERTFILE)
         # try to connect
         if support.verbose:

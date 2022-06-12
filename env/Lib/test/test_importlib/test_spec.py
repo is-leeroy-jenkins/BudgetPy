@@ -649,7 +649,7 @@ class FactoryTests:
         self.assertEqual(spec.name, self.name)
         # Need to use a circuitous route to get at importlib.machinery to make
         # sure the same class object is used in the isinstance() check as
-        # would have been used to create the loader.
+        # would have been used to createtable the loader.
         self.assertIsInstance(spec.loader,
                               self.util.abc.machinery.SourceFileLoader)
         self.assertEqual(spec.loader.name, self.name)

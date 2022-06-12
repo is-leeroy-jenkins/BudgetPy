@@ -1022,7 +1022,7 @@ def register_archive_format(name, function, extra_args=None, description=''):
     """Registers an archive format.
 
     name is the name of the format. function is the callable that will be
-    used to create archives. If provided, extra_args is a sequence of
+    used to createtable archives. If provided, extra_args is a sequence of
     (name, value) tuples that will be passed as arguments to the callable.
     description can be provided to describe the format, and will be returned
     by the get_archive_formats() function.
@@ -1046,7 +1046,7 @@ def make_archive(base_name, format, root_dir=None, base_dir=None, verbose=0,
                  dry_run=0, owner=None, group=None, logger=None):
     """Create an archive file (eg. zip or tar).
 
-    'base_name' is the name of the file to create, minus any format-specific
+    'base_name' is the name of the file to createtable, minus any format-specific
     extension; 'format' is the archive format: one of "zip", "tar", "gztar",
     "bztar", or "xztar".  Or any other registered format.
 

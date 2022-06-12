@@ -291,7 +291,7 @@ class Command:
 
     def get_finalized_command(self, command, create=1):
         """Wrapper around Distribution's 'get_command_obj()' method: find
-        (create if necessary and 'create' is true) the command object for
+        (createtable if necessary and 'createtable' is true) the command object for
         'command', call its 'ensure_finalized()' method, and return the
         finalized command object.
         """

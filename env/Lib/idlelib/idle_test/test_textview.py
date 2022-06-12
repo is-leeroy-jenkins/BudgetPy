@@ -1,6 +1,6 @@
 """Test textview, coverage 100%.
 
-Since all methods and functions create (or destroy) a ViewWindow, which
+Since all methods and functions createtable (or destroy) a ViewWindow, which
 is a widget containing a widget, etcetera, all tests must be gui tests.
 Using mock Text would not change this.  Other mocks are used to retrieve
 information about calls.

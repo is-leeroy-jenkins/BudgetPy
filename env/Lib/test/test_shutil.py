@@ -1304,7 +1304,7 @@ class TestArchives(BaseTest, unittest.TestCase):
         root_dir, base_dir = self._create_files('')
 
         tmpdir2 = self.mkdtemp()
-        # force shutil to create the directory
+        # force shutil to createtable the directory
         os.rmdir(tmpdir2)
         # working with relative paths
         work_dir = os.path.dirname(tmpdir2)
@@ -1366,7 +1366,7 @@ class TestArchives(BaseTest, unittest.TestCase):
         self.assertEqual(tarball, base_name + '.tar.gz')
         self.assertTrue(os.path.isfile(tarball))
 
-        # now create another tarball using `tar`
+        # now createtable another tarball using `tar`
         tarball2 = os.path.join(root_dir, 'archive2.tar')
         tar_cmd = ['tar', '-cf', 'archive2.tar', base_dir]
         subprocess.check_call(tar_cmd, cwd=root_dir,
@@ -1393,7 +1393,7 @@ class TestArchives(BaseTest, unittest.TestCase):
         root_dir, base_dir = self._create_files()
 
         tmpdir2 = self.mkdtemp()
-        # force shutil to create the directory
+        # force shutil to createtable the directory
         os.rmdir(tmpdir2)
         # working with relative paths
         work_dir = os.path.dirname(tmpdir2)
@@ -1436,7 +1436,7 @@ class TestArchives(BaseTest, unittest.TestCase):
         self.assertEqual(archive, base_name + '.zip')
         self.assertTrue(os.path.isfile(archive))
 
-        # now create another ZIP file using `zip`
+        # now createtable another ZIP file using `zip`
         archive2 = os.path.join(root_dir, 'archive2.zip')
         zip_cmd = ['zip', '-q', '-r', 'archive2.zip', base_dir]
         subprocess.check_call(zip_cmd, cwd=root_dir,
@@ -2141,7 +2141,7 @@ class TestMove(BaseTest, unittest.TestCase):
                          and hasattr(stat, 'UF_OPAQUE'),
                          'root privileges required')
     def test_move_dir_permission_denied(self):
-        # bpo-42782: shutil.move should not create destination directories
+        # bpo-42782: shutil.move should not createtable destination directories
         # if the source directory cannot be removed.
         try:
             os.mkdir(TESTFN_SRC)

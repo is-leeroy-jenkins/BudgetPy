@@ -39,7 +39,7 @@ def parse_args(arglist):
     install_parser.description = 'Install workflows requested by experiments'
     install_parser.set_defaults(func=install)
 
-    new_parser = subparsers.add_parser('new', help='create new fitz things')
+    new_parser = subparsers.add_parser('new', help='createtable new fitz things')
     new_parsers = new_parser.add_subparsers()
     new_workflow_parser = new_parsers.add_parser('workflow')
     new_workflow_parser.description = 'Create a new workflow skeleton.'

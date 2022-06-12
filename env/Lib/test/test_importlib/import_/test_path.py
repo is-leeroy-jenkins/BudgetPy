@@ -82,7 +82,7 @@ class FinderTests:
                 self.assertTrue(issubclass(w[-1].category, ImportWarning))
 
     def test_path_importer_cache_empty_string(self):
-        # The empty string should create a finder using the cwd.
+        # The empty string should createtable a finder using the cwd.
         path = ''
         module = '<test module>'
         importer = util.mock_spec(module)

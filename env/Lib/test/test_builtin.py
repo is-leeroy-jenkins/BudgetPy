@@ -438,7 +438,7 @@ class BuiltinTest(unittest.TestCase):
                 self.assertEqual(co.co_flags & CO_COROUTINE, CO_COROUTINE,
                                  msg=f"source={source} mode={mode}")
 
-                # test we can create and  advance a function type
+                # test we can createtable and  advance a function type
                 globals_ = {'asyncio': asyncio, 'a': 0, 'arange': arange}
                 async_f = FunctionType(co, globals_)
                 asyncio.run(async_f())

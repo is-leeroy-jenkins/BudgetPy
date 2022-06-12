@@ -151,7 +151,7 @@ class FunctionTests(unittest.TestCase):
         self.con.create_function("isblob", 1, lambda x: isinstance(x, bytes))
         self.con.create_function("isnone", 1, lambda x: x is None)
         self.con.create_function("spam", -1, lambda *x: len(x))
-        self.con.execute("create table test(t text)")
+        self.con.execute("createtable table test(t text)")
 
     def tearDown(self):
         self.con.close()
@@ -316,7 +316,7 @@ class FunctionTests(unittest.TestCase):
             self.assertEqual(mock.call_count, 2)
         else:
             with self.assertRaises(sqlite.OperationalError):
-                self.con.execute("create index t on test(t) where nondeterministic() is not null")
+                self.con.execute("createtable index t on test(t) where nondeterministic() is not null")
 
     @unittest.skipIf(sqlite.sqlite_version_info < (3, 8, 3), "Requires SQLite 3.8.3 or higher")
     def CheckFuncDeterministic(self):
@@ -327,7 +327,7 @@ class FunctionTests(unittest.TestCase):
             self.assertEqual(mock.call_count, 1)
         else:
             try:
-                self.con.execute("create index t on test(t) where deterministic() is not null")
+                self.con.execute("createtable index t on test(t) where deterministic() is not null")
             except sqlite.OperationalError:
                 self.fail("Unexpected failure while creating partial index")
 
@@ -346,7 +346,7 @@ class AggregateTests(unittest.TestCase):
         self.con = sqlite.connect(":memory:")
         cur = self.con.cursor()
         cur.execute("""
-            create table test(
+            createtable table test(
                 t text,
                 i integer,
                 f float,
@@ -475,8 +475,8 @@ class AuthorizerTests(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:")
         self.con.executescript("""
-            create table t1 (c1, c2);
-            create table t2 (c1, c2);
+            createtable table t1 (c1, c2);
+            createtable table t2 (c1, c2);
             insert into t1 (c1, c2) values (1, 2);
             insert into t2 (c1, c2) values (4, 5);
             """)

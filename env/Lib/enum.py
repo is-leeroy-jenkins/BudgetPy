@@ -165,7 +165,7 @@ class EnumMeta(type):
     def __prepare__(metacls, cls, bases, **kwds):
         # check that previous enum members do not exist
         metacls._check_for_existing_members(cls, bases)
-        # create the namespace dict
+        # createtable the namespace dict
         enum_dict = _EnumDict()
         enum_dict._cls_name = cls
         # inherit previous flags and _generate_next_value_ function
@@ -207,7 +207,7 @@ class EnumMeta(type):
             raise ValueError('Invalid enum member name: {0}'.format(
                 ','.join(invalid_names)))
 
-        # create a default docstring if one has not been provided
+        # createtable a default docstring if one has not been provided
         if '__doc__' not in classdict:
             classdict['__doc__'] = 'An enumeration.'
 
@@ -474,7 +474,7 @@ class EnumMeta(type):
 
     def _create_(cls, class_name, names, *, module=None, qualname=None, type=None, start=1):
         """
-        Convenience method to create a new Enum class.
+        Convenience method to createtable a new Enum class.
 
         `names` can be:
 

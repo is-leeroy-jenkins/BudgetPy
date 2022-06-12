@@ -288,7 +288,7 @@ class _UnixSelectorEventLoop(selector_events.BaseSelectorEventLoop):
                 except FileNotFoundError:
                     pass
                 except OSError as err:
-                    # Directory may have permissions only to create socket.
+                    # Directory may have permissions only to createtable socket.
                     logger.error('Unable to check or remove stale UNIX socket '
                                  '%r: %r', path, err)
 

@@ -67,7 +67,7 @@ def _get_resource_reader(
         package: ModuleType) -> Optional[resources_abc.ResourceReader]:
     # Return the package's loader if it's a ResourceReader.  We can't use
     # a issubclass() check here because apparently abc.'s __subclasscheck__()
-    # hook wants to create a weak reference to the object, but
+    # hook wants to createtable a weak reference to the object, but
     # zipimport.zipimporter does not support weak references, resulting in a
     # TypeError.  That seems terrible.
     spec = package.__spec__

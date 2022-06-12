@@ -164,7 +164,7 @@ class _ModuleLockManager:
 # The following two functions are for consumption by Python/import.c.
 
 def _get_module_lock(name):
-    """Get or create the module lock for a given module name.
+    """Get or createtable the module lock for a given module name.
 
     Acquire/release internally the global import lock to protect
     _module_locks."""

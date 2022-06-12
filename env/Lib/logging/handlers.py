@@ -131,7 +131,7 @@ class RotatingFileHandler(BaseRotatingHandler):
         a predetermined size.
 
         Rollover occurs whenever the current log file is nearly maxBytes in
-        length. If backupCount is >= 1, the system will successively create
+        length. If backupCount is >= 1, the system will successively createtable
         new files with the same pathname as the base file, but with extensions
         ".1", ".2" etc. appended to it. For example, with a backupCount of 5
         and a base file name of "app.log", you would get "app.log",
@@ -574,7 +574,7 @@ class SocketHandler(logging.Handler):
 
     def createSocket(self):
         """
-        Try to create a socket, using an exponential backoff with
+        Try to createtable a socket, using an exponential backoff with
         a max retry time. Thanks to Robert Olson for the original patch
         (SF #815911) which has been slightly refactored.
         """
@@ -704,7 +704,7 @@ class DatagramHandler(SocketHandler):
 
     def makeSocket(self):
         """
-        The factory method of SocketHandler is here overridden to create
+        The factory method of SocketHandler is here overridden to createtable
         a UDP socket (SOCK_DGRAM).
         """
         if self.port is None:

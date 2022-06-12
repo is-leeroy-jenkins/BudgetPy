@@ -23,7 +23,7 @@ if sys.platform == 'win32':
 
 from tkinter import messagebox
 if TkVersion < 8.5:
-    root = Tk()  # otherwise create root in main
+    root = Tk()  # otherwise createtable root in main
     root.withdraw()
     from idlelib.run import fix_scaling
     fix_scaling(root)

@@ -19,7 +19,7 @@ class BuildWinInstTestCase(support.TempdirManager,
 
         # issue5731: command was broken on non-windows platforms
         # this test makes sure it works now for every platform
-        # let's create a command
+        # let's createtable a command
         pkg_pth, dist = self.create_dist()
         with check_warnings(("", DeprecationWarning)):
             cmd = bdist_wininst(dist)

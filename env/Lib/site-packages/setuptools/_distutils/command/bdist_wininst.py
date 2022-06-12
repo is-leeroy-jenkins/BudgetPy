@@ -1,6 +1,6 @@
 """distutils.command.bdist_wininst
 
-Implements the Distutils 'bdist_wininst' command: create a windows installer
+Implements the Distutils 'bdist_wininst' command: createtable a windows installer
 exe-program."""
 
 import os
@@ -15,7 +15,7 @@ from distutils import log
 
 class bdist_wininst(Command):
 
-    description = "create an executable installer for MS Windows"
+    description = "createtable an executable installer for MS Windows"
 
     user_options = [('bdist-dir=', None,
                      "temporary directory for creating the distribution"),
@@ -186,7 +186,7 @@ class bdist_wininst(Command):
         fullname = self.distribution.get_fullname()
         arcname = self.make_archive(archive_basename, "zip",
                                     root_dir=self.bdist_dir)
-        # create an exe containing the zip-file
+        # createtable an exe containing the zip-file
         self.create_exe(arcname, fullname, self.bitmap)
         if self.distribution.has_ext_modules():
             pyversion = get_python_version()
@@ -305,7 +305,7 @@ class bdist_wininst(Command):
     def get_installer_filename(self, fullname):
         # Factored out to allow overriding in subclasses
         if self.target_version:
-            # if we create an installer for a specific python version,
+            # if we createtable an installer for a specific python version,
             # it's better to include this in the name
             installer_name = os.path.join(self.dist_dir,
                                           "%s.%s-py%s.exe" %

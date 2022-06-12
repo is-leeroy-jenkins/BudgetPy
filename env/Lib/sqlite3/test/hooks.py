@@ -144,7 +144,7 @@ class ProgressTests(unittest.TestCase):
             return 0
         con.set_progress_handler(progress, 1)
         con.execute("""
-            create table foo(a, b)
+            createtable table foo(a, b)
             """)
         self.assertTrue(progress_calls)
 
@@ -161,13 +161,13 @@ class ProgressTests(unittest.TestCase):
         con.set_progress_handler(progress, 1)
         curs = con.cursor()
         curs.execute("""
-            create table foo (a, b)
+            createtable table foo (a, b)
             """)
         first_count = len(progress_calls)
         progress_calls = []
         con.set_progress_handler(progress, 2)
         curs.execute("""
-            create table bar (a, b)
+            createtable table bar (a, b)
             """)
         second_count = len(progress_calls)
         self.assertGreaterEqual(first_count, second_count)
@@ -184,7 +184,7 @@ class ProgressTests(unittest.TestCase):
         self.assertRaises(
             sqlite.OperationalError,
             curs.execute,
-            "create table bar (a, b)")
+            "createtable table bar (a, b)")
 
     def CheckClearHandler(self):
         """
@@ -211,9 +211,9 @@ class TraceCallbackTests(unittest.TestCase):
         def trace(statement):
             traced_statements.append(statement)
         con.set_trace_callback(trace)
-        con.execute("create table foo(a, b)")
+        con.execute("createtable table foo(a, b)")
         self.assertTrue(traced_statements)
-        self.assertTrue(any("create table foo" in stmt for stmt in traced_statements))
+        self.assertTrue(any("createtable table foo" in stmt for stmt in traced_statements))
 
     def CheckClearTraceCallback(self):
         """
@@ -225,7 +225,7 @@ class TraceCallbackTests(unittest.TestCase):
             traced_statements.append(statement)
         con.set_trace_callback(trace)
         con.set_trace_callback(None)
-        con.execute("create table foo(a, b)")
+        con.execute("createtable table foo(a, b)")
         self.assertFalse(traced_statements, "trace callback was not cleared")
 
     def CheckUnicodeContent(self):
@@ -238,7 +238,7 @@ class TraceCallbackTests(unittest.TestCase):
         def trace(statement):
             traced_statements.append(statement)
         con.set_trace_callback(trace)
-        con.execute("create table foo(x)")
+        con.execute("createtable table foo(x)")
         # Can't execute bound parameters as their values don't appear
         # in traced statements before SQLite 3.6.21
         # (cf. http://www.sqlite.org/draft/releaselog/3_6_21.html)
@@ -255,7 +255,7 @@ class TraceCallbackTests(unittest.TestCase):
         def trace(statement):
             traced_statements.append(statement)
 
-        queries = ["create table foo(x)",
+        queries = ["createtable table foo(x)",
                    "insert into foo(x) values(1)"]
         self.addCleanup(unlink, TESTFN)
         con1 = sqlite.connect(TESTFN, isolation_level=None)
@@ -263,7 +263,7 @@ class TraceCallbackTests(unittest.TestCase):
         con1.set_trace_callback(trace)
         cur = con1.cursor()
         cur.execute(queries[0])
-        con2.execute("create table bar(x)")
+        con2.execute("createtable table bar(x)")
         cur.execute(queries[1])
 
         # Extract from SQLite 3.7.15 changelog:

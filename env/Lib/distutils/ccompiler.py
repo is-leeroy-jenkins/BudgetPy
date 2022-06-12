@@ -124,8 +124,8 @@ class CCompiler:
         executables that may be specified here depends on the compiler
         class (via the 'executables' class attribute), but most will have:
           compiler      the C/C++ compiler
-          linker_so     linker used to create shared objects and libraries
-          linker_exe    linker used to create binary executables
+          linker_so     linker used to createtable shared objects and libraries
+          linker_exe    linker used to createtable binary executables
           archiver      static library creator
 
         On platforms with a command-line (Unix, DOS/Windows), each of these
@@ -584,7 +584,7 @@ class CCompiler:
 
     def create_static_lib(self, objects, output_libname, output_dir=None,
                           debug=0, target_lang=None):
-        """Link a bunch of stuff together to create a static library file.
+        """Link a bunch of stuff together to createtable a static library file.
         The "bunch of stuff" consists of the list of object files supplied
         as 'objects', the extra object files supplied to
         'add_link_object()' and/or 'set_link_objects()', the libraries
@@ -628,7 +628,7 @@ class CCompiler:
              extra_postargs=None,
              build_temp=None,
              target_lang=None):
-        """Link a bunch of stuff together to create an executable or
+        """Link a bunch of stuff together to createtable an executable or
         shared library file.
 
         The "bunch of stuff" consists of the list of object files supplied

@@ -475,7 +475,7 @@ class LegacyFinalizationTest(TestBase, unittest.TestCase):
     """
 
     def tearDown(self):
-        # These tests need to clean up a bit more, since they create
+        # These tests need to clean up a bit more, since they createtable
         # uncollectable objects.
         gc.garbage.clear()
         gc.collect()

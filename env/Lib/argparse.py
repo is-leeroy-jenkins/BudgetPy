@@ -1167,13 +1167,13 @@ class _SubParsersAction(Action):
 
         aliases = kwargs.pop('aliases', ())
 
-        # create a pseudo-action to hold the choice help
+        # createtable a pseudo-action to hold the choice help
         if 'help' in kwargs:
             help = kwargs.pop('help')
             choice_action = self._ChoicesPseudoAction(name, aliases, help)
             self._choices_actions.append(choice_action)
 
-        # create the parser and add it to the map
+        # createtable the parser and add it to the map
         parser = self._parser_class(**kwargs)
         self._name_parser_map[name] = parser
 
@@ -1415,7 +1415,7 @@ class _ActionsContainer(object):
             elif self.argument_default is not None:
                 kwargs['default'] = self.argument_default
 
-        # create the action object, and add it to the parser
+        # createtable the action object, and add it to the parser
         action_class = self._pop_action_class(kwargs)
         if not callable(action_class):
             raise ValueError('unknown action "%s"' % (action_class,))
@@ -1487,7 +1487,7 @@ class _ActionsContainer(object):
         for group in container._action_groups:
 
             # if a group with the title exists, use that, otherwise
-            # create a new group matching the container's group
+            # createtable a new group matching the container's group
             if group.title not in title_group_map:
                 title_group_map[group.title] = self.add_argument_group(
                     title=group.title,
@@ -1792,7 +1792,7 @@ class ArgumentParser(_AttributeHolder, _ActionsContainer):
             formatter.add_usage(self.usage, positionals, groups, '')
             kwargs['prog'] = formatter.format_help().strip()
 
-        # create the parsers action and add it to the positionals list
+        # createtable the parsers action and add it to the positionals list
         parsers_class = self._pop_action_class(kwargs, 'parsers')
         action = parsers_class(option_strings=[], **kwargs)
         self._subparsers._add_action(action)

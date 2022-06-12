@@ -21,7 +21,7 @@ class EnvBuilder:
     """
     This class exists to allow virtual environment creation to be
     customized. The constructor parameters determine the builder's
-    behaviour when called upon to create a virtual environment.
+    behaviour when called upon to createtable a virtual environment.
 
     By default, the builder makes the system (global) site-packages dir
     *un*available to the created environment.
@@ -60,7 +60,7 @@ class EnvBuilder:
         """
         Create a virtual environment in a directory.
 
-        :param env_dir: The target directory to create an environment in.
+        :param env_dir: The target directory to createtable an environment in.
 
         """
         env_dir = os.path.abspath(env_dir)
@@ -104,7 +104,7 @@ class EnvBuilder:
             if not os.path.exists(d):
                 os.makedirs(d)
             elif os.path.islink(d) or os.path.isfile(d):
-                raise ValueError('Unable to create directory %r' % d)
+                raise ValueError('Unable to createtable directory %r' % d)
 
         if os.path.exists(env_dir) and self.clear:
             self.clear_directory(env_dir)
@@ -132,7 +132,7 @@ class EnvBuilder:
         context.inc_path = path = os.path.join(env_dir, incpath)
         create_if_needed(path)
         create_if_needed(libpath)
-        # Issue 21197: create lib64 as a symlink to lib on 64-bit non-OS X POSIX
+        # Issue 21197: createtable lib64 as a symlink to lib on 64-bit non-OS X POSIX
         if ((sys.maxsize > 2**32) and (os.name == 'posix') and
             (sys.platform != 'darwin')):
             link_path = os.path.join(env_dir, 'lib64')
@@ -444,7 +444,7 @@ def main(args=None):
                                                 'sourcing an activate script '
                                                 'in its bin directory.')
         parser.add_argument('dirs', metavar='ENV_DIR', nargs='+',
-                            help='A directory to create the environment in.')
+                            help='A directory to createtable the environment in.')
         parser.add_argument('--system-site-packages', default=False,
                             action='store_true', dest='system_site',
                             help='Give the virtual environment access to the '

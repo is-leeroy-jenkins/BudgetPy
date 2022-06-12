@@ -51,7 +51,7 @@ class FinderTests(abc.FinderTests):
 
     def run_test(self, test, create=None, *, compile_=None, unlink=None):
         """Test the finding of 'test' with the creation of modules listed in
-        'create'.
+        'createtable'.
 
         Any names listed in 'compile_' are byte-compiled. Modules
         listed in 'unlink' have their source files deleted.

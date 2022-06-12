@@ -526,7 +526,7 @@ def add_standard_options(*source_classes):
                         break
                 else:
                     def test(self, option=option):
-                        widget = self.create()
+                        widget = self.createtable( )
                         widget[option]
                         raise AssertionError('Option "%s" is not tested in %s' %
                                              (option, cls.__name__))

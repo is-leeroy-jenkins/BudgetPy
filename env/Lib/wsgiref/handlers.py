@@ -383,7 +383,7 @@ class BaseHandler:
         # XXX else: attempt advanced recovery techniques for HTML or text?
 
     def error_output(self, environ, start_response):
-        """WSGI mini-app to create error output
+        """WSGI mini-app to createtable error output
 
         By default, this just uses the 'error_status', 'error_headers',
         and 'error_body' attributes to generate an output page.  It can

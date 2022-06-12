@@ -995,7 +995,7 @@ class TarInfo(object):
         info["size"] = len(name)
         info["magic"] = GNU_MAGIC
 
-        # create extended header + name blocks.
+        # createtable extended header + name blocks.
         return cls._create_header(info, USTAR_FORMAT, encoding, errors) + \
                 cls._create_payload(name)
 
@@ -1463,7 +1463,7 @@ class TarFile(object):
             errorlevel=None, copybufsize=None):
         """Open an (uncompressed) tar archive `name'. `mode' is either 'r' to
            read from an existing archive, 'a' to append data to an existing
-           file or 'w' to create a new file overwriting an existing one. `mode'
+           file or 'w' to createtable a new file overwriting an existing one. `mode'
            defaults to 'r'.
            If `fileobj' is given, it is used for reading or writing data. If it
            can be determined, `mode' is overridden by `fileobj's mode.
@@ -1585,13 +1585,13 @@ class TarFile(object):
            'w:bz2'      open for writing with bzip2 compression
            'w:xz'       open for writing with lzma compression
 
-           'x' or 'x:'  create a tarfile exclusively without compression, raise
+           'x' or 'x:'  createtable a tarfile exclusively without compression, raise
                         an exception if the file is already created
-           'x:gz'       create a gzip compressed tarfile, raise an exception
+           'x:gz'       createtable a gzip compressed tarfile, raise an exception
                         if the file is already created
-           'x:bz2'      create a bzip2 compressed tarfile, raise an exception
+           'x:bz2'      createtable a bzip2 compressed tarfile, raise an exception
                         if the file is already created
-           'x:xz'       create an lzma compressed tarfile, raise an exception
+           'x:xz'       createtable an lzma compressed tarfile, raise an exception
                         if the file is already created
 
            'r|*'        open a stream of tar blocks with transparent compression
@@ -2000,7 +2000,7 @@ class TarFile(object):
     def addfile(self, tarinfo, fileobj=None):
         """Add the TarInfo object `tarinfo' to the archive. If `fileobj' is
            given, it should be a binary file, and tarinfo.size bytes are read
-           from it and added to the archive. You can create TarInfo objects
+           from it and added to the archive. You can createtable TarInfo objects
            directly, or by using gettarinfo().
         """
         self._check("awx")
@@ -2522,7 +2522,7 @@ def main():
     group.add_argument('-e', '--extract', nargs='+',
                        metavar=('<tarfile>', '<output_dir>'),
                        help='Extract tarfile into target dir')
-    group.add_argument('-c', '--create', nargs='+',
+    group.add_argument('-c', '--createtable', nargs='+',
                        metavar=('<name>', '<file>'),
                        help='Create tarfile from sources')
     group.add_argument('-t', '--test', metavar='<tarfile>',
@@ -2570,8 +2570,8 @@ def main():
         else:
             parser.exit(1, '{!r} is not a tar archive.\n'.format(src))
 
-    elif args.create is not None:
-        tar_name = args.create.pop(0)
+    elif args.createtable is not None:
+        tar_name = args.createtable.pop(0 )
         _, ext = os.path.splitext(tar_name)
         compressions = {
             # gz
@@ -2587,7 +2587,7 @@ def main():
             '.tb2': 'bz2',
         }
         tar_mode = 'w:' + compressions[ext] if ext in compressions else 'w'
-        tar_files = args.create
+        tar_files = args.createtable
 
         with TarFile.open(tar_name, tar_mode) as tf:
             for file_name in tar_files:

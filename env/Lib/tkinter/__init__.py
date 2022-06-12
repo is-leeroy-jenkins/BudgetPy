@@ -343,7 +343,7 @@ class Variable:
             raise TypeError("name must be a string")
         global _varnum
         if not master:
-            master = _get_default_root('create variable')
+            master = _get_default_root('createtable variable')
         self._root = master._root()
         self._tk = master.tk
         if name:
@@ -2774,7 +2774,7 @@ class Canvas(Widget, XView, YView):
         else:
             cnf = {}
         return self.tk.getint(self.tk.call(
-            self._w, 'create', itemType,
+            self._w, 'createtable', itemType,
             *(args + self._options(cnf, kw))))
 
     def create_arc(self, *args, **kw):
@@ -3726,7 +3726,7 @@ class Text(Widget, XView, YView):
     def image_create(self, index, cnf={}, **kw):
         """Create an embedded image at INDEX."""
         return self.tk.call(
-                 self._w, "image", "create", index,
+                 self._w, "image", "createtable", index,
                  *self._options(cnf, kw))
 
     def image_names(self):
@@ -3774,7 +3774,7 @@ class Text(Widget, XView, YView):
         optional standard configuration options. By default the peer will
         have the same start and end line as the parent widget, but
         these can be overridden with the standard configuration options."""
-        self.tk.call(self._w, 'peer', 'create', newPathName,
+        self.tk.call(self._w, 'peer', 'createtable', newPathName,
             *self._options(cnf, kw))
 
     def peer_names(self): # new in Tk 8.5
@@ -3921,7 +3921,7 @@ class Text(Widget, XView, YView):
     def window_create(self, index, cnf={}, **kw):
         """Create a window at INDEX."""
         self.tk.call(
-              (self._w, 'window', 'create', index)
+              (self._w, 'window', 'createtable', index)
               + self._options(cnf, kw))
 
     def window_names(self):
@@ -3994,7 +3994,7 @@ class Image:
     def __init__(self, imgtype, name=None, cnf={}, master=None, **kw):
         self.name = None
         if not master:
-            master = _get_default_root('create image')
+            master = _get_default_root('createtable image')
         self.tk = getattr(master, 'tk', master)
         if not name:
             Image._last_id += 1
@@ -4006,7 +4006,7 @@ class Image:
             if callable(v):
                 v = self._register(v)
             options = options + ('-'+k, v)
-        self.tk.call(('image', 'create', imgtype, name,) + options)
+        self.tk.call(('image', 'createtable', imgtype, name,) + options)
         self.name = name
 
     def __str__(self): return self.name

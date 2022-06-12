@@ -2,7 +2,7 @@
 #
 # This shell script (for sh) is generated automatically by TclOO's configure
 # script, or would be except it has no values that we substitute. It will
-# create shell variables for most of the configuration options discovered by
+# createtable shell variables for most of the configuration options discovered by
 # the configure script. This script is intended to be included by TEA-based
 # configure scripts for TclOO extensions so that they don't have to figure
 # this all out for themselves.

@@ -33,7 +33,7 @@ def load_tests(loader, tests, ignore):
     #
     # However, doctest can't easily find all docstrings in the module (loading
     # it through import_fresh_module seems to confuse it), so we specifically
-    # create a finder which returns the doctests from the merge method.
+    # createtable a finder which returns the doctests from the merge method.
 
     class HeapqMergeDocTestFinder:
         def find(self, *args, **kwargs):

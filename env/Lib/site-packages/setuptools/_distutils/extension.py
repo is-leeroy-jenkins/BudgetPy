@@ -60,8 +60,8 @@ class Extension:
         be anything.
       extra_link_args : [string]
         any extra platform- and compiler-specific information to use
-        when linking object files together to create the extension (or
-        to create a new static Python interpreter).  Similar
+        when linking object files together to createtable the extension (or
+        to createtable a new static Python interpreter).  Similar
         interpretation as for 'extra_compile_args'.
       export_symbols : [string]
         list of symbols to be exported from a shared extension.  Not

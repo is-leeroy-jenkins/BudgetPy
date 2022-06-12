@@ -1863,8 +1863,8 @@ class SpendingRates( ):
         command = SQL.SELECTALL
         names = [ 'OmbAccountCode', ]
         values = ( self.__ombaccountcode, )
-        data = DataFactory( provider, source, command, names, values )
-        self.__data = data.create( )
+        data = DataBuilder( provider, source, command, names, values )
+        self.__data = data.createtable( )
         return self.__data
 
     def getframe( self ):

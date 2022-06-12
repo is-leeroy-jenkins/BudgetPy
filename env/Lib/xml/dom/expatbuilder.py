@@ -9,7 +9,7 @@ This avoids all the overhead of SAX and pulldom to gain performance.
 # This module is tightly bound to the implementation details of the
 # minidom DOM and can't be used with other DOM implementations.  This
 # is due, in part, to a lack of appropriate methods in the DOM (there is
-# no way to create Entity and Notation nodes via the DOM Level 2
+# no way to createtable Entity and Notation nodes via the DOM Level 2
 # interface), and for performance.  The latter is the cause of some fairly
 # cryptic code.
 #
@@ -647,7 +647,7 @@ class FragmentBuilder(ExpatBuilder):
         return fragment
 
     def _getDeclarations(self):
-        """Re-create the internal subset from the DocumentType node.
+        """Re-createtable the internal subset from the DocumentType node.
 
         This is only needed if we don't already have the
         internalSubset as a string.

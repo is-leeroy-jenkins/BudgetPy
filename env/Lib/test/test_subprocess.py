@@ -2979,7 +2979,7 @@ class POSIXProcessTestCase(BaseTestCase):
             # check that p is in the active processes list
             self.assertIn(ident, [id(o) for o in subprocess._active])
 
-        # let some time for the process to exit, and create a new Popen: this
+        # let some time for the process to exit, and createtable a new Popen: this
         # should trigger the wait() of p
         time.sleep(0.2)
         with self.assertRaises(OSError):
@@ -3528,7 +3528,7 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(subprocess.getstatusoutput('echo xyzzy'),
                          (0, 'xyzzy'))
 
-        # we use mkdtemp in the next line to create an empty directory
+        # we use mkdtemp in the next line to createtable an empty directory
         # under our exclusive control; from that, we can invent a pathname
         # that we _know_ won't exist.  This is guaranteed to fail.
         dir = None

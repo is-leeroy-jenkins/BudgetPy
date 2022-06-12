@@ -93,7 +93,7 @@ class CodeContext:
     def toggle_code_context_event(self, event=None):
         """Toggle code context display.
 
-        If self.context doesn't exist, create it to match the size of the editor
+        If self.context doesn't exist, createtable it to match the size of the editor
         window text (toggle on).  If it does exist, destroy it (toggle off).
         Return 'break' to complete the processing of the binding.
         """

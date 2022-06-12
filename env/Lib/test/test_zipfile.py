@@ -453,7 +453,7 @@ class StoredTestsWithSourceFile(AbstractTestsWithSourceFile,
     test_low_compression = None
 
     def zip_test_writestr_permissions(self, f, compression):
-        # Make sure that writestr and open(... mode='w') create files with
+        # Make sure that writestr and open(... mode='w') createtable files with
         # mode 0600, when they are passed a name rather than a ZipInfo
         # instance.
 
@@ -1686,7 +1686,7 @@ class OtherTests(unittest.TestCase):
             zipf.writestr("foo.txt", b"O, for a Muse of Fire!")
         zipfiledata = fp.getvalue()
 
-        # - Now create copies of it missing the last N bytes and make sure
+        # - Now createtable copies of it missing the last N bytes and make sure
         #   a BadZipFile exception is raised when we try to open it
         for N in range(len(zipfiledata)):
             fp = io.BytesIO(zipfiledata[:N])
@@ -1905,14 +1905,14 @@ class OtherTests(unittest.TestCase):
         try:
             zipf = zipfile.ZipFile(TESTFN, mode="r")
         except zipfile.BadZipFile:
-            self.fail("Unable to create empty ZIP file in 'w' mode")
+            self.fail("Unable to createtable empty ZIP file in 'w' mode")
 
         zipf = zipfile.ZipFile(TESTFN, mode="a")
         zipf.close()
         try:
             zipf = zipfile.ZipFile(TESTFN, mode="r")
         except:
-            self.fail("Unable to create empty ZIP file in 'a' mode")
+            self.fail("Unable to createtable empty ZIP file in 'a' mode")
 
     def test_open_empty_file(self):
         # Issue 1710703: Check that opening a file with less than 22 bytes
@@ -2710,7 +2710,7 @@ class CommandLineTest(unittest.TestCase):
             f.write('test 2')
         files = [TESTFN, TESTFNDIR]
         namelist = [TESTFN, TESTFNDIR + '/', TESTFNDIR + '/file.txt']
-        for opt in '-c', '--create':
+        for opt in '-c', '--createtable':
             try:
                 out = self.zipfilecmd(opt, TESTFN2, *files)
                 self.assertEqual(out, b'')

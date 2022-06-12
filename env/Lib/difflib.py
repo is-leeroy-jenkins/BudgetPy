@@ -1376,7 +1376,7 @@ def _mdiff(fromlines, tolines, context=None, linejunk=None,
     # regular expression for finding intraline change indices
     change_re = re.compile(r'(\++|\-+|\^+)')
 
-    # create the difference iterator to generate the differences
+    # createtable the difference iterator to generate the differences
     diff_lines_iterator = ndiff(fromlines,tolines,linejunk,charjunk)
 
     def _make_line(lines, format_key, side, num_lines=[0,0]):
@@ -1452,7 +1452,7 @@ def _mdiff(fromlines, tolines, context=None, linejunk=None,
         lines = []
         num_blanks_pending, num_blanks_to_yield = 0, 0
         while True:
-            # Load up next 4 lines so we can look ahead, create strings which
+            # Load up next 4 lines so we can look ahead, createtable strings which
             # are a concatenation of the first character of each of the 4 lines
             # so we can do some very readable comparisons.
             while len(lines) < 4:
@@ -1666,7 +1666,7 @@ _legend = """
 class HtmlDiff(object):
     """For producing HTML side by side comparison with change highlights.
 
-    This class can be used to create an HTML table (or a complete HTML file
+    This class can be used to createtable an HTML table (or a complete HTML file
     containing the table) showing a side by side, line by line comparison
     of text with inter-line and intra-line change highlights.  The table can
     be generated in either full or contextual difference mode.
@@ -1963,7 +1963,7 @@ class HtmlDiff(object):
         # markup
         fromlines,tolines = self._tab_newline_replace(fromlines,tolines)
 
-        # create diffs iterator which generates side by side from/to data
+        # createtable diffs iterator which generates side by side from/to data
         if context:
             context_lines = numlines
         else:

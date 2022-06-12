@@ -31,7 +31,7 @@ class FileList:
             edit.top.wakeup()
             return edit
         if action:
-            # Don't create window, perform 'action', e.g. open in same window
+            # Don't createtable window, perform 'action', e.g. open in same window
             return action(filename)
         else:
             edit = self.EditorWindow(self, filename, key)

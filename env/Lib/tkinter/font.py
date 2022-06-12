@@ -90,8 +90,8 @@ class Font:
             if font:
                 tk.call("font", "configure", self.name, *font)
         else:
-            # create new font (raises TclError if the font exists)
-            tk.call("font", "create", self.name, *font)
+            # createtable new font (raises TclError if the font exists)
+            tk.call("font", "createtable", self.name, *font)
             self.delete_font = True
         self._tk = tk
         self._split = tk.splitlist
@@ -159,7 +159,7 @@ class Font:
     def metrics(self, *options, **kw):
         """Return font metrics.
 
-        For best performance, create a dummy widget
+        For best performance, createtable a dummy widget
         using this font before calling this method."""
         args = ()
         displayof = kw.pop('displayof', None)
@@ -201,7 +201,7 @@ if __name__ == "__main__":
 
     root = tkinter.Tk()
 
-    # create a font
+    # createtable a font
     f = Font(family="times", size=30, weight=NORMAL)
 
     print(f.actual())

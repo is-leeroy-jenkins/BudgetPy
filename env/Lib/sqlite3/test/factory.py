@@ -270,7 +270,7 @@ class TextFactoryTests(unittest.TestCase):
 class TextFactoryTestsWithEmbeddedZeroBytes(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:")
-        self.con.execute("create table test (value text)")
+        self.con.execute("createtable table test (value text)")
         self.con.execute("insert into test (value) values (?)", ("a\x00b",))
 
     def CheckString(self):

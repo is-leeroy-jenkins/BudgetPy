@@ -57,7 +57,7 @@ class DictVersionTests(unittest.TestCase):
 
         d2 = self.check_version_dont_change(d, d.copy)
 
-        # dict.copy() must create a dictionary with a new unique version
+        # dict.copy() must createtable a dictionary with a new unique version
         self.check_version_unique(d2)
 
     def test_setitem(self):

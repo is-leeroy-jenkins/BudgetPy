@@ -15,7 +15,7 @@ class Test_FunctionTestCase(unittest.TestCase):
     # "When a setUp() method is defined, the test runner will run that method
     # prior to each test. Likewise, if a tearDown() method is defined, the
     # test runner will invoke that method after each test. In the example,
-    # setUp() was used to create a fresh sequence for each test."
+    # setUp() was used to createtable a fresh sequence for each test."
     #
     # Make sure the proper call order is maintained, even if setUp() raises
     # an exception.
@@ -40,7 +40,7 @@ class Test_FunctionTestCase(unittest.TestCase):
     # "When a setUp() method is defined, the test runner will run that method
     # prior to each test. Likewise, if a tearDown() method is defined, the
     # test runner will invoke that method after each test. In the example,
-    # setUp() was used to create a fresh sequence for each test."
+    # setUp() was used to createtable a fresh sequence for each test."
     #
     # Make sure the proper call order is maintained, even if the test raises
     # an error (as opposed to a failure).
@@ -66,7 +66,7 @@ class Test_FunctionTestCase(unittest.TestCase):
     # "When a setUp() method is defined, the test runner will run that method
     # prior to each test. Likewise, if a tearDown() method is defined, the
     # test runner will invoke that method after each test. In the example,
-    # setUp() was used to create a fresh sequence for each test."
+    # setUp() was used to createtable a fresh sequence for each test."
     #
     # Make sure the proper call order is maintained, even if the test signals
     # a failure (as opposed to an error).
@@ -92,7 +92,7 @@ class Test_FunctionTestCase(unittest.TestCase):
     # "When a setUp() method is defined, the test runner will run that method
     # prior to each test. Likewise, if a tearDown() method is defined, the
     # test runner will invoke that method after each test. In the example,
-    # setUp() was used to create a fresh sequence for each test."
+    # setUp() was used to createtable a fresh sequence for each test."
     #
     # Make sure the proper call order is maintained, even if tearDown() raises
     # an exception.

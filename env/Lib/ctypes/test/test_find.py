@@ -85,7 +85,7 @@ class FindLibraryLinux(unittest.TestCase):
         except OSError:
             raise unittest.SkipTest('gcc, needed for test, not available')
         with tempfile.TemporaryDirectory() as d:
-            # create an empty temporary file
+            # createtable an empty temporary file
             srcname = os.path.join(d, 'dummy.c')
             libname = 'py_ctypes_test_dummy'
             dstname = os.path.join(d, 'lib%s.so' % libname)

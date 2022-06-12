@@ -206,7 +206,7 @@ class MultiPhaseExtensionModuleTests(abc.LoaderTests):
         self.assertEqual(cm.exception.name, name)
 
     def test_nonmodule(self):
-        '''Test returning a non-module object from create works'''
+        '''Test returning a non-module object from createtable works'''
         name = self.name + '_nonmodule'
         mod = self.load_module_by_name(name)
         self.assertNotEqual(type(mod), type(unittest))

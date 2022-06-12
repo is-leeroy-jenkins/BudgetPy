@@ -84,7 +84,7 @@ class PyCompileTestsBase:
         try:
             os.symlink(self.pyc_path + '.actual', self.pyc_path)
         except (NotImplementedError, OSError):
-            self.skipTest('need to be able to create a symlink for a file')
+            self.skipTest('need to be able to createtable a symlink for a file')
         else:
             assert os.path.islink(self.pyc_path)
             with self.assertRaises(FileExistsError):

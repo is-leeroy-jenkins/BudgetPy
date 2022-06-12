@@ -38,7 +38,7 @@ for u in range(1, 4):
     for v in range(1, 4):
         G.add_edge("switch_" + str(u), "PC_" + str(u) + "_" + str(v))
 
-# Get a reproducible layout and create figure
+# Get a reproducible layout and createtable figure
 pos = nx.spring_layout(G, seed=1734289230)
 fig, ax = plt.subplots()
 

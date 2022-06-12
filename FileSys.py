@@ -4,6 +4,7 @@ import os
 import zipfile as zp
 import openpyxl as xl
 from Static import Source, Provider, SQL, Model
+import enum
 
 # BudgetPath( filepath )
 class BudgetPath( ):
@@ -16,15 +17,6 @@ class BudgetPath( ):
     __currdir = None
     __report = None
     __drive = None
-    __accessdriver = None
-    __accessdata = None
-    __accessreference = None
-    __sqlitedriver = None
-    __sqlitedata = None
-    __sqlitereference = None
-    __sqldriver = None
-    __sqldata = None
-    __sqlreference = None
 
     @property
     def name( self ):
@@ -120,7 +112,7 @@ class BudgetPath( ):
 
     def getextension( self, other ):
         '''Returns string representing the file extension of 'other' '''
-        if isinstance( other, str ):
+        if isinstance( other, str ) and os.path.exists( other ):
             return  os.path.splitext( other )[ 1 ]
 
     def getreportpath( self ):
@@ -133,8 +125,9 @@ class BudgetPath( ):
             return os.path.join( first, second )
 
 
-class DbPath( ):
-    '''class providing database paths'''
+
+class SqlPath( ):
+    '''class providing paths to the sql subfolders'''
     __accessdriver = None
     __accessdata = None
     __accessreference = None
@@ -146,170 +139,124 @@ class DbPath( ):
     __sqlreference = None
 
     @property
-    def accessdata( self ):
-        if isinstance( self.__accessdata, str ) and self.__accessdata != '':
-            return os.path.relpath( self.__accessdata )
+    def sqlitedriver( self ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__sqlitedriver, str ):
+            return self.__sqlitedriver
 
-    @accessdata.setter
-    def accessdata( self, value ):
+    @sqlitedriver.setter
+    def sqlitedriver( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
         if isinstance( value, str ) and value != '':
-            self.__accessdata = os.path.relpath( value )
-
-    @property
-    def accessreference( self ):
-        if isinstance( self.__accessreference, str ) and self.__accessreference != '':
-            return os.path.relpath( self.__accessreference )
-
-    @accessreference.setter
-    def accessreference( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accessreference = os.path.relpath( value )
+            self.__sqlitedriver = value
 
     @property
     def sqlitedata( self ):
-        if isinstance( self.__sqlitedata, str ) and self.__sqlitedata != '':
-            return os.path.relpath( self.__sqlitedata )
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__sqlitedata, str ):
+            return self.__sqlitedata
 
     @sqlitedata.setter
     def sqlitedata( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
         if isinstance( value, str ) and value != '':
-            self.__sqlitedata = os.path.relpath( value )
+            self.__sqlitedata = value
 
     @property
     def sqlitereference( self ):
-        if isinstance( self.__sqlitereference, str ) and self.__sqlitereference != '':
-            return os.path.relpath( self.__sqlitereference )
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__sqlitereference, str ):
+            return self.__sqlitereference
 
     @sqlitereference.setter
     def sqlitereference( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
         if isinstance( value, str ) and value != '':
-            self.__sqlitereference = os.path.relpath( value )
+            self.__sqlitereference = value
+
+    @property
+    def accessdriver( self ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__accessdriver, str ):
+            return self.__accessdriver
+
+    @accessdriver.setter
+    def accessdriver( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__accessdriver = value
+
+    @property
+    def accessdata( self ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__accessdata, str ):
+            return self.__accessdata
+
+    @accessdata.setter
+    def accessdata( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__accessdata = value
+
+    @property
+    def accessreference( self ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__accessreference, str ):
+            return self.__accessreference
+
+    @accessreference.setter
+    def accessreference( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__accessreference = value
+
+    @property
+    def sqlitedriver( self ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__sqlitedriver, str ):
+            return self.__sqlitedriver
+
+    @sqlitedriver.setter
+    def sqlitedriver( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__sqlitedriver = value
 
     @property
     def sqldata( self ):
-        if isinstance( self.__sqldata, str ) and self.__sqldata != '':
-            return os.path.relpath( self.__sqldata )
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__sqldata, str ):
+            return self.__sqldata
 
     @sqldata.setter
     def sqldata( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
         if isinstance( value, str ) and value != '':
-            self.__sqldata = os.path.relpath( value )
+            self.__sqldata = value
 
     @property
     def sqlreference( self ):
-        if isinstance( self.__sqlreference, str ) and self.__sqlreference != '':
-            return os.path.relpath( self.__sqlreference )
+        '''Returns string representing the name of the filepath 'base' '''
+        if isinstance( self.__sqlreference, str ):
+            return self.__sqlreference
 
     @sqlreference.setter
     def sqlreference( self, value ):
+        '''Returns string representing the name of the filepath 'base' '''
         if isinstance( value, str ) and value != '':
-            self.__sqlitereference = os.path.relpath( value )
+            self.__sqlreference = value
 
     def __init__( self ):
-        self.__sqlitedata = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db'
-        self.__sqlitereference = r'C:\Users\terry\source\repos\BudgetPy' \
-                                 r'\db\sqlite\referencemodels\References.db'
+        self.__sqlitedriver = 'sqlite3'
+        self.__sqlitedata =  r'db\sqlite\datamodels\sql'
+        self.__sqlitereference = r'db\sqlite\referencemodels\sql'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdata = r'C:\\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb'
-        self.__accessreference = r'C:\\Users\terry\source\repos\BudgetPy' \
-                                 r'\db\access\referencemodels\References.accdb'
+        self.__accessdata = r'db\access\datamodels\sql'
+        self.__accessreference = r'db\access\referencemodels\sql'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldata = r'C:\Users\terry\source\repos\BudgetPy' \
-                         r'\db\mssql\datamodels\Data.mdf'
-        self.__sqlreference = r'C:\Users\terry\source\repos\BudgetPy' \
-                              r'\db\mssql\referencemodels\References.mdf'
+        self.__sqldata = r'db\mssql\datamodels\sql'
+        self.__sqlreference = r'db\mssql\referencemodels\sql'
 
-
-class SqlRepo( ):
-    '''class providing paths to the sql getsubfolders'''
-    __accessdatamodels = None
-    __accessreferencemodels = None
-    __sqlitedatamodels = None
-    __sqlitereferencemodels = None
-    __sqldatamodels = None
-    __sqlreferencemodels = None
-
-    @property
-    def accessdatamodels( self ):
-        if isinstance( self.__accessdatamodels, str ) \
-                and self.__accessdatamodels != '':
-            return self.__accessdatamodels
-
-    @accessdatamodels.setter
-    def accessdatamodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accessdatamodels = value
-
-    @property
-    def accessreferencemodels( self ):
-        if isinstance( self.__accessreferencemodels, str ) \
-                and self.__accessreferencemodels != '':
-            return self.__accessreferencemodels
-
-    @accessreferencemodels.setter
-    def accessreferencemodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accessreferencemodels = value
-
-    @property
-    def sqlitedatamodels( self ):
-        if isinstance( self.__sqlitedatamodels, str ) \
-                and self.__sqlitedatamodels != '':
-            return self.__sqlitedatamodels
-
-    @sqlitedatamodels.setter
-    def sqlitedatamodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__sqlitedatamodels = value
-
-    @property
-    def sqlitereferencemodels( self ):
-        if isinstance( self.__sqlitereferencemodels, str ) \
-                and self.__sqlitereferencemodels != '':
-            return self.__sqlitereferencemodels
-
-    @sqlitereferencemodels.setter
-    def sqlitereferencemodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__sqlitereferencemodels = value
-
-    @property
-    def sqldatamodels( self ):
-        if isinstance( self.__sqldatamodels, str ) \
-                and self.__sqldatamodels != '':
-            return self.__sqldatamodels
-
-    @sqldatamodels.setter
-    def sqldatamodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__sqldatamodels = value
-
-    @property
-    def sqlreferencemodels( self ):
-        if isinstance( self.__sqlreferencemodels, str ) \
-                and self.__sqlreferencemodels != '':
-            return self.__sqlreferencemodels
-
-    @sqlreferencemodels.setter
-    def sqlreferencemodels( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__sqlitereferencemodels = value
-
-    def __init__( self ):
-        self.__sqlitedatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\sql'
-        self.__sqlitereferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
-                                 r'\db\sqlite\referencemodels\sql'
-        self.__accessdatamodels = r'C:\\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\sql'
-        self.__accessreferencemodels = r'C:\\Users\terry\source\repos\BudgetPy' \
-                                 r'\db\access\referencemodels\sql'
-        self.__sqldatamodels = r'C:\Users\terry\source\repos\BudgetPy' \
-                         r'\db\mssql\datamodels\sql'
-        self.__sqlreferencemodels = r'C:\Users\terry\source\repos\BudgetPy' \
-                                 r'\db\mssql\referencemodels\sql'
 
 
 class SqlFile( ):
@@ -350,7 +297,7 @@ class SqlFile( ):
         if isinstance( value, SQL ):
             self.__command = value
 
-    def __init__( self, provider = None, source = None,
+    def __init__( self, source = None, provider = None,
                   command = None ):
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
@@ -380,76 +327,85 @@ class SqlFile( ):
                              'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
                              'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                              'SchemaTypes', 'StateOrganizations', 'Sources' ]
-        self.__command = command if isinstance( command, SQL ) else None
-        self.__source = source if isinstance( source, Source ) else None
-        self.__provider = provider if isinstance( provider, Provider ) else None
+        self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
+        self.__source = source if isinstance( source, SQL ) else Source.StatusOfFunds
+        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
 
-    def getpaths( self ):
-        sd = SqlRepo( )
+    def getpath( self ):
+        sqlpath = SqlPath( )
         data = self.__data
         references = self.__references
+        provider = self.__provider.name
+        source = self.__source.name
+        command = self.__command.name
+        current = os.getcwd( )
         folder = ''
-        if self.__provider.name == 'SQLite' and self.__source.name in data:
-            folder = f'{ sd.sqlitedatamodels }\\{self.__command.name}'
-            return BudgetFolder( folder ).getsubfiles( )
-        elif self.__provider.name == 'SQLite' and self.__source.name in references:
-            folder = f'{ sd.sqlitereferencemodels }\\{self.__command.name}'
-            return BudgetFolder( folder ).getsubfiles( )
-        elif self.__provider.name == 'Access' and self.__source.name in data:
-            folder = f'{ sd.accessdatamodels }\\{self.__command.name}'
-            return BudgetFolder( folder ).getsubfiles( )
-        elif self.__provider.name == 'Access' and self.__source.name in references:
-            folder = f'{ sd.accessreferencemodels }\\{self.__command.name}'
-            return BudgetFolder( folder ).getsubfiles( )
-        elif self.__provider.name == 'SqlServer' and self.__source.name in data:
-            folder = f'{ sd.sqldatamodels }\\{self.__command.name}'
-            return BudgetFolder( folder ).getsubfiles( )
-        elif self.__provider.name == 'SqlServer' and self.__source.name in references:
-            folder = f'{ sd.sqlreferencemodels }\\{self.__command.name}'
-            return BudgetFolder( folder ).getsubfiles( )
+        if provider == 'SQLite' and source in data:
+            folder = f'{ sqlpath.sqlitedata }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'SQLite' and source in references:
+            folder = f'{ sqlpath.sqlitereference }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'Access' and source in data:
+            folder = f'{ sqlpath.accessdata }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'Access' and source in references:
+            folder = f'{ sqlpath.accessreference }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'SqlServer' and source in data:
+            folder = f'{ sqlpath.sqldata }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'SqlServer' and source in references:
+            folder = f'{ sqlpath.sqlreference }\\{ command }'
+            return os.path.join( current, folder )
         else:
-            folder = f'{sd.sqlitedatamodels}\\{self.__command.name}'
-            return BudgetFolder( folder ).getsubfiles( )
+            folder = f'{ sqlpath.sqlitedata }\\{ command }'
+            return os.path.join( current, folder )
 
     def getdirectory( self ):
-        sd = SqlRepo( )
+        sqlpath = SqlPath( )
         data = self.__data
         reference = self.__references
-        name = self.__source.name
+        source = self.__source.name
+        provider = self.__provider.name
+        command = self.__command.name
+        current = os.getcwd( )
         folder = ''
-        if self.__provider.name == 'SQLite' and self.__source.name in data:
-            path = f'{ sd.sqlitedatamodels }\\{ self.__command.name }'
-            return os.path.relpath( path )
-        elif self.__provider.name == 'SQLite' and self.__source.name in reference:
-            path = f'{ sd.sqlitereferencemodels }\\{ self.__command.name }'
-            return os.path.relpath( path )
-        elif self.__provider.name == 'Access' and self.__source.name in data:
-            path = f'{ sd.accessdatamodels }\\{ self.__command.name }'
-            return os.path.relpath( path )
-        elif self.__provider.name == 'Access' and self.__source.name in reference:
-            path = f'{ sd.accessreferencemodels }\\{ self.__command.name }'
-            return os.path.relpath( path )
-        elif self.__provider.name == 'SqlServer' and self.__source.name in data:
-            path = f'{ sd.sqldatamodels }\\{ self.__command.name }'
-            return os.path.relpath( path )
-        elif self.__provider.name == 'SqlServer' and self.__source.name in reference:
-            path = f'{ sd.sqlreferencemodels }\\{ self.__command.name }'
-            return os.path.relpath( path )
+        if provider == 'SQLite' and source in data:
+            folder = f'{ sqlpath.sqlitedata }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'SQLite' and source in references:
+            folder = f'{ sqlpath.sqlitereference }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'Access' and source in data:
+            folder = f'{ sqlpath.accessdata }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'Access' and source in references:
+            folder = f'{ sqlpath.accessreference }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'SqlServer' and source in data:
+            folder = f'{ sqlpath.sqldata }\\{ command }'
+            return os.path.join( current, folder )
+        elif provider == 'SqlServer' and source in references:
+            folder = f'{ sqlpath.sqlreference }\\{ command }'
+            return os.path.join( current, folder )
         else:
-            path = f'{ sd.sqlitedatamodels }\\{ self.__command.name }'
-            return os.path.relpath( path )
+            folder = f'{ sqlpath.sqlitedata }\\{ command }'
+            return os.path.join( current, folder )
+
 
     def getquery( self ):
-        table = self.__source.name
-        names = self.getpaths( )
+        source = self.__source.name
+        paths = self.getpath( )
         folder = self.getdirectory( )
-        query = ''
-        for i in names:
-            name = os.path.basename( i )
-            if name.endswith( table + '.sql' ):
-                query = open( i )
+        sql = ''
+        for name in os.listdir( folder ):
+            if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
+                path = os.path.join( folder, name )
+                query = open( path )
                 sql = query.read( )
                 return sql
+
 
 
 # BudgetFile( filepath )
@@ -457,6 +413,7 @@ class BudgetFile( ):
     '''BudgetFile( filepath ) initializes the
      BudgetFile Class providing file information for
      getsubfolders used in the application'''
+    __absolute = None
     __name = None
     __path = None
     __size = None
@@ -490,6 +447,16 @@ class BudgetFile( ):
     def path( self, value ):
         if os.path.exists( value ):
             self.__path = str( value )
+
+    @property
+    def absolute( self ):
+        if isinstance( self.__absolute, str ):
+            return self.__absolute
+
+    @absolute.setter
+    def absolute( self, value ):
+        if os.path.exists( value ) and os.path.isabs( value ):
+            self.__absolute = value
 
     @property
     def size( self ):
@@ -576,7 +543,8 @@ class BudgetFile( ):
             self.__currdir = value
 
     def __init__( self, filepath = None ):
-        self.__path = filepath if isinstance( filepath, str ) and filepath != '' else None
+        self.__absolute = filepath if os.path.ismount( filepath ) else os.getcwd( ) +'\\' + filepath
+        self.__path = filepath if not os.path.isabs( filepath ) else os.path.relpath( filepath )
         self.__name = os.path.basename( filepath )
         self.__size = os.path.getsize( filepath )
         self.__directory = os.path.dirname( filepath )
@@ -585,7 +553,7 @@ class BudgetFile( ):
         self.__accessed = os.path.getatime( filepath )
         self.__modified = os.path.getmtime( filepath )
         self.__currdir = os.getcwd( )
-        self.__drive = os.path.splitdrive( filepath )[ 0 ] if os.path.isabs( filepath ) \
+        self.__drive = os.path.splitdrive( filepath )[ 0 ] if os.path.ismount( filepath ) \
             else os.path.splitdrive( os.path.join( self.__currdir, filepath ) )[ 0 ]
 
     def __str__( self ):
@@ -608,7 +576,7 @@ class BudgetFile( ):
     def create( self, other, lines = None ):
         ''' creates and returns 'filepath' file '''
         if isinstance( other, str ):
-            newfile = open( other, 'w' )
+            newfile = open( other, 'r+' )
             if isinstance( lines, list ) and len( lines ) > 0:
                 for line in lines:
                     newfile.write( line )
@@ -688,6 +656,7 @@ class BudgetFile( ):
 class BudgetFolder( ):
     '''BudgetFolder( filepath ) initializes the
      BudgetFolder Class providing file directory information'''
+    __absolute = None
     __path = None
     __name = None
     __parent = None
@@ -710,24 +679,34 @@ class BudgetFolder( ):
     @property
     def directory( self ):
         '''Returns string representing the name of the filepath 'base' '''
-        if not self.__dir == '':
-            return self.__dir
+        if not self.__name == '':
+            return self.__name
 
     @directory.setter
     def directory( self, value ):
         '''Returns string representing the name of the filepath 'base' '''
         if os.path.isdir( value ):
-            self.__dir = value
+            self.__name = value
 
     @property
     def path( self ):
-        if not self.__path == '':
+        if isinstance( self.__path, str ):
             return self.__path
 
     @path.setter
     def path( self, value ):
         if os.path.exists( value ):
             self.__path = str( value )
+
+    @property
+    def absolute( self ):
+        if isinstance( self.__absolute, str ) and self.__absolute != '':
+            return self.__absolute
+
+    @absolute.setter
+    def absolute( self, value ):
+        if os.path.exists( value ) and os.path.isabs( value ):
+            self.__absolute = value
 
     @property
     def parent( self ):
@@ -760,37 +739,37 @@ class BudgetFolder( ):
             os.chdir( value )
 
     def __init__( self, folderpath ):
-        self.__path = folderpath if isinstance( folderpath, str ) else None
-        self.__name = os.path.basename( folderpath )
-        self.__dir = os.path.dirname( folderpath )
-        self.__parent = os.path.dirname( folderpath )
+        self.__current = os.getcwd( )
+        self.__path = folderpath if not os.path.ismount( folderpath ) else os.path.relpath( folderpath )
+        self.__name = os.path.dirname( folderpath )
+        self.__parent = os.path.basename( folderpath )
+        self.__absolute = os.getcwd( ) + '\\' + self.__path
 
     def __str__( self ):
         if self.__path is not None:
             return self.__path
 
     def getsubfiles( self ):
-        '''Iterates getsubfolders in the base directory'''
-        path = self.__path
-        filenames = [ ]
-        for i in os.walk( path ):
-            if len( i[ 2 ] ) > 0 and len( i[ 0 ] ) > 0:
-                for file in i[ 2 ]:
-                    path = os.path.join( i[ 0 ], file )
-                    if os.path.isfile( path ):
-                        filenames.append( path )
+        '''Iterates subfolders in the base directory
+        and returns a list of subfile paths'''
+        filenames = os.listdir( self.__absolute )
+        files = [ ]
+        for file in filenames:
+                path = os.path.join( self.__absolute, file )
+                files.append( path )
 
         return filenames
 
     def getsubfolders( self ):
         '''Iterates getsubfolders in the base directory'''
-        path = self.__path
+        current = self.__current
+        abspath = self.__abspath
         filenames = [ ]
-        for i in os.walk( path ):
-            if len( i[ 1 ] ) > 0 and len( i[ 0 ] ) > 0:
+        for i in os.walk( abspath ):
+            if len( i[ 1 ] ) > 0:
                 for file in i[ 1 ]:
-                    path = os.path.join( i[ 0 ], file )
-                    if not os.path.isfile( path ):
+                    path = os.path.join( abspath, file )
+                    if not os.path.isdir( path ):
                         filenames.append( path )
 
         return filenames
@@ -1046,7 +1025,7 @@ class ExcelFile(  ):
     def workbook( self ):
         ''' Gets the report template '''
         if self.__path is not None:
-            self.__workbook = self.__path
+            self.__workbook = xl.Workbook( )
             return self.__workbook
 
     @workbook.setter
@@ -1072,8 +1051,8 @@ class ExcelFile(  ):
             return self.__path
 
     def __init__( self, filepath ):
-        self.__path = filepath if os.path.exists( filepath ) else 'NS'
-        self.__name = os.path.split( self.__path )[ 1 ]
+        self.__path = filepath if isinstance( filepath, str ) else None
+        self.__name = os.path.split( filepath )[ 1 ] if isinstance( filepath, str ) else None
 
 
 # ExcelReport( name, rows = 46, cols = 12 )

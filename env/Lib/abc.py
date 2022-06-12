@@ -92,7 +92,7 @@ else:
     class ABCMeta(type):
         """Metaclass for defining Abstract Base Classes (ABCs).
 
-        Use this metaclass to create an ABC.  An ABC can be subclassed
+        Use this metaclass to createtable an ABC.  An ABC can be subclassed
         directly, and then acts as a mix-in class.  You can also register
         unrelated concrete classes (even built-in classes) and unrelated
         ABCs as 'virtual subclasses' -- these and their descendants will
@@ -144,7 +144,7 @@ else:
 
 
 class ABC(metaclass=ABCMeta):
-    """Helper class that provides a standard way to create an ABC using
+    """Helper class that provides a standard way to createtable an ABC using
     inheritance.
     """
     __slots__ = ()

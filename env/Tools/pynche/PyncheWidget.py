@@ -43,7 +43,7 @@ class PyncheWidget:
             self.__tkroot = tkroot
             # but this isn't our top level widget, so make it invisible
             tkroot.withdraw()
-        # create the menubar
+        # createtable the menubar
         menubar = self.__menubar = Menu(tkroot)
         #
         # File menu
@@ -89,7 +89,7 @@ class PyncheWidget:
                             menu=helpmenu,
                             underline=0)
 
-        # now create the top level window
+        # now createtable the top level window
         root = self.__root = Toplevel(tkroot, class_='Pynche', menu=menubar)
         root.protocol('WM_DELETE_WINDOW',
                       modal and self.__bell or self.__quit)

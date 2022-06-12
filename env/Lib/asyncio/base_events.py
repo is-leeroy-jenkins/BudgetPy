@@ -1000,7 +1000,7 @@ class BaseEventLoop(events.AbstractEventLoop):
             # check.  (This also means that if host is a numeric
             # IP/IPv6 address, we will attempt to verify that exact
             # address; this will probably fail, but it is possible to
-            # create a certificate for a specific IP address, so we
+            # createtable a certificate for a specific IP address, so we
             # don't judge it here.)
             if not host:
                 raise ValueError('You must set server_hostname '
@@ -1287,7 +1287,7 @@ class BaseEventLoop(events.AbstractEventLoop):
                     except FileNotFoundError:
                         pass
                     except OSError as err:
-                        # Directory may have permissions only to create socket.
+                        # Directory may have permissions only to createtable socket.
                         logger.error('Unable to check or remove stale UNIX '
                                      'socket %r: %r',
                                      local_addr, err)
@@ -1481,7 +1481,7 @@ class BaseEventLoop(events.AbstractEventLoop):
                     except socket.error:
                         # Assume it's a bad family/type/protocol combination.
                         if self._debug:
-                            logger.warning('create_server() failed to create '
+                            logger.warning('create_server() failed to createtable '
                                            'socket.socket(%r, %r, %r)',
                                            af, socktype, proto, exc_info=True)
                         continue
