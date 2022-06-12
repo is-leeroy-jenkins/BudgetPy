@@ -1,6 +1,7 @@
-CREATE TABLE IF NOT EXISTS FundSymbols (
-	FundSymbolsId	INTEGER NOT NULL UNIQUE,
-	TreasuryAccount	TEXT,
-	OmbAccount	TEXT,
-	PRIMARY KEY(FundSymbolsId AUTOINCREMENT)
+CREATE TABLE FundSymbols 
+(
+    FundSymbolsId INTEGER NOT NULL UNIQUE,
+    TreasuryAccount TEXT(80) NULL DEFAULT NS,
+    OmbAccount TEXT(80) NULL DEFAULT NS,
+    PRIMARY KEY(FundSymbolsId)
 );

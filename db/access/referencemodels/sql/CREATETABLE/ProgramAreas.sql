@@ -1,7 +1,7 @@
-CREATE TABLE IF NOT EXISTS ProgramAreas 
+CREATE TABLE ProgramAreas 
 (
-	ProgramAreasId	INTEGER NOT NULL UNIQUE,
-	Code	TEXT(255) NOT NULL,
-	Name	TEXT(255),
-	CONSTRAINT PrimaryKeyProgramAreas PRIMARY KEY(ProgramAreasId AUTOINCREMENT)
+    ProgramAreasId INTEGER NOT NULL UNIQUE,
+    Code TEXT(80) NULL DEFAULT NS,
+    Name TEXT(80) NULL DEFAULT NS,
+    CONSTRAINT PrimaryKeyProgramAreas PRIMARY KEY(ProgramAreasId)
 );

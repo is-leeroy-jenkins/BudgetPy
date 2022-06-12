@@ -1,7 +1,7 @@
-CREATE TABLE IF NOT EXISTS Organizations 
+CREATE TABLE Organizations 
 (
-	OrganizationsId	INTEGER NOT NULL UNIQUE,
-	Code	TEXT(255) NOT NULL,
-	Name	TEXT(255),
-	CONSTRAINT PrimaryKeyOrganizations PRIMARY KEY(OrganizationsId AUTOINCREMENT)
+    OrganizationsId INTEGER NOT NULL UNIQUE,
+    Code TEXT(80) NULL DEFAULT NS,
+    Name TEXT(80) NULL DEFAULT NS,
+    CONSTRAINT PrimaryKeyOrganizations PRIMARY KEY(OrganizationsId)
 );
