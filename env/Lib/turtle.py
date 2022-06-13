@@ -3658,7 +3658,7 @@ RawPen = RawTurtle
 
 def Screen():
     """Return the singleton screen object.
-    If none exists at the moment, create a new one and return it,
+    If none exists at the moment, createtable a new one and return it,
     else return the existing one."""
     if Turtle._screen is None:
         Turtle._screen = _Screen()

@@ -51,7 +51,7 @@ class SharedMemory:
     shared memory block.
 
     Every shared memory block is assigned a unique name.  This enables
-    one process to create a shared memory block with a particular name
+    one process to createtable a shared memory block with a particular name
     so that a different process can attach to that same shared memory
     block using that same name.
 
@@ -79,7 +79,7 @@ class SharedMemory:
             if size == 0:
                 raise ValueError("'size' must be a positive number different from zero")
         if name is None and not self._flags & os.O_EXCL:
-            raise ValueError("'name' can only be None if create=True")
+            raise ValueError("'name' can only be None if createtable=True")
 
         if _USE_POSIX:
 

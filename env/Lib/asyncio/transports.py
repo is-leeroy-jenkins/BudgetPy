@@ -155,10 +155,10 @@ class Transport(ReadTransport, WriteTransport):
 
     The user never instantiates a transport directly; they call a
     utility function, passing it a protocol factory and other
-    information necessary to create the transport and protocol.  (E.g.
+    information necessary to createtable the transport and protocol.  (E.g.
     EventLoop.create_connection() or EventLoop.create_server().)
 
-    The utility function will asynchronously create a transport and a
+    The utility function will asynchronously createtable a transport and a
     protocol and hook them up by calling the protocol's
     connection_made() method, passing it the transport.
 

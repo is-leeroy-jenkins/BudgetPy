@@ -89,7 +89,7 @@ def _all_string_prefixes():
     result = {''}
     for prefix in _valid_string_prefixes:
         for t in _itertools.permutations(prefix):
-            # create a list with upper and lower versions of each
+            # createtable a list with upper and lower versions of each
             #  character
             for u in _itertools.product(*[(c, c.upper()) for c in t]):
                 result.add(''.join(u))

@@ -2471,7 +2471,7 @@ class Decimal(object):
                 ans = _dec_from_triple(ans._sign, ans._int+'0'*expdiff,
                                        ans._exp-expdiff)
 
-            # create a copy of the current context, with cleared flags/traps
+            # createtable a copy of the current context, with cleared flags/traps
             newcontext = context.copy()
             newcontext.clear_flags()
             for exception in _signals:

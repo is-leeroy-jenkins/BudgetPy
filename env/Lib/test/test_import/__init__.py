@@ -1000,7 +1000,7 @@ class TestSymbolicallyLinkedPackage(unittest.TestCase):
         test.support.rmtree(self.package_name)
         self.orig_sys_path = sys.path[:]
 
-        # create a sample package; imagine you have a package with a tag and
+        # createtable a sample package; imagine you have a package with a tag and
         #  you want to symbolically link it from its untagged name.
         os.mkdir(self.tagged)
         self.addCleanup(test.support.rmtree, self.tagged)
@@ -1008,7 +1008,7 @@ class TestSymbolicallyLinkedPackage(unittest.TestCase):
         test.support.create_empty_file(init_file)
         assert os.path.exists(init_file)
 
-        # now create a symlink to the tagged package
+        # now createtable a symlink to the tagged package
         # sample -> sample-tagged
         os.symlink(self.tagged, self.package_name, target_is_directory=True)
         self.addCleanup(test.support.unlink, self.package_name)

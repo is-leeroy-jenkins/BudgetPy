@@ -993,7 +993,7 @@ class BarrierTests(BaseTestCase):
         """
         Test the barrier's default timeout
         """
-        # create a barrier with a low default timeout
+        # createtable a barrier with a low default timeout
         barrier = self.barriertype(self.N, timeout=0.3)
         def f():
             i = barrier.wait()

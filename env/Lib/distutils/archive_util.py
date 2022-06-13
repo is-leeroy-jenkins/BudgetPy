@@ -150,7 +150,7 @@ def make_zipfile(base_name, base_dir, verbose=0, dry_run=0):
         except DistutilsExecError:
             # XXX really should distinguish between "couldn't find
             # external 'zip' command" and "zip failed".
-            raise DistutilsExecError(("unable to create zip file '%s': "
+            raise DistutilsExecError(("unable to createtable zip file '%s': "
                    "could neither import the 'zipfile' module nor "
                    "find a standalone zip utility") % zip_filename)
 
@@ -207,7 +207,7 @@ def make_archive(base_name, format, root_dir=None, base_dir=None, verbose=0,
                  dry_run=0, owner=None, group=None):
     """Create an archive file (eg. zip or tar).
 
-    'base_name' is the name of the file to create, minus any format-specific
+    'base_name' is the name of the file to createtable, minus any format-specific
     extension; 'format' is the archive format: one of "zip", "tar", "gztar",
     "bztar", "xztar", or "ztar".
 

@@ -1061,7 +1061,7 @@ Released on 2016-12-23
 
 - Issue #24199: Deprecate unused idlelib.idlever with possible removal in 3.6.
 
-- Issue #24790: Remove extraneous code (which also create 2 & 3 conflicts).
+- Issue #24790: Remove extraneous code (which also createtable 2 & 3 conflicts).
 
 
 What's New in IDLE 3.5.0?

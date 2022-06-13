@@ -201,7 +201,7 @@ class IdleConf:
                 os.mkdir(userDir)
             except OSError:
                 if not idlelib.testing:
-                    warn = ('\n Warning: unable to create user config directory\n' +
+                    warn = ('\n Warning: unable to createtable user config directory\n' +
                             userDir + '\n Check path and permissions.\n Exiting!\n')
                     try:
                         print(warn, file=sys.stderr)

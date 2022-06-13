@@ -93,8 +93,8 @@ The open file pointer must have methods write(), tell(), seek(), and
 close().
 
 This returns an instance of a class with the following public methods:
-  aiff()      -- create an AIFF file (AIFF-C default)
-  aifc()      -- create an AIFF-C file
+  aiff()      -- createtable an AIFF file (AIFF-C default)
+  aifc()      -- createtable an AIFF-C file
   setnchannels(n) -- set the number of channels
   setsampwidth(n) -- set the sample width
   setframerate(n) -- set the frame rate

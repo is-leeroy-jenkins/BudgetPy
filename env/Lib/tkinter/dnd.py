@@ -7,7 +7,7 @@ I am trying to make this as generic as possible -- not dependent on
 the use of a particular widget or icon type, etc.  I also hope that
 this will work with Pmw.
 
-To enable an object to be dragged, you must create an event binding
+To enable an object to be dragged, you must createtable an event binding
 for it that starts the drag-and-drop process. Typically, you should
 bind <ButtonPress> to a callback function that you write. The function
 should call Tkdnd.dnd_start(source, event), where 'source' is the

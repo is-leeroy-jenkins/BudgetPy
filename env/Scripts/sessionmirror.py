@@ -380,9 +380,9 @@ def is_empty_resource(_res):
 #
 #     if not dst_proj.exists():
 #         try:
-#             dst_proj.create()
+#             dst_proj.createtable()
 #         except Exception as e:
-#             msg = 'ERROR: can not create project on destination '\
+#             msg = 'ERROR: can not createtable project on destination '\
 #                 'xnat. Check your user rights. %s' % e
 #             raise Exception(msg)
 #         copy_attributes(src_proj, dst_proj)
@@ -417,7 +417,7 @@ def is_empty_resource(_res):
 #         subj_xml = src_subj.get()
 #         xml_path = op.join(subj_cache_dir, 'subj.xml')
 #         write_xml(subj_xml, xml_path)
-#         dst_subj.create(xml=xml_path, allowDataDeletion=False)
+#         dst_subj.createtable(xml=xml_path, allowDataDeletion=False)
 #
 #     # Process each experiment of subject
 #     for src_sess in src_subj.experiments().fetchall('obj'):
@@ -451,7 +451,7 @@ def copy_session(src_sess, dst_sess, sess_cache_dir):
     print(xml_path)
 
     sess_type = src_sess.datatype()
-    dst_sess.create(experiments=sess_type)
+    dst_sess.createtable(experiments=sess_type )
     copy_attributes(src_sess, dst_sess)
 
     # Process each scan of session
@@ -489,7 +489,7 @@ def copy_scan(src_scan, dst_scan, scan_cache_dir):
     scan_type = src_scan.datatype()
     if scan_type == '':
              scan_type = 'xnat:otherDicomScanData'
-    dst_scan.create(scans=scan_type)
+    dst_scan.createtable(scans=scan_type )
     copy_attributes(src_scan, dst_scan)
 
     # Process each resource of scan
@@ -517,7 +517,7 @@ def copy_res(src_res, dst_res, res_cache_dir, use_zip=False):
     is_empty = False
     print(dst_res._uri)
     if not dst_res.exists():
-        dst_res.create()
+        dst_res.createtable( )
         is_empty = True
     elif is_empty_resource(dst_res):
         is_empty = True
@@ -570,7 +570,7 @@ def copy_res(src_res, dst_res, res_cache_dir, use_zip=False):
 #         assr_xml = src_assr.get()
 #         xml_path = op.join(assr_cache_dir, 'assr.xml')
 #         write_xml(assr_xml, xml_path)
-#         dst_assr.create(xml=xml_path, allowDataDeletion=False)
+#         dst_assr.createtable(xml=xml_path, allowDataDeletion=False)
 #
 #     # Process each resource of assr
 #     for src_res in src_assr.out_resources():
@@ -686,9 +686,9 @@ def main(args):
     p = x2.select.project(args.project_id)
     s = p.subject(e1['subject_label'])
     if not s.exists():
-       s.create()
+       s.createtable( )
     e = s.experiment(e1['label'])
-    e.create()
+    e.createtable( )
 
     src_sess = x1.select.project(e1['project']).subject(e1['subject_ID']).experiment(e1['ID'])
     dst_sess = e

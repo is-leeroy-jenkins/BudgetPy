@@ -134,7 +134,7 @@ class PkgutilTests(unittest.TestCase):
         # issue7367 - walk_packages failed if unreadable dir on sys.path
         package_name = "unreadable_package"
         d = os.path.join(self.dirname, package_name)
-        # this does not appear to create an unreadable dir on Windows
+        # this does not appear to createtable an unreadable dir on Windows
         #   but the test should not fail anyway
         os.mkdir(d, 0)
         self.addCleanup(os.rmdir, d)

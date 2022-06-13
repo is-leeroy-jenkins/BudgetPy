@@ -401,6 +401,7 @@ class AllowanceHolder( ):
         data = BudgetData( src )
         return data.getframe( )
 
+
 # Appropriation( code  )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
@@ -2631,8 +2632,8 @@ class ResponsibilityCenter( ):
         command = SQL.SELECTALL
         names = [ 'Code', ]
         values = ( self.__code, )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        df = DataBuilder( provider, source, command, names, values )
+        self.__data = df.createtable( )
         return self.__data
 
     def getframe( self ):
@@ -3098,11 +3099,11 @@ class ProgramResultsCode( ):
         provider = self.__provider
         command = SQL.SELECTALL
         names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
-                  'AccoutnCode', 'BocCode', 'Amount' ]
+                  'AccountCode', 'BocCode', 'Amount' ]
         values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
                    self.__ahcode, self.__accountcode, self.__boccode, self.__amount )
-        df = DataFactory( provider, source, command, names, values )
-        self.__data = df.create( )
+        db = DataBuilder( provider, source, command, names, values )
+        self.__data = db.createtable( )
         return self.__data
 
     def getframe( self ):
@@ -3478,9 +3479,8 @@ class FederalHoliday( ):
         self.__dayofweek = self.__date.day
         self.__month = self.__date.month
         self.__day = self.__date.isoweekday()
-        self.__data = { 'value': self.__bfy,
-                        'value': self.__name }
-        self.__frame = DataFrame
+        self.__data = None
+        self.__frame = None
 
     def __str__( self ):
         if not self.__name == '':
@@ -3503,6 +3503,7 @@ class FederalHoliday( ):
         cursor.close( )
         sqlite.close( )
         return self.__data
+
 
     def getframe( self ):
         '''Method returning pandas dataframe

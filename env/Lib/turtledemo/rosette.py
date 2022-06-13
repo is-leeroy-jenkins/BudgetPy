@@ -6,7 +6,7 @@ This example is
 inspired by the Wikipedia article on turtle
 graphics. (See example wikipedia1 for URLs)
 
-First we create (ne-1) (i.e. 35 in this
+First we createtable (ne-1) (i.e. 35 in this
 example) copies of our first turtle p.
 Then we let them perform their steps in
 parallel.
@@ -18,7 +18,7 @@ from time import perf_counter as clock, sleep
 
 def mn_eck(p, ne,sz):
     turtlelist = [p]
-    #create ne-1 additional turtles
+    #createtable ne-1 additional turtles
     for i in range(1,ne):
         q = p.clone()
         q.rt(360.0/ne)

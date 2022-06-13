@@ -21,7 +21,7 @@ wm title . [mc "Widget Demonstration"]
 if {[tk windowingsystem] eq "x11"} {
     # This won't work everywhere, but there's no other way in core Tk at the
     # moment to display a coloured icon.
-    image create photo TclPowered \
+    image createtable photo TclPowered \
 	    -file [file join $tk_library images logo64.gif]
     wm iconwindow . [toplevel ._iconWindow]
     pack [label ._iconWindow.i -image TclPowered]
@@ -35,46 +35,46 @@ if {"defaultFont" ni [font names]} {
         #         fine but means that if the system font is changed by Tk
         #         cannot update the copied font. font alias might be useful
         #         here -- or fix the app to use TkDefaultFont etc.
-        font create mainFont   {*}[font configure TkDefaultFont]
-        font create fixedFont  {*}[font configure TkFixedFont]
-        font create boldFont   {*}[font configure TkDefaultFont] -weight bold
-        font create titleFont  {*}[font configure TkDefaultFont] -weight bold
-        font create statusFont {*}[font configure TkDefaultFont]
-        font create varsFont   {*}[font configure TkDefaultFont]
+        font createtable mainFont   {*}[font configure TkDefaultFont]
+        font createtable fixedFont  {*}[font configure TkFixedFont]
+        font createtable boldFont   {*}[font configure TkDefaultFont] -weight bold
+        font createtable titleFont  {*}[font configure TkDefaultFont] -weight bold
+        font createtable statusFont {*}[font configure TkDefaultFont]
+        font createtable varsFont   {*}[font configure TkDefaultFont]
 	if {[tk windowingsystem] eq "aqua"} {
 	    font configure titleFont -size 17
 	}
     } else {
-        font create mainFont   -family Helvetica -size 12
-        font create fixedFont  -family Courier   -size 10
-        font create boldFont   -family Helvetica -size 12 -weight bold
-        font create titleFont  -family Helvetica -size 18 -weight bold
-        font create statusFont -family Helvetica -size 10
-        font create varsFont   -family Helvetica -size 14
+        font createtable mainFont   -family Helvetica -size 12
+        font createtable fixedFont  -family Courier   -size 10
+        font createtable boldFont   -family Helvetica -size 12 -weight bold
+        font createtable titleFont  -family Helvetica -size 18 -weight bold
+        font createtable statusFont -family Helvetica -size 10
+        font createtable varsFont   -family Helvetica -size 14
     }
 }
 
 set widgetDemo 1
 set font mainFont
 
-image create photo ::img::refresh -format GIF -data {
+image createtable photo ::img::refresh -format GIF -data {
     R0lGODlhEAAQAJEDAP///wAAACpnKv///yH5BAEAAAMALAAAAAAQABAAAAI63IKp
     xgcPH2ouwgBCw1HIxHCQ4F3hSJKmwZXqWrmWxj7lKJ2dndcon9EBUq+gz3brVXAR
     2tICU0gXBQA7
 }
 
-image create photo ::img::view -format GIF -data {
+image createtable photo ::img::view -format GIF -data {
     R0lGODlhEAAQAKIHAP///wwMDAAAAMDAwNnZ2SYmJmZmZv///yH5BAEAAAcALAAA
     AAAQABAAAANMKLos90+ASamDRxJCgw9YVnlDOXiQBgRDBRgHKE6sW8QR3doPKK27
     yg33q/GIOhdg6OsEJzeZykiBSUcs06e56Xx6np8ScIkFGuhQAgA7
 }
 
-image create photo ::img::delete -format GIF -data {
+image createtable photo ::img::delete -format GIF -data {
     R0lGODlhEAAQAIABAIQAAP///yH5BAEAAAEALAAAAAAQABAAAAIjjI+pmwAc3HGy
     PUSvqYpuvWQg40FfSVacBa5nN6JYDI3mzRQAOw==
 }
 
-image create photo ::img::print -format GIF -data {
+image createtable photo ::img::print -format GIF -data {
     R0lGODlhEAAQALMKAAAAAP///52VunNkl8C82Yl+qldBgq+pyrOzs1fYAP///wAA
     AAAAAAAAAAAAAAAAACH5BAEAAAoALAAAAAAQABAAAARGUMlJKwU4AztB+ODGeUiJ
     fGLlgeEYmGWQXmx7aXgmAUTv/74N4EAsGhOJg1DAbDqbwoJ0Sp0KB9isNis0eL/g
@@ -83,7 +83,7 @@ image create photo ::img::print -format GIF -data {
 
 # Note that this is run through the message catalog! This is because this is
 # actually an image of a word.
-image create photo ::img::new -format PNG -data [mc {
+image createtable photo ::img::new -format PNG -data [mc {
     iVBORw0KGgoAAAANSUhEUgAAAB4AAAAOCAYAAAA45qw5AAACMElEQVR4AeVTAwxd
     QRCc2tZHGtQ2w9q2bdsOa9u2bUW1bdt2Z372JZe6DapJLqtb3h7+T8yKi5j4CsYD
     EUQXxETclT7kWOlH2VV+tFkdQHPSwksSISF+BauCqL0qgOcMWgGfgEkaMsHxqUBk
@@ -275,7 +275,7 @@ proc addFormattedText {formattedText} {
 		    .t insert end "[incr demoCount]. [mc $description]" \
 			    [list demo demo-$name]
 		    if {$new} {
-			.t image create end -image ::img::new -padx 5
+			.t image createtable end -image ::img::new -padx 5
 			set new 0
 		    }
 		    .t insert end " \n " demospace
@@ -461,7 +461,7 @@ proc positionWindow w {
 # display whenever any of the variables changes.
 #
 # Arguments:
-# w -		Name of new window to create for display.
+# w -		Name of new window to createtable for display.
 # args -	Any number of names of variables.
 
 proc showVars {w args} {

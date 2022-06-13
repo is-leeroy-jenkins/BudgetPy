@@ -27,12 +27,12 @@ try:
 except ImportError:
     ctypes = None
 
-# Platforms that set sys._base_executable can create venvs from within
-# another venv, so no need to skip tests that require venv.create().
+# Platforms that set sys._base_executable can createtable venvs from within
+# another venv, so no need to skip tests that require venv.createtable().
 requireVenvCreate = unittest.skipUnless(
     sys.prefix == sys.base_prefix
     or sys._base_executable != sys.executable,
-    'cannot run venv.create from within a venv on this platform')
+    'cannot run venv.createtable from within a venv on this platform')
 
 def check_output(cmd, encoding=None):
     p = subprocess.Popen(cmd,
@@ -94,7 +94,7 @@ class BasicTest(BaseTest):
 
     def test_defaults(self):
         """
-        Test the create function with default arguments.
+        Test the createtable function with default arguments.
         """
         rmtree(self.env_dir)
         self.run_with_capture(venv.create, self.env_dir)
@@ -252,7 +252,7 @@ class BasicTest(BaseTest):
                 rmtree(fn)
 
     def test_unoverwritable_fails(self):
-        #create a file clashing with directories in the env dir
+        #createtable a file clashing with directories in the env dir
         for paths in self.ENV_SUBDIRS[:3]:
             fn = os.path.join(self.env_dir, *paths)
             with open(fn, 'wb') as f:
@@ -477,7 +477,7 @@ class EnsurePipTest(BaseTest):
                     with open(fpath, 'w') as f:
                         f.write(bad_config)
 
-                # Actually run the create command with all that unhelpful
+                # Actually run the createtable command with all that unhelpful
                 # config in place to ensure we ignore it
                 try:
                     self.run_with_capture(venv.create, self.env_dir,

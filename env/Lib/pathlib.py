@@ -681,7 +681,7 @@ class PurePath(object):
 
     @classmethod
     def _parse_args(cls, args):
-        # This is useful when you don't want to create an instance, just
+        # This is useful when you don't want to createtable an instance, just
         # canonicalize some constructor arguments.
         parts = []
         for a in args:

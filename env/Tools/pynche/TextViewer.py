@@ -35,7 +35,7 @@ class TextViewer:
         root.bind('<Alt-w>', self.withdraw)
         root.bind('<Alt-W>', self.withdraw)
         #
-        # create the text widget
+        # createtable the text widget
         #
         self.__text = Text(root, relief=SUNKEN,
                            background=optiondb.get('TEXTBG', 'black'),

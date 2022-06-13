@@ -761,7 +761,7 @@ def _create_unverified_context(protocol=PROTOCOL_TLS, *, cert_reqs=CERT_NONE,
                            cafile=None, capath=None, cadata=None):
     """Create a SSLContext object for Python stdlib modules
 
-    All Python stdlib modules shall use this function to create SSLContext
+    All Python stdlib modules shall use this function to createtable SSLContext
     objects in order to keep common settings in one place. The configuration
     is less restrict than create_default_context()'s to increase backward
     compatibility.
@@ -1026,7 +1026,7 @@ class SSLSocket(socket):
 
         self._connected = connected
         if connected:
-            # create the SSL object
+            # createtable the SSL object
             try:
                 self._sslobj = self._context._wrap_socket(
                     self, server_side, self.server_hostname,

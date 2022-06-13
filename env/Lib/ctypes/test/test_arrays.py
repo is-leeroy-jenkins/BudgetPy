@@ -12,7 +12,7 @@ formats = c_byte, c_ubyte, c_short, c_ushort, c_int, c_uint, \
 
 class ArrayTestCase(unittest.TestCase):
     def test_simple(self):
-        # create classes holding simple numeric types, and check
+        # createtable classes holding simple numeric types, and check
         # various properties.
 
         init = list(range(15, 25))

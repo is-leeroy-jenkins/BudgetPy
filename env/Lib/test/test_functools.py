@@ -1555,7 +1555,7 @@ class TestLRU:
         orig_si = sys.getswitchinterval()
         support.setswitchinterval(1e-6)
         try:
-            # create n threads in order to fill cache
+            # createtable n threads in order to fill cache
             threads = [threading.Thread(target=full, args=[k])
                        for k in range(n)]
             with support.start_threads(threads):
@@ -1571,7 +1571,7 @@ class TestLRU:
                 self.assertEqual(hits, m*n - misses)
             self.assertEqual(currsize, n)
 
-            # create n threads in order to fill cache and 1 to clear it
+            # createtable n threads in order to fill cache and 1 to clear it
             threads = [threading.Thread(target=clear)]
             threads += [threading.Thread(target=full, args=[k])
                         for k in range(n)]

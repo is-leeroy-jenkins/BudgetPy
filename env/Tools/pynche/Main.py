@@ -122,7 +122,7 @@ def initial_color(s, colordb):
 
 def build(master=None, initialcolor=None, initfile=None, ignore=None,
           dbfile=None):
-    # create all output widgets
+    # createtable all output widgets
     s = Switchboard(not ignore and initfile)
     # defer to the command line chosen color database, falling back to the one
     # in the .pynche file.
@@ -146,7 +146,7 @@ def build(master=None, initialcolor=None, initfile=None, ignore=None,
         usage(1, 'No color database file found, see the -d option.')
     s.set_colordb(colordb)
 
-    # create the application window decorations
+    # createtable the application window decorations
     app = PyncheWidget(__version__, s, master=master)
     w = app.window()
 

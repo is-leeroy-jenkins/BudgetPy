@@ -21,7 +21,7 @@ TEST_PATH = [TEST_DIR, os.path.dirname(tempfile.__file__)]
 #    about because they are not found
 # 4. a list of module names that modulefinder should complain
 #    about because they MAY be not found
-# 5. a string specifying packages to create; the format is obvious imo.
+# 5. a string specifying packages to createtable; the format is obvious imo.
 #
 # Each package will be created in TEST_DIR, and TEST_DIR will be
 # removed after the tests again.

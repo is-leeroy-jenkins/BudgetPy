@@ -142,7 +142,7 @@ def rebuild_ctype(type_, wrapper, length):
     return obj
 
 #
-# Function to create properties
+# Function to createtable properties
 #
 
 def make_property(name):

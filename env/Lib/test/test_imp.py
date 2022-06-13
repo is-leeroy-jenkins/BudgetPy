@@ -310,7 +310,7 @@ class ImportTests(unittest.TestCase):
         loader = imp._LoadSourceCompatibility('imp', imp.__file__,
                                               open(imp.__file__))
         loader.get_data(imp.__file__)  # File should be closed
-        loader.get_data(imp.__file__)  # Will need to create a newly opened file
+        loader.get_data(imp.__file__)  # Will need to createtable a newly opened file
 
     def test_load_source(self):
         # Create a temporary module since load_source(name) modifies

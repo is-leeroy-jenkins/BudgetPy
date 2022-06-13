@@ -25,7 +25,7 @@ sample = ("<?xml version='1.0' encoding='us-ascii'?>\n"
 
 # The tests of DocumentType importing use these helpers to construct
 # the documents to work with, since not all DOM builders actually
-# create the DocumentType nodes.
+# createtable the DocumentType nodes.
 def create_doc_without_doctype(doctype=None):
     return getDOMImplementation().createDocument(None, "doc", doctype)
 
@@ -1336,7 +1336,7 @@ class MinidomTest(unittest.TestCase):
         doc.unlink()
 
     def testRenameOther(self):
-        # We have to create a comment node explicitly since not all DOM
+        # We have to createtable a comment node explicitly since not all DOM
         # builders used with minidom add comments to the DOM.
         doc = xml.dom.minidom.getDOMImplementation().createDocument(
             xml.dom.EMPTY_NAMESPACE, "e", None)

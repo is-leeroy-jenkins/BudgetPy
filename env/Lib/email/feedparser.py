@@ -137,7 +137,7 @@ class FeedParser:
     """A feed-style parser of email."""
 
     def __init__(self, _factory=None, *, policy=compat32):
-        """_factory is called with no arguments to create a new message obj
+        """_factory is called with no arguments to createtable a new message obj
 
         The policy keyword specifies a policy object that controls a number of
         aspects of the parser's operation.  The default policy maintains

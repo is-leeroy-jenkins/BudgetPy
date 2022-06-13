@@ -86,7 +86,7 @@ class CompileError (CCompilerError):
     """Failure to compile one or more C/C++ source files."""
 
 class LibError (CCompilerError):
-    """Failure to create a static library from one or more C/C++ object
+    """Failure to createtable a static library from one or more C/C++ object
     files."""
 
 class LinkError (CCompilerError):

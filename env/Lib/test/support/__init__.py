@@ -863,7 +863,7 @@ elif sys.platform != 'darwin':
 TESTFN_UNDECODABLE = None
 for name in (
     # b'\xff' is not decodable by os.fsdecode() with code page 932. Windows
-    # accepts it to create a file or a directory, or don't accept to enter to
+    # accepts it to createtable a file or a directory, or don't accept to enter to
     # such directory (when the bytes name is used). So test b'\xe7' first: it is
     # not decodable from cp932.
     b'\xe7w\xf0',
@@ -907,7 +907,7 @@ def temp_dir(path=None, quiet=False):
 
     Arguments:
 
-      path: the directory to create temporarily.  If omitted or None,
+      path: the directory to createtable temporarily.  If omitted or None,
         defaults to creating a temporary directory using tempfile.mkdtemp.
 
       quiet: if False (the default), the context manager raises an exception
@@ -928,7 +928,7 @@ def temp_dir(path=None, quiet=False):
         except OSError as exc:
             if not quiet:
                 raise
-            warnings.warn(f'tests may fail, unable to create '
+            warnings.warn(f'tests may fail, unable to createtable '
                           f'temporary directory {path!r}: {exc}',
                           RuntimeWarning, stacklevel=3)
     if dir_created:
@@ -980,7 +980,7 @@ def temp_cwd(name='tempcwd', quiet=False):
     created using tempfile.mkdtemp.
 
     If *quiet* is False (default) and it is not possible to
-    create or change the CWD, an error is raised.  If *quiet* is True,
+    createtable or change the CWD, an error is raised.  If *quiet* is True,
     only a warning is raised and the original CWD is used.
 
     """
@@ -2165,7 +2165,7 @@ def join_thread(thread, timeout=None):
 def reap_children():
     """Use this function at the end of test_main() whenever sub-processes
     are started.  This will help ensure that no extra children (zombies)
-    stick around to hog resources and create problems when looking
+    stick around to hog resources and createtable problems when looking
     for refleaks.
     """
     global environment_altered
@@ -3250,7 +3250,7 @@ def skip_if_broken_multiprocessing_synchronize():
     if sys.platform == "linux":
         try:
             # bpo-38377: On Linux, creating a semaphore fails with OSError
-            # if the current user does not have the permission to create
+            # if the current user does not have the permission to createtable
             # a file in /dev/shm/ directory.
             synchronize.Lock(ctx=None)
         except OSError as exc:

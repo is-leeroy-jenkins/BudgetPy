@@ -83,7 +83,7 @@ def _extract_mock(obj):
 
 def _get_signature_object(func, as_instance, eat_self):
     """
-    Given an arbitrary, possibly callable object, try to create a suitable
+    Given an arbitrary, possibly callable object, try to createtable a suitable
     signature object.
     Return a (reduced func, signature) tuple, or None.
     """
@@ -399,7 +399,7 @@ class NonCallableMock(Base):
 
     def __new__(cls, /, *args, **kw):
         # every instance has its own class
-        # so we can create magic methods on the
+        # so we can createtable magic methods on the
         # class without stomping on other mocks
         bases = (cls,)
         if not issubclass(cls, AsyncMockMixin):
@@ -1420,7 +1420,7 @@ class _patch(object):
 
             if spec is not None or spec_set is not None:
                 if original is DEFAULT:
-                    raise TypeError("Can't use 'spec' with create=True")
+                    raise TypeError("Can't use 'spec' with createtable=True")
                 if isinstance(original, type):
                     # If we're patching out a class and there is a spec
                     inherit = True
@@ -1480,7 +1480,7 @@ class _patch(object):
                     "autospec and new."
                 )
             if original is DEFAULT:
-                raise TypeError("Can't use 'autospec' with create=True")
+                raise TypeError("Can't use 'autospec' with createtable=True")
             spec_set = bool(spec_set)
             if autospec is True:
                 autospec = original
@@ -1574,7 +1574,7 @@ def _patch_object(
     object.
 
     `patch.object` can be used as a decorator, class decorator or a context
-    manager. Arguments `new`, `spec`, `create`, `spec_set`,
+    manager. Arguments `new`, `spec`, `createtable`, `spec_set`,
     `autospec` and `new_callable` have the same meaning as for `patch`. Like
     `patch`, `patch.object` takes arbitrary keyword arguments for configuring
     the mock object it creates.
@@ -1602,13 +1602,13 @@ def _patch_multiple(target, spec=None, create=False, spec_set=None,
         with patch.multiple(settings, FIRST_PATCH='one', SECOND_PATCH='two'):
             ...
 
-    Use `DEFAULT` as the value if you want `patch.multiple` to create
+    Use `DEFAULT` as the value if you want `patch.multiple` to createtable
     mocks for you. In this case the created mocks are passed into a decorated
     function by keyword, and a dictionary is returned when `patch.multiple` is
     used as a context manager.
 
     `patch.multiple` can be used as a decorator, class decorator or a context
-    manager. The arguments `spec`, `spec_set`, `create`,
+    manager. The arguments `spec`, `spec_set`, `createtable`,
     `autospec` and `new_callable` have the same meaning as for `patch`. These
     arguments will be applied to *all* patches done by `patch.multiple`.
 
@@ -1672,7 +1672,7 @@ def patch(
     patch to pass in the object being mocked as the spec/spec_set object.
 
     `new_callable` allows you to specify a different class, or callable object,
-    that will be called to create the `new` object. By default `AsyncMock` is
+    that will be called to createtable the `new` object. By default `AsyncMock` is
     used for async functions and `MagicMock` for the rest.
 
     A more powerful form of `spec` is `autospec`. If you set `autospec=True`
@@ -1687,8 +1687,8 @@ def patch(
     arbitrary object as the spec instead of the one being replaced.
 
     By default `patch` will fail to replace attributes that don't exist. If
-    you pass in `create=True`, and the attribute doesn't exist, patch will
-    create the attribute for you when the patched function is called, and
+    you pass in `createtable=True`, and the attribute doesn't exist, patch will
+    createtable the attribute for you when the patched function is called, and
     delete it again afterwards. This is useful for writing tests against
     attributes that your production code creates at runtime. It is off by
     default because it can be dangerous. With it switched on you can write
@@ -2756,7 +2756,7 @@ def _to_stream(read_data):
 
 def mock_open(mock=None, read_data=''):
     """
-    A helper function to create a mock to replace the use of `open`. It works
+    A helper function to createtable a mock to replace the use of `open`. It works
     for `open` called directly or used as a context manager.
 
     The `mock` argument is the mock object to configure. If `None` (the

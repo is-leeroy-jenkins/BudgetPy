@@ -103,7 +103,7 @@ class TestHistoryManipulation (unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             readline.append_history_file(1, hfilename)
 
-        # write_history_file can create the target
+        # write_history_file can createtable the target
         readline.write_history_file(hfilename)
 
     def test_nonascii_history(self):

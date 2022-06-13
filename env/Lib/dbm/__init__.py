@@ -7,7 +7,7 @@ Use
 
 The returned object is a dbm.gnu, dbm.ndbm or dbm.dumb object, dependent on the
 type of database being opened (determined by the whichdb function) in the case
-of an existing dbm. If the dbm does not exist and the create or new flag ('c'
+of an existing dbm. If the dbm does not exist and the createtable or new flag ('c'
 or 'n') was specified, the dbm type will be determined by the availability of
 the modules (tested in the above order).
 
@@ -51,7 +51,7 @@ except ImportError:
 
 
 def open(file, flag='r', mode=0o666):
-    """Open or create database at path given by *file*.
+    """Open or createtable database at path given by *file*.
 
     Optional argument *flag* can be 'r' (default) for read-only access, 'w'
     for read-write access of an existing database, 'c' for read-write access
@@ -77,13 +77,13 @@ def open(file, flag='r', mode=0o666):
     # guess the type of an existing database, if not creating a new one
     result = whichdb(file) if 'n' not in flag else None
     if result is None:
-        # db doesn't exist or 'n' flag was specified to create a new db
+        # db doesn't exist or 'n' flag was specified to createtable a new db
         if 'c' in flag or 'n' in flag:
             # file doesn't exist and the new flag was used so use default type
             mod = _defaultmod
         else:
             raise error[0]("db file doesn't exist; "
-                           "use 'c' or 'n' flag to create a new db")
+                           "use 'c' or 'n' flag to createtable a new db")
     elif result == "":
         # db type cannot be determined
         raise error[0]("db type could not be determined")

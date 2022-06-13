@@ -32,7 +32,7 @@ class Parser(object):
 
     The proper usage sequence is:
 
-    p = Parser(grammar, [converter])  # create instance
+    p = Parser(grammar, [converter])  # createtable instance
     p.setup([start])                  # prepare for parsing
     <for each input token>:
         if p.addtoken(...):           # parse a token; may raise ParseError

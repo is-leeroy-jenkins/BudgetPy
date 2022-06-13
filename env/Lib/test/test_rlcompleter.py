@@ -84,7 +84,7 @@ class TestRlcompleter(unittest.TestCase):
         """Ensure getattr() is invoked no more than once per attribute"""
 
         # note the special case for @property methods below; that is why
-        # we use __dir__ and __getattr__ in class Foo to create a "magic"
+        # we use __dir__ and __getattr__ in class Foo to createtable a "magic"
         # class attribute 'bar'. This forces `getattr` to call __getattr__
         # (which is doesn't necessarily do).
         class Foo:

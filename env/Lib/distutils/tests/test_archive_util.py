@@ -160,7 +160,7 @@ class ArchiveUtilTestCase(support.TempdirManager,
         tarball = base_name + '.tar.gz'
         self.assertTrue(os.path.exists(tarball))
 
-        # now create another tarball using `tar`
+        # now createtable another tarball using `tar`
         tarball2 = os.path.join(tmpdir, 'archive2.tar.gz')
         tar_cmd = ['tar', '-cf', 'archive2.tar', 'dist']
         gzip_cmd = ['gzip', '-f', '-9', 'archive2.tar']
@@ -260,7 +260,7 @@ class ArchiveUtilTestCase(support.TempdirManager,
 
         patch(self, archive_util.zipfile, 'ZipFile', fake_zipfile)
 
-        # create something to tar and compress
+        # createtable something to tar and compress
         tmpdir = self._create_files()
         base_name = os.path.join(self.mkdtemp(), 'archive')
         with change_cwd(tmpdir):

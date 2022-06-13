@@ -169,7 +169,7 @@ class _MISSING_TYPE:
     pass
 MISSING = _MISSING_TYPE()
 
-# Since most per-field metadata will be unused, create an empty
+# Since most per-field metadata will be unused, createtable an empty
 # read-only proxy that can be shared among all fields.
 _EMPTY_METADATA = types.MappingProxyType({})
 
@@ -457,7 +457,7 @@ def _field_init(f, frozen, globals, self_name):
             # to the caller by returning None.
             return None
 
-    # Only test this now, so that we can create variables for the
+    # Only test this now, so that we can createtable variables for the
     # default.  However, return None to signify that we're not going
     # to actually do the assignment statement for InitVars.
     if f._field_type is _FIELD_INITVAR:
@@ -759,7 +759,7 @@ def _set_new_attribute(cls, name, value):
     return False
 
 
-# Decide if/how we're going to create a hash function.  Key is
+# Decide if/how we're going to createtable a hash function.  Key is
 # (unsafe_hash, eq, frozen, does-hash-exist).  Value is the action to
 # take.  The common case is to do nothing, so instead of providing a
 # function that is a no-op, use None to signify that.
@@ -977,7 +977,7 @@ def _process_class(cls, init, repr, eq, order, unsafe_hash, frozen):
                 raise TypeError(f'Cannot overwrite attribute {fn.__name__} '
                                 f'in class {cls.__name__}')
 
-    # Decide if/how we're going to create a hash function.
+    # Decide if/how we're going to createtable a hash function.
     hash_action = _hash_action[bool(unsafe_hash),
                                bool(eq),
                                bool(frozen),
@@ -1086,7 +1086,7 @@ def _asdict_inner(obj, dict_factory):
         # obj is a namedtuple.  Recurse into it, but the returned
         # object is another namedtuple of the same type.  This is
         # similar to how other list- or tuple-derived classes are
-        # treated (see below), but we just need to create them
+        # treated (see below), but we just need to createtable them
         # differently because a namedtuple's __init__ needs to be
         # called differently (see bpo-34363).
 
@@ -1104,7 +1104,7 @@ def _asdict_inner(obj, dict_factory):
 
         return type(obj)(*[_asdict_inner(v, dict_factory) for v in obj])
     elif isinstance(obj, (list, tuple)):
-        # Assume we can create an object of this type by passing in a
+        # Assume we can createtable an object of this type by passing in a
         # generator (which is not true for namedtuples, handled
         # above).
         return type(obj)(_asdict_inner(v, dict_factory) for v in obj)
@@ -1151,12 +1151,12 @@ def _astuple_inner(obj, tuple_factory):
         # obj is a namedtuple.  Recurse into it, but the returned
         # object is another namedtuple of the same type.  This is
         # similar to how other list- or tuple-derived classes are
-        # treated (see below), but we just need to create them
+        # treated (see below), but we just need to createtable them
         # differently because a namedtuple's __init__ needs to be
         # called differently (see bpo-34363).
         return type(obj)(*[_astuple_inner(v, tuple_factory) for v in obj])
     elif isinstance(obj, (list, tuple)):
-        # Assume we can create an object of this type by passing in a
+        # Assume we can createtable an object of this type by passing in a
         # generator (which is not true for namedtuples, handled
         # above).
         return type(obj)(_astuple_inner(v, tuple_factory) for v in obj)

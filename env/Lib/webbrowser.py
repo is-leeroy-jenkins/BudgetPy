@@ -105,12 +105,12 @@ def open_new_tab(url):
 def _synthesize(browser, *, preferred=False):
     """Attempt to synthesize a controller based on existing controllers.
 
-    This is useful to create a controller when a user specifies a path to
+    This is useful to createtable a controller when a user specifies a path to
     an entry in the BROWSER environment variable -- we can copy a general
     controller to operate using a specific installation of the desired
     browser in this way.
 
-    If we can't create a controller in this way, or if there is no
+    If we can't createtable a controller in this way, or if there is no
     executable for the requested browser, return [None, None].
 
     """

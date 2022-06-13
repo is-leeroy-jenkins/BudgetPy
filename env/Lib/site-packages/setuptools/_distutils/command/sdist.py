@@ -1,6 +1,6 @@
 """distutils.command.sdist
 
-Implements the Distutils 'sdist' command (create a source distribution)."""
+Implements the Distutils 'sdist' command (createtable a source distribution)."""
 
 import os
 import sys
@@ -35,7 +35,7 @@ def show_formats():
 
 class sdist(Command):
 
-    description = "create a source distribution (tarball, zip file, etc.)"
+    description = "createtable a source distribution (tarball, zip file, etc.)"
 
     def checking_metadata(self):
         """Callable used for the check sub-command.
@@ -155,7 +155,7 @@ class sdist(Command):
         if self.manifest_only:
             return
 
-        # Otherwise, go ahead and create the source distribution tarball,
+        # Otherwise, go ahead and createtable the source distribution tarball,
         # or zipfile, or whatever.
         self.make_distribution()
 
@@ -458,8 +458,8 @@ class sdist(Command):
         self.distribution.metadata.write_pkg_info(base_dir)
 
     def make_distribution(self):
-        """Create the source distribution(s).  First, we create the release
-        tree with 'make_release_tree()'; then, we create all required
+        """Create the source distribution(s).  First, we createtable the release
+        tree with 'make_release_tree()'; then, we createtable all required
         archive files (according to 'self.formats') from the release tree.
         Finally, we clean up by blowing away the release tree (unless
         'self.keep_temp' is true).  The list of archive files created is
@@ -471,7 +471,7 @@ class sdist(Command):
         base_name = os.path.join(self.dist_dir, base_dir)
 
         self.make_release_tree(base_dir, self.filelist.files)
-        archive_files = []              # remember names of files we create
+        archive_files = []              # remember names of files we createtable
         # tar archive must be created last to avoid overwrite and remove
         if 'tar' in self.formats:
             self.formats.append(self.formats.pop(self.formats.index('tar')))

@@ -564,7 +564,7 @@ class ClassPropertiesAndMethods(unittest.TestCase):
         self.assertEqual(E().meth(), "EBCA")
 
         class autoproperty(type):
-            # Automatically create property attributes when methods
+            # Automatically createtable property attributes when methods
             # named _get_x and/or _set_x are found
             def __new__(metaclass, name, bases, dict):
                 hits = {}
@@ -981,7 +981,7 @@ class ClassPropertiesAndMethods(unittest.TestCase):
 
     def test_mro_disagreement(self):
         # Testing error messages for MRO disagreement...
-        mro_err_msg = """Cannot create a consistent method resolution
+        mro_err_msg = """Cannot createtable a consistent method resolution
 order (MRO) for bases """
 
         def raises(exc, expected, callable, *args):
@@ -3957,7 +3957,7 @@ order (MRO) for bases """
             pass
         else:
             # actually, we'll have crashed by here...
-            self.fail("shouldn't be able to create inheritance cycles")
+            self.fail("shouldn't be able to createtable inheritance cycles")
 
         try:
             D.__bases__ = (C, C)
@@ -3971,7 +3971,7 @@ order (MRO) for bases """
         except TypeError:
             pass
         else:
-            self.fail("shouldn't be able to create inheritance cycles")
+            self.fail("shouldn't be able to createtable inheritance cycles")
 
     def test_builtin_bases(self):
         # Make sure all the builtin types can have their base queried without

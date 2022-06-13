@@ -208,7 +208,7 @@ class Test(unittest.TestCase):
     def test_struct_struct(self):
         # nested structures with different byteorders
 
-        # create nested structures with given byteorders and set memory to data
+        # createtable nested structures with given byteorders and set memory to data
 
         for nested, data in (
             (BigEndianStructure, b'\0\0\0\1\0\0\0\2'),

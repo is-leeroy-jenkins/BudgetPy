@@ -6,7 +6,7 @@
  `threading`.)
 
 Thread-local objects support the management of thread-local data.
-If you have data that you want to be local to a thread, simply create
+If you have data that you want to be local to a thread, simply createtable
 a thread-local object and use its attributes:
 
   >>> mydata = local()
@@ -52,7 +52,7 @@ attribute was read.  For that reason, you generally don't want to save
 these values across threads, as they apply only to the thread they
 came from.
 
-You can create custom local objects by subclassing the local class:
+You can createtable custom local objects by subclassing the local class:
 
   >>> class MyLocal(local):
   ...     number = 2
@@ -66,7 +66,7 @@ initialization.  Note that if you define an __init__ method, it will be
 called each time the local object is used in a separate thread.  This
 is necessary to initialize each thread's dictionary.
 
-Now if we create a local object:
+Now if we createtable a local object:
 
   >>> mydata = MyLocal(color='red')
 
@@ -212,7 +212,7 @@ class local:
         impl.localargs = (args, kw)
         impl.locallock = RLock()
         object.__setattr__(self, '_local__impl', impl)
-        # We need to create the thread dict in anticipation of
+        # We need to createtable the thread dict in anticipation of
         # __init__ being called, to make sure we don't call it
         # again ourselves.
         impl.create_dict()

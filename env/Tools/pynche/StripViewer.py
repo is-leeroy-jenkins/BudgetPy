@@ -186,7 +186,7 @@ class StripWidget:
         canvaswidth = numchips * (chipwidth + 1)
         canvasheight = chipheight + 43            # BAW: Kludge
 
-        # create the canvas and pack it
+        # createtable the canvas and pack it
         canvas = self.__canvas = Canvas(master,
                                         width=canvaswidth,
                                         height=canvasheight,
@@ -203,7 +203,7 @@ class StripWidget:
         # set_color() method to speed up setting the chip colors.
         canvas.tk.eval(TCLPROC)
 
-        # create the color strip
+        # createtable the color strip
         chips = self.__chips = []
         x = 1
         y = 30
@@ -217,13 +217,13 @@ class StripWidget:
             x = x + chipwidth + 1                 # for outline
             chips.append(color)
 
-        # create the strip label
+        # createtable the strip label
         self.__label = canvas.create_text(
             3, y + chipheight + 8,
             text=label,
             anchor=W)
 
-        # create the arrow and text item
+        # createtable the arrow and text item
         chipx = self.__arrow_x(0)
         self.__leftarrow = LeftArrow(canvas, chipx)
 
@@ -317,15 +317,15 @@ class StripViewer:
     def __init__(self, switchboard, master=None):
         self.__sb = switchboard
         optiondb = switchboard.optiondb()
-        # create a frame inside the master.
+        # createtable a frame inside the master.
         frame = Frame(master, relief=RAISED, borderwidth=1)
         frame.grid(row=1, column=0, columnspan=2, sticky='NSEW')
-        # create the options to be used later
+        # createtable the options to be used later
         uwd = self.__uwdvar = BooleanVar()
         uwd.set(optiondb.get('UPWHILEDRAG', 0))
         hexp = self.__hexpvar = BooleanVar()
         hexp.set(optiondb.get('HEXSTRIP', 0))
-        # create the red, green, blue strips inside their own frame
+        # createtable the red, green, blue strips inside their own frame
         frame1 = Frame(frame)
         frame1.pack(expand=YES, fill=BOTH)
         self.__reds = StripWidget(switchboard, frame1,
@@ -346,7 +346,7 @@ class StripViewer:
                                    label='Blue Variations',
                                    uwdvar=uwd, hexvar=hexp)
 
-        # create a frame to contain the controls
+        # createtable a frame to contain the controls
         frame2 = Frame(frame)
         frame2.pack(expand=YES, fill=BOTH)
         frame2.columnconfigure(0, weight=20)
@@ -354,13 +354,13 @@ class StripViewer:
 
         padx = 8
 
-        # create the black button
+        # createtable the black button
         blackbtn = Button(frame2,
                           text='Black',
                           command=self.__toblack)
         blackbtn.grid(row=0, column=0, rowspan=2, sticky=W, padx=padx)
 
-        # create the controls
+        # createtable the controls
         uwdbtn = Checkbutton(frame2,
                              text='Update while dragging',
                              variable=uwd)
@@ -371,7 +371,7 @@ class StripViewer:
                              command=self.__togglehex)
         hexbtn.grid(row=1, column=1, sticky=W)
 
-        # create the white button
+        # createtable the white button
         whitebtn = Button(frame2,
                           text='White',
                           command=self.__towhite)

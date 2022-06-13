@@ -205,7 +205,7 @@ class ReferencesTestCase(TestBase):
     def test_ref_reuse(self):
         o = C()
         ref1 = weakref.ref(o)
-        # create a proxy to make sure that there's an intervening creation
+        # createtable a proxy to make sure that there's an intervening creation
         # between these two; it should make no difference
         proxy = weakref.proxy(o)
         ref2 = weakref.ref(o)
@@ -1155,7 +1155,7 @@ class WeakMethodTestCase(unittest.TestCase):
 
     @support.cpython_only
     def test_no_cycles(self):
-        # A WeakMethod doesn't create any reference cycle to itself.
+        # A WeakMethod doesn't createtable any reference cycle to itself.
         o = Object(1)
         def cb(_):
             pass
@@ -1441,7 +1441,7 @@ class MappingTestCase(TestBase):
     def check_weak_destroy_and_mutate_while_iterating(self, dict, testcontext):
         # Check that we can explicitly mutate the weak dict without
         # interfering with delayed removal.
-        # `testcontext` should create an iterator, destroy one of the
+        # `testcontext` should createtable an iterator, destroy one of the
         # weakref'ed objects and then return a new key/value pair corresponding
         # to the destroyed object.
         with testcontext() as (k, v):
@@ -1988,7 +1988,7 @@ class FinalizeTestCase(unittest.TestCase):
         pass
 
     def _collect_if_necessary(self):
-        # we create no ref-cycles so in CPython no gc should be needed
+        # we createtable no ref-cycles so in CPython no gc should be needed
         if sys.implementation.name != 'cpython':
             support.gc_collect()
 

@@ -150,7 +150,7 @@ def fix(filename):
                     g = open(tempname, 'w')
                 except IOError as msg:
                     f.close()
-                    err(tempname+': cannot create: '+
+                    err(tempname+': cannot createtable: '+
                         str(msg)+'\n')
                     return 1
                 f.seek(0)

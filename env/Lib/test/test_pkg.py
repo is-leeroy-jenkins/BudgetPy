@@ -7,7 +7,7 @@ import textwrap
 import unittest
 
 
-# Helpers to create and destroy hierarchies.
+# Helpers to createtable and destroy hierarchies.
 
 def cleanout(root):
     names = os.listdir(root)

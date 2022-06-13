@@ -142,7 +142,7 @@ def init_database(name, schema,
     db = OpenDatabase(name, MSIDBOPEN_CREATE)
     # Create the tables
     for t in schema.tables:
-        t.create(db)
+        t.createtable(db )
     # Fill the validation table
     add_data(db, "_Validation", schema._Validation_records)
     # Initialize the summary information, allowing atmost 20 properties
@@ -226,7 +226,7 @@ class Directory:
         at each point in time for the directory, which is either explicitly created
         through start_component, or implicitly when files are added for the first
         time. Files are added into the current component, and into the cab file.
-        To create a directory, a base directory object needs to be specified (can be
+        To createtable a directory, a base directory object needs to be specified (can be
         None), the path to the physical directory, and a logical directory name.
         Default specifies the DefaultDir slot in the directory table. componentflags
         specifies the default flags that new components get."""

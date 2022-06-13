@@ -25,7 +25,7 @@ class TypeinViewer:
         self.__hexp.set(optiondb.get('HEXTYPE', 0))
         self.__uwtyping = BooleanVar()
         self.__uwtyping.set(optiondb.get('UPWHILETYPE', 0))
-        # create the gui
+        # createtable the gui
         self.__frame = Frame(master, relief=RAISED, borderwidth=1)
         self.__frame.grid(row=3, column=1, sticky='NSEW')
         # Red

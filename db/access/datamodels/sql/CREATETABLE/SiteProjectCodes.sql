@@ -1,0 +1,7 @@
+CREATE TABLE SiteProjectCodes
+(
+	SiteProjectCodeId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeySiteProjectCodes PRIMARY KEY AUTOINCREMENT,
+    RcCode TEXT(80) NULL DEFAULT NS,
+    DivisionName TEXT(80) NULL DEFAULT NS,
+	SiteProjectCode TEXT(80) NULL DEFAULT NS
+);

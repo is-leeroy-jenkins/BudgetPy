@@ -83,7 +83,7 @@ class FixUrllib(FixImports):
 
         names = []
 
-        # create a Node list of the replacement modules
+        # createtable a Node list of the replacement modules
         for name in MAPPING[import_mod.value][:-1]:
             names.extend([Name(name[0], prefix=pref), Comma()])
         names.append(Name(MAPPING[import_mod.value][-1][0], prefix=pref))

@@ -550,7 +550,7 @@ class BaseTaskTests:
             loop.close()
 
     def test_exception_chaining_after_await_with_context_cycle(self):
-        # Check trying to create an exception context cycle:
+        # Check trying to createtable an exception context cycle:
         # https://bugs.python.org/issue40696
         has_cycle = None
         loop = asyncio.new_event_loop()
@@ -2409,7 +2409,7 @@ class BaseTaskTests:
 
         tb_filename = __file__
         tb_lineno = sys._getframe().f_lineno + 2
-        # create a coroutine object but don't use it
+        # createtable a coroutine object but don't use it
         coro_noop()
         support.gc_collect()
 

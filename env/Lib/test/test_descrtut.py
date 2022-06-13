@@ -40,7 +40,7 @@ Here's the new type at work:
     <class 'test.test_descrtut.defaultdict'>
     >>> print(type(defaultdict))        # its metatype
     <class 'type'>
-    >>> a = defaultdict(default=0.0)    # create an instance
+    >>> a = defaultdict(default=0.0)    # createtable an instance
     >>> print(a)                        # show the instance
     {}
     >>> print(type(a))                  # show its type

@@ -107,7 +107,7 @@ class SearchEngineTest(unittest.TestCase):
 
     def setUp(self):
         self.engine = se.SearchEngine(root=None)
-        # Engine.root is only used to create error message boxes.
+        # Engine.root is only used to createtable error message boxes.
         # The mock replacement ignores the root argument.
 
     def test_is_get(self):

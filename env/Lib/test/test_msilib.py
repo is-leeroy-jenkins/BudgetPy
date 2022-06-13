@@ -84,7 +84,7 @@ class MsiDatabaseTestCase(unittest.TestCase):
         db_path = os.path.join(TESTFN, 'test.msi')
         with self.assertRaises(msilib.MSIError) as cm:
             msilib.OpenDatabase(db_path, msilib.MSIDBOPEN_CREATE)
-        self.assertEqual(str(cm.exception), 'create failed')
+        self.assertEqual(str(cm.exception), 'createtable failed')
 
     def test_get_property_vt_empty(self):
         db, db_path = init_database()

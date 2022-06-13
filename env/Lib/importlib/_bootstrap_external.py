@@ -1103,7 +1103,7 @@ class SourceFileLoader(FileLoader, SourceLoader):
             except OSError as exc:
                 # Could be a permission error, read-only filesystem: just forget
                 # about writing the data.
-                _bootstrap._verbose_message('could not create {!r}: {!r}',
+                _bootstrap._verbose_message('could not createtable {!r}: {!r}',
                                             parent, exc)
                 return
         try:
@@ -1111,7 +1111,7 @@ class SourceFileLoader(FileLoader, SourceLoader):
             _bootstrap._verbose_message('created {!r}', path)
         except OSError as exc:
             # Same as above: just don't write the bytecode.
-            _bootstrap._verbose_message('could not create {!r}: {!r}', path,
+            _bootstrap._verbose_message('could not createtable {!r}: {!r}', path,
                                         exc)
 
 
@@ -1189,7 +1189,7 @@ class ExtensionFileLoader(FileLoader, _LoaderBasics):
                    for suffix in EXTENSION_SUFFIXES)
 
     def get_code(self, fullname):
-        """Return None as an extension module cannot create a code object."""
+        """Return None as an extension module cannot createtable a code object."""
         return None
 
     def get_source(self, fullname):
@@ -1404,7 +1404,7 @@ class PathFinder:
                     raise ImportError('spec missing loader')
                 # This is possibly part of a namespace package.
                 #  Remember these path entries (if any) for when we
-                #  create a namespace package, and continue iterating
+                #  createtable a namespace package, and continue iterating
                 #  on path.
                 namespace_path.extend(portions)
         else:
@@ -1427,7 +1427,7 @@ class PathFinder:
             namespace_path = spec.submodule_search_locations
             if namespace_path:
                 # We found at least one namespace path.  Return a spec which
-                # can create the namespace package.
+                # can createtable the namespace package.
                 spec.origin = None
                 spec.submodule_search_locations = _NamespacePath(fullname, namespace_path, cls._get_spec)
                 return spec

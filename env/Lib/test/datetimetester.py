@@ -1788,7 +1788,7 @@ class TestDate(HarmlessMixedComparison, unittest.TestCase):
         # This is a low-overhead backdoor.  A user can (by intent or
         # mistake) pass a string directly, which (if it's the right length)
         # will get treated like a pickle, and bypass the normal sanity
-        # checks in the constructor.  This can create insane objects.
+        # checks in the constructor.  This can createtable insane objects.
         # The constructor doesn't want to burn the time to validate all
         # fields, but does check the month field.  This stops, e.g.,
         # datetime.datetime('1995-03-25') from yielding an insane object.

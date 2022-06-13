@@ -568,7 +568,7 @@ class MiscReadTestBase(CommonReadTest):
 
     def test_v7_dirtype(self):
         # Test old style dirtype member (bug #1336623):
-        # Old V7 tars create directory members using an AREGTYPE
+        # Old V7 tars createtable directory members using an AREGTYPE
         # header with a "/" appended to the filename field.
         tarinfo = self.tar.getmember("misc/dirtype-old-v7")
         self.assertEqual(tarinfo.type, tarfile.DIRTYPE,
@@ -1128,7 +1128,7 @@ class WriteTestBase(TarTest):
     def test_eof_marker(self):
         # Make sure an end of archive marker is written (two zero blocks).
         # tarfile insists on aligning archives to a 20 * 512 byte recordsize.
-        # So, we create an archive that has exactly 10240 bytes without the
+        # So, we createtable an archive that has exactly 10240 bytes without the
         # marker, and has 20480 bytes once the marker is written.
         with tarfile.open(tmpname, self.mode) as tar:
             t = tarfile.TarInfo("foo")
@@ -2484,7 +2484,7 @@ class CommandLineTest(unittest.TestCase):
         files = [support.findfile('tokenize_tests.txt'),
                  support.findfile('tokenize_tests-no-coding-cookie-'
                                   'and-utf8-bom-sig-only.txt')]
-        for opt in '-c', '--create':
+        for opt in '-c', '--createtable':
             try:
                 out = self.tarfilecmd(opt, tmpname, *files)
                 self.assertEqual(out, b'')
@@ -2731,7 +2731,7 @@ class NumericOwnerTest(unittest.TestCase):
         # the file contents to write
         fobj = io.BytesIO(b"content")
 
-        # create a tar file with a file, a directory, and a file within that
+        # createtable a tar file with a file, a directory, and a file within that
         #  directory. Assign various .uid/.gid values to them
         items = [(filename_1, 99, 98, tarfile.REGTYPE, fobj),
                  (dirname_1,  77, 76, tarfile.DIRTYPE, None),
@@ -2762,7 +2762,7 @@ class NumericOwnerTest(unittest.TestCase):
         dirname_1 = dirname
         filename_2 = os.path.join(dirname, fname)
 
-        # create the tarfile with the contents we're after
+        # createtable the tarfile with the contents we're after
         tar_filename = NumericOwnerTest._make_test_archive(filename_1,
                                                            dirname_1,
                                                            filename_2)

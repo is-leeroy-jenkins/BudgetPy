@@ -336,7 +336,7 @@ class WeakValueDictionary(_collections_abc.MutableMapping):
 class KeyedRef(ref):
     """Specialized reference that includes a key corresponding to the value.
 
-    This is used in the WeakValueDictionary to avoid having to create
+    This is used in the WeakValueDictionary to avoid having to createtable
     a function object for each key stored in the mapping.  A shared
     callback object can use the 'key' attribute of a KeyedRef instead
     of getting a reference to the key from an enclosing scope.

@@ -265,7 +265,7 @@ class BaseServer:
     # - handle_request() is the top-level call.  It calls selector.select(),
     #   get_request(), verify_request() and process_request()
     # - get_request() is different for stream or datagram sockets
-    # - process_request() is the place that may fork a new process or create a
+    # - process_request() is the place that may fork a new process or createtable a
     #   new thread to finish the request
     # - finish_request() instantiates the request handler class; this
     #   constructor will handle the request all by itself

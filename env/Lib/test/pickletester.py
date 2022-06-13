@@ -2102,7 +2102,7 @@ class AbstractPickleTests:
     def test_newobj_proxies(self):
         # NEWOBJ should use the __class__ rather than the raw type
         classes = myclasses[:]
-        # Cannot create weakproxies to these classes
+        # Cannot createtable weakproxies to these classes
         for c in (MyInt, MyTuple):
             classes.remove(c)
         for proto in protocols:

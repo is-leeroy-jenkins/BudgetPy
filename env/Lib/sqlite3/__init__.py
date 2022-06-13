@@ -34,13 +34,13 @@ in-memory database:
 
     cx = sqlite3.connect(":memory:")  # connect to a database in RAM
 
-Once a connection has been established, create a Cursor object and call
+Once a connection has been established, createtable a Cursor object and call
 its execute() method to perform SQL queries:
 
     cu = cx.cursor()
 
-    # create a table
-    cu.execute("create table lang(name, first_appeared)")
+    # createtable a table
+    cu.execute("createtable table lang(name, first_appeared)")
 
     # insert values into a table
     cu.execute("insert into lang values (?, ?)", ("C", 1972))

@@ -92,7 +92,7 @@ class AutoComplete:
             self.open_completions(args)
 
     def open_completions(self, args):
-        """Find the completions and create the AutoCompleteWindow.
+        """Find the completions and createtable the AutoCompleteWindow.
         Return True if successful (no syntax error or so found).
         If complete is True, then if there's nothing to complete and no
         start of completion, won't open completions and return False.

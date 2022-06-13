@@ -48,7 +48,7 @@ def setUpModule():
             # modify sys.path: will be restored by tearDownModule()
             site.addsitedir(site.USER_SITE)
         except PermissionError as exc:
-            raise unittest.SkipTest('unable to create user site directory (%r): %s'
+            raise unittest.SkipTest('unable to createtable user site directory (%r): %s'
                                     % (site.USER_SITE, exc))
 
 

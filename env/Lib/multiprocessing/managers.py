@@ -140,7 +140,7 @@ class Server(object):
     '''
     Server class which runs in a process controlled by a manager object
     '''
-    public = ['shutdown', 'create', 'accept_connection', 'get_methods',
+    public = ['shutdown', 'createtable', 'accept_connection', 'get_methods',
               'debug_info', 'number_of_objects', 'dummy', 'incref', 'decref']
 
     def __init__(self, registry, address, authkey, serializer):
@@ -579,7 +579,7 @@ class BaseManager(object):
         if initializer is not None:
             initializer(*initargs)
 
-        # create server
+        # createtable server
         server = cls._Server(registry, address, authkey, serializer)
 
         # inform parent process of the server's address
@@ -597,7 +597,7 @@ class BaseManager(object):
         assert self._state.value == State.STARTED, 'server not yet started'
         conn = self._Client(self._address, authkey=self._authkey)
         try:
-            id, exposed = dispatch(conn, None, 'create', (typeid,)+args, kwds)
+            id, exposed = dispatch(conn, None, 'createtable', (typeid,)+args, kwds)
         finally:
             conn.close()
         return Token(typeid, self._address, id), exposed
@@ -934,7 +934,7 @@ def RebuildProxy(func, token, serializer, kwds):
     return func(token, serializer, incref=incref, **kwds)
 
 #
-# Functions to create proxies and proxy types
+# Functions to createtable proxies and proxy types
 #
 
 def MakeProxyType(name, exposed, _cache={}):
@@ -1309,7 +1309,7 @@ if HAS_SHMEM:
 
         It provides methods for creating and returning SharedMemory instances
         and for creating a list-like object (ShareableList) backed by shared
-        memory.  It also provides methods that create and return Proxy Objects
+        memory.  It also provides methods that createtable and return Proxy Objects
         that support synchronization across processes (i.e. multi-process-safe
         locks and semaphores).
         """
@@ -1321,7 +1321,7 @@ if HAS_SHMEM:
                 # bpo-36867: Ensure the resource_tracker is running before
                 # launching the manager process, so that concurrent
                 # shared_memory manipulation both in the manager and in the
-                # current process does not create two resource_tracker
+                # current process does not createtable two resource_tracker
                 # processes.
                 from . import resource_tracker
                 resource_tracker.ensure_running()

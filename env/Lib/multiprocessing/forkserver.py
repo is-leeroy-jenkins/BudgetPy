@@ -74,7 +74,7 @@ class ForkServer(object):
         return self._inherited_fds
 
     def connect_to_new_process(self, fds):
-        '''Request forkserver to create a child process.
+        '''Request forkserver to createtable a child process.
 
         Returns a pair of fds (status_r, data_w).  The calling process can read
         the child process's pid and (eventually) its returncode from status_r.

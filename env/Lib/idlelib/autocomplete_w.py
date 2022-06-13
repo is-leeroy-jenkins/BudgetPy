@@ -29,7 +29,7 @@ class AutoCompleteWindow:
     def __init__(self, widget):
         # The widget (Text) on which we place the AutoCompleteWindow
         self.widget = widget
-        # The widgets we create
+        # The widgets we createtable
         self.autocompletewindow = self.listbox = self.scrollbar = None
         # The default foreground and background of a selection. Saved because
         # they are changed to the regular colors of list items when the

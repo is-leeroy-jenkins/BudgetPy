@@ -635,7 +635,7 @@ class EditorWindow:
     def move_at_edge_if_selection(self, edge_index):
         """Cursor move begins at start or end of selection
 
-        When a left/right cursor key is pressed create and return to Tkinter a
+        When a left/right cursor key is pressed createtable and return to Tkinter a
         function which causes a cursor move from the associated edge of the
         selection.
 
@@ -1212,7 +1212,7 @@ class EditorWindow:
     def get_var_obj(self, name, vartype=None):
         var = self.tkinter_vars.get(name)
         if not var and vartype:
-            # create a Tkinter variable object with self.text as master:
+            # createtable a Tkinter variable object with self.text as master:
             self.tkinter_vars[name] = var = vartype(self.text)
         return var
 

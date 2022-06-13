@@ -99,7 +99,7 @@ class MiscTests(unittest.TestCase):
         # Use a directory name of 200 characters to fit into Windows MAX_PATH
         # limit.
         #
-        # On Windows, the test can stop when trying to create a path longer
+        # On Windows, the test can stop when trying to createtable a path longer
         # than MAX_PATH if long paths support is disabled:
         # see RtlAreLongPathsEnabled().
         min_len = 2000   # characters
@@ -2180,7 +2180,7 @@ class Pep383Tests(unittest.TestCase):
         if support.TESTFN_NONASCII:
             add_filename(support.TESTFN_NONASCII)
         if not bytesfn:
-            self.skipTest("couldn't create any non-ascii filename")
+            self.skipTest("couldn't createtable any non-ascii filename")
 
         self.unicodefn = set()
         os.mkdir(self.dir)
@@ -2860,7 +2860,7 @@ class SpawnTests(unittest.TestCase):
             code = 'import sys; sys.exit(%s)' % self.exitcode
         else:
             self.env = dict(os.environ)
-            # create an unique key
+            # createtable an unique key
             self.key = str(uuid.uuid4())
             self.env[self.key] = self.key
             # read the variable from os.environ to check that it exists
@@ -4051,7 +4051,7 @@ class TestScandir(unittest.TestCase):
 
     def test_broken_symlink(self):
         if not support.can_symlink():
-            return self.skipTest('cannot create symbolic link')
+            return self.skipTest('cannot createtable symbolic link')
 
         filename = self.create_file("file.txt")
         os.symlink(filename,

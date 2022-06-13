@@ -966,7 +966,7 @@ class TZStrTest(ZoneInfoTestBase):
 
             for dt_naive, offset, dt_type in cases:
                 if dt_type == self.GAP:
-                    continue  # Cannot create a gap from UTC
+                    continue  # Cannot createtable a gap from UTC
 
                 dt_utc = (dt_naive - offset.utcoffset).replace(
                     tzinfo=timezone.utc

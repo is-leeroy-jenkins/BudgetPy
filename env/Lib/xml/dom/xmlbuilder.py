@@ -332,7 +332,7 @@ del NodeFilter
 
 
 class DocumentLS:
-    """Mixin to create documents that conform to the load/save spec."""
+    """Mixin to createtable documents that conform to the load/save spec."""
 
     async_ = False
 

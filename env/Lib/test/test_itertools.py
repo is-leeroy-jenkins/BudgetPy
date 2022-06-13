@@ -105,7 +105,7 @@ class TestBasicOps(unittest.TestCase):
             c = expand(compare)
             self.assertEqual(a, c)
 
-        # Take from the copy, and create another copy and compare them.
+        # Take from the copy, and createtable another copy and compare them.
         i3 = pickle.loads(dump)
         took = 0
         try:

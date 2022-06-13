@@ -18,7 +18,7 @@ data.  You can then use the template to do conversions from many
 different sources to many different destinations.  The temporary
 file names used are different each time the template is used.
 
-The templates are objects so you can create templates for many
+The templates are objects so you can createtable templates for many
 different conversion steps and store them in a dictionary, for
 instance.
 
@@ -26,7 +26,7 @@ instance.
 Directions:
 -----------
 
-To create a template:
+To createtable a template:
     t = Template()
 
 To add a conversion step to a template:
@@ -52,7 +52,7 @@ To open a file for reading or writing through a conversion pipeline:
 where mode is 'r' to read the file, or 'w' to write it -- just like
 for the built-in function open() or for os.popen().
 
-To create a new template object initialized to a given one:
+To createtable a new template object initialized to a given one:
    t2 = t.clone()
 """                                     # '
 

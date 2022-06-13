@@ -170,7 +170,7 @@ def report_modified_files(file_paths):
 @status("Fixing Python file whitespace", info=report_modified_files)
 def normalize_whitespace(file_paths):
     """Make sure that the whitespace for .py files have been normalized."""
-    reindent.makebackup = False  # No need to create backups.
+    reindent.makebackup = False  # No need to createtable backups.
     fixed = [path for path in file_paths if path.endswith('.py') and
              reindent.check(os.path.join(SRCDIR, path))]
     return fixed

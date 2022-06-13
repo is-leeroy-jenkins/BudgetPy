@@ -454,7 +454,7 @@ class BaseSockTestsMixin:
                 else:
                     break
             else:
-                assert False, 'Can not create socket.'
+                assert False, 'Can not createtable socket.'
 
             f = self.loop.create_connection(
                 lambda: MyProto(loop=self.loop), sock=sock)

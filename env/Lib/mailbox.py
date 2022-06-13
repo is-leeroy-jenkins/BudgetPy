@@ -83,7 +83,7 @@ class Mailbox:
     def get_string(self, key):
         """Return a string representation or raise a KeyError.
 
-        Uses email.message.Message to create a 7bit clean string
+        Uses email.message.Message to createtable a 7bit clean string
         representation of the message."""
         return email.message_from_bytes(self.get_bytes(key)).as_string()
 

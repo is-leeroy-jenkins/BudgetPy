@@ -184,7 +184,7 @@ def _get_default_tempdir():
     This routine should be called exactly once.
 
     We determine whether or not a candidate temp dir is usable by
-    trying to create and write to a file in that directory.  If this
+    trying to createtable and write to a file in that directory.  If this
     is successful, the test file is deleted.  To prevent denial of
     service, the name of the test file must be randomized."""
 
@@ -298,7 +298,7 @@ def gettempdirb():
     return _os.fsencode(gettempdir())
 
 def mkstemp(suffix=None, prefix=None, dir=None, text=False):
-    """User-callable function to create and return a unique temporary
+    """User-callable function to createtable and return a unique temporary
     file.  The return value is a pair (fd, name) where fd is the
     file descriptor returned by os.open, and name is the filename.
 
@@ -337,7 +337,7 @@ def mkstemp(suffix=None, prefix=None, dir=None, text=False):
 
 
 def mkdtemp(suffix=None, prefix=None, dir=None):
-    """User-callable function to create and return a unique temporary
+    """User-callable function to createtable and return a unique temporary
     directory.  The return value is the pathname of the directory.
 
     Arguments are as for mkstemp, except that the 'text' argument is

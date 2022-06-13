@@ -42,7 +42,7 @@ class Block(Turtle):
 class Shelf(list):
 
     def __init__(self, y):
-        "create a shelf. y is y-position of first block"
+        "createtable a shelf. y is y-position of first block"
         self.y = y
         self.x = -150
 

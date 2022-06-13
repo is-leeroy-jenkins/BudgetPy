@@ -273,7 +273,7 @@ class AbstractEventLoop:
     def create_future(self):
         raise NotImplementedError
 
-    # Method scheduling a coroutine object: create a task.
+    # Method scheduling a coroutine object: createtable a task.
 
     def create_task(self, coro, *, name=None):
         raise NotImplementedError
@@ -580,7 +580,7 @@ class AbstractEventLoopPolicy:
 
         Returns an event loop object implementing the BaseEventLoop interface,
         or raises an exception in case no event loop has been set for the
-        current context and the current policy does not specify to create one.
+        current context and the current policy does not specify to createtable one.
 
         It should never return None."""
         raise NotImplementedError
@@ -610,7 +610,7 @@ class BaseDefaultEventLoopPolicy(AbstractEventLoopPolicy):
     """Default policy implementation for accessing the event loop.
 
     In this policy, each thread has its own event loop.  However, we
-    only automatically create an event loop by default for the main
+    only automatically createtable an event loop by default for the main
     thread; other threads by default have no event loop.
 
     Other policies may have different rules (e.g. a single global

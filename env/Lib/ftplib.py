@@ -74,7 +74,7 @@ B_CRLF = b'\r\n'
 class FTP:
     '''An FTP client class.
 
-    To create a connection, call the class using these arguments:
+    To createtable a connection, call the class using these arguments:
             host, user, passwd, acct, timeout, source_address, encoding
 
     The first four arguments are all strings, and have default value ''.

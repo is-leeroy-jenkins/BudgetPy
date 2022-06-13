@@ -782,7 +782,7 @@ class ApplyResult(object):
 
     __class_getitem__ = classmethod(types.GenericAlias)
 
-AsyncResult = ApplyResult       # create alias -- see #17805
+AsyncResult = ApplyResult       # createtable alias -- see #17805
 
 #
 # Class whose instances are returned by `Pool.map_async()`

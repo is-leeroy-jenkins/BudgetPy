@@ -29,23 +29,23 @@ class ChipWidget:
                  initialcolor = 'blue',
                  presscmd   = None,
                  releasecmd = None):
-        # create the text label
+        # createtable the text label
         self.__label = Label(master, text=text)
         self.__label.grid(row=0, column=0)
-        # create the color chip, implemented as a frame
+        # createtable the color chip, implemented as a frame
         self.__chip = Frame(master, relief=RAISED, borderwidth=2,
                             width=width,
                             height=height,
                             background=initialcolor)
         self.__chip.grid(row=1, column=0)
-        # create the color name
+        # createtable the color name
         self.__namevar = StringVar()
         self.__namevar.set(initialcolor)
         self.__name = Entry(master, textvariable=self.__namevar,
                             relief=FLAT, justify=CENTER, state=DISABLED,
                             font=self.__label['font'])
         self.__name.grid(row=2, column=0)
-        # create the message area
+        # createtable the message area
         self.__msgvar = StringVar()
         self.__name = Entry(master, textvariable=self.__msgvar,
                             relief=FLAT, justify=CENTER, state=DISABLED,
@@ -82,12 +82,12 @@ class ChipViewer:
         self.__sb = switchboard
         self.__frame = Frame(master, relief=RAISED, borderwidth=1)
         self.__frame.grid(row=3, column=0, ipadx=5, sticky='NSEW')
-        # create the chip that will display the currently selected color
+        # createtable the chip that will display the currently selected color
         # exactly
         self.__sframe = Frame(self.__frame)
         self.__sframe.grid(row=0, column=0)
         self.__selected = ChipWidget(self.__sframe, text='Selected')
-        # create the chip that will display the nearest real X11 color
+        # createtable the chip that will display the nearest real X11 color
         # database color name
         self.__nframe = Frame(self.__frame)
         self.__nframe.grid(row=0, column=1)

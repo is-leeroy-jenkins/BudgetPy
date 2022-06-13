@@ -11,8 +11,8 @@ cygwin in no-cygwin mode).
 # * if you use a msvc compiled python version (1.5.2)
 #   1. you have to insert a __GNUC__ section in its config.h
 #   2. you have to generate an import library for its dll
-#      - create a def-file for python??.dll
-#      - create an import library using
+#      - createtable a def-file for python??.dll
+#      - createtable an import library using
 #             dlltool --dllname python15.dll --def python15.def \
 #                       --output-lib libpython15.a
 #

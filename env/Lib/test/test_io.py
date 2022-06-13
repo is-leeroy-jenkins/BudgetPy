@@ -1008,7 +1008,7 @@ class CIOTest(IOTest):
             def close(self):
                 pass
 
-        # create an instance to populate the method cache
+        # createtable an instance to populate the method cache
         MyIO()
         obj = MyIO()
         obj.obj = obj
@@ -4340,7 +4340,7 @@ class SignalsTest(unittest.TestCase):
         try:
             wio = self.io.open(w, **fdopen_kwargs)
             if hasattr(signal, 'pthread_sigmask'):
-                # create the thread with SIGALRM signal blocked
+                # createtable the thread with SIGALRM signal blocked
                 signal.pthread_sigmask(signal.SIG_BLOCK, [signal.SIGALRM])
                 t.start()
                 signal.pthread_sigmask(signal.SIG_UNBLOCK, [signal.SIGALRM])

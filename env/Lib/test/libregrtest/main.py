@@ -644,7 +644,7 @@ class Regrtest:
         try:
             # Run the tests in a context manager that temporarily changes the CWD
             # to a temporary and writable directory. If it's not possible to
-            # create or change the CWD, the original CWD will be used.
+            # createtable or change the CWD, the original CWD will be used.
             # The original CWD is available from support.SAVEDCWD.
             with support.temp_cwd(test_cwd, quiet=True):
                 # When using multiprocessing, worker processes will use test_cwd

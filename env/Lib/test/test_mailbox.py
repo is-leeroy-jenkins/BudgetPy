@@ -966,7 +966,7 @@ class _TestSingleFile(TestMailbox):
 
         self._box.add(self._template % 0)
         i = self._box.add(self._template % 1)
-        # Need to remove one message to make flush() create a new file
+        # Need to remove one message to make flush() createtable a new file
         self._box.remove(i)
         self._box.flush()
 
@@ -2130,7 +2130,7 @@ This is a dummy message.
 class MaildirTestCase(unittest.TestCase):
 
     def setUp(self):
-        # create a new maildir mailbox to work with:
+        # createtable a new maildir mailbox to work with:
         self._dir = support.TESTFN
         if os.path.isdir(self._dir):
             support.rmtree(self._dir)

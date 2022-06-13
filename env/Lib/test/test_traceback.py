@@ -280,7 +280,7 @@ class TracebackFormatTests(unittest.TestCase):
             excfile = StringIO()
             traceback.print_exc(file=excfile)
         else:
-            raise Error("unable to create test traceback string")
+            raise Error("unable to createtable test traceback string")
 
         # Make sure that Python and the traceback module format the same thing
         self.assertEqual(traceback_fmt, python_fmt)

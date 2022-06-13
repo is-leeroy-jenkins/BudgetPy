@@ -8,7 +8,7 @@ from unittest import mock
 try:
     make_parser()
 except SAXReaderNotAvailable:
-    # don't try to test this module if we cannot create a parser
+    # don't try to test this module if we cannot createtable a parser
     raise unittest.SkipTest("no XML parsers available")
 from xml.sax.saxutils import XMLGenerator, escape, unescape, quoteattr, \
                              XMLFilterBase, prepare_input_source

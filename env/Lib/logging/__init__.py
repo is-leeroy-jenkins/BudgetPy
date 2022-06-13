@@ -274,7 +274,7 @@ class LogRecord(object):
     LogRecord instances are created every time something is logged. They
     contain all the information pertinent to the event being logged. The
     main information passed in is in msg and args, which are combined
-    using str(msg) % args to create the message field of the record. The
+    using str(msg) % args to createtable the message field of the record. The
     record also includes information such as when the record was created,
     the source line where the logging call was made, and any exception
     information to be logged.
@@ -1550,7 +1550,7 @@ class Logger(Filterer):
     def makeRecord(self, name, level, fn, lno, msg, args, exc_info,
                    func=None, extra=None, sinfo=None):
         """
-        A factory method which can be overridden in subclasses to create
+        A factory method which can be overridden in subclasses to createtable
         specialized LogRecords.
         """
         rv = _logRecordFactory(name, level, fn, lno, msg, args, exc_info, func,
@@ -1914,7 +1914,7 @@ def basicConfig(**kwargs):
     It is a convenience method intended for use by simple scripts
     to do one-shot configuration of the logging package.
 
-    The default behaviour is to create a StreamHandler which writes to
+    The default behaviour is to createtable a StreamHandler which writes to
     sys.stderr, set a formatter using the BASIC_FORMAT format string, and
     add the handler to the root logger.
 

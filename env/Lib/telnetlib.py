@@ -197,7 +197,7 @@ class Telnet:
                  timeout=socket._GLOBAL_DEFAULT_TIMEOUT):
         """Constructor.
 
-        When called without arguments, create an unconnected instance.
+        When called without arguments, createtable an unconnected instance.
         With a hostname argument, it connects the instance; port number
         and timeout are optional.
         """

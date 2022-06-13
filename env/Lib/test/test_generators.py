@@ -398,7 +398,7 @@ class GeneratorThrowTest(unittest.TestCase):
         self.assertEqual((type(context), context.args), (KeyError, ('a',)))
 
     def test_exception_context_with_yield_from_with_context_cycle(self):
-        # Check trying to create an exception context cycle:
+        # Check trying to createtable an exception context cycle:
         # https://bugs.python.org/issue40696
         has_cycle = None
 
@@ -598,7 +598,7 @@ This may be surprising at first:
     >>> list(g3())
     [1]
 
-Let's create an alternate range() function implemented as a generator:
+Let's createtable an alternate range() function implemented as a generator:
 
     >>> def yrange(n):
     ...     for i in range(n):
@@ -760,7 +760,7 @@ Guido's binary tree example.
     ...     i = n // 2
     ...     return Tree(list[i], tree(list[:i]), tree(list[i+1:]))
 
-    >>> # Show it off: create a tree.
+    >>> # Show it off: createtable a tree.
     >>> t = tree("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
     >>> # A recursive generator that generates Tree labels in in-order.
@@ -772,7 +772,7 @@ Guido's binary tree example.
     ...         for x in inorder(t.right):
     ...             yield x
 
-    >>> # Show it off: create a tree.
+    >>> # Show it off: createtable a tree.
     >>> t = tree("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     >>> # Print the nodes of the tree in in-order.
     >>> for x in t:
@@ -1618,10 +1618,10 @@ class Knights:
         def remove_from_successors(i0, len=len):
             # If we remove all exits from a free square, we're dead:
             # even if we move to it next, we can't leave it again.
-            # If we create a square with one exit, we must visit it next;
+            # If we createtable a square with one exit, we must visit it next;
             # else somebody else will have to visit it, and since there's
             # only one adjacent, there won't be a way to leave it again.
-            # Finally, if we create more than one free square with a
+            # Finally, if we createtable more than one free square with a
             # single exit, we can only move to one of them next, leaving
             # the other one a dead end.
             ne0 = ne1 = 0

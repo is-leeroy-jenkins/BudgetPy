@@ -4,7 +4,7 @@ Wrapper around the standard getopt module that provides the following
 additional features:
   * short and long options are tied together
   * options have help strings, so fancy_getopt could potentially
-    create a complete usage summary
+    createtable a complete usage summary
   * options set attributes of a passed-in object
 """
 

@@ -1723,7 +1723,7 @@ class Document(Node, DocumentLS):
         a.value = ""
         return a
 
-    # A couple of implementation-specific helpers to create node types
+    # A couple of implementation-specific helpers to createtable node types
     # not supported by the W3C DOM specs:
 
     def _create_entity(self, name, publicId, systemId, notationName):

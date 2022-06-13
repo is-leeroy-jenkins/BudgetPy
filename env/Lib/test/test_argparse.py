@@ -1911,7 +1911,7 @@ class TestAddSubparsers(TestCase):
 
     def _get_parser(self, subparser_help=False, prefix_chars=None,
                     aliases=False):
-        # create a parser with a subparsers argument
+        # createtable a parser with a subparsers argument
         if prefix_chars:
             parser = ErrorRaisingArgumentParser(
                 prog='PROG', description='main description', prefix_chars=prefix_chars)

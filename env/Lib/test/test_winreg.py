@@ -413,7 +413,7 @@ class Win64WinregTests(BaseWinregTests):
 
     @unittest.skipUnless(HAS_REFLECTION, "OS doesn't support reflection")
     def test_reflection(self):
-        # Test that we can create, open, and delete keys in the 32-bit
+        # Test that we can createtable, open, and delete keys in the 32-bit
         # area. Because we are doing this in a key which gets reflected,
         # test the differences of 32 and 64-bit keys before and after the
         # reflection occurs (ie. when the created key is closed).

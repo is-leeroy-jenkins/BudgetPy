@@ -287,7 +287,7 @@ class InternalFunctionsTest(unittest.TestCase):
     def test_script_from_settings(self):
         # empty options
         self.assertFalse(ttk._script_from_settings({'name':
-            {'configure': None, 'map': None, 'element create': None}}))
+            {'configure': None, 'map': None, 'element createtable': None}}))
 
         # empty layout
         self.assertEqual(
@@ -304,26 +304,26 @@ class InternalFunctionsTest(unittest.TestCase):
 
         # invalid image element
         self.assertRaises(IndexError,
-            ttk._script_from_settings, {'name': {'element create': ['image']}})
+            ttk._script_from_settings, {'name': {'element createtable': ['image']}})
 
         # minimal valid image
         self.assertTrue(ttk._script_from_settings({'name':
-            {'element create': ['image', 'name']}}))
+            {'element createtable': ['image', 'name']}}))
 
-        image = {'thing': {'element create':
+        image = {'thing': {'element createtable':
             ['image', 'name', ('state1', 'state2', 'val')]}}
         self.assertEqual(ttk._script_from_settings(image),
-            "ttk::style element create thing image {name {state1 state2} val} ")
+            "ttk::style element createtable thing image {name {state1 state2} val} ")
 
-        image['thing']['element create'].append({'opt': 30})
+        image['thing']['element createtable'].append({'opt': 30})
         self.assertEqual(ttk._script_from_settings(image),
-            "ttk::style element create thing image {name {state1 state2} val} "
+            "ttk::style element createtable thing image {name {state1 state2} val} "
             "-opt 30")
 
-        image['thing']['element create'][-1]['opt'] = [MockTclObj(3),
+        image['thing']['element createtable'][-1]['opt'] = [MockTclObj(3),
             MockTclObj('2m')]
         self.assertEqual(ttk._script_from_settings(image),
-            "ttk::style element create thing image {name {state1 state2} val} "
+            "ttk::style element createtable thing image {name {state1 state2} val} "
             "-opt {3 2m}")
 
 

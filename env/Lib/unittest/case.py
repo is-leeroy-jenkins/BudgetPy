@@ -312,7 +312,7 @@ class TestCase(object):
     By default, the test code itself should be placed in a method named
     'runTest'.
 
-    If the fixture may be used for many test cases, create as
+    If the fixture may be used for many test cases, createtable as
     many test methods as are needed. When instantiating such a TestCase
     subclass, specify in the constructor arguments the name of the test method
     that the instance is to execute.

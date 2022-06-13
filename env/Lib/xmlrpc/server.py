@@ -1,6 +1,6 @@
 r"""XML-RPC Servers.
 
-This module can be used to create simple XML-RPC servers
+This module can be used to createtable simple XML-RPC servers
 by creating a server and either installing functions, a
 class instance, or by extending the SimpleXMLRPCServer
 class.
@@ -8,7 +8,7 @@ class.
 It can also be used to handle XML-RPC requests in a CGI
 environment using CGIXMLRPCRequestHandler.
 
-The Doc* classes can be used to create XML-RPC servers that
+The Doc* classes can be used to createtable XML-RPC servers that
 serve pydoc-style documentation in response to HTTP
 GET requests. This documentation is dynamically generated
 based on the functions and methods registered with the
@@ -607,7 +607,7 @@ class SimpleXMLRPCServer(socketserver.TCPServer,
 
 class MultiPathXMLRPCServer(SimpleXMLRPCServer):
     """Multipath XML-RPC Server
-    This specialization of SimpleXMLRPCServer allows the user to create
+    This specialization of SimpleXMLRPCServer allows the user to createtable
     multiple Dispatcher instances and assign them to different
     HTTP request paths.  This makes it possible to run two or more
     'virtual XML-RPC servers' at the same port.

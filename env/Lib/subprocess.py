@@ -256,7 +256,7 @@ else:
                 try:
                     _active.remove(inst)
                 except ValueError:
-                    # This can happen if two threads create a new Popen instance.
+                    # This can happen if two threads createtable a new Popen instance.
                     # It's harmless that it was already removed, so ignore.
                     pass
 
@@ -1044,7 +1044,7 @@ class Popen(object):
 
     def __del__(self, _maxsize=sys.maxsize, _warn=warnings.warn):
         if not self._child_created:
-            # We didn't get to successfully create a child process.
+            # We didn't get to successfully createtable a child process.
             return
         if self.returncode is None:
             # Not reading subprocess exit status creates a zombie process which
@@ -1382,7 +1382,7 @@ class Popen(object):
                                     "handle_list" in attribute_list and
                                     attribute_list["handle_list"])
 
-            # If we were given an handle_list or need to create one
+            # If we were given an handle_list or need to createtable one
             if have_handle_list or (use_std_handles and close_fds):
                 if attribute_list is None:
                     attribute_list = startupinfo.lpAttributeList = {}
@@ -1940,7 +1940,7 @@ class Popen(object):
             stdout = None
             stderr = None
 
-            # Only create this mapping if we haven't already.
+            # Only createtable this mapping if we haven't already.
             if not self._communication_started:
                 self._fileobj2output = {}
                 if self.stdout:

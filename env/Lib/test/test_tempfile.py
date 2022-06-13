@@ -410,7 +410,7 @@ class TestMkstempInner(TestBadTempdir, BaseTestCase):
         return file
 
     def test_basic(self):
-        # _mkstemp_inner can create files
+        # _mkstemp_inner can createtable files
         self.do_create().write(b"blat")
         self.do_create(pre="a").write(b"blat")
         self.do_create(suf="b").write(b"blat")
@@ -418,7 +418,7 @@ class TestMkstempInner(TestBadTempdir, BaseTestCase):
         self.do_create(pre="aa", suf=".txt").write(b"blat")
 
     def test_basic_with_bytes_names(self):
-        # _mkstemp_inner can create files when given name parts all
+        # _mkstemp_inner can createtable files when given name parts all
         # specified as bytes.
         dir_b = tempfile.gettempdirb()
         self.do_create(dir=dir_b, suf=b"").write(b"blat")
@@ -435,13 +435,13 @@ class TestMkstempInner(TestBadTempdir, BaseTestCase):
             self.do_create(dir=dir_b, pre=b"", suf="").write(b"blat")
 
     def test_basic_many(self):
-        # _mkstemp_inner can create many files (stochastic)
+        # _mkstemp_inner can createtable many files (stochastic)
         extant = list(range(TEST_FILES))
         for i in extant:
             extant[i] = self.do_create(pre="aa")
 
     def test_choose_directory(self):
-        # _mkstemp_inner can create files in a user-selected directory
+        # _mkstemp_inner can createtable files in a user-selected directory
         dir = tempfile.mkdtemp()
         try:
             self.do_create(dir=dir).write(b"blat")
@@ -503,7 +503,7 @@ class TestMkstempInner(TestBadTempdir, BaseTestCase):
 
     @unittest.skipUnless(has_textmode, "text mode not available")
     def test_textmode(self):
-        # _mkstemp_inner can create files in text mode
+        # _mkstemp_inner can createtable files in text mode
 
         # A text file is truncated at the first Ctrl+Z byte
         f = self.do_create(bin=0)
@@ -564,7 +564,7 @@ class TestGetTempPrefix(BaseTestCase):
         # gettempprefix returns a usable prefix string
 
         # Create a temp directory, avoiding use of the prefix.
-        # Then attempt to create a file whose name is
+        # Then attempt to createtable a file whose name is
         # prefix + 'xxxxxx.xxx' in that directory.
         p = tempfile.gettempprefix() + "xxxxxx.xxx"
         d = tempfile.mkdtemp(prefix="")
@@ -650,7 +650,7 @@ class TestMkstemp(BaseTestCase):
             os.unlink(name)
 
     def test_basic(self):
-        # mkstemp can create files
+        # mkstemp can createtable files
         self.do_create()
         self.do_create(pre="a")
         self.do_create(suf="b")
@@ -659,7 +659,7 @@ class TestMkstemp(BaseTestCase):
         self.do_create(dir=".")
 
     def test_basic_with_bytes_names(self):
-        # mkstemp can create files when given name parts all
+        # mkstemp can createtable files when given name parts all
         # specified as bytes.
         d = tempfile.gettempdirb()
         self.do_create(dir=d, suf=b"")
@@ -677,7 +677,7 @@ class TestMkstemp(BaseTestCase):
 
 
     def test_choose_directory(self):
-        # mkstemp can create directories in a user-selected directory
+        # mkstemp can createtable directories in a user-selected directory
         dir = tempfile.mkdtemp()
         try:
             self.do_create(dir=dir)
@@ -713,7 +713,7 @@ class TestMkdtemp(TestBadTempdir, BaseTestCase):
             raise
 
     def test_basic(self):
-        # mkdtemp can create directories
+        # mkdtemp can createtable directories
         os.rmdir(self.do_create())
         os.rmdir(self.do_create(pre="a"))
         os.rmdir(self.do_create(suf="b"))
@@ -721,7 +721,7 @@ class TestMkdtemp(TestBadTempdir, BaseTestCase):
         os.rmdir(self.do_create(pre="aa", suf=".txt"))
 
     def test_basic_with_bytes_names(self):
-        # mkdtemp can create directories when given all binary parts
+        # mkdtemp can createtable directories when given all binary parts
         d = tempfile.gettempdirb()
         os.rmdir(self.do_create(dir=d))
         os.rmdir(self.do_create(dir=d, pre=b"a"))
@@ -736,7 +736,7 @@ class TestMkdtemp(TestBadTempdir, BaseTestCase):
             os.rmdir(self.do_create(dir="", pre=b"aa", suf=b".txt"))
 
     def test_basic_many(self):
-        # mkdtemp can create many directories (stochastic)
+        # mkdtemp can createtable many directories (stochastic)
         extant = list(range(TEST_FILES))
         try:
             for i in extant:
@@ -747,7 +747,7 @@ class TestMkdtemp(TestBadTempdir, BaseTestCase):
                     os.rmdir(i)
 
     def test_choose_directory(self):
-        # mkdtemp can create directories in a user-selected directory
+        # mkdtemp can createtable directories in a user-selected directory
         dir = tempfile.mkdtemp()
         try:
             os.rmdir(self.do_create(dir=dir))
@@ -870,7 +870,7 @@ class TestNamedTemporaryFile(BaseTestCase):
 
 
     def test_basic(self):
-        # NamedTemporaryFile can create files
+        # NamedTemporaryFile can createtable files
         self.do_create()
         self.do_create(pre="a")
         self.do_create(suf="b")
@@ -993,7 +993,7 @@ class TestSpooledTemporaryFile(BaseTestCase):
 
 
     def test_basic(self):
-        # SpooledTemporaryFile can create files
+        # SpooledTemporaryFile can createtable files
         f = self.do_create()
         self.assertFalse(f._rolled)
         f = self.do_create(max_size=100, pre="a", suf=".txt")
@@ -1255,7 +1255,7 @@ if tempfile.NamedTemporaryFile is not tempfile.TemporaryFile:
         """Test TemporaryFile()."""
 
         def test_basic(self):
-            # TemporaryFile can create files
+            # TemporaryFile can createtable files
             # No point in testing the name params - the file has no name.
             tempfile.TemporaryFile()
 

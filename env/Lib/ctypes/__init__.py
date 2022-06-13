@@ -1,4 +1,4 @@
-"""create and manipulate C data types in Python"""
+"""createtable and manipulate C data types in Python"""
 
 import os as _os, sys as _sys
 import types as _types
@@ -80,11 +80,11 @@ def CFUNCTYPE(restype, *argtypes, **kw):
     restype: the result type
     argtypes: a sequence specifying the argument types
 
-    The function prototype can be called in different ways to create a
+    The function prototype can be called in different ways to createtable a
     callable object:
 
     prototype(integer address) -> foreign function
-    prototype(callable) -> create and return a C callable function from callable
+    prototype(callable) -> createtable and return a C callable function from callable
     prototype(integer index, method name[, paramflags]) -> foreign function calling a COM method
     prototype((ordinal number, dll object)[, paramflags]) -> foreign function exported by ordinal
     prototype((function name, dll object)[, paramflags]) -> foreign function exported by name

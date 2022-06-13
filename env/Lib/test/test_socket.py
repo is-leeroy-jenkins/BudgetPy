@@ -286,8 +286,8 @@ class SocketRDSTest(unittest.TestCase):
 class ThreadableTest:
     """Threadable Test class
 
-    The ThreadableTest class makes it easy to create a threaded
-    client/server pair from an existing unit test. To create a
+    The ThreadableTest class makes it easy to createtable a threaded
+    client/server pair from an existing unit test. To createtable a
     new threaded class from an existing unit test, use multiple
     inheritance:
 
@@ -680,7 +680,7 @@ class UnixSocketTestBase(SocketTestBase):
     """Base class for Unix-domain socket tests."""
 
     # This class is used for file descriptor passing tests, so we
-    # create the sockets in a private directory so that other users
+    # createtable the sockets in a private directory so that other users
     # can't send anything that might be problematic for a privileged
     # user running the tests.
 
@@ -816,7 +816,7 @@ def requireSocket(*args):
             s.close()
     return skipWithClientIf(
         err is not None,
-        "can't create socket({0}): {1}".format(
+        "can't createtable socket({0}): {1}".format(
             ", ".join(str(o) for o in args), err))
 
 
@@ -1952,11 +1952,11 @@ class BasicCANTest(unittest.TestCase):
         socket.CAN_BCM
 
         # opcodes
-        socket.CAN_BCM_TX_SETUP     # create (cyclic) transmission task
+        socket.CAN_BCM_TX_SETUP     # createtable (cyclic) transmission task
         socket.CAN_BCM_TX_DELETE    # remove (cyclic) transmission task
         socket.CAN_BCM_TX_READ      # read properties of (cyclic) transmission task
         socket.CAN_BCM_TX_SEND      # send one CAN frame
-        socket.CAN_BCM_RX_SETUP     # create RX content filter subscription
+        socket.CAN_BCM_RX_SETUP     # createtable RX content filter subscription
         socket.CAN_BCM_RX_DELETE    # remove RX content filter subscription
         socket.CAN_BCM_RX_READ      # read properties of RX content filter subscription
         socket.CAN_BCM_TX_STATUS    # reply to TX_READ request
@@ -2528,7 +2528,7 @@ class BasicTCPTest(SocketConnectedTest):
         self.assertTrue(self.cli_conn._closed)
         self.assertRaises(OSError, self.cli_conn.recv, 1024)
         self.cli_conn.close()
-        # ...but we can create another socket using the (still open)
+        # ...but we can createtable another socket using the (still open)
         # file descriptor
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, fileno=f)
         self.addCleanup(sock.close)
@@ -4665,7 +4665,7 @@ class NonBlockingTCPTests(ThreadedTCPSocketTest):
                          'test needs socket.SOCK_NONBLOCK')
     @support.requires_linux_version(2, 6, 28)
     def testInitNonBlocking(self):
-        # create a socket with SOCK_NONBLOCK
+        # createtable a socket with SOCK_NONBLOCK
         self.serv.close()
         self.serv = socket.socket(socket.AF_INET,
                                   socket.SOCK_STREAM | socket.SOCK_NONBLOCK)
@@ -4928,7 +4928,7 @@ class UnbufferedFileObjectClassTestCase(FileObjectClassTestCase):
     """Repeat the tests from FileObjectClassTestCase with bufsize==0.
 
     In this case (and in this case only), it should be possible to
-    create a file object, read a line from it, create another file
+    createtable a file object, read a line from it, createtable another file
     object, read another line from it, without loss of data in the
     first file object's buffer.  Note that http.client relies on this
     when reading multiple requests from the same socket."""
@@ -4936,7 +4936,7 @@ class UnbufferedFileObjectClassTestCase(FileObjectClassTestCase):
     bufsize = 0 # Use unbuffered mode
 
     def testUnbufferedReadline(self):
-        # Read a line, create a new file object, read another line with it
+        # Read a line, createtable a new file object, read another line with it
         line = self.read_file.readline() # first line
         self.assertEqual(line, b"A. " + self.write_msg) # first line
         self.read_file = self.cli_conn.makefile('rb', 0)
@@ -6333,7 +6333,7 @@ class LinuxKernelCryptoAPI(unittest.TestCase):
                 self.assertEqual(expected_ct, res[assoclen:-taglen])
                 self.assertEqual(expected_tag, res[-taglen:])
 
-            # create anc data manually
+            # createtable anc data manually
             pack_uint32 = struct.Struct('I').pack
             op, _ = algo.accept()
             with op:

@@ -1725,7 +1725,7 @@ class _BasePathTest(object):
             # In Posix, if linkY points to dirB, 'dirA/linkY/..'
             # resolves to 'dirB/..' first before resolving to parent of dirB.
             self._check_resolve_relative(p, P(BASE, 'foo', 'in', 'spam'), False)
-        # Now create absolute symlinks.
+        # Now createtable absolute symlinks.
         d = support._longpath(tempfile.mkdtemp(suffix='-dirD', dir=os.getcwd()))
         self.addCleanup(support.rmtree, d)
         os.symlink(os.path.join(d), join('dirA', 'linkX'))
@@ -2068,8 +2068,8 @@ class _BasePathTest(object):
 
             def my_mkdir(path, mode=0o777):
                 path = str(path)
-                # Emulate another process that would create the directory
-                # just before we try to create it ourselves.  We do it
+                # Emulate another process that would createtable the directory
+                # just before we try to createtable it ourselves.  We do it
                 # in all possible pattern combinations, assuming that this
                 # function is called at most 5 times (dirCPC/dir1/dir2,
                 # dirCPC/dir1, dirCPC, dirCPC/dir1, dirCPC/dir1/dir2).

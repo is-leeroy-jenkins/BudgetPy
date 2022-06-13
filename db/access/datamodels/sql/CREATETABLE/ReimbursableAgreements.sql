@@ -1,0 +1,22 @@
+CREATE TABLE ReimbursableAgreements 
+(
+    ReimbursableAgreementsId INTEGER NOT NULL,
+    RPIO TEXT(80) NULL DEFAULT NS,
+    BFY TEXT(80) NULL DEFAULT NS,
+    FundCode TEXT(80) NULL DEFAULT NS,
+    AgreementNumber TEXT(80) NULL DEFAULT NS,
+    StartDate TEXT(80) NULL DEFAULT NS,
+    EndDate TEXT(80) NULL DEFAULT NS,
+    RcCode TEXT(80) NULL DEFAULT NS,
+    OrgCode TEXT(80) NULL DEFAULT NS,
+    RcName TEXT(80) NULL DEFAULT NS,
+    SiteProjectCode TEXT(80) NULL DEFAULT NS,
+    AccountCode TEXT(80) NULL DEFAULT NS,
+    VendorCode TEXT(80) NULL DEFAULT NS,
+    VendorName TEXT(80) NULL DEFAULT NS,
+    Amount DOUBLE NULL DEFAULT 0.0,
+    OpenCommitments DOUBLE NULL DEFAULT 0.0,
+    Obligations DOUBLE NULL DEFAULT 0.0,
+    ULO DOUBLE NULL DEFAULT 0.0,
+    Available DOUBLE NULL DEFAULT 0.0
+);

@@ -14,7 +14,7 @@ def get_cache_token():
 class ABCMeta(type):
     """Metaclass for defining Abstract Base Classes (ABCs).
 
-    Use this metaclass to create an ABC.  An ABC can be subclassed
+    Use this metaclass to createtable an ABC.  An ABC can be subclassed
     directly, and then acts as a mix-in class.  You can also register
     unrelated concrete classes (even built-in classes) and unrelated
     ABCs as 'virtual subclasses' -- these and their descendants will
@@ -63,8 +63,8 @@ class ABCMeta(type):
         # Subtle: test for cycles *after* testing for "already a subclass";
         # this means we allow X.register(X) and interpret it as a no-op.
         if issubclass(cls, subclass):
-            # This would create a cycle, which is bad for the algorithm below
-            raise RuntimeError("Refusing to create an inheritance cycle")
+            # This would createtable a cycle, which is bad for the algorithm below
+            raise RuntimeError("Refusing to createtable an inheritance cycle")
         cls._abc_registry.add(subclass)
         ABCMeta._abc_invalidation_counter += 1  # Invalidate negative cache
         return subclass

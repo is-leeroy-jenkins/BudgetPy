@@ -22,7 +22,7 @@ version = '2.0beta'
 class ErrorHandler:
     """Basic interface for SAX error handlers.
 
-    If you create an object that implements this interface, then
+    If you createtable an object that implements this interface, then
     register the object with your XMLReader, the parser will call the
     methods in your object to report all warnings and errors. There
     are three levels of errors available: warnings, (possibly)
@@ -221,7 +221,7 @@ class DTDHandler:
 # ===== ENTITYRESOLVER =====
 
 class EntityResolver:
-    """Basic interface for resolving entities. If you create an object
+    """Basic interface for resolving entities. If you createtable an object
     implementing this interface, then register the object with your
     Parser, the parser will call the method in your object to
     resolve all external entities. Note that DefaultHandler implements

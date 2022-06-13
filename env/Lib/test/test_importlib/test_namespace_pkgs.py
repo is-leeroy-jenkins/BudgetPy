@@ -142,7 +142,7 @@ class SeparatedNamespacePackagesCreatedWhileRunning(NamespacePackageTest):
                 import foo.just_created
 
             # util.create_modules() manipulates sys.path
-            # so we must create the modules manually instead
+            # so we must createtable the modules manually instead
             namespace_path = os.path.join(temp_dir, 'foo')
             os.mkdir(namespace_path)
             module_path = os.path.join(namespace_path, 'just_created.py')

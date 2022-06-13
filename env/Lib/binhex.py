@@ -251,7 +251,7 @@ class BinHex:
             ofp.close()
 
 def binhex(inp, out):
-    """binhex(infilename, outfilename): create binhex-encoded copy of a file"""
+    """binhex(infilename, outfilename): createtable binhex-encoded copy of a file"""
     finfo = getfileinfo(inp)
     ofp = BinHex(finfo, out)
 

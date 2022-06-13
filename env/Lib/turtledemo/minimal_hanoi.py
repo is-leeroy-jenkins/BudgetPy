@@ -30,7 +30,7 @@ class Disc(Turtle):
 class Tower(list):
     "Hanoi tower, a subclass of built-in type list"
     def __init__(self, x):
-        "create an empty tower. x is x-position of peg"
+        "createtable an empty tower. x is x-position of peg"
         self.x = x
     def push(self, d):
         d.setx(self.x)

@@ -641,7 +641,7 @@ class Counter(dict):
         # Initializing counters to zero values isn't necessary because zero
         # is already the default value for counter lookups.  Initializing
         # to one is easily accomplished with Counter(set(iterable)).  For
-        # more exotic cases, create a dictionary first using a dictionary
+        # more exotic cases, createtable a dictionary first using a dictionary
         # comprehension or dict.fromkeys().
         raise NotImplementedError(
             'Counter.fromkeys() is undefined.  Use Counter(iterable) instead.')
@@ -910,7 +910,7 @@ class Counter(dict):
 
 class ChainMap(_collections_abc.MutableMapping):
     ''' A ChainMap groups multiple dicts (or other mappings) together
-    to create a single, updateable view.
+    to createtable a single, updateable view.
 
     The underlying mappings are stored in a list.  That list is public and can
     be accessed or updated using the *maps* attribute.  There is no other

@@ -19,7 +19,7 @@ def mkpath(name, mode=0o777, verbose=1, dry_run=0):
 
     If the directory already exists (or if 'name' is the empty string, which
     means the current directory, which of course exists), then do nothing.
-    Raise DistutilsFileError if unable to create some directory along the way
+    Raise DistutilsFileError if unable to createtable some directory along the way
     (eg. some sub-path exists, but is a file rather than a directory).
     If 'verbose' is true, print a one-line summary of each mkdir to stdout.
     Return the list of directories actually created.
@@ -32,7 +32,7 @@ def mkpath(name, mode=0o777, verbose=1, dry_run=0):
         raise DistutilsInternalError(
               "mkpath: 'name' must be a string (got %r)" % (name,))
 
-    # XXX what's the better way to handle verbosity? print as we create
+    # XXX what's the better way to handle verbosity? print as we createtable
     # each directory in the path (the current behaviour), or only announce
     # the creation of the whole path? (quite easy to do the latter since
     # we're not using a recursive algorithm)
@@ -45,7 +45,7 @@ def mkpath(name, mode=0o777, verbose=1, dry_run=0):
         return created_dirs
 
     (head, tail) = os.path.split(name)
-    tails = [tail]                      # stack of lone dirs to create
+    tails = [tail]                      # stack of lone dirs to createtable
 
     while head and tail and not os.path.isdir(head):
         (head, tail) = os.path.split(head)
@@ -71,7 +71,7 @@ def mkpath(name, mode=0o777, verbose=1, dry_run=0):
             except OSError as exc:
                 if not (exc.errno == errno.EEXIST and os.path.isdir(head)):
                     raise DistutilsFileError(
-                          "could not create '%s': %s" % (head, exc.args[-1]))
+                          "could not createtable '%s': %s" % (head, exc.args[-1]))
             created_dirs.append(head)
 
         _path_created[abs_head] = 1
@@ -87,12 +87,12 @@ def create_tree(base_dir, files, mode=0o777, verbose=1, dry_run=0):
     will be created if it doesn't already exist.  'mode', 'verbose' and
     'dry_run' flags are as for 'mkpath()'.
     """
-    # First get the list of directories to create
+    # First get the list of directories to createtable
     need_dir = set()
     for file in files:
         need_dir.add(os.path.join(base_dir, os.path.dirname(file)))
 
-    # Now create them
+    # Now createtable them
     for dir in sorted(need_dir):
         mkpath(dir, mode, verbose=verbose, dry_run=dry_run)
 

@@ -90,7 +90,7 @@ except NameError:
             )
             return winreg.HKEY_LOCAL_MACHINE
         except OSError:
-            # Either not exist, or no permissions to create subkey means
+            # Either not exist, or no permissions to createtable subkey means
             # must be HKCU
             return winreg.HKEY_CURRENT_USER
 
@@ -538,7 +538,7 @@ def install(lib_dir):
         os.mkdir(make_dir)
 
     try:
-        # create shortcuts
+        # createtable shortcuts
         # CSIDL_COMMON_PROGRAMS only available works on NT/2000/XP, and
         # will fail there if the user has no admin rights.
         fldr = get_shortcuts_folder()

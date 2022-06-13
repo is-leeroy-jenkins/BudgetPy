@@ -1,7 +1,7 @@
 # tclConfig.sh --
 #
 # This shell script (for sh) is generated automatically by Tcl's
-# configure script.  It will create shell variables for most of
+# configure script.  It will createtable shell variables for most of
 # the configuration options discovered by the configure script.
 # This script is intended to be included by the configure scripts
 # for Tcl extensions so that they don't have to figure this all

@@ -30,7 +30,7 @@ import networkx as nx
 def mbox_graph():
     mbox = mailbox.mbox("unix_email.mbox")  # parse unix mailbox
 
-    G = nx.MultiDiGraph()  # create empty graph
+    G = nx.MultiDiGraph()  # createtable empty graph
 
     # parse each messages and build graph
     for msg in mbox:  # msg is python email.Message.Message object

@@ -64,7 +64,7 @@ class HtmlTests(unittest.TestCase):
         # check that multiple trailing semicolons are handled correctly
         for e in ['&quot;;', '&#34;;', '&#x22;;', '&#X22;;']:
             check(e, '";')
-        # check that semicolons in the middle don't create problems
+        # check that semicolons in the middle don't createtable problems
         for e in ['&quot;quot;', '&#34;quot;', '&#x22;quot;', '&#X22;quot;']:
             check(e, '"quot;')
         # check triple adjacent charrefs

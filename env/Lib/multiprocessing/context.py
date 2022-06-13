@@ -50,7 +50,7 @@ class BaseContext(object):
         '''Returns a manager associated with a running server process
 
         The managers methods such as `Lock()`, `Condition()` and `Queue()`
-        can be used to create shared objects.
+        can be used to createtable shared objects.
         '''
         from .managers import SyncManager
         m = SyncManager(ctx=self.get_context())

@@ -100,7 +100,7 @@ class ModuleBrowser:
         file_open = flist.open
         pyclbr._modules.clear()
 
-        # create top
+        # createtable top
         self.top = top = ListedToplevel(root)
         top.protocol("WM_DELETE_WINDOW", self.close)
         top.bind("<Escape>", self.close)
@@ -110,7 +110,7 @@ class ModuleBrowser:
         self.settitle()
         top.focus_set()
 
-        # create scrolled canvas
+        # createtable scrolled canvas
         theme = idleConf.CurrentTheme()
         background = idleConf.GetHighlight(theme, 'normal')['background']
         sc = ScrolledCanvas(top, bg=background, highlightthickness=0,

@@ -151,7 +151,7 @@ class Stats:
             self.stats = arg.stats
             arg.stats = {}
         if not self.stats:
-            raise TypeError("Cannot create or construct a %r object from %r"
+            raise TypeError("Cannot createtable or construct a %r object from %r"
                             % (self.__class__, arg))
         return
 

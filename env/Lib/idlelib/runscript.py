@@ -167,7 +167,7 @@ class ScriptBinding:
         return 'break'
 
     def getfilename(self):
-        """Get source filename.  If not saved, offer to save (or create) file
+        """Get source filename.  If not saved, offer to save (or createtable) file
 
         The debugger requires a source file.  Make sure there is one, and that
         the current version of the source buffer has been saved.  If the user

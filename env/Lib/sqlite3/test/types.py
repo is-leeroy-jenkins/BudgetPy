@@ -34,7 +34,7 @@ class SqliteTypeTests(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:")
         self.cur = self.con.cursor()
-        self.cur.execute("create table test(i integer, s varchar, f number, b blob)")
+        self.cur.execute("createtable table test(i integer, s varchar, f number, b blob)")
 
     def tearDown(self):
         self.cur.close()
@@ -111,7 +111,7 @@ class DeclTypesTests(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:", detect_types=sqlite.PARSE_DECLTYPES)
         self.cur = self.con.cursor()
-        self.cur.execute("create table test(i int, s str, f float, b bool, u unicode, foo foo, bin blob, n1 number, n2 number(5), bad bad)")
+        self.cur.execute("createtable table test(i int, s str, f float, b bool, u unicode, foo foo, bin blob, n1 number, n2 number(5), bad bad)")
 
         # override float, make them always return the same number
         sqlite.converters["FLOAT"] = lambda x: 47.2
@@ -242,7 +242,7 @@ class ColNamesTests(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:", detect_types=sqlite.PARSE_COLNAMES)
         self.cur = self.con.cursor()
-        self.cur.execute("create table test(x foo)")
+        self.cur.execute("createtable table test(x foo)")
 
         sqlite.converters["FOO"] = lambda x: "[%s]" % x.decode("ascii")
         sqlite.converters["BAR"] = lambda x: "<%s>" % x.decode("ascii")
@@ -307,7 +307,7 @@ class CommonTableExpressionTests(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:")
         self.cur = self.con.cursor()
-        self.cur.execute("create table test(x foo)")
+        self.cur.execute("createtable table test(x foo)")
 
     def tearDown(self):
         self.cur.close()
@@ -381,7 +381,7 @@ class DateTimeTests(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:", detect_types=sqlite.PARSE_DECLTYPES)
         self.cur = self.con.cursor()
-        self.cur.execute("create table test(d date, ts timestamp)")
+        self.cur.execute("createtable table test(d date, ts timestamp)")
 
     def tearDown(self):
         self.cur.close()

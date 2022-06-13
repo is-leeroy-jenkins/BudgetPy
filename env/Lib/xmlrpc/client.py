@@ -933,9 +933,9 @@ def getparser(use_datetime=False, use_builtin_types=False):
 #
 # @def dumps(params, **options)
 # @param params A tuple or Fault instance.
-# @keyparam methodname If given, create a methodCall request for
+# @keyparam methodname If given, createtable a methodCall request for
 #     this method name.
-# @keyparam methodresponse If given, create a methodResponse packet.
+# @keyparam methodresponse If given, createtable a methodResponse packet.
 #     If used with a tuple, the tuple must be a singleton (that is,
 #     it must contain exactly one element).
 # @keyparam encoding The packet encoding.
@@ -953,7 +953,7 @@ def dumps(params, methodname=None, methodresponse=None, encoding=None,
 
         methodname: the method name for a methodCall packet
 
-        methodresponse: true to create a methodResponse packet.
+        methodresponse: true to createtable a methodResponse packet.
         If this option is used with a tuple, the tuple must be
         a singleton (i.e. it can contain only one element).
 
@@ -1124,7 +1124,7 @@ class _Method:
 ##
 # Standard transport class for XML-RPC over HTTP.
 # <p>
-# You can create custom transports by subclassing this method, and
+# You can createtable custom transports by subclassing this method, and
 # overriding selected methods.
 
 class Transport:
@@ -1251,7 +1251,7 @@ class Transport:
         #HTTP/1.1 keep-alive.
         if self._connection and host == self._connection[0]:
             return self._connection[1]
-        # create a HTTP connection object from a host descriptor
+        # createtable a HTTP connection object from a host descriptor
         chost, self._extra_headers, x509 = self.get_host_info(host)
         self._connection = host, http.client.HTTPConnection(chost)
         return self._connection[1]
@@ -1375,7 +1375,7 @@ class SafeTransport(Transport):
         if not hasattr(http.client, "HTTPSConnection"):
             raise NotImplementedError(
             "your version of http.client doesn't support HTTPS")
-        # create a HTTPS connection object from a host descriptor
+        # createtable a HTTPS connection object from a host descriptor
         # host may be a string, or a (host, x509-dict) tuple
         chost, self._extra_headers, x509 = self.get_host_info(host)
         self._connection = host, http.client.HTTPSConnection(chost,

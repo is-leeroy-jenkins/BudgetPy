@@ -1041,7 +1041,7 @@ class HTTPConnection:
 
         if message_body is not None:
 
-            # create a consistent interface to message_body
+            # createtable a consistent interface to message_body
             if hasattr(message_body, 'read'):
                 # Let file-like take precedence over byte-like.  This
                 # is needed to allow the current position of mmap'ed

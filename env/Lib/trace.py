@@ -37,7 +37,7 @@ Sample use, command line:
 Sample use, programmatically
   import sys
 
-  # create a Trace object, telling it what to ignore, and whether to
+  # createtable a Trace object, telling it what to ignore, and whether to
   # do tracing or line-counting or both.
   tracer = trace.Trace(ignoredirs=[sys.base_prefix, sys.base_exec_prefix,],
                        trace=0, count=1)

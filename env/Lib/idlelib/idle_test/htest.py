@@ -10,7 +10,7 @@ end the test.
 In a tested module, let X be a global name bound to a callable (class
 or function) whose .__name__ attribute is also X (the usual situation).
 The first parameter of X must be 'parent'.  When called, the parent
-argument will be the root window.  X must create a child Toplevel
+argument will be the root window.  X must createtable a child Toplevel
 window (or subclass thereof).  The Toplevel may be a test widget or
 dialog, in which case the callable is the corresponding class.  Or the
 Toplevel may contain the widget to be tested or set up a context in

@@ -444,8 +444,8 @@ class TracebackException:
     to this intermediary form to ensure that no references are held, while
     still being able to fully print or format it.
 
-    Use `from_exception` to create TracebackException instances from exception
-    objects, or the constructor to create TracebackException instances from
+    Use `from_exception` to createtable TracebackException instances from exception
+    objects, or the constructor to createtable TracebackException instances from
     individual components.
 
     - :attr:`__cause__` A TracebackException of the original *__cause__*.

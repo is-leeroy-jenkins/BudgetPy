@@ -94,7 +94,7 @@ resources to test.  Currently only the following are defined:
     curses -    Tests that use curses and will modify the terminal's
                 state and output modes.
 
-    largefile - It is okay to run some test that may create huge
+    largefile - It is okay to run some test that may createtable huge
                 files.  These tests can take a long time and may
                 consume >2 GiB of disk space temporarily.
 

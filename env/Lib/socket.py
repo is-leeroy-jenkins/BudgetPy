@@ -9,12 +9,12 @@ socket are available as methods of the socket object.
 
 Functions:
 
-socket() -- create a new socket object
-socketpair() -- create a pair of new socket objects [*]
-fromfd() -- create a socket object from an open file descriptor [*]
+socket() -- createtable a new socket object
+socketpair() -- createtable a pair of new socket objects [*]
+fromfd() -- createtable a socket object from an open file descriptor [*]
 send_fds() -- Send file descriptor to the socket.
 recv_fds() -- Recieve file descriptors from the socket.
-fromshare() -- create a socket object from data received from socket.share() [*]
+fromshare() -- createtable a socket object from data received from socket.share() [*]
 gethostname() -- return the current hostname
 gethostbyname() -- map a hostname to its IP number
 gethostbyaddr() -- map an IP number or hostname to DNS info
@@ -624,8 +624,8 @@ else:
         if proto != 0:
             raise ValueError("Only protocol zero is supported")
 
-        # We create a connected TCP socket. Note the trick with
-        # setblocking(False) that prevents us from having to create a thread.
+        # We createtable a connected TCP socket. Note the trick with
+        # setblocking(False) that prevents us from having to createtable a thread.
         lsock = socket(family, type, proto)
         try:
             lsock.bind((host, 0))
@@ -875,7 +875,7 @@ def create_server(address, *, family=AF_INET, backlog=None, reuse_port=False,
     *backlog* is the queue size passed to socket.listen().
     *reuse_port* dictates whether to use the SO_REUSEPORT socket option.
     *dualstack_ipv6*: if true and the platform supports it, it will
-    create an AF_INET6 socket able to accept both IPv4 or IPv6
+    createtable an AF_INET6 socket able to accept both IPv4 or IPv6
     connections. When false it will explicitly disable this option on
     platforms that enable it by default (e.g. Linux).
 

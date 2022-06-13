@@ -809,7 +809,7 @@ if sys.platform == 'win32':
 
     def _exhaustive_wait(handles, timeout):
         # Return ALL handles which are currently signalled.  (Only
-        # returning the first signalled might create starvation issues.)
+        # returning the first signalled might createtable starvation issues.)
         L = list(handles)
         ready = []
         while L:

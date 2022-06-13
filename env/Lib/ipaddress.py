@@ -3,7 +3,7 @@
 
 """A fast, lightweight IPv4/IPv6 manipulation library in Python.
 
-This library is used to create/poke/manipulate IPv4 and IPv6 addresses
+This library is used to createtable/poke/manipulate IPv4 and IPv6 addresses
 and networks.
 
 """
@@ -1477,7 +1477,7 @@ class IPv4Network(_BaseV4, _BaseNetwork):
               '192.0.2.1/255.255.255.255'
               '192.0.2.1/32'
               are also functionally equivalent. That is to say, failing to
-              provide a subnetmask will create an object with a mask of /32.
+              provide a subnetmask will createtable an object with a mask of /32.
 
               If the mask (portion after the / in the argument) is given in
               dotted quad form, it is treated as a netmask if it starts with a
@@ -2183,7 +2183,7 @@ class IPv6Network(_BaseV6, _BaseNetwork):
               '2001:db8:0000:0000:0000:0000:0000:0000/128'
               '2001:db8::'
               are all functionally the same in IPv6.  That is to say,
-              failing to provide a subnetmask will create an object with
+              failing to provide a subnetmask will createtable an object with
               a mask of /128.
 
               Additionally, an integer can be passed, so

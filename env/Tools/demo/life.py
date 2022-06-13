@@ -183,7 +183,7 @@ def keyloop(stdscr):
     # Set up the mask to listen for mouse events
     curses.mousemask(curses.BUTTON1_CLICKED)
 
-    # Allocate a subwindow for the Life board and create the board object
+    # Allocate a subwindow for the Life board and createtable the board object
     subwin = stdscr.subwin(stdscr_y - 3, stdscr_x, 0, 0)
     board = LifeBoard(subwin, char=ord('*'))
     board.display(update_board=False)

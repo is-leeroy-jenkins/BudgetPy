@@ -496,7 +496,7 @@ an empty test also be created when there's no docstring?)
 
 Finding Tests in Classes
 ~~~~~~~~~~~~~~~~~~~~~~~~
-For a class, DocTestFinder will create a test for the class's
+For a class, DocTestFinder will createtable a test for the class's
 docstring, and will recursively explore its contents, including
 methods, classmethods, staticmethods, properties, and nested classes.
 
@@ -527,7 +527,7 @@ New-style classes are also supported:
 
 Finding Tests in Modules
 ~~~~~~~~~~~~~~~~~~~~~~~~
-For a module, DocTestFinder will create a test for the class's
+For a module, DocTestFinder will createtable a test for the class's
 docstring, and will recursively explore its contents, including
 functions, classes, and the `__test__` dictionary, if it exists:
 
@@ -597,7 +597,7 @@ will only be generated for it once:
 
 Empty Tests
 ~~~~~~~~~~~
-By default, an object with no doctests doesn't create any tests:
+By default, an object with no doctests doesn't createtable any tests:
 
     >>> tests = doctest.DocTestFinder().find(SampleClass)
     >>> for t in tests:
@@ -1920,7 +1920,7 @@ if not hasattr(sys, 'gettrace') or not sys.gettrace():
           >>> test = parser.get_doctest(doc, {}, "foo-bar@baz", "foo-bar@baz.py", 0)
           >>> runner = doctest.DocTestRunner(verbose=False)
 
-        To demonstrate this, we'll create a fake standard input that
+        To demonstrate this, we'll createtable a fake standard input that
         captures our debugger input:
 
           >>> real_stdin = sys.stdin
@@ -2122,7 +2122,7 @@ if not hasattr(sys, 'gettrace') or not sys.gettrace():
 def test_DocTestSuite():
     """DocTestSuite creates a unittest test suite from a doctest.
 
-       We create a Suite by providing a module.  A module can be provided
+       We createtable a Suite by providing a module.  A module can be provided
        by passing a module object:
 
          >>> import unittest
@@ -2239,7 +2239,7 @@ def test_DocTestSuite():
 def test_DocFileSuite():
     """We can test tests found in text files using a DocFileSuite.
 
-       We create a suite by providing the names of one or more text
+       We createtable a suite by providing the names of one or more text
        files that include examples:
 
          >>> import unittest

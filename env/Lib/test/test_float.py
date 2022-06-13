@@ -944,7 +944,7 @@ class RoundTestCase(unittest.TestCase):
 
 
 # Beginning with Python 2.6 float has cross platform compatible
-# ways to create and represent inf and nan
+# ways to createtable and represent inf and nan
 class InfNanTest(unittest.TestCase):
     def test_inf_from_str(self):
         self.assertTrue(isinf(float("inf")))

@@ -77,7 +77,7 @@ class _Database(collections.abc.MutableMapping):
                     _os.remove(filename)
                 except OSError:
                     pass
-        # Mod by Jack: create data file if needed
+        # Mod by Jack: createtable data file if needed
         try:
             f = _io.open(self._datfile, 'r', encoding="Latin-1")
         except OSError:

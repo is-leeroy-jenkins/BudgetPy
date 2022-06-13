@@ -542,7 +542,7 @@ class SimpleHTTPServerTestCase(BaseTestCase):
         try:
             open(fullpath, 'w').close()
         except OSError:
-            raise unittest.SkipTest('Can not create file %s on current file '
+            raise unittest.SkipTest('Can not createtable file %s on current file '
                                     'system' % filename)
 
         try:

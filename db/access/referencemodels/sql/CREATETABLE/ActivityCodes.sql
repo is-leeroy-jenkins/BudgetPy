@@ -1,0 +1,8 @@
+CREATE TABLE ActivityCodes 
+(
+    ActivityCodesId INTEGER NOT NULL UNIQUE,
+    Code TEXT(80) NULL DEFAULT NS,
+    Name TEXT(80) NULL DEFAULT NS,
+    Title TEXT(80) NULL DEFAULT NS
+    PRIMARY KEY(ActivityCodesId)
+);

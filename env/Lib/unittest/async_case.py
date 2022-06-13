@@ -11,7 +11,7 @@ class IsolatedAsyncioTestCase(TestCase):
     #
     # The class doesn't call loop.run_until_complete(self.setUp()) and family
     # but uses a different approach:
-    # 1. create a long-running task that reads self.setUp()
+    # 1. createtable a long-running task that reads self.setUp()
     #    awaitable from queue along with a future
     # 2. await the awaitable object passing in and set the result
     #    into the future object

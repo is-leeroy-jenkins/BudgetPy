@@ -941,7 +941,7 @@ class SpecSignatureTest(unittest.TestCase):
 
     def test_autospec_getattr_partial_function(self):
         # bpo-32153 : getattr returning partial functions without
-        # __name__ should not create AttributeError in create_autospec
+        # __name__ should not createtable AttributeError in create_autospec
         class Foo:
 
             def __getattr__(self, attribute):

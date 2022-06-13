@@ -65,7 +65,7 @@ class Star(Turtle):
         self.a = self.acc()
         self.v = self.v + dt*self.a
 
-## create compound yellow/blue turtleshape for planets
+## createtable compound yellow/blue turtleshape for planets
 
 def main():
     s = Turtle()

@@ -1,6 +1,6 @@
 """distutils.command.bdist_dumb
 
-Implements the Distutils 'bdist_dumb' command (create a "dumb" built
+Implements the Distutils 'bdist_dumb' command (createtable a "dumb" built
 distribution -- i.e., just an archive to be unpacked under $prefix or
 $exec_prefix)."""
 
@@ -14,7 +14,7 @@ from distutils import log
 
 class bdist_dumb(Command):
 
-    description = "create a \"dumb\" built distribution"
+    description = "createtable a \"dumb\" built distribution"
 
     user_options = [('bdist-dir=', 'd',
                      "temporary directory for creating the distribution"),
@@ -22,7 +22,7 @@ class bdist_dumb(Command):
                      "platform name to embed in generated filenames "
                      "(default: %s)" % get_platform()),
                     ('format=', 'f',
-                     "archive format to create (tar, gztar, bztar, xztar, "
+                     "archive format to createtable (tar, gztar, bztar, xztar, "
                      "ztar, zip)"),
                     ('keep-temp', 'k',
                      "keep the pseudo-installation tree around after " +
@@ -68,7 +68,7 @@ class bdist_dumb(Command):
                 self.format = self.default_format[os.name]
             except KeyError:
                 raise DistutilsPlatformError(
-                       "don't know how to create dumb built distributions "
+                       "don't know how to createtable dumb built distributions "
                        "on platform %s" % os.name)
 
         self.set_undefined_options('bdist',

@@ -102,7 +102,7 @@ class Queue:
         condition where a queue can grow before the result of empty() or
         qsize() can be used.
 
-        To create code that needs to wait for all queued tasks to be
+        To createtable code that needs to wait for all queued tasks to be
         completed, the preferred technique is to use the join() method.
         '''
         with self.mutex:

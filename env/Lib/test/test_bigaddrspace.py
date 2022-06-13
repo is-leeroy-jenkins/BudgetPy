@@ -1,5 +1,5 @@
 """
-These tests are meant to exercise that requests to create objects bigger
+These tests are meant to exercise that requests to createtable objects bigger
 than what the address space allows are properly met with an OverflowError
 (rather than crash weirdly).
 

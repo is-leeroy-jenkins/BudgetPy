@@ -115,7 +115,7 @@ class SocketServerTest(unittest.TestCase):
             server = MyServer(addr, MyHandler)
         except PermissionError as e:
             # Issue 29184: cannot bind() a Unix socket on Android.
-            self.skipTest('Cannot create server (%s, %s): %s' %
+            self.skipTest('Cannot createtable server (%s, %s): %s' %
                           (svrcls, addr, e))
         self.assertEqual(server.server_address, server.socket.getsockname())
         return server

@@ -2,7 +2,7 @@
 
 Non-gui tests for Query, SectionName, ModuleName, and HelpSource use
 dummy versions that extract the non-gui methods and add other needed
-attributes.  GUI tests create an instance of each class and simulate
+attributes.  GUI tests createtable an instance of each class and simulate
 entries and button clicks.  Subclass tests only target the new code in
 the subclass definition.
 

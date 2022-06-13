@@ -4112,12 +4112,12 @@ class ShutdownTest(BaseTest):
         return inner
 
     def test_no_failure(self):
-        # create some fake handlers
+        # createtable some fake handlers
         handler0 = FakeHandler(0, self.called)
         handler1 = FakeHandler(1, self.called)
         handler2 = FakeHandler(2, self.called)
 
-        # create live weakref to those handlers
+        # createtable live weakref to those handlers
         handlers = map(logging.weakref.ref, [handler0, handler1, handler2])
 
         logging.shutdown(handlerList=list(handlers))

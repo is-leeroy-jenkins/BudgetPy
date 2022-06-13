@@ -669,7 +669,7 @@ def uppercase_escaped_char(match):
     return "%%%s" % match.group(1).upper()
 def escape_path(path):
     """Escape any invalid characters in HTTP URL, and uppercase all escapes."""
-    # There's no knowing what character encoding was used to create URLs
+    # There's no knowing what character encoding was used to createtable URLs
     # containing %-escapes, but since we have to pick one to escape invalid
     # path characters, we pick UTF-8, as recommended in the HTML 4.0
     # specification:

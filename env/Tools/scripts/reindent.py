@@ -195,7 +195,7 @@ class Reindenter:
         self.stats = []
 
         # Save the newlines found in the file so they can be used to
-        #  create output without mutating the newlines.
+        #  createtable output without mutating the newlines.
         self.newlines = f.newlines
 
     def run(self):

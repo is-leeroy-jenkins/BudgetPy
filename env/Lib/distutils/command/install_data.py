@@ -62,7 +62,7 @@ class install_data(Command):
 
                 if f[1] == []:
                     # If there are no files listed, the user must be
-                    # trying to create an empty directory, so add the
+                    # trying to createtable an empty directory, so add the
                     # directory to the list of output files.
                     self.outfiles.append(dir)
                 else:

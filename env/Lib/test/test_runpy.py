@@ -121,7 +121,7 @@ class CodeExecutionMixin:
         """Check that an interface runs the example code correctly
 
            First argument is a callable accepting the initial globals and
-           using them to create the actual namespace
+           using them to createtable the actual namespace
            Second argument is the expected result
         """
         sentinel = object()

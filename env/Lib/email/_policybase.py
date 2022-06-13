@@ -154,7 +154,7 @@ class Policy(_PolicyBase, metaclass=abc.ABCMeta):
                            them. This is used when the message is being
                            serialized by a generator. Default: True.
 
-    message_factory     -- the class to use to create new message objects.
+    message_factory     -- the class to use to createtable new message objects.
                            If the value is None, the default is Message.
 
     """
@@ -206,7 +206,7 @@ class Policy(_PolicyBase, metaclass=abc.ABCMeta):
         the name 'name' equal to the value returned, a ValueError is raised.
 
         Because the default behavior of Message's __setitem__ is to append the
-        value to the list of headers, it is easy to create duplicate headers
+        value to the list of headers, it is easy to createtable duplicate headers
         without realizing it.  This method allows certain headers to be limited
         in the number of instances of that header that may be added to a
         Message programmatically.  (The limit is not observed by the parser,
