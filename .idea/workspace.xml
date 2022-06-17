@@ -8,30 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/INSTALLER" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/INSTALLER" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/METADATA" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/METADATA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/WHEEL" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/entry_points.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/entry_points.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.1.dist-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI/PySimpleGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI/PySimpleGUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/~illow-9.1.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/~illow-9.1.0.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/~illow-9.1.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/~illow-9.1.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/~illow-9.1.0.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/~illow-9.1.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/~illow-9.1.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/~illow-9.1.0.dist-info/zip-safe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/tkinter/font.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/tkinter/font.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/psghelp.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/psgissue.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/psgmain.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/psgsettings.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/psgupgrade.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/psgver.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,24 +90,24 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy/env/python.exe",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/teppler/source/repos/BudgetPy/env/python.exe&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\env\python.exe" working-directory="$PROJECT_DIR$">
@@ -187,13 +164,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00185" summary="updates from main rig;">
-      <created>1653243023872</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1653243023872</updated>
     </task>
     <task id="LOCAL-00186" summary="updates from main rig;">
       <created>1653243272441</created>
@@ -531,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655129110046</updated>
     </task>
-    <option name="localTasksCounter" value="234" />
+    <task id="LOCAL-00234" summary="updates from main rig;">
+      <created>1655161828627</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1655161828627</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
