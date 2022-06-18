@@ -4006,7 +4006,7 @@ class Image:
             if callable(v):
                 v = self._register(v)
             options = options + ('-'+k, v)
-        self.tk.call(('image', 'createtable', imgtype, name,) + options)
+        self.tk.call(('image', 'create', imgtype, name,) + options)
         self.name = name
 
     def __str__(self): return self.name

@@ -49,12 +49,22 @@ class Error( Exception ):
         if isinstance( value, str ) and value != '':
             self.__method = value
 
+    @property
+    def stacktrace( self ):
+        if isinstance( self.__info, str ) and self.__info != '':
+            return self.__info
+
+    @stacktrace.setter
+    def stacktrace( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__info = value
+
     def __init__( self, message, cause = '', method = '' ):
         super( ).__init__( )
-        self.__message = message if isinstance( message, str ) and message != '' else None
-        self.__cause = cause if isinstance( cause, str ) and cause != '' else None
-        self.__method = method if isinstance( method, str ) and method != '' else None
-        self.__info = exc_info( )
+        self.__message = 'BUDGET EXECUTION ERROR!'
+        self.__cause = cause if isinstance( cause, str ) else None
+        self.__method = method if isinstance( method, str ) else None
+        self.__info = exc_info( )[ 0 ] + ': ' + exc_info( )[ 2 ] if isinstance( exc_info, tuple ) else None
 
 
 # ButtonIcon( png )
@@ -450,25 +460,33 @@ class FolderDialog( Sith ):
             return self.__filepath
 
     def show( self ):
-        layout = [ [ sg.Text( r'' ) ],
-           [ sg.Text( 'Search for Directory' ) ],
-           [ sg.Text( r'' ) ],
-           [ sg.Input( ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
-           [ sg.Text( r'', size = ( 100, 1 ) ) ],
-           [ sg.Text( r'', size = ( 100, 1 ) ) ],
-           [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
+        try:
+            layout = [ [ sg.Text( r'' ) ],
+               [ sg.Text( 'Search for Directory' ) ],
+               [ sg.Text( r'' ) ],
+               [ sg.Input( ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
+               [ sg.Text( r'', size = ( 100, 1 ) ) ],
+               [ sg.Text( r'', size = ( 100, 1 ) ) ],
+               [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
-        window = sg.Window( '  Budget Execution', layout,
-            font = self.__themefont,
-            icon = self.__icon,
-            size = self.__formsize )
+            window = sg.Window( '  Budget Execution', layout,
+                font = self.__themefont,
+                icon = self.__icon,
+                size = self.__formsize )
 
-        while True:
-            event, values = window.read( )
-            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
-                break
+            while True:
+                event, values = window.read( )
+                if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
+                    break
 
-        window.close( )
+            window.close( )
+        except Exception as e:
+            exc = Error( e )
+            exc.cause = 'FolderDialog'
+            exc.method = 'show( self )'
+            error  = ErrorDialog( exc )
+            error.show( )
+
 
 
 # SaveFileDialog( path )
@@ -839,6 +857,7 @@ class MessageDialog( Sith ):
 class ErrorDialog( Sith ):
     '''class that displays error message'''
     __message = None
+    __info = None
     __cause = None
     __method = None
     __exception = None
@@ -874,13 +893,14 @@ class ErrorDialog( Sith ):
         if isinstance( value, str ) and value != '':
             self.__message = value
 
-    def __init__( self, exception = None ):
+    def __init__( self, exception ):
         super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__exception = exception if isinstance( exception, Error ) else None
-        self.__message = self.__exception.message if isinstance( exception, Error ) else None
-        self.__cause = self.__exception.cause if isinstance( exception, Error ) else ''
-        self.__method = self.__exception.method if isinstance( exception, Error ) else ''
+        self.__message = exception.message if isinstance( exception, Error ) else None
+        self.__info = exception.stacktrace if isinstance( exception, Error ) else None
+        self.__cause = exception.cause if isinstance( exception, Error ) else None
+        self.__method = exception.method if isinstance( exception, Error ) else None
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
         self.__elementbackcolor = Sith( ).elementbackcolor
@@ -897,18 +917,20 @@ class ErrorDialog( Sith ):
             return self.__message
 
     def show( self ):
-        msg = self.__message if isinstance( self.__message, str ) and self.__message != '' else None
-        red = '#520B0E'
-        layout = [ [ sg.Text( f'{ msg }', size = ( 10, 1 ) ) ],
+        msg = self.__message if isinstance( self.__message, str) and self.__message != '' else None
+        info = self.__info if not None else self.__message
+        red = '#F70202'
+        font = ( 'Roboto', 10 )
+        layout = [ [ sg.Text( f'{ msg }', size = ( 100, 1 ), text_color = red, font = font ) ],
            [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 80, 1 ) ) ],
            [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 80, 1 ) ) ],
            [ sg.Text( r'', size = ( 150, 1 ) ) ],
-           [ sg.Multiline( self.__message, size = ( 80, 7 ) ) ],
+           [ sg.Multiline( self.__info, size = ( 80, 7 ) ) ],
            [ sg.Text( r'' ) ],
            [ sg.Text( r'', size = ( 20, 1 ) ), sg.Cancel( size = ( 15, 1 ) ),
              sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
 
-        window = sg.Window( r'  Budget Execution', layout,
+        window = sg.Window( r'  Ooopsie', layout,
             icon = self.__icon,
             font = self.__themefont,
             size = self.__formsize )
@@ -1598,16 +1620,16 @@ class Notification( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\notification\NotifyNinja.png'
+        self.__image = r'etc\img\app\notification\NotifyNinja.png'
         self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
         return sg.popup_notify( self.__message,
             title = ' ' + 'Budget Execution',
             icon = self.__image,
-            display_duration_in_ms = 9000,
+            display_duration_in_ms = 10000,
             fade_in_duration = 5000,
-            alpha = 1 )
+            alpha = 0.5 )
 
 
 

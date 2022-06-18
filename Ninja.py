@@ -132,41 +132,62 @@ class DataConfig( ):
             return False
 
     def getdriver( self ):
-        if self.__provider.name == Provider.SQLite.name:
-            return self.getpath( )
-        elif self.__provider.name == Provider.Access.name:
-            return self.__accessdriver
-        elif self.__provider.name == Provider.SqlServer.name:
-            return self.__sqldriver
-        else:
-            return self.__sqlitedriver
+        try:
+            if self.__provider.name == Provider.SQLite.name:
+                return self.getpath( )
+            elif self.__provider.name == Provider.Access.name:
+                return self.__accessdriver
+            elif self.__provider.name == Provider.SqlServer.name:
+                return self.__sqldriver
+            else:
+                return self.__sqlitedriver
+        except Exception as e:
+            exc = Error( e )
+            exc.cause = 'DataConfig Class'
+            exc.method = 'getdriver( self )'
+            error  = ErrorDialog( exc )
+            error.show( )
 
     def getpath( self ):
-        if self.__provider == Provider.SQLite and self.isreferencemodel( ):
-            return self.__sqlitereferencepath
-        elif self.__provider == Provider.SQLite and self.isdatamodel( ):
-            return self.__sqlitedatapath
-        elif self.__provider == Provider.Access and self.isdatamodel( ):
-            return self.__accessdatapath
-        elif self.__provider == Provider.Access and self.isreferencemodel( ):
-            return self.__accessreferencepath
-        elif self.__provider == Provider.SqlServer and self.isdatamodel( ):
-            return self.__sqldatapath
-        elif self.__provider == Provider.SqlServer and self.isreferencemodel( ):
-            return self.__sqlreferencepath
-        else:
-            return self.__sqlitedatapath
+        try:
+            if self.__provider == Provider.SQLite and self.isreferencemodel( ):
+                return self.__sqlitereferencepath
+            elif self.__provider == Provider.SQLite and self.isdatamodel( ):
+                return self.__sqlitedatapath
+            elif self.__provider == Provider.Access and self.isdatamodel( ):
+                return self.__accessdatapath
+            elif self.__provider == Provider.Access and self.isreferencemodel( ):
+                return self.__accessreferencepath
+            elif self.__provider == Provider.SqlServer and self.isdatamodel( ):
+                return self.__sqldatapath
+            elif self.__provider == Provider.SqlServer and self.isreferencemodel( ):
+                return self.__sqlreferencepath
+            else:
+                return self.__sqlitedatapath
+        except Exception as e:
+            exc = Error( e )
+            exc.cause = 'DataConfig Class'
+            exc.method = 'getpath( self )'
+            error  = ErrorDialog( exc )
+            error.show( )
 
     def getconnectionstring( self ):
-        path = self.getpath()
-        if self.__provider.name == Provider.Access.name:
-            return self.getdriver() + path
-        elif self.__provider.name == Provider.SqlServer.name:
-            return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
-                          + f'AttachDBFileName={ path }' \
-                          + f'DATABASE={ path }Trusted_Connection=yes;'
-        else:
-            return f'{ path } '
+        try:
+            path = self.getpath()
+            if self.__provider.name == Provider.Access.name:
+                return self.getdriver() + path
+            elif self.__provider.name == Provider.SqlServer.name:
+                return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
+                              + f'AttachDBFileName={ path }' \
+                              + f'DATABASE={ path }Trusted_Connection=yes;'
+            else:
+                return f'{ path } '
+        except Exception as e:
+            exc = Error( e )
+            exc.cause = 'DataConfig Class'
+            exc.method = 'getconnectionstring( self )'
+            error  = ErrorDialog( exc )
+            error.show( )
 
 
 # DataConnection( dataconfig )
