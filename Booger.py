@@ -295,7 +295,7 @@ class Sith( ):
         self.__inputforecolor = '#FFFFFF'
         self.__inputbackcolor = '#282828'
         self.__buttoncolor = '#163754'
-        self.__icon = r'C:\Users\terry\source\repos\BudgetPy\etc\ico\ninja.ico'
+        self.__icon = r'etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__scrollbar = '#A87C03'
         self.__progressbar = '#18ADF2'
@@ -619,7 +619,7 @@ class GoogleDialog( Sith ):
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\google.png'
+        self.__image = r'etc\img\app\web\google.png'
         self.__querytext = None
         self.__results = [ ]
 
@@ -629,7 +629,7 @@ class GoogleDialog( Sith ):
 
     def show( self ):
         layout =  [ [ sg.Text( r'' ) ],
-            [ sg.Image( filename = self.__image ) ],
+            [ sg.Image( source = self.__image ) ],
             [ sg.Text( '', size = ( 10, 1 ) ), sg.Input( '', key = '-QUERY-', size = ( 40, 2 ) ) ],
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
             [ sg.Text( r'', size = ( 100, 1 ) ) ],
