@@ -1932,29 +1932,45 @@ class ItProjectCode( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ITProjectCode'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ITProjectCode'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -2029,29 +2045,45 @@ class SiteProjectCode( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'SiteProjectCode'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'SiteProjectCode'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -2119,29 +2151,45 @@ class StateOrganization( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'StateOrganization'
+            exc.method = 'getdata( self ) '
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'StateOrganization'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -2216,29 +2264,45 @@ class HeadquartersOffice( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'RpioCode', ]
-        v = ( self.__rpiocode, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'RpioCode', ]
+            v = ( self.__rpiocode, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'HeadquartersOffice'
+            exc.method = 'getdata( self ) '
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'HeadquartersOffice'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -2314,29 +2378,45 @@ class HumanResourceOrganization( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'HumanResourceOrganization'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'HumanResourceOrganization'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -2412,29 +2492,45 @@ class ProgramArea( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ProgramArea'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ProgramArea'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -2521,22 +2617,30 @@ class ProgramProject( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ProgramProject'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -2612,37 +2716,53 @@ class ResponsibilityCenter( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
-        provider = Provider.SQLite
-        source = Source.ResponsibilityCenters
-        command = SQL.SELECTALL
-        names = [ 'Code', ]
-        values = ( self.__code, )
-        df = DataBuilder( provider, source, command, names, values )
-        self.__data = df.createtable( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+            provider = Provider.SQLite
+            source = Source.ResponsibilityCenters
+            command = SQL.SELECTALL
+            names = [ 'Code', ]
+            values = ( self.__code, )
+            df = DataBuilder( provider, source, command, names, values )
+            self.__data = df.createtable( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ResponsibilityCenter'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ResponsibilityCenter'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -2718,29 +2838,45 @@ class ResourcePlanningOffice( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ResourcePlanningOffice'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ResourcePlanningOffice'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -3096,23 +3232,39 @@ class ProgramResultsCode( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        command = SQL.SELECTALL
-        names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
-                  'AccountCode', 'BocCode', 'Amount' ]
-        values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
-                   self.__ahcode, self.__accountcode, self.__boccode, self.__amount )
-        db = DataBuilder( provider, source, command, names, values )
-        self.__data = db.createtable( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            command = SQL.SELECTALL
+            names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
+                      'AccountCode', 'BocCode', 'Amount' ]
+            values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+                       self.__ahcode, self.__accountcode, self.__boccode, self.__amount )
+            db = DataBuilder( provider, source, command, names, values )
+            self.__data = db.createtable( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ProgramResultsCode'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'ProgramResultsCode'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -3187,22 +3339,30 @@ class RegionalOffice( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'RegionalOffice'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # SiteProject( code )
@@ -3325,29 +3485,45 @@ class SiteProject( ):
             return self.__name
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'SiteProject'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'SiteProject'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -3488,211 +3664,355 @@ class FederalHoliday( ):
             return self.__name
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'EFY', 'Name', ]
-        v = ( self.__bfy, self.__efy, self.__name, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY', 'Name', ]
+            v = ( self.__bfy, self.__efy, self.__name, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
     def columbusday( self ):
         '''The second Monday in October'''
-        if self.__year is not None:
-            __start = datetime( self.__year, 10, 1 )
-            __end = datetime( self.__year, 10, 31 )
-            __delta = ( __start - __end ).days
-            for i in range( 1, 31 ):
-                d = datetime( self.__year, 10, __start.day + i )
-                if ( 15 < d.day < 28 ) and datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
-                    self.__columbus = datetime( self.__year, 10, d.day )
-                    return self.__columbus
+        try:
+            if self.__year is not None:
+                __start = datetime( self.__year, 10, 1 )
+                __end = datetime( self.__year, 10, 31 )
+                __delta = ( __start - __end ).days
+                for i in range( 1, 31 ):
+                    d = datetime( self.__year, 10, __start.day + i )
+                    if ( 15 < d.day < 28 ) and datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
+                        self.__columbus = datetime( self.__year, 10, d.day )
+                        return self.__columbus
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'columnbusday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def veteransday( self ):
         '''Veterans Day, November 11'''
-        if self.__year is not None:
-            self.__veterans = datetime( self.__year, 11, 11 )
-            return self.__veterans
+        try:
+            if self.__year is not None:
+                self.__veterans = datetime( self.__year, 11, 11 )
+                return self.__veterans
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'veteransday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def thanksgivingday( self ):
         '''The fourth Thursday in November'''
-        if self.__year is not None:
-            __start = datetime( self.__year, 11, 15 )
-            __end = datetime( self.__year, 11, 30 )
-            __delta = ( __start - __end ).days
-            for i in range( 15, 31 ):
-                d = datetime( self.__year, 11, i )
-                if ( 21 < d.day < 31 ) and datetime( self.__year, 11, d.day ).isoweekday( ) == 4:
-                    self.__thanksgiving = datetime( self.__year, 11, d.day )
-                    return self.__thanksgiving
+        try:
+            if self.__year is not None:
+                __start = datetime( self.__year, 11, 15 )
+                __end = datetime( self.__year, 11, 30 )
+                __delta = ( __start - __end ).days
+                for i in range( 15, 31 ):
+                    d = datetime( self.__year, 11, i )
+                    if ( 21 < d.day < 31 ) and datetime( self.__year, 11, d.day ).isoweekday( ) == 4:
+                        self.__thanksgiving = datetime( self.__year, 11, d.day )
+                        return self.__thanksgiving
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'thanksgivingday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def christmasday( self ):
         '''Christmas Day, December 25'''
-        if self.__year is not None:
-            self.__christmas = datetime( self.__year, 12, 25 )
-            return self.__christmas
+        try:
+            if self.__year is not None:
+                self.__christmas = datetime( self.__year, 12, 25 )
+                return self.__christmas
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'christmasday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def newyearsday( self ):
         '''January 1'''
-        if self.__year is not None:
-            self.__newyearsday = datetime( self.__year, 1, 1 )
-            return self.__newyearsday
+        try:
+            if self.__year is not None:
+                self.__newyearsday = datetime( self.__year, 1, 1 )
+                return self.__newyearsday
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'newyearsday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def martinlutherkingday( self ):
         '''The third Monday in January'''
-        if self.__year is not None:
-            __start = datetime( self.__year, 1, 15 )
-            __end = datetime( self.__year, 1, 31 )
-            __delta = ( __start - __end ).days
-            for i in range( __delta ):
-                d = datetime( self.__year, 1, __start.day + i )
-                if ( 15 < d.day < 31) and datetime( self.__year, 1, d.day ).isoweekday( ) == 1:
-                    self.__martinlutherking = datetime( self.__year, 1, d.day )
-                    return self.__martinlutherking
+        try:
+            if self.__year is not None:
+                __start = datetime( self.__year, 1, 15 )
+                __end = datetime( self.__year, 1, 31 )
+                __delta = ( __start - __end ).days
+                for i in range( __delta ):
+                    d = datetime( self.__year, 1, __start.day + i )
+                    if ( 15 < d.day < 31) and datetime( self.__year, 1, d.day ).isoweekday( ) == 1:
+                        self.__martinlutherking = datetime( self.__year, 1, d.day )
+                        return self.__martinlutherking
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'martinlutherkingday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def washingtonsday( self ):
         '''The third Monday in February'''
-        if self.__year is not None:
-            __start = datetime( self.__year, 2, 15 )
-            __end = datetime( self.__year, 2, 28 )
-            __delta = ( __start - __end ).days
-            for i in range( __delta ):
-                d = datetime( self.__year, 2, __start.day + i )
-                if (15 < d.day < 28) and datetime( self.__year, 2, d.day ).isoweekday( ) == 1:
-                    self.__washingtons = datetime( self.__year, 2, d.day )
-                    return self.__washingtons
+        try:
+            if self.__year is not None:
+                __start = datetime( self.__year, 2, 15 )
+                __end = datetime( self.__year, 2, 28 )
+                __delta = ( __start - __end ).days
+                for i in range( __delta ):
+                    d = datetime( self.__year, 2, __start.day + i )
+                    if (15 < d.day < 28) and datetime( self.__year, 2, d.day ).isoweekday( ) == 1:
+                        self.__washingtons = datetime( self.__year, 2, d.day )
+                        return self.__washingtons
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'washingtonsday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def memorialday( self ):
         '''The last Monday in May'''
-        if self.__year is not None:
-            __start = datetime( self.__year, 5, 1 )
-            __end = datetime( self.__year, 5, 31 )
-            __delta = ( __start - __end ).days
-            for i in range( 15, 31 ):
-                d = datetime( self.__year, 5, i )
-                if ( 21 < d.day < 31 ) and datetime( self.__year, 5, d.day ).isoweekday( ) == 1:
-                    self.__memorial = datetime( self.__year, 5, d.day )
-                    return self.__memorial
+        try:
+            if self.__year is not None:
+                __start = datetime( self.__year, 5, 1 )
+                __end = datetime( self.__year, 5, 31 )
+                __delta = ( __start - __end ).days
+                for i in range( 15, 31 ):
+                    d = datetime( self.__year, 5, i )
+                    if ( 21 < d.day < 31 ) and datetime( self.__year, 5, d.day ).isoweekday( ) == 1:
+                        self.__memorial = datetime( self.__year, 5, d.day )
+                        return self.__memorial
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'memorialday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def juneteenthday( self ):
         '''Juneteenth National Independence Day, June 19'''
-        if self.__year is not None:
-            self.__juneteenth = datetime( self.__year, 6, 19 )
-            return self.__juneteenth
+        try:
+            if self.__year is not None:
+                self.__juneteenth = datetime( self.__year, 6, 19 )
+                return self.__juneteenth
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'juneteenthday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def independence( self ):
         '''Independence Day, July 4'''
-        if self.__year is not None:
-            self.__independence = datetime( self.__year, 7, 4 )
-            return self.__independence
+        try:
+            if self.__year is not None:
+                self.__independence = datetime( self.__year, 7, 4 )
+                return self.__independence
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'independence( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def laborday( self ):
         '''The first Monday in September'''
-        if self.__year is not None:
-            __monday = list( )
-            __month = dt.date( self.__year, 9, 1 ) - dt.date( self.__year, 9, 31 )
-            for i in range( 1, __month.days - 1 ):
-                if datetime( self.__year, 9, i ).isoweekday( ) == 1:
-                    __monday.append( datetime( self.__year, 9, i ) )
-            y = __monday[ 0 ].date( ).year
-            m = __monday[ 0 ].date( ).month
-            d = __monday[ 0 ].date( ).day
-            self.__labor = datetime( y, m, d )
-            return self.__labor
+        try:
+            if self.__year is not None:
+                __monday = list( )
+                __month = dt.date( self.__year, 9, 1 ) - dt.date( self.__year, 9, 31 )
+                for i in range( 1, __month.days - 1 ):
+                    if datetime( self.__year, 9, i ).isoweekday( ) == 1:
+                        __monday.append( datetime( self.__year, 9, i ) )
+                y = __monday[ 0 ].date( ).year
+                m = __monday[ 0 ].date( ).month
+                d = __monday[ 0 ].date( ).day
+                self.__labor = datetime( y, m, d )
+                return self.__labor
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'laborday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def dayofweek( self ):
-        if 0 < self.__day < 8 and  self.__day == 1:
-            self.__dayofweek = 'Monday'
-            return self.__dayofweek
-        elif 0 <  self.__day < 8 and  self.__day == 2:
-            self.__dayofweek = 'Tuesday'
-            return self.__dayofweek
-        elif 0 < self.__day < 8 and self.__day == 3:
-            self.__dayofweek = 'Wednesday'
-            return self.__dayofweek
-        elif 0 < self.__day < 8 and self.__day == 4:
-            self.__dayofweek = 'Thursday'
-            return self.__dayofweek
-        elif 0 < self.__day < 8 and self.__day == 5:
-            self.__dayofweek = 'Friday'
-            return self.__dayofweek
-        elif 0 < self.__day < 8 and self.__day == 6:
-            self.__dayofweek = 'Saturday'
-            return self.__dayofweek
-        elif 0 < self.__day < 8 and self.__day == 7:
-            self.__dayofweek = 'Sunday'
-            return self.__dayofweek
+        try:
+            if 0 < self.__day < 8 and  self.__day == 1:
+                self.__dayofweek = 'Monday'
+                return self.__dayofweek
+            elif 0 <  self.__day < 8 and  self.__day == 2:
+                self.__dayofweek = 'Tuesday'
+                return self.__dayofweek
+            elif 0 < self.__day < 8 and self.__day == 3:
+                self.__dayofweek = 'Wednesday'
+                return self.__dayofweek
+            elif 0 < self.__day < 8 and self.__day == 4:
+                self.__dayofweek = 'Thursday'
+                return self.__dayofweek
+            elif 0 < self.__day < 8 and self.__day == 5:
+                self.__dayofweek = 'Friday'
+                return self.__dayofweek
+            elif 0 < self.__day < 8 and self.__day == 6:
+                self.__dayofweek = 'Saturday'
+                return self.__dayofweek
+            elif 0 < self.__day < 8 and self.__day == 7:
+                self.__dayofweek = 'Sunday'
+                return self.__dayofweek
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'dayofweek( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def isweekday( self ):
-        if 1 <= self.__date.isoweekday() <= 5:
-            return True
-        else:
-            return False
+        try:
+            if 1 <= self.__date.isoweekday() <= 5:
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'isweekday( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def isweekend( self ):
-        if 5 < self.__date.isoweekday() <= 7:
-            return True
-        else:
-            return False
+        try:
+            if 5 < self.__date.isoweekday() <= 7:
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'isweekend( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def setdate( self, name ):
-        if isinstance( name, str ) and name in self.__list:
-            if name == 'Columbus':
-                self.__date = self.columbusday( )
-                return self.__date
-            elif name == 'Veterans':
-                self.__date = self.veteransday( )
-                return self.__date
-            elif name == 'Thanksgiving':
-                self.__date = self.thanksgivingday( )
-                return self.__date
-            elif name == 'Christmas':
-                self.__date = self.christmasday( )
-                return self.__date
-            elif name == 'NewYearsDay':
-                self.__date = self.newyearsday( )
-                return self.__date
-            elif name == 'MartinLutherKing':
-                self.__date = self.martinlutherkingday( )
-                return self.__date
-            elif name == 'Washingtons':
-                self.__date = self.washingtonsday( )
-                return self.__date
-            elif name == 'Memorial':
-                self.__date = self.memorialday( )
-                return self.__date
-            elif name == 'Juneteenth':
-                self.__date = self.juneteenthday( )
-                return self.__date
-            elif name == 'Labor':
-                self.__date = self.laborday( )
-                return self.__date
+        try:
+            if isinstance( name, str ) and name in self.__list:
+                if name == 'Columbus':
+                    self.__date = self.columbusday( )
+                    return self.__date
+                elif name == 'Veterans':
+                    self.__date = self.veteransday( )
+                    return self.__date
+                elif name == 'Thanksgiving':
+                    self.__date = self.thanksgivingday( )
+                    return self.__date
+                elif name == 'Christmas':
+                    self.__date = self.christmasday( )
+                    return self.__date
+                elif name == 'NewYearsDay':
+                    self.__date = self.newyearsday( )
+                    return self.__date
+                elif name == 'MartinLutherKing':
+                    self.__date = self.martinlutherkingday( )
+                    return self.__date
+                elif name == 'Washingtons':
+                    self.__date = self.washingtonsday( )
+                    return self.__date
+                elif name == 'Memorial':
+                    self.__date = self.memorialday( )
+                    return self.__date
+                elif name == 'Juneteenth':
+                    self.__date = self.juneteenthday( )
+                    return self.__date
+                elif name == 'Labor':
+                    self.__date = self.laborday( )
+                    return self.__date
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'setdate( self, name )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def setname( self, name ):
-        if isinstance( name, str ) and name in self.__list:
-            self.__name = name
-            return self.__name
-        else:
-            self.__name = 'NS'
-            return self.__name
+        try:
+            if isinstance( name, str ) and name in self.__list:
+                self.__name = name
+                return self.__name
+            else:
+                self.__name = 'NS'
+                return self.__name
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'FederalHoliday'
+            exc.method = 'setname( self, name  ) '
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # TreasurySymbol( bfy, efy, code )
@@ -3784,30 +4104,46 @@ class TreasurySymbol( ):
             return self.__treasuryaccountname
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        command = SQL.SELECTALL
-        n = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
-        v = ( self.__bfy, self.__efy, self.__treasuryaccountcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            command = SQL.SELECTALL
+            n = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
+            v = ( self.__bfy, self.__efy, self.__treasuryaccountcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'TreasurySymbol'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'TreasurySymbol'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -3883,29 +4219,45 @@ class WorkCode( ):
             return self.__code
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Code', ]
-        v = ( self.__code, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code', ]
+            v = ( self.__code, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'WorkCode'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'WorkCode'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
