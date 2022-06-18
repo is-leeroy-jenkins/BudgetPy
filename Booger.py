@@ -8,7 +8,7 @@ from datetime import datetime, date
 import random
 import io
 from googlesearch import search
-from Minion import App, Client
+from Minion import *
 
 
 # Error( message )

@@ -1,6 +1,7 @@
 import subprocess as sp
 import os
 from Static import Client
+from Booger import *
 
 
 class App( ):
@@ -53,34 +54,50 @@ class App( ):
 
     def run( self ):
         '''instance method that runs a client program with know path'''
-        if isinstance( self.__app, Client ) and self.__app == Client.SQLite:
-            sp.Popen( self.__sqliteclient )
-        elif isinstance( self.__app, Client ) and self.__app == Client.Access:
-            sp.Popen( self.__accessclient )
-        elif isinstance( self.__app, Client ) and self.__app == Client.Excel:
-            sp.Popen( self.__excelapp )
-        elif isinstance( self.__app, Client ) and self.__app == Client.Edge:
-            sp.Popen( self.__edge )
-        elif isinstance( self.__app, Client ) and self.__app == Client.Chrome:
-            sp.Popen( self.__chrome )
-        elif isinstance( self.__app, Client ) and self.__app == Client.ControlPanel:
-            sp.Popen( self.__control )
-        elif isinstance( self.__app, Client ) and self.__app == Client.Calculator:
-            sp.Popen( self.__calculator )
+        try:
+            if isinstance( self.__app, Client ) and self.__app == Client.SQLite:
+                sp.Popen( self.__sqliteclient )
+            elif isinstance( self.__app, Client ) and self.__app == Client.Access:
+                sp.Popen( self.__accessclient )
+            elif isinstance( self.__app, Client ) and self.__app == Client.Excel:
+                sp.Popen( self.__excelapp )
+            elif isinstance( self.__app, Client ) and self.__app == Client.Edge:
+                sp.Popen( self.__edge )
+            elif isinstance( self.__app, Client ) and self.__app == Client.Chrome:
+                sp.Popen( self.__chrome )
+            elif isinstance( self.__app, Client ) and self.__app == Client.ControlPanel:
+                sp.Popen( self.__control )
+            elif isinstance( self.__app, Client ) and self.__app == Client.Calculator:
+                sp.Popen( self.__calculator )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Minion'
+            exc.cause = 'App'
+            exc.method = 'run( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def runargs( self, args ):
         '''runargs( args ) instance method that runs client application with provided string 'args' '''
-        if isinstance( args, str ) and self.__app == Client.SQLite:
-            if os.path.isfile( args ):
-                sp.Popen( [ self.__sqliteclient, args ] )
-        elif isinstance( args, str ) and self.__app == Client.Access:
-            if os.path.isfile( args ):
-                sp.Popen( [ self.__accessclient, args ] )
-        elif isinstance( args, str ) and self.__app == Client.Excel:
-            if os.path.isfile( args ):
-                sp.Popen( [ self.__excelapp, args ] )
-        elif isinstance( args, str ) and self.__app == Client.Edge:
-                sp.Popen( args )
-        elif isinstance( args, str ) and self.__app == Client.Chrome:
-                sp.Popen( [ self.__chrome, args ] )
+        try:
+            if isinstance( args, str ) and self.__app == Client.SQLite:
+                if os.path.isfile( args ):
+                    sp.Popen( [ self.__sqliteclient, args ] )
+            elif isinstance( args, str ) and self.__app == Client.Access:
+                if os.path.isfile( args ):
+                    sp.Popen( [ self.__accessclient, args ] )
+            elif isinstance( args, str ) and self.__app == Client.Excel:
+                if os.path.isfile( args ):
+                    sp.Popen( [ self.__excelapp, args ] )
+            elif isinstance( args, str ) and self.__app == Client.Edge:
+                    sp.Popen( args )
+            elif isinstance( args, str ) and self.__app == Client.Chrome:
+                    sp.Popen( [ self.__chrome, args ] )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Minion'
+            exc.cause = 'App'
+            exc.method = 'runargs( self, args )'
+            err = ErrorDialog( exc )
+            err.show( )
 
