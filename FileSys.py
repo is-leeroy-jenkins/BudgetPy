@@ -18,6 +18,9 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 from openpyxl.utils import units
 from Static import Source, Provider, SQL, Model
 import enum
+from Booger import Error, ErrorDialog
+import sys
+from sys import exc_info
 
 # BudgetPath( folderpath )
 class BudgetPath( ):
@@ -97,43 +100,99 @@ class BudgetPath( ):
            return str( self.__path )
 
     def exists( self ):
-        if os.path.exists( self.__infile ):
-            return True
-        else:
-            return False
+        try:
+            if os.path.exists( self.__infile ):
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'exists( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def isfolder( self ):
-        if os.path.isdir( self.__infile ):
-            return True
-        else:
-            return False
+        try:
+            if os.path.isdir( self.__infile ):
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'isfolder( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def isfile( self ):
-        if os.path.isfile( self.__infile ):
-            return True
-        else:
-            return False
+        try:
+            if os.path.isfile( self.__infile ):
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'isfile( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def verify( self, other ):
         '''Verifies if the parameter 'other' exists'''
-        if os.path.exists( other ):
-            return True
-        else:
-            return False
+        try:
+            if os.path.exists( other ):
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'verify( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getextension( self, other ):
         '''Returns string representing the file extension of 'other' '''
-        if isinstance( other, str ) and os.path.exists( other ):
-            return  os.path.splitext( other )[ 1 ]
+        try:
+            if isinstance( other, str ) and os.path.exists( other ):
+                return  os.path.splitext( other )[ 1 ]
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'getextension( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getreportpath( self ):
-        if isinstance( self.__report, str ):
-            return self.__report
+        try:
+            if isinstance( self.__report, str ):
+                return self.__report
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'getreportpath( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def join( self, first, second ):
         ''' Concatenates 'first' to 'second' '''
-        if os.path.exists( first ) and os.path.exists( second ):
-            return os.path.join( first, second )
+        try:
+            if os.path.exists( first ) and os.path.exists( second ):
+                return os.path.join( first, second )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'join( self, first, second )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 class SqlPath( ):
@@ -343,35 +402,43 @@ class SqlFile( ):
 
     def getpath( self ):
         '''Returns the absolute path of the SQL file'''
-        sqlpath = SqlPath( )
-        data = self.__data
-        references = self.__references
-        provider = self.__provider.name
-        source = self.__source.name
-        command = self.__command.name
-        current = os.getcwd( )
-        path = ''
-        if provider == 'SQLite' and source in data:
-            path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
-            return os.path.join( current, path )
-        elif provider == 'SQLite' and source in references:
-            path = f'{ sqlpath.sqlitereference }\\{ command }\\{ source }.sql'
-            return os.path.join( current, path )
-        elif provider == 'Access' and source in data:
-            path = f'{ sqlpath.accessdata }\\{ command }\\{ source }.sql'
-            return os.path.join( current, path )
-        elif provider == 'Access' and source in references:
-            path = f'{ sqlpath.accessreference }\\{ command }\\{ source }.sql'
-            return os.path.join( current, path )
-        elif provider == 'SqlServer' and source in data:
-            path = f'{ sqlpath.sqldata }\\{ command }\\{ source }.sql'
-            return os.path.join( current, path )
-        elif provider == 'SqlServer' and source in references:
-            path = f'{ sqlpath.sqlreference }\\{ command }\\{ source }.sql'
-            return os.path.join( current, path )
-        else:
-            path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
-            return os.path.join( current, path )
+        try:
+            sqlpath = SqlPath( )
+            data = self.__data
+            references = self.__references
+            provider = self.__provider.name
+            source = self.__source.name
+            command = self.__command.name
+            current = os.getcwd( )
+            path = ''
+            if provider == 'SQLite' and source in data:
+                path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'SQLite' and source in references:
+                path = f'{ sqlpath.sqlitereference }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'Access' and source in data:
+                path = f'{ sqlpath.accessdata }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'Access' and source in references:
+                path = f'{ sqlpath.accessreference }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'SqlServer' and source in data:
+                path = f'{ sqlpath.sqldata }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'SqlServer' and source in references:
+                path = f'{ sqlpath.sqlreference }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            else:
+                path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'SqlFile'
+            exc.method = 'getpath( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
     def getdirectory( self ):
@@ -409,17 +476,24 @@ class SqlFile( ):
 
     def getquery( self ):
         '''Returns the text of the SQL file'''
-        source = self.__source.name
-        paths = self.getpath( )
-        folder = self.getdirectory( )
-        sql = ''
-        for name in os.listdir( folder ):
-            if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
-                path = os.path.join( folder, name )
-                query = open( path )
-                sql = query.read( )
-                return sql
-
+        try:
+            source = self.__source.name
+            paths = self.getpath( )
+            folder = self.getdirectory( )
+            sql = ''
+            for name in os.listdir( folder ):
+                if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
+                    path = os.path.join( folder, name )
+                    query = open( path )
+                    sql = query.read( )
+                    return sql
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'rename( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # BudgetFile( filepath )
@@ -582,94 +656,190 @@ class BudgetFile( ):
 
     def rename( self, other ):
         '''Renames the currentdirectory file to 'other' '''
-        if isinstance( other, str ) and not other == '':
-            src = os.path.abspath( self.__path )
-            dst = os.path.join( self.directory, other )
-            os.rename( src, dst )
-            return dst
+        try:
+            if isinstance( other, str ) and not other == '':
+                src = os.path.abspath( self.__path )
+                dst = os.path.join( self.directory, other )
+                os.rename( src, dst )
+                return dst
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'rename( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def move( self, destination ):
         '''renames currentdirectory file'''
-        if os.path.isdir( destination ):
-            return os.path.join( self.__name, destination )
+        try:
+            if os.path.isdir( destination ):
+                return os.path.join( self.__name, destination )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'move( self, destination )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def create( self, other, lines = None ):
         ''' creates and returns 'folderpath' file '''
-        if isinstance( other, str ):
-            newfile = open( other, 'r+' )
-            if isinstance( lines, list ) and len( lines ) > 0:
-                for line in lines:
-                    newfile.write( line )
+        try:
+            if isinstance( other, str ):
+                newfile = open( other, 'r+' )
+                if isinstance( lines, list ) and len( lines ) > 0:
+                    for line in lines:
+                        newfile.write( line )
 
-                newfile.flush( )
+                    newfile.flush( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'create( self, other, lines = None )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def verify( self, other ):
         '''determines if an external file exists'''
-        if other is not None:
-            return os.path.exists( other )
+        try:
+            if other is not None:
+                return os.path.exists( other )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'verify( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def delete( self, other ):
         ''' deletes file at 'self.__filepath'   '''
-        if os.path.isfile( other ):
-            os.remove( other )
+        try:
+            if os.path.isfile( other ):
+                os.remove( other )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'delete( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getsize( self, other ):
         '''gets the size of another file'''
-        if self.__path is not None and os.path.isfile( other ):
-            return os.path.getsize( other )
+        try:
+            if self.__path is not None and os.path.isfile( other ):
+                return os.path.getsize( other )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'getsize( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getdrive( self, other ):
         '''gets the drive of another file'''
-        if os.path.exists( other ):
-            return str( list( os.path.splitdrive( other ) )[ 0 ] )
+        try:
+            if os.path.exists( other ):
+                return str( list( os.path.splitdrive( other ) )[ 0 ] )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'getdrive( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getextension( self, other ):
         ''' gets and returns extension of 'folderpath' 'file' '''
-        if other is not None and os.path.isfile( other ):
-            return str( list( os.path.splitext( other ) )[ 1 ] )
+        try:
+            if other is not None and os.path.isfile( other ):
+                return str( list( os.path.splitext( other ) )[ 1 ] )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'getextension( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def readlines( self, other ):
         '''reads all lines in 'other' into a list
             then returns the list '''
-        if os.path.isfile( other ):
-            file = open( other, 'r' )
-            contents = file.readlines( )
-            file.close( )
-            return contents
+        try:
+            if os.path.isfile( other ):
+                file = open( other, 'r' )
+                contents = file.readlines( )
+                file.close( )
+                return contents
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'realines( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def readall( self, other ):
         '''reads a single line from the file into a string
             then returns the string'''
-        contents = ''
-        if os.path.isfile( other ):
-            file = open( other, 'r' )
-            contents = file.read( )
-            file.close( )
-            return contents
+        try:
+            contents = ''
+            if os.path.isfile( other ):
+                file = open( other, 'r' )
+                contents = file.read( )
+                file.close( )
+                return contents
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'readall( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def writelines( self, lines = None ):
         ''' writes the contents of 'lines' to self.__contents '''
-        if isinstance( lines, list ):
-            path = os.path.relpath( self.__path )
-            contents = open( path, 'a' )
-            for line in lines:
-                contents.write( line )
-            contents.flush( )
-            return contents
+        try:
+            if isinstance( lines, list ):
+                path = os.path.relpath( self.__path )
+                contents = open( path, 'a' )
+                for line in lines:
+                    contents.write( line )
+                contents.flush( )
+                return contents
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'writelines( self, lines = None )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def writeall( self, other ):
         ''' writes the contents of 'lines' to self.__contents '''
-        contents = [ ]
-        lines = [ ]
-        if os.path.isfile( other ):
-            path = os.path.relpath( self.__path )
-            contents = open( path, 'a' )
-            lines = open( other, 'r' )
-            for line in lines.readlines( ):
-                contents.write( line )
-            contents.flush( )
-            lines.close( )
-            return contents
+        try:
+            contents = [ ]
+            lines = [ ]
+            if os.path.isfile( other ):
+                path = os.path.relpath( self.__path )
+                contents = open( path, 'a' )
+                lines = open( other, 'r' )
+                for line in lines.readlines( ):
+                    contents.write( line )
+                contents.flush( )
+                lines.close( )
+                return contents
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFile'
+            exc.method = 'writeall( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # BudgetFolder( folderpath )
@@ -772,79 +942,167 @@ class BudgetFolder( ):
     def getsubfiles( self ):
         '''Iterates subfolders in the base directory
         and returns a list of subfile paths'''
-        filenames = os.listdir( self.__absolute )
-        files = [ ]
-        for file in filenames:
-                path = os.path.join( self.__absolute, file )
-                files.append( path )
+        try:
+            filenames = os.listdir( self.__absolute )
+            files = [ ]
+            for file in filenames:
+                    path = os.path.join( self.__absolute, file )
+                    files.append( path )
 
-        return filenames
+            return filenames
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'getsubfiles( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getsubfolders( self ):
         '''Iterates getsubfolders in the base directory'''
-        current = self.__current
-        abspath = self.__abspath
-        filenames = [ ]
-        for i in os.walk( abspath ):
-            if len( i[ 1 ] ) > 0:
-                for file in i[ 1 ]:
-                    path = os.path.join( abspath, file )
-                    if not os.path.isdir( path ):
-                        filenames.append( path )
+        try:
+            current = self.__current
+            abspath = self.__abspath
+            filenames = [ ]
+            for i in os.walk( abspath ):
+                if len( i[ 1 ] ) > 0:
+                    for file in i[ 1 ]:
+                        path = os.path.join( abspath, file )
+                        if not os.path.isdir( path ):
+                            filenames.append( path )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'getsubfolders( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
         return filenames
 
     def rename( self, new_name ):
         '''renames currentdirectory file'''
-        if self.__name is not None and isinstance( new_name, str ):
-            return os.rename( self.__name, new_name )
+        try:
+            if self.__name is not None and isinstance( new_name, str ):
+                return os.rename( self.__name, new_name )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'rename( self, new_name )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def move( self, destination ):
         '''renames currentdirectory file'''
-        if not destination == '' and not os.path.exists( destination ):
-            return os.path.join( self.__name, destination )
+        try:
+            if not destination == '' and not os.path.exists( destination ):
+                return os.path.join( self.__name, destination )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'move( self, destination )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def exists( self, other ):
         '''determines if the base file exists'''
-        if not other == '' and os.path.isdir( other ):
-            return True
+        try:
+            if not other == '' and os.path.isdir( other ):
+                return True
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'exists( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def create( self, other ):
-        if other is not None:
-            os.mkdir( other )
+        try:
+            if other is not None:
+                os.mkdir( other )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'create( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def delete( self, other ):
         ''' deletes 'folderpath' directory '''
-        if other is not None and os.path.isdir( other ):
-            os.rmdir( other )
+        try:
+            if other is not None and os.path.isdir( other ):
+                os.rmdir( other )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'delete( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getsize( self, other ):
         ''' gets and returns size of 'folderpath' '''
-        if other is not None and os.path.isdir( other ):
-            return os.path.getsize( other )
+        try:
+            if other is not None and os.path.isdir( other ):
+                return os.path.getsize( other )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = ''
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getdrive( self, other ):
         ''' gets and returns parent directory of 'folderpath' '''
-        if other is not None and os.path.isdir( other ):
-            return os.path.splitdrive( other )[ 0 ]
+        try:
+            if other is not None and os.path.isdir( other ):
+                return os.path.splitdrive( other )[ 0 ]
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'getdrive( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def iterate( self ):
         '''iterates getsubfolders in the base directory'''
-        if os.path.isdir( self.__path ):
-            for i in os.scandir( self.__path ):
-                yield i
+        try:
+            if os.path.isdir( self.__path ):
+                for i in os.scandir( self.__path ):
+                    yield i
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'iterate( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getfiles( self, other ):
         '''iterates getsubfolders in the directory provided by 'other' '''
-        if os.path.isdir( other ):
-            names = os.listdir( other )
-            files = [ ]
-            for i in names:
-                file = os.path.join( other, i )
-                if os.path.isfile( file ):
-                    files.append( file )
+        try:
+            if os.path.isdir( other ):
+                names = os.listdir( other )
+                files = [ ]
+                for i in names:
+                    file = os.path.join( other, i )
+                    if os.path.isfile( file ):
+                        files.append( file )
 
-            return files
+                return files
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'getfiles( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # EmailMessage( sender, receiver, body, subject, copy )
@@ -1045,13 +1303,13 @@ class ExcelFile(  ):
     @property
     def workbook( self ):
         ''' Gets the report template '''
-        if isinstance( self.__workbook, xl.Workbook ):
+        if isinstance( self.__workbook, Workbook ):
             return self.__workbook
 
     @workbook.setter
     def workbook( self, value ):
         ''' Gets the report template '''
-        if isinstance( value, xl.Workbook ):
+        if isinstance( value, Workbook ):
             self.__workbook = value
 
     @property
@@ -1078,9 +1336,17 @@ class ExcelFile(  ):
             return self.__path
 
     def save( self ):
-        if isinstance( self.__workbook, xl.Workbook ):
-            name = self.__name
-            self.__workbook.save( name )
+        try:
+            if isinstance( self.__workbook, Workbook ):
+                name = self.__name
+                self.__workbook.save( name )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'ExcelFile'
+            exc.method = 'save( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 # ExcelReport( sheetname, rows = 46, cols = 12 )
 class ExcelReport( ):
@@ -1208,11 +1474,28 @@ class ZipFile( ):
 
     def create( self ):
         ''' Creates zip file'''
-        if not self.__filepath == '':
-            zp.ZipFile( self.__zippath, 'w' ).write( self.__filepath, self.__name )
+        try:
+            if not self.__filepath == '':
+                zp.ZipFile( self.__zippath, 'w' ).write( self.__filepath, self.__name )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'ZipFile'
+            exc.method = 'create( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
 
     def unzip( self ):
         ''' Extracts zip file contents '''
-        if os.path.exists( self.__zippath ):
-            file = zp.ZipFile( self.__zippath )
-            file.extractall( self.__zippath )
+        try:
+            if os.path.exists( self.__zippath ):
+                file = zp.ZipFile( self.__zippath )
+                file.extractall( self.__zippath )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'ZipFile'
+            exc.method = 'unzip( self )'
+            err = ErrorDialog( exc )
+            err.show( )
