@@ -2,6 +2,7 @@ from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 import fitz
 import sys
+import traceback
 from sys import exit, exc_info
 from Ninja import *
 from datetime import datetime, date
@@ -12,11 +13,14 @@ from Minion import App, Client
 
 
 # Error( message )
-class Error( Exception ):
+class Error( AttributeError ):
     '''class provides Error and Exception data'''
-    __cause = None
+    __class = None
+    __module = None
     __method = None
     __message = None
+    __type = None
+    __trace = None
     __info = None
 
     @property
@@ -31,13 +35,13 @@ class Error( Exception ):
 
     @property
     def cause( self ):
-        if isinstance( self.__cause, str ) and self.__cause != '':
-            return self.__cause
+        if isinstance( self.__class, str ) and self.__class != '':
+            return self.__class
 
     @cause.setter
     def cause( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__cause = value
+            self.__class = value
 
     @property
     def method( self ):
@@ -50,21 +54,34 @@ class Error( Exception ):
             self.__method = value
 
     @property
+    def module( self ):
+        if isinstance( self.__module, str ) and self.__module != '':
+            return self.__module
+
+    @module.setter
+    def module( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__module = value
+
+    @property
     def stacktrace( self ):
-        if isinstance( self.__info, str ) and self.__info != '':
-            return self.__info
+        if self.__trace is not None:
+            return self.__trace
 
     @stacktrace.setter
     def stacktrace( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__info = value
+        if isinstance( value, traceback ):
+            self.__trace = value
 
-    def __init__( self, message, cause = '', method = '' ):
+    def __init__( self, message, cause = '', method = '', module = '' ):
         super( ).__init__( )
-        self.__message = 'BUDGET EXECUTION ERROR!'
-        self.__cause = cause if isinstance( cause, str ) else None
-        self.__method = method if isinstance( method, str ) else None
-        self.__info = exc_info( )[ 0 ] + ': ' + exc_info( )[ 2 ] if isinstance( exc_info, tuple ) else None
+        self.__message = 'APPLICATION ERROR!'
+        self.__class = cause if isinstance( cause, str ) and cause != '' else None
+        self.__method = method if isinstance( method, str ) and method != '' else None
+        self.__module = module if isinstance( module, str ) and module != '' else None
+        self.__type = exc_info( )[ 0 ]
+        self.__trace = exc_info( )[ 2 ]
+        self.__info = str( self.__type ) + ': \r\n \r\n' + str( self.__trace )
 
 
 # ButtonIcon( png )
@@ -898,6 +915,7 @@ class ErrorDialog( Sith ):
         self.__themebackground = Sith( ).themebackground
         self.__exception = exception if isinstance( exception, Error ) else None
         self.__message = exception.message if isinstance( exception, Error ) else None
+        self.__module = exception.module if isinstance( exception, Error ) else None
         self.__info = exception.stacktrace if isinstance( exception, Error ) else None
         self.__cause = exception.cause if isinstance( exception, Error ) else None
         self.__method = exception.method if isinstance( exception, Error ) else None
@@ -918,19 +936,19 @@ class ErrorDialog( Sith ):
 
     def show( self ):
         msg = self.__message if isinstance( self.__message, str) and self.__message != '' else None
-        info = self.__info if not None else self.__message
+        info = f'Module:\t{ self.__module }\r\nClass:\t{ self.__cause }\r\n' \
+                f'Method:\t{ self.__method }\r\n \r\n{ self.__info }'
         red = '#F70202'
         font = ( 'Roboto', 10 )
-        layout = [ [ sg.Text( f'{ msg }', size = ( 100, 1 ), text_color = red, font = font ) ],
-           [ sg.Text( 'Source:', size = ( 10, 1 ) ), sg.Text( self.__cause, size = ( 80, 1 ) ) ],
-           [ sg.Text( 'Method:', size = ( 10, 1 ) ), sg.Text( self.__method, size = ( 80, 1 ) ) ],
+        layout = [ [ sg.Text( r'' ) ],
+           [ sg.Text( f'{ msg }', size = ( 100, 1 ), text_color = red, font = font ) ],
            [ sg.Text( r'', size = ( 150, 1 ) ) ],
-           [ sg.Multiline( self.__info, size = ( 80, 7 ) ) ],
+           [ sg.Multiline( f'{ info }', size = ( 80, 7 ) ) ],
            [ sg.Text( r'' ) ],
            [ sg.Text( r'', size = ( 20, 1 ) ), sg.Cancel( size = ( 15, 1 ) ),
              sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
 
-        window = sg.Window( r'  Ooopsie', layout,
+        window = sg.Window( r' Budget Execution', layout,
             icon = self.__icon,
             font = self.__themefont,
             size = self.__formsize )

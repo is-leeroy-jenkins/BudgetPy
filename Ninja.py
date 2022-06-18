@@ -6,6 +6,7 @@ import pyodbc as db
 import os
 from collections import namedtuple as ntuple
 from Static import Source, Provider, SQL, ParamStyle
+from Booger import Error, ErrorDialog
 
 # DataConfig( source, provider )
 class DataConfig( ):
@@ -513,37 +514,45 @@ class SqlStatement( ):
             return self.__commandtext
 
     def getcommandtext( self ):
-        if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-            if self.__command == SQL.SELECTALL:
-                self.__commandtext = f'SELECT * FROM { self.__table }' \
-                                     + f' { self.__sqlconfig.wheredump( ) };'
-                return self.__commandtext
-            elif self.__command == SQL.SELECT:
-                self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
-                                     + f' FROM { self.__table }' \
-                                     + f' { self.__sqlconfig.wheredump( ) };'
-                return self.__commandtext
-            elif self.__command == SQL.INSERT:
-                self.__commandtext = f'INSERT INTO { self.__table } ' \
-                                     + f'{ self.__sqlconfig.columndump( ) } ' \
-                                     + f'{ self.__sqlconfig.valuedump( ) };'
-                return self.__commandtext
-            elif self.__command == SQL.UPDATE:
-                self.__commandtext = f'UPDATE { self.__table } ' \
-                                     + f'{ self.__sqlconfig.setdump( ) } ' \
-                                     + f'{ self.__sqlconfig.valuedump( ) };'
-                return self.__commandtext
-            elif self.__command == SQL.DELETE:
-                self.__commandtext = f'DELETE FROM { self.__table } '\
-                                     + f'{ self.__sqlconfig.wheredump( ) };'
-                return self.__commandtext
-        else:
-            if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
+        try:
+            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__command == SQL.SELECTALL:
-                    self.__commandtext = f'SELECT * FROM { self.__table };'
+                    self.__commandtext = f'SELECT * FROM { self.__table }' \
+                                         + f' { self.__sqlconfig.wheredump( ) };'
                     return self.__commandtext
-            elif self.__command == 'DELETE':
-                self.__commandtext = f'DELETE FROM { self.__table };'
+                elif self.__command == SQL.SELECT:
+                    self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
+                                         + f' FROM { self.__table }' \
+                                         + f' { self.__sqlconfig.wheredump( ) };'
+                    return self.__commandtext
+                elif self.__command == SQL.INSERT:
+                    self.__commandtext = f'INSERT INTO { self.__table } ' \
+                                         + f'{ self.__sqlconfig.columndump( ) } ' \
+                                         + f'{ self.__sqlconfig.valuedump( ) };'
+                    return self.__commandtext
+                elif self.__command == SQL.UPDATE:
+                    self.__commandtext = f'UPDATE { self.__table } ' \
+                                         + f'{ self.__sqlconfig.setdump( ) } ' \
+                                         + f'{ self.__sqlconfig.valuedump( ) };'
+                    return self.__commandtext
+                elif self.__command == SQL.DELETE:
+                    self.__commandtext = f'DELETE FROM { self.__table } '\
+                                         + f'{ self.__sqlconfig.wheredump( ) };'
+                    return self.__commandtext
+            else:
+                if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
+                    if self.__command == SQL.SELECTALL:
+                        self.__commandtext = f'SELECT * FROM { self.__table };'
+                        return self.__commandtext
+                elif self.__command == 'DELETE':
+                    self.__commandtext = f'DELETE FROM { self.__table };'
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlStatement'
+            exc.method = 'getcommandtext( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # Data( connection, sqlstatement )
@@ -704,34 +713,50 @@ class SQLiteQuery( Data ):
             return self.__path
 
     def createtable( self ):
-        src = super( ).source
-        pro = super( ).provider
-        sql = super( ).sqlstatement
-        n = sql.names
-        v = sql.values
-        db = DataConfig( src, pro )
-        cmd = SqlConfig( names = n, values = v )
-        dcnx = DataConnection( db )
-        sql = SqlStatement( db, cmd )
-        sqlite = dcnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            src = super( ).source
+            pro = super( ).provider
+            sql = super( ).sqlstatement
+            n = sql.names
+            v = sql.values
+            db = DataConfig( src, pro )
+            cmd = SqlConfig( names = n, values = v )
+            dcnx = DataConnection( db )
+            sql = SqlStatement( db, cmd )
+            sqlite = dcnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SQLiteQuery'
+            exc.method = 'createtable( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def createframe( self ):
-        src = super( ).source
-        pro = super( ).provider
-        query = f'SELECT * FROM { src.name }'
-        db = DataConfig( src, pro )
-        dcnx = DataConnection( db )
-        sqlite = dcnx.connect( )
-        self.__frame = sqlreader( query, sqlite )
-        sqlite.close( )
-        return self.__frame
+        try:
+            src = super( ).source
+            pro = super( ).provider
+            query = f'SELECT * FROM { src.name }'
+            db = DataConfig( src, pro )
+            dcnx = DataConnection( db )
+            sqlite = dcnx.connect( )
+            self.__frame = sqlreader( query, sqlite )
+            sqlite.close( )
+            return self.__frame
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SQLiteQuery'
+            exc.method = 'createframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # AccessQuery( connection, sqlstatement )
@@ -787,34 +812,50 @@ class AccessQuery( Data ):
             return self.__source.name
 
     def createtable( self ):
-        src = super().source
-        pro = super().provider
-        sql = super().sqlstatement
-        n = sql.names
-        v = sql.values
-        db = DataConfig( src, pro )
-        cmd = SqlConfig( names = n, values = v )
-        dcnx = DataConnection( db )
-        sql = SqlStatement( db, cmd )
-        sqlite = dcnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            src = super().source
+            pro = super().provider
+            sql = super().sqlstatement
+            n = sql.names
+            v = sql.values
+            db = DataConfig( src, pro )
+            cmd = SqlConfig( names = n, values = v )
+            dcnx = DataConnection( db )
+            sql = SqlStatement( db, cmd )
+            sqlite = dcnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'AccessQuery'
+            exc.method = 'createtable( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def createframe( self ):
-        src = super( ).source
-        pro = super( ).provider
-        query = f'SELECT * FROM { src.name }'
-        db = DataConfig( src, pro )
-        dcnx = DataConnection( db )
-        access = dcnx.connect( )
-        self.__frame = sqlreader( query, access )
-        access.close( )
-        return self.__frame
+        try:
+            src = super( ).source
+            pro = super( ).provider
+            query = f'SELECT * FROM { src.name }'
+            db = DataConfig( src, pro )
+            dcnx = DataConnection( db )
+            access = dcnx.connect( )
+            self.__frame = sqlreader( query, access )
+            access.close( )
+            return self.__frame
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'AccessQuery'
+            exc.method = 'createframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # SqlServerQuery( connection, sqlstatement )
@@ -898,7 +939,6 @@ class SqlServerQuery( Data ):
         cursor.close( )
         sqlite.close( )
         return self.__data
-
 
 
 # DataBuilder( provider, source, command, names, values )
@@ -1019,22 +1059,30 @@ class DataBuilder( ):
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
 
     def createtable( self ):
-        if self.__provider == Provider.SQLite:
-            sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
-            return self.__data
-        elif self.__provider == Provider.Access:
-            access = AccessQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in access.getdata( ) ]
-            return self.__data
-        elif self.__provider == Provider.SqlServer:
-            sqlserver = SqlServerQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
-            return self.__data
-        else:
-            sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
-            self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
-            return self.__data
+        try:
+            if self.__provider == Provider.SQLite:
+                sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
+                self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
+                return self.__data
+            elif self.__provider == Provider.Access:
+                access = AccessQuery( self.__connection, self.__sqlstatement )
+                self.__data = [ tuple( i ) for i in access.getdata( ) ]
+                return self.__data
+            elif self.__provider == Provider.SqlServer:
+                sqlserver = SqlServerQuery( self.__connection, self.__sqlstatement )
+                self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
+                return self.__data
+            else:
+                sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
+                self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
+                return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'DataBuilder'
+            exc.method = 'createtable( self )'
+            error = ErrorDialog( exc )
+            error.show( )
 
 
 # DataSchema( name, datatype )
@@ -1539,10 +1587,18 @@ class BudgetData( ):
         self.__sql = f'SELECT * FROM { src.name };'
 
     def getframe( self ):
-        path = self.__path
-        src = self.__source
-        table = src.name
-        conn = sl.connect( path )
-        sql = f'SELECT * FROM { table };'
-        frame = sqlreader( sql, conn )
-        return frame
+        try:
+            path = self.__path
+            src = self.__source
+            table = src.name
+            conn = sl.connect( path )
+            sql = f'SELECT * FROM { table };'
+            frame = sqlreader( sql, conn )
+            return frame
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Booger'
+            exc.cause = 'BudgetData'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
