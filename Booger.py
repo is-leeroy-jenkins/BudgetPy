@@ -4,7 +4,6 @@ import fitz
 import sys
 import traceback
 from sys import exit, exc_info
-from Ninja import *
 from datetime import datetime, date
 import random
 import io
@@ -393,31 +392,39 @@ class FileDialog( Sith ):
             return self.__filepath
 
     def show( self ):
-        layout = [ [ sg.Text( r'' ) ],
-           [ sg.Text( 'Search for File' ) ],
-           [ sg.Text( r'' ) ],
-           [ sg.Input( key = '-PATH-' ), sg.FileBrowse( size = ( 15, 1 ) ) ],
-           [ sg.Text( r'' ) ],
-           [ sg.Text( r'' ) ],
-           [ sg.OK( size = ( 8, 1 ),  ), sg.Cancel( size = ( 10, 1 )  ) ] ]
+        try:
+            layout = [ [ sg.Text( r'' ) ],
+               [ sg.Text( 'Search for File' ) ],
+               [ sg.Text( r'' ) ],
+               [ sg.Input( key = '-PATH-' ), sg.FileBrowse( size = ( 15, 1 ) ) ],
+               [ sg.Text( r'' ) ],
+               [ sg.Text( r'' ) ],
+               [ sg.OK( size = ( 8, 1 ),  ), sg.Cancel( size = ( 10, 1 )  ) ] ]
 
-        window = sg.Window( '  Budget Execution', layout,
-            font = self.__themefont,
-            icon = self.__icon,
-            size = self.__formsize )
+            window = sg.Window( '  Budget Execution', layout,
+                font = self.__themefont,
+                icon = self.__icon,
+                size = self.__formsize )
 
-        while True:
-            event, values = window.read( )
-            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
-                break
-            elif event == 'OK':
-                self.__filepath = values[ '-PATH-' ]
-                sg.popup_ok( self.__filepath,
-                    title = 'Results',
-                    icon = self.__icon,
-                    font = self.__themefont )
+            while True:
+                event, values = window.read( )
+                if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
+                    break
+                elif event == 'OK':
+                    self.__filepath = values[ '-PATH-' ]
+                    sg.popup_ok( self.__filepath,
+                        title = 'Results',
+                        icon = self.__icon,
+                        font = self.__themefont )
 
-        window.close( )
+            window.close( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = ''
+            exc.cause = ''
+            exc.method = ''
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # FolderDialog( ) -> str
@@ -1554,27 +1561,35 @@ class SplashPanel( Sith ):
         self.__timeout = 6000
 
     def show( self ):
-        img = self.__image
-        imgsize = ( 500, 400 )
-        line = ( 100, 2 )
-        space = ( 15, 1 )
-        layout = [ [ sg.Text( '', size = space ), sg.Text( '', size = line ) ],
-                   [ sg.Text( '', size = space ), sg.Text( '', size = line ) ],
-                   [ sg.Text( '', size = space ),
-                        sg.Image( filename = self.__image, size = imgsize ) ] ]
+        try:
+            img = self.__image
+            imgsize = ( 500, 400 )
+            line = ( 100, 2 )
+            space = ( 15, 1 )
+            layout = [ [ sg.Text( '', size = space ), sg.Text( '', size = line ) ],
+                       [ sg.Text( '', size = space ), sg.Text( '', size = line ) ],
+                       [ sg.Text( '', size = space ),
+                            sg.Image( filename = self.__image, size = imgsize ) ] ]
 
-        window = sg.Window( 'Window Title', layout,
-                    no_titlebar = True,
-                    keep_on_top = True,
-                    grab_anywhere = True,
-                    size = self.__formsize )
+            window = sg.Window( 'Window Title', layout,
+                        no_titlebar = True,
+                        keep_on_top = True,
+                        grab_anywhere = True,
+                        size = self.__formsize )
 
-        while True:
-            event, values = window.read( timeout = self.__timeout, close = True )
-            if event in ( sg.WIN_CLOSED, 'Exit' ):
-                break
+            while True:
+                event, values = window.read( timeout = self.__timeout, close = True )
+                if event in ( sg.WIN_CLOSED, 'Exit' ):
+                    break
 
-        window.close()
+            window.close( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Booger'
+            exc.cause = 'SplashPanel'
+            exc.method = 'show( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -1642,12 +1657,20 @@ class Notification( Sith ):
         self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
-        return sg.popup_notify( self.__message,
-            title = ' ' + 'Budget Execution',
-            icon = self.__image,
-            display_duration_in_ms = 10000,
-            fade_in_duration = 5000,
-            alpha = 0.5 )
+        try:
+            return sg.popup_notify( self.__message,
+                title = ' ' + 'Budget Execution',
+                icon = self.__image,
+                display_duration_in_ms = 10000,
+                fade_in_duration = 5000,
+                alpha = 0.5 )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Booger'
+            exc.cause = 'Notification'
+            exc.method = 'show( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -3124,79 +3147,87 @@ class BudgetForm( Sith ):
         self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
 
     def show( self ):
-        blue = '#0C396E'
-        black = '#1E1E1E'
-        BPAD_TOP = ( ( 10, 10 ), ( 10, 5 ) )
-        BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
-        BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
-        BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
-        hdr = 'Roboto 20'
+        try:
+            blue = '#0C396E'
+            black = '#1E1E1E'
+            BPAD_TOP = ( ( 10, 10 ), ( 10, 5 ) )
+            BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+            BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
+            BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
+            hdr = 'Roboto 20'
 
-        top_banner = [
-                [ sg.Text('Budget Execution', font = hdr, background_color = black, enable_events=True, grab=False ), sg.Push(background_color=black ),
-                  sg.Text('Wednesday 27 Oct 2021', font = hdr, background_color = black ) ],
-        ]
+            top_banner = [
+                    [ sg.Text('Budget Execution', font = hdr, background_color = black, enable_events=True, grab=False ), sg.Push(background_color=black ),
+                      sg.Text('Wednesday 27 Oct 2021', font = hdr, background_color = black ) ],
+            ]
 
-        top  = [[sg.Push(), sg.Text('Weather Could Go Here', font = hdr), sg.Push()],
-                [sg.T('This Frame has a relief while the others do not')],
-                [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
+            top  = [[sg.Push(), sg.Text('Weather Could Go Here', font = hdr), sg.Push()],
+                    [sg.T('This Frame has a relief while the others do not')],
+                    [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
 
-        block_3 = [[sg.Text('Block 3', font = hdr )],
-                   [sg.Input(), sg.Text('Some Text')],
-                   [sg.T('This frame has element_justification="c"')],
-                   [sg.Button('Go'), sg.Button('Exit')]  ]
+            block_3 = [[sg.Text('Block 3', font = hdr )],
+                       [sg.Input(), sg.Text('Some Text')],
+                       [sg.T('This frame has element_justification="c"')],
+                       [sg.Button('Go'), sg.Button('Exit')]  ]
 
 
-        block_2 = [[sg.Text('Block 2', font = hdr)],
-                   [sg.T('This is some random text')],
-                   [sg.Image( source = self.__image, subsample = 3,  enable_events = True ) ]  ]
+            block_2 = [[sg.Text('Block 2', font = hdr)],
+                       [sg.T('This is some random text')],
+                       [sg.Image( source = self.__image, subsample = 3,  enable_events = True ) ]  ]
 
-        block_4 = [[sg.Text('Block 4', font = hdr)],
-                   [sg.T('You can move the window by grabbing this block (and the top banner)')],
-                   [sg.T('This block is a Column Element')],
-                   [sg.T('The others are all frames')],
-                   [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
-                   [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
+            block_4 = [[sg.Text('Block 4', font = hdr)],
+                       [sg.T('You can move the window by grabbing this block (and the top banner)')],
+                       [sg.T('This block is a Column Element')],
+                       [sg.T('The others are all frames')],
+                       [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
+                       [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
 
-        block_5 = [[sg.Text('Block 5', font = hdr)],
-                   [sg.T('You can move the window by grabbing this block (and the top banner)')],
-                   [sg.T('This block is a Column Element')],
-                   [sg.T('The others are all frames')],
-                   [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
-                   [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
+            block_5 = [[sg.Text('Block 5', font = hdr)],
+                       [sg.T('You can move the window by grabbing this block (and the top banner)')],
+                       [sg.T('This block is a Column Element')],
+                       [sg.T('The others are all frames')],
+                       [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
+                       [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
 
-        layout = [
-          [ sg.Frame( '', top_banner,   pad=(0,0), background_color = black,  expand_x = True, border_width = 0, grab=True ) ],
-          [ sg.Frame( '', top, size=(920, 100), pad=BPAD_TOP,  expand_x=True,  relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
-          [ sg.Frame( '', [ [ sg.Frame('', block_2, size=(450,150), pad = BPAD_LEFT_INSIDE, border_width=0, expand_x = True, expand_y = True, ) ],
-                        [ sg.Frame('', block_3, size=(450,150),  pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ] ],
-               pad = BPAD_LEFT, background_color=black, border_width = 0, expand_x = True, expand_y = True ),
-           sg.Frame( '', [ [ sg.Frame( '', block_4, size = (450, 150), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ],
-                           [ sg.Frame( '', block_5, size = (450, 150), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ] ],
-               pad = BPAD_LEFT, background_color = black, border_width = 0, expand_x = True, expand_y = True ), ],
-                        [ sg.Sizegrip( background_color = blue ) ] ]
+            layout = [
+              [ sg.Frame( '', top_banner,   pad=(0,0), background_color = black,  expand_x = True, border_width = 0, grab=True ) ],
+              [ sg.Frame( '', top, size=(920, 100), pad=BPAD_TOP,  expand_x=True,  relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
+              [ sg.Frame( '', [ [ sg.Frame('', block_2, size=(450,150), pad = BPAD_LEFT_INSIDE, border_width=0, expand_x = True, expand_y = True, ) ],
+                            [ sg.Frame('', block_3, size=(450,150),  pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ] ],
+                   pad = BPAD_LEFT, background_color=black, border_width = 0, expand_x = True, expand_y = True ),
+               sg.Frame( '', [ [ sg.Frame( '', block_4, size = (450, 150), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ],
+                               [ sg.Frame( '', block_5, size = (450, 150), pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ] ],
+                   pad = BPAD_LEFT, background_color = black, border_width = 0, expand_x = True, expand_y = True ), ],
+                            [ sg.Sizegrip( background_color = blue ) ] ]
 
-        window = sg.Window( '    Budget Execution', layout,
-            size = self.__formsize,
-            margins = ( 0, 0 ),
-            icon = self.__icon,
-            background_color = blue,
-            no_titlebar = True,
-            resizable = True,
-            right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
+            window = sg.Window( '    Budget Execution', layout,
+                size = self.__formsize,
+                margins = ( 0, 0 ),
+                icon = self.__icon,
+                background_color = blue,
+                no_titlebar = True,
+                resizable = True,
+                right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
 
-        while True:             # Event Loop
-            event, values = window.read()
-            print(event, values)
-            if event == sg.WIN_CLOSED or event == 'Exit':
-                break
-            elif event == 'Edit Me':
-                sg.execute_editor(__file__)
-            elif event == 'Version':
-                sg.popup_scrolled(sg.get_versions(), keep_on_top=True)
-            elif event == 'File Location':
-                sg.popup_scrolled('This Python file is:', __file__)
-        window.close( )
+            while True:             # Event Loop
+                event, values = window.read()
+                print(event, values)
+                if event == sg.WIN_CLOSED or event == 'Exit':
+                    break
+                elif event == 'Edit Me':
+                    sg.execute_editor(__file__)
+                elif event == 'Version':
+                    sg.popup_scrolled(sg.get_versions(), keep_on_top=True)
+                elif event == 'File Location':
+                    sg.popup_scrolled('This Python file is:', __file__)
+            window.close( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Booger'
+            exc.cause = 'BudgetForm'
+            exc.method = 'show( self)'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -3235,7 +3266,7 @@ class ChartPanel( Sith ):
             self.__formsize = value
 
     def __init__( self ):
-        super( ).__init__()
+        super( ).__init__( )
         self.__themebackground = Sith( ).themebackground
         self.__themefont = Sith( ).themefont
         self.__icon = Sith( ).iconpath
@@ -3249,46 +3280,54 @@ class ChartPanel( Sith ):
         self.__formsize = ( 700, 600 )
 
     def show( self ):
-        small = ( 10, 1 )
-        medium = ( 15, 1 )
-        large = ( 20, 1 )
-        xlarge = ( 100, 1 )
-        barwidth = 50
-        barspacing = 75
-        edgeoffset = 3
-        graphsize = datasize = ( 600, 500 )
+        try:
+            small = ( 10, 1 )
+            medium = ( 15, 1 )
+            large = ( 20, 1 )
+            xlarge = ( 100, 1 )
+            barwidth = 50
+            barspacing = 75
+            edgeoffset = 3
+            graphsize = datasize = ( 600, 500 )
 
-        layout = [ [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
-                   [ sg.Text( '', size = small ), sg.Graph( graphsize, ( 0, 0 ), datasize, k='-GRAPH-', pad = 3 ) ],
-                   [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
-                   [ sg.Text( '', size = large ), sg.Button( 'Next', size = medium ),
-                     sg.Text( '', size = large ), sg.Exit( size = medium ) ] ]
+            layout = [ [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
+                       [ sg.Text( '', size = small ), sg.Graph( graphsize, ( 0, 0 ), datasize, k='-GRAPH-', pad = 3 ) ],
+                       [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
+                       [ sg.Text( '', size = large ), sg.Button( 'Next', size = medium ),
+                         sg.Text( '', size = large ), sg.Exit( size = medium ) ] ]
 
-        window = sg.Window( 'Budget Execution', layout,
-            finalize = True,
-            icon = self.__icon,
-            font = self.__themefont,
-            size = self.__formsize,
-            resizable = True )
+            window = sg.Window( 'Budget Execution', layout,
+                finalize = True,
+                icon = self.__icon,
+                font = self.__themefont,
+                size = self.__formsize,
+                resizable = True )
 
-        graph = window[ '-GRAPH-' ]
+            graph = window[ '-GRAPH-' ]
 
-        while True:
-            graph.erase( )
-            for i in range( 7 ):
-                graph_value = random.randint( 0, graphsize[ 1 ] )
-                graph.draw_rectangle( top_left = ( i * barspacing + edgeoffset, graph_value ),
-                    bottom_right = (i * barspacing + edgeoffset + barwidth, 0 ),
-                    fill_color = self.__buttoncolor )
+            while True:
+                graph.erase( )
+                for i in range( 7 ):
+                    graph_value = random.randint( 0, graphsize[ 1 ] )
+                    graph.draw_rectangle( top_left = ( i * barspacing + edgeoffset, graph_value ),
+                        bottom_right = (i * barspacing + edgeoffset + barwidth, 0 ),
+                        fill_color = self.__buttoncolor )
 
-                graph.draw_text( text = graph_value, color = self.__themetextcolor,
-                    location = ( i * barspacing + edgeoffset + 25, graph_value + 10 ) )
+                    graph.draw_text( text = graph_value, color = self.__themetextcolor,
+                        location = ( i * barspacing + edgeoffset + 25, graph_value + 10 ) )
 
-            event, values = window.read( )
-            if event in ( sg.WIN_CLOSED, 'Exit' ):
-                break
+                event, values = window.read( )
+                if event in ( sg.WIN_CLOSED, 'Exit' ):
+                    break
 
-        window.close( )
+            window.close( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Booger'
+            exc.cause = 'ChartForm'
+            exc.method = 'show( self)'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -3341,52 +3380,60 @@ class CsvForm( Sith ):
         self.__formsize = ( 800, 600 )
 
     def show( self ):
-        sg.set_options( auto_size_buttons = True )
-        filename = sg.popup_get_file( title = '    Budget Execution',
-            message = 'Browse to CSV file',
-            icon = self.__icon,
-            font = self.__themefont,
-            file_types = ( ( "CSV Files", "*.csv" ), ) )
+        try:
+            sg.set_options( auto_size_buttons = True )
+            filename = sg.popup_get_file( title = '    Budget Execution',
+                message = 'Browse to CSV file',
+                icon = self.__icon,
+                font = self.__themefont,
+                file_types = ( ( "CSV Files", "*.csv" ), ) )
 
-        if filename == '':
-            return
-
-        data = [ ]
-        header_list = [ ]
-
-        button = sg.popup_yes_no( 'Does this file have column names already?',
-            icon = self.__icon,
-            font = self.__themefont )
-
-        if filename is not None:
-            try:
-                df = pd.read_csv( filename, sep = ',', engine = 'python', header = None )
-                data = df.values.tolist( )
-                if button == 'Yes':
-                    header_list = df.iloc[ 0 ].tolist( )
-                    data = df[ 1: ].values.tolist( )
-                elif button == 'No':
-                    header_list = [ 'column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
-            except:
-                sg.popup_error( 'Error reading file' )
+            if filename == '':
                 return
 
-        layout = [  [ sg.Text( '', size = ( 100, 1 ) ) ],
-                    [ sg.Text( '', size = (100, 1) ) ],
-                    [ sg.Text( '', size = (100, 1) ) ],
-                    [ sg.Table( values = data,
-                            headings = header_list,
-                            display_row_numbers = True,
-                            auto_size_columns = False,
-                            num_rows = min( 25, len( data ) ) ) ],
-                    [ sg.Text( '', size = (100, 1) ) ],
-                    [ sg.Text( '', size = (100, 1) ) ], ]
+            data = [ ]
+            header_list = [ ]
 
-        window = sg.Window( '    Budget Execution', layout,
-            grab_anywhere = False,
-            icon = self.__icon,
-            font = self.__themefont,
-            size = self.__formsize )
+            button = sg.popup_yes_no( 'Does this file have column names already?',
+                icon = self.__icon,
+                font = self.__themefont )
 
-        event, values = window.read( )
-        window.close( )
+            if filename is not None:
+                try:
+                    df = pd.read_csv( filename, sep = ',', engine = 'python', header = None )
+                    data = df.values.tolist( )
+                    if button == 'Yes':
+                        header_list = df.iloc[ 0 ].tolist( )
+                        data = df[ 1: ].values.tolist( )
+                    elif button == 'No':
+                        header_list = [ 'column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
+                except:
+                    sg.popup_error( 'Error reading file' )
+                    return
+
+            layout = [  [ sg.Text( '', size = ( 100, 1 ) ) ],
+                        [ sg.Text( '', size = (100, 1) ) ],
+                        [ sg.Text( '', size = (100, 1) ) ],
+                        [ sg.Table( values = data,
+                                headings = header_list,
+                                display_row_numbers = True,
+                                auto_size_columns = False,
+                                num_rows = min( 25, len( data ) ) ) ],
+                        [ sg.Text( '', size = (100, 1) ) ],
+                        [ sg.Text( '', size = (100, 1) ) ], ]
+
+            window = sg.Window( '    Budget Execution', layout,
+                grab_anywhere = False,
+                icon = self.__icon,
+                font = self.__themefont,
+                size = self.__formsize )
+
+            event, values = window.read( )
+            window.close( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Booger'
+            exc.cause = 'CsvForm'
+            exc.method = 'show( self )'
+            err = ErrorDialog( exc )
+            err.show( )
