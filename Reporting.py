@@ -3195,7 +3195,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__carryoveroutlays, float ):
             return self.__carryoveroutlays
 
-    @carryoveroutlays.setteroutlays
+    @carryoveroutlays.setter
     def carryoveroutlays( self, value ):
         if isinstance( value, float ):
             self.__carryoveroutlays = value
