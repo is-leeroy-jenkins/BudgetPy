@@ -13,7 +13,7 @@ from Minion import App, Client
 
 
 # Error( message )
-class Error( AttributeError ):
+class Error( Exception ):
     '''class provides Error and Exception data'''
     __class = None
     __module = None
@@ -75,7 +75,7 @@ class Error( AttributeError ):
 
     def __init__( self, message, cause = '', method = '', module = '' ):
         super( ).__init__( )
-        self.__message = 'APPLICATION ERROR!'
+        self.__message = '\t\t\tAPPLICATION ERROR!'
         self.__class = cause if isinstance( cause, str ) and cause != '' else None
         self.__method = method if isinstance( method, str ) and method != '' else None
         self.__module = module if isinstance( module, str ) and module != '' else None
