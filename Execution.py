@@ -2539,6 +2539,7 @@ class ProgramProject( ):
         return self.__data
 
 
+
 # ResponsibilityCenter( code )
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
