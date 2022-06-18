@@ -118,19 +118,35 @@ class DataConfig( ):
     def isdatamodel( self ):
         '''Returns the boolean value 'True' if the
         source is a memeber of datamodels else 'False' '''
-        if self.__table != '' and self.__table in self.__data:
-            return True
-        else:
-            return False
+        try:
+            if self.__table != '' and self.__table in self.__data:
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'DataConfig'
+            exc.method = 'isdatamodel( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def isreferencemodel( self ):
         '''Returns boolean value 'True' if the
         source is a memeber of the reference models else 'False' '''
-        if self.__table is not None  \
-                and self.__table in self.__references:
-            return True
-        else:
-            return False
+        try:
+            if self.__table is not None  \
+                    and self.__table in self.__references:
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'DataConfig'
+            exc.method = 'isreference( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getdriver( self ):
         try:
@@ -273,18 +289,34 @@ class DataConnection(  ):
         self.__connectionstring = dataconfig.getconnectionstring( )
 
     def connect( self ):
+        try:
             if self.__provider.name == Provider.Access.name:
                 return db.connect( self.__connectionstring )
             elif self.__provider.name == Provider.SqlServer.name:
                 return db.connect( self.__connectionstring )
             else:
                 return sl.connect( self.__connectionstring )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'DataConnection'
+            exc.method = 'connect( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def disconnect( self ):
-        if self.__connection is not None:
-            self.__connection.flush( )
-            self.__connection.close( )
-            self.__connection = None
+        try:
+            if self.__connection is not None:
+                self.__connection.flush( )
+                self.__connection.close( )
+                self.__connection = None
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'DataConnection'
+            exc.method = 'disconnect( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # SqlConfig( names, values )
@@ -364,58 +396,98 @@ class SqlConfig( ):
 
     def kvpdump( self ):
         '''dump( ) returns string of 'values = index AND' pairs'''
-        if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-            pairs = ''
-            criteria = ''
-            kvp = zip( self.__names, self.__values )
-            for k, v in kvp:
-                pairs += f'{ k } = \'{ v }\' AND '
-            criteria = pairs.rstrip( ' AND ' )
-            return criteria
+        try:
+            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
+                pairs = ''
+                criteria = ''
+                kvp = zip( self.__names, self.__values )
+                for k, v in kvp:
+                    pairs += f'{ k } = \'{ v }\' AND '
+                criteria = pairs.rstrip( ' AND ' )
+                return criteria
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlConfig'
+            exc.method = 'kvpdump( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def wheredump( self ):
         '''wheredump( ) returns a string
         using list arguments names and values'''
-        if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-            pairs = ''
-            criteria = ''
-            for k, v in zip( self.__names, self.__values ):
-                pairs += f'{ k } = \'{ v }\' AND '
-            criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
-            return criteria
+        try:
+            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
+                pairs = ''
+                criteria = ''
+                for k, v in zip( self.__names, self.__values ):
+                    pairs += f'{ k } = \'{ v }\' AND '
+                criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
+                return criteria
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlConfig'
+            exc.method = 'wheredump( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def setdump( self ):
         '''setdump( ) returns a string
         using list arguments names and values'''
-        if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-            pairs = ''
-            criteria = ''
-            for k, v in zip( self.__names, self.__values ):
-                pairs += f'{ k } = \'{ v }\', '
-            criteria = 'SET ' + pairs.rstrip( ', ' )
-            return criteria
+        try:
+            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
+                pairs = ''
+                criteria = ''
+                for k, v in zip( self.__names, self.__values ):
+                    pairs += f'{ k } = \'{ v }\', '
+                criteria = 'SET ' + pairs.rstrip( ', ' )
+                return criteria
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlConfig'
+            exc.method = 'setdump( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def columndump( self ):
         '''columndump( ) returns a string of columns
         used in select and insert statements from list self.__names'''
-        if isinstance( self.__names, list ):
-            cols = ''
-            columns = ''
-            for n in self.__names:
-                cols += f'{ n }, '
-            columns = '(' + cols.rstrip( ', ' ) + ')'
-            return columns
+        try:
+            if isinstance( self.__names, list ):
+                cols = ''
+                columns = ''
+                for n in self.__names:
+                    cols += f'{ n }, '
+                columns = '(' + cols.rstrip( ', ' ) + ')'
+                return columns
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlConfig'
+            exc.method = 'columndump( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def valuedump( self ):
         '''valuedump( ) returns a string of values
         used in select statements from list self.__names'''
-        if isinstance( self.__values, tuple ):
-            vals = ''
-            values = ''
-            for v in self.__values:
-                vals += f'{ v }, '
-            values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
-            return values
+        try:
+            if isinstance( self.__values, tuple ):
+                vals = ''
+                values = ''
+                for v in self.__values:
+                    vals += f'{ v }, '
+                values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
+                return values
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlConfig'
+            exc.method = 'valuedump( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # SqlStatement( dataconfig,  sqlconfig )
