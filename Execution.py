@@ -4209,29 +4209,45 @@ class Transfer( ):
         self.__documentnumber = rpnumber if isinstance( rpnumber, str ) else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        command = SQL.SELECTALL
-        n = [ 'DocumentNumber', ]
-        v = ( self.__documentnumber, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            command = SQL.SELECTALL
+            n = [ 'DocumentNumber', ]
+            v = ( self.__documentnumber, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'Transfer'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'Transfer'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
