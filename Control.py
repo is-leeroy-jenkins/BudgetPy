@@ -1,7 +1,5 @@
 from Execution import *
 from Booger import Error, ErrorDialog
-import sys
-from sys import exc_info
 
 
 # OperatingPlan( bfy )

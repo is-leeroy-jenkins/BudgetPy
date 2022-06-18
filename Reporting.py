@@ -1,4 +1,7 @@
 from Control import *
+from Booger import Error, ErrorDialog
+import sys
+from sys import exc_info
 
 # Apportionment( bfy, efy, code )
 class Apportionment( ):
@@ -178,29 +181,45 @@ class Apportionment( ):
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-        v = ( self.__bfy, self.__efy, self.__ombaccountcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+            v = ( self.__bfy, self.__efy, self.__ombaccountcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'Apportionment'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'Apportionment'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # BudgetaryResourceExecution( bfy, efy, code )
@@ -286,29 +305,45 @@ class BudgetaryResourceExecution( ):
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-        v = ( self.__bfy, self.__efy, self.__ombaccountcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+            v = ( self.__bfy, self.__efy, self.__ombaccountcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'BudgetaryResourceExecution'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'BudgetaryResourceExecution'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # CarryoverEstimates( bfy )
@@ -582,29 +617,45 @@ class CarryoverEstimates( ):
             return str( self.__unobligatedauthority )
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'EFY' ]
-        v = ( self.__bfy, self.__efy )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY' ]
+            v = ( self.__bfy, self.__efy )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimates'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimates'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # CarryoverSurvey( bfy, efy, fund )
@@ -690,29 +741,45 @@ class CarryoverSurvey( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'EFY', 'FundCode', ]
-        v = ( self.__bfy, self.__efy, self.__fundcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY', 'FundCode', ]
+            v = ( self.__bfy, self.__efy, self.__fundcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverOutlays'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarrryoverOutlays'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # StatusOfAppropriations( bfy, efy, fund )
@@ -1338,29 +1405,45 @@ class StatusOfAppropriations( ):
         self.__appropriationfundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'EFY', 'AppropriationFundCode', ]
-        v = ( self.__bfy, self.__efy, self.__appropriationfundcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY', 'AppropriationFundCode', ]
+            v = ( self.__bfy, self.__efy, self.__appropriationfundcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'StatusOfAppropriations'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'StatusOfAppropriations'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # MonthlyOutlays( bfy, efy, account )
@@ -1507,29 +1590,45 @@ class MonthlyOutlays( ):
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) <= 5 else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-        v = ( self.__bfy, self.__efy, self.__ombaccountcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
+            v = ( self.__bfy, self.__efy, self.__ombaccountcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'MonthlyOutlays'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'MonthlyOutlays'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # SpendingRates( account )
@@ -1858,21 +1957,37 @@ class SpendingRates( ):
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        command = SQL.SELECTALL
-        names = [ 'OmbAccountCode', ]
-        values = ( self.__ombaccountcode, )
-        data = DataBuilder( provider, source, command, names, values )
-        self.__data = data.createtable( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            command = SQL.SELECTALL
+            names = [ 'OmbAccountCode', ]
+            values = ( self.__ombaccountcode, )
+            data = DataBuilder( provider, source, command, names, values )
+            self.__data = data.createtable( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'SpendingRates'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'SpendingRates'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # ReimbursableSurvey( bfy, fund )
@@ -1946,29 +2061,45 @@ class ReimbursableSurvey( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'FundCode', ]
-        v = ( self.__bfy, self.__fundcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'FundCode', ]
+            v = ( self.__bfy, self.__fundcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'ReimbursableSurvey'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'ReimbursableSurvey'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # ObjectClassOutlays( account )
@@ -2151,29 +2282,45 @@ class ObjectClassOutlays( ):
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        source = Source.ObjectClassOutlays
-        provider = Provider.SQLite
-        n = [ 'OmbAccountCode', ]
-        v = ( self.__ombaccountcode, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = Source.ObjectClassOutlays
+            provider = Provider.SQLite
+            n = [ 'OmbAccountCode', ]
+            v = ( self.__ombaccountcode, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'ObjectClassOutlays'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'ObjectClassOutlays'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # UnobligatedAuthority( account )
@@ -2291,29 +2438,45 @@ class UnobligatedAuthority( ):
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'OmbAccountCode', ]
-        v = ( self.__ombaccountcode, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'OmbAccountCode', ]
+            v = ( self.__ombaccountcode, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'UnobligatedAuthority'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'UnobligatedAuthority'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # BudgetOutlays( account )
@@ -2573,29 +2736,45 @@ class BudgetOutlays( ):
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'OmbAccountCode', ]
-        v = ( self.__ombaccountcode, )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'OmbAccountCode', ]
+            v = ( self.__ombaccountcode, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'BudgetOutlays'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'BudgetOutlays'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # GrowthRates( bfy, id )
@@ -2757,29 +2936,45 @@ class GrowthRates( ):
         self.__rateid = id if isinstance( id, str ) and id != '' else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'BFY', 'RateId', ]
-        v = ( self.__bfy, self.__rateid )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'RateId', ]
+            v = ( self.__bfy, self.__rateid )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'GrowthRates'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'GrowthRates'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # DataRuleDescription( schedule, line, rule )
@@ -2863,29 +3058,45 @@ class DataRuleDescription( ):
         self.__rulenumber = rule if isinstance( rule, str ) and rule != '' else None
 
     def getdata( self ):
-        source = self.__source
-        provider = self.__provider
-        n = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
-        v = ( self.__schedule, self.__linenumber, self.__rulenumber )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
+            v = ( self.__schedule, self.__linenumber, self.__rulenumber )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'DataRuleDescription'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'DataRuleDescription'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # CarryoverOutlays( bfy, omb )
@@ -3154,29 +3365,45 @@ class CarryoverOutlays( ):
         self.__ombaccountcode = omb if isinstance( omb, str ) and omb != '' else None
 
     def getdata( self ):
-        source = Source.CarryoverOutlays
-        provider = Provider.SQLite
-        n = [ 'BudgetYear', 'OmbAccountCode' ]
-        v = ( self.__budgetyear, self.__ombaccountcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = Source.CarryoverOutlays
+            provider = Provider.SQLite
+            n = [ 'BudgetYear', 'OmbAccountCode' ]
+            v = ( self.__budgetyear, self.__ombaccountcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverOutlays'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverOutlays'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 
@@ -3207,7 +3434,6 @@ class UnobligatedBalances( ):
     def id( self, value ):
         if isinstance( value, int ):
             self.__carryoveroutlaysid = value
-
 
     @property
     def bfy( self ):
@@ -3295,27 +3521,43 @@ class UnobligatedBalances( ):
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
 
     def getdata( self ):
-        source = Source.CarryoverOutlays
-        provider = Provider.SQLite
-        n = [ 'BFY', 'EFY', 'FundCode' ]
-        v = ( self.__bfy, self.__efy, self.__fundcode )
-        dconfig = DataConfig( source, provider )
-        sconfig = SqlConfig( names = n, values = v )
-        cnx = DataConnection( dconfig )
-        sql = SqlStatement( dconfig, sconfig )
-        sqlite = cnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            source = Source.CarryoverOutlays
+            provider = Provider.SQLite
+            n = [ 'BFY', 'EFY', 'FundCode' ]
+            v = ( self.__bfy, self.__efy, self.__fundcode )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'UnobligatedBalances'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
-        src = self.__source
-        data = BudgetData( src )
-        return data.getframe( )
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'UnobligatedBalances'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
