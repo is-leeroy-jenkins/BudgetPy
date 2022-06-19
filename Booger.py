@@ -3267,6 +3267,16 @@ class BudgetForm( Sith ):
         if isinstance( value, tuple ) :
             self.__formsize = value
 
+    @property
+    def image( self ):
+        if isinstance( self.__image, str ):
+            return self.__image
+
+    @image.setter
+    def image( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__image = value
+
     def __init__( self ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
@@ -3280,7 +3290,7 @@ class BudgetForm( Sith ):
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 1400, 800 )
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\BudgetEx.png'
+        self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
 
     def show( self ):
         try:
@@ -3292,41 +3302,42 @@ class BudgetForm( Sith ):
             BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
             hdr = 'Roboto 20'
 
-            top_banner = [
-                    [ sg.Text('Budget Execution', font = hdr, background_color = black, enable_events=True, grab=False ), sg.Push(background_color=black ),
-                      sg.Text('Wednesday 27 Oct 2021', font = hdr, background_color = black ) ],
+            titlebar = [
+                    [ sg.Text( 'Budget Execution', font = hdr, background_color = black,
+                        enable_events = True, grab = False ), sg.Push( background_color = black ),
+                      sg.Text( 'Wednesday 27 Oct 2021', font = hdr, background_color = black ) ],
             ]
 
-            top  = [[sg.Push(), sg.Text('Weather Could Go Here', font = hdr), sg.Push()],
-                    [sg.T('This Frame has a relief while the others do not')],
-                    [sg.T('This window is resizable (see that sizegrip in the bottom right?)')]]
+            top  = [ [ sg.Push( ), sg.Text( 'Top Header', font = hdr ), sg.Push( ) ],
+                     [ sg.Text( 'Top Header line 1' ) ],
+                     [ sg.Text( 'Top Header line 2' ) ] ]
 
-            block_3 = [[sg.Text('Block 3', font = hdr )],
-                       [sg.Input(), sg.Text('Some Text')],
-                       [sg.T('This frame has element_justification="c"')],
-                       [sg.Button('Go'), sg.Button('Exit')]  ]
+            block_3 = [ [ sg.Text( 'Block 3 Header', font = hdr ) ],
+                        [ sg.Input( ), sg.Text( 'Block 3 line 1' ) ],
+                        [ sg.T( 'Block 3 line 2' ) ],
+                        [ sg.Button( 'Go' ), sg.Button( 'Exit' ) ] ]
 
 
-            block_2 = [[sg.Text('Block 2', font = hdr)],
-                       [sg.T('This is some random text')],
+            block_2 = [[sg.Text('Block 2 Header', font = hdr)],
+                       [sg.T('Block 2 line 1')],
                        [sg.Image( source = self.__image, subsample = 3,  enable_events = True ) ]  ]
 
-            block_4 = [[sg.Text('Block 4', font = hdr)],
-                       [sg.T('You can move the window by grabbing this block (and the top banner)')],
-                       [sg.T('This block is a Column Element')],
-                       [sg.T('The others are all frames')],
-                       [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
-                       [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
+            block_4 = [[sg.Text('Block 4 Header', font = hdr)],
+                       [sg.T('Block 4 line 1')],
+                       [sg.T('Block 4 line 2')],
+                       [sg.T('Block 4 line 3')],
+                       [sg.T('Block 4 line 4')],
+                       [sg.T('Block 4 line 4')]]
 
-            block_5 = [[sg.Text('Block 5', font = hdr)],
-                       [sg.T('You can move the window by grabbing this block (and the top banner)')],
-                       [sg.T('This block is a Column Element')],
-                       [sg.T('The others are all frames')],
-                       [sg.T('The Frame Element, with a border_width=0\n    and no title is just like a Column')],
-                       [sg.T('Frames that have a fixed size \n    handle element_justification better than Columns')]]
+            block_5 = [[sg.Text('Block 5 Header', font = hdr)],
+                       [sg.T('Block 5 line 1')],
+                       [sg.T('Block 5 line 2')],
+                       [sg.T('Block 5 line 3')],
+                       [sg.T('Block 5 line 4')],
+                       [sg.T('Block 5 line 5')]]
 
             layout = [
-              [ sg.Frame( '', top_banner,   pad=(0,0), background_color = black,  expand_x = True, border_width = 0, grab=True ) ],
+              [ sg.Frame( '', titlebar,   pad=(0, 0), background_color = black,  expand_x = True, border_width = 0, grab=True ) ],
               [ sg.Frame( '', top, size=(920, 100), pad=BPAD_TOP,  expand_x=True,  relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
               [ sg.Frame( '', [ [ sg.Frame('', block_2, size=(450,150), pad = BPAD_LEFT_INSIDE, border_width=0, expand_x = True, expand_y = True, ) ],
                             [ sg.Frame('', block_3, size=(450,150),  pad = BPAD_LEFT_INSIDE, border_width = 0, expand_x = True, expand_y = True ) ] ],

@@ -1,0 +1,3 @@
+[console_scripts]
+PySimpleGUIDesigner = PySimpleGUIDesigner.main:cli
+
