@@ -4,10 +4,11 @@ from Static import Client
 from Booger import *
 
 
+# App( client )
 class App( ):
-    '''App( app ) initializes object providing
-     factory methods for running processes based on 'Client'
-     enumeration input args'''
+    '''App( client ) initializes object providing
+     factory methods run( ) and run( args ) that run
+     processes based on 'client' enumeration input args'''
     __app = None
     __sqliteclient = None
     __accessclient = None
@@ -22,28 +23,53 @@ class App( ):
         if isinstance( self.__sqliteclient, str ) and self.__sqliteclient != '':
             return self.__sqliteclient
 
+    @sqlite.setter
+    def sqlite( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__sqliteclient = value
+
     @property
     def access( self ):
         if isinstance( self.__accessclient, str ) and self.__accessclient != '':
             return self.__accessclient
+
+    @access.setter
+    def access( self, value ):
+        if isinstance( value, str ) and value!= '':
+            self.__accessclient = value
 
     @property
     def excel( self ):
         if isinstance( self.__excelapp, str ) and self.__excelapp != '':
             return self.__excelapp
 
+    @excel.setter
+    def excel( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__excelapp = value
+
     @property
     def chrome( self ):
         if isinstance( self.__chrome, str ) and self.__chrome != '':
             return self.__chrome
+
+    @chrome.setter
+    def chrome( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__chrome = value
 
     @property
     def edge( self ):
         if isinstance( self.__edge, str ) and self.__edge != '':
             return self.__edge
 
-    def __init__( self, app ):
-        self.__app = app if isinstance( app, Client ) else None
+    @edge.setter
+    def edge( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__edge = value
+
+    def __init__( self, client ):
+        self.__app = client if isinstance( client, Client ) else None
         self.__sqliteclient = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
         self.__accessclient = r'C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE'
         self.__excelapp = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
