@@ -79,7 +79,8 @@ class App( ):
         self.__calculator = r'C:\Windows\System32\calc.exe'
 
     def run( self ):
-        '''instance method that runs a client program with know path'''
+        '''instance method that starts process that
+        runs a client program with a known path'''
         try:
             if isinstance( self.__app, Client ) and self.__app == Client.SQLite:
                 sp.Popen( self.__sqliteclient )
@@ -104,7 +105,8 @@ class App( ):
             err.show( )
 
     def runargs( self, args ):
-        '''runargs( args ) instance method that runs client application with provided string 'args' '''
+        '''runargs( args ) instance method begins a process that
+        runs client application with provided string 'args' '''
         try:
             if isinstance( args, str ) and self.__app == Client.SQLite:
                 if os.path.isfile( args ):

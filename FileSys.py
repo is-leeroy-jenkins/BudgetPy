@@ -93,15 +93,17 @@ class BudgetPath( ):
         self.__currdir = os.getcwd( )
         self.__ext = os.path.splitext( self.__path )[ 1 ] if isinstance( filepath, str ) else None
         self.__drive = os.path.splitdrive( self.__infile )[ 0 ] if isinstance( filepath, str ) else None
-        self.__report = r'etc\templates\report\ReportBase.xlsx'
+        self.__report = r'etc\templates\report\Excel.xlsx'
 
     def __str__( self ):
        if self.__path is not None:
            return str( self.__path )
 
     def exists( self ):
+        '''Method returning a boolean value indicating whether or not the
+        internal 'self.__path' exists'''
         try:
-            if os.path.exists( self.__infile ):
+            if os.path.exists( self.__path ):
                 return True
             else:
                 return False
@@ -114,8 +116,10 @@ class BudgetPath( ):
             err.show( )
 
     def isfolder( self ):
+        '''Method returning boolean value indicating whether
+        or not self.__path is a folder'''
         try:
-            if os.path.isdir( self.__infile ):
+            if os.path.isdir( self.__path ):
                 return True
             else:
                 return False
@@ -128,8 +132,10 @@ class BudgetPath( ):
             err.show( )
 
     def isfile( self ):
+        '''Method returning boolean value indicating whether
+        or not self.__path is a file'''
         try:
-            if os.path.isfile( self.__infile ):
+            if os.path.isfile( self.__path ):
                 return True
             else:
                 return False
@@ -142,7 +148,8 @@ class BudgetPath( ):
             err.show( )
 
     def verify( self, other ):
-        '''Verifies if the parameter 'other' exists'''
+        '''Method returns a boolean value indicating if
+        the external path 'other' exists'''
         try:
             if os.path.exists( other ):
                 return True
@@ -169,7 +176,10 @@ class BudgetPath( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getreportpath( self ):
+    def getreportpath( self, ext = EXT.XLSX ):
+        '''Method returns string representing the relative path
+        to the report template
+        '''
         try:
             if isinstance( self.__report, str ):
                 return self.__report
@@ -182,7 +192,8 @@ class BudgetPath( ):
             err.show( )
 
     def join( self, first, second ):
-        ''' Concatenates 'first' to 'second' '''
+        ''' Method concatenates the path provided by the argument 'first'
+        to the path provided by argument 'second' '''
         try:
             if os.path.exists( first ) and os.path.exists( second ):
                 return os.path.join( first, second )
@@ -329,7 +340,7 @@ class SqlPath( ):
 
 # SqlFile( source, provider, command )
 class SqlFile( ):
-    '''class providing access to sql getsubfolders in the application'''
+    '''Class providing access to sql getsubfolders in the application'''
     __data = None
     __reference = None
     __command = None
@@ -401,7 +412,10 @@ class SqlFile( ):
         self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
 
     def getpath( self ):
-        '''Returns the absolute path of the SQL file'''
+        '''Method returning a string representing
+         the absolute path to the SQL file used to execute the
+         command 'self.__command' against the table given by the
+         member self.__source depending on the member self.__provider'''
         try:
             sqlpath = SqlPath( )
             data = self.__data
@@ -440,42 +454,50 @@ class SqlFile( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
     def getdirectory( self ):
-        '''Returns the parent directory of the SQL file'''
-        sqlpath = SqlPath( )
-        data = self.__data
-        reference = self.__references
-        source = self.__source.name
-        provider = self.__provider.name
-        command = self.__command.name
-        current = os.getcwd( )
-        folder = ''
-        if provider == 'SQLite' and source in data:
-            folder = f'{ sqlpath.sqlitedata }\\{ command }'
-            return os.path.join( current, folder )
-        elif provider == 'SQLite' and source in references:
-            folder = f'{ sqlpath.sqlitereference }\\{ command }'
-            return os.path.join( current, folder )
-        elif provider == 'Access' and source in data:
-            folder = f'{ sqlpath.accessdata }\\{ command }'
-            return os.path.join( current, folder )
-        elif provider == 'Access' and source in references:
-            folder = f'{ sqlpath.accessreference }\\{ command }'
-            return os.path.join( current, folder )
-        elif provider == 'SqlServer' and source in data:
-            folder = f'{ sqlpath.sqldata }\\{ command }'
-            return os.path.join( current, folder )
-        elif provider == 'SqlServer' and source in references:
-            folder = f'{ sqlpath.sqlreference }\\{ command }'
-            return os.path.join( current, folder )
-        else:
-            folder = f'{ sqlpath.sqlitedata }\\{ command }'
-            return os.path.join( current, folder )
-
+        '''Method creates and returns a string representing
+        the parent directory where the SQL file resides'''
+        try:
+            sqlpath = SqlPath( )
+            data = self.__data
+            reference = self.__references
+            source = self.__source.name
+            provider = self.__provider.name
+            command = self.__command.name
+            current = os.getcwd( )
+            folder = ''
+            if provider == 'SQLite' and source in data:
+                folder = f'{ sqlpath.sqlitedata }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'SQLite' and source in references:
+                folder = f'{ sqlpath.sqlitereference }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'Access' and source in data:
+                folder = f'{ sqlpath.accessdata }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'Access' and source in references:
+                folder = f'{ sqlpath.accessreference }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'SqlServer' and source in data:
+                folder = f'{ sqlpath.sqldata }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'SqlServer' and source in references:
+                folder = f'{ sqlpath.sqlreference }\\{ command }'
+                return os.path.join( current, folder )
+            else:
+                folder = f'{ sqlpath.sqlitedata }\\{ command }'
+                return os.path.join( current, folder )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'SqlFile'
+            exc.method = 'getdirectory( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def getquery( self ):
-        '''Returns the text of the SQL file'''
+        '''Method reads the given '.sql' file and returns
+        a string representing the text used the sql query'''
         try:
             source = self.__source.name
             paths = self.getpath( )
@@ -490,8 +512,8 @@ class SqlFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
-            exc.method = 'rename( self, other )'
+            exc.cause = 'SqlFile'
+            exc.method = 'getquery( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 

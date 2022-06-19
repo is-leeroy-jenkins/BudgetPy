@@ -864,12 +864,12 @@ class AccessQuery( Data ):
 
     @property
     def query( self ):
-        if isinstance( self.__query, str ) and self.__query != '':
+        if isinstance( self.__query, str ):
             return self.__query
 
     @query.setter
     def query( self, value ):
-        if isinstance( value, str ) and value != '':
+        if isinstance( value, str ):
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
@@ -885,12 +885,12 @@ class AccessQuery( Data ):
 
     def createtable( self ):
         try:
-            src = super().source
-            pro = super().provider
-            sql = super().sqlstatement
+            src = super( ).source
+            pro = super( ).provider
+            sql = super( ).sqlstatement
             n = sql.names
             v = sql.values
-            db = DataConfig( src, pro )
+            db = DataConfig( source = src, provider = pro )
             cmd = SqlConfig( names = n, values = v )
             dcnx = DataConnection( db )
             sql = SqlStatement( db, cmd )
@@ -915,7 +915,7 @@ class AccessQuery( Data ):
             src = super( ).source
             pro = super( ).provider
             query = f'SELECT * FROM { src.name }'
-            db = DataConfig( src, pro )
+            db = DataConfig( source = src, provider = pro )
             dcnx = DataConnection( db )
             access = dcnx.connect( )
             self.__frame = sqlreader( query, access )
@@ -983,7 +983,7 @@ class SqlServerQuery( Data ):
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
-        super( ).__init__( connection, sqlstatement)
+        super( ).__init__( connection, sqlstatement )
         self.__query = sqlstatement.getcommandtext()
         self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
@@ -994,28 +994,36 @@ class SqlServerQuery( Data ):
             return self.__source.name
 
     def createtable( self ):
-        src = super( ).source
-        pro = super( ).provider
-        sql = super( ).sqlstatement
-        n = sql.names
-        v = sql.values
-        db = DataConfig( src, pro )
-        cmd = SqlConfig( names = n, values = v )
-        dcnx = DataConnection( db )
-        sql = SqlStatement( db, cmd )
-        sqlite = dcnx.connect( )
-        cursor = sqlite.cursor( )
-        query = sql.getcommandtext( )
-        data = cursor.execute( query )
-        self.__data =  [ i for i in data.fetchall( ) ]
-        cursor.close( )
-        sqlite.close( )
-        return self.__data
+        try:
+            src = super( ).source
+            pro = super( ).provider
+            sql = super( ).sqlstatement
+            n = sql.names
+            v = sql.values
+            db = DataConfig( source = src, provider = pro )
+            cmd = SqlConfig( names = n, values = v )
+            dcnx = DataConnection( db )
+            sql = SqlStatement( db, cmd )
+            sqlite = dcnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlServerQuery'
+            exc.method = 'createtable( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # DataBuilder( provider, source, command, names, values )
 class DataBuilder( ):
-    '''DataBuilder class provides methonds that access
+    '''DataBuilder class provides methods that access
     application data. Constructor creates object using
     optional arguments ( provider: Provider, source: Source,
     command: DataCommand, names: list, values: tuple ) '''
@@ -1033,15 +1041,13 @@ class DataBuilder( ):
 
     @property
     def source( self ):
-        if self.__source is not None:
+        if isinstance( self.__source, Source ):
             return self.__source
 
     @source.setter
     def source( self, value ):
-        if isinstance( value, DataConfig ):
+        if isinstance( value, Source ):
             self.__source = value
-        else:
-            self.__source = DataConfig( 'StatusOfFunds' )
 
     @property
     def provider( self ):
@@ -1068,9 +1074,6 @@ class DataBuilder( ):
         '''Set the command property to a DataCommand instance'''
         if isinstance( value, SQL ):
             self.__command = value
-        else:
-            command = SQL( 'SELECT' )
-            self.__command = command
 
     @property
     def names( self ):
@@ -1118,11 +1121,11 @@ class DataBuilder( ):
         if isinstance( value, SqlConfig ):
             self.__sqlconfig = value
 
-    def __init__( self, source, provider, command = SQL.SELECTALL,
+    def __init__( self, source, provider = Provider.SQLite, command = SQL.SELECTALL,
                   names = None, values = None ):
         self.__source = source if isinstance( source, Source ) else None
-        self.__provider = provider if isinstance( provider, Provider ) else None
-        self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
+        self.__provider = provider
+        self.__command = command
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__dbconfig = DataConfig( self.__source, self.__provider )
@@ -1169,12 +1172,12 @@ class DataSchema( ):
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
+        if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
     def name( self, value ):
-        if isinstance( value, str ) and value != '':
+        if isinstance( value, str ):
             self.__name = value
 
     @property
@@ -1208,7 +1211,7 @@ class DataSchema( ):
             self.__id = value
 
     def __init__( self, name = '', datatype = None ):
-        self.__name = name if isinstance( name, str ) and name != '' else November
+        self.__name = name if isinstance( name, str )else November
         self.__coltype = datatype if isinstance( datatype, object ) else None
 
 
@@ -1231,12 +1234,12 @@ class DataColumn(  ):
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
+        if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
     def name( self, value ):
-        if isinstance( value, str ) and value != '':
+        if isinstance( value, str ):
             self.__name = value
 
     @property
@@ -1271,12 +1274,12 @@ class DataColumn(  ):
 
     @property
     def caption( self ):
-        if isinstance( self.__caption, str ) and self.__caption != '':
+        if isinstance( self.__caption, str ):
             return self.__caption
 
     @caption.setter
     def caption( self, value ):
-        if isinstance( value, str ) and value != '':
+        if isinstance( value, str ):
             self.__caption = value
 
     @property
@@ -1322,7 +1325,7 @@ class DataColumn(  ):
 
     def __init__( self, name = None, datatype = None,
                   value = None, series = None, source = None ):
-        self.__name = name if isinstance( name, str ) and name != '' else None
+        self.__name = name if isinstance( name, str ) else None
         self.__label = name
         self.__caption = name
         self.__type = datatype if isinstance( datatype, type ) else None
@@ -1339,42 +1342,37 @@ class DataColumn(  ):
             return self.__name
 
     def isnumeric( self ):
-        if not isinstance( self.__value, str ):
-            return True
-        else:
-            return False
+        '''Method used to return a boolean value indicating whether
+        the data column contains numeric data'''
+        try:
+            if not isinstance( self.__value, str ):
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'DataColumn'
+            exc.method = 'isnumeric( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
     def istext( self ):
-        if isinstance( self.__value, str ):
-            return True
-        else:
-            return False
+        '''Method used to return a boolean value indicating
+        whether the data column contains text data'''
+        try:
+            if isinstance( self.__value, str ):
+                return True
+            else:
+                return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'DataColumn'
+            exc.method = 'istext( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
-    def createtable( self ):
-        src = self.__source
-        name = self.__name
-        pro = Provider.SQLite
-        query = f'SELECT * FROM { src.name }'
-        db = DataConfig( src, pro )
-        dcnx = DataConnection( db )
-        sqlite = dcnx.connect( )
-        self.__frame = sqlreader( query, sqlite )
-        data = [ i for i in self.__frame ]
-        sqlite.close( )
-        return data
-
-    def createframe( self ):
-        src = self.__source
-        name = self.__name
-        pro = Provider.SQLite
-        query = f'SELECT * FROM { src.name }'
-        db = DataConfig( src, pro )
-        dcnx = DataConnection( db )
-        sqlite = dcnx.connect( )
-        self.__frame = sqlreader( query, sqlite )
-        frame = DataFrame( self.__frame )
-        sqlite.close( )
-        return frame
 
 
 # DataRow( names, values, source )
@@ -1571,7 +1569,8 @@ class DataTable( ):
 
 # BudgetData( src )
 class BudgetData( ):
-    '''Class representing pandas DataFrame'''
+    '''Class containing factory method for providing
+    pandas dataframes based on the Source argument 'src' '''
     __source = None
     __name = None
     __path = None
@@ -1614,12 +1613,12 @@ class BudgetData( ):
 
     @property
     def query( self ):
-        if isinstance( self.__sql, str ) and self.__sql != '':
+        if isinstance( self.__sql, str ):
             return self.__sql
 
     @query.setter
     def query( self, value ):
-        if isinstance( value, str ) and value != '':
+        if isinstance( value, str ):
             self.__sql = value
 
     @property
@@ -1659,6 +1658,8 @@ class BudgetData( ):
         self.__sql = f'SELECT * FROM { src.name };'
 
     def getframe( self ):
+        '''Facotry method that returns a pandas DataFrame object
+        based on the Source input arguement 'src' given to the constructor'''
         try:
             path = self.__path
             src = self.__source

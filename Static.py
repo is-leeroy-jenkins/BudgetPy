@@ -44,7 +44,7 @@ class NPM( Enum ):
 
 
 class Source( Enum ):
-    '''enumeration of table names'''
+    '''Enumeration of table names'''
     NS = auto( )
     Actuals = auto( )
     Allocations = auto( )
@@ -148,7 +148,7 @@ class Source( Enum ):
 
 
 class Provider( Enum ):
-    '''enumeration of data providers'''
+    '''Enumeration of data providers'''
     SQLite = 0
     SqlServer = 1
     Access = 2
@@ -158,7 +158,7 @@ class Provider( Enum ):
 
 
 class Model( Enum ):
-    '''enumeration of model types'''
+    '''Enumeration of model types'''
     Data = auto( )
     Reference = auto( )
 
@@ -174,7 +174,7 @@ class ParamStyle( Enum ):
 
 
 class SQL( Enum ):
-    '''enumeration of sql commands'''
+    '''Enumeration of sql commands'''
     SELECT = 0
     SELECTALL = 1
     INSERT = 2
