@@ -69,47 +69,53 @@ class DataConfig( ):
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name
         self.__sqlitedatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\datamodels\Data.db'
+                                r'\db\sqlite\datamodels\Data.db'
         self.__sqlitereferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\sqlite\referencemodels\References.db'
+                                     r'\db\sqlite\referencemodels\References.db'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
         self.__accessdatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\datamodels\Data.accdb'
+                                r'\db\access\datamodels\Data.accdb'
         self.__accessreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                            r'\db\access\referencemodels\References.accdb'
+                                     r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
         self.__sqldatapath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\datamodels\Data.mdf'
+                             r'\db\mssql\datamodels\Data.mdf'
         self.__sqlreferencepath = r'C:\Users\terry\source\repos\BudgetPy' \
-                           r'\db\mssql\referencemodels\References.mdf'
-        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
-                       'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
-                       'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
-                       'Deobligations', 'Defactos', 'DocumentControlNumbers',
-                       'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
-                       'ObjectClassOutlays', 'CarryoverOutlays',
-                       'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
-                       'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
-                       'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations' 
-                       'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
-                       'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
-                       'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
-                       'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-                       'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
-                       'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
-                       'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
-                       'UnliquidatedObligations', 'UnobligatedAuthority' ]
+                                  r'\db\mssql\referencemodels\References.mdf'
+        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'AppropriationDocuments',
+                        'BudgetControls', 'BudgetDocuments',
+                        'CarryoverEstimates', 'CarryoverSurvey', 'Changes',
+                        'CongressionalReprogrammings',
+                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
+                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
+                        'QueryDefinitions', 'RegionalAuthority',
+                        'ReimbursableAgreements', 'ReimbursableFunds',
+                        'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations'
+                                                         'Reprogrammings', 'SiteActivity',
+                        'SiteProjectCodes', 'SpecialAccounts',
+                        'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
+                                                                       'HeadquartersAuthority',
+                        'TravelObligations', 'StatusOfAppropriations',
+                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                        'PayrollAuthority', 'TransTypes',
+                        'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
+                        'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
+                        'UnliquidatedObligations', 'UnobligatedBalances' ]
         self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
-                             'Appropriations', 'BudgetObjectClasses',
-                             'CostAreas', 'CPIC', 'Divisions',
-                             'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                             'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                             'FundSymbols', 'Goals', 'GsPayScales', 'Images',
-                             'Messages', 'NationalPrograms', 'Objectives',
-                             'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                             'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
-                             'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                             'SchemaTypes', 'StateOrganizations', 'Sources' ]
+                              'Appropriations', 'Apportionments', 'BudgetObjectClasses',
+                              'BudgetOutlays', 'BudgetaryResourceExecution',
+                              'CostAreas', 'CPIC', 'CarryoverOutlays', 'Divisions',
+                              'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                              'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                              'FundSymbols', 'Goals', 'GsPayScales', 'GrowthRates', 'Images',
+                              'Messages', 'NationalPrograms', 'Objectives',
+                              'ProgramFinancingSchedule',
+                              'ObjectClassOutlays', 'Organizations', 'ProgramAreas',
+                              'ProgramDescriptions',
+                              'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
+                                                                          'ReferenceTables',
+                              'ResourcePlanningOffices', 'ResponsibilityCenters',
+                              'SchemaTypes', 'StateOrganizations', 'Sources', 'SpendingRates' ]
 
     def __str__( self ):
         if isinstance( self.__table, str ) :
@@ -195,8 +201,8 @@ class DataConfig( ):
                 return self.getdriver() + path
             elif self.__provider.name == Provider.SqlServer.name:
                 return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
-                              + f'AttachDBFileName={ path }' \
-                              + f'DATABASE={ path }Trusted_Connection=yes;'
+                       + f'AttachDBFileName={path}' \
+                       + f'DATABASE={path}Trusted_Connection=yes;'
             else:
                 return f'{ path } '
         except Exception as e:

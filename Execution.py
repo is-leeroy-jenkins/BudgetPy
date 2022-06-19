@@ -4758,12 +4758,12 @@ class Transfer( ):
 
     def getdata( self ):
         try:
-            source = self.__source
-            provider = self.__provider
+            src = self.__source
+            pdr = self.__provider
             command = SQL.SELECTALL
             n = [ 'DocumentNumber', ]
             v = ( self.__documentnumber, )
-            dconfig = DataConfig( source, provider )
+            dconfig = DataConfig( source = src, provider = pdr )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -4784,8 +4784,7 @@ class Transfer( ):
             err.show( )
 
     def getframe( self ):
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''Method returning pandas dataframe'''
         try:
             src = self.__source
             data = BudgetData( src )

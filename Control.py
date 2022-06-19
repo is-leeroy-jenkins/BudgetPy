@@ -675,8 +675,7 @@ class FullTimeEquivalent( ):
             err.show( )
 
     def getframe( self ):
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''Method returning pandas dataframe'''
         try:
             src = self.__source
             data = BudgetData( src )
@@ -1578,7 +1577,7 @@ class Defacto( ):
 
 # StatusOfSupplementalFunds( bfy, fund )
 class StatusOfSupplementalFunds( ):
-    '''object representing Supplemental Funds execution data'''
+    '''Class representing Supplemental Funding execution data'''
     __source = None
     __provider = None
     __statusofsupplementalfundsid = None
