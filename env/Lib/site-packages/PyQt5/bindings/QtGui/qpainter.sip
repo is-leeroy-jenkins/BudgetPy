@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt5.
 // 
@@ -189,6 +189,9 @@ public:
     void strokePath(const QPainterPath &path, const QPen &pen);
     void fillPath(const QPainterPath &path, const QBrush &brush);
     void drawPath(const QPainterPath &path);
+    void drawPoints(const QPolygonF &points);
+    void drawPoints(const QPolygon &points);
+    void drawPoints(const QPointF *points /Array/, int pointCount /ArraySize/);
     void drawPoints(const QPointF *point, ...);
 %MethodCode
         QPointF *points = qtgui_inst_array<QPointF>(a0, a1, sipType_QPointF);
@@ -202,7 +205,7 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawPoints(const QPolygonF &points);
+    void drawPoints(const QPoint *points /Array/, int pointCount /ArraySize/);
     void drawPoints(const QPoint *point, ...);
 %MethodCode
         QPoint *points = qtgui_inst_array<QPoint>(a0, a1, sipType_QPoint);
@@ -216,7 +219,7 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawPoints(const QPolygon &points);
+    void drawLines(const QLineF *lines /Array/, int lineCount /ArraySize/);
     void drawLines(const QLineF *line, ...);
 %MethodCode
         QLineF *lines = qtgui_inst_array<QLineF>(a0, a1, sipType_QLineF);
@@ -230,7 +233,11 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawLines(const QVector<QLineF> &lines);
+    void drawLines(const QPointF *pointPairs /Array/, int lineCount /ArraySize/);
+%MethodCode
+        sipCpp->drawLines(a0, a1 / 2);
+%End
+
     void drawLines(const QPointF *pointPair, ...);
 %MethodCode
         QPointF *pairs = qtgui_inst_array<QPointF>(a0, a1, sipType_QPointF);
@@ -244,7 +251,7 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawLines(const QVector<QPointF> &pointPairs);
+    void drawLines(const QLine *lines /Array/, int lineCount /ArraySize/);
     void drawLines(const QLine *line, ...);
 %MethodCode
         QLine *lines = qtgui_inst_array<QLine>(a0, a1, sipType_QLine);
@@ -258,7 +265,11 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawLines(const QVector<QLine> &lines);
+    void drawLines(const QPoint *pointPairs /Array/, int lineCount /ArraySize/);
+%MethodCode
+        sipCpp->drawLines(a0, a1 / 2);
+%End
+
     void drawLines(const QPoint *pointPair, ...);
 %MethodCode
         QPoint *pairs = qtgui_inst_array<QPoint>(a0, a1, sipType_QPoint);
@@ -272,7 +283,7 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawLines(const QVector<QPoint> &pointPairs);
+    void drawRects(const QRectF *rects /Array/, int rectCount /ArraySize/);
     void drawRects(const QRectF *rect, ...);
 %MethodCode
         QRectF *rects = qtgui_inst_array<QRectF>(a0, a1, sipType_QRectF);
@@ -286,7 +297,7 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawRects(const QVector<QRectF> &rects);
+    void drawRects(const QRect *rects /Array/, int rectCount /ArraySize/);
     void drawRects(const QRect *rect, ...);
 %MethodCode
         QRect *rects = qtgui_inst_array<QRect>(a0, a1, sipType_QRect);
@@ -300,9 +311,11 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawRects(const QVector<QRect> &rects);
     void drawEllipse(const QRectF &r);
     void drawEllipse(const QRect &r);
+    void drawPolyline(const QPolygonF &polyline);
+    void drawPolyline(const QPolygon &polyline);
+    void drawPolyline(const QPointF *points /Array/, int pointCount /ArraySize/);
     void drawPolyline(const QPointF *point, ...);
 %MethodCode
         QPointF *points = qtgui_inst_array<QPointF>(a0, a1, sipType_QPointF);
@@ -316,7 +329,7 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawPolyline(const QPolygonF &polyline);
+    void drawPolyline(const QPoint *points /Array/, int pointCount /ArraySize/);
     void drawPolyline(const QPoint *point, ...);
 %MethodCode
         QPoint *points = qtgui_inst_array<QPoint>(a0, a1, sipType_QPoint);
@@ -330,7 +343,9 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawPolyline(const QPolygon &polyline);
+    void drawPolygon(const QPolygonF &points, Qt::FillRule fillRule = Qt::OddEvenFill);
+    void drawPolygon(const QPolygon &points, Qt::FillRule fillRule = Qt::OddEvenFill);
+    void drawPolygon(const QPointF *points /Array/, int pointCount /ArraySize/, Qt::FillRule fillRule = Qt::OddEvenFill);
     void drawPolygon(const QPointF *point, ...);
 %MethodCode
         QPointF *points = qtgui_inst_array<QPointF>(a0, a1, sipType_QPointF);
@@ -344,7 +359,7 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawPolygon(const QPolygonF &points, Qt::FillRule fillRule = Qt::OddEvenFill);
+    void drawPolygon(const QPoint *points /Array/, int pointCount /ArraySize/, Qt::FillRule fillRule = Qt::OddEvenFill);
     void drawPolygon(const QPoint *point, ...);
 %MethodCode
         QPoint *points = qtgui_inst_array<QPoint>(a0, a1, sipType_QPoint);
@@ -358,7 +373,9 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawPolygon(const QPolygon &points, Qt::FillRule fillRule = Qt::OddEvenFill);
+    void drawConvexPolygon(const QPolygonF &poly);
+    void drawConvexPolygon(const QPolygon &poly);
+    void drawConvexPolygon(const QPointF *points /Array/, int pointCount /ArraySize/);
     void drawConvexPolygon(const QPointF *point, ...);
 %MethodCode
         QPointF *points = qtgui_inst_array<QPointF>(a0, a1, sipType_QPointF);
@@ -372,7 +389,7 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawConvexPolygon(const QPolygonF &poly);
+    void drawConvexPolygon(const QPoint *points /Array/, int pointCount /ArraySize/);
     void drawConvexPolygon(const QPoint *point, ...);
 %MethodCode
         QPoint *points = qtgui_inst_array<QPoint>(a0, a1, sipType_QPoint);
@@ -386,7 +403,6 @@ public:
             sipIsErr = 1;
 %End
 
-    void drawConvexPolygon(const QPolygon &poly);
     void drawArc(const QRectF &rect, int a, int alen);
     void drawPie(const QRectF &rect, int a, int alen);
     void drawChord(const QRectF &rect, int a, int alen);
@@ -516,30 +532,7 @@ public:
     };
 
     typedef QFlags<QPainter::PixmapFragmentHint> PixmapFragmentHints;
-    void drawPixmapFragments(SIP_PYLIST fragments /TypeHint="List[QPainter.PixmapFragment]"/, const QPixmap &pixmap, QFlags<QPainter::PixmapFragmentHint> hints = 0);
-%MethodCode
-        // Allocate temporary storage for the C++ conversions.
-        Py_ssize_t numFragments = PyList_Size(a0);
-        QPainter::PixmapFragment *fragments = new QPainter::PixmapFragment[numFragments];
-        
-        // Convert the fragments.
-        for (Py_ssize_t i = 0; i < numFragments; ++i)
-        {
-            void *cpp = sipForceConvertToType(PyList_GetItem(a0, i), sipType_QPainter_PixmapFragment, NULL, SIP_NO_CONVERTORS, NULL, &sipIsErr);
-        
-            fragments[i] = *reinterpret_cast<QPainter::PixmapFragment *>(cpp);
-        }
-        
-        if (!sipIsErr)
-        {
-            Py_BEGIN_ALLOW_THREADS
-            sipCpp->drawPixmapFragments(fragments, numFragments, *a1, *a2);
-            Py_END_ALLOW_THREADS
-        }
-        
-        delete[] fragments;
-%End
-
+    void drawPixmapFragments(const QPainter::PixmapFragment *fragments /Array/, int fragmentCount /ArraySize/, const QPixmap &pixmap, QFlags<QPainter::PixmapFragmentHint> hints = 0);
     void drawStaticText(const QPointF &topLeftPosition, const QStaticText &staticText);
     void drawStaticText(const QPoint &p, const QStaticText &staticText);
     void drawStaticText(int x, int y, const QStaticText &staticText);

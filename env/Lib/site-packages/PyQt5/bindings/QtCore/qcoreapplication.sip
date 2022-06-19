@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt5.
 // 
@@ -326,6 +326,9 @@ PYQT_SLOT = typing.Union[typing.Callable[..., None], QtCore.pyqtBoundSignal]
 %TypeHintCode
 # Support for QDate, QDateTime and QTime.
 import datetime
+
+# Support for Q_ENUM and Q_FLAG.
+import enum
 
 
 # Support for new-style signals and slots.

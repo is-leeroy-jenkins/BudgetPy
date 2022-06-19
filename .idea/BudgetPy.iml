@@ -12,6 +12,23 @@
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32/lib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/etc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ipynb" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/db/access" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/db/mssql" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/db/python" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/db/sqlite" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/Doc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/Scripts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/Tools" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/etc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/include" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/libs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/share" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/tcl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/docs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/ico" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/theme" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python ( budgetpy )" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
