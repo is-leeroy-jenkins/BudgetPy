@@ -305,11 +305,11 @@ class OperatingPlan( ):
 
     def getdata( self ):
         try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'BFY', ]
-            v = ( self.__bfy, )
-            dconfig = DataConfig( source, provider )
+            src = self.__source
+            pdr = self.__provider
+            n = [ 'BFY', 'FundCode' ]
+            v = ( self.__bfy, self.__fundcode )
+            dconfig = DataConfig( source = src, provider = pdr )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
