@@ -10,6 +10,7 @@ import io
 import textwrap
 from googlesearch import search
 from Minion import *
+import traceback
 
 
 # Error( message )
@@ -65,23 +66,23 @@ class Error( Exception ):
 
     @property
     def stacktrace( self ):
-        if self.__trace is not None:
+        if isinstance( self.__trace, str ):
             return self.__trace
 
     @stacktrace.setter
     def stacktrace( self, value ):
-        if isinstance( value, traceback ):
+        if isinstance( value, str ):
             self.__trace = value
 
     def __init__( self, message, cause = '', method = '', module = '' ):
         super( ).__init__( )
-        self.__message = '\t\t\tAPPLICATION ERROR!'
+        self.__message = '\tAPPLICATION ERROR: Something unexpected just happened!'
         self.__class = cause if isinstance( cause, str ) and cause != '' else None
         self.__method = method if isinstance( method, str ) and method != '' else None
         self.__module = module if isinstance( module, str ) and module != '' else None
         self.__type = exc_info( )[ 0 ]
-        self.__trace = exc_info( )[ 2 ]
-        self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + str( exc_info( )[ 2 ] )
+        self.__trace = traceback.format_exc( )
+        self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + self.__trace
 
 
 # ButtonIcon( png )
@@ -707,7 +708,7 @@ class GoogleDialog( Sith ):
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__image = r'etc\img\app\web\google.png'
+        self.__image = os.getcwd( ) + r'\etc\img\app\web\google.png'
         self.__querytext = None
         self.__results = [ ]
 
@@ -992,7 +993,7 @@ class ErrorDialog( Sith ):
         self.__exception = exception if isinstance( exception, Error ) else None
         self.__message = exception.message if isinstance( exception, Error ) else None
         self.__module = exception.module if isinstance( exception, Error ) else None
-        self.__info = exception.stacktrace if isinstance( exception, Error ) else None
+        self.__info = exception.stacktrace
         self.__cause = exception.cause if isinstance( exception, Error ) else None
         self.__method = exception.method if isinstance( exception, Error ) else None
         self.__themefont = super( ).themefont
@@ -1749,21 +1750,20 @@ class Notification( Sith ):
         if isinstance( value, str ) and value != '':
             return self.__image
 
-
     def __init__( self, message ):
         super( ).__init__( )
-        self.__themefont = Sith( ).themefont
-        self.__themebackground = Sith( ).themebackground
-        self.__icon = Sith( ).iconpath
-        self.__elementbackcolor = Sith( ).elementbackcolor
-        self.__elementforecolor = Sith( ).elementforecolor
-        self.__themetextcolor = Sith( ).textforecolor
-        self.__textbackcolor = Sith( ).textbackcolor
-        self.__inputbackcolor = Sith( ).inputbackcolor
-        self.__inputforecolor = Sith( ).inputforecolor
-        self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'\etc\img\app\notification\NotifyNinja.png'
-        self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
+        self.__themefont = super( ).themefont
+        self.__themebackground = super( ).themebackground
+        self.__icon = super( ).iconpath
+        self.__elementbackcolor = super( ).elementbackcolor
+        self.__elementforecolor = super( ).elementforecolor
+        self.__themetextcolor = super( ).textforecolor
+        self.__textbackcolor = super( ).textbackcolor
+        self.__inputbackcolor = super( ).inputbackcolor
+        self.__inputforecolor = super( ).inputforecolor
+        self.__buttoncolor = super( ).buttoncolor
+        self.__image = os.getcwd( ) + r'\etc\img\app\notification\NotifyNinja.png'
+        self.__message = '  ' + message if isinstance( message, str ) else None
 
     def show( self ):
         try:
