@@ -337,13 +337,13 @@ class Sith( ):
 
     @property
     def progressbarcolor( self ):
-        if isinstance( self.__progressbarbackcolor, tuple ) :
-            return self.__progressbarbackcolor
+        if isinstance( self.__progressbarcolor, tuple ) :
+            return self.__progressbarcolor
 
     @progressbarcolor.setter
     def progressbarcolor( self, value ):
         if isinstance( value, tuple ) :
-            self.__progressbarbackcolor = value
+            self.__progressbarcolor = value
 
     def __init__( self ):
         self.__themebackground = '#0F0F0F'
