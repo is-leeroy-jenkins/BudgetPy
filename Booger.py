@@ -2278,7 +2278,7 @@ class ComboBoxDialog( Sith ):
         if isinstance( self.__items, list ):
             return self.__items
 
-    @selecteditem.setter
+    @items.setter
     def items( self, value ):
         if isinstance( value, list ):
             self.__items = value
@@ -2380,7 +2380,7 @@ class ListBoxDialog( Sith ):
         if isinstance( self.__items, list ):
             return self.__items
 
-    @selecteditem.setter
+    @items.setter
     def items( self, value ):
         if isinstance( value, list ):
             self.__items = value
@@ -2396,7 +2396,7 @@ class ListBoxDialog( Sith ):
             self.__selecteditem = value
 
     def __init__( self, data = None ):
-        self.__items = data if isinstance( data, list ) else [ ]
+        self.__items = data if isinstance( data, list ) else None
         super( ).__init__()
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
@@ -2419,8 +2419,12 @@ class ListBoxDialog( Sith ):
             txtsize = ( 25, 1 )
             inpsize = ( 25, 1 )
             lstsize = ( 25, 5 )
+            names = [ ]
+            if len( self.__items ) > 0:
+                names = [ src for src in list( self.__items ) if src != 'NS' ]
+            else:
+                names = [ f'Item - { i }' for i in range( 40 ) ]
 
-            names = [ src for src in list( self.__items ) if src != 'NS' ]
             layout = [ [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
                        [ sg.Text( '', size = space ), sg.Text( r'Search:' ) ],
                        [ sg.Text( '', size = space ), sg.Input( size = inpsize, enable_events = True, key = '-INPUT-' ) ],
