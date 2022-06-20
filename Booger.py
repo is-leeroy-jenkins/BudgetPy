@@ -2387,7 +2387,7 @@ class ListBoxDialog( Sith ):
 
     @property
     def selecteditem( self ):
-        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+        if isinstance( self.__selecteditem, str ):
             return self.__selecteditem
 
     @selecteditem.setter
@@ -2416,20 +2416,20 @@ class ListBoxDialog( Sith ):
             btnsize = ( 10, 1 )
             space = ( 10, 1 )
             line = ( 100, 1 )
-            txtsize = ( 25, 1 )
-            inpsize = ( 25, 1 )
-            lstsize = ( 25, 5 )
+            txtsz = (25, 1)
+            inpsz = (25, 1)
+            lstsz = (25, 5)
             names = [ ]
-            if len( self.__items ) > 0:
-                names = [ src for src in list( self.__items ) if src != 'NS' ]
+            if isinstance( self.__items, list ):
+                names = [ src for src in self.__items ]
             else:
                 names = [ f'Item - { i }' for i in range( 40 ) ]
 
             layout = [ [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
                        [ sg.Text( '', size = space ), sg.Text( r'Search:' ) ],
-                       [ sg.Text( '', size = space ), sg.Input( size = inpsize, enable_events = True, key = '-INPUT-' ) ],
+                       [ sg.Text( '', size = space ), sg.Input( size = inpsz, enable_events = True, key = '-INPUT-' ) ],
                        [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
-                       [ sg.Text( '', size = space ), sg.Listbox( names, size = lstsize, enable_events = True, key = '-ITEM-', font = self.__themefont ) ],
+                       [ sg.Text( '', size = space ), sg.Listbox( names, size = lstsz, enable_events = True, key = '-ITEM-', font = self.__themefont ) ],
                        [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
                        [ sg.Text( '', size = space ), sg.Button( 'Select', size = btnsize ), sg.Text( '', size = ( 3, 1 ) ), sg.Button( 'Exit', size = btnsize  ) ] ]
 
@@ -2442,17 +2442,19 @@ class ListBoxDialog( Sith ):
                 event, values = window.read( )
                 if event in ( sg.WIN_CLOSED, 'Exit' ):
                     break
+
+                if event == 'Select':
+                    self.__selecteditem = values[ '-ITEM-' ]
+                    sg.popup( 'Results', self.__selecteditem,
+                        font = self.__themefont,
+                        icon = self.__icon  )
+
                 if values[ '-INPUT-' ] != '':
                     search = values[ '-INPUT-' ]
                     new_values = [ x for x in names if search in x ]
                     window[ '-ITEM-' ].update( new_values )
                 else:
                     window[ '-ITEM-' ].update( names )
-                if event in ( '-ITEM-', 'Select' ) and values[ '-ITEM-' ] != '':
-                    self.__selecteditem = values[ '-ITEM-' ]
-                    sg.popup( 'Results', self.__selecteditem,
-                        font = self.__themefont,
-                        icon = self.__icon  )
 
             window.close( )
 
