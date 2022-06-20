@@ -193,7 +193,7 @@ class Sith( ):
     __icon = None
     __themefont = None
     __scrollbar = None
-    __progressbar = None
+    __progressbarbackcolor = None
 
     @property
     def themebackground( self ):
@@ -337,13 +337,13 @@ class Sith( ):
 
     @property
     def progressbarcolor( self ):
-        if isinstance( self.__progressbar, tuple ) :
-            return self.__progressbar
+        if isinstance( self.__progressbarbackcolor, tuple ) :
+            return self.__progressbarbackcolor
 
     @progressbarcolor.setter
     def progressbarcolor( self, value ):
         if isinstance( value, tuple ) :
-            self.__progressbar = value
+            self.__progressbarbackcolor = value
 
     def __init__( self ):
         self.__themebackground = '#0F0F0F'
@@ -359,7 +359,8 @@ class Sith( ):
         self.__icon = r'etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__scrollbar = '#755600'
-        self.__progressbar = '#18ADF2'
+        self.__progressbarbackcolor = '#18ADF2'
+        self.__progressbarcolor = ( self.__buttonforecolor, self.__progressbarbackcolor )
         sg.theme_background_color( self.__themebackground )
         sg.theme_border_width( 1 )
         sg.theme_element_background_color( self.__elementbackcolor )
@@ -368,8 +369,8 @@ class Sith( ):
         sg.theme_text_element_background_color( self.__textbackcolor )
         sg.theme_input_background_color( self.__inputbackcolor )
         sg.theme_text_color( self.__themetextcolor )
-        sg.theme_button_color( self.__buttonforecolor, self.__buttonbackcolor )
-        sg.theme_progress_bar_color( self.__buttonforecolor, self.__buttonbackcolor )
+        sg.theme_button_color( self.__buttoncolor )
+        sg.theme_progress_bar_color( self.__progressbarcolor )
         sg.theme
 
 
