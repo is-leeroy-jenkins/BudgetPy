@@ -2424,6 +2424,7 @@ class ListBoxDialog( Sith ):
             inpsz = (25, 1)
             lstsz = (25, 5)
             names = [ ]
+
             if isinstance( self.__items, list ):
                 names = [ src for src in self.__items ]
             else:
@@ -2447,9 +2448,12 @@ class ListBoxDialog( Sith ):
                 if event in ( sg.WIN_CLOSED, 'Exit' ):
                     break
                 self.__selecteditem = str( values[ '-ITEM-' ][ 0 ] )
-                sg.popup( 'Results', self.__selecteditem,
-                    font = self.__themefont,
-                    icon = self.__icon  )
+                if event == 'Selected':
+                    self.__selecteditem = str( values[ '-ITEM-' ][ 0 ] )
+                    sg.popup( 'Results', self.__selecteditem,
+                        font = self.__themefont,
+                        icon = self.__icon  )
+                    window.close( )
 
                 if values[ '-INPUT-' ] != '':
                     search = values[ '-INPUT-' ]
