@@ -193,7 +193,7 @@ class Sith( ):
     __buttonbackcolor = None
     __icon = None
     __themefont = None
-    __scrollbar = None
+    __scrollbarcolor = None
     __progressbarbackcolor = None
 
     @property
@@ -328,13 +328,13 @@ class Sith( ):
 
     @property
     def scrollbarcolor( self ):
-        if isinstance( self.__scrollbar, str ) and self.__scrollbar != '':
-            return self.__scrollbar
+        if isinstance( self.__scrollbarcolor, str ) and self.__scrollbarcolor != '':
+            return self.__scrollbarcolor
 
     @scrollbarcolor.setter
     def scrollbarcolor( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__scrollbar = value
+            self.__scrollbarcolor = value
 
     @property
     def progressbarcolor( self ):
@@ -357,9 +357,9 @@ class Sith( ):
         self.__buttonbackcolor = '#163754'
         self.__buttonforecolor = '#FFFFFF'
         self.__buttoncolor = ( ( self.__buttonforecolor, self.__buttonbackcolor ) )
-        self.__icon = r'etc\ico\ninja.ico'
+        self.__icon = os.getcwd( ) + r'\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
-        self.__scrollbar = '#755600'
+        self.__scrollbarcolor = '#755600'
         self.__progressbarbackcolor = '#18ADF2'
         self.__progressbarcolor = ( self.__buttonforecolor, self.__progressbarbackcolor )
         sg.theme_background_color( self.__themebackground )
@@ -687,12 +687,12 @@ class GoogleDialog( Sith ):
 
     @property
     def results( self ):
-        if isinstance( self.__results, str ) and self.__results != '':
+        if isinstance( self.__results, list ) and len( self.__results ) > 0:
             return self.__results
 
     @search.setter
     def results( self, value ):
-        if isinstance( value, str ) and value != '':
+        if isinstance( value, list ) and len( value ) > 0:
             self.__results = value
 
     def __init__( self ):
@@ -1017,10 +1017,11 @@ class ErrorDialog( Sith ):
                 f'Method:\t{ self.__method }\r\n \r\n{ self.__info }'
         red = '#F70202'
         font = ( 'Roboto', 10 )
+        backcolor = super( ).themebackground
         layout = [ [ sg.Text( r'' ) ],
            [ sg.Text( f'{ msg }', size = ( 100, 1 ), text_color = red, font = font ) ],
            [ sg.Text( r'', size = ( 150, 1 ) ) ],
-           [ sg.Multiline( f'{ info }', size = ( 80, 7 ) ) ],
+           [ sg.Multiline( f'{ info }', size = ( 80, 7 ), sbar_background_color = backcolor ) ],
            [ sg.Text( r'' ) ],
            [ sg.Text( r'', size = ( 20, 1 ) ), sg.Cancel( size = ( 15, 1 ) ),
              sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
