@@ -22,10 +22,10 @@ from Booger import Error, ErrorDialog
 import sys
 from sys import exc_info
 
-# BudgetPath( directorypath )
+# BudgetPath( selectedpath )
 class BudgetPath( ):
     ''' BudgetPath( filename ) initializes the
-    BudgetPath class providing directorypath information of getsubfolders
+    BudgetPath class providing selectedpath information of getsubfolders
     used in the application'''
     __path = None
     __ext = None
@@ -35,13 +35,13 @@ class BudgetPath( ):
 
     @property
     def name( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
     def name( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ):
             self.__path = str( list( os.path.split( self.__infile ) )[ 1 ] )
 
@@ -82,7 +82,7 @@ class BudgetPath( ):
 
     @currentdirectory.setter
     def currentdirectory( self, value ):
-        '''Set the currentdirectory directory to 'directorypath' '''
+        '''Set the currentdirectory directory to 'selectedpath' '''
         if os.path.exists( value ):
             os.chdir( value )
             self.__currdir = value
@@ -220,109 +220,109 @@ class SqlPath( ):
 
     @property
     def sqlitedriver( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__sqlitedriver, str ):
             return self.__sqlitedriver
 
     @sqlitedriver.setter
     def sqlitedriver( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlitedriver = value
 
     @property
     def sqlitedata( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__sqlitedata, str ):
             return self.__sqlitedata
 
     @sqlitedata.setter
     def sqlitedata( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlitedata = value
 
     @property
     def sqlitereference( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__sqlitereference, str ):
             return self.__sqlitereference
 
     @sqlitereference.setter
     def sqlitereference( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlitereference = value
 
     @property
     def accessdriver( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__accessdriver, str ):
             return self.__accessdriver
 
     @accessdriver.setter
     def accessdriver( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__accessdriver = value
 
     @property
     def accessdata( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__accessdata, str ):
             return self.__accessdata
 
     @accessdata.setter
     def accessdata( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__accessdata = value
 
     @property
     def accessreference( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__accessreference, str ):
             return self.__accessreference
 
     @accessreference.setter
     def accessreference( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__accessreference = value
 
     @property
     def sqlitedriver( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__sqlitedriver, str ):
             return self.__sqlitedriver
 
     @sqlitedriver.setter
     def sqlitedriver( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlitedriver = value
 
     @property
     def sqldata( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__sqldata, str ):
             return self.__sqldata
 
     @sqldata.setter
     def sqldata( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqldata = value
 
     @property
     def sqlreference( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( self.__sqlreference, str ):
             return self.__sqlreference
 
     @sqlreference.setter
     def sqlreference( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlreference = value
 
@@ -520,7 +520,7 @@ class SqlFile( ):
 
 # BudgetFile( filepath )
 class BudgetFile( ):
-    '''BudgetFile( directorypath ) initializes the
+    '''BudgetFile( selectedpath ) initializes the
      BudgetFile Class providing file information for
      getsubfolders used in the application'''
     __absolute = None
@@ -647,7 +647,7 @@ class BudgetFile( ):
 
     @current.setter
     def current( self, value ):
-        '''Set the currentdirectory directory to 'directorypath' '''
+        '''Set the currentdirectory directory to 'selectedpath' '''
         if os.path.exists( value ) and os.path.isdir( value ):
             os.chdir( value )
             self.__currdir = value
@@ -706,7 +706,7 @@ class BudgetFile( ):
             err.show( )
 
     def create( self, other, lines = None ):
-        ''' creates and returns 'directorypath' file '''
+        ''' creates and returns 'selectedpath' file '''
         try:
             if isinstance( other, str ):
                 newfile = open( other, 'r+' )
@@ -776,7 +776,7 @@ class BudgetFile( ):
             err.show( )
 
     def getextension( self, other ):
-        ''' gets and returns extension of 'directorypath' 'file' '''
+        ''' gets and returns extension of 'selectedpath' 'file' '''
         try:
             if other is not None and os.path.isfile( other ):
                 return str( list( os.path.splitext( other ) )[ 1 ] )
@@ -864,9 +864,9 @@ class BudgetFile( ):
             err.show( )
 
 
-# BudgetFolder( directorypath )
+# BudgetFolder( selectedpath )
 class BudgetFolder( ):
-    '''BudgetFolder( directorypath ) initializes the
+    '''BudgetFolder( selectedpath ) initializes the
      BudgetFolder Class providing file directory information'''
     __absolute = None
     __path = None
@@ -878,25 +878,25 @@ class BudgetFolder( ):
 
     @property
     def name( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if os.path.exists( self.__path ):
             return str( list( os.path.split( self.__path ) )[ 1 ] )
 
     @name.setter
     def name( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ):
             self.__path = value
 
     @property
     def directory( self ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if not self.__name == '':
             return self.__name
 
     @directory.setter
     def directory( self, value ):
-        '''Returns string representing the sheetname of the directorypath 'base' '''
+        '''Returns string representing the sheetname of the selectedpath 'base' '''
         if os.path.isdir( value ):
             self.__name = value
 
@@ -1054,7 +1054,7 @@ class BudgetFolder( ):
             err.show( )
 
     def delete( self, other ):
-        ''' deletes 'directorypath' directory '''
+        ''' deletes 'selectedpath' directory '''
         try:
             if other is not None and os.path.isdir( other ):
                 os.rmdir( other )
@@ -1067,7 +1067,7 @@ class BudgetFolder( ):
             err.show( )
 
     def getsize( self, other ):
-        ''' gets and returns size of 'directorypath' '''
+        ''' gets and returns size of 'selectedpath' '''
         try:
             if other is not None and os.path.isdir( other ):
                 return os.path.getsize( other )
@@ -1080,7 +1080,7 @@ class BudgetFolder( ):
             err.show( )
 
     def getdrive( self, other ):
-        ''' gets and returns parent directory of 'directorypath' '''
+        ''' gets and returns parent directory of 'selectedpath' '''
         try:
             if other is not None and os.path.isdir( other ):
                 return os.path.splitdrive( other )[ 0 ]
@@ -1290,9 +1290,9 @@ class EmailBuilder( ):
             return self.__message
 
 
-# ExcelFile( directorypath )
+# ExcelFile( selectedpath )
 class ExcelFile(  ):
-    '''ExcelFile( directorypath ) class provides
+    '''ExcelFile( selectedpath ) class provides
     the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
@@ -1457,7 +1457,7 @@ class ExcelReport( ):
         self.__dimensions = (self.__rows, self.__columns)
 
 
-# ZipFile( directorypath )
+# ZipFile( selectedpath )
 class ZipFile( ):
     __infile = None
     __name = None

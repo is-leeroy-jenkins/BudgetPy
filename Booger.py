@@ -124,7 +124,7 @@ class ButtonIcon( ):
 
     def __init__( self, png ):
         self.__name = png.name if isinstance( png, PNG ) else None
-        self.__button = r'C:\Users\terry\source\repos\BudgetPy\etc\img\button'
+        self.__button = os.getcwd( ) + r'\etc\img\button'
         self.__filepath = self.__button + r'\\' + self.__name + '.png'
 
     def __str__( self ):
@@ -171,7 +171,7 @@ class TitleIcon( ):
 
     def __init__( self, ico ):
         self.__name = ico.name if isinstance( ico, ICO ) else None
-        self.__folder = r'C:\Users\terry\source\repos\BudgetPy\etc\ico'
+        self.__folder = os.getcwd( ) + r'etc\ico'
         self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
     def __str__( self ):
@@ -494,12 +494,12 @@ class FolderDialog( Sith ):
             self.__formsize = value
 
     @property
-    def directorypath( self ):
+    def selectedpath( self ):
         if isinstance( self.__selectedpath, str ) and self.__selectedpath != '':
             return self.__selectedpath
 
-    @directorypath.setter
-    def directorypath( self, value ):
+    @selectedpath.setter
+    def selectedpath( self, value ):
         if isinstance( value, str ) and value != '':
             self.__selectedpath = value
 
@@ -555,7 +555,6 @@ class FolderDialog( Sith ):
             exc.method = 'show( self )'
             error  = ErrorDialog( exc )
             error.show( )
-
 
 
 # SaveFileDialog( path )
@@ -1024,7 +1023,7 @@ class ErrorDialog( Sith ):
         red = '#F70202'
         font = ( 'Roboto', 10 )
         back = super( ).buttonbackcolor
-        arrow = self.__scrollbarcolor
+        arrow = super( ).scrollbarcolor
         trough = self.__themebackground
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( f'{ msg }', size = (100, 1), text_color = red, font = font ) ],
@@ -1098,7 +1097,7 @@ class InputDialog( Sith ):
     def __init__( self, question ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
-        self.__question = question if isinstance( question, str ) and question != '' else None
+        self.__question = question if isinstance( question, str ) else None
         self.__themefont = super( ).themefont
         self.__icon = super( ).iconpath
         self.__elementbackcolor = super( ).elementbackcolor
@@ -1129,7 +1128,8 @@ class InputDialog( Sith ):
 
             while True:
                 event, values = window.read( )
-                sg.popup( event, values, values[ '-INPUT-' ],
+                self.__response = values[ '-INPUT-' ]
+                sg.popup( event, values, self.__response,
                     text_color = self.__themetextcolor,
                     font = self.__themefont,
                     icon = self.__icon )
