@@ -2396,7 +2396,6 @@ class ListBoxDialog( Sith ):
             self.__selecteditem = value
 
     def __init__( self, data = None ):
-        self.__items = data if isinstance( data, list ) else None
         super( ).__init__()
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
@@ -2410,6 +2409,11 @@ class ListBoxDialog( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 400, 250 )
         self.__image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
+        self.__items = data if isinstance( data, list ) else None
+
+    def __str__( self ) :
+        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+            return self.__selecteditem
 
     def show( self ):
         try:
@@ -2429,9 +2433,9 @@ class ListBoxDialog( Sith ):
                        [ sg.Text( '', size = space ), sg.Text( r'Search:' ) ],
                        [ sg.Text( '', size = space ), sg.Input( size = inpsz, enable_events = True, key = '-INPUT-' ) ],
                        [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
-                       [ sg.Text( '', size = space ), sg.Listbox( names, size = lstsz, enable_events = True, key = '-ITEM-', font = self.__themefont ) ],
+                       [ sg.Text( '', size = space ), sg.Listbox( names, size = lstsz, key = '-ITEM-', font = self.__themefont ) ],
                        [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
-                       [ sg.Text( '', size = space ), sg.Button( 'Select', size = btnsize ), sg.Text( '', size = ( 3, 1 ) ), sg.Button( 'Exit', size = btnsize  ) ] ]
+                       [ sg.Text( '', size = space ), sg.Button( 'Select', size = btnsize, enable_events = True ), sg.Text( '', size = ( 3, 1 ) ), sg.Button( 'Exit', size = btnsize  ) ] ]
 
             window = sg.Window( '  Budget Execution', layout,
                 size = self.__formsize,
@@ -2442,12 +2446,10 @@ class ListBoxDialog( Sith ):
                 event, values = window.read( )
                 if event in ( sg.WIN_CLOSED, 'Exit' ):
                     break
-
-                if event == 'Select':
-                    self.__selecteditem = values[ '-ITEM-' ]
-                    sg.popup( 'Results', self.__selecteditem,
-                        font = self.__themefont,
-                        icon = self.__icon  )
+                self.__selecteditem = str( values[ '-ITEM-' ][ 0 ] )
+                sg.popup( 'Results', self.__selecteditem,
+                    font = self.__themefont,
+                    icon = self.__icon  )
 
                 if values[ '-INPUT-' ] != '':
                     search = values[ '-INPUT-' ]
