@@ -388,7 +388,7 @@ class FileDialog( Sith ):
     __buttoncolor = None
     __icon = None
     __themefont = None
-    __filepath = None
+    __selectedpath = None
     __formsize = None
 
     @property
@@ -403,13 +403,13 @@ class FileDialog( Sith ):
 
     @property
     def filepath( self ):
-        if isinstance( self.__filepath, str ) and self.__filepath != '':
-            return self.__filepath
+        if isinstance( self.__selectedpath, str ) and self.__selectedpath != '':
+            return self.__selectedpath
 
     @filepath.setter
     def filepath( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__filepath = value
+            self.__selectedpath = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -424,11 +424,11 @@ class FileDialog( Sith ):
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__filepath = None
+        self.__selectedpath = None
 
     def __str__( self ):
-        if isinstance( self.__filepath, str ):
-            return self.__filepath
+        if isinstance( self.__selectedpath, str ):
+            return self.__selectedpath
 
     def show( self ):
         try:
@@ -450,8 +450,8 @@ class FileDialog( Sith ):
                 if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
                     break
                 elif event == 'OK':
-                    self.__filepath = values[ '-PATH-' ]
-                    sg.popup_ok( self.__filepath,
+                    self.__selectedpath = values[ '-PATH-' ]
+                    sg.popup_ok( self.__selectedpath,
                         title = 'Results',
                         icon = self.__icon,
                         font = self.__themefont )
@@ -480,7 +480,7 @@ class FolderDialog( Sith ):
     __icon = None
     __formsize = None
     __themefont = None
-    __folderpath = None
+    __selectedpath = None
 
 
     @property
@@ -494,14 +494,14 @@ class FolderDialog( Sith ):
             self.__formsize = value
 
     @property
-    def folderpath( self ):
-        if isinstance( self.__folderpath, str ) and self.__folderpath != '':
-            return self.__folderpath
+    def directorypath( self ):
+        if isinstance( self.__selectedpath, str ) and self.__selectedpath != '':
+            return self.__selectedpath
 
-    @folderpath.setter
-    def folderpath( self, value ):
+    @directorypath.setter
+    def directorypath( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__folderpath = value
+            self.__selectedpath = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -516,7 +516,7 @@ class FolderDialog( Sith ):
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__folderpath = None
+        self.__selectedpath = None
 
     def __str__( self ):
         if isinstance( self.__filepath, str ):
@@ -527,7 +527,7 @@ class FolderDialog( Sith ):
             layout = [ [ sg.Text( r'' ) ],
                [ sg.Text( 'Search for Directory' ) ],
                [ sg.Text( r'' ) ],
-               [ sg.Input( ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
+               [ sg.Input( key = '-PATH-' ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
                [ sg.Text( r'', size = ( 100, 1 ) ) ],
                [ sg.Text( r'', size = ( 100, 1 ) ) ],
                [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
@@ -541,6 +541,12 @@ class FolderDialog( Sith ):
                 event, values = window.read( )
                 if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
                     break
+                elif event == 'OK':
+                    self.__selectedpath = values[ '-PATH-' ]
+                    sg.popup_ok( self.__selectedpath,
+                        title = 'Results',
+                        icon = self.__icon,
+                        font = self.__themefont )
 
             window.close( )
         except Exception as e:
@@ -1012,19 +1018,22 @@ class ErrorDialog( Sith ):
             return self.__message
 
     def show( self ):
-        msg = self.__message if isinstance( self.__message, str) and self.__message != '' else None
+        msg = self.__message if isinstance( self.__message, str) else None
         info = f'Module:\t{ self.__module }\r\nClass:\t{ self.__cause }\r\n' \
                 f'Method:\t{ self.__method }\r\n \r\n{ self.__info }'
         red = '#F70202'
         font = ( 'Roboto', 10 )
-        backcolor = super( ).themebackground
+        back = super( ).buttonbackcolor
+        arrow = self.__scrollbarcolor
+        trough = self.__themebackground
         layout = [ [ sg.Text( r'' ) ],
-           [ sg.Text( f'{ msg }', size = ( 100, 1 ), text_color = red, font = font ) ],
-           [ sg.Text( r'', size = ( 150, 1 ) ) ],
-           [ sg.Multiline( f'{ info }', size = ( 80, 7 ), sbar_background_color = backcolor ) ],
-           [ sg.Text( r'' ) ],
-           [ sg.Text( r'', size = ( 20, 1 ) ), sg.Cancel( size = ( 15, 1 ) ),
-             sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
+                   [ sg.Text( f'{ msg }', size = (100, 1), text_color = red, font = font ) ],
+                   [ sg.Text( r'', size = (150, 1) ) ],
+                   [ sg.Multiline( f'{info}', size = (80, 7), sbar_background_color = back,
+                       sbar_arrow_color = arrow, sbar_trough_color = trough ) ],
+                   [ sg.Text( r'' ) ],
+                   [ sg.Text( r'', size = (20, 1) ), sg.Cancel( size = (15, 1) ),
+                     sg.Text( r'', size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
 
         window = sg.Window( r' Budget Execution', layout,
             icon = self.__icon,
@@ -1146,6 +1155,7 @@ class ScrollingDialog( Sith ):
     __themetextcolor = None
     __textbackcolor = None
     __inputbackcolor = None
+    __arrowcolor = None
     __inputforecolor = None
     __buttoncolor = None
     __icon = None
@@ -1184,6 +1194,7 @@ class ScrollingDialog( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
+        self.__arrowcolor = super( ).scrollbarcolor
         self.__formsize = ( 650, 500 )
         self.__response = None
 
@@ -1192,15 +1203,21 @@ class ScrollingDialog( Sith ):
             line = ( 100, 1 )
             space = ( 5, 1 )
             btnsize = ( 25, 1 )
-
+            arrow = self.__arrowcolor
+            back = super( ).buttonbackcolor
             layout = [ [ sg.Text( ' ', size = line ) ],
-               [ sg.Text( ' ', size = line ) ],
-               [ sg.Text( '', size = space ), sg.Multiline( size = ( 70, 20 ), key = '-MLINE-' ), sg.Text( '', size = space ) ],
-               [ sg.Text( ' ', size = line ) ],
-               [ sg.Text( ' ', size = space ), sg.Input( k = '-IN-', size = ( 70, 20 ) ), sg.Text( '', size = space )  ],
-               [ sg.Text( ' ', size = line ) ],
-               [ sg.Text( '', size = space ), sg.Button( 'Submit', size = btnsize ),
-                 sg.Text( '', size = ( 15, 1 ) ), sg.Button( 'Exit', size = btnsize ), sg.Text( '', size = space ), ] ]
+                       [ sg.Text( ' ', size = line ) ],
+                       [ sg.Text( '', size = space ),
+                         sg.Multiline( size = (70, 20), key = '-MLINE-',
+                             sbar_background_color = back, sbar_arrow_color = arrow ),
+                         sg.Text( '', size = space ) ],
+                       [ sg.Text( ' ', size = line ) ],
+                       [ sg.Text( ' ', size = space ), sg.Input( k = '-IN-', size = (70, 20) ),
+                         sg.Text( '', size = space ) ],
+                       [ sg.Text( ' ', size = line ) ],
+                       [ sg.Text( '', size = space ), sg.Button( 'Submit', size = btnsize ),
+                         sg.Text( '', size = (15, 1) ), sg.Button( 'Exit', size = btnsize ),
+                         sg.Text( '', size = space ), ] ]
 
             window = sg.Window( '  Budget Execution', layout,
                 icon = self.__icon,
@@ -1444,7 +1461,7 @@ class LoadingPanel( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loading.gif'
+        self.__image = os.getcwd( ) + r'\etc\img\loaders\loading.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1520,7 +1537,7 @@ class WaitingPanel( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\loader.gif'
+        self.__image = os.getcwd( ) + r'\etc\img\loaders\loader.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
 
@@ -1598,7 +1615,7 @@ class ProcessingPanel( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\loaders\processing.gif'
+        self.__image = os.getcwd( ) + r'\etc\img\loaders\processing.gif'
         self.__formsize = ( 800, 600 )
 
     def show( self ):
@@ -1609,6 +1626,7 @@ class ProcessingPanel( Sith ):
                 justification = 'c',
                 key = '-T-',
                 font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
+
             window = sg.Window( '  Processing...', layout,
                 element_justification = 'c',
                 icon = self.__icon,
@@ -1616,15 +1634,21 @@ class ProcessingPanel( Sith ):
                 size = ( 800, 600 ),
                 element_padding = ( 0, 0 ),
                 finalize = True )
+
             window[ '-T-' ].expand( True, True, True )
+
             interframe_duration = Image.open( self.__image ).info[ 'duration' ]
+
             while True:
                 for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
                     event, values = window.read( timeout = interframe_duration )
                     if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                         exit( 0 )
+
                     window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+
             window.close()
+
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'
@@ -1926,6 +1950,7 @@ class PdfForm( Sith ):
 
                 if event in keys or not values[ 0 ]:
                     goto.update( f'{ str( currentpage + 1 ) } of { str( pages ) }' )
+
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'
