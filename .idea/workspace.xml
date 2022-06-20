@@ -11,6 +11,31 @@
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.0.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.0.dist-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI-4.60.0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI/PySimpleGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI/PySimpleGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer-2.0.12.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer-2.0.12.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer-2.0.12.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer-2.0.12.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer-2.0.12.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer-2.0.12.dist-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer-2.0.12.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/assets/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/assets/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/cd.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/cd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/cli/normalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/cli/normalizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/constant.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/constant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/md.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/md.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/charset_normalizer/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/normalizer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/normalizer.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,24 +128,24 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/source/repos/BudgetPy&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy",
+    "run.code.analysis.last.selected.profile": "pBudget",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\env\python.exe" working-directory="$PROJECT_DIR$">
@@ -177,13 +202,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00217" summary="updates from main rig;">
-      <created>1653924833050</created>
-      <option name="number" value="00217" />
-      <option name="presentableId" value="LOCAL-00217" />
-      <option name="project" value="LOCAL" />
-      <updated>1653924833050</updated>
     </task>
     <task id="LOCAL-00218" summary="updates from main rig;">
       <created>1653926428196</created>
@@ -521,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655751272733</updated>
     </task>
-    <option name="localTasksCounter" value="266" />
+    <task id="LOCAL-00266" summary="updates from main rig;">
+      <created>1655751385782</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1655751385782</updated>
+    </task>
+    <option name="localTasksCounter" value="267" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

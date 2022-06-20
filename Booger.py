@@ -1762,13 +1762,13 @@ class Notification( Sith ):
         self.__inputbackcolor = Sith( ).inputbackcolor
         self.__inputforecolor = Sith( ).inputforecolor
         self.__buttoncolor = Sith( ).buttoncolor
-        self.__image = r'etc\img\app\notification\NotifyNinja.png'
+        self.__image = r'\etc\img\app\notification\NotifyNinja.png'
         self.__message = '  ' + message if isinstance( message, str ) and message != '' else None
 
     def show( self ):
         try:
             return sg.popup_notify( self.__message,
-                title = ' ' + 'Budget Execution',
+                title = ' ' + 'Budget Execution Notification',
                 icon = self.__image,
                 display_duration_in_ms = 5000,
                 fade_in_duration = 3000,
