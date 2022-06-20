@@ -11,7 +11,6 @@
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/teraterm.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/teraterm.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -178,13 +177,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00212" summary="updates from main rig;">
-      <created>1653919821371</created>
-      <option name="number" value="00212" />
-      <option name="presentableId" value="LOCAL-00212" />
-      <option name="project" value="LOCAL" />
-      <updated>1653919821371</updated>
     </task>
     <task id="LOCAL-00213" summary="updates from main rig;">
       <created>1653921691787</created>
@@ -522,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655676792798</updated>
     </task>
-    <option name="localTasksCounter" value="261" />
+    <task id="LOCAL-00261" summary="updates from main rig;">
+      <created>1655686460563</created>
+      <option name="number" value="00261" />
+      <option name="presentableId" value="LOCAL-00261" />
+      <option name="project" value="LOCAL" />
+      <updated>1655686460563</updated>
+    </task>
+    <option name="localTasksCounter" value="262" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
