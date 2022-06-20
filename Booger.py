@@ -2039,7 +2039,7 @@ class DatePanel( Sith ):
     __icon = None
     __formsize = None
     __themefont = None
-    __date = None
+    __selecteditem = None
 
     @property
     def size( self ):
@@ -2142,7 +2142,7 @@ class DatePanel( Sith ):
                 :rtype: None | str
                 """
                 layout = [ [ sg.Text( 'Try a theme' ) ],
-                           [ sg.Listbox( values = sg.theme_list( ), size = (20, 20), key = '-LIST-',
+                           [ sg.Listbox( values = sg.theme_list( ), size = (20, 20), key = '-ITEM-',
                                enable_events = True ) ],
                            [ sg.OK( ), sg.Cancel( ) ] ]
 
@@ -2153,7 +2153,7 @@ class DatePanel( Sith ):
                     event, values = window.read( )
                     if event in (sg.WIN_CLOSED, 'Exit', 'OK', 'Cancel'):
                         break
-                    sg.theme( values[ '-LIST-' ][ 0 ] )
+                    sg.theme( values[ '-ITEM-' ][ 0 ] )
                     window.hide( )
                     # make at test window to the left of the current one
                     test_window = make_window(
@@ -2164,10 +2164,10 @@ class DatePanel( Sith ):
                 window.close( )
 
                 # after choice made, save theme or restore the old one
-                if event == 'OK' and values[ '-LIST-' ]:
-                    sg.theme( values[ '-LIST-' ][ 0 ] )
-                    sg.user_settings_set_entry( '-theme-', values[ '-LIST-' ][ 0 ] )
-                    return values[ '-LIST-' ][ 0 ]
+                if event == 'OK' and values[ '-ITEM-' ]:
+                    sg.theme( values[ '-ITEM-' ][ 0 ] )
+                    sg.user_settings_set_entry( '-theme-', values[ '-ITEM-' ][ 0 ] )
+                    return values[ '-ITEM-' ][ 0 ]
                 else:
                     sg.theme( old_theme )
                 return None
@@ -2274,6 +2274,16 @@ class ComboBoxDialog( Sith ):
             self.__formsize = value
 
     @property
+    def items( self ):
+        if isinstance( self.__items, list ):
+            return self.__items
+
+    @selecteditem.setter
+    def items( self, value ):
+        if isinstance( value, list ):
+            self.__items = value
+
+    @property
     def selecteditem( self ):
         if isinstance( self.__selecteditem, str ):
             return self.__selecteditem
@@ -2366,16 +2376,6 @@ class ListBoxDialog( Sith ):
             self.__formsize = value
 
     @property
-    def selecteditem( self ):
-        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
-            return self.__selecteditem
-
-    @selecteditem.setter
-    def selecteditem( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__selecteditem = value
-
-    @property
     def items( self ):
         if isinstance( self.__items, list ):
             return self.__items
@@ -2384,6 +2384,16 @@ class ListBoxDialog( Sith ):
     def items( self, value ):
         if isinstance( value, list ):
             self.__items = value
+
+    @property
+    def selecteditem( self ):
+        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+            return self.__selecteditem
+
+    @selecteditem.setter
+    def selecteditem( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__selecteditem = value
 
     def __init__( self, data = None ):
         self.__items = data if isinstance( data, list ) else [ ]
@@ -2399,7 +2409,7 @@ class ListBoxDialog( Sith ):
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 400, 250 )
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\dialog\lookup.png'
+        self.__image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
 
     def show( self ):
         try:
@@ -2415,7 +2425,7 @@ class ListBoxDialog( Sith ):
                        [ sg.Text( '', size = space ), sg.Text( r'Search:' ) ],
                        [ sg.Text( '', size = space ), sg.Input( size = inpsize, enable_events = True, key = '-INPUT-' ) ],
                        [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
-                       [ sg.Text( '', size = space ), sg.Listbox( names, size = lstsize, enable_events = True, key = '-LIST-', font = self.__themefont ) ],
+                       [ sg.Text( '', size = space ), sg.Listbox( names, size = lstsize, enable_events = True, key = '-ITEM-', font = self.__themefont ) ],
                        [ sg.Text( '', size = space ), sg.Text( r'', size = line ) ],
                        [ sg.Text( '', size = space ), sg.Button( 'Select', size = btnsize ), sg.Text( '', size = ( 3, 1 ) ), sg.Button( 'Exit', size = btnsize  ) ] ]
 
@@ -2426,20 +2436,22 @@ class ListBoxDialog( Sith ):
 
             while True:
                 event, values = window.read( )
-                if event in ( sg.WIN_CLOSED, 'Exit' ):  # always check for closed window
+                if event in ( sg.WIN_CLOSED, 'Exit' ):
                     break
-                if values[ '-INPUT-' ] != '':  # if a keystroke entered in search field
+                if values[ '-INPUT-' ] != '':
                     search = values[ '-INPUT-' ]
-                    new_values = [ x for x in names if search in x ]  # do the filtering
-                    window[ '-LIST-' ].update( new_values )  # display in the listbox
+                    new_values = [ x for x in names if search in x ]
+                    window[ '-ITEM-' ].update( new_values )
                 else:
-                    window[ '-LIST-' ].update( names )
-                if event == '-LIST-' and len( values[ '-LIST-' ] ):
-                    sg.popup( 'Selected', values[ '-LIST-' ],
+                    window[ '-ITEM-' ].update( names )
+                if event in ( '-ITEM-', 'Select' ) and values[ '-ITEM-' ] != '':
+                    self.__selecteditem = values[ '-ITEM-' ]
+                    sg.popup( 'Results', self.__selecteditem,
                         font = self.__themefont,
                         icon = self.__icon  )
 
             window.close( )
+
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'
