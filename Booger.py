@@ -1128,14 +1128,15 @@ class InputDialog( Sith ):
 
             while True:
                 event, values = window.read( )
+                if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, '-CANCEL-', 'Exit' ):
+                    break
+
                 self.__response = values[ '-INPUT-' ]
                 sg.popup( event, values, self.__response,
                     text_color = self.__themetextcolor,
                     font = self.__themefont,
                     icon = self.__icon )
 
-                if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel', 'Exit' ):
-                    break
 
             window.close( )
         except Exception as e:
@@ -2260,6 +2261,7 @@ class ComboBoxDialog( Sith ):
     __formsize = None
     __themefont = None
     __items = None
+    __selecteditem = None
 
     @property
     def size( self ):
@@ -2272,14 +2274,14 @@ class ComboBoxDialog( Sith ):
             self.__formsize = value
 
     @property
-    def entry( self ):
-        if isinstance( self.__entry, str )  and self.__entry != '':
-            return self.__entry
+    def selecteditem( self ):
+        if isinstance( self.__selecteditem, str ):
+            return self.__selecteditem
 
-    @entry.setter
-    def entry( self, value ):
-        if isinstance( value, str )  and value != '':
-            self.__entry = value
+    @selecteditem.setter
+    def selecteditem( self, value ):
+        if isinstance( value, str ):
+            self.__selecteditem = value
 
     def __init__( self, data = None):
         super( ).__init__( )
@@ -2301,16 +2303,16 @@ class ComboBoxDialog( Sith ):
             btnsize = ( 10 , 1 )
             space = ( 5, 1 )
             if self.__items == None:
-                self.__items = [ f'choice { x } ' for x in range( 30 ) ]
+                self.__items = [ f'Item { x } ' for x in range( 30 ) ]
                 values = self.__items
 
             layout = [ [ sg.Text( size = space ), sg.Text( size = space ) ],
-                       [ sg.Text( size = space ), sg.Text( 'Make Selection' ) ],
+                       [ sg.Text( size = space ), sg.Text( 'Select Item' ) ],
                        [ sg.Text( size = space ) , sg.DropDown( self.__items, key = '-ITEM-', size = ( 35, 1 ) ) ],
                        [ sg.Text( size = space ), sg.Text( size = space ) ],
                        [ sg.Text( size = space ), sg.OK( size = btnsize ), sg.Text( size = ( 8, 1 ) ), sg.Cancel( size = btnsize ) ] ]
 
-            window = sg.Window( '    Budget Execution', layout,
+            window = sg.Window( '  Budget Execution', layout,
                 icon = self.__icon,
                 size = self.__formsize )
 
@@ -2318,6 +2320,12 @@ class ComboBoxDialog( Sith ):
                 event, values = window.read( )
                 if event in ( sg.WIN_CLOSED, 'Exit', 'Cancel' ):
                     break
+
+                self.__selecteditem = values[ '-ITEM-' ]
+                sg.popup( event, values, self.__selecteditem,
+                    text_color = self.__themetextcolor,
+                    font = self.__themefont,
+                    icon = self.__icon )
 
             window.close( )
         except Exception as e:
