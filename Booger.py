@@ -292,17 +292,17 @@ class Sith( ):
     @property
     def buttonbackcolor( self ):
         if isinstance( self.__buttonbackcolor, str ):
-            return self.__buttoncolor
+            return self.__buttonbackcolor
 
     @buttonbackcolor.setter
     def buttonbackcolor( self, value ):
         if isinstance( value, str ):
-            self.__buttoncolor = value
+            self.__buttonbackcolor = value
 
     @property
     def buttonforecolor( self ):
-        if isinstance( self.__buttonbackcolor, str ):
-            return self.__buttoncolor
+        if isinstance( self.__buttonforecolor, str ):
+            return self.__buttonforecolor
 
     @buttonforecolor.setter
     def buttonforecolor( self, value ):
@@ -373,7 +373,7 @@ class Sith( ):
         sg.theme_text_element_background_color( self.__textbackcolor )
         sg.theme_input_background_color( self.__inputbackcolor )
         sg.theme_text_color( self.__themetextcolor )
-        sg.theme_button_color( self.__buttoncolor )
+        sg.theme_button_color( ( '#FFFFFF', '#163754' ) )
         sg.theme_progress_bar_color( self.__progressbarcolor )
         sg.TOOLTIP_BACKGROUND_COLOR = '#282828'
         sg.set_global_icon( icon = self.__icon )
@@ -524,8 +524,8 @@ class FolderDialog( Sith ):
         self.__selecteditem = None
 
     def __str__( self ):
-        if isinstance( self.__filepath, str ):
-            return self.__filepath
+        if isinstance( self.__selecteditem, str ):
+            return self.__selecteditem
 
     def show( self ):
         try:
@@ -578,17 +578,7 @@ class SaveFileDialog( Sith ):
     __original = None
     __filename = None
 
-    @property
-    def text( self ):
-        if isinstance( self.__text, str ) and self.__text != '':
-            return self.__text
 
-    @text.setter
-    def text( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__text = value
-
-    @property
     def size( self ):
         if isinstance( self.__formsize, tuple ) :
             return self.__formsize
@@ -608,6 +598,16 @@ class SaveFileDialog( Sith ):
         if isinstance( value, str) and os.path.exists( value ):
             self_original = value
 
+    @property
+    def filename( self ):
+        if isinstance( self.__filename, str ) and self.__filename != '':
+            return self.__filename
+
+    @filename.setter
+    def filename( self, value ):
+        if isinstance( value, str):
+            self__filename = value
+
     def __init__( self, path = None ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
@@ -623,6 +623,10 @@ class SaveFileDialog( Sith ):
         self.__formsize = ( 400, 200 )
         self.__original = path if isinstance( path, str) and os.path.isfile( path ) else None
 
+    def __str__( self ):
+        if isinstance( self.__filename, str ) and self.__filename != '':
+            return self.__filename
+
     def show( self ):
         try:
             username = os.environ.get( 'USERNAME' )
@@ -633,6 +637,8 @@ class SaveFileDialog( Sith ):
                 font = self.__themefont,
                 icon = self.__icon,
                 save_as = True )
+
+            self.__filename = filename
 
             if isinstance( self.__original, str) and os.path.exists( self.__original ):
                 src = io.open( self.__original, 'r' ).read( )
@@ -1017,8 +1023,8 @@ class ErrorDialog( Sith ):
         self.__formsize = ( 500, 275 )
 
     def __str__( self ):
-        if isinstance( self.__message, str ):
-            return self.__message
+        if isinstance( self.__info, str ):
+            return self.__info
 
     def show( self ):
         msg = self.__message if isinstance( self.__message, str) else None
@@ -1028,9 +1034,9 @@ class ErrorDialog( Sith ):
         font = ( 'Roboto', 10 )
         padsz = ( 3, 3, 3, 3 )
         layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( f'{ msg }', size = (100, 1), text_color = red, font = font ) ],
-                   [ sg.Text( r'', size = (150, 1) ) ],
-                   [ sg.Multiline( f'{info}', size = (80, 7), pad = padsz ) ],
+                   [ sg.Text( f'{ msg }', size = ( 100, 1 ), text_color = red, font = font ) ],
+                   [ sg.Text( r'', size = ( 150, 1) ) ],
+                   [ sg.Multiline( f'{ info }', size = ( 80, 7 ), pad = padsz ) ],
                    [ sg.Text( r'' ) ],
                    [ sg.Text( r'', size = (20, 1) ), sg.Cancel( size = (15, 1) ),
                      sg.Text( r'', size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
@@ -1110,6 +1116,10 @@ class InputDialog( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 200 )
         self.__response = None
+
+    def __str__( self ):
+        if isinstance( self.__response, str ):
+            return self.__response
 
     def show( self ):
         try:
@@ -1334,7 +1344,7 @@ class GridForm( Sith ):
     __buttoncolor = None
     __icon = None
     __formsize = None
-    __fieldwidth = None
+    __width = None
     __themefont = None
     __rows = None
     __columns = None
@@ -1351,13 +1361,13 @@ class GridForm( Sith ):
 
     @property
     def fieldwidth( self ):
-        if isinstance( self.__fieldwidth, tuple ):
-            return self.__fieldwidth
+        if isinstance( self.__width, tuple ):
+            return self.__width
 
     @fieldwidth.setter
     def fieldwidth( self, value ):
         if isinstance( value, tuple ) and len( value ) == 2:
-            self.__fieldwidth = value
+            self.__width = value
 
     @property
     def rows( self ):
@@ -1379,7 +1389,7 @@ class GridForm( Sith ):
         if isinstance( value, int ):
             self.__columns = value
 
-    def __init__( self, rows = 10, columns = 4 ):
+    def __init__( self, rows = 30, columns = 10 ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
@@ -1391,32 +1401,41 @@ class GridForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
-        self.__fieldwidth = ( 17, 1 )
+        self.__image = None
+        self.__width = ( 17, 1 )
         self.__rows = rows
         self.__columns = columns
+        self.__formsize = ( 1250, 700 )
 
     def show( self ):
         try:
-            headings = [ 'HEADER 1', 'HEADER 2', 'HEADER 3', 'HEADER 4' ]
-            space = [ [ sg.Text( ' ' ) ] ]
-            header = [ [ sg.Text( ' ' ) ] + [ sg.Text( h, size = ( 15, 1 ) ) for h in headings ] ]
-            records = [ [ [ sg.Input( size = self.__fieldwidth, pad = ( 0, 0 ), font = self.__themefont ) for c in range( self.__columns ) ] for r in range( self.__rows ) ],
-                     [ sg.Text( '' ) ] ]
-            buttons = [ [ sg.Text( '', size = ( 35, 1 ) ), sg.Submit( size = ( 10, 1 ), key = '-SUBMIT-'  ),
-                          sg.Text( '', size = ( 5, 1 ) ), sg.Cancel( size = ( 10, 1 ), key = '-CANCEL-' ) ] ]
+            black = self.__themebackground
+            columns = self.__columns
+            headings = [ f'HEADER-{ i + 1 }' for i in range( columns ) ]
+            space = [ [ sg.Text( f'', size = ( 10, 1 ) ) ], [ sg.Text( f'', size = ( 10, 1 ) ) ], [ sg.Text( f'', size = ( 10, 1 ) ) ] ]
+            header = [
+                    [ sg.Text( h, size = ( 16, 1 ), justification = 'left' ) for h in headings ] ]
+            records = [  [ [ sg.Input( size = self.__width, pad = ( 0, 0 ), font = self.__themefont )
+                            for c in range( len( headings ) ) ] for r in range( self.__rows ) ], ]
+            buttons = [ [ sg.Text( '', size = ( 35, 1 ) ), sg.Text( '', size = ( 10, 1 ) ), ],
+                        [ sg.Text( '', size = (100, 1) ), sg.Text( '', size = (100, 1) ), sg.Ok( size = ( 35, 2 ) ) ],
+                        [ sg.Sizegrip( background_color = black ) ] ]
             layout = space + header + records + buttons
 
             window = sg.Window( '  Budget Execution', layout,
+                finalize = True,
+                size = self.__formsize,
                 icon = self.__icon,
-                font = self.__themefont  )
+                font = self.__themefont,
+                resizable = True )
+
 
             while True:
                 event, values = window.read( )
                 if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-CANCEL-' ):
                     break
 
-            window.close( )
+                window.close( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'
@@ -1440,6 +1459,7 @@ class LoadingPanel( Sith ):
     __formsize = None
     __themefont = None
     __image = None
+    __timeout = None
 
     @property
     def size( self ):
@@ -1450,6 +1470,16 @@ class LoadingPanel( Sith ):
     def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
+
+    @property
+    def timeout( self ):
+        if isinstance( self.__timeout, int ) :
+            return self.__timeout
+
+    @timeout.setter
+    def timeout( self, value ):
+        if isinstance( value, int ) :
+            self.__timeout = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -1465,6 +1495,7 @@ class LoadingPanel( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__image = os.getcwd( ) + r'\etc\img\loaders\loading.gif'
         self.__formsize = ( 800, 600 )
+        self.__timeout = 6000
 
     def show( self ):
         try:
@@ -1516,6 +1547,7 @@ class WaitingPanel( Sith ):
     __formsize = None
     __themefont = None
     __image = None
+    __timeout = None
 
     @property
     def size( self ):
@@ -1526,6 +1558,16 @@ class WaitingPanel( Sith ):
     def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
+
+    @property
+    def timeout( self ):
+        if isinstance( self.__timeout, int ) :
+            return self.__timeout
+
+    @timeout.setter
+    def timeout( self, value ):
+        if isinstance( value, int ) :
+            self.__timeout = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -1542,6 +1584,7 @@ class WaitingPanel( Sith ):
         self.__image = os.getcwd( ) + r'\etc\img\loaders\loader.gif'
         self.__themefont = ( 'Roboto', 9 )
         self.__formsize = ( 800, 600 )
+        self.__timeout = 6000
 
     def show( self ):
         try:
@@ -1594,6 +1637,7 @@ class ProcessingPanel( Sith ):
     __formsize = None
     __themefont = None
     __image = None
+    __timeout = None
 
     @property
     def size( self ):
@@ -1604,6 +1648,16 @@ class ProcessingPanel( Sith ):
     def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
+
+    @property
+    def timeout( self ):
+        if isinstance( self.__timeout, int ) :
+            return self.__timeout
+
+    @timeout.setter
+    def timeout( self, value ):
+        if isinstance( value, int ) :
+            self.__timeout = value
 
     def __init__( self ):
         super( ).__init__()
@@ -1619,6 +1673,7 @@ class ProcessingPanel( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__image = os.getcwd( ) + r'\etc\img\loaders\processing.gif'
         self.__formsize = ( 800, 600 )
+        self.__timeout = None
 
     def show( self ):
         try:
@@ -1640,16 +1695,18 @@ class ProcessingPanel( Sith ):
             window[ '-T-' ].expand( True, True, True )
 
             interframe_duration = Image.open( self.__image ).info[ 'duration' ]
+            self.__timeout = interframe_duration
 
             while True:
                 for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
-                    event, values = window.read( timeout = interframe_duration )
+                    event, values = window.read( timeout = self.__timeout,
+                        timeout_key = '-TIMEOUT-' )
                     if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
                         exit( 0 )
 
                     window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
-            window.close()
+            window.close( )
 
         except Exception as e:
             exc = Error( e )
@@ -1674,6 +1731,7 @@ class SplashPanel( Sith ):
     __formsize = None
     __themefont = None
     __image = None
+    __timeout = None
 
     @property
     def formsize( self ):
@@ -1684,6 +1742,16 @@ class SplashPanel( Sith ):
     def formsize( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
+
+    @property
+    def timeout( self ):
+        if isinstance( self.__timeout, int ) :
+            return self.__timeout
+
+    @timeout.setter
+    def timeout( self, value ):
+        if isinstance( value, int ) :
+            self.__timeout = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -1697,6 +1765,8 @@ class SplashPanel( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
+        self.__buttonforecolor = super( ).buttonforecolor
+        self.__buttobackcolor = super( ).buttonbackcolor
         self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
         self.__formsize = ( 800, 600 )
         self.__timeout = 6000
@@ -1840,6 +1910,202 @@ class Notification( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
+
+class ImageSizeEncoder( Sith ):
+    '''Class resizing image and encoding behavior'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+    __image = None
+    __timeout = None
+
+    def __init__( self ):
+        super( ).__init__( )
+        self.__themebackground = super( ).themebackground
+        self.__themefont = super( ).themefont
+        self.__icon = super( ).iconpath
+        self.__elementbackcolor = super( ).elementbackcolor
+        self.__elementforecolor = super( ).elementforecolor
+        self.__themetextcolor = super( ).textforecolor
+        self.__textbackcolor = super( ).textbackcolor
+        self.__inputbackcolor = super( ).inputbackcolor
+        self.__inputforecolor = super( ).inputforecolor
+        self.__buttoncolor = super( ).buttoncolor
+
+    def show( self ):
+        version = '1.3.1'
+        __version__ = version.split( )[ 0 ]
+        def resize( input, size, output = None, ecoding = 'PNG' ):
+            image = Image.open( input )
+            owidth, oheight = image.size
+            nwidth, nheight = size
+            if nwidth != owidth or nheight != oheight:
+                scale = min( nheight / oheight, nwidth / owidth )
+                resized = image.resize( (int( owidth * scale ), int( oheight * scale )),
+                    Image.ANTIALIAS )
+            else:
+                resized = image
+
+            if output is not None:
+                resized.save( output )
+
+            with io.BytesIO( ) as bio:
+                resized.save( bio, format = ecoding )
+                contents = bio.getvalue( )
+                encoded = base64.b64encode( contents )
+            return encoded
+
+        def updatename( ):
+            infile = values[ '-IN-' ]
+            if os.path.isfile( infile ):
+                image = Image.open( infile )
+                width, height = image.size
+                window[ '-ORIG WIDTH-' ].update( image.size[ 0 ] )
+                if not values[ '-WIDTH-' ]:
+                    window[ '-WIDTH-' ].update( image.size[ 0 ] )
+
+                if not values[ '-HEIGHT-' ]:
+                    window[ '-HEIGHT-' ].update( image.size[ 1 ] )
+
+                window[ '-ORIG HEIGHT-' ].update( image.size[ 1 ] )
+
+                infilename = os.path.basename( infile )
+                infilenameonly, infileext = os.path.splitext( infilename )
+                if values[ '-NEW FORMAT-' ]:
+                    outfileext = values[ '-NEW FORMAT-' ].lower( )
+                    if outfileext == 'jpeg':
+                        outfileext = 'jpg'
+                else:
+                    outfileext = infileext[ 1: ]
+
+                outfile = f'{ infilenameonly }{ width }x{ height }.{ outfileext }'
+                outfullfilename = os.path.join( os.path.dirname( infile ), outfile )
+                if values[ '-DO NOT SAVE-' ]:
+                    window[ '-NEW FILENAME-' ].update( '' )
+                    window[ '-BASE64-' ].update( True )
+                else:
+                    window[ '-NEW FILENAME-' ].update( outfullfilename )
+            else:
+                window[ '-NEW FILENAME-' ].update( '' )
+                window[ '-ORIG WIDTH-' ].update( '' )
+                window[ '-ORIG HEIGHT-' ].update( '' )
+                window[ '-NEW FILENAME-' ].update( )
+
+        formats = ('', 'PNG', 'JPEG', 'BMP', 'ICO', 'GIF', 'TIFF')
+        nformat = [
+                [ sg.Combo( formats,
+                    default_value = sg.user_settings_get_entry( '-new format-', '' ),
+                    readonly = True, enable_events = True, key = '-NEW FORMAT-' ) ] ]
+
+        layout = [ [ sg.Text( 'Image Resizer' ) ],
+                   [ sg.Frame( 'Input Filename', [
+                           [ sg.Input( key = '-IN-', enable_events = True, s = 80 ),
+                             sg.FileBrowse( ), ],
+                           [ sg.T( 'Original size' ), sg.T( k = '-ORIG WIDTH-' ), sg.T( 'X' ),
+                             sg.T( k = '-ORIG HEIGHT-' ) ] ] ) ],
+                   [ sg.Frame( 'Output Filename',
+                       [ [ sg.In( k = '-NEW FILENAME-', s = 80 ), sg.FileBrowse( ), ],
+                         [ sg.In( default_text = sg.user_settings_get_entry( '-owidth-', '' ), s = 4,
+                             k = '-WIDTH-' ), sg.T( 'X' ),
+                           sg.In( default_text = sg.user_settings_get_entry( '-oheight-', '' ),
+                               s = 4, k = '-HEIGHT-' ) ] ] ) ],
+                   [ sg.Frame( 'Convert To New Format', nformat ) ],
+                   [ sg.CBox( 'Encode to Base64 and leave on Clipboard', k = '-BASE64-',
+                       default = sg.user_settings_get_entry( '-base64-', True ) ) ],
+                   # [sg.CBox('Use PNG for all Base64 Encoding', default=True, k='-PNG CONVERT-')],
+                   [ sg.CBox( 'Do not save file - Only convert and Base64 Encode',
+                       k = '-DO NOT SAVE-', enable_events = True,
+                       default = sg.user_settings_get_entry( '-do not save-', False ) ) ],
+                   [ sg.CBox( 'Autoclose Immediately When Done',
+                       default = sg.user_settings_get_entry( '-autoclose-',
+                           True if sg.running_windows( ) else False ),
+                       k = '-AUTOCLOSE-' ) ],
+                   [ sg.Button( 'Resize', bind_return_key = True ), sg.Button( 'Exit' ) ],
+                   [ sg.T(
+                       'Note - on some systems, autoclose cannot be used because the clipboard is '
+                       'cleared by tkinter' ) ],
+                   [ sg.T( 'Your settings are automatically saved between runs' ) ],
+                   [ sg.T( f'Version {version}' ),
+                     sg.T( 'Go to psgresizer GitHub Repo', font = '_ 8', enable_events = True,
+                         k = '-PSGRESIZER-' ),
+                     sg.T( 'A PySimpleGUI Application - Go to PySimpleGUI home', font = '_ 8',
+                         enable_events = True, k = '-PYSIMPLEGUI-' ) ], ]
+
+        window = sg.Window( 'Resize Image', layout,
+            icon = self.__icon,
+            right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT,
+            enable_close_attempted_event = True,
+            finalize = True )
+
+        window[ '-PSGRESIZER-' ].set_cursor( 'hand1' )
+        window[ '-PYSIMPLEGUI-' ].set_cursor( 'hand1' )
+
+        while True:
+            event, values = window.read( )
+            if event in (sg.WIN_CLOSED, sg.WIN_CLOSE_ATTEMPTED_EVENT, 'Exit'):
+                break
+
+            infile = values[ '-IN-' ]
+            updatename( )
+
+            if event == '-DO NOT SAVE-':
+                if values[ '-DO NOT SAVE-' ]:
+                    window[ '-NEW FILENAME-' ].update( '' )
+                    window[ '-BASE64-' ].update( True )
+
+            if event == 'Resize':
+                try:
+                    if os.path.isfile( infile ):
+                        updatename( )
+                        infilename = os.path.basename( infile )
+                        infilenameonly, infileext = os.path.splitext( infilename )
+                        if values[ '-NEW FORMAT-' ]:
+                            encode_format = values[ '-NEW FORMAT-' ].upper( )
+                        else:
+                            encode_format = infileext[ 1: ].upper( )
+                        if encode_format == 'JPG':
+                            encode_format = 'JPEG'
+                        outfullfilename = values[ '-NEW FILENAME-' ]
+                        width, height = int( values[ '-WIDTH-' ] ), int( values[ '-HEIGHT-' ] )
+                        if values[ '-DO NOT SAVE-' ]:
+                            encoded = resize( input = infile, size = (width, height),
+                                output = None, ecoding = encode_format )
+                        else:
+                            encoded = resize( input = infile, size = (width, height),
+                                output = outfullfilename, ecoding = encode_format )
+
+                        if values[ '-BASE64-' ]:
+                            sg.clipboard_set( encoded )
+
+                        sg.popup_quick_message( 'DONE!', font = '_ 40', background_color = 'red',
+                            text_color = 'white' )
+
+                except Exception as e:
+                    sg.popup_error_with_traceback( 'Error resizing or converting',
+                        'Error encountered during the resize or Base64 encoding', e )
+
+                if values[ '-AUTOCLOSE-' ]:
+                    break
+            elif event == 'Version':
+                sg.popup_scrolled( sg.get_versions( ), non_blocking = True )
+            elif event == 'Edit Me':
+                sg.execute_editor( __file__ )
+            elif event == 'File Location':
+                sg.popup_scrolled( 'This Python file is:', __file__ )
+            elif event == '-PYSIMPLEGUI-':
+                webbrowser.open_new_tab( r'http://www.PySimpleGUI.com' )
+            elif event == '-PSGRESIZER-':
+                webbrowser.open_new_tab( r'https://github.com/PySimpleGUI/psgresizer' )
+
+        window.close( )
 
 
 class PdfForm( Sith ):
@@ -2346,6 +2612,10 @@ class ComboBoxDialog( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 400, 150 )
         self.__items = data if isinstance( data, list ) and len( data ) > 0 else None
+
+    def __str__( self ) :
+        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+            return self.__selecteditem
 
     def show( self ):
         try:
@@ -3747,7 +4017,6 @@ class BudgetForm( Sith ):
             err.show( )
 
 
-
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
     __themebackground = None
@@ -3852,7 +4121,6 @@ class ChartPanel( Sith ):
             exc.method = 'show( self)'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class CsvForm( Sith ):
