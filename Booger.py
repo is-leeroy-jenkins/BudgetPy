@@ -11,6 +11,9 @@ import textwrap
 from googlesearch import search
 from Minion import *
 import traceback
+import textwrap
+from pandas import read_csv as CsvReader
+from pandas import read_excel as ExcelReader
 
 
 # Error( message )
@@ -356,12 +359,12 @@ class Sith( ):
         self.__inputbackcolor = '#282828'
         self.__buttonbackcolor = '#163754'
         self.__buttonforecolor = '#FFFFFF'
-        self.__buttoncolor = ( ( self.__buttonforecolor, self.__buttonbackcolor ) )
+        self.__buttoncolor = ( '#FFFFFF', '#163754' )
         self.__icon = os.getcwd( ) + r'\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__scrollbarcolor = '#755600'
         self.__progressbarbackcolor = '#18ADF2'
-        self.__progressbarcolor = ( self.__buttonforecolor, self.__progressbarbackcolor )
+        self.__progressbarcolor =  ( '#FFFFFF', '#163754' )
         sg.theme_background_color( self.__themebackground )
         sg.theme_border_width( 1 )
         sg.theme_element_background_color( self.__elementbackcolor )
@@ -372,6 +375,9 @@ class Sith( ):
         sg.theme_text_color( self.__themetextcolor )
         sg.theme_button_color( self.__buttoncolor )
         sg.theme_progress_bar_color( self.__progressbarcolor )
+        sg.TOOLTIP_BACKGROUND_COLOR = '#282828'
+        sg.set_global_icon( icon = self.__icon )
+        sg.TOOLTIP_FONT
         sg.theme
 
 
@@ -388,7 +394,7 @@ class FileDialog( Sith ):
     __buttoncolor = None
     __icon = None
     __themefont = None
-    __selectedpath = None
+    __selecteditem = None
     __formsize = None
 
     @property
@@ -403,13 +409,13 @@ class FileDialog( Sith ):
 
     @property
     def filepath( self ):
-        if isinstance( self.__selectedpath, str ) and self.__selectedpath != '':
-            return self.__selectedpath
+        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+            return self.__selecteditem
 
     @filepath.setter
     def filepath( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__selectedpath = value
+            self.__selecteditem = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -424,11 +430,11 @@ class FileDialog( Sith ):
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__selectedpath = None
+        self.__selecteditem = None
 
     def __str__( self ):
-        if isinstance( self.__selectedpath, str ):
-            return self.__selectedpath
+        if isinstance( self.__selecteditem, str ):
+            return self.__selecteditem
 
     def show( self ):
         try:
@@ -442,7 +448,6 @@ class FileDialog( Sith ):
 
             window = sg.Window( '  Budget Execution', layout,
                 font = self.__themefont,
-                icon = self.__icon,
                 size = self.__formsize )
 
             while True:
@@ -450,8 +455,8 @@ class FileDialog( Sith ):
                 if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
                     break
                 elif event == 'OK':
-                    self.__selectedpath = values[ '-PATH-' ]
-                    sg.popup_ok( self.__selectedpath,
+                    self.__selecteditem = values[ '-PATH-' ]
+                    sg.popup_ok( self.__selecteditem,
                         title = 'Results',
                         icon = self.__icon,
                         font = self.__themefont )
@@ -480,7 +485,7 @@ class FolderDialog( Sith ):
     __icon = None
     __formsize = None
     __themefont = None
-    __selectedpath = None
+    __selecteditem = None
 
 
     @property
@@ -494,14 +499,14 @@ class FolderDialog( Sith ):
             self.__formsize = value
 
     @property
-    def selectedpath( self ):
-        if isinstance( self.__selectedpath, str ) and self.__selectedpath != '':
-            return self.__selectedpath
+    def folderpath( self ):
+        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+            return self.__selecteditem
 
-    @selectedpath.setter
-    def selectedpath( self, value ):
+    @folderpath.setter
+    def folderpath( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__selectedpath = value
+            self.__selecteditem = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -516,7 +521,7 @@ class FolderDialog( Sith ):
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 200 )
-        self.__selectedpath = None
+        self.__selecteditem = None
 
     def __str__( self ):
         if isinstance( self.__filepath, str ):
@@ -534,7 +539,6 @@ class FolderDialog( Sith ):
 
             window = sg.Window( '  Budget Execution', layout,
                 font = self.__themefont,
-                icon = self.__icon,
                 size = self.__formsize )
 
             while True:
@@ -542,8 +546,8 @@ class FolderDialog( Sith ):
                 if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
                     break
                 elif event == 'OK':
-                    self.__selectedpath = values[ '-PATH-' ]
-                    sg.popup_ok( self.__selectedpath,
+                    self.__selecteditem = values[ '-PATH-' ]
+                    sg.popup_ok( self.__selecteditem,
                         title = 'Results',
                         icon = self.__icon,
                         font = self.__themefont )
@@ -1022,14 +1026,11 @@ class ErrorDialog( Sith ):
                 f'Method:\t{ self.__method }\r\n \r\n{ self.__info }'
         red = '#F70202'
         font = ( 'Roboto', 10 )
-        back = super( ).buttonbackcolor
-        arrow = super( ).scrollbarcolor
-        trough = self.__themebackground
+        padsz = ( 3, 3, 3, 3 )
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( f'{ msg }', size = (100, 1), text_color = red, font = font ) ],
                    [ sg.Text( r'', size = (150, 1) ) ],
-                   [ sg.Multiline( f'{info}', size = (80, 7), sbar_background_color = back,
-                       sbar_arrow_color = arrow, sbar_trough_color = trough ) ],
+                   [ sg.Multiline( f'{info}', size = (80, 7), pad = padsz ) ],
                    [ sg.Text( r'' ) ],
                    [ sg.Text( r'', size = (20, 1) ), sg.Cancel( size = (15, 1) ),
                      sg.Text( r'', size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
@@ -1206,11 +1207,11 @@ class ScrollingDialog( Sith ):
             btnsize = ( 25, 1 )
             arrow = self.__arrowcolor
             back = super( ).buttonbackcolor
+            padsz = ( 3, 3, 3, 3 )
             layout = [ [ sg.Text( ' ', size = line ) ],
                        [ sg.Text( ' ', size = line ) ],
                        [ sg.Text( '', size = space ),
-                         sg.Multiline( size = (70, 20), key = '-MLINE-',
-                             sbar_background_color = back, sbar_arrow_color = arrow ),
+                         sg.Multiline( size = (70, 20), key = '-TEXT-', pad = padsz ),
                          sg.Text( '', size = space ) ],
                        [ sg.Text( ' ', size = line ) ],
                        [ sg.Text( ' ', size = space ), sg.Input( k = '-IN-', size = (70, 20) ),
@@ -1731,7 +1732,7 @@ class SplashPanel( Sith ):
 
 # Notification( message )
 class Notification( Sith ):
-    '''Class provides splash notification behaviors'''
+    '''object providing form processing behavior '''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -1744,43 +1745,10 @@ class Notification( Sith ):
     __formsize = None
     __themefont = None
     __image = None
-    __message = None
 
-    @property
-    def formsize( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @formsize.setter
-    def formsize( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
-
-    @property
-    def message( self ):
-        if isinstance( self.__message, str ) and self.__message != '':
-            return self.__message
-
-    @message.setter
-    def message( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__message = value
-
-    @property
-    def imagepath( self ):
-        if isinstance( self.__image, str ) and image != '':
-            return self.__image
-
-    @imagepath.setter
-    def imagepath( self, value ):
-        if isinstance( value, str ) and value != '':
-            return self.__image
-
-    def __init__( self, message ):
+    def __init__( self ):
         super( ).__init__( )
-        self.__themefont = super( ).themefont
         self.__themebackground = super( ).themebackground
-        self.__icon = super( ).iconpath
         self.__elementbackcolor = super( ).elementbackcolor
         self.__elementforecolor = super( ).elementforecolor
         self.__themetextcolor = super( ).textforecolor
@@ -1788,17 +1756,82 @@ class Notification( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__image = os.getcwd( ) + r'\etc\img\app\notification\NotifyNinja.png'
-        self.__message = '  ' + message if isinstance( message, str ) else None
+        self.__success = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
+                    b'/gAAAACXBIWXMAAAEKAAABCgEWpLzLAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5r' \
+                    b'c2NhcGUub3Jnm+48GgAAAHJQTFRF////ZsxmbbZJYL9gZrtVar9VZsJcbMRYaM' \
+                    b'ZVasFYaL9XbMFbasRZaMFZacRXa8NYasFaasJaasFZasJaasNZasNYasJYasJZ' \
+                    b'asJZasJZasJZasJZasJYasJZasJZasJZasJZasJaasJZasJZasJZasJZ2IAizQ' \
+                    b'AAACV0Uk5TAAUHCA8YGRobHSwtPEJJUVtghJeYrbDByNjZ2tvj6vLz9fb3/CyrN0oAAA' \
+                    b'DnSURBVDjLjZPbWoUgFIQnbNPBIgNKiwwo5v1fsQvMvUXI5oqPf4DFOgCrhLKjC8GNV' \
+                    b'gnsJY3nKm9kgTsduVHU3SU/TdxpOp15P7OiuV/PVzk5L3d0ExuachyaTWkAkLFtiBKAq' \
+                    b'ZHPh/yuAYSv8R7XE0l6AVXnwBNJUsE2+GMOzWL8k3OEW7a/q5wOIS9e7t5qnGExvF5Bvl' \
+                    b'c4w/LEM4Abt+d0S5BpAHD7seMcf7+ZHfclp10TlYZc2y2nOqc6OwruxUWx0rDjNJtyp6' \
+                    b'HkUW4bJn0VWdf/a7nDpj1u++PBOR694+Ftj/8PKNdnDLn/V8YAAAAASUVORK5CYII='
+        self.__fail = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
+                b'/gAAAACXBIWXMAAADlAAAA5QGP5Zs8AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm' \
+                b'+48GgAAAIpQTFRF////20lt30Bg30pg4FJc409g4FBe4E9f4U9f4U9g4U9f4E9g31Bf4E9f4E9f' \
+                b'4E9f4E9f4E9f4FFh4Vdm4lhn42Bv5GNx5W575nJ/6HqH6HyI6YCM6YGM6YGN6oaR8Kev9MPI9cb' \
+                b'M9snO9s3R+Nfb+dzg+d/i++vt/O7v/fb3/vj5//z8//7+////KofnuQAAABF0Uk5TAAcIGBktSY' \
+                b'SXmMHI2uPy8/XVqDFbAAAA8UlEQVQ4y4VT15LCMBBTQkgPYem9d9D//x4P2I7vILN68kj2WtsAh' \
+                b'yDO8rKuyzyLA3wjSnvi0Eujf3KY9OUP+kno651CvlB0Gr1byQ9UXff+py5SmRhhIS0oPj4SaUUC' \
+                b'AJHxP9+tLb/ezU0uEYDUsCc+l5/T8smTIVMgsPXZkvepiMj0Tm5txQLENu7gSF7HIuMreRxYNkb' \
+                b'mHI0u5Hk4PJOXkSMz5I3nyY08HMjbpOFylF5WswdJPmYeVaL28968yNfGZ2r9gvqFalJNUy2UW' \
+                b'mq1Wa7di/3Kxl3tF1671YHRR04dWn3s9cXRV09f3vb1fwPD7z9j1WgeRgAAAABJRU5ErkJggg=='
+        self.__ninja = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAnCAYAAABuf0pMAAABhWlDQ1BJQ0MgUHJvZmlsZQA' \
+            b'AeJx9kT1Iw0AcxV9bS1WqDnYo4pChOlkQFRFcpIpFsFDaCq06mFz6BU0akhQXR8G14ODHYtXB' \
+            b'xVlXB1dBEPwAcXRyUnSREv+XFFrEeHDcj3f3HnfvAG+jwhSjaxxQVFNPxWNCNrcqBF7hRz96E' \
+            b'MasyAwtkV7MwHV83cPD17soz3I/9+fok/MGAzwC8RzTdJN4g3h609Q47xOHWEmUic+Jx3S6I' \
+            b'PEj1yWH3zgXbfbyzJCeSc0Th4iFYgdLHcxKukI8RRyRFZXyvVmHZc5bnJVKjbXuyV8YzKsr' \
+            b'aa7THEYcS0ggCQESaiijAhNRWlVSDKRoP+biH7L9SXJJ5CqDkWMBVSgQbT/4H/zu1ihMTjh' \
+            b'JwRjgf7GsjxEgsAs065b1fWxZzRPA9wxcqW1/tQHMfJJeb2uRI2BgG7i4bmvSHnC5A4SfNF' \
+            b'EXbclH01soAO9n9E05YPAW6F1zemvt4/QByFBXyzfAwSEwWqTsdZd3d3f29u+ZVn8/pE' \
+            b'Fyu/Q7rYsAAAbASURBVHicvZd/bJVXGcc/55z3vvdHuf3BbaFldGyDbQhSJsGNlSC66S' \
+            b'gM/hDYxhJLRIcsbs7IRBONiTEi0RmDJltUthlykegYCT+EyUKZcZBABGSzU34NKpcC7S' \
+            b'1tb2/f3h/v+57jH6Vd6S+gbXyS88853+d5vuf7nuc85xWMhVXWrgbWAAuBU8B24DUS8a5' \
+            b'buYpRJq4Bfg5UDbLaDLxMIr4N4P3tmyLBoB357uZdFWkncP6fJw9lRkUgWF7zW19F13ky' \
+            b'NCRmnKV5sabkaM38ioiBKs/39fZ9Z+Qfj4rf5S9tex7AGklyu/zJZYHcx+ssqwRlleCpK' \
+            b'L6wAZgQ8lk4XbGq5h7KxkfIZvPzUp0ZxhcV0NGZlasWz2hxDu5ueutGLDkSAoHcpbVCO2g' \
+            b'ZxlWFvckBHrrPJxyL8dKvz5DJ5ABwulyuJjs5eOwC44tC79ydPzu5B3/nClTWRkTq0CLI' \
+            b'o2UEgQYMLyyfzhe/MJei4jCHD5+gtfEqUkqUkgSDkt3vNXP6cisLKs8ejSn18i+KS8P' \
+            b'fa2/J3DGBSPbCHKE7bIRizlTBN55bwaxZDyKl4Oy58xw4cJz3/v4fFswIEw7ZHDp6gSMft' \
+            b'HDgfAGfKbdIvH1sabll1QOPAftu+xDGYjGSyaRdGJu5eO1Xl+x66qkVTJ02DcdxOH' \
+            b'GynncP/oMtf7nYiy8JaIqCgsspB+k7eIHxlNiae13FOq/hz1P0paNPNDVuvi0FtNbCGD' \
+            b'PbGLOxufHEJMuySKfT1NW9zxtbd3PoVIrualC9Pm2upM2FymiEq2mQOkdbPsh1YVFsVT7' \
+            b'9nO/th8Zbl2FrW9tdGF7yPO9bnueFHafr3N69e+/XydOUlpfhtLUjlaCwIISlJJ6vSTtZ' \
+            b'XNdn2oyZdF2/wjMb6zEotAxiRC/Jk8C8QRVQSpFMJudms7n1zU3JpzsdR9t2IB4KhTZXL' \
+            b'fhmTnWePL3ha0tFkeuSzuZZ9MTjZJINXEk6VEyIUFx+H/sPvEsm08Uv45fxVHSwNHOAH' \
+            b'w5QoOX69QVdXZmfdKQ6Pt/RmW4BXgVeq573SHMPpqB4+p5IwFv27JLZLP5cFRcbW3lz10' \
+            b'VOJKNUFki+vXwCD02PUXesiZ/taR1O4LabCDQ0/Hd5KtWx08lkEmBeAfF69byHM/29gh' \
+            b'O/NDWQ/fgEVmERQgESX0XJ2hWYO7taNvQS+PBf9YA46DjOW8aYP1Q/+og7nGekdF611J3' \
+            b'7kcEiEPhyHJlg5bDZBLqHoAN8h0R8Sy+BU6c+FEKK0OyqWQN2PJTZ5UsetPz2VwRmmVYF' \
+            b'ZAPlGARg6N9mlM4Q9FpM3irb4cnQ90nEGxiAGoEFK55caXmtO4wM4aoijLDwZLhf8mxL' \
+            b'wE/FtQz9Jn9lT0PftRE1o74mdWamMB7C70TKMDk1bgDGl6Fav3HHXwf1Hy0BLUOHDdKA' \
+            b'RvlpAn4aYfz+sPVD+Y/6EwDYFctqLL/9DV9FJ+Ws2JAwEvEBB3vUCgDkreI6hDJGDPtF5' \
+            b'w82OToClbUhAIGOCe3edQt045gRkJOfLaWytg5oobJ2o+U7VUaANC7K3KzyphfnA6RIx' \
+            b'M+NGQHbu75JYB4DCoAfuCq6ptpNpSf5DqABWFFdyOs/XsTKZQt5Xqf2DRVrRIcwPPHx1a5' \
+            b'VvNWTke4gxufu7HlmG03UKqLCZFBRi/uXzqX8nikEH5ieql2/bda1M/FE/1gjugdygbJ3' \
+            b'gm6L8e2wMAiMUFyxK7hmXPJWCQvcFOdyUTbc+wA76v7NgV8d18DDwAACIy7DgrJH610rNj' \
+            b'NvlfTOKZNDC4sVuascscvwIiGSGQPwdRLxNweLM4oqENdstwlLf9I6tAi0hgx7pnlN1Pg' \
+            b'dPckN8PZQUUZMQMvwTiMsZJ9Tb5AbVnvXUkV2IVNxeqaPkIh3jDmBrD1xixH2cWF8hPG1' \
+            b'1Ll222s/Dd5KVxWyy+ptzYeHizOqq1hOXlVoe6lPeaogLf2ujzwV9QM6rfLW+BttGYC' \
+            b'VJOI7h4oxqm6oL/+pIwvHAILli/Jg7JwVw9Jd9JQoQ9yAvZsYDYG+pnT2b9x48fZJDvD' \
+            b'B/4WAr8b9Pugm6T70pme6mUR82BfWmBHIXd2301WF9QE/jaVzH0njbwVm3spv1C+iHgu' \
+            b'WL1pjdObTvopkfBmqHq70+trYKFD5FSG99vW+jKBlKAysvV3XnlqRQBCwgQDdyki6f/b' \
+            b'kDVx/sobu1mfCpdVfllJszthT0J/8eu0CtpCI778VgUnAhEES3LZFYp99QQj5jFbRcC5' \
+            b'QKrUI9F3+KYn4j4YjAN07D3GzAoqbFRB98Kbf8PsM98bIAVl6HghD2P8Avm6w' \
+            b'ywIVvIgAAAAASUVORK5CYII='
+        self.__message = 'This message is intended to inform you that the action you' \
+                'have performed has been successful. There is no need for further action.'
 
     def show( self ):
         try:
             return sg.popup_notify( self.__message,
-                title = ' ' + 'Budget Execution Notification',
-                icon = self.__image,
-                display_duration_in_ms = 5000,
-                fade_in_duration = 3000,
-                alpha = 0.85 )
+                title = 'Budget Execution Notification',
+                icon = self.__ninja,
+                display_duration_in_ms = 10000,
+                fade_in_duration = 5000,
+                alpha = 1 )
+
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'
@@ -1806,6 +1839,7 @@ class Notification( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class PdfForm( Sith ):
@@ -1975,7 +2009,7 @@ class CalendarDialog( Sith ):
     __icon = None
     __formsize = None
     __themefont = None
-    __date = None
+    __selecteditem = None
 
     @property
     def size( self ):
@@ -1986,6 +2020,16 @@ class CalendarDialog( Sith ):
     def size( self, value ):
         if isinstance( value, tuple ) :
             self.__formsize = value
+
+    @property
+    def selecteditem( self ):
+        if isinstance( self.__selecteditem, tuple ):
+            return self.__selecteditem
+
+    @selecteditem.setter
+    def selecteditem( self, value ):
+        if isinstance( value, tuple ):
+            self.__selecteditem = value
 
     def __init__( self ):
         super( ).__init__()
@@ -2004,7 +2048,7 @@ class CalendarDialog( Sith ):
     def show( self ):
         try:
             btnsize = (20, 1)
-            calendar = (200, 200)
+            calendar = (250, 250)
 
             months = [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL',
             'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ]
@@ -2017,6 +2061,8 @@ class CalendarDialog( Sith ):
                                      month_names = months,
                                      day_abbreviations = days,
                                      close_when_chosen = True )
+            self.__selecteditem = cal
+
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'
@@ -2024,6 +2070,7 @@ class CalendarDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class DatePanel( Sith ):
@@ -2073,60 +2120,8 @@ class DatePanel( Sith ):
             main_info_font = 'Roboto 20'
             main_info_size = (10, 1)
             UPDATE_FREQUENCY_MILLISECONDS = 1000 * 60 * 60
-            window = make_window( sg.user_settings_get_entry( '-location-', location ) )
 
-            refresh_frequency = sg.user_settings_get_entry( '-fresh frequency-',
-                UPDATE_FREQUENCY_MILLISECONDS )
 
-            while True:
-                window[ '-MAIN INFO-' ].update( 'Your Info' )
-                window[ '-REFRESHED-' ].update(
-                    datetime.datetime.now( ).strftime( "%m/%d/%Y\n%I:%M:%S %p" ) )
-                event, values = window.read( timeout = refresh_frequency )
-                print( event, values )
-                if event in (sg.WIN_CLOSED, 'Exit'):
-                    break
-                if event == 'Edit Me':
-                    sg.execute_editor( __file__ )
-                elif event == 'Choose Title':
-                    new_title = sg.popup_get_text( 'Choose a seconditems for your Widget',
-                        location = window.current_location( ), keep_on_top = True )
-                    if new_title is not None:
-                        window[ '-TITLE-' ].update( new_title )
-                        sg.user_settings_set_entry( '-seconditems-', new_title )
-                elif event == 'Show Refresh Info':
-                    window[ '-REFRESHED-' ].update( visible = True )
-                    sg.user_settings_set_entry( '-show refresh-', True )
-                elif event == 'Save Location':
-                    sg.user_settings_set_entry( '-location-', window.current_location( ) )
-                elif event == 'Hide Refresh Info':
-                    window[ '-REFRESHED-' ].update( visible = False )
-                    sg.user_settings_set_entry( '-show refresh-', False )
-                elif event in [ str( x ) for x in range( 1, 11 ) ]:
-                    window.set_alpha( int( event ) / 10 )
-                    sg.user_settings_set_entry( '-alpha-', int( event ) / 10 )
-                elif event == 'Set Refresh Rate':
-                    choice = sg.popup_get_text(
-                        'How frequently to update window in seconds? (can be a float)',
-                        default_text = sg.user_settings_get_entry( '-fresh frequency-',
-                            UPDATE_FREQUENCY_MILLISECONDS ) / 1000,
-                        location = window.current_location( ), keep_on_top = True )
-                    if choice is not None:
-                        try:
-                            refresh_frequency = float( choice ) * 1000
-                            sg.user_settings_set_entry( '-fresh frequency-',
-                                float( refresh_frequency ) )
-                        except Exception as e:
-                            sg.popup_error( f'You entered an incorrect number of seconds: {choice}',
-                                f'Error: {e}', location = window.current_location( ),
-                                keep_on_top = True )
-                elif event == 'New Theme':
-                    loc = window.current_location( )
-                    if choose_theme( window.current_location( ), window.formsize ) is not None:
-                        window.close( )
-                        window = make_window( loc )
-
-            window.close( )
 
             def choose_theme( location, size ):
                 """
@@ -2227,16 +2222,60 @@ class DatePanel( Sith ):
                     alpha_channel = sg.user_settings_get_entry( '-alpha-', ALPHA ), finalize = True,
                     right_click_menu = right_click_menu, keep_on_top = True )
 
-            def main( location ):
-                """
-                Where execution begins
-                The Event Loop lives here, but the window creation is done in another function
-                This is an important design pattern
+            window = make_window( sg.user_settings_get_entry( '-location-', location ) )
 
-                :param location: Location to createtable the main window if one is not found in the user
-                settings
-                :type location: Tuple[int, int]
-                """
+            refresh_frequency = sg.user_settings_get_entry( '-fresh frequency-',
+                UPDATE_FREQUENCY_MILLISECONDS )
+
+            while True:
+                window[ '-MAIN INFO-' ].update( 'Your Info' )
+                window[ '-REFRESHED-' ].update(
+                    datetime.datetime.now( ).strftime( "%m/%d/%Y\n%I:%M:%S %p" ) )
+                event, values = window.read( timeout = refresh_frequency )
+                print( event, values )
+                if event in (sg.WIN_CLOSED, 'Exit'):
+                    break
+                if event == 'Edit Me':
+                    sg.execute_editor( __file__ )
+                elif event == 'Choose Title':
+                    new_title = sg.popup_get_text( 'Choose a seconditems for your Widget',
+                        location = window.current_location( ), keep_on_top = True )
+                    if new_title is not None:
+                        window[ '-TITLE-' ].update( new_title )
+                        sg.user_settings_set_entry( '-seconditems-', new_title )
+                elif event == 'Show Refresh Info':
+                    window[ '-REFRESHED-' ].update( visible = True )
+                    sg.user_settings_set_entry( '-show refresh-', True )
+                elif event == 'Save Location':
+                    sg.user_settings_set_entry( '-location-', window.current_location( ) )
+                elif event == 'Hide Refresh Info':
+                    window[ '-REFRESHED-' ].update( visible = False )
+                    sg.user_settings_set_entry( '-show refresh-', False )
+                elif event in [ str( x ) for x in range( 1, 11 ) ]:
+                    window.set_alpha( int( event ) / 10 )
+                    sg.user_settings_set_entry( '-alpha-', int( event ) / 10 )
+                elif event == 'Set Refresh Rate':
+                    choice = sg.popup_get_text(
+                        'How frequently to update window in seconds? (can be a float)',
+                        default_text = sg.user_settings_get_entry( '-fresh frequency-',
+                            UPDATE_FREQUENCY_MILLISECONDS ) / 1000,
+                        location = window.current_location( ), keep_on_top = True )
+                    if choice is not None:
+                        try:
+                            refresh_frequency = float( choice ) * 1000
+                            sg.user_settings_set_entry( '-fresh frequency-',
+                                float( refresh_frequency ) )
+                        except Exception as e:
+                            sg.popup_error( f'You entered an incorrect number of seconds: {choice}',
+                                f'Error: {e}', location = window.current_location( ),
+                                keep_on_top = True )
+                elif event == 'New Theme':
+                    loc = window.current_location( )
+                    if choose_theme( window.current_location( ), window.formsize ) is not None:
+                        window.close( )
+                        window = make_window( loc )
+
+            window.close( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'
@@ -3608,7 +3647,7 @@ class BudgetForm( Sith ):
                                 border_width = 0, expand_x = True, expand_y = True ) ] ],
                           pad = BPAD_LEFT, background_color = black, border_width = 0,
                           expand_x = True, expand_y = True ), ],
-                    [ sg.Sizegrip( background_color = blue ) ] ]
+                    [ sg.Sizegrip( background_color = black ) ] ]
             self.__formlayout = layout
             return layout
         except Exception as e:
@@ -3718,6 +3757,8 @@ class ChartPanel( Sith ):
     __textbackcolor = None
     __inputbackcolor = None
     __inputforecolor = None
+    __buttonforecolor = None
+    __buttonbackcolor = None
     __buttoncolor = None
     __icon = None
     __formsize = None
@@ -3753,47 +3794,51 @@ class ChartPanel( Sith ):
         self.__themetextcolor = super( ).themetextcolor
         self.__textbackcolor = super( ).textbackcolor
         self.__inputbackcolor = super( ).inputbackcolor
+        self.__buttonforecolor = super( ).buttonforecolor
+        self.__buttonbackcolor = super( ).buttonbackcolor
         self.__buttoncolor = super( ).buttoncolor
         self.__inputforecolor = super( ).inputforecolor
         self.__formsize = ( 700, 600 )
 
     def show( self ):
         try:
-            small = ( 10, 1 )
-            medium = ( 15, 1 )
-            large = ( 20, 1 )
-            xlarge = ( 100, 1 )
-            barwidth = 50
-            barspacing = 75
-            edgeoffset = 3
-            graphsize = datasize = ( 600, 500 )
+            sm = ( 10, 1 )
+            md = ( 15, 1 )
+            lg = ( 20, 1 )
+            xl = ( 100, 1 )
+            width = 50
+            space = 75
+            offset = 3
+            graphsz = datasz = ( 500, 500 )
+            black = self.__themebackground
 
-            layout = [ [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
-                       [ sg.Text( '', size = small ), sg.Graph( graphsize, ( 0, 0 ), datasize, k='-GRAPH-', pad = 3 ) ],
-                       [ sg.Text( '', size = small ), sg.Text( '', size = xlarge ) ],
-                       [ sg.Text( '', size = large ), sg.Button( 'Next', size = medium ),
-                         sg.Text( '', size = large ), sg.Exit( size = medium ) ] ]
+            layout = [ [ sg.Text( '', size = sm ), sg.Text( '', size = xl ) ],
+                       [ sg.Text( '', size = sm ), sg.Graph( graphsz, ( 0, 0 ), datasz, k = '-GRAPH-' ) ],
+                       [ sg.Text( '', size = sm ), sg.Text( '', size = xl ) ],
+                       [ sg.Text( '', size = lg ), sg.Button( 'Next', size = md ),
+                         sg.Text( '', size = lg ), sg.Exit( size = md ) ],
+                       [ sg.Sizegrip( background_color = black ) ] ]
 
             window = sg.Window( 'Budget Execution', layout,
                 finalize = True,
+                resizable = True,
                 icon = self.__icon,
                 font = self.__themefont,
-                size = self.__formsize,
-                resizable = True )
+                size = self.__formsize )
 
             graph = window[ '-GRAPH-' ]
 
             while True:
                 graph.erase( )
                 for i in range( 7 ):
-                    graph_value = random.randint( 0, graphsize[ 1 ] )
-                    graph.draw_rectangle( top_left = ( i * barspacing + edgeoffset, graph_value ),
-                        bottom_right = ( i * barspacing + edgeoffset + barwidth, 0 ),
-                        fill_color = self.__buttoncolor[ 1 ],
-                        line_color = self.__buttoncolor[ 0 ] )
+                    item = random.randint( 0, graphsz[ 1 ] )
+                    graph.draw_rectangle( top_left = ( i * space + offset, item ),
+                        bottom_right = (i * space + offset + width, 0),
+                        fill_color = self.__buttonbackcolor,
+                        line_color = self.__buttonforecolor )
 
-                    graph.draw_text( text = graph_value, color = self.__themetextcolor,
-                        location = ( i * barspacing + edgeoffset + 25, graph_value + 10 ) )
+                    graph.draw_text( text = item, color = self.__themetextcolor,
+                        location = (i * space + offset + 25, item + 10) )
 
                 event, values = window.read( )
                 if event in ( sg.WIN_CLOSED, 'Exit' ):
@@ -3861,25 +3906,27 @@ class CsvForm( Sith ):
     def show( self ):
         try:
             sg.set_options( auto_size_buttons = True )
-            filename = sg.popup_get_file( title = '    Budget Execution',
+            filename = sg.popup_get_file( title = '  Budget Execution',
                 message = 'Browse to CSV file',
                 icon = self.__icon,
                 font = self.__themefont,
                 file_types = ( ( "CSV Files", "*.csv" ), ) )
 
             if filename == '':
+                msg = MessageDialog( 'No file path was provided!')
+                msg.show( )
                 return
 
             data = [ ]
             header_list = [ ]
 
-            button = sg.popup_yes_no( 'Does this file have column names already?',
+            button = sg.popup_yes_no( 'Does file have column names?',
                 icon = self.__icon,
                 font = self.__themefont )
 
             if filename is not None:
                 try:
-                    df = pd.read_csv( filename, sep = ',', engine = 'python', header = None )
+                    df = CsvReader( filename, sep = ',', engine = 'python', header = None )
                     data = df.values.tolist( )
                     if button == 'Yes':
                         header_list = df.iloc[ 0 ].tolist( )
@@ -3890,25 +3937,140 @@ class CsvForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            layout = [  [ sg.Text( '', size = ( 100, 1 ) ) ],
-                        [ sg.Text( '', size = (100, 1) ) ],
-                        [ sg.Text( '', size = (100, 1) ) ],
-                        [ sg.Table( values = data,
-                                headings = header_list,
-                                display_row_numbers = True,
-                                auto_size_columns = False,
-                                num_rows = min( 25, len( data ) ) ) ],
-                        [ sg.Text( '', size = (100, 1) ) ],
-                        [ sg.Text( '', size = (100, 1) ) ], ]
+            layout = [ [ sg.Text( '', size = ( 100, 1 ) ) ],
+                       [ sg.Text( '', size = ( 100, 1 ) ) ],
+                       [ sg.Text( '', size = ( 100, 1 ) ) ],
+                       [ sg.Table( values = data,
+                           headings = header_list,
+                           display_row_numbers = True,
+                           vertical_scroll_only = False,
+                           auto_size_columns = False,
+                           num_rows = min( 25, len( data ) ) ) ],
+                       [ sg.Text( '', size = ( 100, 1 ) ) ], ]
 
-            window = sg.Window( '    Budget Execution', layout,
+            window = sg.Window( '  Budget Execution', layout,
                 grab_anywhere = False,
                 icon = self.__icon,
                 font = self.__themefont,
                 size = self.__formsize )
 
             event, values = window.read( )
+
             window.close( )
+
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Booger'
+            exc.cause = 'CsvForm'
+            exc.method = 'show( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+
+
+class ExcelForm( Sith ):
+    '''Provides form that reads CSV file with pandas'''
+    __themebackground = None
+    __elementbackcolor = None
+    __elementforecolor = None
+    __themetextcolor = None
+    __textbackcolor = None
+    __inputbackcolor = None
+    __inputforecolor = None
+    __buttoncolor = None
+    __icon = None
+    __formsize = None
+    __themefont = None
+
+    @property
+    def header( self ):
+        if isin( self.__header, str ) and self.__header != '':
+            return self.__header
+
+    @header.setter
+    def header( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__header = value
+
+    @property
+    def size( self ):
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @size.setter
+    def size( self, value ):
+        if isinstance( value, tuple ) :
+            self.__formsize = value
+
+    def __init__( self ):
+        super( ).__init__( )
+        self.__themebackground = super( ).themebackground
+        self.__themefont = super( ).themefont
+        self.__icon = super( ).iconpath
+        self.__elementbackcolor = super( ).elementbackcolor
+        self.__elementforecolor = super( ).elementforecolor
+        self.__themetextcolor = super( ).textforecolor
+        self.__textbackcolor = super( ).textbackcolor
+        self.__inputbackcolor = super( ).inputbackcolor
+        self.__inputforecolor = super( ).inputforecolor
+        self.__buttoncolor = super( ).buttoncolor
+        self.__formsize = ( 800, 600 )
+
+    def show( self ):
+        try:
+            sg.set_options( auto_size_buttons = True )
+            filename = sg.popup_get_file( title = '  Budget Execution',
+                message = 'Browse to Excel file',
+                icon = self.__icon,
+                font = self.__themefont,
+                file_types = ( ( "Excel Files", "*.xlsx" ), ) )
+
+            if filename == '':
+                msg = MessageDialog( 'No file was provided!')
+                msg.show( )
+                return
+
+            data = [ ]
+            header_list = [ ]
+
+            button = sg.popup_yes_no( 'Does file have column names?',
+                icon = self.__icon,
+                font = self.__themefont )
+
+            if filename is not None:
+                try:
+                    df = ExcelReader( filename,  index_col = 0 )
+                    data = df.values.tolist( )
+                    if button == 'Yes':
+                        header_list = [ f'{ i } ' for i in df.columns ]
+                    elif button == 'No':
+                        header_list = [ 'column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
+
+                except:
+                    sg.popup_error( 'Error reading file' )
+                    return
+
+            layout = [ [ sg.Text( '', size = ( 100, 1 ) ) ],
+                       [ sg.Text( '', size = ( 100, 1 ) ) ],
+                       [ sg.Text( '', size = ( 100, 1 ) ) ],
+                       [ sg.Table( values = data,
+                           headings = header_list,
+                           display_row_numbers = True,
+                           vertical_scroll_only = False,
+                           auto_size_columns = True,
+                           num_rows = min( 25, len( data ) ) ) ],
+                       [ sg.Text( '', size = ( 100, 1 ) ) ], ]
+
+            window = sg.Window( '  Budget Execution', layout,
+                grab_anywhere = False,
+                icon = self.__icon,
+                font = self.__themefont,
+                size = self.__formsize )
+
+            event, values = window.read( )
+
+            window.close( )
+
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'

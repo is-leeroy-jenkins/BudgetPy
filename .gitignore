@@ -5,4 +5,4 @@
 *.mdb
 *.accdb
 *.laccdb
-*.idea
+*.idea!/Booger.py
