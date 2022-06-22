@@ -1214,16 +1214,6 @@ class InputDialog( Sith ):
     __themefont = None
 
     @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
-
-    @property
     def question( self ):
         if isinstance( self.__question, str ) and self.__question != '':
             return self.__question
@@ -1326,17 +1316,7 @@ class ScrollingDialog( Sith ):
         if isinstance( value, str ) and value != '':
             self.__text = value
 
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
-
-    def __init__( self ):
+    def __init__( self, text = '' ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
@@ -1350,7 +1330,11 @@ class ScrollingDialog( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__arrowcolor = super( ).scrollbarcolor
         self.__formsize = ( 650, 500 )
-        self.__response = None
+        self.__text = text if isinstance( text, str ) and text != '' else None
+
+    def __str__( self ):
+        if isinstance( self.__text, str ):
+            return self.__text
 
     def show( self ):
         try:
@@ -1363,10 +1347,10 @@ class ScrollingDialog( Sith ):
             layout = [ [ sg.Text( ' ', size = line ) ],
                        [ sg.Text( ' ', size = line ) ],
                        [ sg.Text( '', size = space ),
-                         sg.Multiline( size = (70, 20), key = '-TEXT-', pad = padsz ),
+                         sg.Multiline( size = ( 70, 20 ), key = '-TEXT-', pad = padsz ),
                          sg.Text( '', size = space ) ],
                        [ sg.Text( ' ', size = line ) ],
-                       [ sg.Text( ' ', size = space ), sg.Input( k = '-IN-', size = (70, 20) ),
+                       [ sg.Text( ' ', size = space ), sg.Input( k = '-IN-', size = ( 70, 20 ) ),
                          sg.Text( '', size = space ) ],
                        [ sg.Text( ' ', size = line ) ],
                        [ sg.Text( '', size = space ), sg.Button( 'Submit', size = btnsize ),
@@ -1381,6 +1365,7 @@ class ScrollingDialog( Sith ):
 
             while True:
                 event, values = window.read( )
+                self.__text = values[ '-TEXT-' ]
                 if event in (sg.WIN_CLOSED, 'Exit'):
                     break
 
