@@ -1933,6 +1933,17 @@ class Notification( Sith ):
     __formsize = None
     __themefont = None
     __image = None
+    __message = None
+
+    @property
+    def message( self ):
+        if isinstance( self.__message, str ) and self.__message != '':
+            return self.__message
+
+    @message.setter
+    def message( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__message = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -2010,6 +2021,10 @@ class Notification( Sith ):
             b'ywIVvIgAAAAASUVORK5CYII='
         self.__message = 'This message is intended to inform you that the action you' \
                 'have performed has been successful. There is no need for further action.'
+
+    def __str__( self ):
+        if isinstance( self.__message, str ):
+            return self.__message
 
     def show( self ):
         try:
@@ -2394,26 +2409,54 @@ class CalendarDialog( Sith ):
     __formsize = None
     __themefont = None
     __selecteditem = None
+    __day = None
+    __month = None
+    __year = None
 
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
 
     @property
     def selecteditem( self ):
         if isinstance( self.__selecteditem, tuple ):
-            return self.__selecteditem
+            yr = str( self.__selecteditem[ 2 ] )
+            mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
+            dy = str( self.__selecteditem[ 1 ] ).zfill( 2 )
+            date = f'{ yr }/{ mo }/{ dy }'
+            return date
 
     @selecteditem.setter
     def selecteditem( self, value ):
         if isinstance( value, tuple ):
             self.__selecteditem = value
+
+    @property
+    def day( self ):
+        if isinstance( self.__selecteditem, tuple ):
+            return str( self.__selecteditem[ 1 ] ).zfill( 2 )
+
+    @day.setter
+    def day( self, value ):
+        if isinstance( value, tuple ):
+            self.__day = str( value[ 1 ] ).zfill( 2 )
+
+    @property
+    def month( self ):
+        if isinstance( self.__selecteditem, tuple ):
+            return str( self.__selecteditem[ 0 ] ).zfill( 2 )
+
+    @month.setter
+    def month( self, value ):
+        if isinstance( value, tuple ):
+            self.__day = str( value[ 0 ] ).zfill( 2 )
+
+    @property
+    def year( self ):
+        if isinstance( self.__selecteditem, tuple ):
+            return str( self.__selecteditem[ 2 ] )
+
+    @year.setter
+    def year( self, value ):
+        if isinstance( value, tuple ):
+            self.__day = str( value[ 2 ] ).zfill( 4 )
 
     def __init__( self ):
         super( ).__init__()
@@ -2428,6 +2471,14 @@ class CalendarDialog( Sith ):
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 250 )
+
+    def __str__( self ):
+        if isinstance( self.__selecteditem, tuple ):
+            yr = str( self.__selecteditem[ 2 ] )
+            mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
+            dy = str( self.__selecteditem[ 1 ] ).zfill( 2 )
+            date = f'{ yr }/{ mo }/{ dy }'
+            return date
 
     def show( self ):
         try:
@@ -2445,6 +2496,7 @@ class CalendarDialog( Sith ):
                                      month_names = months,
                                      day_abbreviations = days,
                                      close_when_chosen = True )
+
             self.__selecteditem = cal
 
         except Exception as e:
