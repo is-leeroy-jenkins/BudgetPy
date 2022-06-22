@@ -790,7 +790,8 @@ class GoogleDialog( Sith ):
 
 
 class EmailDialog( Sith ):
-    '''class that renames a folder'''
+    '''Class providing form used to send email messages. Constructor
+    accepts optional string arguments 'sender', 'receiver', 'subject', and 'message' '''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -804,18 +805,85 @@ class EmailDialog( Sith ):
     __formsize = None
     __themefont = None
     __folderpath = None
+    __sender = None
+    __receiver = None
+    __subject = None
+    __message = None
+    __others = None
+    __username = None
+    __password = None
 
     @property
-    def folderpath( self ):
-        if isinstance( self.__folderpath, str ) and self.__folderpath != '':
-            return self.__folderpath
+    def sender( self ):
+        if isinstance( self.__sender, str ) and self.__sender != '':
+            return self.__sender
 
-    @folderpath.setter
-    def folderpath( self, value ):
+    @sender.setter
+    def sender( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__folderpath = value
+            self.__sender = value
 
-    def __init__( self ):
+    @property
+    def receiver( self ):
+        if isinstance( self.__receiver, str ) and self.__receiver != '':
+            return self.__receiver
+
+    @receiver.setter
+    def receiver( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__receiver = value
+
+    @property
+    def message( self ):
+        if isinstance( self.__message, str ) and self.__message != '':
+            return self.__message
+
+    @message.setter
+    def message( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__message = value
+
+    @property
+    def subject( self ):
+        if isinstance( self.__subject, str ) and self.__subject != '':
+            return self.__subject
+
+    @subject.setter
+    def subject( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__subject = value
+
+    @property
+    def others( self ):
+        if isinstance( self.__others, list ):
+            return self.__others
+
+    @others.setter
+    def others( self, value ):
+        if isinstance( value, list ):
+            self.__others = value
+
+    @property
+    def username( self ):
+        if isinstance( self.__username, str ) and self.__username != '':
+            return self.__username
+
+    @username.setter
+    def username( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__username = value
+
+    @property
+    def password( self ):
+        if isinstance( self.__password, str ) and self.__password != '':
+            return self.__password
+
+    @password.setter
+    def password( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__password= value
+
+    def __init__( self, sender = '', receiver = '', subject = '', message = '' ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
@@ -829,11 +897,14 @@ class EmailDialog( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
         self.__formsize = ( 600, 500 )
-        self.__folderpath = None
+        self.__sender = sender if isinstance( sender, str ) and sender != '' else None
+        self.__receiver = receiver if isinstance( receiver, str ) and receiver != '' else None
+        self.__subject = subject if isinstance( subject, str ) and subject != '' else None
+        self.__message = message if isinstance( message, str ) and message != '' else None
 
     def __str__( self ):
-        if isinstance( self.__filepath, str ):
-            return self.__filepath
+        if isinstance( self.__message, str ):
+            return self.__message
 
     def show( self ):
         try:
@@ -856,7 +927,7 @@ class EmailDialog( Sith ):
                          sg.Input( password_char = '*', key = '-PASSWORD-', size = inp ) ],
                        [ sg.Text( ' ', size = spc ) ],
                        [ sg.Text( ' ', size = spc ),
-                         sg.Multiline( 'Type your message here', size = (65, 10),
+                         sg.Multiline( 'Type your message here', size = ( 65, 10 ),
                              key = '-EMAIL TEXT-' ) ],
                        [ sg.Text( ' ', size = ( 100, 1 ) ) ],
                        [ sg.Text( ' ', size = spc ), sg.Button( 'Send', size = btn ),
@@ -919,17 +990,7 @@ class MessageDialog( Sith ):
         if isinstance( value, str ) and value != '':
             self.__text = value
 
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
-
-    def __init__( self, text ):
+    def __init__( self, text = '' ):
         self.__text = text if isinstance( text, str ) and text != '' else None
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
