@@ -1016,7 +1016,8 @@ class MessageDialog( Sith ):
             layout = [ [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = (5, 1) ),
-                         sg.Text( self.__text, font = ( 'Roboto', 9, 'bold' ), text_color = '#FFFFFF',
+                         sg.Text( self.__text, font = ( 'Roboto', 9, 'bold' ), key = '-TEXT-',
+                             text_color = '#FFFFFF',
                              size = ( 80, 1 ) ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
@@ -1031,6 +1032,7 @@ class MessageDialog( Sith ):
 
             while True:
                 event, values = window.read( )
+                self.__text = values[ '-TEXT-' ]
                 if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel' ):
                     break
 
@@ -1048,10 +1050,13 @@ class MessageDialog( Sith ):
 class ErrorDialog( Sith ):
     '''Class that displays excetption data that accepts
      a single, optional argument 'exception' of type Error'''
-    __message = None
-    __info = None
-    __cause = None
+    __class = None
+    __module = None
     __method = None
+    __message = None
+    __type = None
+    __trace = None
+    __info = None
     __exception = None
     __themebackground = None
     __elementbackcolor = None
@@ -1067,6 +1072,66 @@ class ErrorDialog( Sith ):
 
 
     @property
+    def info( self ):
+        '''Gets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
+        if isinstance( self.__class, str ) and self.__class != '':
+            return self.__class
+
+    @info.setter
+    def info( self, value ):
+        '''Sets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
+        if isinstance( value, str ) and value != '':
+            self.__class = value
+
+    @property
+    def cause( self ):
+        '''Gets string indicating the class generating the exception'''
+        if isinstance( self.__class, str ) and self.__class != '':
+            return self.__class
+
+    @cause.setter
+    def cause( self, value ):
+        '''Sets the string indicating the class generating the exception'''
+        if isinstance( value, str ) and value != '':
+            self.__class = value
+
+    @property
+    def method( self ):
+        '''Gets a string representing the method generating the exception'''
+        if isinstance( self.__method, str ) and self.__method != '':
+            return self.__method
+
+    @method.setter
+    def method( self, value ):
+        '''Sets a string representing method generating the exception'''
+        if isinstance( value, str ) and value != '':
+            self.__method = value
+
+    @property
+    def module( self ):
+        '''Gets a string representing module generating the exception'''
+        if isinstance( self.__module, str ) and self.__module != '':
+            return self.__module
+
+    @module.setter
+    def module( self, value ):
+        '''Sets a string representing the module generating the exception'''
+        if isinstance( value, str ) and value != '':
+            self.__module = value
+
+    @property
+    def type( self ):
+        '''sets the object type generating the exception'''
+        if isinstance( self.__type, Exception ):
+            return self.__type
+
+    @type.setter
+    def type( self, value ):
+        '''sets the object type generating the exception'''
+        if isinstance( value, Exception ):
+            self.__type = value
+
+    @property
     def message( self ):
         if isinstance( self.__message, str ) and self.__message != '':
             return self.__message
@@ -1080,11 +1145,11 @@ class ErrorDialog( Sith ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
         self.__exception = exception if isinstance( exception, Error ) else None
-        self.__message = exception.message if isinstance( exception, Error ) else None
-        self.__module = exception.module if isinstance( exception, Error ) else None
-        self.__info = exception.stacktrace
-        self.__cause = exception.cause if isinstance( exception, Error ) else None
-        self.__method = exception.method if isinstance( exception, Error ) else None
+        self.__message = exception.message
+        self.__module = exception.module
+        self.__info = exception.info
+        self.__cause = exception.cause
+        self.__method = exception.method
         self.__themefont = super( ).themefont
         self.__icon = super( ).iconpath
         self.__elementbackcolor = super( ).elementbackcolor
@@ -1108,12 +1173,13 @@ class ErrorDialog( Sith ):
         font = ( 'Roboto', 10 )
         padsz = ( 3, 3, 3, 3 )
         layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( f'{ msg }', size = ( 100, 1 ), text_color = red, font = font ) ],
-                   [ sg.Text( r'', size = ( 150, 1) ) ],
-                   [ sg.Multiline( f'{ info }', size = ( 80, 7 ), pad = padsz ) ],
+                   [ sg.Text( f'{ msg }', size = ( 100, 1 ), key = '-MSG-', text_color = red,
+                       font = font ) ],
+                   [ sg.Text( r'', size = ( 150, 1 ) ) ],
+                   [ sg.Multiline( f'{ info }', key = '-INFO-', size = ( 80, 7 ), pad = padsz ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( r'', size = (20, 1) ), sg.Cancel( size = (15, 1) ),
-                     sg.Text( r'', size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
+                   [ sg.Text( r'', size = (20, 1 ) ), sg.Cancel( size = ( 15, 1 ) ),
+                     sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
 
         window = sg.Window( r' Budget Execution', layout,
             icon = self.__icon,
@@ -1122,6 +1188,8 @@ class ErrorDialog( Sith ):
 
         while True:
             event, values = window.read( )
+            self.__info = values[ '-INFO-' ]
+            self.__message = values[ '-MSG-' ]
             if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-OK-' ):
                 break
 
