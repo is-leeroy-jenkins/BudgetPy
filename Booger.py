@@ -1011,14 +1011,18 @@ class MessageDialog( Sith ):
 
     def show( self ):
         try:
-            layout = [ [ sg.Text( r'', size = ( 100, 1 ) ) ],
-               [ sg.Text( r'', size = (100, 1) ) ],
-               [ sg.Text( r'', size = ( 5, 1 ) ),  sg.Text( self.__text, font = ( 'Roboto', 9, 'bold' ), text_color = '#FFFFFF', size = ( 80, 1 ) ) ],
-               [ sg.Text( r'', size = ( 100, 1 ) ) ],
-               [ sg.Text( r'', size = ( 100, 1 ) ) ],
-               [ sg.Text( r'', size = ( 100, 1 ) ) ],
-               [ sg.Text( r'', size = (5, 1) ), sg.Ok( size = (10, 1) ),
-                 sg.Text( r'', size = (15, 1) ), sg.Cancel( size = (10, 1) ) ] ]
+            txtsz = ( 100, 1 )
+            btnsz = ( 10, 1 )
+            layout = [ [ sg.Text( r'', size = txtsz ) ],
+                       [ sg.Text( r'', size = txtsz ) ],
+                       [ sg.Text( r'', size = (5, 1) ),
+                         sg.Text( self.__text, font = ( 'Roboto', 9, 'bold' ), text_color = '#FFFFFF',
+                             size = ( 80, 1 ) ) ],
+                       [ sg.Text( r'', size = txtsz ) ],
+                       [ sg.Text( r'', size = txtsz ) ],
+                       [ sg.Text( r'', size = txtsz ) ],
+                       [ sg.Text( r'', size = (5, 1) ), sg.Ok( size = btnsize ),
+                         sg.Text( r'', size = (15, 1) ), sg.Cancel( size = btnsize ) ] ]
 
             window = sg.Window( r'  Budget Execution', layout,
                 icon = self.__icon,
