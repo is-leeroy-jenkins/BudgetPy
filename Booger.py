@@ -16,7 +16,7 @@ from pandas import read_csv as CsvReader
 from pandas import read_excel as ExcelReader
 
 
-# Error( message )
+# Error( message = '', cause = '', method = '', module = '' )
 class Error( Exception ):
     '''Class wrapping exception data used as
     the input argument for ErrorDialog class'''
@@ -591,7 +591,7 @@ class FolderDialog( Sith ):
             error.show( )
 
 
-# SaveFileDialog( path )
+# SaveFileDialog( path = '' )
 class SaveFileDialog( Sith ):
     '''class provides form to located file destinations'''
     __themebackground = None
@@ -628,7 +628,7 @@ class SaveFileDialog( Sith ):
         if isinstance( value, str):
             self__filename = value
 
-    def __init__( self, path = None ):
+    def __init__( self, path = '' ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
@@ -788,7 +788,7 @@ class GoogleDialog( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
+# EmailDialog( sender = '', receiver = '', subject = '', message = '' )
 class EmailDialog( Sith ):
     '''Class providing form used to send email messages. Constructor
     accepts optional string arguments 'sender', 'receiver', 'subject', and 'message' '''
@@ -963,7 +963,7 @@ class EmailDialog( Sith ):
             err.show( )
 
 
-# MessageDialog( text )
+# MessageDialog( text = '' )
 class MessageDialog( Sith ):
     ''' Class that provides form used
      to display informational messages '''
@@ -1291,6 +1291,7 @@ class InputDialog( Sith ):
             err.show( )
 
 
+# ScrollingDialog( text = '' )
 class ScrollingDialog( Sith ):
     '''Provides form for multiline input/output'''
     __themebackground = None
