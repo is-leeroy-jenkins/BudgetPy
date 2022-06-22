@@ -596,7 +596,7 @@ def _node(default=''):
 
 def _follow_symlinks(filepath):
 
-    """ In case filepath is a symlink, follow it until a
+    """ In case selectedpath is a symlink, follow it until a
         real file is reached.
     """
     filepath = os.path.abspath(filepath)

@@ -18,7 +18,8 @@ from pandas import read_excel as ExcelReader
 
 # Error( message )
 class Error( Exception ):
-    '''class provides Error and Exception data'''
+    '''Class wrapping exception data used as
+    the input argument for ErrorDialog class'''
     __class = None
     __module = None
     __method = None
@@ -29,57 +30,91 @@ class Error( Exception ):
 
     @property
     def message( self ):
+        '''Gets the general message for the dialog'''
         if isinstance( self.__message, str ) and self.__message != '':
             return self.__message
 
     @message.setter
     def message( self, value ):
+        '''Sets the general message for the dialog'''
         if isinstance( value, str ) and value != '':
             self.__message = value
 
     @property
     def cause( self ):
+        '''Gets string indicating the class generating the exception'''
         if isinstance( self.__class, str ) and self.__class != '':
             return self.__class
 
     @cause.setter
     def cause( self, value ):
+        '''Sets the string indicating the class generating the exception'''
         if isinstance( value, str ) and value != '':
             self.__class = value
 
     @property
     def method( self ):
+        '''Gets a string representing the method generating the exception'''
         if isinstance( self.__method, str ) and self.__method != '':
             return self.__method
 
     @method.setter
     def method( self, value ):
+        '''Sets a string representing method generating the exception'''
         if isinstance( value, str ) and value != '':
             self.__method = value
 
     @property
     def module( self ):
+        '''Gets a string representing module generating the exception'''
         if isinstance( self.__module, str ) and self.__module != '':
             return self.__module
 
     @module.setter
     def module( self, value ):
+        '''Sets a string representing the module generating the exception'''
         if isinstance( value, str ) and value != '':
             self.__module = value
 
     @property
+    def type( self ):
+        '''sets the object type generating the exception'''
+        if isinstance( self.__type, Exception ):
+            return self.__type
+
+    @type.setter
+    def type( self, value ):
+        '''sets the object type generating the exception'''
+        if isinstance( value, Exception ):
+            self.__type = value
+
+    @property
     def stacktrace( self ):
+        '''Gets string returned by the 'traceback.format_exc( ) method '''
         if isinstance( self.__trace, str ):
             return self.__trace
 
     @stacktrace.setter
     def stacktrace( self, value ):
+        '''Sets string returned by the 'traceback.format_exc( ) method '''
         if isinstance( value, str ):
             self.__trace = value
 
-    def __init__( self, message, cause = '', method = '', module = '' ):
+    @property
+    def info( self ):
+        '''Gets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
+        if isinstance( self.__class, str ) and self.__class != '':
+            return self.__class
+
+    @info.setter
+    def info( self, value ):
+        '''Sets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
+        if isinstance( value, str ) and value != '':
+            self.__class = value
+
+    def __init__( self, message = '', cause = '', method = '', module = '' ):
         super( ).__init__( )
-        self.__message = '\tAPPLICATION ERROR: Something unexpected just happened!'
+        self.__message = message if isinstance( message, str ) else '\tSomething unexpected just happened!'
         self.__class = cause if isinstance( cause, str ) and cause != '' else None
         self.__method = method if isinstance( method, str ) and method != '' else None
         self.__module = module if isinstance( module, str ) and module != '' else None
@@ -87,7 +122,11 @@ class Error( Exception ):
         self.__trace = traceback.format_exc( )
         self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + self.__trace
 
-
+    def __str__( self ):
+        if isinstance( self.__info, str ) and self__trace != '':
+            return self.__info
+        
+            
 # ButtonIcon( png )
 class ButtonIcon( ):
     '''class representing form images'''
@@ -198,6 +237,19 @@ class Sith( ):
     __themefont = None
     __scrollbarcolor = None
     __progressbarbackcolor = None
+    __formsize = None
+
+    @property
+    def size( self ):
+        '''Gets the size proerty as a tuple'''
+        if isinstance( self.__formsize, tuple ) :
+            return self.__formsize
+
+    @size.setter
+    def size( self, value ):
+        '''Sets the size property'''
+        if isinstance( value, tuple ) :
+            self.__formsize = value
 
     @property
     def themebackground( self ):
@@ -365,6 +417,7 @@ class Sith( ):
         self.__scrollbarcolor = '#755600'
         self.__progressbarbackcolor = '#18ADF2'
         self.__progressbarcolor =  ( '#FFFFFF', '#163754' )
+        self.__formsize = ( 400, 200 )
         sg.theme_background_color( self.__themebackground )
         sg.theme_border_width( 1 )
         sg.theme_element_background_color( self.__elementbackcolor )
@@ -375,10 +428,7 @@ class Sith( ):
         sg.theme_text_color( self.__themetextcolor )
         sg.theme_button_color( ( '#FFFFFF', '#163754' ) )
         sg.theme_progress_bar_color( self.__progressbarcolor )
-        sg.TOOLTIP_BACKGROUND_COLOR = '#282828'
         sg.set_global_icon( icon = self.__icon )
-        sg.TOOLTIP_FONT
-        sg.theme
 
 
 # FileDialog( ) -> str
@@ -398,22 +448,12 @@ class FileDialog( Sith ):
     __formsize = None
 
     @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
-
-    @property
-    def filepath( self ):
+    def selectedpath( self ):
         if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
             return self.__selecteditem
 
-    @filepath.setter
-    def filepath( self, value ):
+    @selectedpath.setter
+    def selectedpath( self, value ):
         if isinstance( value, str ) and value != '':
             self.__selecteditem = value
 
@@ -473,7 +513,7 @@ class FileDialog( Sith ):
 
 # FolderDialog( ) -> str
 class FolderDialog( Sith ):
-    '''class that renames a folder'''
+    '''Class defining dialog used to select a directory path'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -489,22 +529,12 @@ class FolderDialog( Sith ):
 
 
     @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
-
-    @property
-    def folderpath( self ):
+    def selectedpath( self ):
         if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
             return self.__selecteditem
 
-    @folderpath.setter
-    def folderpath( self, value ):
+    @selectedpath.setter
+    def selectedpath( self, value ):
         if isinstance( value, str ) and value != '':
             self.__selecteditem = value
 
@@ -577,16 +607,6 @@ class SaveFileDialog( Sith ):
     __themefont = None
     __original = None
     __filename = None
-
-
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
 
     @property
     def original( self ):
@@ -785,17 +805,6 @@ class EmailDialog( Sith ):
     __themefont = None
     __folderpath = None
 
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
-
     @property
     def folderpath( self ):
         if isinstance( self.__folderpath, str ) and self.__folderpath != '':
@@ -818,7 +827,7 @@ class EmailDialog( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
         self.__formsize = ( 600, 500 )
         self.__folderpath = None
 
@@ -832,19 +841,26 @@ class EmailDialog( Sith ):
             inp = ( 35, 1 )
             spc = ( 5, 1 )
             img = ( 50, 22 )
-            layout = [ [ sg.T( ' ', size = spc ), ],
-               [ sg.T( ' ', size = spc ), ],
-               [ sg.T( ' ', size = spc ), sg.T( 'From:', size = btn ), sg.Input( key = '-EMAIL FROM-', size = ( 35,1 ) ) ],
-               [ sg.T( ' ', size = spc ), sg.T( 'To:', size = btn ),  sg.Input(key = '-EMAIL TO-', size = ( 35,1 ) ) ],
-               [ sg.T( ' ', size = spc ), sg.T( 'Subject:', size = btn ), sg.Input( key = '-EMAIL SUBJECT-', size = ( 35,1 ) ) ],
-               [ sg.T( ' ', size = spc ), sg.T( '' ) ],
-               [ sg.T( ' ', size = spc ), sg.T( 'Username:', size = btn ), sg.Input( key='-USER-', size=( 35,1 ) ) ],
-               [ sg.T( ' ', size = spc ), sg.T( 'Password:', size = btn ), sg.Input(password_char='*', key = '-PASSWORD-', size= ( 35,1 ) ) ],
-               [ sg.T( ' ', size = spc ) ],
-               [ sg.T( ' ', size = spc ), sg.Multiline( 'Type your message here', size = ( 65, 10 ), key = '-EMAIL TEXT-' ) ],
-               [ sg.T( ' ', size = ( 100, 1 ) ) ],
-               [ sg.T( ' ', size = spc ),  sg.Button( 'Send', size = btn ),
-                 sg.T( ' ', size = btn ), sg.Button( 'Cancel', size = ( 20, 1 ) ) ] ]
+            layout = [ [ sg.Text( ' ', size = spc ), ],
+                       [ sg.Text( ' ', size = spc ), ],
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'From:', size = btn ),
+                         sg.Input( key = '-EMAIL FROM-', size = inp ) ],
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'To:', size = btn ),
+                         sg.Input( key = '-EMAIL TO-', size = inp ) ],
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'Subject:', size = btn ),
+                         sg.Input( key = '-EMAIL SUBJECT-', size = inp ) ],
+                       [ sg.Text( ' ', size = spc ), sg.Text( '' ) ],
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'Username:', size = btn ),
+                         sg.Input( key = '-USER-', size = inp ) ],
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'Password:', size = btn ),
+                         sg.Input( password_char = '*', key = '-PASSWORD-', size = inp ) ],
+                       [ sg.Text( ' ', size = spc ) ],
+                       [ sg.Text( ' ', size = spc ),
+                         sg.Multiline( 'Type your message here', size = (65, 10),
+                             key = '-EMAIL TEXT-' ) ],
+                       [ sg.Text( ' ', size = ( 100, 1 ) ) ],
+                       [ sg.Text( ' ', size = spc ), sg.Button( 'Send', size = btn ),
+                         sg.Text( ' ', size = btn ), sg.Button( 'Cancel', size = btn ) ] ]
 
             window = sg.Window( '  Budget Execution', layout,
                 icon = self.__icon,
@@ -878,7 +894,8 @@ class EmailDialog( Sith ):
 
 # MessageDialog( text )
 class MessageDialog( Sith ):
-    ''' class that provides form to display informational messages '''
+    ''' Class that provides form used
+     to display informational messages '''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -964,7 +981,8 @@ class MessageDialog( Sith ):
 
 # ErrorDialog( exception )
 class ErrorDialog( Sith ):
-    '''class that displays error message'''
+    '''Class that displays excetption data that accepts
+     a single, optional argument 'exception' of type Error'''
     __message = None
     __info = None
     __cause = None
@@ -982,15 +1000,6 @@ class ErrorDialog( Sith ):
     __formsize = None
     __themefont = None
 
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
 
     @property
     def message( self ):
@@ -2009,12 +2018,12 @@ class ImageSizeEncoder( Sith ):
                    [ sg.Frame( 'Input Filename', [
                            [ sg.Input( key = '-IN-', enable_events = True, s = 80 ),
                              sg.FileBrowse( ), ],
-                           [ sg.T( 'Original size' ), sg.T( k = '-ORIG WIDTH-' ), sg.T( 'X' ),
-                             sg.T( k = '-ORIG HEIGHT-' ) ] ] ) ],
+                           [ sg.Text( 'Original size' ), sg.Text( k = '-ORIG WIDTH-' ), sg.Text( 'X' ),
+                             sg.Text( k = '-ORIG HEIGHT-' ) ] ] ) ],
                    [ sg.Frame( 'Output Filename',
                        [ [ sg.In( k = '-NEW FILENAME-', s = 80 ), sg.FileBrowse( ), ],
                          [ sg.In( default_text = sg.user_settings_get_entry( '-owidth-', '' ), s = 4,
-                             k = '-WIDTH-' ), sg.T( 'X' ),
+                             k = '-WIDTH-' ), sg.Text( 'X' ),
                            sg.In( default_text = sg.user_settings_get_entry( '-oheight-', '' ),
                                s = 4, k = '-HEIGHT-' ) ] ] ) ],
                    [ sg.Frame( 'Convert To New Format', nformat ) ],
@@ -2029,14 +2038,14 @@ class ImageSizeEncoder( Sith ):
                            True if sg.running_windows( ) else False ),
                        k = '-AUTOCLOSE-' ) ],
                    [ sg.Button( 'Resize', bind_return_key = True ), sg.Button( 'Exit' ) ],
-                   [ sg.T(
+                   [ sg.Text(
                        'Note - on some systems, autoclose cannot be used because the clipboard is '
                        'cleared by tkinter' ) ],
-                   [ sg.T( 'Your settings are automatically saved between runs' ) ],
-                   [ sg.T( f'Version {version}' ),
-                     sg.T( 'Go to psgresizer GitHub Repo', font = '_ 8', enable_events = True,
+                   [ sg.Text( 'Your settings are automatically saved between runs' ) ],
+                   [ sg.Text( f'Version {version}' ),
+                     sg.Text( 'Go to psgresizer GitHub Repo', font = '_ 8', enable_events = True,
                          k = '-PSGRESIZER-' ),
-                     sg.T( 'A PySimpleGUI Application - Go to PySimpleGUI home', font = '_ 8',
+                     sg.Text( 'A PySimpleGUI Application - Go to PySimpleGUI home', font = '_ 8',
                          enable_events = True, k = '-PYSIMPLEGUI-' ) ], ]
 
         window = sg.Window( 'Resize Image', layout,
@@ -3533,7 +3542,7 @@ class ColorDialog( Sith ):
                     for i in range( COLORS_PER_ROW ):
                         try:
                             color = color_list[ rows * COLORS_PER_ROW + i ]
-                            row.append( sg.T( ' ', s = 1, background_color = color, text_color = color, font = self.__themefont , right_click_menu = [ '_', color_map[ color ] ],
+                            row.append( sg.Text( ' ', s = 1, background_color = color, text_color = color, font = self.__themefont , right_click_menu = [ '_', color_map[ color ] ],
                                 tooltip = color, enable_events = True, key = ( color, color_map[ color ] ) ) )
                         except IndexError as e:
                             break

@@ -18,9 +18,9 @@ Object File Format) was the base of SVR3 and BSD 4.2 systems.
 ELF:   Executable and Linking Format that was developed by AT&T and is a
 base for SVR4 UNIX.
 
-While the shared library content is identical on AIX - one is located as a filepath name
+While the shared library content is identical on AIX - one is located as a selectedpath name
 (svr4 style) and the other is located as a member of an archive (and the archive
-is located as a filepath name).
+is located as a selectedpath name).
 
 The key difference arises when supporting multiple abi formats (i.e., 32 and 64 bit).
 For svr4 either only one ABI is supported, or there are two directories, or there

@@ -705,7 +705,7 @@ def relpath(path, start=None):
 
         start_list = [x for x in start_rest.split(sep) if x]
         path_list = [x for x in path_rest.split(sep) if x]
-        # Work out how much of the filepath is shared by start and path.
+        # Work out how much of the selectedpath is shared by start and path.
         i = 0
         for e1, e2 in zip(start_list, path_list):
             if normcase(e1) != normcase(e2):

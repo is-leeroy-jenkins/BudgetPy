@@ -181,7 +181,7 @@ HelpSource_spec = {
     'file': 'query',
     'kwds': {'title': 'Help name and source',
              'menuitem': 'test',
-             'filepath': __file__,
+             'selectedpath': __file__,
              'used_names': {'abc'},
              '_htest': True},
     'msg': "Enter menu item name and help file path\n"
