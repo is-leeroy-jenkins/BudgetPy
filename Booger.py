@@ -691,16 +691,6 @@ class GoogleDialog( Sith ):
     __results = None
 
     @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ) :
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ) :
-            self.__formsize = value
-
-    @property
     def search( self ):
         if isinstance( self.__querytext, str ) and self.__querytext != '':
             return self.__querytext
@@ -744,15 +734,14 @@ class GoogleDialog( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 200 )
         self.__image = os.getcwd( ) + r'\etc\img\app\web\google.png'
-        self.__querytext = None
-        self.__results = [ ]
 
     def __str__( self ):
-        if isinstance( self.__filepath, str ):
-            return self.__filepath
+        if isinstance( self.__results, list ):
+            return self.__results[ 0 ]
 
     def show( self ):
         try:
+            self.__results = [ ]
             layout =  [ [ sg.Text( r'' ) ],
                 [ sg.Image( source = self.__image ) ],
                 [ sg.Text( '', size = ( 10, 1 ) ), sg.Input( '', key = '-QUERY-', size = ( 40, 2 ) ) ],
@@ -772,11 +761,11 @@ class GoogleDialog( Sith ):
                     break
                 elif event == 'Submit':
                     self.__querytext = values[ '-QUERY-' ]
-                    window.close( )
-                    query = search( term = self.__querytext, num_results = 5, lang = 'en' )
+                    google = search( term = self.__querytext, num_results = 5, lang = 'en' )
                     chrome = Client.Chrome
                     app = App( chrome )
-                    for result in query:
+                    for result in list( google ):
+                        self.__results.append( result )
                         app.runargs( result )
 
             window.close( )
@@ -787,6 +776,7 @@ class GoogleDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # EmailDialog( sender = '', receiver = '', subject = '', message = '' )
 class EmailDialog( Sith ):
