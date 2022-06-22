@@ -2952,7 +2952,6 @@ class ListBoxDialog( Sith ):
             err.show( )
 
 
-
 class ColorDialog( Sith ):
     '''class provides a form to select colors returning string values'''
     __themebackground = None
@@ -3773,7 +3772,6 @@ class ColorDialog( Sith ):
             err.show( )
 
 
-
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
@@ -4382,7 +4380,10 @@ class CsvForm( Sith ):
                            headings = header_list,
                            display_row_numbers = True,
                            vertical_scroll_only = False,
-                           auto_size_columns = False,
+                           header_background_color = '#2B618F',
+                           header_text_color = '#FFFFFF',
+                           background_color = '#32404D',
+                           auto_size_columns = True,
                            num_rows = min( 25, len( data ) ) ) ],
                        [ sg.Text( '', size = ( 100, 1 ) ) ], ]
 
@@ -4495,6 +4496,9 @@ class ExcelForm( Sith ):
                            headings = header_list,
                            display_row_numbers = True,
                            vertical_scroll_only = False,
+                           header_background_color = '#2B618F',
+                           header_text_color = '#FFFFFF',
+                           background_color = '#32404D',
                            auto_size_columns = True,
                            num_rows = min( 25, len( data ) ) ) ],
                        [ sg.Text( '', size = ( 100, 1 ) ) ], ]
