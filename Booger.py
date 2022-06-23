@@ -24,29 +24,29 @@ from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
 
 
-# Error( message = '', cause = '', method = '', module = '' )
+# Error( heading = '' )
 class Error( Exception ):
     '''Class wrapping exception data used as
     the input argument for ErrorDialog class'''
     __class = None
     __module = None
     __method = None
-    __message = None
+    __heading = None
     __type = None
     __trace = None
     __info = None
 
     @property
     def message( self ):
-        '''Gets the general message for the dialog'''
-        if isinstance( self.__message, str ) and self.__message != '':
-            return self.__message
+        '''Gets the general heading for the dialog'''
+        if isinstance( self.__heading, str ) and self.__heading != '':
+            return self.__heading
 
     @message.setter
     def message( self, value ):
-        '''Sets the general message for the dialog'''
+        '''Sets the general heading for the dialog'''
         if isinstance( value, str ) and value != '':
-            self.__message = value
+            self.__heading = value
 
     @property
     def cause( self ):
@@ -120,15 +120,15 @@ class Error( Exception ):
         if isinstance( value, str ) and value != '':
             self.__class = value
 
-    def __init__( self, message = '', cause = '', method = '', module = '' ):
+    def __init__( self, heading = '', cause = '', method = '', module = '' ):
         super( ).__init__( )
-        self.__message = message if isinstance( message, str ) else '\tSomething unexpected just happened!'
+        self.__heading = heading if isinstance( heading, str ) else '\t\tSomething unexpected happened!'
         self.__class = cause if isinstance( cause, str ) and cause != '' else None
         self.__method = method if isinstance( method, str ) and method != '' else None
         self.__module = module if isinstance( module, str ) and module != '' else None
         self.__type = exc_info( )[ 0 ]
         self.__trace = traceback.format_exc( )
-        self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + self.__trace
+        self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + traceback.format_exc( )
 
     def __str__( self ):
         if isinstance( self.__info, str ) and self__trace != '':
@@ -229,6 +229,156 @@ class TitleIcon( ):
             return self.__filepath
 
 
+# ColorConversion(  )
+class ColorConversion( ):
+    '''Class providing color conversion methods
+    given a color in hex format'''
+    __rgb = None
+    __hex = None
+    __hsl = None
+    __red = None
+    __green = None
+    __blue = None
+    __input = None
+    __output = None
+
+    @property
+    def red( self ):
+        '''Property returning color tuple ( r, g, b ) '''
+        if isinstance( self.__red, int ):
+            return self.__red
+
+    @red.setter
+    def red( self, value ):
+        if isinstance( value, int ):
+            self.__red = value
+
+    @property
+    def green( self ):
+        '''Property returning color tuple ( r, g, b ) '''
+        if isinstance( self.__green, int ):
+            return self.__green
+
+    @green.setter
+    def green( self, value ):
+        if isinstance( value, int ):
+            self.__green = value
+
+    @property
+    def blue( self ):
+        '''Property returning color tuple ( r, g, b ) '''
+        if isinstance( self.__blue, int ):
+            return self.__blue
+
+    @blue.setter
+    def blue( self, value ):
+        if isinstance( value, int ):
+            self.__blue = value
+
+    @property
+    def rgb( self ):
+        '''Property returning color tuple ( r, g, b ) '''
+        if isinstance( self.__rgb, tuple ):
+            return self.__rgb
+
+    @rgb.setter
+    def rgb( self, value ):
+        if isinstance( value, tuple ):
+            self.__rgb = value
+
+    @property
+    def hex( self ):
+        '''Property returning color string '#rrggbb '''
+        if isinstance( self.__hex, str ) and self.__hex.startswith( '#' ):
+            return self.__hex
+
+    @hex.setter
+    def hex( self, value ):
+        '''Property sets hex value of a color to a string '#rrggbb' '''
+        if isinstance( value, str ) and value.startswith( '#' ):
+            self.__hex = value
+
+    def __init__( self ):
+        self.__rgb = None
+        self.__hex = None
+        self.__hsl = None
+
+    def hextohsl( self, hex ):
+        '''Converts the string input argument 'hex' representing a
+         hexidecimal color returing its equivalent 'hsl' value as a tuple'''
+        self.__hex = hex
+        r, g, b = hextorgb( hex )
+        self.__red = r
+        self.__green = g
+        self.__blue = b
+        hsl= rgbtohsl( r, g, b )
+        return hsl
+
+    def hextorgb( self, hex ):
+        '''Converts the string input argument 'hex' representing a
+         hexidecimal color into its equivalent 'rgb' value'''
+        hex = hex.lstrip( '#' )
+        hlen = len( hex )
+        return tuple( int( hex[ i:i + hlen // 3 ], 16 ) for i in range( 0, hlen, hlen // 3 ) )
+
+    def rgbtohsl( self, r, g, b ):
+        '''Converts integer input arguments 'r, g, and b' representing
+         an rgb color into its equivalent hsl color '''
+        r = float( r )
+        g = float( g )
+        b = float( b )
+        high = max( r, g, b )
+        low = min( r, g, b )
+        h, s, v = ((high + low) / 2,) * 3
+        if high == low:
+            h = s = 0.0
+        else:
+            d = high - low
+            l = (high + low) / 2
+            s = d / (2 - high - low) if l > 0.5 else d / (high + low)
+            h = {
+                    r: (g - b) / d + (6 if g < b else 0),
+                    g: (b - r) / d + 2,
+                    b: (r - g) / d + 4,
+            }[ high ]
+            h /= 6
+        return h, s, v
+
+    def hsltorgb( self, h, s, l ):
+        def hue_to_rgb( p, q, t ):
+            t += 1 if t < 0 else 0
+            t -= 1 if t > 1 else 0
+            if t < 1 / 6:
+                return p + (q - p) * 6 * t
+            if t < 1 / 2:
+                return q
+            if t < 2 / 3:
+                p + (q - p) * (2 / 3 - t) * 6
+            return p
+
+        if s == 0:
+            r, g, b = l, l, l
+        else:
+            q = l * (1 + s) if l < 0.5 else l + s - l * s
+            p = 2 * l - q
+            r = hue_to_rgb( p, q, h + 1 / 3 )
+            g = hue_to_rgb( p, q, h )
+            b = hue_to_rgb( p, q, h - 1 / 3 )
+
+        return r, g, b
+
+    def hsvtohsl( self, h, s, v ):
+        l = 0.5 * v * (2 - s)
+        s = v * s / (1 - fabs( 2 * l - 1 ))
+        return h, s, l
+
+    def hsltohsv( self, h, s, l ):
+        v = (2 * l + s * (1 - fabs( 2 * l - 1 ))) / 2
+        s = 2 * (v - l) / v
+        return h, s, v
+
+
+
 class Sith( ):
     '''Base class for the dark-mode controls'''
     __themebackground = None
@@ -246,6 +396,7 @@ class Sith( ):
     __scrollbarcolor = None
     __progressbarbackcolor = None
     __formsize = None
+    __settingspath = None
 
     @property
     def size( self ):
@@ -258,6 +409,18 @@ class Sith( ):
         '''Sets the size property'''
         if isinstance( value, tuple ) :
             self.__formsize = value
+
+    @property
+    def settingspath( self ):
+        '''Gets the size proerty as a tuple'''
+        if isinstance( self.__settingspath, tuple ) :
+            return self.__settingspath
+
+    @settingspath.setter
+    def settingspath( self, value ):
+        '''Sets the size property'''
+        if isinstance( value, tuple ) :
+            self.__settingspath = value
 
     @property
     def themebackground( self ):
@@ -410,33 +573,28 @@ class Sith( ):
             self.__progressbarcolor = value
 
     def __init__( self ):
-        self.__themebackground = '#0F0F0F'
-        self.__themetextcolor = '#D3D3D3'
-        self.__elementbackcolor = '#0F0F0F'
-        self.__elementforecolor = '#D3D3D3'
-        self.__textbackcolor = '#0F0F0F'
-        self.__inputforecolor = '#FFFFFF'
-        self.__inputbackcolor = '#282828'
-        self.__buttonbackcolor = '#163754'
-        self.__buttonforecolor = '#FFFFFF'
-        self.__buttoncolor = ( '#FFFFFF', '#163754' )
+        sg.theme( 'DarkGrey15' )
+        self.__themebackground = sg.theme_background_color()
+        self.__themetextcolor = sg.theme_text_color( )
+        self.__elementbackcolor = sg.theme_text_element_background_color( )
+        self.__elementforecolor = sg.theme_element_text_color( )
+        self.__textbackcolor = sg.theme_text_element_background_color( )
+        self.__inputforecolor = sg.theme_input_text_color( )
+        self.__inputbackcolor = sg.theme_input_background_color( )
+        self.__buttonbackcolor = sg.theme_button_color_background( )
+        self.__buttonforecolor = sg.theme_button_color_text( )
+        self.__buttoncolor = sg.theme_button_color( )
         self.__icon = os.getcwd( ) + r'\etc\ico\ninja.ico'
         self.__themefont = ( 'Roboto', 9 )
         self.__scrollbarcolor = '#755600'
-        self.__progressbarbackcolor = '#18ADF2'
-        self.__progressbarcolor =  ( '#FFFFFF', '#163754' )
+        self.__progressbarbackcolor = sg.theme
+        self.__progressbarcolor =  sg.theme_progress_bar_color( )
         self.__formsize = ( 400, 200 )
-        sg.theme_background_color( self.__themebackground )
-        sg.theme_border_width( 1 )
-        sg.theme_element_background_color( self.__elementbackcolor )
-        sg.theme_element_text_color( self.__elementforecolor )
-        sg.theme_input_text_color( self.__inputforecolor )
-        sg.theme_text_element_background_color( self.__textbackcolor )
-        sg.theme_input_background_color( self.__inputbackcolor )
-        sg.theme_text_color( self.__themetextcolor )
-        sg.theme_button_color( ( '#FFFFFF', '#163754' ) )
-        sg.theme_progress_bar_color( self.__progressbarcolor )
+        self.__settingspath = os.getcwd( ) + r'\etc\theme'
         sg.set_global_icon( icon = self.__icon )
+        sg.set_options( font = self.__themefont )
+        sg.user_settings_save( 'Budget', self.__settingspath )
+
 
 
 # FileDialog( ) -> str
@@ -786,10 +944,10 @@ class GoogleDialog( Sith ):
             err.show( )
 
 
-# EmailDialog( sender = '', receiver = '', subject = '', message = '' )
+# EmailDialog( sender = '', receiver = '', subject = '', heading = '' )
 class EmailDialog( Sith ):
     '''Class providing form used to send email messages. Constructor
-    accepts optional string arguments 'sender', 'receiver', 'subject', and 'message' '''
+    accepts optional string arguments 'sender', 'receiver', 'subject', and 'heading' '''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -925,7 +1083,7 @@ class EmailDialog( Sith ):
                          sg.Input( password_char = '*', key = '-PASSWORD-', size = inp ) ],
                        [ sg.Text( ' ', size = spc ) ],
                        [ sg.Text( ' ', size = spc ),
-                         sg.Multiline( 'Type your message here', size = ( 65, 10 ),
+                         sg.Multiline( 'Type your heading here', size = ( 65, 10 ),
                              key = '-EMAIL TEXT-' ) ],
                        [ sg.Text( ' ', size = ( 100, 1 ) ) ],
                        [ sg.Text( ' ', size = spc ), sg.Button( 'Send', size = btn ),
@@ -943,7 +1101,7 @@ class EmailDialog( Sith ):
                 if event in (sg.WIN_CLOSED, 'Cancel', 'Exit' ):
                     break
                 if event == 'Send':
-                    sg.popup_quick_message( 'Sending your message... this will take a moment...', background_color='red')
+                    sg.popup_quick_message( 'Sending your heading... this will take a moment...', background_color='red')
                     send_an_email( from_address = values[ '-EMAIL FROM-' ],
                         to_address=values['-EMAIL TO-'],
                         subject=values['-EMAIL SUBJECT-'],
@@ -1051,7 +1209,7 @@ class ErrorDialog( Sith ):
     __class = None
     __module = None
     __method = None
-    __message = None
+    __heading = None
     __type = None
     __trace = None
     __info = None
@@ -1131,21 +1289,20 @@ class ErrorDialog( Sith ):
 
     @property
     def message( self ):
-        if isinstance( self.__message, str ) and self.__message != '':
-            return self.__message
+        if isinstance( self.__heading, str ) and self.__heading != '':
+            return self.__heading
 
     @message.setter
     def message( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__message = value
+            self.__heading = value
 
     def __init__( self, exception ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
         self.__exception = exception if isinstance( exception, Error ) else None
-        self.__message = exception.message
+        self.__heading = exception.message
         self.__module = exception.module
-        self.__info = exception.info
+        self.__info = exception.stacktrace
         self.__cause = exception.cause
         self.__method = exception.method
         self.__themefont = super( ).themefont
@@ -1164,7 +1321,7 @@ class ErrorDialog( Sith ):
             return self.__info
 
     def show( self ):
-        msg = self.__message if isinstance( self.__message, str) else None
+        msg = self.__heading if isinstance( self.__heading, str ) else None
         info = f'Module:\t{ self.__module }\r\nClass:\t{ self.__cause }\r\n' \
                 f'Method:\t{ self.__method }\r\n \r\n{ self.__info }'
         red = '#F70202'
@@ -1176,7 +1333,7 @@ class ErrorDialog( Sith ):
                    [ sg.Text( r'', size = ( 150, 1 ) ) ],
                    [ sg.Multiline( f'{ info }', key = '-INFO-', size = ( 80, 7 ), pad = padsz ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( r'', size = (20, 1 ) ), sg.Cancel( size = ( 15, 1 ) ),
+                   [ sg.Text( r'', size = (20, 1 ) ), sg.Cancel( size = ( 15, 1 ), key = '-CANCEL-' ),
                      sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
 
         window = sg.Window( r' Budget Execution', layout,
@@ -1186,9 +1343,7 @@ class ErrorDialog( Sith ):
 
         while True:
             event, values = window.read( )
-            self.__info = values[ '-INFO-' ]
-            self.__message = values[ '-MSG-' ]
-            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-OK-' ):
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Canel', '-OK-' ):
                 break
 
         window.close( )
@@ -1926,7 +2081,7 @@ class SplashPanel( Sith ):
             err.show( )
 
 
-# Notification( message )
+# Notification( heading )
 class Notification( Sith ):
     '''object providing form processing behavior '''
     __themebackground = None
@@ -2027,7 +2182,7 @@ class Notification( Sith ):
             b'kDVx/sobu1mfCpdVfllJszthT0J/8eu0CtpCI778VgUnAhEES3LZFYp99QQj5jFbRcC5' \
             b'QKrUI9F3+KYn4j4YjAN07D3GzAoqbFRB98Kbf8PsM98bIAVl6HghD2P8Avm6w' \
             b'ywIVvIgAAAAASUVORK5CYII='
-        self.__message = 'This message is intended to inform you that the action you' \
+        self.__message = 'This heading is intended to inform you that the action you' \
                 'have performed has been successful. There is no need for further action.'
 
     def __str__( self ):
@@ -2084,27 +2239,28 @@ class ImageSizeEncoder( Sith ):
     def show( self ):
         version = '1.3.1'
         __version__ = version.split( )[ 0 ]
-        def resize( input, size, output = None, ecoding = 'PNG' ):
-            image = Image.open( input )
-            owidth, oheight = image.size
-            nwidth, nheight = size
-            if nwidth != owidth or nheight != oheight:
-                scale = min( nheight / oheight, nwidth / owidth )
-                resized = image.resize( (int( owidth * scale ), int( oheight * scale )),
-                    Image.ANTIALIAS )
+
+        def resize(input_file, size, output_file=None, encode_format='PNG'):
+            image = Image.open(input_file)
+            width, height = image.size
+            new_width, new_height = size
+            if new_width != width or new_height != height:  # if the requested size is different than original size
+                scale = min(new_height / height, new_width / width)
+                resized_image = image.resize((int(width * scale), int(height * scale)), Image.ANTIALIAS)
             else:
-                resized = image
+                resized_image = image
 
-            if output is not None:
-                resized.save( output )
+            if output_file is not None:
+                resized_image.save(output_file)
 
-            with io.BytesIO( ) as bio:
-                resized.save( bio, format = ecoding )
-                contents = bio.getvalue( )
-                encoded = base64.b64encode( contents )
+            # encode a PNG formatted version of image into BASE64
+            with io.BytesIO() as bio:
+                resized_image.save(bio, format=encode_format)
+                contents = bio.getvalue()
+                encoded = base64.b64encode(contents)
             return encoded
 
-        def updatename( ):
+        def update_outfilename( ):
             infile = values[ '-IN-' ]
             if os.path.isfile( infile ):
                 image = Image.open( infile )
@@ -2112,10 +2268,8 @@ class ImageSizeEncoder( Sith ):
                 window[ '-ORIG WIDTH-' ].update( image.size[ 0 ] )
                 if not values[ '-WIDTH-' ]:
                     window[ '-WIDTH-' ].update( image.size[ 0 ] )
-
                 if not values[ '-HEIGHT-' ]:
                     window[ '-HEIGHT-' ].update( image.size[ 1 ] )
-
                 window[ '-ORIG HEIGHT-' ].update( image.size[ 1 ] )
 
                 infilename = os.path.basename( infile )
@@ -2125,10 +2279,10 @@ class ImageSizeEncoder( Sith ):
                     if outfileext == 'jpeg':
                         outfileext = 'jpg'
                 else:
-                    outfileext = infileext[ 1: ]
-
-                outfile = f'{ infilenameonly }{ width }x{ height }.{ outfileext }'
+                    outfileext = infileext[ 1: ]  # strip off the .
+                outfile = f'{infilenameonly}{width}x{height}.{outfileext}'
                 outfullfilename = os.path.join( os.path.dirname( infile ), outfile )
+
                 if values[ '-DO NOT SAVE-' ]:
                     window[ '-NEW FILENAME-' ].update( '' )
                     window[ '-BASE64-' ].update( True )
@@ -2137,12 +2291,14 @@ class ImageSizeEncoder( Sith ):
             else:
                 window[ '-NEW FILENAME-' ].update( '' )
                 window[ '-ORIG WIDTH-' ].update( '' )
+                # window['-WIDTH-'].update('')
                 window[ '-ORIG HEIGHT-' ].update( '' )
+                # window['-HEIGHT-'].update('')
                 window[ '-NEW FILENAME-' ].update( )
 
-        formats = ('', 'PNG', 'JPEG', 'BMP', 'ICO', 'GIF', 'TIFF')
-        nformat = [
-                [ sg.Combo( formats,
+        format_list = ('', 'PNG', 'JPEG', 'BMP', 'ICO', 'GIF', 'TIFF')
+        new_format_layout = [
+                [ sg.Combo( format_list,
                     default_value = sg.user_settings_get_entry( '-new format-', '' ),
                     readonly = True, enable_events = True, key = '-NEW FORMAT-' ) ] ]
 
@@ -2150,15 +2306,15 @@ class ImageSizeEncoder( Sith ):
                    [ sg.Frame( 'Input Filename', [
                            [ sg.Input( key = '-IN-', enable_events = True, s = 80 ),
                              sg.FileBrowse( ), ],
-                           [ sg.Text( 'Original size' ), sg.Text( k = '-ORIG WIDTH-' ), sg.Text( 'X' ),
-                             sg.Text( k = '-ORIG HEIGHT-' ) ] ] ) ],
+                           [ sg.T( 'Original size' ), sg.T( k = '-ORIG WIDTH-' ), sg.T( 'X' ),
+                             sg.T( k = '-ORIG HEIGHT-' ) ] ] ) ],
                    [ sg.Frame( 'Output Filename',
                        [ [ sg.In( k = '-NEW FILENAME-', s = 80 ), sg.FileBrowse( ), ],
-                         [ sg.In( default_text = sg.user_settings_get_entry( '-owidth-', '' ), s = 4,
-                             k = '-WIDTH-' ), sg.Text( 'X' ),
-                           sg.In( default_text = sg.user_settings_get_entry( '-oheight-', '' ),
+                         [ sg.In( default_text = sg.user_settings_get_entry( '-width-', '' ), s = 4,
+                             k = '-WIDTH-' ), sg.T( 'X' ),
+                           sg.In( default_text = sg.user_settings_get_entry( '-height-', '' ),
                                s = 4, k = '-HEIGHT-' ) ] ] ) ],
-                   [ sg.Frame( 'Convert To New Format', nformat ) ],
+                   [ sg.Frame( 'Convert To New Format', new_format_layout ) ],
                    [ sg.CBox( 'Encode to Base64 and leave on Clipboard', k = '-BASE64-',
                        default = sg.user_settings_get_entry( '-base64-', True ) ) ],
                    # [sg.CBox('Use PNG for all Base64 Encoding', default=True, k='-PNG CONVERT-')],
@@ -2170,58 +2326,54 @@ class ImageSizeEncoder( Sith ):
                            True if sg.running_windows( ) else False ),
                        k = '-AUTOCLOSE-' ) ],
                    [ sg.Button( 'Resize', bind_return_key = True ), sg.Button( 'Exit' ) ],
-                   [ sg.Text(
+                   [ sg.T(
                        'Note - on some systems, autoclose cannot be used because the clipboard is '
                        'cleared by tkinter' ) ],
-                   [ sg.Text( 'Your settings are automatically saved between runs' ) ],
-                   [ sg.Text( f'Version {version}' ),
-                     sg.Text( 'Go to psgresizer GitHub Repo', font = '_ 8', enable_events = True,
+                   [ sg.T( 'Your settings are automatically saved between runs' ) ],
+                   [ sg.T( f'Version {version}' ),
+                     sg.T( 'Go to psgresizer GitHub Repo', font = '_ 8', enable_events = True,
                          k = '-PSGRESIZER-' ),
-                     sg.Text( 'A PySimpleGUI Application - Go to PySimpleGUI home', font = '_ 8',
-                         enable_events = True, k = '-PYSIMPLEGUI-' ) ], ]
+                     sg.T( 'A PySimpleGUI Application - Go to PySimpleGUI home', font = '_ 8',
+                         enable_events = True, k = '-PYSIMPLEGUI-' ) ],
+                   ]
 
-        window = sg.Window( 'Resize Image', layout,
-            icon = self.__icon,
+        window = sg.Window( 'Resize Image', layout, icon = self.__icon,
             right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT,
-            enable_close_attempted_event = True,
-            finalize = True )
-
+            enable_close_attempted_event = True, finalize = True )
         window[ '-PSGRESIZER-' ].set_cursor( 'hand1' )
         window[ '-PYSIMPLEGUI-' ].set_cursor( 'hand1' )
-
         while True:
             event, values = window.read( )
+            # print(event, values)
             if event in (sg.WIN_CLOSED, sg.WIN_CLOSE_ATTEMPTED_EVENT, 'Exit'):
                 break
-
             infile = values[ '-IN-' ]
-            updatename( )
+            update_outfilename( )
 
             if event == '-DO NOT SAVE-':
                 if values[ '-DO NOT SAVE-' ]:
                     window[ '-NEW FILENAME-' ].update( '' )
                     window[ '-BASE64-' ].update( True )
-
             if event == 'Resize':
                 try:
                     if os.path.isfile( infile ):
-                        updatename( )
+                        update_outfilename( )
                         infilename = os.path.basename( infile )
                         infilenameonly, infileext = os.path.splitext( infilename )
                         if values[ '-NEW FORMAT-' ]:
                             encode_format = values[ '-NEW FORMAT-' ].upper( )
                         else:
-                            encode_format = infileext[ 1: ].upper( )
+                            encode_format = infileext[ 1: ].upper( )  # strip off the .
                         if encode_format == 'JPG':
                             encode_format = 'JPEG'
                         outfullfilename = values[ '-NEW FILENAME-' ]
                         width, height = int( values[ '-WIDTH-' ] ), int( values[ '-HEIGHT-' ] )
                         if values[ '-DO NOT SAVE-' ]:
-                            encoded = resize( input = infile, size = (width, height),
-                                output = None, ecoding = encode_format )
+                            encoded = resize( input_file = infile, size = (width, height),
+                                output_file = None, encode_format = encode_format )
                         else:
-                            encoded = resize( input = infile, size = (width, height),
-                                output = outfullfilename, ecoding = encode_format )
+                            encoded = resize( input_file = infile, size = (width, height),
+                                output_file = outfullfilename, encode_format = encode_format )
 
                         if values[ '-BASE64-' ]:
                             sg.clipboard_set( encoded )
@@ -2232,7 +2384,6 @@ class ImageSizeEncoder( Sith ):
                 except Exception as e:
                     sg.popup_error_with_traceback( 'Error resizing or converting',
                         'Error encountered during the resize or Base64 encoding', e )
-
                 if values[ '-AUTOCLOSE-' ]:
                     break
             elif event == 'Version':
@@ -2245,6 +2396,14 @@ class ImageSizeEncoder( Sith ):
                 webbrowser.open_new_tab( r'http://www.PySimpleGUI.com' )
             elif event == '-PSGRESIZER-':
                 webbrowser.open_new_tab( r'https://github.com/PySimpleGUI/psgresizer' )
+
+        if event != sg.WIN_CLOSED:
+            sg.user_settings_set_entry( '-autoclose-', values[ '-AUTOCLOSE-' ] )
+            sg.user_settings_set_entry( '-new format-', values[ '-NEW FORMAT-' ] )
+            sg.user_settings_set_entry( '-do not save-', values[ '-DO NOT SAVE-' ] )
+            sg.user_settings_set_entry( '-base64-', values[ '-BASE64-' ] )
+            sg.user_settings_set_entry( '-width-', values[ '-WIDTH-' ] )
+            sg.user_settings_set_entry( '-height-', values[ '-HEIGHT-' ] )
 
         window.close( )
 
@@ -4186,16 +4345,6 @@ class BudgetForm( Sith ):
 
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttonforecolor = None
-    __buttonbackcolor = None
-    __buttoncolor = None
     __icon = None
     __formsize = None
     __themefont = None
@@ -4222,18 +4371,8 @@ class ChartPanel( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
+        sg.theme( 'DarkGrey15')
         self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
-        self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).themetextcolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__buttonforecolor = super( ).buttonforecolor
-        self.__buttonbackcolor = super( ).buttonbackcolor
-        self.__buttoncolor = super( ).buttoncolor
-        self.__inputforecolor = super( ).inputforecolor
         self.__formsize = ( 700, 600 )
 
     def show( self ):
@@ -4246,7 +4385,7 @@ class ChartPanel( Sith ):
             space = 75
             offset = 3
             graphsz = datasz = ( 500, 500 )
-            black = self.__themebackground
+            black = sg.theme_background_color( )
 
             layout = [ [ sg.Text( '', size = sm ), sg.Text( '', size = xl ) ],
                        [ sg.Text( '', size = sm ), sg.Graph( graphsz, ( 0, 0 ), datasz, k = '-GRAPH-' ) ],
@@ -4270,10 +4409,10 @@ class ChartPanel( Sith ):
                     item = random.randint( 0, graphsz[ 1 ] )
                     graph.draw_rectangle( top_left = ( i * space + offset, item ),
                         bottom_right = (i * space + offset + width, 0),
-                        fill_color = self.__buttonbackcolor,
-                        line_color = self.__buttonforecolor )
+                        fill_color = sg.theme_button_color_background( ),
+                        line_color = sg.theme_button_color_text( ) )
 
-                    graph.draw_text( text = item, color = self.__themetextcolor,
+                    graph.draw_text( text = item, color = '#FFFFFF',
                         location = (i * space + offset + 25, item + 10) )
 
                 event, values = window.read( )
