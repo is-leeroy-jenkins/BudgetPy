@@ -22,7 +22,7 @@ from Booger import Error, ErrorDialog
 import sys
 from sys import exc_info
 
-# BudgetPath( selectedpath )
+# BudgetPath( filepath )
 class BudgetPath( ):
     ''' BudgetPath( filename ) initializes the
     BudgetPath class providing selectedpath information of getsubfolders
@@ -40,13 +40,13 @@ class BudgetPath( ):
 
     @property
     def name( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
     def name( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ):
             self.__path = value
 
@@ -259,6 +259,7 @@ class BudgetPath( ):
             err.show( )
 
 
+
 class SqlPath( ):
     '''class providing relative paths to the folders containing sql files and
     driver paths used in the application'''
@@ -274,109 +275,109 @@ class SqlPath( ):
 
     @property
     def sqlitedriver( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__sqlitedriver, str ):
             return self.__sqlitedriver
 
     @sqlitedriver.setter
     def sqlitedriver( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlitedriver = value
 
     @property
     def sqlitedata( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__sqlitedata, str ):
             return self.__sqlitedata
 
     @sqlitedata.setter
     def sqlitedata( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlitedata = value
 
     @property
     def sqlitereference( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__sqlitereference, str ):
             return self.__sqlitereference
 
     @sqlitereference.setter
     def sqlitereference( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlitereference = value
 
     @property
     def accessdriver( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__accessdriver, str ):
             return self.__accessdriver
 
     @accessdriver.setter
     def accessdriver( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__accessdriver = value
 
     @property
     def accessdata( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__accessdata, str ):
             return self.__accessdata
 
     @accessdata.setter
     def accessdata( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__accessdata = value
 
     @property
     def accessreference( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__accessreference, str ):
             return self.__accessreference
 
     @accessreference.setter
     def accessreference( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__accessreference = value
 
     @property
     def sqldriver( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__sqldriver, str ):
             return self.__sqldriver
 
     @sqlitedriver.setter
     def sqldriver( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqldriver = value
 
     @property
     def sqldata( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__sqldata, str ):
             return self.__sqldata
 
     @sqldata.setter
     def sqldata( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqldata = value
 
     @property
     def sqlreference( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( self.__sqlreference, str ):
             return self.__sqlreference
 
     @sqlreference.setter
     def sqlreference( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
             self.__sqlreference = value
 
@@ -573,7 +574,7 @@ class SqlFile( ):
             err.show( )
 
 
-# BudgetFile( selectedpath )
+# BudgetFile( filepath )
 class BudgetFile( ):
     '''BudgetFile( selectedpath ) initializes the
      BudgetFile Class providing file information for
@@ -593,13 +594,13 @@ class BudgetFile( ):
 
     @property
     def name( self ):
-        '''Get the sheetname property'''
+        '''Get the title property'''
         if not self.__name == '':
             return self.__name
 
     @name.setter
     def name( self, value ):
-        '''Set the sheetname property'''
+        '''Set the title property'''
         if os.path.exists( value ):
             self.__name = os.path.basename( value )
 
@@ -934,25 +935,25 @@ class BudgetFolder( ):
 
     @property
     def name( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if os.path.exists( self.__path ):
             return str( list( os.path.split( self.__path ) )[ 1 ] )
 
     @name.setter
     def name( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ):
             self.__path = value
 
     @property
     def directory( self ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if not self.__name == '':
             return self.__name
 
     @directory.setter
     def directory( self, value ):
-        '''Returns string representing the sheetname of the selectedpath 'base' '''
+        '''Returns string representing the title of the selectedpath 'base' '''
         if os.path.isdir( value ):
             self.__name = value
 
@@ -1362,7 +1363,7 @@ class MessageBuilder( ):
             return self.__message
 
 
-# ExcelFile( selectedpath )
+# ExcelFile( fullpath )
 class ExcelFile(  ):
     '''ExcelFile( selectedpath ) class provides
     the spreadsheet for Budget Py reports '''
@@ -1374,7 +1375,7 @@ class ExcelFile(  ):
 
     @property
     def path( self ):
-        ''' Get the sheetname of the workbook '''
+        ''' Get the title of the workbook '''
         if isinstance( self.__path, str ) and self.__path != '':
             return self.__path
 
@@ -1385,7 +1386,7 @@ class ExcelFile(  ):
 
     @property
     def name( self ):
-        ''' Get the sheetname of the workbook '''
+        ''' Get the title of the workbook '''
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
@@ -1418,10 +1419,10 @@ class ExcelFile(  ):
         if isinstance( value, Workbook ):
             self.__name = value.active
 
-    def __init__( self, dirpath, sheetname = None ):
-        self.__path = dirpath if isinstance( dirpath, str ) else os.getcwd( )
-        self.__name = os.path.split( dirpath )[ 1 ] if isinstance( dirpath, str ) else None
-        self.__title = sheetname if isinstance( sheetname, str ) else os.path.splitext( self.__name )[ 0 ]
+    def __init__( self, fullpath ):
+        self.__path = fullpath if isinstance( fullpath, str ) else os.getcwd( )
+        self.__name = os.path.split( fullpath )[ 1 ] if isinstance( fullpath, str ) else None
+        self.__title = self.__name
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
 
@@ -1442,9 +1443,9 @@ class ExcelFile(  ):
             err.show( )
 
 
-# ExcelReport( sheetname, rows = 46, cols = 12 )
+# ExcelReport( title, rows = 46, cols = 12 )
 class ExcelReport( ):
-    '''ExcelReport( sheetname ) class provides
+    '''ExcelReport( title ) class provides
     the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
@@ -1456,7 +1457,7 @@ class ExcelReport( ):
 
     @property
     def name( self ):
-        ''' Get the sheetname of the workbook '''
+        ''' Get the title of the workbook '''
         if self.__name is not None:
             return self.__name
 
