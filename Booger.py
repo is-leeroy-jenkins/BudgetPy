@@ -2317,7 +2317,6 @@ class ImageSizeEncoder( Sith ):
                    [ sg.Frame( 'Convert To New Format', new_format_layout ) ],
                    [ sg.CBox( 'Encode to Base64 and leave on Clipboard', k = '-BASE64-',
                        default = sg.user_settings_get_entry( '-base64-', True ) ) ],
-                   # [sg.CBox('Use PNG for all Base64 Encoding', default=True, k='-PNG CONVERT-')],
                    [ sg.CBox( 'Do not save file - Only convert and Base64 Encode',
                        k = '-DO NOT SAVE-', enable_events = True,
                        default = sg.user_settings_get_entry( '-do not save-', False ) ) ],
@@ -3927,7 +3926,6 @@ class ColorDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class BudgetForm( Sith ):

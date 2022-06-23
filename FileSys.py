@@ -16,7 +16,7 @@ from openpyxl.styles.differential import DifferentialStyle
 from openpyxl.comments import Comment
 from openpyxl.worksheet.table import Table, TableStyleInfo
 from openpyxl.utils import units
-from Static import Source, Provider, SQL, Model
+from Static import Source, Provider, SQL, Model, EXT
 import enum
 from Booger import Error, ErrorDialog
 import sys
@@ -27,11 +27,16 @@ class BudgetPath( ):
     ''' BudgetPath( filename ) initializes the
     BudgetPath class providing selectedpath information of getsubfolders
     used in the application'''
+    __name = None
     __path = None
     __ext = None
     __currdir = None
     __report = None
     __drive = None
+    __pathsep = None
+    __extsep = None
+    __drivesep = None
+    __parentdirectory = None
 
     @property
     def name( self ):
@@ -43,7 +48,7 @@ class BudgetPath( ):
     def name( self, value ):
         '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ):
-            self.__path = str( list( os.path.split( self.__infile ) )[ 1 ] )
+            self.__path = value
 
     @property
     def path( self ):
@@ -87,13 +92,61 @@ class BudgetPath( ):
             os.chdir( value )
             self.__currdir = value
 
+    @property
+    def parentdirectory( self ):
+        if isinstance( self.__parentdirectory, str ) and self.__parentdirectory != '':
+            return self.__parentdirectory
+
+    @parentdirectory.setter
+    def parentdirectory( self, value ):
+        '''Set the currentdirectory directory to 'selectedpath' '''
+        if isinstance( value, str ):
+            self.__parentdirectory = value
+
+    @property
+    def pathseparator( self ):
+        if isinstance( self.__pathsep, str ):
+            return self.__pathsep
+
+    @pathseparator.setter
+    def pathseparator( self, value ):
+        '''Set the currentdirectory directory to 'selectedpath' '''
+        if isinstance( value, str ):
+            self.__pathsep = value
+
+    @property
+    def driveseparator( self ):
+        if isinstance( self.__drivesep, str ):
+            return self.__drivesep
+
+    @driveseparator.setter
+    def driveseparator( self, value ):
+        '''Set the currentdirectory directory to 'selectedpath' '''
+        if isinstance( value, str ):
+            self.__drivesep = value
+
+    @property
+    def extensionseparator( self ):
+        if isinstance( self.__extsep, str ):
+            return self.__extsep
+
+    @extensionseparator.setter
+    def extensionseparator( self, value ):
+        '''Set the currentdirectory directory to 'selectedpath' '''
+        if isinstance( value, str ):
+            self.__extsep = value
+
     def __init__( self, filepath ):
         self.__path = filepath if isinstance( filepath, str ) else None
-        self.__name = os.path.split( self.__path )[ 1 ] if isinstance( filepath, str ) else None
+        self.__name = os.path.split( filepath )[ 1 ] if isinstance( filepath, str ) else None
         self.__currdir = os.getcwd( )
-        self.__ext = os.path.splitext( self.__path )[ 1 ] if isinstance( filepath, str ) else None
-        self.__drive = os.path.splitdrive( self.__infile )[ 0 ] if isinstance( filepath, str ) else None
+        self.__ext = os.path.splitext( filepath )[ 1 ] if isinstance( filepath, str ) else None
+        self.__drive = os.path.splitdrive( filepath )[ 0 ] if isinstance( filepath, str ) else None
+        self.__parentdirectory = os.path.dirname( filepath )
         self.__report = r'etc\templates\report\Excel.xlsx'
+        self.__pathsep = os.path.sep
+        self.__extsep = os.extsep
+        self.__drivesep = ':\\'
 
     def __str__( self ):
        if self.__path is not None:
@@ -1127,7 +1180,7 @@ class BudgetFolder( ):
             err.show( )
 
 
-# EmailMessage( sender, receiver, body, subject, copy )
+# EmailMessage(  )
 class EmailMessage( ):
     '''EmailMessage( frm, to, body, subject ) initializes
     class providing email behavior '''
@@ -1197,7 +1250,7 @@ class EmailMessage( ):
         if value is not None:
             self.__others = list( value )
 
-    def __init__( self, sender, receiver, body, subject, copy = None ):
+    def __init__( self, sender, receiver, body, subject, copy = '' ):
         self.__sender = sender if isinstance( sender, str ) and sender != '' else None
         self.__receiver = receiver if isinstance( receiver, str ) and receiver != '' else None
         self.__message = body if isinstance( body, str ) and bocy != '' else None
@@ -1209,8 +1262,8 @@ class EmailMessage( ):
             return self.__body
 
 
-# EmailBuilder( sender, receiver, body, subject, copy )
-class EmailBuilder( ):
+# MessageBuilder(  )
+class MessageBuilder( ):
     ''' Helper class for generating email messages '''
     __from = None
     __to = None
@@ -1221,43 +1274,43 @@ class EmailBuilder( ):
     @property
     def sender( self ):
         ''' Gets the sender's email address '''
-        if self.__from is not None:
+        if isinstance( self.__from, str ) and self.__from != '':
             return self.__from
 
     @sender.setter
     def sender( self, value ):
         ''' Set the sender's email address '''
-        if value is not None:
-            self.__from = str( value )
+        if isinstance( value, str ) and value != '':
+            self.__from = value
 
     @property
     def receiver( self ):
         ''' Gets the sender's email address '''
-        if self.__to is not None:
+        if isinstance( self.__to, str ) and self.__to != '':
             return self.__to
 
     @receiver.setter
     def receiver( self, value ):
         ''' Sets the receiver's email address '''
-        if value is not None:
-            self.__to = str( value )
+        if isinstance( value, str ) and value != '':
+            self.__to = value
 
     @property
     def subject( self ):
         ''' Gets the email's subject line '''
-        if self.__subject is not None:
+        if isinstance( self.__subject, str ) and self.__subject != '':
             return self.__subject
 
     @subject.setter
     def subject( self, value ):
         ''' Sets the email's subject line '''
-        if value is not None:
-            self.__to = str( value )
+        if isinstance( value, str ) and value != '':
+            self.__subject = value
 
     @property
     def body( self ):
         ''' Gets the email's subject line '''
-        if self.__message is not None:
+        if isinstance( self.__message, str) and self.__message != '':
             return self.__message
 
     @body.setter
@@ -1269,7 +1322,7 @@ class EmailBuilder( ):
     @property
     def copy( self ):
         ''' Gets the addresses to send copies  '''
-        if self.__others is not None:
+        if isinstance( self.__others, list ):
             return self.__others
 
     @copy.setter
@@ -1278,7 +1331,7 @@ class EmailBuilder( ):
         if value is not None:
             self.__others = list( value )
 
-    def __init__( self, sender, receiver, body, subject, copy = None ):
+    def __init__( self ):
         self.__from = sender if isinstance( sender, str ) and sender != '' else None
         self.__to = receiver if isinstance( receiver, str ) and receiver != '' else None
         self.__message = body if isinstance( body, str ) and body != '' else None
@@ -1308,13 +1361,13 @@ class ExcelFile(  ):
 
     @path.setter
     def path( self, value ):
-        if isinstance( value, str ) and os.path.exists( value ):
+        if isinstance( value, str ) and value != '':
             self.__path = value
 
     @property
     def name( self ):
         ''' Get the sheetname of the workbook '''
-        if self.__name is not None:
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
@@ -1350,7 +1403,7 @@ class ExcelFile(  ):
         self.__path = folderpath if isinstance( folderpath, str ) else os.getcwd( )
         self.__name = os.path.split( folderpath )[ 1 ] if isinstance( folderpath, str ) else None
         self.__title = sheetname if isinstance( sheetname, str ) else os.path.splitext( self.__name )[ 0 ]
-        self.__workbook = xl.Workbook( )
+        self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
 
     def __str__( self ):
@@ -1369,6 +1422,7 @@ class ExcelFile(  ):
             exc.method = 'save( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # ExcelReport( sheetname, rows = 46, cols = 12 )
 class ExcelReport( ):
