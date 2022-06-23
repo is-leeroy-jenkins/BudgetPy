@@ -142,7 +142,7 @@ class BudgetPath( ):
         self.__currdir = os.getcwd( )
         self.__ext = os.path.splitext( filepath )[ 1 ] if isinstance( filepath, str ) else None
         self.__drive = os.path.splitdrive( filepath )[ 0 ] if isinstance( filepath, str ) else None
-        self.__parentdirectory = os.path.dirname( filepath )
+        self.__parentdirectory = os.path.split( filepath )[ 0 ]
         self.__report = r'etc\templates\report\Excel.xlsx'
         self.__pathsep = os.path.sep
         self.__extsep = os.extsep
@@ -260,7 +260,8 @@ class BudgetPath( ):
 
 
 class SqlPath( ):
-    '''class providing relative paths to the sql subfolders'''
+    '''class providing relative paths to the folders containing sql files and
+    driver paths used in the application'''
     __accessdriver = None
     __accessdata = None
     __accessreference = None
@@ -344,16 +345,16 @@ class SqlPath( ):
             self.__accessreference = value
 
     @property
-    def sqlitedriver( self ):
+    def sqldriver( self ):
         '''Returns string representing the sheetname of the selectedpath 'base' '''
-        if isinstance( self.__sqlitedriver, str ):
-            return self.__sqlitedriver
+        if isinstance( self.__sqldriver, str ):
+            return self.__sqldriver
 
     @sqlitedriver.setter
-    def sqlitedriver( self, value ):
+    def sqldriver( self, value ):
         '''Returns string representing the sheetname of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
-            self.__sqlitedriver = value
+            self.__sqldriver = value
 
     @property
     def sqldata( self ):
@@ -393,7 +394,8 @@ class SqlPath( ):
 
 # SqlFile( source, provider, command )
 class SqlFile( ):
-    '''Class providing access to sql getsubfolders in the application'''
+    '''Class providing access to sql sub-folders in the application provided
+    optional arguements source, provider, and command'''
     __data = None
     __reference = None
     __command = None
@@ -917,11 +919,12 @@ class BudgetFile( ):
             err.show( )
 
 
-# BudgetFolder( selectedpath )
+# BudgetFolder( dirpath )
 class BudgetFolder( ):
     '''BudgetFolder( selectedpath ) initializes the
      BudgetFolder Class providing file directory information'''
     __absolute = None
+    __relative = None
     __path = None
     __name = None
     __parent = None
@@ -974,6 +977,16 @@ class BudgetFolder( ):
             self.__absolute = value
 
     @property
+    def relative( self ):
+        if isinstance( self.__relative, str ) and self.__relative != '':
+            return self.__relative
+
+    @relative.setter
+    def relative( self, value ):
+        if isinstance( sle.f__relative, str ) and not os.path.isabs( value ):
+            self.__relative = value
+
+    @property
     def parent( self ):
         if self.__parent is not None:
             return self.__parent
@@ -1003,48 +1016,75 @@ class BudgetFolder( ):
         if os.path.exists( value ):
             os.chdir( value )
 
-    def __init__( self, folderpath ):
+    def __init__( self, dirpath ):
         self.__current = os.getcwd( )
-        self.__path = folderpath if not os.path.ismount( folderpath ) else os.path.relpath( folderpath )
-        self.__name = os.path.dirname( folderpath )
-        self.__parent = os.path.basename( folderpath )
-        self.__absolute = os.getcwd( ) + '\\' + self.__path
+        self.__path = dirpath
+        self.__name = os.path.basename( dirpath )
+        self.__parent = os.path.dirname( dirpath )
+        self.__absolute = self.__path if os.path.isabs( dirpath ) else None
+        self.__relative = self.__path if not os.path.isabs( dirpath ) \
+            else f'{ os.getcwd( ) }\\{ self.__name }'
 
     def __str__( self ):
         if self.__path is not None:
             return self.__path
 
-    def getsubfiles( self ):
+    def getfiles( self ):
         '''Iterates subfolders in the base directory
         and returns a list of subfile paths'''
         try:
-            filenames = os.listdir( self.__absolute )
-            files = [ ]
-            for file in filenames:
-                    path = os.path.join( self.__absolute, file )
-                    files.append( path )
-
+            current = self.__current
+            abspath = self.__absolute
+            filenames = [ ]
+            for i in os.listdir( abspath ):
+                path = os.path.join( abspath, i )
+                if os.path.isfile( path ):
+                    filenames.append( path )
             return filenames
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'BudgetFolder'
-            exc.method = 'getsubfiles( self )'
+            exc.method = 'getfiles( self )'
             err = ErrorDialog( exc )
             err.show( )
+
+    def getsubfiles( self ):
+        '''Iterates getsubfolders in the base directory'''
+        try:
+            current = self.__current
+            abspath = self.__absolute
+            filenames = [ ]
+            for i in os.walk( abspath ):
+                dirpath = i[ 0 ]
+                if len( i[ 1 ] ) > 0:
+                    for name in i[ 1 ]:
+                        path = os.path.join( dirpath, name )
+                        filenames.append( path )
+            return filenames
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetFolder'
+            exc.method = 'getsubfolders( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+        return filenames
 
     def getsubfolders( self ):
         '''Iterates getsubfolders in the base directory'''
         try:
             current = self.__current
-            abspath = self.__abspath
+            abspath = self.__absolute
             filenames = [ ]
             for i in os.walk( abspath ):
                 if len( i[ 1 ] ) > 0:
                     for file in i[ 1 ]:
                         path = os.path.join( abspath, file )
-                        if not os.path.isdir( path ):
+                        if os.path.isdir( path ):
                             filenames.append( path )
+            return filenames
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
@@ -1148,34 +1188,13 @@ class BudgetFolder( ):
     def iterate( self ):
         '''iterates getsubfolders in the base directory'''
         try:
-            if os.path.isdir( self.__path ):
-                for i in os.scandir( self.__path ):
-                    yield i
+            for i in os.walk( self.__path ):
+                yield i
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'BudgetFolder'
             exc.method = 'iterate( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def getfiles( self, other ):
-        '''iterates getsubfolders in the directory provided by 'other' '''
-        try:
-            if os.path.isdir( other ):
-                names = os.listdir( other )
-                files = [ ]
-                for i in names:
-                    file = os.path.join( other, i )
-                    if os.path.isfile( file ):
-                        files.append( file )
-
-                return files
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
-            exc.method = 'getfiles( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1390,18 +1409,18 @@ class ExcelFile(  ):
     @property
     def worksheet( self ):
         ''' Gets the workbooks worksheet '''
-        if isinstance( self.__workbook, xl.Workbook ):
+        if isinstance( self.__workbook, Workbook ):
             return self.__workbook.active
 
     @worksheet.setter
     def worksheet( self, value ):
         ''' Gets the workbooks worksheet '''
-        if isinstance( value, xl.Workbook ):
+        if isinstance( value, Workbook ):
             self.__name = value.active
 
-    def __init__( self, folderpath, sheetname = None ):
-        self.__path = folderpath if isinstance( folderpath, str ) else os.getcwd( )
-        self.__name = os.path.split( folderpath )[ 1 ] if isinstance( folderpath, str ) else None
+    def __init__( self, dirpath, sheetname = None ):
+        self.__path = dirpath if isinstance( dirpath, str ) else os.getcwd( )
+        self.__name = os.path.split( dirpath )[ 1 ] if isinstance( dirpath, str ) else None
         self.__title = sheetname if isinstance( sheetname, str ) else os.path.splitext( self.__name )[ 0 ]
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
@@ -1413,8 +1432,7 @@ class ExcelFile(  ):
     def save( self ):
         try:
             if isinstance( self.__workbook, Workbook ):
-                name = self.__name
-                self.__workbook.save( name )
+                self.__workbook.save( self.__path )
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
