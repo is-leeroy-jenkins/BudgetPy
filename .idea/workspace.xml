@@ -8,7 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="" />
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +113,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "configurable.group.project"
+    "settings.editor.selected.configurable": "com.jetbrains.python.documentation.PythonDocumentationConfigurable"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -174,13 +179,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00243" summary="updates from main rig;">
-      <created>1655577483678</created>
-      <option name="number" value="00243" />
-      <option name="presentableId" value="LOCAL-00243" />
-      <option name="project" value="LOCAL" />
-      <updated>1655577483678</updated>
     </task>
     <task id="LOCAL-00244" summary="updates from main rig;">
       <created>1655578386605</created>
@@ -518,14 +516,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656088448248</updated>
     </task>
-    <option name="localTasksCounter" value="292" />
+    <task id="LOCAL-00292" summary="updates from main rig;">
+      <created>1656088570369</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1656088570369</updated>
+    </task>
+    <option name="localTasksCounter" value="293" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
     <envs>
-      <env key="PATH" value="Path=C:\Users\terry\source\compilers\python\Scripts\;C:\Users\terry\source\compilers\python\;C:\Users\terry\source\compilers\py\python\;C:\Users\terry\source\compilers\miniconda\;C:\Users\terry\source\compilers\py\anaconda\;C:\Users\terry\source\compilers\py\ipy\;C:\Users\terry\source\compilers\py\python\Scripts\;C:\JupyterLab\resources\jlab_server\;C:\JupyterLab\resources\jlab_server\Library\mingw-w64\bin\;C:\JupyterLab\resources\jlab_server\Library\usr\bin\;C:\JupyterLab\resources\jlab_server\Library\bin\;C:\Users\terry\AppData\Local\GitHubDesktop\bin\;C:\JupyterLab\resources\jlab_server\Scripts\;C:\WINDOWS\system32\config\systemprofile\.dotnet\tools\;C:\Program Files\Azure Data Studio\bin\;C:\Program Files\dotnet\\;C:\Program Files (x86)\dotnet\\;C:\Users\terry\AppData\Local\Programs\Python\Python39\Scripts\\;C:\Users\terry\AppData\Local\Programs\Python\Python39\\;C:\Users\terry\AppData\Local\Programs\Python\Launcher\\;C:\Users\terry\source\compilers\py\python\;C:\Users\terry\source\compilers\miniconda\;C:\Users\terry\source\compilers\py\ipy\;C:\Users\terry\source\compilers\py\python\Scripts\;C:\Users\terry\source\compilers\py\pyvenv\venv\;C:\Users\terry\source\compilers\py\pyvenv\venv\Scripts\;C:\JupyterLab\resources\jlab_server\;C:\JupyterLab\resources\jlab_server\Library\mingw-w64\bin\;C:\JupyterLab\resources\jlab_server\Library\usr\bin\;C:\JupyterLab\resources\jlab_server\Library\bin\;C:\Users\terry\AppData\Local\GitHubDesktop\bin\;C:\JupyterLab\resources\jlab_server\Scripts\;C:\Users\terry\.dotnet\tools\;C:\Users\terry\source\repos\BudgetPy\venv\Scripts\;C:\Users\terry\source\compilers\py\python" />
+      <env key="PATH" value="Path=C:\Users\teppler\source\compilers\python\Scripts\;C:\Users\teppler\source\compilers\python\;C:\Users\teppler\source\compilers\py\python\;C:\Users\teppler\source\compilers\miniconda\;C:\Users\teppler\source\compilers\py\anaconda\;C:\Users\teppler\source\compilers\py\ipy\;C:\Users\teppler\source\compilers\py\python\Scripts\;C:\JupyterLab\resources\jlab_server\;C:\JupyterLab\resources\jlab_server\Library\mingw-w64\bin\;C:\JupyterLab\resources\jlab_server\Library\usr\bin\;C:\JupyterLab\resources\jlab_server\Library\bin\;C:\Users\teppler\AppData\Local\GitHubDesktop\bin\;C:\JupyterLab\resources\jlab_server\Scripts\;C:\WINDOWS\system32\config\systemprofile\.dotnet\tools\;C:\Program Files\Azure Data Studio\bin\;C:\Program Files\dotnet\\;C:\Program Files (x86)\dotnet\\;C:\Users\teppler\AppData\Local\Programs\Python\Python39\Scripts\\;C:\Users\teppler\AppData\Local\Programs\Python\Python39\\;C:\Users\teppler\AppData\Local\Programs\Python\Launcher\\;C:\Users\teppler\source\compilers\py\python\;C:\Users\teppler\source\compilers\miniconda\;C:\Users\teppler\source\compilers\py\ipy\;C:\Users\teppler\source\compilers\py\python\Scripts\;C:\Users\teppler\source\compilers\py\pyvenv\venv\;C:\Users\teppler\source\compilers\py\pyvenv\venv\Scripts\;C:\JupyterLab\resources\jlab_server\;C:\JupyterLab\resources\jlab_server\Library\mingw-w64\bin\;C:\JupyterLab\resources\jlab_server\Library\usr\bin\;C:\JupyterLab\resources\jlab_server\Library\bin\;C:\Users\teppler\AppData\Local\GitHubDesktop\bin\;C:\JupyterLab\resources\jlab_server\Scripts\;C:\Users\teppler\.dotnet\tools\;C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\;C:\Users\teppler\source\compilers\py\python" />
     </envs>
-    <option name="startingDirectory" value="C:\Users\terry\source\compilers\py\python" />
+    <option name="startingDirectory" value="C:\Users\teppler\source\repos\BudgetPy\env" />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />

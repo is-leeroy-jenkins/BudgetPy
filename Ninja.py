@@ -1605,8 +1605,18 @@ class BudgetData( ):
 
     @name.setter
     def name( self, value ):
-        if value is not None:
-            self.__name = str( value )
+        if isinstance( value, str ) and value != '':
+            self.__name = value
+
+    @property
+    def path( self ):
+        if isinstance( self.__path, str ) and self.__path != '':
+            return self.__path
+
+    @path.setter
+    def path( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__path = value
 
     @property
     def data( self ):
@@ -1660,7 +1670,7 @@ class BudgetData( ):
 
     def __init__( self, source ):
         self.__source = source if isinstance( source, Source ) else None
-        self.__name = source.name if isinstance( source, Source ) else None
+        self.__name = source.name
         self.__path = DataConfig( source, Provider.SQLite ).getpath( )
         self.__sql = f'SELECT * FROM { source.name };'
 
@@ -1670,7 +1680,7 @@ class BudgetData( ):
         try:
             path = self.__path
             src = self.__source
-            table = src.name
+            table = self.__name
             conn = sl.connect( path )
             sql = f'SELECT * FROM { table };'
             frame = sqlreader( sql, conn )
