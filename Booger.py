@@ -575,7 +575,7 @@ class Sith( ):
     def __init__( self ):
         sg.theme( 'DarkGrey15' )
         self.__themebackground = sg.theme_background_color()
-        self.__themetextcolor = sg.theme_text_color( self.__themetextcolor )
+        self.__themetextcolor = sg.theme_text_color( "#FFFFFF" )
         self.__elementbackcolor = sg.theme_text_element_background_color( )
         self.__elementforecolor = sg.theme_element_text_color( )
         self.__textbackcolor = sg.theme_text_element_background_color( )
@@ -1172,14 +1172,17 @@ class MessageDialog( Sith ):
             layout = [ [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = (5, 1) ),
-                         sg.Text( self.__text, font = ( 'Roboto', 9, 'bold' ), key = '-TEXT-',
+                         sg.Text( self.__text,
+                             font = ( 'Roboto', 9, 'bold' ),
+                             enable_events = True,
+                             key = '-TEXT-',
                              text_color = '#FFFFFF',
                              size = ( 80, 1 ) ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
-                       [ sg.Text( r'', size = (5, 1) ), sg.Ok( size = btnsize ),
-                         sg.Text( r'', size = (15, 1) ), sg.Cancel( size = btnsize ) ] ]
+                       [ sg.Text( r'', size = (5, 1) ), sg.Ok( size = btnsz),
+                         sg.Text( r'', size = (15, 1) ), sg.Cancel( size = btnsz ) ] ]
 
             window = sg.Window( r'  Budget Execution', layout,
                 icon = self.__icon,
@@ -1188,7 +1191,6 @@ class MessageDialog( Sith ):
 
             while True:
                 event, values = window.read( )
-                self.__text = values[ '-TEXT-' ]
                 if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel' ):
                     break
 
