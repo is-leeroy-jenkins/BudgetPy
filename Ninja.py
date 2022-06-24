@@ -7,6 +7,7 @@ import os
 from collections import namedtuple as ntuple
 from Static import Source, Provider, SQL, ParamStyle
 from Booger import Error, ErrorDialog
+import enum
 
 # DataConfig( source, provider )
 class DataConfig( ):
@@ -1573,10 +1574,10 @@ class DataTable( ):
             return self.__name
 
 
-# BudgetData( src )
+# BudgetData( source )
 class BudgetData( ):
     '''Class containing factory method for providing
-    pandas dataframes based on the Source argument 'src' '''
+    pandas dataframes based on the Source argument 'source' '''
     __source = None
     __name = None
     __path = None
@@ -1657,15 +1658,15 @@ class BudgetData( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
-    def __init__( self, src ):
-        self.__source = src if isinstance( src, Source ) else None
-        self.__name = src.name if isinstance( src, Source ) else None
-        self.__path = DataConfig( src, Provider.SQLite ).getpath( )
-        self.__sql = f'SELECT * FROM { src.name };'
+    def __init__( self, source ):
+        self.__source = source if isinstance( source, Source ) else None
+        self.__name = source.name if isinstance( source, Source ) else None
+        self.__path = DataConfig( source, Provider.SQLite ).getpath( )
+        self.__sql = f'SELECT * FROM { source.name };'
 
     def getframe( self ):
         '''Facotry method that returns a pandas DataFrame object
-        based on the Source input arguement 'src' given to the constructor'''
+        based on the Source input arguement 'source' given to the constructor'''
         try:
             path = self.__path
             src = self.__source

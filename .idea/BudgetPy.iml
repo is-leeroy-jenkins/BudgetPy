@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/db" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ipynb" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/DLLs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib" isTestSource="false" />
@@ -10,27 +12,8 @@
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/pythonwin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32/lib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/etc" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/ipynb" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/db/access" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/db/mssql" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/db/python" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/db/sqlite" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/env/Doc" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/env/Scripts" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/env/Tools" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/env/etc" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/env/include" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/env/libs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/env/share" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/env/tcl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/etc/docs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/etc/ico" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/etc/img" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/etc/templates" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/etc/theme" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python ( budgetpy )" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
@@ -40,8 +23,8 @@
     <option name="modifyBaseFiles" value="true" />
   </component>
   <component name="PyDocumentationSettings">
-    <option name="format" value="NUMPY" />
-    <option name="myDocStringFormat" value="NumPy" />
+    <option name="format" value="PLAIN" />
+    <option name="myDocStringFormat" value="Plain" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="py.test" />
