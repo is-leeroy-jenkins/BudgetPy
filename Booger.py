@@ -1174,7 +1174,7 @@ class MessageDialog( Sith ):
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = (5, 1) ),
                          sg.Text( self.__text,
-                             font = ( 'Roboto', 11 ),
+                             font = ( 'Roboto', 11),
                              enable_events = True,
                              key = '-TEXT-',
                              text_color = '#69B1EF',
