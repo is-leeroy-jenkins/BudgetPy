@@ -574,10 +574,13 @@ class Sith( ):
 
     def __init__( self ):
         sg.theme( 'DarkGrey15' )
+        sg.theme_input_text_color( '#FFFFFF' )
+        sg.theme_element_text_color( '#69B1EF' )
+        sg.theme_text_color('#69B1EF' )
         self.__themebackground = sg.theme_background_color()
-        self.__themetextcolor = sg.theme_text_color( "#FFFFFF" )
+        self.__themetextcolor = sg.theme_text_color()
         self.__elementbackcolor = sg.theme_text_element_background_color( )
-        self.__elementforecolor = sg.theme_element_text_color( )
+        self.__elementforecolor = sg.theme_element_text_color()
         self.__textbackcolor = sg.theme_text_element_background_color( )
         self.__inputforecolor = sg.theme_input_text_color( )
         self.__inputbackcolor = sg.theme_input_background_color( )
@@ -1068,22 +1071,23 @@ class EmailDialog( Sith ):
             inp = ( 35, 1 )
             spc = ( 5, 1 )
             img = ( 50, 22 )
+            clr = '#69B1EF'
             layout = [ [ sg.Text( ' ', size = spc ), ],
                        [ sg.Text( ' ', size = spc ), ],
-                       [ sg.Text( ' ', size = spc ), sg.Text( 'From:', size = btn ),
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'From:', size = btn, text_color = clr  ),
                          sg.Input( key = '-EMAIL FROM-', size = inp ) ],
-                       [ sg.Text( ' ', size = spc ), sg.Text( 'To:', size = btn ),
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'To:', size = btn, text_color = clr  ),
                          sg.Input( key = '-EMAIL TO-', size = inp ) ],
-                       [ sg.Text( ' ', size = spc ), sg.Text( 'Subject:', size = btn ),
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'Subject:', size = btn, text_color = clr  ),
                          sg.Input( key = '-EMAIL SUBJECT-', size = inp ) ],
                        [ sg.Text( ' ', size = spc ), sg.Text( '' ) ],
-                       [ sg.Text( ' ', size = spc ), sg.Text( 'Username:', size = btn ),
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'Username:', size = btn, text_color = clr  ),
                          sg.Input( key = '-USER-', size = inp ) ],
-                       [ sg.Text( ' ', size = spc ), sg.Text( 'Password:', size = btn ),
+                       [ sg.Text( ' ', size = spc ), sg.Text( 'Password:', size = btn, text_color = clr ),
                          sg.Input( password_char = '*', key = '-PASSWORD-', size = inp ) ],
                        [ sg.Text( ' ', size = spc ) ],
                        [ sg.Text( ' ', size = spc ),
-                         sg.Multiline( 'Type your heading here', size = ( 65, 10 ),
+                         sg.Multiline( 'Type your message here', size = ( 65, 10 ),
                              key = '-EMAIL TEXT-' ) ],
                        [ sg.Text( ' ', size = ( 100, 1 ) ) ],
                        [ sg.Text( ' ', size = spc ), sg.Button( 'Send', size = btn ),
@@ -1091,9 +1095,6 @@ class EmailDialog( Sith ):
 
             window = sg.Window( '  Budget Execution', layout,
                 icon = self.__icon,
-                background_color = self.__themebackground,
-                font = self.__themefont,
-                button_color = self.__buttoncolor,
                 size = self.__formsize )
 
             while True:  # Event Loop
@@ -1173,10 +1174,10 @@ class MessageDialog( Sith ):
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = (5, 1) ),
                          sg.Text( self.__text,
-                             font = ( 'Roboto', 9, 'bold' ),
+                             font = ( 'Roboto', 11 ),
                              enable_events = True,
                              key = '-TEXT-',
-                             text_color = '#FFFFFF',
+                             text_color = '#69B1EF',
                              size = ( 80, 1 ) ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
