@@ -1,0 +1,705 @@
+
+fpython:S1192Ö"HDefine a constant instead of duplicating this literal 'Edit Me' 4 times.(ÚÒùüÿÿÿÿ
+hpython:S1192ï"ODefine a constant instead of duplicating this literal '-NEW FILENAME-' 7 times.(‰ÚÇÎ
+mpython:S1192"TDefine a constant instead of duplicating this literal '  Budget Execution' 16 times.(úèô­
+ppython:S1192"RDefine a constant instead of duplicating this literal '-fresh frequency-' 3 times.(÷Àà©şÿÿÿÿ
+mpython:S1192"ODefine a constant instead of duplicating this literal '-show refresh-' 3 times.(ˆõÓÿıÿÿÿÿ
+bpython:S1192ü"JDefine a constant instead of duplicating this literal 'Bodoni MT' 3 times.(¾üØv
+lpython:S1192î"NDefine a constant instead of duplicating this literal '-DO NOT SAVE-' 6 times.(üí¯óúÿÿÿÿ
+fpython:S1192å"MDefine a constant instead of duplicating this literal '-NEW FORMAT-' 6 times.(“Ÿñë
+lpython:S1192£"NDefine a constant instead of duplicating this literal 'show( self )' 23 times.(Çü¤®ÿÿÿÿÿ
+gpython:S1192á"NDefine a constant instead of duplicating this literal '-ORIG HEIGHT-' 3 times.(ÀÈ ˆ
+epython:S1192Ü"MDefine a constant instead of duplicating this literal '-ORIG WIDTH-' 3 times.(¾»â_
+opython:S1192¢"QDefine a constant instead of duplicating this literal 'Budget Execution' 3 times.(âúğúúÿÿÿÿ
+hpython:S1192¢"JDefine a constant instead of duplicating this literal 'Roboto 20' 9 times.(Œ²úŠûÿÿÿÿ
+Mpython:S1066±"/Merge this if statement with the enclosing one.(üí¯óúÿÿÿÿ
+_python:S2208"GImport only needed names or import the module and then use its members.(ó §
+tpython:S4487ó"VRemove this unread private attribute '__output' or refactor the code to use its value.(•–ã©úÿÿÿÿ
+npython:S4487ò"URemove this unread private attribute '__input' or refactor the code to use its value.(å¹ŸÄ
+lpython:S4487î"SRemove this unread private attribute '__hsl' or refactor the code to use its value.(úÉ¡ì
+Dpython:S5806À"+Rename this variable; it shadows a builtin.(Î“®¶
+Wpython:S905ä":Remove or refactor this statement; it has no side effects.(ğïÚÿÿÿÿÿ
+}python:S4144×"_Update this function so that its implementation is not identical to themetextcolor on line 441.(ãĞê¯úÿÿÿÿ
+‚python:S4487"dRemove this unread private attribute '__progressbarbackcolor' or refactor the code to use its value.(Óü›”øÿÿÿÿ
+ypython:S4487İ"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487à"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+xpython:S4487Û"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+|python:S4487Ş"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487ß"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487â"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487á"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487Ü"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487°"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487­"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487±"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487¬"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+|python:S4487®"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+xpython:S4487«"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487²"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+{python:S4487¯"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+rpython:S4144¬"YUpdate this function so that its implementation is not identical to filename on line 788.(ŒüÂ¶
+ypython:S4487ü"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+{python:S4487ÿ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+|python:S4487ş"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+xpython:S4487û"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487ı"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+ypython:S4487‚"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487€"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+vpython:S4487„"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+wpython:S4487"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+Opython:S1481‘"1Remove the unused local variable "self_original".(½‰éùüÿÿÿÿ
+Ppython:S1481›"2Remove the unused local variable "self__filename".(æğ²ÿÿÿÿÿ
+Epython:S1481¿"'Remove the unused local variable "new".(Êï´·úÿÿÿÿ
+xpython:S4487Ì"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487Î"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487Ñ"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487Ó"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487Ï"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487Í"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+{python:S4487Ğ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487Ò"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+xpython:S4487Ã"ZRemove this unread private attribute '__folderpath' or refactor the code to use its value.(Ùàœäùÿÿÿÿ
+ypython:S4487¸"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+{python:S4487»"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+spython:S4487À"URemove this unread private attribute '__image' or refactor the code to use its value.(±Úºßüÿÿÿÿ
+|python:S4487º"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487½"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+wpython:S4487¼"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487¹"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+@python:S1481®"'Remove the unused local variable "img".(î’õ
+wpython:S4487ì"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+|python:S4487é"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487ë"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+{python:S4487ê"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487ç"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487í"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+xpython:S4487æ"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487è"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+Gpython:S1481“	")Remove the unused local variable "btnsz".(ò–Šöıÿÿÿÿ
+rpython:S4487À	"YRemove this unread private attribute '__exception' or refactor the code to use its value.(ÔÑˆÎ
+ypython:S4487Ã	"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+npython:S4487¾	"URemove this unread private attribute '__trace' or refactor the code to use its value.(¥é£¶
+{python:S4487Å	"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487Æ	"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+|python:S4487Ä	"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487Ç	"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487È	"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487Â	"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+xpython:S4487Á	"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487Ò
+"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+{python:S4487Ñ
+"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Ï
+"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487Ó
+"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487Î
+"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487Ô
+"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+xpython:S4487Í
+"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487¬"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+{python:S4487®"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487±"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487²"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+xpython:S4487ª"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487¯"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+|python:S4487­"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487«"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+Bpython:S1481Ú")Remove the unused local variable "arrow".(¼ú£
+Apython:S1481Û"(Remove the unused local variable "back".(Ëäå’
+ypython:S4487„"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487Š"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487…"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487‰"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+wpython:S4487ˆ"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+npython:S4487¥"URemove this unread private attribute '__image' or refactor the code to use its value.(š©¡‹
+xpython:S4487ƒ"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+{python:S4487‡"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Ù"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487Õ"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487×"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487Ó"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+{python:S4487Ö"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487Ø"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+npython:S4487•"URemove this unread private attribute '__image' or refactor the code to use its value.(ª’¯î
+ypython:S4487Ô"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+Cpython:S1481¤"%Remove the unused local variable "r".(ß€îşÿÿÿÿ
+Cpython:S1481¤"%Remove the unused local variable "c".(ß€îşÿÿÿÿ
+{python:S4487Ç"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+xpython:S4487Ã"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487É"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487Ä"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487È"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+|python:S4487Æ"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487Ê"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+rpython:S4487Í"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+ypython:S4487Å"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+ypython:S4487¢"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+{python:S4487Ÿ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487 "^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+xpython:S4487›"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+|python:S4487"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487¡"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487œ"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+rpython:S4487¥"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+ypython:S4487÷"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487û"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+rpython:S4487ÿ"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+wpython:S4487ú"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487ö"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487ü"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487ø"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487ù"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+xpython:S4487õ"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487Ø"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+xpython:S4487"_Remove this unread private attribute '__buttonforecolor' or refactor the code to use its value.(øó×
+wpython:S4487‚"^Remove this unread private attribute '__buttobackcolor' or refactor the code to use its value.(¸¨´
+mpython:S4487Û"TRemove this unread private attribute '__icon' or refactor the code to use its value.(Ó»à¿
+wpython:S4487Ù"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487Ú"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487Ö"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487Ô"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+rpython:S4487İ"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+{python:S4487×"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Õ"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+xpython:S4487Ó"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+Epython:S1481‰"'Remove the unused local variable "img".(‘Ÿ¬şùÿÿÿÿ
+ypython:S4487¨"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487¬"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+{python:S4487«"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+rpython:S4487±"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+xpython:S4487§"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+vpython:S4487°"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+ypython:S4487®"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+mpython:S4487¯"TRemove this unread private attribute '__icon' or refactor the code to use its value.(Ó»à¿
+|python:S4487ª"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487©"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487­"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+spython:S4487²"URemove this unread private attribute '__image' or refactor the code to use its value.(±Úºßüÿÿÿÿ
+rpython:S4487Ô"TRemove this unread private attribute '__fail' or refactor the code to use its value.(¬³À•ùÿÿÿÿ
+upython:S4487É"WRemove this unread private attribute '__success' or refactor the code to use its value.(ÔúÒñıÿÿÿÿ
+xpython:S4487¤"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+vpython:S4487­"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+ypython:S4487¦"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487ª"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487¨"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+upython:S4487°"WRemove this unread private attribute '__timeout' or refactor the code to use its value.(´ì…Ûıÿÿÿÿ
+wpython:S4487©"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487«"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+rpython:S4487®"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+|python:S4487§"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487¥"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+spython:S4487¯"URemove this unread private attribute '__image' or refactor the code to use its value.(±Úºßüÿÿÿÿ
+Mpython:S1481Á"/Remove the unused local variable "__version__".(’éóØıÿÿÿÿ
+rpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 71 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+ypython:S4487î"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487ñ"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487ò"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487í"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+|python:S4487ï"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+xpython:S4487ì"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+{python:S4487ğ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487ó"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+Dpython:S5806¥"+Rename this variable; it shadows a builtin.(í¥œ
+wpython:S4144Ñ"^Update this function so that its implementation is not identical to selecteditem on line 2584.(ŒüÂ¶
+vpython:S4487"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+rpython:S4487"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+rpython:S4487”"TRemove this unread private attribute '__year' or refactor the code to use its value.(Êª··ÿÿÿÿÿ
+wpython:S4487‹"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487Œ"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+qpython:S4487’"SRemove this unread private attribute '__day' or refactor the code to use its value.(×’ìœùÿÿÿÿ
+npython:S4487“"URemove this unread private attribute '__month' or refactor the code to use its value.(ÀÙ‚Ç
+ypython:S4487‡"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+|python:S4487‰"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487ˆ"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+ypython:S4487"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+{python:S4487Š"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+xpython:S4487†"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+Epython:S1481Ü",Remove the unused local variable "calendar".(– §ä
+Ipython:S1481Û"+Remove the unused local variable "btnsize".(‚ßÕøøÿÿÿÿ
+{python:S4487ü"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487ı"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487ú"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+|python:S4487û"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487ÿ"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487ù"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+mpython:S4487€"TRemove this unread private attribute '__icon' or refactor the code to use its value.(Ó»à¿
+xpython:S4487ø"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+rpython:S4487‚"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+wpython:S4487ş"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+upython:S4487ƒ"\Remove this unread private attribute '__selecteditem' or refactor the code to use its value.(ëñØÕ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 40 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+?python:S1110Å"!Remove those useless parentheses.(ù¤éúÿÿÿÿ
+wpython:S4487Ó"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487Ï"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+ypython:S4487Ô"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487Î"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+xpython:S4487Í"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+{python:S4487Ñ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487Ò"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+|python:S4487¹"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+spython:S4487Ã"URemove this unread private attribute '__image' or refactor the code to use its value.(±Úºßüÿÿÿÿ
+{python:S4487º"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487¼"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+xpython:S4487¶"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487»"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487·"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487¸"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+ypython:S4487½"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+Bpython:S1481ü")Remove the unused local variable "txtsz".(«İöÂ
+{python:S4487·"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487¸"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487¹"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487´"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487µ"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+Epython:S1481ˆ"-Remove the unused local variable "font_size".(ÚåÍ8
+Ipython:S1481½"+Remove the unused local variable "window2".(±ï¨…ıÿÿÿÿ
+rpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+ypython:S4487ß"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+rpython:S4487è"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+|python:S4487à"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487ä"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487â"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+{python:S4487á"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Ş"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+xpython:S4487İ"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487ã"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+Jpython:S1481Û",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Fpython:S1481Ü"-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Bpython:S1481á")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Gpython:S1481Ş".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Apython:S1481à")Remove the unused local variable "frmsz".(ÓÄ
+Mpython:S1481İ"4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Fpython:S1481Ù"(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Fpython:S1481ô"(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Fpython:S1481÷"-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Apython:S1481û")Remove the unused local variable "frmsz".(ÓÄ
+Jpython:S1481ö",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Mpython:S1481ø"4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Gpython:S1481õ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Bpython:S1481ü")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Gpython:S1481ù".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Fpython:S1481 "-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Jpython:S1481 ",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Mpython:S1481‘ "4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Fpython:S1481 "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Apython:S1481” ")Remove the unused local variable "frmsz".(ÓÄ
+Gpython:S1481 ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Bpython:S1481• ")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Gpython:S1481’ ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Fpython:S1481¦ "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Gpython:S1481« ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Bpython:S1481® ")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Gpython:S1481§ ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Mpython:S1481ª "4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Jpython:S1481¨ ",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Apython:S1481­ ")Remove the unused local variable "frmsz".(ÓÄ
+Fpython:S1481© "-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Jpython:S1481Ä ",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Gpython:S1481Ç ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Apython:S1481É ")Remove the unused local variable "frmsz".(ÓÄ
+Fpython:S1481Â "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Bpython:S1481Ê ")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Gpython:S1481Ã ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Fpython:S1481Å "-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Mpython:S1481Æ "4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Fpython:S1481ß "-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Gpython:S1481á ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Fpython:S1481Ü "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Jpython:S1481Ş ",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Mpython:S1481à "4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Bpython:S1481ä ")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Gpython:S1481İ ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Apython:S1481ã ")Remove the unused local variable "frmsz".(ÓÄ
+@python:S1481ı "'Remove the unused local variable "hdr".(†³²ö
+Gpython:S1481ü ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Fpython:S1481÷ "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Gpython:S1481¦!".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+ypython:S4487×""[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487Ö""^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487Ô""]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487Õ""^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+xpython:S4487Ğ""_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487Ò""`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+ypython:S4487Ñ""`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+|python:S4487Ó""^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+Upython:S5754œ#"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+ypython:S4487Ë#"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487Ç#"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487È#"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Å#"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487Æ#"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487É#"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487Ê#"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+xpython:S4487Ä#"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+Upython:S5754$"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+wpython:S4487¾$"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+xpython:S4487¸$"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+rpython:S4487Â$"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+mpython:S4487À$"TRemove this unread private attribute '__icon' or refactor the code to use its value.(Ó»à¿
+ypython:S4487¿$"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487»$"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487¹$"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+{python:S4487¼$"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487½$"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487º$"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+vpython:S4487Á$"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+rpython:S3776Ò$"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+Mpython:S5727Æ%"4Remove this identity check; it will always be False.(¡”²ÿ
+fpython:S1192Ö"HDefine a constant instead of duplicating this literal 'Edit Me' 4 times.(ÚÒùüÿÿÿÿ
+hpython:S1192ï"ODefine a constant instead of duplicating this literal '-NEW FILENAME-' 7 times.(‰ÚÇÎ
+mpython:S1192"TDefine a constant instead of duplicating this literal '  Budget Execution' 16 times.(úèô­
+ppython:S1192"RDefine a constant instead of duplicating this literal '-fresh frequency-' 3 times.(÷Àà©şÿÿÿÿ
+mpython:S1192"ODefine a constant instead of duplicating this literal '-show refresh-' 3 times.(ˆõÓÿıÿÿÿÿ
+bpython:S1192ü"JDefine a constant instead of duplicating this literal 'Bodoni MT' 3 times.(¾üØv
+lpython:S1192î"NDefine a constant instead of duplicating this literal '-DO NOT SAVE-' 6 times.(üí¯óúÿÿÿÿ
+fpython:S1192å"MDefine a constant instead of duplicating this literal '-NEW FORMAT-' 6 times.(“Ÿñë
+lpython:S1192£"NDefine a constant instead of duplicating this literal 'show( self )' 23 times.(Çü¤®ÿÿÿÿÿ
+gpython:S1192á"NDefine a constant instead of duplicating this literal '-ORIG HEIGHT-' 3 times.(ÀÈ ˆ
+epython:S1192Ü"MDefine a constant instead of duplicating this literal '-ORIG WIDTH-' 3 times.(¾»â_
+opython:S1192¢"QDefine a constant instead of duplicating this literal 'Budget Execution' 3 times.(âúğúúÿÿÿÿ
+hpython:S1192¢"JDefine a constant instead of duplicating this literal 'Roboto 20' 9 times.(Œ²úŠûÿÿÿÿ
+Mpython:S1066±"/Merge this if statement with the enclosing one.(üí¯óúÿÿÿÿ
+_python:S2208"GImport only needed names or import the module and then use its members.(ó §
+npython:S4487ò"URemove this unread private attribute '__input' or refactor the code to use its value.(å¹ŸÄ
+lpython:S4487î"SRemove this unread private attribute '__hsl' or refactor the code to use its value.(úÉ¡ì
+tpython:S4487ó"VRemove this unread private attribute '__output' or refactor the code to use its value.(•–ã©úÿÿÿÿ
+Dpython:S5806À"+Rename this variable; it shadows a builtin.(Î“®¶
+Wpython:S905ä":Remove or refactor this statement; it has no side effects.(ğïÚÿÿÿÿÿ
+}python:S4144×"_Update this function so that its implementation is not identical to themetextcolor on line 441.(ãĞê¯úÿÿÿÿ
+‚python:S4487"dRemove this unread private attribute '__progressbarbackcolor' or refactor the code to use its value.(Óü›”øÿÿÿÿ
+ypython:S4487Ü"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+xpython:S4487Û"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487İ"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+|python:S4487Ş"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487à"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487á"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487ß"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487â"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487°"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487­"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487±"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487²"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+{python:S4487¯"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+|python:S4487®"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+xpython:S4487«"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487¬"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+rpython:S4144¬"YUpdate this function so that its implementation is not identical to filename on line 788.(ŒüÂ¶
+xpython:S4487û"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+|python:S4487ş"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487ÿ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487‚"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487ü"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487€"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+vpython:S4487„"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+ypython:S4487ı"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+Opython:S1481‘"1Remove the unused local variable "self_original".(½‰éùüÿÿÿÿ
+Ppython:S1481›"2Remove the unused local variable "self__filename".(æğ²ÿÿÿÿÿ
+Epython:S1481¿"'Remove the unused local variable "new".(Êï´·úÿÿÿÿ
+ypython:S4487Í"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487Î"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+|python:S4487Ï"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+xpython:S4487Ì"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487Ó"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487Ñ"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487Ò"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487Ğ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487¸"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+|python:S4487º"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+spython:S4487À"URemove this unread private attribute '__image' or refactor the code to use its value.(±Úºßüÿÿÿÿ
+wpython:S4487¼"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487½"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487»"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487¹"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+xpython:S4487Ã"ZRemove this unread private attribute '__folderpath' or refactor the code to use its value.(Ùàœäùÿÿÿÿ
+@python:S1481®"'Remove the unused local variable "img".(î’õ
+ypython:S4487í"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+xpython:S4487æ"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487è"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487ë"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+|python:S4487é"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487ç"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487ì"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487ê"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+Gpython:S1481“	")Remove the unused local variable "btnsz".(ò–Šöıÿÿÿÿ
+xpython:S4487Á	"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487Æ	"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+rpython:S4487À	"YRemove this unread private attribute '__exception' or refactor the code to use its value.(ÔÑˆÎ
+ypython:S4487Â	"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+{python:S4487Å	"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Ã	"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487Ç	"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+npython:S4487¾	"URemove this unread private attribute '__trace' or refactor the code to use its value.(¥é£¶
+ypython:S4487È	"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487Ä	"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487Ñ
+"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Ï
+"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487Ò
+"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487Ô
+"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487Î
+"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+xpython:S4487Í
+"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487Ó
+"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487¬"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+xpython:S4487ª"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487¯"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+{python:S4487®"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487±"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487²"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487­"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487«"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+Bpython:S1481Ú")Remove the unused local variable "arrow".(¼ú£
+Apython:S1481Û"(Remove the unused local variable "back".(Ëäå’
+npython:S4487¥"URemove this unread private attribute '__image' or refactor the code to use its value.(š©¡‹
+ypython:S4487…"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487‰"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487‡"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Š"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487„"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487ˆ"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+xpython:S4487ƒ"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+|python:S4487Õ"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487×"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487Ù"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487Ô"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487Ø"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487Ó"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+npython:S4487•"URemove this unread private attribute '__image' or refactor the code to use its value.(ª’¯î
+{python:S4487Ö"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+Cpython:S1481¤"%Remove the unused local variable "r".(ß€îşÿÿÿÿ
+Cpython:S1481¤"%Remove the unused local variable "c".(ß€îşÿÿÿÿ
+wpython:S4487É"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+xpython:S4487Ã"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+{python:S4487Ç"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Å"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+rpython:S4487Í"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+|python:S4487Æ"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487Ä"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487Ê"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487È"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487œ"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487 "^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487¡"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+rpython:S4487¥"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+{python:S4487Ÿ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487¢"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+xpython:S4487›"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+|python:S4487"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+rpython:S4487ÿ"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+xpython:S4487õ"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+|python:S4487ø"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487ü"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487ö"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487÷"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487û"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+wpython:S4487ú"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+{python:S4487ù"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Ú"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487Ù"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+rpython:S4487İ"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+xpython:S4487Ó"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+xpython:S4487"_Remove this unread private attribute '__buttonforecolor' or refactor the code to use its value.(øó×
+wpython:S4487‚"^Remove this unread private attribute '__buttobackcolor' or refactor the code to use its value.(¸¨´
+ypython:S4487Ô"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+mpython:S4487Û"TRemove this unread private attribute '__icon' or refactor the code to use its value.(Ó»à¿
+|python:S4487Ö"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487×"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487Õ"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487Ø"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+Epython:S1481‰"'Remove the unused local variable "img".(‘Ÿ¬şùÿÿÿÿ
+spython:S4487²"URemove this unread private attribute '__image' or refactor the code to use its value.(±Úºßüÿÿÿÿ
+ypython:S4487®"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487¨"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487­"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+upython:S4487É"WRemove this unread private attribute '__success' or refactor the code to use its value.(ÔúÒñıÿÿÿÿ
+rpython:S4487±"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+rpython:S4487Ô"TRemove this unread private attribute '__fail' or refactor the code to use its value.(¬³À•ùÿÿÿÿ
+ypython:S4487©"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+xpython:S4487§"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487¬"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+mpython:S4487¯"TRemove this unread private attribute '__icon' or refactor the code to use its value.(Ó»à¿
+vpython:S4487°"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+|python:S4487ª"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487«"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+|python:S4487§"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+rpython:S4487®"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+ypython:S4487¦"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+spython:S4487¯"URemove this unread private attribute '__image' or refactor the code to use its value.(±Úºßüÿÿÿÿ
+vpython:S4487­"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+wpython:S4487ª"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487¥"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+upython:S4487°"WRemove this unread private attribute '__timeout' or refactor the code to use its value.(´ì…Ûıÿÿÿÿ
+xpython:S4487¤"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487«"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487©"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+{python:S4487¨"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+Mpython:S1481Á"/Remove the unused local variable "__version__".(’éóØıÿÿÿÿ
+rpython:S3776¿"TRefactor this function to reduce its Cognitive Complexity from 71 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+ypython:S4487í"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487ñ"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+xpython:S4487ì"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487ò"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+|python:S4487ï"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487î"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+{python:S4487ğ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487ó"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+Dpython:S5806¥"+Rename this variable; it shadows a builtin.(í¥œ
+wpython:S4144Ñ"^Update this function so that its implementation is not identical to selecteditem on line 2584.(ŒüÂ¶
+|python:S4487‰"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487Š"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+rpython:S4487"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+ypython:S4487‡"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487‹"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+vpython:S4487"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+xpython:S4487†"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+npython:S4487“"URemove this unread private attribute '__month' or refactor the code to use its value.(ÀÙ‚Ç
+ypython:S4487ˆ"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+ypython:S4487"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+rpython:S4487”"TRemove this unread private attribute '__year' or refactor the code to use its value.(Êª··ÿÿÿÿÿ
+wpython:S4487Œ"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+qpython:S4487’"SRemove this unread private attribute '__day' or refactor the code to use its value.(×’ìœùÿÿÿÿ
+Epython:S1481Ü",Remove the unused local variable "calendar".(– §ä
+Ipython:S1481Û"+Remove the unused local variable "btnsize".(‚ßÕøøÿÿÿÿ
+upython:S4487ƒ"\Remove this unread private attribute '__selecteditem' or refactor the code to use its value.(ëñØÕ
+ypython:S4487ù"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487ú"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487ı"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+xpython:S4487ø"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+rpython:S4487‚"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+mpython:S4487€"TRemove this unread private attribute '__icon' or refactor the code to use its value.(Ó»à¿
+ypython:S4487ÿ"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+|python:S4487û"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487ş"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487ü"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 40 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+?python:S1110Å"!Remove those useless parentheses.(ù¤éúÿÿÿÿ
+wpython:S4487Ó"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487Ô"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487Î"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487Ï"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+{python:S4487Ñ"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+xpython:S4487Í"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+wpython:S4487Ò"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487»"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+wpython:S4487¼"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+spython:S4487Ã"URemove this unread private attribute '__image' or refactor the code to use its value.(±Úºßüÿÿÿÿ
+ypython:S4487½"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+xpython:S4487¶"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+|python:S4487¹"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487¸"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+{python:S4487º"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+ypython:S4487·"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+Bpython:S1481ü")Remove the unused local variable "txtsz".(«İöÂ
+wpython:S4487¹"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487µ"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487¸"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487´"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+{python:S4487·"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+Epython:S1481ˆ"-Remove the unused local variable "font_size".(ÚåÍ8
+Ipython:S1481½"+Remove the unused local variable "window2".(±ï¨…ıÿÿÿÿ
+rpython:S3776ù"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+xpython:S4487İ"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+|python:S4487à"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+ypython:S4487ä"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+rpython:S4487è"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+ypython:S4487Ş"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487ß"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+wpython:S4487ã"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+{python:S4487á"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487â"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+Bpython:S1481á")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Fpython:S1481Ù"(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Fpython:S1481Ü"-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Jpython:S1481Û",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Mpython:S1481İ"4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Gpython:S1481Ş".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Apython:S1481à")Remove the unused local variable "frmsz".(ÓÄ
+Gpython:S1481ù".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Bpython:S1481ü")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Fpython:S1481÷"-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Apython:S1481û")Remove the unused local variable "frmsz".(ÓÄ
+Fpython:S1481ô"(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Gpython:S1481õ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Jpython:S1481ö",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Mpython:S1481ø"4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Bpython:S1481• ")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Jpython:S1481 ",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Fpython:S1481 "-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Gpython:S1481’ ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Mpython:S1481‘ "4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Fpython:S1481 "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Gpython:S1481 ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Apython:S1481” ")Remove the unused local variable "frmsz".(ÓÄ
+Mpython:S1481ª "4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Gpython:S1481« ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Fpython:S1481© "-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Apython:S1481­ ")Remove the unused local variable "frmsz".(ÓÄ
+Fpython:S1481¦ "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Bpython:S1481® ")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Gpython:S1481§ ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Jpython:S1481¨ ",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Mpython:S1481Æ "4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Gpython:S1481Ã ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+Jpython:S1481Ä ",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Apython:S1481É ")Remove the unused local variable "frmsz".(ÓÄ
+Gpython:S1481Ç ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Fpython:S1481Å "-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Fpython:S1481Â "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Bpython:S1481Ê ")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Jpython:S1481Ş ",Remove the unused local variable "BPAD_TOP".(ñŠõ³úÿÿÿÿ
+Gpython:S1481á ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Apython:S1481ã ")Remove the unused local variable "frmsz".(ÓÄ
+Mpython:S1481à "4Remove the unused local variable "BPAD_LEFT_INSIDE".(ƒúÅ
+Fpython:S1481Ü "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Bpython:S1481ä ")Remove the unused local variable "hdrsz".(ŸÓ¦Ä
+Fpython:S1481ß "-Remove the unused local variable "BPAD_LEFT".(Ó³ßè
+Gpython:S1481İ ")Remove the unused local variable "black".(ø£¥•şÿÿÿÿ
+@python:S1481ı "'Remove the unused local variable "hdr".(†³²ö
+Gpython:S1481ü ".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+Fpython:S1481÷ "(Remove the unused local variable "blue".(à¼şıÿÿÿÿ
+Gpython:S1481¦!".Remove the unused local variable "BPAD_RIGHT".(şñ‹Š
+xpython:S4487Ğ""_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487Ñ""`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+wpython:S4487Õ""^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487×""[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+wpython:S4487Ö""^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+ypython:S4487Ò""`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+|python:S4487Ó""^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487Ô""]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+Upython:S5754œ#"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+wpython:S4487Ê#"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+|python:S4487Ç#"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+{python:S4487È#"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+wpython:S4487É#"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+xpython:S4487Ä#"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487Ë#"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+ypython:S4487Å#"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+ypython:S4487Æ#"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+Upython:S5754$"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+ypython:S4487º$"`Remove this unread private attribute '__elementforecolor' or refactor the code to use its value.(ıŸ„ï
+{python:S4487¼$"]Remove this unread private attribute '__textbackcolor' or refactor the code to use its value.(®¹‹•ÿÿÿÿÿ
+vpython:S4487Á$"XRemove this unread private attribute '__formsize' or refactor the code to use its value.(™³ËÎıÿÿÿÿ
+mpython:S4487À$"TRemove this unread private attribute '__icon' or refactor the code to use its value.(Ó»à¿
+wpython:S4487¾$"^Remove this unread private attribute '__inputforecolor' or refactor the code to use its value.(ÛÅÔ
+rpython:S4487Â$"YRemove this unread private attribute '__themefont' or refactor the code to use its value.(°õÇ½
+xpython:S4487¸$"_Remove this unread private attribute '__themebackground' or refactor the code to use its value.(„˜šŒ
+ypython:S4487¹$"`Remove this unread private attribute '__elementbackcolor' or refactor the code to use its value.(ìª½Æ
+|python:S4487»$"^Remove this unread private attribute '__themetextcolor' or refactor the code to use its value.(Ä¢¿ÿÿÿÿÿ
+wpython:S4487½$"^Remove this unread private attribute '__inputbackcolor' or refactor the code to use its value.(ä±’
+ypython:S4487¿$"[Remove this unread private attribute '__buttoncolor' or refactor the code to use its value.(Ô•³Òüÿÿÿÿ
+rpython:S3776Ò$"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ö€Àÿÿÿÿÿ
+Mpython:S5727Æ%"4Remove this identity check; it will always be False.(¡”²ÿ
