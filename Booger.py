@@ -1415,7 +1415,7 @@ class ContactForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__image = r'C:\Users\terry\source\repos\BudgetPy\etc\img\app\web\outlook.png'
+        self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
         self.__formsize = ( 450, 200 )
 
     def show( self ):
