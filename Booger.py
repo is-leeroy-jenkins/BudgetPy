@@ -575,7 +575,7 @@ class Sith( ):
     def __init__( self ):
         sg.theme( 'DarkGrey15' )
         self.__themebackground = sg.theme_background_color()
-        self.__themetextcolor = sg.theme_text_color( )
+        self.__themetextcolor = sg.theme_text_color( self.__themetextcolor )
         self.__elementbackcolor = sg.theme_text_element_background_color( )
         self.__elementforecolor = sg.theme_element_text_color( )
         self.__textbackcolor = sg.theme_text_element_background_color( )
