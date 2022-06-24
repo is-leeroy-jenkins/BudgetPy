@@ -378,7 +378,6 @@ class ColorConversion( ):
         return h, s, v
 
 
-
 class Sith( ):
     '''Base class for the dark-mode controls'''
     __themebackground = None
@@ -597,7 +596,6 @@ class Sith( ):
         sg.set_global_icon( icon = self.__icon )
         sg.set_options( font = self.__themefont )
         sg.user_settings_save( 'Budget', self.__settingspath )
-
 
 
 # FileDialog( ) -> str
@@ -2677,7 +2675,6 @@ class CalendarDialog( Sith ):
             err.show( )
 
 
-
 class DatePanel( Sith ):
     ''' Desktop widget displaying date time text'''
     __themebackground = None
@@ -4257,8 +4254,9 @@ class BudgetForm( Sith ):
 
     def show( self ):
         try:
-            blue = '#0C396E'
-            black = '#1E1E1E'
+            blu = '#051F3D'
+            blk = '#101010'
+            mblk = '#1E1E1E'
             BPAD_TOP = ((10, 10), (10, 5))
             BPAD_LEFT = ((5, 5), (5, 5))
             BPAD_LEFT_INSIDE = (5, (3, 5))
@@ -4267,9 +4265,9 @@ class BudgetForm( Sith ):
             frmsz = (450, 150)
             hdrsz = (920, 100)
             self.__titlelayout = [
-                    [ sg.Text( 'Budget Execution', font = hdr, background_color = black,
-                        enable_events = True, grab = False ), sg.Push( background_color = black ),
-                      sg.Text( 'Wednesday 27 Oct 2021', font = hdr, background_color = black ) ],
+                    [ sg.Text( 'Budget Execution', font = hdr, background_color = blk,
+                        enable_events = True, grab = False ), sg.Push( background_color = blk ),
+                      sg.Text( 'Wednesday 27 Oct 2021', font = hdr, background_color = blk ) ],
             ]
             self.__headerlayout = [ [ sg.Push( ), sg.Text( 'Top Header', font = hdr ), sg.Push( ) ],
                                     [ sg.Text( 'Top Header line 1' ) ],
@@ -4295,31 +4293,31 @@ class BudgetForm( Sith ):
                                     [ sg.Text( 'Block 4 line 4' ) ],
                                     [ sg.Text( 'Block 4 line 5' ) ] ]
             self.__formlayout = [
-                    [ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = black,
+                    [ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = blk,
                         expand_x = True,
                         border_width = 0, grab = True ) ],
                     [ sg.Frame( '', self.__headerlayout, size = hdrsz, pad = BPAD_TOP, expand_x = True,
                         relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
                     [ sg.Frame( '',
                         [ [ sg.Frame( '', self.__firstlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                            border_width = 0, expand_x = True, expand_y = True, ) ],
+                            border_width = 0, background_color = blk, expand_x = True, expand_y = True, ) ],
                           [ sg.Frame( '', self.__thirdlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
                               border_width = 0, expand_x = True, expand_y = True ) ] ],
-                        pad = BPAD_LEFT, background_color = black, border_width = 0,
+                        pad = BPAD_LEFT, background_color = blu, border_width = 0,
                         expand_x = True, expand_y = True ),
                       sg.Frame( '',
                           [ [ sg.Frame( '', self.__secondlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
                               border_width = 0, expand_x = True, expand_y = True ) ],
                             [ sg.Frame( '', self.__fourthlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                                border_width = 0, expand_x = True, expand_y = True ) ] ],
-                          pad = BPAD_LEFT, background_color = black, border_width = 0,
+                                border_width = 0, background_color = blk, expand_x = True, expand_y = True ) ] ],
+                          pad = BPAD_LEFT, background_color = blu, border_width = 0,
                           expand_x = True, expand_y = True ), ],
-                    [ sg.Sizegrip( background_color = blue ) ] ]
+                    [ sg.Sizegrip( background_color = mblk ) ] ]
             window = sg.Window( '    Budget Execution', self.__formlayout,
                 size = self.__formsize,
                 margins = (0, 0),
                 icon = self.__icon,
-                background_color = blue,
+                background_color = blk,
                 no_titlebar = True,
                 resizable = True,
                 right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
