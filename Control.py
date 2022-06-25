@@ -4021,6 +4021,43 @@ class PayrollActivity( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'PayrollActivityId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'FundCode',
+                           'FundName',
+                           'AhCode',
+                           'AhName',
+                           'RcCode',
+                           'RcName',
+                           'SubRcCode',
+                           'SubRcName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'NpmCode',
+                           'NpmName',
+                           'FocCode',
+                           'FocName',
+                           'HrOrgCode',
+                           'HrOrgName',
+                           'WorkCode',
+                           'WorkCodeName',
+                           'PayPeriod',
+                           'StartDate',
+                           'EndDate',
+                           'CheckDate',
+                           'Amount',
+                           'Hours',
+                           'BasePaid',
+                           'BaseHours',
+                           'Benefits',
+                           'OvertimePaid',
+                           'OvertimeHours' ]
 
     def getdata( self ):
         try:
@@ -4497,6 +4534,42 @@ class SiteActivity( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
+        self.__columns = [ 'SiteActivityId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'FundCode',
+                           'FundName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'BocCode',
+                           'BocName',
+                           'OrgCode',
+                           'OrgName',
+                           'FocCode',
+                           'FocName',
+                           'EpaSiteId',
+                           'SiteProjectCode',
+                           'SSID',
+                           'ActionCode',
+                           'OperableUnit',
+                           'SiteProjectName',
+                           'State',
+                           'City',
+                           'CongressionalDistrict',
+                           'ProjectType',
+                           'StartDate',
+                           'LastActivity',
+                           'EndDate',
+                           'Requested',
+                           'Accepted',
+                           'Closed',
+                           'Outstanding',
+                           'Refunded',
+                           'Reversal' ]
 
     def getdata( self ):
         try:
@@ -4836,6 +4909,37 @@ class Actuals( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
+        self.__columns = [ 'ActualsId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'AppropriationCode',
+                           'AppropriationName',
+                           'SubAppropriationCode',
+                           'SubAppropriationName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RpioActivityCode',
+                           'RpioActivityName',
+                           'BocCode',
+                           'BocName',
+                           'ULO',
+                           'Obligations',
+                           'Balance',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'GoalCode',
+                           'GoalName',
+                           'ObjectiveCode',
+                           'ObjectiveName' ]
 
     def getdata( self ):
         try:
@@ -5180,6 +5284,32 @@ class AppropriationDocument( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'AppropriationDocumentsId',
+                           'BFY',
+                           'EFY',
+                           'Fund',
+                           'FundCode',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'DocumentDate',
+                           'LastDocumentDate',
+                           'BudgetLevel',
+                           'BudgetingControls',
+                           'PostingControls',
+                           'PreCommitmentControls',
+                           'CommitmentControls',
+                           'ObligationControls',
+                           'AccrualControls',
+                           'ExpenditureControls',
+                           'ExpenseControls',
+                           'ReimbursementControls',
+                           'ReimbursableAgreementControls',
+                           'Budgeted',
+                           'Posted',
+                           'CarryOut',
+                           'CarryIn',
+                           'EstimatedReimbursements',
+                           'EstimatedRecoveries' ]
 
     def getdata( self ):
         try:
@@ -5668,6 +5798,44 @@ class BudgetDocument( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+        self.__columns = [ 'BudgetDocumentsId',
+                           'BFY',
+                           'EFY',
+                           'BudgetLevel',
+                           'DocumentDate',
+                           'LastDocumentDate',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'FundCode',
+                           'FundName',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'BocCode',
+                           'BocName',
+                           'ReimbursableAgreementControls',
+                           'BudgetingControls',
+                           'PostingControls',
+                           'PreCommitmentControls',
+                           'CommitmentControls',
+                           'ObligationControls',
+                           'ExpenditureControls',
+                           'ExpenseControls',
+                           'AccrualControls',
+                           'ReimbursementControls',
+                           'Budgeted',
+                           'Posted',
+                           'CarryOut',
+                           'CarryIn',
+                           'EstimatedRecoveries',
+                           'EstimatedReimbursements' ]
 
     def getdata( self ):
         try:
@@ -5753,6 +5921,7 @@ class BudgetControl( ):
     __ftespendingcontrol = None
     __transactiontypecontrol = None
     __authoritydistributioncontrol = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -6122,6 +6291,45 @@ class BudgetControl( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'BudgetControlValuesId',
+                           'Code',
+                           'Name',
+                           'SecurityOrg',
+                           'BudgetingTransType',
+                           'PostedTransType',
+                           'EstimatedReimbursableTransType',
+                           'SpendingAdjustmentTransType',
+                           'EstimatedRecoveriesTransType',
+                           'ActualRecoveriesTransType',
+                           'StategicReserveTransType',
+                           'ProfLossTransType',
+                           'EstimatedReimbursableSpendingOption',
+                           'EstimatedReimbursableBudgetingOption',
+                           'TrackAgreementLowerLevel',
+                           'BudgetEstimateLowerLevel',
+                           'EstimatedRecoveriesSpendingOption',
+                           'EstimatedRecoveriesBudgetingOption',
+                           'RecordNextLevel',
+                           'RecordBudgetingMismatch',
+                           'ProfitLossSpendingOption',
+                           'ProfitLossBudgetingOption',
+                           'RecordCarryInLowerLevel',
+                           'RecordCarryInLowerLevelControl',
+                           'RecordCarryInAmountControl',
+                           'BudgetingControl',
+                           'PostingControl',
+                           'PreCommitmentSpendingControl',
+                           'CommitmentSpendingControl',
+                           'ObligationSpendingControl',
+                           'AccrualSpendingControl',
+                           'ExpenditureSpendingControl',
+                           'ExpenseSpendingControl',
+                           'ReimbursableSpendingControl',
+                           'ReimbursableAgreementSpendingControl',
+                           'FteBudgetingControl',
+                           'FteSpendingControl',
+                           'TransactionTypeControl',
+                           'AuthorityDistributionControl' ]
 
     def getdata( self ):
         try:
@@ -6186,6 +6394,7 @@ class CongressionalControl( ):
     __increaserestriction = None
     __decreaserestriction = None
     __memorandumrequired = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -6344,6 +6553,19 @@ class CongressionalControl( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+        self.__columns = [ 'CongressionalControlsId',
+                           'FundCode',
+                           'FundName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'SubProjectCode',
+                           'SubProjectName',
+                           'ReprogrammingRestriction',
+                           'IncreaseRestriction',
+                           'DecreaseRestriction',
+                           'MemoRequirement' ]
 
     def getdata( self ):
         try:
@@ -7138,6 +7360,9 @@ class DocumentControlNumber( ):
     __documentnumber = None
     __documentprefix = None
     __documentcontrolnumber = None
+    __columns = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -7213,6 +7438,13 @@ class DocumentControlNumber( ):
         self.__source = Source.DocumentControlNumbers
         self.__provider = Provider.SQLite
         self.__documentcontrolnumber = dcn if isinstance( dcn, str ) and dcn != '' else None
+        self.__columns = [ 'DocumentControlNumbersId',
+                           'RpioCode',
+                           'RpioName',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'DocumentPrefix',
+                           'DocumentControlNumbe' ]
 
     def getdata( self ):
         try:
@@ -8342,6 +8574,7 @@ class Deobligation( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -8733,6 +8966,28 @@ class Deobligation( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+        self.__columns = [ 'DeobligationsId',
+                           'BFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'AccountCode',
+                           'NpmCode',
+                           'NpmName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'OrgCode',
+                           'OrgName',
+                           'BocCode',
+                           'BocName',
+                           'DocumentNumber',
+                           'FocCode',
+                           'FocName',
+                           'ProcessedDate',
+                           'Amount' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -9860,6 +10115,9 @@ class SpecialAccounts( ):
     __unpaidbalances = None
     __collections = None
     __cumulativereciepts = None
+    __columns = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -10157,6 +10415,9 @@ class SuperfundSites( ):
     __unpaidbalances = None
     __collections = None
     __unliquidatedobligations = None
+    __columns = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):

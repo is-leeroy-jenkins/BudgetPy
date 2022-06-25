@@ -373,6 +373,7 @@ class CarryoverEstimates( ):
     __programprojectname = None
     __programareacode = None
     __programareaname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -611,6 +612,27 @@ class CarryoverEstimates( ):
         self.__source = Source.CarryoverEstimates
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__columns = [ 'CarryoverEstimatesId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'BocCode',
+                           'BocName',
+                           'AvailableBalance',
+                           'OpenCommitments',
+                           'UnobligatedAuthority' ]
 
     def __str__( self ):
         if isinstance( self.__unobligatedauthority, float ):
@@ -842,6 +864,7 @@ class StatusOfAppropriations( ):
     __voidedamount = None
     __totalusedamount = None
     __availableamount = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -1403,6 +1426,62 @@ class StatusOfAppropriations( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__appropriationfundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'StatusOfAppropriationsId',
+                           'BFY',
+                           'EFY',
+                           'BudgetLevel',
+                           'AppropriationFundCode',
+                           'AppropriationFundName',
+                           'Availability',
+                           'TreasurySymbol',
+                           'AppropriationCreationDate',
+                           'AppropriationCode',
+                           'SubAppropriationCode',
+                           'AppropriationDescription',
+                           'FundGroup',
+                           'FundGroupName',
+                           'DocumentType',
+                           'TransType',
+                           'ActualRecoveryTransType',
+                           'CommitmentSpendingControlFlag',
+                           'AgreementLimit',
+                           'EstimatedRecoveriesTransType',
+                           'EstimatedReimbursmentsTransType',
+                           'ExpenseSpendingControlFlag',
+                           'ObligationSpendingControlFlag',
+                           'PreCommitmentSpendingControlFlag',
+                           'PostedControlFlag',
+                           'PostedFlag',
+                           'RecordCarryoverAtLowerLevel',
+                           'ReimbursableSpendingOption',
+                           'RecoveriesOption',
+                           'RecoveriesSpendingOption',
+                           'OriginalBudgetedAmount',
+                           'ApportionmentsPosted',
+                           'TotalAuthority',
+                           'TotalBudgeted',
+                           'TotalPostedAmount',
+                           'FundsWithdrawnPriorYearsAmount',
+                           'FundingInAmount',
+                           'FundingOutAmount',
+                           'TotalAccrualRecoveries',
+                           'TotalActualReimbursements',
+                           'TotalAgreementReimbursables',
+                           'TotalCarriedForwardIn',
+                           'TotalCarriedForwardOut',
+                           'TotalCommitted',
+                           'TotalEstimatedRecoveries',
+                           'TotalEstimatedReimbursements',
+                           'TotalExpenses',
+                           'TotalExpenditureExpenses',
+                           'TotalExpenseAccruals',
+                           'TotalPreCommitments',
+                           'UnliquidatedPreCommitments',
+                           'TotalObligations',
+                           'ULO',
+                           'VoidedAmount',
+                           'TotalUsedAmount',
+                           'AvailableAmount' ]
 
     def getdata( self ):
         try:
@@ -2001,6 +2080,7 @@ class ReimbursableSurvey( ):
     __fundcode = None
     __fundname = None
     __amount = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -2059,6 +2139,11 @@ class ReimbursableSurvey( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'ReimbursableSurveyId',
+                           'BFY',
+                           'FundCode',
+                           'FundName',
+                           'Amount' ]
 
     def getdata( self ):
         try:
@@ -2100,6 +2185,49 @@ class ReimbursableSurvey( ):
             exc.method = 'getframe( self )'
             err = ErrorDialog( exc )
             err.show( )
+
+
+class ReimbursableAgreements( ):
+    __reimbursableagreementsid = None
+    __columns = None
+
+    def __init__( self ):
+        self.__columns = [ 'SiteActivityId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'FundCode',
+                           'FundName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'BocCode',
+                           'BocName',
+                           'OrgCode',
+                           'OrgName',
+                           'FocCode',
+                           'FocName',
+                           'EpaSiteId',
+                           'SiteProjectCode',
+                           'SSID',
+                           'ActionCode',
+                           'OperableUnit',
+                           'SiteProjectName',
+                           'State',
+                           'City',
+                           'CongressionalDistrict',
+                           'ProjectType',
+                           'StartDate',
+                           'LastActivity',
+                           'EndDate',
+                           'Requested',
+                           'Accepted',
+                           'Closed',
+                           'Outstanding',
+                           'Refunded',
+                           'Reversal' ]
 
 
 # ObjectClassOutlays( account )
@@ -3561,3 +3689,58 @@ class UnobligatedBalances( ):
             err = ErrorDialog( exc )
             err.show( )
 
+
+class UnobligatedAuthority( ):
+    __columns = None
+
+    def __init__( self ):
+        self.__columns = [ 'UnobligatedBalancesId',
+                           'BudgetYear',
+                           'BFY',
+                           'EFY',
+                           'TreasurySymbol',
+                           'FundCode',
+                           'FundName',
+                           'AccountNumber',
+                           'AccountName',
+                           'Amount' ]
+
+
+class StatusOfSupplementalFunds( ):
+    __columns = None
+
+    def __init__( self ):
+        self.__columns = [ 'SupplementalAuthorityId',
+                           'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'RcCode',
+                           'RcName',
+                           'LowerName',
+                           'Amount',
+                           'Budgeted',
+                           'Posted',
+                           'OpenCommitments',
+                           'ULO',
+                           'Expenditures',
+                           'Obligations',
+                           'Used',
+                           'Available',
+                           'NpmCode',
+                           'NpmName' ]

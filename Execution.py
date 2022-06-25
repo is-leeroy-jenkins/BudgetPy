@@ -4342,6 +4342,20 @@ class TreasurySymbol( ):
             err.show( )
 
 
+class PayrollCostCode( ):
+    __columns = None
+
+    def __init__( self ):
+        self.__columns = [ 'PayrollCostCodesId',
+                           'RPIO',
+                           'AhCode',
+                           'BFY',
+                           'RcCode',
+                           'DivisionName',
+                           'WorkCode',
+                           'WorkCodeName',
+                           'HrOrgCode',
+                           'HrOrgName' ]
 
 # WorkCode( code )
 class WorkCode( ):
@@ -4488,6 +4502,7 @@ class Transfer( ):
     __programprojectname = None
     __programareacode = None
     __programareaname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -4755,6 +4770,40 @@ class Transfer( ):
         self.__source = Source.Transfers
         self.__provider = Provider.SQLite
         self.__documentnumber = rpnumber if isinstance( rpnumber, str ) else None
+        self.__columns = [ 'TransfersId',
+                           'BudgetLevel',
+                           'DocPrefix',
+                           'DocType',
+                           'BFY',
+                           'RpioCode',
+                           'RpioName',
+                           'FundCode',
+                           'FundName',
+                           'ReprogrammingNumber',
+                           'ControlNumber',
+                           'ProcessedDate',
+                           'Quarter',
+                           'Line',
+                           'Subline',
+                           'AhCode',
+                           'AhName',
+                           'OrgCode',
+                           'OrgName',
+                           'RcCode',
+                           'RcName',
+                           'AccountCode',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'ProgramProjectName',
+                           'ProgramProjectCode',
+                           'FromTo',
+                           'BocCode',
+                           'BocName',
+                           'NpmCode',
+                           'Amount',
+                           'ResourceType',
+                           'Purpose',
+                           'ExtendedPurpose' ]
 
     def getdata( self ):
         try:
