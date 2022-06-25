@@ -1,92 +1,26 @@
 
-	[ 'SuperfundSitesId',
-	'RpioCode',
-	'RpioName',
-	'City',
-	'State',
-	'SSID',
-	'SiteProjectName',
-	'EpaSiteId' ]
 
 
-	['SpecialAccountsId',
-	'BFY',
-	'RpioCode',
+
+
+  [ 'TransTypesId',
 	'FundCode',
-	'SpecialAccountFund',
-	'SpecialAccountNumber',
-	'SpecialAccountName',
-	'AccountStatus',
-	'NplStatusCode',
-	'NplStatusName',
-	'SiteId',
-	'CerclisId',
-	'SiteCode',
-	'SiteName',
-	'OperableUnit',
-	'PipelineCode',
-	'PipelineDescription',
-	'AccountCode',
-	'BocCode',
-	'BocName',
-	'TransactionType',
-	'TransactionTypeName',
-	'FocCode',
-	'FocName',
-	'TransactionDate',
-	'AvailableBalance',
-	'OpenCommitments',
-	'Obligations',
-	'ULO',
-	'Disbursements',
-	'UnpaidBalances',
-	'Collections',
-	'CumulativeReceipts' ]
-
-
-
-
-
-	['ReimbursableSurveyId',
-	'BFY',
-	'FundCode',
-	'FundName',
-	'Amount' ]
-
-
-
-  [ 'StatusOfJobsActFundingId',
-	'StatusOfFundsId',
-	'BudgetLevel',
+	'Appropriation',
 	'BFY',
 	'EFY',
-	'RpioCode',
-	'RpioName',
-	'AhCode',
-	'AhName',
-	'FundCode',
-	'FundName',
-	'OrgCode',
-	'OrgName',
-	'AccountCode',
-	'BocCode',
-	'BocName',
-	'ProgramProjectCode',
-	'ProgramProjectName',
-	'ProgramAreaCode',
-	'ProgramAreaName',
-	'NpmCode',
-	'NpmName',
-	'RcCode',
-	'RcName',
-	'LowerName',
-	'Amount',
-	'Budgeted',
-	'Posted',
-	'OpenCommitments',
-	'ULO',
-	'Expenditures',
-	'Obligations',
-	'Used',
-	'Available' ]
+	'TreasurySymbol',
+	'DocType',
+	'AppropriationBill',
+	'ContinuingResolution',
+	'RescissionCurrentYear',
+	'RescissionPriorYear',
+	'SequesterReduction',
+	'SequesterReturn' ]
 
+
+
+
+  
+
+
+ 

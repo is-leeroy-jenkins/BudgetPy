@@ -77,6 +77,7 @@ class Account( ):
     __objectivecode = None
     __npmcode = None
     __programprojectcode = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -181,6 +182,19 @@ class Account( ):
         self.__objectivecode = self.__code[ 1:3 ]
         self.__npmcode = self.__code[ 3 ]
         self.__programprojectcode = self.__code[ 4:6 ]
+        self.__fields = [ 'AccountsId',
+                           'Code',
+                           'GoalCode',
+                           'ObjectiveCode',
+                           'NpmCode',
+                           'NpmName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'ActivityCode',
+                           'ActivityName',
+                           'AgencyActivity' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -236,6 +250,7 @@ class Activity( ):
     __activitycodesid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -293,6 +308,10 @@ class Activity( ):
         self.__source = Source.ActivityCodes
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) and code != '' else None
+        self.__fields = [ 'ActivityCodesId',
+                           'Code',
+                           'Name',
+                           'Title' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -349,6 +368,7 @@ class AllowanceHolder( ):
     __allowancholdersid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -406,6 +426,9 @@ class AllowanceHolder( ):
         self.__source = Source.AllowanceHolders
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( self.__code, str ) else None
+        self.__fields = [ 'AllowanceHoldersId',
+                           'Code',
+                           'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -464,6 +487,7 @@ class Appropriation( ):
     __enacted = None
     __law = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -557,6 +581,11 @@ class Appropriation( ):
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) and code != '' else None
         self.__law = law if isinstance( law, str ) and law != '' else None
+        self.__fields = [ 'AppropriationBillsId',
+                           'BFY',
+                           'Title',
+                           'PublicLaw',
+                           'EnactedDate' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -625,6 +654,7 @@ class BudgetFiscalYear( ):
     __month = None
     __day = None
     __holidays = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -783,6 +813,28 @@ class BudgetFiscalYear( ):
         self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                             'NewYearsDay', 'MartinLutherKing', 'Washingtons',
                             'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
+        self.__fields = [ 'FiscalYearsId',
+                          'BFY',
+                          'EFY',
+                          'StartDate',
+                          'Columbus',
+                          'Veterans',
+                          'Thanksgiving',
+                          'Christmas',
+                          'NewYears',
+                          'MartinLutherKing',
+                          'Presidents',
+                          'Memorial',
+                          'Juneteenth',
+                          'Independence',
+                          'Labor',
+                          'ExpiringYear',
+                          'ExpirationDate',
+                          'WorkDays',
+                          'WeekDays',
+                          'WeekEnds',
+                          'EndDate',
+                          'Availability' ]
 
     def __str__( self ):
         if isinstance( self.__bfy, str ) and self.__bfy != '':
@@ -841,6 +893,7 @@ class BudgetObjectClass( ):
     __boc = None
     __name = None
     __value = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -908,6 +961,9 @@ class BudgetObjectClass( ):
         self.__source = Source.BudgetObjectClasses
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) and code != '' else None
+        self.__fields = [ 'BudgetObjectClassesId',
+                          'Code',
+                          'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -966,6 +1022,7 @@ class FinanceObjectClass( ):
     __name = None
     __boccode = None
     __bocname = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1041,6 +1098,11 @@ class FinanceObjectClass( ):
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
+        self.__fields = [ 'FinanceObjectClassesId',
+                          'Code',
+                          'Name',
+                          'BocCode',
+                          'BocName' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1125,6 +1187,7 @@ class Fund( ):
     __ombaccountcode = None
     __ombaccountname = None
     __apportionmentaccountcode = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1451,6 +1514,33 @@ class Fund( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__code = code if isinstance( code, str ) and code != '' else None
+        self.__fields = [ 'FundsId',
+                          'BFY',
+                          'EFY',
+                          'Code',
+                          'Name',
+                          'ShortName',
+                          'Status',
+                          'SubLevelPrefix',
+                          'ATA',
+                          'BeginningPeriodOfAvailability',
+                          'EndingPeriodOfAvailability',
+                          'MAIN',
+                          'A',
+                          'AID',
+                          'SUB',
+                          'FundCategory',
+                          'AppropriationCode',
+                          'SubAppropriationCode',
+                          'FundGroup',
+                          'NoYear',
+                          'Carryover',
+                          'CancelledYearSpendingAccount',
+                          'ApplyAtAllLevels',
+                          'BatsFund',
+                          'BatsEndDate',
+                          'BatsOptionId',
+                          'SecurityOrg' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1507,6 +1597,7 @@ class Goal( ):
     __goalsid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1564,6 +1655,10 @@ class Goal( ):
         self.__source = Source.Goals
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
+        self.__fields = [ 'GoalsId',
+                          'Code',
+                          'Name',
+                          'Title' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1607,6 +1702,7 @@ class NationalProgram( ):
     __name = None
     __rpio = None
     __title = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1684,7 +1780,11 @@ class NationalProgram( ):
         self.__source = Source.NationalPrograms
         self.__provider = Provider.SQLite
         self.__code = code
-        self.__frame = DataFrame
+        self.__fields = [ 'NationalProgramsId',
+                          'Code',
+                          'Name',
+                          'RpioCode',
+                          'Title' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1741,6 +1841,7 @@ class Objective( ):
     __objectivesid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1795,8 +1896,11 @@ class Objective( ):
             self.__frame = value
 
     def __init__( self, code ):
-        self.__code = Objective( str( code ) )
-        self.__frame = DataFrame
+        self.__code = code
+        self.__fields = [ 'ObjectivesId',
+                          'Code',
+                          'Name',
+                          'Title' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1853,6 +1957,7 @@ class Organization( ):
     __organizationsid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1910,7 +2015,9 @@ class Organization( ):
         self.__source = Source.Organizations
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = DataFrame
+        self.__fields = [ 'OrganizationsId',
+                          'Code',
+                          'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -1950,6 +2057,7 @@ class Project( ):
     __projectsid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2007,7 +2115,9 @@ class Project( ):
         self.__source = Source.Projects
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = DataFrame
+        self.__fields = [ 'ProjectId',
+                          'Code',
+                          'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2064,6 +2174,7 @@ class ItProjectCode( ):
     __cpicid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2178,6 +2289,7 @@ class SiteProjectCode( ):
     __siteprojectcodesid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2295,6 +2407,7 @@ class StateOrganization( ):
     __orgcode = None
     __rpiocode = None
     __rpioname = None
+    __fields = None
     __data = None
 
     @property
@@ -2341,6 +2454,11 @@ class StateOrganization( ):
         self.__source = Source.StateOrganizations
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
+        self.__fields = [ 'StateOrganizationsId',
+                          'Name',
+                          'Code',
+                          'RpioName',
+                          'RpioCode' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2397,6 +2515,7 @@ class HeadquartersOffice( ):
     __resourceplanningofficesid = None
     __rpiocode = None
     __rpioname = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2454,6 +2573,11 @@ class HeadquartersOffice( ):
         self.__source = Source.HeadquartersOffices
         self.__provider = Provider.SQLite
         self.__rpiocode = code if isinstance( code, str ) and len( code ) == 2 else None
+        self.__fields = [ 'HeadquartersOfficesId',
+                          'ResourcePlanningOfficesId',
+                          'RpioCode',
+                          'RpioName' ]
+
 
     def __str__( self ):
         if isinstance( self.__code ):
@@ -2510,6 +2634,7 @@ class HumanResourceOrganization( ):
     __humanresourceorganizationsid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2624,6 +2749,7 @@ class ProgramArea( ):
     __programareasid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2681,7 +2807,9 @@ class ProgramArea( ):
         self.__source = Source.ProgramAreas
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = DataFrame
+        self.__fields = [ 'ProgramAreasId',
+                          'Code',
+                          'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2739,6 +2867,7 @@ class ProgramProject( ):
     __code = None
     __name = None
     __description = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2806,7 +2935,9 @@ class ProgramProject( ):
         self.__source = Source.ProgramProjects
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = DataFrame
+        self.__fields = [ 'ProgramProjectId',
+                          'Code',
+                          'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2848,6 +2979,7 @@ class ResponsibilityCenter( ):
     __responsibilitycentersid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2905,7 +3037,10 @@ class ResponsibilityCenter( ):
         self.__source = Source.ResponsibilityCenters
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = DataFrame
+        self.__fields = [ 'ResponsibilityCentersId',
+                          'Code',
+                          'Name',
+                          'Title' ]
 
     def __str__( self ):
         if isinstance( self.__code ) and self.__code != '':
@@ -2970,6 +3105,7 @@ class ResourcePlanningOffice( ):
     __resourceplanningofficesid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3027,7 +3163,9 @@ class ResourcePlanningOffice( ):
         self.__source = Source.ResourcePlanningOffices
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = DataFrame
+        self.__fields = [ 'ResourcePlanningOfficesId',
+                          'Code',
+                          'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code ) and self.__code != '':
@@ -3111,6 +3249,7 @@ class ProgramResultsCode( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3472,6 +3611,7 @@ class RegionalOffice( ):
     __resourceplanningofficesid = None
     __rpiocode = None
     __rpioname = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3529,6 +3669,10 @@ class RegionalOffice( ):
         self.__source = Source.ResourcePlanningOffices
         self.__provider = Provider.SQLite
         self.__rpiocode = code if isinstance( code, str ) and len( code ) == 2 else None
+        self.__fields = [ 'RegionalOfficesId',
+                          'ResourcePlanningOfficesId',
+                          'RpioCode',
+                          'RpioName' ]
 
     def __str__( self ):
         if isinstance( self.__code ):
@@ -3573,6 +3717,7 @@ class SiteProject( ):
     __operableunit = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3673,8 +3818,6 @@ class SiteProject( ):
         self.__ssid = self.__code[ 0: 4 ]
         self.__actioncode = self.__code[ 4:6 ]
         self.__operableunit = self.__code[ 6:9 ]
-        self.__data = { 'fund': self.__code }
-        self.__frame = DataFrame
 
     def __str__( self ):
         if isinstance( self.__name, str ):
@@ -3749,6 +3892,7 @@ class FederalHoliday( ):
     __day = None
     __month = None
     __year = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3852,6 +3996,19 @@ class FederalHoliday( ):
         self.__dayofweek = self.__date.day
         self.__month = self.__date.month
         self.__day = self.__date.isoweekday()
+        self.__fields = [ 'FederalHolidaysId',
+                          'BFY',
+                          'Columbus',
+                          'Veterans',
+                          'Thanksgiving',
+                          'Christmas',
+                          'NewYears',
+                          'MartinLutherKing',
+                          'Presidents',
+                          'Memorial',
+                          'Juneteenth',
+                          'Independence',
+                          'Labor' ]
         self.__data = None
         self.__frame = None
 
@@ -4225,6 +4382,9 @@ class TreasurySymbol( ):
     __ombaccountname = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
+    __fields = None
+    __data = None
+    __frame = None
 
     @property
     def bfy( self ):
@@ -4294,6 +4454,16 @@ class TreasurySymbol( ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
         self.__treasuryaccountcode = trescode if isinstance( trescode, str ) else None
+        self.__fields = [ 'TreasurySymbolsId',
+                          'BFY',
+                          'EFY',
+                          'FundCode',
+                          'FundName',
+                          'TreasuryAccountCode',
+                          'TreasuryAccountName',
+                          'OmbAccountCode',
+                          'OmbAccountName',
+                          'ApportionmentAccountCode' ]
 
     def __str__( self ):
         if isinstance( self.__treasuryaccountname, str ) and self.__treasuryaccountname != '':
@@ -4343,10 +4513,10 @@ class TreasurySymbol( ):
 
 
 class PayrollCostCode( ):
-    __columns = None
+    __fields = None
 
     def __init__( self ):
-        self.__columns = [ 'PayrollCostCodesId',
+        self.__fields = [ 'PayrollCostCodesId',
                            'RPIO',
                            'AhCode',
                            'BFY',
@@ -4365,6 +4535,7 @@ class WorkCode( ):
     __workcodesid = None
     __code = None
     __name = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -4502,7 +4673,7 @@ class Transfer( ):
     __programprojectname = None
     __programareacode = None
     __programareaname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -4770,7 +4941,7 @@ class Transfer( ):
         self.__source = Source.Transfers
         self.__provider = Provider.SQLite
         self.__documentnumber = rpnumber if isinstance( rpnumber, str ) else None
-        self.__columns = [ 'TransfersId',
+        self.__fields = [ 'TransfersId',
                            'BudgetLevel',
                            'DocPrefix',
                            'DocType',
@@ -4847,3 +5018,21 @@ class Transfer( ):
             err.show( )
 
 
+class CapitalPlanningInvestmentCode( ):
+    __fields = None
+
+    def __init__( self ):
+        self.__fields = [ 'CpicId',
+                          'Type',
+                          'Code',
+                          'Name' ]
+
+
+
+class CostArea( ):
+    __fields = None
+
+    def __init__( self ):
+        self.__fields = [ 'CostAreasId',
+                          'Code',
+                          'Name' ]

@@ -23,6 +23,7 @@ class Apportionment( ):
     __sectiondescription = None
     __subline = None
     __amount = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -179,6 +180,27 @@ class Apportionment( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
+        self.__fields = [ 'ApportionmentsId',
+                          'FiscalYear',
+                          'BFY',
+                          'EFY',
+                          'Availability',
+                          'TreasuryFundCode',
+                          'TreasuryFundName',
+                          'TreasuryAgencyCode',
+                          'TreasuryAccountCode',
+                          'TreasuryAccountName',
+                          'OmbAgencyCode',
+                          'OmbBureauCode',
+                          'OmbAccountCode',
+                          'OmbAgencyName',
+                          'OmbAccountName',
+                          'ApprovalDate',
+                          'LineNumber',
+                          'LineName',
+                          'Amount',
+                          'Footnote',
+                          'Narrative' ]
 
     def getdata( self ):
         try:
@@ -234,6 +256,7 @@ class BudgetaryResourceExecution( ):
     __treasuryfundsymbol = None
     __ombaccountcode = None
     __ombaccountname = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -303,6 +326,37 @@ class BudgetaryResourceExecution( ):
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
         self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
+        self.__fields = [ 'BudgetaryResourceExecutionId',
+                          'FiscalYear',
+                          'BFY',
+                          'EFY',
+                          'LastUpdate',
+                          'TreasurySymbol',
+                          'OmbAccount',
+                          'TreasuryAgencyCode',
+                          'TreasuryAccountCode',
+                          'STAT',
+                          'CreditIndicator',
+                          'LineNumber',
+                          'LineDescription',
+                          'SectionName',
+                          'SectionNumber',
+                          'LineType',
+                          'FinancingAccounts',
+                          'November',
+                          'January',
+                          'Feburary',
+                          'April',
+                          'May',
+                          'June',
+                          'August',
+                          'October',
+                          'Amount1',
+                          'Amount2',
+                          'Amount3',
+                          'Amount4',
+                          'Agency',
+                          'Bureau' ]
 
     def getdata( self ):
         try:
@@ -1558,6 +1612,7 @@ class MonthlyOutlays( ):
     __october = None
     __november = None
     __december = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1667,6 +1722,39 @@ class MonthlyOutlays( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) <= 5 else None
+        self.__fields = [ 'MonthlyOutlaysId',
+                          'FiscalYear',
+                          'LineNumber',
+                          'LineTitle',
+                          'TaxationCode',
+                          'TreasuryAgency',
+                          'TreasuryAccount',
+                          'SubAccount',
+                          'BFY',
+                          'EFY',
+                          'OmbAgency',
+                          'OmbBureau',
+                          'OmbAccount',
+                          'AgencySequence',
+                          'BureauSequence',
+                          'AccountSequence',
+                          'AgencyTitle',
+                          'BureauTitle',
+                          'OmbAccountTitle',
+                          'TreasuryAccountTitle',
+                          'October',
+                          'November',
+                          'December',
+                          'January',
+                          'Feburary',
+                          'March',
+                          'April',
+                          'May',
+                          'June',
+                          'July',
+                          'August',
+                          'September' ]
+
 
     def getdata( self ):
         try:
@@ -2034,6 +2122,37 @@ class SpendingRates( ):
         self.__source = Source.SpendingRates
         self.__provider = Provider.SQLite
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__fields = [ 'SpendingRatesId',
+                          'OmbAgencyCode',
+                          'OmbAgencyName',
+                          'OmbBureauCode',
+                          'OmbBureauName',
+                          'TreausuryAgencyCode',
+                          'TreausuryAccountCode',
+                          'TreausuryAccountName',
+                          'AccountTitle',
+                          'Subfunction',
+                          'Line',
+                          'LineNumber',
+                          'Category',
+                          'Subcategory',
+                          'SubcategoryName',
+                          'AccountCode',
+                          'Jurisdiction',
+                          'YearOfAuthority',
+                          'BudgetAuthority',
+                          'OutYear1',
+                          'OutYear2',
+                          'OutYear3',
+                          'OutYear4',
+                          'OutYear5',
+                          'OutYear6',
+                          'OutYear7',
+                          'OutYear8',
+                          'OutYear9',
+                          'OutYear10',
+                          'OutYear11',
+                          'TotalSpendout' ]
 
     def getdata( self ):
         try:
@@ -2080,7 +2199,7 @@ class ReimbursableSurvey( ):
     __fundcode = None
     __fundname = None
     __amount = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2139,7 +2258,7 @@ class ReimbursableSurvey( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'ReimbursableSurveyId',
+        self.__fields = [ 'ReimbursableSurveyId',
                            'BFY',
                            'FundCode',
                            'FundName',
@@ -2251,6 +2370,7 @@ class ObjectClassOutlays( ):
     __prioryear = None
     __currentyear = None
     __budgetyear = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2405,9 +2525,28 @@ class ObjectClassOutlays( ):
             self.__budgetyear = value
 
     def __init__( self, account ):
-        source = self.__source
-        provider = self.__provider
+        self.__source = Source.ObjectClassOutlays
+        self.__provider = Provider.SQLite
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__fields = [ 'ObjectClassOutlaysId',
+                          'ReportYear',
+                          'OmbAgencyCode',
+                          'OmbAgencyName',
+                          'OmbBureauCode',
+                          'OmbBureauName',
+                          'OmbAccountCode',
+                          'OmbAccountName',
+                          'ObligationType',
+                          'DirectReimbursableTitle',
+                          'ObjectClassGroupNumber',
+                          'ObjectClassGroupName',
+                          'BocCode',
+                          'BocName',
+                          'FinanceObjectClass',
+                          'PriorYear',
+                          'CurrentYear',
+                          'BudgetYear' ]
+
 
     def getdata( self ):
         try:
@@ -2467,6 +2606,7 @@ class UnobligatedAuthority( ):
     __prioryear = None
     __currentyear = None
     __budgetyear = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2564,6 +2704,20 @@ class UnobligatedAuthority( ):
         self.__source = Source.UnobligatedAuthority
         self.__provider = Provider.SQLite
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__fields = [ 'UnobligatedAuthorityId',
+                          'ReportYear',
+                          'AgencyCode',
+                          'BureauCode',
+                          'AccountCode',
+                          'OmbAccount',
+                          'OmbAccountName',
+                          'LineName',
+                          'LineNumber',
+                          'BudgetYear',
+                          'PriorYear',
+                          'CurrentYear',
+                          'AgencyName',
+                          'BureauName' ]
 
     def getdata( self ):
         try:
@@ -2635,6 +2789,7 @@ class BudgetOutlays( ):
     __outyear7 = None
     __outyear8 = None
     __outyear9 = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2862,6 +3017,30 @@ class BudgetOutlays( ):
         self.__source = Source.BudgetOutlays
         self.__provider = Provider.SQLite
         self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__fields = [ 'BudgetOutlaysId',
+                          'ReportYear',
+                          'Category',
+                          'AgencyName',
+                          'LineNumber',
+                          'LineSection',
+                          'OmbAccount',
+                          'LineTitle',
+                          'AccountType',
+                          'AuthorityTypeName',
+                          'Line',
+                          'AuthorityType',
+                          'PriorYear',
+                          'CurrentYear',
+                          'BudgetYear',
+                          'BudgetYear1',
+                          'BudgetYear2',
+                          'BudgetYear3',
+                          'BudgetYear4',
+                          'BudgetYear5',
+                          'BudgetYear6',
+                          'BudgetYear7',
+                          'BudgetYear8',
+                          'BudgetYear9' ]
 
     def getdata( self ):
         try:
@@ -2924,6 +3103,7 @@ class GrowthRates( ):
     __outyear7 = None
     __outyear8 = None
     __outyear9 = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3062,6 +3242,20 @@ class GrowthRates( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rateid = id if isinstance( id, str ) and id != '' else None
+        self.__fields = [ 'GrowthRatesId',
+                          'RateId',
+                          'Description',
+                          'BudgetYearRate',
+                          'OutYear1',
+                          'OutYear2',
+                          'OutYear3',
+                          'OutYear4',
+                          'OutYear5',
+                          'OutYear6',
+                          'OutYear7',
+                          'OutYear8',
+                          'OutYear9',
+                          'Sort' ]
 
     def getdata( self ):
         try:
@@ -3117,6 +3311,9 @@ class DataRuleDescription( ):
     __rulenumber = None
     __ruledescription = None
     __scheduleorder = None
+    __fields = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -3184,6 +3381,12 @@ class DataRuleDescription( ):
         self.__schedule = schedule if isinstance( schedule, str ) and schedule != '' else None
         self.__linenumber = line if isinstance( line, str ) and line != '' else None
         self.__rulenumber = rule if isinstance( rule, str ) and rule != '' else None
+        self.__fields = [ 'DataRuleDescriptionsId',
+                          'Schedule',
+                          'LineNumber',
+                          'RuleNumber',
+                          'RuleDescription',
+                          'ScheduleOrder' ]
 
     def getdata( self ):
         try:
@@ -3254,6 +3457,7 @@ class CarryoverOutlays( ):
     __outyear7 = None
     __outyear8 = None
     __outyear9 = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3489,8 +3693,32 @@ class CarryoverOutlays( ):
             self.__outyear9 = value
 
     def __init__( self, bfy, omb ):
+        self.__source = Source.CarryoverOutlays
         self.__budgetyear = bfy if isinstance( bfy, str ) and bfy != '' else None
         self.__ombaccountcode = omb if isinstance( omb, str ) and omb != '' else None
+        self.__fields = [ 'CarryoverOutlaysId',
+                          'ReportYear',
+                          'AgencyName',
+                          'OmbAccountName',
+                          'LINE',
+                          'Carryover',
+                          'CarryoverOutlays',
+                          'Delta',
+                          'AvailableBalance',
+                          'ULO',
+                          'CurrentYearAdjustment',
+                          'BudgetYearAdjustment',
+                          'CurrentYear',
+                          'BudgetYear',
+                          'OutYear1',
+                          'OutYear2',
+                          'OutYear3',
+                          'OutYear4',
+                          'OutYear5',
+                          'OutYear6',
+                          'OutYear7',
+                          'OutYear8',
+                          'OutYear9' ]
 
     def getdata( self ):
         try:
@@ -3739,3 +3967,121 @@ class StatusOfSupplementalFunds( ):
                            'Available',
                            'NpmCode',
                            'NpmName' ]
+
+
+
+class StatusOfJobsActFunding( ):
+    __columns = None
+
+    def __init__( self ):
+        self.__columns = [ 'StatusOfJobsActFundingId',
+                           'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'NpmCode',
+                           'NpmName',
+                           'RcCode',
+                           'RcName',
+                           'LowerName',
+                           'Amount',
+                           'Budgeted',
+                           'Posted',
+                           'OpenCommitments',
+                           'ULO',
+                           'Expenditures',
+                           'Obligations',
+                           'Used',
+                           'Available' ]
+
+
+
+class LedgerAccounts( ):
+    __fields = None
+
+    def __init__( self ):
+        self.__fields = [ 'LedgerAccountsId',
+                          'BFY',
+                          'EFY',
+                          'FundCode',
+                          'FundName',
+                          'TreasurySymbol',
+                          'AccountNumber',
+                          'AccountName',
+                          'BeginningBalance',
+                          'CreditBalance',
+                          'DebitBalance',
+                          'ClosingAmount' ]
+
+
+
+class ProgramFinancingSchedule( ):
+    __fields = None
+
+    def __init__( self ):
+        self.__fields = [ 'ProgramFinancingScheduleId',
+                          'ReportYear',
+                          'TreasuryAgencyCode',
+                          'TreasuryAccountCode',
+                          'LedgerAccountCode',
+                          'SectionNumber',
+                          'SectionName',
+                          'LineNumber',
+                          'LineDescription',
+                          'OmbAgencyCode',
+                          'OmbFundCode',
+                          'OmbAccountTitle',
+                          'AgencySequence',
+                          'AccountSequence',
+                          'AgencyName',
+                          'FundName',
+                          'OriginalAmount',
+                          'BudgetAmount',
+                          'AgencyAmount',
+                          'Amount' ]
+
+
+class PublicLaws( ):
+    __fields = None
+
+    def __init__( self ):
+        self.__fields = [ 'PublicLawsId',
+                          'LawNumber',
+                          'BillTitle',
+                          'EnactedDate',
+                          'Congress',
+                          'BFY' ]
+
+
+class TransType( ):
+    __fields = None
+
+    def __init__( self ):
+        self.__fields = [ 'TransTypesId',
+                          'FundCode',
+                          'Appropriation',
+                          'BFY',
+                          'EFY',
+                          'TreasurySymbol',
+                          'DocType',
+                          'AppropriationBill',
+                          'ContinuingResolution',
+                          'RescissionCurrentYear',
+                          'RescissionPriorYear',
+                          'SequesterReduction',
+                          'SequesterReturn' ]

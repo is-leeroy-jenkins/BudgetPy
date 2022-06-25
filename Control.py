@@ -1662,8 +1662,8 @@ class Defacto( ):
 
 
 
-# StatusOfSupplementalFunds( bfy, fund )
-class StatusOfSupplementalFunds( ):
+# StatusOfSupplementalFunding( bfy, fund )
+class StatusOfSupplementalFunding( ):
     '''Class representing Supplemental Funding execution data'''
     __source = None
     __provider = None
@@ -2118,7 +2118,7 @@ class StatusOfSupplementalFunds( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'StatusOfSupplementalFunds'
+            exc.cause = 'StatusOfSupplementalFunding'
             exc.method = 'getdata( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -2133,7 +2133,7 @@ class StatusOfSupplementalFunds( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'StatusOfSupplementalFunds'
+            exc.cause = 'StatusOfSupplementalFunding'
             exc.method = 'getframe( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -6394,7 +6394,7 @@ class CongressionalControl( ):
     __increaserestriction = None
     __decreaserestriction = None
     __memorandumrequired = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -10326,6 +10326,39 @@ class SpecialAccounts( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+        self.__columns = [ 'SpecialAccountsId',
+                           'BFY',
+                           'RpioCode',
+                           'FundCode',
+                           'SpecialAccountFund',
+                           'SpecialAccountNumber',
+                           'SpecialAccountName',
+                           'AccountStatus',
+                           'NplStatusCode',
+                           'NplStatusName',
+                           'SiteId',
+                           'CerclisId',
+                           'SiteCode',
+                           'SiteName',
+                           'OperableUnit',
+                           'PipelineCode',
+                           'PipelineDescription',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'TransactionType',
+                           'TransactionTypeName',
+                           'FocCode',
+                           'FocName',
+                           'TransactionDate',
+                           'AvailableBalance',
+                           'OpenCommitments',
+                           'Obligations',
+                           'ULO',
+                           'Disbursements',
+                           'UnpaidBalances',
+                           'Collections',
+                           'CumulativeReceipts' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -10571,4 +10604,6 @@ class SuperfundSites( ):
             exc.method = 'getframe( self )'
             err = ErrorDialog( exc )
             err.show( )
+
+
 
