@@ -4106,7 +4106,7 @@ class BudgetForm( Sith ):
                 err.show( )
 
     def createfirst( self, items ):
-        if isinstance( items, list ) and len( items ) == 6:
+        if isinstance( items, list ) and len( items ) == 7:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4118,13 +4118,14 @@ class BudgetForm( Sith ):
                 hdr = 'Roboto 20'
                 frmsz = ( 450, 150 )
                 hdrsz = ( 920, 100 )
-                first = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 1 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 2 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 3 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 4 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 5 ] }', font = li ), sg.Push( ) ] ]
+                first = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font = hdr ), sg.Push( ) ],
+                           [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                           [ sg.Push( ), sg.Text( 'Block 1 line 1', font = li ), sg.Push( ) ],
+                           [ sg.Push( ), sg.Text( 'Block 1 line 2', font = li ), sg.Push( ) ],
+                           [ sg.Push( ), sg.Text( 'Block 1 line 3', font = li ), sg.Push( ) ],
+                           [ sg.Push( ), sg.Text( 'Block 1 line 4', font = li ), sg.Push( ) ],
+                           [ sg.Push( ), sg.Text( 'Block 1 line 5', font = li ), sg.Push( ) ],
+                           [ sg.Push( ), sg.Text( 'Block 1 line 6', font = li ), sg.Push( ) ] ]
                 self.__firstlayout = first
                 return first
             except Exception as e:
@@ -4136,7 +4137,7 @@ class BudgetForm( Sith ):
                 err.show( )
 
     def createsecond( self, items ):
-        if isinstance( items, list ) and len( items ) == 6:
+        if isinstance( items, list ) and len( items ) == 7:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4148,13 +4149,14 @@ class BudgetForm( Sith ):
                 hdr = 'Roboto 20'
                 frmsz = ( 450, 150 )
                 hdrsz = ( 920, 100 )
-                second = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 1 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 2 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 3 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 4 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 5 ] }', font = li ), sg.Push( ) ] ]
+                second = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = hdr ), sg.Push( )  ],
+                            [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 2 line 1', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 2 line 2', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 2 line 3', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 2 line 4', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 2 line 5', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 2 line 6', font = li ), sg.Push( ) ] ]
                 self.__secondlayout = second
                 return second
             except Exception as e:
@@ -4166,7 +4168,7 @@ class BudgetForm( Sith ):
                 err.show( )
 
     def createthird( self, items ):
-        if isinstance( items, list ) and len( items ) ==6:
+        if isinstance( items, list ) and len( items ) == 7:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4178,13 +4180,14 @@ class BudgetForm( Sith ):
                 hdr = 'Roboto 20'
                 frmsz = ( 450, 150 )
                 hdrsz = ( 920, 100 )
-                third = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 1 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 2 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 3 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 4 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 5 ] }', font = li ), sg.Push( ) ] ]
+                third = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = hdr ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 3 line 1', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 3 line 2', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 3 line 3', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 3 line 4', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 3 line 5', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 3 line 6', font = li ), sg.Push( ) ] ]
                 self.__thirdlayout = third
                 return third
             except Exception as e:
@@ -4196,7 +4199,7 @@ class BudgetForm( Sith ):
                 err.show( )
 
     def createfourth( self, items  ):
-        if isinstance( items, list ) and len( items ) == 6:
+        if isinstance( items, list ) and len( items ) == 7:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4208,13 +4211,14 @@ class BudgetForm( Sith ):
                 hdr = 'Roboto 20'
                 frmsz = ( 450, 150 )
                 hdrsz = ( 920, 100 )
-                fourth = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 1 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 2 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 3 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 4 ] }', font = li ), sg.Push( ) ],
-                          [ sg.Push( ), sg.Text( f'{ items[ 5 ] }', font = li ), sg.Push( ) ] ]
+                fourth = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = hdr ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 4 line 1', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 4 line 2', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 4 line 3', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 4 line 4', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 4 line 5', font = li ), sg.Push( ) ],
+                            [ sg.Push( ), sg.Text( 'Block 4 line 6', font = li ), sg.Push( ) ] ]
                 self.__fourthlayout = fourth
                 return fourth
             except Exception as e:
@@ -4297,28 +4301,32 @@ class BudgetForm( Sith ):
                                    [ sg.Push( ), sg.Text( 'Block 1 line 2', font = li ), sg.Push( ) ],
                                    [ sg.Push( ), sg.Text( 'Block 1 line 3', font = li ), sg.Push( ) ],
                                    [ sg.Push( ), sg.Text( 'Block 1 line 4', font = li ), sg.Push( ) ],
-                                   [ sg.Push( ), sg.Text( 'Block 1 line 5', font = li ), sg.Push( ) ] ]
+                                   [ sg.Push( ), sg.Text( 'Block 1 line 5', font = li ), sg.Push( ) ],
+                                   [ sg.Push( ), sg.Text( 'Block 1 line 6', font = li ), sg.Push( ) ] ]
             self.__secondlayout = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = hdr ), sg.Push( )  ],
                                     [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 2 line 1', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 2 line 2', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 2 line 3', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 2 line 4', font = li ), sg.Push( ) ],
-                                    [ sg.Push( ), sg.Text( 'Block 2 line 5', font = li ), sg.Push( ) ] ]
+                                    [ sg.Push( ), sg.Text( 'Block 2 line 5', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 2 line 6', font = li ), sg.Push( ) ] ]
             self.__thirdlayout = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = hdr ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 3 line 1', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 3 line 2', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 3 line 3', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 3 line 4', font = li ), sg.Push( ) ],
-                                    [ sg.Push( ), sg.Text( 'Block 3 line 5', font = li ), sg.Push( ) ] ]
+                                    [ sg.Push( ), sg.Text( 'Block 3 line 5', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 3 line 6', font = li ), sg.Push( ) ] ]
             self.__fourthlayout = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = hdr ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 4 line 1', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 4 line 2', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 4 line 3', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 4 line 4', font = li ), sg.Push( ) ],
-                                    [ sg.Push( ), sg.Text( 'Block 4 line 5', font = li ), sg.Push( ) ] ]
+                                    [ sg.Push( ), sg.Text( 'Block 4 line 5', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 4 line 6', font = li ), sg.Push( ) ] ]
             self.__formlayout = [
                     [ sg.Frame( '', self.__titlelayout, pad = ( 0, 0 ), background_color = mblk,
                         expand_x = True, border_width = 0, grab = True ) ],
