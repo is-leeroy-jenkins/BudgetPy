@@ -2062,6 +2062,40 @@ class StatusOfSupplementalFunds( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'RcCode',
+                           'RcName',
+                           'LowerName',
+                           'Amount',
+                           'Budgeted',
+                           'Posted',
+                           'OpenCommitments',
+                           'ULO',
+                           'Expenditures',
+                           'Obligations',
+                           'Used',
+                           'Available',
+                           'NpmCode',
+                           'NpmName' ]
+
 
     def getdata( self ):
         try:
@@ -2329,6 +2363,25 @@ class StateGrantObligation( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
+        self.__columns = [ 'StateGrantObligationsId',
+                           'RpioCode',
+                           'RpioName',
+                           'FundCode',
+                           'FundName',
+                           'AhCode',
+                           'AhName',
+                           'OrgCode',
+                           'OrgName',
+                           'StateCode',
+                           'StateName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RcCode',
+                           'RcName',
+                           'BocCode',
+                           'BocName',
+                           'Amount' ]
 
     def getdata( self ):
         try:
