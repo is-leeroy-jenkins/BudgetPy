@@ -4546,25 +4546,25 @@ class CsvForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            layout = [ [ sg.Text( '', size = ( 100, 1 ) ) ],
-                       [ sg.Text( '', size = ( 100, 1 ) ) ],
-                       [ sg.Text( '', size = ( 100, 1 ) ) ],
-                       [ sg.Table( values = data,
-                           headings = header_list,
-                           display_row_numbers = True,
-                           vertical_scroll_only = False,
-                           header_background_color = '#2B618F',
-                           header_text_color = '#FFFFFF',
-                           background_color = '#32404D',
-                           auto_size_columns = True,
-                           num_rows = min( 25, len( data ) ) ) ],
-                       [ sg.Text( '', size = ( 100, 1 ) ) ], ]
+            tablelayout = [ [ sg.Text( '', size = (100, 1) ) ],
+                            [ sg.Text( '', size = ( 100, 1 ) ) ],
+                            [ sg.Text( '', size = ( 100, 1 ) ) ],
+                            [ sg.Table( values = data,
+                               headings = header_list,
+                               display_row_numbers = True,
+                               vertical_scroll_only = False,
+                               header_background_color = '#2B618F',
+                               header_text_color = '#FFFFFF',
+                               background_color = '#000000',
+                               auto_size_columns = True,
+                               num_rows = min( 25, len( data ) ) ) ],
+                            [ sg.Text( '', size = ( 100, 1 ) ) ] ]
 
-            window = sg.Window( '  Budget Execution', layout,
+            window = sg.Window( '  Budget Execution', tablelayout,
                 grab_anywhere = False,
                 icon = self.__icon,
                 font = self.__themefont,
-                size = self.__formsize )
+                resizable = True )
 
             event, values = window.read( )
 
@@ -4656,31 +4656,31 @@ class ExcelForm( Sith ):
                     if button == 'Yes':
                         header_list = [ f'{ i } ' for i in df.columns ]
                     elif button == 'No':
-                        header_list = [ 'column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
+                        header_list = [ 'Column - ' + str( x ) for x in range( len( data[ 0 ] ) ) ]
 
                 except:
                     sg.popup_error( 'Error reading file' )
                     return
 
-            layout = [ [ sg.Text( '', size = ( 100, 1 ) ) ],
-                       [ sg.Text( '', size = ( 100, 1 ) ) ],
-                       [ sg.Text( '', size = ( 100, 1 ) ) ],
-                       [ sg.Table( values = data,
-                           headings = header_list,
-                           display_row_numbers = True,
-                           vertical_scroll_only = False,
-                           header_background_color = '#2B618F',
-                           header_text_color = '#FFFFFF',
-                           background_color = '#32404D',
-                           auto_size_columns = True,
-                           num_rows = min( 25, len( data ) ) ) ],
-                       [ sg.Text( '', size = ( 100, 1 ) ) ], ]
+            tablelayout = [ [ sg.Text( '', size = (100, 1) ) ],
+                            [ sg.Text( '', size = ( 100, 1 ) ) ],
+                            [ sg.Text( '', size = ( 100, 1 ) ) ],
+                            [ sg.Table( values = data,
+                               headings = header_list,
+                               display_row_numbers = True,
+                               vertical_scroll_only = False,
+                               header_background_color = '#2B618F',
+                               header_text_color = '#FFFFFF',
+                               background_color = '#000000',
+                               auto_size_columns = True,
+                               num_rows = min( 25, len( data ) ) ) ],
+                            [ sg.Text( '', size = ( 100, 1 ) ) ] ]
 
-            window = sg.Window( '  Budget Execution', layout,
+            window = sg.Window( '  Budget Execution', tablelayout,
                 grab_anywhere = False,
                 icon = self.__icon,
                 font = self.__themefont,
-                size = self.__formsize )
+                resizable = True )
 
             event, values = window.read( )
 
