@@ -1,13 +1,13 @@
-CREATE TABLE IF NOT EXISTS 'RegionalAuthority' 
+CREATE TABLE IF NOT EXISTS 'HeadquartersAuthority' 
 (
-	'RegionalAuthorityId'	INTEGER NOT NULL,
+	'HeadquartersAuthorityId'	INTEGER NOT NULL,
 	'AllocationsId'	INTEGER,
 	'StatusOfFundsId'	INTEGER,
+	'BudgetLevel'	TEXT,
 	'BFY'	TEXT,
 	'EFY'	TEXT,
 	'RpioCode'	TEXT,
 	'RpioName'	TEXT,
-	'BudgetLevel'	TEXT,
 	'AhCode'	TEXT,
 	'AhName'	TEXT,
 	'FundCode'	TEXT,
@@ -15,16 +15,16 @@ CREATE TABLE IF NOT EXISTS 'RegionalAuthority'
 	'OrgCode'	TEXT,
 	'OrgName'	TEXT,
 	'AccountCode'	TEXT,
+	'ProgramProjectCode'	TEXT,
+	'ProgramProjectName'	TEXT,
+	'ProgramAreaCode'	TEXT,
+	'ProgramAreaName'	TEXT,
 	'RcCode'	TEXT,
 	'RcName'	TEXT,
 	'BocCode'	TEXT,
 	'BocName'	TEXT,
 	'Amount'	REAL,
-	'ProgramProjectCode'	TEXT,
-	'ProgramProjectName'	TEXT,
-	'ProgramAreaCode'	TEXT,
-	'ProgramAreaName'	TEXT,
 	'NpmCode'	TEXT,
 	'NpmName'	TEXT,
-	PRIMARY KEY('RegionalAuthorityId')
+	PRIMARY KEY('HeadquartersAuthorityId')
 );

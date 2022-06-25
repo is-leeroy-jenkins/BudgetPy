@@ -221,7 +221,7 @@ class TitleIcon( ):
             self.__filepath = value
 
     def __init__( self, ico ):
-        self.__name = ico.name if isinstance( ico, ICO ) else None
+        self.__name = ico.name
         self.__folder = os.getcwd( ) + r'etc\ico'
         self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
@@ -230,8 +230,8 @@ class TitleIcon( ):
             return self.__filepath
 
 
-# ColorConversion(  )
-class ColorConversion( ):
+# ColorFormat(  )
+class ColorFormat( ):
     '''Class providing color conversion methods
     given a color in hex format'''
     __rgb = None

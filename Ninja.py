@@ -69,20 +69,14 @@ class DataConfig( ):
         self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name
-        self.__sqlitedatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
-                                r'\db\sqlite\datamodels\Data.db'
-        self.__sqlitereferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
-                                     r'\db\sqlite\referencemodels\References.db'
+        self.__sqlitedatapath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
+        self.__sqlitereferencepath = os.getcwd( ) + r'\db\sqlite\referencemodels\References.db'
         self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
-                                r'\db\access\datamodels\Data.accdb'
-        self.__accessreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
-                                     r'\db\access\referencemodels\References.accdb'
+        self.__accessdatapath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
+        self.__accessreferencepath = os.getcwd( ) + r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldatapath = r'C:\Users\teppler\source\repos\BudgetPy' \
-                             r'\db\mssql\datamodels\Data.mdf'
-        self.__sqlreferencepath = r'C:\Users\teppler\source\repos\BudgetPy' \
-                                  r'\db\mssql\referencemodels\References.mdf'
+        self.__sqldatapath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
+        self.__sqlreferencepath = os.getcwd( ) + r'\db\mssql\referencemodels\References.mdf'
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'AppropriationDocuments',
                         'BudgetControls', 'BudgetDocuments',
                         'CarryoverEstimates', 'CarryoverSurvey', 'Changes',
@@ -399,7 +393,8 @@ class SqlConfig( ):
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
-        self.__kvp = dict( zip( names,  list( values ) ) )
+        self.__kvp = dict( zip( names,  list( values ) ) ) if isinstance( names, list ) \
+                                                              and isinstance( values, tuple ) else None
 
     def kvpdump( self ):
         '''dump( ) returns string of 'values = index AND' pairs'''
@@ -508,9 +503,7 @@ class SqlStatement( ):
     __provider = None
     __table = None
     __names = None
-    __columnnames = None
     __values = None
-    __columnvalues = None
     __commandtext = None
 
     @property
@@ -740,6 +733,7 @@ class SQLiteQuery( Data ):
     __query = None
     __data = None
     __frame = None
+    __columns = None
 
     @property
     def driver( self ):
@@ -780,6 +774,16 @@ class SQLiteQuery( Data ):
     def query( self, value ):
         if isinstance( value, str ) and value != '':
             self.__query = value
+
+    @property
+    def columns( self ):
+        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
+            return self.__columns
+
+    @columns.setter
+    def columns( self, value ):
+        if isinstance( value, list ):
+            self.__columns = value
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement)
@@ -1167,11 +1171,11 @@ class DataBuilder( ):
             error.show( )
 
 
-# DataSchema( name, datatype )
+# DataSchema( name, type )
 class DataSchema( ):
     '''Provides the name and data types used by the
     DataColumn class.  Contructor uses opetional
-    arguments ( name: str, datatype: type, source: Source )'''
+    arguments ( name: str, type: type, source: Source )'''
     __name = None
     __coltype = None
     __source = None
@@ -1222,10 +1226,10 @@ class DataSchema( ):
         self.__coltype = datatype if isinstance( datatype, object ) else None
 
 
-# DataColumn( name, datatype, value, series  )
+# DataColumn( name, type, value, series  )
 class DataColumn(  ):
     '''Defines the DataColumn Class providing schema information.
-    Constructor uses optional arguments ( name: str, datatype: type,
+    Constructor uses optional arguments ( name: str, type: type,
      value: object, series: DataSeries )'''
     __series = None
     __row = None
@@ -1260,12 +1264,12 @@ class DataColumn(  ):
             self.__value = value
 
     @property
-    def datatype( self ):
+    def type( self ):
         if isinstance( self.__type, object ):
             return self.__type
 
-    @datatype.setter
-    def datatype( self, value ):
+    @type.setter
+    def type( self, value ):
         if isinstance( value, object ):
             self.__type = value
 
@@ -1379,7 +1383,6 @@ class DataColumn(  ):
             exc.method = 'istext( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 # DataRow( names, values, source )

@@ -1,0 +1,36 @@
+
+Mpython:S1066ÿ"/Merge this if statement with the enclosing one.(ÎĞÁØøÿÿÿÿ
+tpython:S1186¨"[Add a nested comment explaining why this function is empty, or complete the implementation.(¯Óõù
+Mpython:S1135ã"4Complete the task associated to this "TODO" comment.(„õ
+Rpython:S1135£"4Complete the task associated to this "TODO" comment.(“¼‡Ÿıÿÿÿÿ
+Rpython:S1135¾"4Complete the task associated to this "TODO" comment.(§„³Ùüÿÿÿÿ
+jpython:S1134ã"LTake the required action to fix the issue indicated by this "FIXME" comment.(¼Ò‰Øÿÿÿÿÿ
+lpython:S3776°
+"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(¿ß£
+lpython:S3776ï
+"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÿ…Æ
+Upython:S5754Ñ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S3776ø"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÖãÎşıÿÿÿÿ
+Upython:S5754«"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Lpython:S1135"4Complete the task associated to this "TODO" comment.(ôäŒ$
+Upython:S5754É"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+mpython:S3776¡"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Şç¿­
+Upython:S5754ı"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+epython:S1134¥"LTake the required action to fix the issue indicated by this "FIXME" comment.(Õ¸×
+epython:S1134®"LTake the required action to fix the issue indicated by this "FIXME" comment.(üïÙ÷
+Rpython:S1135è"4Complete the task associated to this "TODO" comment.(”Ù¥êùÿÿÿÿ
+Upython:S5754ğ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Upython:S5754¦"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Apython:S108¥")Either remove or fill this block of code.(ã‘Û¾
+rpython:S3776Ê"TRefactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.(ŒÇÊ’şÿÿÿÿ
+Upython:S5754à"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Apython:S108ß")Either remove or fill this block of code.(ã‘Û¾
+Upython:S5754œ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+Vpython:S5754ù"8Catch a more specific exception or reraise the exception(ê¥Ğ…úÿÿÿÿ
+Gpython:S1481œ".Remove the unused local variable "_run_async".(¥Æ‚Ş
+rpython:S3776¬"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(¢Â„Æøÿÿÿÿ
+Hpython:S1481ß"*Remove the unused local variable "_async".(‚Î·Äıÿÿÿÿ
+rpython:S3776¦"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(×Œ¨òøÿÿÿÿ
+Npython:S1481¸"5Remove the unused local variable "__tracebackhide__".(¥’Œì
+[python:S5754Ê"BReraise this exception to stop the application as the user expects(½îó¶
+rpython:S3776Ä"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(Î–øÿÿÿÿ

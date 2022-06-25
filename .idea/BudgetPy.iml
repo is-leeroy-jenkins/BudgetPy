@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/db/sqlite" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/etc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ipynb" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/DLLs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages" isTestSource="false" />
@@ -16,11 +17,12 @@
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32/lib" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python ( budgetpy )" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="C:\Users\terry\source\repos\BudgetPy\requirements.txt" />
+    <option name="modifyBaseFiles" value="true" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />

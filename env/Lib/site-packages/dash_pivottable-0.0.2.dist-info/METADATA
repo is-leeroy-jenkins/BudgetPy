@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: dash-pivottable
+Version: 0.0.2
+Summary: Implementation of react-pivottable in Dash (Python)
+Home-page: UNKNOWN
+Author: Xing Han Lu <xinghan@plotly.com>
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: dash
+
+UNKNOWN
+
+

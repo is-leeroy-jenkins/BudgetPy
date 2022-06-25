@@ -34,6 +34,7 @@ class OperatingPlan( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -302,6 +303,14 @@ class OperatingPlan( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
+        self.__columns = [ 'OperatingPlansId', 'RpioCode', 'RpioName', 'BFY', 'EFY', 'AhCode',
+                           'FundCode', 'OrgCode', 'AccountCode', 'RcCode', 'BocCode', 'BocName',
+                           'Amount', 'ITProjectCode', 'ProjectCode', 'ProjectName', 'NpmCode',
+                           'ProjectTypeName', 'ProjectTypeCode', 'ProgramProjectCode', 'ProgramAreaCode',
+                           'NpmName', 'AhName', 'FundName', 'OrgName', 'RcName', 'ProgramProjectName',
+                           'ActivityCode', 'ActivityName', 'LocalCode', 'LocalCodeName', 'ProgramAreaName',
+                           'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
+                           'ObjectiveCode', 'ObjectiveName' ]
 
     def getdata( self ):
         try:
@@ -379,6 +388,7 @@ class FullTimeEquivalent( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -647,6 +657,14 @@ class FullTimeEquivalent( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
+        self.__columns = [ 'FullTimeEquivalentsId', 'OperatingPlansId', 'RpioCode', 'RpioName', 'BFY', 'EFY', 'AhCode',
+                           'FundCode', 'OrgCode', 'AccountCode', 'BocCode', 'BocName',
+                           'Amount', 'ITProjectCode', 'ProjectCode', 'ProjectName', 'NpmCode',
+                           'ProjectTypeName', 'ProjectTypeCode', 'ProgramProjectCode', 'ProgramAreaCode',
+                           'NpmName', 'AhName', 'FundName', 'OrgName', 'RcName', 'ProgramProjectName',
+                           'ActivityCode', 'ActivityName', 'LocalCode', 'LocalCodeName', 'ProgramAreaName',
+                           'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
+                           'ObjectiveCode', 'ObjectiveName' ]
 
     def getdata( self ):
         try:
@@ -730,6 +748,7 @@ class StatusOfFunds( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -1088,6 +1107,39 @@ class StatusOfFunds( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'RcCode',
+                           'RcName',
+                           'LowerName',
+                           'Amount',
+                           'Budgeted',
+                           'Posted',
+                           'OpenCommitments',
+                           'ULO',
+                           'Expenditures',
+                           'Obligations',
+                           'Used',
+                           'Available',
+                           'NpmCode',
+                           'NpmName' ]
 
     def getdata( self ):
         try:
@@ -1173,6 +1225,7 @@ class Defacto( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -1531,6 +1584,40 @@ class Defacto( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'DefactosId',
+                           'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'RcCode',
+                           'RcName',
+                           'LowerName',
+                           'Amount',
+                           'Budgeted',
+                           'Posted',
+                           'OpenCommitments',
+                           'ULO',
+                           'Expenditures',
+                           'Obligations',
+                           'Used',
+                           'Available',
+                           'NpmCode',
+                           'NpmName' ]
 
     def getdata( self ):
         try:
@@ -1616,6 +1703,7 @@ class StatusOfSupplementalFunds( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -2042,6 +2130,7 @@ class StateGrantObligation( ):
     __statecode = None
     __statename = None
     __amount = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -2317,6 +2406,7 @@ class Allocations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -2595,6 +2685,32 @@ class Allocations( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'AllocationsId',
+                           'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'RcCode',
+                           'RcName',
+                           'LowerName',
+                           'Amount',
+                           'NpmCode',
+                           'NpmName' ]
 
     def getdata( self ):
         try:
@@ -2672,6 +2788,7 @@ class RegionalAuthority( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -2930,6 +3047,32 @@ class RegionalAuthority( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'RegionalAuthorityId',
+                           'AllocationsId',
+                           'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'RcCode',
+                           'RcName',
+                           'BocCode',
+                           'BocName',
+                           'Amount',
+                           'NpmCode',
+                           'NpmName' ]
 
     def getdata( self ):
         try:
@@ -3007,6 +3150,7 @@ class HeadquartersAuthority( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -3265,6 +3409,32 @@ class HeadquartersAuthority( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
+        self.__columns = [ 'HeadquartersAuthorityId',
+                           'AllocationsId',
+                           'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'RcCode',
+                           'RcName',
+                           'BocCode',
+                           'BocName',
+                           'Amount',
+                           'NpmCode',
+                           'NpmName' ]
 
     def getdata( self ):
         try:
@@ -3359,6 +3529,7 @@ class PayrollActivity( ):
     __benefits = None
     __overtimepaid = None
     __overtimehours = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -3884,6 +4055,7 @@ class SiteActivity( ):
     __outstanding = None
     __refunded = None
     __reversal = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -4352,6 +4524,7 @@ class Actuals( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -4685,6 +4858,7 @@ class AppropriationDocument( ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -5041,6 +5215,7 @@ class BudgetDocument( ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -6194,6 +6369,9 @@ class CompassLevels( ):
     __actualrecoveries = None
     __actualreimbursements = None
     __agreementreimbursables = None
+    __columns = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -6284,6 +6462,53 @@ class CompassLevels( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__columns = [ 'CompassLevelsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'FundCode',
+                           'FundName',
+                           'AppropriationCode',
+                           'SubAppropriationCode',
+                           'AppropriationName'
+                           'TreasurySymbol',
+                           'DocumentType',
+                           'LowerName',
+                           'Description',
+                           'PostedControlFlag',
+                           'ActualRecoveryTransType',
+                           'CommitmentSpendingControlFlag',
+                           'BudgetDefault'
+                           'LowerChildExpenditureSpendingControlFlag',
+                           'LowerChildExpenseSpendingControlFlag',
+                           'FteControlFlag',
+                           'AccrualSpendingControlFlag',
+                           'ObligationSpendingControlFlag',
+                           'PreCommitmentSpendingControlFlag',
+                           'LowerCommitmentSpendingControlFlag',
+                           'LowerObligationSpendingControlFlag',
+                           'LowerExpenditureSpendingControlFlag',
+                           'LowerExpenseSpendingControlFlag',
+                           'LowerPostedControlFlag',
+                           'LowerPostedTransType',
+                           'LowerTransType',
+                           'LowerPostedFlag',
+                           'LowerPreCommitmentSpendingControlFlag',
+                           'LowerRecoveriesSpendingOption',
+                           'LowerRecoveriesOption',
+                           'LowerReimbursableSpendingOption',
+                           'Date',
+                           'TotalAuthority',
+                           'OriginalAmount',
+                           'CarryoverAvailabilityPercentage',
+                           'CarryIn',
+                           'CarryOut',
+                           'FundsIn',
+                           'FundOut',
+                           'RecoveriesWithdrawn',
+                           'ActualRecoveries',
+                           'ActualReimbursements',
+                           'AgreementReimbursables' ]
 
     def getdata( self ):
         try:
@@ -6372,6 +6597,7 @@ class Commitment( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -6763,14 +6989,42 @@ class Commitment( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__data = {
-                'amount':   self.__amount,
-                'account':  None,
-                'document': None,
-                'org':      None,
-                'bfy':      None,
-                'fund':     None,
-                'boc':      None }
+        self.__columns = [ 'CommitmentsId',
+                           'ObligationsId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RcCode',
+                           'RcName',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'DocumentControlNumber',
+                           'ReferenceDocumentNumber',
+                           'ProcessedDate',
+                           'LastActivityDate',
+                           'Age',
+                           'BocCode',
+                           'BocName',
+                           'FocCode',
+                           'FocName',
+                           'NpmCode',
+                           'NpmName',
+                           'VendorCode',
+                           'VendorName',
+                           'OpenCommitments',
+                           'Obligations',
+                           'ULO',
+                           'Expenditures' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -6995,6 +7249,7 @@ class OpenCommitment( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -7386,14 +7641,42 @@ class OpenCommitment( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__data = {
-                'amount':   self.__amount,
-                'account':  None,
-                'document': None,
-                'org':      None,
-                'bfy':      None,
-                'fund':     None,
-                'boc':      None }
+        self.__columns = [ 'OpenCommitmentsId',
+                           'ObligationsId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RcCode',
+                           'RcName',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'DocumentControlNumber',
+                           'ReferenceDocumentNumber',
+                           'ProcessedDate',
+                           'LastActivityDate',
+                           'Age',
+                           'BocCode',
+                           'BocName',
+                           'FocCode',
+                           'FocName',
+                           'NpmCode',
+                           'NpmName',
+                           'VendorCode',
+                           'VendorName',
+                           'OpenCommitments',
+                           'Obligations',
+                           'ULO',
+                           'Expenditures' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -7486,6 +7769,7 @@ class Obligations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -7877,6 +8161,41 @@ class Obligations( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+        self.__columns = [ 'ObligationsId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RcCode',
+                           'RcName',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'DocumentControlNumber',
+                           'ReferenceDocumentNumber',
+                           'ProcessedDate',
+                           'LastActivityDate',
+                           'Age',
+                           'BocCode',
+                           'BocName',
+                           'FocCode',
+                           'FocName',
+                           'NpmCode',
+                           'NpmName',
+                           'VendorCode',
+                           'VendorName',
+                           'OpenCommitments',
+                           'Obligations',
+                           'ULO',
+                           'Expenditures' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -8454,6 +8773,7 @@ class UnliquidatedObligation( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -8845,6 +9165,42 @@ class UnliquidatedObligation( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+        self.__columns = [ 'UnliquidatedObligationsId'
+                           'ObligationsId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RcCode',
+                           'RcName',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'DocumentControlNumber',
+                           'ReferenceDocumentNumber',
+                           'ProcessedDate',
+                           'LastActivityDate',
+                           'Age',
+                           'BocCode',
+                           'BocName',
+                           'FocCode',
+                           'FocName',
+                           'NpmCode',
+                           'NpmName',
+                           'VendorCode',
+                           'VendorName',
+                           'OpenCommitments',
+                           'Obligations',
+                           'ULO',
+                           'Expenditures' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -8938,6 +9294,7 @@ class Expenditures:
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __columns = None
     __data = None
     __frame = None
 
@@ -9329,6 +9686,39 @@ class Expenditures:
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+        self.__columns = [ 'ExpendituresId',
+                           'ObligationsId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RcCode',
+                           'RcName',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'DocumentControlNumber',
+                           'ReferenceDocumentNumber',
+                           'ProcessedDate',
+                           'LastActivityDate',
+                           'Age',
+                           'BocCode',
+                           'BocName',
+                           'FocCode',
+                           'FocName',
+                           'NpmCode',
+                           'NpmName',
+                           'VendorCode',
+                           'VendorName',
+                           'Amount' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
