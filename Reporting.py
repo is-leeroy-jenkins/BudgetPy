@@ -3647,6 +3647,16 @@ class UnobligatedBalances( ):
         self.__bfy = bfy if isinstance( bfy, str ) and bfy != '' else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+        self.__columns = [ 'UnobligatedBalancesId',
+                           'BudgetYear',
+                           'BFY',
+                           'EFY',
+                           'TreasurySymbol',
+                           'FundCode',
+                           'FundName',
+                           'AccountNumber',
+                           'AccountName',
+                           'Amount' ]
 
     def getdata( self ):
         try:
@@ -3689,21 +3699,6 @@ class UnobligatedBalances( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
-class UnobligatedAuthority( ):
-    __columns = None
-
-    def __init__( self ):
-        self.__columns = [ 'UnobligatedBalancesId',
-                           'BudgetYear',
-                           'BFY',
-                           'EFY',
-                           'TreasurySymbol',
-                           'FundCode',
-                           'FundName',
-                           'AccountNumber',
-                           'AccountName',
-                           'Amount' ]
 
 
 class StatusOfSupplementalFunds( ):
