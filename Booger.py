@@ -22,6 +22,7 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d.axes3d import get_test_data
 from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
+from Static import EXT
 
 
 # Error( heading = '' )
@@ -613,6 +614,16 @@ class FileDialog( Sith ):
     __themefont = None
     __selecteditem = None
     __formsize = None
+    __extension = None
+    __message = None
+    __excel = None
+    __csv = None
+    __pdf = None
+    __sqlite = None
+    __sql = None
+    __sqlserver = None
+    __access = None
+    __text = None
 
     @property
     def selectedpath( self ):
@@ -624,7 +635,17 @@ class FileDialog( Sith ):
         if isinstance( value, str ) and value != '':
             self.__selecteditem = value
 
-    def __init__( self ):
+    @property
+    def message( self ):
+        if isinstance( self.__message, str ) and self.__message != '':
+            return self.__message
+
+    @message.setter
+    def message( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__message = value
+
+    def __init__( self, extension = EXT.XLSX ):
         super( ).__init__( )
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
@@ -638,6 +659,16 @@ class FileDialog( Sith ):
         self.__buttoncolor = super( ).buttoncolor
         self.__formsize = ( 450, 200 )
         self.__selecteditem = None
+        self.__message = 'Search for File'
+        self.__extension = extension if isinstance( extension, EXT ) else EXT.XLSX
+        self.__excel = ( ( 'Excel Files', '*.xlsx' ), ) 
+        self.__csv = ( ( 'CSV Files', '*.csv' ), ) 
+        self.__pdf = ( ( 'PDF Files', '*.pdf' ), ) 
+        self.__sql = ( ( 'SQL Files', '*.sql' ), ) 
+        self.__text = ( ( 'Text Files', '*.txt' ), ) 
+        self.__access = ( ( 'MS Access Databases', '*.accdb' ), ) 
+        self.__sqlite = ( ( 'SQLite Databases', '*.db' ), ) 
+        self.__sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), ) 
 
     def __str__( self ):
         if isinstance( self.__selecteditem, str ):
@@ -646,14 +677,14 @@ class FileDialog( Sith ):
     def show( self ):
         try:
             layout = [ [ sg.Text( r'' ) ],
-               [ sg.Text( 'Search for File' ) ],
+               [ sg.Text( self.__message, font = ( 'Roboto', 11 ) ) ],
                [ sg.Text( r'' ) ],
                [ sg.Input( key = '-PATH-' ), sg.FileBrowse( size = ( 15, 1 ) ) ],
                [ sg.Text( r'' ) ],
                [ sg.Text( r'' ) ],
                [ sg.OK( size = ( 8, 1 ),  ), sg.Cancel( size = ( 10, 1 )  ) ] ]
 
-            window = sg.Window( '  Budget Execution', layout,
+            window = sg.Window( ' Budget Execution', layout,
                 font = self.__themefont,
                 size = self.__formsize )
 
@@ -663,10 +694,7 @@ class FileDialog( Sith ):
                     break
                 elif event == 'OK':
                     self.__selecteditem = values[ '-PATH-' ]
-                    sg.popup_ok( self.__selecteditem,
-                        title = 'Results',
-                        icon = self.__icon,
-                        font = self.__themefont )
+                    window.close( )
 
             window.close( )
         except Exception as e:
@@ -4514,12 +4542,9 @@ class CsvForm( Sith ):
 
     def show( self ):
         try:
-            sg.set_options( auto_size_buttons = True )
-            filename = sg.popup_get_file( title = '  Budget Execution',
-                message = 'Browse to CSV file',
-                icon = self.__icon,
-                font = self.__themefont,
-                file_types = ( ( "CSV Files", "*.csv" ), ) )
+            fd = FileDialog( )
+            fd.show( )
+            filename = fd.selectedpath
 
             if filename == '':
                 msg = MessageDialog( 'No file path was provided!')
@@ -4541,26 +4566,32 @@ class CsvForm( Sith ):
                         header_list = df.iloc[ 0 ].tolist( )
                         data = df[ 1: ].values.tolist( )
                     elif button == 'No':
-                        header_list = [ 'column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
+                        header_list = [ 'Column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
                 except:
                     sg.popup_error( 'Error reading file' )
                     return
 
-            tablelayout = [ [ sg.Text( '', size = (100, 1) ) ],
-                            [ sg.Text( '', size = ( 100, 1 ) ) ],
-                            [ sg.Text( '', size = ( 100, 1 ) ) ],
-                            [ sg.Table( values = data,
-                               headings = header_list,
-                               display_row_numbers = True,
-                               vertical_scroll_only = False,
-                               header_background_color = '#2B618F',
-                               header_text_color = '#FFFFFF',
-                               background_color = '#000000',
-                               auto_size_columns = True,
-                               num_rows = min( 25, len( data ) ) ) ],
-                            [ sg.Text( '', size = ( 100, 1 ) ) ] ]
+            datagrid = [ [ sg.Text( '', size = (100, 5) ) ],
+                         [ sg.Text( '', size = (5, 1) ),
+                              sg.Table( values = data,
+                                  headings = header_list,
+                                  display_row_numbers = True,
+                                  vertical_scroll_only = False,
+                                  header_background_color = '#1B262E',
+                                  def_col_width = 12,
+                                  header_border_width = 2,
+                                  selected_row_colors = ('#FFFFFF', '#2A4457'),
+                                  header_text_color = '#FFFFFF',
+                                  header_font = ('Roboto', 10),
+                                  background_color = '#000000',
+                                  auto_size_columns = False,
+                                  border_width = 1,
+                                  sbar_relief = sg.RELIEF_FLAT,
+                                  num_rows = min( 40, len( data ) ) ),
+                              sg.Text( '', size = (5, 1) ) ],
+                         [ sg.Text( '', size = (100, 3) ) ] ]
 
-            window = sg.Window( '  Budget Execution', tablelayout,
+            window = sg.Window( '  Budget Execution', datagrid,
                 grab_anywhere = False,
                 icon = self.__icon,
                 font = self.__themefont,
@@ -4630,12 +4661,9 @@ class ExcelForm( Sith ):
 
     def show( self ):
         try:
-            sg.set_options( auto_size_buttons = True )
-            filename = sg.popup_get_file( title = '  Budget Execution',
-                message = 'Browse to Excel file',
-                icon = self.__icon,
-                font = self.__themefont,
-                file_types = ( ( "Excel Files", "*.xlsx" ), ) )
+            fd = FileDialog( )
+            fd.show( )
+            filename = fd.selectedpath
 
             if filename == '':
                 msg = MessageDialog( 'No file was provided!')
@@ -4647,7 +4675,7 @@ class ExcelForm( Sith ):
 
             button = sg.popup_yes_no( 'Does file have column names?',
                 icon = self.__icon,
-                font = self.__themefont )
+                font = ( 'Roboto', 10 ) )
 
             if filename is not None:
                 try:
@@ -4662,21 +4690,26 @@ class ExcelForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            tablelayout = [ [ sg.Text( '', size = (100, 1) ) ],
-                            [ sg.Text( '', size = ( 100, 1 ) ) ],
-                            [ sg.Text( '', size = ( 100, 1 ) ) ],
-                            [ sg.Table( values = data,
+            datagrid = [ [ sg.Text( '', size = ( 100, 5 ) ) ],
+                         [ sg.Text( '', size = ( 5, 1 ) ),
+                           sg.Table( values = data,
                                headings = header_list,
                                display_row_numbers = True,
                                vertical_scroll_only = False,
-                               header_background_color = '#2B618F',
+                               header_background_color = '#1B262E',
+                               def_col_width = 12,
+                               header_border_width = 2,
+                               selected_row_colors = ( '#FFFFFF', '#2A4457' ),
                                header_text_color = '#FFFFFF',
+                               header_font = ( 'Roboto', 10 ),
                                background_color = '#000000',
-                               auto_size_columns = True,
-                               num_rows = min( 25, len( data ) ) ) ],
-                            [ sg.Text( '', size = ( 100, 1 ) ) ] ]
+                               auto_size_columns = False,
+                               border_width = 1,
+                               sbar_relief = sg.RELIEF_FLAT,
+                               num_rows = min( 40, len( data ) ) ), sg.Text( '', size = ( 5, 1 ) ) ],
+                         [ sg.Text( '', size = ( 100, 3 ) ) ] ]
 
-            window = sg.Window( '  Budget Execution', tablelayout,
+            window = sg.Window( '  Budget Execution', datagrid,
                 grab_anywhere = False,
                 icon = self.__icon,
                 font = self.__themefont,
