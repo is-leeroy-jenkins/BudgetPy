@@ -10384,37 +10384,13 @@ class SuperfundSites( ):
     __efy = None
     __rpiocode = None
     __rpioname = None
-    __fundcode = None
-    __fundname = None
-    __specialaccountfund = None
-    __specialaccountnumber = None
-    __specialaccountname = None
-    __accountstatus = None
-    __nplstatuscode = None
-    __nplstatusname = None
+    __siteprojectname = None
+    __city = None
+    __state = None
     __siteid = None
-    __cerclisid = None
+    __epaid = None
     __sitecode = None
     __sitename = None
-    __operableunit = None
-    __pipelinecode = None
-    __pipelinedescription = None
-    __accountcode = None
-    __bocccode = None
-    __bocname = None
-    __transactiontype = None
-    __transactiontypename = None
-    __foccode = None
-    __focname = None
-    __transactiondate = None
-    __availablebalance = None
-    __opencommitments = None
-    __obligations = None
-    __disbursements = None
-    __cumulativereciepts = None
-    __unpaidbalances = None
-    __collections = None
-    __unliquidatedobligations = None
     __columns = None
     __data = None
     __frame = None
@@ -10470,32 +10446,32 @@ class SuperfundSites( ):
             self.__rpioname = value
 
     @property
-    def nplstatus( self ):
+    def city( self ):
         if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
             return self.__nplstatus
 
-    @nplstatus.setter
-    def nplstatus( self, value ):
+    @city.setter
+    def city( self, value ):
         if isinstance( value, str ) and value != '':
             self.__nplstatus = value
 
     @property
-    def nplstatuscode( self ):
+    def state( self ):
         if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
             return self.__nplstatuscode
 
-    @nplstatuscode.setter
-    def nplstatuscode( self, value ):
+    @state.setter
+    def state( self, value ):
         if isinstance( value, str ) and value != '':
             self.__nplstatuscode = value
 
     @property
-    def nplstatusname( self ):
+    def siteprojectname( self ):
         if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
             return self.__nplstatusname
 
-    @nplstatusname.setter
-    def nplstatusname( self, value ):
+    @siteprojectname.setter
+    def siteprojectname( self, value ):
         if isinstance( value, str ) and value != '':
             self.__nplstatusname = value
 
@@ -10539,91 +10515,21 @@ class SuperfundSites( ):
         if isinstance( value, str ) and value != '':
             self.__cerclisid = value
 
-    @property
-    def pipelinecode( self ):
-        if isinstance( self.__pipelinecode, str ) and self.__pipelinecode != '':
-            return self.__pipelinecode
-
-    @pipelinecode.setter
-    def pipelinecode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__pipelinecode = value
-
-    @property
-    def pipelinename( self ):
-        if isinstance( self.__pipelinename, str ) and self.__pipelinename!= '':
-            return self.__pipelinename
-
-    @pipelinename.setter
-    def pipelinename( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__pipelinename = value
-
-    @property
-    def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
-            return self.__accountcode
-
-    @accountcode.setter
-    def accountcode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__accountcode = value
-
-    @property
-    def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
-            return self.__boccode
-
-    @boccode.setter
-    def boccode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__boccode = value
-
-    @property
-    def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
-            return self.__bocname
-
-    @bocname.setter
-    def bocname( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__bocname = value
-
-    @property
-    def transactiontype( self ):
-        if isinstance( self.__transactiontype, str ) and self.__transactiontype != '':
-            return self.__transactiontype
-
-    @transactiontype.setter
-    def transactiontype( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__transactiontype = value
-
-    @property
-    def transactiontypename( self ):
-        if isinstance( self.__transactiontypename, str ) and self.__transactiontypename != '':
-            return self.__transactiontypename
-
-    @transactiontype.setter
-    def transactiontypename( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__transactiontypename = value
-
-    @property
-    def availablebalance( self ):
-        if isinstance( self.__availablebalance, float ):
-            return self.__availablebalance
-
-    @availablebalance.setter
-    def availablebalance( self, value ):
-        if isinstance( value, float ):
-            self.__availablebalance = value
 
     def __init__( self, bfy, rpiocode ):
         self.__source = Source.SuperfundSites
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpiocode if isinstance( rpiocode, str ) and rpiocode != '' else None
+        self.__columns = [ 'SuperfundSitesId',
+                           'RpioCode',
+                           'RpioName',
+                           'City',
+                           'State',
+                           'SSID',
+                           'SiteProjectName',
+                           'EpaSiteId' ]
+
 
     def getdata( self ):
         try:
