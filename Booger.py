@@ -4054,19 +4054,20 @@ class BudgetForm( Sith ):
     def createtitle( self, items ):
         if isinstance( items, list ) and len( items ) == 2:
             try:
-                blue = '#0C396E'
-                black = '#1E1E1E'
-                BPAD_TOP = ((10, 10), (10, 5))
-                BPAD_LEFT = ((5, 5), (5, 5))
-                BPAD_LEFT_INSIDE = (5, (3, 5))
-                BPAD_RIGHT = ((5, 10), (3, 3))
+                blu = '#051F3D'
+                blk = '#101010'
+                mblk = '#1E1E1E'
+                BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
+                BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = (450, 150)
-                hdrsz = (920, 100)
+                frmsz = ( 450, 150 )
+                hdrsz = ( 920, 100 )
                 title = [
-                        [ sg.Text( f'{ items[ 0 ] }', font = hdr, background_color = black,
-                            enable_events = True, grab = False ), sg.Push( background_color = black ),
-                          sg.Text(f'{ items[ 1 ] }', font = hdr, background_color = black ) ],
+                        [ sg.Text( f'{ items[ 0 ] }', font = hdr, background_color = mblk,
+                            enable_events = True, grab = False ), sg.Push( background_color = mblk ),
+                          sg.Text(f'{ items[ 1 ] }', font = hdr, background_color = mblk ) ],
                 ]
                 self.__titlelayout = title
                 return title
@@ -4081,15 +4082,16 @@ class BudgetForm( Sith ):
     def createheader( self, items ):
         if isinstance( items, list ) and len( items ) == 3:
             try:
-                blue = '#0C396E'
-                black = '#1E1E1E'
-                BPAD_TOP = ((10, 10), (10, 5))
-                BPAD_LEFT = ((5, 5), (5, 5))
-                BPAD_LEFT_INSIDE = (5, (3, 5))
-                BPAD_RIGHT = ((5, 10), (3, 3))
+                blu = '#051F3D'
+                blk = '#101010'
+                mblk = '#1E1E1E'
+                BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
+                BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = (450, 150)
-                hdrsz = (920, 100)
+                frmsz = ( 450, 150 )
+                hdrsz = ( 920, 100 )
                 header = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
                         [ sg.Text( f'{ items[ 1 ] }' ) ],
                         [ sg.Text( f'{ items[ 2 ] }' ) ] ]
@@ -4104,20 +4106,25 @@ class BudgetForm( Sith ):
                 err.show( )
 
     def createfirst( self, items ):
-        if isinstance( items, list ) and len( items ) == 2:
+        if isinstance( items, list ) and len( items ) == 6:
             try:
-                blue = '#0C396E'
-                black = '#1E1E1E'
-                BPAD_TOP = ((10, 10), (10, 5))
-                BPAD_LEFT = ((5, 5), (5, 5))
-                BPAD_LEFT_INSIDE = (5, (3, 5))
-                BPAD_RIGHT = ((5, 10), (3, 3))
+                blu = '#051F3D'
+                blk = '#101010'
+                mblk = '#1E1E1E'
+                BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
+                BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = (450, 150)
-                hdrsz = (920, 100)
-                first = [ [ sg.Text( f'{ items[ 0 ] }', font = hdr ) ],
-                      [ sg.Text( f'{ items[ 1 ] }') ],
-                      [ sg.Image( source = self.__image, subsample = 3, enable_events = True ) ] ]
+                frmsz = ( 450, 150 )
+                hdrsz = ( 920, 100 )
+                first = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 1 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 2 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 3 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 4 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 5 ] }', font = li ), sg.Push( ) ] ]
                 self.__firstlayout = first
                 return first
             except Exception as e:
@@ -4131,21 +4138,23 @@ class BudgetForm( Sith ):
     def createsecond( self, items ):
         if isinstance( items, list ) and len( items ) == 6:
             try:
-                blue = '#0C396E'
-                black = '#1E1E1E'
-                BPAD_TOP = ((10, 10), (10, 5))
-                BPAD_LEFT = ((5, 5), (5, 5))
-                BPAD_LEFT_INSIDE = (5, (3, 5))
-                BPAD_RIGHT = ((5, 10), (3, 3))
+                blu = '#051F3D'
+                blk = '#101010'
+                mblk = '#1E1E1E'
+                BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
+                BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = (450, 150)
-                hdrsz = (920, 100)
-                second = [ [ sg.Text( f'{ items[ 0 ] }', font = hdr ) ],
-                       [ sg.Text( f'{ items[ 1 ] }' ) ],
-                       [ sg.Text( f'{ items[ 2 ] }') ],
-                       [ sg.Text( f'{ items[ 3 ] }' ) ],
-                       [ sg.Text( f'{ items[ 4 ] }' ) ],
-                       [ sg.Text( f'{ items[ 5 ] }' ) ] ]
+                frmsz = ( 450, 150 )
+                hdrsz = ( 920, 100 )
+                second = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 1 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 2 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 3 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 4 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 5 ] }', font = li ), sg.Push( ) ] ]
                 self.__secondlayout = second
                 return second
             except Exception as e:
@@ -4157,21 +4166,25 @@ class BudgetForm( Sith ):
                 err.show( )
 
     def createthird( self, items ):
-        if isinstance( items, list ) and len( items ) == 3:
+        if isinstance( items, list ) and len( items ) ==6:
             try:
-                blue = '#0C396E'
-                black = '#1E1E1E'
-                BPAD_TOP = ((10, 10), (10, 5))
-                BPAD_LEFT = ((5, 5), (5, 5))
-                BPAD_LEFT_INSIDE = (5, (3, 5))
-                BPAD_RIGHT = ((5, 10), (3, 3))
+                blu = '#051F3D'
+                blk = '#101010'
+                mblk = '#1E1E1E'
+                BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
+                BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = (450, 150)
-                hdrsz = (920, 100)
-                third = [ [ sg.Text( f'{  items[ 0 ] }', font = hdr ) ],
-                      [ sg.Input( ), sg.Text( f'{  items[ 1 ] }' ) ],
-                      [ sg.Text( f'{  items[ 2 ] }' ) ],
-                      [ sg.Button( 'Go' ), sg.Button( 'Exit' ) ] ]
+                frmsz = ( 450, 150 )
+                hdrsz = ( 920, 100 )
+                third = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 1 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 2 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 3 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 4 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 5 ] }', font = li ), sg.Push( ) ] ]
                 self.__thirdlayout = third
                 return third
             except Exception as e:
@@ -4185,21 +4198,23 @@ class BudgetForm( Sith ):
     def createfourth( self, items  ):
         if isinstance( items, list ) and len( items ) == 6:
             try:
-                blue = '#0C396E'
-                black = '#1E1E1E'
-                BPAD_TOP = ((10, 10), (10, 5))
-                BPAD_LEFT = ((5, 5), (5, 5))
-                BPAD_LEFT_INSIDE = (5, (3, 5))
-                BPAD_RIGHT = ((5, 10), (3, 3))
+                blu = '#051F3D'
+                blk = '#101010'
+                mblk = '#1E1E1E'
+                BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+                BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
+                BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = (450, 150)
-                hdrsz = (920, 100)
-                fourth = [ [ sg.Text( f'{ items[ 0 ] }', font = hdr ) ],
-                       [ sg.Text( f'{ items[ 0 ] }' ) ],
-                       [ sg.Text( f'{ items[ 0 ] }' ) ],
-                       [ sg.Text( f'{ items[ 0 ] }' ) ],
-                       [ sg.Text( f'{ items[ 0 ] }' ) ],
-                       [ sg.Text( f'{ items[ 0 ] }' ) ] ]
+                frmsz = ( 450, 150 )
+                hdrsz = ( 920, 100 )
+                fourth = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 1 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 2 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 3 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 4 ] }', font = li ), sg.Push( ) ],
+                          [ sg.Push( ), sg.Text( f'{ items[ 5 ] }', font = li ), sg.Push( ) ] ]
                 self.__fourthlayout = fourth
                 return fourth
             except Exception as e:
@@ -4212,36 +4227,38 @@ class BudgetForm( Sith ):
 
     def setlayout( self ):
         try:
-            blue = '#0C396E'
-            black = '#1E1E1E'
-            BPAD_TOP = ( ( 10, 10 ), ( 10, 5 ) )
+            blu = '#051F3D'
+            blk = '#101010'
+            mblk = '#1E1E1E'
+            BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
             BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
-            BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
-            BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
+            BPAD_LEFT_INSIDE = ( 5, ( 5, 5 ) )
+            BPAD_RIGHT = ( ( 5, 5 ), ( 5, 5 ) )
             hdr = 'Roboto 20'
+            li = 'Roboto 10'
             frmsz = ( 450, 150 )
             hdrsz = ( 920, 100 )
             layout = [
-                    [ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = black,
+                    [ sg.Frame( '', self.__titlelayout, pad = ( 0, 0 ), background_color = mblk,
                         expand_x = True,
                         border_width = 0, grab = True ) ],
                     [ sg.Frame( '', self.__headerlayout, size = hdrsz, pad = BPAD_TOP, expand_x = True,
-                        relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
+                        relief = sg.RELIEF_FLAT, border_width = 0 ) ],
                     [ sg.Frame( '',
                         [ [ sg.Frame( '', self.__firstlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
                             border_width = 0, expand_x = True, expand_y = True, ) ],
                           [ sg.Frame( '', self.__thirdlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
                               border_width = 0, expand_x = True, expand_y = True ) ] ],
-                        pad = BPAD_LEFT, background_color = black, border_width = 0,
+                        pad = BPAD_LEFT, background_color = blk, border_width = 0,
                         expand_x = True, expand_y = True ),
                       sg.Frame( '',
                           [ [ sg.Frame( '', self.__secondlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
                               border_width = 0, expand_x = True, expand_y = True ) ],
                             [ sg.Frame( '', self.__fourthlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
                                 border_width = 0, expand_x = True, expand_y = True ) ] ],
-                          pad = BPAD_LEFT, background_color = black, border_width = 0,
+                          pad = BPAD_LEFT, background_color = blk, border_width = 0,
                           expand_x = True, expand_y = True ), ],
-                    [ sg.Sizegrip( background_color = black ) ] ]
+                    [ sg.Sizegrip( background_color = mblk ) ] ]
             self.__formlayout = layout
             return layout
         except Exception as e:
@@ -4257,50 +4274,62 @@ class BudgetForm( Sith ):
             blu = '#051F3D'
             blk = '#101010'
             mblk = '#1E1E1E'
-            BPAD_TOP = ((10, 10), (10, 5))
-            BPAD_LEFT = ((5, 5), (5, 5))
-            BPAD_LEFT_INSIDE = (5, (3, 5))
-            BPAD_RIGHT = ((5, 10), (3, 3))
+            BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
+            BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+            BPAD_LEFT_INSIDE = ( 5, ( 5, 5 ) )
+            BPAD_RIGHT = ( ( 5, 5 ), ( 5, 5 ) )
             hdr = 'Roboto 20'
-            frmsz = (450, 150)
-            hdrsz = (920, 100)
+            li = 'Roboto 10'
+            frmsz = ( 450, 150 )
+            hdrsz = ( 920, 100 )
             self.__titlelayout = [
-                    [ sg.Text( 'Budget Execution', font = hdr, background_color = blk,
-                        enable_events = True, grab = False ), sg.Push( background_color = blk ),
-                      sg.Text( 'Wednesday 27 Oct 2021', font = hdr, background_color = blk ) ],
+                    [ sg.Text( 'Budget Execution', font = hdr, background_color = mblk,
+                        enable_events = True, grab = False ), sg.Push( background_color = mblk ),
+                      sg.Text( 'Wednesday 27 Oct 2021', font = hdr, background_color = mblk ) ],
             ]
             self.__headerlayout = [ [ sg.Push( ), sg.Text( 'Top Header', font = hdr ), sg.Push( ) ],
-                                    [ sg.Text( 'Top Header line 1' ) ],
-                                    [ sg.Text( 'Top Header line 2' ) ] ]
-            self.__firstlayout = [ [ sg.Text( 'Block 1 Header', font = hdr ) ],
-                                   [ sg.Text( 'Block 1 line 1' ) ],
-                                   [ sg.Image( source = self.__image, subsample = 3,
-                                 enable_events = True ) ] ]
-            self.__secondlayout = [ [ sg.Text( 'Block 2 Header', font = hdr ) ],
-                                    [ sg.Text( 'Block 2 line 1' ) ],
-                                    [ sg.Text( 'Block 2 line 2' ) ],
-                                    [ sg.Text( 'Block 2 line 3' ) ],
-                                    [ sg.Text( 'Block 2 line 4' ) ],
-                                    [ sg.Text( 'Block 2 line 5' ) ] ]
-            self.__thirdlayout = [ [ sg.Text( 'Block 3 Header', font = hdr ) ],
-                                   [ sg.Input( ), sg.Text( 'Block 3 line 1' ) ],
-                                   [ sg.Text( 'Block 3 line 2' ) ],
-                                   [ sg.Button( 'Go' ), sg.Button( 'Exit' ) ] ]
-            self.__fourthlayout = [ [ sg.Text( 'Block 4 Header', font = hdr ) ],
-                                    [ sg.Text( 'Block 4 line 1' ) ],
-                                    [ sg.Text( 'Block 4 line 2' ) ],
-                                    [ sg.Text( 'Block 4 line 3' ) ],
-                                    [ sg.Text( 'Block 4 line 4' ) ],
-                                    [ sg.Text( 'Block 4 line 5' ) ] ]
+                                    [ sg.Image( source = self.__image, subsample = 3,
+                                        enable_events = True ), sg.Push( ) ],
+                                    [ sg.Text( 'Top Header line 2' ), sg.Push( )  ] ]
+            self.__firstlayout = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font = hdr ), sg.Push( ) ],
+                                   [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                                   [ sg.Push( ), sg.Text( 'Block 1 line 1', font = li ), sg.Push( ) ],
+                                   [ sg.Push( ), sg.Text( 'Block 1 line 2', font = li ), sg.Push( ) ],
+                                   [ sg.Push( ), sg.Text( 'Block 1 line 3', font = li ), sg.Push( ) ],
+                                   [ sg.Push( ), sg.Text( 'Block 1 line 4', font = li ), sg.Push( ) ],
+                                   [ sg.Push( ), sg.Text( 'Block 1 line 5', font = li ), sg.Push( ) ] ]
+            self.__secondlayout = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = hdr ), sg.Push( )  ],
+                                    [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 2 line 1', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 2 line 2', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 2 line 3', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 2 line 4', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 2 line 5', font = li ), sg.Push( ) ] ]
+            self.__thirdlayout = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = hdr ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 3 line 1', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 3 line 2', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 3 line 3', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 3 line 4', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 3 line 5', font = li ), sg.Push( ) ] ]
+            self.__fourthlayout = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = hdr ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 4 line 1', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 4 line 2', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 4 line 3', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 4 line 4', font = li ), sg.Push( ) ],
+                                    [ sg.Push( ), sg.Text( 'Block 4 line 5', font = li ), sg.Push( ) ] ]
             self.__formlayout = [
-                    [ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = blk,
-                        expand_x = True,
-                        border_width = 0, grab = True ) ],
-                    [ sg.Frame( '', self.__headerlayout, size = hdrsz, pad = BPAD_TOP, expand_x = True,
-                        relief = sg.RELIEF_GROOVE, border_width = 3 ) ],
+                    [ sg.Frame( '', self.__titlelayout, pad = ( 0, 0 ), background_color = mblk,
+                        expand_x = True, border_width = 0, grab = True ) ],
+                    [ sg.Frame( '',
+                        [ [ sg.Frame( '', self.__headerlayout, size = frmsz, pad = BPAD_TOP, expand_x = True,
+                        relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
+                        pad = BPAD_LEFT, background_color = blu, border_width = 0,
+                        expand_x = True, expand_y = False ),  ],
                     [ sg.Frame( '',
                         [ [ sg.Frame( '', self.__firstlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                            border_width = 0, background_color = blk, expand_x = True, expand_y = True, ) ],
+                            border_width = 0, expand_x = True, expand_y = True, ) ],
                           [ sg.Frame( '', self.__thirdlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
                               border_width = 0, expand_x = True, expand_y = True ) ] ],
                         pad = BPAD_LEFT, background_color = blu, border_width = 0,
@@ -4309,19 +4338,18 @@ class BudgetForm( Sith ):
                           [ [ sg.Frame( '', self.__secondlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
                               border_width = 0, expand_x = True, expand_y = True ) ],
                             [ sg.Frame( '', self.__fourthlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                                border_width = 0, background_color = blk, expand_x = True, expand_y = True ) ] ],
+                                border_width = 0, expand_x = True, expand_y = True ) ] ],
                           pad = BPAD_LEFT, background_color = blu, border_width = 0,
                           expand_x = True, expand_y = True ), ],
                     [ sg.Sizegrip( background_color = mblk ) ] ]
             window = sg.Window( '    Budget Execution', self.__formlayout,
                 size = self.__formsize,
                 margins = (0, 0),
-                icon = self.__icon,
                 background_color = blk,
                 no_titlebar = True,
                 resizable = True,
                 right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
-            while True:  # Event Loop
+            while True:
                 event, values = window.read( )
                 print( event, values )
                 if event == sg.WIN_CLOSED or event == 'Exit':
