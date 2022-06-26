@@ -1,1080 +1,0 @@
-
-epython:S1192Æ¶"KDefine a constant instead of duplicating this literal '-OS OTHER-' 3 times.(²ï§§
-wpython:S1192ü3"YDefine a constant instead of duplicating this literal 'The offensive Element = ' 5 times.(®’¬†ıÿÿÿÿ
-spython:S1192åZ"UDefine a constant instead of duplicating this literal '-screenshots folder-' 3 times.(üûÿÿÿÿÿ
-epython:S1192Ê"FDefine a constant instead of duplicating this literal '.json' 3 times.(ğâ½¨øÿÿÿÿ
-npython:S1192œ4"UDefine a constant instead of duplicating this literal 'The offensive row = ' 5 times.(êÂÿ–
-¥python:S1192û3"‹Define a constant instead of duplicating this literal 'You MUST start witha "clean", unused layout every time you create a window' 5 times.(°æğß
-´python:S1192˜."•Define a constant instead of duplicating this literal '*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***' 12 times.(äüêúÿÿÿÿ
-kpython:S1192‰¼"QDefine a constant instead of duplicating this literal '-EDITOR PROGRAM-' 4 times.(Ñ·†ß
-`python:S1192ÿR"GDefine a constant instead of duplicating this literal "+%s+%s" 3 times.(ÙÌÑ
-ipython:S1192ï	"KDefine a constant instead of duplicating this literal '<Button-1>' 6 times.(èíãøÿÿÿÿ
-jpython:S1192æ®"KDefine a constant instead of duplicating this literal 'Courier 10' 7 times.(í½šâùÿÿÿÿ
-opython:S1192ş3"QDefine a constant instead of duplicating this literal 'and has a key = ' 5 times.(§Ò½íşÿÿÿÿ
-cpython:S1192š"JDefine a constant instead of duplicating this literal '.Heading' 12 times.(–½ä
-ƒpython:S1192š4"jDefine a constant instead of duplicating this literal 'Your row is not an iterable (e.g. a list)' 5 times.(°’É
-hpython:S1192÷"NDefine a constant instead of duplicating this literal 'Clear History' 4 times.(ªÙ»¨
-`python:S1192³£"FDefine a constant instead of duplicating this literal 'File ' 3 times.(‘ä—è
-vpython:S1192Ç¬"WDefine a constant instead of duplicating this literal '-editor format string-' 3 times.(Û¬ãèıÿÿÿÿ
-ppython:S1192Óu"XDefine a constant instead of duplicating this literal 'Button Element error {}' 3 times.(å²ş,
-opython:S1192ŞŸ"PDefine a constant instead of duplicating this literal '-PSG file list-' 3 times.(ÊÆ‘ˆıÿÿÿÿ
-dpython:S1192ƒ¸"JDefine a constant instead of duplicating this literal '-TOP COL-' 3 times.(ë…£Ç
-›python:S1192°£"€Define a constant instead of duplicating this literal '*** Error popup attempted but unable to parse error details ***' 3 times.(¬¥ì–
-bpython:S1192Å¿"HDefine a constant instead of duplicating this literal '+GRAPH+' 4 times.(¶õÃ
-dpython:S1192ÚÀ"JDefine a constant instead of duplicating this literal 'Returned:' 4 times.(Âúâ¡
-jpython:S1192¼"PDefine a constant instead of duplicating this literal '-EDITOR FORMAT-' 3 times.(œØ¡ 
-ipython:S1192Œ"PDefine a constant instead of duplicating this literal 'info patchlevel' 3 times.(ë©Ÿ´
-lpython:S1192Ñ+"NDefine a constant instead of duplicating this literal 'gif -index %i' 4 times.( ©ÿÿÿÿÿ
-rpython:S1192­"SDefine a constant instead of duplicating this literal '-explorer program-' 3 times.(á»¯¦úÿÿÿÿ
-lpython:S1192ó;"SDefine a constant instead of duplicating this literal "<Shift-MouseWheel>" 6 times.(¥Ä…
-epython:S1192Â¿"KDefine a constant instead of duplicating this literal 'Get Folder' 3 times.(ò•‹ƒ
-lpython:S1192ò;"NDefine a constant instead of duplicating this literal "<MouseWheel>" 10 times.(Ğ¢´áıÿÿÿÿ
-opython:S1192î¿"PDefine a constant instead of duplicating this literal '-TAB GROUP COL-' 6 times.(ßÔŒÀıÿÿÿÿ
-lpython:S1192İ¶"MDefine a constant instead of duplicating this literal '-ML DETAILS-' 3 times.(Ğ˜ä›ûÿÿÿÿ
-spython:S1192™¼"YDefine a constant instead of duplicating this literal '-SNAPSHOT KEYSYM MANUAL-' 3 times.(•¾ë
-spython:S1192¦»"YDefine a constant instead of duplicating this literal '-snapshot keysym manual-' 3 times.(Áİàã
-ppython:S1192®u"RDefine a constant instead of duplicating this literal '<ButtonRelease-1>' 3 times.(¯ù ğüÿÿÿÿ
-spython:S1192ñ­"YDefine a constant instead of duplicating this literal 'Enable No Titlebar Patch' 3 times.(Ğ¬Œµ
-fpython:S1192•»"MDefine a constant instead of duplicating this literal '-ttk scroll-' 5 times.(Ñˆñ
-kpython:S1192ë»"LDefine a constant instead of duplicating this literal '-TTK THEME-' 5 times.(’Ï½ùÿÿÿÿ
-python:S1192™."pDefine a constant instead of duplicating this literal 'Call Window.Finalize() prior to this operation' 12 times.(ìîş´ıÿÿÿÿ
-cpython:S1192“<"KDefine a constant instead of duplicating this literal "<Button-4>" 3 times.(şÜ¸~
-spython:S1192¾u"ZDefine a constant instead of duplicating this literal "Parent Window's Title: {}" 5 times.( ”«˜
-spython:S1192¯6"ZDefine a constant instead of duplicating this literal 'Error creating Tab layout' 8 times.(–øÃÎ
-gpython:S1192ƒ¸"MDefine a constant instead of duplicating this literal '-HIDE CLIST-' 4 times.(ë…£Ç
-kpython:S1192ù"RDefine a constant instead of duplicating this literal '<ButtonRelease-3>' 6 times.(¶­µ¯
-lpython:S1192‘“"RDefine a constant instead of duplicating this literal '-custom titlebar-' 3 times.(ÔöØ 
-lpython:S1192˜¼"RDefine a constant instead of duplicating this literal '-SNAPSHOT KEYSYM-' 4 times.(êàÖ
-‹python:S1192ò3"mDefine a constant instead of duplicating this literal 'This item will be stripped from your layout' 15 times.(´Ğ½ÿÿÿÿÿ
-qpython:S1192ô"RDefine a constant instead of duplicating this literal '-PSG folder list-' 4 times.(ßöæÁüÿÿÿÿ
-upython:S1192æZ"WDefine a constant instead of duplicating this literal '-screenshots filename-' 3 times.(ä„òúÿÿÿÿ
-rpython:S1192Ê„"SDefine a constant instead of duplicating this literal 'Set icon exception' 3 times.(§¸üÜúÿÿÿÿ
-lpython:S1192¢»"RDefine a constant instead of duplicating this literal '-snapshot keysym-' 3 times.(ı£şÎ
-upython:S1192ò­"VDefine a constant instead of duplicating this literal 'Disable Modal Windows' 3 times.(ÒãÄÅüÿÿÿÿ
-‡python:S1192›4"iDefine a constant instead of duplicating this literal 'Instead of a list, the type found was {}' 5 times.(óê¹Ûúÿÿÿÿ
-Špython:S1192î3"lDefine a constant instead of duplicating this literal 'Layout has a FUNCTION instead of an ELEMENT' 5 times.(¿„‡İøÿÿÿÿ
-~python:S1192ó­"dDefine a constant instead of duplicating this literal 'Disable Grab Anywhere with Titlebar' 3 times.(ã´¤¬
-python:S1192¼9"Define a constant instead of duplicating this literal 'The traceback will show you the Window with the problem layout' 3 times.(úáÙ¦ûÿÿÿÿ
-lpython:S1192ó»"MDefine a constant instead of duplicating this literal '-TTK SCROLL-' 6 times.(ì®ŒÁùÿÿÿÿ
-hpython:S1192ôu"JDefine a constant instead of duplicating this literal '<Return>' 10 times.(öôˆ’ùÿÿÿÿ
-python:S1192Î*"oDefine a constant instead of duplicating this literal 'Image element - source is not a valid type: {}' 3 times.(ÇôŸ¯ùÿÿÿÿ
-python:S1192ä3"hDefine a constant instead of duplicating this literal 'Layout has a LIST instead of an ELEMENT' 5 times.(«°×
-mpython:S1192å·"NDefine a constant instead of duplicating this literal '-ML MARKDOWN-' 3 times.(Š±¢ûÿÿÿÿ
-cpython:S1192Â¿"IDefine a constant instead of duplicating this literal 'Get File' 3 times.(ò•‹ƒ
-ipython:S1192Ã¶"ODefine a constant instead of duplicating this literal '-OS LINUX VER-' 3 times.(…Ş¶
-npython:S1192Ç¶"ODefine a constant instead of duplicating this literal '-OS OTHER VER-' 3 times.(³¼¬¡ıÿÿÿÿ
-apython:S1192Ì"HDefine a constant instead of duplicating this literal "<Enter>" 8 times.(«¿Ëê
-`python:S1192Ô·"FDefine a constant instead of duplicating this literal '-T{}-' 4 times.(ÍÇ¥
-_python:S1192‡l"FDefine a constant instead of duplicating this literal "#%06X" 3 times.(Û…è
-ipython:S1192ÿ¾"PDefine a constant instead of duplicating this literal 'Launch Debugger' 3 times.(İ’
-npython:S1192½"PDefine a constant instead of duplicating this literal "<ButtonPress-1>" 8 times.(³Áñ¶øÿÿÿÿ
-vpython:S1192æ3"XDefine a constant instead of duplicating this literal 'The offensive list is:' 10 times.(Ó¾íÙøÿÿÿÿ
-ƒpython:S1192å3"eDefine a constant instead of duplicating this literal 'This means you have a badly placed ]' 5 times.(·¿ßûøÿÿÿÿ
-jpython:S1192Ğ»"PDefine a constant instead of duplicating this literal '<editor> <file>' 4 times.(±´æ
-fpython:S1192Î"HDefine a constant instead of duplicating this literal 'Edit Me' 4 times.(È¨Ûœùÿÿÿÿ
-gpython:S1192Ã£"MDefine a constant instead of duplicating this literal 'white on red' 4 times.(æÅ–Ã
-ipython:S1192”<"KDefine a constant instead of duplicating this literal "<Button-5>" 3 times.(£¸èÚúÿÿÿÿ
-kpython:S1192÷"RDefine a constant instead of duplicating this literal '<ButtonRelease-2>' 5 times.(åƒùÆ
-epython:S1192Â¶"KDefine a constant instead of duplicating this literal '-OS LINUX-' 3 times.(ÆÂ¾¨
-upython:S1192¾9"WDefine a constant instead of duplicating this literal 'The error occuring is:' 3 times.(’×²şÿÿÿÿ
-kpython:S1192¾"RDefine a constant instead of duplicating this literal "<ButtonRelease-1>" 8 times.(¸ğş¦
-upython:S1192àZ"WDefine a constant instead of duplicating this literal 'Screen capture failure' 3 times.(²‰èÜøÿÿÿÿ
-lpython:S1192Á¶"MDefine a constant instead of duplicating this literal '-OS WIN VER-' 3 times.(èÆª úÿÿÿÿ
-kpython:S1192í¿"LDefine a constant instead of duplicating this literal '-HIDE TABS-' 3 times.(àáëùÿÿÿÿ
-”python:S1192ï3"vDefine a constant instead of duplicating this literal 'This likely means you are missing () from your layout' 5 times.(š…İøüÿÿÿÿ
-kpython:S1192–¬"QDefine a constant instead of duplicating this literal '-python command-' 4 times.(‹å²ÿ
-ppython:S1192õ]"RDefine a constant instead of duplicating this literal '<Double-Button-1>' 3 times.(ÃÉâêúÿÿÿÿ
-npython:S1192ğ?"PDefine a constant instead of duplicating this literal '<ButtonPress-1>' 6 times.(˜Ê•ãøÿÿÿÿ
-fpython:S1192Í"HDefine a constant instead of duplicating this literal "<Leave>" 8 times.(·Õ£Óşÿÿÿÿ
-¤python:S1192€4"…Define a constant instead of duplicating this literal 'Hint - try printing your layout and matching the IDs "print(layout)"' 5 times.(ø‰¾Ûøÿÿÿÿ
-zpython:S1192ã3"\Define a constant instead of duplicating this literal 'Error creating Frame layout' 4 times.(¦‘‹şÿÿÿÿ
-qpython:S1192Ë»"WDefine a constant instead of duplicating this literal '<editor> <file>:<line>' 4 times.(¿÷‹á
-jpython:S1192…¸"KDefine a constant instead of duplicating this literal 'Post Issue' 3 times.(úÍë’ÿÿÿÿÿ
-åpython:S1192÷3"ÆDefine a constant instead of duplicating this literal '*** YOU ARE ATTEMPTING TO RESUSE AN ELEMENT IN YOUR LAYOUT! Once placed in a layout, an element cannot be used in another layout. ***' 5 times.(ÊŸÁŠøÿÿÿÿ
-lpython:S1192Å¶"MDefine a constant instead of duplicating this literal '-OS MAC VER-' 3 times.(•ïÿÍıÿÿÿÿ
-jpython:S1192¿"LDefine a constant instead of duplicating this literal "<B1-Motion>" 8 times.(æ«¿úÿÿÿÿ
-Špython:S1192è3"lDefine a constant instead of duplicating this literal 'This list will be stripped from your layout' 5 times.(¼´½ıûÿÿÿÿ
-‰python:S1192ú3"kDefine a constant instead of duplicating this literal 'The layout specified has already been used' 5 times.(—¨Ù‘ÿÿÿÿÿ
-hpython:S1192À¶"IDefine a constant instead of duplicating this literal '-OS WIN-' 3 times.(«™Òöûÿÿÿÿ
-hpython:S1192Ä¶"IDefine a constant instead of duplicating this literal '-OS MAC-' 3 times.(…ˆ‘…øÿÿÿÿ
-{python:S1192ÜK"]Define a constant instead of duplicating this literal 'Error creating Window layout' 4 times.(áƒüûÿÿÿÿ
-ppython:S1192Å¬"QDefine a constant instead of duplicating this literal '-editor program-' 5 times.(Ì‚Æûÿÿÿÿ
-dpython:S1192â½"KDefine a constant instead of duplicating this literal '-DOC LINK-' 5 times.(…ñÕq
-{python:S1192“="]Define a constant instead of duplicating this literal 'Error creating Column layout' 4 times.(Å•Ã…ıÿÿÿÿ
-Hpython:S1066×"/Merge this if statement with the enclosing one.(æÙª¤
-Gpython:S1066Â	"/Merge this if statement with the enclosing one.(»»ìm
-Hpython:S1066»J"/Merge this if statement with the enclosing one.(›ºÍ
-Hpython:S1066ÕN"/Merge this if statement with the enclosing one.(ƒı…”
-Ipython:S1066°"/Merge this if statement with the enclosing one.(Ê¸ÖÇ
-Npython:S1066‰"/Merge this if statement with the enclosing one.(¹ƒéôşÿÿÿÿ
-Npython:S1066ãŸ"/Merge this if statement with the enclosing one.(¹ƒéôşÿÿÿÿ
-Ipython:S1066Õ¡"/Merge this if statement with the enclosing one.(Şİ˜İ
-Hpython:S1066¦¸"/Merge this if statement with the enclosing one.(øœ€v
-Npython:S1066×¼"/Merge this if statement with the enclosing one.(ó¾ŞÖüÿÿÿÿ
-Ipython:S1066—¾"/Merge this if statement with the enclosing one.(Òúå
-Tpython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-5python:S125"Remove this commented out code.(œ±÷_
-7python:S125†"Remove this commented out code.(Éô³ï
-Upython:S5754œ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125¥"Remove this commented out code.(»¡×³
-Upython:S5754´"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125È"Remove this commented out code.(úÃÜä
-7python:S125í"Remove this commented out code.(é‘…Ü
-7python:S125ø"Remove this commented out code.(†¬ŒŸ
-7python:S125¸"Remove this commented out code.(É´Ş
-7python:S125È"Remove this commented out code.(–¼×ı
-xpython:S1845à"_Rename method "key" to prevent any misunderstanding/clash with field "Key" defined on line 1009(“ÿÿŒ
-ƒpython:S1845ì"eRename method "widget" to prevent any misunderstanding/clash with field "Widget" defined on line 1014(­Âèµşÿÿÿÿ
-hpython:S116Å"PRename this field "SetFocus" to match the regular expression ^[_a-z][_a-z0-9]*$.(«Íæà
-opython:S116Ä"RRename this field "SetTooltip" to match the regular expression ^[_a-z][_a-z0-9]*$.(ñ†ÖÈÿÿÿÿÿ
-mpython:S116ã"PRename this field "TKIntVar" to match the regular expression ^[_a-z][_a-z0-9]*$.(’ö¦Šúÿÿÿÿ
-ppython:S116â"SRename this field "TKStringVar" to match the regular expression ^[_a-z][_a-z0-9]*$.(ùâçúÿÿÿÿ
-hpython:S116î"PRename this field "Position" to match the regular expression ^[_a-z][_a-z0-9]*$.(”á –
-opython:S116®"RRename this field "CanvasSize" to match the regular expression ^[_a-z][_a-z0-9]*$.(¹—¤Çıÿÿÿÿ
-opython:S116ï"WRename this field "BackgroundColor" to match the regular expression ^[_a-z][_a-z0-9]*$.( Ô´ë
-mpython:S116À"VRename this field "RightClickMenu" to match the regular expression ^[_a-z][_a-z0-9]*$.(õ‚ÕE
-gpython:S116æ"ORename this field "TKImage" to match the regular expression ^[_a-z][_a-z0-9]*$.(êÀÀÂ
-spython:S116ø"VRename this field "ParentRowFrame" to match the regular expression ^[_a-z][_a-z0-9]*$.(´”·úÿÿÿÿ
-rpython:S116ó"URename this field "TooltipObject" to match the regular expression ^[_a-z][_a-z0-9]*$.(˜ÔÖÕşÿÿÿÿ
-npython:S116®	"VRename this field "MenuItemChosen" to match the regular expression ^[_a-z][_a-z0-9]*$.(ğÄÓà
-cpython:S116ñ"KRename this field "Key" to match the regular expression ^[_a-z][_a-z0-9]*$.(¬…„ 
-cpython:S116ß"KRename this field "Pad" to match the regular expression ^[_a-z][_a-z0-9]*$.(œÆœ¥
-upython:S116õ"XRename this field "TKRightClickMenu" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ø…‡»ÿÿÿÿÿ
-vpython:S116¼"YRename this field "DisabledTextColor" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷ö÷ùÿÿÿÿ
-fpython:S116ö"NRename this field "Widget" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÛÆƒÄ
-tpython:S116ì"WRename this field "ParentContainer" to match the regular expression ^[_a-z][_a-z0-9]*$.(³¡¯Ãıÿÿÿÿ
-ppython:S116í"XRename this field "TextInputDefault" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ì¼ÁÁ
-lpython:S116÷"ORename this field "Tearoff" to match the regular expression ^[_a-z][_a-z0-9]*$.(›Ô’Ÿüÿÿÿÿ
-lpython:S116ò"ORename this field "Tooltip" to match the regular expression ^[_a-z][_a-z0-9]*$.(öì…Íÿÿÿÿÿ
-lpython:S116å"ORename this field "TKEntry" to match the regular expression ^[_a-z][_a-z0-9]*$.(ºš»»şÿÿÿÿ
-hpython:S116¾"PRename this field "ItemFont" to match the regular expression ^[_a-z][_a-z0-9]*$.(§³òò
-ipython:S116Ü"LRename this field "Type" to match the regular expression ^[_a-z][_a-z0-9]*$.(ğÿØøÿÿÿÿ
-dpython:S116Û"LRename this field "Size" to match the regular expression ^[_a-z][_a-z0-9]*$.(±Ãµ‡
-mpython:S116Â"PRename this field "Disabled" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÃŠñÓùÿÿÿÿ
-qpython:S116İ"TRename this field "AutoSizeText" to match the regular expression ^[_a-z][_a-z0-9]*$.(üüûûøÿÿÿÿ
-opython:S116ë"RRename this field "ParentForm" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÄÇ† ùÿÿÿÿ
-epython:S116ä"NRename this field "TKText" to match the regular expression ^[_a-z][_a-z0-9]*$.(¿ÈùI
-hpython:S116ğ"QRename this field "TextColor" to match the regular expression ^[_a-z][_a-z0-9]*$.(áğ…A
-dpython:S116à"LRename this field "Font" to match the regular expression ^[_a-z][_a-z0-9]*$.(øãÓ¡
-epython:S107¤"MMethod "__init__" has 18 parameters, which is greater than the 13 authorized.(ëÔ¡
-mpython:S3776¤"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(ëÔ¡
-<python:S125ü"Remove this commented out code.(ØÅ¤¸ıÿÿÿÿ
-xpython:S100ø"[Rename method "_RightClickMenuCallback" to match the regular expression ^[a-z_][a-z0-9_]*$.(›”Ä™ûÿÿÿÿ
-Upython:S5754Š	"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-spython:S100¥	"[Rename method "_MenuItemChosenCallback" to match the regular expression ^[a-z_][a-z0-9_]*$.(®íÈˆ
-7python:S125²	"Remove this commented out code.(¾ñŸ¹
-zpython:S100µ	"]Rename method "_FindReturnKeyBoundButton" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ö¸ÎÌÿÿÿÿÿ
-rpython:S3776µ	"TRefactor this function to reduce its Cognitive Complexity from 45 to the 15 allowed.(Ö¸ÎÌÿÿÿÿÿ
-Kpython:S1172Ú	"-Remove the unused function parameter "event".(±±­æşÿÿÿÿ
-6python:S3626ı	"Remove this redundant return.(ÙãŞŸ
-tpython:S100Ú	"WRename method "_TextClickedHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(±±­æşÿÿÿÿ
-<python:S125ç	"Remove this commented out code.(¼ÈÛ…øÿÿÿÿ
-7python:S125ë	"Remove this commented out code.(Ë÷¡â
-7python:S125î	"Remove this commented out code.(„ óñ
-<python:S125
-"Remove this commented out code.(ÉáÒ´ıÿÿÿÿ
-Kpython:S1172
-"-Remove the unused function parameter "event".(ÌÁ“éûÿÿÿÿ
-tpython:S117›
-"WRename this local variable "MyForm" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹­€İøÿÿÿÿ
-rpython:S100
-"URename method "_ReturnKeyHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÌÁ“éûÿÿÿÿ
-6python:S125³
-"Remove this commented out code.(øµÎ 
-Kpython:S1172·
-"-Remove the unused function parameter "event".(³Ë…ùÿÿÿÿÿ
-vpython:S100·
-"YRename method "_ListboxSelectHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(³Ë…ùÿÿÿÿÿ
-Kpython:S1172Á
-"-Remove the unused function parameter "event".(¯Æ¦èÿÿÿÿÿ
-wpython:S100Á
-"ZRename method "_ComboboxSelectHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(¯Æ¦èÿÿÿÿÿ
-Fpython:S1172Ë
-"-Remove the unused function parameter "event".(±ÿ‹
-qpython:S100Ë
-"YRename method "_SpinboxSelectHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(±ÿ‹
-npython:S100Õ
-"QRename method "_RadioHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(üª˜ìıÿÿÿÿ
-qpython:S100Û
-"TRename method "_CheckboxHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(Û–´éúÿÿÿÿ
-Kpython:S1172á
-"-Remove the unused function parameter "event".( ‰×ƒúÿÿÿÿ
-wpython:S100á
-"ZRename method "_TabGroupSelectHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.( ‰×ƒúÿÿÿÿ
-Fpython:S1172ê
-"-Remove the unused function parameter "event".(«½àˆ
-lpython:S100ê
-"TRename method "_KeyboardHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(«½àˆ
-Kpython:S1172÷
-"-Remove the unused function parameter "event".(²‹ñäûÿÿÿÿ
-npython:S100÷
-"QRename method "_ClickHandler" to match the regular expression ^[a-z_][a-z0-9_]*$.(²‹ñäûÿÿÿÿ
-7python:S125”"Remove this commented out code.(¹–ª„
-Cpython:S1481­"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-Upython:S5754É"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754¢"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754§"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ª"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754º"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Æ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ğ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-rpython:S3776Ú"TRefactor this function to reduce its Cognitive Complexity from 30 to the 15 allowed.(¶©»úÿÿÿÿ
-Upython:S5754“"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Lpython:S1172¨".Remove the unused function parameter "kwargs".(ìÔÎ€üÿÿÿÿ
-Jpython:S1172¨",Remove the unused function parameter "args".(ìÔÎ€üÿÿÿÿ
-}python:S1845ÿ"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 2034(‰˜øüÿÿÿÿÿ
-ƒpython:S1845€"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 1962(ùÜ¡úÿÿÿÿ
-rpython:S3776ª"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(¿Š¤ºıÿÿÿÿ
-Upython:S5754Ö"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ü"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125ê"Remove this commented out code.(ÙÉ«à
-Upython:S5754û"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-}python:S1845Õ"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 2244(‰˜øüÿÿÿÿÿ
-ƒpython:S1845Ö"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 2145(ùÜ¡úÿÿÿÿ
-Bpython:S1481“")Remove the unused local variable "width".(êÄ×
-Gpython:S1481•")Remove the unused local variable "width".(îÃ…Êùÿÿÿÿ
-rpython:S3776á"TRefactor this function to reduce its Cognitive Complexity from 53 to the 15 allowed.(†›Ûºùÿÿÿÿ
-Upython:S5754‹"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754¢"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ª"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ñ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-ƒpython:S1845á"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 2338(ùÜ¡úÿÿÿÿ
-mpython:S3776¢"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(„Âáß
-ƒpython:S1845Ú"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 2530(ùÜ¡úÿÿÿÿ
-rpython:S3776â"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(¦ããÓüÿÿÿÿ
-Upython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754“"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754±"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ó"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-}python:S1845¢"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 2840(‰˜øüÿÿÿÿÿ
-ƒpython:S1845¤"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 2755(ùÜ¡úÿÿÿÿ
-mpython:S3776ê"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÅÖ£
-Upython:S5754³"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-mpython:S3776Ã"TRefactor this function to reduce its Cognitive Complexity from 32 to the 15 allowed.(„Ìñı
-Upython:S5754ç"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-}python:S1845Ş"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 2952(‰˜øüÿÿÿÿÿ
-ƒpython:S1845ß"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 2962(ùÜ¡úÿÿÿÿ
-rpython:S3776³"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(µ‘ÃËüÿÿÿÿ
-Upython:S5754ù"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-mpython:S3776’"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(Ç÷Šê
-Upython:S5754³"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-}python:S1845"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 3213(‰˜øüÿÿÿÿÿ
-ƒpython:S1845"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 3132(ùÜ¡úÿÿÿÿ
-6python:S3626º"Remove this redundant return.(ÙãŞŸ
-mpython:S3776¼"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Á¼ÎÇ
-Upython:S5754á"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Fpython:S1172û"-Remove the unused function parameter "event".(í‰¯¢
-6python:S125‰"Remove this commented out code.(øµÎ 
-}python:S1845¾"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 3500(‰˜øüÿÿÿÿÿ
-ƒpython:S1845¿"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 3381(ùÜ¡úÿÿÿÿ
-6python:S3626³"Remove this redundant return.(ÙãŞŸ
-Kpython:S1481ê"2Remove the unused local variable "starting_point".(£ÏÀ“
-rpython:S3776µ"TRefactor this function to reduce its Cognitive Complexity from 55 to the 15 allowed.(ô‚İøÿÿÿÿ
-Upython:S5754§"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754¢"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754¬"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Cpython:S1481·"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-Upython:S5754»"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-}python:S1845“"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 3778(‰˜øüÿÿÿÿÿ
-ƒpython:S1845”"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 3736(ùÜ¡úÿÿÿÿ
-Upython:S5754Ë"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Ppython:S1172ª"2Remove the unused function parameter "autoscroll".(‰÷Ğÿÿÿÿÿ
-Spython:S1172ª"5Remove the unused function parameter "justification".(‰÷Ğÿÿÿÿÿ
-Upython:S5754Ñ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-ƒpython:S1845˜ "eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 4076(ùÜ¡úÿÿÿÿ
-6python:S3626ê"Remove this redundant return.(ÙãŞŸ
-jpython:S116Æ "MRename this field "Count" to match the regular expression ^[_a-z][_a-z0-9]*$.(¶± ûÿÿÿÿ
-kpython:S116Â "NRename this field "Length" to match the regular expression ^[_a-z][_a-z0-9]*$.(€ÀÎ‹úÿÿÿÿ
-jpython:S116Ã "MRename this field "Width" to match the regular expression ^[_a-z][_a-z0-9]*$.(øëøÿÿÿÿ
-ppython:S116Å "SRename this field "Orientation" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ë¡°øÿÿÿÿ
-opython:S116Ç "RRename this field "PriorCount" to match the regular expression ^[_a-z][_a-z0-9]*$.(ßåáòıÿÿÿÿ
-cpython:S116Ä "KRename this field "Max" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÁèØŸ
-ypython:S116× "\Rename this field "TKProgressBarForReal" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ÿİî°ıÿÿÿÿ
-lpython:S117¨ "TRename this parameter "BarColor" to match the regular expression ^[_a-z][a-z0-9_]*$.(òÏˆç
-7python:S125Ğ "Remove this commented out code.(±Â°ä
-7python:S125Û "Remove this commented out code.(Ÿğº¤
-apython:S100å "JRename method "Update" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÂÄ³t
-Upython:S5754ñ "<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ö "<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125­""Remove this commented out code.(¤Ä»‚
-<python:S125Œ#"Remove this commented out code.(™ïá¸ùÿÿÿÿ
-python:S1845†'"cRename field "Click" to prevent any misunderstanding/clash with method "click" defined on line 4988(®ë•´üÿÿÿÿ
-ƒpython:S1845ˆ'"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 4868(ùÜ¡úÿÿÿÿ
-6python:S3626Æ$"Remove this redundant return.(ÙãŞŸ
-mpython:S3776™#"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(€•ç“
-7python:S125¯$"Remove this commented out code.(é§à¤
-Epython:S1172Ú$",Remove the unused function parameter "parm".(Îì¤Ğ
-Epython:S1172æ$",Remove the unused function parameter "parm".(‚º±ü
-6python:S125ó$"Remove this commented out code.(øµÎ 
-mpython:S3776ø$"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(ª°®¨
-Upython:S5754Œ%"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754‘%"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-6python:S3626‚&"Remove this redundant return.(ÙãŞŸ
-rpython:S3776–%"TRefactor this function to reduce its Cognitive Complexity from 47 to the 15 allowed.(º›û¤üÿÿÿÿ
-Upython:S5754ª%"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-mpython:S3776„&"TRefactor this function to reduce its Cognitive Complexity from 60 to the 15 allowed.(Ü“ÑÔ
-7python:S125¨&"Remove this commented out code.(¥•
-<python:S125¯&"Remove this commented out code.(ó€’ıÿÿÿÿ
-Upython:S5754ƒ'"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-ƒpython:S1845î("eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 5138(ùÜ¡úÿÿÿÿ
-python:S1845ï("cRename field "Click" to prevent any misunderstanding/clash with method "click" defined on line 5220(®ë•´üÿÿÿÿ
-<python:S125Ü'"Remove this commented out code.(ÆÌßÍüÿÿÿÿ
-6python:S125("Remove this commented out code.(øµÎ 
-Cpython:S1481Ï("%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-mpython:S3776’("TRefactor this function to reduce its Cognitive Complexity from 48 to the 15 allowed.(œ˜Ùà
-Upython:S5754ë("<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-ƒpython:S1845*"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 5340(ùÜ¡úÿÿÿÿ
-Upython:S5754Ö)"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754‰*"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-<python:S125Š*"Remove this commented out code.(…ğÙÿÿÿÿÿ
-6python:S3626ç*"Remove this redundant return.(ÙãŞŸ
-mpython:S3776é*"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(‚şä
-7python:S125Ÿ+"Remove this commented out code.(ãé­û
-Upython:S5754¶+"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-lpython:S3776¼+"TRefactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.(ì“9
-rpython:S3776ï+"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ÿá„üÿÿÿÿ
-Upython:S5754,"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754“,"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754›,"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-6python:S3626Ú,"Remove this redundant return.(ÙãŞŸ
-python:S1845ì2"cRename field "Erase" to prevent any misunderstanding/clash with method "erase" defined on line 6209(€ ’Úşÿÿÿÿ
-python:S1845î2"aRename field "Move" to prevent any misunderstanding/clash with method "move" defined on line 6268(Ùª”‘ùÿÿÿÿ
-ƒpython:S1845ó2"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 6239(ùÜ¡úÿÿÿÿ
-6python:S3626Ö-"Remove this redundant return.(ÙãŞŸ
-<python:S125Ä-"Remove this commented out code.(¾È¼Øûÿÿÿÿ
-Upython:S5754ç-"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754."<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Dpython:S5806œ."+Rename this variable; it shadows a builtin.(ˆ¥Îã
-Upython:S5754²."<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Cpython:S5806±."+Rename this variable; it shadows a builtin.(ß‘M
-Upython:S5754Ö."<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Dpython:S5806Ñ."+Rename this variable; it shadows a builtin.(Úñç
-7python:S125ï."Remove this commented out code.(»‰Ù«
-Upython:S5754ú."<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Dpython:S5806÷."+Rename this variable; it shadows a builtin.(‚ßşä
-Upython:S5754—/"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Dpython:S5806•/"+Rename this variable; it shadows a builtin.(ïªÑú
-Ipython:S5806¸/"+Rename this variable; it shadows a builtin.(¨Ñ…†ıÿÿÿÿ
-Upython:S5754Ş/"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Dpython:S5806Û/"+Rename this variable; it shadows a builtin.(µ²Ó…
-Upython:S5754ù/"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Dpython:S5806ø/"+Rename this variable; it shadows a builtin.(¸Ğ„
-Upython:S5754š0"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Ipython:S5806™0"+Rename this variable; it shadows a builtin.(ˆÛûÿÿÿÿ
-Upython:S5754³0"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754½0"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Dpython:S5806»0"+Rename this variable; it shadows a builtin.(¢ÃÜ
-Upython:S5754Ì0"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ø0"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ü0"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Npython:S1481°1"0Remove the unused local variable "shift_amount".(ÌÌÊ†øÿÿÿÿ
-6python:S1252"Remove this commented out code.(øµÎ 
-7python:S125—2"Remove this commented out code.(Äå†ÿ
-6python:S125©2"Remove this commented out code.(øµÎ 
-6python:S125Ó2"Remove this commented out code.(øµÎ 
-~python:S1845Ğ4"eRename field "Layout" to prevent any misunderstanding/clash with method "layout" defined on line 6667(ÖÌÊÆ
-ƒpython:S1845Ñ4"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 6706(ùÜ¡úÿÿÿÿ
-6python:S3626Ó3"Remove this redundant return.(ÙãŞŸ
-7python:S125½3"Remove this commented out code.(²úş¿
-xpython:S117ß3"[Rename this local variable "CurrentRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÌÏÆÿÿÿÿÿ
-ypython:S117Ş3"aRename this local variable "CurrentRowNumber" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¯ÿè
-upython:S117İ3"XRename this local variable "NumRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ˜ôüÿÿÿÿ
-~python:S1845±7"eRename field "Layout" to prevent any misunderstanding/clash with method "layout" defined on line 6995(ÖÌÊÆ
-ƒpython:S1845²7"eRename field "Select" to prevent any misunderstanding/clash with method "select" defined on line 7077(Öæûıÿÿÿÿ
-ƒpython:S1845³7"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 7019(ùÜ¡úÿÿÿÿ
-6python:S3626 6"Remove this redundant return.(ÙãŞŸ
-xpython:S117«6"[Rename this local variable "CurrentRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÌÏÆÿÿÿÿÿ
-ypython:S117ª6"aRename this local variable "CurrentRowNumber" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¯ÿè
-upython:S117©6"XRename this local variable "NumRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ˜ôüÿÿÿÿ
-7python:S1257"Remove this commented out code.(Œí‘˜
-}python:S1845á9"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 7301(‰˜øüÿÿÿÿÿ
-~python:S1845â9"eRename field "Layout" to prevent any misunderstanding/clash with method "layout" defined on line 7248(ÖÌÊÆ
-6python:S3626›8"Remove this redundant return.(ÙãŞŸ
-xpython:S117§8"[Rename this local variable "CurrentRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÌÏÆÿÿÿÿÿ
-ypython:S117¦8"aRename this local variable "CurrentRowNumber" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¯ÿè
-upython:S117¥8"XRename this local variable "NumRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ˜ôüÿÿÿÿ
-Upython:S5754•9"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-rpython:S3776™9"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ºÎ½£ùÿÿÿÿ
-ƒpython:S1845ÿ:"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 7489(ùÜ¡úÿÿÿÿ
-6python:S3626¿:"Remove this redundant return.(ÙãŞŸ
-Upython:S5754Ü:"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Fpython:S1172î:"-Remove the unused function parameter "event".(êÉÒò
-6python:S125û:"Remove this commented out code.(øµÎ 
-<python:S125¿;"Remove this commented out code.(²¥ñûûÿÿÿÿ
-<python:S125Ä;"Remove this commented out code.(ÁçË¿şÿÿÿÿ
-<python:S125à;"Remove this commented out code.(¯¸æ¥şÿÿÿÿ
-~python:S1845>"eRename field "Layout" to prevent any misunderstanding/clash with method "layout" defined on line 7864(ÖÌÊÆ
-ƒpython:S1845‘>"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 7903(ùÜ¡úÿÿÿÿ
-6python:S3626ƒ="Remove this redundant return.(ÙãŞŸ
-xpython:S117="[Rename this local variable "CurrentRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÌÏÆÿÿÿÿÿ
-ypython:S117="aRename this local variable "CurrentRowNumber" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¯ÿè
-upython:S117="XRename this local variable "NumRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ˜ôüÿÿÿÿ
-Cpython:S1481ğ="*Remove the unused local variable "expand".(¡–Àğ
-Cpython:S1481ò="*Remove the unused local variable "expand".(ªÛ§
-Bpython:S1481ô="*Remove the unused local variable "expand".(û“ÍC
-Hpython:S1481ö="*Remove the unused local variable "expand".(¹à­†ûÿÿÿÿ
-rpython:S3776ß="TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(òÕ†ùÿÿÿÿ
-ƒpython:S1845ù>"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 8034(ùÜ¡úÿÿÿÿ
-6python:S3626à>"Remove this redundant return.(ÙãŞŸ
-Rpython:S1144ô?"4Remove this unused class-private '__minsize' method.(ıô™‡şÿÿÿÿ
-Kpython:S1940›@"-Use the opposite operator ("not in") instead.(îÜÒÅşÿÿÿÿ
-Upython:S5754¹@"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-ƒpython:S1845ìA"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 8370(ùÜ¡úÿÿÿÿ
-6python:S3626¡A"Remove this redundant return.(ÙãŞŸ
-6python:S125®A"Remove this commented out code.(øµÎ 
-rpython:S3776²A"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(ô¥¢éùÿÿÿÿ
-ƒpython:S1845íD"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 8608(ùÜ¡úÿÿÿÿ
-}python:S1845îD"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 8789(‰˜øüÿÿÿÿÿ
-6python:S3626C"Remove this redundant return.(ÙãŞŸ
-7python:S125ˆC"Remove this commented out code.(¹‡¤„
-fpython:S1854ÊC"MRemove this assignment to local variable 'children'; the value is never used.(ûšÔ€
-mpython:S3776 C"TRefactor this function to reduce its Cognitive Complexity from 42 to the 15 allowed.(î›µõ
-Ipython:S5806ĞC"+Rename this variable; it shadows a builtin.(ò¬îáùÿÿÿÿ
-Kpython:S1172óC"-Remove the unused function parameter "event".(¢·÷Ëşÿÿÿÿ
-6python:S125„D"Remove this commented out code.(øµÎ 
-Fpython:S1172ˆD"-Remove the unused function parameter "event".(ÁøÉÓ
-6python:S125˜D"Remove this commented out code.(øµÎ 
-mpython:S3776D"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(ê×¯—
-ƒpython:S1845šG"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 9041(ùÜ¡úÿÿÿÿ
-6python:S3626•F"Remove this redundant return.(ÙãŞŸ
-7python:S125ğE"Remove this commented out code.(¹‡¤„
-Kpython:S1172—F"-Remove the unused function parameter "event".(¢·÷Ëşÿÿÿÿ
-tpython:S117¤F"WRename this local variable "MyForm" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹­€İøÿÿÿÿ
-Hpython:S1481¤F"*Remove the unused local variable "MyForm".(‹­€İøÿÿÿÿ
-7python:S125¡F"Remove this commented out code.(óı«È
-6python:S125ªF"Remove this commented out code.(øµÎ 
-mpython:S3776®F"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(êìÍñ
-Upython:S5754ÆF"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Ipython:S5806ÂF"+Rename this variable; it shadows a builtin.(¤²ßÿÿÿÿÿ
-mpython:S3776ÑF"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(äÂÅ
-Dpython:S5806ûF"+Rename this variable; it shadows a builtin.(¸ü”á
-<python:S125€G"Remove this commented out code.(ëı¹Óşÿÿÿÿ
-Upython:S5754G"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-<python:S125G"Remove this commented out code.(ëı¹Óşÿÿÿÿ
-ƒpython:S1845‚H"eRename field "Insert" to prevent any misunderstanding/clash with method "insert" defined on line 9174(õùˆÒúÿÿÿÿ
-kpython:S116‚H"NRename this field "Insert" to match the regular expression ^[_a-z][_a-z0-9]*$.(õùˆÒúÿÿÿÿ
-`python:S100ÀG"HRename method "_Add" to match the regular expression ^[a-z_][a-z0-9_]*$.(Â°¯Ğ
-ipython:S100ËG"LRename method "_AddNode" to match the regular expression ^[a-z_][a-z0-9_]*$.(«ª€Ñùÿÿÿÿ
-dpython:S100õG"LRename method "_NodeStr" to match the regular expression ^[a-z_][a-z0-9_]*$.(€Ö ›
-}python:S1845¯H"_Rename field "Get" to prevent any misunderstanding/clash with method "get" defined on line 9254(‰˜øüÿÿÿÿÿ
-ƒpython:S1845°H"eRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 9238(ùÜ¡úÿÿÿÿ
-fpython:S1542·H"MRename function "Stretch" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ú÷’ä
-lpython:S1542ÅH"NRename function "VStretch" to match the regular expression ^[a-z_][a-z0-9_]*$.(°ÁŸÊÿÿÿÿÿ
-}python:S1845Ò["dRename field "Close" to prevent any misunderstanding/clash with method "close" defined on line 10904(İ¯šÁ
-†python:S1845Ô["hRename field "Disable" to prevent any misunderstanding/clash with method "disable" defined on line 10985(Ìœ¨‹úÿÿÿÿ
-…python:S1845Ö["lRename field "Disappear" to prevent any misunderstanding/clash with method "disappear" defined on line 11022(ÔîÊ¹
-„python:S1845×["fRename field "Enable" to prevent any misunderstanding/clash with method "enable" defined on line 10994(â›Ø¦ùÿÿÿÿ
-€python:S1845Ù["bRename field "Fill" to prevent any misunderstanding/clash with method "fill" defined on line 10331(ßõŸäøÿÿÿÿ
-ˆpython:S1845Ú["jRename field "Finalize" to prevent any misunderstanding/clash with method "finalize" defined on line 10278(ÿ€ë°øÿÿÿÿ
-zpython:S1845à["bRename field "Hide" to prevent any misunderstanding/clash with method "hide" defined on line 11003(ìÈÉQ
-~python:S1845á["eRename field "Layout" to prevent any misunderstanding/clash with method "layout" defined on line 9755(ÖÌÊÆ
-ƒpython:S1845ã["jRename field "Maximize" to prevent any misunderstanding/clash with method "maximize" defined on line 10654(Ÿ…
-ƒpython:S1845ä["jRename field "Minimize" to prevent any misunderstanding/clash with method "minimize" defined on line 10645(†ñ‡İ
-€python:S1845å["bRename field "Move" to prevent any misunderstanding/clash with method "move" defined on line 10614(Ùª”‘ùÿÿÿÿ
-python:S1845æ["fRename field "Normal" to prevent any misunderstanding/clash with method "normal" defined on line 10671(¹ºŠ–
-zpython:S1845ç["bRename field "Read" to prevent any misunderstanding/clash with method "read" defined on line 10031(ï»~
-ˆpython:S1845è["jRename field "Reappear" to prevent any misunderstanding/clash with method "reappear" defined on line 11032(Æ½‰ıÿÿÿÿ
-†python:S1845é["hRename field "Refresh" to prevent any misunderstanding/clash with method "refresh" defined on line 10312(Œ…ûŞûÿÿÿÿ
-{python:S1845ï["bRename field "Size" to prevent any misunderstanding/clash with method "size" defined on line 11201(Ä¹Ï
-epython:S116Ò["MRename this field "Close" to match the regular expression ^[_a-z][_a-z0-9]*$.(İ¯šÁ
-kpython:S116ğ["NRename this field "UnHide" to match the regular expression ^[_a-z][_a-z0-9]*$.(úŸÚßùÿÿÿÿ
-jpython:S116ë["RRename this field "SendToBack" to match the regular expression ^[_a-z][_a-z0-9]*$.(¡Ôš
-qpython:S116Ğ["TRename this field "AlphaChannel" to match the regular expression ^[_a-z][_a-z0-9]*$.(©‘¤’ÿÿÿÿÿ
-dpython:S116ÃQ"LRename this field "Elem" to match the regular expression ^[_a-z][_a-z0-9]*$.(¨ÕŠì
-tpython:S116Ş["WRename this field "GrabAnyWhereOff" to match the regular expression ^[_a-z][_a-z0-9]*$.(úøÖ•ùÿÿÿÿ
-qpython:S116ñ["YRename this field "VisibilityChanged" to match the regular expression ^[_a-z][_a-z0-9]*$.(–‘¹Š
-npython:S116ß["VRename this field "GrabAnyWhereOn" to match the regular expression ^[_a-z][_a-z0-9]*$.(ìÄÄü
-fpython:S116æ["NRename this field "Normal" to match the regular expression ^[_a-z][_a-z0-9]*$.(¹ºŠ–
-kpython:S116×["NRename this field "Enable" to match the regular expression ^[_a-z][_a-z0-9]*$.(â›Ø¦ùÿÿÿÿ
-gpython:S116í["ORename this field "SetIcon" to match the regular expression ^[_a-z][_a-z0-9]*$.(¡·¨•
-npython:S116ÛH"VRename this field "NumOpenWindows" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ò³â
-lpython:S116Ô["ORename this field "Disable" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ìœ¨‹úÿÿÿÿ
-fpython:S116á["NRename this field "Layout" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÖÌÊÆ
-opython:S116Õ["WRename this field "DisableDebugger" to match the regular expression ^[_a-z][_a-z0-9]*$.(„ 
-lpython:S116Ñ["TRename this field "BringToFront" to match the regular expression ^[_a-z][_a-z0-9]*$.(´Ëâÿ
-npython:S116Ø["VRename this field "EnableDebugger" to match the regular expression ^[_a-z][_a-z0-9]*$.(îéÙ
-upython:S116ò["XRename this field "CloseNonBlocking" to match the regular expression ^[_a-z][_a-z0-9]*$.(¨ŸÇËûÿÿÿÿ
-ipython:S116å["LRename this field "Move" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ùª”‘ùÿÿÿÿ
-opython:S116Ó["WRename this field "CurrentLocation" to match the regular expression ^[_a-z][_a-z0-9]*$.(úö³
-jpython:S116äH"RRename this field "_TKAfterID" to match the regular expression ^[_a-z][_a-z0-9]*$.(ùÊ£¸
-ipython:S116Ù["LRename this field "Fill" to match the regular expression ^[_a-z][_a-z0-9]*$.(ßõŸäøÿÿÿÿ
-ipython:S116Ö["QRename this field "Disappear" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÔîÊ¹
-jpython:S116ê["RRename this field "SaveToDisk" to match the regular expression ^[_a-z][_a-z0-9]*$.(…Úüİ
-cpython:S116à["LRename this field "Hide" to match the regular expression ^[_a-z][_a-z0-9]*$.(ìÈÉQ
-fpython:S116Î["NRename this field "AddRow" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ë÷¨ó
-cpython:S116ç["LRename this field "Read" to match the regular expression ^[_a-z][_a-z0-9]*$.(ï»~
-mpython:S116è["PRename this field "Reappear" to match the regular expression ^[_a-z][_a-z0-9]*$.(Æ½‰ıÿÿÿÿ
-ypython:S116Ü["\Rename this field "FindElementWithFocus" to match the regular expression ^[_a-z][_a-z0-9]*$.(²Çˆúÿÿÿÿ
-kpython:S116â["TRename this field "LoadFromDisk" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÌÈÈ'
-dpython:S116ï["LRename this field "Size" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ä¹Ï
-hpython:S116ã["PRename this field "Maximize" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ÿ…
-mpython:S116Ú["PRename this field "Finalize" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÿ€ë°øÿÿÿÿ
-lpython:S116é["ORename this field "Refresh" to match the regular expression ^[_a-z][_a-z0-9]*$.(Œ…ûŞûÿÿÿÿ
-tpython:S116ó["\Rename this field "CloseNonBlockingForm" to match the regular expression ^[_a-z][_a-z0-9]*$.(çŸî
-hpython:S116ä["PRename this field "Minimize" to match the regular expression ^[_a-z][_a-z0-9]*$.(†ñ‡İ
-spython:S116İ["[Rename this field "GetScreenDimensions" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÈÑÕ¥
-rpython:S116î["[Rename this field "SetTransparentColor" to match the regular expression ^[_a-z][_a-z0-9]*$.(ùÀ]
-gpython:S116Ï["ORename this field "AddRows" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷¨ãë
-ipython:S116ÂQ"LRename this field "Find" to match the regular expression ^[_a-z][_a-z0-9]*$.(† ™Äûÿÿÿÿ
-gpython:S116ÁQ"ORename this field "Element" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÜğŠ
-hpython:S116ì["PRename this field "SetAlpha" to match the regular expression ^[_a-z][_a-z0-9]*$.(õŞˆˆ
-tpython:S116J"\Rename this field "DictionaryKeyCounter" to match the regular expression ^[_a-z][_a-z0-9]*$.(ùÈÃû
-npython:S116¿J"VRename this field "ElementPadding" to match the regular expression ^[_a-z][_a-z0-9]*$.(ƒ÷Ì©
-ppython:S116‘J"SRename this field "NonBlocking" to match the regular expression ^[_a-z][_a-z0-9]*$.(ªš±ßıÿÿÿÿ
-xpython:S116ÄJ"`Rename this field "ContainerElemementNumber" to match the regular expression ^[_a-z][_a-z0-9]*$.(ãÙ Á
-ppython:S116ÇJ"SRename this field "AllKeysDict" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ò­ÉÃıÿÿÿÿ
-jpython:S116¦J"RRename this field "NoTitleBar" to match the regular expression ^[_a-z][_a-z0-9]*$.(ªŸ¢ı
-opython:S116“J"WRename this field "TKrootDestroyed" to match the regular expression ^[_a-z][_a-z0-9]*$.(ùÅÑ·
-ipython:S116şI"LRename this field "Rows" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÌÚó¤şÿÿÿÿ
-npython:S116–J"QRename this field "TKAfterID" to match the regular expression ^[_a-z][_a-z0-9]*$.(°Œ¥Úøÿÿÿÿ
-tpython:S116ÊJ"WRename this field "DebuggerEnabled" to match the regular expression ^[_a-z][_a-z0-9]*$.(İ‹÷şÿÿÿÿ
-vpython:S116¤J"YRename this field "LastKeyboardEvent" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ñ¤ĞÍøÿÿÿÿ
-ipython:S116ˆJ"QRename this field "RadioDict" to match the regular expression ^[_a-z][_a-z0-9]*$.(”£¤Å
-qpython:S116†J"TRename this field "ParentWindow" to match the regular expression ^[_a-z][_a-z0-9]*$.(øÛ½ûùÿÿÿÿ
-mpython:S116¡J"URename this field "UseDictionary" to match the regular expression ^[_a-z][_a-z0-9]*$.(Î«İ–
-vpython:S116˜J"YRename this field "AutoCloseDuration" to match the regular expression ^[_a-z][_a-z0-9]*$.(Áãéòşÿÿÿÿ
-upython:S116•J"XRename this field "FormRemainedOpen" to match the regular expression ^[_a-z][_a-z0-9]*$.(¹üÌéşÿÿÿÿ
-tpython:S116¢J"WRename this field "UseDefaultFocus" to match the regular expression ^[_a-z][_a-z0-9]*$.(†äïşÿÿÿÿ
-vpython:S116¥J"YRename this field "TextJustification" to match the regular expression ^[_a-z][_a-z0-9]*$.(òŸÒƒùÿÿÿÿ
-upython:S116œJ"XRename this field "ReturnValuesList" to match the regular expression ^[_a-z][_a-z0-9]*$.(ì™ñïûÿÿÿÿ
-qpython:S116µJ"TRename this field "DisableClose" to match the regular expression ^[_a-z][_a-z0-9]*$.(”¢Ü‰ÿÿÿÿÿ
-rpython:S116±J"URename this field "_AlphaChannel" to match the regular expression ^[_a-z][_a-z0-9]*$.(Æ÷áÇÿÿÿÿÿ
-npython:S116®J"QRename this field "KeepOnTop" to match the regular expression ^[_a-z][_a-z0-9]*$.(³Õµíşÿÿÿÿ
-lpython:S116¯J"URename this field "ForceTopLevel" to match the regular expression ^[_a-z][_a-z0-9]*$.(Í¥¨K
-npython:S116ËJ"QRename this field "WasClosed" to match the regular expression ^[_a-z][_a-z0-9]*$.(÷‚Êæÿÿÿÿÿ
-qpython:S116ûI"TRename this field "AutoSizeText" to match the regular expression ^[_a-z][_a-z0-9]*$.(æÛ€òùÿÿÿÿ
-wpython:S116ÿI"ZRename this field "DefaultElementSize" to match the regular expression ^[_a-z][_a-z0-9]*$.(£‹Ûİÿÿÿÿÿ
-spython:S116ÂJ"VRename this field "RightClickMenu" to match the regular expression ^[_a-z][_a-z0-9]*$.(£Åª˜üÿÿÿÿ
-opython:S116ƒJ"WRename this field "RelativeLoction" to match the regular expression ^[_a-z][_a-z0-9]*$.(âõ˜
-hpython:S116ÍJ"PRename this field "FocusSet" to match the regular expression ^[_a-z][_a-z0-9]*$.(¯ì×
-fpython:S116’J"NRename this field "TKroot" to match the regular expression ^[_a-z][_a-z0-9]*$.(Õ¡œÃ
-spython:S116™J"[Rename this field "RootNeedsDestroying" to match the regular expression ^[_a-z][_a-z0-9]*$.(²ˆ¢¸
-ypython:S116ÌJ"\Rename this field "ElementJustification" to match the regular expression ^[_a-z][_a-z0-9]*$.(²£Îíùÿÿÿÿ
-xpython:S116”J"`Rename this field "CurrentlyRunningMainloop" to match the regular expression ^[_a-z][_a-z0-9]*$.(®Š¢ö
-kpython:S116¹J"NRename this field "XFound" to match the regular expression ^[_a-z][_a-z0-9]*$.(èÌŞ‹ùÿÿÿÿ
-tpython:S116…J"WRename this field "BackgroundColor" to match the regular expression ^[_a-z][_a-z0-9]*$.(„îÂ†ıÿÿÿÿ
-kpython:S116‰J"SRename this field "BorderDepth" to match the regular expression ^[_a-z][_a-z0-9]*$.(¼ê¡³
-npython:S116J"QRename this field "AutoClose" to match the regular expression ^[_a-z][_a-z0-9]*$.(ì´Ó‡ÿÿÿÿÿ
-epython:S116ıI"MRename this field "Title" to match the regular expression ^[_a-z][_a-z0-9]*$.(üå—Ã
-dpython:S116‡J"LRename this field "Font" to match the regular expression ^[_a-z][_a-z0-9]*$.(ĞŒ„½
-ppython:S116ÉJ"XRename this field "UniqueKeyCounter" to match the regular expression ^[_a-z][_a-z0-9]*$.(ĞÑÕ¶
-fpython:S116P"NRename this field "Values" to match the regular expression ^[_a-z][_a-z0-9]*$.(ŞÄÆÍ
-lpython:S116›J"TRename this field "ReturnValues" to match the regular expression ^[_a-z][_a-z0-9]*$.(§ı§ö
-lpython:S116·J"ORename this field "_Hidden" to match the regular expression ^[_a-z][_a-z0-9]*$.(ö®ŒÕıÿÿÿÿ
-tpython:S116¶J"WRename this field "DisableMinimize" to match the regular expression ^[_a-z][_a-z0-9]*$.(×°Ö•ûÿÿÿÿ
-jpython:S116¸J"MRename this field "_Size" to match the regular expression ^[_a-z][_a-z0-9]*$.(Åçïƒûÿÿÿÿ
-}python:S116€J"`Rename this field "DefaultButtonElementSize" to match the regular expression ^[_a-z][_a-z0-9]*$.(°ô±‰ûÿÿÿÿ
-npython:S116°J"QRename this field "Resizable" to match the regular expression ^[_a-z][_a-z0-9]*$.(ªª‚ûÿÿÿÿ
-{python:S116J"^Rename this field "ReturnValuesDictionary" to match the regular expression ^[_a-z][_a-z0-9]*$.(ˆÎ‡ÿÿÿÿÿ
-npython:S116´J"VRename this field "TimerCancelled" to match the regular expression ^[_a-z][_a-z0-9]*$.(”„Ï…
-€python:S116©J"cRename this field "GrabAnywhereUsingControlKey" to match the regular expression ^[_a-z][_a-z0-9]*$.(™¸¾Æüÿÿÿÿ
-tpython:S116£J"\Rename this field "ReturnKeyboardEvents" to match the regular expression ^[_a-z][_a-z0-9]*$.(Â¿ç®
-gpython:S116ÃJ"ORename this field "Margins" to match the regular expression ^[_a-z][_a-z0-9]*$.(­ğ¯…
-lpython:S116¨J"TRename this field "GrabAnywhere" to match the regular expression ^[_a-z][_a-z0-9]*$.(ï†º¼
-opython:S116³J"RRename this field "TimeoutKey" to match the regular expression ^[_a-z][_a-z0-9]*$.(‘Ğ¨íÿÿÿÿÿ
-upython:S116ğJ"XRename this field "TKRightClickMenu" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ø…‡»ÿÿÿÿÿ
-ppython:S116ÈJ"XRename this field "TransparentColor" to match the regular expression ^[_a-z][_a-z0-9]*$.(‹ñ¸ì
-opython:S116‹J"RRename this field "WindowIcon" to match the regular expression ^[_a-z][_a-z0-9]*$.(ä¥Òşÿÿÿÿ
-kpython:S116„J"SRename this field "ButtonColor" to match the regular expression ^[_a-z][_a-z0-9]*$.(¡ù
-jpython:S116šJ"MRename this field "Shown" to match the regular expression ^[_a-z][_a-z0-9]*$.(³²ıÊüÿÿÿÿ
-gpython:S116şL"ORename this field "NumCols" to match the regular expression ^[_a-z][_a-z0-9]*$.(ª†Ôá
-rpython:S116ĞJ"URename this field "UseTtkButtons" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÂÂ¡êúÿÿÿÿ
-ppython:S116ŸJ"YRename this field "LastButtonClicked" to match the regular expression ^[_a-z][_a-z0-9]*$.(£¸âp
-gpython:S116²J"ORename this field "Timeout" to match the regular expression ^[_a-z][_a-z0-9]*$.(åç€İ
-gpython:S116‚J"PRename this field "Location" to match the regular expression ^[_a-z][_a-z0-9]*$.(ÚÇÈ*
-tpython:S116üI"WRename this field "AutoSizeButtons" to match the regular expression ^[_a-z][_a-z0-9]*$.(®¤€Õúÿÿÿÿ
-dpython:S116§J"LRename this field "Grab" to match the regular expression ^[_a-z][_a-z0-9]*$.(òõóÎ
-|python:S116 J"dRename this field "LastButtonClickedWasRealtime" to match the regular expression ^[_a-z][_a-z0-9]*$.(º¼ûˆ
-upython:S116—J"XRename this field "ProgressBarColor" to match the regular expression ^[_a-z][_a-z0-9]*$.(òëÛÔùÿÿÿÿ
-hpython:S116ÏJ"PRename this field "TtkTheme" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ï©À
-lpython:S116ıL"ORename this field "NumRows" to match the regular expression ^[_a-z][_a-z0-9]*$.(È¬Å…ùÿÿÿÿ
-epython:S107íH"MMethod "__init__" has 60 parameters, which is greater than the 13 authorized.(ÑÀÇİ
-mpython:S3776íH"TRefactor this function to reduce its Cognitive Complexity from 35 to the 15 allowed.(ÑÀÇİ
-upython:S100K"XRename method "_GetAContainerNumber" to match the regular expression ^[a-z_][a-z0-9_]*$.(Êÿ¸Ëüÿÿÿÿ
-opython:S100™K"WRename method "_IncrementOpenCount" to match the regular expression ^[a-z_][a-z0-9_]*$.(°ƒ­
-jpython:S2710™K"QRename "self" to a valid class parameter name or add the missing class parameter.(°ƒ­
-tpython:S100¢K"WRename method "_DecrementOpenCount" to match the regular expression ^[a-z_][a-z0-9_]*$.(ïó£íşÿÿÿÿ
-opython:S2710¢K"QRename "self" to a valid class parameter name or add the missing class parameter.(ïó£íşÿÿÿÿ
-opython:S2710ªK"QRename "self" to a valid class parameter name or add the missing class parameter.(ºò¸÷úÿÿÿÿ
-xpython:S117ÕK"[Rename this local variable "CurrentRow" to match the regular expression ^[_a-z][a-z0-9_]*$.(·ÌÏÆÿÿÿÿÿ
-ypython:S117ÔK"aRename this local variable "CurrentRowNumber" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ü¯ÿè
-upython:S117ÓK"XRename this local variable "NumRows" to match the regular expression ^[_a-z][a-z0-9_]*$.(Œ˜ôüÿÿÿÿ
-epython:S1763ÜK"GDelete this unreachable code or refactor the code to make it reachable.(áƒüûÿÿÿÿ
-Dpython:S1862¬L",This branch duplicates the one on line 9768.(õÄº,
-Jpython:S1172ÙL",Remove the unused function parameter "rows".(³¼ùïùÿÿÿÿ
-Rpython:S1172ÙL"4Remove the unused function parameter "non_blocking".(³¼ùïùÿÿÿÿ
-npython:S100ÙL"QRename method "LayoutAndRead" to match the regular expression ^[a-z_][a-z0-9_]*$.(³¼ùïùÿÿÿÿ
-7python:S125çL"Remove this commented out code.(ÅÕçĞ
-npython:S100ëL"QRename method "LayoutAndShow" to match the regular expression ^[a-z_][a-z0-9_]*$.(é§İÿıÿÿÿÿ
-apython:S100ñL"IRename method "_Show" to match the regular expression ^[a-z_][a-z0-9_]*$.(Â³’»
-mpython:S3776ñL"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(Â³’»
-Upython:S5754‰M"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754M"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-rpython:S3776M"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(†¶™˜şÿÿÿÿ
-Upython:S5754¯M"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754³M"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754»M"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754¿M"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ÆM"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ÄM"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-vpython:S100ÊM"YRename method "_GetElementAtLocation" to match the regular expression ^[a-z_][a-z0-9_]*$.(İ¹¶•ıÿÿÿÿ
-rpython:S100ÙM"ZRename method "_GetDefaultElementSize" to match the regular expression ^[a-z_][a-z0-9_]*$.(šîì·
-spython:S100ãM"[Rename method "_AutoCloseAlarmCallback" to match the regular expression ^[a-z_][a-z0-9_]*$.(Û‡«
-Upython:S5754ñM"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-vpython:S100ôM"YRename method "_TimeoutAlarmCallback" to match the regular expression ^[a-z_][a-z0-9_]*$.(áé¨àûÿÿÿÿ
-Ipython:S1481©N"+Remove the unused local variable "results".(õĞøŒûÿÿÿÿ
-mpython:S3776¯N"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(çş™
-Upython:S5754çN"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-<python:S125áN"Remove this commented out code.(¤Åÿéşÿÿÿÿ
-?python:S1481²O"&Remove the unused local variable "rc".(ôÎİÂ
-mpython:S3776ñN"TRefactor this function to reduce its Cognitive Complexity from 66 to the 15 allowed.(ÈŞÊÂ
-Upython:S5754³O"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-6python:S125¶O"Remove this commented out code.(Ï‘ÕH
-Apython:S108¼O")Either remove or fill this block of code.(ã‘Û¾
-Upython:S5754ÅO"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125ĞO"Remove this commented out code.(ÑÍş¡
-Upython:S5754ÛO"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ãO"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-ƒpython:S1871üO"eEither merge this branch with the identical one on line "10233" or change one of the implementations.(ÉŒæÈûÿÿÿÿ
-qpython:S100ÿO"TRename method "_ReadNonBlocking" to match the regular expression ^[a-z_][a-z0-9_]*$.(°„¤ºøÿÿÿÿ
-?python:S1481‘P"&Remove the unused local variable "rc".(ôÎİÂ
-Upython:S5754ŠP"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754’P"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-6python:S125•P"Remove this commented out code.(Ï‘ÕH
-?python:S1481¿P"&Remove the unused local variable "rc".(ôÎİÂ
-`python:S1763¼P"GDelete this unreachable code or refactor the code to make it reachable.(Šåš˜
-Upython:S5754ÀP"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-6python:S125ÄP"Remove this commented out code.(Ï‘ÕH
-?python:S1481ÖP"&Remove the unused local variable "rc".(ôÎİÂ
-Upython:S5754×P"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-lpython:S100óP"ORename method "FindElement" to match the regular expression ^[a-z_][a-z0-9_]*$.(§Äğäüÿÿÿÿ
-ipython:S100àQ"QRename method "_BuildKeyDict" to match the regular expression ^[a-z_][a-z0-9_]*$.(—µ’
-Dpython:S5806åQ"+Rename this variable; it shadows a builtin.(Šß™ö
-wpython:S100èQ"ZRename method "_BuildKeyDictForWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(µˆè›ÿÿÿÿÿ
-rpython:S3776èQ"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(µˆè›ÿÿÿÿÿ
-Upython:S5754ØR"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754åR"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754‚S"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-zpython:S100¿S"]Rename method "_StartMoveUsingControlKey" to match the regular expression ^[a-z_][a-z0-9_]*$.(ŞÎ¯üÿÿÿÿ
-wpython:S100ÉS"ZRename method "_StartMoveGrabAnywhere" to match the regular expression ^[a-z_][a-z0-9_]*$.(‘äĞÛüÿÿÿÿ
-kpython:S100ØS"NRename method "_StartMove" to match the regular expression ^[a-z_][a-z0-9_]*$.(Å¥Ÿ×ûÿÿÿÿ
-Upython:S5754ãS"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125àS"Remove this commented out code.(ï¢Âã
-6python:S3626õS"Remove this redundant return.(ÙãŞŸ
-jpython:S100îS"MRename method "_StopMove" to match the regular expression ^[a-z_][a-z0-9_]*$.(†ˆéÏøÿÿÿÿ
-tpython:S100øS"\Rename method "_OnMotionUsingControlKey" to match the regular expression ^[a-z_][a-z0-9_]*$.(ßçùñ
-vpython:S100üS"YRename method "_OnMotionGrabAnywhere" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ø÷ìúÿÿÿÿ
-epython:S100ŠT"MRename method "_OnMotion" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÀÒÛÃ
-7python:S125£T"Remove this commented out code.(ÆÔœ¦
-7python:S125´T"Remove this commented out code.(…Óµ•
-mpython:S100âT"URename method "_KeyboardCallback" to match the regular expression ^[a-z_][a-z0-9_]*$.(™êİ
-7python:S125ğT"Remove this commented out code.(¦°¢Ä
-opython:S100ôT"WRename method "_MouseWheelCallback" to match the regular expression ^[a-z_][a-z0-9_]*$.(„üÿ¹
-7python:S125ÿT"Remove this commented out code.(¦°¢Ä
-6python:S3626–U"Remove this redundant return.(ÙãŞŸ
-gpython:S100ƒU"JRename method "_Close" to match the regular expression ^[a-z_][a-z0-9_]*$.(²Æºøÿÿÿÿ
-Upython:S5754U"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ŸU"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754¤U"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754¬U"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-?python:S1481ÇU"&Remove the unused local variable "rc".(ôÎİÂ
-Upython:S5754ÈU"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-npython:S100ÎU"VRename method "_OnClosingCallback" to match the regular expression ^[a-z_][a-z0-9_]*$.(ö¹ğì
-<python:S125ÒU"Remove this commented out code.(ä¥¼Âşÿÿÿÿ
-Upython:S5754ÔV"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ßV"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ËW"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754íW"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125¦X"Remove this commented out code.(ìÆå°
-Cpython:S1481»X"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-xpython:S100œZ"[Rename method "_RightClickMenuCallback" to match the regular expression ^[a-z_][a-z0-9_]*$.(›”Ä™ûÿÿÿÿ
-Upython:S5754ÄZ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-<python:S125ãZ"Remove this commented out code.(Ñ­—›üÿÿÿÿ
-<python:S125™["Remove this commented out code.(œ£À€ùÿÿÿÿ
-7python:S125Û["Remove this commented out code.(¼ŞĞã
-7python:S125õ["Remove this commented out code.(ÆÔœ¦
-mpython:S3776·\"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(šˆç
-Upython:S5754è\"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ó\"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ƒ]"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-}python:S1845¾_"dRename field "Close" to prevent any misunderstanding/clash with method "close" defined on line 12105(İ¯šÁ
-zpython:S1845¿_"bRename field "Hide" to prevent any misunderstanding/clash with method "hide" defined on line 12061(ìÈÉQ
-zpython:S1845À_"bRename field "Read" to prevent any misunderstanding/clash with method "read" defined on line 12041(ï»~
-„python:S1845Ã_"fRename field "Update" to prevent any misunderstanding/clash with method "update" defined on line 12111(ùÜ¡úÿÿÿÿ
-cpython:S116À_"LRename this field "Read" to match the regular expression ^[_a-z][_a-z0-9]*$.(ï»~
-kpython:S116Á_"SRename this field "ShowMessage" to match the regular expression ^[_a-z][_a-z0-9]*$.(ğÎ…§
-kpython:S116Ã_"NRename this field "Update" to match the regular expression ^[_a-z][_a-z0-9]*$.(ùÜ¡úÿÿÿÿ
-kpython:S116Â_"NRename this field "UnHide" to match the regular expression ^[_a-z][_a-z0-9]*$.(úŸÚßùÿÿÿÿ
-epython:S116¾_"MRename this field "Close" to match the regular expression ^[_a-z][_a-z0-9]*$.(İ¯šÁ
-cpython:S116¿_"LRename this field "Hide" to match the regular expression ^[_a-z][_a-z0-9]*$.(ìÈÉQ
-mpython:S116ß]"PRename this field "TrayIcon" to match the regular expression ^[_a-z][_a-z0-9]*$.(úÙùÃøÿÿÿÿ
-spython:S116á]"VRename this field "MenuItemChosen" to match the regular expression ^[_a-z][_a-z0-9]*$.(–Äê‹ùÿÿÿÿ
-jpython:S116à]"MRename this field "Shown" to match the regular expression ^[_a-z][_a-z0-9]*$.(³²ıÊüÿÿÿÿ
-dpython:S116Ş]"LRename this field "Menu" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ú‘“½
-Jpython:S1481À^"1Remove the unused local variable "fade_duration".(³¼²ş
-Epython:S1481_",Remove the unused local variable "max_line".(ı½Æ²
-rpython:S3776î^"TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(ªœ²ûÿÿÿÿ
-ipython:S1542Ò_"KRename function "Sizer" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ã×ö×şÿÿÿÿ
-<python:S125ô_"Remove this commented out code.(‘³…Ñûÿÿÿÿ
-Npython:S1172`"0Remove the unused function parameter "expand_y".(–…Õµşÿÿÿÿ
-Npython:S1172`"0Remove the unused function parameter "expand_x".(–…Õµşÿÿÿÿ
-Ipython:S1172¢`"0Remove the unused function parameter "expand_x".(ØÍå¯
-Ipython:S1172¢`"0Remove the unused function parameter "expand_y".(ØÍå¯
-gpython:S1542¶`"NRename function "Titlebar" to match the regular expression ^[a-z_][a-z0-9_]*$.(âéÿı
-qpython:S1542ö`"SRename function "MenubarCustom" to match the regular expression ^[a-z_][a-z0-9_]*$.(şóµ„ıÿÿÿÿ
-kpython:S1542¶a"RRename function "FolderBrowse" to match the regular expression ^[a-z_][a-z0-9_]*$.(§­€€
-kpython:S107¶a"SFunction "FolderBrowse" has 18 parameters, which is greater than the 13 authorized.(§­€€
-npython:S1542éa"PRename function "FileBrowse" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÀÍ¾“úÿÿÿÿ
-npython:S107éa"QFunction "FileBrowse" has 19 parameters, which is greater than the 13 authorized.(ÀÍ¾“úÿÿÿÿ
-opython:S1542Ÿb"QRename function "FilesBrowse" to match the regular expression ^[a-z_][a-z0-9_]*$.(ëŠ¾ ÿÿÿÿÿ
-opython:S107Ÿb"RFunction "FilesBrowse" has 20 parameters, which is greater than the 13 authorized.(ëŠ¾ ÿÿÿÿÿ
-npython:S1542Úb"PRename function "FileSaveAs" to match the regular expression ^[a-z_][a-z0-9_]*$.(Éñú£ûÿÿÿÿ
-npython:S107Úb"QFunction "FileSaveAs" has 20 parameters, which is greater than the 13 authorized.(Éñú£ûÿÿÿÿ
-jpython:S1542’c"LRename function "SaveAs" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ãšñ¤úÿÿÿÿ
-jpython:S107’c"MFunction "SaveAs" has 20 parameters, which is greater than the 13 authorized.(Ãšñ¤úÿÿÿÿ
-hpython:S1542Éc"JRename function "Save" to match the regular expression ^[a-z_][a-z0-9_]*$.(âÕË¶øÿÿÿÿ
-hpython:S107Éc"KFunction "Save" has 16 parameters, which is greater than the 13 authorized.(âÕË¶øÿÿÿÿ
-jpython:S1542öc"LRename function "Submit" to match the regular expression ^[a-z_][a-z0-9_]*$.(½£˜ûÿÿÿÿ
-jpython:S107öc"MFunction "Submit" has 16 parameters, which is greater than the 13 authorized.(½£˜ûÿÿÿÿ
-cpython:S1542¤d"JRename function "Open" to match the regular expression ^[a-z_][a-z0-9_]*$.(²÷ó 
-cpython:S107¤d"KFunction "Open" has 16 parameters, which is greater than the 13 authorized.(²÷ó 
-fpython:S1542Ñd"HRename function "OK" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÔÁÔ·ùÿÿÿÿ
-fpython:S107Ñd"IFunction "OK" has 16 parameters, which is greater than the 13 authorized.(ÔÁÔ·ùÿÿÿÿ
-fpython:S1542şd"HRename function "Ok" to match the regular expression ^[a-z_][a-z0-9_]*$.(ı°¢õüÿÿÿÿ
-fpython:S107şd"IFunction "Ok" has 16 parameters, which is greater than the 13 authorized.(ı°¢õüÿÿÿÿ
-epython:S1542«e"LRename function "Cancel" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦¯ºÒ
-epython:S107«e"MFunction "Cancel" has 16 parameters, which is greater than the 13 authorized.(¦¯ºÒ
-cpython:S1542Øe"JRename function "Quit" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓŠÍ
-cpython:S107Øe"KFunction "Quit" has 16 parameters, which is greater than the 13 authorized.(ÓŠÍ
-hpython:S1542…f"JRename function "Exit" to match the regular expression ^[a-z_][a-z0-9_]*$.(®«êŞüÿÿÿÿ
-hpython:S107…f"KFunction "Exit" has 16 parameters, which is greater than the 13 authorized.(®«êŞüÿÿÿÿ
-bpython:S1542²f"IRename function "Yes" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÛşÃ
-bpython:S107²f"JFunction "Yes" has 16 parameters, which is greater than the 13 authorized.(ÛşÃ
-fpython:S1542ßf"HRename function "No" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦È÷Šùÿÿÿÿ
-fpython:S107ßf"IFunction "No" has 16 parameters, which is greater than the 13 authorized.(¦È÷Šùÿÿÿÿ
-bpython:S1542Œg"JRename function "Help" to match the regular expression ^[a-z_][a-z0-9_]*$.(©®H
-bpython:S107Œg"KFunction "Help" has 16 parameters, which is greater than the 13 authorized.(©®H
-Rpython:S1172¹g"4Remove the unused function parameter "button_color".(Áù°Îÿÿÿÿÿ
-ipython:S1542¹g"KRename function "Debug" to match the regular expression ^[a-z_][a-z0-9_]*$.(Áù°Îÿÿÿÿÿ
-ipython:S107¹g"LFunction "Debug" has 16 parameters, which is greater than the 13 authorized.(Áù°Îÿÿÿÿÿ
-gpython:S3358åg"IExtract this nested conditional expression into an independent statement.(Ûó…Ùúÿÿÿÿ
-kpython:S1542îg"RRename function "SimpleButton" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÔˆŒ¹
-kpython:S107îg"SFunction "SimpleButton" has 20 parameters, which is greater than the 13 authorized.(ÔˆŒ¹
-opython:S1542§h"QRename function "CloseButton" to match the regular expression ^[a-z_][a-z0-9_]*$.(ˆ›Û¿ıÿÿÿÿ
-opython:S107§h"RFunction "CloseButton" has 20 parameters, which is greater than the 13 authorized.(ˆ›Û¿ıÿÿÿÿ
-npython:S1542äh"PRename function "ReadButton" to match the regular expression ^[a-z_][a-z0-9_]*$.(şµñûÿÿÿÿ
-npython:S107äh"QFunction "ReadButton" has 20 parameters, which is greater than the 13 authorized.(şµñûÿÿÿÿ
-lpython:S1542 i"TRename function "RealtimeButton" to match the regular expression ^[a-z_][a-z0-9_]*$.(È«&
-lpython:S107 i"UFunction "RealtimeButton" has 21 parameters, which is greater than the 13 authorized.(È«&
-opython:S1542Úi"QRename function "DummyButton" to match the regular expression ^[a-z_][a-z0-9_]*$.(¹„ıúÿÿÿÿ
-opython:S107Úi"RFunction "DummyButton" has 21 parameters, which is greater than the 13 authorized.(¹„ıúÿÿÿÿ
-rpython:S1542šj"TRename function "CalendarButton" to match the regular expression ^[a-z_][a-z0-9_]*$.(³‘ƒÄúÿÿÿÿ
-rpython:S107šj"UFunction "CalendarButton" has 33 parameters, which is greater than the 13 authorized.(³‘ƒÄúÿÿÿÿ
-qpython:S1542ùj"XRename function "ColorChooserButton" to match the regular expression ^[a-z_][a-z0-9_]*$.(Êê¹÷
-qpython:S107ùj"YFunction "ColorChooserButton" has 22 parameters, which is greater than the 13 authorized.(Êê¹÷
-mpython:S3776Ğk"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(£¯İ†
-<python:S125÷k"Remove this commented out code.(ãÎÈúÿÿÿÿ
-tpython:S1542‘l"[Rename function "AddToReturnDictionary" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ùğ±Â
-<python:S125“l"Remove this commented out code.(è¯’ùúÿÿÿÿ
-spython:S1542›l"URename function "AddToReturnList" to match the regular expression ^[a-z_][a-z0-9_]*$.(øİ‘ûÿÿÿÿ
-6python:S3626£l"Remove this redundant return.(ÙãŞŸ
-ppython:S1542¡l"WRename function "InitializeResults" to match the regular expression ^[a-z_][a-z0-9_]*$.(›ëñõ
-qpython:S117¨l"TRename this parameter "RadValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(â¤ñ¤ùÿÿÿÿ
-upython:S1542¨l"WRename function "DecodeRadioRowCol" to match the regular expression ^[a-z_][a-z0-9_]*$.(â¤ñ¤ùÿÿÿÿ
-ppython:S117°l"YRename this local variable "RadValue" to match the regular expression ^[_a-z][a-z0-9_]*$.(Öíˆi
-upython:S1542¯l"WRename function "EncodeRadioRowCol" to match the regular expression ^[a-z_][a-z0-9_]*$.(¬­Õùÿÿÿÿ
-lpython:S1542·l"SRename function "_BuildResults" to match the regular expression ^[a-z_][a-z0-9_]*$.(œì¯ÿ
-opython:S117–m"WRename this local variable "RadVar" to match the regular expression ^[_a-z][a-z0-9_]*$.(¨º‘Ï
-{python:S1542Çl"]Rename function "_BuildResultsForSubform" to match the regular expression ^[a-z_][a-z0-9_]*$.(­¹î¥şÿÿÿÿ
-Cpython:S1481·m"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-spython:S3776Çl"URefactor this function to reduce its Cognitive Complexity from 260 to the 15 allowed.(­¹î¥şÿÿÿÿ
-Upython:S5754m"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-<python:S125˜m"Remove this commented out code.(¶Ûı¹úÿÿÿÿ
-<python:S125 m"Remove this commented out code.(í§‚Çúÿÿÿÿ
-Upython:S5754¥m"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Mpython:S1656¨m"/Remove or correct this useless self-assignment.(ÿ åÆşÿÿÿÿ
-Upython:S5754¯m"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125©m"Remove this commented out code.(‡¿Û
-Upython:S5754Àm"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Åm"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Ğm"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754Øm"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Hpython:S1656æm"/Remove or correct this useless self-assignment.(®È½ò
-<python:S125ôm"Remove this commented out code.(Åõèúÿÿÿÿ
-Upython:S5754‘n"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754–n"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Cpython:S1481¸n"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-}python:S1542¼n"dRename function "_FindElementWithFocusInSubForm" to match the regular expression ^[a-z_][a-z0-9_]*$.(ß”¶Â
-mpython:S3776¼n"TRefactor this function to reduce its Cognitive Complexity from 74 to the 15 allowed.(ß”¶Â
-ƒpython:S1871Ìn"eEither merge this branch with the identical one on line "14152" or change one of the implementations.(æâ‚ãüÿÿÿÿ
-ƒpython:S1871Ğn"eEither merge this branch with the identical one on line "14152" or change one of the implementations.(æâ‚ãüÿÿÿÿ
-ƒpython:S1871Ôn"eEither merge this branch with the identical one on line "14152" or change one of the implementations.(æâ‚ãüÿÿÿÿ
-ƒpython:S1871Øn"eEither merge this branch with the identical one on line "14152" or change one of the implementations.(æâ‚ãüÿÿÿÿ
-Upython:S5754ìn"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-jpython:S1542òn"QRename function "AddMenuItem" to match the regular expression ^[a-z_][a-z0-9_]*$.(™„´Ô
-npython:S3776òn"URefactor this function to reduce its Cognitive Complexity from 115 to the 15 allowed.(™„´Ô
-Upython:S5754o"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-7python:S125îo"Remove this commented out code.(äüƒ¾
-7python:S125ùo"Remove this commented out code.(ÆÔœ¦
-rpython:S3776ƒp"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(ç¶Ïøÿÿÿÿ
-7python:S125«p"Remove this commented out code.(Û÷©Ø
-rpython:S3776Ûp"TRefactor this function to reduce its Cognitive Complexity from 40 to the 15 allowed.(Í—Í“şÿÿÿÿ
-7python:S125ìp"Remove this commented out code.(ùÑÜİ
-<python:S125Ïq"Remove this commented out code.(¿œØóûÿÿÿÿ
-7python:S3626­‚"Remove this redundant return.(ÙãŞŸ
-tpython:S117™{"WRename this local variable "RadVar" to match the regular expression ^[_a-z][a-z0-9_]*$.(•µÇ€øÿÿÿÿ
-ppython:S1542ßq"WRename function "PackFormIntoFrame" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÛÏì¾
-Npython:S1481§x"0Remove the unused local variable "unique_field".(éëÇˆüÿÿÿÿ
-Gpython:S1481‚"(Remove the unused local variable "side".(ìçõ¿ÿÿÿÿÿ
-Gpython:S1481“‚"(Remove the unused local variable "side".(Ì©òÖúÿÿÿÿ
-Gpython:S1481–‚"(Remove the unused local variable "side".(ìçõ¿ÿÿÿÿÿ
-opython:S3776ßq"VRefactor this function to reduce its Cognitive Complexity from 2039 to the 15 allowed.(ÛÏì¾
-Upython:S5754òq"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ûq"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-rpython:S1542ÿq"TRename function "testMouseHook2" to match the regular expression ^[a-z_][a-z0-9_]*$.(­¢›úÿÿÿÿ
-tpython:S1542Šr"VRename function "testMouseUnhook2" to match the regular expression ^[a-z_][a-z0-9_]*$.(¿ÍŠıÿÿÿÿ
-qpython:S1542‘r"SRename function "testMouseHook" to match the regular expression ^[a-z_][a-z0-9_]*$.(Á”¸µÿÿÿÿÿ
-spython:S1542˜r"URename function "testMouseUnhook" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÜäÛùÿÿÿÿ
-<python:S125ªr"Remove this commented out code.(¯ïúğÿÿÿÿÿ
-Cpython:S1481Èr"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-Upython:S5754ör"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-gpython:S3358ƒs"IExtract this nested conditional expression into an independent statement.(õØÚŠÿÿÿÿÿ
-gpython:S3358†s"IExtract this nested conditional expression into an independent statement.(Ö€‰¿ÿÿÿÿÿ
-Upython:S5754És"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Hpython:S1656Îs"/Remove or correct this useless self-assignment.(¶ŸöŒ
-Fpython:S1940às"-Use the opposite operator ("not in") instead.(ßÈçÌ
-Fpython:S1940ñs"-Use the opposite operator ("not in") instead.(ßÈçÌ
-Apython:S108ûs")Either remove or fill this block of code.(ã‘Û¾
-7python:S125ƒt"Remove this commented out code.(ÎúÉå
-<python:S125‡t"Remove this commented out code.(ÜÈÁÀúÿÿÿÿ
-7python:S125Ót"Remove this commented out code.(åû”•
-Mpython:S1656Ôt"/Remove or correct this useless self-assignment.(ƒ–­şÿÿÿÿ
-Mpython:S1656ãt"/Remove or correct this useless self-assignment.(ƒ–­şÿÿÿÿ
-gpython:S3358ğt"IExtract this nested conditional expression into an independent statement.(ä®Å­úÿÿÿÿ
-bpython:S3358ñt"IExtract this nested conditional expression into an independent statement.(àÍã
-Hpython:S1656u"/Remove or correct this useless self-assignment.(·¸öı
-7python:S125»u"Remove this commented out code.(¹¯…
-Hpython:S1656—v"/Remove or correct this useless self-assignment.(·¸öı
-Hpython:S1656‹w"/Remove or correct this useless self-assignment.(®È½ò
-Hpython:S1656âw"/Remove or correct this useless self-assignment.(Éÿéü
-gpython:S3358ìw"IExtract this nested conditional expression into an independent statement.(ä®Å­úÿÿÿÿ
-<python:S125íw"Remove this commented out code.(„²¼üÿÿÿÿ
-<python:S125€x"Remove this commented out code.(€Í’ßıÿÿÿÿ
-7python:S125•x"Remove this commented out code.(Šı£À
-Mpython:S1656™x"/Remove or correct this useless self-assignment.(ÿ åÆşÿÿÿÿ
-Mpython:S1656—y"/Remove or correct this useless self-assignment.(€Û÷Æøÿÿÿÿ
-<python:S125Éy"Remove this commented out code.(˜êß úÿÿÿÿ
-Mpython:S1656ğy"/Remove or correct this useless self-assignment.(üÒ‚óÿÿÿÿÿ
-6python:S125¡z"Remove this commented out code.(°‹Š
-Mpython:S1656Éz"/Remove or correct this useless self-assignment.(†Ö÷ûùÿÿÿÿ
-Mpython:S1656ïz"/Remove or correct this useless self-assignment.(ÍØËæøÿÿÿÿ
-Mpython:S1656{"/Remove or correct this useless self-assignment.(¯…‚ˆûÿÿÿÿ
-Fpython:S1940¥{"-Use the opposite operator ("not in") instead.(ßÈçÌ
-Hpython:S1656¿{"/Remove or correct this useless self-assignment.(¢Æ±ü
-<python:S125Ô{"Remove this commented out code.( ãßÎÿÿÿÿÿ
-Mpython:S1656ä{"/Remove or correct this useless self-assignment.(È«ê›úÿÿÿÿ
-Fpython:S1940|"-Use the opposite operator ("not in") instead.(ßÈçÌ
-Hpython:S1656–|"/Remove or correct this useless self-assignment.(áé§‚
-Mpython:S1656¬|"/Remove or correct this useless self-assignment.(öıŒ•ıÿÿÿÿ
-Hpython:S1656Ê|"/Remove or correct this useless self-assignment.(Â’Ï®
-Hpython:S1656ì|"/Remove or correct this useless self-assignment.(ëíÍ§
-Mpython:S1656•}"/Remove or correct this useless self-assignment.(ãò®’üÿÿÿÿ
-<python:S125¼}"Remove this commented out code.(ÖúÑÄüÿÿÿÿ
-<python:S125Ê}"Remove this commented out code.(ÿ èñÿÿÿÿÿ
-Mpython:S1656Ò}"/Remove or correct this useless self-assignment.(°Ö¾Ãùÿÿÿÿ
-<python:S125Ó}"Remove this commented out code.(¡öÕİùÿÿÿÿ
-Upython:S5754Ş}"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Mpython:S1656Š~"/Remove or correct this useless self-assignment.(®‹®Üúÿÿÿÿ
-Mpython:S1656¶~"/Remove or correct this useless self-assignment.(ÜİØÂüÿÿÿÿ
-Upython:S5754È~"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Upython:S5754ò~"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Dpython:S5806ù~"+Rename this variable; it shadows a builtin.(½€á
-6python:S125Í"Remove this commented out code.(»äª
-<python:S125Ó"Remove this commented out code.(›¿Ã„ıÿÿÿÿ
-Hpython:S1656ğ"/Remove or correct this useless self-assignment.(¡ÃÏË
-Vpython:S5754š€"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Epython:S5806²€"+Rename this variable; it shadows a builtin.(Ÿ·Ë“
-=python:S125Œ"Remove this commented out code.(ŞÅ±áşÿÿÿÿ
-Npython:S1656¦"/Remove or correct this useless self-assignment.(‰Ğƒğüÿÿÿÿ
-7python:S125§"Remove this commented out code.(ƒå&
-Hpython:S1656º"/Remove or correct this useless self-assignment.(µœÅ)
-8python:S125Ğ"Remove this commented out code.(åû”•
-hpython:S3358é"IExtract this nested conditional expression into an independent statement.(ä®Å­úÿÿÿÿ
-cpython:S3358ê"IExtract this nested conditional expression into an independent statement.(àÍã
-8python:S125ë"Remove this commented out code.(šòÚÔ
-=python:S125¡‚"Remove this commented out code.(Ä®üÿÿÿÿ
-8python:S125£‚"Remove this commented out code.(ÃÜ«å
-7python:S3626‘ƒ"Remove this redundant return.(ÙãŞŸ
-7python:S3626¬„"Remove this redundant return.(ÙãŞŸ
-ipython:S1542•ƒ"ORename function "StartupTK" to match the regular expression ^[a-z_][a-z0-9_]*$.(ùëµ
-npython:S3776•ƒ"TRefactor this function to reduce its Cognitive Complexity from 49 to the 15 allowed.(ùëµ
-Hpython:S1656Ÿƒ"/Remove or correct this useless self-assignment.(‘œ°1
-=python:S125 ƒ"Remove this commented out code.(ä¥¼Âşÿÿÿÿ
-=python:S125±ƒ"Remove this commented out code.(ùµƒüüÿÿÿÿ
-=python:S125Øƒ"Remove this commented out code.(Àß¹üÿÿÿÿ
-Vpython:S5754ìƒ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-8python:S125ˆ„"Remove this commented out code.(ìÃÏ
-Vpython:S5754©„"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-npython:S3776¯„"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(úˆ¥Ç
-Vpython:S5754Å„"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-6python:S2772Ë„"Remove this unneeded "pass".(ã‘Û¾
-Vpython:S5754İ„"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-6python:S2772Ü„"Remove this unneeded "pass".(ã‘Û¾
-6python:S2772ß„"Remove this unneeded "pass".(ã‘Û¾
-wpython:S1542å„"XRename function "_GetNumLinesNeeded" to match the regular expression ^[a-z_][a-z0-9_]*$.(é‚ËŠûÿÿÿÿ
-Lpython:S1481é„"-Remove the unused local variable "num_lines".(öüÇüÿÿÿÿ
-Jpython:S1481ê„"0Remove the unused local variable "max_line_len".(æ†‚
-fpython:S107–…"MMethod "__init__" has 14 parameters, which is greater than the 13 authorized.(é½¡”
-mpython:S100È…"ORename method "BuildWindow" to match the regular expression ^[a-z_][a-z0-9_]*$.(İÙ³Œıÿÿÿÿ
-mpython:S100ä…"ORename method "UpdateMeter" to match the regular expression ^[a-z_][a-z0-9_]*$.(§¨Ö…úÿÿÿÿ
-hpython:S3358î…"IExtract this nested conditional expression into an independent statement.(—›º™ıÿÿÿÿ
-qpython:S100õ…"XRename method "ComputeProgressStats" to match the regular expression ^[a-z_][a-z0-9_]*$.(³ë††
-Vpython:S5754ı…"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-|python:S107’†"^Function "one_line_progress_meter" has 14 parameters, which is greater than the 13 authorized.(¯™Ìøÿÿÿÿ
-@python:S1481»†"&Remove the unused local variable "rc".(í £Í
-[python:S5754Ï†"<Specify an exception class to catch or reraise the exception(¹Áª¯ûÿÿÿÿ
-7python:S3626¨‡"Remove this redundant return.(ÙãŞŸ
-bpython:S100±‡"IRename method "Print" to match the regular expression ^[a-z_][a-z0-9_]*$.(’ÅØÿ
-npython:S3776±‡"TRefactor this function to reduce its Cognitive Complexity from 40 to the 15 allowed.(’ÅØÿ
-Vpython:S5754Ê‡"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754Ö‡"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754Ü‡"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754ä‡"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-bpython:S100‚ˆ"IRename method "Close" to match the regular expression ^[a-z_][a-z0-9_]*$.(½ê¥œ
-opython:S107‰ˆ"QFunction "easy_print" has 21 parameters, which is greater than the 13 authorized.(¼Éíúÿÿÿÿ
-fpython:S107ıˆ"MFunction "cprint" has 14 parameters, which is greater than the 13 authorized.(Ó¦Ôû
-npython:S3776ıˆ"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ó¦Ôû
-=python:S125Õ‰"Remove this commented out code.(úıøÿÿÿÿ
-Vpython:S5754ŒŠ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-ppython:S107ÁŠ"RFunction "set_options" has 63 parameters, which is greater than the 13 authorized.(î½¨Éüÿÿÿÿ
-spython:S3776ÁŠ"TRefactor this function to reduce its Cognitive Complexity from 75 to the 15 allowed.(î½¨Éüÿÿÿÿ
-=python:S125‹Œ"Remove this commented out code.(ä¥¼Âşÿÿÿÿ
-=python:S125Œ"Remove this commented out code.(‚ó¦ûÿÿÿÿÿ
-=python:S125ºŒ"Remove this commented out code.(ü²ÃŞıÿÿÿÿ
-kpython:S1764¨"LCorrect one of the identical sub-expressions on both sides of operator "or".(Â»ƒşÿÿÿÿ
-=python:S125’”"Remove this commented out code.(Úæãøÿÿÿÿ
-6python:S125¤”"Remove this commented out code.(‰ÿ0
-=python:S125Á”"Remove this commented out code.(ç”œ›ıÿÿÿÿ
-[python:S5754ş”"<Specify an exception class to catch or reraise the exception(˜Ş³öÿÿÿÿÿ
-7python:S125õ”"Remove this commented out code.(†Ã«r
-Epython:S5806‹•"+Rename this variable; it shadows a builtin.(Î“®¶
-Spython:S905¬•":Remove or refactor this statement; it has no side effects.(àûÊê
-Vpython:S5754”–"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-upython:S117ˆ—"\Rename this local variable "PopupButton" to match the regular expression ^[_a-z][a-z0-9_]*$.(à¨–Á
-jpython:S107§–"LFunction "popup" has 21 parameters, which is greater than the 13 authorized.(ö·Ûîıÿÿÿÿ
-Npython:S1481…—"/Remove the unused local variable "total_lines".(ıÂ²³ûÿÿÿÿ
-spython:S3776§–"TRefactor this function to reduce its Cognitive Complexity from 28 to the 15 allowed.(ö·Ûîıÿÿÿÿ
-7python:S125÷–"Remove this commented out code.(Õòf
-=python:S125—"Remove this commented out code.(©ª±£ÿÿÿÿÿ
-Bpython:S108¥—")Either remove or fill this block of code.(ã‘Û¾
-kpython:S1542¿—"LRename function "MsgBox" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÖÀ§ïøÿÿÿÿ
-spython:S107Ë—"UFunction "popup_scrolled" has 20 parameters, which is greater than the 13 authorized.(ô±¥ÿÿÿÿÿ
-Ipython:S1481•˜"/Remove the unused local variable "total_lines".(ïîñÛ
-spython:S3776Ë—"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(ô±¥ÿÿÿÿÿ
-upython:S107¼˜"WFunction "popup_no_buttons" has 17 parameters, which is greater than the 13 authorized.(”–‚‡ùÿÿÿÿ
-rpython:S107ë˜"YFunction "popup_non_blocking" has 19 parameters, which is greater than the 13 authorized.(²„ç
-ppython:S107¢™"RFunction "popup_quick" has 19 parameters, which is greater than the 13 authorized.(”Í¯İıÿÿÿÿ
-spython:S107Ú™"ZFunction "popup_quick_message" has 19 parameters, which is greater than the 13 authorized.(‚¿”ê
-vpython:S107‘š"XFunction "popup_no_titlebar" has 18 parameters, which is greater than the 13 authorized.(şÈØ¨ÿÿÿÿÿ
-ppython:S107Æš"WFunction "popup_auto_close" has 19 parameters, which is greater than the 13 authorized.(ˆÿ·
-kpython:S107şš"RFunction "popup_error" has 18 parameters, which is greater than the 13 authorized.(î–İĞ
-lpython:S107´›"SFunction "popup_cancel" has 18 parameters, which is greater than the 13 authorized.(Ê©Êÿ
-mpython:S107é›"OFunction "popup_ok" has 18 parameters, which is greater than the 13 authorized.(úæÄşÿÿÿÿ
-opython:S107œ"VFunction "popup_ok_cancel" has 18 parameters, which is greater than the 13 authorized.(»´İÒ
-qpython:S107Òœ"SFunction "popup_yes_no" has 18 parameters, which is greater than the 13 authorized.(“ï¶õüÿÿÿÿ
-ppython:S107"WFunction "popup_get_folder" has 20 parameters, which is greater than the 13 authorized.(¶üş
-npython:S3776"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(¶üş
-=python:S125Ï"Remove this commented out code.(ä¥¼Âşÿÿÿÿ
-Vpython:S5754Ü"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-npython:S107›"UFunction "popup_get_file" has 26 parameters, which is greater than the 13 authorized.(ÏÃ˜„
-npython:S3776›"TRefactor this function to reduce its Cognitive Complexity from 81 to the 15 allowed.(ÏÃ˜„
-Vpython:S5754ù"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754ˆŸ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-spython:S107õŸ"UFunction "popup_get_text" has 17 parameters, which is greater than the 13 authorized.(›Ö®ıÿÿÿÿ
-spython:S107º "UFunction "popup_get_date" has 15 parameters, which is greater than the 13 authorized.(ÙôªÂşÿÿÿÿ
-spython:S3776º "TRefactor this function to reduce its Cognitive Complexity from 79 to the 15 allowed.(ÙôªÂşÿÿÿÿ
-Ipython:S1656ó "/Remove or correct this useless self-assignment.(ª¢ÅÔ
-spython:S107ã¡"UFunction "popup_animated" has 15 parameters, which is greater than the 13 authorized.(î†‚úÿÿÿÿ
-Npython:S1481Û¢"/Remove the unused local variable "total_lines".(ıÂ²³ûÿÿÿÿ
-=python:S125Ø¢"Remove this commented out code.(©ª±£ÿÿÿÿÿ
-Dpython:S1481ß£"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-ypython:S107ä£"[Function "shell_with_animation" has 14 parameters, which is greater than the 13 authorized.(èß®şÿÿÿÿ
-=python:S125Š¥"Remove this commented out code.(»‘Óúÿÿÿÿ
-7python:S125¥"Remove this commented out code.(ô£œR
-Dpython:S1481“¦"%Remove the unused local variable "e".(¼–¯¸ÿÿÿÿÿ
-8python:S125¦¦"Remove this commented out code.(öÊ‹À
-=python:S125«¦"Remove this commented out code.(ìóÖ¡ûÿÿÿÿ
-=python:S125®¦"Remove this commented out code.(²ğËşùÿÿÿÿ
-npython:S3776º¦"TRefactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.(€ò’Ì
-7python:S125Ô¦"Remove this commented out code.(¼Šê
-8python:S125§"Remove this commented out code.(ÆÔœ¦
-=python:S125Æ§"Remove this commented out code.(¶À¢øüÿÿÿÿ
-8python:S125„¨"Remove this commented out code.(ÌÑ‘™
-8python:S125ª¨"Remove this commented out code.(ì† 
-=python:S125°¨"Remove this commented out code.(”äÜÙùÿÿÿÿ
-Jpython:S1481Ú¨"0Remove the unused local variable "section_dict".(œËÉ
-=python:S125Û¨"Remove this commented out code.(é¦ÇÃüÿÿÿÿ
-8python:S125Ş¨"Remove this commented out code.(úã´Œ
-spython:S3776¹«"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(Çï¼©şÿÿÿÿ
-=python:S125Ù«"Remove this commented out code.(™¼€”üÿÿÿÿ
-=python:S125™¬"Remove this commented out code.(É‚¡–ÿÿÿÿÿ
-Vpython:S5754µ­"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754×­"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-epython:S1542ƒ¯"KRename function "InVar" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸›ö¹
-spython:S3776Å¯"TRefactor this function to reduce its Cognitive Complexity from 57 to the 15 allowed.(‹ĞÈ ûÿÿÿÿ
-Vpython:S5754Ì¯"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754è¯"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754˜°"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754§°"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Gpython:S1940«°"-Use the opposite operator ("not in") instead.(ç¿ºÒ
-Vpython:S5754²°"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Vpython:S5754Ó°"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-Fpython:S1481ë°"-Remove the unused local variable "num_lines".(ºíßQ
-Lpython:S1481ú°"-Remove the unused local variable "num_lines".(°î“äûÿÿÿÿ
-Opython:S1481î°"0Remove the unused local variable "longest_line".(¼ë•’ıÿÿÿÿ
-Gpython:S1481ï°"(Remove the unused local variable "line".(²Ê‰÷ùÿÿÿÿ
-Ipython:S1481ê°"/Remove the unused local variable "output_text".(ùˆÁÛ
-Fpython:S1481–±"-Remove the unused local variable "num_lines".(ºíßQ
-Ipython:S1481•±"/Remove the unused local variable "output_text".(ùˆÁÛ
-npython:S3776‘±"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(·‰ñá
-mpython:S1854è±"NRemove this assignment to local variable 'width_var'; the value is never used.(Ùµ´”úÿÿÿÿ
-=python:S125í±"Remove this commented out code.(°íßŞùÿÿÿÿ
-Fpython:S1172Ï²",Remove the unused function parameter "args".(„ô¿Û
-Hpython:S1481Û²".Remove the unused local variable "prev_frame".(É‡É
-8python:S125Ü²"Remove this commented out code.(Úµ¸‡
-Fpython:S1172è²",Remove the unused function parameter "args".(©«îš
-Hpython:S1481õ²".Remove the unused local variable "prev_frame".(É‡É
-8python:S125ö²"Remove this commented out code.(¾¥
-=python:S125³"Remove this commented out code.(ç€Òùÿÿÿÿ
-…python:S107Àµ"gFunction "_github_issue_post_make_markdown" has 22 parameters, which is greater than the 13 authorized.(Á¶ÕÁùÿÿÿÿ
-;python:S3457æµ"Remove this unused argument.(…ãüÿÿÿÿÿ
-vpython:S117±¶"XRename this local variable "getVars" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ñı‚„ûÿÿÿÿ
-7python:S3626²·"Remove this redundant return.(ÙãŞŸ
-Jpython:S1481å¶"0Remove the unused local variable "heading_font".(ö“İ
-hpython:S1542è¶"NRename function "HelpText" to match the regular expression ^[a-z_][a-z0-9_]*$.(‡”Úë
-7python:S125›·"Remove this commented out code.(êÉ×U
-npython:S3776µ·"TRefactor this function to reduce its Cognitive Complexity from 58 to the 15 allowed.(ªÆŸ•
-=python:S125‹¸"Remove this commented out code.(ŞË––üÿÿÿÿ
-8python:S125’¹"Remove this commented out code.(¹“ê£
-8python:S125¹"Remove this commented out code.(ø±Ÿù
-8python:S125§¹"Remove this commented out code.(ıâ™ú
-8python:S125î¹"Remove this commented out code.(ËíÀ
-Vpython:S5754’º"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
-=python:S125Ÿº"Remove this commented out code.(¸¬Ûÿÿÿÿÿ
-npython:S3776º»"TRefactor this function to reduce its Cognitive Complexity from 56 to the 15 allowed.(¯‰‚‹
-tpython:S3776†½"URefactor this function to reduce its Cognitive Complexity from 109 to the 15 allowed.(£œÛúÿÿÿÿ
-8python:S125¾½"Remove this commented out code.(ÔÂÛ°
-7python:S125å½"Remove this commented out code.(Ìøÿ|
-=python:S125ë¾"Remove this commented out code.(©®µ™úÿÿÿÿ
-=python:S125²¿"Remove this commented out code.(ÿ«Áâşÿÿÿÿ
-=python:S125¶¿"Remove this commented out code.(ÿ«Áâşÿÿÿÿ
-=python:S125Õ¿"Remove this commented out code.(ÓÌ†”ıÿÿÿÿ
-lpython:S1542Ş¿"MRename function "VerLine" to match the regular expression ^[a-z_][a-z0-9_]*$.(¸Ô¼üøÿÿÿÿ
-8python:S125‡À"Remove this commented out code.(„úîÓ
-8python:S125ŠÀ"Remove this commented out code.(§ğÆÂ
-8python:S125À"Remove this commented out code.(ÓÜ´Ê
-8python:S125“À"Remove this commented out code.(Â¸Ï¨
-mpython:S3776¦À"TRefactor this function to reduce its Cognitive Complexity from 61 to the 15 allowed.(œŸ²_
-=python:S125¸À"Remove this commented out code.(ÕÆşĞøÿÿÿÿ
-=python:S125òÁ"Remove this commented out code.(„€ßÍûÿÿÿÿ

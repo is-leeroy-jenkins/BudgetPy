@@ -3,6 +3,7 @@
   <component name="SonarLintProjectSettings">
     <option name="bindingEnabled" value="true" />
     <option name="projectKey" value="KarmaScripter" />
+    <option name="verboseEnabled" value="true" />
     <option name="serverId" value="Budget" />
   </component>
 </project>

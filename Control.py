@@ -1,6 +1,8 @@
-from Execution import *
 from Booger import Error, ErrorDialog
-
+from Ninja import ( DataConfig, SqlConfig, DataConnection, SqlStatement,
+                    BudgetData, DataBuilder )
+from Static import Source, Provider, SQL
+from datetime import datetime, date
 
 # OperatingPlan( bfy )
 class OperatingPlan( ):
@@ -34,7 +36,7 @@ class OperatingPlan( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -293,6 +295,16 @@ class OperatingPlan( ):
         if isinstance( self.__npmname, str ) and self.__npmname != '':
             return self.__npmname
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     @npmname.setter
     def npmname( self, value ):
         if isinstance( value, str ) and value != '':
@@ -388,7 +400,7 @@ class FullTimeEquivalent( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -748,7 +760,7 @@ class StatusOfFunds( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1225,7 +1237,7 @@ class Defacto( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1703,7 +1715,7 @@ class StatusOfSupplementalFunding( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2164,7 +2176,7 @@ class StateGrantObligation( ):
     __statecode = None
     __statename = None
     __amount = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2459,7 +2471,7 @@ class Allocations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -2841,7 +2853,7 @@ class RegionalAuthority( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3203,7 +3215,7 @@ class HeadquartersAuthority( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3582,7 +3594,7 @@ class PayrollActivity( ):
     __benefits = None
     __overtimepaid = None
     __overtimehours = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -3838,32 +3850,32 @@ class PayrollActivity( ):
 
     @property
     def startdate( self ):
-        if isinstance( self.__startdate, dt.datetime ):
+        if isinstance( self.__startdate, datetime ):
             return self.__startdate
 
     @startdate.setter
     def startdate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__startdate = value
 
     @property
     def enddate( self ):
-        if isinstance( self.__enddate, dt.datetime ):
+        if isinstance( self.__enddate, datetime ):
             return self.__enddate
 
     @enddate.setter
     def enddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__startdate = value
 
     @property
     def checkdate( self ):
-        if isinstance( self.__checkdate, dt.datetime ):
+        if isinstance( self.__checkdate, datetime ):
             return self.__checkdate
 
     @checkdate.setter
     def checkdate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__checkdate = value
 
     @property
@@ -4145,7 +4157,7 @@ class SiteActivity( ):
     __outstanding = None
     __refunded = None
     __reversal = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -4650,7 +4662,7 @@ class Actuals( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -5015,7 +5027,7 @@ class AppropriationDocument( ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -5091,22 +5103,22 @@ class AppropriationDocument( ):
 
     @property
     def documentdate( self ):
-        if isinstance( self.__documentdate, dt.datetime ):
+        if isinstance( self.__documentdate, datetime ):
             return self.__documentdate
 
     @documentdate.setter
     def documentdate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__documentdate = value
 
     @property
     def lastdocumentdate( self ):
-        if isinstance( self.__lastdocumentdate, dt.datetime ):
+        if isinstance( self.__lastdocumentdate, datetime ):
             return self.__lastdocumentdate
 
     @lastdocumentdate.setter
     def lastdocumentdate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__lastdocumentdate = value
 
     @property
@@ -5398,7 +5410,7 @@ class BudgetDocument( ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -5524,22 +5536,22 @@ class BudgetDocument( ):
 
     @property
     def documentdate( self ):
-        if isinstance( self.__documentdate, dt.datetime ):
+        if isinstance( self.__documentdate, datetime ):
             return self.__documentdate
 
     @documentdate.setter
     def documentdate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__documentdate = value
 
     @property
     def lastdocumentdate( self ):
-        if isinstance( self.__lastdocumentdate, dt.datetime ):
+        if isinstance( self.__lastdocumentdate, datetime ):
             return self.__lastdocumentdate
 
     @lastdocumentdate.setter
     def lastdocumentdate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__lastdocumentdate = value
 
     @property
@@ -5921,7 +5933,7 @@ class BudgetControl( ):
     __ftespendingcontrol = None
     __transactiontypecontrol = None
     __authoritydistributioncontrol = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -6644,7 +6656,7 @@ class CompassLevels( ):
     __actualrecoveries = None
     __actualreimbursements = None
     __agreementreimbursables = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -6872,7 +6884,7 @@ class Commitment( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -7079,22 +7091,22 @@ class Commitment( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, dt.datetime ):
+        if isinstance( self.__processeddate, datetime ):
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, dt.datetime ):
+        if isinstance( self.__lastactivitydate, datetime ):
             return self.__lastactivitydate
 
     @lastactivitydate.setter
     def lastactivitydate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
@@ -7360,7 +7372,7 @@ class DocumentControlNumber( ):
     __documentnumber = None
     __documentprefix = None
     __documentcontrolnumber = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -7534,7 +7546,7 @@ class OpenCommitment( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -7741,22 +7753,22 @@ class OpenCommitment( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, dt.datetime ):
+        if isinstance( self.__processeddate, datetime ):
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, dt.datetime ):
+        if isinstance( self.__lastactivitydate, datetime ):
             return self.__lastactivitydate
 
     @lastactivitydate.setter
     def lastactivitydate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
@@ -8054,7 +8066,7 @@ class Obligations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -8261,22 +8273,22 @@ class Obligations( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, dt.datetime ):
+        if isinstance( self.__processeddate, datetime ):
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, dt.datetime ):
+        if isinstance( self.__lastactivitydate, datetime ):
             return self.__lastactivitydate
 
     @lastactivitydate.setter
     def lastactivitydate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
@@ -8574,7 +8586,7 @@ class Deobligation( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -8781,22 +8793,22 @@ class Deobligation( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, dt.datetime ):
+        if isinstance( self.__processeddate, datetime ):
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, dt.datetime ):
+        if isinstance( self.__lastactivitydate, datetime ):
             return self.__lastactivitydate
 
     @lastactivitydate.setter
     def lastactivitydate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
@@ -9081,7 +9093,7 @@ class UnliquidatedObligation( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -9288,22 +9300,22 @@ class UnliquidatedObligation( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, dt.datetime ):
+        if isinstance( self.__processeddate, datetime ):
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, dt.datetime ):
+        if isinstance( self.__lastactivitydate, datetime ):
             return self.__lastactivitydate
 
     @lastactivitydate.setter
     def lastactivitydate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
@@ -9602,7 +9614,7 @@ class Expenditures:
     __objectivename = None
     __npmcode = None
     __npmname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -9809,22 +9821,22 @@ class Expenditures:
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, dt.datetime ):
+        if isinstance( self.__processeddate, datetime ):
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, dt.datetime ):
+        if isinstance( self.__lastactivitydate, datetime ):
             return self.__lastactivitydate
 
     @lastactivitydate.setter
     def lastactivitydate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
@@ -10115,7 +10127,7 @@ class SpecialAccounts( ):
     __unpaidbalances = None
     __collections = None
     __cumulativereciepts = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -10424,7 +10436,7 @@ class SuperfundSites( ):
     __epaid = None
     __sitecode = None
     __sitename = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 

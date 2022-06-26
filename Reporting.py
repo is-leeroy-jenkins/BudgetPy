@@ -1,7 +1,7 @@
-from Control import *
 from Booger import Error, ErrorDialog
-import sys
-from sys import exc_info
+from Ninja import ( DataConfig, SqlConfig, DataConnection, SqlStatement,
+                    BudgetData, DataBuilder )
+from Static import Source, Provider, SQL
 
 # Apportionment( bfy, efy, code )
 class Apportionment( ):
@@ -173,6 +173,17 @@ class Apportionment( ):
     def amount( self, value ):
         if isinstance( value, float ):
             self.__amount = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
 
     def __init__( self, bfy, efy, omb ):
         self.__source = Source.Apportionments
@@ -661,6 +672,17 @@ class CarryoverEstimates( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
+
     def __init__( self, bfy ):
         '''Initializes the PRC class'''
         self.__source = Source.CarryoverEstimates
@@ -746,6 +768,7 @@ class CarryoverSurvey( ):
     __fundcode = None
     __fundname = None
     __amount = None
+    __fields = None
     __data = None
     __frame = None
 

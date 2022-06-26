@@ -1,10 +1,12 @@
 import datetime as dt
 from datetime import datetime, date
-from Ninja import *
 from Static import Source, Provider, SQL
 from Booger import Error, ErrorDialog
 import sys
 from sys import exc_info
+from Ninja import DataConfig, SqlConfig, DataConnection, SqlStatement, BudgetData
+from Static import Source, Provider
+from datetime import datetime, date
 
 
 
@@ -174,6 +176,16 @@ class Account( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.Accounts
         self.__provider = Provider.SQLite
@@ -304,6 +316,16 @@ class Activity( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.ActivityCodes
         self.__provider = Provider.SQLite
@@ -421,6 +443,16 @@ class AllowanceHolder( ):
     def table( self, frame ):
         if isinstance( frame, DataFrame ):
             self.__frame = frame
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, code ):
         self.__source = Source.AllowanceHolders
@@ -575,6 +607,16 @@ class Appropriation( ):
     def data( self, value ):
         if isinstance( value, list ):
             self.__data = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, bfy, law ):
         self.__source = Source.Appropriations
@@ -798,6 +840,16 @@ class BudgetFiscalYear( ):
         if isinstance( frame, DataFrame ):
             self.__frame = frame
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy ):
         self.__source  = Source.FiscalYears
         self.__provider = Provider.SQLite
@@ -957,6 +1009,16 @@ class BudgetObjectClass( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.BudgetObjectClasses
         self.__provider = Provider.SQLite
@@ -1095,6 +1157,16 @@ class FinanceObjectClass( ):
     def table( self, frame ):
         if isinstance( frame, DataFrame ):
             self.__frame = frame
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, code ):
         self.__code = code if isinstance( code, str ) else None
@@ -1508,6 +1580,16 @@ class Fund( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, code ):
         self.__source = Source.Funds
         self.__provider = Provider.SQLite
@@ -1651,6 +1733,16 @@ class Goal( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.Goals
         self.__provider = Provider.SQLite
@@ -1776,6 +1868,16 @@ class NationalProgram( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.NationalPrograms
         self.__provider = Provider.SQLite
@@ -1895,6 +1997,16 @@ class Objective( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__code = code
         self.__fields = [ 'ObjectivesId',
@@ -2011,6 +2123,16 @@ class Organization( ):
         if isinstance( frame, DataFrame ):
             self.__frame = frame
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.Organizations
         self.__provider = Provider.SQLite
@@ -2111,6 +2233,16 @@ class Project( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.Projects
         self.__provider = Provider.SQLite
@@ -2166,8 +2298,8 @@ class Project( ):
 
 
 
-# ItProjectCode( code )
-class ItProjectCode( ):
+# CapitalPlanningInvestmentCode( code )
+class CapitalPlanningInvestmentCode( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
@@ -2228,11 +2360,24 @@ class ItProjectCode( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.CPIC
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
-        self.__frame = DataFrame
+        self.__fields = [ 'CpicId',
+                          'Type'
+                          'Code',
+                          'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -2343,6 +2488,16 @@ class SiteProjectCode( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.SiteProjectCodes
         self.__provider = Provider.SQLite
@@ -2449,6 +2604,16 @@ class StateOrganization( ):
     def data( self, value ):
         if isinstance( value, list ):
             self.__data = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, code ):
         self.__source = Source.StateOrganizations
@@ -2569,6 +2734,16 @@ class HeadquartersOffice( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.HeadquartersOffices
         self.__provider = Provider.SQLite
@@ -2688,6 +2863,16 @@ class HumanResourceOrganization( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.HumanResourceOrganizations
         self.__provider = Provider.SQLite
@@ -2802,6 +2987,16 @@ class ProgramArea( ):
     def table( self, value ):
         if isinstance( value, DataFrame ):
             self.__frame = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, code ):
         self.__source = Source.ProgramAreas
@@ -2931,6 +3126,16 @@ class ProgramProject( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.ProgramProjects
         self.__provider = Provider.SQLite
@@ -3032,6 +3237,16 @@ class ResponsibilityCenter( ):
     def table( self, value ):
         if isinstance( value, DataFrame ):
             self.__frame = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, code ):
         self.__source = Source.ResponsibilityCenters
@@ -3158,6 +3373,16 @@ class ResourcePlanningOffice( ):
     def table( self, value ):
         if isinstance( value, DataFrame ):
             self.__frame = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, code ):
         self.__source = Source.ResourcePlanningOffices
@@ -3553,14 +3778,55 @@ class ProgramResultsCode( ):
         if isinstance( frame, DataFrame ):
             self.__frame = frame
 
-    def __init__( self, bfy, efy, rpio, ah, account, boc, amount = 0.0 ):
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
+    def __init__( self, bfy = None, efy = None,
+                  fund = None, rpio = None, ah = None,
+                  account = None, boc = None, amount = 0.0 ):
         '''Initializes the PRC class'''
         self.__source = Source.Allocations
         self.__provider = Provider.SQLite
-        self.__accountcode = code if isinstance( code, str ) else None
-        self.__bfy = BudgetFiscalYear( datetime.year )
+        self.__accountcode = account
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__fundcode = fund
+        self.__rpiocode = rpio
+        self.__ahcode = ah
+        self.__boccode = boc
         self.__amount = amount
-        self.__frame = DataFrame
+        self.__fields = [ 'AllocationsId',
+                           'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'RcCode',
+                           'RcName',
+                           'Amount',
+                           'NpmCode',
+                           'NpmName' ]
 
     def __str__( self ):
         if isinstance( self.__code ) and self.__code != '':
@@ -3664,6 +3930,16 @@ class RegionalOffice( ):
     def table( self, value ):
         if isinstance( value, DataFrame ):
             self.__frame = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, code ):
         self.__source = Source.ResourcePlanningOffices
@@ -3810,6 +4086,16 @@ class SiteProject( ):
     def table( self, value ):
         if isinstance( value, DataFrame ):
             self.__frame = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, code ):
         self.__source = Source.SiteProjectCodes
@@ -3968,9 +4254,19 @@ class FederalHoliday( ):
             self.__frame = value
 
     @property
-    def observance( self ):
-        if self.__observance is not None:
+    def observances( self ):
+        if isinstance( self.__observance, dict ):
             return self.__observance
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, bfy, name ):
         self.__source = Source.FederalHolidays
@@ -4042,7 +4338,6 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
     def getframe( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
@@ -4057,7 +4352,6 @@ class FederalHoliday( ):
             exc.method = 'getframe( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
     def columbusday( self ):
         '''The second Monday in October'''
@@ -4448,6 +4742,16 @@ class TreasurySymbol( ):
         if isinstance( value, str ) and value != '':
             self.__ombaccountname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, code ):
         self.__soruce = Source.FundSymbols
         self.__provider = Provider.SQLite
@@ -4512,8 +4816,20 @@ class TreasurySymbol( ):
             err.show( )
 
 
+
+
 class PayrollCostCode( ):
     __fields = None
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self ):
         self.__fields = [ 'PayrollCostCodesId',
@@ -4526,6 +4842,8 @@ class PayrollCostCode( ):
                            'WorkCodeName',
                            'HrOrgCode',
                            'HrOrgName' ]
+
+
 
 # WorkCode( code )
 class WorkCode( ):
@@ -4589,11 +4907,22 @@ class WorkCode( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, code ):
         self.__source = Source.WorkCodes
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) else None
         self.__frame = DataFrame
+        self.__fields = None
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -4937,6 +5266,16 @@ class Transfer( ):
         if isinstance( value, str ) and value != '':
             self.__programareaname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, rpnumber = None ):
         self.__source = Source.Transfers
         self.__provider = Provider.SQLite
@@ -5018,19 +5357,20 @@ class Transfer( ):
             err.show( )
 
 
-class CapitalPlanningInvestmentCode( ):
-    __fields = None
-
-    def __init__( self ):
-        self.__fields = [ 'CpicId',
-                          'Type',
-                          'Code',
-                          'Name' ]
-
 
 
 class CostArea( ):
     __fields = None
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self ):
         self.__fields = [ 'CostAreasId',
