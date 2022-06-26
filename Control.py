@@ -315,7 +315,7 @@ class OperatingPlan( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
-        self.__columns = [ 'OperatingPlansId', 'RpioCode', 'RpioName', 'BFY', 'EFY', 'AhCode',
+        self.__fields = [ 'OperatingPlansId', 'RpioCode', 'RpioName', 'BFY', 'EFY', 'AhCode',
                            'FundCode', 'OrgCode', 'AccountCode', 'RcCode', 'BocCode', 'BocName',
                            'Amount', 'ITProjectCode', 'ProjectCode', 'ProjectName', 'NpmCode',
                            'ProjectTypeName', 'ProjectTypeCode', 'ProgramProjectCode', 'ProgramAreaCode',
@@ -664,12 +664,22 @@ class FullTimeEquivalent( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.FullTimeEquivalents
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
-        self.__columns = [ 'FullTimeEquivalentsId', 'OperatingPlansId', 'RpioCode', 'RpioName', 'BFY', 'EFY', 'AhCode',
+        self.__fields = [ 'FullTimeEquivalentsId', 'OperatingPlansId', 'RpioCode', 'RpioName', 'BFY', 'EFY', 'AhCode',
                            'FundCode', 'OrgCode', 'AccountCode', 'BocCode', 'BocName',
                            'Amount', 'ITProjectCode', 'ProjectCode', 'ProjectName', 'NpmCode',
                            'ProjectTypeName', 'ProjectTypeCode', 'ProgramProjectCode', 'ProgramAreaCode',
@@ -1114,12 +1124,22 @@ class StatusOfFunds( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.StatusOfFunds
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'StatusOfFundsId',
+        self.__fields = [ 'StatusOfFundsId',
                            'BudgetLevel',
                            'BFY',
                            'EFY',
@@ -1591,12 +1611,22 @@ class Defacto( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.Defactos
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'DefactosId',
+        self.__fields = [ 'DefactosId',
                            'StatusOfFundsId',
                            'BudgetLevel',
                            'BFY',
@@ -2069,12 +2099,22 @@ class StatusOfSupplementalFunding( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.StatusOfSupplementalFunding
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'StatusOfFundsId',
+        self.__fields = [ 'StatusOfFundsId',
                            'BudgetLevel',
                            'BFY',
                            'EFY',
@@ -2370,12 +2410,22 @@ class StateGrantObligation( ):
         if isinstance( value, float ):
             self.__amount = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, rpio ):
         self.__source = Source.StateGrantObligations
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
-        self.__columns = [ 'StateGrantObligationsId',
+        self.__fields = [ 'StateGrantObligationsId',
                            'RpioCode',
                            'RpioName',
                            'FundCode',
@@ -2745,12 +2795,22 @@ class Allocations( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.Allocations
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'AllocationsId',
+        self.__fields = [ 'AllocationsId',
                            'StatusOfFundsId',
                            'BudgetLevel',
                            'BFY',
@@ -3107,12 +3167,22 @@ class RegionalAuthority( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.RegionalAuthority
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'RegionalAuthorityId',
+        self.__fields = [ 'RegionalAuthorityId',
                            'AllocationsId',
                            'StatusOfFundsId',
                            'BudgetLevel',
@@ -3469,12 +3539,22 @@ class HeadquartersAuthority( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, rpio ):
         self.__source = Source.HeadquartersAuthority
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
-        self.__columns = [ 'HeadquartersAuthorityId',
+        self.__fields = [ 'HeadquartersAuthorityId',
                            'AllocationsId',
                            'StatusOfFundsId',
                            'BudgetLevel',
@@ -4028,12 +4108,22 @@ class PayrollActivity( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.PayrollActivity
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'PayrollActivityId',
+        self.__fields = [ 'PayrollActivityId',
                            'BFY',
                            'EFY',
                            'RpioCode',
@@ -4541,12 +4631,22 @@ class SiteActivity( ):
         if isinstance( value, float ):
             self.__reversal = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, rpio ):
         self.__source = Source.SiteActivity
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
-        self.__columns = [ 'SiteActivityId',
+        self.__fields = [ 'SiteActivityId',
                            'BFY',
                            'EFY',
                            'RpioCode',
@@ -4916,12 +5016,22 @@ class Actuals( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.Actuals
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
-        self.__columns = [ 'ActualsId',
+        self.__fields = [ 'ActualsId',
                            'BFY',
                            'EFY',
                            'RpioCode',
@@ -5291,12 +5401,22 @@ class AppropriationDocument( ):
         if isinstance( value, float ):
             self.__estimatedrecoveries = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund ):
         self.__source = Source.AppropriationDocuments
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'AppropriationDocumentsId',
+        self.__fields = [ 'AppropriationDocumentsId',
                            'BFY',
                            'EFY',
                            'Fund',
@@ -5804,13 +5924,23 @@ class BudgetDocument( ):
         if isinstance( value, float ):
             self.__estimatedrecoveries = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, fundcode ):
         self.__source = Source.BudgetDocuments
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
-        self.__columns = [ 'BudgetDocumentsId',
+        self.__fields = [ 'BudgetDocumentsId',
                            'BFY',
                            'EFY',
                            'BudgetLevel',
@@ -6297,13 +6427,23 @@ class BudgetControl( ):
         if isinstance( value, str ) and value != '':
             self.__authoritydistributioncontrol = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, fund ):
         self.__source = Source.BudgetControls
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'BudgetControlValuesId',
+        self.__fields = [ 'BudgetControlValuesId',
                            'Code',
                            'Name',
                            'SecurityOrg',
@@ -6560,12 +6700,22 @@ class CongressionalControl( ):
         if isinstance( value, bool ):
             self.__memorandumrequired = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fundcode ):
         self.__source = Source.CongressionalControls
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
-        self.__columns = [ 'CongressionalControlsId',
+        self.__fields = [ 'CongressionalControlsId',
                            'FundCode',
                            'FundName',
                            'ProgramAreaCode',
@@ -6743,13 +6893,23 @@ class CompassLevels( ):
         if isinstance( value, str ) and value != '':
             self.__subappropriationcode = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, fund ):
         self.__source = Source.CompassLevels
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'CompassLevelsId',
+        self.__fields = [ 'CompassLevelsId',
                            'BudgetLevel',
                            'BFY',
                            'EFY',
@@ -7269,6 +7429,16 @@ class Commitment( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund, account, boc ):
         self.__source = Source.OpenCommitments
         self.__provider = Provider.SQLite
@@ -7276,7 +7446,7 @@ class Commitment( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__columns = [ 'CommitmentsId',
+        self.__fields = [ 'CommitmentsId',
                            'ObligationsId',
                            'BFY',
                            'EFY',
@@ -7446,11 +7616,21 @@ class DocumentControlNumber( ):
         if isinstance( value, str ) and value != '':
             self.__documentcontrolnumber = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, dcn ):
         self.__source = Source.DocumentControlNumbers
         self.__provider = Provider.SQLite
         self.__documentcontrolnumber = dcn if isinstance( dcn, str ) and dcn != '' else None
-        self.__columns = [ 'DocumentControlNumbersId',
+        self.__fields = [ 'DocumentControlNumbersId',
                            'RpioCode',
                            'RpioName',
                            'DocumentType',
@@ -7931,6 +8111,16 @@ class OpenCommitment( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund, account, boc ):
         self.__source = Source.OpenCommitments
         self.__provider = Provider.SQLite
@@ -7938,7 +8128,7 @@ class OpenCommitment( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__columns = [ 'OpenCommitmentsId',
+        self.__fields = [ 'OpenCommitmentsId',
                            'ObligationsId',
                            'BFY',
                            'EFY',
@@ -8451,6 +8641,16 @@ class Obligations( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund, account, boc ):
         self.__source = Source.Obligations
         self.__provider = Provider.SQlite
@@ -8458,7 +8658,7 @@ class Obligations( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__columns = [ 'ObligationsId',
+        self.__fields = [ 'ObligationsId',
                            'BFY',
                            'EFY',
                            'RpioCode',
@@ -8971,6 +9171,16 @@ class Deobligation( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund, account, boc ):
         self.__source = Source.Deobligations
         self.__provider = Provider.SQLite
@@ -8978,7 +9188,7 @@ class Deobligation( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__columns = [ 'DeobligationsId',
+        self.__fields = [ 'DeobligationsId',
                            'BFY',
                            'RpioCode',
                            'RpioName',
@@ -9478,6 +9688,16 @@ class UnliquidatedObligation( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund, account, boc ):
         self.__source = Source.UnliquidatedObligations
         self.__provider = Provider.SQLite
@@ -9485,7 +9705,7 @@ class UnliquidatedObligation( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__columns = [ 'UnliquidatedObligationsId'
+        self.__fields = [ 'UnliquidatedObligationsId'
                            'ObligationsId',
                            'BFY',
                            'EFY',
@@ -9999,6 +10219,16 @@ class Expenditures:
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund, account, boc ):
         self.__source = Source.Expenditures
         self.__provider = Provider.SQLite
@@ -10006,7 +10236,7 @@ class Expenditures:
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__columns = [ 'ExpendituresId',
+        self.__fields = [ 'ExpendituresId',
                            'ObligationsId',
                            'BFY',
                            'EFY',
@@ -10331,6 +10561,16 @@ class SpecialAccounts( ):
         if isinstance( value, str ) and value != '':
             self.__cerclisid = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, fund, account, boc ):
         self.__source = Source.SpecialAccounts
         self.__provider = Provider.SQLite
@@ -10338,7 +10578,7 @@ class SpecialAccounts( ):
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
         self.__accountcode = account if isinstance( account, str ) and account != '' else None
         self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
-        self.__columns = [ 'SpecialAccountsId',
+        self.__fields = [ 'SpecialAccountsId',
                            'BFY',
                            'RpioCode',
                            'FundCode',
@@ -10560,13 +10800,23 @@ class SuperfundSites( ):
         if isinstance( value, str ) and value != '':
             self.__cerclisid = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
 
     def __init__( self, bfy, rpiocode ):
         self.__source = Source.SuperfundSites
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__rpiocode = rpiocode if isinstance( rpiocode, str ) and rpiocode != '' else None
-        self.__columns = [ 'SuperfundSitesId',
+        self.__fields = [ 'SuperfundSitesId',
                            'RpioCode',
                            'RpioName',
                            'City',
