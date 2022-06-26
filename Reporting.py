@@ -184,7 +184,6 @@ class Apportionment( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-
     def __init__( self, bfy, efy, omb ):
         self.__source = Source.Apportionments
         self.__provider = Provider.SQLite
@@ -331,6 +330,16 @@ class BudgetaryResourceExecution( ):
         if isinstance( value, str ) and value != '':
             self.__ombaccountname = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, code ):
         self.__source = Source.BudgetResourceExecution
         self.__provider = Provider.SQLite
@@ -438,7 +447,7 @@ class CarryoverEstimates( ):
     __programprojectname = None
     __programareacode = None
     __programareaname = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -688,7 +697,7 @@ class CarryoverEstimates( ):
         self.__source = Source.CarryoverEstimates
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__columns = [ 'CarryoverEstimatesId',
+        self.__fields = [ 'CarryoverEstimatesId',
                            'BudgetLevel',
                            'BFY',
                            'EFY',
@@ -832,12 +841,26 @@ class CarryoverSurvey( ):
         if isinstance( value, float ):
             self.__amount = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, fund ):
         self.__source = Source.CarryoverSurvey
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__fields = [ 'CarryoverSurveyId',
+                          'FundCode',
+                          'FundName',
+                          'Amount' ]
 
     def getdata( self ):
         try:
@@ -941,7 +964,7 @@ class StatusOfAppropriations( ):
     __voidedamount = None
     __totalusedamount = None
     __availableamount = None
-    __columns = None
+    __fields = None
     __data = None
     __frame = None
 
@@ -1497,13 +1520,23 @@ class StatusOfAppropriations( ):
         if isinstance( value, float ):
             self.__availableamount = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, fund ):
         self.__source = Source.StatusOfAppropriations
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
         self.__appropriationfundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__columns = [ 'StatusOfAppropriationsId',
+        self.__fields =[ 'StatusOfAppropriationsId',
                            'BFY',
                            'EFY',
                            'BudgetLevel',
@@ -1738,6 +1771,16 @@ class MonthlyOutlays( ):
     def ombaccountname( self, value ):
         if isinstance( value, str ) and value != '':
             self.__ombaccountname = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, bfy, efy, account ):
         self.__source = Source.MonthlyOutlays
@@ -2141,6 +2184,16 @@ class SpendingRates( ):
         if isinstance( value, float ):
             self.__totalspendout = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, account ):
         self.__source = Source.SpendingRates
         self.__provider = Provider.SQLite
@@ -2276,6 +2329,16 @@ class ReimbursableSurvey( ):
         if isinstance( value, float ):
             self.__amount = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, fund ):
         self.__source = Source.ReimbursableSurvey
         self.__provider = Provider.SQLite
@@ -2331,10 +2394,20 @@ class ReimbursableSurvey( ):
 
 class ReimbursableAgreements( ):
     __reimbursableagreementsid = None
-    __columns = None
+    __fields = None
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self ):
-        self.__columns = [ 'SiteActivityId',
+        self.__fields =[ 'SiteActivityId',
                            'BFY',
                            'EFY',
                            'RpioCode',
@@ -2547,6 +2620,16 @@ class ObjectClassOutlays( ):
         if isinstance( value, float ):
             self.__budgetyear = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, account ):
         self.__source = Source.ObjectClassOutlays
         self.__provider = Provider.SQLite
@@ -2722,6 +2805,16 @@ class UnobligatedAuthority( ):
     def budgetyear( self, value ):
         if isinstance( value, float ):
             self.__budgetyear = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, account ):
         self.__source = Source.UnobligatedAuthority
@@ -3036,6 +3129,16 @@ class BudgetOutlays( ):
         if isinstance( value, float ):
             self.__outyear9 = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, account ):
         self.__source = Source.BudgetOutlays
         self.__provider = Provider.SQLite
@@ -3260,6 +3363,16 @@ class GrowthRates( ):
         if isinstance( value, float ):
             self.__outyear9 = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, id ):
         self.__source = Source.GrowthRates
         self.__provider = Provider.SQLite
@@ -3397,6 +3510,16 @@ class DataRuleDescription( ):
     def ruledescription( self, value ):
         if isinstance( value, str ) and value != '':
             self.__ruledescription = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self, schedule, line, rule ):
         self.__source = Source.DataRuleDescriptions
@@ -3715,6 +3838,16 @@ class CarryoverOutlays( ):
         if isinstance( value, float ):
             self.__outyear9 = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, omb ):
         self.__source = Source.CarryoverOutlays
         self.__budgetyear = bfy if isinstance( bfy, str ) and bfy != '' else None
@@ -3801,6 +3934,7 @@ class UnobligatedBalances( ):
     __accountnumber = None
     __accountname = None
     __amount = None
+    __fields = None
     __frame = None
     __data = None
 
@@ -3894,11 +4028,21 @@ class UnobligatedBalances( ):
         if isinstance( value, float ):
             self.__amount = value
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self, bfy, efy, fundcode ):
         self.__bfy = bfy if isinstance( bfy, str ) and bfy != '' else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
-        self.__columns = [ 'UnobligatedBalancesId',
+        self.__fields =[ 'UnobligatedBalancesId',
                            'BudgetYear',
                            'BFY',
                            'EFY',
@@ -3953,10 +4097,20 @@ class UnobligatedBalances( ):
 
 
 class StatusOfSupplementalFunds( ):
-    __columns = None
+    __fields = None
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self ):
-        self.__columns = [ 'SupplementalAuthorityId',
+        self.__fields =[ 'SupplementalAuthorityId',
                            'StatusOfFundsId',
                            'BudgetLevel',
                            'BFY',
@@ -3994,10 +4148,20 @@ class StatusOfSupplementalFunds( ):
 
 
 class StatusOfJobsActFunding( ):
-    __columns = None
+    __fields = None
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self ):
-        self.__columns = [ 'StatusOfJobsActFundingId',
+        self.__fields = [ 'StatusOfJobsActFundingId',
                            'StatusOfFundsId',
                            'BudgetLevel',
                            'BFY',
@@ -4037,6 +4201,16 @@ class StatusOfJobsActFunding( ):
 class LedgerAccounts( ):
     __fields = None
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self ):
         self.__fields = [ 'LedgerAccountsId',
                           'BFY',
@@ -4055,6 +4229,16 @@ class LedgerAccounts( ):
 
 class ProgramFinancingSchedule( ):
     __fields = None
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self ):
         self.__fields = [ 'ProgramFinancingScheduleId',
@@ -4082,6 +4266,16 @@ class ProgramFinancingSchedule( ):
 class PublicLaws( ):
     __fields = None
 
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
     def __init__( self ):
         self.__fields = [ 'PublicLawsId',
                           'LawNumber',
@@ -4093,6 +4287,16 @@ class PublicLaws( ):
 
 class TransType( ):
     __fields = None
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
 
     def __init__( self ):
         self.__fields = [ 'TransTypesId',
