@@ -11,7 +11,6 @@
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reporting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/referencemodels/References.db-journal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/sqlite/referencemodels/sql/CREATETABLE/ProgramDescriptions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/referencemodels/sql/CREATETABLE/ProgramDescriptions.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +113,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/requirements.txt",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "Errors"
+    "settings.editor.selected.configurable": "com.jetbrains.python.documentation.PythonDocumentationConfigurable"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -180,13 +179,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00266" summary="updates from main rig;">
-      <created>1655751385782</created>
-      <option name="number" value="00266" />
-      <option name="presentableId" value="LOCAL-00266" />
-      <option name="project" value="LOCAL" />
-      <updated>1655751385782</updated>
     </task>
     <task id="LOCAL-00267" summary="updates from main rig;">
       <created>1655751715739</created>
@@ -524,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656242573656</updated>
     </task>
-    <option name="localTasksCounter" value="315" />
+    <task id="LOCAL-00315" summary="updates from main rig;">
+      <created>1656244557015</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1656244557015</updated>
+    </task>
+    <option name="localTasksCounter" value="316" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

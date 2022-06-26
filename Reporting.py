@@ -2,6 +2,7 @@ from Booger import Error, ErrorDialog
 from Ninja import ( DataConfig, SqlConfig, DataConnection, SqlStatement,
                     BudgetData, DataBuilder )
 from Static import Source, Provider, SQL
+from datetime import datetime, date
 
 # Apportionment( bfy, efy, code )
 class Apportionment( ):
@@ -1032,12 +1033,12 @@ class StatusOfAppropriations( ):
 
     @property
     def appropriationcreationdate( self ):
-        if isinstance( self.__appropriationcreationdate, dt.datetime ):
+        if isinstance( self.__appropriationcreationdate, datetime ):
             return self.__appropriationcreationdate
 
     @appropriationcreationdate.setter
     def appropriationcreationdate( self, value ):
-        if isinstance( value, dt.datetime ):
+        if isinstance( value, datetime ):
             self.__appropriationcreationdate = value
 
     @property
@@ -2614,6 +2615,50 @@ class ReimbursableAgreements( ):
                           'ULO',
                           'Available' ]
 
+    def __str__( self ):
+        if isinstance( self.__agreementnumber, str ) and self.__agreementnumber != '':
+            return self.__agreementnumber
+
+    def getdata( self ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', ]
+            v = ( self.__bfy, )
+            dconfig = DataConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = DataConnection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'ObjectClassOutlays'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'ObjectClassOutlays'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 # ObjectClassOutlays( account )
 class ObjectClassOutlays( ):
