@@ -9790,7 +9790,7 @@ class UnliquidatedObligation( ):
 
 
 # Expenditure( bfy, fund, account, boc )
-class Expenditures:
+class Expenditures( ):
     '''Expenditure( bfy, fund, account, code )
     initializes object providing Expenditure data'''
     __source = None
@@ -10672,10 +10672,8 @@ class SuperfundSites( ):
     __siteprojectname = None
     __city = None
     __state = None
-    __siteid = None
-    __epaid = None
-    __sitecode = None
-    __sitename = None
+    __ssid = None
+    __epasiteid = None
     __fields = None
     __data = None
     __frame = None
@@ -10761,42 +10759,22 @@ class SuperfundSites( ):
             self.__nplstatusname = value
 
     @property
-    def siteid( self ):
-        if isinstance( self.__siteid, str ) and self.__siteid != '':
-            return self.__siteid
+    def ssid( self ):
+        if isinstance( self.__ssid, str ) and self.__ssid != '':
+            return self.__ssid
 
-    @siteid.setter
-    def siteid( self, value ):
+    @ssid.setter
+    def ssid( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__value = value
+            self.__ssid = value
 
     @property
-    def sitecode( self ):
-        if isinstance( self.__sitecode, str ) and self.__sitecode != '':
-            return self.__sitecode
-
-    @sitecode.setter
-    def sitecode( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__value = value
-
-    @property
-    def sitename( self ):
-        if isinstance( self.__sitename, str ) and self.__sitename != '':
-            return self.__sitename
-
-    @sitename.setter
-    def sitename( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__value = value
-
-    @property
-    def cerclisid( self ):
+    def epasiteid( self ):
         if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
             return self.__cerclisid
 
-    @cerclisid.setter
-    def cerclisid( self, value ):
+    @epasiteid.setter
+    def epasiteid( self, value ):
         if isinstance( value, str ) and value != '':
             self.__cerclisid = value
 

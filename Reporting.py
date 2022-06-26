@@ -2660,6 +2660,7 @@ class ReimbursableAgreements( ):
             err = ErrorDialog( exc )
             err.show( )
 
+
 # ObjectClassOutlays( account )
 class ObjectClassOutlays( ):
     '''ObjectClassOutlays( bfy, omb )
@@ -4503,6 +4504,18 @@ class PublicLaws( ):
 
 
 class TransType( ):
+    __source = None
+    __provider = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __doctype = None
+    __appropriationbill = None
+    __continuingresolution = None
+    __rescissioncurrentyear = None
+    __rescissionprioryear = None
+    __sequesterreduction = None
+    __sequesterreturn = None
     __fields = None
 
     @property
