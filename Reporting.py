@@ -4141,7 +4141,7 @@ class UnobligatedBalances( ):
     balances by Fund Code and General Ledger Account'''
     __source = None
     __provider = None
-    __carryoveroutlaysid = None
+    __unobligatedbalancesid = None
     __bfy = None
     __efy = None
     __treasurysymbol = None
@@ -4156,13 +4156,13 @@ class UnobligatedBalances( ):
 
     @property
     def id( self ):
-        if isinstance( self.__carryoveroutlaysid, int ):
-            return self.__carryoveroutlaysid
+        if isinstance( self.__unobligatedbalancesid, int ):
+            return self.__unobligatedbalancesid
 
     @id.setter
     def id( self, value ):
         if isinstance( value, int ):
-            self.__carryoveroutlaysid = value
+            self.__unobligatedbalancesid = value
 
     @property
     def bfy( self ):
@@ -4225,12 +4225,12 @@ class UnobligatedBalances( ):
             self.__accountname = value
 
     @property
-    def treasuryaccount( self ):
+    def treasurysymbol( self ):
         if isinstance( self.__treasuryaccount, str ) and self.__treasuryaccount != '':
             return self.__treasuryaccount
 
-    @treasuryaccount.setter
-    def treasuryaccount( self, value ):
+    @treasurysymbol.setter
+    def treasurysymbol( self, value ):
         if isinstance( value, str ) and value != '':
             self.__treasuryaccount = value
 
@@ -4366,7 +4366,13 @@ class StatusOfSupplementalFunds( ):
 
 
 class StatusOfJobsActFunding( ):
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
     __fields = None
+    __data  = None
+    __frame = None
 
     @property
     def fields( self ):
@@ -4417,7 +4423,97 @@ class StatusOfJobsActFunding( ):
 
 
 class LedgerAccounts( ):
+    __source = None
+    __provider = None
+    __ledgeraccountsid = None
+    __bfy = None
+    __efy = None
+    __treasurysymbol = None
+    __fundcode = None
+    __fundname = None
+    __accountnumber = None
+    __accountname = None
     __fields = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__ledgeraccountsid, int ):
+            return self.__ledgeraccountsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__ledgeraccountsid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
+
+    @property
+    def accountnumber( self ):
+        if isinstance( self.__accountnumber, str ) and self.__accountnumber != '':
+            return self.__accountnumber
+
+    @accountnumber.setter
+    def accountnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountnumber = value
+
+    @property
+    def accountname( self ):
+        if isinstance( self.__accountname, str ) and self.__accountname != '':
+            return self.__accountname
+
+    @accountname.setter
+    def accountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountname = value
+
+    @property
+    def treasurysymbol( self ):
+        if isinstance( self.__treasuryaccount, str ) and self.__treasuryaccount != '':
+            return self.__treasuryaccount
+
+    @treasurysymbol.setter
+    def treasurysymbol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccount = value
 
     @property
     def fields( self ):
@@ -4446,7 +4542,70 @@ class LedgerAccounts( ):
 
 
 class ProgramFinancingSchedule( ):
+    __source = None
+    __provider = None
+    __programfinancingscheduleid = None
+    __reportyear = None
+    __ledgeraccountcode = None
+    __treasuryagencycode = None
+    __ombaccountcode = None
+    __ombaccountname = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __fundname = None
+    __sectionnumber = None
+    __sectionname = None
+    __linenumber = None
+    __linedescription = None
+    __originalamount = None
+    __budgetamount = None
+    __agencyamount = None
     __fields = None
+    __data = None
+    __frame = None
+
+
+    @property
+    def treasuryaccountcode( self ):
+        if isinstance( self.__treasuryaccountcode, str ) \
+                and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasuryaccountcode.setter
+    def treasuryaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasuryaccountname( self ):
+        if isinstance( self.__treasuryaccountname, str ) \
+                and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasuryaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccountname = value
+
+    @property
+    def ombaccountcode( self ):
+        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
+            return self.__ombaccountcode
+
+    @ombaccountcode.setter
+    def ombaccountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountcode = value
+
+    @property
+    def ombaccountname( self ):
+        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ombaccountname = value
 
     @property
     def fields( self ):
@@ -4461,19 +4620,14 @@ class ProgramFinancingSchedule( ):
     def __init__( self ):
         self.__fields = [ 'ProgramFinancingScheduleId',
                           'ReportYear',
-                          'TreasuryAgencyCode',
                           'TreasuryAccountCode',
                           'LedgerAccountCode',
                           'SectionNumber',
                           'SectionName',
                           'LineNumber',
                           'LineDescription',
-                          'OmbAgencyCode',
-                          'OmbFundCode',
-                          'OmbAccountTitle',
-                          'AgencySequence',
-                          'AccountSequence',
-                          'AgencyName',
+                          'OmbAccountCode',
+                          'OmbAccountName',
                           'FundName',
                           'OriginalAmount',
                           'BudgetAmount',
@@ -4482,7 +4636,37 @@ class ProgramFinancingSchedule( ):
 
 
 class PublicLaws( ):
+    __source = None
+    __provider = None
+    __publiclawsid = None
+    __bfy = None
+    __efy = None
+    __lawnumber = None
+    __enacteddate = None
+    __congress = None
     __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__publiclawsid, int ):
+            return self.__publiclawsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__publiclawsid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
 
     @property
     def fields( self ):
@@ -4506,6 +4690,7 @@ class PublicLaws( ):
 class TransType( ):
     __source = None
     __provider = None
+    __transtypesid = None
     __bfy = None
     __efy = None
     __fundcode = None
@@ -4517,6 +4702,68 @@ class TransType( ):
     __sequesterreduction = None
     __sequesterreturn = None
     __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__transtypesid, int ):
+            return self.__transtypesid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__transtypesid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def appropriation( self ):
+        if isinstance( self.__appropriation, str ) and self.__appropriation != '':
+            return self.__appropriation
+
+    @appropriation.setter
+    def appropriation( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__appropriation = value
+
+    @property
+    def treasurysymbol( self ):
+        if isinstance( self.__treasuryaccount, str ) and self.__treasuryaccount != '':
+            return self.__treasuryaccount
+
+    @treasurysymbol.setter
+    def treasurysymbol( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__treasuryaccount = value
 
     @property
     def fields( self ):
