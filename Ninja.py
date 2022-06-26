@@ -612,12 +612,18 @@ class SqlStatement( ):
                                          + f'{ self.__sqlconfig.wheredump( ) };'
                     return self.__commandtext
             else:
-                if not isinstance( self.__names, list ) or not isinstance( self.__values, tuple ):
+                if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
+                    if self.__command == SQL.SELECT:
+                        cols = self.__sqlconfig.columndump( ).lstrip( '(' ).rstrip( ')' )
+                        self.__commandtext = f'SELECT { cols } FROM { self.__table };'
+                        return self.__commandtext
+                elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__command == SQL.SELECTALL:
                         self.__commandtext = f'SELECT * FROM { self.__table };'
                         return self.__commandtext
                 elif self.__command == 'DELETE':
                     self.__commandtext = f'DELETE FROM { self.__table };'
+                    return self.__commandtext
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'

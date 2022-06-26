@@ -1,7 +1,3 @@
-INSERT INTO WorkCodes
-SELECT DISTINCT PayrollObligations.RcCode AS RcCode, PayrollObligations.DivisionName AS DivisionName, PayrollObligations.WorkCode AS WorkCode, PayrollObligations.WorkCodeName AS WorkCodeName
-FROM PayrollObligations
-WHERE NOT IsNull(PayrollObligations.WorkCode);
-
-
-
+INSERT INTO WorkCodes (Code, Name)
+SELECT DISTINCT WorkCode as Code, WorkCodeName AS Name
+FROM PayrollActivity;

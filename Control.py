@@ -1134,7 +1134,7 @@ class StatusOfFunds( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.StatusOfFunds
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -1177,10 +1177,8 @@ class StatusOfFunds( ):
         try:
             source = self.__source
             provider = self.__provider
-            n = [ 'BFY', 'FundCode', ]
-            v = ( self.__bfy, self.__fundcode, )
             dconfig = DataConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
+            sconfig = SqlConfig( )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )

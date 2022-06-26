@@ -4826,12 +4826,22 @@ class TreasurySymbol( ):
 
 
 
-
 class PayrollCostCode( ):
     __source = None
     __provider = None
     __payrollcostcodesid = None
+    __bfy = None
+    __rpiocode = None
+    __ahcode = None
+    __rccode = None
+    __rcname = None
+    __workcode = None
+    __workcodename = None
+    __hrorgcode = None
+    __hrorgname = None
     __fields = None
+    __data = None
+    __frame = None
 
     @property
     def id( self ):
@@ -4844,6 +4854,96 @@ class PayrollCostCode( ):
             self.__payrollcostcodesid = value
 
     @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__ahcode = value
+
+    @property
+    def rccode( self ):
+        if isinstance( self.__rccode, str ) and self.__rccode != '':
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if isinstance( self.__rcname, str ) and self.__rcname != '':
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
+
+    @property
+    def workcode( self ):
+        if isinstance( self.__workcode, str ) and self.__workcode != '':
+            return self.__workcode
+
+    @workcode.setter
+    def workcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__workcode = value
+
+    @property
+    def workcodename( self ):
+        if isinstance( self.__workcodename, str ) and self.__workcodename != '':
+            return self.__workcodename
+
+    @workcodename.setter
+    def workcodename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__workcodename = value
+
+    @property
+    def hrorgcode( self ):
+        if isinstance( self.__hrorgcode, str ) and self.__hrorgcode != '':
+            return self.__hrorgcode
+
+    @hrorgcode.setter
+    def hrorgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__hrorgcode = value
+
+    @property
+    def hrorgname( self ):
+        if isinstance( self.__hrorgname, str ) and self.__hrorgname != '':
+            return self.__hrorgname
+
+    @hrorgname.setter
+    def hrorgname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__hrorgname = value
+
+    @property
     def fields( self ):
         if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
             return self.__fields
@@ -4854,12 +4954,14 @@ class PayrollCostCode( ):
             self.__fields = value
 
     def __init__( self ):
+        self.__source = Source.PayrollCostCodes
+        self.__provider = Provider.SQLite
         self.__fields = [ 'PayrollCostCodesId',
                            'RPIO',
                            'AhCode',
                            'BFY',
                            'RcCode',
-                           'DivisionName',
+                           'RcName',
                            'WorkCode',
                            'WorkCodeName',
                            'HrOrgCode',
