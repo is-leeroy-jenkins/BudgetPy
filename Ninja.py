@@ -1,5 +1,6 @@
 import sqlite3 as sl
 import pandas
+import string
 from pandas import DataFrame, Index, MultiIndex, Series
 from pandas import read_sql as sqlreader
 import pyodbc as db
@@ -23,6 +24,16 @@ class Pascal( ):
         if isinstance( value, str ) and value != '':
             self.__input = value
 
+    @property
+    def output( self ):
+        if isinstance( self.__output, str ) and self.__output != '':
+            return self.__output
+
+    @output.setter
+    def output( self, value ):
+        if isinstance( value, str ) and value != self.__input:
+            self.__output = value
+
     def __init__( self, input = None ):
         self.__input = input if isinstance( input, str ) and input != '' else None
 
@@ -31,17 +42,62 @@ class Pascal( ):
             return self.__output
 
     def split( self ):
-        if isinstance( self.__input, str ):
-            caps = 0
-            input = list( self.__input )
-            output = list( input )
-            icnt = len( self.__input )
-            ocnt = len( output )
-            for i in input:
+        try:
+            if isinstance( self.__input, str ) and  self.__input.count( ' ' ) == 0:
+                caps = 0
+                inlist = list( self.__input )
+                outlist = list( )
+                outstr = ''
 
-                if input[ idx ].isupper( ) and idx >= 4:
-                    caps += 1
-                    ocnt += 1
+                for i in inlist:
+                    idx = inlist.index( i )
+                    val = inlist[ idx ]
+
+                    if idx < 4 or inlist[ idx ].islower( ):
+                        outlist.append( val )
+                    elif idx >= 4 and inlist[ idx ].isupper( ):
+                        outlist.append( ' ' )
+                        outlist.append( val )
+
+                for o in outlist:
+                    outstr = outstr + f'{ o }'
+
+                self.__output = outstr
+                return outstr
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'Pascal'
+            exc.method = 'split( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def join( self ):
+        try:
+            if isinstance( self.__input, str ) and self.__input.count( ' ' ) > 0:
+                inlist = list( self.__input )
+                outlist = list( )
+                outstr = ''
+
+                for i in inlist:
+                    idx = inlist.index( i )
+                    val = inlist[ idx ]
+
+                    if val != ' ':
+                        outlist.append( val )
+
+                for o in outlist:
+                    outstr = outstr + f'{ o }'
+
+                self.__output = outstr
+                return self.__output
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'Pascal'
+            exc.method = 'join( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # DataConfig( source, provider )
