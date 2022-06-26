@@ -8,21 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/WorkCodes.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATEVIEW/HumanResourceOrganizations.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATEVIEW/WorkCodes.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/DELETE/DeleteDocumentControlNumbers.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/DELETE/DeleteExpenditures.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/DELETE/DeleteOpenCommitments.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/DELETE/DeleteUnliquidatedObligations.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/INSERT/InsertExpenditureUpdates.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/INSERT/InsertOpenCommitmentUpdates.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/INSERT/InsertUnliquidatedObligationUpdates.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/referencemodels/sql/CREATETABLE/ProgramProjectDescriptions.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/referencemodels/sql/CREATETABLE/SchemaTypes.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/referencemodels/sql/CREATETABLE/URL.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control.py" afterDir="false" />
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,13 +178,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00273" summary="updates from main rig;">
-      <created>1655760599316</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1655760599316</updated>
     </task>
     <task id="LOCAL-00274" summary="updates from main rig;">
       <created>1655761686718</created>
@@ -534,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656269871753</updated>
     </task>
-    <option name="localTasksCounter" value="322" />
+    <task id="LOCAL-00322" summary="updates from main rig;">
+      <created>1656270815653</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1656270815653</updated>
+    </task>
+    <option name="localTasksCounter" value="323" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

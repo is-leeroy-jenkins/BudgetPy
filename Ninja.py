@@ -9,6 +9,41 @@ from Static import Source, Provider, SQL, ParamStyle
 from Booger import Error, ErrorDialog
 import enum
 
+class Pascal( ):
+    __input = None
+    __output = None
+
+    @property
+    def input( self ):
+        if isinstance( self.__input, str ) and self.__input != '':
+            return self.__input
+
+    @input.setter
+    def input( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__input = value
+
+    def __init__( self, input = None ):
+        self.__input = input if isinstance( input, str ) and input != '' else None
+
+    def __str__( self ):
+        if isinstance( self.__output, str ) and self.__output != '':
+            return self.__output
+
+    def split( self ):
+        if isinstance( self.__input, str ):
+            caps = 0
+            input = list( self.__input )
+            output = list( input )
+            icnt = len( self.__input )
+            ocnt = len( output )
+            for i in input:
+
+                if input[ idx ].isupper( ) and idx >= 4:
+                    caps += 1
+                    ocnt += 1
+
+
 # DataConfig( source, provider )
 class DataConfig( ):
     '''DataConfig( source, provider  ) provides list of Budget Execution
