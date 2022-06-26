@@ -310,7 +310,7 @@ class OperatingPlan( ):
         if isinstance( value, str ) and value != '':
             self.__npmname = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.OperatingPlans
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -674,7 +674,7 @@ class FullTimeEquivalent( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.FullTimeEquivalents
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -1619,7 +1619,7 @@ class Defacto( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.Defactos
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -2107,7 +2107,7 @@ class StatusOfSupplementalFunding( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.StatusOfSupplementalFunding
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -2418,7 +2418,7 @@ class StateGrantObligation( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, rpio ):
+    def __init__( self, bfy = None, rpio = None ):
         self.__source = Source.StateGrantObligations
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -2803,7 +2803,7 @@ class Allocations( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.Allocations
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -3175,7 +3175,7 @@ class RegionalAuthority( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.RegionalAuthority
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -3547,7 +3547,7 @@ class HeadquartersAuthority( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, rpio ):
+    def __init__( self, bfy = None, rpio = None ):
         self.__source = Source.HeadquartersAuthority
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -4116,7 +4116,7 @@ class PayrollActivity( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.PayrollActivity
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -4639,7 +4639,7 @@ class SiteActivity( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, rpio ):
+    def __init__( self, bfy = None, rpio = None ):
         self.__source = Source.SiteActivity
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -5024,7 +5024,7 @@ class Actuals( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.Actuals
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -5409,7 +5409,7 @@ class AppropriationDocument( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund ):
+    def __init__( self, bfy = None, fund = None ):
         self.__source = Source.AppropriationDocuments
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -5932,7 +5932,7 @@ class BudgetDocument( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fundcode ):
+    def __init__( self, bfy = None, efy = None, fundcode = None ):
         self.__source = Source.BudgetDocuments
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -6435,7 +6435,7 @@ class BudgetControl( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fund ):
+    def __init__( self, bfy = None, efy = None, fund = None ):
         self.__source = Source.BudgetControls
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -6708,7 +6708,7 @@ class CongressionalControl( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fundcode ):
+    def __init__( self, bfy = None, fundcode = None ):
         self.__source = Source.CongressionalControls
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -6901,7 +6901,7 @@ class CompassLevels( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fund ):
+    def __init__( self, bfy = None, efy = None, fund = None ):
         self.__source = Source.CompassLevels
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -7437,7 +7437,8 @@ class Commitment( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund, account, boc ):
+    def __init__( self, bfy = None, fund = None,
+                  account = None, boc = None ):
         self.__source = Source.OpenCommitments
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -7624,7 +7625,7 @@ class DocumentControlNumber( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, dcn ):
+    def __init__( self, dcn = None ):
         self.__source = Source.DocumentControlNumbers
         self.__provider = Provider.SQLite
         self.__documentcontrolnumber = dcn if isinstance( dcn, str ) and dcn != '' else None
@@ -8119,7 +8120,8 @@ class OpenCommitment( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund, account, boc ):
+    def __init__( self, bfy = None, fund = None,
+                  account = None, boc = None ):
         self.__source = Source.OpenCommitments
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -8649,7 +8651,8 @@ class Obligations( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund, account, boc ):
+    def __init__( self, bfy = None, fund = None,
+                  account = None, boc = None ):
         self.__source = Source.Obligations
         self.__provider = Provider.SQlite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -9179,7 +9182,8 @@ class Deobligation( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund, account, boc ):
+    def __init__( self, bfy = None, fund = None,
+                  account = None, boc = None ):
         self.__source = Source.Deobligations
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -9696,7 +9700,7 @@ class UnliquidatedObligation( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund, account, boc ):
+    def __init__( self, bfy = None, fund = None, account = None, boc = None ):
         self.__source = Source.UnliquidatedObligations
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -10227,7 +10231,7 @@ class Expenditures( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund, account, boc ):
+    def __init__( self, bfy = None, fund = None, account = None, boc = None ):
         self.__source = Source.Expenditures
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -10569,7 +10573,8 @@ class SpecialAccounts( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, fund, account, boc ):
+    def __init__( self, bfy = None, fund = None,
+                  account = None, boc = None ):
         self.__source = Source.SpecialAccounts
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -10787,7 +10792,7 @@ class SuperfundSites( ):
             self.__fields = value
 
 
-    def __init__( self, bfy, rpiocode ):
+    def __init__( self, bfy = None, rpiocode = None ):
         self.__source = Source.SuperfundSites
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
