@@ -4183,12 +4183,12 @@ class FederalHoliday( ):
     @property
     def id( self ):
         if isinstance( self.__federalholidaysid, int ):
-            return self.__accountsid
+            return self.__federalholidaysid
 
     @id.setter
     def id( self, value ):
         if isinstance( value, int ):
-            self.__accountsid = value
+            self.__federalholidaysid = value
 
     @property
     def bfy( self ):
@@ -4666,6 +4666,7 @@ class TreasurySymbol( ):
     creates object that represents a TAFS'''
     __source = None
     __provider = None
+    __treasurysymbolsid = None
     __ombagencycode = None
     __treasuryagencycode = None
     __bfy = None
@@ -4680,13 +4681,13 @@ class TreasurySymbol( ):
 
     @property
     def id( self ):
-        if isinstance( self.__transfersid, int ):
-            return self.__transfersid
+        if isinstance( self.__treasurysymbolsid, int ):
+            return self.__treasurysymbolsid
 
     @id.setter
     def id( self, value ):
         if isinstance( value, int ):
-            self.__transfersid = value
+            self.__treasurysymbolsid = value
 
     @property
     def bfy( self ):
@@ -4829,17 +4830,18 @@ class TreasurySymbol( ):
 class PayrollCostCode( ):
     __source = None
     __provider = None
+    __payrollcostcodesid = None
     __fields = None
 
     @property
     def id( self ):
-        if isinstance( self.__transfersid, int ):
-            return self.__transfersid
+        if isinstance( self.__payrollcostcodesid, int ):
+            return self.__payrollcostcodesid
 
     @id.setter
     def id( self, value ):
         if isinstance( value, int ):
-            self.__transfersid = value
+            self.__payrollcostcodesid = value
 
     @property
     def fields( self ):

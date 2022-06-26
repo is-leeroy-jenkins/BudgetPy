@@ -8792,13 +8792,13 @@ class Deobligation( ):
 
     @property
     def id( self ):
-        if isinstance( self.__expendituresid, int ):
-            return self.__expendituresid
+        if isinstance( self.__deobligationsid, int ):
+            return self.__deobligationsid
 
     @id.setter
     def id( self, value ):
         if isinstance( value, int ):
-            self.__expendituresid = value
+            self.__deobligationsid = value
 
     @property
     def bfy( self ):
