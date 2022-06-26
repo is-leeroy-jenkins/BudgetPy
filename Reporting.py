@@ -2272,6 +2272,7 @@ class ReimbursableSurvey( ):
     __provider = None
     __reimbursablesurveyid = None
     __bfy = None
+    __efy = None
     __fundcode = None
     __fundname = None
     __amount = None
@@ -2393,8 +2394,191 @@ class ReimbursableSurvey( ):
 
 
 class ReimbursableAgreements( ):
+    __source = None
+    __provider = None
     __reimbursableagreementsid = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __rpiocode = None
+    __agreementnumber = None
+    __startdate = None
+    __enddate = None
+    __rccode = None
+    __rcname = None
+    __orgcode = None
+    __siteprojectcode = None
+    __accountcode = None
+    __vendorcode = None
+    __vendorname = None
+    __amount = None
+    __opencommitments = None
+    __unliquidatedobligations = None
+    __obligations = None
+    __available = None
     __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__reimbursableagreementsid, int ):
+            return self.__reimbursableagreementsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__reimbursableagreementsid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def rpiocode( self ):
+        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rpiocode = value
+
+    @property
+    def agreementnumber( self ):
+        if isinstance( self.__agreementnumber, str ) and self.__agreementnumber != '':
+            return self.__agreementnumber
+
+    @agreementnumber.setter
+    def agreementnumber( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__agreementnumber = value
+
+    @property
+    def accountcode( self ):
+        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
+
+    @property
+    def orgcode( self ):
+        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
+
+    @property
+    def rccode( self ):
+        if isinstance( self.__rccode, str ) and self.__rccode != '':
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if isinstance( self.__rcname, str ) and self.__rcname != '':
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
+
+    @property
+    def vendorcode( self ):
+        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+            return self.__vendorcode
+
+    @vendorcode.setter
+    def vendorcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorcode = value
+
+    @property
+    def vendorname( self ):
+        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+            return self.__vendorname
+
+    @vendorname.setter
+    def vendorname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__vendorname = value
+
+    @property
+    def amount( self ):
+        if isinstance( self.__amount, float ):
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if isinstance( value, float ):
+            self.__amount = value
+
+    @property
+    def opencommitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if isinstance( value, float ):
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if isinstance( self.__obligations, float ):
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if isinstance( value, float ):
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if isinstance( self.__unliquidatedobligations, float ):
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if isinstance( value, float ):
+            self.__unliquidatedobligations = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__avaialable, float ):
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if isinstance( value, float ):
+            self.__avaialable = value
 
     @property
     def fields( self ):
@@ -2407,42 +2591,28 @@ class ReimbursableAgreements( ):
             self.__fields = value
 
     def __init__( self ):
-        self.__fields =[ 'SiteActivityId',
-                           'BFY',
-                           'EFY',
-                           'RpioCode',
-                           'RpioName',
-                           'AhCode',
-                           'FundCode',
-                           'FundName',
-                           'AccountCode',
-                           'ProgramProjectCode',
-                           'ProgramProjectName',
-                           'BocCode',
-                           'BocName',
-                           'OrgCode',
-                           'OrgName',
-                           'FocCode',
-                           'FocName',
-                           'EpaSiteId',
-                           'SiteProjectCode',
-                           'SSID',
-                           'ActionCode',
-                           'OperableUnit',
-                           'SiteProjectName',
-                           'State',
-                           'City',
-                           'CongressionalDistrict',
-                           'ProjectType',
-                           'StartDate',
-                           'LastActivity',
-                           'EndDate',
-                           'Requested',
-                           'Accepted',
-                           'Closed',
-                           'Outstanding',
-                           'Refunded',
-                           'Reversal' ]
+        self.__source = Source.ReimbursableAgreements
+        self.__provider = Provider.SQLite
+        self.__fields = [ 'ReimbursableAgreementsId'
+                          'BFY',
+                          'EFY',
+                          'FundCode',
+                          'RpioCode',
+                          'AgreementNumber',
+                          'StartDate',
+                          'EndDate',
+                          'RcCode',
+                          'RcName',
+                          'OrgCode',
+                          'SiteProjectCode',
+                          'AccountCode',
+                          'VendorCode',
+                          'VendorName',
+                          'Amount',
+                          'OpenCommitments',
+                          'Obligations',
+                          'ULO',
+                          'Available' ]
 
 
 # ObjectClassOutlays( account )
@@ -4097,6 +4267,8 @@ class UnobligatedBalances( ):
 
 
 class StatusOfSupplementalFunds( ):
+    __source = None
+    __provider = None
     __fields = None
 
     @property
