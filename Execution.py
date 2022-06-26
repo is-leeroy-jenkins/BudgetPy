@@ -3438,7 +3438,6 @@ class ResourcePlanningOffice( ):
             err.show( )
 
 
-
 # ProgramResultsCode( bfy, efy, rpio, ah, account, boc )
 class ProgramResultsCode( ):
     '''Defines the PRC class'''
@@ -3866,7 +3865,6 @@ class ProgramResultsCode( ):
             exc.method = 'getframe( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 # RegionalOffice( code )
@@ -4681,6 +4679,16 @@ class TreasurySymbol( ):
     __frame = None
 
     @property
+    def id( self ):
+        if isinstance( self.__transfersid, int ):
+            return self.__transfersid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__transfersid = value
+
+    @property
     def bfy( self ):
         if isinstance( self.__bfy, str ) and self.__bfy != '':
             return self.__bfy
@@ -4757,7 +4765,7 @@ class TreasurySymbol( ):
         self.__provider = Provider.SQLite
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
-        self.__treasuryaccountcode = trescode if isinstance( trescode, str ) else None
+        self.__treasuryaccountcode = code if isinstance( code, str ) else None
         self.__fields = [ 'TreasurySymbolsId',
                           'BFY',
                           'EFY',
@@ -4819,7 +4827,19 @@ class TreasurySymbol( ):
 
 
 class PayrollCostCode( ):
+    __source = None
+    __provider = None
     __fields = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__transfersid, int ):
+            return self.__transfersid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__transfersid = value
 
     @property
     def fields( self ):
@@ -5360,7 +5380,20 @@ class Transfer( ):
 
 
 class CostArea( ):
+    __source = None
+    __provider = None
     __fields = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__transfersid, int ):
+            return self.__transfersid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__transfersid = value
+
 
     @property
     def fields( self ):

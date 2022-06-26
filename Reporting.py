@@ -4315,7 +4315,18 @@ class UnobligatedBalances( ):
 class StatusOfSupplementalFunds( ):
     __source = None
     __provider = None
+    __statusofsupplementalfundsid = None
     __fields = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusofsupplementalfundsid, int ):
+            return self.__statusofsupplementalfundsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__statusofsupplementalfundsid = value
 
     @property
     def fields( self ):
@@ -4366,6 +4377,9 @@ class StatusOfSupplementalFunds( ):
 
 
 class StatusOfJobsActFunding( ):
+    __source = None
+    __provider = None
+    __statusofjobsactfundingid = None
     __bfy = None
     __efy = None
     __fundcode = None
@@ -4373,6 +4387,16 @@ class StatusOfJobsActFunding( ):
     __fields = None
     __data  = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusofjobsactfundingid, int ):
+            return self.__statusofjobsactfundingid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__statusofjobsactfundingid= value
 
     @property
     def fields( self ):
@@ -4776,6 +4800,8 @@ class TransType( ):
             self.__fields = value
 
     def __init__( self ):
+        self.__source = Source.TransTypes
+        self.__provider = Provider.SQLite
         self.__fields = [ 'TransTypesId',
                           'FundCode',
                           'Appropriation',
