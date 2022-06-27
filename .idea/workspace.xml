@@ -10,6 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +112,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/requirements.txt",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "com.jetbrains.python.documentation.PythonDocumentationConfigurable"
+    "settings.editor.selected.configurable": "PyConsoleConfigurable.Python Console"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -123,9 +124,9 @@
 }]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\repos\BudgetPy\env\python.exe" working-directory="$PROJECT_DIR$">
+      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\env\python.exe" working-directory="$PROJECT_DIR$">
         <option name="myCustomStartScript" value="" />
-        <option name="mySdkHome" value="C:\Users\terry\source\repos\BudgetPy\env\python.exe" />
+        <option name="mySdkHome" value="C:\Users\teppler\source\repos\BudgetPy\env\python.exe" />
         <option name="myModuleName" value="BudgetPy" />
         <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
       </console-settings>

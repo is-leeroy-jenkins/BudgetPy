@@ -824,6 +824,9 @@ class Data( ):
 class SQLiteQuery( Data ):
     '''SQLiteQuery( value, sqlconfig ) represents
      the budget execution values classes'''
+    __source = None
+    __connection = None
+    __sqlstatement = None
     __driver = None
     __table = None
     __dsn = None
@@ -884,6 +887,9 @@ class SQLiteQuery( Data ):
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement)
+        self.__connection = super( ).connection
+        self.__sqlstatement = super( ).sqlstatement
+        self.__source = super( ).source
         self.__table = connection.source.name
         self.__driver = connection.driver
         self.__query = sqlstatement.getcommandtext()
@@ -944,6 +950,9 @@ class AccessQuery( Data ):
     '''AccessQuery( value, sqlconfig ) class
       represents the budget execution
       values model classes in the MS Access database'''
+    __source = None
+    __connection = None
+    __sqlstatement = None
     __query = None
     __driver = None
     __dsn = None
@@ -982,6 +991,9 @@ class AccessQuery( Data ):
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement)
+        self.__source = super( ).source
+        self.__connection = super( ).connection
+        self.__sqlstatement = super( ).sqlstatement
         self.__query = sqlstatement.getcommandtext( )
         self.__table = connection.source.name
         self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
@@ -1043,6 +1055,9 @@ class SqlServerQuery( Data ):
     '''SqlServerQuery( value, sqlconfig ) object
     represents the values models in the MS SQL Server
     database'''
+    __source = None
+    __connection = None
+    __sqlstatement = None
     __query = None
     __server = None
     __driver = None
@@ -1092,6 +1107,9 @@ class SqlServerQuery( Data ):
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement )
+        self.__source = super( ).source
+        self.__connection = super( ).connection
+        self.__sqlstatement = super( ).sqlstatement
         self.__query = sqlstatement.getcommandtext()
         self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
