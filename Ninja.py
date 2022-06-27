@@ -836,6 +836,26 @@ class SQLiteQuery( Data ):
     __columns = None
 
     @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = Source
+
+    @property
+    def connection( self ):
+        if isinstance( self.__connection, DataConnection ):
+            return self.__connection
+
+    @connection.setter
+    def connection( self, value ):
+        if isinstance( value, DataConnection ):
+            self.__connection = value
+
+    @property
     def driver( self ):
         if isinstance( self.__driver, str ):
             return self.__driver
@@ -960,6 +980,26 @@ class AccessQuery( Data ):
     __table = None
 
     @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = Source
+
+    @property
+    def connection( self ):
+        if isinstance( self.__connection, DataConnection ):
+            return self.__connection
+
+    @connection.setter
+    def connection( self, value ):
+        if isinstance( value, DataConnection ):
+            self.__connection = value
+
+    @property
     def data( self ):
         if isinstance( self.__data, list ):
             return self.__data
@@ -1064,6 +1104,26 @@ class SqlServerQuery( Data ):
     __dsn = None
     __table = None
     __data = None
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = Source
+
+    @property
+    def connection( self ):
+        if isinstance( self.__connection, DataConnection ):
+            return self.__connection
+
+    @connection.setter
+    def connection( self, value ):
+        if isinstance( value, DataConnection ):
+            self.__connection = value
 
     @property
     def server( self ):
