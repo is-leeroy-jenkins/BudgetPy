@@ -16,6 +16,50 @@
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/pythonwin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/Doc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/Scripts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/Tools" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/etc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/include" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/libs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/share" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/tcl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/docs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/docs/rmds" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/docs/superfund" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/ico" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/ico/button" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/ico/epa" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/ico/ninja" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/ico/rpio" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/app" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/boc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/button" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/database" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/epa" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/file" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/folder" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/loaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/math" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/navigation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/ninja" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/office" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/png" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/rpio" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/signature" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/states" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/img/toolbar" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/templates" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/templates/briefings" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/templates/charts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/templates/report" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/theme" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/theme/Theme Colors" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/etc/theme/Theme Fonts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ipynb/.ipynb_checkpoints" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ipynb/logs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ipynb/notebooks" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python ( budgetpy )" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

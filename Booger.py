@@ -4076,7 +4076,7 @@ class BudgetForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__formsize = ( 1400, 800 )
+        self.__formsize = ( 1200, 700 )
         self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
 
     def createtitle( self, items ):
@@ -4118,7 +4118,7 @@ class BudgetForm( Sith ):
                 BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
                 BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = ( 450, 150 )
+                frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 header = [ [ sg.Push( ), sg.Text( f'{ items[ 0 ] }', font = hdr ), sg.Push( ) ],
                         [ sg.Text( f'{ items[ 1 ] }' ) ],
@@ -4144,7 +4144,7 @@ class BudgetForm( Sith ):
                 BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
                 BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = ( 450, 150 )
+                frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 first = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font = hdr ), sg.Push( ) ],
                            [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
@@ -4175,7 +4175,7 @@ class BudgetForm( Sith ):
                 BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
                 BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = ( 450, 150 )
+                frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 second = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = hdr ), sg.Push( )  ],
                             [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
@@ -4206,7 +4206,7 @@ class BudgetForm( Sith ):
                 BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
                 BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = ( 450, 150 )
+                frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 third = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = hdr ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
@@ -4237,7 +4237,7 @@ class BudgetForm( Sith ):
                 BPAD_LEFT_INSIDE = ( 5, ( 3, 5 ) )
                 BPAD_RIGHT = ( ( 5, 10 ), ( 3, 3 ) )
                 hdr = 'Roboto 20'
-                frmsz = ( 450, 150 )
+                frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 fourth = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = hdr ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
@@ -4268,7 +4268,7 @@ class BudgetForm( Sith ):
             BPAD_RIGHT = ( ( 5, 5 ), ( 5, 5 ) )
             hdr = 'Roboto 20'
             li = 'Roboto 10'
-            frmsz = ( 450, 150 )
+            frasz = (450, 150)
             hdrsz = ( 920, 100 )
             layout = [
                     [ sg.Frame( '', self.__titlelayout, pad = ( 0, 0 ), background_color = mblk,
@@ -4277,17 +4277,17 @@ class BudgetForm( Sith ):
                     [ sg.Frame( '', self.__headerlayout, size = hdrsz, pad = BPAD_TOP, expand_x = True,
                         relief = sg.RELIEF_FLAT, border_width = 0 ) ],
                     [ sg.Frame( '',
-                        [ [ sg.Frame( '', self.__firstlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                            border_width = 0, expand_x = True, expand_y = True, ) ],
-                          [ sg.Frame( '', self.__thirdlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                              border_width = 0, expand_x = True, expand_y = True ) ] ],
+                        [ [ sg.Frame( '', self.__firstlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+                                      border_width = 0, expand_x = True, expand_y = True, ) ],
+                          [ sg.Frame( '', self.__thirdlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+                                      border_width = 0, expand_x = True, expand_y = True ) ] ],
                         pad = BPAD_LEFT, background_color = blk, border_width = 0,
                         expand_x = True, expand_y = True ),
                       sg.Frame( '',
-                          [ [ sg.Frame( '', self.__secondlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                              border_width = 0, expand_x = True, expand_y = True ) ],
-                            [ sg.Frame( '', self.__fourthlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                                border_width = 0, expand_x = True, expand_y = True ) ] ],
+                          [ [ sg.Frame( '', self.__secondlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+                                        border_width = 0, expand_x = True, expand_y = True ) ],
+                            [ sg.Frame( '', self.__fourthlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+                                        border_width = 0, expand_x = True, expand_y = True ) ] ],
                           pad = BPAD_LEFT, background_color = blk, border_width = 0,
                           expand_x = True, expand_y = True ), ],
                     [ sg.Sizegrip( background_color = mblk ) ] ]
@@ -4312,7 +4312,7 @@ class BudgetForm( Sith ):
             BPAD_RIGHT = ( ( 5, 5 ), ( 5, 5 ) )
             hdr = 'Roboto 20'
             li = 'Roboto 10'
-            frmsz = ( 450, 150 )
+            frasz = (450, 150)
             hdrsz = ( 920, 100 )
             self.__titlelayout = [
                     [ sg.Text( 'Budget Execution', font = hdr, background_color = mblk,
@@ -4359,22 +4359,22 @@ class BudgetForm( Sith ):
                     [ sg.Frame( '', self.__titlelayout, pad = ( 0, 0 ), background_color = mblk,
                         expand_x = True, border_width = 0, grab = True ) ],
                     [ sg.Frame( '',
-                        [ [ sg.Frame( '', self.__headerlayout, size = frmsz, pad = BPAD_TOP, expand_x = True,
-                        relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
+                        [ [ sg.Frame( '', self.__headerlayout, size = frasz, pad = BPAD_TOP, expand_x = True,
+                                      relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
                         pad = BPAD_LEFT, background_color = blu, border_width = 0,
                         expand_x = True, expand_y = False ),  ],
                     [ sg.Frame( '',
-                        [ [ sg.Frame( '', self.__firstlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                            border_width = 0, expand_x = True, expand_y = True, ) ],
-                          [ sg.Frame( '', self.__thirdlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                              border_width = 0, expand_x = True, expand_y = True ) ] ],
+                        [ [ sg.Frame( '', self.__firstlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+                                      border_width = 0, expand_x = True, expand_y = True, ) ],
+                          [ sg.Frame( '', self.__thirdlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+                                      border_width = 0, expand_x = True, expand_y = True ) ] ],
                         pad = BPAD_LEFT, background_color = blu, border_width = 0,
                         expand_x = True, expand_y = True ),
                       sg.Frame( '',
-                          [ [ sg.Frame( '', self.__secondlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                              border_width = 0, expand_x = True, expand_y = True ) ],
-                            [ sg.Frame( '', self.__fourthlayout, size = frmsz, pad = BPAD_LEFT_INSIDE,
-                                border_width = 0, expand_x = True, expand_y = True ) ] ],
+                          [ [ sg.Frame( '', self.__secondlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+                                        border_width = 0, expand_x = True, expand_y = True ) ],
+                            [ sg.Frame( '', self.__fourthlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+                                        border_width = 0, expand_x = True, expand_y = True ) ] ],
                           pad = BPAD_LEFT, background_color = blu, border_width = 0,
                           expand_x = True, expand_y = True ), ],
                     [ sg.Sizegrip( background_color = mblk ) ] ]
@@ -4382,6 +4382,7 @@ class BudgetForm( Sith ):
                 size = self.__formsize,
                 margins = (0, 0),
                 background_color = blk,
+                grab_anywhere = True,
                 no_titlebar = True,
                 resizable = True,
                 right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
