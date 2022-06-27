@@ -4694,7 +4694,7 @@ class ExcelForm( Sith ):
             datagrid = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
                          [ sg.Table( values = data,
                                headings = header_list,
-                               display_row_numbers = False,
+                               display_row_numbers = True,
                                vertical_scroll_only = False,
                                header_background_color = '#1B262E',
                                def_col_width = 12,
