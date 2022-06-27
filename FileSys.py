@@ -200,6 +200,40 @@ class BudgetPath( ):
             err = ErrorDialog( exc )
             err.show( )
 
+    def isabsolute( self ):
+        '''Method to determine if the input path is an
+        absolute file path'''
+        try:
+            if isinstance( self.__path, str ) and self.__path != '':
+                if os.path.isabs( self.__path ) == True:
+                    return True
+                elif os.path.isabs( self.__path ) == False:
+                    return False
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'isabsolute( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def isrelative( self ):
+        '''Method to determine if the input path is an
+        relative file path'''
+        try:
+            if isinstance( self.__path, str ) and self.__path != '':
+                if os.path.isabs( self.__path ) == True:
+                    return False
+                elif os.path.isabs( self.__path ) == False:
+                    return True
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'FileSys'
+            exc.cause = 'BudgetPath'
+            exc.method = 'isrelative( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
     def verify( self, other ):
         '''Method returns a boolean value indicating if
         the external path 'other' exists'''
@@ -257,7 +291,6 @@ class BudgetPath( ):
             exc.method = 'join( self, first, second )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class SqlPath( ):
