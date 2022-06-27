@@ -4076,7 +4076,7 @@ class BudgetForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__formsize = ( 1200, 700 )
+        self.__formsize = ( 1200, 650 )
         self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
 
     def createtitle( self, items ):
@@ -4658,7 +4658,7 @@ class ExcelForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__formsize = ( 800, 600 )
+        self.__formsize = ( 1200, 650 )
 
     def show( self ):
         try:
@@ -4691,30 +4691,33 @@ class ExcelForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            datagrid = [ [ sg.Text( '', size = ( 100, 5 ) ) ],
-                         [ sg.Text( '', size = ( 5, 1 ) ),
-                           sg.Table( values = data,
+            datagrid = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
+                         [ sg.Table( values = data,
                                headings = header_list,
-                               display_row_numbers = True,
+                               display_row_numbers = False,
                                vertical_scroll_only = False,
                                header_background_color = '#1B262E',
                                def_col_width = 12,
-                               header_border_width = 2,
+                               header_border_width = 1,
                                selected_row_colors = ( '#FFFFFF', '#2A4457' ),
                                header_text_color = '#FFFFFF',
-                               header_font = ( 'Roboto', 10 ),
+                               header_font = ( 'Roboto', 9 ),
+                               font = ( 'Roboto', 8 ),
                                background_color = '#000000',
+                               alternating_row_color = '#101010',
                                auto_size_columns = False,
                                border_width = 1,
                                sbar_relief = sg.RELIEF_FLAT,
-                               num_rows = min( 40, len( data ) ) ), sg.Text( '', size = ( 5, 1 ) ) ],
-                         [ sg.Text( '', size = ( 100, 3 ) ) ] ]
+                               num_rows = min( 38, len( data ) ) ) ],
+                          [ sg.Text( '', size = ( 3, 1 ) ) ], ]
 
             window = sg.Window( '  Budget Execution', datagrid,
-                grab_anywhere = False,
+                size = self.__formsize,
+                grab_anywhere = True,
                 icon = self.__icon,
                 font = self.__themefont,
-                resizable = True )
+                resizable = True,
+                right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
 
             event, values = window.read( )
 
