@@ -4664,7 +4664,7 @@ class ExcelForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__formsize = ( 1200, 650 )
+        self.__formsize = ( 1100, 650 )
 
     def show( self ):
         try:
@@ -4700,22 +4700,30 @@ class ExcelForm( Sith ):
             datagrid = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
                          [ sg.Table( values = data,
                                headings = header_list,
+                               justification = 'left',
+                               row_height = '18',
                                display_row_numbers = True,
                                vertical_scroll_only = False,
                                header_background_color = '#1B262E',
+                               header_relief = sg.RELIEF_FLAT,
                                def_col_width = 12,
                                header_border_width = 1,
-                               selected_row_colors = ( '#FFFFFF', '#2A4457' ),
+                               selected_row_colors = ( '#FFFFFF', '#4682B4' ),
                                header_text_color = '#FFFFFF',
-                               header_font = ( 'Roboto', 9 ),
+                               header_font = ( 'Roboto', 8 ),
                                font = ( 'Roboto', 8 ),
-                               background_color = '#000000',
-                               alternating_row_color = '#101010',
+                               background_color = '#EDF3F8',
+                               alternating_row_color = '#EDF3F8',
                                auto_size_columns = False,
                                border_width = 1,
+                               text_color = '#000000',
                                sbar_relief = sg.RELIEF_FLAT,
-                               num_rows = min( 38, len( data ) ) ) ],
-                         [ sg.Text( '', size = ( 3, 1 ) ) ] ]
+                               num_rows = min( 26, len( data ) ) ) ],
+                         [ sg.Text( '', size = ( 3, 1 ) ) ],
+                         [ sg.Button( 'Open', size = ( 15, 1 ), key = '-OPEN-' ), sg.Text( '', size = ( 25, 1 ) ),
+                           sg.Button( 'Export', size = ( 15, 1 ), key = '-EXPORT-' ), sg.Text( '', size = ( 25, 1 ) ),
+                           sg.Button( 'Save', size = ( 15, 1 ), key = '-SAVE-' ), sg.Text( '', size = ( 25, 1 ) ),
+                           sg.Button( 'Close', size = ( 15, 1 ), key = '-CLOSE-' ) ], ]
 
             window = sg.Window( '  Budget Execution', datagrid,
                 size = self.__formsize,
@@ -4726,6 +4734,19 @@ class ExcelForm( Sith ):
                 right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
 
             event, values = window.read( )
+            while True:
+                if event == '-CLOSE-':
+                    window.close( )
+                if event == '-OPEN-':
+                    fdg = FileDialog( )
+                    fdg.show( )
+                    break
+                if event == '-SAVE-':
+                    fdr = FolderDialog( )
+                    fdr.show( )
+                    break
+                if event == '-EXPORT-':
+                    break
 
             window.close( )
 
