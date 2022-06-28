@@ -4697,7 +4697,7 @@ class ExcelForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            datagrid = [ [ sg.Text( '', size = ( 3, 2 ) ) ],
+            datagrid = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
                          [ sg.Table( values = data,
                                headings = header_list,
                                display_row_numbers = True,
