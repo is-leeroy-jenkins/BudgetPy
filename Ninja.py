@@ -1509,19 +1509,13 @@ class DataColumn(  ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
-    def __init__( self, name = None, datatype = None,
-                  value = None, series = None, source = None ):
+    def __init__( self, name = '', datatype = None,
+                  value = None ):
         self.__name = name if isinstance( name, str ) else None
         self.__label = name
         self.__caption = name
         self.__type = datatype if isinstance( datatype, type ) else None
         self.__value = value if isinstance( value, object ) else None
-        self.__series = series if isinstance( series, pd.Series ) else None
-        self.__id = series.index.get_loc( name )
-        self.__ordinal = self.__id
-        self.__source = source if isinstance( source, Source ) else None
-        self.__table = source.name if isinstance( source, Source ) else None
-        self.__frame = None
 
     def __str__( self ):
         if isinstance( self.__name, str ) and self.__name != '':

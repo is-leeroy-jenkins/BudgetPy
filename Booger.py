@@ -2436,6 +2436,7 @@ class ImageSizeEncoder( Sith ):
         window.close( )
 
 
+
 class PdfForm( Sith ):
     '''Creates form to view a PDF'''
     __themebackground = None
@@ -2701,6 +2702,7 @@ class CalendarDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class DatePanel( Sith ):
@@ -3068,7 +3070,7 @@ class ListBoxDialog( Sith ):
         if isinstance( value, str ) and value != '':
             self.__selecteditem = value
 
-    def __init__( self, data = None ):
+    def __init__( self, data = () ):
         super( ).__init__()
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
@@ -3144,6 +3146,7 @@ class ListBoxDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class ColorDialog( Sith ):
@@ -3956,6 +3959,7 @@ class ColorDialog( Sith ):
             err.show( )
 
 
+
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
@@ -4407,6 +4411,7 @@ class BudgetForm( Sith ):
             err.show( )
 
 
+
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
     __icon = None
@@ -4491,6 +4496,7 @@ class ChartPanel( Sith ):
             exc.method = 'show( self)'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class CsvForm( Sith ):

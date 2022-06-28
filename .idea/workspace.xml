@@ -9,24 +9,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.1.dist-info/COPYING" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.1.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.1.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.1.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.1.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.1.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/~ymupdf-1.20.0.dist-info/COPYING" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/~ymupdf-1.20.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/~ymupdf-1.20.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/~ymupdf-1.20.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/~ymupdf-1.20.0.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/~ymupdf-1.20.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/~ymupdf-1.20.0.dist-info/top_level.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.0.dist-info/COPYING" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.0.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyMuPDF-1.20.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/fitz/_fitz.cp39-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/fitz/_fitz.cp39-win_amd64.pyd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/fitz/fitz.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/fitz/fitz.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileColors">
+    <fileColor scope="Project Files" color="Amber" />
+    <fileColor scope="All Changed Files" color="Forest" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -110,11 +118,12 @@
     <ConfirmationsSetting value="2" id="Remove" />
   </component>
   <component name="ProjectViewState">
-    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
+    <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -124,7 +133,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
     "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy/requirements.txt",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "AtomConfig"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -175,7 +184,7 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
-    <configuration>C:\Users\terry\AppData\Roaming\Subversion</configuration>
+    <configuration>C:\Users\teppler\AppData\Roaming\Subversion</configuration>
     <option name="runUnderTerminal" value="true" />
   </component>
   <component name="TaskManager">
@@ -190,13 +199,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00281" summary="updates from main rig;">
-      <created>1655852915887</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
-      <option name="project" value="LOCAL" />
-      <updated>1655852915887</updated>
     </task>
     <task id="LOCAL-00282" summary="updates from main rig;">
       <created>1655890118565</created>
@@ -534,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656347603196</updated>
     </task>
-    <option name="localTasksCounter" value="330" />
+    <task id="LOCAL-00330" summary="updates from main rig;">
+      <created>1656358001960</created>
+      <option name="number" value="00330" />
+      <option name="presentableId" value="LOCAL-00330" />
+      <option name="project" value="LOCAL" />
+      <updated>1656358001961</updated>
+    </task>
+    <option name="localTasksCounter" value="331" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -564,5 +573,15 @@
     <MESSAGE value="from other rig;" />
     <MESSAGE value="updates from main rig;" />
     <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Booger.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
