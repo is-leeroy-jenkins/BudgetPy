@@ -479,7 +479,7 @@ class SqlConfig( ):
         if isinstance( value, dict ):
             self.__kvp = value
 
-    def __init__( self, command = SQL.SELECTALL, names = None, values = None, params  = None ):
+    def __init__( self, command = SQL.SELECTALL, names = [ ], values = ( ), params  = None ):
         self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
@@ -1564,17 +1564,17 @@ class DataRow( ):
     __data = None
     __values = None
     __key = None
-    __id = None
+    __index = None
 
     @property
     def id( self ):
-        if isinstance( self.__id, int ):
-            return self.__id
+        if isinstance( self.__index, int ):
+            return self.__index
 
     @id.setter
     def id( self, value ):
         if isinstance( value, int ):
-            self.__id = value
+            self.__index = value
 
     @property
     def key( self ):
@@ -1636,17 +1636,17 @@ class DataRow( ):
         if isinstance( value, Source ):
             self.__source = value
 
-    def __init__( self, names = None, values = None, source = None ):
+    def __init__( self, names = [ ], values = ( ), source = None ):
         self.__source = source if isinstance( source, Source ) else None
         self.__names = names if isinstance( names, list ) else None
-        self.__values = value if isinstance( values, list ) else None
-        self.__items = zip( names, values )
+        self.__values = value if isinstance( values, tuple ) else None
+        self.__items = zip( names, list( values ) )
         self.__key = str( self.__names[ 0 ] ) if isinstance( self.__names, list ) else None
-        self.__id = int( self.__values[ 0 ] ) if isinstance( self.__values, list ) else None
+        self.__index = int( self.__values[ 0 ] ) if isinstance( self.__values, tuple ) else None
 
     def __str__( self ):
-        if isinstance( self.__id, int ) and self.__id > -1:
-            return 'Row ID: ' + str( self.__id )
+        if isinstance( self.__index, int ) and self.__index > -1:
+            return 'Row ID: ' + str( self.__index )
 
 
 # DataTable( columns, rows, source, dataframe )

@@ -4697,7 +4697,8 @@ class ExcelForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            datagrid = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
+            datagrid = [ [ sg.Text( '', size = ( 3, 1) ) ],
+                         [ sg.Text( '', size = (3, 1) ) ],
                          [ sg.Table( values = data,
                                headings = header_list,
                                display_row_numbers = True,
@@ -4715,7 +4716,7 @@ class ExcelForm( Sith ):
                                border_width = 1,
                                sbar_relief = sg.RELIEF_FLAT,
                                num_rows = min( 38, len( data ) ) ) ],
-                          [ sg.Text( '', size = ( 3, 1 ) ) ], ]
+                         [ sg.Text( '', size = ( 3, 1 ) ) ] ]
 
             window = sg.Window( '  Budget Execution', datagrid,
                 size = self.__formsize,
