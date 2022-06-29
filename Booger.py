@@ -4664,7 +4664,7 @@ class ExcelForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__formsize = ( 1100, 650 )
+        self.__formsize = ( 1400, 650 )
 
     def show( self ):
         try:
@@ -4673,16 +4673,16 @@ class ExcelForm( Sith ):
             filename = fd.selectedpath
 
             if filename == '':
-                msg = MessageDialog( 'No file was provided!')
+                msg = MessageDialog( 'No file was provided!' )
                 msg.show( )
                 return
 
             data = [ ]
             header_list = [ ]
 
-            button = sg.popup_yes_no( 'Does file have column names?',
+            button = sg.popup_yes_no( 'Columns?',
                 icon = self.__icon,
-                font = ( 'Roboto', 10 ) )
+                font = ( 'Roboto', 9 ) )
 
             if filename is not None:
                 try:
@@ -4697,8 +4697,7 @@ class ExcelForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            datagrid = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
-                         [ sg.Table( values = data,
+            datagrid = [ [ sg.Table( values = data,
                                headings = header_list,
                                justification = 'left',
                                row_height = '18',
@@ -4718,14 +4717,17 @@ class ExcelForm( Sith ):
                                border_width = 1,
                                text_color = '#000000',
                                sbar_relief = sg.RELIEF_FLAT,
-                               num_rows = min( 26, len( data ) ) ) ],
-                         [ sg.Text( '', size = ( 3, 1 ) ) ],
-                         [ sg.Button( 'Open', size = ( 15, 1 ), key = '-OPEN-' ), sg.Text( '', size = ( 25, 1 ) ),
-                           sg.Button( 'Export', size = ( 15, 1 ), key = '-EXPORT-' ), sg.Text( '', size = ( 25, 1 ) ),
-                           sg.Button( 'Save', size = ( 15, 1 ), key = '-SAVE-' ), sg.Text( '', size = ( 25, 1 ) ),
-                           sg.Button( 'Close', size = ( 15, 1 ), key = '-CLOSE-' ) ], ]
+                               num_rows = min( 26, len( data ) ) ) ], ]
 
-            window = sg.Window( '  Budget Execution', datagrid,
+            layout = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
+                       [ sg.Text( '', size = ( 3, 1 ) ), sg.Column( datagrid ), sg.Text( '', size = ( 3, 1 ) ) ],
+                       [ sg.Text( '', size = (3, 1) ) ],
+                       [ sg.Button( 'Open', size = (15, 1), key = '-OPEN-' ), sg.Text( '', size = (25, 1) ),
+                         sg.Button( 'Export', size = (15, 1), key = '-EXPORT-' ), sg.Text( '', size = (25, 1) ),
+                         sg.Button( 'Save', size = (15, 1), key = '-SAVE-' ), sg.Text( '', size = (25, 1) ),
+                         sg.Button( 'Close', size = (15, 1), key = '-CLOSE-' ) ] ]
+
+            window = sg.Window( '  Budget Execution', layout,
                 size = self.__formsize,
                 grab_anywhere = True,
                 icon = self.__icon,
@@ -4736,16 +4738,21 @@ class ExcelForm( Sith ):
             event, values = window.read( )
             while True:
                 if event == '-CLOSE-':
-                    window.close( )
+                    break
                 if event == '-OPEN-':
-                    fdg = FileDialog( )
-                    fdg.show( )
+                    info = 'Not Yet Implemented!'
+                    msg = MessageDialog( info )
+                    msg.show()
                     break
                 if event == '-SAVE-':
-                    fdr = FolderDialog( )
-                    fdr.show( )
+                    info = 'Not Yet Implemented!'
+                    msg = MessageDialog( info )
+                    msg.show()
                     break
                 if event == '-EXPORT-':
+                    info = 'Not Yet Implemented!'
+                    msg = MessageDialog( info )
+                    msg.show()
                     break
 
             window.close( )
@@ -4753,7 +4760,7 @@ class ExcelForm( Sith ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Booger'
-            exc.cause = 'CsvForm'
+            exc.cause = 'ExcelForm'
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
