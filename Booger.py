@@ -4664,7 +4664,7 @@ class ExcelForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__formsize = ( 1400, 650 )
+        self.__formsize = ( 1250, 650 )
 
     def show( self ):
         try:
@@ -4680,9 +4680,10 @@ class ExcelForm( Sith ):
             data = [ ]
             header_list = [ ]
 
-            button = sg.popup_yes_no( 'Columns?',
+            button = sg.popup_yes_no( 'First row has column headers?',
+                title = 'Headers?',
                 icon = self.__icon,
-                font = ( 'Roboto', 9 ) )
+                font = ( 'Roboto', 10 ) )
 
             if filename is not None:
                 try:
@@ -4722,10 +4723,10 @@ class ExcelForm( Sith ):
             layout = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
                        [ sg.Text( '', size = ( 3, 1 ) ), sg.Column( datagrid ), sg.Text( '', size = ( 3, 1 ) ) ],
                        [ sg.Text( '', size = (3, 1) ) ],
-                       [ sg.Button( 'Open', size = (15, 1), key = '-OPEN-' ), sg.Text( '', size = (25, 1) ),
-                         sg.Button( 'Export', size = (15, 1), key = '-EXPORT-' ), sg.Text( '', size = (25, 1) ),
-                         sg.Button( 'Save', size = (15, 1), key = '-SAVE-' ), sg.Text( '', size = (25, 1) ),
-                         sg.Button( 'Close', size = (15, 1), key = '-CLOSE-' ) ] ]
+                       [ sg.Text( '', size = (10, 1) ), sg.Button( 'Open', size = (15, 1), key = '-OPEN-' ),
+                         sg.Text( '', size = (25, 1) ), sg.Button( 'Export', size = (15, 1), key = '-EXPORT-' ),
+                         sg.Text( '', size = (25, 1) ), sg.Button( 'Save', size = (15, 1), key = '-SAVE-' ),
+                         sg.Text( '', size = (25, 1) ), sg.Button( 'Close', size = (15, 1), key = '-CLOSE-' ) ] ]
 
             window = sg.Window( '  Budget Execution', layout,
                 size = self.__formsize,
@@ -4739,17 +4740,7 @@ class ExcelForm( Sith ):
             while True:
                 if event == '-CLOSE-':
                     break
-                if event == '-OPEN-':
-                    info = 'Not Yet Implemented!'
-                    msg = MessageDialog( info )
-                    msg.show()
-                    break
-                if event == '-SAVE-':
-                    info = 'Not Yet Implemented!'
-                    msg = MessageDialog( info )
-                    msg.show()
-                    break
-                if event == '-EXPORT-':
+                if event in ('-OPEN-', '-EXPORT-', '-SAVE-', 'Save' ):
                     info = 'Not Yet Implemented!'
                     msg = MessageDialog( info )
                     msg.show()
