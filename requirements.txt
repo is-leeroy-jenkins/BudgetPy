@@ -54,7 +54,6 @@ nipype~=1.8.2
 notebook~=6.4.12
 numpy~=1.23.0
 openpyxl~=3.0.10
-openpyxl-dictreader
 packaging~=21.3
 pandas~=1.4.3
 pandocfilters~=1.5.0
@@ -113,12 +112,11 @@ webencodings~=0.5.1
 
 PySide2~=5.15.2.1
 dill~=0.3.5.1
-openpyxl
 pylint~=2.14.3
 astroid~=2.11.6
-isort
+isort~=5.10.1
 tomlkit~=0.11.0
-mccabe
+mccabe~=0.7.0
 platformdirs~=2.5.2
 wrapt~=1.14.1
 shiboken2~=5.15.2.1

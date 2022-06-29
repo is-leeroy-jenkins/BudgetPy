@@ -4737,11 +4737,11 @@ class ExcelForm( Sith ):
                 icon = self.__icon,
                 font = self.__themefont,
                 resizable = True,
-                right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
+                right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
 
             event, values = window.read( )
             while True:
-                if event == '-CLOSE-':
+                if event in ( sg.WIN_X_EVENT, '-CLOSE-' ):
                     break
                 if event in ('-OPEN-', '-EXPORT-', '-SAVE-', 'Save' ):
                     info = 'Not Yet Implemented!'

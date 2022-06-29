@@ -66,6 +66,7 @@
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="C:\Users\teppler\source\repos\BudgetPy\requirements.txt" />
+    <option name="removeUnused" value="true" />
     <option name="modifyBaseFiles" value="true" />
   </component>
   <component name="PyDocumentationSettings">
