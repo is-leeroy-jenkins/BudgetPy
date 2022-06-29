@@ -4664,7 +4664,7 @@ class ExcelForm( Sith ):
         self.__inputbackcolor = super( ).inputbackcolor
         self.__inputforecolor = super( ).inputforecolor
         self.__buttoncolor = super( ).buttoncolor
-        self.__formsize = ( 1250, 650 )
+        self.__formsize = ( 1200, 650 )
 
     def show( self ):
         try:
