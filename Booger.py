@@ -4698,6 +4698,8 @@ class ExcelForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
+            left = [ [ sg.Text( '', size = ( 3, 1 ) ), ] ]
+            right = [ [ sg.Text( '', size = ( 3, 1 ) ), ] ]
             datagrid = [ [ sg.Table( values = data,
                                headings = header_list,
                                justification = 'left',
@@ -4718,15 +4720,16 @@ class ExcelForm( Sith ):
                                border_width = 1,
                                text_color = '#000000',
                                sbar_relief = sg.RELIEF_FLAT,
-                               num_rows = min( 26, len( data ) ) ) ], ]
+                               num_rows = min( 26, len( data ) ) ), ], ]
 
             layout = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
-                       [ sg.Text( '', size = ( 3, 1 ) ), sg.Column( datagrid ), sg.Text( '', size = ( 3, 1 ) ) ],
+                       [ sg.Column( datagrid, ), sg.Column( right ) ],
                        [ sg.Text( '', size = (3, 1) ) ],
                        [ sg.Text( '', size = (10, 1) ), sg.Button( 'Open', size = (15, 1), key = '-OPEN-' ),
                          sg.Text( '', size = (25, 1) ), sg.Button( 'Export', size = (15, 1), key = '-EXPORT-' ),
                          sg.Text( '', size = (25, 1) ), sg.Button( 'Save', size = (15, 1), key = '-SAVE-' ),
-                         sg.Text( '', size = (25, 1) ), sg.Button( 'Close', size = (15, 1), key = '-CLOSE-' ) ] ]
+                         sg.Text( '', size = (25, 1) ), sg.Button( 'Close', size = (15, 1), key = '-CLOSE-' ) ],
+                       [ sg.Sizegrip( ) ], ]
 
             window = sg.Window( '  Budget Execution', layout,
                 size = self.__formsize,
