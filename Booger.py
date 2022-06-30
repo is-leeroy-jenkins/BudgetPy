@@ -4913,21 +4913,23 @@ class GraphForm( Sith ):
                 'Basic Figure': create_figure }
 
         def create_window( ):
-            left_col = [ [ sg.T( 'Figures to Draw' ) ],
+            left_col = [ [ sg.T( 'Charts' ) ],
                          [ sg.Listbox( list( figures ),
-                             default_values = [ list( figures )[ 0 ] ], size = (15, 5),
-                             key = '-LB-' ) ],
-                         [ sg.T( 'Matplotlib Styles' ) ],
+                                       default_values = [ list( figures )[ 0 ] ], size = (15, 5),
+                                       key = '-LB-' ) ],
+                         [ sg.T( 'Styles' ) ],
                          [ sg.Combo( plt.style.available, size = (15, 10), key = '-STYLE-' ) ],
-                         [ sg.T( 'PySimpleGUI Themes' ) ],
-                         [ sg.Combo( sg.theme_list( ), default_value = sg.theme( ), size = (15, 10),
-                             key = '-THEME-' ) ] ]
+                         [ sg.T( 'Themes' ) ],
+                         [ sg.Combo( sg.theme_list( ),
+                                     default_value = sg.theme( ),
+                                     size = (15, 10),
+                                     key = '-THEME-' ) ] ]
 
-            layout = [ [ sg.T( 'Matplotlib Example', font = 'Any 20' ) ],
+            layout = [ [ sg.T( 'Budget Chart', font = ('Roboto', 10) ) ],
                        [ sg.Col( left_col ), sg.Image( key = '-IMAGE-' ) ],
                        [ sg.B( 'Draw' ), sg.B( 'Exit' ) ] ]
 
-            window = sg.Window( 'Matplotlib Embedded Template', layout, finalize = True )
+            window = sg.Window( 'Budget Execution', layout, finalize = True )
 
             return window
 
