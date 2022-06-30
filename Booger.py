@@ -4678,10 +4678,10 @@ class ExcelForm( Sith ):
             data = [ ]
             header_list = [ ]
 
-            button = sg.popup_yes_no( 'First row has column headers?',
-                title = 'Headers?',
-                icon = self.__icon,
-                font = ( 'Roboto', 10 ) )
+            button = sg.popup_yes_no( 'First row as column headers?',
+                                      title = 'Headers?',
+                                      icon = self.__icon,
+                                      font = ('Roboto', 10) )
 
             if filename is not None:
                 try:
@@ -4730,24 +4730,21 @@ class ExcelForm( Sith ):
                        [ sg.Sizegrip( ) ], ]
 
             window = sg.Window( '  Budget Execution', layout,
-                size = self.__formsize,
-                grab_anywhere = True,
-                icon = self.__icon,
-                font = self.__themefont,
-                resizable = True,
-                right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
+                                size = self.__formsize,
+                                grab_anywhere = True,
+                                icon = self.__icon,
+                                font = self.__themefont,
+                                resizable = True,
+                                right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
 
             event, values = window.read( )
-            while True:
-                if event in ( sg.WIN_X_EVENT, '-CLOSE-' ):
-                    break
-                if event in ('-OPEN-', '-EXPORT-', '-SAVE-', 'Save' ):
-                    info = 'Not Yet Implemented!'
-                    msg = MessageDialog( info )
-                    msg.show()
-                    break
+            if event in (sg.WIN_X_EVENT, '-CLOSE-'):
+                window.close( )
+            elif event in ('-OPEN-', '-EXPORT-', '-SAVE-', 'Save'):
+                info = 'Not Yet Implemented!'
+                msg = MessageDialog( info )
+                msg.show( )
 
-            window.close( )
 
         except Exception as e:
             exc = Error( e )
