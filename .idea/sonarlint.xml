@@ -2,6 +2,11 @@
 <project version="4">
   <component name="SonarLintProjectSettings">
     <option name="bindingEnabled" value="true" />
+    <option name="fileExclusions">
+      <list>
+        <option value="DIRECTORY:.idea" />
+      </list>
+    </option>
     <option name="projectKey" value="KarmaScripter" />
     <option name="verboseEnabled" value="true" />
     <option name="serverId" value="Budget" />

@@ -61,7 +61,7 @@
       <sourceFolder url="file://$MODULE_DIR$/ipynb/logs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ipynb/notebooks" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python ( budgetpy )" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python  ( default ) " jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">

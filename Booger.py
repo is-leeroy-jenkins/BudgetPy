@@ -2436,7 +2436,6 @@ class ImageSizeEncoder( Sith ):
         window.close( )
 
 
-
 class PdfForm( Sith ):
     '''Creates form to view a PDF'''
     __themebackground = None
@@ -2702,7 +2701,6 @@ class CalendarDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class DatePanel( Sith ):
