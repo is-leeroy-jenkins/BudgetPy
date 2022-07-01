@@ -411,7 +411,7 @@ class DataConnection(  ):
             err.show( )
 
 
-# SqlConfig( names, values )
+# SqlConfig( command, names, values, style )
 class SqlConfig( ):
     '''SqlConfig( names, values ) provides database
     interaction behavior'''
@@ -479,13 +479,14 @@ class SqlConfig( ):
         if isinstance( value, dict ):
             self.__kvp = value
 
-    def __init__( self, command = SQL.SELECTALL, names = [ ], values = ( ), params  = None ):
+    def __init__( self, command = SQL.SELECTALL, names = [ ],
+                  values = ( ), style = None ):
         self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
-        self.__paramstyle = params if isinstance( params, ParamStyle ) else ParamStyle.qmark
-        self.__kvp = dict( zip( names,  list( values ) ) ) if isinstance( names, list ) \
-                                                              and isinstance( values, tuple ) else None
+        self.__paramstyle = style if isinstance( style, ParamStyle ) else ParamStyle.qmark
+        self.__kvp = dict( zip( names, list( values ) ) ) if isinstance( names, list ) \
+                                                             and isinstance( values, tuple ) else None
 
     def kvpdump( self ):
         '''dump( ) returns string of 'values = index AND' pairs'''
@@ -587,7 +588,7 @@ class SqlConfig( ):
 class SqlStatement( ):
     '''SqlStatement( dataconfig, sqlconfig ) Class
     represents the values models used in the SQLite database'''
-    __command = None
+    __commandtype = None
     __sqlconfig = None
     __dataconfig = None
     __source = None
@@ -596,6 +597,38 @@ class SqlStatement( ):
     __names = None
     __values = None
     __commandtext = None
+
+    @property
+    def dataconfig( self ):
+        if isinstance( self.__dataconfig, DataConfig ):
+            return self.__dataconfig
+
+    @dataconfig.setter
+    def dataconfig( self, value ):
+        if isinstance( value, DataConfig ):
+            self.__dataconfig = value
+
+    @property
+    def sqlconfig( self ):
+        '''Gets instance of the SqlConfig class'''
+        if isinstance( self.__sqlconfig, SqlConfig ):
+            return self.__sqlconfig
+
+    @sqlconfig.setter
+    def sqlconfig( self, value ):
+        '''Sets property to an instance of the SqlConfig class'''
+        if isinstance( value, SqlConfig ):
+            self.__sqlconfig = value
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = value
 
     @property
     def provider( self ):
@@ -620,17 +653,17 @@ class SqlStatement( ):
             self.__path = value
 
     @property
-    def command( self ):
-        if self.__command is not None:
-            return self.__command
+    def commandtype( self ):
+        if self.__commandtype is not None:
+            return self.__commandtype
 
-    @command.setter
-    def command( self, value ):
+    @commandtype.setter
+    def commandtype( self, value ):
         if isinstance( value, SQL ):
-            self.__command = value
+            self.__commandtype = value
         else:
             command = SQL( 'SELECT' )
-            self.__command = command
+            self.__commandtype = command
 
     @property
     def table( self ):
@@ -662,10 +695,20 @@ class SqlStatement( ):
         if isinstance( value, tuple ):
             self.__values = value
 
+    @property
+    def commandtext( self ):
+        if isinstance( self.__commandtext, str ) and self.__commandtext != '':
+            return self.__commandtext
+
+    @commandtext.setter
+    def commandtext( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__commandtext = value
+
     def __init__( self, dataconfig, sqlconfig ):
         self.__sqlconfig = sqlconfig if isinstance( sqlconfig, SqlConfig ) else None
         self.__dataconfig = dataconfig if isinstance( dataconfig, DataConfig ) else None
-        self.__command = sqlconfig.command
+        self.__commandtype = sqlconfig.command
         self.__provider = dataconfig.provider
         self.__source = dataconfig.source
         self.__table = dataconfig.table
@@ -673,47 +716,51 @@ class SqlStatement( ):
         self.__values = sqlconfig.values
 
     def __str__( self ):
-        if isinstance( self.__commandtext, str ):
+        if isinstance( self.__commandtext, str ) and self.__commandtext != '':
             return self.__commandtext
 
-    def getcommandtext( self ):
+    def createquery( self ):
         try:
+            table = self.__table
+            columns = self.__sqlconfig.columndump( )
+            values = self.__sqlconfig.valuedump( )
+            predicate = self.__sqlconfig.wheredump( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-                if self.__command == SQL.SELECTALL:
-                    self.__commandtext = f'SELECT * FROM { self.__table }' \
-                                         + f' { self.__sqlconfig.wheredump( ) };'
+                if self.__commandtype == SQL.SELECTALL:
+                    self.__commandtext = f'SELECT * FROM {table}' \
+                                         + f' {predicate}'
                     return self.__commandtext
-                elif self.__command == SQL.SELECT:
-                    self.__commandtext = f'SELECT ' + self.__sqlconfig.columndump( ) \
-                                         + f' FROM { self.__table }' \
-                                         + f' { self.__sqlconfig.wheredump( ) };'
+                elif self.__commandtype == SQL.SELECT:
+                    self.__commandtext = f'SELECT ' + columns \
+                                         + f' FROM {table}' \
+                                         + f' {predicate};'
                     return self.__commandtext
-                elif self.__command == SQL.INSERT:
-                    self.__commandtext = f'INSERT INTO { self.__table } ' \
-                                         + f'{ self.__sqlconfig.columndump( ) } ' \
-                                         + f'{ self.__sqlconfig.valuedump( ) };'
+                elif self.__commandtype == SQL.INSERT:
+                    self.__commandtext = f'INSERT INTO {table} ' \
+                                         + f'{columns} ' \
+                                         + f'{values};'
                     return self.__commandtext
-                elif self.__command == SQL.UPDATE:
-                    self.__commandtext = f'UPDATE { self.__table } ' \
-                                         + f'{ self.__sqlconfig.setdump( ) } ' \
-                                         + f'{ self.__sqlconfig.valuedump( ) };'
+                elif self.__commandtype == SQL.UPDATE:
+                    self.__commandtext = f'UPDATE {table} ' \
+                                         + f'{self.__sqlconfig.setdump( )} ' \
+                                         + f'{values};'
                     return self.__commandtext
-                elif self.__command == SQL.DELETE:
-                    self.__commandtext = f'DELETE FROM { self.__table } '\
-                                         + f'{ self.__sqlconfig.wheredump( ) };'
+                elif self.__commandtype == SQL.DELETE:
+                    self.__commandtext = f'DELETE FROM {table} ' \
+                                         + f'{predicate};'
                     return self.__commandtext
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
-                    if self.__command == SQL.SELECT:
-                        cols = self.__sqlconfig.columndump( ).lstrip( '(' ).rstrip( ')' )
-                        self.__commandtext = f'SELECT { cols } FROM { self.__table };'
+                    if self.__commandtype == SQL.SELECT:
+                        cols = columns.lstrip( '(' ).rstrip( ')' )
+                        self.__commandtext = f'SELECT {cols} FROM {table};'
                         return self.__commandtext
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
-                    if self.__command == SQL.SELECTALL:
-                        self.__commandtext = f'SELECT * FROM { self.__table };'
+                    if self.__commandtype == SQL.SELECTALL:
+                        self.__commandtext = f'SELECT * FROM {table};'
                         return self.__commandtext
-                elif self.__command == 'DELETE':
-                    self.__commandtext = f'DELETE FROM { self.__table };'
+                elif self.__commandtype == 'DELETE':
+                    self.__commandtext = f'DELETE FROM {table};'
                     return self.__commandtext
         except Exception as e:
             exc = Error( e )
@@ -788,15 +835,15 @@ class Data( ):
             self.__sqlstatement = value
 
     @property
-    def command( self ):
+    def commandtype( self ):
         if self.__command is not None:
             return self.__command
         if self.__command is None:
             cmd = SQL( 'SELECT' )
             return cmd
 
-    @command.setter
-    def command( self, value ):
+    @commandtype.setter
+    def commandtype( self, value ):
         if isinstance( value, SQL ):
             self.__command = value
 
@@ -815,7 +862,7 @@ class Data( ):
         self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
         self.__source = connection.source
         self.__provider = connection.provider
-        self.__command = sqlstatement.command
+        self.__command = sqlstatement.commandtype
         self.__path = connection.path
         self.__connectionstring = connection.connectionstring
 
@@ -886,12 +933,12 @@ class SQLiteQuery( Data ):
             self.__frame = value
 
     @property
-    def query( self ):
+    def commandtext( self ):
         if isinstance( self.__query, str ) and self.__query != '':
             return self.__query
 
-    @query.setter
-    def query( self, value ):
+    @commandtext.setter
+    def commandtext( self, value ):
         if isinstance( value, str ) and value != '':
             self.__query = value
 
@@ -906,34 +953,26 @@ class SQLiteQuery( Data ):
             self.__columns = value
 
     def __init__( self, connection, sqlstatement ):
-        super( ).__init__( connection, sqlstatement)
+        super( ).__init__( connection, sqlstatement )
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
         self.__source = super( ).source
-        self.__table = connection.source.name
-        self.__driver = connection.driver
-        self.__query = sqlstatement.getcommandtext()
+        self.__table = super( ).source.name
+        self.__driver = super( ).connection.driver
+        self.__query = super( ).sqlstatement.createquery( )
 
     def __str__( self ):
-        if self.__path is not None:
-            return self.__path
+        if isinstance( self.__query, str ) and self.__query != '':
+            return self.__query
 
     def createtable( self ):
         try:
-            src = super( ).source
-            pro = super( ).provider
-            sql = super( ).sqlstatement
-            n = sql.names
-            v = sql.values
-            db = DataConfig( src, pro )
-            cmd = SqlConfig( names = n, values = v )
-            dcnx = DataConnection( db )
-            sql = SqlStatement( db, cmd )
-            sqlite = dcnx.connect( )
+            sql = self.__sqlstatement
+            sqlite = self.__connection.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.createquery( )
             data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
+            self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -1020,21 +1059,21 @@ class AccessQuery( Data ):
             self.__driver = value
 
     @property
-    def query( self ):
+    def commandtext( self ):
         if isinstance( self.__query, str ):
             return self.__query
 
-    @query.setter
-    def query( self, value ):
+    @commandtext.setter
+    def commandtext( self, value ):
         if isinstance( value, str ):
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
-        super( ).__init__( connection, sqlstatement)
+        super( ).__init__( connection, sqlstatement )
         self.__source = super( ).source
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
-        self.__query = sqlstatement.getcommandtext( )
+        self.__query = sqlstatement.createquery( )
         self.__table = connection.source.name
         self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
         self.__data = [ ]
@@ -1046,19 +1085,19 @@ class AccessQuery( Data ):
     def createtable( self ):
         try:
             src = super( ).source
-            pro = super( ).provider
+            pdr = super( ).provider
             sql = super( ).sqlstatement
             n = sql.names
             v = sql.values
-            db = DataConfig( source = src, provider = pro )
+            db = DataConfig( source = src, provider = pdr )
             cmd = SqlConfig( names = n, values = v )
             dcnx = DataConnection( db )
             sql = SqlStatement( db, cmd )
             sqlite = dcnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.createquery( )
             data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
+            self.__data = [ sl.Row( i ) for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -1170,7 +1209,7 @@ class SqlServerQuery( Data ):
         self.__source = super( ).source
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
-        self.__query = sqlstatement.getcommandtext()
+        self.__query = sqlstatement.createquery( )
         self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{SQL Server Native Client 11.0};'
@@ -1192,7 +1231,7 @@ class SqlServerQuery( Data ):
             sql = SqlStatement( db, cmd )
             sqlite = dcnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.createquery( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
