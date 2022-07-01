@@ -3068,8 +3068,8 @@ class ListBoxDialog( Sith ):
         if isinstance( value, str ) and value != '':
             self.__selecteditem = value
 
-    def __init__( self, data = () ):
-        super( ).__init__()
+    def __init__( self, data = None ):
+        super( ).__init__( )
         self.__themebackground = super( ).themebackground
         self.__themefont = super( ).themefont
         self.__icon = super( ).iconpath
@@ -3900,14 +3900,14 @@ class ColorDialog( Sith ):
                 layout.append( [ sg.Text( ' ', size = ( 10, 1 ) ), ] )
                 layout.append( [ sg.Text( ' ', size = ( 50, 1 ) ), sg.Cancel( size = ( 20, 1 )  ), ] )
 
-                return sg.Window( 'Budget Execution', layout,
-                    font = self.__themefont,
-                    size = self.__formsize,
-                    element_padding = ( 1, 1 ),
-                    border_depth = 0,
-                    icon = self.__icon,
-                    right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_EXIT,
-                    use_ttk_buttons = True )
+                return sg.Window( ' Budget Execution', layout,
+                                  font = self.__themefont,
+                                  size = self.__formsize,
+                                  element_padding = (1, 1),
+                                  border_depth = 0,
+                                  icon = self.__icon,
+                                  right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_EXIT,
+                                  use_ttk_buttons = True )
 
             window = make_window( )
 
@@ -4474,13 +4474,13 @@ class ChartPanel( Sith ):
                 graph.erase( )
                 for i in range( 7 ):
                     item = random.randint( 0, graphsz[ 1 ] )
-                    graph.draw_rectangle( top_left = ( i * space + offset, item ),
-                        bottom_right = (i * space + offset + width, 0),
-                        fill_color = sg.theme_button_color_background( ),
-                        line_color = sg.theme_button_color_text( ) )
+                    graph.draw_rectangle( top_left = (i * space + offset, item),
+                                          bottom_right = (i * space + offset + width, 0),
+                                          fill_color = sg.theme_button_color_background( ),
+                                          line_color = sg.theme_button_color_text( ) )
 
                     graph.draw_text( text = item, color = '#FFFFFF',
-                        location = (i * space + offset + 25, item + 10) )
+                                     location = (i * space + offset + 25, item + 10) )
 
                 event, values = window.read( )
                 if event in ( sg.WIN_CLOSED, 'Exit' ):
@@ -4488,11 +4488,11 @@ class ChartPanel( Sith ):
 
             window.close( )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Booger'
-            exc.cause = 'ChartForm'
-            exc.method = 'show( self)'
-            err = ErrorDialog( exc )
+            excp = Error( e )
+            excp.module = 'Booger'
+            excp.cause = 'ChartForm'
+            excp.method = 'show( self)'
+            err = ErrorDialog( excp )
             err.show( )
 
 
