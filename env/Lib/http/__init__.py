@@ -19,7 +19,7 @@ class HTTPStatus(IntEnum):
         * RFC 7540: Hypertext Transfer Protocol Version 2 (HTTP/2)
         * RFC 2324: Hyper Text Coffee Pot Control Protocol (HTCPCP/1.0)
         * RFC 8297: An HTTP Status Code for Indicating Hints
-        * RFC 8470: Using Early Data in HTTP
+        * RFC 8470: Using Early Query in HTTP
     """
     def __new__(cls, value, phrase, description=''):
         obj = int.__new__(cls, value)

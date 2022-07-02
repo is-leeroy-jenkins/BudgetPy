@@ -883,7 +883,7 @@ class QuotingTests(unittest.TestCase):
     Reserved characters : ";/?:@&=+$,"
         Have special meaning in URIs and must be escaped if not being used for
         their special meaning
-    Data characters : letters, digits, and "-_.!~*'()"
+    Query characters : letters, digits, and "-_.!~*'()"
         Unreserved and do not need to be escaped; can be, though, if desired
     Control characters : 0x00 - 0x1F, 0x7F
         Have no use in URIs so must be escaped

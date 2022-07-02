@@ -142,10 +142,10 @@ class TestVectorsTestCase(unittest.TestCase):
                 b"Test Using Larger Than Block-Size Key - Hash Key First",
                 "6b1ab7fe4bd7bf8f0b62e6ce61b9d0cd")
 
-        md5test(b"\xaa" * 80,
-                (b"Test Using Larger Than Block-Size Key "
-                 b"and Larger Than One Block-Size Data"),
-                "6f630fad67cda0ee1fb1f562db3aa53e")
+        md5test( b"\xaa" * 80,
+                 (b"Test Using Larger Than Block-Size Key "
+                  b"and Larger Than One Block-Size Query"),
+                 "6f630fad67cda0ee1fb1f562db3aa53e" )
 
     @hashlib_helper.requires_hashdigest('sha1', openssl=True)
     def test_sha_vectors(self):
@@ -182,10 +182,10 @@ class TestVectorsTestCase(unittest.TestCase):
                 b"Test Using Larger Than Block-Size Key - Hash Key First",
                 "aa4ae5e15272d00e95705637ce8a3b55ed402112")
 
-        shatest(b"\xAA" * 80,
-                (b"Test Using Larger Than Block-Size Key "
-                 b"and Larger Than One Block-Size Data"),
-                "e8e99d0f45237d786d6bbaa7965c7808bbff1a91")
+        shatest( b"\xAA" * 80,
+                 (b"Test Using Larger Than Block-Size Key "
+                  b"and Larger Than One Block-Size Query"),
+                 "e8e99d0f45237d786d6bbaa7965c7808bbff1a91" )
 
     def _rfc4231_test_cases(self, hashfunc, hash_name, digest_size, block_size):
         def hmactest(key, data, hexdigests):

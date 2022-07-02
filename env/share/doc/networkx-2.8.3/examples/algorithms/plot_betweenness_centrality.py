@@ -6,7 +6,7 @@ Betweeness Centrality
 Betweenness centrality measures of positive gene functional associations
 using WormNet v.3-GS.
 
-Data from: https://www.inetbio.org/wormnet/downloadnetwork.php
+Query from: https://www.inetbio.org/wormnet/downloadnetwork.php
 """
 
 from random import sample

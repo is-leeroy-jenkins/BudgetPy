@@ -1,5 +1,4 @@
 import sqlite3 as sqlite
-from sqlite3 import Connection, Row, Cursor
 import pandas
 import string
 from pandas import DataFrame, Index, MultiIndex, Series
@@ -44,7 +43,7 @@ class Pascal( ):
 
     def split( self ):
         try:
-            if isinstance( self.__input, str ) and  self.__input.count( ' ' ) == 0:
+            if isinstance( self.__input, str ) and self.__input.count( ' ' ) == 0:
                 caps = 0
                 inlist = list( self.__input )
                 outlist = list( )
@@ -61,7 +60,7 @@ class Pascal( ):
                         outlist.append( val )
 
                 for o in outlist:
-                    outstr = outstr + f'{ o }'
+                    outstr = outstr + f'{o}'
 
                 self.__output = outstr
                 return outstr
@@ -88,7 +87,7 @@ class Pascal( ):
                         outlist.append( val )
 
                 for o in outlist:
-                    outstr = outstr + f'{ o }'
+                    outstr = outstr + f'{o}'
 
                 self.__output = outstr
                 return self.__output
@@ -100,10 +99,9 @@ class Pascal( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
-# DataConfig( source, provider )
-class DataConfig( ):
-    '''DataConfig( source, provider  ) provides list of Budget Execution
+# DbConfig( source, provider )
+class DbConfig( ):
+    '''DbConfig( source, provider  ) provides list of Budget Execution
     tables across two databases ( values and references ) '''
     __data = [ ]
     __references = [ ]
@@ -156,7 +154,7 @@ class DataConfig( ):
             self.__table = None
 
     def __init__( self, source, provider ):
-        '''Constructor for the DataConfig class providing
+        '''Constructor for the DbConfig class providing
         values value details'''
         self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
         self.__source = source if isinstance( source, Source ) else None
@@ -205,7 +203,7 @@ class DataConfig( ):
                               'SchemaTypes', 'StateOrganizations', 'Sources', 'SpendingRates' ]
 
     def __str__( self ):
-        if isinstance( self.__table, str ) :
+        if isinstance( self.__table, str ):
             return self.__table
 
     def isdatamodel( self ):
@@ -219,7 +217,7 @@ class DataConfig( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'DataConfig'
+            exc.cause = 'DbConfig'
             exc.method = 'isdatamodel( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -228,7 +226,7 @@ class DataConfig( ):
         '''Returns boolean value 'True' if the
         source is a memeber of the reference models else 'False' '''
         try:
-            if self.__table is not None  \
+            if self.__table is not None \
                     and self.__table in self.__references:
                 return True
             else:
@@ -236,7 +234,7 @@ class DataConfig( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'DataConfig'
+            exc.cause = 'DbConfig'
             exc.method = 'isreference( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -253,9 +251,9 @@ class DataConfig( ):
                 return self.__sqlitedriver
         except Exception as e:
             exc = Error( e )
-            exc.cause = 'DataConfig Class'
+            exc.cause = 'DbConfig Class'
             exc.method = 'getdriver( self )'
-            error  = ErrorDialog( exc )
+            error = ErrorDialog( exc )
             error.show( )
 
     def getpath( self ):
@@ -276,32 +274,31 @@ class DataConfig( ):
                 return self.__sqlitedatapath
         except Exception as e:
             exc = Error( e )
-            exc.cause = 'DataConfig Class'
+            exc.cause = 'DbConfig Class'
             exc.method = 'getpath( self )'
-            error  = ErrorDialog( exc )
+            error = ErrorDialog( exc )
             error.show( )
 
     def getconnectionstring( self ):
         try:
-            path = self.getpath()
+            path = self.getpath( )
             if self.__provider.name == Provider.Access.name:
-                return self.getdriver() + path
+                return self.getdriver( ) + path
             elif self.__provider.name == Provider.SqlServer.name:
                 return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
                        + f'AttachDBFileName={path}' \
                        + f'DATABASE={path}Trusted_Connection=yes;'
             else:
-                return f'{ path } '
+                return f'{path} '
         except Exception as e:
             exc = Error( e )
-            exc.cause = 'DataConfig Class'
+            exc.cause = 'DbConfig Class'
             exc.method = 'getconnectionstring( self )'
-            error  = ErrorDialog( exc )
+            error = ErrorDialog( exc )
             error.show( )
 
-
-# DataConnection( dataconfig )
-class DataConnection(  ):
+# DataConnection( source, provider = Provider.SQLite )
+class DataConnection( DbConfig ):
     '''DataConnection( dataconfig ) initializes
     object used to connect to the databases'''
     __configuration = None
@@ -314,7 +311,7 @@ class DataConnection(  ):
 
     @property
     def configuration( self ):
-        if isinstance( self.__configuration, DataConfig ):
+        if isinstance( self.__configuration, DbConfig ):
             return self.__configuration
 
     @configuration.setter
@@ -344,7 +341,7 @@ class DataConnection(  ):
 
     @property
     def driver( self ):
-        if isinstance( self.__driver, str):
+        if isinstance( self.__driver, str ):
             return self.__driver
 
     @driver.setter
@@ -372,14 +369,14 @@ class DataConnection(  ):
         if isinstance( value, str ) and value != '':
             self.__connectionstring = value
 
-    def __init__( self, dataconfig ):
-        self.__configuration = dataconfig if isinstance( dataconfig, DataConfig ) else None
-        self.__source = dataconfig.source
-        self.__provider = dataconfig.provider
-        self.__path = dataconfig.getpath( )
-        self.__driver = dataconfig.getdriver()
-        self.__dsn = dataconfig.source.name + ';'
-        self.__connectionstring = dataconfig.getconnectionstring( )
+    def __init__( self, source, provider = Provider.SQLite ):
+        self.__configuration = DbConfig( source, provider )
+        self.__source = source
+        self.__provider = provider
+        self.__path = self.__configuration.getpath( )
+        self.__driver = self.__configuration.getdriver( )
+        self.__dsn = self.__configuration.source.name + ';'
+        self.__connectionstring = self.__configuration.getconnectionstring( )
 
     def connect( self ):
         try:
@@ -410,7 +407,6 @@ class DataConnection(  ):
             exc.method = 'disconnect( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # SqlConfig( command, names, values, style )
 class SqlConfig( ):
@@ -497,7 +493,7 @@ class SqlConfig( ):
                 criteria = ''
                 kvp = zip( self.__names, self.__values )
                 for k, v in kvp:
-                    pairs += f'{ k } = \'{ v }\' AND '
+                    pairs += f'{k} = \'{v}\' AND '
                 criteria = pairs.rstrip( ' AND ' )
                 return criteria
         except Exception as e:
@@ -516,7 +512,7 @@ class SqlConfig( ):
                 pairs = ''
                 criteria = ''
                 for k, v in zip( self.__names, self.__values ):
-                    pairs += f'{ k } = \'{ v }\' AND '
+                    pairs += f'{k} = \'{v}\' AND '
                 criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
                 return criteria
         except Exception as e:
@@ -535,7 +531,7 @@ class SqlConfig( ):
                 pairs = ''
                 criteria = ''
                 for k, v in zip( self.__names, self.__values ):
-                    pairs += f'{ k } = \'{ v }\', '
+                    pairs += f'{k} = \'{v}\', '
                 criteria = 'SET ' + pairs.rstrip( ', ' )
                 return criteria
         except Exception as e:
@@ -554,7 +550,7 @@ class SqlConfig( ):
                 cols = ''
                 columns = ''
                 for n in self.__names:
-                    cols += f'{ n }, '
+                    cols += f'{n}, '
                 columns = '(' + cols.rstrip( ', ' ) + ')'
                 return columns
         except Exception as e:
@@ -573,7 +569,7 @@ class SqlConfig( ):
                 vals = ''
                 values = ''
                 for v in self.__values:
-                    vals += f'{ v }, '
+                    vals += f'{v}, '
                 values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
                 return values
         except Exception as e:
@@ -583,7 +579,6 @@ class SqlConfig( ):
             exc.method = 'valuedump( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # SqlStatement( dataconfig,  sqlconfig )
 class SqlStatement( ):
@@ -601,12 +596,12 @@ class SqlStatement( ):
 
     @property
     def dataconfig( self ):
-        if isinstance( self.__dataconfig, DataConfig ):
+        if isinstance( self.__dataconfig, DbConfig ):
             return self.__dataconfig
 
     @dataconfig.setter
     def dataconfig( self, value ):
-        if isinstance( value, DataConfig ):
+        if isinstance( value, DbConfig ):
             self.__dataconfig = value
 
     @property
@@ -706,7 +701,7 @@ class SqlStatement( ):
 
     def __init__( self, dataconfig, sqlconfig ):
         self.__sqlconfig = sqlconfig if isinstance( sqlconfig, SqlConfig ) else None
-        self.__dataconfig = dataconfig if isinstance( dataconfig, DataConfig ) else None
+        self.__dataconfig = dataconfig if isinstance( dataconfig, DbConfig ) else None
         self.__commandtype = sqlconfig.command
         self.__provider = dataconfig.provider
         self.__source = dataconfig.source
@@ -769,9 +764,8 @@ class SqlStatement( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
-# Data( connection, sqlstatement )
-class Data( ):
+# Query( connection, sqlstatement )
+class Query( ):
     '''Base class for database interaction'''
     __connection = None
     __sqlstatement = None
@@ -865,9 +859,8 @@ class Data( ):
         self.__path = connection.path
         self.__connectionstring = connection.connectionstring
 
-
 # SQLiteQuery( connection, sqlstatement )
-class SQLiteQuery( Data ):
+class SQLiteQuery( Query ):
     '''SQLiteQuery( value, sqlconfig ) represents
      the budget execution values classes'''
     __source = None
@@ -900,6 +893,16 @@ class SQLiteQuery( Data ):
     def connection( self, value ):
         if isinstance( value, DataConnection ):
             self.__connection = value
+
+    @property
+    def sqlstatement( self ):
+        if isinstance( self.__sqlstatement, SqlStatement ):
+            return self.__sqlstatement
+
+    @sqlstatement.setter
+    def sqlstatement( self, value ):
+        if isinstance( value, SqlStatement ):
+            self.__sqlstatement = value
 
     @property
     def driver( self ):
@@ -987,8 +990,8 @@ class SQLiteQuery( Data ):
         try:
             src = super( ).source
             pro = super( ).provider
-            query = f'SELECT * FROM { src.name }'
-            db = DataConfig( src, pro )
+            query = f'SELECT * FROM {src.name}'
+            db = DbConfig( src, pro )
             dcnx = DataConnection( db )
             sqlite = dcnx.connect( )
             self.__frame = sqlreader( query, sqlite )
@@ -1002,9 +1005,8 @@ class SQLiteQuery( Data ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # AccessQuery( connection, sqlstatement )
-class AccessQuery( Data ):
+class AccessQuery( Query ):
     '''AccessQuery( value, sqlconfig ) class
       represents the budget execution
       values model classes in the MS Access database'''
@@ -1036,6 +1038,16 @@ class AccessQuery( Data ):
     def connection( self, value ):
         if isinstance( value, DataConnection ):
             self.__connection = value
+
+    @property
+    def sqlstatement( self ):
+        if isinstance( self.__sqlstatement, SqlStatement ):
+            return self.__sqlstatement
+
+    @sqlstatement.setter
+    def sqlstatement( self, value ):
+        if isinstance( value, SqlStatement ):
+            self.__sqlstatement = value
 
     @property
     def data( self ):
@@ -1078,7 +1090,7 @@ class AccessQuery( Data ):
         self.__data = [ ]
 
     def __str__( self ):
-        if isinstance( self.__source, DataConfig ):
+        if isinstance( self.__source, DbConfig ):
             return self.__source.name
 
     def createtable( self ):
@@ -1088,7 +1100,7 @@ class AccessQuery( Data ):
             sql = super( ).sqlstatement
             n = sql.names
             v = sql.values
-            db = DataConfig( source = src, provider = pdr )
+            db = DbConfig( source = src, provider = pdr )
             cmd = SqlConfig( names = n, values = v )
             dcnx = DataConnection( db )
             sql = SqlStatement( db, cmd )
@@ -1112,8 +1124,8 @@ class AccessQuery( Data ):
         try:
             src = super( ).source
             pro = super( ).provider
-            query = f'SELECT * FROM { src.name }'
-            db = DataConfig( source = src, provider = pro )
+            query = f'SELECT * FROM {src.name}'
+            db = DbConfig( source = src, provider = pro )
             dcnx = DataConnection( db )
             access = dcnx.connect( )
             self.__frame = sqlreader( query, access )
@@ -1127,9 +1139,8 @@ class AccessQuery( Data ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # SqlServerQuery( connection, sqlstatement )
-class SqlServerQuery( Data ):
+class SqlServerQuery( Query ):
     '''SqlServerQuery( value, sqlconfig ) object
     represents the values models in the MS SQL Server
     database'''
@@ -1162,6 +1173,16 @@ class SqlServerQuery( Data ):
     def connection( self, value ):
         if isinstance( value, DataConnection ):
             self.__connection = value
+
+    @property
+    def sqlstatement( self ):
+        if isinstance( self.__sqlstatement, SqlStatement ):
+            return self.__sqlstatement
+
+    @sqlstatement.setter
+    def sqlstatement( self, value ):
+        if isinstance( value, SqlStatement ):
+            self.__sqlstatement = value
 
     @property
     def server( self ):
@@ -1214,7 +1235,7 @@ class SqlServerQuery( Data ):
         self.__driver = r'{SQL Server Native Client 11.0};'
 
     def __str__( self ):
-        if isinstance( self.__source, DataConfig ):
+        if isinstance( self.__source, DbConfig ):
             return self.__source.name
 
     def createtable( self ):
@@ -1224,7 +1245,7 @@ class SqlServerQuery( Data ):
             sql = super( ).sqlstatement
             n = sql.names
             v = sql.values
-            db = DataConfig( source = src, provider = pro )
+            db = DbConfig( source = src, provider = pro )
             cmd = SqlConfig( names = n, values = v )
             dcnx = DataConnection( db )
             sql = SqlStatement( db, cmd )
@@ -1232,7 +1253,7 @@ class SqlServerQuery( Data ):
             cursor = sqlite.cursor( )
             query = sql.getquery( )
             data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
+            self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -1243,7 +1264,6 @@ class SqlServerQuery( Data ):
             exc.method = 'createtable( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # DataBuilder( provider, source, command, names, values )
 class DataBuilder( ):
@@ -1325,12 +1345,12 @@ class DataBuilder( ):
 
     @property
     def dbconfig( self ):
-        if isinstance( self.__dbconfig, DataConfig ):
+        if isinstance( self.__dbconfig, DbConfig ):
             return self.__dbconfig
 
     @dbconfig.setter
     def dbconfig( self, value ):
-        if isinstance( value, DataConfig ):
+        if isinstance( value, DbConfig ):
             self.__dbconfig = value
 
     @property
@@ -1352,7 +1372,7 @@ class DataBuilder( ):
         self.__command = command
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
-        self.__dbconfig = DataConfig( self.__source, self.__provider )
+        self.__dbconfig = DbConfig( self.__source, self.__provider )
         self.__connection = DataConnection( self.__dbconfig )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
@@ -1382,7 +1402,6 @@ class DataBuilder( ):
             exc.method = 'createtable( self )'
             error = ErrorDialog( exc )
             error.show( )
-
 
 # DataSchema( name, type )
 class DataSchema( ):
@@ -1435,12 +1454,11 @@ class DataSchema( ):
             self.__id = value
 
     def __init__( self, name = '', datatype = None ):
-        self.__name = name if isinstance( name, str )else November
+        self.__name = name if isinstance( name, str ) else November
         self.__coltype = datatype if isinstance( datatype, object ) else None
 
-
 # DataColumn( name, type, value, series  )
-class DataColumn(  ):
+class DataColumn( ):
     '''Defines the DataColumn Class providing schema information.
     Constructor uses optional arguments ( name: str, type: type,
      value: object, series: DataSeries )'''
@@ -1591,7 +1609,6 @@ class DataColumn(  ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # DataRow( names, values, source )
 class DataRow( ):
     '''Defines the DataRow Class with optional arguments
@@ -1686,7 +1703,6 @@ class DataRow( ):
         if isinstance( self.__index, int ) and self.__index > -1:
             return 'Row ID: ' + str( self.__index )
 
-
 # DataTable( columns, rows, source, dataframe )
 class DataTable( ):
     '''Defines the DataTable Class with optional arguments
@@ -1771,7 +1787,7 @@ class DataTable( ):
             self.__source = value
 
     def __init__( self, columns = None, rows = None,
-                  source = None,  dataframe = None ):
+                  source = None, dataframe = None ):
         self.__frame = dataframe if isinstance( dataframe, DataFrame ) else None
         self.__name = name if isinstance( name, str ) and name != '' else None
         self.__rows = [ tuple( r ) for r in dataframe.items ]
@@ -1782,7 +1798,6 @@ class DataTable( ):
     def __str__( self ):
         if self.__name is not None:
             return self.__name
-
 
 # BudgetData( source )
 class BudgetData( ):
@@ -1881,8 +1896,8 @@ class BudgetData( ):
     def __init__( self, source ):
         self.__source = source if isinstance( source, Source ) else None
         self.__name = source.name
-        self.__path = DataConfig( source, Provider.SQLite ).getpath( )
-        self.__sql = f'SELECT * FROM { source.name };'
+        self.__path = DbConfig( source, Provider.SQLite ).getpath( )
+        self.__sql = f'SELECT * FROM {source.name};'
 
     def getframe( self ):
         '''Facotry method that returns a pandas DataFrame object
@@ -1892,7 +1907,7 @@ class BudgetData( ):
             src = self.__source
             table = self.__name
             conn = sqlite.connect( path )
-            sql = f'SELECT * FROM { table };'
+            sql = f'SELECT * FROM {table};'
             frame = sqlreader( sql, conn )
             return frame
         except Exception as e:

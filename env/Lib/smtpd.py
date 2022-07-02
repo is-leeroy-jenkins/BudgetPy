@@ -331,7 +331,7 @@ class SMTPChannel(asynchat.async_chat):
     # Implementation of base class abstract method
     def found_terminator(self):
         line = self._emptystring.join(self.received_lines)
-        print('Data:', repr(line), file=DEBUGSTREAM)
+        print( 'Query:', repr( line ), file = DEBUGSTREAM )
         self.received_lines = []
         if self.smtp_state == self.COMMAND:
             sz, self.num_bytes = self.num_bytes, 0

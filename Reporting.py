@@ -1,6 +1,6 @@
 from Booger import Error, ErrorDialog
-from Ninja import ( DataConfig, SqlConfig, DataConnection, SqlStatement,
-                    BudgetData, DataBuilder )
+from Ninja import (DbConfig, SqlConfig, DataConnection, SqlStatement,
+                   BudgetData, DataBuilder, )
 from Static import Source, Provider, SQL
 from datetime import datetime, date
 
@@ -218,8 +218,8 @@ class Apportionment( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-            v = ( self.__bfy, self.__efy, self.__ombaccountcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__ombaccountcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -384,8 +384,8 @@ class BudgetaryResourceExecution( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-            v = ( self.__bfy, self.__efy, self.__ombaccountcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__ombaccountcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -729,8 +729,8 @@ class CarryoverEstimates( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY' ]
-            v = ( self.__bfy, self.__efy )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -868,8 +868,8 @@ class CarryoverSurvey( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'FundCode', ]
-            v = ( self.__bfy, self.__efy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -1599,8 +1599,8 @@ class StatusOfAppropriations( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'AppropriationFundCode', ]
-            v = ( self.__bfy, self.__efy, self.__appropriationfundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__appropriationfundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -1828,8 +1828,8 @@ class MonthlyOutlays( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-            v = ( self.__bfy, self.__efy, self.__ombaccountcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__ombaccountcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -2357,8 +2357,8 @@ class ReimbursableSurvey( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -2624,8 +2624,8 @@ class ReimbursableAgreements( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', ]
-            v = ( self.__bfy, )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy,)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -2875,8 +2875,8 @@ class ObjectClassOutlays( ):
             source = Source.ObjectClassOutlays
             provider = Provider.SQLite
             n = [ 'OmbAccountCode', ]
-            v = ( self.__ombaccountcode, )
-            dconfig = DataConfig( source, provider )
+            v = (self.__ombaccountcode,)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -3056,8 +3056,8 @@ class UnobligatedAuthority( ):
             source = self.__source
             provider = self.__provider
             n = [ 'OmbAccountCode', ]
-            v = ( self.__ombaccountcode, )
-            dconfig = DataConfig( source, provider )
+            v = (self.__ombaccountcode,)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -3389,8 +3389,8 @@ class BudgetOutlays( ):
             source = self.__source
             provider = self.__provider
             n = [ 'OmbAccountCode', ]
-            v = ( self.__ombaccountcode, )
-            dconfig = DataConfig( source, provider )
+            v = (self.__ombaccountcode,)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -3614,8 +3614,8 @@ class GrowthRates( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'RateId', ]
-            v = ( self.__bfy, self.__rateid )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__rateid)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -3755,8 +3755,8 @@ class DataRuleDescription( ):
             source = self.__source
             provider = self.__provider
             n = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
-            v = ( self.__schedule, self.__linenumber, self.__rulenumber )
-            dconfig = DataConfig( source, provider )
+            v = (self.__schedule, self.__linenumber, self.__rulenumber)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -4097,8 +4097,8 @@ class CarryoverOutlays( ):
             source = Source.CarryoverOutlays
             provider = Provider.SQLite
             n = [ 'BudgetYear', 'OmbAccountCode' ]
-            v = ( self.__budgetyear, self.__ombaccountcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__budgetyear, self.__ombaccountcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -4274,8 +4274,8 @@ class UnobligatedBalances( ):
             source = Source.CarryoverOutlays
             provider = Provider.SQLite
             n = [ 'BFY', 'EFY', 'FundCode' ]
-            v = ( self.__bfy, self.__efy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )

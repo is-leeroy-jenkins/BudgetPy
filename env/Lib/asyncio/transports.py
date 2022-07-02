@@ -63,7 +63,7 @@ class ReadTransport(BaseTransport):
     def resume_reading(self):
         """Resume the receiving end.
 
-        Data received will once again be passed to the protocol's
+        Query received will once again be passed to the protocol's
         data_received() method.
         """
         raise NotImplementedError
@@ -127,7 +127,7 @@ class WriteTransport(BaseTransport):
 
         (This is like typing ^D into a UNIX program reading from stdin.)
 
-        Data may still be received.
+        Query may still be received.
         """
         raise NotImplementedError
 

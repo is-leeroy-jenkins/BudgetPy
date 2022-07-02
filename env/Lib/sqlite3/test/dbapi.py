@@ -952,7 +952,7 @@ class SqliteOnConflictTests(unittest.TestCase):
         self.assertEqual(self.cu.fetchall(), [('foo',)])
 
     def CheckOnConflictReplace(self):
-        self.cu.execute("INSERT OR REPLACE INTO test(name, unique_name) VALUES ('Data!', 'foo')")
+        self.cu.execute( "INSERT OR REPLACE INTO test(name, unique_name) VALUES ('Query!', 'foo')" )
         # There shouldn't be an IntegrityError exception.
         self.cu.execute("INSERT OR REPLACE INTO test(name, unique_name) VALUES ('Very different data!', 'foo')")
         self.cu.execute("SELECT name, unique_name FROM test")

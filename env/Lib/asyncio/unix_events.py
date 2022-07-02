@@ -681,7 +681,7 @@ class _UnixWritePipeTransport(transports._FlowControlMixin,
         self._maybe_pause_protocol()
 
     def _write_ready(self):
-        assert self._buffer, 'Data should not be empty'
+        assert self._buffer, 'Query should not be empty'
 
         try:
             n = os.write(self._fileno, self._buffer)

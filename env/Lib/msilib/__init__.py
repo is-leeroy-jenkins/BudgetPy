@@ -124,8 +124,8 @@ def add_data(db, table, values):
 
 
 def add_stream(db, name, path):
-    v = db.OpenView("INSERT INTO _Streams (Name, Data) VALUES ('%s', ?)" % name)
-    r = CreateRecord(1)
+    v = db.OpenView( "INSERT INTO _Streams (Name, Query) VALUES ('%s', ?)" % name )
+    r = CreateRecord( 1 )
     r.SetStream(1, path)
     v.Execute(r)
     v.Close()

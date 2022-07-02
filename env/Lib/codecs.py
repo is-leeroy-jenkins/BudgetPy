@@ -759,7 +759,7 @@ class StreamRecoder:
         They use the complete set of APIs returned by the
         codecs.lookup() function to implement their task.
 
-        Data written to the StreamRecoder is first decoded into an
+        Query written to the StreamRecoder is first decoded into an
         intermediate format (depending on the "decode" codec) and then
         written to the underlying stream using an instance of the provided
         Writer class.
@@ -921,7 +921,7 @@ def EncodedFile(file, data_encoding, file_encoding=None, errors='strict'):
     """ Return a wrapped version of file which provides transparent
         encoding translation.
 
-        Data written to the wrapped file is decoded according
+        Query written to the wrapped file is decoded according
         to the given data_encoding and then encoded to the underlying
         file using file_encoding. The intermediate data type
         will usually be Unicode but depends on the specified codecs.

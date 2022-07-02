@@ -337,10 +337,10 @@ class _SSLProtocolTransport(transports._FlowControlMixin,
     def resume_reading(self):
         """Resume the receiving end.
 
-        Data received will once again be passed to the protocol's
+        Query received will once again be passed to the protocol's
         data_received() method.
         """
-        self._ssl_protocol._transport.resume_reading()
+        self._ssl_protocol._transport.resume_reading( )
 
     def set_write_buffer_limits(self, high=None, low=None):
         """Set the high- and low-water limits for write flow control.

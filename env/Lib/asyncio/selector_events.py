@@ -932,7 +932,7 @@ class _SelectorSocketTransport(_SelectorTransport):
         self._maybe_pause_protocol()
 
     def _write_ready(self):
-        assert self._buffer, 'Data should not be empty'
+        assert self._buffer, 'Query should not be empty'
 
         if self._conn_lost:
             return

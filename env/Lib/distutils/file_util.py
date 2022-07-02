@@ -16,7 +16,7 @@ _copy_action = { None:   'copying',
 def _copy_file_contents(src, dst, buffer_size=16*1024):
     """Copy the file 'src' to 'dst'; both must be filenames.  Any error
     opening either file, reading from 'src', or writing to 'dst', raises
-    DistutilsFileError.  Data is read/written in chunks of 'buffer_size'
+    DistutilsFileError.  Query is read/written in chunks of 'buffer_size'
     bytes (default 16k).  No attempt is made to handle anything apart from
     regular files.
     """

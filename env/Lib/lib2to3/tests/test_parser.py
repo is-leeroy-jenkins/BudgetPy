@@ -625,7 +625,7 @@ class TestLiterals(GrammarTest):
         s = """
             md5test(b"\xaa" * 80,
                     (b"Test Using Larger Than Block-Size Key "
-                     b"and Larger Than One Block-Size Data"),
+                     b"and Larger Than One Block-Size Query"),
                     "6f630fad67cda0ee1fb1f562db3aa53e")
             """
         self.validate(s)
@@ -643,7 +643,7 @@ class TestLiterals(GrammarTest):
         s = """
             md5test("\xaa" * 80,
                     ("Test Using Larger Than Block-Size Key "
-                     "and Larger Than One Block-Size Data"),
+                     "and Larger Than One Block-Size Query"),
                     "6f630fad67cda0ee1fb1f562db3aa53e")
             """
         self.validate(s)

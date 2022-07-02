@@ -735,7 +735,7 @@ class FieldStorage:
 
     def read_lines_to_outerboundary(self):
         """Internal: read lines until outerboundary.
-        Data is read as bytes: boundaries and line ends must be converted
+        Query is read as bytes: boundaries and line ends must be converted
         to bytes for comparisons.
         """
         next_boundary = b"--" + self.outerboundary

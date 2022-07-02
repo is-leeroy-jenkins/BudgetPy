@@ -87,8 +87,8 @@ Feature.add_field(7,'Directory_',7496)
 Feature.add_field(8,'Attributes',1282)
 
 Binary = Table('Binary')
-Binary.add_field(1,'Name',11592)
-Binary.add_field(2,'Data',2304)
+Binary.add_field( 1, 'Name', 11592 )
+Binary.add_field( 2, 'Query', 2304 )
 
 BindImage = Table('BindImage')
 BindImage.add_field(1,'File_',11592)
@@ -135,8 +135,8 @@ Component.add_field(5,'Condition',7679)
 Component.add_field(6,'KeyPath',7496)
 
 Icon = Table('Icon')
-Icon.add_field(1,'Name',11592)
-Icon.add_field(2,'Data',2304)
+Icon.add_field( 1, 'Name', 11592 )
+Icon.add_field( 2, 'Query', 2304 )
 
 ProgId = Table('ProgId')
 ProgId.add_field(1,'ProgId',11775)
@@ -631,27 +631,52 @@ _Validation_records = [
 ('Billboard','Action','Y',None, None, None, None, 'Identifier',None, 'The name of an action. The billboard is displayed during the progress messages received from this action.',),
 ('Billboard','Billboard','N',None, None, None, None, 'Identifier',None, 'Name of the billboard.',),
 ('Billboard','Feature_','N',None, None, 'Feature',1,'Identifier',None, 'An external key to the Feature Table. The billboard is shown only if this feature is being installed.',),
-('Billboard','Ordering','Y',0,32767,None, None, None, None, 'A positive integer. If there is more than one billboard corresponding to an action they will be shown in the order defined by this column.',),
-('Feature','Description','Y',None, None, None, None, 'Text',None, 'Longer descriptive text describing a visible feature item.',),
-('Feature','Attributes','N',None, None, None, None, None, '0;1;2;4;5;6;8;9;10;16;17;18;20;21;22;24;25;26;32;33;34;36;37;38;48;49;50;52;53;54','Feature attributes',),
-('Feature','Feature','N',None, None, None, None, 'Identifier',None, 'Primary key used to identify a particular feature record.',),
-('Feature','Directory_','Y',None, None, 'Directory',1,'UpperCase',None, 'The name of the Directory that can be configured by the UI. A non-null value will enable the browse button.',),
-('Feature','Level','N',0,32767,None, None, None, None, 'The install level at which record will be initially selected. An install level of 0 will disable an item and prevent its display.',),
-('Feature','Title','Y',None, None, None, None, 'Text',None, 'Short text identifying a visible feature item.',),
-('Feature','Display','Y',0,32767,None, None, None, None, 'Numeric sort order, used to force a specific display ordering.',),
-('Feature','Feature_Parent','Y',None, None, 'Feature',1,'Identifier',None, 'Optional key of a parent record in the same table. If the parent is not selected, then the record will not be installed. Null indicates a root item.',),
-('Binary','Name','N',None, None, None, None, 'Identifier',None, 'Unique key identifying the binary data.',),
-('Binary','Data','N',None, None, None, None, 'Binary',None, 'The unformatted binary data.',),
-('BindImage','File_','N',None, None, 'File',1,'Identifier',None, 'The index into the File table. This must be an executable file.',),
-('BindImage','Path','Y',None, None, None, None, 'Paths',None, 'A list of ;  delimited paths that represent the paths to be searched for the import DLLS. The list is usually a list of properties each enclosed within square brackets [] .',),
-('File','Sequence','N',1,32767,None, None, None, None, 'Sequence with respect to the media images; order must track cabinet order.',),
-('File','Attributes','Y',0,32767,None, None, None, None, 'Integer containing bit flags representing file attributes (with the decimal value of each bit position in parentheses)',),
-('File','File','N',None, None, None, None, 'Identifier',None, 'Primary key, non-localized token, must match identifier in cabinet.  For uncompressed files, this field is ignored.',),
-('File','Component_','N',None, None, 'Component',1,'Identifier',None, 'Foreign key referencing Component that controls the file.',),
-('File','FileName','N',None, None, None, None, 'Filename',None, 'File name used for installation, may be localized.  This may contain a "short name|long name" pair.',),
-('File','FileSize','N',0,2147483647,None, None, None, None, 'Size of file in bytes (integer).',),
-('File','Language','Y',None, None, None, None, 'Language',None, 'List of decimal language Ids, comma-separated if more than one.',),
-('File','Version','Y',None, None, 'File',1,'Version',None, 'Version string for versioned files;  Blank for unversioned files.',),
+        ('Billboard', 'Ordering', 'Y', 0, 32767, None, None, None, None,
+         'A positive integer. If there is more than one billboard corresponding to an action they will be shown in '
+         'the order defined by this column.',),
+        ('Feature', 'Description', 'Y', None, None, None, None, 'Text', None,
+         'Longer descriptive text describing a visible feature item.',),
+        ('Feature', 'Attributes', 'N', None, None, None, None, None,
+         '0;1;2;4;5;6;8;9;10;16;17;18;20;21;22;24;25;26;32;33;34;36;37;38;48;49;50;52;53;54', 'Feature attributes',),
+        ('Feature', 'Feature', 'N', None, None, None, None, 'Identifier', None,
+         'Primary key used to identify a particular feature record.',),
+        ('Feature', 'Directory_', 'Y', None, None, 'Directory', 1, 'UpperCase', None,
+         'The name of the Directory that can be configured by the UI. A non-null value will enable the browse '
+         'button.',),
+        ('Feature', 'Level', 'N', 0, 32767, None, None, None, None,
+         'The install level at which record will be initially selected. An install level of 0 will disable an item '
+         'and prevent its display.',),
+        ('Feature', 'Title', 'Y', None, None, None, None, 'Text', None,
+         'Short text identifying a visible feature item.',),
+        ('Feature', 'Display', 'Y', 0, 32767, None, None, None, None,
+         'Numeric sort order, used to force a specific display ordering.',),
+        ('Feature', 'Feature_Parent', 'Y', None, None, 'Feature', 1, 'Identifier', None,
+         'Optional key of a parent record in the same table. If the parent is not selected, then the record will not '
+         'be installed. Null indicates a root item.',),
+        ('Binary', 'Name', 'N', None, None, None, None, 'Identifier', None, 'Unique key identifying the binary data.',),
+        ('Binary', 'Query', 'N', None, None, None, None, 'Binary', None, 'The unformatted binary data.',),
+        ('BindImage', 'File_', 'N', None, None, 'File', 1, 'Identifier', None,
+         'The index into the File table. This must be an executable file.',),
+        ('BindImage', 'Path', 'Y', None, None, None, None, 'Paths', None,
+         'A list of ;  delimited paths that represent the paths to be searched for the import DLLS. The list is '
+         'usually a list of properties each enclosed within square brackets [] .',),
+        ('File', 'Sequence', 'N', 1, 32767, None, None, None, None,
+         'Sequence with respect to the media images; order must track cabinet order.',),
+        ('File', 'Attributes', 'Y', 0, 32767, None, None, None, None,
+         'Integer containing bit flags representing file attributes (with the decimal value of each bit position in '
+         'parentheses)',),
+        ('File', 'File', 'N', None, None, None, None, 'Identifier', None,
+         'Primary key, non-localized token, must match identifier in cabinet.  For uncompressed files, this field is '
+         'ignored.',),
+        ('File', 'Component_', 'N', None, None, 'Component', 1, 'Identifier', None,
+         'Foreign key referencing Component that controls the file.',),
+        ('File', 'FileName', 'N', None, None, None, None, 'Filename', None,
+         'File name used for installation, may be localized.  This may contain a "short name|long name" pair.',),
+        ('File', 'FileSize', 'N', 0, 2147483647, None, None, None, None, 'Size of file in bytes (integer).',),
+        ('File', 'Language', 'Y', None, None, None, None, 'Language', None,
+         'List of decimal language Ids, comma-separated if more than one.',),
+        ('File', 'Version', 'Y', None, None, 'File', 1, 'Version', None,
+         'Version string for versioned files;  Blank for unversioned files.',),
 ('CCPSearch','Signature_','N',None, None, 'Signature;RegLocator;IniLocator;DrLocator;CompLocator',1,'Identifier',None, 'The Signature_ represents a unique file signature and is also the foreign key in the Signature,  RegLocator, IniLocator, CompLocator and the DrLocator tables.',),
 ('CheckBox','Property','N',None, None, None, None, 'Identifier',None, 'A named property to be tied to the item.',),
 ('CheckBox','Value','Y',None, None, None, None, 'Formatted',None, 'The value string associated with the item.',),
@@ -662,30 +687,61 @@ _Validation_records = [
 ('Class','Argument','Y',None, None, None, None, 'Formatted',None, 'optional argument for LocalServers.',),
 ('Class','CLSID','N',None, None, None, None, 'Guid',None, 'The CLSID of an OLE factory.',),
 ('Class','Component_','N',None, None, 'Component',1,'Identifier',None, 'Required foreign key into the Component Table, specifying the component for which to return a path when called through LocateComponent.',),
-('Class','Context','N',None, None, None, None, 'Identifier',None, 'The numeric server context for this server. CLSCTX_xxxx',),
-('Class','DefInprocHandler','Y',None, None, None, None, 'Filename','1;2;3','Optional default inproc handler.  Only optionally provided if Context=CLSCTX_LOCAL_SERVER.  Typically "ole32.dll" or "mapi32.dll"',),
-('Class','FileTypeMask','Y',None, None, None, None, 'Text',None, 'Optional string containing information for the HKCRthis CLSID key. If multiple patterns exist, they must be delimited by a semicolon, and numeric subkeys will be generated: 0,1,2...',),
-('Class','Icon_','Y',None, None, 'Icon',1,'Identifier',None, 'Optional foreign key into the Icon Table, specifying the icon file associated with this CLSID. Will be written under the DefaultIcon key.',),
-('Class','IconIndex','Y',-32767,32767,None, None, None, None, 'Optional icon index.',),
-('Class','ProgId_Default','Y',None, None, 'ProgId',1,'Text',None, 'Optional ProgId associated with this CLSID.',),
-('Component','Condition','Y',None, None, None, None, 'Condition',None, "A conditional statement that will disable this component if the specified condition evaluates to the 'True' state. If a component is disabled, it will not be installed, regardless of the 'Action' state associated with the component.",),
-('Component','Attributes','N',None, None, None, None, None, None, 'Remote execution option, one of irsEnum',),
-('Component','Component','N',None, None, None, None, 'Identifier',None, 'Primary key used to identify a particular component record.',),
-('Component','ComponentId','Y',None, None, None, None, 'Guid',None, 'A string GUID unique to this component, version, and language.',),
-('Component','Directory_','N',None, None, 'Directory',1,'Identifier',None, 'Required key of a Directory table record. This is actually a property name whose value contains the actual path, set either by the AppSearch action or with the default setting obtained from the Directory table.',),
-('Component','KeyPath','Y',None, None, 'File;Registry;ODBCDataSource',1,'Identifier',None, 'Either the primary key into the File table, Registry table, or ODBCDataSource table. This extract path is stored when the component is installed, and is used to detect the presence of the component and to return the path to it.',),
-('Icon','Name','N',None, None, None, None, 'Identifier',None, 'Primary key. Name of the icon file.',),
-('Icon','Data','N',None, None, None, None, 'Binary',None, 'Binary stream. The binary icon data in PE (.DLL or .EXE) or icon (.ICO) format.',),
-('ProgId','Description','Y',None, None, None, None, 'Text',None, 'Localized description for the Program identifier.',),
-('ProgId','Icon_','Y',None, None, 'Icon',1,'Identifier',None, 'Optional foreign key into the Icon Table, specifying the icon file associated with this ProgId. Will be written under the DefaultIcon key.',),
-('ProgId','IconIndex','Y',-32767,32767,None, None, None, None, 'Optional icon index.',),
-('ProgId','ProgId','N',None, None, None, None, 'Text',None, 'The Program Identifier. Primary key.',),
-('ProgId','Class_','Y',None, None, 'Class',1,'Guid',None, 'The CLSID of an OLE factory corresponding to the ProgId.',),
-('ProgId','ProgId_Parent','Y',None, None, 'ProgId',1,'Text',None, 'The Parent Program Identifier. If specified, the ProgId column becomes a version independent prog id.',),
-('ComboBox','Text','Y',None, None, None, None, 'Formatted',None, 'The visible text to be assigned to the item. Optional. If this entry or the entire column is missing, the text is the same as the value.',),
-('ComboBox','Property','N',None, None, None, None, 'Identifier',None, 'A named property to be tied to this item. All the items tied to the same property become part of the same combobox.',),
-('ComboBox','Value','N',None, None, None, None, 'Formatted',None, 'The value string associated with this item. Selecting the line will set the associated property to this value.',),
-('ComboBox','Order','N',1,32767,None, None, None, None, 'A positive integer used to determine the ordering of the items within one list.\tThe integers do not have to be consecutive.',),
+('Class','Context','N',None, None, None, None, 'Identifier',None, 'The numeric server context for this server. '
+                                                                  'CLSCTX_xxxx',),
+('Class','DefInprocHandler','Y',None, None, None, None, 'Filename','1;2;3','Optional default inproc handler.  Only '
+                                                                           'optionally provided if '
+                                                                           'Context=CLSCTX_LOCAL_SERVER.  Typically '
+                                                                           '"ole32.dll" or "mapi32.dll"',),
+('Class','FileTypeMask','Y',None, None, None, None, 'Text',None, 'Optional string containing information for the '
+                                                                 'HKCRthis CLSID key. If multiple patterns exist, '
+                                                                 'they must be delimited by a semicolon, and numeric '
+                                                                 'subkeys will be generated: 0,1,2...',),
+        ('Class', 'Icon_', 'Y', None, None, 'Icon', 1, 'Identifier', None,
+         'Optional foreign key into the Icon Table, specifying the icon file associated with this CLSID. Will be '
+         'written under the DefaultIcon key.',),
+        ('Class', 'IconIndex', 'Y', -32767, 32767, None, None, None, None, 'Optional icon index.',),
+        ('Class', 'ProgId_Default', 'Y', None, None, 'ProgId', 1, 'Text', None,
+         'Optional ProgId associated with this CLSID.',),
+        ('Component', 'Condition', 'Y', None, None, None, None, 'Condition', None,
+         "A conditional statement that will disable this component if the specified condition evaluates to the 'True' "
+         "state. If a component is disabled, it will not be installed, regardless of the 'Action' state associated "
+         "with the component.",),
+        (
+        'Component', 'Attributes', 'N', None, None, None, None, None, None, 'Remote execution option, one of irsEnum',),
+        ('Component', 'Component', 'N', None, None, None, None, 'Identifier', None,
+         'Primary key used to identify a particular component record.',),
+        ('Component', 'ComponentId', 'Y', None, None, None, None, 'Guid', None,
+         'A string GUID unique to this component, version, and language.',),
+        ('Component', 'Directory_', 'N', None, None, 'Directory', 1, 'Identifier', None,
+         'Required key of a Directory table record. This is actually a property name whose value contains the actual '
+         'path, set either by the AppSearch action or with the default setting obtained from the Directory table.',),
+        ('Component', 'KeyPath', 'Y', None, None, 'File;Registry;ODBCDataSource', 1, 'Identifier', None,
+         'Either the primary key into the File table, Registry table, or ODBCDataSource table. This extract path is '
+         'stored when the component is installed, and is used to detect the presence of the component and to return '
+         'the path to it.',),
+        ('Icon', 'Name', 'N', None, None, None, None, 'Identifier', None, 'Primary key. Name of the icon file.',),
+        ('Icon', 'Query', 'N', None, None, None, None, 'Binary', None,
+         'Binary stream. The binary icon data in PE (.DLL or .EXE) or icon (.ICO) format.',),
+        ('ProgId', 'Description', 'Y', None, None, None, None, 'Text', None,
+         'Localized description for the Program identifier.',),
+        ('ProgId', 'Icon_', 'Y', None, None, 'Icon', 1, 'Identifier', None,
+         'Optional foreign key into the Icon Table, specifying the icon file associated with this ProgId. Will be '
+         'written under the DefaultIcon key.',),
+        ('ProgId', 'IconIndex', 'Y', -32767, 32767, None, None, None, None, 'Optional icon index.',),
+        ('ProgId', 'ProgId', 'N', None, None, None, None, 'Text', None, 'The Program Identifier. Primary key.',),
+        ('ProgId', 'Class_', 'Y', None, None, 'Class', 1, 'Guid', None,
+         'The CLSID of an OLE factory corresponding to the ProgId.',),
+        ('ProgId', 'ProgId_Parent', 'Y', None, None, 'ProgId', 1, 'Text', None,
+         'The Parent Program Identifier. If specified, the ProgId column becomes a version independent prog id.',),
+        ('ComboBox', 'Text', 'Y', None, None, None, None, 'Formatted', None,
+         'The visible text to be assigned to the item. Optional. If this entry or the entire column is missing, the text is the same as the value.',),
+        ('ComboBox', 'Property', 'N', None, None, None, None, 'Identifier', None,
+         'A named property to be tied to this item. All the items tied to the same property become part of the same combobox.',),
+        ('ComboBox', 'Value', 'N', None, None, None, None, 'Formatted', None,
+         'The value string associated with this item. Selecting the line will set the associated property to this value.',),
+        ('ComboBox', 'Order', 'N', 1, 32767, None, None, None, None,
+         'A positive integer used to determine the ordering of the items within one list.\tThe integers do not have to be consecutive.',),
 ('CompLocator','Type','Y',0,1,None, None, None, None, 'A boolean value that determines if the registry value is a filename or a directory location.',),
 ('CompLocator','Signature_','N',None, None, None, None, 'Identifier',None, 'The table key. The Signature_ represents a unique file signature and is also the foreign key in the Signature table.',),
 ('CompLocator','ComponentId','N',None, None, None, None, 'Guid',None, 'A string GUID unique to this component, version, and language.',),

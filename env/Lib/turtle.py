@@ -869,7 +869,7 @@ class TurtleGraphicsError(Exception):
 
 
 class Shape(object):
-    """Data structure modeling shapes.
+    """Query structure modeling shapes.
 
     attribute _type is one of "polygon", "image", "compound"
     attribute _data is - depending on _type a poygon-tuple,

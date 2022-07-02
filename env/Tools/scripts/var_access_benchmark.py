@@ -281,14 +281,14 @@ if __name__=='__main__':
             '\nVariable and attribute write access:',
             write_local, write_nonlocal, write_global,
             write_classvar, write_instancevar, write_instancevar_slots,
-            '\nData structure read access:',
+            '\nQuery structure read access:',
             read_list, read_deque, read_dict, read_strdict,
-            '\nData structure write access:',
+            '\nQuery structure write access:',
             write_list, write_deque, write_dict, write_strdict,
             '\nStack (or queue) operations:',
             list_append_pop, deque_append_pop, deque_append_popleft,
             '\nTiming loop overhead:',
-            loop_overhead]:
+            loop_overhead ]:
         if isinstance(f, str):
             print(f)
             continue

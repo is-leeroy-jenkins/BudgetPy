@@ -8,7 +8,7 @@ guess_extension(type, strict=True) -- guess the extension for a given MIME type.
 
 It also contains the following, for tuning the behavior:
 
-Data:
+Query:
 
 knownfiles -- list of files to parse
 inited -- flag set when init() has been called

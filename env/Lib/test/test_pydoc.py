@@ -63,21 +63,21 @@ CLASSES
      |      Wow, I have no function!
      |\x20\x20
      |  ----------------------------------------------------------------------
-     |  Data descriptors defined here:
+     |  Query descriptors defined here:
      |\x20\x20
      |  __dict__%s
      |\x20\x20
      |  __weakref__%s
 \x20\x20\x20\x20
     class B(builtins.object)
-     |  Data descriptors defined here:
+     |  Query descriptors defined here:
      |\x20\x20
      |  __dict__%s
      |\x20\x20
      |  __weakref__%s
      |\x20\x20
      |  ----------------------------------------------------------------------
-     |  Data and other attributes defined here:
+     |  Query and other attributes defined here:
      |\x20\x20
      |  NO_MEANING = 'eggs'
      |\x20\x20
@@ -95,7 +95,7 @@ CLASSES
      |  say_no(self)
      |\x20\x20
      |  ----------------------------------------------------------------------
-     |  Data descriptors defined here:
+     |  Query descriptors defined here:
      |\x20\x20
      |  __dict__
      |      dictionary for instance variables (if defined)
@@ -160,16 +160,18 @@ expected_html_pattern = """
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="A">class <strong>A</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="A">class <strong>A</strong></a>(<a 
+href="builtins.html#object">builtins.object</a>)</font></td></tr>
 \x20\x20\x20\x20
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Hello&nbsp;and&nbsp;goodbye<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%%">Methods defined here:<br>
-<dl><dt><a name="A-__init__"><strong>__init__</strong></a>()</dt><dd><tt>Wow,&nbsp;I&nbsp;have&nbsp;no&nbsp;function!</tt></dd></dl>
+<dl><dt><a name="A-__init__"><strong>__init__</strong></a>()</dt><dd><tt>Wow,
+&nbsp;I&nbsp;have&nbsp;no&nbsp;function!</tt></dd></dl>
 
 <hr>
-Data descriptors defined here:<br>
+Query descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>%s</tt></dd>
 </dl>
@@ -180,10 +182,11 @@ Data descriptors defined here:<br>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="B">class <strong>B</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="B">class <strong>B</strong></a>(<a 
+href="builtins.html#object">builtins.object</a>)</font></td></tr>
 \x20\x20\x20\x20
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%%">Data descriptors defined here:<br>
+<td width="100%%">Query descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>%s</tt></dd>
 </dl>
@@ -191,7 +194,7 @@ Data descriptors defined here:<br>
 <dd><tt>%s</tt></dd>
 </dl>
 <hr>
-Data and other attributes defined here:<br>
+Query and other attributes defined here:<br>
 <dl><dt><strong>NO_MEANING</strong> = 'eggs'</dl>
 
 <dl><dt><strong>__annotations__</strong> = {'NO_MEANING': &lt;class 'str'&gt;}</dl>
@@ -200,18 +203,21 @@ Data and other attributes defined here:<br>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="C">class <strong>C</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="C">class <strong>C</strong></a>(<a 
+href="builtins.html#object">builtins.object</a>)</font></td></tr>
 \x20\x20\x20\x20
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%%">Methods defined here:<br>
-<dl><dt><a name="C-get_answer"><strong>get_answer</strong></a>(self)</dt><dd><tt>Return&nbsp;<a href="#C-say_no">say_no</a>()</tt></dd></dl>
+<dl><dt><a name="C-get_answer"><strong>get_answer</strong></a>(self)</dt><dd><tt>Return&nbsp;<a 
+href="#C-say_no">say_no</a>()</tt></dd></dl>
 
-<dl><dt><a name="C-is_it_true"><strong>is_it_true</strong></a>(self)</dt><dd><tt>Return&nbsp;self.<a href="#C-get_answer">get_answer</a>()</tt></dd></dl>
+<dl><dt><a name="C-is_it_true"><strong>is_it_true</strong></a>(self)</dt><dd><tt>Return&nbsp;self.<a 
+href="#C-get_answer">get_answer</a>()</tt></dd></dl>
 
 <dl><dt><a name="C-say_no"><strong>say_no</strong></a>(self)</dt></dl>
 
 <hr>
-Data descriptors defined here:<br>
+Query descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
@@ -225,7 +231,8 @@ Data descriptors defined here:<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
 \x20\x20\x20\x20
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%%"><dl><dt><a name="-doc_func"><strong>doc_func</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;solves&nbsp;all&nbsp;of&nbsp;the&nbsp;world's&nbsp;problems:<br>
+<td width="100%%"><dl><dt><a name="-doc_func"><strong>doc_func</strong></a>(
+)</dt><dd><tt>This&nbsp;function&nbsp;solves&nbsp;all&nbsp;of&nbsp;the&nbsp;world's&nbsp;problems:<br>
 hunger<br>
 lack&nbsp;of&nbsp;Python<br>
 war</tt></dd></dl>
@@ -234,7 +241,7 @@ war</tt></dd></dl>
 <table width="100%%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Query</strong></big></font></td></tr>
 \x20\x20\x20\x20
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%%"><strong>__xyz__</strong> = 'X, Y and Z'</td></tr></table><p>
@@ -270,7 +277,7 @@ expected_dynamicattribute_pattern = """
 Help on class DA in module %s:
 
 class DA(builtins.object)
- |  Data descriptors defined here:
+ |  Query descriptors defined here:
  |\x20\x20
  |  __dict__%s
  |\x20\x20
@@ -279,7 +286,7 @@ class DA(builtins.object)
  |  ham
  |\x20\x20
  |  ----------------------------------------------------------------------
- |  Data and other attributes inherited from Meta:
+ |  Query and other attributes inherited from Meta:
  |\x20\x20
  |  ham = 'spam'
 """.strip()
@@ -288,7 +295,7 @@ expected_virtualattribute_pattern1 = """
 Help on class Class in module %s:
 
 class Class(builtins.object)
- |  Data and other attributes inherited from Meta:
+ |  Query and other attributes inherited from Meta:
  |\x20\x20
  |  LIFE = 42
 """.strip()
@@ -297,7 +304,7 @@ expected_virtualattribute_pattern2 = """
 Help on class Class1 in module %s:
 
 class Class1(builtins.object)
- |  Data and other attributes inherited from Meta1:
+ |  Query and other attributes inherited from Meta1:
  |\x20\x20
  |  one = 1
 """.strip()
@@ -311,17 +318,17 @@ class Class2(Class1)
  |      Class1
  |      builtins.object
  |\x20\x20
- |  Data and other attributes inherited from Meta1:
+ |  Query and other attributes inherited from Meta1:
  |\x20\x20
  |  one = 1
  |\x20\x20
  |  ----------------------------------------------------------------------
- |  Data and other attributes inherited from Meta3:
+ |  Query and other attributes inherited from Meta3:
  |\x20\x20
  |  three = 3
  |\x20\x20
  |  ----------------------------------------------------------------------
- |  Data and other attributes inherited from Meta2:
+ |  Query and other attributes inherited from Meta2:
  |\x20\x20
  |  two = 2
 """.strip()
@@ -330,7 +337,7 @@ expected_missingattribute_pattern = """
 Help on class C in module %s:
 
 class C(builtins.object)
- |  Data and other attributes defined here:
+ |  Query and other attributes defined here:
  |\x20\x20
  |  here = 'present!'
 """.strip()
@@ -825,7 +832,7 @@ class B(A)
  |      Raise this widget in the stacking order.
  |\x20\x20
  |  ----------------------------------------------------------------------
- |  Data descriptors inherited from A:
+ |  Query descriptors inherited from A:
  |\x20\x20
  |  __dict__
  |      dictionary for instance variables (if defined)
@@ -864,10 +871,11 @@ Methods inherited from A:<br>
 
 <dl><dt><a name="B-lift"><strong>lift</strong></a> = <a href="#B-tkraise">tkraise</a>(self, aboveThis=None)</dt></dl>
 
-<dl><dt><a name="B-tkraise"><strong>tkraise</strong></a>(self, aboveThis=None)</dt><dd><tt>Raise&nbsp;this&nbsp;widget&nbsp;in&nbsp;the&nbsp;stacking&nbsp;order.</tt></dd></dl>
+<dl><dt><a name="B-tkraise"><strong>tkraise</strong></a>(self, 
+aboveThis=None)</dt><dd><tt>Raise&nbsp;this&nbsp;widget&nbsp;in&nbsp;the&nbsp;stacking&nbsp;order.</tt></dd></dl>
 
 <hr>
-Data descriptors inherited from A:<br>
+Query descriptors inherited from A:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>

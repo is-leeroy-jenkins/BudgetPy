@@ -3,7 +3,7 @@
 Blockmodel
 ==========
 
-Example of creating a block model using the quotient_graph function in NX.  Data
+Example of creating a block model using the quotient_graph function in NX.  Query
 used is the Hartford, CT drug users network::
 
     @article{weeks2002social,

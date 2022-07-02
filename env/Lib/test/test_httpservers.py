@@ -874,8 +874,8 @@ class SocketlessRequestHandler(SimpleHTTPRequestHandler):
         self.get_called = True
         self.send_response(HTTPStatus.OK)
         self.send_header('Content-Type', 'text/html')
-        self.end_headers()
-        self.wfile.write(b'<html><body>Data</body></html>\r\n')
+        self.end_headers( )
+        self.wfile.write( b'<html><body>Query</body></html>\r\n' )
 
     def log_message(self, format, *args):
         pass
@@ -937,9 +937,9 @@ class BaseHTTPRequestHandlerTestCase(unittest.TestCase):
         result = self.send_typical_request(b'GET / HTTP/1.1\r\n\r\n')
         self.verify_http_server_response(result[0])
         self.verify_expected_headers(result[1:-1])
-        self.verify_get_called()
-        self.assertEqual(result[-1], b'<html><body>Data</body></html>\r\n')
-        self.assertEqual(self.handler.requestline, 'GET / HTTP/1.1')
+        self.verify_get_called( )
+        self.assertEqual( result[ -1 ], b'<html><body>Query</body></html>\r\n' )
+        self.assertEqual( self.handler.requestline, 'GET / HTTP/1.1' )
         self.assertEqual(self.handler.command, 'GET')
         self.assertEqual(self.handler.path, '/')
         self.assertEqual(self.handler.request_version, 'HTTP/1.1')
@@ -949,9 +949,9 @@ class BaseHTTPRequestHandlerTestCase(unittest.TestCase):
         result = self.send_typical_request(b'GET / HTTP/1.0\r\n\r\n')
         self.verify_http_server_response(result[0])
         self.verify_expected_headers(result[1:-1])
-        self.verify_get_called()
-        self.assertEqual(result[-1], b'<html><body>Data</body></html>\r\n')
-        self.assertEqual(self.handler.requestline, 'GET / HTTP/1.0')
+        self.verify_get_called( )
+        self.assertEqual( result[ -1 ], b'<html><body>Query</body></html>\r\n' )
+        self.assertEqual( self.handler.requestline, 'GET / HTTP/1.0' )
         self.assertEqual(self.handler.command, 'GET')
         self.assertEqual(self.handler.path, '/')
         self.assertEqual(self.handler.request_version, 'HTTP/1.0')
@@ -959,9 +959,9 @@ class BaseHTTPRequestHandlerTestCase(unittest.TestCase):
 
     def test_http_0_9(self):
         result = self.send_typical_request(b'GET / HTTP/0.9\r\n\r\n')
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0], b'<html><body>Data</body></html>\r\n')
-        self.verify_get_called()
+        self.assertEqual( len( result ), 1 )
+        self.assertEqual( result[ 0 ], b'<html><body>Query</body></html>\r\n' )
+        self.verify_get_called( )
 
     def test_extra_space(self):
         result = self.send_typical_request(
@@ -977,9 +977,9 @@ class BaseHTTPRequestHandlerTestCase(unittest.TestCase):
         result = self.send_typical_request(b'GET / HTTP/1.0\r\nExpect: 100-continue\r\n\r\n')
         self.verify_http_server_response(result[0])
         self.verify_expected_headers(result[1:-1])
-        self.verify_get_called()
-        self.assertEqual(result[-1], b'<html><body>Data</body></html>\r\n')
-        self.assertEqual(self.handler.requestline, 'GET / HTTP/1.0')
+        self.verify_get_called( )
+        self.assertEqual( result[ -1 ], b'<html><body>Query</body></html>\r\n' )
+        self.assertEqual( self.handler.requestline, 'GET / HTTP/1.0' )
         self.assertEqual(self.handler.command, 'GET')
         self.assertEqual(self.handler.path, '/')
         self.assertEqual(self.handler.request_version, 'HTTP/1.0')
@@ -992,9 +992,9 @@ class BaseHTTPRequestHandlerTestCase(unittest.TestCase):
         self.assertEqual(result[1], b'\r\n')
         self.assertEqual(result[2], b'HTTP/1.1 200 OK\r\n')
         self.verify_expected_headers(result[2:-1])
-        self.verify_get_called()
-        self.assertEqual(result[-1], b'<html><body>Data</body></html>\r\n')
-        self.assertEqual(self.handler.requestline, 'GET / HTTP/1.1')
+        self.verify_get_called( )
+        self.assertEqual( result[ -1 ], b'<html><body>Query</body></html>\r\n' )
+        self.assertEqual( self.handler.requestline, 'GET / HTTP/1.1' )
         self.assertEqual(self.handler.command, 'GET')
         self.assertEqual(self.handler.path, '/')
         self.assertEqual(self.handler.request_version, 'HTTP/1.1')

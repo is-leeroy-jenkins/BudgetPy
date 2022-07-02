@@ -16,7 +16,7 @@ To work with plist data in bytes objects, you can use loads()
 and dumps().
 
 Values can be strings, integers, floats, booleans, tuples, lists,
-dictionaries (but only with string keys), Data, bytes, bytearray, or
+dictionaries (but only with string keys), Query, bytes, bytearray, or
 datetime.datetime objects.
 
 Generate Plist example:

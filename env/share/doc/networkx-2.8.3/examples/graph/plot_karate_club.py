@@ -5,7 +5,7 @@ Karate Club
 
 Zachary's Karate Club graph
 
-Data file from:
+Query file from:
 http://vlado.fmf.uni-lj.si/pub/networks/data/Ucinet/UciData.htm
 
 Zachary W. (1977).

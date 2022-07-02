@@ -841,7 +841,7 @@ class HTMLDoc(Doc):
             for key, value in data:
                 contents.append(self.document(value, key))
             result = result + self.bigsection(
-                'Data', '#ffffff', '#55aa55', '<br>\n'.join(contents))
+                'Query', '#ffffff', '#55aa55', '<br>\n'.join( contents ) )
         if hasattr(object, '__author__'):
             contents = self.markup(str(object.__author__), self.preformat)
             result = result + self.bigsection(
@@ -974,12 +974,12 @@ class HTMLDoc(Doc):
                           lambda t: t[1] == 'class method')
             attrs = spill('Static methods %s' % tag, attrs,
                           lambda t: t[1] == 'static method')
-            attrs = spilldescriptors("Readonly properties %s" % tag, attrs,
-                                     lambda t: t[1] == 'readonly property')
-            attrs = spilldescriptors('Data descriptors %s' % tag, attrs,
-                                     lambda t: t[1] == 'data descriptor')
-            attrs = spilldata('Data and other attributes %s' % tag, attrs,
-                              lambda t: t[1] == 'data')
+            attrs = spilldescriptors( "Readonly properties %s" % tag, attrs,
+                                      lambda t: t[ 1 ] == 'readonly property' )
+            attrs = spilldescriptors( 'Query descriptors %s' % tag, attrs,
+                                      lambda t: t[ 1 ] == 'data descriptor' )
+            attrs = spilldata( 'Query and other attributes %s' % tag, attrs,
+                               lambda t: t[ 1 ] == 'data' )
             assert attrs == []
             attrs = inherited
 
@@ -1436,12 +1436,12 @@ location listed above.
                           lambda t: t[1] == 'class method')
             attrs = spill("Static methods %s:\n" % tag, attrs,
                           lambda t: t[1] == 'static method')
-            attrs = spilldescriptors("Readonly properties %s:\n" % tag, attrs,
-                                     lambda t: t[1] == 'readonly property')
-            attrs = spilldescriptors("Data descriptors %s:\n" % tag, attrs,
-                                     lambda t: t[1] == 'data descriptor')
-            attrs = spilldata("Data and other attributes %s:\n" % tag, attrs,
-                              lambda t: t[1] == 'data')
+            attrs = spilldescriptors( "Readonly properties %s:\n" % tag, attrs,
+                                      lambda t: t[ 1 ] == 'readonly property' )
+            attrs = spilldescriptors( "Query descriptors %s:\n" % tag, attrs,
+                                      lambda t: t[ 1 ] == 'data descriptor' )
+            attrs = spilldata( "Query and other attributes %s:\n" % tag, attrs,
+                               lambda t: t[ 1 ] == 'data' )
 
             assert attrs == []
             attrs = inherited

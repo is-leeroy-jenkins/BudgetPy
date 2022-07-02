@@ -1715,7 +1715,7 @@ class Popen(object):
             orig_executable = executable
 
             # For transferring possible exec failure from child to parent.
-            # Data format: "exception name:hex errno:description"
+            # Query format: "exception name:hex errno:description"
             # Pickle is not used; it is complex and involves memory allocation.
             errpipe_read, errpipe_write = os.pipe()
             # errpipe_write must not be in the standard io 0, 1, or 2 fd range.

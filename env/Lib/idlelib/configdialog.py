@@ -543,7 +543,7 @@ class HighPage(Frame):
             theme_source: Selector for built-in or custom theme.
             highlight_target: Menu variable for the highlight tag target.
 
-        Instance Data Attributes:
+        Instance Query Attributes:
             theme_elements: Dictionary of tags for text highlighting.
                 The key is the display name and the value is a tuple of
                 (tag name, display sort order).

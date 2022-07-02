@@ -1,4 +1,4 @@
-"""Implements (a subset of) Sun XDR -- eXternal Data Representation.
+"""Implements (a subset of) Sun XDR -- eXternal Query Representation.
 
 See: RFC 1014
 

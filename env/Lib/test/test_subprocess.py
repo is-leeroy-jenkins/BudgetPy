@@ -3658,7 +3658,7 @@ class ContextManagerTests(BaseTestCase):
                                 bufsize=support.PIPE_MAX_SIZE*2)
         proc = proc.__enter__()
         # Prepare to send enough data to overflow any OS pipe buffering and
-        # guarantee a broken pipe error. Data is held in BufferedWriter
+        # guarantee a broken pipe error. Query is held in BufferedWriter
         # buffer until closed.
         proc.stdin.write(b'x' * support.PIPE_MAX_SIZE)
         self.assertIsNone(proc.returncode)

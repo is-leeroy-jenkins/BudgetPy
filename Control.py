@@ -1,6 +1,6 @@
 from Booger import Error, ErrorDialog
-from Ninja import ( DataConfig, SqlConfig, DataConnection, SqlStatement,
-                    BudgetData, DataBuilder )
+from Ninja import (DbConfig, SqlConfig, DataConnection, SqlStatement,
+                   BudgetData, DataBuilder, )
 from Static import Source, Provider, SQL
 from datetime import datetime, date
 
@@ -329,8 +329,8 @@ class OperatingPlan( ):
             src = self.__source
             pdr = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source = src, provider = pdr )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source = src, provider = pdr )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -693,8 +693,8 @@ class FullTimeEquivalent( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode, )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode,)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -1177,7 +1177,7 @@ class StatusOfFunds( ):
         try:
             source = self.__source
             provider = self.__provider
-            dconfig = DataConfig( source, provider )
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -1664,8 +1664,8 @@ class Defacto( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -2152,8 +2152,8 @@ class StatusOfSupplementalFunding( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -2448,8 +2448,8 @@ class StateGrantObligation( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'RpioCode' ]
-            v = ( self.__rpiocode, self.__rpiocode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__rpiocode, self.__rpiocode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -2840,8 +2840,8 @@ class Allocations( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -3212,8 +3212,8 @@ class RegionalAuthority( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'RpioCode' ]
-            v = ( self.__bfy, self.__rpiocode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__rpiocode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -3584,8 +3584,8 @@ class HeadquartersAuthority( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'RpioCode' ]
-            v = ( self.__bfy, self.__rpiocode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__rpiocode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -4164,8 +4164,8 @@ class PayrollActivity( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -4686,8 +4686,8 @@ class SiteActivity( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'RpioCode' ]
-            v = ( self.__bfy, self.__rpiocode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__rpiocode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -5066,8 +5066,8 @@ class Actuals( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -5446,8 +5446,8 @@ class AppropriationDocument( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -5982,8 +5982,8 @@ class BudgetDocument( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'FundCode' ]
-            v = ( self.__bfy, self.__efy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -6486,8 +6486,8 @@ class BudgetControl( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'FundCode' ]
-            v = ( self.__bfy, self.__efy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -6732,8 +6732,8 @@ class CongressionalControl( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode' ]
-            v = ( self.__bfy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -6960,8 +6960,8 @@ class CompassLevels( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'FundCode' ]
-            v = ( self.__bfy, self.__efy, self.__fundcode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__efy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -7491,8 +7491,8 @@ class Commitment( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -7642,8 +7642,8 @@ class DocumentControlNumber( ):
             source = self.__source
             provider = self.__provider
             n = [ 'DocumentControlNumber', ]
-            v = ( self.__dcn, )
-            dconfig = DataConfig( source, provider )
+            v = (self.__dcn,)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -8174,8 +8174,8 @@ class OpenCommitment( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -8704,8 +8704,8 @@ class Obligations( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -9222,8 +9222,8 @@ class Deobligation( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -9753,8 +9753,8 @@ class UnliquidatedObligation( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -10281,8 +10281,8 @@ class Expenditures( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -10624,8 +10624,8 @@ class SpecialAccounts( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )
@@ -10812,8 +10812,8 @@ class SuperfundSites( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'RpioCode' ]
-            v = ( self.__bfy, self.__rpiocode )
-            dconfig = DataConfig( source, provider )
+            v = (self.__bfy, self.__rpiocode)
+            dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = DataConnection( dconfig )
             sql = SqlStatement( dconfig, sconfig )

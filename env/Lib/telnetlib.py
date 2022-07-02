@@ -55,9 +55,9 @@ WILL = bytes([251])
 theNULL = bytes([0])
 
 SE  = bytes([240])  # Subnegotiation End
-NOP = bytes([241])  # No Operation
-DM  = bytes([242])  # Data Mark
-BRK = bytes([243])  # Break
+NOP = bytes( [ 241 ] )  # No Operation
+DM = bytes( [ 242 ] )  # Query Mark
+BRK = bytes( [ 243 ] )  # Break
 IP  = bytes([244])  # Interrupt process
 AO  = bytes([245])  # Abort output
 AYT = bytes([246])  # Are You There

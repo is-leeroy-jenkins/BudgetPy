@@ -3170,7 +3170,7 @@ class Color(enum.Enum)
  |      enum.Enum
  |      builtins.object
  |\x20\x20
- |  Data and other attributes defined here:
+ |  Query and other attributes defined here:
  |\x20\x20
  |  blue = <Color.blue: 3>
  |\x20\x20
@@ -3179,7 +3179,7 @@ class Color(enum.Enum)
  |  red = <Color.red: 1>
  |\x20\x20
  |  ----------------------------------------------------------------------
- |  Data descriptors inherited from enum.Enum:
+ |  Query descriptors inherited from enum.Enum:
  |\x20\x20
  |  name
  |      The name of the Enum member.
@@ -3207,7 +3207,7 @@ class Color(enum.Enum)
  |      enum.Enum
  |      builtins.object
  |\x20\x20
- |  Data and other attributes defined here:
+ |  Query and other attributes defined here:
  |\x20\x20
  |  blue = <Color.blue: 3>
  |\x20\x20
@@ -3216,14 +3216,14 @@ class Color(enum.Enum)
  |  red = <Color.red: 1>
  |\x20\x20
  |  ----------------------------------------------------------------------
- |  Data descriptors inherited from enum.Enum:
+ |  Query descriptors inherited from enum.Enum:
  |\x20\x20
  |  name
  |\x20\x20
  |  value
  |\x20\x20
  |  ----------------------------------------------------------------------
- |  Data descriptors inherited from enum.EnumMeta:
+ |  Query descriptors inherited from enum.EnumMeta:
  |\x20\x20
  |  __members__"""
 

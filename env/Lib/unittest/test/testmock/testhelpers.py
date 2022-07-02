@@ -909,7 +909,7 @@ class SpecSignatureTest(unittest.TestCase):
         foo = create_autospec(Foo)
 
         def check_data_descriptor(mock_attr):
-            # Data descriptors don't have a spec.
+            # Query descriptors don't have a spec.
             self.assertIsInstance(mock_attr, MagicMock)
             mock_attr(1, 2, 3)
             mock_attr.abc(4, 5, 6)
