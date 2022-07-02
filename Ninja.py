@@ -1,4 +1,5 @@
 import sqlite3 as sl
+from sqlite3 import Connection, Row, Cursor
 import pandas
 import string
 from pandas import DataFrame, Index, MultiIndex, Series
@@ -639,8 +640,6 @@ class SqlStatement( ):
     def provider( self, value ):
         if isinstance( value, Provider ):
             self.__provider = value
-        else:
-            self.__provider = Database( 'SQLite' )
 
     @property
     def path( self ):

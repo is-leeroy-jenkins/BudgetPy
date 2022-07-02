@@ -866,7 +866,6 @@ class SaveFileDialog( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # GoogleDialog(  ) -> list
 class GoogleDialog( Sith ):
     '''class that renames a folder'''
@@ -4699,29 +4698,32 @@ class ExcelForm( Sith ):
             left = [ [ sg.Text( '', size = ( 3, 1 ) ), ] ]
             right = [ [ sg.Text( '', size = ( 3, 1 ) ), ] ]
             datagrid = [ [ sg.Table( values = data,
-                               headings = header_list,
-                               justification = 'left',
-                               row_height = '18',
-                               display_row_numbers = True,
-                               vertical_scroll_only = False,
-                               header_background_color = '#1B262E',
-                               header_relief = sg.RELIEF_FLAT,
-                               def_col_width = 12,
-                               header_border_width = 1,
-                               selected_row_colors = ( '#FFFFFF', '#4682B4' ),
-                               header_text_color = '#FFFFFF',
-                               header_font = ( 'Roboto', 8 ),
-                               font = ( 'Roboto', 8 ),
-                               background_color = '#EDF3F8',
-                               alternating_row_color = '#EDF3F8',
-                               auto_size_columns = False,
-                               border_width = 1,
-                               text_color = '#000000',
-                               sbar_relief = sg.RELIEF_FLAT,
-                               num_rows = min( 26, len( data ) ) ), ], ]
+                                     headings = header_list,
+                                     justification = 'center',
+                                     row_height = '18',
+                                     display_row_numbers = True,
+                                     vertical_scroll_only = False,
+                                     header_background_color = '#1B262E',
+                                     header_relief = sg.RELIEF_FLAT,
+                                     header_border_width = 1,
+                                     selected_row_colors = ('#FFFFFF', '#4682B4'),
+                                     header_text_color = '#FFFFFF',
+                                     header_font = ('Roboto', 8, 'bold'),
+                                     font = ('Roboto', 8),
+                                     background_color = '#EDF3F8',
+                                     alternating_row_color = '#EDF3F8',
+                                     auto_size_columns = True,
+                                     border_width = 1,
+                                     text_color = '#000000',
+                                     expand_x = True,
+                                     expand_y = True,
+                                     sbar_relief = sg.RELIEF_FLAT,
+                                     num_rows = min( 26, len( data ) ) ), ], ]
 
-            layout = [ [ sg.Text( '', size = ( 3, 3 ) ) ],
-                       [ sg.Column( datagrid, ), sg.Column( right ) ],
+            layout = [ [ sg.Text( '', size = (3, 3) ) ],
+                       [ sg.Column( left, expand_x = True ),
+                         sg.Column( datagrid, expand_x = True, expand_y = True ),
+                         sg.Column( right, expand_x = True ) ],
                        [ sg.Text( '', size = (3, 1) ) ],
                        [ sg.Text( '', size = (10, 1) ), sg.Button( 'Open', size = (15, 1), key = '-OPEN-' ),
                          sg.Text( '', size = (25, 1) ), sg.Button( 'Export', size = (15, 1), key = '-EXPORT-' ),

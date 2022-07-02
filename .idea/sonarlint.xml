@@ -5,6 +5,13 @@
     <option name="fileExclusions">
       <list>
         <option value="DIRECTORY:.idea" />
+        <option value="DIRECTORY:.circleci" />
+        <option value="DIRECTORY:.idea" />
+        <option value="FILE:.gitattributes" />
+        <option value="FILE:BudgetPy.psproj" />
+        <option value="DIRECTORY:ipynb" />
+        <option value="DIRECTORY:etc" />
+        <option value="DIRECTORY:db" />
       </list>
     </option>
     <option name="projectKey" value="KarmaScripter" />

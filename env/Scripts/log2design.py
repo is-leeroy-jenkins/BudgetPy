@@ -1,4 +1,4 @@
-#!C:\Users\teppler\source\compilers\py\python\python.exe
+#!C:\Users\terry\source\compilers\py\python\python.exe
 # Create Lyman/Fitz style long flat Design Files from plain-text onset files
 # EKK / June 2015
 # Python 2/3 compatibile, depends on Pandas and Numpy/Scipy
