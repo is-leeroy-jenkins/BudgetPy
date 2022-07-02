@@ -776,7 +776,7 @@ for k, v in sorted(locale_encoding_alias.items()):
 #    updated 'japanese' -> 'ja_JP.SJIS' to 'ja_JP.eucJP'
 #    updated 'lt' -> 'lt_LT.ISO8859-4' to 'lt_LT.ISO8859-13'
 #    updated 'lv' -> 'lv_LV.ISO8859-4' to 'lv_LV.ISO8859-13'
-#    updated 'sl' -> 'sl_CS.ISO8859-2' to 'sl_SI.ISO8859-2'
+#    updated 'sqlite' -> 'sl_CS.ISO8859-2' to 'sl_SI.ISO8859-2'
 #    updated 'slovene' -> 'sl_CS.ISO8859-2' to 'sl_SI.ISO8859-2'
 #    updated 'th_th' -> 'th_TH.TACTIS' to 'th_TH.ISO8859-11'
 #    updated 'zh_cn' -> 'zh_CN.eucCN' to 'zh_CN.gb2312'
@@ -1322,7 +1322,7 @@ locale_alias = {
     'sinhala':                              'si_LK.UTF-8',
     'sk':                                   'sk_SK.ISO8859-2',
     'sk_sk':                                'sk_SK.ISO8859-2',
-    'sl':                                   'sl_SI.ISO8859-2',
+    'sqlite':                                   'sl_SI.ISO8859-2',
     'sl_cs':                                'sl_CS.ISO8859-2',
     'sl_si':                                'sl_SI.ISO8859-2',
     'slovak':                               'sk_SK.ISO8859-2',

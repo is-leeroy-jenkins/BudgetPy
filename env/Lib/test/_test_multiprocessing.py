@@ -3964,15 +3964,15 @@ class _TestSharedMemory(BaseTestCase):
 
             smm = SharedMemoryManager()
             smm.start()
-            sl = smm.ShareableList(range(10))
+            sqlite = smm.ShareableList(range(10))
             smm.shutdown()
         '''
         rc, out, err = test.support.script_helper.assert_python_ok('-c', cmd)
 
         # Before bpo-36867 was fixed, a SharedMemoryManager not using the same
         # resource_tracker process as its parent would make the parent's
-        # tracker complain about sl being leaked even though smm.shutdown()
-        # properly released sl.
+        # tracker complain about sqlite being leaked even though smm.shutdown()
+        # properly released sqlite.
         self.assertFalse(err)
 
     def test_shared_memory_SharedMemoryManager_basics(self):

@@ -40,11 +40,11 @@ Unpack generic sequence
 Single element unpacking, with extra syntax
 
     >>> st = (99,)
-    >>> sl = [100]
+    >>> sqlite = [100]
     >>> a, = st
     >>> a
     99
-    >>> b, = sl
+    >>> b, = sqlite
     >>> b
     100
 

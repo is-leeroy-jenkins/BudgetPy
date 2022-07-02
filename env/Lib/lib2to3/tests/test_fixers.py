@@ -3837,7 +3837,7 @@ class Test_import(FixerTestCase):
 
         self.always_exists = False
         self.present_files = set(['__init__.py'])
-        expected_extensions = ('.py', os.path.sep, '.pyc', '.so', '.sl', '.pyd')
+        expected_extensions = ('.py', os.path.sep, '.pyc', '.so', '.sqlite', '.pyd')
         names_to_test = (p("/spam/eggs.py"), "ni.py", p("../../shrubbery.py"))
 
         for name in names_to_test:

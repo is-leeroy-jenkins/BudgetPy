@@ -1,4 +1,4 @@
-import sqlite3 as sl
+import sqlite3 as sqlite
 from sqlite3 import Connection, Row, Cursor
 import pandas
 import string
@@ -388,7 +388,7 @@ class DataConnection(  ):
             elif self.__provider.name == Provider.SqlServer.name:
                 return db.connect( self.__connectionstring )
             else:
-                return sl.connect( self.__connectionstring )
+                return sqlite.connect( self.__connectionstring )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
@@ -718,7 +718,7 @@ class SqlStatement( ):
         if isinstance( self.__commandtext, str ) and self.__commandtext != '':
             return self.__commandtext
 
-    def createquery( self ):
+    def getquery( self ):
         try:
             table = self.__table
             columns = self.__sqlconfig.columndump( )
@@ -958,7 +958,7 @@ class SQLiteQuery( Data ):
         self.__source = super( ).source
         self.__table = super( ).source.name
         self.__driver = super( ).connection.driver
-        self.__query = super( ).sqlstatement.createquery( )
+        self.__query = super( ).sqlstatement.getquery( )
 
     def __str__( self ):
         if isinstance( self.__query, str ) and self.__query != '':
@@ -969,7 +969,7 @@ class SQLiteQuery( Data ):
             sql = self.__sqlstatement
             sqlite = self.__connection.connect( )
             cursor = sqlite.cursor( )
-            query = sql.createquery( )
+            query = sql.getquery( )
             data = cursor.execute( query )
             self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -1072,7 +1072,7 @@ class AccessQuery( Data ):
         self.__source = super( ).source
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
-        self.__query = sqlstatement.createquery( )
+        self.__query = sqlstatement.getquery( )
         self.__table = connection.source.name
         self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
         self.__data = [ ]
@@ -1094,9 +1094,9 @@ class AccessQuery( Data ):
             sql = SqlStatement( db, cmd )
             sqlite = dcnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.createquery( )
+            query = sql.getquery( )
             data = cursor.execute( query )
-            self.__data = [ sl.Row( i ) for i in data.fetchall( ) ]
+            self.__data = [ sqlite.Row( i ) for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -1208,7 +1208,7 @@ class SqlServerQuery( Data ):
         self.__source = super( ).source
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
-        self.__query = sqlstatement.createquery( )
+        self.__query = sqlstatement.getquery( )
         self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{SQL Server Native Client 11.0};'
@@ -1230,7 +1230,7 @@ class SqlServerQuery( Data ):
             sql = SqlStatement( db, cmd )
             sqlite = dcnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.createquery( )
+            query = sql.getquery( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -1891,7 +1891,7 @@ class BudgetData( ):
             path = self.__path
             src = self.__source
             table = self.__name
-            conn = sl.connect( path )
+            conn = sqlite.connect( path )
             sql = f'SELECT * FROM { table };'
             frame = sqlreader( sql, conn )
             return frame

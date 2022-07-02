@@ -93,7 +93,7 @@ class FixImport(fixer_base.BaseFix):
         # so can't be a relative import.
         if not exists(join(dirname(base_path), "__init__.py")):
             return False
-        for ext in [".py", sep, ".pyc", ".so", ".sl", ".pyd"]:
+        for ext in [".py", sep, ".pyc", ".so", ".sqlite", ".pyd"]:
             if exists(base_path + ext):
                 return True
         return False
