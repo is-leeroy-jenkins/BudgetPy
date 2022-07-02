@@ -969,10 +969,9 @@ class SQLiteQuery( Query ):
 
     def createtable( self ):
         try:
-            sql = self.__sqlstatement
+            query = self.__query
             sqlite = self.__connection.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getquery( )
             data = cursor.execute( query )
             self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -988,14 +987,10 @@ class SQLiteQuery( Query ):
 
     def createframe( self ):
         try:
-            src = super( ).source
-            pro = super( ).provider
             query = f'SELECT * FROM {src.name}'
-            db = DbConfig( src, pro )
-            dcnx = DataConnection( db )
-            sqlite = dcnx.connect( )
-            self.__frame = sqlreader( query, sqlite )
-            sqlite.close( )
+            connection = self.__connection.connect( )
+            self.__frame = sqlreader( query, connection )
+            connection.close( )
             return self.__frame
         except Exception as e:
             exc = Error( e )
@@ -1090,27 +1085,18 @@ class AccessQuery( Query ):
         self.__data = [ ]
 
     def __str__( self ):
-        if isinstance( self.__source, DbConfig ):
-            return self.__source.name
+        if isinstance( self.__query, str ) and self.__query != '':
+            return self.__query
 
     def createtable( self ):
         try:
-            src = super( ).source
-            pdr = super( ).provider
-            sql = super( ).sqlstatement
-            n = sql.names
-            v = sql.values
-            db = DbConfig( source = src, provider = pdr )
-            cmd = SqlConfig( names = n, values = v )
-            dcnx = DataConnection( db )
-            sql = SqlStatement( db, cmd )
-            sqlite = dcnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getquery( )
+            query = self.__query
+            access = self.__connection.connect( )
+            cursor = access.cursor( )
             data = cursor.execute( query )
-            self.__data = [ sqlite.Row( i ) for i in data.fetchall( ) ]
+            self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
-            sqlite.close( )
+            access.close( )
             return self.__data
         except Exception as e:
             exc = Error( e )
@@ -1122,14 +1108,10 @@ class AccessQuery( Query ):
 
     def createframe( self ):
         try:
-            src = super( ).source
-            pro = super( ).provider
-            query = f'SELECT * FROM {src.name}'
-            db = DbConfig( source = src, provider = pro )
-            dcnx = DataConnection( db )
-            access = dcnx.connect( )
-            self.__frame = sqlreader( query, access )
-            access.close( )
+            query = self.__query
+            connection = self.__connection.connect( )
+            self.__frame = sqlreader( query, connection )
+            connection.close( )
             return self.__frame
         except Exception as e:
             exc = Error( e )
@@ -1226,42 +1208,48 @@ class SqlServerQuery( Query ):
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement )
-        self.__source = super( ).source
-        self.__connection = super( ).connection
-        self.__sqlstatement = super( ).sqlstatement
+        self.__connection = connection
+        self.__source = connection.source
+        self.__sqlstatement = sqlstatement
         self.__query = sqlstatement.getquery( )
         self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{SQL Server Native Client 11.0};'
 
     def __str__( self ):
-        if isinstance( self.__source, DbConfig ):
-            return self.__source.name
+        if isinstance( self.__query, str ) and self.__query != '':
+            return self.__query
 
     def createtable( self ):
         try:
-            src = super( ).source
-            pro = super( ).provider
-            sql = super( ).sqlstatement
-            n = sql.names
-            v = sql.values
-            db = DbConfig( source = src, provider = pro )
-            cmd = SqlConfig( names = n, values = v )
-            dcnx = DataConnection( db )
-            sql = SqlStatement( db, cmd )
-            sqlite = dcnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getquery( )
+            query = self.__query
+            conection = self.__connection.connect( )
+            cursor = conection.cursor( )
             data = cursor.execute( query )
             self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
-            sqlite.close( )
+            conection.close( )
             return self.__data
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlServerQuery'
             exc.method = 'createtable( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def createframe( self ):
+        try:
+            query = f'SELECT * FROM {self.__table}'
+            connection = self.__connection.connect( )
+            self.__frame = sqlreader( query, connection )
+            connection.close( )
+            return self.__frame
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlServerQuery'
+            exc.method = 'createframe( self )'
             err = ErrorDialog( exc )
             err.show( )
 
