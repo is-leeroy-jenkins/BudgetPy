@@ -370,13 +370,13 @@ class DataConnection( DbConfig ):
             self.__connectionstring = value
 
     def __init__( self, source, provider = Provider.SQLite ):
-        self.__configuration = DbConfig( source, provider )
+        super( ).__init__( source, provider )
         self.__source = source
         self.__provider = provider
-        self.__path = self.__configuration.getpath( )
-        self.__driver = self.__configuration.getdriver( )
-        self.__dsn = self.__configuration.source.name + ';'
-        self.__connectionstring = self.__configuration.getconnectionstring( )
+        self.__path = super( ).getpath( )
+        self.__driver = super( ).getdriver( )
+        self.__dsn = source.name + ';'
+        self.__connectionstring = super( ).getconnectionstring( )
 
     def connect( self ):
         try:
@@ -648,7 +648,7 @@ class SqlStatement( ):
 
     @property
     def commandtype( self ):
-        if self.__commandtype is not None:
+        if isinstance( self.__commandtype, SQL ):
             return self.__commandtype
 
     @commandtype.setter
@@ -721,14 +721,23 @@ class SqlStatement( ):
             predicate = self.__sqlconfig.wheredump( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__commandtype == SQL.SELECTALL:
-                    self.__commandtext = f'SELECT * FROM {table}' \
-                                         + f' {predicate}'
-                    return self.__commandtext
+                    if len( self.__names ) == 0:
+                        self.__commandtext = f'SELECT * FROM {table};'
+                        return self.__commandtext
+                    if len( self.__names ) > 0:
+                        self.__commandtext = f'SELECT ' + columns \
+                                             + f'FROM {table}' \
+                                             + f' {predicate}'
+                        return self.__commandtext
                 elif self.__commandtype == SQL.SELECT:
-                    self.__commandtext = f'SELECT ' + columns \
-                                         + f' FROM {table}' \
-                                         + f' {predicate};'
-                    return self.__commandtext
+                    if len( self.__names ) == 0:
+                        self.__commandtext = f'SELECT * FROM {table};'
+                        return self.__commandtext
+                    if len( self.__names ) > 0:
+                        self.__commandtext = f'SELECT ' + columns \
+                                             + f' FROM {table}' \
+                                             + f' {predicate};'
+                        return self.__commandtext
                 elif self.__commandtype == SQL.INSERT:
                     self.__commandtext = f'INSERT INTO {table} ' \
                                          + f'{columns} ' \
