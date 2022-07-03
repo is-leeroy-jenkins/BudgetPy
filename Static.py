@@ -371,7 +371,7 @@ class ACCDB( Enum ):
     CALCULATED = auto( )
 
 
-class SQLite( Enum ):
+class DB( Enum ):
     '''Enumeration of SQLite database types used in the application'''
     REAL = auto( )
     TEXT = auto( )
@@ -379,7 +379,7 @@ class SQLite( Enum ):
     BLOB = auto( )
 
 
-class SqlServer( Enum ):
+class MDF( Enum ):
     '''Enumeration of SQL Server database types used in the application'''
     BIT = auto( )
     INT = auto( )
