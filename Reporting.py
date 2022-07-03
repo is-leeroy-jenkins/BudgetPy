@@ -2354,14 +2354,13 @@ class ReimbursableSurvey( ):
 
     def getdata( self ):
         try:
-            source = self.__source
-            provider = self.__provider
+            src = self.__source
+            pro = self.__provider
             n = [ 'BFY', 'FundCode', ]
             v = (self.__bfy, self.__fundcode)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = DataConnection( dconfig )
-            sql = SqlStatement( dconfig, sconfig )
+            cfg = SqlConfig( names = n, values = v )
+            cnx = DataConnection( source = src, provider = pro )
+            sql = SqlStatement( cnx, cfg )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )

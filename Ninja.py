@@ -756,14 +756,14 @@ class SqlStatement( ):
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECT:
                         cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__commandtext = f'SELECT { cols } FROM { table };'
+                        self.__commandtext = f'SELECT { cols } FROM { table }'
                         return self.__commandtext
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
-                        self.__commandtext = f'SELECT * FROM { table };'
+                        self.__commandtext = f'SELECT * FROM { table }'
                         return self.__commandtext
                 elif self.__commandtype == 'DELETE':
-                    self.__commandtext = f'DELETE FROM { table };'
+                    self.__commandtext = f'DELETE FROM { table }'
                     return self.__commandtext
         except Exception as e:
             exc = Error( e )
@@ -873,6 +873,7 @@ class SQLiteData( Query ):
     '''SQLiteData( value, sqlconfig ) represents
      the budget execution values classes'''
     __source = None
+    __provider = None
     __connection = None
     __sqlstatement = None
     __driver = None
@@ -965,6 +966,7 @@ class SQLiteData( Query ):
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement )
+        self.__provider = Provider.SQLite
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
         self.__source = super( ).source
@@ -982,6 +984,7 @@ class SQLiteData( Query ):
             sqlite = self.__connection.connect( )
             cursor = sqlite.cursor( )
             data = cursor.execute( query )
+            self.__columns = [ i[ 0 ] for i in cursor.description ]
             self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
@@ -1015,6 +1018,7 @@ class AccessData( Query ):
       represents the budget execution
       values model classes in the MS Access database'''
     __source = None
+    __provider = None
     __connection = None
     __sqlstatement = None
     __query = None
@@ -1022,6 +1026,7 @@ class AccessData( Query ):
     __dsn = None
     __data = None
     __table = None
+    __columns = None
 
     @property
     def source( self ):
@@ -1083,9 +1088,20 @@ class AccessData( Query ):
         if isinstance( value, str ):
             self.__query = value
 
+    @property
+    def columns( self ):
+        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
+            return self.__columns
+
+    @columns.setter
+    def columns( self, value ):
+        if isinstance( value, list ):
+            self.__columns = value
+
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement )
         self.__source = super( ).source
+        self.__provider = Provider.Access
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
         self.__query = sqlstatement.getquery( )
@@ -1103,6 +1119,7 @@ class AccessData( Query ):
             access = self.__connection.connect( )
             cursor = access.cursor( )
             data = cursor.execute( query )
+            self.__columns = [ i[ 0 ] for i in cursor.description ]
             self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
             access.close( )
@@ -1130,12 +1147,13 @@ class AccessData( Query ):
             err = ErrorDialog( exc )
             err.show( )
 
-# SqlServerQuery( connection, sqlstatement )
-class SqlServerQuery( Query ):
-    '''SqlServerQuery( value, sqlconfig ) object
+# SqlServerData( connection, sqlstatement )
+class SqlServerData( Query ):
+    '''SqlServerData( value, sqlconfig ) object
     represents the values models in the MS SQL Server
     database'''
     __source = None
+    __provider = None
     __connection = None
     __sqlstatement = None
     __query = None
@@ -1143,6 +1161,7 @@ class SqlServerQuery( Query ):
     __driver = None
     __dsn = None
     __table = None
+    __columns = None
     __data = None
 
     @property
@@ -1206,17 +1225,28 @@ class SqlServerQuery( Query ):
             self.__data = value
 
     @property
-    def query( self ):
-        if isinstance( self.__query, str ) and self.__query != '':
+    def commandtext( self ):
+        if isinstance( self.__query, str ):
             return self.__query
 
-    @query.setter
-    def query( self, value ):
-        if isinstance( value, str ) and value != '':
+    @commandtext.setter
+    def commandtext( self, value ):
+        if isinstance( value, str ):
             self.__query = value
+
+    @property
+    def columns( self ):
+        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
+            return self.__columns
+
+    @columns.setter
+    def columns( self, value ):
+        if isinstance( value, list ):
+            self.__columns = value
 
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement )
+        self.__provider = Provider.SqlServer
         self.__connection = connection
         self.__source = connection.source
         self.__sqlstatement = sqlstatement
@@ -1235,6 +1265,7 @@ class SqlServerQuery( Query ):
             conection = self.__connection.connect( )
             cursor = conection.cursor( )
             data = cursor.execute( query )
+            self.__columns = [ i[ 0 ] for i in cursor.description ]
             self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
             conection.close( )
@@ -1242,7 +1273,7 @@ class SqlServerQuery( Query ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'SqlServerQuery'
+            exc.cause = 'SqlServerData'
             exc.method = 'createtable( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1257,7 +1288,7 @@ class SqlServerQuery( Query ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'SqlServerQuery'
+            exc.cause = 'SqlServerData'
             exc.method = 'createframe( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1385,7 +1416,7 @@ class DataBuilder( ):
                 self.__data = [ tuple( i ) for i in access.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
-                sqlserver = SqlServerQuery( self.__connection, self.__sqlstatement )
+                sqlserver = SqlServerData( self.__connection, self.__sqlstatement )
                 self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
                 return self.__data
             else:
