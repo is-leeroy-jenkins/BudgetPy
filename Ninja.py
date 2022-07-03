@@ -60,7 +60,7 @@ class Pascal( ):
                         outlist.append( val )
 
                 for o in outlist:
-                    outstr = outstr + f'{o}'
+                    outstr = outstr + f'{ o }'
 
                 self.__output = outstr
                 return outstr
@@ -87,7 +87,7 @@ class Pascal( ):
                         outlist.append( val )
 
                 for o in outlist:
-                    outstr = outstr + f'{o}'
+                    outstr = outstr + f'{ o }'
 
                 self.__output = outstr
                 return self.__output
@@ -161,10 +161,10 @@ class DbConfig( ):
         self.__table = source.name
         self.__sqlitedatapath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__sqlitereferencepath = os.getcwd( ) + r'\db\sqlite\referencemodels\References.db'
-        self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
+        self.__accessdriver = r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };DBQ='
         self.__accessdatapath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
         self.__accessreferencepath = os.getcwd( ) + r'\db\access\referencemodels\References.accdb'
-        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
+        self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
         self.__sqldatapath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
         self.__sqlreferencepath = os.getcwd( ) + r'\db\mssql\referencemodels\References.mdf'
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'AppropriationDocuments',
@@ -285,11 +285,11 @@ class DbConfig( ):
             if self.__provider.name == Provider.Access.name:
                 return self.getdriver( ) + path
             elif self.__provider.name == Provider.SqlServer.name:
-                return r'DRIVER={ODBC Driver 17 for SQL Server};Server=.\SQLExpress;' \
-                       + f'AttachDBFileName={path}' \
-                       + f'DATABASE={path}Trusted_Connection=yes;'
+                return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' \
+                       + f'AttachDBFileName={ path }' \
+                       + f'DATABASE={ path }Trusted_Connection=yes;'
             else:
-                return f'{path} '
+                return f'{ path } '
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
@@ -493,7 +493,7 @@ class SqlConfig( ):
                 criteria = ''
                 kvp = zip( self.__names, self.__values )
                 for k, v in kvp:
-                    pairs += f'{k} = \'{v}\' AND '
+                    pairs += f'{ k } = \'{ v }\' AND '
                 criteria = pairs.rstrip( ' AND ' )
                 return criteria
         except Exception as e:
@@ -512,7 +512,7 @@ class SqlConfig( ):
                 pairs = ''
                 criteria = ''
                 for k, v in zip( self.__names, self.__values ):
-                    pairs += f'{k} = \'{v}\' AND '
+                    pairs += f'{ k } = \'{ v }\' AND '
                 criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
                 return criteria
         except Exception as e:
@@ -531,7 +531,7 @@ class SqlConfig( ):
                 pairs = ''
                 criteria = ''
                 for k, v in zip( self.__names, self.__values ):
-                    pairs += f'{k} = \'{v}\', '
+                    pairs += f'{ k } = \'{ v }\', '
                 criteria = 'SET ' + pairs.rstrip( ', ' )
                 return criteria
         except Exception as e:
@@ -550,7 +550,7 @@ class SqlConfig( ):
                 cols = ''
                 columns = ''
                 for n in self.__names:
-                    cols += f'{n}, '
+                    cols += f'{ n }, '
                 columns = '(' + cols.rstrip( ', ' ) + ')'
                 return columns
         except Exception as e:
@@ -569,7 +569,7 @@ class SqlConfig( ):
                 vals = ''
                 values = ''
                 for v in self.__values:
-                    vals += f'{v}, '
+                    vals += f'{ v }, '
                 values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
                 return values
         except Exception as e:
@@ -722,48 +722,48 @@ class SqlStatement( ):
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__commandtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
-                        self.__commandtext = f'SELECT * FROM {table}'
+                        self.__commandtext = f'SELECT * FROM { table }'
                         return self.__commandtext
                     if len( self.__names ) > 0:
                         self.__commandtext = f'SELECT ' + columns \
-                                             + f'FROM {table}' \
-                                             + f' {predicate}'
+                                             + f'FROM { table }' \
+                                             + f' { predicate }'
                         return self.__commandtext
                 elif self.__commandtype == SQL.SELECT:
                     if len( self.__names ) == 0:
-                        self.__commandtext = f'SELECT * FROM {table}'
+                        self.__commandtext = f'SELECT * FROM { table }'
                         return self.__commandtext
                     if len( self.__names ) > 0:
                         self.__commandtext = f'SELECT ' + columns \
-                                             + f' FROM {table}' \
-                                             + f' {predicate}'
+                                             + f' FROM { table }' \
+                                             + f' { predicate }'
                         return self.__commandtext
                 elif self.__commandtype == SQL.INSERT:
-                    self.__commandtext = f'INSERT INTO {table} ' \
-                                         + f'{columns} ' \
-                                         + f'{values}'
+                    self.__commandtext = f'INSERT INTO { table } ' \
+                                         + f'{ columns } ' \
+                                         + f'{ values }'
                     return self.__commandtext
                 elif self.__commandtype == SQL.UPDATE:
-                    self.__commandtext = f'UPDATE {table} ' \
-                                         + f'{self.__sqlconfig.setdump( )} ' \
-                                         + f'{values}'
+                    self.__commandtext = f'UPDATE { table } ' \
+                                         + f'{ self.__sqlconfig.setdump( ) } ' \
+                                         + f'{ values }'
                     return self.__commandtext
                 elif self.__commandtype == SQL.DELETE:
-                    self.__commandtext = f'DELETE FROM {table} ' \
-                                         + f'{predicate}'
+                    self.__commandtext = f'DELETE FROM { table } ' \
+                                         + f'{ predicate }'
                     return self.__commandtext
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECT:
                         cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__commandtext = f'SELECT {cols} FROM {table};'
+                        self.__commandtext = f'SELECT { cols } FROM { table };'
                         return self.__commandtext
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
-                        self.__commandtext = f'SELECT * FROM {table};'
+                        self.__commandtext = f'SELECT * FROM { table };'
                         return self.__commandtext
                 elif self.__commandtype == 'DELETE':
-                    self.__commandtext = f'DELETE FROM {table};'
+                    self.__commandtext = f'DELETE FROM { table };'
                     return self.__commandtext
         except Exception as e:
             exc = Error( e )
@@ -868,9 +868,9 @@ class Query( ):
         self.__path = connection.path
         self.__connectionstring = connection.connectionstring
 
-# SQLiteQuery( connection, sqlstatement )
-class SQLiteQuery( Query ):
-    '''SQLiteQuery( value, sqlconfig ) represents
+# SQLiteData( connection, sqlstatement )
+class SQLiteData( Query ):
+    '''SQLiteData( value, sqlconfig ) represents
      the budget execution values classes'''
     __source = None
     __connection = None
@@ -989,7 +989,7 @@ class SQLiteQuery( Query ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'SQLiteQuery'
+            exc.cause = 'SQLiteData'
             exc.method = 'createtable( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1004,14 +1004,14 @@ class SQLiteQuery( Query ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'SQLiteQuery'
+            exc.cause = 'SQLiteData'
             exc.method = 'createframe( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-# AccessQuery( connection, sqlstatement )
-class AccessQuery( Query ):
-    '''AccessQuery( value, sqlconfig ) class
+# AccessData( connection, sqlstatement )
+class AccessData( Query ):
+    '''AccessData( value, sqlconfig ) class
       represents the budget execution
       values model classes in the MS Access database'''
     __source = None
@@ -1090,7 +1090,7 @@ class AccessQuery( Query ):
         self.__sqlstatement = super( ).sqlstatement
         self.__query = sqlstatement.getquery( )
         self.__table = connection.source.name
-        self.__driver = r'DRIVER={Microsoft Access Driver( *.mdb, *.accdb )};'
+        self.__driver = r'DRIVER={ Microsoft Access Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
 
     def __str__( self ):
@@ -1110,7 +1110,7 @@ class AccessQuery( Query ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'AccessQuery'
+            exc.cause = 'AccessData'
             exc.method = 'createtable( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1125,7 +1125,7 @@ class AccessQuery( Query ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'AccessQuery'
+            exc.cause = 'AccessData'
             exc.method = 'createframe( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1223,7 +1223,7 @@ class SqlServerQuery( Query ):
         self.__query = sqlstatement.getquery( )
         self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
-        self.__driver = r'{SQL Server Native Client 11.0};'
+        self.__driver = r'{ SQL Server Native Client 11.0 };'
 
     def __str__( self ):
         if isinstance( self.__query, str ) and self.__query != '':
@@ -1249,7 +1249,7 @@ class SqlServerQuery( Query ):
 
     def createframe( self ):
         try:
-            query = f'SELECT * FROM {self.__table}'
+            query = f'SELECT * FROM { self.__table }'
             connection = self.__connection.connect( )
             self.__frame = sqlreader( query, connection )
             connection.close( )
@@ -1377,11 +1377,11 @@ class DataBuilder( ):
     def createtable( self ):
         try:
             if self.__provider == Provider.SQLite:
-                sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
+                sqlite = SQLiteData( self.__connection, self.__sqlstatement )
                 self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.Access:
-                access = AccessQuery( self.__connection, self.__sqlstatement )
+                access = AccessData( self.__connection, self.__sqlstatement )
                 self.__data = [ tuple( i ) for i in access.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
@@ -1389,7 +1389,7 @@ class DataBuilder( ):
                 self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
                 return self.__data
             else:
-                sqlite = SQLiteQuery( self.__connection, self.__sqlstatement )
+                sqlite = SQLiteData( self.__connection, self.__sqlstatement )
                 self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
                 return self.__data
         except Exception as e:
@@ -1894,7 +1894,7 @@ class BudgetData( ):
         self.__source = source if isinstance( source, Source ) else None
         self.__name = source.name
         self.__path = DbConfig( source, Provider.SQLite ).getpath( )
-        self.__sql = f'SELECT * FROM {source.name};'
+        self.__sql = f'SELECT * FROM { source.name };'
 
     def getframe( self ):
         '''Facotry method that returns a pandas DataFrame object
@@ -1904,7 +1904,7 @@ class BudgetData( ):
             src = self.__source
             table = self.__name
             conn = sqlite.connect( path )
-            sql = f'SELECT * FROM {table};'
+            sql = f'SELECT * FROM { table };'
             frame = sqlreader( sql, conn )
             return frame
         except Exception as e:
