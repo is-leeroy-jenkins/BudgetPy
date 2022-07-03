@@ -44,28 +44,32 @@ class Pascal( ):
     def split( self ):
         try:
             if isinstance( self.__input, str ) and self.__input.count( ' ' ) == 0:
-                caps = 0
-                inlist = list( self.__input )
-                outlist = list( )
+                input = list( self.__input )
+                rtnstr = ''
                 outstr = ''
+                cnt = len( input )
 
-                for i in inlist:
-                    if inlist.index( i ) == 0 and i.isupper( ):
-                        outlist.append( i )
-
-                    if ( 0 < inlist.index( i ) <= 1 and i.isupper( ) ) or ( i.islower( ) ):
-                        outlist.append( i )
-
-                    if inlist.index( i ) > 1 and i.isupper( ):
-                        outlist.append( ' ' )
-                        outlist.append( i )
-
-                    outstr = outstr + f'{ o }'
+                for i in range( cnt ):
+                    char = input[ i ]
+                    if i <= 1 and char.islower( ):
+                        outstr += f'{ char }'
+                    elif i <= 1 and char.isupper( ):
+                        outstr += f'{ char }'
+                    elif i > 1 and char.islower( ):
+                        outstr += f'{ char }'
+                    elif i > 1 and char.isupper( ):
+                        outstr += f' { char }'
 
                 if len( outstr ) < 5:
-                    outstr = outstr.replace( ' ', '' )
+                    rtnstr = outstr.replace( ' ', '' )
+                else:
+                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ).replace( 'Rpio', 'RPIO' ) \
+                        .replace( 'Rc', 'RC' ).replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ).replace( 'Omb', 'OMB' ) \
+                        .replace( 'Npm', 'NPM' ).replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ) \
+                        .replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' ).replace( ' AND ', ' And ' ) \
+                        .replace( 'BUT ', ' But ' )
 
-                self.__output = outstr
+                self.__output = rtnstr
                 return self.__output
         except Exception as e:
             exc = Error( e )
@@ -78,21 +82,23 @@ class Pascal( ):
     def join( self ):
         try:
             if isinstance( self.__input, str ) and self.__input.count( ' ' ) > 0:
-                inlist = list( self.__input )
+                input = list( self.__input )
                 outlist = list( )
                 outstr = ''
 
-                for i in inlist:
-                    idx = inlist.index( i )
-                    val = inlist[ idx ]
-
-                    if val != ' ':
-                        outlist.append( val )
+                for char in input:
+                    if char != ' ':
+                        outlist.append( char )
 
                 for o in outlist:
-                    outstr = outstr + f'{ o }'
+                    outstr += f'{ o }'
 
-                self.__output = outstr
+                self.__output = outstr.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ).replace( 'RPIO', 'Rpio' ) \
+                        .replace( 'RC', 'Rc' ).replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ).replace( 'OMB', 'Omb' ) \
+                        .replace( 'NPM', 'Npm' ).replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
+                        .replace( 'THE', 'The' ).replace( 'OR', 'Or' ).replace( 'AND', 'And' ) \
+                        .replace( 'BUT', 'But' )
+
                 return self.__output
         except Exception as e:
             exc = Error( e )
