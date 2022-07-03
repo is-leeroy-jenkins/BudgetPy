@@ -722,7 +722,7 @@ class SqlStatement( ):
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__commandtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
-                        self.__commandtext = f'SELECT * FROM {table};'
+                        self.__commandtext = f'SELECT * FROM {table}'
                         return self.__commandtext
                     if len( self.__names ) > 0:
                         self.__commandtext = f'SELECT ' + columns \
@@ -731,26 +731,26 @@ class SqlStatement( ):
                         return self.__commandtext
                 elif self.__commandtype == SQL.SELECT:
                     if len( self.__names ) == 0:
-                        self.__commandtext = f'SELECT * FROM {table};'
+                        self.__commandtext = f'SELECT * FROM {table}'
                         return self.__commandtext
                     if len( self.__names ) > 0:
                         self.__commandtext = f'SELECT ' + columns \
                                              + f' FROM {table}' \
-                                             + f' {predicate};'
+                                             + f' {predicate}'
                         return self.__commandtext
                 elif self.__commandtype == SQL.INSERT:
                     self.__commandtext = f'INSERT INTO {table} ' \
                                          + f'{columns} ' \
-                                         + f'{values};'
+                                         + f'{values}'
                     return self.__commandtext
                 elif self.__commandtype == SQL.UPDATE:
                     self.__commandtext = f'UPDATE {table} ' \
                                          + f'{self.__sqlconfig.setdump( )} ' \
-                                         + f'{values};'
+                                         + f'{values}'
                     return self.__commandtext
                 elif self.__commandtype == SQL.DELETE:
                     self.__commandtext = f'DELETE FROM {table} ' \
-                                         + f'{predicate};'
+                                         + f'{predicate}'
                     return self.__commandtext
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
@@ -996,7 +996,7 @@ class SQLiteQuery( Query ):
 
     def createframe( self ):
         try:
-            query = f'SELECT * FROM {src.name}'
+            query = f'SELECT * FROM { self.__source.name }'
             connection = self.__connection.connect( )
             self.__frame = sqlreader( query, connection )
             connection.close( )
