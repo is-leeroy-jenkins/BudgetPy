@@ -50,20 +50,23 @@ class Pascal( ):
                 outstr = ''
 
                 for i in inlist:
-                    idx = inlist.index( i )
-                    val = inlist[ idx ]
+                    if inlist.index( i ) == 0 and i.isupper( ):
+                        outlist.append( i )
 
-                    if idx < 4 or inlist[ idx ].islower( ):
-                        outlist.append( val )
-                    elif idx >= 4 and inlist[ idx ].isupper( ):
+                    if ( 0 < inlist.index( i ) <= 1 and i.isupper( ) ) or ( i.islower( ) ):
+                        outlist.append( i )
+
+                    if inlist.index( i ) > 1 and i.isupper( ):
                         outlist.append( ' ' )
-                        outlist.append( val )
+                        outlist.append( i )
 
-                for o in outlist:
                     outstr = outstr + f'{ o }'
 
+                if len( outstr ) < 5:
+                    outstr = outstr.replace( ' ', '' )
+
                 self.__output = outstr
-                return outstr
+                return self.__output
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
