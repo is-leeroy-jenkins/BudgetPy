@@ -666,7 +666,7 @@ class FileDialog( Sith ):
         self.__pdf = ( ( 'PDF Files', '*.pdf' ), ) 
         self.__sql = ( ( 'SQL Files', '*.sql' ), ) 
         self.__text = ( ( 'Text Files', '*.txt' ), ) 
-        self.__access = ( ( 'MS Access Databases', '*.accdb' ), ) 
+        self.__access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
         self.__sqlite = ( ( 'SQLite Databases', '*.db' ), ) 
         self.__sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), ) 
 

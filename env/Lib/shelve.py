@@ -64,7 +64,7 @@ import collections.abc
 __all__ = ["Shelf", "BsdDbShelf", "DbfilenameShelf", "open"]
 
 class _ClosedDict(collections.abc.MutableMapping):
-    'Marker for a closed dict.  Access attempts raise a ValueError.'
+    'Marker for a closed dict.  ACCDB attempts raise a ValueError.'
 
     def closed(self, *args):
         raise ValueError('invalid operation on closed shelf')

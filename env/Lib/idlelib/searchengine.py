@@ -32,7 +32,7 @@ class SearchEngine:
         self.wrapvar = BooleanVar(root, True)   # wrap around buffer?
         self.backvar = BooleanVar(root, False)   # search backwards?
 
-    # Access methods
+    # ACCDB methods
 
     def getpat(self):
         return self.patvar.get()

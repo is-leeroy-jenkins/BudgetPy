@@ -1873,7 +1873,7 @@ opcodes = [
       elements currently present in the memo.
       """),
 
-    # Access the extension registry (predefined objects).  Akin to the GET
+    # ACCDB the extension registry (predefined objects).  Akin to the GET
     # family.
 
     I(name='EXT1',

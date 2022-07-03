@@ -188,7 +188,7 @@ class SMTPChannel(asynchat.async_chat):
     # properties for backwards-compatibility
     @property
     def __server(self):
-        warn("Access to __server attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __server attribute on SMTPChannel is deprecated, "
             "use 'smtp_server' instead", DeprecationWarning, 2)
         return self.smtp_server
     @__server.setter
@@ -199,7 +199,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __line(self):
-        warn("Access to __line attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __line attribute on SMTPChannel is deprecated, "
             "use 'received_lines' instead", DeprecationWarning, 2)
         return self.received_lines
     @__line.setter
@@ -210,7 +210,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __state(self):
-        warn("Access to __state attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __state attribute on SMTPChannel is deprecated, "
             "use 'smtp_state' instead", DeprecationWarning, 2)
         return self.smtp_state
     @__state.setter
@@ -221,7 +221,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __greeting(self):
-        warn("Access to __greeting attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __greeting attribute on SMTPChannel is deprecated, "
             "use 'seen_greeting' instead", DeprecationWarning, 2)
         return self.seen_greeting
     @__greeting.setter
@@ -232,7 +232,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __mailfrom(self):
-        warn("Access to __mailfrom attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __mailfrom attribute on SMTPChannel is deprecated, "
             "use 'mailfrom' instead", DeprecationWarning, 2)
         return self.mailfrom
     @__mailfrom.setter
@@ -243,7 +243,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __rcpttos(self):
-        warn("Access to __rcpttos attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __rcpttos attribute on SMTPChannel is deprecated, "
             "use 'rcpttos' instead", DeprecationWarning, 2)
         return self.rcpttos
     @__rcpttos.setter
@@ -254,7 +254,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __data(self):
-        warn("Access to __data attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __data attribute on SMTPChannel is deprecated, "
             "use 'received_data' instead", DeprecationWarning, 2)
         return self.received_data
     @__data.setter
@@ -265,7 +265,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __fqdn(self):
-        warn("Access to __fqdn attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __fqdn attribute on SMTPChannel is deprecated, "
             "use 'fqdn' instead", DeprecationWarning, 2)
         return self.fqdn
     @__fqdn.setter
@@ -276,7 +276,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __peer(self):
-        warn("Access to __peer attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __peer attribute on SMTPChannel is deprecated, "
             "use 'peer' instead", DeprecationWarning, 2)
         return self.peer
     @__peer.setter
@@ -287,7 +287,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __conn(self):
-        warn("Access to __conn attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __conn attribute on SMTPChannel is deprecated, "
             "use 'conn' instead", DeprecationWarning, 2)
         return self.conn
     @__conn.setter
@@ -298,7 +298,7 @@ class SMTPChannel(asynchat.async_chat):
 
     @property
     def __addr(self):
-        warn("Access to __addr attribute on SMTPChannel is deprecated, "
+        warn("ACCDB to __addr attribute on SMTPChannel is deprecated, "
             "use 'addr' instead", DeprecationWarning, 2)
         return self.addr
     @__addr.setter

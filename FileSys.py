@@ -418,7 +418,7 @@ class SqlPath( ):
         self.__sqlitedriver = 'sqlite3'
         self.__sqlitedata =  r'db\sqlite\datamodels\sql'
         self.__sqlitereference = r'db\sqlite\referencemodels\sql'
-        self.__accessdriver = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ='
+        self.__accessdriver = r'DRIVER={Microsoft ACCDB Driver (*.mdb, *.accdb)};DBQ='
         self.__accessdata = r'db\access\datamodels\sql'
         self.__accessreference = r'db\access\referencemodels\sql'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
@@ -520,10 +520,10 @@ class SqlFile( ):
             elif provider == 'SQLite' and source in references:
                 path = f'{ sqlpath.sqlitereference }\\{ command }\\{ source }.sql'
                 return os.path.join( current, path )
-            elif provider == 'Access' and source in data:
+            elif provider == 'ACCDB' and source in data:
                 path = f'{ sqlpath.accessdata }\\{ command }\\{ source }.sql'
                 return os.path.join( current, path )
-            elif provider == 'Access' and source in references:
+            elif provider == 'ACCDB' and source in references:
                 path = f'{ sqlpath.accessreference }\\{ command }\\{ source }.sql'
                 return os.path.join( current, path )
             elif provider == 'SqlServer' and source in data:
@@ -561,10 +561,10 @@ class SqlFile( ):
             elif provider == 'SQLite' and source in references:
                 folder = f'{ sqlpath.sqlitereference }\\{ command }'
                 return os.path.join( current, folder )
-            elif provider == 'Access' and source in data:
+            elif provider == 'ACCDB' and source in data:
                 folder = f'{ sqlpath.accessdata }\\{ command }'
                 return os.path.join( current, folder )
-            elif provider == 'Access' and source in references:
+            elif provider == 'ACCDB' and source in references:
                 folder = f'{ sqlpath.accessreference }\\{ command }'
                 return os.path.join( current, folder )
             elif provider == 'SqlServer' and source in data:

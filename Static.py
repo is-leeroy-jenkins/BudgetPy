@@ -354,3 +354,48 @@ class RPIO( Enum ):
     OGC = 39
     OLEM = 75
     OECA = 77
+
+
+class ACCDB( Enum ):
+    '''Enumeration of access database types used in the application'''
+    INTEGER = auto( )
+    NUMBER = auto( )
+    AUTONUMBER = auto( )
+    CURRENCY = auto( )
+    DATETIME = auto( )
+    HYPERLINK = auto( )
+    SHORTTEXT = auto( )
+    LONGTEXT = auto( )
+    RICHTEXT = auto( )
+    ATTACHMENT = auto( )
+    CALCULATED = auto( )
+
+
+class SQLite( Enum ):
+    '''Enumeration of SQLite database types used in the application'''
+    REAL = auto( )
+    TEXT = auto( )
+    INTEGER = auto( )
+    BLOB = auto( )
+
+
+class SqlServer( Enum ):
+    '''Enumeration of SQL Server database types used in the application'''
+    BIT = auto( )
+    INT = auto( )
+    DECIMAL = auto( )
+    MONEY = auto( )
+    DATE = auto( )
+    TIME = auto( )
+    DATETIME = auto( )
+    FLOAT = auto( )
+    CHAR = auto( )
+    TEXT = auto( )
+    NCHAR = auto( )
+    NTEXT = auto( )
+    VARCHAR = auto( )
+    NVARCHAR = auto( )
+    BINARY = auto( )
+    VARBINARY = auto( )
+    IMAGE = auto( )
+    DATETIMEOFFSET = auto( )

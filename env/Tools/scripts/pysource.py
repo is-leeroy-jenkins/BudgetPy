@@ -43,7 +43,7 @@ def _open(fullpath):
 
     try:
         return open(fullpath, "rb")
-    except IOError as err: # Access denied, or a special file - ignore it
+    except IOError as err: # ACCDB denied, or a special file - ignore it
         print_debug("%s: access denied: %s" % (fullpath, err))
         return None
 

@@ -286,7 +286,7 @@ class _SentinelObject(object):
 
 
 class _Sentinel(object):
-    """Access attributes to return a named object, usable as a sentinel."""
+    """ACCDB attributes to return a named object, usable as a sentinel."""
     def __init__(self):
         self._sentinels = {}
 

@@ -1,4 +1,4 @@
-"""Access to Python's configuration information."""
+"""ACCDB to Python's configuration information."""
 
 import os
 import sys

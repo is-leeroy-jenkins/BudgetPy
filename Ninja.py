@@ -161,7 +161,7 @@ class DbConfig( ):
         self.__table = source.name
         self.__sqlitedatapath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__sqlitereferencepath = os.getcwd( ) + r'\db\sqlite\referencemodels\References.db'
-        self.__accessdriver = r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };DBQ='
+        self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
         self.__accessdatapath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
         self.__accessreferencepath = os.getcwd( ) + r'\db\access\referencemodels\References.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
@@ -1016,7 +1016,7 @@ class SQLiteData( Query ):
 class AccessData( Query ):
     '''AccessData( value, sqlconfig ) class
       represents the budget execution
-      values model classes in the MS Access database'''
+      values model classes in the MS ACCDB database'''
     __source = None
     __provider = None
     __connection = None
@@ -1106,7 +1106,7 @@ class AccessData( Query ):
         self.__sqlstatement = super( ).sqlstatement
         self.__query = sqlstatement.getquery( )
         self.__table = connection.source.name
-        self.__driver = r'DRIVER={ Microsoft Access Driver( *.mdb, *.accdb ) };'
+        self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
 
     def __str__( self ):

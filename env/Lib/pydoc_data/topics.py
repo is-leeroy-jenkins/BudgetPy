@@ -6932,7 +6932,7 @@ topics = {'assert': 'The "assert" statement\n'
              '\n'
              'See also:\n'
              '\n'
-             '  **PEP 3104** - Access to Names in Outer Scopes\n'
+             '  **PEP 3104** - ACCDB to Names in Outer Scopes\n'
              '     The specification for the "nonlocal" statement.\n',
  'numbers': 'Numeric literals\n'
             '****************\n'

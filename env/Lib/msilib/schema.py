@@ -860,7 +860,7 @@ _Validation_records = [
 ('LockPermissions','Table','N',None, None, None, None, 'Identifier','Directory;File;Registry','Reference to another table name',),
 ('LockPermissions','Domain','Y',None, None, None, None, 'Formatted',None, 'Domain name for user whose permissions are being set. (usually a property)',),
 ('LockPermissions','LockObject','N',None, None, None, None, 'Identifier',None, 'Foreign key into Registry or File table',),
-('LockPermissions','Permission','Y',-2147483647,2147483647,None, None, None, None, 'Permission Access mask.  Full Control = 268435456 (GENERIC_ALL = 0x10000000)',),
+('LockPermissions','Permission','Y',-2147483647,2147483647,None, None, None, None, 'Permission ACCDB mask.  Full Control = 268435456 (GENERIC_ALL = 0x10000000)',),
 ('LockPermissions','User','N',None, None, None, None, 'Formatted',None, 'User for permissions to be set.  (usually a property)',),
 ('Media','Source','Y',None, None, None, None, 'Property',None, 'The property defining the location of the cabinet file.',),
 ('Media','Cabinet','Y',None, None, None, None, 'Cabinet',None, 'If some or all of the files stored on the media are compressed in a cabinet, the name of that cabinet.',),
