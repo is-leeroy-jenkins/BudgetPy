@@ -845,9 +845,7 @@ class SaveFileDialog( Sith ):
     def show( self ):
         try:
             username = os.environ.get( 'USERNAME' )
-            startpath = f'C:\\Users\\{username}\\Desktop'
             filename = sg.popup_get_file( 'Select Location / Enter File Name',
-                default_path = startpath,
                 title = '  Budget Execution',
                 font = self.__themefont,
                 icon = self.__icon,
@@ -1558,7 +1556,7 @@ class ScrollingDialog( Sith ):
             exc.cause = 'ScrollingDialog'
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
-            err.show( )
+            err.show( ),l
 
 
 # ContactForm( contact )

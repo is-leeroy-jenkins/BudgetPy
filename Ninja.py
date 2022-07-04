@@ -42,6 +42,8 @@ class Pascal( ):
             return self.__output
 
     def split( self ):
+        '''takes the string provided as an input argument
+         and formats it into pascal case'''
         try:
             if isinstance( self.__input, str ) and self.__input.count( ' ' ) == 0:
                 input = list( self.__input )
@@ -67,7 +69,7 @@ class Pascal( ):
                         .replace( 'Rc', 'RC' ).replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ).replace( 'Omb', 'OMB' ) \
                         .replace( 'Npm', 'NPM' ).replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ) \
                         .replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' ).replace( ' AND ', ' And ' ) \
-                        .replace( 'BUT ', ' But ' )
+                        .replace( 'BUT ', ' But ' ).replace( ' OF ', ' Of ' )
 
                 self.__output = rtnstr
                 return self.__output
@@ -80,6 +82,7 @@ class Pascal( ):
             err.show( )
 
     def join( self ):
+        '''removes ' ' from strings previously formatted into pascal casing with split( self ) '''
         try:
             if isinstance( self.__input, str ) and self.__input.count( ' ' ) > 0:
                 input = list( self.__input )
@@ -97,7 +100,7 @@ class Pascal( ):
                         .replace( 'RC', 'Rc' ).replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ).replace( 'OMB', 'Omb' ) \
                         .replace( 'NPM', 'Npm' ).replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
                         .replace( 'THE', 'The' ).replace( 'OR', 'Or' ).replace( 'AND', 'And' ) \
-                        .replace( 'BUT', 'But' )
+                        .replace( 'BUT', 'But' ).replace( 'OF', 'Of' )
 
                 return self.__output
         except Exception as e:
@@ -308,7 +311,7 @@ class DbConfig( ):
 
 # DataConnection( source, provider = Provider.SQLite )
 class DataConnection( DbConfig ):
-    '''DataConnection( dataconfig ) initializes
+    '''DataConnection( source, provider = Provider.SQLite ) initializes
     object used to connect to the databases'''
     __configuration = None
     __provider = None
