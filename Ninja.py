@@ -54,22 +54,23 @@ class Pascal( ):
                 for i in range( cnt ):
                     char = input[ i ]
                     if i <= 1 and char.islower( ):
-                        outstr += f'{ char }'
+                        outstr += f'{char}'
                     elif i <= 1 and char.isupper( ):
-                        outstr += f'{ char }'
+                        outstr += f'{char}'
                     elif i > 1 and char.islower( ):
-                        outstr += f'{ char }'
+                        outstr += f'{char}'
                     elif i > 1 and char.isupper( ):
-                        outstr += f' { char }'
+                        outstr += f' {char}'
 
                 if len( outstr ) < 5:
                     rtnstr = outstr.replace( ' ', '' )
                 else:
-                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ).replace( 'Rpio', 'RPIO' ) \
-                        .replace( 'Rc', 'RC' ).replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ).replace( 'Omb', 'OMB' ) \
-                        .replace( 'Npm', 'NPM' ).replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ) \
-                        .replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' ).replace( ' AND ', ' And ' ) \
-                        .replace( 'BUT ', ' But ' ).replace( ' OF ', ' Of ' )
+                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ).replace( 'Rpio', 'RPIO' ).replace(
+                        'Rc', 'RC' ).replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ).replace( 'Omb', 'OMB' ).replace(
+                        'Npm', 'NPM' ).replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ).replace( ' THE ',
+                                                                                                ' The ' ).replace(
+                        ' OR ', ' Or ' ).replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' ).replace( ' OF ',
+                                                                                                         ' Of ' )
 
                 self.__output = rtnstr
                 return self.__output
@@ -94,13 +95,15 @@ class Pascal( ):
                         outlist.append( char )
 
                 for o in outlist:
-                    outstr += f'{ o }'
+                    outstr += f'{o}'
 
-                self.__output = outstr.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ).replace( 'RPIO', 'Rpio' ) \
-                        .replace( 'RC', 'Rc' ).replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ).replace( 'OMB', 'Omb' ) \
-                        .replace( 'NPM', 'Npm' ).replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
-                        .replace( 'THE', 'The' ).replace( 'OR', 'Or' ).replace( 'AND', 'And' ) \
-                        .replace( 'BUT', 'But' ).replace( 'OF', 'Of' )
+                self.__output = outstr.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ).replace( 'RPIO', 'Rpio' ).replace(
+                    'RC', 'Rc' ).replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ).replace( 'OMB', 'Omb' ).replace( 'NPM',
+                                                                                                                'Npm'
+                                                                                                                ).replace(
+                    'FOC', 'Foc' ).replace( 'ORG', 'Org' ).replace( 'THE', 'The' ).replace( 'OR', 'Or' ).replace( 'AND',
+                                                                                                                  'And' ).replace(
+                    'BUT', 'But' ).replace( 'OF', 'Of' )
 
                 return self.__output
         except Exception as e:
@@ -179,40 +182,29 @@ class DbConfig( ):
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
         self.__sqldatapath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
         self.__sqlreferencepath = os.getcwd( ) + r'\db\mssql\referencemodels\References.mdf'
-        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'AppropriationDocuments',
-                        'BudgetControls', 'BudgetDocuments',
-                        'CarryoverEstimates', 'CarryoverSurvey', 'Changes',
-                        'CongressionalReprogrammings',
-                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
-                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
-                        'QueryDefinitions', 'RegionalAuthority',
-                        'ReimbursableAgreements', 'ReimbursableFunds',
-                        'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations'
-                                                         'Reprogrammings', 'SiteActivity',
-                        'SiteProjectCodes', 'SpecialAccounts',
+        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'AppropriationDocuments', 'BudgetControls',
+                        'BudgetDocuments', 'CarryoverEstimates', 'CarryoverSurvey', 'Changes',
+                        'CongressionalReprogrammings', 'Deobligations', 'Defactos', 'DocumentControlNumbers',
+                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates', 'QueryDefinitions',
+                        'RegionalAuthority', 'ReimbursableAgreements', 'ReimbursableFunds', 'ReimbursableSurvey',
+                        'Reports', 'StatusOfAppropriations'
+                                   'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
                         'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
-                                                                       'HeadquartersAuthority',
-                        'TravelObligations', 'StatusOfAppropriations',
-                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-                        'PayrollAuthority', 'TransTypes',
-                        'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
-                        'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
+                                                                       'HeadquartersAuthority', 'TravelObligations',
+                        'StatusOfAppropriations', 'StatusOfJobsActFunding', 'StatusOfSupplementalFunding',
+                        'SuperfundSites', 'PayrollAuthority', 'TransTypes', 'PayrollRequests', 'CarryoverRequests',
+                        'CompassLevels', 'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
                         'UnliquidatedObligations', 'UnobligatedBalances' ]
-        self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
-                              'Appropriations', 'Apportionments', 'BudgetObjectClasses',
-                              'BudgetOutlays', 'BudgetaryResourceExecution',
-                              'CostAreas', 'CPIC', 'CarryoverOutlays', 'Divisions',
-                              'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                              'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                              'FundSymbols', 'Goals', 'GsPayScales', 'GrowthRates', 'Images',
-                              'Messages', 'NationalPrograms', 'Objectives',
-                              'ProgramFinancingSchedule',
-                              'ObjectClassOutlays', 'Organizations', 'ProgramAreas',
-                              'ProgramDescriptions',
-                              'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
-                                                                          'ReferenceTables',
-                              'ResourcePlanningOffices', 'ResponsibilityCenters',
-                              'SchemaTypes', 'StateOrganizations', 'Sources', 'SpendingRates' ]
+        self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders', 'Appropriations', 'Apportionments',
+                              'BudgetObjectClasses', 'BudgetOutlays', 'BudgetaryResourceExecution', 'CostAreas', 'CPIC',
+                              'CarryoverOutlays', 'Divisions', 'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                              'FiscalYears', 'FiscalYearsBackUp', 'Funds', 'FundSymbols', 'Goals', 'GsPayScales',
+                              'GrowthRates', 'Images', 'Messages', 'NationalPrograms', 'Objectives',
+                              'ProgramFinancingSchedule', 'ObjectClassOutlays', 'Organizations', 'ProgramAreas',
+                              'ProgramDescriptions', 'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
+                                                                                                 'ReferenceTables',
+                              'ResourcePlanningOffices', 'ResponsibilityCenters', 'SchemaTypes', 'StateOrganizations',
+                              'Sources', 'SpendingRates' ]
 
     def __str__( self ):
         if isinstance( self.__table, str ):
@@ -238,8 +230,7 @@ class DbConfig( ):
         '''Returns boolean value 'True' if the
         source is a memeber of the reference models else 'False' '''
         try:
-            if self.__table is not None \
-                    and self.__table in self.__references:
+            if self.__table is not None and self.__table in self.__references:
                 return True
             else:
                 return False
@@ -297,11 +288,10 @@ class DbConfig( ):
             if self.__provider.name == Provider.Access.name:
                 return self.getdriver( ) + path
             elif self.__provider.name == Provider.SqlServer.name:
-                return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' \
-                       + f'AttachDBFileName={ path }' \
-                       + f'DATABASE={ path }Trusted_Connection=yes;'
+                return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' + f'AttachDBFileName={path}' \
+                       + f'DATABASE={path}Trusted_Connection=yes;'
             else:
-                return f'{ path } '
+                return f'{path} '
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
@@ -488,14 +478,13 @@ class SqlConfig( ):
         if isinstance( value, dict ):
             self.__kvp = value
 
-    def __init__( self, command = SQL.SELECTALL, names = [ ],
-                  values = ( ), style = None ):
+    def __init__( self, command = SQL.SELECTALL, names = [ ], values = ( ), style = None ):
         self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = style if isinstance( style, ParamStyle ) else ParamStyle.qmark
-        self.__kvp = dict( zip( names, list( values ) ) ) if isinstance( names, list ) \
-                                                             and isinstance( values, tuple ) else None
+        self.__kvp = dict( zip( names, list( values ) ) ) if isinstance( names, list ) and isinstance( values,
+                                                                                                       tuple ) else None
 
     def kvpdump( self ):
         '''dump( ) returns string of 'values = index AND' pairs'''
@@ -505,7 +494,7 @@ class SqlConfig( ):
                 criteria = ''
                 kvp = zip( self.__names, self.__values )
                 for k, v in kvp:
-                    pairs += f'{ k } = \'{ v }\' AND '
+                    pairs += f'{k} = \'{v}\' AND '
                 criteria = pairs.rstrip( ' AND ' )
                 return criteria
         except Exception as e:
@@ -524,7 +513,7 @@ class SqlConfig( ):
                 pairs = ''
                 criteria = ''
                 for k, v in zip( self.__names, self.__values ):
-                    pairs += f'{ k } = \'{ v }\' AND '
+                    pairs += f'{k} = \'{v}\' AND '
                 criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
                 return criteria
         except Exception as e:
@@ -543,7 +532,7 @@ class SqlConfig( ):
                 pairs = ''
                 criteria = ''
                 for k, v in zip( self.__names, self.__values ):
-                    pairs += f'{ k } = \'{ v }\', '
+                    pairs += f'{k} = \'{v}\', '
                 criteria = 'SET ' + pairs.rstrip( ', ' )
                 return criteria
         except Exception as e:
@@ -562,7 +551,7 @@ class SqlConfig( ):
                 cols = ''
                 columns = ''
                 for n in self.__names:
-                    cols += f'{ n }, '
+                    cols += f'{n}, '
                 columns = '(' + cols.rstrip( ', ' ) + ')'
                 return columns
         except Exception as e:
@@ -581,7 +570,7 @@ class SqlConfig( ):
                 vals = ''
                 values = ''
                 for v in self.__values:
-                    vals += f'{ v }, '
+                    vals += f'{v}, '
                 values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
                 return values
         except Exception as e:
@@ -734,48 +723,39 @@ class SqlStatement( ):
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__commandtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
-                        self.__commandtext = f'SELECT * FROM { table }'
+                        self.__commandtext = f'SELECT * FROM {table}'
                         return self.__commandtext
                     if len( self.__names ) > 0:
-                        self.__commandtext = f'SELECT ' + columns \
-                                             + f'FROM { table }' \
-                                             + f' { predicate }'
+                        self.__commandtext = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
                         return self.__commandtext
                 elif self.__commandtype == SQL.SELECT:
                     if len( self.__names ) == 0:
-                        self.__commandtext = f'SELECT * FROM { table }'
+                        self.__commandtext = f'SELECT * FROM {table}'
                         return self.__commandtext
                     if len( self.__names ) > 0:
-                        self.__commandtext = f'SELECT ' + columns \
-                                             + f' FROM { table }' \
-                                             + f' { predicate }'
+                        self.__commandtext = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
                         return self.__commandtext
                 elif self.__commandtype == SQL.INSERT:
-                    self.__commandtext = f'INSERT INTO { table } ' \
-                                         + f'{ columns } ' \
-                                         + f'{ values }'
+                    self.__commandtext = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__commandtext
                 elif self.__commandtype == SQL.UPDATE:
-                    self.__commandtext = f'UPDATE { table } ' \
-                                         + f'{ self.__sqlconfig.setdump( ) } ' \
-                                         + f'{ values }'
+                    self.__commandtext = f'UPDATE {table} ' + f'{self.__sqlconfig.setdump( )} ' + f'{values}'
                     return self.__commandtext
                 elif self.__commandtype == SQL.DELETE:
-                    self.__commandtext = f'DELETE FROM { table } ' \
-                                         + f'{ predicate }'
+                    self.__commandtext = f'DELETE FROM {table} ' + f'{predicate}'
                     return self.__commandtext
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECT:
                         cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__commandtext = f'SELECT { cols } FROM { table }'
+                        self.__commandtext = f'SELECT {cols} FROM {table}'
                         return self.__commandtext
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
-                        self.__commandtext = f'SELECT * FROM { table }'
+                        self.__commandtext = f'SELECT * FROM {table}'
                         return self.__commandtext
                 elif self.__commandtype == 'DELETE':
-                    self.__commandtext = f'DELETE FROM { table }'
+                    self.__commandtext = f'DELETE FROM {table}'
                     return self.__commandtext
         except Exception as e:
             exc = Error( e )
@@ -1011,7 +991,7 @@ class SQLiteData( Query ):
 
     def createframe( self ):
         try:
-            query = f'SELECT * FROM { self.__source.name }'
+            query = f'SELECT * FROM {self.__source.name}'
             connection = self.__connection.connect( )
             self.__frame = sqlreader( query, connection )
             connection.close( )
@@ -1292,7 +1272,7 @@ class SqlServerData( Query ):
 
     def createframe( self ):
         try:
-            query = f'SELECT * FROM { self.__table }'
+            query = f'SELECT * FROM {self.__table}'
             connection = self.__connection.connect( )
             self.__frame = sqlreader( query, connection )
             connection.close( )
@@ -1405,8 +1385,7 @@ class DataBuilder( ):
         if isinstance( value, SqlConfig ):
             self.__sqlconfig = value
 
-    def __init__( self, source, provider = Provider.SQLite, command = SQL.SELECTALL,
-                  names = None, values = None ):
+    def __init__( self, source, provider = Provider.SQLite, command = SQL.SELECTALL, names = None, values = None ):
         self.__source = source if isinstance( source, Source ) else None
         self.__provider = provider
         self.__command = command
@@ -1605,8 +1584,7 @@ class DataColumn( ):
         if isinstance( value, DataFrame ):
             self.__frame = value
 
-    def __init__( self, name = '', datatype = None,
-                  value = None ):
+    def __init__( self, name = '', datatype = None, value = None ):
         self.__name = name if isinstance( name, str ) else None
         self.__label = name
         self.__caption = name
@@ -1826,8 +1804,7 @@ class DataTable( ):
         if isinstance( value, Source ):
             self.__source = value
 
-    def __init__( self, columns = None, rows = None,
-                  source = None, dataframe = None ):
+    def __init__( self, columns = None, rows = None, source = None, dataframe = None ):
         self.__frame = dataframe if isinstance( dataframe, DataFrame ) else None
         self.__name = name if isinstance( name, str ) and name != '' else None
         self.__rows = [ tuple( r ) for r in dataframe.items ]
@@ -1937,7 +1914,7 @@ class BudgetData( ):
         self.__source = source if isinstance( source, Source ) else None
         self.__name = source.name
         self.__path = DbConfig( source, Provider.SQLite ).getpath( )
-        self.__sql = f'SELECT * FROM { source.name };'
+        self.__sql = f'SELECT * FROM {source.name};'
 
     def getframe( self ):
         '''Facotry method that returns a pandas DataFrame object
@@ -1947,7 +1924,7 @@ class BudgetData( ):
             src = self.__source
             table = self.__name
             conn = sqlite.connect( path )
-            sql = f'SELECT * FROM { table };'
+            sql = f'SELECT * FROM {table};'
             frame = sqlreader( sql, conn )
             return frame
         except Exception as e:

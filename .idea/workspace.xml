@@ -8,7 +8,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="" />
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/reports/Color Palette Example File.pbix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/reports/StatusOfFunds.pbix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/reports/StatusOfPrograms.pbix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/reports/ThemeDark2_e.pbix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Bank.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Budget.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Darkmode.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Lightmode.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Power BI Windows 11 Theme - Dark BG.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Simply Modern Dark.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Wireframe Theme.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Nowalls Analytics Theme.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/PowerBI - Excel 2016.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Space Invaders.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/ThemeDark_e2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,28 +125,28 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;SELECTIVE&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/source/repos/BudgetPy/env/python.exe&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.19928508&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "SELECTIVE",
+    "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/env/python.exe",
+    "run.code.analysis.last.selected.profile": "aBudget",
+    "settings.editor.selected.configurable": "krasa.IdeaIconPack",
+    "settings.editor.splitter.proportion": "0.19928508"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\repos\BudgetPy\env\python.exe" working-directory="$PROJECT_DIR$">
@@ -185,13 +203,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00312" summary="updates from main rig;">
-      <created>1656241335455</created>
-      <option name="number" value="00312" />
-      <option name="presentableId" value="LOCAL-00312" />
-      <option name="project" value="LOCAL" />
-      <updated>1656241335455</updated>
     </task>
     <task id="LOCAL-00313" summary="updates from main rig;">
       <created>1656242076189</created>
@@ -529,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657021234291</updated>
     </task>
-    <option name="localTasksCounter" value="361" />
+    <task id="LOCAL-00361" summary="updates from main rig;">
+      <created>1657064343018</created>
+      <option name="number" value="00361" />
+      <option name="presentableId" value="LOCAL-00361" />
+      <option name="project" value="LOCAL" />
+      <updated>1657064343018</updated>
+    </task>
+    <option name="localTasksCounter" value="362" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
