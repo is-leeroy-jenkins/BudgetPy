@@ -10,9 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/logs/xvba_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/logs/xvba_debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/powerbi/Budget.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/powerbi/StatusOfFunds.pbix" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,13 +189,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00308" summary="updates from main rig;">
-      <created>1656191095133</created>
-      <option name="number" value="00308" />
-      <option name="presentableId" value="LOCAL-00308" />
-      <option name="project" value="LOCAL" />
-      <updated>1656191095133</updated>
     </task>
     <task id="LOCAL-00309" summary="updates from main rig;">
       <created>1656191906599</created>
@@ -534,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656888138036</updated>
     </task>
-    <option name="localTasksCounter" value="357" />
+    <task id="LOCAL-00357" summary="updates from main rig;">
+      <created>1656934728001</created>
+      <option name="number" value="00357" />
+      <option name="presentableId" value="LOCAL-00357" />
+      <option name="project" value="LOCAL" />
+      <updated>1656934728001</updated>
+    </task>
+    <option name="localTasksCounter" value="358" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
