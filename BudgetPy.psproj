@@ -1,5 +1,5 @@
 ﻿[PyScripter]
-Version=3.6.3.0
+Version=4.1.1.0
 
 [Project]
 ClassName=TProjectRootNode
@@ -11,18 +11,38 @@ ClassName=TProjectFilesNode
 
 [Project\ChildNodes\Node0\ChildNodes\Node0]
 ClassName=TProjectFileNode
-FileName=$[Project-Path]Execution.py
+FileName=$[Project-Path]Booger.py
 
 [Project\ChildNodes\Node0\ChildNodes\Node1]
 ClassName=TProjectFileNode
-FileName=$[Project-Path]FileSys.py
+FileName=$[Project-Path]Control.py
 
 [Project\ChildNodes\Node0\ChildNodes\Node2]
 ClassName=TProjectFileNode
+FileName=$[Project-Path]Execution.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node3]
+ClassName=TProjectFileNode
+FileName=$[Project-Path]FileSys.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node4]
+ClassName=TProjectFileNode
+FileName=$[Project-Path]Minion.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node5]
+ClassName=TProjectFileNode
 FileName=$[Project-Path]Ninja.py
 
+[Project\ChildNodes\Node0\ChildNodes\Node6]
+ClassName=TProjectFileNode
+FileName=$[Project-Path]Reporting.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node7]
+ClassName=TProjectFileNode
+FileName=$[Project-Path]Static.py
+
 [Project\ChildNodes\Node0\ChildNodes]
-Count=3
+Count=8
 
 [Project\ChildNodes\Node1]
 ClassName=TProjectRunConfiguationsNode
