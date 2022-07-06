@@ -1,0 +1,7 @@
+{
+    "name": "PHAT",
+    "dataColors": ["#74B320", "#CD0000", "#FFFF00", "#97CBD5", "#FF1493", "#8B008B"],
+    "background":"#74B320",
+    "foreground": "#74B320",
+    "tableAccent": "#74B320"
+}
