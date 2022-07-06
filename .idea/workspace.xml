@@ -9,23 +9,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/reports/Color Palette Example File.pbix" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/reports/StatusOfFunds.pbix" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/reports/StatusOfPrograms.pbix" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/reports/ThemeDark2_e.pbix" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Bank.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Budget.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Darkmode.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Lightmode.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Power BI Windows 11 Theme - Dark BG.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Simply Modern Dark.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Wireframe Theme.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Nowalls Analytics Theme.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/PowerBI - Excel 2016.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/Space Invaders.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/etc/vis/pbi/theme/ThemeDark_e2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/reports/Color Palette Example File.pbix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/reports/StatusOfFunds.pbix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/reports/StatusOfPrograms.pbix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/reports/ThemeDark2_e.pbix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Bank.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Budget.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Darkmode.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Lightmode.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Power BI Windows 11 Theme - Dark BG.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Simply Modern Dark.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Metricalist - Wireframe Theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Nowalls Analytics Theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/PowerBI - Excel 2016.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/Space Invaders.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/vis/pbi/theme/ThemeDark_e2.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +136,7 @@
     "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "SELECTIVE",
     "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/env/python.exe",
     "run.code.analysis.last.selected.profile": "aBudget",
-    "settings.editor.selected.configurable": "krasa.IdeaIconPack",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
     "settings.editor.splitter.proportion": "0.19928508"
   },
   "keyToStringList": {
@@ -203,13 +203,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00313" summary="updates from main rig;">
-      <created>1656242076189</created>
-      <option name="number" value="00313" />
-      <option name="presentableId" value="LOCAL-00313" />
-      <option name="project" value="LOCAL" />
-      <updated>1656242076204</updated>
     </task>
     <task id="LOCAL-00314" summary="updates from main rig;">
       <created>1656242573656</created>
@@ -547,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657064343018</updated>
     </task>
-    <option name="localTasksCounter" value="362" />
+    <task id="LOCAL-00362" summary="updates from main rig;">
+      <created>1657065501122</created>
+      <option name="number" value="00362" />
+      <option name="presentableId" value="LOCAL-00362" />
+      <option name="project" value="LOCAL" />
+      <updated>1657065501122</updated>
+    </task>
+    <option name="localTasksCounter" value="363" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
