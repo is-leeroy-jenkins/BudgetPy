@@ -121,7 +121,7 @@
     "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "SELECTIVE",
     "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/env/python.exe",
     "run.code.analysis.last.selected.profile": "aBudget",
-    "settings.editor.selected.configurable": "advanced.settings",
+    "settings.editor.selected.configurable": "com.leinardi.pycharm.pylint.PylintConfigurable",
     "settings.editor.splitter.proportion": "0.19928508"
   },
   "keyToStringList": {
@@ -188,13 +188,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00315" summary="updates from main rig;">
-      <created>1656244557015</created>
-      <option name="number" value="00315" />
-      <option name="presentableId" value="LOCAL-00315" />
-      <option name="project" value="LOCAL" />
-      <updated>1656244557015</updated>
     </task>
     <task id="LOCAL-00316" summary="updates from main rig;">
       <created>1656246097825</created>
@@ -532,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657106447392</updated>
     </task>
-    <option name="localTasksCounter" value="364" />
+    <task id="LOCAL-00364" summary="updates from main rig;">
+      <created>1657118585606</created>
+      <option name="number" value="00364" />
+      <option name="presentableId" value="LOCAL-00364" />
+      <option name="project" value="LOCAL" />
+      <updated>1657118585607</updated>
+    </task>
+    <option name="localTasksCounter" value="365" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
