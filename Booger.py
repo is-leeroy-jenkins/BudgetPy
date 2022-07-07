@@ -1752,6 +1752,7 @@ class GridForm( Sith ):
             err.show( )
 
 
+
 class LoadingPanel( Sith ):
     '''object providing form loading behavior '''
     __themebackground = None
@@ -1838,6 +1839,7 @@ class LoadingPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class WaitingPanel( Sith ):
@@ -1928,6 +1930,7 @@ class WaitingPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class ProcessingPanel( Sith ):
@@ -2024,6 +2027,7 @@ class ProcessingPanel( Sith ):
             err.show( )
 
 
+
 class SplashPanel( Sith ):
     '''Class providing splash dialog behavior'''
     __themebackground = None
@@ -2105,6 +2109,7 @@ class SplashPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 # Notification( heading )
@@ -2231,6 +2236,7 @@ class Notification( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class ImageSizeEncoder( Sith ):
@@ -2433,6 +2439,7 @@ class ImageSizeEncoder( Sith ):
         window.close( )
 
 
+
 class PdfForm( Sith ):
     '''Creates form to view a PDF'''
     __themebackground = None
@@ -2586,6 +2593,7 @@ class PdfForm( Sith ):
             err.show( )
 
 
+
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
     '''class creates form providing date selection behavior'''
@@ -2698,6 +2706,7 @@ class CalendarDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 class DatePanel( Sith ):
@@ -2912,6 +2921,7 @@ class DatePanel( Sith ):
             err.show( )
 
 
+
 # ComboBoxDialog( data )
 class ComboBoxDialog( Sith ):
     '''Logger object provides form for log printing'''
@@ -3015,6 +3025,7 @@ class ComboBoxDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 
 # ListBoxDialog( data )
@@ -4146,7 +4157,6 @@ class BudgetForm( Sith ):
                 frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 first = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font = hdr ), sg.Push( ) ],
-                           [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                            [ sg.Push( ), sg.Text( 'Block 1 line 1', font = li ), sg.Push( ) ],
                            [ sg.Push( ), sg.Text( 'Block 1 line 2', font = li ), sg.Push( ) ],
                            [ sg.Push( ), sg.Text( 'Block 1 line 3', font = li ), sg.Push( ) ],
@@ -4177,7 +4187,6 @@ class BudgetForm( Sith ):
                 frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 second = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = hdr ), sg.Push( )  ],
-                            [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 2 line 1', font = li ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 2 line 2', font = li ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 2 line 3', font = li ), sg.Push( ) ],
@@ -4208,7 +4217,6 @@ class BudgetForm( Sith ):
                 frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 third = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = hdr ), sg.Push( ) ],
-                            [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 3 line 1', font = li ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 3 line 2', font = li ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 3 line 3', font = li ), sg.Push( ) ],
@@ -4239,7 +4247,6 @@ class BudgetForm( Sith ):
                 frasz = (450, 150)
                 hdrsz = ( 920, 100 )
                 fourth = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = hdr ), sg.Push( ) ],
-                            [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 4 line 1', font = li ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 4 line 2', font = li ), sg.Push( ) ],
                             [ sg.Push( ), sg.Text( 'Block 4 line 3', font = li ), sg.Push( ) ],
@@ -4323,7 +4330,6 @@ class BudgetForm( Sith ):
                                         enable_events = True ), sg.Push( ) ],
                                     [ sg.Text( 'Top Header line 2' ), sg.Push( )  ] ]
             self.__firstlayout = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font = hdr ), sg.Push( ) ],
-                                   [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                                    [ sg.Push( ), sg.Text( 'Block 1 line 1', font = li ), sg.Push( ) ],
                                    [ sg.Push( ), sg.Text( 'Block 1 line 2', font = li ), sg.Push( ) ],
                                    [ sg.Push( ), sg.Text( 'Block 1 line 3', font = li ), sg.Push( ) ],
@@ -4331,7 +4337,6 @@ class BudgetForm( Sith ):
                                    [ sg.Push( ), sg.Text( 'Block 1 line 5', font = li ), sg.Push( ) ],
                                    [ sg.Push( ), sg.Text( 'Block 1 line 6', font = li ), sg.Push( ) ] ]
             self.__secondlayout = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = hdr ), sg.Push( )  ],
-                                    [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 2 line 1', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 2 line 2', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 2 line 3', font = li ), sg.Push( ) ],
@@ -4339,7 +4344,6 @@ class BudgetForm( Sith ):
                                     [ sg.Push( ), sg.Text( 'Block 2 line 5', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 2 line 6', font = li ), sg.Push( ) ] ]
             self.__thirdlayout = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = hdr ), sg.Push( ) ],
-                                    [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 3 line 1', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 3 line 2', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 3 line 3', font = li ), sg.Push( ) ],
@@ -4347,7 +4351,6 @@ class BudgetForm( Sith ):
                                     [ sg.Push( ), sg.Text( 'Block 3 line 5', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 3 line 6', font = li ), sg.Push( ) ] ]
             self.__fourthlayout = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = hdr ), sg.Push( ) ],
-                                    [ sg.Push( ), sg.Text( '' ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 4 line 1', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 4 line 2', font = li ), sg.Push( ) ],
                                     [ sg.Push( ), sg.Text( 'Block 4 line 3', font = li ), sg.Push( ) ],
@@ -4377,7 +4380,7 @@ class BudgetForm( Sith ):
                           pad = BPAD_LEFT, background_color = blu, border_width = 0,
                           expand_x = True, expand_y = True ), ],
                     [ sg.Sizegrip( background_color = mblk ) ] ]
-            window = sg.Window( '    Budget Execution', self.__formlayout,
+            window = sg.Window( '  Budget Execution', self.__formlayout,
                 size = self.__formsize,
                 margins = (0, 0),
                 background_color = blk,
