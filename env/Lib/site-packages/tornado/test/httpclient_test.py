@@ -139,16 +139,21 @@ class SetHeaderHandler(RequestHandler):
 
 
 class InvalidGzipHandler(RequestHandler):
-    def get(self):
+    def get(self) -> None:
         # set Content-Encoding manually to avoid automatic gzip encoding
         self.set_header("Content-Type", "text/plain")
         self.set_header("Content-Encoding", "gzip")
         # Triggering the potential bug seems to depend on input length.
         # This length is taken from the bad-response example reported in
         # https://github.com/tornadoweb/tornado/pull/2875 (uncompressed).
-        body = "".join("Hello World {}\n".format(i) for i in range(9000))[:149051]
-        body = gzip.compress(body.encode(), compresslevel=6) + b"\00"
+        text = "".join("Hello World {}\n".format(i) for i in range(9000))[:149051]
+        body = gzip.compress(text.encode(), compresslevel=6) + b"\00"
         self.write(body)
+
+
+class HeaderEncodingHandler(RequestHandler):
+    def get(self):
+        self.finish(self.request.headers["Foo"].encode("ISO8859-1"))
 
 
 # These tests end up getting run redundantly: once here with the default
@@ -175,6 +180,7 @@ class HTTPClientCommonTestCase(AsyncHTTPTestCase):
                 url("/patch", PatchHandler),
                 url("/set_header", SetHeaderHandler),
                 url("/invalid_gzip", InvalidGzipHandler),
+                url("/header-encoding", HeaderEncodingHandler),
             ],
             gzip=True,
         )
@@ -474,7 +480,7 @@ Transfer-Encoding: chunked
             streaming_callback=streaming_callback,
         )
         self.assertEqual(len(first_line), 1, first_line)
-        self.assertRegexpMatches(first_line[0], "HTTP/[0-9]\\.[0-9] 200.*\r\n")
+        self.assertRegex(first_line[0], "HTTP/[0-9]\\.[0-9] 200.*\r\n")
         self.assertEqual(chunks, [b"asdf", b"qwer"])
 
     @gen_test
@@ -536,6 +542,16 @@ X-XSS-Protection: 1;
                 self.assertEqual(resp.headers["X-XSS-Protection"], "1; mode=block")
             finally:
                 self.io_loop.remove_handler(sock.fileno())
+
+    @gen_test
+    def test_header_encoding(self):
+        response = yield self.http_client.fetch(
+            self.get_url("/header-encoding"),
+            headers={
+                "Foo": "b\xe4r",
+            },
+        )
+        self.assertEqual(response.body, u"b\xe4r".encode("ISO8859-1"))
 
     def test_304_with_content_length(self):
         # According to the spec 304 responses SHOULD NOT include
@@ -754,7 +770,7 @@ class HTTPResponseTestCase(unittest.TestCase):
 
 class SyncHTTPClientTest(unittest.TestCase):
     def setUp(self):
-        self.server_ioloop = IOLoop()
+        self.server_ioloop = IOLoop(make_current=False)
         event = threading.Event()
 
         @gen.coroutine

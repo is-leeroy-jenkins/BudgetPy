@@ -2,12 +2,12 @@
 # Licensed under the MIT License. See LICENSE in the project root
 # for license information.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
-
 """Improved JSON serialization.
 """
 
+import builtins
 import json
+import numbers
 import operator
 
 
@@ -25,9 +25,10 @@ class JsonEncoder(json.JSONEncoder):
         try:
             get_state = value.__getstate__
         except AttributeError:
-            return super(JsonEncoder, self).default(value)
+            pass
         else:
             return get_state()
+        return super().default(value)
 
 
 class JsonObject(object):
@@ -42,10 +43,14 @@ class JsonObject(object):
     """The default encoder used by __format__ when format_spec is empty."""
 
     def __init__(self, value):
+        assert not isinstance(value, JsonObject)
         self.value = value
 
+    def __getstate__(self):
+        raise NotImplementedError
+
     def __repr__(self):
-        return repr(self.value)
+        return builtins.repr(self.value)
 
     def __str__(self):
         return format(self)
@@ -58,7 +63,7 @@ class JsonObject(object):
 
         Example::
 
-            fmt("{0!j} {0!j:indent=4,sort_keys=True}", x)
+            format("{0} {0:indent=4,sort_keys=True}", json.repr(x))
         """
         if format_spec:
             # At this point, format_spec is a string that looks something like
@@ -88,6 +93,16 @@ class JsonObject(object):
 # some substitutions - e.g. replacing () with some default value.
 
 
+def _converter(value, classinfo):
+    """Convert value (str) to number, otherwise return None if is not possible"""
+    for one_info in classinfo:
+        if issubclass(one_info, numbers.Number):
+            try:
+                return one_info(value)
+            except ValueError:
+                pass
+
+
 def of_type(*classinfo, **kwargs):
     """Returns a validator for a JSON property that requires it to have a value of
     the specified type. If optional=True, () is also allowed.
@@ -103,6 +118,10 @@ def of_type(*classinfo, **kwargs):
         if (optional and value == ()) or isinstance(value, classinfo):
             return value
         else:
+            converted_value = _converter(value, classinfo)
+            if converted_value:
+                return converted_value
+
             if not optional and value == ():
                 raise ValueError("must be specified")
             raise TypeError("must be " + " or ".join(t.__name__ for t in classinfo))
@@ -225,7 +244,7 @@ def array(validate_item=False, vectorize=False, size=None):
             try:
                 value[i] = validate_item(item)
             except (TypeError, ValueError) as exc:
-                raise type(exc)(fmt("[{0!j}] {1}", i, exc))
+                raise type(exc)(f"[{repr(i)}] {exc}")
         return value
 
     return validate
@@ -259,15 +278,15 @@ def object(validate_value=False):
                 try:
                     value[k] = validate_value(v)
                 except (TypeError, ValueError) as exc:
-                    raise type(exc)(fmt("[{0!j}] {1}", k, exc))
+                    raise type(exc)(f"[{repr(k)}] {exc}")
         return value
 
     return validate
 
 
-# A helper to resolve the circular dependency between common.fmt and common.json
-# on Python 2.
-def fmt(*args, **kwargs):
-    from debugpy.common import fmt
+def repr(value):
+    return JsonObject(value)
 
-    return fmt(*args, **kwargs)
+
+dumps = json.dumps
+loads = json.loads

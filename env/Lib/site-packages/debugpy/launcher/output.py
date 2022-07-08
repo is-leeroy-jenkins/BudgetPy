@@ -2,11 +2,8 @@
 # Licensed under the MIT License. See LICENSE in the project root
 # for license information.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
-
 import codecs
 import os
-import sys
 import threading
 
 from debugpy import launcher
@@ -35,7 +32,7 @@ class CaptureOutput(object):
             # Can happen if running under pythonw.exe.
             self._stream = None
         else:
-            self._stream = stream if sys.version_info < (3,) else stream.buffer
+            self._stream = stream.buffer
             encoding = stream.encoding
             if encoding is None or encoding == "cp65001":
                 encoding = "utf-8"
@@ -49,6 +46,8 @@ class CaptureOutput(object):
                     level="warning",
                 )
                 self._encode = codecs.getencoder("utf-8")
+            else:
+                log.info("Using encoding {0!r} for {1}", encoding, category)
 
         self._worker_thread = threading.Thread(target=self._worker, name=category)
         self._worker_thread.start()
@@ -89,28 +88,26 @@ class CaptureOutput(object):
         if self._stream is None:
             return
 
-        s, _ = self._encode(s, "surrogateescape")
-        size = len(s)
-        i = 0
-        while i < size:
-            # On Python 2, all writes are full writes, and write() returns None.
-            # On Python 3, writes can be partial, and write() returns the count.
-            written = self._stream.write(s[i:])
-            self._stream.flush()
-            if written is None:  # full write
-                break
-            elif written == 0:
-                # This means that the output stream was closed from the other end.
-                # Do the same to the debuggee, so that it knows as well.
-                os.close(self._fd)
-                self._fd = None
-                break
-            i += written
+        try:
+            s, _ = self._encode(s, "surrogateescape")
+            size = len(s)
+            i = 0
+            while i < size:
+                written = self._stream.write(s[i:])
+                self._stream.flush()
+                if written == 0:
+                    # This means that the output stream was closed from the other end.
+                    # Do the same to the debuggee, so that it knows as well.
+                    os.close(self._fd)
+                    self._fd = None
+                    break
+                i += written
+        except Exception:
+            log.swallow_exception("Error printing {0!r} to {1}", s, self.category)
 
 
 def wait_for_remaining_output():
-    """Waits for all remaining output to be captured and propagated.
-    """
+    """Waits for all remaining output to be captured and propagated."""
     for category, instance in CaptureOutput.instances.items():
         log.info("Waiting for remaining {0} of {1}.", category, instance._whose)
         instance._worker_thread.join()

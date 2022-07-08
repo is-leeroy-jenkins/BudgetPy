@@ -2,8 +2,6 @@
 # Licensed under the MIT License. See LICENSE in the project root
 # for license information.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
-
 import functools
 import threading
 
@@ -130,7 +128,7 @@ class ThreadSafeSingleton(Singleton):
     """
 
     def __init__(self, *args, **kwargs):
-        super(ThreadSafeSingleton, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # Make sure each derived class gets a separate copy.
         type(self).readonly_attrs = set(type(self).readonly_attrs)
 

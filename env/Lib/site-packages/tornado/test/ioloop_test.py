@@ -1,5 +1,7 @@
+import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from concurrent import futures
+from collections.abc import Generator
 import contextlib
 import datetime
 import functools
@@ -16,8 +18,19 @@ from tornado.escape import native_str
 from tornado import gen
 from tornado.ioloop import IOLoop, TimeoutError, PeriodicCallback
 from tornado.log import app_log
-from tornado.testing import AsyncTestCase, bind_unused_port, ExpectLog, gen_test
-from tornado.test.util import skipIfNonUnix, skipOnTravis
+from tornado.testing import (
+    AsyncTestCase,
+    bind_unused_port,
+    ExpectLog,
+    gen_test,
+    setup_with_context_manager,
+)
+from tornado.test.util import (
+    ignore_deprecation,
+    skipIfNonUnix,
+    skipOnTravis,
+)
+from tornado.concurrent import Future
 
 import typing
 
@@ -161,7 +174,7 @@ class TestIOLoop(AsyncTestCase):
 
             self.io_loop.add_handler(client.fileno(), handler, IOLoop.READ)
             self.io_loop.add_timeout(
-                self.io_loop.time() + 0.01, functools.partial(server.send, b"asdf")  # type: ignore
+                self.io_loop.time() + 0.01, functools.partial(server.send, b"asdf")
             )
             self.wait()
             self.io_loop.remove_handler(client.fileno())
@@ -410,16 +423,26 @@ class TestIOLoop(AsyncTestCase):
         # threads.
         def f():
             for i in range(10):
-                loop = IOLoop()
+                loop = IOLoop(make_current=False)
                 loop.close()
 
         yield gen.multi([self.io_loop.run_in_executor(None, f) for i in range(2)])
+
+    def test_explicit_asyncio_loop(self):
+        asyncio_loop = asyncio.new_event_loop()
+        loop = IOLoop(asyncio_loop=asyncio_loop, make_current=False)
+        assert loop.asyncio_loop is asyncio_loop  # type: ignore
+        with self.assertRaises(RuntimeError):
+            # Can't register two IOLoops with the same asyncio_loop
+            IOLoop(asyncio_loop=asyncio_loop, make_current=False)
+        loop.close()
 
 
 # Deliberately not a subclass of AsyncTestCase so the IOLoop isn't
 # automatically set as current.
 class TestIOLoopCurrent(unittest.TestCase):
     def setUp(self):
+        setup_with_context_manager(self, ignore_deprecation())
         self.io_loop = None  # type: typing.Optional[IOLoop]
         IOLoop.clear_current()
 
@@ -466,6 +489,10 @@ class TestIOLoopCurrent(unittest.TestCase):
 
 
 class TestIOLoopCurrentAsync(AsyncTestCase):
+    def setUp(self):
+        super().setUp()
+        setup_with_context_manager(self, ignore_deprecation())
+
     @gen_test
     def test_clear_without_current(self):
         # If there is no current IOLoop, clear_current is a no-op (but
@@ -557,7 +584,7 @@ class TestIOLoopFutures(AsyncTestCase):
 
 class TestIOLoopRunSync(unittest.TestCase):
     def setUp(self):
-        self.io_loop = IOLoop()
+        self.io_loop = IOLoop(make_current=False)
 
     def tearDown(self):
         self.io_loop.close()
@@ -687,6 +714,63 @@ class TestPeriodicCallbackMath(unittest.TestCase):
 
         with mock.patch("random.random", mock_random):
             self.assertEqual(self.simulate_calls(pc, call_durations), expected)
+
+    def test_timedelta(self):
+        pc = PeriodicCallback(lambda: None, datetime.timedelta(minutes=1, seconds=23))
+        expected_callback_time = 83000
+        self.assertEqual(pc.callback_time, expected_callback_time)
+
+
+class TestPeriodicCallbackAsync(AsyncTestCase):
+    def test_periodic_plain(self):
+        count = 0
+
+        def callback() -> None:
+            nonlocal count
+            count += 1
+            if count == 3:
+                self.stop()
+
+        pc = PeriodicCallback(callback, 10)
+        pc.start()
+        self.wait()
+        pc.stop()
+        self.assertEqual(count, 3)
+
+    def test_periodic_coro(self) -> None:
+        counts = [0, 0]
+
+        @gen.coroutine
+        def callback() -> "Generator[Future[None], object, None]":
+            counts[0] += 1
+            yield gen.sleep(0.025)
+            counts[1] += 1
+            if counts[1] == 3:
+                pc.stop()
+                self.io_loop.add_callback(self.stop)
+
+        pc = PeriodicCallback(callback, 10)
+        pc.start()
+        self.wait()
+        self.assertEqual(counts[0], 3)
+        self.assertEqual(counts[1], 3)
+
+    def test_periodic_async(self) -> None:
+        counts = [0, 0]
+
+        async def callback() -> None:
+            counts[0] += 1
+            await gen.sleep(0.025)
+            counts[1] += 1
+            if counts[1] == 3:
+                pc.stop()
+                self.io_loop.add_callback(self.stop)
+
+        pc = PeriodicCallback(callback, 10)
+        pc.start()
+        self.wait()
+        self.assertEqual(counts[0], 3)
+        self.assertEqual(counts[1], 3)
 
 
 class TestIOLoopConfiguration(unittest.TestCase):

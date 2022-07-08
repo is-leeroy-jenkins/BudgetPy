@@ -1,10 +1,12 @@
 from tornado import gen, ioloop
 from tornado.httpserver import HTTPServer
 from tornado.locks import Event
+from tornado.test.util import ignore_deprecation
 from tornado.testing import AsyncHTTPTestCase, AsyncTestCase, bind_unused_port, gen_test
 from tornado.web import Application
 import asyncio
 import contextlib
+import inspect
 import gc
 import os
 import platform
@@ -171,6 +173,17 @@ class AsyncTestCaseWrapperTest(unittest.TestCase):
         self.assertEqual(len(result.errors), 1)
         self.assertIn("Return value from test method ignored", result.errors[0][1])
 
+    def test_unwrap(self):
+        class Test(AsyncTestCase):
+            def test_foo(self):
+                pass
+
+        test = Test("test_foo")
+        self.assertIs(
+            inspect.unwrap(test.test_foo),
+            test.test_foo.orig_method,  # type: ignore[attr-defined]
+        )
+
 
 class SetUpTearDownTest(unittest.TestCase):
     def test_set_up_tear_down(self):
@@ -333,7 +346,11 @@ class GetNewIOLoopTest(AsyncTestCase):
     def setUp(self):
         # This simulates the effect of an asyncio test harness like
         # pytest-asyncio.
-        self.orig_loop = asyncio.get_event_loop()
+        with ignore_deprecation():
+            try:
+                self.orig_loop = asyncio.get_event_loop()
+            except RuntimeError:
+                self.orig_loop = None  # type: ignore[assignment]
         self.new_loop = asyncio.new_event_loop()
         asyncio.set_event_loop(self.new_loop)
         super().setUp()

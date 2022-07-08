@@ -2,8 +2,6 @@
 # Licensed under the MIT License. See LICENSE in the project root
 # for license information.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
-
 """Script injected into the debuggee process during attach-to-PID."""
 
 import os
@@ -59,7 +57,7 @@ def attach(setup):
         try:
             import debugpy
             import debugpy.server
-            from debugpy.common import log
+            from debugpy.common import json, log
             import pydevd
         finally:
             assert sys.path[0] == _debugpy_dir
@@ -71,7 +69,7 @@ def attach(setup):
 
         if setup["log_to"] is not None:
             debugpy.log_to(setup["log_to"])
-        log.info("Configuring injected debugpy: {0!j}", setup)
+        log.info("Configuring injected debugpy: {0}", json.repr(setup))
 
         if setup["mode"] == "listen":
             debugpy.listen(setup["address"])
