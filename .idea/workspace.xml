@@ -10,7 +10,114 @@
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/BdfFontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/BdfFontFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/BlpImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/BlpImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/BmpImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/BmpImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/BufrStubImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/BufrStubImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ContainerIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ContainerIO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/CurImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/CurImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/DcxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/DcxImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/DdsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/DdsImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/EpsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/EpsImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ExifTags.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ExifTags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FitsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FitsImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FitsStubImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FitsStubImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FliImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FliImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FontFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FpxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FpxImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FtexImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/FtexImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GbrImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GbrImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GdImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GdImageFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GifImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GifImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GimpGradientFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GimpGradientFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GimpPaletteFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GimpPaletteFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GribStubImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/GribStubImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/Hdf5StubImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/Hdf5StubImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/IcnsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/IcnsImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/IcoImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/IcoImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/Image.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/Image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageChops.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageChops.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageCms.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageCms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageColor.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageColor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageDraw.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageDraw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageDraw2.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageDraw2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageEnhance.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageEnhance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageFont.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageFont.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageGrab.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageGrab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageMath.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageMath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageMode.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageMode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageMorph.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageMorph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageOps.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageOps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImagePalette.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImagePalette.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImagePath.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImagePath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageQt.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageQt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageSequence.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageSequence.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageShow.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageShow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageStat.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageStat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageTk.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageTk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageWin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageWin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImtImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImtImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/IptcImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/IptcImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/Jpeg2KImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/Jpeg2KImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/JpegImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/JpegImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/JpegPresets.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/JpegPresets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/McIdasImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/McIdasImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/MicImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/MicImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/MpegImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/MpegImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/MpoImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/MpoImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/MspImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/MspImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PSDraw.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PSDraw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PaletteFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PaletteFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PalmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PalmImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PcdImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PcdImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PcfFontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PcfFontFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PcxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PcxImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PdfImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PdfImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PdfParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PdfParser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PixarImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PixarImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PngImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PngImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PpmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PpmImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PsdImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PsdImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PyAccess.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/PyAccess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/SgiImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/SgiImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/SpiderImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/SpiderImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/SunImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/SunImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/TarIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/TarIO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/TgaImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/TgaImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/TiffImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/TiffImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/TiffTags.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/TiffTags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/WalImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/WalImageFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/WebPImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/WebPImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/WmfImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/WmfImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/XVThumbImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/XVThumbImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/XbmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/XbmImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/XpmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/XpmImagePlugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_binary.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_binary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imaging.cp39-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imaging.cp39-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingcms.cp39-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingcms.cp39-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingft.cp39-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingft.cp39-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingmath.cp39-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingmath.cp39-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingmorph.cp39-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingmorph.cp39-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingtk.cp39-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_imagingtk.cp39-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_tkinter_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_tkinter_finder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_webp.cp39-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/_webp.cp39-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/Pillow-9.1.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/Pillow-9.1.1.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/Pillow-9.1.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/Pillow-9.1.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/Pillow-9.1.1.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/Pillow-9.1.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/Pillow-9.1.1.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/Pillow-9.1.1.dist-info/zip-safe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,27 +217,27 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;SELECTIVE&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/source/repos/BudgetPy/env/python.exe&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.19928508&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "SELECTIVE",
+    "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/env/python.exe",
+    "run.code.analysis.last.selected.profile": "aBudget",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.splitter.proportion": "0.19928508"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\repos\BudgetPy\env\python.exe" working-directory="$PROJECT_DIR$">
@@ -187,13 +294,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00317" summary="updates from main rig;">
-      <created>1656246954990</created>
-      <option name="number" value="00317" />
-      <option name="presentableId" value="LOCAL-00317" />
-      <option name="project" value="LOCAL" />
-      <updated>1656246954990</updated>
     </task>
     <task id="LOCAL-00318" summary="updates from main rig;">
       <created>1656248927579</created>
@@ -531,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657118696885</updated>
     </task>
-    <option name="localTasksCounter" value="366" />
+    <task id="LOCAL-00366" summary="updates from main rig;">
+      <created>1657210626718</created>
+      <option name="number" value="00366" />
+      <option name="presentableId" value="LOCAL-00366" />
+      <option name="project" value="LOCAL" />
+      <updated>1657210626718</updated>
+    </task>
+    <option name="localTasksCounter" value="367" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
