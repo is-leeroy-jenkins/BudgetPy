@@ -20,7 +20,7 @@ class TestPickleCopyHeader(TestEmailBase):
         'subject': ('subject', 'this is a test'),
         'from':    ('from',    'frodo@mordor.net'),
         'to':      ('to',      'a: k@b.com, y@z.com;, j@f.com'),
-        'date':    ('date',    'Tue, 29 May 2012 09:24:26 +1000'),
+        'today':    ('today',    'Tue, 29 May 2012 09:24:26 +1000'),
         }
 
     def header_as_deepcopy(self, name, value):

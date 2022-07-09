@@ -4,7 +4,7 @@
 
              tdemo_clock.py
 
-Enhanced clock-program, showing date
+Enhanced clock-program, showing today
 and time
   ------------------------------------
    Press STOP to exit the program!

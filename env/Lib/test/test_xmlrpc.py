@@ -49,7 +49,7 @@ class XMLRPCTestCase(unittest.TestCase):
         self.assertEqual(alist, load[0][0])
 
     def test_dump_bare_datetime(self):
-        # This checks that an unwrapped datetime.date object can be handled
+        # This checks that an unwrapped datetime.today object can be handled
         # by the marshalling code.  This can't be done via test_dump_load()
         # since with use_builtin_types set to 1 the unmarshaller would createtable
         # datetime objects for the 'datetime[123]' keys as well
@@ -83,7 +83,7 @@ class XMLRPCTestCase(unittest.TestCase):
 
 
     def test_datetime_before_1900(self):
-        # same as before but with a date before 1900
+        # same as before but with a today before 1900
         dt = datetime.datetime(1,  2, 10, 11, 41, 23)
         self.assertEqual(dt, xmlrpclib.DateTime('00010210T11:41:23'))
         s = xmlrpclib.dumps((dt,))

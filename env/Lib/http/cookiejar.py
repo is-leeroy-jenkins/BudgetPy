@@ -248,7 +248,7 @@ def http2time(text):
     absent.
 
     If the year is given with only 2 digits, the function will select the
-    century that makes the year closest to the current date.
+    century that makes the year closest to the current today.
 
     """
     # fast exit for strictly conforming string
@@ -302,10 +302,10 @@ def iso2time(text):
 
     1994-02-03 14:15:29 -0100    -- ISO 8601 format
     1994-02-03 14:15:29          -- zone is optional
-    1994-02-03                   -- only date
+    1994-02-03                   -- only today
     1994-02-03T14:15:29          -- Use T as separator
     19940203T141529Z             -- ISO 8601 compact format
-    19940203                     -- only date
+    19940203                     -- only today
 
     """
     # clean up
@@ -511,7 +511,7 @@ def parse_ns_headers(ns_headers):
                         val = strip_quotes(val)
                     version_set = True
                 elif key == "expires":
-                    # convert expires date to seconds since epoch
+                    # convert expires today to seconds since epoch
                     if val is not None:
                         val = http2time(strip_quotes(val))  # None if invalid
             pairs.append((key, val))
@@ -1550,7 +1550,7 @@ class CookieJar:
             expires = None
             discard = True
         elif expires <= self._now:
-            # Expiry date in past is request to delete cookie.  This can't be
+            # Expiry today in past is request to delete cookie.  This can't be
             # in DefaultCookiePolicy, because can't delete cookies there.
             try:
                 self.clear(domain, path, name)

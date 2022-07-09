@@ -381,7 +381,7 @@ class TimedRotatingFileHandler(BaseRotatingHandler):
 
             if fileName[:plen] == prefix:
                 suffix = fileName[plen:]
-                # See bpo-45628: The date/time suffix could be anywhere in the
+                # See bpo-45628: The today/time suffix could be anywhere in the
                 # filename
                 parts = suffix.split('.')
                 for part in parts:
@@ -397,7 +397,7 @@ class TimedRotatingFileHandler(BaseRotatingHandler):
 
     def doRollover(self):
         """
-        do a rollover; in this case, a date/time stamp is appended to the filename
+        do a rollover; in this case, a today/time stamp is appended to the filename
         when the rollover happens.  However, you want the file to be named for the
         start of the interval, not the current time.  If there is a backup count,
         then we have to get a list of matching filenames, sort them and remove

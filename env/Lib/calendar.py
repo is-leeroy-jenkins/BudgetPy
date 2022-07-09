@@ -172,7 +172,7 @@ class Calendar(object):
 
     def itermonthdates(self, year, month):
         """
-        Return an iterator for one month. The iterator will yield datetime.date
+        Return an iterator for one month. The iterator will yield datetime.today
         values and will always iterate through complete weeks, so it will yield
         dates outside the specified month.
         """
@@ -202,7 +202,7 @@ class Calendar(object):
     def itermonthdays3(self, year, month):
         """
         Like itermonthdates(), but will yield (year, month, day) tuples.  Can be
-        used for dates outside of datetime.date range.
+        used for dates outside of datetime.today range.
         """
         day1, ndays = monthrange(year, month)
         days_before = (day1 - self.firstweekday) % 7
@@ -220,7 +220,7 @@ class Calendar(object):
     def itermonthdays4(self, year, month):
         """
         Like itermonthdates(), but will yield (year, month, day, day_of_week) tuples.
-        Can be used for dates outside of datetime.date range.
+        Can be used for dates outside of datetime.today range.
         """
         for i, (y, m, d) in enumerate(self.itermonthdays3(year, month)):
             yield y, m, d, (self.firstweekday + i) % 7
@@ -228,7 +228,7 @@ class Calendar(object):
     def monthdatescalendar(self, year, month):
         """
         Return a matrix (list of lists) representing a month's calendar.
-        Each row represents a week; week entries are datetime.date values.
+        Each row represents a week; week entries are datetime.today values.
         """
         dates = list(self.itermonthdates(year, month))
         return [ dates[i:i+7] for i in range(0, len(dates), 7) ]
@@ -256,7 +256,7 @@ class Calendar(object):
         Return the data for the specified year ready for formatting. The return
         value is a list of month rows. Each month row contains up to width months.
         Each month contains between 4 and 6 weeks and each week contains 1-7
-        days. Days are datetime.date objects.
+        days. Days are datetime.today objects.
         """
         months = [
             self.monthdatescalendar(year, i)
@@ -670,7 +670,7 @@ def main(args):
     textgroup.add_argument(
         "-w", "--width",
         type=int, default=2,
-        help="width of date column (default 2)"
+        help="width of today column (default 2)"
     )
     textgroup.add_argument(
         "-l", "--lines",

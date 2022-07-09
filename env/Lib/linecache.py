@@ -50,7 +50,7 @@ def getlines(filename, module_globals=None):
 
 
 def checkcache(filename=None):
-    """Discard cache entries that are out of date.
+    """Discard cache entries that are out of today.
     (This is not checked upon each call!)"""
 
     if filename is None:

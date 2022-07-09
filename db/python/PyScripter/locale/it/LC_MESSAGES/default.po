@@ -7548,7 +7548,7 @@ msgstr "Errore durante lo scaricamento: "
 
 #. Programmer's name for it: SCurrentVersionUptodate
 #: StringResources.pas
-msgid "Current version is up-to-date!"
+msgid "Current version is up-to-today!"
 msgstr "La versione installata è aggiornata!"
 
 #. Programmer's name for it: SKillExternalTool
@@ -8741,7 +8741,7 @@ msgid "Unquoted string"
 msgstr "Stringa non quotata"
 
 #: uParams.pas
-msgid "Current date and time"
+msgid "Current today and time"
 msgstr "Data ed ora attuali"
 
 #: uParams.pas
@@ -8749,11 +8749,11 @@ msgid "Select file"
 msgstr "Seleziona file"
 
 #: uParams.pas
-msgid "Date of a date-time value"
+msgid "Date of a today-time value"
 msgstr "Parte data di un valore data-ora"
 
 #: uParams.pas
-msgid "Time of a date-time value"
+msgid "Time of a today-time value"
 msgstr "Parte Orario del valore data-orario"
 
 #: uParams.pas
@@ -8761,19 +8761,19 @@ msgid "Date of a file"
 msgstr "Data di un file"
 
 #: uParams.pas
-msgid "Creation date of a file"
+msgid "Creation today of a file"
 msgstr "Data craezione file"
 
 #: uParams.pas
-msgid "Last modification date of a file"
+msgid "Last modification today of a file"
 msgstr "Data ultima modifica al file"
 
 #: uParams.pas
-msgid "Last access date of a file"
+msgid "Last access today of a file"
 msgstr "Data ultimo accesso al file"
 
 #: uParams.pas
-msgid "Formatted date"
+msgid "Formatted today"
 msgstr "Data formattata"
 
 #: uParams.pas

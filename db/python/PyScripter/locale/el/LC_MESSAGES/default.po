@@ -7497,7 +7497,7 @@ msgstr "Σφάλμα κατά την καταφόρτωση:"
 
 #. Programmer's name for it: SCurrentVersionUptodate
 #: StringResources.pas
-msgid "Current version is up-to-date!"
+msgid "Current version is up-to-today!"
 msgstr "Η έκδοσή σας είναι ενημερωμένη!"
 
 #. Programmer's name for it: SKillExternalTool
@@ -8656,7 +8656,7 @@ msgid "Unquoted string"
 msgstr ""
 
 #: uParams.pas
-msgid "Current date and time"
+msgid "Current today and time"
 msgstr ""
 
 #: uParams.pas
@@ -8664,11 +8664,11 @@ msgid "Select file"
 msgstr ""
 
 #: uParams.pas
-msgid "Date of a date-time value"
+msgid "Date of a today-time value"
 msgstr ""
 
 #: uParams.pas
-msgid "Time of a date-time value"
+msgid "Time of a today-time value"
 msgstr ""
 
 #: uParams.pas
@@ -8676,19 +8676,19 @@ msgid "Date of a file"
 msgstr ""
 
 #: uParams.pas
-msgid "Creation date of a file"
+msgid "Creation today of a file"
 msgstr "Ημερομηνία δημιουργίας αρχείου"
 
 #: uParams.pas
-msgid "Last modification date of a file"
+msgid "Last modification today of a file"
 msgstr "Ημερομηνία τελευταίας τροποποίησης αρχείου"
 
 #: uParams.pas
-msgid "Last access date of a file"
+msgid "Last access today of a file"
 msgstr "Ημερομηνία τελευταίας πρόσβασης στο αρχείο"
 
 #: uParams.pas
-msgid "Formatted date"
+msgid "Formatted today"
 msgstr ""
 
 #: uParams.pas

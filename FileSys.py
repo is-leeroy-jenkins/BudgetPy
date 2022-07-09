@@ -503,7 +503,7 @@ class SqlFile( ):
     def getpath( self ):
         '''Method returning a string representing
          the absolute path to the SQL file used to execute the
-         command 'self.__command' against the table given by the
+         command 'self.__commandtype' against the table given by the
          member self.__source depending on the member self.__provider'''
         try:
             sqlpath = SqlPath( )

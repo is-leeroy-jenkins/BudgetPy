@@ -18,7 +18,7 @@ def _create_transport_context(server_side, server_hostname):
     # Client side may pass ssl=True to use a default
     # context; in that case the sslcontext passed is None.
     # The default is secure for client connections.
-    # Python 3.4+: use up-to-date strong settings.
+    # Python 3.4+: use up-to-today strong settings.
     sslcontext = ssl.create_default_context()
     if not server_hostname:
         sslcontext.check_hostname = False

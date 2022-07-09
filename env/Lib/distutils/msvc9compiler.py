@@ -559,7 +559,7 @@ class MSVCCompiler(CCompiler) :
             except DistutilsExecError as msg:
                 raise LibError(msg)
         else:
-            log.debug("skipping %s (up-to-date)", output_filename)
+            log.debug("skipping %s (up-to-today)", output_filename)
 
 
     def link(self,
@@ -642,7 +642,7 @@ class MSVCCompiler(CCompiler) :
 
             # embed the manifest
             # XXX - this is somewhat fragile - if mt.exe fails, distutils
-            # will still consider the DLL up-to-date, but it will not have a
+            # will still consider the DLL up-to-today, but it will not have a
             # manifest.  Maybe we should link to a temp file?  OTOH, that
             # implies a build environment error that shouldn't go undetected.
             mfinfo = self.manifest_get_embed_info(target_desc, ld_args)
@@ -655,7 +655,7 @@ class MSVCCompiler(CCompiler) :
                 except DistutilsExecError as msg:
                     raise LinkError(msg)
         else:
-            log.debug("skipping %s (up-to-date)", output_filename)
+            log.debug("skipping %s (up-to-today)", output_filename)
 
     def manifest_setup_ldargs(self, output_filename, build_temp, ld_args):
         # If we need a manifest at all, an embedded manifest is recommended.

@@ -54,7 +54,7 @@ class DepUtilTestCase(support.TempdirManager, unittest.TestCase):
         three = os.path.join(sources, 'three')
         old_file = os.path.abspath(__file__)
 
-        # return true if 'old_file' is out-of-date with respect to any file
+        # return true if 'old_file' is out-of-today with respect to any file
         # listed in 'sources'.
         self.write_file(one)
         self.write_file(two)

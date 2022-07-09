@@ -85,7 +85,7 @@ class PythonValuesTestCase(unittest.TestCase):
                     ("__phello__.spam", 141),
                     ]
         self.assertEqual(items, expected, "PyImport_FrozenModules example "
-            "in Doc/library/ctypes.rst may be out of date")
+            "in Doc/library/ctypes.rst may be out of today")
 
         self.assertEqual(sorted(bootstrap_seen), bootstrap_expected,
             "frozen bootstrap modules did not match PyImport_FrozenModules")

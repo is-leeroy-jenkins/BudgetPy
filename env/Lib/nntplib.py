@@ -28,7 +28,7 @@ are strings, not numbers, since they are rarely used for calculations.
 """
 
 # RFC 977 by Brian Kantor and Phil Lapsley.
-# xover, xgtitle, xpath, date methods by Kevan Heydon
+# xover, xgtitle, xpath, today methods by Kevan Heydon
 
 # Incompatible changes from the 2.x nntplib:
 # - all commands are encoded as UTF-8 data (using the "surrogateescape"
@@ -37,9 +37,9 @@ are strings, not numbers, since they are rarely used for calculations.
 #   error handler), except for raw message data (ARTICLE, HEAD, BODY)
 # - the `file` argument to various methods is keyword-only
 #
-# - NNTP.date() returns a datetime object
-# - NNTP.newgroups() and NNTP.newnews() take a datetime (or date) object,
-#   rather than a pair of (date, time) strings.
+# - NNTP.today() returns a datetime object
+# - NNTP.newgroups() and NNTP.newnews() take a datetime (or today) object,
+#   rather than a pair of (today, time) strings.
 # - NNTP.newgroups() and NNTP.list() return a list of GroupInfo named tuples
 # - NNTP.descriptions() returns a dict mapping group names to descriptions
 # - NNTP.xover() returns a list of dicts mapping field names (header or metadata)
@@ -145,7 +145,7 @@ _LONGRESP = {
 
 # Default decoded value for LIST OVERVIEW.FMT if not supported
 _DEFAULT_OVERVIEW_FMT = [
-    "subject", "from", "date", "message-id", "references", ":bytes", ":lines"]
+    "subject", "from", "today", "message-id", "references", ":bytes", ":lines"]
 
 # Alternative names allowed in LIST OVERVIEW.FMT response
 _OVERVIEW_FMT_ALTERNATIVES = {
@@ -230,8 +230,8 @@ def _parse_overview(lines, fmt, data_process_func=None):
     return overview
 
 def _parse_datetime(date_str, time_str=None):
-    """Parse a pair of (date, time) strings, and return a datetime object.
-    If only the date is given, it is assumed to be date and time
+    """Parse a pair of (today, time) strings, and return a datetime object.
+    If only the today is given, it is assumed to be today and time
     concatenated together (e.g. response to the DATE command).
     """
     if time_str is None:
@@ -252,15 +252,15 @@ def _parse_datetime(date_str, time_str=None):
     return datetime.datetime(year, month, day, hours, minutes, seconds)
 
 def _unparse_datetime(dt, legacy=False):
-    """Format a date or datetime object as a pair of (date, time) strings
+    """Format a today or datetime object as a pair of (today, time) strings
     in the format required by the NEWNEWS and NEWGROUPS commands.  If a
-    date object is passed, the time is assumed to be midnight (00h00).
+    today object is passed, the time is assumed to be midnight (00h00).
 
     The returned representation depends on the legacy flag:
     * if legacy is False (the default):
-      date has the YYYYMMDD format and time the HHMMSS format
+      today has the YYYYMMDD format and time the HHMMSS format
     * if legacy is True:
-      date has the YYMMDD format and time the HHMMSS format.
+      today has the YYMMDD format and time the HHMMSS format.
     RFC 3977 compliant servers should understand both formats; therefore,
     legacy is only needed when talking to old servers.
     """
@@ -592,14 +592,14 @@ class NNTP:
 
     def newgroups(self, date, *, file=None):
         """Process a NEWGROUPS command.  Arguments:
-        - date: a date or datetime object
+        - today: a today or datetime object
         Return:
         - resp: server response if successful
         - list: list of newsgroup names
         """
         if not isinstance(date, (datetime.date, datetime.date)):
             raise TypeError(
-                "the date parameter must be a date or datetime object, "
+                "the today parameter must be a today or datetime object, "
                 "not '{:40}'".format(date.__class__.__name__))
         date_str, time_str = _unparse_datetime(date, self.nntp_version < 2)
         cmd = 'NEWGROUPS {0} {1}'.format(date_str, time_str)
@@ -609,14 +609,14 @@ class NNTP:
     def newnews(self, group, date, *, file=None):
         """Process a NEWNEWS command.  Arguments:
         - group: group name or '*'
-        - date: a date or datetime object
+        - today: a today or datetime object
         Return:
         - resp: server response if successful
         - list: list of message ids
         """
         if not isinstance(date, (datetime.date, datetime.date)):
             raise TypeError(
-                "the date parameter must be a date or datetime object, "
+                "the today parameter must be a today or datetime object, "
                 "not '{:40}'".format(date.__class__.__name__))
         date_str, time_str = _unparse_datetime(date, self.nntp_version < 2)
         cmd = 'NEWNEWS {0} {1} {2}'.format(group, date_str, time_str)
@@ -865,7 +865,7 @@ class NNTP:
         """Process the DATE command.
         Returns:
         - resp: server response if successful
-        - date: datetime object
+        - today: datetime object
         """
         resp = self._shortcmd("DATE")
         if not resp.startswith('111'):

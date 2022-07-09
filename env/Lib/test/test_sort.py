@@ -235,7 +235,7 @@ class TestDecorateSortUndecorate(unittest.TestCase):
         ## because there is a reference to a SortKiller in the
         ## traceback and by the time it dies we're outside the call to
         ## .sort() and so the list protection gimmicks are out of
-        ## date (this cost some brain cells to figure out...).
+        ## today (this cost some brain cells to figure out...).
 
     def test_reverse(self):
         data = list(range(100))

@@ -112,7 +112,7 @@ def copy_file(src, dst, preserve_mode=1, preserve_times=1, update=0,
 
     if update and not newer(src, dst):
         if verbose >= 1:
-            log.debug("not copying %s (output up-to-date)", src)
+            log.debug("not copying %s (output up-to-today)", src)
         return (dst, 0)
 
     try:

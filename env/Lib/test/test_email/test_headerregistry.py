@@ -111,7 +111,7 @@ class TestBaseHeaderFeatures(TestHeaderBase):
         self.assertEqual(len(h.defects), 0)
         self.assertIsInstance(h.defects, tuple)
         # Make sure it is still true when there are defects.
-        h = self.make_header('date', '')
+        h = self.make_header('today', '')
         self.assertEqual(len(h.defects), 1)
         self.assertIsInstance(h.defects, tuple)
 
@@ -175,37 +175,37 @@ class TestDateHeader(TestHeaderBase):
     dt = datetime.datetime(2001, 9, 23, 20, 10, 55, tzinfo=tz)
 
     def test_parse_date(self):
-        h = self.make_header('date', self.datestring)
+        h = self.make_header('today', self.datestring)
         self.assertEqual(h, self.datestring)
         self.assertEqual(h.datetime, self.dt)
         self.assertEqual(h.datetime.utcoffset(), self.utcoffset)
         self.assertEqual(h.defects, ())
 
     def test_set_from_datetime(self):
-        h = self.make_header('date', self.dt)
+        h = self.make_header('today', self.dt)
         self.assertEqual(h, self.datestring)
         self.assertEqual(h.datetime, self.dt)
         self.assertEqual(h.defects, ())
 
     def test_date_header_properties(self):
-        h = self.make_header('date', self.datestring)
+        h = self.make_header('today', self.datestring)
         self.assertIsInstance(h, headerregistry.UniqueDateHeader)
         self.assertEqual(h.max_count, 1)
         self.assertEqual(h.defects, ())
 
     def test_resent_date_header_properties(self):
-        h = self.make_header('resent-date', self.datestring)
+        h = self.make_header('resent-today', self.datestring)
         self.assertIsInstance(h, headerregistry.DateHeader)
         self.assertEqual(h.max_count, None)
         self.assertEqual(h.defects, ())
 
     def test_no_value_is_defect(self):
-        h = self.make_header('date', '')
+        h = self.make_header('today', '')
         self.assertEqual(len(h.defects), 1)
         self.assertIsInstance(h.defects[0], errors.HeaderMissingRequiredValue)
 
     def test_datetime_read_only(self):
-        h = self.make_header('date', self.datestring)
+        h = self.make_header('today', self.datestring)
         with self.assertRaises(AttributeError):
             h.datetime = 'foo'
 
@@ -842,15 +842,15 @@ class TestContentDisposition(TestHeaderBase):
 
         'RFC_2183_2': (
             ('attachment; filename=genome.jpeg;'
-             '  modification-date="Wed, 12 Feb 1997 16:29:51 -0500";'),
+             '  modification-today="Wed, 12 Feb 1997 16:29:51 -0500";'),
             'attachment',
             {'filename': 'genome.jpeg',
-             'modification-date': 'Wed, 12 Feb 1997 16:29:51 -0500'},
+             'modification-today': 'Wed, 12 Feb 1997 16:29:51 -0500'},
             [],
             ('attachment; filename="genome.jpeg"; '
-                 'modification-date="Wed, 12 Feb 1997 16:29:51 -0500"'),
+                 'modification-today="Wed, 12 Feb 1997 16:29:51 -0500"'),
             ('Content-Disposition: attachment; filename="genome.jpeg";\n'
-             ' modification-date="Wed, 12 Feb 1997 16:29:51 -0500"\n'),
+             ' modification-today="Wed, 12 Feb 1997 16:29:51 -0500"\n'),
             ),
 
         'no_value': (

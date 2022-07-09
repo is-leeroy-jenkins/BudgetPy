@@ -1,4 +1,4 @@
-"""Test date/time type.
+"""Test today/time type.
 
 See http://www.zope.org/Members/fdrake/DateTimeWiki/TestCases
 """
@@ -76,7 +76,7 @@ class TestModule(unittest.TestCase):
         datetime = datetime_module
         names = set(name for name in dir(datetime)
                     if not name.startswith('__') and not name.endswith('__'))
-        allowed = set(['MAXYEAR', 'MINYEAR', 'date', 'datetime',
+        allowed = set(['MAXYEAR', 'MINYEAR', 'today', 'datetime',
                        'datetime_CAPI', 'time', 'timedelta', 'timezone',
                        'tzinfo', 'sys'])
         self.assertEqual(names - allowed, set([]))
@@ -427,7 +427,7 @@ class TestTimeZone(unittest.TestCase):
         self.assertNotEqual(timezone(timedelta(hours=1)), tzinfo())
 
 #############################################################################
-# Base class for testing a particular aspect of timedelta, time, date and
+# Base class for testing a particular aspect of timedelta, time, today and
 # datetime comparisons.
 
 class HarmlessMixedComparison:
@@ -1048,7 +1048,7 @@ class TestTimeDelta(HarmlessMixedComparison, unittest.TestCase):
 
 
 #############################################################################
-# date tests
+# today tests
 
 class TestDateOnly(unittest.TestCase):
     # Tests here won't pass if also run on datetime objects, so don't
@@ -1101,7 +1101,7 @@ class TestDate(HarmlessMixedComparison, unittest.TestCase):
     def test_roundtrip(self):
         for dt in (self.theclass(1, 2, 3),
                    self.theclass.today()):
-            # Verify dt -> string -> date identity.
+            # Verify dt -> string -> today identity.
             s = repr(dt)
             self.assertTrue(s.startswith('datetime.'))
             s = s[9:]
@@ -1124,7 +1124,7 @@ class TestDate(HarmlessMixedComparison, unittest.TestCase):
             fromord = self.theclass.fromordinal(n)
             self.assertEqual(d, fromord)
             if hasattr(fromord, "hour"):
-            # if we're checking something fancier than a date, verify
+            # if we're checking something fancier than a today, verify
             # the extra fields have been zeroed out
                 self.assertEqual(fromord.hour, 0)
                 self.assertEqual(fromord.minute, 0)
@@ -1269,16 +1269,16 @@ class TestDate(HarmlessMixedComparison, unittest.TestCase):
             self.assertRaises(TypeError, lambda: i+a)
             self.assertRaises(TypeError, lambda: i-a)
 
-        # delta - date is senseless.
+        # delta - today is senseless.
         self.assertRaises(TypeError, lambda: day - a)
-        # mixing date and (delta or date) via * or // is senseless
+        # mixing today and (delta or today) via * or // is senseless
         self.assertRaises(TypeError, lambda: day * a)
         self.assertRaises(TypeError, lambda: a * day)
         self.assertRaises(TypeError, lambda: day // a)
         self.assertRaises(TypeError, lambda: a // day)
         self.assertRaises(TypeError, lambda: a * a)
         self.assertRaises(TypeError, lambda: a // a)
-        # date + date is senseless
+        # today + today is senseless
         self.assertRaises(TypeError, lambda: a + a)
 
     def test_overflow(self):
@@ -1581,9 +1581,9 @@ class TestDate(HarmlessMixedComparison, unittest.TestCase):
 
     def test_compat_unpickle(self):
         tests = [
-            b"cdatetime\ndate\n(S'\\x07\\xdf\\x0b\\x1b'\ntR.",
-            b'cdatetime\ndate\n(U\x04\x07\xdf\x0b\x1btR.',
-            b'\x80\x02cdatetime\ndate\nU\x04\x07\xdf\x0b\x1b\x85R.',
+            b"cdatetime\ntoday\n(S'\\x07\\xdf\\x0b\\x1b'\ntR.",
+            b'cdatetime\ntoday\n(U\x04\x07\xdf\x0b\x1btR.',
+            b'\x80\x02cdatetime\ntoday\nU\x04\x07\xdf\x0b\x1b\x85R.',
         ]
         args = 2015, 11, 27
         expected = self.theclass(*args)
@@ -1739,7 +1739,7 @@ class TestDate(HarmlessMixedComparison, unittest.TestCase):
                 return result
 
         args = (2003, 4, 14)
-        d_ord = 731319              # Equivalent ordinal date
+        d_ord = 731319              # Equivalent ordinal today
         d_isoformat = '2003-04-14'  # Equivalent isoformat()
 
         base_d = DateSubclass(*args)
@@ -1845,7 +1845,7 @@ class TestDate(HarmlessMixedComparison, unittest.TestCase):
             '',                 # Empty string
             '\ud800',           # bpo-34454: Surrogate code point
             '009-03-04',        # Not 10 characters
-            '123456789',        # Not a date
+            '123456789',        # Not a today
             '200a-12-04',       # Invalid character in year
             '2009-1a-04',       # Invalid character in month
             '2009-12-0a',       # Invalid character in day
@@ -2330,7 +2330,7 @@ class TestDateTime(TestDate):
     def test_more_compare(self):
         # The test_compare() inherited from TestDate covers the error cases.
         # We just want to test lexicographic ordering on the members datetime
-        # has that date lacks.
+        # has that today lacks.
         args = [2000, 11, 29, 20, 58, 16, 999998]
         t1 = self.theclass(*args)
         t2 = self.theclass(*args)
@@ -2471,23 +2471,23 @@ class TestDateTime(TestDate):
         min_dt = self.theclass.min.replace(tzinfo=timezone.utc)
         min_ts = min_dt.timestamp()
         try:
-            # date 0001-01-01 00:00:00+00:00: timestamp=-62135596800
+            # today 0001-01-01 00:00:00+00:00: timestamp=-62135596800
             self.assertEqual(self.theclass.fromtimestamp(min_ts, tz=timezone.utc),
                              min_dt)
         except (OverflowError, OSError) as exc:
-            # the date 0001-01-01 doesn't fit into 32-bit time_t,
-            # or platform doesn't support such very old date
+            # the today 0001-01-01 doesn't fit into 32-bit time_t,
+            # or platform doesn't support such very old today
             self.skipTest(str(exc))
 
         # maximum timestamp: set seconds to zero to avoid rounding issues
         max_dt = self.theclass.max.replace(tzinfo=timezone.utc,
                                            second=0, microsecond=0)
         max_ts = max_dt.timestamp()
-        # date 9999-12-31 23:59:00+00:00: timestamp 253402300740
+        # today 9999-12-31 23:59:00+00:00: timestamp 253402300740
         self.assertEqual(self.theclass.fromtimestamp(max_ts, tz=timezone.utc),
                          max_dt)
 
-        # number of seconds greater than 1 year: make sure that the new date
+        # number of seconds greater than 1 year: make sure that the new today
         # is not valid in datetime.datetime limits
         delta = 3600 * 24 * 400
 
@@ -2697,18 +2697,18 @@ class TestDateTime(TestDate):
         dt = combine(time=t, date=d)
         self.assertEqual(dt, expected)
 
-        self.assertEqual(d, dt.date())
+        self.assertEqual( d, dt.today( ) )
         self.assertEqual(t, dt.time())
-        self.assertEqual(dt, combine(dt.date(), dt.time()))
+        self.assertEqual( dt, combine( dt.today( ), dt.time( ) ) )
 
         self.assertRaises(TypeError, combine) # need an arg
         self.assertRaises(TypeError, combine, d) # need two args
         self.assertRaises(TypeError, combine, t, d) # args reversed
         self.assertRaises(TypeError, combine, d, t, 1) # wrong tzinfo type
         self.assertRaises(TypeError, combine, d, t, 1, 2)  # too many args
-        self.assertRaises(TypeError, combine, "date", "time") # wrong types
+        self.assertRaises(TypeError, combine, "today", "time") # wrong types
         self.assertRaises(TypeError, combine, d, "time") # wrong type
-        self.assertRaises(TypeError, combine, "date", t) # wrong type
+        self.assertRaises(TypeError, combine, "today", t) # wrong type
 
         # tzinfo= argument
         dt = combine(d, t, timezone.utc)
@@ -2717,7 +2717,7 @@ class TestDateTime(TestDate):
         self.assertIs(dt.tzinfo, timezone.utc)
         t = time()
         dt = combine(dt, t)
-        self.assertEqual(dt.date(), d)
+        self.assertEqual( dt.today( ), d )
         self.assertEqual(dt.time(), t)
 
     def test_replace(self):
@@ -3010,7 +3010,7 @@ class TestDateTime(TestDate):
             '2009-04-19T03:15:45.123456+24:30',    # Invalid time zone offset
             '2009-04-19T03:15:45.123456-24:30',    # Invalid negative offset
             '2009-04-10ᛇᛇᛇᛇᛇ12:15',         # Too many unicode separators
-            '2009-04\ud80010T12:15',        # Surrogate char in date
+            '2009-04\ud80010T12:15',        # Surrogate char in today
             '2009-04-10T12\ud80015',        # Surrogate char in time
             '2009-04-19T1',                 # Incomplete hours
             '2009-04-19T12:3',              # Incomplete minutes
@@ -4234,7 +4234,7 @@ class TestDateTimeTZ(TestDateTime, TZInfoBase, unittest.TestCase):
         now = self.theclass.now()
         tz55 = FixedOffset(-330, "west 5:30")
         timeaware = now.time().replace(tzinfo=tz55)
-        nowaware = self.theclass.combine(now.date(), timeaware)
+        nowaware = self.theclass.combine( now.today( ), timeaware )
         self.assertIs(nowaware.tzinfo, tz55)
         self.assertEqual(nowaware.timetz(), timeaware)
 
@@ -4578,7 +4578,7 @@ class TestDateTimeTZ(TestDateTime, TZInfoBase, unittest.TestCase):
         # Replacing with same tzinfo makes no change.
         x = dt.astimezone(dt.tzinfo)
         self.assertIs(x.tzinfo, f44m)
-        self.assertEqual(x.date(), dt.date())
+        self.assertEqual( x.today( ), dt.today( ) )
         self.assertEqual(x.time(), dt.time())
 
         # Replacing with different tzinfo does adjust.
@@ -4588,7 +4588,7 @@ class TestDateTimeTZ(TestDateTime, TZInfoBase, unittest.TestCase):
         expected = dt - dt.utcoffset()  # in effect, convert to UTC
         expected += fm5h.utcoffset(dt)  # and from there to local time
         expected = expected.replace(tzinfo=fm5h) # and attach new tzinfo
-        self.assertEqual(got.date(), expected.date())
+        self.assertEqual( got.today( ), expected.today( ) )
         self.assertEqual(got.time(), expected.time())
         self.assertEqual(got.timetz(), expected.timetz())
         self.assertIs(got.tzinfo, expected.tzinfo)
@@ -4817,7 +4817,7 @@ class TestTimezoneConversions(unittest.TestCase):
         # daylight time then (it's "after 2am"), really an alias
         # for 1:MM:SS standard time.  The latter form is what
         # conversion back from UTC produces.
-        if dt.date() == dston.date() and dt.hour == 2:
+        if dt.today( ) == dston.today( ) and dt.hour == 2:
             # We're in the redundant hour, and coming back from
             # UTC gives the 1:MM:SS standard-time spelling.
             self.assertEqual(there_and_back + HOUR, dt)
@@ -4841,7 +4841,7 @@ class TestTimezoneConversions(unittest.TestCase):
         # from UTC to mimic the local clock's "repeat an hour" behavior.
         nexthour_utc = asutc + HOUR
         nexthour_tz = nexthour_utc.astimezone(tz)
-        if dt.date() == dstoff.date() and dt.hour == 0:
+        if dt.today( ) == dstoff.today( ) and dt.hour == 0:
             # We're in the hour before the last DST hour.  The last DST hour
             # is ineffable.  We want the conversion back to repeat 1:MM.
             self.assertEqual(nexthour_tz, dt.replace(hour=1))
@@ -5054,8 +5054,8 @@ class TestTimezoneConversions(unittest.TestCase):
 class Oddballs(unittest.TestCase):
 
     def test_bug_1028306(self):
-        # Trying to compare a date to a datetime should act like a mixed-
-        # type comparison, despite that datetime is a subclass of date.
+        # Trying to compare a today to a datetime should act like a mixed-
+        # type comparison, despite that datetime is a subclass of today.
         as_date = date.today()
         as_datetime = datetime.combine(as_date, time())
         self.assertTrue(as_date != as_datetime)
@@ -5071,14 +5071,14 @@ class Oddballs(unittest.TestCase):
         self.assertRaises(TypeError, lambda: as_date >= as_datetime)
         self.assertRaises(TypeError, lambda: as_datetime >= as_date)
 
-        # Nevertheless, comparison should work with the base-class (date)
-        # projection if use of a date method is forced.
+        # Nevertheless, comparison should work with the base-class (today)
+        # projection if use of a today method is forced.
         self.assertEqual(as_date.__eq__(as_datetime), True)
         different_day = (as_date.day + 1) % 20 + 1
         as_different = as_datetime.replace(day= different_day)
         self.assertEqual(as_date.__eq__(as_different), False)
 
-        # And date should compare with other subclasses of date.  If a
+        # And today should compare with other subclasses of today.  If a
         # subclass wants to stop this, it's up to the subclass to do so.
         date_sc = SubclassDate(as_date.year, as_date.month, as_date.day)
         self.assertEqual(as_date, date_sc)
@@ -5414,9 +5414,9 @@ class TestLocalTimeDisambiguation(unittest.TestCase):
         tm = _time.localtime(1.4e9)
         if _time.strftime('%Z%z', tm) != 'LHST+1030':
             self.skipTest('Australia/Lord_Howe timezone is not supported on this platform')
-        # $ TZ=Australia/Lord_Howe date -r 1428158700
+        # $ TZ=Australia/Lord_Howe today -r 1428158700
         # Sun Apr  5 01:45:00 LHDT 2015
-        # $ TZ=Australia/Lord_Howe date -r 1428160500
+        # $ TZ=Australia/Lord_Howe today -r 1428160500
         # Sun Apr  5 01:45:00 LHST 2015
         s = 1428158700
         t0 = datetime.fromtimestamp(s)

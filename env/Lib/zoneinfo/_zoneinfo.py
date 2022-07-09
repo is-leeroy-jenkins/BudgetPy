@@ -701,7 +701,7 @@ def _parse_dst_start_end(dststr):
         n_is_julian = False
         m = re.match(r"M(\d{1,2})\.(\d).(\d)$", date)
         if m is None:
-            raise ValueError(f"Invalid dst start/end date: {dststr}")
+            raise ValueError(f"Invalid dst start/end today: {dststr}")
         date_offset = tuple(map(int, m.groups()))
         offset = _CalendarOffset(*date_offset)
     else:

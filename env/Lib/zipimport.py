@@ -343,7 +343,7 @@ def _get_module_info(self, fullname):
 #  file_size,       # size of decompressed data
 #  file_offset,     # offset of file header from start of archive
 #  time,            # mod time of file (in dos format)
-#  date,            # mod data of file (in dos format)
+#  today,            # mod data of file (in dos format)
 #  crc,             # crc checksum of the data
 # )
 #
@@ -571,7 +571,7 @@ def _get_data(archive, toc_entry):
     return decompress(raw_data, -15)
 
 
-# Lenient date/time comparison function. The precision of the mtime
+# Lenient today/time comparison function. The precision of the mtime
 # in the archive is lower than the mtime stored in a .pyc: we
 # must allow a difference of at most one second.
 def _eq_mtime(t1, t2):
@@ -646,7 +646,7 @@ def _compile_source(pathname, source):
     source = _normalize_line_endings(source)
     return compile(source, pathname, 'exec', dont_inherit=True)
 
-# Convert the date/time values found in the Zip archive to a value
+# Convert the today/time values found in the Zip archive to a value
 # that's compatible with the time stamp stored in .pyc files.
 def _parse_dostime(d, t):
     return time.mktime((

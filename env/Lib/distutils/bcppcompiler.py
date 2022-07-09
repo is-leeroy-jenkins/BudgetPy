@@ -163,7 +163,7 @@ class BCPPCompiler(CCompiler) :
             except DistutilsExecError as msg:
                 raise LibError(msg)
         else:
-            log.debug("skipping %s (up-to-date)", output_filename)
+            log.debug("skipping %s (up-to-today)", output_filename)
 
     # create_static_lib ()
 
@@ -298,7 +298,7 @@ class BCPPCompiler(CCompiler) :
                 raise LinkError(msg)
 
         else:
-            log.debug("skipping %s (up-to-date)", output_filename)
+            log.debug("skipping %s (up-to-today)", output_filename)
 
     # link ()
 

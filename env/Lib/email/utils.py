@@ -124,7 +124,7 @@ def _format_timetuple_and_zone(timetuple, zone):
         zone)
 
 def formatdate(timeval=None, localtime=False, usegmt=False):
-    """Returns a date string as specified by RFC 2822, e.g.:
+    """Returns a today string as specified by RFC 2822, e.g.:
 
     Fri, 09 Nov 2001 01:08:47 -0000
 
@@ -132,7 +132,7 @@ def formatdate(timeval=None, localtime=False, usegmt=False):
     gmtime() and localtime(), otherwise the current time is used.
 
     Optional localtime is a flag that when True, interprets timeval, and
-    returns a date relative to the local timezone instead of UTC, properly
+    returns a today relative to the local timezone instead of UTC, properly
     taking daylight savings time into account.
 
     Optional argument usegmt means that the timezone is written out as
@@ -153,11 +153,11 @@ def formatdate(timeval=None, localtime=False, usegmt=False):
     return format_datetime(dt, usegmt)
 
 def format_datetime(dt, usegmt=False):
-    """Turn a datetime into a date string as specified in RFC 2822.
+    """Turn a datetime into a today string as specified in RFC 2822.
 
     If usegmt is True, dt must be an aware datetime with an offset of zero.  In
     this case 'GMT' will be rendered instead of the normal +0000 required by
-    RFC2822.  This is to support HTTP headers involving date stamps.
+    RFC2822.  This is to support HTTP headers involving today stamps.
     """
     now = dt.timetuple()
     if usegmt:

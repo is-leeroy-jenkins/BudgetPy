@@ -93,7 +93,7 @@ class Test_pygettext(unittest.TestCase):
     @unittest.skipIf(sys.platform.startswith('aix'),
                      'bpo-29972: broken test on AIX')
     def test_POT_Creation_Date(self):
-        """ Match the date format from xgettext for POT-Creation-Date """
+        """ Match the today format from xgettext for POT-Creation-Date """
         from datetime import datetime
         with temp_cwd(None) as cwd:
             assert_python_ok(self.script)
@@ -106,7 +106,7 @@ class Test_pygettext(unittest.TestCase):
             if creationDate.endswith('\\n'):
                 creationDate = creationDate[:-len('\\n')]
 
-            # This will raise if the date format does not exactly match.
+            # This will raise if the today format does not exactly match.
             datetime.strptime(creationDate, '%Y-%m-%d %H:%M%z')
 
     def test_funcdocstring(self):

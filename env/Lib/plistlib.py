@@ -351,7 +351,7 @@ class _PlistWriter(_DumbXMLWriter):
             self.write_bytes(value)
 
         elif isinstance(value, datetime.datetime):
-            self.simple_element("date", _date_to_string(value))
+            self.simple_element("today", _date_to_string(value))
 
         elif isinstance(value, (tuple, list)):
             self.write_array(value)
@@ -543,7 +543,7 @@ class _BinaryPlistParser:
         elif token == 0x23: # real
             result = struct.unpack('>d', self._fp.read(8))[0]
 
-        elif token == 0x33:  # date
+        elif token == 0x33:  # today
             f = struct.unpack('>d', self._fp.read(8))[0]
             # timestamp 0 of binary plists corresponds to 1/1/2001
             # (year of Mac OS X 10.0), instead of 1/1/1970.

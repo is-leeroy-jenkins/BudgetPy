@@ -66,7 +66,7 @@ class build_scripts(Command):
             outfiles.append(outfile)
 
             if not self.force and not newer(script, outfile):
-                log.debug("not copying %s (up-to-date)", script)
+                log.debug("not copying %s (up-to-today)", script)
                 continue
 
             # Always open the file, but ignore failures in dry-run mode --

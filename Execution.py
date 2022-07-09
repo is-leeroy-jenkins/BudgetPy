@@ -79,6 +79,7 @@ class Account( ):
     __objectivecode = None
     __npmcode = None
     __programprojectcode = None
+    __programprojectname = None
     __fields = None
     __data = None
     __frame = None
@@ -106,8 +107,8 @@ class Account( ):
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
-            return self.__name
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectname
 
     @name.setter
     def name( self, value ):
@@ -136,25 +137,33 @@ class Account( ):
 
     @property
     def npmcode( self ):
-        if self.__npmcode is not None:
+        if isinstance( self.__npmcode, str) and self.__npmcode != '':
             return self.__npmcode
 
     @npmcode.setter
     def npmcode( self, value ):
         if isinstance( value, str ):
             self.__npmcode = value
-            self.__data[ 'npm' ] = self.__npmcode
 
     @property
     def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ):
+        if isinstance( self.__programprojectcode , str ):
             return self.__programprojectcode
 
     @programprojectcode.setter
     def programprojectcode( self, value ):
         if isinstance( value, str ):
             self.__programprojectcode = value
-            self.__data[ 'programproject' ] = self.__programprojectcode
+
+    @property
+    def programprojectname( self ):
+        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+            return self.__programprojectcode
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if isinstance( value, str ):
+            self.__programprojectname = value
 
     @property
     def data( self ):
@@ -189,7 +198,7 @@ class Account( ):
     def __init__( self, code ):
         self.__source = Source.Accounts
         self.__provider = Provider.SQLite
-        self.__code = code if isinstance( code, str ) else None
+        self.__code = code if isinstance( code, str ) and len( code ) >= 6 else None
         self.__goalcode = self.__code[ 0 ]
         self.__objectivecode = self.__code[ 1:3 ]
         self.__npmcode = self.__code[ 3 ]
@@ -212,16 +221,32 @@ class Account( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
+    def copy( self ):
+        try:
+            clone = Account( code = self.__code )
+            clone.code = self.__code
+            clone.goalcode = self.__goalcode
+            clone.objectivecode = self.__objectivecode
+            clone.npmcode = self.__npmcode
+            clone.programprojectcode = self.__programprojectcode
+            return clone
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'Account'
+            exc.method = 'copy( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
     def getdata( self ):
         try:
             source = Source.Accounts
             provider = Provider.SQLite
             n = [ 'Code', ]
-            v = (self.__code,)
-            dconfig = DbConfig( source, provider )
+            v = ( self.__code, )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = DataConnection( dconfig )
-            sql = SqlStatement( dconfig, sconfig )
+            cnx = DataConnection( source, provider )
+            sql = SqlStatement( cnx, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )
@@ -255,6 +280,7 @@ class Account( ):
 
 
 # Activity( code  )
+
 class Activity( ):
     '''Defines the Activity Class'''
     __source = None
@@ -379,7 +405,6 @@ class Activity( ):
             exc.method = 'getframe( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 # AllowanceHolder( code  )
@@ -676,7 +701,7 @@ class Appropriation( ):
 
 
 
-# BudgetFiscalYear( bfy )
+# BudgetFiscalYear( bfy, efy, date = None )
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
     __source = None
@@ -692,9 +717,9 @@ class BudgetFiscalYear( ):
     __expiration = None
     __weekends = None
     __workdays = None
-    __year = None
-    __month = None
-    __day = None
+    __currentyear = None
+    __currentmonth = None
+    __currentday = None
     __holidays = None
     __fields = None
     __data = None
@@ -711,34 +736,34 @@ class BudgetFiscalYear( ):
             self.__budgetfiscalyearsid = value
 
     @property
-    def startyear( self ):
-        if isinstance( self.__input, str ) and self.__bfy != '':
+    def firstyear( self ):
+        if isinstance( self.__bfy, str ) and len( self.__bfy ) == 4:
             return self.__bfy
 
-    @startyear.setter
-    def startyear( self, value ):
+    @firstyear.setter
+    def firstyear( self, value ):
         if isinstance( value, str ) and value != '':
             self.__bfy = value
 
     @property
-    def endyear( self ):
-        if isinstance( self.__efy, str) and self.__efy != '':
+    def lastyear( self ):
+        if isinstance( self.__efy, str) and len( self.__efy ) <= 4:
             return self.__efy
 
-    @endyear.setter
-    def endyear( self, value ):
+    @lastyear.setter
+    def lastyear( self, value ):
         if isinstance( value, str ) and value != '':
             self.__efy = value
 
     @property
-    def calendaryear( self ):
-        if isinstance( self.__year, int ):
-            return self.__year
+    def currentyear( self ):
+        if isinstance( self.__currentyear, int ):
+            return self.__currentyear
 
-    @calendaryear.setter
-    def calendaryear( self, value ):
+    @currentyear.setter
+    def currentyear( self, value ):
         if isinstance( value, int ):
-            self.__year = value
+            self.__currentyear = value
 
     @property
     def startdate( self ):
@@ -791,29 +816,39 @@ class BudgetFiscalYear( ):
             self.__workdays = value
 
     @property
+    def today( self ):
+        if isinstance( self.__today, date ):
+            return self.__today
+
+    @today.setter
+    def today( self, value ):
+        if isinstance( value, date ):
+            self.__today = value
+
+    @property
     def date( self ):
-        if isinstance( self.__date, datetime ):
+        if isinstance( self.__date, date ):
             return self.__date
 
     @date.setter
     def date( self, value ):
-        if isinstance( value, datetime ):
+        if isinstance( value, date ):
             self.__date = value
 
     @property
-    def day( self ):
-        if isinstance( self.__day, int ):
-            return self.__day
+    def currentday( self ):
+        if isinstance( self.__currentday, int ):
+            return self.__currentday
 
-    @day.setter
-    def day( self, value ):
+    @currentday.setter
+    def currentday( self, value ):
         if isinstance( value, int ) and (0 <= value <= 7):
-            self.__day = value
+            self.__currentday = value
 
     @property
-    def month( self ):
-        if isinstance( self.__month, int ):
-            return self.__month
+    def currentmonth( self ):
+        if isinstance( self.__currentmonth, int ):
+            return self.__currentmonth
 
     @property
     def holidays( self ):
@@ -850,18 +885,18 @@ class BudgetFiscalYear( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, efy ):
+    def __init__( self, bfy, efy, date = None ):
         self.__source  = Source.FiscalYears
         self.__provider = Provider.SQLite
-        self.__today = datetime.today()
-        self.__date = self.__today
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
-        self.__day = self.__date.day
-        self.__month = self.__date.month
-        self.__year = int( self.__input ) if isinstance( self.__input, str ) else None
-        self.__startdate = datetime( self.__year, 10, 1 ) if isinstance( self.__year, int ) else None
-        self.__enddate = datetime( self.__year + 1, 9, 30 ) if isinstance( self.__year, int ) else None
+        self.__today = datetime.today( )
+        self.__currentday = datetime.today( ).day
+        self.__currentmonth = datetime.today( ).month
+        self.__date = date if isinstance( date, datetime ) else datetime.today( )
+        self.__currentyear = datetime.today( ).year
+        self.__startdate = datetime( datetime.today( ).year, 10, 1 ) if isinstance( self.__currentyear, int ) else None
+        self.__enddate = datetime( datetime.today( ).year + 1, 9, 30 ) if isinstance( self.__currentyear, int ) else None
         self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                             'NewYearsDay', 'MartinLutherKing', 'Washingtons',
                             'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
@@ -869,6 +904,7 @@ class BudgetFiscalYear( ):
                           'BFY',
                           'EFY',
                           'StartDate',
+                          'EndDate',
                           'Columbus',
                           'Veterans',
                           'Thanksgiving',
@@ -882,10 +918,10 @@ class BudgetFiscalYear( ):
                           'Labor',
                           'ExpiringYear',
                           'ExpirationDate',
-                          'WorkDays',
-                          'WeekDays',
-                          'WeekEnds',
-                          'EndDate',
+                          'CancellationDate',
+                          'Workdays',
+                          'Weekdays',
+                          'Weekends',
                           'Availability' ]
 
     def __str__( self ):
@@ -4531,8 +4567,8 @@ class FederalHoliday( ):
                     if datetime( self.__year, 9, i ).isoweekday( ) == 1:
                         __monday.append( datetime( self.__year, 9, i ) )
                 y = __monday[ 0 ].date( ).year
-                m = __monday[ 0 ].date( ).month
-                d = __monday[ 0 ].date( ).day
+                m = __monday[ 0 ].date( ).currentmonth
+                d = __monday[ 0 ].date( ).currentday
                 self.__labor = datetime( y, m, d )
                 return self.__labor
         except Exception as e:

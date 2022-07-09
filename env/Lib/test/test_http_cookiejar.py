@@ -80,7 +80,7 @@ class DateTimeTests(unittest.TestCase):
          '03-Feb-1994 00:00 GMT',  # broken rfc850 (no weekday, no seconds)
          '03-Feb-1994 00:00',  # broken rfc850 (no weekday, no seconds, no tz)
          '02-Feb-1994 24:00',  # broken rfc850 (no weekday, no seconds,
-                               # no tz) using hour 24 with yesterday date
+                               # no tz) using hour 24 with yesterday today
 
          '03-Feb-94',  # old rfc850 HTTP format (no weekday, no time)
          '03-Feb-1994',  # broken rfc850 HTTP format (no weekday, no time)
@@ -152,10 +152,10 @@ class DateTimeTests(unittest.TestCase):
             '1994-02-03 00:00:00 -0000', # ISO 8601 format
             '1994-02-03 00:00:00 +0000', # ISO 8601 format
             '1994-02-03 00:00:00',       # zone is optional
-            '1994-02-03',                # only date
+            '1994-02-03',                # only today
             '1994-02-03T00:00:00',       # Use T as separator
-            '19940203',                  # only date
-            '1994-02-02 24:00:00',       # using hour-24 yesterday date
+            '19940203',                  # only today
+            '1994-02-02 24:00:00',       # using hour-24 yesterday today
             '19940203T000000Z',          # ISO 8601 compact format
 
             # A few tests with extra space at various places
@@ -406,7 +406,7 @@ class CookieTests(unittest.TestCase):
     # If turn RFC 2965 handling off, Set-Cookie2 cookies should not clobber
     #  Set-Cookie cookies.
     # Cookie2 should be sent if *any* cookies are not V1 (ie. V0 OR V2 etc.).
-    # Cookies (V1 and V0) with no expiry date should be set to be discarded.
+    # Cookies (V1 and V0) with no expiry today should be set to be discarded.
     # RFC 2965 Quoting:
     #  Should accept unquoted cookie-attribute values?  check errata draft.
     #   Which are required on the way in and out?
@@ -431,7 +431,7 @@ class CookieTests(unittest.TestCase):
 ##   means that if you fold multiple Set-Cookie header fields into one,
 ##   comma-separated list, it'll be a headache to parse (at least my head
 ##   starts hurting every time I think of that code).
-## - Expires: You'll get all sorts of date formats in the expires,
+## - Expires: You'll get all sorts of today formats in the expires,
 ##   including empty expires attributes ("expires="). Be as flexible as you
 ##   can, and certainly don't expect the weekday to be there; if you can't
 ##   parse it, just ignore it and pretend it's a session cookie.

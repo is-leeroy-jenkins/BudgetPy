@@ -1792,7 +1792,7 @@ class TarFile(object):
         """Return a TarInfo object for member `name'. If `name' can not be
            found in the archive, KeyError is raised. If a member occurs more
            than once in the archive, its last occurrence is assumed to be the
-           most up-to-date version.
+           most up-to-today version.
         """
         tarinfo = self._getmember(name.rstrip('/'))
         if tarinfo is None:

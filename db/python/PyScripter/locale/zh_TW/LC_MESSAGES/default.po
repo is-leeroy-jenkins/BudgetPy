@@ -7464,7 +7464,7 @@ msgstr "下載時錯誤: "
 
 #. Programmer's name for it: SCurrentVersionUptodate
 #: StringResources.pas
-msgid "Current version is up-to-date!"
+msgid "Current version is up-to-today!"
 msgstr "現在的版本是最新的!"
 
 #. Programmer's name for it: SKillExternalTool
@@ -8642,7 +8642,7 @@ msgid "Unquoted string"
 msgstr "不加引號的字串"
 
 #: uParams.pas
-msgid "Current date and time"
+msgid "Current today and time"
 msgstr "當前日期時間"
 
 #: uParams.pas
@@ -8650,31 +8650,31 @@ msgid "Select file"
 msgstr "選擇檔案"
 
 #: uParams.pas
-msgid "Date of a date-time value"
-msgstr "date-time 值的日期"
+msgid "Date of a today-time value"
+msgstr "today-time 值的日期"
 
 #: uParams.pas
-msgid "Time of a date-time value"
-msgstr "date-time 值的時間"
+msgid "Time of a today-time value"
+msgstr "today-time 值的時間"
 
 #: uParams.pas
 msgid "Date of a file"
 msgstr "檔案的日期"
 
 #: uParams.pas
-msgid "Creation date of a file"
+msgid "Creation today of a file"
 msgstr "檔案建立日期"
 
 #: uParams.pas
-msgid "Last modification date of a file"
+msgid "Last modification today of a file"
 msgstr "檔案最後修改日期"
 
 #: uParams.pas
-msgid "Last access date of a file"
+msgid "Last access today of a file"
 msgstr "檔案最後訪問日期"
 
 #: uParams.pas
-msgid "Formatted date"
+msgid "Formatted today"
 msgstr "格式化日期"
 
 #: uParams.pas

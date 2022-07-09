@@ -535,9 +535,9 @@ class MessageIDHeader:
 
 _default_header_map = {
     'subject':                      UniqueUnstructuredHeader,
-    'date':                         UniqueDateHeader,
-    'resent-date':                  DateHeader,
-    'orig-date':                    UniqueDateHeader,
+    'today':                         UniqueDateHeader,
+    'resent-today':                  DateHeader,
+    'orig-today':                    UniqueDateHeader,
     'sender':                       UniqueSingleAddressHeader,
     'resent-sender':                SingleAddressHeader,
     'to':                           UniqueAddressHeader,

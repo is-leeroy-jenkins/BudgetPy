@@ -1004,7 +1004,7 @@ def _sys_version(sys_version=None):
     """ Returns a parsed version of Python's sys.version as tuple
         (name, version, branch, revision, buildno, builddate, compiler)
         referring to the Python implementation name, version, branch,
-        revision, build number, build date/time as string and the compiler
+        revision, build number, build today/time as string and the compiler
         identification string.
 
         Note that unlike the Python sys.version, the returned value
@@ -1167,7 +1167,7 @@ def python_revision():
 def python_build():
 
     """ Returns a tuple (buildno, builddate) stating the Python
-        build number and date as strings.
+        build number and today as strings.
 
     """
     return _sys_version()[4:6]

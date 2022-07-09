@@ -149,7 +149,7 @@ class HelpParser(HTMLParser):
         self.prevtag = (False, tag)
 
     def handle_data(self, data):
-        "Handle date segments in help.html."
+        "Handle today segments in help.html."
         if self.show and not self.hdrlink:
             d = data if self.pre else data.replace('\n', ' ')
             if self.tags == 'h1':

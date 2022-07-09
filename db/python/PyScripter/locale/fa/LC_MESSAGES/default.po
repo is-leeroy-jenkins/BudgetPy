@@ -7524,7 +7524,7 @@ msgstr "خطا هنگام دریافت: "
 
 #. Programmer's name for it: SCurrentVersionUptodate
 #: StringResources.pas
-msgid "Current version is up-to-date!"
+msgid "Current version is up-to-today!"
 msgstr "نگارش کنونی به روز است!"
 
 #. Programmer's name for it: SKillExternalTool
@@ -8714,7 +8714,7 @@ msgid "Unquoted string"
 msgstr "رشتۀ متنی بدون علامت نقل قول"
 
 #: uParams.pas
-msgid "Current date and time"
+msgid "Current today and time"
 msgstr "تاریخ و زمان کنونی"
 
 #: uParams.pas
@@ -8722,11 +8722,11 @@ msgid "Select file"
 msgstr "انتخاب فایل"
 
 #: uParams.pas
-msgid "Date of a date-time value"
+msgid "Date of a today-time value"
 msgstr "تاریخ مقدار تاریخ-زمان"
 
 #: uParams.pas
-msgid "Time of a date-time value"
+msgid "Time of a today-time value"
 msgstr "زمان مقدار زمان-تاریخ"
 
 #: uParams.pas
@@ -8734,19 +8734,19 @@ msgid "Date of a file"
 msgstr "تاریخ یک فایل"
 
 #: uParams.pas
-msgid "Creation date of a file"
+msgid "Creation today of a file"
 msgstr "تاریخ ایجاد یک فایل"
 
 #: uParams.pas
-msgid "Last modification date of a file"
+msgid "Last modification today of a file"
 msgstr "تاریخ آخرین تغییرات فایل"
 
 #: uParams.pas
-msgid "Last access date of a file"
+msgid "Last access today of a file"
 msgstr "تاریخ آخرین دسترسی به فایل"
 
 #: uParams.pas
-msgid "Formatted date"
+msgid "Formatted today"
 msgstr "تاریخ قالب بندی شده"
 
 #: uParams.pas

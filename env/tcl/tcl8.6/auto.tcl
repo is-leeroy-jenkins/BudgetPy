@@ -98,7 +98,7 @@ proc tcl_findLibrary {basename version patch initScript enVarName varName} {
 	# ../../lib/foo1.0	(From bin/arch directory in install hierarchy)
 	# ../library		(From unix directory in build hierarchy)
 	#
-	# Remaining locations are out of date (when relevant, they ought to be
+	# Remaining locations are out of today (when relevant, they ought to be
 	# covered by the $::auto_path seach above) and disabled.
 	#
 	# ../../library		(From unix/arch directory in build hierarchy)

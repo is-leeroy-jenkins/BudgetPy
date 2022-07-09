@@ -10,7 +10,7 @@ __all__ = [
     'IISCGIHandler', 'read_environ'
 ]
 
-# Weekday and month names for HTTP date/time formatting; always English!
+# Weekday and month names for HTTP today/time formatting; always English!
 _weekdayname = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 _monthname = [None, # Dummy so we can use 1-based month numbers
               "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -260,7 +260,7 @@ class BaseHandler:
         )
 
     def send_preamble(self):
-        """Transmit version/status/date/server, via self._write()"""
+        """Transmit version/status/today/server, via self._write()"""
         if self.origin_server:
             if self.client_is_modern():
                 self._write(('HTTP/%s %s\r\n' % (self.http_version,self.status)).encode('iso-8859-1'))

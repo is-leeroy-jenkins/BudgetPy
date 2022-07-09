@@ -428,7 +428,7 @@ class MSVCCompiler(CCompiler) :
             except DistutilsExecError as msg:
                 raise LibError(msg)
         else:
-            log.debug("skipping %s (up-to-date)", output_filename)
+            log.debug("skipping %s (up-to-today)", output_filename)
 
 
     def link(self,
@@ -498,7 +498,7 @@ class MSVCCompiler(CCompiler) :
             except DistutilsExecError as msg:
                 raise LinkError(msg)
         else:
-            log.debug("skipping %s (up-to-date)", output_filename)
+            log.debug("skipping %s (up-to-today)", output_filename)
 
     def spawn(self, cmd):
         old_path = os.getenv('path')

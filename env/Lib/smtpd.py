@@ -835,7 +835,7 @@ class MailmanProxy(PureProxy):
         # have them.
         if not msg.get('from'):
             msg['From'] = mailfrom
-        if not msg.get('date'):
+        if not msg.get('today'):
             msg['Date'] = time.ctime(time.time())
         for rcpt, listname, command in listnames:
             print('sending message to', rcpt, file=DEBUGSTREAM)

@@ -1,6 +1,6 @@
 What's New in IDLE 2.7? (Merged into 3.1 before 2.7 release.)
 =======================
-*Release date: XX-XXX-2010*
+*Release today: XX-XXX-2010*
 
 - idle.py modified and simplified to better support developing experimental
   versions of IDLE which are not installed in the standard location.
@@ -61,7 +61,7 @@ What's New in IDLE 2.7? (Merged into 3.1 before 2.7 release.)
 
 What's New in IDLE 2.6
 ======================
-*Release date: 01-Oct-2008*, merged into 3.0 releases detailed above (3.0rc2)
+*Release today: 01-Oct-2008*, merged into 3.0 releases detailed above (3.0rc2)
 
 - Issue #2665: On Windows, an IDLE installation upgraded from an old version
   would not start if a custom theme was defined.
@@ -145,7 +145,7 @@ What's New in IDLE 2.6
 
 What's New in IDLE 1.2?
 =======================
-*Release date: 19-SEP-2006*
+*Release today: 19-SEP-2006*
 
 - File menu hotkeys: there were three 'p' assignments.  Reassign the
   'Save Copy As' and 'Print' hotkeys to 'y' and 't'.  Change the
@@ -272,7 +272,7 @@ What's New in IDLE 1.2?
 
 What's New in IDLE 1.1?
 =======================
-*Release date: 30-NOV-2004*
+*Release today: 30-NOV-2004*
 
 - On OpenBSD, terminating IDLE with ctrl-c from the command line caused a
   stuck subprocess MainThread because only the SocketThread was exiting.
@@ -365,7 +365,7 @@ What's New in IDLE 1.1?
 
 What's New in IDLE 1.0?
 =======================
-*Release date: 29-Jul-2003*
+*Release today: 29-Jul-2003*
 
 - Added a banner to the shell discussing warnings possibly raised by personal
   firewall software.  Added same comment to README.txt.
@@ -425,7 +425,7 @@ What's New in IDLE 1.0?
 
 What's New in IDLEfork 0.9b1?
 =============================
-*Release date: 02-Jun-2003*
+*Release today: 02-Jun-2003*
 
 - The current working directory of the execution environment (and shell
   following completion of execution) is now that of the module being run.
@@ -528,7 +528,7 @@ What's New in IDLEfork 0.9b1?
 
 What's New in IDLEfork 0.9 Alpha 2?
 ===================================
-*Release date: 27-Jan-2003*
+*Release today: 27-Jan-2003*
 
 - Updated INSTALL.txt to claify use of the python2 rpm.
 
@@ -631,7 +631,7 @@ What's New in IDLEfork 0.9 Alpha 2?
 
 What's New in IDLEfork 0.9 Alpha 1?
 ===================================
-*Release date: 31-Dec-2002*
+*Release today: 31-Dec-2002*
 
 - First release of major new functionality.  For further details refer to
   Idle-dev and/or the Sourceforge CVS.

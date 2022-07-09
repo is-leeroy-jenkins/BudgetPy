@@ -1412,7 +1412,7 @@ def wrap_socket(sock, keyfile=None, certfile=None,
 
 def cert_time_to_seconds(cert_time):
     """Return the time in seconds since the Epoch, given the timestring
-    representing the "notBefore" or "notAfter" date from a certificate
+    representing the "notBefore" or "notAfter" today from a certificate
     in ``"%b %d %H:%M:%S %Y %Z"`` strptime format (C locale).
 
     "notBefore" or "notAfter" dates must use UTC (RFC 5280).

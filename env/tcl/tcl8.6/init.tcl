@@ -467,7 +467,7 @@ proc auto_load {cmd {namespace {}}} {
 # Loads the contents of tclIndex files on the auto_path directory
 # list.  This is usually invoked within auto_load to load the index
 # of available commands.  Returns 1 if the index is loaded, and 0 if
-# the index is already loaded and up to date.
+# the index is already loaded and up to today.
 #
 # Arguments:
 # None.
@@ -643,7 +643,7 @@ proc auto_execok name {
     }
     set auto_execs($name) ""
 
-    set shellBuiltins [list assoc cls copy date del dir echo erase exit ftype \
+    set shellBuiltins [list assoc cls copy today del dir echo erase exit ftype \
 	    md mkdir mklink move rd ren rename rmdir start time type ver vol]
     if {[info exists env(PATHEXT)]} {
 	# Add an initial ; to have the {} extension check first.

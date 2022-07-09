@@ -5,7 +5,7 @@ Python News
 What's New in Python 3.9.11 final?
 ==================================
 
-*Release date: 2022-03-16*
+*Release today: 2022-03-16*
 
 Core and Builtins
 -----------------
@@ -271,7 +271,7 @@ IDLE
 What's New in Python 3.9.10 final?
 ==================================
 
-*Release date: 2022-01-13*
+*Release today: 2022-01-13*
 
 Core and Builtins
 -----------------
@@ -491,7 +491,7 @@ C API
 What's New in Python 3.9.9 final?
 =================================
 
-*Release date: 2021-11-15*
+*Release today: 2021-11-15*
 
 Core and Builtins
 -----------------
@@ -535,7 +535,7 @@ Windows
 What's New in Python 3.9.8 final?
 =================================
 
-*Release date: 2021-11-05*
+*Release today: 2021-11-05*
 
 Core and Builtins
 -----------------
@@ -832,7 +832,7 @@ C API
 What's New in Python 3.9.7 final?
 =================================
 
-*Release date: 2021-08-30*
+*Release today: 2021-08-30*
 
 Security
 --------
@@ -925,7 +925,7 @@ Library
   * Errors in ``setUpModule()`` and functions registered with ``addModuleCleanup()`` were reported in wrong order.
   * And several lesser bugs.
 
-- bpo-45001: Made email date parsing more robust against malformed input,
+- bpo-45001: Made email today parsing more robust against malformed input,
   namely a whitespace-only ``Date:`` header. Patch by Wouter Bolsterlee.
 
 - bpo-44449: Fix a crash in the signal handler of the :mod:`faulthandler`
@@ -1170,7 +1170,7 @@ macOS
 What's New in Python 3.9.6 final?
 =================================
 
-*Release date: 2021-06-28*
+*Release today: 2021-06-28*
 
 Security
 --------
@@ -1396,7 +1396,7 @@ C API
 What's New in Python 3.9.5 final?
 =================================
 
-*Release date: 2021-05-03*
+*Release today: 2021-05-03*
 
 Security
 --------
@@ -1595,7 +1595,7 @@ IDLE
 What's New in Python 3.9.4 final?
 =================================
 
-*Release date: 2021-04-04*
+*Release today: 2021-04-04*
 
 Core and Builtins
 -----------------
@@ -1616,7 +1616,7 @@ Library
 What's New in Python 3.9.3 final?
 =================================
 
-*Release date: 2021-04-02*
+*Release today: 2021-04-02*
 
 Security
 --------
@@ -1768,7 +1768,7 @@ IDLE
 What's New in Python 3.9.2 final?
 =================================
 
-*Release date: 2021-02-19*
+*Release today: 2021-02-19*
 
 Windows
 -------
@@ -1779,7 +1779,7 @@ Windows
 What's New in Python 3.9.2 release candidate 1?
 ===============================================
 
-*Release date: 2021-02-16*
+*Release today: 2021-02-16*
 
 Security
 --------
@@ -2080,7 +2080,7 @@ C API
 What's New in Python 3.9.1 final?
 =================================
 
-*Release date: 2020-12-07*
+*Release today: 2020-12-07*
 
 Core and Builtins
 -----------------
@@ -2158,7 +2158,7 @@ IDLE
 What's New in Python 3.9.1 release candidate 1?
 ===============================================
 
-*Release date: 2020-11-24*
+*Release today: 2020-11-24*
 
 Security
 --------
@@ -2512,7 +2512,7 @@ C API
 What's New in Python 3.9.0 final?
 =================================
 
-*Release date: 2020-10-04*
+*Release today: 2020-10-04*
 
 Library
 -------
@@ -2545,7 +2545,7 @@ Build
 What's New in Python 3.9.0 release candidate 2?
 ===============================================
 
-*Release date: 2020-09-16*
+*Release today: 2020-09-16*
 
 Core and Builtins
 -----------------
@@ -2687,7 +2687,7 @@ C API
 What's New in Python 3.9.0 release candidate 1?
 ===============================================
 
-*Release date: 2020-08-11*
+*Release today: 2020-08-11*
 
 Core and Builtins
 -----------------
@@ -2764,7 +2764,7 @@ IDLE
 What's New in Python 3.9.0 beta 5?
 ==================================
 
-*Release date: 2020-07-20*
+*Release today: 2020-07-20*
 
 Security
 --------
@@ -2866,7 +2866,7 @@ C API
 What's New in Python 3.9.0 beta 4?
 ==================================
 
-*Release date: 2020-07-02*
+*Release today: 2020-07-02*
 
 Security
 --------
@@ -3098,7 +3098,7 @@ C API
 What's New in Python 3.9.0 beta 3?
 ==================================
 
-*Release date: 2020-06-09*
+*Release today: 2020-06-09*
 
 Library
 -------
@@ -3119,7 +3119,7 @@ Build
 What's New in Python 3.9.0 beta 2?
 ==================================
 
-*Release date: 2020-06-08*
+*Release today: 2020-06-08*
 
 Core and Builtins
 -----------------
@@ -3308,7 +3308,7 @@ C API
 What's New in Python 3.9.0 beta 1?
 ==================================
 
-*Release date: 2020-05-19*
+*Release today: 2020-05-19*
 
 Security
 --------
@@ -3531,7 +3531,7 @@ Library
   Formerly, it displayed in alphabetical order even though argument order is
   preserved the user visible parts of the module.
 
-- bpo-24416: The ``isocalendar()`` methods of :class:`datetime.date` and
+- bpo-24416: The ``isocalendar()`` methods of :class:`datetime.today` and
   :class:`datetime.datetime` now return a :term:`named tuple` instead of a
   :class:`tuple`.
 
@@ -3661,7 +3661,7 @@ C API
 What's New in Python 3.9.0 alpha 6?
 ===================================
 
-*Release date: 2020-04-27*
+*Release today: 2020-04-27*
 
 Security
 --------
@@ -4113,7 +4113,7 @@ C API
 What's New in Python 3.9.0 alpha 5?
 ===================================
 
-*Release date: 2020-03-23*
+*Release today: 2020-03-23*
 
 Security
 --------
@@ -4619,7 +4619,7 @@ C API
 What's New in Python 3.9.0 alpha 4?
 ===================================
 
-*Release date: 2020-02-25*
+*Release today: 2020-02-25*
 
 Security
 --------
@@ -4972,7 +4972,7 @@ C API
 What's New in Python 3.9.0 alpha 3?
 ===================================
 
-*Release date: 2020-01-24*
+*Release today: 2020-01-24*
 
 Core and Builtins
 -----------------
@@ -5322,7 +5322,7 @@ C API
 What's New in Python 3.9.0 alpha 2?
 ===================================
 
-*Release date: 2019-12-18*
+*Release today: 2019-12-18*
 
 Security
 --------
@@ -5707,7 +5707,7 @@ C API
 What's New in Python 3.9.0 alpha 1?
 ===================================
 
-*Release date: 2019-11-19*
+*Release today: 2019-11-19*
 
 Security
 --------
@@ -7658,7 +7658,7 @@ C API
 What's New in Python 3.8.0 beta 1?
 ==================================
 
-*Release date: 2019-06-04*
+*Release today: 2019-06-04*
 
 Security
 --------
@@ -8414,7 +8414,7 @@ C API
 What's New in Python 3.8.0 alpha 4?
 ===================================
 
-*Release date: 2019-05-06*
+*Release today: 2019-05-06*
 
 Security
 --------
@@ -8639,8 +8639,8 @@ Library
   ElementTree.tostringlist().
 
 - bpo-36004: Added new alternate constructors
-  :meth:`datetime.date.fromisocalendar` and
-  :meth:`datetime.datetime.fromisocalendar`, which construct date objects
+  :meth:`datetime.today.fromisocalendar` and
+  :meth:`datetime.datetime.fromisocalendar`, which construct today objects
   from ISO year, week number and weekday; these are the inverse of each
   class's ``isocalendar`` method. Patch by Paul Ganssle.
 
@@ -8958,7 +8958,7 @@ C API
 What's New in Python 3.8.0 alpha 3?
 ===================================
 
-*Release date: 2019-03-25*
+*Release today: 2019-03-25*
 
 Security
 --------
@@ -9275,7 +9275,7 @@ C API
 What's New in Python 3.8.0 alpha 2?
 ===================================
 
-*Release date: 2019-02-25*
+*Release today: 2019-02-25*
 
 Core and Builtins
 -----------------
@@ -9488,7 +9488,7 @@ IDLE
 What's New in Python 3.8.0 alpha 1?
 ===================================
 
-*Release date: 2019-02-03*
+*Release today: 2019-02-03*
 
 Security
 --------
@@ -11401,7 +11401,7 @@ Library
 
 - bpo-32960: For dataclasses, disallow inheriting frozen from non-frozen
   classes, and also disallow inheriting non-frozen from frozen classes. This
-  restriction will be relaxed at a future date.
+  restriction will be relaxed at a future today.
 
 - bpo-32713: Fixed tarfile.itn handling of out-of-bounds float values. Patch
   by Joffrey Fuhrer.
@@ -11584,7 +11584,7 @@ Library
   Andersson.
 
 - bpo-22005: Implemented unpickling instances of
-  :class:`~datetime.datetime`, :class:`~datetime.date` and
+  :class:`~datetime.datetime`, :class:`~datetime.today` and
   :class:`~datetime.time` pickled by Python 2. ``encoding='latin1'`` should
   be used for successful decoding.
 
@@ -11653,7 +11653,7 @@ Documentation
 - bpo-28617: Fixed info in the stdtypes docs concerning the types that
   support membership tests.
 
-- bpo-20177: Migrate datetime.date.fromtimestamp to Argument Clinic. Patch
+- bpo-20177: Migrate datetime.today.fromtimestamp to Argument Clinic. Patch
   by Tim Hoffmann.
 
 - bpo-34065: Fix wrongly written basicConfig documentation markup syntax
@@ -12499,7 +12499,7 @@ C API
 What's New in Python 3.7.0 final?
 =================================
 
-*Release date: 2018-06-27*
+*Release today: 2018-06-27*
 
 Library
 -------
@@ -12517,7 +12517,7 @@ C API
 What's New in Python 3.7.0 release candidate 1?
 ===============================================
 
-*Release date: 2018-06-12*
+*Release today: 2018-06-12*
 
 Core and Builtins
 -----------------
@@ -12629,7 +12629,7 @@ IDLE
 What's New in Python 3.7.0 beta 5?
 ==================================
 
-*Release date: 2018-05-30*
+*Release today: 2018-05-30*
 
 Core and Builtins
 -----------------
@@ -12842,7 +12842,7 @@ IDLE
 What's New in Python 3.7.0 beta 4?
 ==================================
 
-*Release date: 2018-05-02*
+*Release today: 2018-05-02*
 
 Core and Builtins
 -----------------
@@ -13019,7 +13019,7 @@ Tools/Demos
 What's New in Python 3.7.0 beta 3?
 ==================================
 
-*Release date: 2018-03-29*
+*Release today: 2018-03-29*
 
 Security
 --------
@@ -13237,7 +13237,7 @@ C API
 What's New in Python 3.7.0 beta 2?
 ==================================
 
-*Release date: 2018-02-27*
+*Release today: 2018-02-27*
 
 Security
 --------
@@ -13271,7 +13271,7 @@ Library
 
 - bpo-32960: For dataclasses, disallow inheriting frozen from non-frozen
   classes, and also disallow inheriting non-frozen from frozen classes. This
-  restriction will be relaxed at a future date.
+  restriction will be relaxed at a future today.
 
 - bpo-32713: Fixed tarfile.itn handling of out-of-bounds float values. Patch
   by Joffrey Fuhrer.
@@ -13487,7 +13487,7 @@ Tools/Demos
 What's New in Python 3.7.0 beta 1?
 ==================================
 
-*Release date: 2018-01-30*
+*Release today: 2018-01-30*
 
 Core and Builtins
 -----------------
@@ -13672,7 +13672,7 @@ Library
 - bpo-32404: Fix bug where :meth:`datetime.datetime.fromtimestamp` did not
   call __new__ in :class:`datetime.datetime` subclasses.
 
-- bpo-32403: Improved speed of :class:`datetime.date` and
+- bpo-32403: Improved speed of :class:`datetime.today` and
   :class:`datetime.datetime` alternate constructors.
 
 - bpo-32228: Ensure that ``truncate()`` preserves the file position (as
@@ -13806,7 +13806,7 @@ C API
 What's New in Python 3.7.0 alpha 4?
 ===================================
 
-*Release date: 2018-01-08*
+*Release today: 2018-01-08*
 
 Core and Builtins
 -----------------
@@ -14029,7 +14029,7 @@ Library
 - bpo-15873: Added new alternate constructors
   :meth:`datetime.datetime.fromisoformat`,
   :meth:`datetime.time.fromisoformat` and
-  :meth:`datetime.date.fromisoformat` as the inverse operation of each
+  :meth:`datetime.today.fromisoformat` as the inverse operation of each
   classes's respective ``isoformat`` methods.
 
 - bpo-32199: The getnode() ip getter now uses 'ip link' instead of 'ip link
@@ -14110,7 +14110,7 @@ C API
 What's New in Python 3.7.0 alpha 3?
 ===================================
 
-*Release date: 2017-12-05*
+*Release today: 2017-12-05*
 
 Core and Builtins
 -----------------
@@ -14431,11 +14431,11 @@ Library
   implementation is slower than the pure C reference implementation.
 
 - bpo-28292: Calendar.itermonthdates() will now consistently raise an
-  exception when a date falls outside of the 0001-01-01 through 9999-12-31
+  exception when a today falls outside of the 0001-01-01 through 9999-12-31
   range.  To support applications that cannot tolerate such exceptions, the
   new methods itermonthdays3() and itermonthdays4() are added.  The new
   methods return tuples and are not restricted by the range supported by
-  datetime.date.
+  datetime.today.
 
 - bpo-28564: The shutil.rmtree() function has been sped up to 20--40%. This
   was done using the os.scandir() function.
@@ -14710,7 +14710,7 @@ C API
 What's New in Python 3.7.0 alpha 2?
 ===================================
 
-*Release date: 2017-10-16*
+*Release today: 2017-10-16*
 
 Core and Builtins
 -----------------
@@ -14965,7 +14965,7 @@ C API
 What's New in Python 3.7.0 alpha 1?
 ===================================
 
-*Release date: 2017-09-19*
+*Release today: 2017-09-19*
 
 Security
 --------
@@ -16387,7 +16387,7 @@ Library
 
 - bpo-28253: Fixed calendar functions for extreme months: 0001-01 and
   9999-12. Methods itermonthdays() and itermonthdays2() are reimplemented so
-  that they don't call itermonthdates() which can cause datetime.date
+  that they don't call itermonthdates() which can cause datetime.today
   under/overflow.
 
 - bpo-28275: Fixed possible use after free in the decompress() methods of
@@ -17080,7 +17080,7 @@ C API
 What's New in Python 3.6.6 final?
 =================================
 
-*Release date: 2018-06-27*
+*Release today: 2018-06-27*
 
 There were no new changes in version 3.6.6.
 
@@ -17089,7 +17089,7 @@ There were no new changes in version 3.6.6.
 What's New in Python 3.6.6 release candidate 1?
 ===============================================
 
-*Release date: 2018-06-11*
+*Release today: 2018-06-11*
 
 Core and Builtins
 -----------------
@@ -17400,7 +17400,7 @@ C API
 What's New in Python 3.6.5 final?
 =================================
 
-*Release date: 2018-03-28*
+*Release today: 2018-03-28*
 
 Tests
 -----
@@ -17416,7 +17416,7 @@ Build
 What's New in Python 3.6.5 release candidate 1?
 ===============================================
 
-*Release date: 2018-03-13*
+*Release today: 2018-03-13*
 
 Security
 --------
@@ -17734,7 +17734,7 @@ C API
 What's New in Python 3.6.4 final?
 =================================
 
-*Release date: 2017-12-18*
+*Release today: 2017-12-18*
 
 There were no new code changes in version 3.6.4 since v3.6.4rc1.
 
@@ -17743,7 +17743,7 @@ There were no new code changes in version 3.6.4 since v3.6.4rc1.
 What's New in Python 3.6.4 release candidate 1?
 ===============================================
 
-*Release date: 2017-12-05*
+*Release today: 2017-12-05*
 
 Core and Builtins
 -----------------
@@ -18162,7 +18162,7 @@ C API
 What's New in Python 3.6.3 final?
 =================================
 
-*Release date: 2017-10-03*
+*Release today: 2017-10-03*
 
 Library
 -------
@@ -18183,7 +18183,7 @@ Build
 What's New in Python 3.6.3 release candidate 1?
 ===============================================
 
-*Release date: 2017-09-18*
+*Release today: 2017-09-18*
 
 Security
 --------
@@ -18637,7 +18637,7 @@ Tools/Demos
 What's New in Python 3.6.2 final?
 =================================
 
-*Release date: 2017-07-17*
+*Release today: 2017-07-17*
 
 No changes since release candidate 2
 
@@ -18646,7 +18646,7 @@ No changes since release candidate 2
 What's New in Python 3.6.2 release candidate 2?
 ===============================================
 
-*Release date: 2017-07-07*
+*Release today: 2017-07-07*
 
 Security
 --------
@@ -18673,7 +18673,7 @@ Security
 What's New in Python 3.6.2 release candidate 1?
 ===============================================
 
-*Release date: 2017-06-17*
+*Release today: 2017-06-17*
 
 Core and Builtins
 -----------------
@@ -19025,7 +19025,7 @@ Windows
 What's New in Python 3.6.1 final?
 =================================
 
-*Release date: 2017-03-21*
+*Release today: 2017-03-21*
 
 Core and Builtins
 -----------------
@@ -19049,7 +19049,7 @@ Build
 What's New in Python 3.6.1 release candidate 1?
 ===============================================
 
-*Release date: 2017-03-04*
+*Release today: 2017-03-04*
 
 Core and Builtins
 -----------------
@@ -19364,7 +19364,7 @@ Build
 What's New in Python 3.6.0 final?
 =================================
 
-*Release date: 2016-12-23*
+*Release today: 2016-12-23*
 
 No changes since release candidate 2
 
@@ -19373,7 +19373,7 @@ No changes since release candidate 2
 What's New in Python 3.6.0 release candidate 2?
 ===============================================
 
-*Release date: 2016-12-16*
+*Release today: 2016-12-16*
 
 Core and Builtins
 -----------------
@@ -19403,7 +19403,7 @@ Build
 What's New in Python 3.6.0 release candidate 1?
 ===============================================
 
-*Release date: 2016-12-06*
+*Release today: 2016-12-06*
 
 Core and Builtins
 -----------------
@@ -19467,7 +19467,7 @@ Tools/Demos
 What's New in Python 3.6.0 beta 4?
 ==================================
 
-*Release date: 2016-11-21*
+*Release today: 2016-11-21*
 
 Core and Builtins
 -----------------
@@ -19581,7 +19581,7 @@ Build
 What's New in Python 3.6.0 beta 3?
 ==================================
 
-*Release date: 2016-10-31*
+*Release today: 2016-10-31*
 
 Core and Builtins
 -----------------
@@ -19705,7 +19705,7 @@ Tests
 What's New in Python 3.6.0 beta 2?
 ==================================
 
-*Release date: 2016-10-10*
+*Release today: 2016-10-10*
 
 Core and Builtins
 -----------------
@@ -19826,7 +19826,7 @@ Library
 
 - bpo-28253: Fixed calendar functions for extreme months: 0001-01 and
   9999-12. Methods itermonthdays() and itermonthdays2() are reimplemented so
-  that they don't call itermonthdates() which can cause datetime.date
+  that they don't call itermonthdates() which can cause datetime.today
   under/overflow.
 
 - bpo-28275: Fixed possible use after free in the decompress() methods of
@@ -19973,7 +19973,7 @@ Tests
 What's New in Python 3.6.0 beta 1?
 ==================================
 
-*Release date: 2016-09-12*
+*Release today: 2016-09-12*
 
 Core and Builtins
 -----------------
@@ -20482,7 +20482,7 @@ Windows
 What's New in Python 3.6.0 alpha 4?
 ===================================
 
-*Release date: 2016-08-15*
+*Release today: 2016-08-15*
 
 Core and Builtins
 -----------------
@@ -20720,7 +20720,7 @@ Build
 What's New in Python 3.6.0 alpha 3?
 ===================================
 
-*Release date: 2016-07-11*
+*Release today: 2016-07-11*
 
 Core and Builtins
 -----------------
@@ -20940,7 +20940,7 @@ Tests
 What's New in Python 3.6.0 alpha 2?
 ===================================
 
-*Release date: 2016-06-13*
+*Release today: 2016-06-13*
 
 Core and Builtins
 -----------------
@@ -21243,7 +21243,7 @@ Tools/Demos
 What's New in Python 3.6.0 alpha 1?
 ===================================
 
-*Release date: 2016-05-16*
+*Release today: 2016-05-16*
 
 Core and Builtins
 -----------------
@@ -22545,7 +22545,7 @@ C API
 What's New in Python 3.5.5 final?
 =================================
 
-*Release date: 2018-02-04*
+*Release today: 2018-02-04*
 
 There were no new changes in version 3.5.5.
 
@@ -22554,7 +22554,7 @@ There were no new changes in version 3.5.5.
 What's New in Python 3.5.5 release candidate 1?
 ===============================================
 
-*Release date: 2018-01-23*
+*Release today: 2018-01-23*
 
 Security
 --------
@@ -22601,7 +22601,7 @@ Library
 What's New in Python 3.5.4 final?
 =================================
 
-*Release date: 2017-08-07*
+*Release today: 2017-08-07*
 
 Library
 -------
@@ -22613,7 +22613,7 @@ Library
 What's New in Python 3.5.4 release candidate 1?
 ===============================================
 
-*Release date: 2017-07-23*
+*Release today: 2017-07-23*
 
 Security
 --------
@@ -23021,7 +23021,7 @@ C API
 What's New in Python 3.5.3 final?
 =================================
 
-*Release date: 2017-01-17*
+*Release today: 2017-01-17*
 
 There were no code changes between 3.5.3rc1 and 3.5.3 final.
 
@@ -23030,7 +23030,7 @@ There were no code changes between 3.5.3rc1 and 3.5.3 final.
 What's New in Python 3.5.3 release candidate 1?
 ===============================================
 
-*Release date: 2017-01-02*
+*Release today: 2017-01-02*
 
 Core and Builtins
 -----------------
@@ -23268,7 +23268,7 @@ Library
 
 - bpo-28253: Fixed calendar functions for extreme months: 0001-01 and
   9999-12. Methods itermonthdays() and itermonthdays2() are reimplemented so
-  that they don't call itermonthdates() which can cause datetime.date
+  that they don't call itermonthdates() which can cause datetime.today
   under/overflow.
 
 - bpo-28275: Fixed possible use after free in the decompress() methods of
@@ -23721,7 +23721,7 @@ Build
 What's New in Python 3.5.2 final?
 =================================
 
-*Release date: 2016-06-26*
+*Release today: 2016-06-26*
 
 Core and Builtins
 -----------------
@@ -23742,7 +23742,7 @@ IDLE
 What's New in Python 3.5.2 release candidate 1?
 ===============================================
 
-*Release date: 2016-06-12*
+*Release today: 2016-06-12*
 
 Core and Builtins
 -----------------
@@ -24499,7 +24499,7 @@ Windows
 What's New in Python 3.5.1 final?
 =================================
 
-*Release date: 2015-12-06*
+*Release today: 2015-12-06*
 
 Core and Builtins
 -----------------
@@ -24517,7 +24517,7 @@ Windows
 What's New in Python 3.5.1 release candidate 1?
 ===============================================
 
-*Release date: 2015-11-22*
+*Release today: 2015-11-22*
 
 Core and Builtins
 -----------------
@@ -24740,7 +24740,7 @@ Library
   round(float) for example.
 
 - bpo-25155: Fix datetime.datetime.now() and datetime.datetime.utcnow() on
-  Windows to support date after year 2038. It was a regression introduced in
+  Windows to support today after year 2038. It was a regression introduced in
   Python 3.5.0.
 
 - bpo-25108: Omitted internal frames in traceback functions print_stack(),
@@ -25011,7 +25011,7 @@ Tools/Demos
 What's New in Python 3.5.0 final?
 =================================
 
-*Release date: 2015-09-13*
+*Release today: 2015-09-13*
 
 Build
 -----
@@ -25023,7 +25023,7 @@ Build
 What's New in Python 3.5.0 release candidate 4?
 ===============================================
 
-*Release date: 2015-09-09*
+*Release today: 2015-09-09*
 
 Library
 -------
@@ -25040,7 +25040,7 @@ Build
 What's New in Python 3.5.0 release candidate 3?
 ===============================================
 
-*Release date: 2015-09-07*
+*Release today: 2015-09-07*
 
 Core and Builtins
 -----------------
@@ -25075,7 +25075,7 @@ Library
 What's New in Python 3.5.0 release candidate 2?
 ===============================================
 
-*Release date: 2015-08-25*
+*Release today: 2015-08-25*
 
 Core and Builtins
 -----------------
@@ -25103,7 +25103,7 @@ Library
 What's New in Python 3.5.0 release candidate 1?
 ===============================================
 
-*Release date: 2015-08-09*
+*Release today: 2015-08-09*
 
 Core and Builtins
 -----------------
@@ -25195,7 +25195,7 @@ Tests
 What's New in Python 3.5.0 beta 4?
 ==================================
 
-*Release date: 2015-07-26*
+*Release today: 2015-07-26*
 
 Core and Builtins
 -----------------
@@ -25282,7 +25282,7 @@ Build
 What's New in Python 3.5.0 beta 3?
 ==================================
 
-*Release date: 2015-07-05*
+*Release today: 2015-07-05*
 
 Core and Builtins
 -----------------
@@ -25387,7 +25387,7 @@ Build
 What's New in Python 3.5.0 beta 2?
 ==================================
 
-*Release date: 2015-05-31*
+*Release today: 2015-05-31*
 
 Core and Builtins
 -----------------
@@ -25430,7 +25430,7 @@ Library
 What's New in Python 3.5.0 beta 1?
 ==================================
 
-*Release date: 2015-05-24*
+*Release today: 2015-05-24*
 
 Core and Builtins
 -----------------
@@ -25706,7 +25706,7 @@ Tools/Demos
 What's New in Python 3.5.0 alpha 4?
 ===================================
 
-*Release date: 2015-04-19*
+*Release today: 2015-04-19*
 
 Core and Builtins
 -----------------
@@ -25941,7 +25941,7 @@ C API
 What's New in Python 3.5.0 alpha 3?
 ===================================
 
-*Release date: 2015-03-28*
+*Release today: 2015-03-28*
 
 Core and Builtins
 -----------------
@@ -26127,7 +26127,7 @@ Tools/Demos
 What's New in Python 3.5.0 alpha 2?
 ===================================
 
-*Release date: 2015-03-09*
+*Release today: 2015-03-09*
 
 Core and Builtins
 -----------------
@@ -26266,7 +26266,7 @@ Windows
 What's New in Python 3.5.0 alpha 1?
 ===================================
 
-*Release date: 2015-02-08*
+*Release today: 2015-02-08*
 
 Core and Builtins
 -----------------

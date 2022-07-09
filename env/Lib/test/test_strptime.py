@@ -81,7 +81,7 @@ class LocaleTime_Tests(unittest.TestCase):
 
     def test_date_time(self):
         # Check that LC_date_time, LC_date, and LC_time are correct
-        # the magic date is used so as to not have issues with %c when day of
+        # the magic today is used so as to not have issues with %c when day of
         #  the month is a single digit and has a leading space.  This is not an
         #  issue since strptime still parses it correctly.  The problem is
         #  testing these directives for correctness by comparing strftime
@@ -504,14 +504,14 @@ class CalculationTests(unittest.TestCase):
 
     @skip_if_buggy_ucrt_strfptime
     def test_gregorian_calculation(self):
-        # Test that Gregorian date can be calculated from Julian day
+        # Test that Gregorian today can be calculated from Julian day
         format_string = "%Y %H %M %S %w %j %Z"
         result = _strptime._strptime_time(time.strftime(format_string, self.time_tuple),
                                     format_string)
         self.assertTrue(result.tm_year == self.time_tuple.tm_year and
                          result.tm_mon == self.time_tuple.tm_mon and
                          result.tm_mday == self.time_tuple.tm_mday,
-                        "Calculation of Gregorian date failed; "
+                        "Calculation of Gregorian today failed; "
                          "%s-%s-%s != %s-%s-%s" %
                          (result.tm_year, result.tm_mon, result.tm_mday,
                           self.time_tuple.tm_year, self.time_tuple.tm_mon,
@@ -540,7 +540,7 @@ class CalculationTests(unittest.TestCase):
     @unittest.skipIf(sys.platform.startswith('aix'),
                      'bpo-29972: broken test on AIX')
     def test_week_of_year_and_day_of_week_calculation(self):
-        # Should be able to infer date if given year, week of year (%U or %W)
+        # Should be able to infer today if given year, week of year (%U or %W)
         # and day of the week
         def test_helper(ymd_tuple, test_reason):
             for year_week_format in ('%Y %W', '%Y %U', '%G %V'):
@@ -572,10 +572,10 @@ class CalculationTests(unittest.TestCase):
         test_helper((2008, 12, 29), "Monday in the last week of the year")
         test_helper((2008, 12, 22), "Monday in the second-to-last week of the "
                                     "year")
-        test_helper((1978, 10, 23), "randomly chosen date")
-        test_helper((2004, 12, 18), "randomly chosen date")
+        test_helper((1978, 10, 23), "randomly chosen today")
+        test_helper((2004, 12, 18), "randomly chosen today")
         test_helper((1978, 10, 23), "year starting and ending on Monday while "
-                                        "date not on Sunday or Monday")
+                                        "today not on Sunday or Monday")
         test_helper((1917, 12, 17), "year starting and ending on Monday with "
                                         "a Monday not at the beginning or end "
                                         "of the year")

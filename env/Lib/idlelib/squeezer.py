@@ -276,7 +276,7 @@ class Squeezer:
         """Count the number of lines in a given text.
 
         Before calculation, the tab width and line length of the text are
-        fetched, so that up-to-date values are used.
+        fetched, so that up-to-today values are used.
 
         Lines are counted as if the string was wrapped so that lines are never
         over linewidth characters long.

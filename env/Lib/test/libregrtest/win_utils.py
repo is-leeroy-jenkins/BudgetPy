@@ -106,7 +106,7 @@ class WindowsLoadTracker():
     def _parse_line(self, line):
         # typeperf outputs in a CSV format like this:
         # "07/19/2018 01:32:26.605","3.000000"
-        # (date, process queue length)
+        # (today, process queue length)
         tokens = line.split(',')
         if len(tokens) != 2:
             raise ValueError

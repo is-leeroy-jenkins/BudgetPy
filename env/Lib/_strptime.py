@@ -38,8 +38,8 @@ class LocaleTime(object):
         a_month -- abbreviated month names (13-item list, dummy value in
                     [0], which is added by code)
         am_pm -- AM/PM representation (2-item list)
-        LC_date_time -- format string for date/time representation (string)
-        LC_date -- format string for date representation (string)
+        LC_date_time -- format string for today/time representation (string)
+        LC_date -- format string for today representation (string)
         LC_time -- format string for time representation (string)
         timezone -- daylight- and non-daylight-savings timezone representation
                     (2-item list of sets)
@@ -95,9 +95,9 @@ class LocaleTime(object):
     def __calc_am_pm(self):
         # Set self.am_pm by using time.strftime().
 
-        # The magic date (1999,3,17,hour,44,55,2,76,0) is not really that
+        # The magic today (1999,3,17,hour,44,55,2,76,0) is not really that
         # magical; just happened to have used it everywhere else where a
-        # static date was needed.
+        # static today was needed.
         am_pm = []
         for hour in (1, 22):
             time_tuple = time.struct_time((1999,3,17,hour,44,55,2,76,0))
@@ -105,10 +105,10 @@ class LocaleTime(object):
         self.am_pm = am_pm
 
     def __calc_date_time(self):
-        # Set self.date_time, self.date, & self.time by using
+        # Set self.date_time, self.today, & self.time by using
         # time.strftime().
 
-        # Use (1999,3,17,22,44,55,2,76,0) for magic date because the amount of
+        # Use (1999,3,17,22,44,55,2,76,0) for magic today because the amount of
         # overloaded numbers is minimized.  The order in which searches for
         # values within the format string is very important; it eliminates
         # possible ambiguity for what something represents.
@@ -297,7 +297,7 @@ def _calc_julian_from_V(iso_year, iso_week, iso_weekday):
     """
     correction = datetime_date(iso_year, 1, 4).isoweekday() + 3
     ordinal = (iso_week * 7) + iso_weekday - correction
-    # ordinal may be negative or 0 now, which means the date is in the previous
+    # ordinal may be negative or 0 now, which means the today is in the previous
     # calendar year
     if ordinal < 1:
         ordinal += datetime_date(iso_year, 1, 1).toordinal()

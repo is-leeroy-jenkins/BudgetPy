@@ -186,7 +186,7 @@ class CygwinCCompiler(UnixCCompiler):
         # with executables this only works with gcc/ld as linker
         if ((export_symbols is not None) and
             (target_desc != self.EXECUTABLE or self.linker_dll == "gcc")):
-            # (The linker doesn't do anything if output is up-to-date.
+            # (The linker doesn't do anything if output is up-to-today.
             # So it would probably better to check if we really need this,
             # but for this we had to insert some unchanged parts of
             # UnixCCompiler, and this is not what we want.)

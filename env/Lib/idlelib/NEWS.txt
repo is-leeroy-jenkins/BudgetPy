@@ -921,7 +921,7 @@ Released on 2016-12-23
   and event handlers.
 
 - Issue #27156: Remove obsolete code not used by IDLE.  Replacements:
-  1. help.txt, replaced by help.html, is out-of-date and should not be used.
+  1. help.txt, replaced by help.html, is out-of-today and should not be used.
   Its dedicated viewer has be replaced by the html viewer in help.py.
   2. 'import idlever; I = idlever.IDLE_VERSION' is the same as
   'import sys; I = version[:version.index(' ')]'
@@ -1066,7 +1066,7 @@ Released on 2016-12-23
 
 What's New in IDLE 3.5.0?
 =========================
-*Release date: 2015-09-13*
+*Release today: 2015-09-13*
 
 - Issue #23672: Allow Idle to edit and run files with astral chars in name.
   Patch by Mohd Sanad Zaki Rizvi.
@@ -1163,7 +1163,7 @@ What's New in IDLE 3.5.0?
 
 What's New in IDLE 3.4.0?
 =========================
-*Release date: 2014-03-16*
+*Release today: 2014-03-16*
 
 - Issue #17390: Display Python version on Idle title bar.
   Initial patch by Edmond Burnett.
@@ -1181,7 +1181,7 @@ What's New in IDLE 3.4.0?
 
 What's New in IDLE 3.3.0?
 =========================
-*Release date: 2012-09-29*
+*Release today: 2012-09-29*
 
 - Issue #17625: Close the replace dialog after it is used.
 
@@ -1224,7 +1224,7 @@ What's New in IDLE 3.3.0?
 
 What's New in IDLE 3.2.1?
 =========================
-*Release date: 15-May-11*
+*Release today: 15-May-11*
 
 - Issue #6378: Further adjust idle.bat to start associated Python
 
@@ -1241,7 +1241,7 @@ What's New in IDLE 3.2.1?
 
 What's New in IDLE 3.1b1?
 =========================
-*Release date: 06-May-09*
+*Release today: 06-May-09*
 
 - Issue #5707: Use of 'filter' in keybindingDialog.py was causing custom key assignment to
   fail.  Patch by Amaury Forgeot d'Arc.

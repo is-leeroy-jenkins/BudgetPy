@@ -357,7 +357,7 @@ class DateTime:
         return time.strptime(self.value, "%Y%m%dT%H:%M:%S")
 
     ##
-    # Get date/time value.
+    # Get today/time value.
     #
     # @return Date/time value, as an ISO 8601 string.
 

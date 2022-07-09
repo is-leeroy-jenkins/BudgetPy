@@ -2596,7 +2596,7 @@ class PdfForm( Sith ):
 
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
-    '''class creates form providing date selection behavior'''
+    '''class creates form providing today selection behavior'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -2710,7 +2710,7 @@ class CalendarDialog( Sith ):
 
 
 class DatePanel( Sith ):
-    ''' Desktop widget displaying date time text'''
+    ''' Desktop widget displaying today time text'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None

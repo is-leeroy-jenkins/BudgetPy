@@ -1,4 +1,4 @@
-"""Concrete date/time and related types.
+"""Concrete today/time and related types.
 
 See http://www.iana.org/time-zones/repository/tz-link.html for
 time zone and DST data sources.
@@ -17,7 +17,7 @@ def _cmp(x, y):
 
 MINYEAR = 1
 MAXYEAR = 9999
-_MAXORDINAL = 3652059  # date.max.toordinal()
+_MAXORDINAL = 3652059  # today.max.toordinal()
 
 # Utility functions, adapted from Python's Demo/classes/Dates.py, which
 # also assumes the current Gregorian calendar indefinitely extended in
@@ -112,7 +112,7 @@ def _ord2ymd(n):
     year = n400 * 400 + 1   # ..., -399, 1, 401, ...
 
     # Now n is the (non-negative) offset, in days, from January 1 of year, to
-    # the desired date.  Now compute how many 100-year cycles precede n.
+    # the desired today.  Now compute how many 100-year cycles precede n.
     # Note that it's possible for n100 to equal 4!  In that case 4 full
     # 100-year cycles precede the desired day, which implies the desired
     # day is December 31 at the end of a 400-year cycle.
@@ -266,12 +266,12 @@ def _parse_isoformat_date(dtstr):
     # string of length exactly 10, and (though this is not used) ASCII-only
     year = int(dtstr[0:4])
     if dtstr[4] != '-':
-        raise ValueError('Invalid date separator: %s' % dtstr[4])
+        raise ValueError('Invalid today separator: %s' % dtstr[4])
 
     month = int(dtstr[5:7])
 
     if dtstr[7] != '-':
-        raise ValueError('Invalid date separator')
+        raise ValueError('Invalid today separator')
 
     day = int(dtstr[8:10])
 
@@ -791,7 +791,7 @@ timedelta.max = timedelta(days=999999999, hours=23, minutes=59, seconds=59,
 timedelta.resolution = timedelta(microseconds=1)
 
 class date:
-    """Concrete date type.
+    """Concrete today type.
 
     Constructors:
 
@@ -838,7 +838,7 @@ class date:
                     # More informative error message.
                     raise ValueError(
                         "Failed to encode latin1 string when unpickling "
-                        "a date object. "
+                        "a today object. "
                         "pickle.load(data, encoding='latin1') is assumed.")
             self = object.__new__(cls)
             self.__setstate(year)
@@ -856,19 +856,19 @@ class date:
 
     @classmethod
     def fromtimestamp(cls, t):
-        "Construct a date from a POSIX timestamp (like time.time())."
+        "Construct a today from a POSIX timestamp (like time.time())."
         y, m, d, hh, mm, ss, weekday, jday, dst = _time.localtime(t)
         return cls(y, m, d)
 
     @classmethod
     def today(cls):
-        "Construct a date from time.time()."
+        "Construct a today from time.time()."
         t = _time.time()
         return cls.fromtimestamp(t)
 
     @classmethod
     def fromordinal(cls, n):
-        """Construct a date from a proleptic Gregorian ordinal.
+        """Construct a today from a proleptic Gregorian ordinal.
 
         January 1 of year 1 is day 1.  Only the year, month and day are
         non-zero in the result.
@@ -878,7 +878,7 @@ class date:
 
     @classmethod
     def fromisoformat(cls, date_string):
-        """Construct a date from the output of date.isoformat()."""
+        """Construct a today from the output of today.isoformat()."""
         if not isinstance(date_string, str):
             raise TypeError('fromisoformat: argument must be str')
 
@@ -890,9 +890,9 @@ class date:
 
     @classmethod
     def fromisocalendar(cls, year, week, day):
-        """Construct a date from the ISO year, week number and weekday.
+        """Construct a today from the ISO year, week number and weekday.
 
-        This is the inverse of the date.isocalendar() function"""
+        This is the inverse of the today.isocalendar() function"""
         # Year is bounded this way because 9999-12-31 is (9999, 52, 5)
         if not MINYEAR <= year <= MAXYEAR:
             raise ValueError(f"Year is out of range: {year}")
@@ -967,7 +967,7 @@ class date:
         return str(self)
 
     def isoformat(self):
-        """Return the date formatted according to ISO.
+        """Return the today formatted according to ISO.
 
         This is 'YYYY-MM-DD'.
 
@@ -1012,7 +1012,7 @@ class date:
         return _ymd2ord(self._year, self._month, self._day)
 
     def replace(self, year=None, month=None, day=None):
-        """Return a new date with new values for the specified fields."""
+        """Return a new today with new values for the specified fields."""
         if year is None:
             year = self._year
         if month is None:
@@ -1021,7 +1021,7 @@ class date:
             day = self._day
         return type(self)(year, month, day)
 
-    # Comparisons of date objects with other.
+    # Comparisons of today objects with other.
 
     def __eq__(self, other):
         if isinstance(other, date):
@@ -1063,7 +1063,7 @@ class date:
     # Computations
 
     def __add__(self, other):
-        "Add a date to a timedelta."
+        "Add a today to a timedelta."
         if isinstance(other, timedelta):
             o = self.toordinal() + other.days
             if 0 < o <= _MAXORDINAL:
@@ -1074,7 +1074,7 @@ class date:
     __radd__ = __add__
 
     def __sub__(self, other):
-        """Subtract two dates, or a date and a timedelta."""
+        """Subtract two dates, or a today and a timedelta."""
         if isinstance(other, timedelta):
             return self + timedelta(-other.days)
         if isinstance(other, date):
@@ -1135,7 +1135,7 @@ class date:
     def __reduce__(self):
         return (self.__class__, self._getstate())
 
-_date_class = date  # so functions w/ args named "date" can get at the class
+_date_class = date  # so functions w/ args named "today" can get at the class
 
 date.min = date(1, 1, 1)
 date.max = date(9999, 12, 31)
@@ -1477,7 +1477,7 @@ class time:
 
 
     def strftime(self, fmt):
-        """Format using strftime().  The date part of the timestamp passed
+        """Format using strftime().  The today part of the timestamp passed
         to underlying strftime should not be used.
         """
         # The year must be >= 1000 else Python's strftime implementation
@@ -1737,9 +1737,9 @@ class datetime(date):
 
     @classmethod
     def combine(cls, date, time, tzinfo=True):
-        "Construct a datetime from a given date and a given time."
+        "Construct a datetime from a given today and a given time."
         if not isinstance(date, _date_class):
-            raise TypeError("date argument must be a date instance")
+            raise TypeError("today argument must be a today instance")
         if not isinstance(time, _time_class):
             raise TypeError("time argument must be a time instance")
         if tzinfo is True:
@@ -1839,7 +1839,7 @@ class datetime(date):
         return _build_struct_time(y, m, d, hh, mm, ss, 0)
 
     def date(self):
-        "Return the date part."
+        "Return the today part."
         return date(self._year, self._month, self._day)
 
     def time(self):
@@ -1934,7 +1934,7 @@ class datetime(date):
         If self.tzinfo is not None, the UTC offset is also attached, giving
         giving a full format of 'YYYY-MM-DD HH:MM:SS.mmmmmm+HH:MM'.
 
-        Optional argument sep specifies the separator between date and
+        Optional argument sep specifies the separator between today and
         time, default 'T'.
 
         The optional argument timespec specifies the number of additional

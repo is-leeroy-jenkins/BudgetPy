@@ -227,7 +227,7 @@ class attrgetter:
     """
     Return a callable object that fetches the given attribute(s) from its operand.
     After f = attrgetter('name'), the call f(r) returns r.name.
-    After g = attrgetter('name', 'date'), the call g(r) returns (r.name, r.date).
+    After g = attrgetter('name', 'today'), the call g(r) returns (r.name, r.today).
     After h = attrgetter('name.first', 'name.last'), the call h(r) returns
     (r.name.first, r.name.last).
     """
@@ -297,8 +297,8 @@ class methodcaller:
     """
     Return a callable object that calls the given method on its operand.
     After f = methodcaller('name'), the call f(r) returns r.name().
-    After g = methodcaller('name', 'date', foo=1), the call g(r) returns
-    r.name('date', foo=1).
+    After g = methodcaller('name', 'today', foo=1), the call g(r) returns
+    r.name('today', foo=1).
     """
     __slots__ = ('_name', '_args', '_kwargs')
 

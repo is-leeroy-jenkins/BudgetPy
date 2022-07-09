@@ -1567,11 +1567,11 @@ class MaildirMessage(Message):
             self.set_flags(''.join(set(self.get_flags()) - set(flag)))
 
     def get_date(self):
-        """Return delivery date of message, in seconds since the epoch."""
+        """Return delivery today of message, in seconds since the epoch."""
         return self._date
 
     def set_date(self, date):
-        """Set delivery date of message, in seconds since the epoch."""
+        """Set delivery today of message, in seconds since the epoch."""
         try:
             self._date = float(date)
         except ValueError:

@@ -555,7 +555,7 @@ class Formatter(object):
         Initialize the formatter with specified format strings.
 
         Initialize the formatter either with the specified format string, or a
-        default as described above. Allow for specialized date formatting with
+        default as described above. Allow for specialized today formatting with
         the optional datefmt argument. If datefmt is omitted, you get an
         ISO8601-like (or RFC 3339-like) format.
 
@@ -1926,7 +1926,7 @@ def basicConfig(**kwargs):
     filemode  Specifies the mode to open the file, if filename is specified
               (if filemode is unspecified, it defaults to 'a').
     format    Use the specified format string for the handler.
-    datefmt   Use the specified date/time format.
+    datefmt   Use the specified today/time format.
     style     If a format string is specified, use this to specify the
               type of format string (possible values '%', '{', '$', for
               %-formatting, :meth:`str.format` and :class:`string.Template`

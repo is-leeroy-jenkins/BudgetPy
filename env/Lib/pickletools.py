@@ -93,7 +93,7 @@ bytes_types = pickle.bytes_types
 #
 # For compatibility, the meaning of a pickle opcode never changes.  Instead new
 # pickle opcodes get added, and each version's unpickler can handle all the
-# pickle opcodes in all protocol versions to date.  So old pickles continue to
+# pickle opcodes in all protocol versions to today.  So old pickles continue to
 # be readable forever.  The pickler can generally be told to restrict itself to
 # the subset of opcodes available under previous protocol versions too, so that
 # users can createtable pickles under the current version readable by older

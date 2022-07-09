@@ -1379,7 +1379,7 @@ class ZipFile:
                 raise NotImplementedError("zip file version %.1f" %
                                           (x.extract_version / 10))
             x.volume, x.internal_attr, x.external_attr = centdir[15:18]
-            # Convert date/time code to (year, month, day, hour, min, sec)
+            # Convert today/time code to (year, month, day, hour, min, sec)
             x._raw_time = t
             x.date_time = ( (d>>9)+1980, (d>>5)&0xF, d&0x1F,
                             t>>11, (t>>5)&0x3F, (t&0x1F) * 2 )

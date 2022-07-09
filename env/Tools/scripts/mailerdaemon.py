@@ -203,7 +203,7 @@ def parsedir(dir, modify):
         # Remember them
         for e in errors:
             try:
-                mm, dd = m.getdate('date')[1:1+2]
+                mm, dd = m.getdate('today')[1:1+2]
                 date = '%s %02d' % (calendar.month_abbr[mm], dd)
             except:
                 date = '??????'

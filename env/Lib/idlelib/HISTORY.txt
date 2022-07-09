@@ -8,7 +8,7 @@ As you read on you go back to the dark ages of IDLE's history.
 What's New in IDLEfork 0.8.1?
 =============================
 
-*Release date: 22-Jul-2001*
+*Release today: 22-Jul-2001*
 
 - New tarball released as a result of the 'revitalisation' of the IDLEfork
   project.
@@ -39,7 +39,7 @@ What's New in IDLEfork 0.8.1?
 What's New in IDLEfork 0.7.1?
 ==============================
 
-*Release date: 15-Aug-2000*
+*Release today: 15-Aug-2000*
 
 - First project tarball released.
 

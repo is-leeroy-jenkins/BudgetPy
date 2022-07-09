@@ -73,7 +73,7 @@ birth_weight'
 ]
 
 MR_EXP_ATTRS = [
-    'xnat:experimentData/date',
+    'xnat:experimentData/today',
     'xnat:experimentData/visit_id',
     'xnat:experimentData/time',
     'xnat:experimentData/note',
@@ -160,7 +160,7 @@ SC_SCAN_ATTRS = [
 ]
 
 PET_EXP_ATTRS = [
-    'xnat:experimentData/date',
+    'xnat:experimentData/today',
     'xnat:experimentData/visit_id',
     'xnat:experimentData/time',
     'xnat:experimentData/note',
@@ -194,7 +194,7 @@ PET_EXP_ATTRS = [
 ]
 
 CT_EXP_ATTRS = [
-    'xnat:experimentData/date',
+    'xnat:experimentData/today',
     'xnat:experimentData/visit_id',
     'xnat:experimentData/time',
     'xnat:experimentData/note',

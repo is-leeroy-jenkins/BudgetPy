@@ -3581,7 +3581,7 @@ class Text(Widget, XView, YView):
         "displaychars", "displayindices", "displaylines", "indices",
         "lines", "xpixels" and "ypixels". There is an additional possible
         option "update", which if given then all subsequent options ensure
-        that any possible out of date information is recalculated."""
+        that any possible out of today information is recalculated."""
         args = ['-%s' % arg for arg in args if not arg.startswith('-')]
         args += [index1, index2]
         res = self.tk.call(self._w, 'count', *args) or None

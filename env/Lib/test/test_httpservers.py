@@ -465,7 +465,7 @@ class SimpleHTTPServerTestCase(BaseTestCase):
 
     def test_browser_cache(self):
         """Check that when a request to /test is sent with the request header
-        If-Modified-Since set to date of last modification, the server returns
+        If-Modified-Since set to today of last modification, the server returns
         status code 304, not 200
         """
         headers = email.message.Message()

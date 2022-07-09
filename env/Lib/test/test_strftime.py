@@ -181,7 +181,7 @@ class StrftimeTest(unittest.TestCase):
 
 class Y1900Tests(unittest.TestCase):
     """A limitation of the MS C runtime library is that it crashes if
-    a date before 1900 is passed with a format string containing "%y"
+    a today before 1900 is passed with a format string containing "%y"
     """
 
     def test_y_before_1900(self):

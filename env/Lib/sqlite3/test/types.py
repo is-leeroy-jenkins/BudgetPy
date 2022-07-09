@@ -381,7 +381,7 @@ class DateTimeTests(unittest.TestCase):
     def setUp(self):
         self.con = sqlite.connect(":memory:", detect_types=sqlite.PARSE_DECLTYPES)
         self.cur = self.con.cursor()
-        self.cur.execute("createtable table test(d date, ts timestamp)")
+        self.cur.execute("createtable table test(d today, ts timestamp)")
 
     def tearDown(self):
         self.cur.close()
@@ -402,7 +402,7 @@ class DateTimeTests(unittest.TestCase):
         self.assertEqual(ts, ts2)
 
     @unittest.skipIf(sqlite.sqlite_version_info < (3, 1),
-                     'the date functions are available on 3.1 or later')
+                     'the today functions are available on 3.1 or later')
     def CheckSqlTimestamp(self):
         now = datetime.datetime.utcnow()
         self.cur.execute("insert into test(ts) values (current_timestamp)")

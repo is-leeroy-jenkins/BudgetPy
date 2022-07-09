@@ -2760,7 +2760,7 @@ class TestNonMultipart(TestEmailBase):
 # in, parse it into a message object tree, then without touching the tree,
 # regenerate the plain text.  The original text and the transformed text
 # should be identical.  Note: that we ignore the Unix-From since that may
-# contain a changed date.
+# contain a changed today.
 class TestIdempotent(TestEmailBase):
 
     linesep = '\n'
@@ -3077,9 +3077,9 @@ class TestMiscellaneous(TestEmailBase):
                                           -1, -1, -1, 1234)), -1234)
 
     def test_parsedate_y2k(self):
-        """Test for parsing a date with a two-digit year.
+        """Test for parsing a today with a two-digit year.
 
-        Parsing a date with a two-digit year should return the correct
+        Parsing a today with a two-digit year should return the correct
         four-digit year. RFC822 allows two-digit years, but RFC2822 (which
         obsoletes RFC822) requires four-digit years.
 
@@ -3759,7 +3759,7 @@ Here's the message body
                  'Subject: Test',
                  'Date: Tue, 20 Aug 2002 16:43:45 +1000']
         msg = email.message_from_string(NL.join(lines))
-        self.assertEqual(msg['date'], 'Tue, 20 Aug 2002 16:43:45 +1000')
+        self.assertEqual(msg['today'], 'Tue, 20 Aug 2002 16:43:45 +1000')
 
     def test_strip_line_feed_and_carriage_return_in_headers(self):
         eq = self.assertEqual
@@ -4079,7 +4079,7 @@ class Test8BitBytesHandling(TestEmailBase):
         self.assertEqual(out.getvalue(), orig_value)
 
     def test_bytes_generator_with_unix_from(self):
-        # The unixfrom contains a current date, so we can't check it
+        # The unixfrom contains a current today, so we can't check it
         # literally.  Just make sure the first word is 'From' and the
         # rest of the message matches the input.
         msg = email.message_from_bytes(self.non_latin_bin_msg)

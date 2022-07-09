@@ -410,7 +410,7 @@ class DataConnection( DbConfig ):
             err = ErrorDialog( exc )
             err.show( )
 
-# SqlConfig( command, names, values, style )
+# SqlConfig( commandtype, names, values, style )
 class SqlConfig( ):
     '''SqlConfig( names, values ) provides database
     interaction behavior'''
@@ -770,11 +770,17 @@ class Query( ):
     '''Base class for database interaction'''
     __connection = None
     __sqlstatement = None
-    __command = None
+    __sqlconfig = None
+    __dbconfig = None
+    __commandtype = None
     __source = None
+    __table = None
     __provider = None
+    __names = None
+    __values = None
     __path = None
     __connectionstring = None
+    __commandtext = None
 
     @property
     def source( self ):
@@ -830,16 +836,56 @@ class Query( ):
 
     @property
     def commandtype( self ):
-        if self.__command is not None:
-            return self.__command
-        if self.__command is None:
+        if self.__commandtype is not None:
+            return self.__commandtype
+        if self.__commandtype is None:
             cmd = SQL( 'SELECT' )
             return cmd
 
     @commandtype.setter
     def commandtype( self, value ):
         if isinstance( value, SQL ):
-            self.__command = value
+            self.__commandtype = value
+
+    @property
+    def table( self ):
+        if self.__table is not None:
+            return self.__table
+
+    @table.setter
+    def table( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__table = value
+
+    @property
+    def names( self ):
+        if isinstance( self.__names, list ):
+            return self.__names
+
+    @names.setter
+    def names( self, value ):
+        if isinstance( value, list ):
+            self.__names = value
+
+    @property
+    def values( self ):
+        if isinstance( self.__values, tuple ):
+            return self.__values
+
+    @values.setter
+    def values( self, value ):
+        if isinstance( value, tuple ):
+            self.__values = value
+
+    @property
+    def commandtext( self ):
+        if isinstance( self.__commandtext, str ) and self.__commandtext != '':
+            return self.__commandtext
+
+    @commandtext.setter
+    def commandtext( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__commandtext = value
 
     @property
     def connectionstring( self ):
@@ -854,11 +900,68 @@ class Query( ):
     def __init__( self, connection, sqlstatement ):
         self.__connection = connection if isinstance( connection, DataConnection ) else None
         self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
+        self.__dbconfig = connection.configuration
+        self.__sqlconfig = sqlstatement.sqlconfig
         self.__source = connection.source
         self.__provider = connection.provider
-        self.__command = sqlstatement.commandtype
+        self.__commandtype = sqlstatement.commandtype
         self.__path = connection.path
         self.__connectionstring = connection.connectionstring
+
+    def __str__( self ):
+        if isinstance( self.__commandtext, str ) and self.__commandtext != '':
+            return self.__commandtext
+
+    def getquery( self ):
+        try:
+            table = self.__table
+            columns = self.__sqlconfig.columndump( )
+            values = self.__sqlconfig.valuedump( )
+            predicate = self.__sqlconfig.wheredump( )
+            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
+                if self.__commandtype == SQL.SELECTALL:
+                    if len( self.__names ) == 0:
+                        self.__commandtext = f'SELECT * FROM {table}'
+                        return self.__commandtext
+                    if len( self.__names ) > 0:
+                        self.__commandtext = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
+                        return self.__commandtext
+                elif self.__commandtype == SQL.SELECT:
+                    if len( self.__names ) == 0:
+                        self.__commandtext = f'SELECT * FROM {table}'
+                        return self.__commandtext
+                    if len( self.__names ) > 0:
+                        self.__commandtext = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
+                        return self.__commandtext
+                elif self.__commandtype == SQL.INSERT:
+                    self.__commandtext = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
+                    return self.__commandtext
+                elif self.__commandtype == SQL.UPDATE:
+                    self.__commandtext = f'UPDATE {table} ' + f'{self.__sqlconfig.setdump( )} ' + f'{values}'
+                    return self.__commandtext
+                elif self.__commandtype == SQL.DELETE:
+                    self.__commandtext = f'DELETE FROM {table} ' + f'{predicate}'
+                    return self.__commandtext
+            else:
+                if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
+                    if self.__commandtype == SQL.SELECT:
+                        cols = columns.lstrip( '(' ).rstrip( ')' )
+                        self.__commandtext = f'SELECT {cols} FROM {table}'
+                        return self.__commandtext
+                elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
+                    if self.__commandtype == SQL.SELECTALL:
+                        self.__commandtext = f'SELECT * FROM {table}'
+                        return self.__commandtext
+                elif self.__commandtype == 'DELETE':
+                    self.__commandtext = f'DELETE FROM {table}'
+                    return self.__commandtext
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlStatement'
+            exc.method = 'getcommandtext( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 # SQLiteData( connection, sqlstatement )
 class SQLiteData( Query ):

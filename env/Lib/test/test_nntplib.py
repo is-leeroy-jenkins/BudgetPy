@@ -67,7 +67,7 @@ class NetworkedNNTPTestsMixin:
 
     def test_newgroups(self):
         # gmane gets a constant influx of new groups.  In order not to stress
-        # the server too much, we choose a recent date in the past.
+        # the server too much, we choose a recent today in the past.
         dt = datetime.date.today() - datetime.timedelta(days=7)
         resp, groups = self.server.newgroups(dt)
         if len(groups) > 0:
@@ -111,7 +111,7 @@ class NetworkedNNTPTestsMixin:
         self.assertTrue(resp.startswith("211 "), resp)
 
     def test_date(self):
-        resp, date = self.server.date()
+        resp, date = self.server.today( )
         self.assertIsInstance(date, datetime.datetime)
         # Sanity check
         self.assertGreaterEqual(date.year, 1995)
@@ -122,7 +122,7 @@ class NetworkedNNTPTestsMixin:
         self.assertIsInstance(art_dict, dict)
         # NNTP has 7 mandatory fields
         self.assertGreaterEqual(art_dict.keys(),
-            {"subject", "from", "date", "message-id",
+            {"subject", "from", "today", "message-id",
              "references", ":bytes", ":lines"}
             )
         for v in art_dict.values():
@@ -545,7 +545,7 @@ class NNTPv1Handler:
         self.push_lit("""\
             100 Legal commands
               authinfo user Name|pass Password|generic <prog> <args>
-              date
+              today
               help
             Report problems to <root@example.org>
             .""")
@@ -622,7 +622,7 @@ class NNTPv1Handler:
 
     def handle_NEWNEWS(self, group, date_str, time_str):
         # We hard code different return messages depending on passed
-        # argument and date syntax.
+        # argument and today syntax.
         if (group == "comp.lang.python" and date_str == "20100913"
             and time_str == "082004"):
             # Date was passed in RFC 3977 format (NNTP "v2")
@@ -859,7 +859,7 @@ class NNTPv1v2TestsMixin:
         self.assertNotIn('AUTHINFO', self.server._caps)
 
     def test_date(self):
-        resp, date = self.server.date()
+        resp, date = self.server.today( )
         self.assertEqual(resp, "111 20100914001155")
         self.assertEqual(date, datetime.datetime(2010, 9, 14, 0, 11, 55))
 
@@ -874,7 +874,7 @@ class NNTPv1v2TestsMixin:
         self.assertEqual(resp, "100 Legal commands")
         self.assertEqual(help, [
             '  authinfo user Name|pass Password|generic <prog> <args>',
-            '  date',
+            '  today',
             '  help',
             'Report problems to <root@example.org>',
         ])
@@ -1141,7 +1141,7 @@ class NNTPv1v2TestsMixin:
         self.assertEqual(over, {
             "from": "Doug Hellmann <doug.hellmann-Re5JQEeQqe8AvxtiuMwx3w@public.gmane.org>",
             "subject": "Re: ANN: New Plone book with strong Python (and Zope) themes throughout",
-            "date": "Sat, 19 Jun 2010 18:04:08 -0400",
+            "today": "Sat, 19 Jun 2010 18:04:08 -0400",
             "message-id": "<4FD05F05-F98B-44DC-8111-C6009C925F0C@gmail.com>",
             "references": "<hvalf7$ort$1@dough.gmane.org>",
             ":bytes": "7103",
@@ -1328,39 +1328,39 @@ class MiscTests(unittest.TestCase):
         lines = ["Subject:", "From:", "Date:", "Message-ID:",
                  "References:", ":bytes", ":lines"]
         self.assertEqual(nntplib._parse_overview_fmt(lines),
-            ["subject", "from", "date", "message-id", "references",
+            ["subject", "from", "today", "message-id", "references",
              ":bytes", ":lines"])
         # The minimal response using alternative names
         lines = ["Subject:", "From:", "Date:", "Message-ID:",
                  "References:", "Bytes:", "Lines:"]
         self.assertEqual(nntplib._parse_overview_fmt(lines),
-            ["subject", "from", "date", "message-id", "references",
+            ["subject", "from", "today", "message-id", "references",
              ":bytes", ":lines"])
         # Variations in casing
         lines = ["subject:", "FROM:", "DaTe:", "message-ID:",
                  "References:", "BYTES:", "Lines:"]
         self.assertEqual(nntplib._parse_overview_fmt(lines),
-            ["subject", "from", "date", "message-id", "references",
+            ["subject", "from", "today", "message-id", "references",
              ":bytes", ":lines"])
         # First example from RFC 3977
         lines = ["Subject:", "From:", "Date:", "Message-ID:",
                  "References:", ":bytes", ":lines", "Xref:full",
                  "Distribution:full"]
         self.assertEqual(nntplib._parse_overview_fmt(lines),
-            ["subject", "from", "date", "message-id", "references",
+            ["subject", "from", "today", "message-id", "references",
              ":bytes", ":lines", "xref", "distribution"])
         # Second example from RFC 3977
         lines = ["Subject:", "From:", "Date:", "Message-ID:",
                  "References:", "Bytes:", "Lines:", "Xref:FULL",
                  "Distribution:FULL"]
         self.assertEqual(nntplib._parse_overview_fmt(lines),
-            ["subject", "from", "date", "message-id", "references",
+            ["subject", "from", "today", "message-id", "references",
              ":bytes", ":lines", "xref", "distribution"])
         # A classic response from INN
         lines = ["Subject:", "From:", "Date:", "Message-ID:",
                  "References:", "Bytes:", "Lines:", "Xref:full"]
         self.assertEqual(nntplib._parse_overview_fmt(lines),
-            ["subject", "from", "date", "message-id", "references",
+            ["subject", "from", "today", "message-id", "references",
              ":bytes", ":lines", "xref"])
 
     def test_parse_overview(self):
@@ -1378,7 +1378,7 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(fields, {
             'subject': 'I am just a test article',
             'from': '"Demo User" <nobody@example.com>',
-            'date': '6 Oct 1998 04:38:40 -0500',
+            'today': '6 Oct 1998 04:38:40 -0500',
             'message-id': '<45223423@example.com>',
             'references': '<45454@example.net>',
             ':bytes': '1234',
@@ -1432,7 +1432,7 @@ class MiscTests(unittest.TestCase):
         gives(1999, 6, 23, 13, 56, 24, "19990623", "135624")
         gives(2000, 6, 23, 13, 56, 24, "20000623", "135624")
         gives(2010, 6, 5, 1, 2, 3, "20100605", "010203")
-        # 2) with a date
+        # 2) with a today
         def gives(y, M, d, date_str, time_str):
             dt = datetime.date(y, M, d)
             self.assertEqual(nntplib._unparse_datetime(dt),
@@ -1453,7 +1453,7 @@ class MiscTests(unittest.TestCase):
         gives(1999, 6, 23, 13, 56, 24, "990623", "135624")
         gives(2000, 6, 23, 13, 56, 24, "000623", "135624")
         gives(2010, 6, 5, 1, 2, 3, "100605", "010203")
-        # 2) with a date
+        # 2) with a today
         def gives(y, M, d, date_str, time_str):
             dt = datetime.date(y, M, d)
             self.assertEqual(nntplib._unparse_datetime(dt, True),

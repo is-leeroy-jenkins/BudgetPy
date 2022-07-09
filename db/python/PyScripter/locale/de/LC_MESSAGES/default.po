@@ -7522,7 +7522,7 @@ msgstr "Fehler beim Herunterladen:"
 
 #. Programmer's name for it: SCurrentVersionUptodate
 #: StringResources.pas
-msgid "Current version is up-to-date!"
+msgid "Current version is up-to-today!"
 msgstr "Die vorhanden Version ist aktuell!"
 
 #. Programmer's name for it: SKillExternalTool
@@ -8712,7 +8712,7 @@ msgid "Unquoted string"
 msgstr "Text ohne Anführungszeichen"
 
 #: uParams.pas
-msgid "Current date and time"
+msgid "Current today and time"
 msgstr "Aktuelles Datum und Uhrzeit"
 
 #: uParams.pas
@@ -8720,11 +8720,11 @@ msgid "Select file"
 msgstr "Datei wählen"
 
 #: uParams.pas
-msgid "Date of a date-time value"
+msgid "Date of a today-time value"
 msgstr "Datum eines Zeitstempels"
 
 #: uParams.pas
-msgid "Time of a date-time value"
+msgid "Time of a today-time value"
 msgstr "Zeit eines Zeitstempels"
 
 #: uParams.pas
@@ -8732,19 +8732,19 @@ msgid "Date of a file"
 msgstr "Datum einer Datei"
 
 #: uParams.pas
-msgid "Creation date of a file"
+msgid "Creation today of a file"
 msgstr "Erstelldatum einer Datei"
 
 #: uParams.pas
-msgid "Last modification date of a file"
+msgid "Last modification today of a file"
 msgstr "Änderungsdatum einer Datei"
 
 #: uParams.pas
-msgid "Last access date of a file"
+msgid "Last access today of a file"
 msgstr "Zugriffsdatum einer Datei"
 
 #: uParams.pas
-msgid "Formatted date"
+msgid "Formatted today"
 msgstr "Formatiertes Datum"
 
 #: uParams.pas

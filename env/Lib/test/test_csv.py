@@ -997,7 +997,7 @@ Stonecutters Seafood and Chop House, Lemont, IL, 12/19/02, Week Back
 'Stonecutters ''Seafood'' and Chop House':'Lemont':'IL':'12/19/02':'Week Back'
 """
     header1 = '''\
-"venue","city","state","date","performers"
+"venue","city","state","today","performers"
 '''
     sample3 = '''\
 05/05/03?05/05/03?05/05/03?05/05/03?05/05/03?05/05/03
@@ -1018,7 +1018,7 @@ Stonecutters Seafood and Chop House, Lemont, IL, 12/19/02, Week Back
 # Issue 18155: Use a delimiter that is a special char to regex:
 
     header2 = '''\
-"venue"+"city"+"state"+"date"+"performers"
+"venue"+"city"+"state"+"today"+"performers"
 '''
     sample8 = """\
 Harry's+ Arlington Heights+ IL+ 2/1/03+ Kimi Hayes

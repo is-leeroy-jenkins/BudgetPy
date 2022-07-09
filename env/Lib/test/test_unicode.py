@@ -1151,7 +1151,7 @@ class UnicodeTest(string_tests.CommonTest,
         self.assertEqual("{0:date: %Y-%m-%d}".format(I(year=2007,
                                                        month=8,
                                                        day=27)),
-                         "date: 2007-08-27")
+                         "today: 2007-08-27")
 
         # test deriving from a builtin type and overriding __format__
         self.assertEqual("{0}".format(J(10)), "20")
