@@ -10,28 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/fitz" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/fitz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/get_objgraph" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/get_objgraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/log2design.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/log2design.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-connect" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-connect" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-play" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-play" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-ports" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-ports" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-serve" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-serve" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/prov-compare" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/prov-compare" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/prov-convert" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/prov-convert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/pydocx-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pydocx-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/pyjson5-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pyjson5-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/reload-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/reload-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/sessionmirror.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/sessionmirror.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/undill" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/undill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/.vscode/settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,28 +110,28 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;SELECTIVE&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/teppler/source/repos/BudgetPy&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.19928508&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "SELECTIVE",
+    "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy",
+    "run.code.analysis.last.selected.profile": "aBudget",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.19928508"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
@@ -208,13 +188,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00317" summary="updates from main rig;">
-      <created>1656246954990</created>
-      <option name="number" value="00317" />
-      <option name="presentableId" value="LOCAL-00317" />
-      <option name="project" value="LOCAL" />
-      <updated>1656246954990</updated>
     </task>
     <task id="LOCAL-00318" summary="updates from main rig;">
       <created>1656248927579</created>
@@ -552,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657320189607</updated>
     </task>
-    <option name="localTasksCounter" value="366" />
+    <task id="LOCAL-00366" summary="updates from alt-rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1657835738252</created>
+      <option name="number" value="00366" />
+      <option name="presentableId" value="LOCAL-00366" />
+      <option name="project" value="LOCAL" />
+      <updated>1657835738253</updated>
+    </task>
+    <option name="localTasksCounter" value="367" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -582,7 +562,8 @@
     <MESSAGE value="from other rig;" />
     <MESSAGE value="updates from main rig;" />
     <MESSAGE value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <MESSAGE value="updates from alt-rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates from alt-rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

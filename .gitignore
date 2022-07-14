@@ -7,4 +7,5 @@
 *.laccdb
 */venv
 */env
+*.idea
 *.idea!/Booger.py
