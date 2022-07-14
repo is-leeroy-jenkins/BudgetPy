@@ -601,7 +601,7 @@ class Sith( ):
 
 # FileDialog( ) -> str
 class FileDialog( Sith ):
-    '''class that renames a file'''
+    '''class that handles filenames a file'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
