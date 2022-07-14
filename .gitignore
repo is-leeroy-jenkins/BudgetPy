@@ -5,4 +5,6 @@
 *.mdb
 *.accdb
 *.laccdb
+*/venv
+*/env
 *.idea!/Booger.py
