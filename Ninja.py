@@ -168,10 +168,10 @@ class DbConfig( ):
         else:
             self.__table = None
 
-    def __init__( self, source, provider ):
+    def __init__( self, source, provider = Provider.SQLite ):
         '''Constructor for the DbConfig class providing
         values value details'''
-        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
+        self.__provider = provider if isinstance( provider, Provider ) else None
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name
         self.__sqlitedatapath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
@@ -1525,60 +1525,6 @@ class DataBuilder( ):
             error = ErrorDialog( exc )
             error.show( )
 
-# DataSchema( name, type )
-class DataSchema( ):
-    '''Provides the name and data types used by the
-    DataColumn class.  Contructor uses opetional
-    arguments ( name: str, type: type, source: Source )'''
-    __name = None
-    __coltype = None
-    __source = None
-    __ordinal = None
-
-    @property
-    def name( self ):
-        if isinstance( self.__name, str ):
-            return self.__name
-
-    @name.setter
-    def name( self, value ):
-        if isinstance( value, str ):
-            self.__name = value
-
-    @property
-    def datatype( self ):
-        if isinstance( self.__type, object ):
-            return self.__type
-
-    @datatype.setter
-    def datatype( self, value ):
-        if isinstance( value, object ):
-            self.__type = value
-
-    @property
-    def source( self ):
-        if isinstance( self.__source, Source ):
-            return self.__source
-
-    @source.setter
-    def source( self, value ):
-        if isinstance( value, Source ):
-            self.__source = value
-
-    @property
-    def ordinal( self ):
-        if isinstance( self.__id, int ):
-            return self.__id
-
-    @ordinal.setter
-    def ordinal( self, value ):
-        if isinstance( value, int ):
-            self.__id = value
-
-    def __init__( self, name = '', datatype = None ):
-        self.__name = name if isinstance( name, str ) else November
-        self.__coltype = datatype if isinstance( datatype, object ) else None
-
 # DataColumn( name, type, value, series  )
 class DataColumn( ):
     '''Defines the DataColumn Class providing schema information.
@@ -1595,6 +1541,16 @@ class DataColumn( ):
     __id = None
     __table = None
     __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__id, int ):
+            return self.__id
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__id = value
 
     @property
     def name( self ):
@@ -1645,16 +1601,6 @@ class DataColumn( ):
     def caption( self, value ):
         if isinstance( value, str ):
             self.__caption = value
-
-    @property
-    def id( self ):
-        if isinstance( self.__id, int ):
-            return self.__id
-
-    @id.setter
-    def id( self, value ):
-        if isinstance( value, int ):
-            self.__id = value
 
     @property
     def table( self ):
