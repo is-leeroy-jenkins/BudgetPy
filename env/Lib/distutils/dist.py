@@ -328,7 +328,7 @@ Common commands: (see '--help-commands' for more)
                 for line in out.split('\n'):
                     self.announce(indent + "  " + line)
 
-    # -- Config file finding/parsing methods ---------------------------
+    # -- DbConfig file finding/parsing methods ---------------------------
 
     def find_config_files(self):
         """Find as many configuration files as should be processed for this

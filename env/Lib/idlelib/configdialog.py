@@ -43,7 +43,7 @@ reloadables = (AutoComplete, CodeContext, ParenMatch, FormatParagraph,
 
 
 class ConfigDialog(Toplevel):
-    """Config dialog for IDLE.
+    """DbConfig dialog for IDLE.
     """
 
     def __init__(self, parent, title='', *, _htest=False, _utest=False):

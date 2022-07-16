@@ -5,12 +5,98 @@
     <option name="SHOW_STRUCTURE" value="true" />
   </component>
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control.py" beforeDir="false" afterPath="$PROJECT_DIR$/Control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Execution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reporting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reporting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/distutils/dist.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/distutils/dist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/idlelib/configdialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/idlelib/configdialog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/IPython/core/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/IPython/core/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/IPython/core/completer.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/IPython/core/completer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/IPython/core/history.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/IPython/core/history.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/IPython/core/tests/test_magic.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/IPython/core/tests/test_magic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/IPython/terminal/embed.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/IPython/terminal/embed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI/PySimpleGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI/PySimpleGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/_argcomplete.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/_argcomplete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/assertion/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/assertion/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/cacheprovider.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/cacheprovider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/config/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/config/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/config/argparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/config/argparsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/config/findpaths.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/config/findpaths.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/fixtures.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/fixtures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/hookspec.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/hookspec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/legacypath.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/legacypath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/pytester.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/pytester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/python.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/python.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/stash.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/stash.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/_pytest/warnings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/anyio/pytest_plugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/anyio/pytest_plugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/configobj.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/configobj.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/dash/dcc/Markdown.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/dash/dcc/Markdown.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/flask/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/flask/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/fontTools/config/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/fontTools/config/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/isort/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/isort/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/isort/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/isort/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/isort/place.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/isort/place.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/jupyter_core/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/jupyter_core/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbconvert/exporters/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbconvert/exporters/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbconvert/preprocessors/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbconvert/preprocessors/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nipype/sphinxext/apidoc/docstring.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nipype/sphinxext/apidoc/docstring.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nipype/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nipype/utils/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/notebook/services/config/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/notebook/services/config/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/numpy/core/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/numpy/core/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/numpy/distutils/ccompiler_opt.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/numpy/distutils/ccompiler_opt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/packaging/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/packaging/tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_vendor/packaging/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_vendor/packaging/tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_vendor/pygments/lexers/_mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_vendor/pygments/lexers/_mapping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pkg_resources/_vendor/packaging/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pkg_resources/_vendor/packaging/tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/plotly/basedatatypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/plotly/basedatatypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/plotly/io/_base_renderers.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/plotly/io/_base_renderers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/plotly/io/_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/plotly/io/_html.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/plotly/offline/offline.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/plotly/offline/offline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pyarrow/tests/parquet/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pyarrow/tests/parquet/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/_mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/_mapping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/configs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pythonwin/pywin/framework/editor/configui.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pythonwin/pywin/framework/editor/configui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pythonwin/pywin/scintilla/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pythonwin/pywin/scintilla/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pythonwin/pywin/scintilla/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pythonwin/pywin/scintilla/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_distutils/dist.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_distutils/dist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_vendor/packaging/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_vendor/packaging/tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/tornado/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/tornado/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/configurable.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/configurable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/sphinxdoc.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/sphinxdoc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/tests/test_configurable.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/config/tests/test_configurable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/tests/test_traitlets.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/traitlets/tests/test_traitlets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/twilio/rest/verify/v2/service/entity/factor.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/twilio/rest/verify/v2/service/entity/factor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/twilio/rest/verify/v2/service/entity/new_factor.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/twilio/rest/verify/v2/service/entity/new_factor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/twilio/twiml/voice_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/twilio/twiml/voice_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/fitz" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/fitz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/get_objgraph" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/get_objgraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/log2design.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/log2design.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-connect" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-connect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-play" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-play" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-ports" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-ports" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-serve" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-serve" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/prov-compare" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/prov-compare" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/prov-convert" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/prov-convert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/pydocx-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pydocx-script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/pyjson5-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pyjson5-script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/reload-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/reload-script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/sessionmirror.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/sessionmirror.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/undill" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/undill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/.vscode/settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +170,7 @@
     <setting file="file://$PROJECT_DIR$/Execution.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/FileSys.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/requirements.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -117,10 +204,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
-    "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy",
+    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "SELECTIVE",
+    "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/env/python.exe",
     "run.code.analysis.last.selected.profile": "aBudget",
-    "settings.editor.selected.configurable": "com.leinardi.pycharm.pylint.PylintConfigurable",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "settings.editor.splitter.proportion": "0.19928508"
   },
   "keyToStringList": {
@@ -133,9 +220,9 @@
 }]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
+      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\terry\source\repos\BudgetPy\env\python.exe" working-directory="$PROJECT_DIR$">
         <option name="myCustomStartScript" value="" />
-        <option name="mySdkHome" value="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" />
+        <option name="mySdkHome" value="C:\Users\terry\source\repos\BudgetPy\env\python.exe" />
         <option name="myModuleName" value="BudgetPy" />
         <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
       </console-settings>
@@ -187,6 +274,20 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
+    </task>
+    <task id="LOCAL-00318" summary="updates from main rig;">
+      <created>1656248927579</created>
+      <option name="number" value="00318" />
+      <option name="presentableId" value="LOCAL-00318" />
+      <option name="project" value="LOCAL" />
+      <updated>1656248927579</updated>
+    </task>
+    <task id="LOCAL-00319" summary="updates from main rig;">
+      <created>1656249364621</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1656249364621</updated>
     </task>
     <task id="LOCAL-00320" summary="updates from main rig;">
       <created>1656251812570</created>
@@ -510,28 +611,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657320189607</updated>
     </task>
-    <task id="LOCAL-00366" summary="updates from alt-rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1657835738252</created>
+    <task id="LOCAL-00366" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1657393603915</created>
       <option name="number" value="00366" />
       <option name="presentableId" value="LOCAL-00366" />
       <option name="project" value="LOCAL" />
-      <updated>1657835738253</updated>
+      <updated>1657393603916</updated>
     </task>
-    <task id="LOCAL-00367" summary="updates from alt-rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1657836040360</created>
-      <option name="number" value="00367" />
-      <option name="presentableId" value="LOCAL-00367" />
-      <option name="project" value="LOCAL" />
-      <updated>1657836040361</updated>
-    </task>
-    <task id="LOCAL-00368" summary="updates from alt-rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1657836121834</created>
-      <option name="number" value="00368" />
-      <option name="presentableId" value="LOCAL-00368" />
-      <option name="project" value="LOCAL" />
-      <updated>1657836121834</updated>
-    </task>
-    <option name="localTasksCounter" value="369" />
+    <option name="localTasksCounter" value="367" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -561,8 +648,7 @@
     <MESSAGE value="from other rig;" />
     <MESSAGE value="updates from main rig;" />
     <MESSAGE value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <MESSAGE value="updates from alt-rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from alt-rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

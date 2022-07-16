@@ -299,9 +299,9 @@ class DbConfig( ):
             error = ErrorDialog( exc )
             error.show( )
 
-# DataConnection( source, provider = Provider.SQLite )
-class DataConnection( DbConfig ):
-    '''DataConnection( source, provider = Provider.SQLite ) initializes
+# Connection( source, provider = Provider.SQLite )
+class Connection( DbConfig ):
+    '''Connection( source, provider = Provider.SQLite ) initializes
     object used to connect to the databases'''
     __configuration = None
     __provider = None
@@ -391,7 +391,7 @@ class DataConnection( DbConfig ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'DataConnection'
+            exc.cause = 'Connection'
             exc.method = 'connect( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -405,7 +405,7 @@ class DataConnection( DbConfig ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'DataConnection'
+            exc.cause = 'Connection'
             exc.method = 'disconnect( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -816,12 +816,12 @@ class Query( ):
 
     @property
     def connection( self ):
-        if isinstance( self.__connection, DataConnection ):
+        if isinstance( self.__connection, Connection ):
             return self.__connection
 
     @connection.setter
     def connection( self, value ):
-        if isinstance( value, DataConnection ):
+        if isinstance( value, Connection ):
             self.__connection = value
 
     @property
@@ -898,7 +898,7 @@ class Query( ):
             self.__connectionstring = str( value )
 
     def __init__( self, connection, sqlstatement ):
-        self.__connection = connection if isinstance( connection, DataConnection ) else None
+        self.__connection = connection if isinstance( connection, Connection ) else None
         self.__sqlstatement = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
         self.__dbconfig = connection.configuration
         self.__sqlconfig = sqlstatement.sqlconfig
@@ -991,12 +991,12 @@ class SQLiteData( Query ):
 
     @property
     def connection( self ):
-        if isinstance( self.__connection, DataConnection ):
+        if isinstance( self.__connection, Connection ):
             return self.__connection
 
     @connection.setter
     def connection( self, value ):
-        if isinstance( value, DataConnection ):
+        if isinstance( value, Connection ):
             self.__connection = value
 
     @property
@@ -1135,12 +1135,12 @@ class AccessData( Query ):
 
     @property
     def connection( self ):
-        if isinstance( self.__connection, DataConnection ):
+        if isinstance( self.__connection, Connection ):
             return self.__connection
 
     @connection.setter
     def connection( self, value ):
-        if isinstance( value, DataConnection ):
+        if isinstance( value, Connection ):
             self.__connection = value
 
     @property
@@ -1271,12 +1271,12 @@ class SqlServerData( Query ):
 
     @property
     def connection( self ):
-        if isinstance( self.__connection, DataConnection ):
+        if isinstance( self.__connection, Connection ):
             return self.__connection
 
     @connection.setter
     def connection( self, value ):
-        if isinstance( value, DataConnection ):
+        if isinstance( value, Connection ):
             self.__connection = value
 
     @property
@@ -1495,7 +1495,7 @@ class DataBuilder( ):
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__dbconfig = DbConfig( self.__source, self.__provider )
-        self.__connection = DataConnection( self.__dbconfig )
+        self.__connection = Connection( self.__dbconfig )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
 
