@@ -114,6 +114,318 @@ class Pascal( ):
             err = ErrorDialog( exc )
             err.show( )
 
+class SqlPath( ):
+    '''class providing relative paths to the folders containing sql files and
+    driver paths used in the application'''
+    __accessdriver = None
+    __accessdata = None
+    __accessreference = None
+    __sqlitedriver = None
+    __sqlitedata = None
+    __sqlitereference = None
+    __sqldriver = None
+    __sqldata = None
+    __sqlreference = None
+
+    @property
+    def sqlitedriver( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__sqlitedriver, str ):
+            return self.__sqlitedriver
+
+    @sqlitedriver.setter
+    def sqlitedriver( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__sqlitedriver = value
+
+    @property
+    def sqlitedata( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__sqlitedata, str ):
+            return self.__sqlitedata
+
+    @sqlitedata.setter
+    def sqlitedata( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__sqlitedata = value
+
+    @property
+    def sqlitereference( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__sqlitereference, str ):
+            return self.__sqlitereference
+
+    @sqlitereference.setter
+    def sqlitereference( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__sqlitereference = value
+
+    @property
+    def accessdriver( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__accessdriver, str ):
+            return self.__accessdriver
+
+    @accessdriver.setter
+    def accessdriver( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__accessdriver = value
+
+    @property
+    def accessdata( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__accessdata, str ):
+            return self.__accessdata
+
+    @accessdata.setter
+    def accessdata( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__accessdata = value
+
+    @property
+    def accessreference( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__accessreference, str ):
+            return self.__accessreference
+
+    @accessreference.setter
+    def accessreference( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__accessreference = value
+
+    @property
+    def sqldriver( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__sqldriver, str ):
+            return self.__sqldriver
+
+    @sqlitedriver.setter
+    def sqldriver( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__sqldriver = value
+
+    @property
+    def sqldata( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__sqldata, str ):
+            return self.__sqldata
+
+    @sqldata.setter
+    def sqldata( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__sqldata = value
+
+    @property
+    def sqlreference( self ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( self.__sqlreference, str ):
+            return self.__sqlreference
+
+    @sqlreference.setter
+    def sqlreference( self, value ):
+        '''Returns string representing the title of the selectedpath 'base' '''
+        if isinstance( value, str ) and value != '':
+            self.__sqlreference = value
+
+    def __init__( self ):
+        self.__sqlitedriver = 'sqlite3'
+        self.__sqlitedata =  r'db\sqlite\datamodels\sql'
+        self.__sqlitereference = r'db\sqlite\referencemodels\sql'
+        self.__accessdriver = r'DRIVER={Microsoft ACCDB Driver (*.mdb, *.accdb)};DBQ='
+        self.__accessdata = r'db\access\datamodels\sql'
+        self.__accessreference = r'db\access\referencemodels\sql'
+        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
+        self.__sqldata = r'db\mssql\datamodels\sql'
+        self.__sqlreference = r'db\mssql\referencemodels\sql'
+
+# SqlFile( source, provider, command )
+class SqlFile( ):
+    '''Class providing access to sql sub-folders in the application provided
+    optional arguements source, provider, and command'''
+    __data = None
+    __reference = None
+    __command = None
+    __source = None
+    __provider = None
+
+    @property
+    def provider( self ):
+        if isinstance( self.__provider, Provider ):
+            return self.__provider
+
+    @provider.setter
+    def provider( self, value ):
+        if isinstance( value, Provider ):
+            self.__provider = value
+
+    @property
+    def source( self ):
+        if isinstance( self.__source, Source ):
+            return self.__source
+
+    @source.setter
+    def source( self, value ):
+        if isinstance( value, Source ):
+            self.__source = value
+
+    @property
+    def command( self ):
+        if isinstance( self.__command, SQL ):
+            return self.__command
+
+    @command.setter
+    def command( self, value ):
+        if isinstance( value, SQL ):
+            self.__command = value
+
+    def __init__( self, source = None, provider = None,
+                  command = None ):
+        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
+                       'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
+                       'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
+                       'Deobligations', 'Defactos', 'DocumentControlNumbers',
+                       'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
+                       'ObjectClassOutlays', 'CarryoverOutlays',
+                       'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
+                       'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
+                       'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations' 
+                       'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
+                       'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
+                       'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
+                       'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                       'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
+                       'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
+                       'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
+                       'UnliquidatedObligations', 'UnobligatedAuthority' ]
+        self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
+                             'Appropriations', 'BudgetObjectClasses',
+                             'CostAreas', 'CPIC', 'Divisions',
+                             'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                             'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                             'FundSymbols', 'Goals', 'GsPayScales', 'Images',
+                             'Messages', 'NationalPrograms', 'Objectives',
+                             'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                             'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
+                             'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                             'SchemaTypes', 'StateOrganizations', 'Sources' ]
+        self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
+        self.__source = source if isinstance( source, Source ) else Source.StatusOfFunds
+        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
+
+    def getpath( self ):
+        '''Method returning a string representing
+         the absolute path to the SQL file used to execute the
+         command 'self.__commandtype' against the table given by the
+         member self.__source depending on the member self.__provider'''
+        try:
+            sqlpath = SqlPath( )
+            data = self.__data
+            references = self.__references
+            provider = self.__provider.name
+            source = self.__source.name
+            command = self.__command.name
+            current = os.getcwd( )
+            path = ''
+            if provider == 'SQLite' and source in data:
+                path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'SQLite' and source in references:
+                path = f'{ sqlpath.sqlitereference }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'ACCDB' and source in data:
+                path = f'{ sqlpath.accessdata }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'ACCDB' and source in references:
+                path = f'{ sqlpath.accessreference }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'SqlServer' and source in data:
+                path = f'{ sqlpath.sqldata }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            elif provider == 'SqlServer' and source in references:
+                path = f'{ sqlpath.sqlreference }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+            else:
+                path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
+                return os.path.join( current, path )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlFile'
+            exc.method = 'getpath( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def getdirectory( self ):
+        '''Method creates and returns a string representing
+        the parent directory where the SQL file resides'''
+        try:
+            sqlpath = SqlPath( )
+            data = self.__data
+            reference = self.__references
+            source = self.__source.name
+            provider = self.__provider.name
+            command = self.__command.name
+            current = os.getcwd( )
+            folder = ''
+            if provider == 'SQLite' and source in data:
+                folder = f'{ sqlpath.sqlitedata }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'SQLite' and source in references:
+                folder = f'{ sqlpath.sqlitereference }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'ACCDB' and source in data:
+                folder = f'{ sqlpath.accessdata }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'ACCDB' and source in references:
+                folder = f'{ sqlpath.accessreference }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'SqlServer' and source in data:
+                folder = f'{ sqlpath.sqldata }\\{ command }'
+                return os.path.join( current, folder )
+            elif provider == 'SqlServer' and source in references:
+                folder = f'{ sqlpath.sqlreference }\\{ command }'
+                return os.path.join( current, folder )
+            else:
+                folder = f'{ sqlpath.sqlitedata }\\{ command }'
+                return os.path.join( current, folder )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlFile'
+            exc.method = 'getdirectory( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def getquery( self ):
+        '''Method reads the given '.sql' file and returns
+        a string representing the text used the sql query'''
+        try:
+            source = self.__source.name
+            paths = self.getpath( )
+            folder = self.getdirectory( )
+            sql = ''
+            for name in os.listdir( folder ):
+                if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
+                    path = os.path.join( folder, name )
+                    query = open( path )
+                    sql = query.read( )
+                    return sql
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlFile'
+            exc.method = 'getquery( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
+
 # DbConfig( source, provider )
 class DbConfig( ):
     '''DbConfig( source, provider  ) provides list of Budget Execution

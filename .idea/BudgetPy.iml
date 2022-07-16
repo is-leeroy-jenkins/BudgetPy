@@ -62,7 +62,7 @@
       <sourceFolder url="file://$MODULE_DIR$/ipynb/notebooks" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/venv" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="BudgetPy ( venv )" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python ( budgetpy )" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">

@@ -22,13 +22,13 @@ from Booger import Error, ErrorDialog
 import sys
 from sys import exc_info
 
-# BudgetPath( filepath )
-class BudgetPath( ):
-    ''' BudgetPath( filename ) initializes the
-    BudgetPath class providing selectedpath information of getsubfolders
+# Path( filepath )
+class Path( ):
+    ''' Path( filename ) initializes the
+    Path class providing selectedpath information of getsubfolders
     used in the application'''
     __name = None
-    __path = None
+    __input = None
     __ext = None
     __currdir = None
     __report = None
@@ -48,17 +48,17 @@ class BudgetPath( ):
     def name( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ):
-            self.__path = value
+            self.__input = value
 
     @property
     def path( self ):
-        if isinstance( self.__path, str ) and self.__path != '':
-            return self.__path
+        if isinstance( self.__input, str ) and self.__input != '':
+            return self.__input
 
     @path.setter
     def path( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__path = value
+            self.__input = value
 
     @property
     def drive( self ):
@@ -137,65 +137,66 @@ class BudgetPath( ):
             self.__extsep = value
 
     def __init__( self, filepath ):
-        self.__path = filepath if isinstance( filepath, str ) else None
+        self.__input = filepath if isinstance( filepath, str ) else None
         self.__name = os.path.split( filepath )[ 1 ] if isinstance( filepath, str ) else None
         self.__currdir = os.getcwd( )
         self.__ext = os.path.splitext( filepath )[ 1 ] if isinstance( filepath, str ) else None
-        self.__drive = os.path.splitdrive( filepath )[ 0 ] if isinstance( filepath, str ) else None
         self.__parentdirectory = os.path.split( filepath )[ 0 ]
         self.__report = r'etc\templates\report\Excel.xlsx'
         self.__pathsep = os.path.sep
         self.__extsep = os.extsep
         self.__drivesep = ':\\'
+        self.__drive = os.path.splitdrive( filepath )[ 0 ] if os.path.ismount( filepath ) \
+            else os.path.splitdrive( os.path.join( self.__currdir, filepath ) )[ 0 ]
 
     def __str__( self ):
-       if self.__path is not None:
-           return str( self.__path )
+       if self.__input is not None:
+           return str( self.__input )
 
     def exists( self ):
         '''Method returning a boolean value indicating whether or not the
-        internal 'self.__path' exists'''
+        internal 'self.__input' exists'''
         try:
-            if os.path.exists( self.__path ):
+            if os.path.exists( self.__input ):
                 return True
             else:
                 return False
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'exists( self )'
             err = ErrorDialog( exc )
             err.show( )
 
     def isfolder( self ):
         '''Method returning boolean value indicating whether
-        or not self.__path is a folder'''
+        or not self.__input is a folder'''
         try:
-            if os.path.isdir( self.__path ):
+            if os.path.isdir( self.__input ):
                 return True
             else:
                 return False
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'isfolder( self )'
             err = ErrorDialog( exc )
             err.show( )
 
     def isfile( self ):
         '''Method returning boolean value indicating whether
-        or not self.__path is a file'''
+        or not self.__input is a file'''
         try:
-            if os.path.isfile( self.__path ):
+            if os.path.isfile( self.__input ):
                 return True
             else:
                 return False
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'isfile( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -204,15 +205,15 @@ class BudgetPath( ):
         '''Method to determine if the input path is an
         absolute file path'''
         try:
-            if isinstance( self.__path, str ) and self.__path != '':
-                if os.path.isabs( self.__path ) == True:
+            if isinstance( self.__input, str ) and self.__input != '':
+                if os.path.isabs( self.__input ) == True:
                     return True
-                elif os.path.isabs( self.__path ) == False:
+                elif os.path.isabs( self.__input ) == False:
                     return False
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'isabsolute( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -221,15 +222,15 @@ class BudgetPath( ):
         '''Method to determine if the input path is an
         relative file path'''
         try:
-            if isinstance( self.__path, str ) and self.__path != '':
-                if os.path.isabs( self.__path ) == True:
+            if isinstance( self.__input, str ) and self.__input != '':
+                if os.path.isabs( self.__input ) == True:
                     return False
-                elif os.path.isabs( self.__path ) == False:
+                elif os.path.isabs( self.__input ) == False:
                     return True
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'isrelative( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -245,7 +246,7 @@ class BudgetPath( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'verify( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -258,7 +259,7 @@ class BudgetPath( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'getextension( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -273,7 +274,7 @@ class BudgetPath( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'getreportpath( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -287,334 +288,19 @@ class BudgetPath( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetPath'
+            exc.cause = 'Path'
             exc.method = 'join( self, first, second )'
             err = ErrorDialog( exc )
             err.show( )
 
-
-class SqlPath( ):
-    '''class providing relative paths to the folders containing sql files and
-    driver paths used in the application'''
-    __accessdriver = None
-    __accessdata = None
-    __accessreference = None
-    __sqlitedriver = None
-    __sqlitedata = None
-    __sqlitereference = None
-    __sqldriver = None
-    __sqldata = None
-    __sqlreference = None
-
-    @property
-    def sqlitedriver( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqlitedriver, str ):
-            return self.__sqlitedriver
-
-    @sqlitedriver.setter
-    def sqlitedriver( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__sqlitedriver = value
-
-    @property
-    def sqlitedata( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqlitedata, str ):
-            return self.__sqlitedata
-
-    @sqlitedata.setter
-    def sqlitedata( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__sqlitedata = value
-
-    @property
-    def sqlitereference( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqlitereference, str ):
-            return self.__sqlitereference
-
-    @sqlitereference.setter
-    def sqlitereference( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__sqlitereference = value
-
-    @property
-    def accessdriver( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__accessdriver, str ):
-            return self.__accessdriver
-
-    @accessdriver.setter
-    def accessdriver( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__accessdriver = value
-
-    @property
-    def accessdata( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__accessdata, str ):
-            return self.__accessdata
-
-    @accessdata.setter
-    def accessdata( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__accessdata = value
-
-    @property
-    def accessreference( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__accessreference, str ):
-            return self.__accessreference
-
-    @accessreference.setter
-    def accessreference( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__accessreference = value
-
-    @property
-    def sqldriver( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqldriver, str ):
-            return self.__sqldriver
-
-    @sqlitedriver.setter
-    def sqldriver( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__sqldriver = value
-
-    @property
-    def sqldata( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqldata, str ):
-            return self.__sqldata
-
-    @sqldata.setter
-    def sqldata( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__sqldata = value
-
-    @property
-    def sqlreference( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqlreference, str ):
-            return self.__sqlreference
-
-    @sqlreference.setter
-    def sqlreference( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
-            self.__sqlreference = value
-
-    def __init__( self ):
-        self.__sqlitedriver = 'sqlite3'
-        self.__sqlitedata =  r'db\sqlite\datamodels\sql'
-        self.__sqlitereference = r'db\sqlite\referencemodels\sql'
-        self.__accessdriver = r'DRIVER={Microsoft ACCDB Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdata = r'db\access\datamodels\sql'
-        self.__accessreference = r'db\access\referencemodels\sql'
-        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldata = r'db\mssql\datamodels\sql'
-        self.__sqlreference = r'db\mssql\referencemodels\sql'
-
-
-# SqlFile( source, provider, command )
-class SqlFile( ):
-    '''Class providing access to sql sub-folders in the application provided
-    optional arguements source, provider, and command'''
-    __data = None
-    __reference = None
-    __command = None
-    __source = None
-    __provider = None
-
-    @property
-    def provider( self ):
-        if isinstance( self.__provider, Provider ):
-            return self.__provider
-
-    @provider.setter
-    def provider( self, value ):
-        if isinstance( value, Provider ):
-            self.__provider = value
-
-    @property
-    def source( self ):
-        if isinstance( self.__source, Source ):
-            return self.__source
-
-    @source.setter
-    def source( self, value ):
-        if isinstance( value, Source ):
-            self.__source = value
-
-    @property
-    def command( self ):
-        if isinstance( self.__command, SQL ):
-            return self.__command
-
-    @command.setter
-    def command( self, value ):
-        if isinstance( value, SQL ):
-            self.__command = value
-
-    def __init__( self, source = None, provider = None,
-                  command = None ):
-        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
-                       'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
-                       'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
-                       'Deobligations', 'Defactos', 'DocumentControlNumbers',
-                       'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
-                       'ObjectClassOutlays', 'CarryoverOutlays',
-                       'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
-                       'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
-                       'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations' 
-                       'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
-                       'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
-                       'HeadquartersAuthority', 'TravelObligations', 'StatusOfAppropriations',
-                       'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-                       'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
-                       'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
-                       'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
-                       'UnliquidatedObligations', 'UnobligatedAuthority' ]
-        self.__references = [ 'Accounts', 'ActivityCodes', 'AllowanceHolders',
-                             'Appropriations', 'BudgetObjectClasses',
-                             'CostAreas', 'CPIC', 'Divisions',
-                             'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                             'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                             'FundSymbols', 'Goals', 'GsPayScales', 'Images',
-                             'Messages', 'NationalPrograms', 'Objectives',
-                             'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                             'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
-                             'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                             'SchemaTypes', 'StateOrganizations', 'Sources' ]
-        self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
-        self.__source = source if isinstance( source, Source ) else Source.StatusOfFunds
-        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
-
-    def getpath( self ):
-        '''Method returning a string representing
-         the absolute path to the SQL file used to execute the
-         command 'self.__commandtype' against the table given by the
-         member self.__source depending on the member self.__provider'''
-        try:
-            sqlpath = SqlPath( )
-            data = self.__data
-            references = self.__references
-            provider = self.__provider.name
-            source = self.__source.name
-            command = self.__command.name
-            current = os.getcwd( )
-            path = ''
-            if provider == 'SQLite' and source in data:
-                path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
-                return os.path.join( current, path )
-            elif provider == 'SQLite' and source in references:
-                path = f'{ sqlpath.sqlitereference }\\{ command }\\{ source }.sql'
-                return os.path.join( current, path )
-            elif provider == 'ACCDB' and source in data:
-                path = f'{ sqlpath.accessdata }\\{ command }\\{ source }.sql'
-                return os.path.join( current, path )
-            elif provider == 'ACCDB' and source in references:
-                path = f'{ sqlpath.accessreference }\\{ command }\\{ source }.sql'
-                return os.path.join( current, path )
-            elif provider == 'SqlServer' and source in data:
-                path = f'{ sqlpath.sqldata }\\{ command }\\{ source }.sql'
-                return os.path.join( current, path )
-            elif provider == 'SqlServer' and source in references:
-                path = f'{ sqlpath.sqlreference }\\{ command }\\{ source }.sql'
-                return os.path.join( current, path )
-            else:
-                path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
-                return os.path.join( current, path )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'SqlFile'
-            exc.method = 'getpath( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def getdirectory( self ):
-        '''Method creates and returns a string representing
-        the parent directory where the SQL file resides'''
-        try:
-            sqlpath = SqlPath( )
-            data = self.__data
-            reference = self.__references
-            source = self.__source.name
-            provider = self.__provider.name
-            command = self.__command.name
-            current = os.getcwd( )
-            folder = ''
-            if provider == 'SQLite' and source in data:
-                folder = f'{ sqlpath.sqlitedata }\\{ command }'
-                return os.path.join( current, folder )
-            elif provider == 'SQLite' and source in references:
-                folder = f'{ sqlpath.sqlitereference }\\{ command }'
-                return os.path.join( current, folder )
-            elif provider == 'ACCDB' and source in data:
-                folder = f'{ sqlpath.accessdata }\\{ command }'
-                return os.path.join( current, folder )
-            elif provider == 'ACCDB' and source in references:
-                folder = f'{ sqlpath.accessreference }\\{ command }'
-                return os.path.join( current, folder )
-            elif provider == 'SqlServer' and source in data:
-                folder = f'{ sqlpath.sqldata }\\{ command }'
-                return os.path.join( current, folder )
-            elif provider == 'SqlServer' and source in references:
-                folder = f'{ sqlpath.sqlreference }\\{ command }'
-                return os.path.join( current, folder )
-            else:
-                folder = f'{ sqlpath.sqlitedata }\\{ command }'
-                return os.path.join( current, folder )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'SqlFile'
-            exc.method = 'getdirectory( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def getquery( self ):
-        '''Method reads the given '.sql' file and returns
-        a string representing the text used the sql query'''
-        try:
-            source = self.__source.name
-            paths = self.getpath( )
-            folder = self.getdirectory( )
-            sql = ''
-            for name in os.listdir( folder ):
-                if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
-                    path = os.path.join( folder, name )
-                    query = open( path )
-                    sql = query.read( )
-                    return sql
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'SqlFile'
-            exc.method = 'getquery( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-
-# BudgetFile( filepath )
-class BudgetFile( ):
-    '''BudgetFile( selectedpath ) initializes the
-     BudgetFile Class providing file information for
+# File( filepath )
+class File( Path ):
+    '''File( selectedpath ) initializes the
+     File Class providing file information for
      getsubfolders used in the application'''
     __absolute = None
     __name = None
-    __path = None
+    __input = None
     __size = None
     __extension = None
     __directory = None
@@ -639,22 +325,22 @@ class BudgetFile( ):
 
     @property
     def path( self ):
-        if os.path.isfile( self.__path ):
-            return str( self.__path )
+        if isinstance( self.__input, str ) and self.__input != '':
+            return self.__input
 
     @path.setter
     def path( self, value ):
-        if os.path.exists( value ):
-            self.__path = str( value )
+        if isinstance( value, str ) and value != '':
+            self.__input = value
 
     @property
     def absolute( self ):
-        if isinstance( self.__absolute, str ):
+        if isinstance( self.__absolute, str ) and self.__absolute != '':
             return self.__absolute
 
     @absolute.setter
     def absolute( self, value ):
-        if os.path.exists( value ) and os.path.isabs( value ):
+        if isinstance( value, str ) and value != '':
             self.__absolute = value
 
     @property
@@ -679,14 +365,12 @@ class BudgetFile( ):
 
     @property
     def extension( self ):
-        if self.__extension is not None:
+        if isinstance( self.__extension, str ) and self.__extension != '':
             return self.__extension
-        else:
-            return 'NS'
 
     @extension.setter
     def extension( self, value ):
-        if value is not None:
+        if isinstance( value, str ) and value != '':
             self.__extension = value
 
     @property
@@ -742,8 +426,9 @@ class BudgetFile( ):
             self.__currdir = value
 
     def __init__( self, filepath = None ):
+        super( ).__init__( filepath )
         self.__absolute = filepath if os.path.isabs( filepath ) else os.getcwd( ) +'\\' + filepath
-        self.__path = filepath if not os.path.isabs( filepath ) else os.path.relpath( filepath )
+        self.__input = filepath if not os.path.isabs( filepath ) else os.path.relpath( filepath )
         self.__name = os.path.basename( filepath )
         self.__size = os.path.getsize( filepath )
         self.__directory = os.path.dirname( filepath )
@@ -752,8 +437,7 @@ class BudgetFile( ):
         self.__accessed = os.path.getatime( filepath )
         self.__modified = os.path.getmtime( filepath )
         self.__currdir = os.getcwd( )
-        self.__drive = os.path.splitdrive( filepath )[ 0 ] if os.path.ismount( filepath ) \
-            else os.path.splitdrive( os.path.join( self.__currdir, filepath ) )[ 0 ]
+        self.__drive = super( ).drive
 
     def __str__( self ):
         if isinstance( self.__path, str ) and self.__path != '':
@@ -776,7 +460,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'rename( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -789,7 +473,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'move( self, destination )'
             err = ErrorDialog( exc )
             err.show( )
@@ -807,7 +491,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'create( self, other, lines = None )'
             err = ErrorDialog( exc )
             err.show( )
@@ -820,7 +504,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'verify( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -833,7 +517,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'delete( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -846,7 +530,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'getsize( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -859,7 +543,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'getdrive( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -872,7 +556,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'getextension( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -889,7 +573,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'realines( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -907,7 +591,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'readall( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -925,7 +609,7 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'writelines( self, lines = None )'
             err = ErrorDialog( exc )
             err.show( )
@@ -947,16 +631,15 @@ class BudgetFile( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFile'
+            exc.cause = 'File'
             exc.method = 'writeall( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
-
-# BudgetFolder( dirpath )
-class BudgetFolder( ):
-    '''BudgetFolder( selectedpath ) initializes the
-     BudgetFolder Class providing file directory information'''
+# Folder( dirpath )
+class Folder( ):
+    '''Folder( selectedpath ) initializes the
+     Folder Class providing file directory information'''
     __absolute = None
     __relative = None
     __path = None
@@ -981,7 +664,7 @@ class BudgetFolder( ):
     @property
     def directory( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if not self.__name == '':
+        if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @directory.setter
@@ -1078,7 +761,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'getfiles( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1099,7 +782,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'getsubfolders( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1122,7 +805,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'getsubfolders( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1137,7 +820,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'rename( self, new_name )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1150,7 +833,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'move( self, destination )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1163,7 +846,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'exists( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1175,7 +858,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'create( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1188,7 +871,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'delete( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1201,7 +884,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = ''
             err = ErrorDialog( exc )
             err.show( )
@@ -1214,7 +897,7 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'getdrive( self, other )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1227,20 +910,19 @@ class BudgetFolder( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'BudgetFolder'
+            exc.cause = 'Folder'
             exc.method = 'iterate( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-
-# EmailMessage(  )
-class EmailMessage( ):
-    '''EmailMessage( frm, to, body, subject ) initializes
+# Message( sender, receiver, body, subject, copy )
+class Message( ):
+    '''Message( frm, to, body, subject ) initializes
     class providing email behavior '''
     __sender = None
     __receiver = None
     __subject = None
-    __message = None
+    __body = None
     __others = None
 
     @property
@@ -1282,8 +964,8 @@ class EmailMessage( ):
     @property
     def body( self ):
         ''' Gets the email's subject line '''
-        if self.__message is not None:
-            return self.__message
+        if self.__body is not None:
+            return self.__body
 
     @body.setter
     def body( self, value ):
@@ -1306,7 +988,7 @@ class EmailMessage( ):
     def __init__( self, sender, receiver, body, subject, copy = '' ):
         self.__sender = sender if isinstance( sender, str ) and sender != '' else None
         self.__receiver = receiver if isinstance( receiver, str ) and receiver != '' else None
-        self.__message = body if isinstance( body, str ) and bocy != '' else None
+        self.__body = body if isinstance( body, str ) and bocy != '' else None
         self.__others = copy if isinstance( copy, list ) and len( copy ) > 0 else None
         self.__subject = subject if isinstance( subject, str ) and subject != '' else None
 
@@ -1314,6 +996,18 @@ class EmailMessage( ):
         if isinstance( self.__body, str ) and self.__body != '':
             return self.__body
 
+# Emai( sender, receiver, body, subject, copy )
+class Email( Message ):
+    '''Email( frm, to, body, subject ) initializes
+    class providing email behavior '''
+
+    def __init__( self, sender, receiver, body, subject, copy = '' ):
+        super( ).__init__( sender, receiver, body, subject, copy )
+        self.__sender = super( ).sender
+        self.__receiver = super( ).receiver
+        self.__body = super( ).body
+        self.__others = super( ).copy
+        self.__subject = super( ).subject
 
 # MessageBuilder(  )
 class MessageBuilder( ):
@@ -1321,7 +1015,7 @@ class MessageBuilder( ):
     __from = None
     __to = None
     __subject = None
-    __message = None
+    __body = None
     __others = None
 
     @property
@@ -1363,8 +1057,8 @@ class MessageBuilder( ):
     @property
     def body( self ):
         ''' Gets the email's subject line '''
-        if isinstance( self.__message, str) and self.__message != '':
-            return self.__message
+        if isinstance( self.__body, str ) and self.__body != '':
+            return self.__body
 
     @body.setter
     def body( self, value ):
@@ -1387,18 +1081,17 @@ class MessageBuilder( ):
     def __init__( self ):
         self.__from = sender if isinstance( sender, str ) and sender != '' else None
         self.__to = receiver if isinstance( receiver, str ) and receiver != '' else None
-        self.__message = body if isinstance( body, str ) and body != '' else None
+        self.__body = body if isinstance( body, str ) and body != '' else None
         self.__others = copy if isinstance( copy, str ) and copy != '' else None
         self.__subject = subject if isinstance( subject, str ) and subject != '' else None
 
     def __str__( self ):
-        if self.__message is not None:
-            return self.__message
+        if self.__body is not None:
+            return self.__body
 
-
-# ExcelFile( fullpath )
-class ExcelFile(  ):
-    '''ExcelFile( selectedpath ) class provides
+# Excel( fullpath )
+class Excel( ):
+    '''Excel( selectedpath ) class provides
     the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
@@ -1453,7 +1146,7 @@ class ExcelFile(  ):
             self.__name = value.active
 
     def __init__( self, fullpath ):
-        self.__path = fullpath if isinstance( fullpath, str ) else os.getcwd( )
+        self.__path = fullpath if isinstance( fullpath, str ) else None
         self.__name = os.path.split( fullpath )[ 1 ] if isinstance( fullpath, str ) else None
         self.__title = self.__name
         self.__workbook = Workbook( )
@@ -1470,11 +1163,10 @@ class ExcelFile(  ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'ExcelFile'
+            exc.cause = 'Excel'
             exc.method = 'save( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ExcelReport( title, rows = 46, cols = 12 )
 class ExcelReport( ):
@@ -1561,7 +1253,6 @@ class ExcelReport( ):
         self.__rows = rows if isinstance( rows, int ) and rows > -1 else None
         self.__columns = cols if isinstance( cols, int ) and cols > -1 else None
         self.__dimensions = (self.__rows, self.__columns)
-
 
 # ZipFile( selectedpath )
 class ZipFile( ):
