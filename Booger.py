@@ -15,13 +15,13 @@ import textwrap
 import numpy as np
 from pandas import read_csv as CsvReader
 from pandas import read_excel as ExcelReader
-from matplotlib.backends.backend_tkagg import FigureCanvasAgg
-import matplotlib.figure
-import matplotlib.pyplot as plt
-from matplotlib import cm
-from mpl_toolkits.mplot3d.axes3d import get_test_data
-from matplotlib.ticker import NullFormatter
-from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
+#from matplotlib.backends.backend_tkagg import FigureCanvasAgg
+#import matplotlib.figure
+#import matplotlib.pyplot as plt
+#from matplotlib import cm
+#from mpl_toolkits.mplot3d.axes3d import get_test_data
+#from matplotlib.ticker import NullFormatter
+#from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
 from Static import EXT
 
 
@@ -4499,17 +4499,6 @@ class ChartPanel( Sith ):
 
 class CsvForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
 
     @property
     def header( self ):
@@ -4547,6 +4536,9 @@ class CsvForm( Sith ):
 
     def show( self ):
         try:
+            sm = (3, 1)
+            med = (15, 1)
+            spc = (25, 1)
             fd = FileDialog( )
             fd.show( )
             filename = fd.selectedpath
@@ -4576,25 +4568,30 @@ class CsvForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            datagrid = [ [ sg.Text( '', size = (100, 5) ) ],
-                         [ sg.Text( '', size = (5, 1) ),
-                              sg.Table( values = data,
-                                  headings = header_list,
-                                  display_row_numbers = True,
-                                  vertical_scroll_only = False,
-                                  header_background_color = '#1B262E',
-                                  def_col_width = 12,
-                                  header_border_width = 2,
-                                  selected_row_colors = ('#FFFFFF', '#2A4457'),
-                                  header_text_color = '#FFFFFF',
-                                  header_font = ('Roboto', 10),
-                                  background_color = '#000000',
-                                  auto_size_columns = False,
-                                  border_width = 1,
-                                  sbar_relief = sg.RELIEF_FLAT,
-                                  num_rows = min( 40, len( data ) ) ),
-                              sg.Text( '', size = (5, 1) ) ],
-                         [ sg.Text( '', size = (100, 3) ) ] ]
+            left = [ [ sg.Text( size = sm ), ] ]
+            right = [ [ sg.Text( size = sm ), ] ]
+            datagrid = [ [ sg.Table( values = data,
+                                     headings = header_list,
+                                     justification = 'center',
+                                     row_height = '18',
+                                     display_row_numbers = True,
+                                     vertical_scroll_only = False,
+                                     header_background_color = '#1B262E',
+                                     header_relief = sg.RELIEF_FLAT,
+                                     header_border_width = 1,
+                                     selected_row_colors = ('#FFFFFF', '#4682B4'),
+                                     header_text_color = '#FFFFFF',
+                                     header_font = ('Roboto', 8, 'bold'),
+                                     font = ('Roboto', 8),
+                                     background_color = '#EDF3F8',
+                                     alternating_row_color = '#EDF3F8',
+                                     auto_size_columns = True,
+                                     border_width = 1,
+                                     text_color = '#000000',
+                                     expand_x = True,
+                                     expand_y = True,
+                                     sbar_relief = sg.RELIEF_FLAT,
+                                     num_rows = min( 26, len( data ) ) ), ], ]
 
             window = sg.Window( '  Budget Execution', datagrid,
                 grab_anywhere = False,
@@ -4618,17 +4615,6 @@ class CsvForm( Sith ):
 
 class ExcelForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
 
     @property
     def header( self ):
@@ -4666,6 +4652,9 @@ class ExcelForm( Sith ):
 
     def show( self ):
         try:
+            sm = ( 3, 1 )
+            med = ( 15, 1 )
+            spc = ( 25, 1 )
             fd = FileDialog( )
             fd.show( )
             filename = fd.selectedpath
@@ -4678,10 +4667,10 @@ class ExcelForm( Sith ):
             data = [ ]
             header_list = [ ]
 
-            button = sg.popup_yes_no( 'First row as column headers?',
+            button = sg.popup_yes_no( 'First Row Has Headers?',
                                       title = 'Headers?',
                                       icon = self.__icon,
-                                      font = ('Roboto', 10) )
+                                      font = ( 'Roboto', 9 ) )
 
             if filename is not None:
                 try:
@@ -4696,8 +4685,8 @@ class ExcelForm( Sith ):
                     sg.popup_error( 'Error reading file' )
                     return
 
-            left = [ [ sg.Text( '', size = ( 3, 1 ) ), ] ]
-            right = [ [ sg.Text( '', size = ( 3, 1 ) ), ] ]
+            left = [ [ sg.Text( size = sm ), ] ]
+            right = [ [ sg.Text( size = sm ), ] ]
             datagrid = [ [ sg.Table( values = data,
                                      headings = header_list,
                                      justification = 'center',
@@ -4707,10 +4696,10 @@ class ExcelForm( Sith ):
                                      header_background_color = '#1B262E',
                                      header_relief = sg.RELIEF_FLAT,
                                      header_border_width = 1,
-                                     selected_row_colors = ('#FFFFFF', '#4682B4'),
+                                     selected_row_colors = ( '#FFFFFF', '#4682B4' ),
                                      header_text_color = '#FFFFFF',
-                                     header_font = ('Roboto', 8, 'bold'),
-                                     font = ('Roboto', 8),
+                                     header_font = ( 'Roboto', 8, 'bold' ),
+                                     font = ( 'Roboto', 8 ),
                                      background_color = '#EDF3F8',
                                      alternating_row_color = '#EDF3F8',
                                      auto_size_columns = True,
@@ -4721,18 +4710,18 @@ class ExcelForm( Sith ):
                                      sbar_relief = sg.RELIEF_FLAT,
                                      num_rows = min( 26, len( data ) ) ), ], ]
 
-            layout = [ [ sg.Text( '', size = (3, 3) ) ],
+            layout = [ [ sg.Text( size = ( 3, 3 ) ) ],
                        [ sg.Column( left, expand_x = True ),
                          sg.Column( datagrid, expand_x = True, expand_y = True ),
                          sg.Column( right, expand_x = True ) ],
-                       [ sg.Text( '', size = (3, 1) ) ],
-                       [ sg.Text( '', size = (10, 1) ), sg.Button( 'Open', size = (15, 1), key = '-OPEN-' ),
-                         sg.Text( '', size = (25, 1) ), sg.Button( 'Export', size = (15, 1), key = '-EXPORT-' ),
-                         sg.Text( '', size = (25, 1) ), sg.Button( 'Save', size = (15, 1), key = '-SAVE-' ),
-                         sg.Text( '', size = (25, 1) ), sg.Button( 'Close', size = (15, 1), key = '-CLOSE-' ) ],
+                       [ sg.Text( size = sm ) ],
+                       [ sg.Text( size = ( 10, 1 ) ), sg.Button( 'Open', size = med, key = '-OPEN-' ),
+                         sg.Text( size = spc ), sg.Button( 'Export', size = med, key = '-EXPORT-' ),
+                         sg.Text( size = spc ), sg.Button( 'Save', size = med, key = '-SAVE-' ),
+                         sg.Text( size = spc ), sg.Button( 'Close', size = med, key = '-CLOSE-' ) ],
                        [ sg.Sizegrip( ) ], ]
 
-            window = sg.Window( '  Budget Execution', layout,
+            window = sg.Window( ' Budget Execution', layout,
                                 size = self.__formsize,
                                 grab_anywhere = True,
                                 icon = self.__icon,
@@ -4741,12 +4730,13 @@ class ExcelForm( Sith ):
                                 right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
 
             event, values = window.read( )
-            if event in (sg.WIN_X_EVENT, '-CLOSE-'):
+            if event in ( sg.WIN_X_EVENT, '-CLOSE-' ):
                 window.close( )
-            elif event in ('-OPEN-', '-EXPORT-', '-SAVE-', 'Save'):
+            elif event in ( '-OPEN-', '-EXPORT-', '-SAVE-', 'Save' ):
                 info = 'Not Yet Implemented!'
                 msg = MessageDialog( info )
                 msg.show( )
+                window.close( )
 
 
         except Exception as e:

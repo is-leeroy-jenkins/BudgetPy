@@ -60,7 +60,6 @@
       <sourceFolder url="file://$MODULE_DIR$/ipynb/.ipynb_checkpoints" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ipynb/logs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ipynb/notebooks" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/venv" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python ( budgetpy )" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
