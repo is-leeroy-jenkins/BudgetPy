@@ -1,4 +1,4 @@
-#!C:\Users\terry\source\compilers\py\python\python.exe
+#!C:\Users\teppler\source\compilers\py\python\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'PyDocX==0.9.10','console_scripts','pydocx'
 import re
 import sys

@@ -893,7 +893,7 @@ class SqlConfig( ):
             err = ErrorDialog( exc )
             err.show( )
 
-# SqlStatement( dataconfig,  sqlconfig )
+# SqlStatement( dbconfig,  sqlconfig )
 class SqlStatement( ):
     '''SqlStatement( dataconfig, sqlconfig ) Class
     represents the values models used in the SQLite database'''
@@ -1850,7 +1850,6 @@ class DataColumn( ):
     __id = None
     __type = None
     __caption = None
-    __id = None
     __table = None
     __frame = None
 
