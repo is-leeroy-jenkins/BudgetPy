@@ -114,6 +114,7 @@ class Pascal( ):
             err = ErrorDialog( exc )
             err.show( )
 
+
 class SqlPath( ):
     '''class providing relative paths to the folders containing sql files and
     driver paths used in the application'''
@@ -245,6 +246,7 @@ class SqlPath( ):
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
         self.__sqldata = r'db\mssql\datamodels\sql'
         self.__sqlreference = r'db\mssql\referencemodels\sql'
+
 
 # SqlFile( source, provider, command )
 class SqlFile( ):
@@ -425,6 +427,7 @@ class SqlFile( ):
             exc.method = 'getquery( self, other )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # DbConfig( source, provider )
 class DbConfig( ):
