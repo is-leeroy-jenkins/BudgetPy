@@ -864,6 +864,7 @@ class SaveFileDialog( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
+
 # GoogleDialog(  ) -> list
 class GoogleDialog( Sith ):
     '''class that renames a folder'''
@@ -1752,7 +1753,6 @@ class GridForm( Sith ):
             err.show( )
 
 
-
 class LoadingPanel( Sith ):
     '''object providing form loading behavior '''
     __themebackground = None
@@ -1839,7 +1839,6 @@ class LoadingPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class WaitingPanel( Sith ):
@@ -1930,7 +1929,6 @@ class WaitingPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class ProcessingPanel( Sith ):
@@ -2027,7 +2025,6 @@ class ProcessingPanel( Sith ):
             err.show( )
 
 
-
 class SplashPanel( Sith ):
     '''Class providing splash dialog behavior'''
     __themebackground = None
@@ -2109,7 +2106,6 @@ class SplashPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 # Notification( heading )
@@ -2236,7 +2232,6 @@ class Notification( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class ImageSizeEncoder( Sith ):
@@ -2439,7 +2434,6 @@ class ImageSizeEncoder( Sith ):
         window.close( )
 
 
-
 class PdfForm( Sith ):
     '''Creates form to view a PDF'''
     __themebackground = None
@@ -2593,7 +2587,6 @@ class PdfForm( Sith ):
             err.show( )
 
 
-
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
     '''class creates form providing today selection behavior'''
@@ -2706,7 +2699,6 @@ class CalendarDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class DatePanel( Sith ):
@@ -2921,7 +2913,6 @@ class DatePanel( Sith ):
             err.show( )
 
 
-
 # ComboBoxDialog( data )
 class ComboBoxDialog( Sith ):
     '''Logger object provides form for log printing'''
@@ -3025,7 +3016,6 @@ class ComboBoxDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 # ListBoxDialog( data )
@@ -3152,7 +3142,6 @@ class ListBoxDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class ColorDialog( Sith ):
@@ -3965,7 +3954,6 @@ class ColorDialog( Sith ):
             err.show( )
 
 
-
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
@@ -4409,7 +4397,6 @@ class BudgetForm( Sith ):
             err.show( )
 
 
-
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
     __icon = None
@@ -4494,7 +4481,6 @@ class ChartPanel( Sith ):
             excp.method = 'show( self)'
             err = ErrorDialog( excp )
             err.show( )
-
 
 
 class CsvForm( Sith ):
@@ -4610,7 +4596,6 @@ class CsvForm( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class ExcelForm( Sith ):
@@ -4746,7 +4731,6 @@ class ExcelForm( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 
 class GraphForm( Sith ):
