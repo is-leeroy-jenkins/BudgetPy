@@ -614,6 +614,7 @@ class DbConfig( ):
             error = ErrorDialog( exc )
             error.show( )
 
+
 # Connection( source, provider = Provider.SQLite )
 class Connection( DbConfig ):
     '''Connection( source, provider = Provider.SQLite ) initializes
@@ -724,6 +725,7 @@ class Connection( DbConfig ):
             exc.method = 'disconnect( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # SqlConfig( commandtype, names, values, style )
 class SqlConfig( ):
@@ -895,6 +897,7 @@ class SqlConfig( ):
             exc.method = 'valuedump( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # SqlStatement( dbconfig,  sqlconfig )
 class SqlStatement( ):
@@ -1079,6 +1082,7 @@ class SqlStatement( ):
             exc.method = 'getcommandtext( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # Query( connection, sqlstatement )
 class Query( ):
@@ -1278,6 +1282,7 @@ class Query( ):
             err = ErrorDialog( exc )
             err.show( )
 
+
 # SQLiteData( connection, sqlstatement )
 class SQLiteData( Query ):
     '''SQLiteData( value, sqlconfig ) represents
@@ -1422,6 +1427,7 @@ class SQLiteData( Query ):
             err = ErrorDialog( exc )
             err.show( )
 
+
 # AccessData( connection, sqlstatement )
 class AccessData( Query ):
     '''AccessData( value, sqlconfig ) class
@@ -1556,6 +1562,7 @@ class AccessData( Query ):
             exc.method = 'createframe( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # SqlServerData( connection, sqlstatement )
 class SqlServerData( Query ):
@@ -1703,6 +1710,7 @@ class SqlServerData( Query ):
             err = ErrorDialog( exc )
             err.show( )
 
+
 # DataBuilder( provider, source, command, names, values )
 class DataBuilder( ):
     '''DataBuilder class provides methods that access
@@ -1839,6 +1847,7 @@ class DataBuilder( ):
             exc.method = 'createtable( self )'
             error = ErrorDialog( exc )
             error.show( )
+
 
 # DataColumn( name, type, value, series  )
 class DataColumn( ):
@@ -1990,6 +1999,7 @@ class DataColumn( ):
             err = ErrorDialog( exc )
             err.show( )
 
+
 # DataRow( names, values, source )
 class DataRow( ):
     '''Defines the DataRow Class with optional arguments
@@ -2083,6 +2093,7 @@ class DataRow( ):
     def __str__( self ):
         if isinstance( self.__index, int ) and self.__index > -1:
             return 'Row ID: ' + str( self.__index )
+
 
 # DataTable( columns, rows, source, dataframe )
 class DataTable( ):
@@ -2178,6 +2189,7 @@ class DataTable( ):
     def __str__( self ):
         if self.__name is not None:
             return self.__name
+
 
 # BudgetData( source )
 class BudgetData( ):
