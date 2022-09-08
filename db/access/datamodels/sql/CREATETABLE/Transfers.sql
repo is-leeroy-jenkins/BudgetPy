@@ -1,6 +1,6 @@
 CREATE TABLE Transfers 
 (
-    TransfersId INTEGER NOT NULL UNIQUE,
+    TransfersId AUTOINCREMENT NOT NULL UNIQUE,
     BudgetLevel TEXT(80) NULL DEFAULT NS,
     DocPrefix TEXT(80) NULL DEFAULT NS,
     DocType TEXT(80) NULL DEFAULT NS,
@@ -30,9 +30,10 @@ CREATE TABLE Transfers
     BocCode TEXT(80) NULL DEFAULT NS,
     BocName TEXT(80) NULL DEFAULT NS,
     NpmCode TEXT(80) NULL DEFAULT NS,
-    Amount DOUBLE NULL DEFAULT 0.0,
+    Amount DECIMAL NULL DEFAULT 0.0,
     Purpose TEXT(80) NULL DEFAULT NS,
     ExtendedPurpose TEXT(80) NULL DEFAULT NS,
     ResourceType TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(TransfersId)
+    CONSTRAINT TransfersPrimaryKey
+        PRIMARY KEY(TransfersId)
 );

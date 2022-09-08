@@ -1,6 +1,6 @@
 CREATE TABLE StatusOfJobsActFunding 
 (
-    StatusOfJobsActFundingId INTEGER NOT NULL UNIQUE,
+    StatusOfJobsActFundingId AUTOINCREMENT NOT NULL UNIQUE,
     StatusOfFundsId INTEGER NOT NULL,
     BudgetLevel TEXT(80) NULL DEFAULT NS,
     BFY TEXT(80) NULL DEFAULT NS,
@@ -25,14 +25,15 @@ CREATE TABLE StatusOfJobsActFunding
     RcCode TEXT(80) NULL DEFAULT NS,
     RcName TEXT(80) NULL DEFAULT NS,
     LowerName TEXT(80) NULL DEFAULT NS,
-    Amount DOUBLE NULL DEFAULT 0.0,
-    Budgeted DOUBLE NULL DEFAULT 0.0,
-    Posted DOUBLE NULL DEFAULT 0.0,
-    OpenCommitments DOUBLE NULL DEFAULT 0.0,
-    ULO DOUBLE NULL DEFAULT 0.0,
-    Expenditures DOUBLE NULL DEFAULT 0.0,
-    Obligations DOUBLE NULL DEFAULT 0.0,
-    Used DOUBLE NULL DEFAULT 0.0,
-    Available DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(StatusOfJobsActFundingId)
+    Amount DECIMAL NULL DEFAULT 0.0,
+    Budgeted DECIMAL NULL DEFAULT 0.0,
+    Posted DECIMAL NULL DEFAULT 0.0,
+    OpenCommitments DECIMAL NULL DEFAULT 0.0,
+    ULO DECIMAL NULL DEFAULT 0.0,
+    Expenditures DECIMAL NULL DEFAULT 0.0,
+    Obligations DECIMAL NULL DEFAULT 0.0,
+    Used DECIMAL NULL DEFAULT 0.0,
+    Available DECIMAL NULL DEFAULT 0.0,
+    CONSTRAINT StatusOfJobsActFundingPrimaryKey
+        PRIMARY KEY(StatusOfJobsActFundingId)
 );

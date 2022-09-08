@@ -1,6 +1,6 @@
 CREATE TABLE SuperfundSites 
 (
-    SuperfundSitesId INTEGER NOT NULL UNIQUE,
+    SuperfundSitesId AUTOINCREMENT NOT NULL UNIQUE,
     RpioCode TEXT(80) NULL DEFAULT NS,
     RpioName TEXT(80) NULL DEFAULT NS,
     City TEXT(80) NULL DEFAULT NS,
@@ -8,5 +8,6 @@ CREATE TABLE SuperfundSites
     SSID TEXT(80) NULL DEFAULT NS,
     SiteProjectName TEXT(80) NULL DEFAULT NS,
     EpaSiteId TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(SuperfundSitesId)
+    CONSTRAINT SuperfundSitesPrimaryKey
+        PRIMARY KEY(SuperfundSitesId)
 );

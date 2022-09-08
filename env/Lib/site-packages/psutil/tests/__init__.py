@@ -21,6 +21,7 @@ import os
 import random
 import re
 import select
+import shlex
 import shutil
 import signal
 import socket
@@ -450,14 +451,14 @@ def sh(cmd, **kwds):
     """run cmd in a subprocess and return its output.
     raises RuntimeError on error.
     """
-    shell = True if isinstance(cmd, (str, unicode)) else False
     # Prevents subprocess to open error dialogs in case of error.
-    flags = 0x8000000 if WINDOWS and shell else 0
-    kwds.setdefault("shell", shell)
+    flags = 0x8000000 if WINDOWS else 0
     kwds.setdefault("stdout", subprocess.PIPE)
     kwds.setdefault("stderr", subprocess.PIPE)
     kwds.setdefault("universal_newlines", True)
     kwds.setdefault("creationflags", flags)
+    if isinstance(cmd, str):
+        cmd = shlex.split(cmd)
     p = subprocess.Popen(cmd, **kwds)
     _subprocesses_started.add(p)
     if PY3:
@@ -739,7 +740,7 @@ def call_until(fun, expr):
 
 
 def safe_rmpath(path):
-    "Convenience function for removing temporary test files or dirs"
+    """Convenience function for removing temporary test files or dirs."""
     def retry_fun(fun):
         # On Windows it could happen that the file or directory has
         # open handles or references preventing the delete operation
@@ -772,7 +773,7 @@ def safe_rmpath(path):
 
 
 def safe_mkdir(dir):
-    "Convenience function for creating a directory"
+    """Convenience function for creating a directory."""
     try:
         os.mkdir(dir)
     except FileExistsError:
@@ -781,7 +782,7 @@ def safe_mkdir(dir):
 
 @contextlib.contextmanager
 def chdir(dirname):
-    "Context manager which temporarily changes the current directory."
+    """Context manager which temporarily changes the current directory."""
     curdir = os.getcwd()
     try:
         os.chdir(dirname)
@@ -1002,7 +1003,7 @@ class TestMemoryLeak(PsutilTestCase):
 
     def _call_ntimes(self, fun, times):
         """Get 2 distinct memory samples, before and after having
-        called fun repeadetly, and return the memory difference.
+        called fun repeatedly, and return the memory difference.
         """
         gc.collect(generation=1)
         mem1 = self._get_mem()

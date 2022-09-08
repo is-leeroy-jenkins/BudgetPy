@@ -1,6 +1,6 @@
 CREATE TABLE Deobligations 
 (
-    DeobligationsId INTEGER NOT NULL UNIQUE,
+    DeobligationsId AUTOINCREMENT NOT NULL UNIQUE,
     BFY TEXT(80) NULL DEFAULT NS,
     RpioCode TEXT(80) NULL DEFAULT NS,
     RpioName TEXT(80) NULL DEFAULT NS,
@@ -21,6 +21,7 @@ CREATE TABLE Deobligations
     FocCode TEXT(80) NULL DEFAULT NS,
     FocName TEXT(80) NULL DEFAULT NS,
     ProcessedDate TEXT(80) NULL DEFAULT NS,
-    Amount REAL DEFAULT 0.0,
-    PRIMARY KEY(DeobligationsId)
+    Amount DECIMAL NULL DEFAULT 0.0,
+    CONSTRAINT DeobligationsPrimaryKey
+        PRIMARY KEY(DeobligationsId)
 );

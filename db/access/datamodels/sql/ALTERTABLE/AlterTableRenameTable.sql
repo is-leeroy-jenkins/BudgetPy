@@ -1,2 +1,2 @@
-ALTER TABLE persons 
-RENAME TO users;
+ALTER TABLE {TableName} 
+RENAME TO {Name};

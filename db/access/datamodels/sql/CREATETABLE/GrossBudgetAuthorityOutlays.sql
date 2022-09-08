@@ -1,0 +1,28 @@
+CREATE TABLE GrossBudgetAuthorityOutlays 
+(
+    GrossBudgetAuthorityOutlaysId AUTOINCREMENT NOT NULL UNIQUE,
+    ReportYear TEXT(80) NULL DEFAULT NS,
+    AgencyName TEXT(80) NULL DEFAULT NS,
+    BudgetAccount TEXT(80) NULL DEFAULT NS,
+    Line TEXT(80) NULL DEFAULT NS,
+    LineNumber TEXT(80) NULL DEFAULT NS,
+    LineSection TEXT(80) NULL DEFAULT NS,
+    LineName TEXT(80) NULL DEFAULT NS,
+    BeaCategory TEXT(80) NULL DEFAULT NS,
+    BeaCategoryName TEXT(80) NULL DEFAULT NS,
+    LineCategory TEXT(80) NULL DEFAULT NS,
+    PriorYear DECIMAL NULL DEFAULT 0.0,
+    CurrentYear DECIMAL NULL DEFAULT 0.0,
+    BudgetYear DECIMAL NULL DEFAULT 0.0,
+    OutYear1 DECIMAL NULL DEFAULT 0.0,
+    OutYear2 DECIMAL NULL DEFAULT 0.0,
+    OutYear3 DECIMAL NULL DEFAULT 0.0,
+    OutYear4 DECIMAL NULL DEFAULT 0.0,
+    OutYear5 DECIMAL NULL DEFAULT 0.0,
+    OutYear6 DECIMAL NULL DEFAULT 0.0,
+    OutYear7 DECIMAL NULL DEFAULT 0.0,
+    OutYear8 DECIMAL NULL DEFAULT 0.0,
+    OutYear9 DECIMAL NULL DEFAULT 0.0,
+    CONSTRAINT GrossBudgetAuthorityOutlaysPrimaryKey
+        PRIMARY KEY(GrossBudgetAuthorityOutlaysId)
+);

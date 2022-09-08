@@ -86,7 +86,9 @@ class ShouldBeConstant(VarLibMergeError):
         good_ttf = next(
             ttf
             for ttf in self.merger.ttfs
-            if ttf["GPOS"].table.FeatureList.FeatureCount == self.cause["expected"]
+            if self.stack[-1] in ttf
+            and ttf[self.stack[-1]].table.FeatureList.FeatureCount
+            == self.cause["expected"]
         )
 
         good_features = [
@@ -110,6 +112,20 @@ class FoundANone(VarLibMergeError):
     @property
     def offender(self):
         index = [x is None for x in self.cause["got"]].index(True)
+        return index, self._master_name(index)
+
+    @property
+    def details(self):
+        cause, stack = self.cause, self.stack
+        return f"{stack[0]}=={cause['got']}\n"
+
+
+class NotANone(VarLibMergeError):
+    """one of the values in a list was not empty when it should have been"""
+
+    @property
+    def offender(self):
+        index = [x is not None for x in self.cause["got"]].index(True)
         return index, self._master_name(index)
 
     @property

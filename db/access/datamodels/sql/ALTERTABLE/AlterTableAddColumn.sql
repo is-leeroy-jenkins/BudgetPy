@@ -1,2 +1,2 @@
-ALTER TABLE table_name 
-ADD COLUMN column_name column_type;
+ALTER TABLE {TableName} 
+ADD COLUMN {ColumnName} {DataType};

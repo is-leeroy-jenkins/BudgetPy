@@ -1,11 +1,12 @@
 CREATE TABLE Contacts 
 (
-    ContactsId INTEGER NOT NULL UNIQUE,
+    ContactsId AUTOINCREMENT NOT NULL UNIQUE,
     FirstName TEXT(80) NULL DEFAULT NS,
     LastName TEXT(80) NULL DEFAULT NS,
     FullName TEXT(80) NULL DEFAULT NS,
     Email TEXT(80) NULL DEFAULT NS,
     RPIO TEXT(80) NULL DEFAULT NS,
     Section TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(ContactsId)
+    CONSTAINT ContactsPrimaryKey
+        PRIMARY KEY(ContactsId)
 );

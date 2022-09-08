@@ -1,6 +1,6 @@
 CREATE TABLE CongressionalReprogrammings 
 (
-    CongressionalReprogrammingsId INTEGER NOT NULL UNIQUE,
+    CongressionalReprogrammingsId AUTOINCREMENT NOT NULL UNIQUE,
     ReprogrammingNumber TEXT(80) NULL DEFAULT NS,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
@@ -20,9 +20,10 @@ CREATE TABLE CongressionalReprogrammings
     BocName TEXT(80) NULL DEFAULT NS,
     FromTo TEXT(80) NULL DEFAULT NS,
     ActivityCode TEXT(80) NULL DEFAULT NS,
-    Amount NUMERIC NULL DEFAULT 0.0,
+    Amount DECIMAL NULL DEFAULT 0.0,
     Description TEXT(MAX) NULL DEFAULT NS,
     ExtendedDescription TEXT(MAX) NULL DEFAULT NS,
     Cycle TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(CongressionalReprogrammingsId)
+    CONSTAINT CongressionalReprogrammingsPrimaryKey
+         PRIMARY KEY(CongressionalReprogrammingsId)
 );

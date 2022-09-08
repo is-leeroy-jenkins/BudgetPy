@@ -1,14 +1,14 @@
 CREATE TABLE AppropriationDocuments 
 (
-    AppropriationDocumentsId INTEGER NOT NULL UNIQUE,
+    AppropriationDocumentsId AUTOINCREMENT NOT NULL UNIQUE,
     BFY TEXT(80) NULL DEFAULT NS
     EFY TEXT(80) NULL DEFAULT NS
     FundCode TEXT(80) NULL DEFAULT NS
     Fund TEXT(80) NULL DEFAULT NS
     DocumentType TEXT(80) NULL DEFAULT NS
     DocumentNumber TEXT(80) NULL DEFAULT NS
-    DocumentDate DATETIME NULL DEFAULT NS
-    LastDocumentDate DATETIME NULL DEFAULT NS
+    DocumentDate TEXT(80) NULL DEFAULT NS
+    LastDocumentDate TEXT(80) NULL DEFAULT NS
     BudgetLevel TEXT(80) NULL DEFAULT NS
     BudgetingControls TEXT(80) NULL DEFAULT NS
     PostingControls TEXT(80) NULL DEFAULT NS
@@ -20,11 +20,11 @@ CREATE TABLE AppropriationDocuments
     ExpenseControls TEXT(80) NULL DEFAULT NS
     ReimbursementControls TEXT(80) NULL DEFAULT NS
     ReimbursableAgreementControls TEXT(80) NULL DEFAULT NS
-    Budgeted DOUBLE NULL DEFAULT 0.0,
-    Posted DOUBLE NULL DEFAULT 0.0,
-    CarryOut DOUBLE NULL DEFAULT 0.0,
-    CarryIn DOUBLE NULL DEFAULT 0.0,
-    EstimatedReimbursements DOUBLE NULL DEFAULT 0.0,
-    EstimatedRecoveries DOUBLE NULL DEFAULT 0.0,
+    Budgeted DECIMAL NULL DEFAULT 0.0,
+    Posted DECIMAL NULL DEFAULT 0.0,
+    CarryOut DECIMAL NULL DEFAULT 0.0,
+    CarryIn DECIMAL NULL DEFAULT 0.0,
+    EstimatedReimbursements DECIMAL NULL DEFAULT 0.0,
+    EstimatedRecoveries DECIMAL NULL DEFAULT 0.0,
     PRIMARY KEY(AppropriationDocumentsId)
 );

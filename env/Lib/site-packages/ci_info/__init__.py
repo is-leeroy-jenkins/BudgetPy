@@ -3,9 +3,8 @@ import json
 import os
 
 
-from ._version import get_versions
-__version__ = get_versions()['version']
-del get_versions
+from . import _version
+__version__ = _version.get_versions()['version']
 
 _here = os.path.dirname(__file__)
 with open(os.path.join(_here, 'vendors.json')) as fp:

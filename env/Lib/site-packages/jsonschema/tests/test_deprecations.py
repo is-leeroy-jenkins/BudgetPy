@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from jsonschema import validators
+from jsonschema import FormatChecker, validators
 
 
 class TestDeprecations(TestCase):
@@ -120,4 +120,45 @@ class TestDeprecations(TestCase):
             str(w.warning).startswith(
                 "Passing a schema to Validator.iter_errors is deprecated ",
             ),
+        )
+
+    def test_Validator_subclassing(self):
+        """
+        As of v4.12.0, subclassing a validator class produces an explicit
+        deprecation warning.
+
+        This was never intended to be public API (and some comments over the
+        years in issues said so, but obviously that's not a great way to make
+        sure it's followed).
+
+        A future version will explicitly raise an error.
+        """
+
+        with self.assertWarns(DeprecationWarning) as w:
+            class Subclass(validators.Draft202012Validator):
+                pass
+
+        self.assertEqual(w.filename, __file__)
+        self.assertTrue(
+            str(w.warning).startswith("Subclassing validator classes is "),
+        )
+
+        with self.assertWarns(DeprecationWarning) as w:
+            class AnotherSubclass(validators.create(meta_schema={})):
+                pass
+
+    def test_FormatChecker_cls_checks(self):
+        """
+        As of v4.14.0, FormatChecker.cls_checks is deprecated without
+        replacement.
+        """
+
+        self.addCleanup(FormatChecker.checkers.pop, "boom", None)
+
+        with self.assertWarns(DeprecationWarning) as w:
+            FormatChecker.cls_checks("boom")
+
+        self.assertEqual(w.filename, __file__)
+        self.assertTrue(
+            str(w.warning).startswith("FormatChecker.cls_checks "),
         )

@@ -1,6 +1,6 @@
 CREATE TABLE SiteActivity 
 (
-    SiteActivityId INTEGER NOT NULL UNIQUE,
+    SiteActivityId AUTOINCREMENT NOT NULL UNIQUE,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
     RpioCode TEXT(80) NULL DEFAULT NS,
@@ -30,11 +30,12 @@ CREATE TABLE SiteActivity
     StartDate TEXT(80) NULL DEFAULT NS,
     LastActivity TEXT(80) NULL DEFAULT NS,
     EndDate TEXT(80) NULL DEFAULT NS,
-    Requested DOUBLE NULL DEFAULT 0.0,
-    Accepted DOUBLE NULL DEFAULT 0.0,
-    Closed DOUBLE NULL DEFAULT 0.0,
-    Outstanding DOUBLE NULL DEFAULT 0.0,
-    Refunded DOUBLE NULL DEFAULT 0.0,
-    Reversal DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(SiteActivityId)
+    Requested DECIMAL NULL DEFAULT 0.0,
+    Accepted DECIMAL NULL DEFAULT 0.0,
+    Closed DECIMAL NULL DEFAULT 0.0,
+    Outstanding DECIMAL NULL DEFAULT 0.0,
+    Refunded DECIMAL NULL DEFAULT 0.0,
+    Reversal DECIMAL NULL DEFAULT 0.0,
+    CONSTRAINT SiteActivityPrimaryKey
+        PRIMARY KEY(SiteActivityId)
 );

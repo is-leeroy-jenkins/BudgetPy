@@ -1,6 +1,6 @@
 CREATE TABLE CarryoverRequests 
 (
-    CarryoverReissuanceRequestsId INTEGER NOT NULL UNIQUE,
+    CarryoverReissuanceRequestsId AUTOINCREMENT NOT NULL UNIQUE,
     ControlTeamAnalyst TEXT(80) NULL DEFAULT NS,
     RpioCode TEXT(80) NULL DEFAULT NS,
     DocumentTitle TEXT(80) NULL DEFAULT NS,
@@ -13,5 +13,6 @@ CREATE TABLE CarryoverRequests
     Comments TEXT(80) NULL DEFAULT NS,
     RequestDocument TEXT(80) NULL DEFAULT NS,
     Duration TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(CarryoverReissuanceRequestsId)
+    CONSTAINT CarryoverReissuanceRequestsPrimaryKey
+        PRIMARY KEY(CarryoverReissuanceRequestsId)
 );

@@ -11,5 +11,5 @@ ON (PayrollObligations.HrOrgCode = PayrollHours.HrOrgCode)
 AND (PayrollObligations.WorkCode = PayrollHours.WorkCode) 
 AND (PayrollObligations.PayPeriod = PayrollHours.PayPeriod)
 GROUP BY PayrollObligations.RPIO, PayrollObligations.AhCode, PayrollObligations.BFY, PayrollObligations.RcCode, PayrollObligations.DivisionName, PayrollHours.EpaNumber, PayrollHours.LastName, PayrollHours.FirstName, PayrollObligations.FundCode, PayrollObligations.FundName, PayrollObligations.OrgCOde, PayrollObligations.AccountCode, PayrollObligations.ProgramProjectCode, PayrollObligations.ProgramProjectName, PayrollObligations.WorkCode, PayrollObligations.HrOrgCode, PayrollObligations.PayPeriod, PayrollHours.StartDate, PayrollHours.EndDate, PayrollObligations.Amount, PayrollObligations.Hours, PayrollObligations.CumulativeBenefits, PayrollObligations.AnnualOvertimePaid, PayrollObligations.AnnualOvertimeHours
-HAVING PayrollObligations.BFY = '2021';
+HAVING PayrollObligations.BFY = 2021;
 

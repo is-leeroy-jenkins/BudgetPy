@@ -189,6 +189,8 @@ def virtual_memory():
                     buffers = int(line.split()[1]) * 1024
                 elif line.startswith(b'MemShared:'):
                     shared = int(line.split()[1]) * 1024
+                elif line.startswith(b'Cached:'):
+                    cached = int(line.split()[1]) * 1024
     avail = inactive + cached + free
     used = active + wired + cached
     percent = usage_percent((total - avail), total, round_=1)
@@ -326,11 +328,11 @@ if FREEBSD:
             if available_freq:
                 try:
                     min_freq = int(available_freq.split(" ")[-1].split("/")[0])
-                except(IndexError, ValueError):
+                except (IndexError, ValueError):
                     min_freq = None
                 try:
                     max_freq = int(available_freq.split(" ")[0].split("/")[0])
-                except(IndexError, ValueError):
+                except (IndexError, ValueError):
                     max_freq = None
             ret.append(_common.scpufreq(current, min_freq, max_freq))
         return ret
@@ -453,7 +455,7 @@ if FREEBSD:
         return _common.sbattery(percent, secsleft, power_plugged)
 
     def sensors_temperatures():
-        "Return CPU cores temperatures if available, else an empty dict."
+        """Return CPU cores temperatures if available, else an empty dict."""
         ret = defaultdict(list)
         num_cpus = cpu_count_logical()
         for cpu in range(num_cpus):

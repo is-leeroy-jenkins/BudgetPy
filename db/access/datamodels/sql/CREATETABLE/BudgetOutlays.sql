@@ -1,0 +1,29 @@
+CREATE TABLE BudgetOutlays 
+(
+    BudgetOutlaysId AUTOINCREMENT NOT NULL UNIQUE,
+    ReportYear TEXT(80) NULL DEFAULT NS,
+    Category TEXT(80) NULL DEFAULT NS,
+    AgencyName TEXT(80) NULL DEFAULT NS,
+    LineNumber TEXT(80) NULL DEFAULT NS,
+    LineSection TEXT(80) NULL DEFAULT NS,
+    OmbAccount TEXT(80) NULL DEFAULT NS,
+    LineTitle TEXT(80) NULL DEFAULT NS,
+    AccountType TEXT(80) NULL DEFAULT NS,
+    AuthorityTypeName TEXT(80) NULL DEFAULT NS,
+    Line TEXT(80) NULL DEFAULT NS,
+    AuthorityType TEXT(80) NULL DEFAULT NS,
+    PriorYear DECIMAL NULL DEFAULT 0.0,
+    CurrentYear DECIMAL NULL DEFAULT 0.0,
+    BudgetYear DECIMAL NULL DEFAULT 0.0,
+    BudgetYear1 DECIMAL NULL DEFAULT 0.0,
+    BudgetYear2 DECIMAL NULL DEFAULT 0.0,
+    BudgetYear3 DECIMAL NULL DEFAULT 0.0,
+    BudgetYear4 DECIMAL NULL DEFAULT 0.0,
+    BudgetYear5 DECIMAL NULL DEFAULT 0.0,
+    BudgetYear6 DECIMAL NULL DEFAULT 0.0,
+    BudgetYear7 DECIMAL NULL DEFAULT 0.0,
+    BudgetYear8 DECIMAL NULL DEFAULT 0.0,
+    BudgetYear9 DECIMAL NULL DEFAULT 0.0,
+    CONSTRAINT BudgetOutlaysPrimaryKey 
+        PRIMARY KEY(BudgetOutlaysId)
+);

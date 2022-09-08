@@ -14,7 +14,10 @@ log = logging.getLogger(__name__)
 have_uharfbuzz = False
 try:
 	import uharfbuzz as hb
-	have_uharfbuzz = True
+	# repack method added in uharfbuzz >= 0.23; if uharfbuzz *can* be
+	# imported but repack method is missing, behave as if uharfbuzz
+	# is not available (fallback to the slower Python implementation)
+	have_uharfbuzz = callable(getattr(hb, "repack", None))
 except ImportError:
 	pass
 
@@ -161,7 +164,7 @@ class BaseTTXConverter(DefaultTable):
 	def tryPackingHarfbuzz(self, writer, hb_first_error_logged):
 		try:
 			log.debug("serializing '%s' with hb.repack", self.tableTag)
-			return writer.getAllDataUsingHarfbuzz()
+			return writer.getAllDataUsingHarfbuzz(self.tableTag)
 		except (ValueError, MemoryError, hb.RepackerError) as e:
 			# Only log hb repacker errors the first time they occur in
 			# the offset-overflow resolution loop, they are just noisy.
@@ -567,7 +570,7 @@ class OTTableWriter(object):
 				child_idx = item_idx = item._gatherGraphForHarfbuzz(tables, obj_list, done, item_idx, virtual_edges)
 			else:
 				child_idx = done[id(item)]
-                        
+
 			real_edge = (pos, item.offsetSize, child_idx)
 			real_links.append(real_edge)
 			offset_pos += item.offsetSize
@@ -581,7 +584,7 @@ class OTTableWriter(object):
 
 		return item_idx
 
-	def getAllDataUsingHarfbuzz(self):
+	def getAllDataUsingHarfbuzz(self, tableTag):
 		"""The Whole table is represented as a Graph.
                 Assemble graph data and call Harfbuzz repacker to pack the table.
                 Harfbuzz repacker is faster and retain as much sub-table sharing as possible, see also:
@@ -609,7 +612,10 @@ class OTTableWriter(object):
 			tableData = table.getDataForHarfbuzz()
 			data.append(tableData)
 
-		return hb.repack(data, obj_list)
+		if hasattr(hb, "repack_with_tag"):
+			return hb.repack_with_tag(str(tableTag), data, obj_list)
+		else:
+			return hb.repack(data, obj_list)
 
 	def getAllData(self, remove_duplicate=True):
 		"""Assemble all data, including all subtables."""

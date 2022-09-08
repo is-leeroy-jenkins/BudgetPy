@@ -1,6 +1,6 @@
 CREATE TABLE CompassLevels 
 (
-    CompassLevelsId INTEGER NOT NULL UNIQUE,
+    CompassLevelsId AUTOINCREMENT NOT NULL UNIQUE,
     BudgetLevel TEXT(80) NULL DEFAULT NS,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
@@ -35,16 +35,17 @@ CREATE TABLE CompassLevels
     LowerRecoveriesOption TEXT(80) NULL DEFAULT NS,
     LowerReimbSpendingOption TEXT(80) NULL DEFAULT NS,
     Date TEXT(80) NULL DEFAULT NS,
-    TotalAuthority DOUBLE NULL DEFAULT 0.0,
-    OriginalAmount DOUBLE NULL DEFAULT 0.0,
-    CarryoverAvailabilityPercentage DOUBLE NULL DEFAULT 0.0,
-    CarryIn DOUBLE NULL DEFAULT 0.0,
-    CarryOut DOUBLE NULL DEFAULT 0.0,
-    FundsIn DOUBLE NULL DEFAULT 0.0,
-    FundOut DOUBLE NULL DEFAULT 0.0,
-    RecoveriesWithdrawn DOUBLE NULL DEFAULT 0.0,
-    ActualRecoveries DOUBLE NULL DEFAULT 0.0,
-    ActualReimbursements DOUBLE NULL DEFAULT 0.0,
-    AgreementReimbursables DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(CompassLevelsId)
+    TotalAuthority DECIMAL NULL DEFAULT 0.0,
+    OriginalAmount DECIMAL NULL DEFAULT 0.0,
+    CarryoverAvailabilityPercentage DECIMAL NULL DEFAULT 0.0,
+    CarryIn DECIMAL NULL DEFAULT 0.0,
+    CarryOut DECIMAL NULL DEFAULT 0.0,
+    FundsIn DECIMAL NULL DEFAULT 0.0,
+    FundOut DECIMAL NULL DEFAULT 0.0,
+    RecoveriesWithdrawn DECIMAL NULL DEFAULT 0.0,
+    ActualRecoveries DECIMAL NULL DEFAULT 0.0,
+    ActualReimbursements DECIMAL NULL DEFAULT 0.0,
+    AgreementReimbursables DECIMAL NULL DEFAULT 0.0,
+    CONSTAINT CompassLevelsPrimaryKey
+        PRIMARY KEY(CompassLevelsId)
 );

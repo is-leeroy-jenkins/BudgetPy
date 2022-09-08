@@ -1,6 +1,6 @@
 CREATE TABLE ReimbursableFunds 
 (
-    ReimbursableFundsId INTEGER NOT NULL UNIQUE,
+    ReimbursableFundsId AUTOINCREMENT NOT NULL UNIQUE,
     RpioCode TEXT(80) NULL DEFAULT NS,
     BFY TEXT(80) NULL DEFAULT NS,
     FundCode TEXT(80) NULL DEFAULT NS,
@@ -10,10 +10,11 @@ CREATE TABLE ReimbursableFunds
     BocCode TEXT(80) NULL DEFAULT NS,
     DocumentControlNumber TEXT(80) NULL DEFAULT NS,
     AgreeementNumber TEXT(80) NULL DEFAULT NS,
-    Amount DOUBLE NULL DEFAULT 0.0,
-    OpenCommitments DOUBLE NULL DEFAULT 0.0,
-    Obligations DOUBLE NULL DEFAULT 0.0,
-    ULO DOUBLE NULL DEFAULT 0.0,
-    Available DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(ReimbursableFundsId)
+    Amount DECIMAL NULL DEFAULT 0.0,
+    OpenCommitments DECIMAL NULL DEFAULT 0.0,
+    Obligations DECIMAL NULL DEFAULT 0.0,
+    ULO DECIMAL NULL DEFAULT 0.0,
+    Available DECIMAL NULL DEFAULT 0.0,
+    CONSTRAINT ReimbursableFundsPrimaryKey
+        PRIMARY KEY(ReimbursableFundsId)
 );

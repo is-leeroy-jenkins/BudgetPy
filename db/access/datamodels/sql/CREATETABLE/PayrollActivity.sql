@@ -1,6 +1,6 @@
 CREATE TABLE PayrollActivity 
 (
-    PayrollActivityId INTEGER NOT NULL UNIQUE,
+    PayrollActivityId AUTOINCREMENT NOT NULL UNIQUE,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
     RpioCode TEXT(80) NULL DEFAULT NS,
@@ -30,12 +30,13 @@ CREATE TABLE PayrollActivity
     StartDate TEXT(80) NULL DEFAULT NS,
     EndDate TEXT(80) NULL DEFAULT NS,
     CheckDate TEXT(80) NULL DEFAULT NS,
-    Amount DOUBLE NULL DEFAULT 0.0,
-    Hours DOUBLE NULL DEFAULT 0.0,
-    BasePaid DOUBLE NULL DEFAULT 0.0,
-    BaseHours DOUBLE NULL DEFAULT 0.0,
-    Benefits DOUBLE NULL DEFAULT 0.0,
-    OvertimePaid DOUBLE NULL DEFAULT 0.0,
-    OvertimeHours DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(PayrollActivityId)
+    Amount DECIMAL NULL DEFAULT 0.0,
+    Hours DECIMAL NULL DEFAULT 0.0,
+    BasePaid DECIMAL NULL DEFAULT 0.0,
+    BaseHours DECIMAL NULL DEFAULT 0.0,
+    Benefits DECIMAL NULL DEFAULT 0.0,
+    OvertimePaid DECIMAL NULL DEFAULT 0.0,
+    OvertimeHours DECIMAL NULL DEFAULT 0.0,
+    CONSTRAINT PayrollActivityPrimaryKey
+        PRIMARY KEY(PayrollActivityId)
 );

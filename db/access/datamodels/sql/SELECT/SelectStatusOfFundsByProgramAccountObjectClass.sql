@@ -1,18 +1,6 @@
-SELECT DISTINCTROW Allocations.BudgetLevel, Allocations.BFY, Allocations.AhCode, Allocations.FundCode, Allocations.OrgCode, Allocations.AccountCode, Allocations.BocCode, Allocations.RcCode, 
-CCur(Round(Allocations.Amount,2)) AS Initial, 
-CCur(Round(StatusOfFunds.Amount, 2)) AS Change, Switch((Allocations.Amount - StatusOfFunds.Amount) > 1, "INCREASE",(Allocations.Amount - StatusOfFunds.Amount) < -1, "DECREASE", 
-(Allocations.Amount - StatusOfFunds.Amount) <= 1 AND (Allocations.Amount - StatusOfFunds.Amount) >= -1, "ZERO") AS NET,
-Round(Abs(Allocations.Amount-StatusOfFunds.Amount),2) AS Delta
-FROM Allocations 
-INNER JOIN StatusOfFunds 
-ON (Allocations.BFY = StatusOfFunds.BFY) 
-AND (Allocations.BudgetLevel = StatusOfFunds.BudgetLevel) 
-AND (Allocations.AhCode = StatusOfFunds.AhCode) 
-AND (Allocations.FundCode = StatusOfFunds.FundCode) 
-AND (Allocations.OrgCode = StatusOfFunds.OrgCode) 
-AND (Allocations.BocCode = StatusOfFunds.BocCode) 
-AND (Allocations.AccountCode = StatusOfFunds.AccountCode) 
-AND (Allocations.RcCode = StatusOfFunds.RcCode)
-WHERE (((Allocations.Amount) <> [StatusOfFunds].[Amount]))
-ORDER BY Allocations.BFY DESC , Allocations.FundName, 
-Allocations.AccountCode, Allocations.BocCode;
+SELECT StatusOfFunds.BFY, StatusOfFunds.RpioCode, StatusOfFunds.RpioName, StatusOfFunds.FundCode, StatusOfFunds.FundName, StatusOfFunds.NpmCode, StatusOfFunds.NpmName, StatusOfFunds.AccountCode, StatusOfFunds.ProgramProjectCode, StatusOfFunds.ProgramProjectName, StatusOfFunds.ProgramAreaCode, StatusOfFunds.ProgramAreaName, StatusOfFunds.BocCode, StatusOfFunds.BocName, CCur(Sum(StatusOfFunds.Amount)) AS Amount, CCur(Sum(StatusOfFunds.OpenCommitments)) AS OpenCommitments, CCur(Sum(StatusOfFunds.Obligations)) AS Obligations, CCur(Sum(StatusOfFunds.Used)) AS Used, CCur(Sum(StatusOfFunds.Amount)-Sum(StatusOfFunds.Used)) AS Available
+FROM StatusOfFunds
+WHERE StatusOfFunds.BudgetLevel = '7'
+AND StatusOfFunds.RpioCode NOT LIKE '9*'
+GROUP BY StatusOfFunds.BFY, StatusOfFunds.RpioCode, StatusOfFunds.RpioName, StatusOfFunds.AhCode, StatusOfFunds.FundCode, StatusOfFunds.FundName, StatusOfFunds.NpmCode, StatusOfFunds.NpmName, StatusOfFunds.OrgCode, StatusOfFunds.AccountCode, StatusOfFunds.ProgramProjectCode, StatusOfFunds.ProgramProjectName, StatusOfFunds.ProgramAreaCode, StatusOfFunds.ProgramAreaName, StatusOfFunds.BocCode, StatusOfFunds.BocName;
+

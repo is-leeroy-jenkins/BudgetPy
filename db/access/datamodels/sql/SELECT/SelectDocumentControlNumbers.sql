@@ -1,3 +1,3 @@
-SELECT Allocations.*
-FROM Allocations
-WHERE Allocations.FundCode LIKE "B%";
+SELECT *
+FROM DocumentControlNumbers
+ORDER BY DocumentControlNumbers;

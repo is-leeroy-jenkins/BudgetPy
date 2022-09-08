@@ -1,11 +1,6 @@
-SELECT Allocations.PrcId, Allocations.BFY, Allocations.RPIO, Allocations.AhCode, Allocations.FundCode, Allocations.OrgCode, Allocations.AccountCode, Allocations.BocCode, Allocations.RcCode, CCur(Round(Allocations.Amount,2)) AS Budget, CCur(Round(StatusOfFunds.Amount,2)) AS System, CCur(Round(StatusOfFunds.Amount-Allocations.Amount,2)) AS DELTA
-FROM Allocations INNER JOIN StatusOfFunds ON Allocations.RcCode = StatusOfFunds.RcCode 
-AND Allocations.AccountCode = StatusOfFunds.AccountCode 
-AND Allocations.BocCode = StatusOfFunds.BocCode 
-AND Allocations.OrgCode = StatusOfFunds.OrgCode 
-AND Allocations.FundCode = StatusOfFunds.FundCode 
-AND Allocations.AhCode = StatusOfFunds.AhCode 
-AND Allocations.BudgetLevel = StatusOfFunds.BudgetLevel 
-AND Allocations.BFY = StatusOfFunds.BFY
-AND Allocations.BudgetLevel='7'
-ORDER BY Allocations.BFY DESC , Allocations.FundCode, Allocations.AccountCode, Allocations.BocCode;
+SELECT StatusOfFunds.BFY, StatusOfFunds.RpioName, StatusOfFunds.RpioCode, StatusOfFunds.FundCode, StatusOfFunds.FundName, StatusOfFunds.ProgramProjectCode, StatusOfFunds.ProgramProjectName, CCur(Sum(StatusOfFunds.Amount)) AS Amount, CCur(Sum(StatusOfFunds.OpenCommitments)) AS OpenCommitments, CCur(Sum(StatusOfFunds.Obligations)) AS Obligations, CCur(Sum(StatusOfFunds.Used)) AS Used, CCur(Sum(StatusOfFunds.Amount)-Sum(StatusOfFunds.Used)) AS Available
+FROM StatusOfFunds
+WHERE StatusOfFunds.BudgetLevel = '7'
+AND StatusOfFunds.Amount <> 0
+AND StatusOfFunds.RpioCode NOT LIKE '9%'
+GROUP BY StatusOfFunds.BFY, StatusOfFunds.RpioName, StatusOfFunds.RpioCode, StatusOfFunds.FundCode, StatusOfFunds.FundName, StatusOfFunds.ProgramProjectCode, StatusOfFunds.ProgramProjectName;

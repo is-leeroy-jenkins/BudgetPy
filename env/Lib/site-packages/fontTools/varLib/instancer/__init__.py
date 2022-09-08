@@ -90,6 +90,7 @@ from fontTools.varLib import builder
 from fontTools.varLib.mvar import MVAR_ENTRIES
 from fontTools.varLib.merger import MutatorMerger
 from fontTools.varLib.instancer import names
+from fontTools.misc.cliTools import makeOutputFileName
 import collections
 from copy import deepcopy
 from enum import IntEnum
@@ -327,7 +328,9 @@ def limitTupleVariationAxisRange(var, axisTag, axisRange):
         return [var, newVar]
 
 
-def _instantiateGvarGlyph(glyphname, glyf, gvar, hMetrics, vMetrics, axisLimits, optimize=True):
+def _instantiateGvarGlyph(
+    glyphname, glyf, gvar, hMetrics, vMetrics, axisLimits, optimize=True
+):
     coordinates, ctrl = glyf._getCoordinatesAndControls(glyphname, hMetrics, vMetrics)
     endPts = ctrl.endPts
 
@@ -363,22 +366,26 @@ def _instantiateGvarGlyph(glyphname, glyf, gvar, hMetrics, vMetrics, axisLimits,
         for var in tupleVarStore:
             var.optimize(coordinates, endPts, isComposite)
 
+
 def instantiateGvarGlyph(varfont, glyphname, axisLimits, optimize=True):
     """Remove?
     https://github.com/fonttools/fonttools/pull/2266"""
     gvar = varfont["gvar"]
     glyf = varfont["glyf"]
-    hMetrics = varfont['hmtx'].metrics
-    vMetrics = getattr(varfont.get('vmtx'), 'metrics', None)
-    _instantiateGvarGlyph(glyphname, glyf, gvar, hMetrics, vMetrics, axisLimits, optimize=optimize)
+    hMetrics = varfont["hmtx"].metrics
+    vMetrics = getattr(varfont.get("vmtx"), "metrics", None)
+    _instantiateGvarGlyph(
+        glyphname, glyf, gvar, hMetrics, vMetrics, axisLimits, optimize=optimize
+    )
+
 
 def instantiateGvar(varfont, axisLimits, optimize=True):
     log.info("Instantiating glyf/gvar tables")
 
     gvar = varfont["gvar"]
     glyf = varfont["glyf"]
-    hMetrics = varfont['hmtx'].metrics
-    vMetrics = getattr(varfont.get('vmtx'), 'metrics', None)
+    hMetrics = varfont["hmtx"].metrics
+    vMetrics = getattr(varfont.get("vmtx"), "metrics", None)
     # Get list of glyph names sorted by component depth.
     # If a composite glyph is processed before its base glyph, the bounds may
     # be calculated incorrectly because deltas haven't been applied to the
@@ -393,7 +400,9 @@ def instantiateGvar(varfont, axisLimits, optimize=True):
         ),
     )
     for glyphname in glyphnames:
-        _instantiateGvarGlyph(glyphname, glyf, gvar, hMetrics, vMetrics, axisLimits, optimize=optimize)
+        _instantiateGvarGlyph(
+            glyphname, glyf, gvar, hMetrics, vMetrics, axisLimits, optimize=optimize
+        )
 
     if not gvar.variations:
         del varfont["gvar"]
@@ -744,23 +753,7 @@ def _limitFeatureVariationConditionRange(condition, axisRange):
 
     values = [minValue, maxValue]
     for i, value in enumerate(values):
-        if value < 0:
-            if axisRange.minimum == 0:
-                newValue = 0
-            else:
-                newValue = value / abs(axisRange.minimum)
-                if newValue <= -1.0:
-                    newValue = -1.0
-        elif value > 0:
-            if axisRange.maximum == 0:
-                newValue = 0
-            else:
-                newValue = value / axisRange.maximum
-                if newValue >= 1.0:
-                    newValue = 1.0
-        else:
-            newValue = 0
-        values[i] = newValue
+        values[i] = normalizeValue(value, (axisRange.minimum, 0, axisRange.maximum))
 
     return AxisRange(*values)
 
@@ -805,12 +798,12 @@ def _instantiateFeatureVariationRecord(
     return applies, shouldKeep
 
 
-def _limitFeatureVariationRecord(record, axisRanges, fvarAxes):
+def _limitFeatureVariationRecord(record, axisRanges, axisOrder):
     newConditions = []
     for i, condition in enumerate(record.ConditionSet.ConditionTable):
         if condition.Format == 1:
             axisIdx = condition.AxisIndex
-            axisTag = fvarAxes[axisIdx].axisTag
+            axisTag = axisOrder[axisIdx]
             if axisTag in axisRanges:
                 axisRange = axisRanges[axisTag]
                 newRange = _limitFeatureVariationConditionRange(condition, axisRange)
@@ -854,7 +847,7 @@ def _instantiateFeatureVariations(table, fvarAxes, axisLimits):
             record, i, location, fvarAxes, axisIndexMap
         )
         if shouldKeep:
-            shouldKeep = _limitFeatureVariationRecord(record, axisRanges, fvarAxes)
+            shouldKeep = _limitFeatureVariationRecord(record, axisRanges, axisOrder)
 
         if shouldKeep and _featureVariationRecordIsUnique(record, uniqueRecords):
             newRecords.append(record)
@@ -937,24 +930,16 @@ def instantiateAvar(varfont, axisLimits):
             )
             newMapping = {}
             for fromCoord, toCoord in mapping.items():
-                if fromCoord < 0:
-                    if axisRange.minimum == 0 or fromCoord < axisRange.minimum:
-                        continue
-                    else:
-                        fromCoord /= abs(axisRange.minimum)
-                elif fromCoord > 0:
-                    if axisRange.maximum == 0 or fromCoord > axisRange.maximum:
-                        continue
-                    else:
-                        fromCoord /= axisRange.maximum
-                if toCoord < 0:
-                    assert mappedMin != 0
-                    assert toCoord >= mappedMin
-                    toCoord /= abs(mappedMin)
-                elif toCoord > 0:
-                    assert mappedMax != 0
-                    assert toCoord <= mappedMax
-                    toCoord /= mappedMax
+
+                if fromCoord < axisRange.minimum or fromCoord > axisRange.maximum:
+                    continue
+                fromCoord = normalizeValue(
+                    fromCoord, (axisRange.minimum, 0, axisRange.maximum)
+                )
+
+                assert mappedMin <= toCoord <= mappedMax
+                toCoord = normalizeValue(toCoord, (mappedMin, 0, mappedMax))
+
                 fromCoord = floatToFixedToFloat(fromCoord, 14)
                 toCoord = floatToFixedToFloat(toCoord, 14)
                 newMapping[fromCoord] = toCoord
@@ -1425,7 +1410,7 @@ def parseArgs(args):
         "--no-recalc-timestamp",
         dest="recalc_timestamp",
         action="store_false",
-        help="Don't set the output font's timestamp to the current time."
+        help="Don't set the output font's timestamp to the current time.",
     )
     parser.add_argument(
         "--no-recalc-bounds",
@@ -1470,7 +1455,7 @@ def parseArgs(args):
 
 
 def main(args=None):
-    """Partially instantiate a variable font."""
+    """Partially instantiate a variable font"""
     infile, axisLimits, options = parseArgs(args)
     log.info("Restricting axes: %s", axisLimits)
 
@@ -1494,9 +1479,9 @@ def main(args=None):
         updateFontNames=options.update_name_table,
     )
 
+    suffix = "-instance" if isFullInstance else "-partial"
     outfile = (
-        os.path.splitext(infile)[0]
-        + "-{}.ttf".format("instance" if isFullInstance else "partial")
+        makeOutputFileName(infile, overWrite=True, suffix=suffix)
         if not options.output
         else options.output
     )

@@ -1,7 +1,6 @@
 CREATE TABLE OpenCommitments 
 (
-    OpenCommitmentsId INTEGER NOT NULL UNIQUE,
-    ObligationsId INTEGER NOT NULL,
+    OpenCommitmentsId AUTOINCREMENT NOT NULL UNIQUE,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
     RpioCode TEXT(80) NULL DEFAULT NS,
@@ -32,6 +31,7 @@ CREATE TABLE OpenCommitments
     NpmName TEXT(80) NULL DEFAULT NS,
     VendorCode TEXT(80) NULL DEFAULT NS,
     VendorName TEXT(80) NULL DEFAULT NS,
-    Amount DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(OpenCommitmentsId)
+    Amount DECIMAL NULL DEFAULT 0.0,
+    CONSTRAINT OpenCommitmentsPrimaryKey
+        PRIMARY KEY(OpenCommitmentsId)
 );

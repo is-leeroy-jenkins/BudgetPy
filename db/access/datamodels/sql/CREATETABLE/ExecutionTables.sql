@@ -1,6 +1,8 @@
 CREATE TABLE ExecutionTables
 (
-	ExecutionTablesId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyExecutionTables PRIMARY KEY,
-	TableName TEXT(80) NULL DEFAULT NS,
-	TableType TEXT(80) NULL DEFAULT NS
+    ExecutionTablesId AUTOINCREMENT NOT NULL UNIQUE,
+    TableName TEXT(80) NULL DEFAULT NS,
+    TableType TEXT(80) NULL DEFAULT NS,
+    CONSTRAINT PrimaryKeyExecutionTables 
+        PRIMARY KEY(ExecutionTablesId)
 );

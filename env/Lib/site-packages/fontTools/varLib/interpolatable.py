@@ -16,12 +16,12 @@ import itertools
 import sys
 
 def _rot_list(l, k):
-	"""Rotate list by k items forward.  Ie. item at position 0 will be
-	at position k in returned list.  Negative k is allowed."""
-	n = len(l)
-	k %= n
-	if not k: return l
-	return l[n-k:] + l[:n-k]
+    """Rotate list by k items forward.  Ie. item at position 0 will be
+    at position k in returned list.  Negative k is allowed."""
+    n = len(l)
+    k %= n
+    if not k: return l
+    return l[n-k:] + l[:n-k]
 
 
 class PerContourPen(BasePen):
@@ -361,20 +361,69 @@ def main(args=None):
 
     from os.path import basename
 
-    names = [basename(filename).rsplit(".", 1)[0] for filename in args.inputs]
-
     fonts = []
+    names = []
+
+    if len(args.inputs) == 1:
+        if args.inputs[0].endswith('.designspace'):
+            from fontTools.designspaceLib import DesignSpaceDocument
+            designspace = DesignSpaceDocument.fromfile(args.inputs[0])
+            args.inputs = [master.path for master in designspace.sources]
+
+        elif args.inputs[0].endswith('.glyphs'):
+            from glyphsLib import GSFont, to_ufos
+            gsfont = GSFont(args.inputs[0])
+            fonts.extend(to_ufos(gsfont))
+            names = ['%s-%s' % (f.info.familyName, f.info.styleName) for f in fonts]
+            args.inputs = []
+
+        elif args.inputs[0].endswith('.ttf'):
+            from fontTools.ttLib import TTFont
+            font = TTFont(args.inputs[0])
+            if 'gvar' in font:
+                # Is variable font
+                gvar = font['gvar']
+                # Gather all "master" locations
+                locs = set()
+                for variations in gvar.variations.values():
+                    for var in variations:
+                        loc = []
+                        for tag,val in sorted(var.axes.items()):
+                            loc.append((tag,val[1]))
+                        locs.add(tuple(loc))
+                # Rebuild locs as dictionaries
+                new_locs = [{}]
+                for loc in sorted(locs, key=lambda v: (len(v), v)):
+                    names.append(str(loc))
+                    l = {}
+                    for tag,val in loc:
+                        l[tag] = val
+                    new_locs.append(l)
+                locs = new_locs
+                del new_locs
+                # locs is all master locations now
+
+                for loc in locs:
+                    fonts.append(font.getGlyphSet(location=loc, normalized=True))
+
+                args.inputs = []
+
+
     for filename in args.inputs:
         if filename.endswith(".ufo"):
             from fontTools.ufoLib import UFOReader
-
             fonts.append(UFOReader(filename))
         else:
             from fontTools.ttLib import TTFont
-
             fonts.append(TTFont(filename))
 
-    glyphsets = [font.getGlyphSet() for font in fonts]
+        names.append(basename(filename).rsplit(".", 1)[0])
+
+    if hasattr(fonts[0], 'getGlyphSet'):
+        glyphsets = [font.getGlyphSet() for font in fonts]
+    else:
+        glyphsets = fonts
+
     problems = test(glyphsets, glyphs=glyphs, names=names)
     if args.json:
         import json

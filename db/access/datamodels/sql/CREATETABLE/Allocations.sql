@@ -1,6 +1,6 @@
 CREATE TABLE Allocations 
 (
-    AllocationsId INTEGER NOT NULL UNIQUE,
+    AllocationsId AUTOINCREMENT NOT NULL UNIQUE,
     StatusOfFundsId INTEGER NOT NULL,
     BudgetLevel TEXT(80) NULL DEFAULT NS,
     RpioCode TEXT(80) NULL DEFAULT NS,
@@ -12,7 +12,7 @@ CREATE TABLE Allocations
     AccountCode TEXT(80) NULL DEFAULT NS,
     BocCode TEXT(80) NULL DEFAULT NS,
     RcCode TEXT(80) NULL DEFAULT NS,
-    Amount DOUBLE NULL DEFAULT 0.0,
+    Amount DECIMAL NULL DEFAULT 0.0,
     RpioName TEXT(80) NULL DEFAULT NS,
     FundName TEXT(80) NULL DEFAULT NS,
     AhName TEXT(80) NULL DEFAULT NS,
@@ -25,7 +25,8 @@ CREATE TABLE Allocations
     ProgramProjectName TEXT(80) NULL DEFAULT NS,
     ProgramAreaCode TEXT(80) NULL DEFAULT NS,
     ProgramAreaName TEXT(80) NULL DEFAULT NS,
+    CONSTRAINT AllocationsPrimaryKey 
+      PRIMARY KEY(AllocationsId),
     CONSTRAINT StatusOfFundsForeignKey 
-    FOREIGN KEY(StatusOfFundsId) 
-    REFERENCES StatusOfFunds(StatusOfFundsId)
+      FOREIGN KEY(StatusOfFundsId) REFERENCES StatusOfFunds(StatusOfFundsId)
 );
