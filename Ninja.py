@@ -2189,7 +2189,7 @@ class BudgetData( ):
         try:
             path = self.__path
             src = self.__source
-            table = self.__name
+            table = src.name
             conn = sqlite.connect( path )
             sql = f'SELECT * FROM {table};'
             frame = sqlreader( sql, conn )
