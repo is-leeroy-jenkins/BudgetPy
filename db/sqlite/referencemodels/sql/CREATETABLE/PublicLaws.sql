@@ -1,9 +1,0 @@
-CREATE TABLE PublicLaws (
-	PublicLawsId	INTEGER NOT NULL UNIQUE,
-	LawNumber	TEXT(255),
-	BillTitle	TEXT(255),
-	EnactedDate	TEXT(255),
-	Congress	TEXT(255),
-	BFY	TEXT(255),
-	PRIMARY KEY(PublicLawsId AUTOINCREMENT)
-)

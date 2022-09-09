@@ -1,7 +1,7 @@
 CREATE TABLE Organizations 
 (
- OrganizationsId AUTOINCREMENT NOT NULL UNIQUE,
- Code TEXT(80) NOT NULL,
- Name TEXT(80) NULL DEFAULT NS,
- CONSTRAINT PrimaryKeyOrganizations PRIMARY KEY(OrganizationsId)
+    OrganizationsId INTEGER NOT NULL UNIQUE,
+    Code TEXT(80) NULL DEFAULT NS,
+    Name TEXT(80) NULL DEFAULT NS,
+    CONSTRAINT PrimaryKeyOrganizations PRIMARY KEY(OrganizationsId)
 );

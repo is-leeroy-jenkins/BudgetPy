@@ -1,6 +1,6 @@
 CREATE TABLE FederalHolidays 
 (
-    FederalHolidaysId AUTOINCREMENT NOT NULL UNIQUE,
+    FederalHolidaysId INTEGER NOT NULL UNIQUE,
     BFY TEXT(80) NULL DEFAULT NS,
     Columbus TEXT(80) NULL DEFAULT NS,
     Veterans TEXT(80) NULL DEFAULT NS,
@@ -13,6 +13,5 @@ CREATE TABLE FederalHolidays
     Juneteenth TEXT(80) NULL DEFAULT NS,
     Independence TEXT(80) NULL DEFAULT NS,
     Labor TEXT(80) NULL DEFAULT NS,
-    CONSTRAINT FederalHolidaysPrimaryKey
-        PRIMARY KEY(FederalHolidaysId)
+    PRIMARY KEY(FederalHolidaysId)
 );

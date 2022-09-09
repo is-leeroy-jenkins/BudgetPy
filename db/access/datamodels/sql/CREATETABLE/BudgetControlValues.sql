@@ -1,15 +1,15 @@
-CREATE TABLE BudgetControls
+CREATE TABLE BudgetControlValues 
 (
-    BudgetControlsId AUTOINCREMENT NOT NULL UNIQUE,
+    ControlValueId INTEGER,
     Code TEXT(80) NULL DEFAULT NS,
     Name TEXT(80) NULL DEFAULT NS,
-    SecOrg. TEXT(80) NULL DEFAULT NS,
+    SecOrg TEXT(80) NULL DEFAULT NS,
     BdgtTransType TEXT(80) NULL DEFAULT NS,
     PstdTransType TEXT(80) NULL DEFAULT NS,
     EstReimTransType TEXT(80) NULL DEFAULT NS,
     SpngAdjTransType TEXT(80) NULL DEFAULT NS,
     EstRecTransType TEXT(80) NULL DEFAULT NS,
-    ActlRecTransType TEXT(80) NULL DEFAULT NS,
+    ActlRecTransType INTEGER,
     StatRsrvTransType TEXT(80) NULL DEFAULT NS,
     ProfLossTransType TEXT(80) NULL DEFAULT NS,
     EstReimSpngOpt TEXT(80) NULL DEFAULT NS,
@@ -20,8 +20,8 @@ CREATE TABLE BudgetControls
     EstRecBdgtOpt TEXT(80) NULL DEFAULT NS,
     RecNextLevel TEXT(80) NULL DEFAULT NS,
     RecBdgtMismatch TEXT(80) NULL DEFAULT NS,
-    Profit/LossSpngOpt TEXT(80) NULL DEFAULT NS,
-    Profit/LossBdgtOpt TEXT(80) NULL DEFAULT NS,
+    ProfitLossSpngOpt TEXT(80) NULL DEFAULT NS,
+    ProfitLossBdgtOpt TEXT(80) NULL DEFAULT NS,
     RecCrryInLowerLevel TEXT(80) NULL DEFAULT NS,
     RecCrryInLowerLevelCtrl TEXT(80) NULL DEFAULT NS,
     RecCrryInAMCtrl TEXT(80) NULL DEFAULT NS,
@@ -38,7 +38,5 @@ CREATE TABLE BudgetControls
     FteBdgtCtrl TEXT(80) NULL DEFAULT NS,
     FteSpngCtrl TEXT(80) NULL DEFAULT NS,
     TransactionTypeCtrl TEXT(80) NULL DEFAULT NS,
-    AuthorityDistributionCtrl TEXT(80) NULL DEFAULT NS,
-    CONSTRAINT BudgetControlsPrimaryKey
-        PRIMARY KEY(BudgetControlsId)
-);
+    AuthorityDistributionCtrl TEXT(80) NULL DEFAULT NS
+)

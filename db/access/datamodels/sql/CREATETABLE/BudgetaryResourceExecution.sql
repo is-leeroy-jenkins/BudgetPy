@@ -1,6 +1,6 @@
 CREATE TABLE BudgetaryResourceExecution 
 (
-    BudgetaryResourceExecutionId AUTOINCREMENT NOT NULL UNIQUE,
+    BudgetaryResourceExecutionId INTEGER NOT NULL UNIQUE,
     FiscalYear TEXT(80) NULL DEFAULT NS,
     Agency TEXT(80) NULL DEFAULT NS,
     Bureau TEXT(80) NULL DEFAULT NS,
@@ -23,18 +23,17 @@ CREATE TABLE BudgetaryResourceExecution
     BureauTitle TEXT(80) NULL DEFAULT NS,
     OmbAccountCode TEXT(80) NULL DEFAULT NS,
     FinancingAccounts TEXT(80) NULL DEFAULT NS,
-    November DECIMAL NULL DEFAULT 0.0,
-    January DECIMAL NULL DEFAULT 0.0,
-    Feburary DECIMAL NULL DEFAULT 0.0,
-    April DECIMAL NULL DEFAULT 0.0,
-    May DECIMAL NULL DEFAULT 0.0,
-    June DECIMAL NULL DEFAULT 0.0,
-    August DECIMAL NULL DEFAULT 0.0,
-    October DECIMAL NULL DEFAULT 0.0,
-    Amount1 DECIMAL NULL DEFAULT 0.0,
-    Amount2 DECIMAL NULL DEFAULT 0.0,
-    Amount3 DECIMAL NULL DEFAULT 0.0,
-    Amount4 DECIMAL NULL DEFAULT 0.0,
-    CONSTRAINT BudgetaryResourceExecutionPrimaryKey
-        PRIMARY KEY(BudgetaryResourceExecutionId)
+    November DOUBLE NULL DEFAULT 0.0,
+    January DOUBLE NULL DEFAULT 0.0,
+    Feburary DOUBLE NULL DEFAULT 0.0,
+    April DOUBLE NULL DEFAULT 0.0,
+    May DOUBLE NULL DEFAULT 0.0,
+    June DOUBLE NULL DEFAULT 0.0,
+    August DOUBLE NULL DEFAULT 0.0,
+    October DOUBLE NULL DEFAULT 0.0,
+    Amount1 DOUBLE NULL DEFAULT 0.0,
+    Amount2 DOUBLE NULL DEFAULT 0.0,
+    Amount3 DOUBLE NULL DEFAULT 0.0,
+    Amount4 DOUBLE NULL DEFAULT 0.0,
+    PRIMARY KEY(BudgetaryResourceExecutionId)
 );

@@ -1,6 +1,6 @@
 CREATE TABLE ProgramFinancingSchedule 
 (
-    ProgramFinancingScheduleId AUTOINCREMENT NOT NULL UNIQUE,
+    ProgramFinancingScheduleId INTEGER NOT NULL UNIQUE,
     ReportYear TEXT(80) NULL DEFAULT NS,
     TreasuryAgencyCode TEXT(80) NULL DEFAULT NS,
     TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
@@ -16,10 +16,9 @@ CREATE TABLE ProgramFinancingSchedule
     AccountSequence TEXT(80) NULL DEFAULT NS,
     AgencyName TEXT(80) NULL DEFAULT NS,
     FundName TEXT(80) NULL DEFAULT NS,
-    OriginalAmount DECIMAL NULL DEFAULT 0.0,
-    BudgetAmount DECIMAL NULL DEFAULT 0.0,
-    AgencyAmount DECIMAL NULL DEFAULT 0.0,
-    Amount DECIMAL NULL DEFAULT 0.0,
-    CONSTRAINT ProgramFinancingSechedulePrimaryKey
-        PRIMARY KEY(ProgramFinancingScheduleId)
+    OriginalAmount DOUBLE NULL DEFAULT 0.0,
+    BudgetAmount DOUBLE NULL DEFAULT 0.0,
+    AgencyAmount DOUBLE NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
+    PRIMARY KEY(ProgramFinancingScheduleId)
 );

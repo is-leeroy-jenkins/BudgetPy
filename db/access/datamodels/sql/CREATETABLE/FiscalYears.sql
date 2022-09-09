@@ -1,6 +1,6 @@
 CREATE TABLE FiscalYears 
 (
-    FiscalYearsId AUTOINCREMENT NOT NULL UNIQUE,
+    FiscalYearsId INTEGER NOT NULL UNIQUE,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
     StartDate TEXT(80) NULL DEFAULT NS,
@@ -22,6 +22,5 @@ CREATE TABLE FiscalYears
     WeekEnds TEXT(80) NULL DEFAULT NS,
     EndDate TEXT(80) NULL DEFAULT NS,
     Availability TEXT(80) NULL DEFAULT NS,
-    CONSTRAINT FiscalYearsPrimaryKey 
-        PRIMARY KEY(FiscalYearsId)
+    PRIMARY KEY(FiscalYearsId)
 );
