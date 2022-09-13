@@ -367,7 +367,7 @@ class SqlFile( ):
             err.show( )
 
 
-# DbConfig( source, provider )
+# DbConfig( source, provider = Provider.SQLite )
 class DbConfig( ):
     '''DbConfig( source, provider  ) provides list of Budget Execution
     tables across two databases ( values and references ) '''
@@ -619,7 +619,8 @@ class Connection( DbConfig ):
             err.show( )
 
 
-# SqlConfig( commandtype, names, values, style )
+# SqlConfig( command = SQL.SELECTALL, names = [ ],
+#            values = ( ), style = None )
 class SqlConfig( ):
     '''SqlConfig( names, values ) provides database
     interaction behavior'''
