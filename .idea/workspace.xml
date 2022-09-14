@@ -9,34 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/certifi-2022.6.15.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/certifi-2022.6.15.1.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/certifi-2022.6.15.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/certifi-2022.6.15.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/certifi-2022.6.15.1.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/certifi-2022.6.15.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/certifi-2022.6.15.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.5.0.dist-info/COPYING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.5.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.5.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.5.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.5.0.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.5.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.5.0.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/warnings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.4.0.dist-info/COPYING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.4.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.4.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.4.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.4.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.4.0.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat-5.4.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/_imports.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/_imports.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/_struct.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/_struct.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/_version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/converter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/current.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/current.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/json_compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/json_compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/reader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/v4/nbbase.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/v4/nbbase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/nbformat/validator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/jupyter-trust.exe" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/jupyter-trust.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/theme/Budget" beforeDir="false" afterPath="$PROJECT_DIR$/etc/theme/Budget" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,13 +192,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00331" summary="updates from main rig;">
-      <created>1656418038378</created>
-      <option name="number" value="00331" />
-      <option name="presentableId" value="LOCAL-00331" />
-      <option name="project" value="LOCAL" />
-      <updated>1656418038378</updated>
     </task>
     <task id="LOCAL-00332" summary="updates from main rig;">
       <created>1656436259302</created>
@@ -554,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662997334260</updated>
     </task>
-    <option name="localTasksCounter" value="380" />
+    <task id="LOCAL-00380" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1663104797265</created>
+      <option name="number" value="00380" />
+      <option name="presentableId" value="LOCAL-00380" />
+      <option name="project" value="LOCAL" />
+      <updated>1663104797266</updated>
+    </task>
+    <option name="localTasksCounter" value="381" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

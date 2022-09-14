@@ -206,7 +206,7 @@ class SqlPath( ):
         self.__sqldata = r'db\mssql\datamodels\sql'
 
 
-# SqlFile( source, provider, command )
+# SqlFile( source = None, provider = None, command = None  )
 class SqlFile( ):
     '''Class providing access to sql sub-folders in the application provided
     optional arguements source, provider, and command'''
@@ -250,6 +250,7 @@ class SqlFile( ):
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
                        'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
+                        'Appropriations', 'SubAppropriations', 'FundCategories',
                        'Deobligations', 'Defactos', 'DocumentControlNumbers',
                        'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
                        'ObjectClassOutlays', 'CarryoverOutlays',
@@ -619,8 +620,7 @@ class Connection( DbConfig ):
             err.show( )
 
 
-# SqlConfig( command = SQL.SELECTALL, names = [ ],
-#            values = ( ), style = None )
+# SqlConfig( command = SQL.SELECTALL, names = [ ], values = ( ), style = None )
 class SqlConfig( ):
     '''SqlConfig( names, values ) provides database
     interaction behavior'''
