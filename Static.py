@@ -118,6 +118,7 @@ class Source( Enum ):
     FiscalYears = auto( )
     FiscalYearsBackUp = auto( )
     Funds = auto( )
+    FundCategories = auto( )
     FundSymbols = auto( )
     GrowthRates = auto( )
     Goals = auto( )
@@ -144,6 +145,7 @@ class Source( Enum ):
     SchemaTypes = auto( )
     SpendingRates = auto( )
     Sources = auto( )
+    SubAppropriations = auto( )
     StateOrganizations = auto( )
     WorkCodes = auto( )
 

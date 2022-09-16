@@ -4,9 +4,11 @@ from Static import Source, Provider, SQL
 from Booger import Error, ErrorDialog
 import sys
 from sys import exc_info
-from Ninja import DbConfig, SqlConfig, Connection, SqlStatement, BudgetData
+from Ninja import DbConfig, SqlConfig, Connection, \
+    SqlStatement, BudgetData, DataBuilder
 from Static import Source, Provider
 from datetime import datetime, date
+from pandas import DataFrame
 
 
 
@@ -67,7 +69,7 @@ class Element( Unit ):
             return self.__code
 
 
-# Account( code )
+# Account( value )
 class Account( ):
     '''defines the Account Code class'''
     __source = None
@@ -279,7 +281,7 @@ class Account( ):
             err.show( )
 
 
-# Activity( code  )
+# Activity( value  )
 
 class Activity( ):
     '''Defines the Activity Class'''
@@ -407,7 +409,7 @@ class Activity( ):
             err.show( )
 
 
-# AllowanceHolder( code  )
+# AllowanceHolder( value  )
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
     __source = None
@@ -533,16 +535,13 @@ class AllowanceHolder( ):
             err.show( )
 
 
-# Appropriation( code  )
+# Appropriation( value  )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
     __source = None
     __provider = None
     __appropriationsid = None
-    __bfy = None
-    __efy = None
-    __enacted = None
-    __law = None
+    __code = None
     __name = None
     __fields = None
     __data = None
@@ -557,26 +556,6 @@ class Appropriation( ):
     def id( self, value ):
         if isinstance( value, int ):
             self.__appropriationsid  = value
-
-    @property
-    def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value ):
-        if isinstance( value, str ) and len( value ) == 4:
-            self.__bfy = value
-
-    @property
-    def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
-            return self.__efy
-
-    @bfy.setter
-    def efy( self, value ):
-        if isinstance( value, str ) and len( value ) == 4:
-            self.__efy = value
 
     @property
     def code( self ):
@@ -597,26 +576,6 @@ class Appropriation( ):
     def name( self, name ):
         if isinstance( name, str ) and name != '':
             self.__name = name
-
-    @property
-    def publiclaw( self ):
-        if isinstance( self.__law, str ) and self.__law != '':
-            self.__law = name
-
-    @publiclaw.setter
-    def publiclaw( self, value ):
-        if isinstance( value, str ) and value != '':
-            self.__law = value
-
-    @property
-    def enacteddate( self ):
-        if isinstance( self.__enacted, dt.datetime ):
-            return self.__enacted
-
-    @enacteddate.setter
-    def enacteddate( self, value ):
-        if isinstance( value, dt.datetime ):
-            self.__enacted = value
 
     @property
     def data( self ):
@@ -643,16 +602,13 @@ class Appropriation( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, law ):
+    def __init__( self, code ):
         self.__source = Source.Appropriations
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) and code != '' else None
-        self.__law = law if isinstance( law, str ) and law != '' else None
-        self.__fields = [ 'AppropriationBillsId',
-                           'BFY',
-                           'Title',
-                           'PublicLaw',
-                           'EnactedDate' ]
+        self.__fields = [ 'AppropriationsId',
+                           'Code',
+                           'Name' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -662,8 +618,8 @@ class Appropriation( ):
         try:
             source = self.__source
             provider = self.__provider
-            n = [ 'BFY', 'PublicLaw' ]
-            v = (self.__bfy, self.__law)
+            n = [ 'Code' ]
+            v = ( self.__code )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -679,7 +635,7 @@ class Appropriation( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
-            exc.cause = 'Appropriation'
+            exc.cause = 'Appropriations'
             exc.method = 'getdata( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -699,6 +655,126 @@ class Appropriation( ):
             err = ErrorDialog( exc )
             err.show( )
 
+
+# Appropriation( value  )
+class SubAppropriations( ):
+    '''Defines the Appropriation Class'''
+    __source = None
+    __provider = None
+    __subappropriationsid = None
+    __code = None
+    __name = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__subappropriationsid , int ):
+            return self.__appropriationsid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__appropriationsid  = value
+
+    @property
+    def code( self ):
+        if isinstance( self.__code, str) and self.__code != '':
+            return self.__code
+
+    @code.setter
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__name = name
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
+    def __init__( self, code ):
+        self.__source = Source.Appropriations
+        self.__provider = Provider.SQLite
+        self.__code = code if isinstance( code, str ) and code != '' else None
+        self.__fields = [ 'SubAppropriationsId',
+                           'Code',
+                           'Name' ]
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
+
+    def getdata( self ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code' ]
+            v = ( self.__code )
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'SubAppropriations'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'Appropriation'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
 
 
 # BudgetFiscalYear( bfy, efy, date = None )
@@ -971,7 +1047,7 @@ class BudgetFiscalYear( ):
 
 
 
-# BudgetObjectClass( code )
+# BudgetObjectClass( value )
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
     __source = None
@@ -1110,7 +1186,7 @@ class BudgetObjectClass( ):
 
 
 
-# FinanceObjectClass( code )
+# FinanceObjectClass( value )
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
     __source = None
@@ -1142,7 +1218,7 @@ class FinanceObjectClass( ):
     @code.setter
     def code( self, code ):
         if isinstance( code, str ) and code != '':
-            self.__code = ode
+            self.__code = code
 
     @property
     def name( self ):
@@ -1160,9 +1236,9 @@ class FinanceObjectClass( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = ode
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -1259,7 +1335,7 @@ class FinanceObjectClass( ):
 
 
 
-# Fund( bfy, efy, code )
+# Fund( bfy, efy, value )
 class Fund( ):
     '''Defines the Fund Class'''
     __source = None
@@ -1707,7 +1783,7 @@ class Fund( ):
 
 
 
-# Goal( code )
+# Goal( value )
 class Goal( ):
     '''Defines the Goal Class'''
     __source = None
@@ -1820,7 +1896,7 @@ class Goal( ):
 
 
 
-# NationalProgram( code )
+# NationalProgram( value )
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
     __source = None
@@ -1971,7 +2047,7 @@ class NationalProgram( ):
 
 
 
-# Objective( code )
+# Objective( value )
 class Objective( ):
     '''Defines the Objective Class'''
     __source = None
@@ -2097,7 +2173,7 @@ class Objective( ):
 
 
 
-# Organization( code )
+# Organization( value )
 class Organization( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2208,7 +2284,7 @@ class Organization( ):
             err.show( )
 
 
-# Project( code )
+# Project( value )
 class Project( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2334,7 +2410,7 @@ class Project( ):
 
 
 
-# CapitalPlanningInvestmentCode( code )
+# CapitalPlanningInvestmentCode( value )
 class CapitalPlanningInvestmentCode( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2462,7 +2538,7 @@ class CapitalPlanningInvestmentCode( ):
 
 
 
-# SiteProjectCode( code )
+# SiteProjectCode( value )
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2586,7 +2662,7 @@ class SiteProjectCode( ):
 
 
 
-# StateOrganization( code )
+# StateOrganization( value )
 class StateOrganization( ):
     '''StateOrganization( fgrp ) class
     representing state codes'''
@@ -2708,7 +2784,7 @@ class StateOrganization( ):
 
 
 
-# HeadquartersOffice( code )
+# HeadquartersOffice( value )
 class HeadquartersOffice( ):
     '''Defines a regional RPIO'''
     __source = None
@@ -2837,7 +2913,7 @@ class HeadquartersOffice( ):
 
 
 
-# HumanResourceOrganization( code )
+# HumanResourceOrganization( value )
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2962,7 +3038,7 @@ class HumanResourceOrganization( ):
 
 
 
-# ProgramArea( code )
+# ProgramArea( value )
 class ProgramArea( ):
     '''defines the ProgramArea class'''
     __source = None
@@ -3089,7 +3165,7 @@ class ProgramArea( ):
 
 
 
-# ProgramProject( code )
+# ProgramProject( value )
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
     __source = None
@@ -3212,7 +3288,7 @@ class ProgramProject( ):
 
 
 
-# ResponsibilityCenter( code )
+# ResponsibilityCenter( value )
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
     __source = None
@@ -3348,7 +3424,7 @@ class ResponsibilityCenter( ):
 
 
 
-# ResourcePlanningOffice( code )
+# ResourcePlanningOffice( value )
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __source = None
@@ -3609,9 +3685,9 @@ class ProgramResultsCode( ):
             return self.__accountcode
 
     @accountcode.setter
-    def accountcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__accountcode = acct
+    def accountcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__accountcode = value
 
     @property
     def programprojectcode( self ):
@@ -3619,9 +3695,9 @@ class ProgramResultsCode( ):
             return self.__programprojectcode
 
     @programprojectcode.setter
-    def programprojectcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programprojectcode = code
+    def programprojectcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programprojectcode = value
 
     @property
     def programprojectname( self ):
@@ -3639,9 +3715,9 @@ class ProgramResultsCode( ):
             return self.__activitycode
 
     @activitycode.setter
-    def activitycode( self, code ):
-        if isinstance( code, str ) and self.__activitycode != '':
-            self.__activitycode = code
+    def activitycode( self, value ):
+        if isinstance( value, str ) and self.__activitycode != '':
+            self.__activitycode = value
 
     @property
     def activityname( self ):
@@ -3649,9 +3725,9 @@ class ProgramResultsCode( ):
             return self.__activityname
 
     @activityname.setter
-    def activityname( self, name ):
-        if isinstance( name, str ) and self.__activityname != '':
-            self.__activityname = name
+    def activityname( self, value ):
+        if isinstance( value, str ) and self.__activityname != '':
+            self.__activityname = value
 
     @property
     def orgcode( self ):
@@ -3659,9 +3735,9 @@ class ProgramResultsCode( ):
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, code ):
-        if isinstance( code, str) and code != '':
-            self.__orgcode = code
+    def orgcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__orgcode = value
 
     @property
     def rccode( self ):
@@ -3669,9 +3745,9 @@ class ProgramResultsCode( ):
             return self.__rccode
 
     @rccode.setter
-    def rccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__rccode = code
+    def rccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rccode = value
 
     @property
     def rcname( self ):
@@ -3679,9 +3755,9 @@ class ProgramResultsCode( ):
             return self.__rcname
 
     @rcname.setter
-    def rcname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__rcname = name
+    def rcname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__rcname = value
 
     @property
     def boccode( self ):
@@ -3689,9 +3765,9 @@ class ProgramResultsCode( ):
             return self.__boccode
 
     @boccode.setter
-    def boccode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__boccode = code
+    def boccode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__boccode = value
 
     @property
     def bocname( self ):
@@ -3699,9 +3775,9 @@ class ProgramResultsCode( ):
             return self.__bocname
 
     @bocname.setter
-    def bocname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__bocname = name
+    def bocname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bocname = value
 
     @property
     def amount( self ):
@@ -3718,20 +3794,21 @@ class ProgramResultsCode( ):
         if isinstance( self.__programareacode, str ) and self.__programareacode != '':
             return self.__programareacode
 
-    @programareacode.setter
-    def programareacode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__programareacode = code
-
     @property
     def programareaname( self ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
+    @programareacode.setter
+    def programareacode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareacode = value
+
+
     @programareaname.setter
-    def programareaname( self, name ):
-        if isinstance( name, str ) and name != '':
-            self.__programareaname = name
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__programareaname = value
 
     @property
     def goalcode( self ):
@@ -3739,9 +3816,9 @@ class ProgramResultsCode( ):
             return self.__goalcode
 
     @goalcode.setter
-    def goalcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalcode = code
+    def goalcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalcode = value
 
     @property
     def goalname( self ):
@@ -3749,9 +3826,9 @@ class ProgramResultsCode( ):
             return self.__goalname
 
     @goalname.setter
-    def goalname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__goalname = code
+    def goalname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__goalname = value
 
     @property
     def objectivecode( self ):
@@ -3759,9 +3836,9 @@ class ProgramResultsCode( ):
             return self.__objectivecode
 
     @objectivecode.setter
-    def objectivecode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivecode = code
+    def objectivecode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivecode = value
 
     @property
     def objectivename( self ):
@@ -3769,9 +3846,9 @@ class ProgramResultsCode( ):
             return self.__objectivename
 
     @objectivename.setter
-    def objectivename( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__objectivename = code
+    def objectivename( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__objectivename = value
 
     @property
     def npmcode( self ):
@@ -3779,9 +3856,9 @@ class ProgramResultsCode( ):
             return self.__npmcode
 
     @npmcode.setter
-    def npmcode( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmcode = code
+    def npmcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmcode = value
 
     @property
     def npmname( self ):
@@ -3789,9 +3866,9 @@ class ProgramResultsCode( ):
             return self.__npmname
 
     @npmname.setter
-    def npmname( self, code ):
-        if isinstance( code, str ) and code != '':
-            self.__npmname = code
+    def npmname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__npmname = value
 
     @property
     def data( self ):
@@ -3799,9 +3876,9 @@ class ProgramResultsCode( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
-        if isinstance( cache, list ):
-            self.__data = cache
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
 
     @property
     def table( self ):
@@ -3809,9 +3886,9 @@ class ProgramResultsCode( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, DataFrame ):
-            self.__frame = frame
+    def table( self, value ):
+        if isinstance( value, DataFrame ):
+            self.__frame = value
 
     @property
     def fields( self ):
@@ -3903,7 +3980,7 @@ class ProgramResultsCode( ):
             err.show( )
 
 
-# RegionalOffice( code )
+# RegionalOffice( value )
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __source = None
@@ -4015,7 +4092,7 @@ class RegionalOffice( ):
             err.show( )
 
 
-# SiteProject( code )
+# SiteProject( value )
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
     __source = None
@@ -4186,7 +4263,7 @@ class SiteProject( ):
 
 
 
-# FederalHoliday( bfy, efy, name )
+# FederalHoliday( bfy, efy, value )
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
     __source = None
@@ -4675,7 +4752,7 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'setdate( self, name )'
+            exc.method = 'setdate( self, value )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4691,12 +4768,12 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'setname( self, name  ) '
+            exc.method = 'setname( self, value  ) '
             err = ErrorDialog( exc )
             err.show( )
 
 
-# TreasurySymbol( bfy, efy, code )
+# TreasurySymbol( bfy, efy, value )
 class TreasurySymbol( ):
     '''TreasurySymbol( value )
     creates object that represents a TAFS'''
@@ -5005,7 +5082,7 @@ class PayrollCostCode( ):
 
 
 
-# WorkCode( code )
+# WorkCode( value )
 class WorkCode( ):
     '''Defines the Organization Class'''
     __source = None
@@ -5304,7 +5381,7 @@ class Transfer( ):
     @accountcode.setter
     def accountcode( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__accountcode = acct
+            self.__accountcode = value
 
     @property
     def programprojectcode( self ):

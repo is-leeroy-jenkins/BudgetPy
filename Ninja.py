@@ -376,10 +376,10 @@ class DbConfig( ):
     __source = None
     __provider = None
     __accessdriver = None
-    __accessdatapath = None
+    __accesspath = None
     __sqldriver = None
-    __sqldatapath = None
-    __sqlitedatapath = None
+    __sqlserverpath = None
+    __sqlitepath = None
     __sqlitedriver = None
     __table = None
     __name = None
@@ -424,11 +424,11 @@ class DbConfig( ):
         self.__provider = provider if isinstance( provider, Provider ) else None
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name
-        self.__sqlitedatapath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
+        self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
-        self.__accessdatapath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
+        self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
-        self.__sqldatapath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
+        self.__sqlserverpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
         self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables', 'AppropriationDocuments', 'BudgetControls',
                         'BudgetDocuments', 'CarryoverEstimates', 'CarryoverSurvey', 'Changes',
                         'CongressionalReprogrammings', 'Deobligations', 'Defactos', 'DocumentControlNumbers',
@@ -476,13 +476,13 @@ class DbConfig( ):
     def getpath( self ):
         try:
             if self.__provider == Provider.SQLite:
-                return self.__sqlitedatapath
+                return self.__sqlitepath
             elif self.__provider == Provider.Access:
-                return self.__accessdatapath
+                return self.__accesspath
             elif self.__provider == Provider.SqlServer:
                 return self.__sqlreferencepath
             else:
-                return self.__sqlitedatapath
+                return self.__sqlitepath
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
