@@ -379,6 +379,7 @@ class ColorFormat( ):
         return h, s, v
 
 
+# Sith( )
 class Sith( ):
     '''Base class for the dark-mode controls'''
     __themebackground = None
@@ -787,7 +788,8 @@ class FolderDialog( Sith ):
 
 # SaveFileDialog( path = '' )
 class SaveFileDialog( Sith ):
-    '''class provides form to located file destinations'''
+    '''SaveFileDialog( path = '' ):
+    class provides form to located file destinations'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -864,9 +866,9 @@ class SaveFileDialog( Sith ):
             err.show( )
 
 
-# GoogleDialog(  ) -> list
+# GoogleDialog(  )
 class GoogleDialog( Sith ):
-    '''class that renames a folder'''
+    '''GoogleDialog(  ): class that renames a folder'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -972,7 +974,8 @@ class GoogleDialog( Sith ):
 
 # EmailDialog( sender = '', receiver = '', subject = '', heading = '' )
 class EmailDialog( Sith ):
-    '''Class providing form used to send email messages. Constructor
+    '''EmailDialog( sender = '', receiver = '', subject = '', heading = '' ):
+    Class providing form used to send email messages. Constructor
     accepts optional string arguments 'sender', 'receiver', 'subject', and 'heading' '''
     __themebackground = None
     __elementbackcolor = None
@@ -1146,7 +1149,8 @@ class EmailDialog( Sith ):
 
 # MessageDialog( text = '' )
 class MessageDialog( Sith ):
-    ''' Class that provides form used
+    ''' MessageDialog( text = '' ):
+    Class that provides form used
      to display informational messages '''
     __themebackground = None
     __elementbackcolor = None
@@ -1638,6 +1642,7 @@ class ContactForm( Sith ):
             err.show( )
 
 
+# GridForm( )
 class GridForm( Sith ):
     '''object providing form that simulates a datagrid '''
     __themebackground = None
@@ -1751,6 +1756,7 @@ class GridForm( Sith ):
             err.show( )
 
 
+# LoadingPanel( )
 class LoadingPanel( Sith ):
     '''object providing form loading behavior '''
     __themebackground = None
@@ -1839,6 +1845,7 @@ class LoadingPanel( Sith ):
             err.show( )
 
 
+# WaitingPanel( )
 class WaitingPanel( Sith ):
     '''object providing form loader behavior '''
     __themebackground = None
@@ -1929,6 +1936,7 @@ class WaitingPanel( Sith ):
             err.show( )
 
 
+# ProcessingPanel( )
 class ProcessingPanel( Sith ):
     '''object providing form processing behavior '''
     __themebackground = None
@@ -2023,6 +2031,7 @@ class ProcessingPanel( Sith ):
             err.show( )
 
 
+# SplashPanel( )
 class SplashPanel( Sith ):
     '''Class providing splash dialog behavior'''
     __themebackground = None
@@ -2104,6 +2113,7 @@ class SplashPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # Notification( heading )
 class Notification( Sith ):
@@ -2231,6 +2241,7 @@ class Notification( Sith ):
             err.show( )
 
 
+# ImageSizeEncoder( )
 class ImageSizeEncoder( Sith ):
     '''Class resizing image and encoding behavior'''
     __themebackground = None
@@ -2431,6 +2442,7 @@ class ImageSizeEncoder( Sith ):
         window.close( )
 
 
+# PdfForm( )
 class PdfForm( Sith ):
     '''Creates form to view a PDF'''
     __themebackground = None
@@ -2697,6 +2709,7 @@ class CalendarDialog( Sith ):
             err.show( )
 
 
+# DatePanel( )
 class DatePanel( Sith ):
     ''' Desktop widget displaying today time text'''
     __themebackground = None
@@ -3141,6 +3154,7 @@ class ListBoxDialog( Sith ):
             err.show( )
 
 
+# ColorDialog( )
 class ColorDialog( Sith ):
     '''class provides a form to select colors returning string values'''
     __themebackground = None
@@ -3955,6 +3969,7 @@ class ColorDialog( Sith ):
             err.show( )
 
 
+# BudgetForm( )
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
     __themebackground = None
@@ -4398,6 +4413,7 @@ class BudgetForm( Sith ):
             err.show( )
 
 
+# ChartPanel( )
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
     __icon = None
@@ -4484,6 +4500,7 @@ class ChartPanel( Sith ):
             err.show( )
 
 
+# CsvForm( )
 class CsvForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
 
@@ -4599,6 +4616,7 @@ class CsvForm( Sith ):
             err.show( )
 
 
+# ExcelForm( )
 class ExcelForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
 
@@ -4734,6 +4752,7 @@ class ExcelForm( Sith ):
             err.show( )
 
 
+# GraphForm( )
 class GraphForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
     __themebackground = None
