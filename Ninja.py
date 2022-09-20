@@ -435,9 +435,9 @@ class DbConfig( ):
                         'Obligations', 'OperatingPlans', 'OperatingPlanUpdates', 'QueryDefinitions',
                         'RegionalAuthority', 'ReimbursableAgreements', 'ReimbursableFunds', 'ReimbursableSurvey',
                         'Reports', 'StatusOfAppropriations'
-                                   'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
+                        'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
                         'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
-                                                                       'HeadquartersAuthority', 'TravelObligations',
+                        'HeadquartersAuthority', 'TravelObligations',
                         'StatusOfAppropriations', 'StatusOfJobsActFunding', 'StatusOfSupplementalFunding',
                         'SuperfundSites', 'PayrollAuthority', 'TransTypes', 'PayrollRequests', 'CarryoverRequests',
                         'CompassLevels', 'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
@@ -451,7 +451,8 @@ class DbConfig( ):
                         'ProgramDescriptions', 'ProgramProjects', 'Projects', 'Providers',
                         'RegionalOffices', 'ReferenceTables', 'ResourcePlanningOffices',
                         'ResponsibilityCenters', 'SchemaTypes', 'StateOrganizations',
-                        'Sources', 'SpendingRates' ]
+                        'Sources', 'SpendingRates', 'SubAppropriations', 'FundCategories' ]
+
     def __str__( self ):
         if isinstance( self.__table, str ):
             return self.__table
