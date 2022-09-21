@@ -205,7 +205,7 @@ class TestFloatNumericIndex(NumericBase):
     def test_lookups_datetimelike_values(self, vals, dtype):
 
         # If we have datetime64 or timedelta64 values, make sure they are
-        #  wrappped correctly  GH#31163
+        #  wrapped correctly  GH#31163
         ser = Series(vals, index=range(3, 6))
         ser.index = ser.index.astype(dtype)
 
@@ -326,19 +326,19 @@ class NumericInt(NumericBase):
         index_cls = self._index_cls
 
         index = index_cls([1, 2, 3, 4])
-        assert index.is_monotonic is True
+        assert index.is_monotonic_increasing is True
         assert index.is_monotonic_increasing is True
         assert index._is_strictly_monotonic_increasing is True
         assert index.is_monotonic_decreasing is False
         assert index._is_strictly_monotonic_decreasing is False
 
         index = index_cls([4, 3, 2, 1])
-        assert index.is_monotonic is False
+        assert index.is_monotonic_increasing is False
         assert index._is_strictly_monotonic_increasing is False
         assert index._is_strictly_monotonic_decreasing is True
 
         index = index_cls([1])
-        assert index.is_monotonic is True
+        assert index.is_monotonic_increasing is True
         assert index.is_monotonic_increasing is True
         assert index.is_monotonic_decreasing is True
         assert index._is_strictly_monotonic_increasing is True
@@ -509,6 +509,20 @@ class TestIntNumericIndex(NumericInt):
         with pytest.raises(OverflowError, match=msg):
             Index([-1], dtype=any_unsigned_int_numpy_dtype)
 
+    def test_constructor_np_signed(self, any_signed_int_numpy_dtype):
+        # GH#47475
+        scalar = np.dtype(any_signed_int_numpy_dtype).type(1)
+        result = Index([scalar])
+        expected = Int64Index([1])
+        tm.assert_index_equal(result, expected)
+
+    def test_constructor_np_unsigned(self, any_unsigned_int_numpy_dtype):
+        # GH#47475
+        scalar = np.dtype(any_unsigned_int_numpy_dtype).type(1)
+        result = Index([scalar])
+        expected = UInt64Index([1])
+        tm.assert_index_equal(result, expected)
+
     def test_coerce_list(self):
         # coerce things
         arr = Index([1, 2, 3, 4])
@@ -657,7 +671,7 @@ def test_uint_index_does_not_convert_to_float64(box):
     )
     tm.assert_index_equal(result.index, expected)
 
-    tm.assert_equal(result, series[:3])
+    tm.assert_equal(result, series.iloc[:3])
 
 
 def test_float64_index_equals():

@@ -36,7 +36,8 @@ import matplotlib as mpl
 from matplotlib.backend_bases import _Backend
 from matplotlib._pylab_helpers import Gcf
 from . import backend_webagg_core as core
-from .backend_webagg_core import TimerAsyncio, TimerTornado
+from .backend_webagg_core import (  # noqa: F401 # pylint: disable=W0611
+    TimerAsyncio, TimerTornado)
 
 
 class ServerThread(threading.Thread):
@@ -47,8 +48,12 @@ class ServerThread(threading.Thread):
 webagg_server_thread = ServerThread()
 
 
+class FigureManagerWebAgg(core.FigureManagerWebAgg):
+    _toolbar2_class = core.NavigationToolbar2WebAgg
+
+
 class FigureCanvasWebAgg(core.FigureCanvasWebAggCore):
-    pass
+    manager_class = FigureManagerWebAgg
 
 
 class WebAggApplication(tornado.web.Application):
@@ -299,7 +304,7 @@ def ipython_inline_display(figure):
 @_Backend.export
 class _BackendWebAgg(_Backend):
     FigureCanvas = FigureCanvasWebAgg
-    FigureManager = core.FigureManagerWebAgg
+    FigureManager = FigureManagerWebAgg
 
     @staticmethod
     def show(*, block=None):

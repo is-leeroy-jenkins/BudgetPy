@@ -2,6 +2,7 @@ import calendar
 from datetime import (
     datetime,
     timedelta,
+    timezone,
 )
 
 import dateutil.tz
@@ -24,6 +25,28 @@ from pandas.tseries import offsets
 
 
 class TestTimestampConstructors:
+    @pytest.mark.parametrize("typ", [int, float])
+    def test_constructor_int_float_with_YM_unit(self, typ):
+        # GH#47266 avoid the conversions in cast_from_unit
+        val = typ(150)
+
+        ts = Timestamp(val, unit="Y")
+        expected = Timestamp("2120-01-01")
+        assert ts == expected
+
+        ts = Timestamp(val, unit="M")
+        expected = Timestamp("1982-07-01")
+        assert ts == expected
+
+    def test_constructor_float_not_round_with_YM_unit_deprecated(self):
+        # GH#47267 avoid the conversions in cast_from-unit
+
+        with tm.assert_produces_warning(FutureWarning, match="ambiguous"):
+            Timestamp(150.5, unit="Y")
+
+        with tm.assert_produces_warning(FutureWarning, match="ambiguous"):
+            Timestamp(150.5, unit="M")
+
     def test_constructor_datetime64_with_tz(self):
         # GH#42288, GH#24559
         dt = np.datetime64("1970-01-01 05:00:00")
@@ -241,6 +264,25 @@ class TestTimestampConstructors:
             Timestamp(datetime(2017, 10, 22), tz=pytz.utc),
         ]
         assert all(ts == stamps[0] for ts in stamps)
+
+    def test_constructor_positional_with_tzinfo(self):
+        # GH#31929
+        ts = Timestamp(2020, 12, 31, tzinfo=timezone.utc)
+        expected = Timestamp("2020-12-31", tzinfo=timezone.utc)
+        assert ts == expected
+
+    @pytest.mark.xfail(reason="GH#45307")
+    @pytest.mark.parametrize("kwd", ["nanosecond", "microsecond", "second", "minute"])
+    def test_constructor_positional_keyword_mixed_with_tzinfo(self, kwd):
+        # TODO: if we passed microsecond with a keyword we would mess up
+        #  xref GH#45307
+        kwargs = {kwd: 4}
+        ts = Timestamp(2020, 12, 31, tzinfo=timezone.utc, **kwargs)
+
+        td_kwargs = {kwd + "s": 4}
+        td = Timedelta(**td_kwargs)
+        expected = Timestamp("2020-12-31", tz=timezone.utc) + td
+        assert ts == expected
 
     def test_constructor_positional(self):
         # see gh-10758

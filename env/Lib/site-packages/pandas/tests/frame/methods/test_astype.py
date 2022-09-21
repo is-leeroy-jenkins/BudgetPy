@@ -23,7 +23,6 @@ from pandas import (
 )
 import pandas._testing as tm
 from pandas.core.api import UInt64Index
-from pandas.core.arrays.integer import coerce_to_array
 
 
 def _check_cast(df, v):
@@ -762,11 +761,6 @@ class TestAstypeCategorical:
 
 class IntegerArrayNoCopy(pd.core.arrays.IntegerArray):
     # GH 42501
-
-    @classmethod
-    def _from_sequence(cls, scalars, *, dtype=None, copy=False):
-        values, mask = coerce_to_array(scalars, dtype=dtype, copy=copy)
-        return IntegerArrayNoCopy(values, mask)
 
     def copy(self):
         assert False

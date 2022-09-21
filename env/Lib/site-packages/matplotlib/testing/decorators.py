@@ -14,10 +14,8 @@ from packaging.version import parse as parse_version
 import matplotlib.style
 import matplotlib.units
 import matplotlib.testing
-from matplotlib import cbook
-from matplotlib import ft2font
-from matplotlib import pyplot as plt
-from matplotlib import ticker
+from matplotlib import (_api, _pylab_helpers, cbook, ft2font, pyplot as plt,
+                        ticker)
 from .compare import comparable_formats, compare_images, make_test_filename
 from .exceptions import ImageComparisonFailure
 
@@ -34,6 +32,8 @@ def _cleanup_cm():
         plt.close("all")
 
 
+@_api.deprecated("3.6", alternative="a vendored copy of the existing code, "
+                 "including the private function _cleanup_cm")
 class CleanupTestCase(unittest.TestCase):
     """A wrapper for unittest.TestCase that includes cleanup operations."""
     @classmethod
@@ -45,6 +45,8 @@ class CleanupTestCase(unittest.TestCase):
         cls._cm.__exit__(None, None, None)
 
 
+@_api.deprecated("3.6", alternative="a vendored copy of the existing code, "
+                 "including the private function _cleanup_cm")
 def cleanup(style=None):
     """
     A decorator to ensure that any global state is reset before
@@ -86,7 +88,13 @@ def cleanup(style=None):
         return make_cleanup
 
 
+@_api.deprecated("3.6", alternative="a vendored copy of the existing code "
+                 "of _check_freetype_version")
 def check_freetype_version(ver):
+    return _check_freetype_version(ver)
+
+
+def _check_freetype_version(ver):
     if ver is None:
         return True
 
@@ -101,7 +109,7 @@ def check_freetype_version(ver):
 def _checked_on_freetype_version(required_freetype_version):
     import pytest
     return pytest.mark.xfail(
-        not check_freetype_version(required_freetype_version),
+        not _check_freetype_version(required_freetype_version),
         reason=f"Mismatched version of freetype. "
                f"Test requires '{required_freetype_version}', "
                f"you have '{ft2font.__freetype_version__}'",
@@ -127,6 +135,29 @@ def remove_ticks_and_titles(figure):
             remove_ticks(child)
     for ax in figure.get_axes():
         remove_ticks(ax)
+
+
+@contextlib.contextmanager
+def _collect_new_figures():
+    """
+    After::
+
+        with _collect_new_figures() as figs:
+            some_code()
+
+    the list *figs* contains the figures that have been created during the
+    execution of ``some_code``, sorted by figure number.
+    """
+    managers = _pylab_helpers.Gcf.figs
+    preexisting = [manager for manager in managers.values()]
+    new_figs = []
+    try:
+        yield new_figs
+    finally:
+        new_managers = sorted([manager for manager in managers.values()
+                               if manager not in preexisting],
+                              key=lambda manager: manager.num)
+        new_figs[:] = [manager.canvas.figure for manager in new_managers]
 
 
 def _raise_on_image_difference(expected, actual, tol):
@@ -178,10 +209,8 @@ class _ImageComparisonBase:
                 f"{orig_expected_path}") from err
         return expected_fname
 
-    def compare(self, idx, baseline, extension, *, _lock=False):
+    def compare(self, fig, baseline, extension, *, _lock=False):
         __tracebackhide__ = True
-        fignum = plt.get_fignums()[idx]
-        fig = plt.figure(fignum)
 
         if self.remove_text:
             remove_ticks_and_titles(fig)
@@ -196,7 +225,12 @@ class _ImageComparisonBase:
         lock = (cbook._lock_path(actual_path)
                 if _lock else contextlib.nullcontext())
         with lock:
-            fig.savefig(actual_path, **kwargs)
+            try:
+                fig.savefig(actual_path, **kwargs)
+            finally:
+                # Matplotlib has an autouse fixture to close figures, but this
+                # makes things more convenient for third-party users.
+                plt.close(fig)
             expected_path = self.copy_baseline(baseline, extension)
             _raise_on_image_difference(expected_path, actual_path, self.tol)
 
@@ -235,7 +269,9 @@ def _pytest_image_comparison(baseline_images, extensions, tol,
             img = _ImageComparisonBase(func, tol=tol, remove_text=remove_text,
                                        savefig_kwargs=savefig_kwargs)
             matplotlib.testing.set_font_settings_for_testing()
-            func(*args, **kwargs)
+
+            with _collect_new_figures() as figs:
+                func(*args, **kwargs)
 
             # If the test is parametrized in any way other than applied via
             # this decorator, then we need to use a lock to prevent two
@@ -252,11 +288,11 @@ def _pytest_image_comparison(baseline_images, extensions, tol,
                 our_baseline_images = request.getfixturevalue(
                     'baseline_images')
 
-            assert len(plt.get_fignums()) == len(our_baseline_images), (
+            assert len(figs) == len(our_baseline_images), (
                 "Test generated {} images but there are {} baseline images"
-                .format(len(plt.get_fignums()), len(our_baseline_images)))
-            for idx, baseline in enumerate(our_baseline_images):
-                img.compare(idx, baseline, extension, _lock=needs_lock)
+                .format(len(figs), len(our_baseline_images)))
+            for fig, baseline in zip(figs, our_baseline_images):
+                img.compare(fig, baseline, extension, _lock=needs_lock)
 
         parameters = list(old_sig.parameters.values())
         if 'extension' not in old_sig.parameters:
@@ -427,11 +463,9 @@ def check_figures_equal(*, extensions=("png", "pdf", "svg"), tol=0):
             try:
                 fig_test = plt.figure("test")
                 fig_ref = plt.figure("reference")
-                # Keep track of number of open figures, to make sure test
-                # doesn't create any new ones
-                n_figs = len(plt.get_fignums())
-                func(*args, fig_test=fig_test, fig_ref=fig_ref, **kwargs)
-                if len(plt.get_fignums()) > n_figs:
+                with _collect_new_figures() as figs:
+                    func(*args, fig_test=fig_test, fig_ref=fig_ref, **kwargs)
+                if figs:
                     raise RuntimeError('Number of open figures changed during '
                                        'test. Make sure you are plotting to '
                                        'fig_test or fig_ref, or if this is '

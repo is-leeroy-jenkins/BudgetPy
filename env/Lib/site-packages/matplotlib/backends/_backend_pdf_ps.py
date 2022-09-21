@@ -9,7 +9,7 @@ from fontTools import subset
 
 import matplotlib as mpl
 from .. import font_manager, ft2font
-from ..afm import AFM
+from .._afm import AFM
 from ..backend_bases import RendererBase
 
 
@@ -65,7 +65,9 @@ class CharacterTracker:
 
     def track(self, font, s):
         """Record that string *s* is being typeset using font *font*."""
-        self.used.setdefault(font.fname, set()).update(map(ord, s))
+        char_to_font = font._get_fontmap(s)
+        for _c, _f in char_to_font.items():
+            self.used.setdefault(_f.fname, set()).add(ord(_c))
 
     def track_glyph(self, font, glyph):
         """Record that codepoint *glyph* is being typeset using font *font*."""
@@ -108,12 +110,7 @@ class RendererPDFPSBase(RendererBase):
                 s, fontsize, renderer=self)
             return w, h, d
         elif ismath:
-            # Circular import.
-            from matplotlib.backends.backend_ps import RendererPS
-            parse = self._text2path.mathtext_parser.parse(
-                s, 72, prop,
-                _force_standard_ps_fonts=(isinstance(self, RendererPS)
-                                          and mpl.rcParams["ps.useafm"]))
+            parse = self._text2path.mathtext_parser.parse(s, 72, prop)
             return parse.width, parse.height, parse.depth
         elif mpl.rcParams[self._use_afm_rc_name]:
             font = self._get_font_afm(prop)
@@ -140,8 +137,8 @@ class RendererPDFPSBase(RendererBase):
         return _cached_get_afm_from_fname(fname)
 
     def _get_font_ttf(self, prop):
-        fname = font_manager.findfont(prop)
-        font = font_manager.get_font(fname)
+        fnames = font_manager.fontManager._find_fonts_by_props(prop)
+        font = font_manager.get_font(fnames)
         font.clear()
         font.set_size(prop.get_size_in_points(), 72)
         return font

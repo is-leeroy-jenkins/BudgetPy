@@ -21,8 +21,6 @@ from pandas import (
     Series,
 )
 import pandas._testing as tm
-from pandas.tests.io.excel import xlrd_version
-from pandas.util.version import Version
 
 read_ext_params = [".xls", ".xlsx", ".xlsm", ".xlsb", ".ods"]
 engine_params = [
@@ -69,12 +67,7 @@ def _is_valid_engine_ext_pair(engine, read_ext: str) -> bool:
         return False
     if read_ext == ".xlsb" and engine != "pyxlsb":
         return False
-    if (
-        engine == "xlrd"
-        and xlrd_version is not None
-        and xlrd_version >= Version("2")
-        and read_ext != ".xls"
-    ):
+    if engine == "xlrd" and read_ext != ".xls":
         return False
     return True
 
@@ -96,6 +89,7 @@ def _transfer_marks(engine, read_ext):
         for ext in read_ext_params
         if _is_valid_engine_ext_pair(eng, ext)
     ],
+    ids=str,
 )
 def engine_and_read_ext(request):
     """
@@ -661,6 +655,7 @@ class TestReaders:
         actual = pd.read_excel("blank_with_header" + read_ext, sheet_name="Sheet1")
         tm.assert_frame_equal(actual, expected)
 
+    @pytest.mark.filterwarnings("ignore:Cell A4 is marked:UserWarning:openpyxl")
     def test_date_conversion_overflow(self, request, engine, read_ext):
         # GH 10001 : pandas.ExcelFile ignore parse_dates=False
         if engine == "pyxlsb":
@@ -719,7 +714,7 @@ class TestReaders:
             actual = pd.read_excel(f, sheet_name="Sheet1", index_col=0)
             tm.assert_frame_equal(expected, actual)
 
-    def test_bad_engine_raises(self, read_ext):
+    def test_bad_engine_raises(self):
         bad_engine = "foo"
         with pytest.raises(ValueError, match="Unknown engine: foo"):
             pd.read_excel("", engine=bad_engine)
@@ -741,7 +736,7 @@ class TestReaders:
         with pytest.raises(FileNotFoundError, match=match):
             pd.read_excel(bad_file)
 
-    def test_corrupt_bytes_raises(self, read_ext, engine):
+    def test_corrupt_bytes_raises(self, engine):
         bad_stream = b"foo"
         if engine is None:
             error = ValueError
@@ -1172,6 +1167,31 @@ class TestReaders:
         )
         tm.assert_frame_equal(actual, expected)
 
+    def test_read_excel_skiprows_callable_not_in(self, request, read_ext):
+        # GH 4903
+        if read_ext == ".xlsb":
+            request.node.add_marker(
+                pytest.mark.xfail(
+                    reason="Sheets containing datetimes not supported by pyxlsb"
+                )
+            )
+
+        actual = pd.read_excel(
+            "testskiprows" + read_ext,
+            sheet_name="skiprows_list",
+            skiprows=lambda x: x not in [1, 3, 5],
+        )
+        expected = DataFrame(
+            [
+                [1, 2.5, pd.Timestamp("2015-01-01"), True],
+                # [2, 3.5, pd.Timestamp("2015-01-02"), False],
+                [3, 4.5, pd.Timestamp("2015-01-03"), False],
+                # [4, 5.5, pd.Timestamp("2015-01-04"), True],
+            ],
+            columns=["a", "b", "c", "d"],
+        )
+        tm.assert_frame_equal(actual, expected)
+
     def test_read_excel_nrows(self, read_ext):
         # GH 16645
         num_rows_to_pull = 5
@@ -1193,6 +1213,42 @@ class TestReaders:
         msg = "'nrows' must be an integer >=0"
         with pytest.raises(ValueError, match=msg):
             pd.read_excel("test1" + read_ext, nrows="5")
+
+    @pytest.mark.parametrize(
+        "filename,sheet_name,header,index_col,skiprows",
+        [
+            ("testmultiindex", "mi_column", [0, 1], 0, None),
+            ("testmultiindex", "mi_index", None, [0, 1], None),
+            ("testmultiindex", "both", [0, 1], [0, 1], None),
+            ("testmultiindex", "mi_column_name", [0, 1], 0, None),
+            ("testskiprows", "skiprows_list", None, None, [0, 2]),
+            ("testskiprows", "skiprows_list", None, None, lambda x: x == 0 or x == 2),
+        ],
+    )
+    def test_read_excel_nrows_params(
+        self, read_ext, filename, sheet_name, header, index_col, skiprows
+    ):
+        """
+        For various parameters, we should get the same result whether we
+        limit the rows during load (nrows=3) or after (df.iloc[:3]).
+        """
+        # GH 46894
+        expected = pd.read_excel(
+            filename + read_ext,
+            sheet_name=sheet_name,
+            header=header,
+            index_col=index_col,
+            skiprows=skiprows,
+        ).iloc[:3]
+        actual = pd.read_excel(
+            filename + read_ext,
+            sheet_name=sheet_name,
+            header=header,
+            index_col=index_col,
+            skiprows=skiprows,
+            nrows=3,
+        )
+        tm.assert_frame_equal(actual, expected)
 
     def test_read_excel_squeeze(self, read_ext):
         # GH 12157
@@ -1294,7 +1350,7 @@ class TestReaders:
         ):
             pd.read_excel("chartsheet" + read_ext, sheet_name=1)
 
-    def test_euro_decimal_format(self, request, read_ext):
+    def test_euro_decimal_format(self, read_ext):
         # copied from read_csv
         result = pd.read_excel("test_decimal" + read_ext, decimal=",", skiprows=1)
         expected = DataFrame(
@@ -1318,7 +1374,7 @@ class TestExcelFileRead:
         monkeypatch.chdir(datapath("io", "data", "excel"))
         monkeypatch.setattr(pd, "ExcelFile", func)
 
-    def test_engine_used(self, read_ext, engine, monkeypatch):
+    def test_engine_used(self, read_ext, engine):
         expected_defaults = {
             "xlsx": "openpyxl",
             "xlsm": "openpyxl",
@@ -1502,17 +1558,11 @@ class TestExcelFileRead:
         expected = pd.read_excel("test1" + read_ext, engine=engine)
         tm.assert_frame_equal(result, expected)
 
-    @pytest.mark.skipif(
-        xlrd_version is not None and xlrd_version >= Version("2"),
-        reason="xlrd no longer supports xlsx",
-    )
-    def test_excel_high_surrogate(self):
-        # GH 23809
-        expected = DataFrame(["\udc88"], columns=["Column1"])
-
-        # should not produce a segmentation violation
-        actual = pd.read_excel("high_surrogate.xlsx", engine="xlrd")
-        tm.assert_frame_equal(expected, actual)
+    def test_read_excel_header_index_out_of_range(self, engine):
+        # GH#43143
+        with open("df_header_oob.xlsx", "rb") as f:
+            with pytest.raises(ValueError, match="exceeds maximum"):
+                pd.read_excel(f, header=[0, 1])
 
     @pytest.mark.parametrize("filename", ["df_empty.xlsx", "df_equals.xlsx"])
     def test_header_with_index_col(self, filename):
@@ -1571,7 +1621,7 @@ class TestExcelFileRead:
         # GH41778
         errors = (BadZipFile,)
         if engine is None:
-            pytest.skip()
+            pytest.skip(f"Invalid test for engine={engine}")
         elif engine == "xlrd":
             import xlrd
 

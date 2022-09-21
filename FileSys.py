@@ -1089,6 +1089,47 @@ class MessageBuilder( ):
         if self.__body is not None:
             return self.__body
 
+# Document( )
+class Document( ):
+    '''Excel( selectedpath ) class provides
+    the spreadsheet for Budget Py reports '''
+    __path = None
+    __name = None
+    __title = None
+
+    @property
+    def path( self ):
+        ''' Get the title of the workbook '''
+        if isinstance( self.__path, str ) and self.__path != '':
+            return self.__path
+
+    @path.setter
+    def path( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__path = value
+
+    @property
+    def name( self ):
+        ''' Get the title of the workbook '''
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, value ):
+        if value is not None and len( value ) > 0:
+            self.__name = str( value )
+
+    def __init__( self, fullpath ):
+        self.__path = fullpath if isinstance( fullpath, str ) else None
+        self.__name = os.path.split( fullpath )[ 1 ] if isinstance( fullpath, str ) else None
+        self.__title = self.__name
+        self.__workbook = Workbook( )
+        self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
+
+    def __str__( self ):
+        if self.__path is not None:
+            return self.__path
+
 # Excel( fullpath )
 class Excel( ):
     '''Excel( selectedpath ) class provides

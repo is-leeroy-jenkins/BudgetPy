@@ -214,19 +214,6 @@ class HandlerLine2DCompound(HandlerNpoints):
     a line-only with a marker-only artist.  May be deprecated in the future.
     """
 
-    def __init__(self, marker_pad=0.3, numpoints=None, **kwargs):
-        """
-        Parameters
-        ----------
-        marker_pad : float
-            Padding between points in legend entry.
-        numpoints : int
-            Number of points to show in legend entry.
-        **kwargs
-            Keyword arguments forwarded to `.HandlerNpoints`.
-        """
-        super().__init__(marker_pad=marker_pad, numpoints=numpoints, **kwargs)
-
     def create_artists(self, legend, orig_handle,
                        xdescent, ydescent, width, height, fontsize,
                        trans):
@@ -285,20 +272,6 @@ class HandlerLine2D(HandlerNpoints):
     HandlerLine2DCompound : An earlier handler implementation, which used one
                             artist for the line and another for the marker(s).
     """
-
-    def __init__(self, marker_pad=0.3, numpoints=None, **kw):
-        """
-        Parameters
-        ----------
-        marker_pad : float
-            Padding between points in legend entry.
-        numpoints : int
-            Number of points to show in legend entry.
-        **kwargs
-            Keyword arguments forwarded to `.HandlerNpoints`.
-        """
-        HandlerNpoints.__init__(self, marker_pad=marker_pad,
-                                numpoints=numpoints, **kw)
 
     def create_artists(self, legend, orig_handle,
                        xdescent, ydescent, width, height, fontsize,
@@ -491,14 +464,13 @@ class HandlerRegularPolyCollection(HandlerNpointsYoffsets):
         legend_handle.set_clip_box(None)
         legend_handle.set_clip_path(None)
 
-    def create_collection(self, orig_handle, sizes, offsets, transOffset):
-        p = type(orig_handle)(orig_handle.get_numsides(),
-                              rotation=orig_handle.get_rotation(),
-                              sizes=sizes,
-                              offsets=offsets,
-                              transOffset=transOffset,
-                              )
-        return p
+    @_api.rename_parameter("3.6", "transOffset", "offset_transform")
+    def create_collection(self, orig_handle, sizes, offsets, offset_transform):
+        return type(orig_handle)(
+            orig_handle.get_numsides(),
+            rotation=orig_handle.get_rotation(), sizes=sizes,
+            offsets=offsets, offset_transform=offset_transform,
+        )
 
     def create_artists(self, legend, orig_handle,
                        xdescent, ydescent, width, height, fontsize,
@@ -512,34 +484,33 @@ class HandlerRegularPolyCollection(HandlerNpointsYoffsets):
         sizes = self.get_sizes(legend, orig_handle, xdescent, ydescent,
                                width, height, fontsize)
 
-        p = self.create_collection(orig_handle, sizes,
-                                   offsets=list(zip(xdata_marker, ydata)),
-                                   transOffset=trans)
+        p = self.create_collection(
+            orig_handle, sizes,
+            offsets=list(zip(xdata_marker, ydata)), offset_transform=trans)
 
         self.update_prop(p, orig_handle, legend)
-        p._transOffset = trans
+        p.set_offset_transform(trans)
         return [p]
 
 
 class HandlerPathCollection(HandlerRegularPolyCollection):
     r"""Handler for `.PathCollection`\s, which are used by `~.Axes.scatter`."""
-    def create_collection(self, orig_handle, sizes, offsets, transOffset):
-        p = type(orig_handle)([orig_handle.get_paths()[0]],
-                              sizes=sizes,
-                              offsets=offsets,
-                              transOffset=transOffset,
-                              )
-        return p
+
+    @_api.rename_parameter("3.6", "transOffset", "offset_transform")
+    def create_collection(self, orig_handle, sizes, offsets, offset_transform):
+        return type(orig_handle)(
+            [orig_handle.get_paths()[0]], sizes=sizes,
+            offsets=offsets, offset_transform=offset_transform,
+        )
 
 
 class HandlerCircleCollection(HandlerRegularPolyCollection):
     r"""Handler for `.CircleCollection`\s."""
-    def create_collection(self, orig_handle, sizes, offsets, transOffset):
-        p = type(orig_handle)(sizes,
-                              offsets=offsets,
-                              transOffset=transOffset,
-                              )
-        return p
+
+    @_api.rename_parameter("3.6", "transOffset", "offset_transform")
+    def create_collection(self, orig_handle, sizes, offsets, offset_transform):
+        return type(orig_handle)(
+            sizes, offsets=offsets, offset_transform=offset_transform)
 
 
 class HandlerErrorbar(HandlerLine2D):
@@ -593,7 +564,7 @@ class HandlerErrorbar(HandlerLine2D):
             self.update_prop(legline, plotlines, legend)
 
             legline.set_drawstyle('default')
-            legline.set_marker('None')
+            legline.set_marker('none')
 
             self.update_prop(legline_marker, plotlines, legend)
             legline_marker.set_linestyle('None')

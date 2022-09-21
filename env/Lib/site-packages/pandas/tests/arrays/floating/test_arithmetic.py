@@ -129,9 +129,19 @@ def test_error_invalid_values(data, all_arithmetic_operators):
     ops = getattr(s, op)
 
     # invalid scalars
-    msg = (
-        r"(:?can only perform ops with numeric values)"
-        r"|(:?FloatingArray cannot perform the operation mod)"
+    msg = "|".join(
+        [
+            r"can only perform ops with numeric values",
+            r"FloatingArray cannot perform the operation mod",
+            "unsupported operand type",
+            "not all arguments converted during string formatting",
+            "can't multiply sequence by non-int of type 'float'",
+            "ufunc 'subtract' cannot use operands with types dtype",
+            r"can only concatenate str \(not \"float\"\) to str",
+            "ufunc '.*' not supported for the input types, and the inputs could not",
+            "ufunc '.*' did not contain a loop with signature matching types",
+            "Concatenation operation is not implemented for NumPy arrays",
+        ]
     )
     with pytest.raises(TypeError, match=msg):
         ops("foo")
@@ -148,6 +158,13 @@ def test_error_invalid_values(data, all_arithmetic_operators):
             "cannot perform .* with this index type: DatetimeArray",
             "Addition/subtraction of integers and integer-arrays "
             "with DatetimeArray is no longer supported. *",
+            "unsupported operand type",
+            "not all arguments converted during string formatting",
+            "can't multiply sequence by non-int of type 'float'",
+            "ufunc 'subtract' cannot use operands with types dtype",
+            r"ufunc 'add' cannot use operands with types dtype\('<M8\[ns\]'\)",
+            r"ufunc 'add' cannot use operands with types dtype\('float\d{2}'\)",
+            "cannot subtract DatetimeArray from ndarray",
         ]
     )
     with pytest.raises(TypeError, match=msg):
@@ -201,3 +218,15 @@ def test_unary_float_operators(float_ea_dtype, source, neg_target, abs_target):
     tm.assert_extension_array_equal(pos_result, arr)
     assert not tm.shares_memory(pos_result, arr)
     tm.assert_extension_array_equal(abs_result, abs_target)
+
+
+def test_bitwise(dtype):
+    left = pd.array([1, None, 3, 4], dtype=dtype)
+    right = pd.array([None, 3, 5, 4], dtype=dtype)
+
+    with pytest.raises(TypeError, match="unsupported operand type"):
+        left | right
+    with pytest.raises(TypeError, match="unsupported operand type"):
+        left & right
+    with pytest.raises(TypeError, match="unsupported operand type"):
+        left ^ right

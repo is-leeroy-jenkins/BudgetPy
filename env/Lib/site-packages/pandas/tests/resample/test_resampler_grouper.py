@@ -202,44 +202,51 @@ def test_nearest():
     tm.assert_series_equal(result, expected)
 
 
-def test_methods():
+@pytest.mark.parametrize(
+    "f",
+    [
+        "first",
+        "last",
+        "median",
+        "sem",
+        "sum",
+        "mean",
+        "min",
+        "max",
+        "size",
+        "count",
+        "nearest",
+        "bfill",
+        "ffill",
+        "asfreq",
+        "ohlc",
+    ],
+)
+def test_methods(f):
     g = test_frame.groupby("A")
     r = g.resample("2s")
 
-    for f in ["first", "last", "median", "sem", "sum", "mean", "min", "max"]:
-        result = getattr(r, f)()
-        expected = g.apply(lambda x: getattr(x.resample("2s"), f)())
-        tm.assert_frame_equal(result, expected)
+    result = getattr(r, f)()
+    expected = g.apply(lambda x: getattr(x.resample("2s"), f)())
+    tm.assert_equal(result, expected)
 
-    for f in ["size"]:
-        result = getattr(r, f)()
-        expected = g.apply(lambda x: getattr(x.resample("2s"), f)())
-        tm.assert_series_equal(result, expected)
 
-    for f in ["count"]:
-        result = getattr(r, f)()
-        expected = g.apply(lambda x: getattr(x.resample("2s"), f)())
-        tm.assert_frame_equal(result, expected)
-
+def test_methods_nunique():
     # series only
-    for f in ["nunique"]:
-        result = getattr(r.B, f)()
-        expected = g.B.apply(lambda x: getattr(x.resample("2s"), f)())
-        tm.assert_series_equal(result, expected)
+    g = test_frame.groupby("A")
+    r = g.resample("2s")
+    result = r.B.nunique()
+    expected = g.B.apply(lambda x: x.resample("2s").nunique())
+    tm.assert_series_equal(result, expected)
 
-    for f in ["nearest", "bfill", "ffill", "asfreq"]:
-        result = getattr(r, f)()
-        expected = g.apply(lambda x: getattr(x.resample("2s"), f)())
-        tm.assert_frame_equal(result, expected)
 
-    result = r.ohlc()
-    expected = g.apply(lambda x: x.resample("2s").ohlc())
+@pytest.mark.parametrize("f", ["std", "var"])
+def test_methods_std_var(f):
+    g = test_frame.groupby("A")
+    r = g.resample("2s")
+    result = getattr(r, f)(ddof=1)
+    expected = g.apply(lambda x: getattr(x.resample("2s"), f)(ddof=1))
     tm.assert_frame_equal(result, expected)
-
-    for f in ["std", "var"]:
-        result = getattr(r, f)(ddof=1)
-        expected = g.apply(lambda x: getattr(x.resample("2s"), f)(ddof=1))
-        tm.assert_frame_equal(result, expected)
 
 
 def test_apply():
@@ -401,7 +408,9 @@ def test_resample_groupby_agg():
     df["date"] = pd.to_datetime(df["date"])
 
     resampled = df.groupby("cat").resample("Y", on="date")
-    expected = resampled.sum()
+    msg = "The default value of numeric_only"
+    with tm.assert_produces_warning(FutureWarning, match=msg):
+        expected = resampled.sum()
     result = resampled.agg({"num": "sum"})
 
     tm.assert_frame_equal(result, expected)
@@ -455,10 +464,36 @@ def test_resample_groupby_agg_object_dtype_all_nan(consolidate):
     expected = DataFrame(
         {
             "key": ["A"] * 3 + ["B"] * 3,
-            "date": pd.to_datetime(["2020-01-01", "2020-01-06", "2020-01-13"] * 2),
             "col1": [0, 5, 12] * 2,
             "col_object": ["val"] * 3 + [np.nan] * 3,
         },
         index=idx,
+    )
+    tm.assert_frame_equal(result, expected)
+
+
+def test_groupby_resample_with_list_of_keys():
+    # GH 47362
+    df = DataFrame(
+        data={
+            "date": date_range(start="2016-01-01", periods=8),
+            "group": [0, 0, 0, 0, 1, 1, 1, 1],
+            "val": [1, 7, 5, 2, 3, 10, 5, 1],
+        }
+    )
+    result = df.groupby("group").resample("2D", on="date")[["val"]].mean()
+    expected = DataFrame(
+        data={
+            "val": [4.0, 3.5, 6.5, 3.0],
+        },
+        index=Index(
+            data=[
+                (0, Timestamp("2016-01-01")),
+                (0, Timestamp("2016-01-03")),
+                (1, Timestamp("2016-01-05")),
+                (1, Timestamp("2016-01-07")),
+            ],
+            name=("group", "date"),
+        ),
     )
     tm.assert_frame_equal(result, expected)

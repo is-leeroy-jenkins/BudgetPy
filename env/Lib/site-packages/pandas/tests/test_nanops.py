@@ -19,7 +19,6 @@ from pandas.core.arrays import DatetimeArray
 import pandas.core.nanops as nanops
 
 use_bn = nanops._USE_BOTTLENECK
-has_c16 = hasattr(np, "complex128")
 
 
 @pytest.fixture(params=[True, False])
@@ -31,7 +30,7 @@ def skipna(request):
 
 
 class TestnanopsDataFrame:
-    def setup_method(self, method):
+    def setup_method(self):
         np.random.seed(11235)
         nanops._USE_BOTTLENECK = False
 
@@ -95,7 +94,7 @@ class TestnanopsDataFrame:
         self.arr_float1_nan_1d = self.arr_float1_nan[:, 0]
         self.arr_nan_float1_1d = self.arr_nan_float1[:, 0]
 
-    def teardown_method(self, method):
+    def teardown_method(self):
         nanops._USE_BOTTLENECK = use_bn
 
     def check_results(self, targ, res, axis, check_dtype=True):
@@ -128,7 +127,7 @@ class TestnanopsDataFrame:
                 if targ.dtype.kind != "O":
                     res = res.astype(targ.dtype)
                 else:
-                    cast_dtype = "c16" if has_c16 else "f8"
+                    cast_dtype = "c16" if hasattr(np, "complex128") else "f8"
                     res = res.astype(cast_dtype)
                     targ = targ.astype(cast_dtype)
             # there should never be a case where numpy returns an object
@@ -786,7 +785,7 @@ class TestNanvarFixedValues:
 
     # xref GH10242
 
-    def setup_method(self, method):
+    def setup_method(self):
         # Samples from a normal distribution.
         self.variance = variance = 3.0
         self.samples = self.prng.normal(scale=variance**0.5, size=100000)
@@ -903,7 +902,7 @@ class TestNanskewFixedValues:
 
     # xref GH 11974
 
-    def setup_method(self, method):
+    def setup_method(self):
         # Test data + skewness value (computed with scipy.stats.skew)
         self.samples = np.sin(np.linspace(0, 1, 200))
         self.actual_skew = -0.1875895205961754
@@ -952,7 +951,7 @@ class TestNankurtFixedValues:
 
     # xref GH 11974
 
-    def setup_method(self, method):
+    def setup_method(self):
         # Test data + kurtosis value (computed with scipy.stats.kurtosis)
         self.samples = np.sin(np.linspace(0, 1, 200))
         self.actual_kurt = -1.2058303433799713
@@ -1021,7 +1020,8 @@ class TestDatetime64NaNOps:
         arr[-1, -1] = "NaT"
 
         result = nanops.nanmean(arr, skipna=False)
-        assert result is pd.NaT
+        assert np.isnat(result)
+        assert result.dtype == dtype
 
         result = nanops.nanmean(arr, axis=0, skipna=False)
         expected = np.array([4, 5, "NaT"], dtype=arr.dtype)
@@ -1036,13 +1036,11 @@ def test_use_bottleneck():
 
     if nanops._BOTTLENECK_INSTALLED:
 
-        pd.set_option("use_bottleneck", True)
-        assert pd.get_option("use_bottleneck")
+        with pd.option_context("use_bottleneck", True):
+            assert pd.get_option("use_bottleneck")
 
-        pd.set_option("use_bottleneck", False)
-        assert not pd.get_option("use_bottleneck")
-
-        pd.set_option("use_bottleneck", use_bn)
+        with pd.option_context("use_bottleneck", False):
+            assert not pd.get_option("use_bottleneck")
 
 
 @pytest.mark.parametrize(
@@ -1093,3 +1091,54 @@ def test_nanops_independent_of_mask_param(operation):
     median_expected = operation(s)
     median_result = operation(s, mask=mask)
     assert median_expected == median_result
+
+
+@pytest.mark.parametrize("min_count", [-1, 0])
+def test_check_below_min_count__negative_or_zero_min_count(min_count):
+    # GH35227
+    result = nanops.check_below_min_count((21, 37), None, min_count)
+    expected_result = False
+    assert result == expected_result
+
+
+@pytest.mark.parametrize(
+    "mask", [None, np.array([False, False, True]), np.array([True] + 9 * [False])]
+)
+@pytest.mark.parametrize("min_count, expected_result", [(1, False), (101, True)])
+def test_check_below_min_count__positive_min_count(mask, min_count, expected_result):
+    # GH35227
+    shape = (10, 10)
+    result = nanops.check_below_min_count(shape, mask, min_count)
+    assert result == expected_result
+
+
+@td.skip_if_windows
+@td.skip_if_32bit
+@pytest.mark.parametrize("min_count, expected_result", [(1, False), (2812191852, True)])
+def test_check_below_min_count__large_shape(min_count, expected_result):
+    # GH35227 large shape used to show that the issue is fixed
+    shape = (2244367, 1253)
+    result = nanops.check_below_min_count(shape, mask=None, min_count=min_count)
+    assert result == expected_result
+
+
+@pytest.mark.parametrize("func", ["nanmean", "nansum"])
+@pytest.mark.parametrize(
+    "dtype",
+    [
+        np.uint8,
+        np.uint16,
+        np.uint32,
+        np.uint64,
+        np.int8,
+        np.int16,
+        np.int32,
+        np.int64,
+        np.float16,
+        np.float32,
+        np.float64,
+    ],
+)
+def test_check_bottleneck_disallow(dtype, func):
+    # GH 42878 bottleneck sometimes produces unreliable results for mean and sum
+    assert not nanops._bn_ok_dtype(dtype, func)

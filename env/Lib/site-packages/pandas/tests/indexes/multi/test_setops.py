@@ -368,7 +368,7 @@ def test_union_sort_other_empty(slice_):
 
 
 @pytest.mark.xfail(reason="Not implemented.")
-def test_union_sort_other_empty_sort(slice_):
+def test_union_sort_other_empty_sort():
     # TODO(GH#25151): decide on True behaviour
     # # sort=True
     idx = MultiIndex.from_product([[1, 0], ["a", "b"]])
@@ -525,16 +525,52 @@ def test_union_nan_got_duplicated():
     tm.assert_index_equal(result, mi2)
 
 
-def test_union_duplicates(index):
+def test_union_duplicates(index, request):
     # GH#38977
     if index.empty or isinstance(index, (IntervalIndex, CategoricalIndex)):
         # No duplicates in empty indexes
         return
+    if index.dtype.kind == "c":
+        mark = pytest.mark.xfail(
+            reason="sort_values() call raises bc complex objects are not comparable"
+        )
+        request.node.add_marker(mark)
+
     values = index.unique().values.tolist()
     mi1 = MultiIndex.from_arrays([values, [1] * len(values)])
     mi2 = MultiIndex.from_arrays([[values[0]] + values, [1] * (len(values) + 1)])
     result = mi1.union(mi2)
-    tm.assert_index_equal(result, mi2.sort_values())
+    expected = mi2.sort_values()
+    if mi2.levels[0].dtype == np.uint64 and (mi2.get_level_values(0) < 2**63).all():
+        # GH#47294 - union uses lib.fast_zip, converting data to Python integers
+        # and loses type information. Result is then unsigned only when values are
+        # sufficiently large to require unsigned dtype.
+        expected = expected.set_levels(
+            [expected.levels[0].astype(int), expected.levels[1]]
+        )
+    tm.assert_index_equal(result, expected)
 
     result = mi2.union(mi1)
-    tm.assert_index_equal(result, mi2.sort_values())
+    tm.assert_index_equal(result, expected)
+
+
+@pytest.mark.parametrize(
+    "levels1, levels2, codes1, codes2, names",
+    [
+        (
+            [["a", "b", "c"], [0, ""]],
+            [["c", "d", "b"], [""]],
+            [[0, 1, 2], [1, 1, 1]],
+            [[0, 1, 2], [0, 0, 0]],
+            ["name1", "name2"],
+        ),
+    ],
+)
+def test_intersection_lexsort_depth(levels1, levels2, codes1, codes2, names):
+    # GH#25169
+    mi1 = MultiIndex(levels=levels1, codes=codes1, names=names)
+    mi2 = MultiIndex(levels=levels2, codes=codes2, names=names)
+    mi_int = mi1.intersection(mi2)
+
+    with tm.assert_produces_warning(FutureWarning, match="MultiIndex.lexsort_depth"):
+        assert mi_int.lexsort_depth == 0

@@ -11,7 +11,7 @@ they define.
 """
 
 from enum import Enum, auto
-from matplotlib import docstring
+from matplotlib import _docstring
 
 
 class _AutoStringNameEnum(Enum):
@@ -151,9 +151,9 @@ class CapStyle(str, _AutoStringNameEnum):
         CapStyle.demo()
 
     """
-    butt = 'butt'
-    projecting = 'projecting'
-    round = 'round'
+    butt = auto()
+    projecting = auto()
+    round = auto()
 
     @staticmethod
     def demo():
@@ -181,5 +181,5 @@ CapStyle.input_description = "{" \
         + ", ".join([f"'{cs.name}'" for cs in CapStyle]) \
         + "}"
 
-docstring.interpd.update({'JoinStyle': JoinStyle.input_description,
+_docstring.interpd.update({'JoinStyle': JoinStyle.input_description,
                           'CapStyle': CapStyle.input_description})

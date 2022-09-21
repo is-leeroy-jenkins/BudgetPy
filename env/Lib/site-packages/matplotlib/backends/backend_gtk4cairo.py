@@ -1,21 +1,12 @@
 from contextlib import nullcontext
 
-from . import backend_cairo, backend_gtk4
-from .backend_gtk4 import Gtk, _BackendGTK4
+from .backend_cairo import (  # noqa
+    FigureCanvasCairo, _RendererGTKCairo as RendererGTK4Cairo)
+from .backend_gtk4 import Gtk, FigureCanvasGTK4, _BackendGTK4
 
 
-class RendererGTK4Cairo(backend_cairo.RendererCairo):
-    def set_context(self, ctx):
-        self.gc.ctx = backend_cairo._to_context(ctx)
-
-
-class FigureCanvasGTK4Cairo(backend_gtk4.FigureCanvasGTK4,
-                            backend_cairo.FigureCanvasCairo):
+class FigureCanvasGTK4Cairo(FigureCanvasCairo, FigureCanvasGTK4):
     _context_is_scaled = True
-
-    def __init__(self, figure):
-        super().__init__(figure)
-        self._renderer = RendererGTK4Cairo(self.figure.dpi)
 
     def on_draw_event(self, widget, ctx):
         with (self.toolbar._wait_cursor_for_draw_cm() if self.toolbar
@@ -29,8 +20,6 @@ class FigureCanvasGTK4Cairo(backend_gtk4.FigureCanvasGTK4,
                 self.get_style_context(), ctx,
                 allocation.x, allocation.y,
                 allocation.width, allocation.height)
-            self._renderer.set_width_height(
-                allocation.width * scale, allocation.height * scale)
             self._renderer.dpi = self.figure.dpi
             self.figure.draw(self._renderer)
 

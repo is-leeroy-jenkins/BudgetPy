@@ -166,7 +166,9 @@ class GridFinder:
 
         lon_min, lon_max, lat_min, lat_max = extremes
         lon_levs, lon_n, lon_factor = self.grid_locator1(lon_min, lon_max)
+        lon_levs = np.asarray(lon_levs)
         lat_levs, lat_n, lat_factor = self.grid_locator2(lat_min, lat_max)
+        lat_levs = np.asarray(lat_levs)
 
         lon_values = lon_levs[:lon_n] / lon_factor
         lat_values = lat_levs[:lat_n] / lat_factor
@@ -263,16 +265,16 @@ class GridFinder:
         return self._aux_transform.inverted().transform(
             np.column_stack([x, y])).T
 
-    def update(self, **kw):
-        for k in kw:
+    def update(self, **kwargs):
+        for k, v in kwargs.items():
             if k in ["extreme_finder",
                      "grid_locator1",
                      "grid_locator2",
                      "tick_formatter1",
                      "tick_formatter2"]:
-                setattr(self, k, kw[k])
+                setattr(self, k, v)
             else:
-                raise ValueError("Unknown update property '%s'" % k)
+                raise ValueError(f"Unknown update property {k!r}")
 
 
 class MaxNLocator(mticker.MaxNLocator):

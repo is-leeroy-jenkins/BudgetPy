@@ -18,7 +18,7 @@ from numbers import Integral
 import numpy as np
 
 import matplotlib as mpl
-from matplotlib import _api, _pylab_helpers, tight_layout, rcParams
+from matplotlib import _api, _pylab_helpers, _tight_layout
 from matplotlib.transforms import Bbox
 
 _log = logging.getLogger(__name__)
@@ -142,6 +142,7 @@ class GridSpecBase:
         """
         return self._row_height_ratios
 
+    @_api.delete_parameter("3.7", "raw")
     def get_grid_positions(self, fig, raw=False):
         """
         Return the positions of the grid cells in figure coordinates.
@@ -331,6 +332,8 @@ class GridSpec(GridSpecBase):
     The location of the grid cells is determined in a similar way to
     `~.figure.SubplotParams` using *left*, *right*, *top*, *bottom*, *wspace*
     and *hspace*.
+
+    Indexing a GridSpec instance returns a `.SubplotSpec`.
     """
     def __init__(self, nrows, ncols, figure=None,
                  left=None, bottom=None, right=None, top=None,
@@ -342,7 +345,7 @@ class GridSpec(GridSpecBase):
         nrows, ncols : int
             The number of rows and columns of the grid.
 
-        figure : `~.figure.Figure`, optional
+        figure : `.Figure`, optional
             Only used for constrained layout to create a proper layoutgrid.
 
         left, right, top, bottom : float, optional
@@ -427,7 +430,8 @@ class GridSpec(GridSpecBase):
         - :rc:`figure.subplot.*`
         """
         if figure is None:
-            kw = {k: rcParams["figure.subplot."+k] for k in self._AllowedKeys}
+            kw = {k: mpl.rcParams["figure.subplot."+k]
+                  for k in self._AllowedKeys}
             subplotpars = mpl.figure.SubplotParams(**kw)
         else:
             subplotpars = copy.copy(figure.subplotpars)
@@ -458,13 +462,13 @@ class GridSpec(GridSpecBase):
         h_pad, w_pad : float, optional
             Padding (height/width) between edges of adjacent subplots.
             Defaults to *pad*.
-        rect : tuple of 4 floats, default: (0, 0, 1, 1), i.e. the whole figure
+        rect : tuple (left, bottom, right, top), default: None
             (left, bottom, right, top) rectangle in normalized figure
             coordinates that the whole subplots area (including labels) will
-            fit into.
+            fit into. Default (None) is the whole figure.
         """
 
-        subplotspec_list = tight_layout.get_subplotspec_list(
+        subplotspec_list = _tight_layout.get_subplotspec_list(
             figure.axes, grid_spec=self)
         if None in subplotspec_list:
             _api.warn_external("This figure includes Axes that are not "
@@ -472,9 +476,9 @@ class GridSpec(GridSpecBase):
                                "might be incorrect.")
 
         if renderer is None:
-            renderer = tight_layout.get_renderer(figure)
+            renderer = figure._get_renderer()
 
-        kwargs = tight_layout.get_tight_layout_figure(
+        kwargs = _tight_layout.get_tight_layout_figure(
             figure, figure.axes, subplotspec_list, renderer,
             pad=pad, h_pad=h_pad, w_pad=w_pad, rect=rect)
         if kwargs:
@@ -517,10 +521,10 @@ class GridSpecFromSubplotSpec(GridSpecBase):
         """Return a dictionary of subplot layout parameters."""
         hspace = (self._hspace if self._hspace is not None
                   else figure.subplotpars.hspace if figure is not None
-                  else rcParams["figure.subplot.hspace"])
+                  else mpl.rcParams["figure.subplot.hspace"])
         wspace = (self._wspace if self._wspace is not None
                   else figure.subplotpars.wspace if figure is not None
-                  else rcParams["figure.subplot.wspace"])
+                  else mpl.rcParams["figure.subplot.wspace"])
 
         figbox = self._subplot_spec.get_position(figure)
         left, bottom, right, top = figbox.extents
@@ -621,9 +625,6 @@ class SubplotSpec:
     def num2(self, value):
         self._num2 = value
 
-    def __getstate__(self):
-        return {**self.__dict__}
-
     def get_gridspec(self):
         return self._gridspec
 
@@ -665,8 +666,7 @@ class SubplotSpec:
     def is_last_col(self):
         return self.colspan.stop == self.get_gridspec().ncols
 
-    @_api.delete_parameter("3.4", "return_all")
-    def get_position(self, figure, return_all=False):
+    def get_position(self, figure):
         """
         Update the subplot position from ``figure.subplotpars``.
         """
@@ -680,12 +680,7 @@ class SubplotSpec:
         fig_top = fig_tops[rows].max()
         fig_left = fig_lefts[cols].min()
         fig_right = fig_rights[cols].max()
-        figbox = Bbox.from_extents(fig_left, fig_bottom, fig_right, fig_top)
-
-        if return_all:
-            return figbox, rows[0], cols[0], nrows, ncols
-        else:
-            return figbox
+        return Bbox.from_extents(fig_left, fig_bottom, fig_right, fig_top)
 
     def get_topmost_subplotspec(self):
         """

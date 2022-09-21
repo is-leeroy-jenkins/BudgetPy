@@ -323,13 +323,22 @@ class TestCategoricalAnalytics:
             f"received type {type(value).__name__}"
         )
         with pytest.raises(ValueError, match=msg):
-            cat.set_ordered(value=True, inplace=value)
+            with tm.assert_produces_warning(
+                FutureWarning, match="Use rename_categories"
+            ):
+                cat.set_ordered(value=True, inplace=value)
 
         with pytest.raises(ValueError, match=msg):
-            cat.as_ordered(inplace=value)
+            with tm.assert_produces_warning(
+                FutureWarning, match="Use rename_categories"
+            ):
+                cat.as_ordered(inplace=value)
 
         with pytest.raises(ValueError, match=msg):
-            cat.as_unordered(inplace=value)
+            with tm.assert_produces_warning(
+                FutureWarning, match="Use rename_categories"
+            ):
+                cat.as_unordered(inplace=value)
 
         with pytest.raises(ValueError, match=msg):
             with tm.assert_produces_warning(FutureWarning):
@@ -363,3 +372,13 @@ class TestCategoricalAnalytics:
 
         with pytest.raises(ValueError, match=msg):
             cat.sort_values(inplace=value)
+
+    def test_quantile_empty(self):
+        # make sure we have correct itemsize on resulting codes
+        cat = Categorical(["A", "B"])
+        idx = Index([0.0, 0.5])
+        result = cat[:0]._quantile(idx, interpolation="linear")
+        assert result._codes.dtype == np.int8
+
+        expected = cat.take([-1, -1], allow_fill=True)
+        tm.assert_extension_array_equal(result, expected)

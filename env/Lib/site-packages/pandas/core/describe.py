@@ -9,6 +9,7 @@ from abc import (
     ABC,
     abstractmethod,
 )
+import inspect
 from typing import (
     TYPE_CHECKING,
     Any,
@@ -22,12 +23,16 @@ import warnings
 import numpy as np
 
 from pandas._libs.tslibs import Timestamp
-from pandas._typing import NDFrameT
+from pandas._typing import (
+    NDFrameT,
+    npt,
+)
 from pandas.util._exceptions import find_stack_level
 from pandas.util._validators import validate_percentile
 
 from pandas.core.dtypes.common import (
     is_bool_dtype,
+    is_complex_dtype,
     is_datetime64_any_dtype,
     is_numeric_dtype,
     is_timedelta64_dtype,
@@ -106,7 +111,7 @@ class NDFrameDescriberAbstract(ABC):
         Whether to treat datetime dtypes as numeric.
     """
 
-    def __init__(self, obj: DataFrame | Series, datetime_is_numeric: bool):
+    def __init__(self, obj: DataFrame | Series, datetime_is_numeric: bool) -> None:
         self.obj = obj
         self.datetime_is_numeric = datetime_is_numeric
 
@@ -156,7 +161,7 @@ class DataFrameDescriber(NDFrameDescriberAbstract):
         include: str | Sequence[str] | None,
         exclude: str | Sequence[str] | None,
         datetime_is_numeric: bool,
-    ):
+    ) -> None:
         self.include = include
         self.exclude = exclude
 
@@ -186,11 +191,9 @@ class DataFrameDescriber(NDFrameDescriberAbstract):
         """Select columns to be described."""
         if (self.include is None) and (self.exclude is None):
             # when some numerics are found, keep only numerics
-            default_include = [np.number]
+            default_include: list[npt.DTypeLike] = [np.number]
             if self.datetime_is_numeric:
-                # error: Argument 1 to "append" of "list" has incompatible type "str";
-                # expected "Type[number[Any]]"
-                default_include.append("datetime")  # type: ignore[arg-type]
+                default_include.append("datetime")
             data = self.obj.select_dtypes(include=default_include)
             if len(data.columns) == 0:
                 data = self.obj
@@ -230,10 +233,7 @@ def describe_numeric_1d(series: Series, percentiles: Sequence[float]) -> Series:
     """
     from pandas import Series
 
-    # error: Argument 1 to "format_percentiles" has incompatible type "Sequence[float]";
-    # expected "Union[ndarray, List[Union[int, float]], List[float], List[Union[str,
-    # float]]]"
-    formatted_percentiles = format_percentiles(percentiles)  # type: ignore[arg-type]
+    formatted_percentiles = format_percentiles(percentiles)
 
     stat_index = ["count", "mean", "std", "min"] + formatted_percentiles + ["max"]
     d = (
@@ -241,7 +241,9 @@ def describe_numeric_1d(series: Series, percentiles: Sequence[float]) -> Series:
         + series.quantile(percentiles).tolist()
         + [series.max()]
     )
-    return Series(d, index=stat_index, name=series.name)
+    # GH#48340 - always return float on non-complex numeric data
+    dtype = float if is_numeric_dtype(series) and not is_complex_dtype(series) else None
+    return Series(d, index=stat_index, name=series.name, dtype=dtype)
 
 
 def describe_categorical_1d(
@@ -337,10 +339,7 @@ def describe_timestamp_1d(data: Series, percentiles: Sequence[float]) -> Series:
     # GH-30164
     from pandas import Series
 
-    # error: Argument 1 to "format_percentiles" has incompatible type "Sequence[float]";
-    # expected "Union[ndarray, List[Union[int, float]], List[float], List[Union[str,
-    # float]]]"
-    formatted_percentiles = format_percentiles(percentiles)  # type: ignore[arg-type]
+    formatted_percentiles = format_percentiles(percentiles)
 
     stat_index = ["count", "mean", "min"] + formatted_percentiles + ["max"]
     d = (
@@ -378,7 +377,7 @@ def select_describe_func(
                 "version of pandas. Specify `datetime_is_numeric=True` to "
                 "silence this warning and adopt the future behavior now.",
                 FutureWarning,
-                stacklevel=find_stack_level(),
+                stacklevel=find_stack_level(inspect.currentframe()),
             )
             return describe_timestamp_as_categorical_1d
     elif is_timedelta64_dtype(data.dtype):

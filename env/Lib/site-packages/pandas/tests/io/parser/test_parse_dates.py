@@ -45,9 +45,6 @@ xfail_pyarrow = pytest.mark.usefixtures("pyarrow_xfail")
 # cause a deadlock instead, so we skip these instead of xfailing
 skip_pyarrow = pytest.mark.usefixtures("pyarrow_skip")
 
-# constant
-_DEFAULT_DATETIME = datetime(1, 1, 1)
-
 
 @xfail_pyarrow
 def test_read_csv_with_custom_date_parser(all_parsers):
@@ -1541,7 +1538,12 @@ date,time,prn,rxstatus
 """
 
     def date_parser(dt, time):
-        return np.array(dt + "T" + time, dtype="datetime64[s]")
+        try:
+            arr = dt + "T" + time
+        except TypeError:
+            # dt & time are date/time objects
+            arr = [datetime.combine(d, t) for d, t in zip(dt, time)]
+        return np.array(arr, dtype="datetime64[s]")
 
     result = parser.read_csv(
         StringIO(data),
@@ -1675,14 +1677,27 @@ def test_parse_delimited_date_swap_with_warning(
 ):
     parser = all_parsers
     expected = DataFrame({0: [expected]}, dtype="datetime64[ns]")
-    warning_msg = (
-        "Provide format or specify infer_datetime_format=True for consistent parsing"
+    warning_msg = "Specify a format to ensure consistent parsing"
+    result = parser.read_csv_check_warnings(
+        UserWarning,
+        warning_msg,
+        StringIO(date_string),
+        header=None,
+        dayfirst=dayfirst,
+        parse_dates=[0],
     )
-    with tm.assert_produces_warning(UserWarning, match=warning_msg):
-        result = parser.read_csv(
-            StringIO(date_string), header=None, dayfirst=dayfirst, parse_dates=[0]
-        )
     tm.assert_frame_equal(result, expected)
+
+
+def test_parse_multiple_delimited_dates_with_swap_warnings():
+    # GH46210
+    warning_msg = "Specify a format to ensure consistent parsing"
+    with tm.assert_produces_warning(UserWarning, match=warning_msg) as record:
+        pd.to_datetime(["01/01/2000", "31/05/2000", "31/05/2001", "01/02/2000"])
+    assert len({str(warning.message) for warning in record}) == 1
+    # Using set(record) as repetitions of the same warning are suppressed
+    # https://docs.python.org/3/library/warnings.html
+    # and here we care to check that the warning is only shows once to users.
 
 
 def _helper_hypothesis_delimited_date(call, date_string, **kwargs):
@@ -1703,14 +1718,16 @@ def _helper_hypothesis_delimited_date(call, date_string, **kwargs):
     "date_format",
     ["%d %m %Y", "%m %d %Y", "%m %Y", "%Y %m %d", "%y %m %d", "%Y%m%d", "%y%m%d"],
 )
-def test_hypothesis_delimited_date(date_format, dayfirst, delimiter, test_datetime):
+def test_hypothesis_delimited_date(
+    request, date_format, dayfirst, delimiter, test_datetime
+):
     if date_format == "%m %Y" and delimiter == ".":
-        pytest.skip(
-            "parse_datetime_string cannot reliably tell whether "
-            "e.g. %m.%Y is a float or a date, thus we skip it"
+        request.node.add_marker(
+            pytest.mark.xfail(
+                reason="parse_datetime_string cannot reliably tell whether "
+                "e.g. %m.%Y is a float or a date"
+            )
         )
-    result, expected = None, None
-    except_in_dateutil, except_out_dateutil = None, None
     date_string = test_datetime.strftime(date_format.replace(" ", delimiter))
 
     with warnings.catch_warnings():
@@ -1721,7 +1738,7 @@ def test_hypothesis_delimited_date(date_format, dayfirst, delimiter, test_dateti
     except_in_dateutil, expected = _helper_hypothesis_delimited_date(
         du_parse,
         date_string,
-        default=_DEFAULT_DATETIME,
+        default=datetime(1, 1, 1),
         dayfirst=dayfirst,
         yearfirst=False,
     )
@@ -1844,12 +1861,14 @@ def test_parse_dates_and_keep_orgin_column(all_parsers):
 def test_dayfirst_warnings():
     # GH 12585
     warning_msg_day_first = (
-        "Parsing '31/12/2014' in DD/MM/YYYY format. Provide "
-        "format or specify infer_datetime_format=True for consistent parsing."
+        r"Parsing dates in DD/MM/YYYY format when dayfirst=False \(the default\) was "
+        r"specified. This may lead to inconsistently parsed dates! Specify a format "
+        r"to ensure consistent parsing."
     )
     warning_msg_month_first = (
-        "Parsing '03/30/2011' in MM/DD/YYYY format. Provide "
-        "format or specify infer_datetime_format=True for consistent parsing."
+        "Parsing dates in MM/DD/YYYY format when dayfirst=True was "
+        "specified. This may lead to inconsistently parsed dates! Specify a format "
+        "to ensure consistent parsing."
     )
 
     # CASE 1: valid input
@@ -1931,6 +1950,39 @@ def test_dayfirst_warnings():
             index_col="date",
         ).index
     tm.assert_index_equal(expected, res8)
+
+
+@pytest.mark.parametrize(
+    "date_string, dayfirst",
+    [
+        pytest.param(
+            "31/1/2014",
+            False,
+            id="second date is single-digit",
+        ),
+        pytest.param(
+            "1/31/2014",
+            True,
+            id="first date is single-digit",
+        ),
+    ],
+)
+def test_dayfirst_warnings_no_leading_zero(date_string, dayfirst):
+    # GH47880
+    initial_value = f"date\n{date_string}"
+    expected = DatetimeIndex(
+        ["2014-01-31"], dtype="datetime64[ns]", freq=None, name="date"
+    )
+    with tm.assert_produces_warning(
+        UserWarning, match=r"may lead to inconsistently parsed dates"
+    ):
+        res = read_csv(
+            StringIO(initial_value),
+            parse_dates=["date"],
+            index_col="date",
+            dayfirst=dayfirst,
+        ).index
+    tm.assert_index_equal(expected, res)
 
 
 @skip_pyarrow

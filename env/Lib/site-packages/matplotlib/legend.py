@@ -28,7 +28,7 @@ import time
 import numpy as np
 
 import matplotlib as mpl
-from matplotlib import _api, docstring, colors, offsetbox
+from matplotlib import _api, _docstring, colors, offsetbox
 from matplotlib.artist import Artist, allow_rasterization
 from matplotlib.cbook import silent_list
 from matplotlib.font_manager import FontProperties
@@ -38,6 +38,7 @@ from matplotlib.patches import (Patch, Rectangle, Shadow, FancyBboxPatch,
 from matplotlib.collections import (
     Collection, CircleCollection, LineCollection, PathCollection,
     PolyCollection, RegularPolyCollection)
+from matplotlib.text import Text
 from matplotlib.transforms import Bbox, BboxBase, TransformedBbox
 from matplotlib.transforms import BboxTransformTo, BboxTransformFrom
 from matplotlib.offsetbox import (
@@ -93,7 +94,7 @@ class DraggableLegend(DraggableOffsetBox):
         self.legend.set_bbox_to_anchor(loc_in_bbox)
 
 
-docstring.interpd.update(_legend_kw_doc="""
+_docstring.interpd.update(_legend_kw_doc="""
 loc : str or pair of floats, default: :rc:`legend.loc` ('best' for axes, \
 'upper right' for figures)
     The location of the legend.
@@ -161,8 +162,11 @@ bbox_to_anchor : `.BboxBase`, 2-tuple, or 4-tuple of floats
 
         loc='upper right', bbox_to_anchor=(0.5, 0.5)
 
-ncol : int, default: 1
+ncols : int, default: 1
     The number of columns that the legend has.
+
+    For backward compatibility, the spelling *ncol* is also supported
+    but it is discouraged. If both are given, *ncols* takes precedence.
 
 prop : None or `matplotlib.font_manager.FontProperties` or dict
     The font properties of the legend. If None (default), the current
@@ -253,6 +257,10 @@ title_fontsize : int or {'xx-small', 'x-small', 'small', 'medium', 'large', \
     to set the fontsize alongside other font properties, use the *size*
     parameter in *title_fontproperties*.
 
+alignment : {'center', 'left', 'right'}, default: 'center'
+    The alignment of the legend title and the box of entries. The entries
+    are aligned as a single block, so that markers always lined up.
+
 borderpad : float, default: :rc:`legend.borderpad`
     The fractional whitespace inside the legend border, in font-size units.
 
@@ -293,7 +301,8 @@ class Legend(Artist):
     def __str__(self):
         return "Legend"
 
-    @docstring.dedent_interpd
+    @_api.make_keyword_only("3.6", "loc")
+    @_docstring.dedent_interpd
     def __init__(
         self, parent, handles, labels,
         loc=None,
@@ -315,7 +324,7 @@ class Legend(Artist):
         borderaxespad=None,  # pad between the axes and legend border
         columnspacing=None,  # spacing between columns
 
-        ncol=1,     # number of columns
+        ncols=1,     # number of columns
         mode=None,  # horizontal distribution of columns: None or "expand"
 
         fancybox=None,  # True: fancy box, False: rounded box, None: rcParam
@@ -331,6 +340,9 @@ class Legend(Artist):
         frameon=None,         # draw frame
         handler_map=None,
         title_fontproperties=None,  # properties for the legend title
+        alignment="center",       # control the alignment within the legend box
+        *,
+        ncol=1  # synonym for ncols (backward compatibility)
     ):
         """
         Parameters
@@ -388,24 +400,27 @@ class Legend(Artist):
         #: instance.
         self._custom_handler_map = handler_map
 
-        locals_view = locals()
-        for name in ["numpoints", "markerscale", "shadow", "columnspacing",
-                     "scatterpoints", "handleheight", 'borderpad',
-                     'labelspacing', 'handlelength', 'handletextpad',
-                     'borderaxespad']:
-            if locals_view[name] is None:
-                value = mpl.rcParams["legend." + name]
-            else:
-                value = locals_view[name]
-            setattr(self, name, value)
-        del locals_view
+        def val_or_rc(val, rc_name):
+            return val if val is not None else mpl.rcParams[rc_name]
+
+        self.numpoints = val_or_rc(numpoints, 'legend.numpoints')
+        self.markerscale = val_or_rc(markerscale, 'legend.markerscale')
+        self.scatterpoints = val_or_rc(scatterpoints, 'legend.scatterpoints')
+        self.borderpad = val_or_rc(borderpad, 'legend.borderpad')
+        self.labelspacing = val_or_rc(labelspacing, 'legend.labelspacing')
+        self.handlelength = val_or_rc(handlelength, 'legend.handlelength')
+        self.handleheight = val_or_rc(handleheight, 'legend.handleheight')
+        self.handletextpad = val_or_rc(handletextpad, 'legend.handletextpad')
+        self.borderaxespad = val_or_rc(borderaxespad, 'legend.borderaxespad')
+        self.columnspacing = val_or_rc(columnspacing, 'legend.columnspacing')
+        self.shadow = val_or_rc(shadow, 'legend.shadow')
         # trim handles and labels if illegal label...
         _lab, _hand = [], []
         for label, handle in zip(labels, handles):
             if isinstance(label, str) and label.startswith('_'):
-                _api.warn_external('The handle {!r} has a label of {!r} '
-                                   'which cannot be automatically added to'
-                                   ' the legend.'.format(handle, label))
+                _api.warn_external(f"The label {label!r} of {handle!r} starts "
+                                   "with '_'. It is thus excluded from the "
+                                   "legend.")
             else:
                 _lab.append(label)
                 _hand.append(handle)
@@ -413,8 +428,8 @@ class Legend(Artist):
 
         handles = list(handles)
         if len(handles) < 2:
-            ncol = 1
-        self._ncol = ncol
+            ncols = 1
+        self._ncols = ncols if ncols != 1 else ncol
 
         if self.numpoints <= 0:
             raise ValueError("numpoints must be > 0; it was %d" % numpoints)
@@ -495,6 +510,9 @@ class Legend(Artist):
         )
         self._set_artist_props(self.legendPatch)
 
+        _api.check_in_list(["center", "left", "right"], alignment=alignment)
+        self._alignment = alignment
+
         # init with null renderer
         self._init_legend_box(handles, labels, markerfirst)
 
@@ -554,8 +572,7 @@ class Legend(Artist):
                                        colors.to_rgba_array(labelcolor))):
                 text.set_color(color)
         else:
-            raise ValueError("Invalid argument for labelcolor : %s" %
-                             str(labelcolor))
+            raise ValueError(f"Invalid labelcolor: {labelcolor!r}")
 
     def _set_artist_props(self, a):
         """
@@ -576,6 +593,10 @@ class Legend(Artist):
         self._loc_real = loc
         self.stale = True
         self._legend_box.set_offset(self._findoffset)
+
+    def set_ncols(self, ncols):
+        """Set the number of columns."""
+        self._ncols = ncols
 
     def _get_loc(self):
         return self._loc_real
@@ -618,7 +639,7 @@ class Legend(Artist):
         # update the location and size of the legend. This needs to
         # be done in any case to clip the figure right.
         bbox = self._legend_box.get_window_extent(renderer)
-        self.legendPatch.set_bounds(bbox.x0, bbox.y0, bbox.width, bbox.height)
+        self.legendPatch.set_bounds(bbox.bounds)
         self.legendPatch.set_mutation_scale(fontsize)
 
         if self.shadow:
@@ -654,38 +675,24 @@ class Legend(Artist):
 
     @classmethod
     def get_default_handler_map(cls):
-        """
-        A class method that returns the default handler map.
-        """
+        """Return the global default handler map, shared by all legends."""
         return cls._default_handler_map
 
     @classmethod
     def set_default_handler_map(cls, handler_map):
-        """
-        A class method to set the default handler map.
-        """
+        """Set the global default handler map, shared by all legends."""
         cls._default_handler_map = handler_map
 
     @classmethod
     def update_default_handler_map(cls, handler_map):
-        """
-        A class method to update the default handler map.
-        """
+        """Update the global default handler map, shared by all legends."""
         cls._default_handler_map.update(handler_map)
 
     def get_legend_handler_map(self):
-        """
-        Return the handler map.
-        """
-
+        """Return this legend instance's handler map."""
         default_handler_map = self.get_default_handler_map()
-
-        if self._custom_handler_map:
-            hm = default_handler_map.copy()
-            hm.update(self._custom_handler_map)
-            return hm
-        else:
-            return default_handler_map
+        return ({**default_handler_map, **self._custom_handler_map}
+                if self._custom_handler_map else default_handler_map)
 
     @staticmethod
     def get_legend_handler(legend_handler_map, orig_handle):
@@ -723,27 +730,19 @@ class Legend(Artist):
 
         fontsize = self._fontsize
 
-        # legend_box is a HPacker, horizontally packed with
-        # columns. Each column is a VPacker, vertically packed with
-        # legend items. Each legend item is HPacker packed with
-        # legend handleBox and labelBox. handleBox is an instance of
-        # offsetbox.DrawingArea which contains legend handle. labelBox
-        # is an instance of offsetbox.TextArea which contains legend
-        # text.
+        # legend_box is a HPacker, horizontally packed with columns.
+        # Each column is a VPacker, vertically packed with legend items.
+        # Each legend item is a HPacker packed with:
+        # - handlebox: a DrawingArea which contains the legend handle.
+        # - labelbox: a TextArea which contains the legend text.
 
         text_list = []  # the list of text instances
         handle_list = []  # the list of handle instances
         handles_and_labels = []
 
-        label_prop = dict(verticalalignment='baseline',
-                          horizontalalignment='left',
-                          fontproperties=self.prop,
-                          )
-
         # The approximate height and descent of text. These values are
         # only used for plotting the legend handle.
-        descent = 0.35 * fontsize * (self.handleheight - 0.7)
-        # 0.35 and 0.7 are just heuristic numbers and may need to be improved.
+        descent = 0.35 * fontsize * (self.handleheight - 0.7)  # heuristic.
         height = fontsize * self.handleheight - descent
         # each handle needs to be drawn inside a box of (x, y, w, h) =
         # (0, -descent, width, height).  And their coordinates should
@@ -755,21 +754,24 @@ class Legend(Artist):
         # manually set their transform to the self.get_transform().
         legend_handler_map = self.get_legend_handler_map()
 
-        for orig_handle, lab in zip(handles, labels):
+        for orig_handle, label in zip(handles, labels):
             handler = self.get_legend_handler(legend_handler_map, orig_handle)
             if handler is None:
                 _api.warn_external(
-                    "Legend does not support {!r} instances.\nA proxy artist "
-                    "may be used instead.\nSee: "
-                    "https://matplotlib.org/users/legend_guide.html"
-                    "#creating-artists-specifically-for-adding-to-the-legend-"
-                    "aka-proxy-artists".format(orig_handle))
-                # We don't have a handle for this artist, so we just defer
-                # to None.
+                             "Legend does not support handles for {0} "
+                             "instances.\nA proxy artist may be used "
+                             "instead.\nSee: https://matplotlib.org/"
+                             "stable/tutorials/intermediate/legend_guide.html"
+                             "#controlling-the-legend-entries".format(
+                                 type(orig_handle).__name__))
+                # No handle for this artist, so we just defer to None.
                 handle_list.append(None)
             else:
-                textbox = TextArea(lab, textprops=label_prop,
-                                   multilinebaseline=True)
+                textbox = TextArea(label, multilinebaseline=True,
+                                   textprops=dict(
+                                       verticalalignment='baseline',
+                                       horizontalalignment='left',
+                                       fontproperties=self.prop))
                 handlebox = DrawingArea(width=self.handlelength * fontsize,
                                         height=height,
                                         xdescent=0., ydescent=descent)
@@ -781,34 +783,25 @@ class Legend(Artist):
                                                          fontsize, handlebox))
                 handles_and_labels.append((handlebox, textbox))
 
-        if handles_and_labels:
-            # We calculate number of rows in each column. The first
-            # (num_largecol) columns will have (nrows+1) rows, and remaining
-            # (num_smallcol) columns will have (nrows) rows.
-            ncol = min(self._ncol, len(handles_and_labels))
-            nrows, num_largecol = divmod(len(handles_and_labels), ncol)
-            num_smallcol = ncol - num_largecol
-            # starting index of each column and number of rows in it.
-            rows_per_col = [nrows + 1] * num_largecol + [nrows] * num_smallcol
-            start_idxs = np.concatenate([[0], np.cumsum(rows_per_col)[:-1]])
-            cols = zip(start_idxs, rows_per_col)
-        else:
-            cols = []
-
         columnbox = []
-        for i0, di in cols:
-            # pack handleBox and labelBox into itemBox
-            itemBoxes = [HPacker(pad=0,
+        # array_split splits n handles_and_labels into ncols columns, with the
+        # first n%ncols columns having an extra entry.  filter(len, ...)
+        # handles the case where n < ncols: the last ncols-n columns are empty
+        # and get filtered out.
+        for handles_and_labels_column in filter(
+                len, np.array_split(handles_and_labels, self._ncols)):
+            # pack handlebox and labelbox into itembox
+            itemboxes = [HPacker(pad=0,
                                  sep=self.handletextpad * fontsize,
                                  children=[h, t] if markerfirst else [t, h],
                                  align="baseline")
-                         for h, t in handles_and_labels[i0:i0 + di]]
-            # pack columnBox
+                         for h, t in handles_and_labels_column]
+            # pack columnbox
             alignment = "baseline" if markerfirst else "right"
             columnbox.append(VPacker(pad=0,
                                      sep=self.labelspacing * fontsize,
                                      align=alignment,
-                                     children=itemBoxes))
+                                     children=itemboxes))
 
         mode = "expand" if self._mode == "expand" else "fixed"
         sep = self.columnspacing * fontsize
@@ -819,7 +812,7 @@ class Legend(Artist):
         self._legend_title_box = TextArea("")
         self._legend_box = VPacker(pad=self.borderpad * fontsize,
                                    sep=self.labelspacing * fontsize,
-                                   align="center",
+                                   align=self._alignment,
                                    children=[self._legend_title_box,
                                              self._legend_handle_box])
         self._legend_box.set_figure(self.figure)
@@ -855,8 +848,8 @@ class Legend(Artist):
                 bboxes.append(
                     artist.get_path().get_extents(artist.get_transform()))
             elif isinstance(artist, Collection):
-                _, transOffset, hoffsets, _ = artist._prepare_points()
-                for offset in transOffset.transform(hoffsets):
+                _, offset_trf, hoffsets, _ = artist._prepare_points()
+                for offset in offset_trf.transform(hoffsets):
                     offsets.append(offset)
         return bboxes, lines, offsets
 
@@ -882,10 +875,41 @@ class Legend(Artist):
         r"""Return the list of `~.text.Text`\s in the legend."""
         return silent_list('Text', self.texts)
 
+    def set_alignment(self, alignment):
+        """
+        Set the alignment of the legend title and the box of entries.
+
+        The entries are aligned as a single block, so that markers always
+        lined up.
+
+        Parameters
+        ----------
+        alignment : {'center', 'left', 'right'}.
+
+        """
+        _api.check_in_list(["center", "left", "right"], alignment=alignment)
+        self._alignment = alignment
+        self._legend_box.align = alignment
+
+    def get_alignment(self):
+        """Get the alignment value of the legend box"""
+        return self._legend_box.align
+
     def set_title(self, title, prop=None):
         """
-        Set the legend title. Fontproperties can be optionally set
-        with *prop* parameter.
+        Set legend title and title style.
+
+        Parameters
+        ----------
+        title : str
+            The legend title.
+
+        prop : `.font_manager.FontProperties` or `str` or `pathlib.Path`
+            The font properties of the legend title.
+            If a `str`, it is interpreted as a fontconfig pattern parsed by
+            `.FontProperties`.  If a `pathlib.Path`, it is interpreted as the
+            absolute path to a font file.
+
         """
         self._legend_title_box._text.set_text(title)
         if title:
@@ -907,10 +931,10 @@ class Legend(Artist):
     def get_window_extent(self, renderer=None):
         # docstring inherited
         if renderer is None:
-            renderer = self.figure._cachedRenderer
+            renderer = self.figure._get_renderer()
         return self._legend_box.get_window_extent(renderer=renderer)
 
-    def get_tightbbox(self, renderer):
+    def get_tightbbox(self, renderer=None):
         # docstring inherited
         return self._legend_box.get_window_extent(renderer)
 
@@ -967,8 +991,7 @@ class Legend(Artist):
             try:
                 l = len(bbox)
             except TypeError as err:
-                raise ValueError("Invalid argument for bbox : %s" %
-                                 str(bbox)) from err
+                raise ValueError(f"Invalid bbox: {bbox}") from err
 
             if l == 2:
                 bbox = [bbox[0], bbox[1], 0, 0]
@@ -1095,47 +1118,43 @@ class Legend(Artist):
 # Helper functions to parse legend arguments for both `figure.legend` and
 # `axes.legend`:
 def _get_legend_handles(axs, legend_handler_map=None):
-    """
-    Return a generator of artists that can be used as handles in
-    a legend.
-
-    """
+    """Yield artists that can be used as handles in a legend."""
     handles_original = []
     for ax in axs:
         handles_original += [
             *(a for a in ax._children
-              if isinstance(a, (Line2D, Patch, Collection))),
+              if isinstance(a, (Line2D, Patch, Collection, Text))),
             *ax.containers]
         # support parasite axes:
         if hasattr(ax, 'parasites'):
             for axx in ax.parasites:
                 handles_original += [
                     *(a for a in axx._children
-                      if isinstance(a, (Line2D, Patch, Collection))),
+                      if isinstance(a, (Line2D, Patch, Collection, Text))),
                     *axx.containers]
 
-    handler_map = Legend.get_default_handler_map()
-
-    if legend_handler_map is not None:
-        handler_map = handler_map.copy()
-        handler_map.update(legend_handler_map)
-
+    handler_map = {**Legend.get_default_handler_map(),
+                   **(legend_handler_map or {})}
     has_handler = Legend.get_legend_handler
-
     for handle in handles_original:
         label = handle.get_label()
         if label != '_nolegend_' and has_handler(handler_map, handle):
             yield handle
+        elif (label and not label.startswith('_') and
+                not has_handler(handler_map, handle)):
+            _api.warn_external(
+                             "Legend does not support handles for {0} "
+                             "instances.\nSee: https://matplotlib.org/stable/"
+                             "tutorials/intermediate/legend_guide.html"
+                             "#implementing-a-custom-legend-handler".format(
+                                 type(handle).__name__))
+            continue
 
 
 def _get_legend_handles_labels(axs, legend_handler_map=None):
-    """
-    Return handles and labels for legend, internal method.
-
-    """
+    """Return handles and labels for legend."""
     handles = []
     labels = []
-
     for handle in _get_legend_handles(axs, legend_handler_map):
         label = handle.get_label()
         if label and not label.startswith('_'):
@@ -1191,7 +1210,7 @@ def _parse_legend_args(axs, *args, handles=None, labels=None, **kwargs):
     """
     log = logging.getLogger(__name__)
 
-    handlers = kwargs.get('handler_map', {}) or {}
+    handlers = kwargs.get('handler_map')
     extra_args = ()
 
     if (handles is not None or labels is not None) and args:
