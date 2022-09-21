@@ -700,7 +700,7 @@ class Folder( ):
 
     @relative.setter
     def relative( self, value ):
-        if isinstance( sle.f__relative, str ) and not os.path.isabs( value ):
+        if isinstance( self.__relative, str ) and not os.path.isabs( value ):
             self.__relative = value
 
     @property
@@ -988,7 +988,7 @@ class Message( ):
     def __init__( self, sender, receiver, body, subject, copy = '' ):
         self.__sender = sender if isinstance( sender, str ) and sender != '' else None
         self.__receiver = receiver if isinstance( receiver, str ) and receiver != '' else None
-        self.__body = body if isinstance( body, str ) and bocy != '' else None
+        self.__body = body if isinstance( body, str ) and body != '' else None
         self.__others = copy if isinstance( copy, list ) and len( copy ) > 0 else None
         self.__subject = subject if isinstance( subject, str ) and subject != '' else None
 
@@ -1078,7 +1078,7 @@ class MessageBuilder( ):
         if value is not None:
             self.__others = list( value )
 
-    def __init__( self ):
+    def __init__( self, sender = '', receiver = '', body = '', copy = '', subject = ''):
         self.__from = sender if isinstance( sender, str ) and sender != '' else None
         self.__to = receiver if isinstance( receiver, str ) and receiver != '' else None
         self.__body = body if isinstance( body, str ) and body != '' else None

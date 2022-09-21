@@ -282,7 +282,6 @@ class Account( ):
 
 
 # Activity( value  )
-
 class Activity( ):
     '''Defines the Activity Class'''
     __source = None
