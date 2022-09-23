@@ -1750,7 +1750,7 @@ class DataBuilder( ):
             error.show( )
 
 
-# DataColumn( name, type, value, series  )
+# DataColumn( name = '', datatype = None, value = None  )
 class DataColumn( ):
     '''Defines the DataColumn Class providing schema information.
     Constructor uses optional arguments ( name: str, type: type,

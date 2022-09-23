@@ -69,7 +69,7 @@ class Element( Unit ):
             return self.__code
 
 
-# Account( value )
+# Account( code  )
 class Account( ):
     '''defines the Account Code class'''
     __source = None
@@ -281,7 +281,7 @@ class Account( ):
             err.show( )
 
 
-# Activity( value  )
+# Activity( code   )
 class Activity( ):
     '''Defines the Activity Class'''
     __source = None
@@ -408,7 +408,7 @@ class Activity( ):
             err.show( )
 
 
-# AllowanceHolder( value  )
+# AllowanceHolder( code   )
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
     __source = None
@@ -534,7 +534,7 @@ class AllowanceHolder( ):
             err.show( )
 
 
-# Appropriation( value  )
+# Appropriation( code   )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
     __source = None
@@ -655,7 +655,7 @@ class Appropriation( ):
             err.show( )
 
 
-# Appropriation( value  )
+# Appropriation( code   )
 class SubAppropriations( ):
     '''Defines the Appropriation Class'''
     __source = None
@@ -1046,7 +1046,7 @@ class BudgetFiscalYear( ):
 
 
 
-# BudgetObjectClass( value )
+# BudgetObjectClass( code  )
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
     __source = None
@@ -1185,7 +1185,7 @@ class BudgetObjectClass( ):
 
 
 
-# FinanceObjectClass( value )
+# FinanceObjectClass( code  )
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
     __source = None
@@ -1334,7 +1334,7 @@ class FinanceObjectClass( ):
 
 
 
-# Fund( bfy, efy, value )
+# Fund( bfy, efy, code )
 class Fund( ):
     '''Defines the Fund Class'''
     __source = None
@@ -1782,7 +1782,7 @@ class Fund( ):
 
 
 
-# Goal( value )
+# Goal( code )
 class Goal( ):
     '''Defines the Goal Class'''
     __source = None
@@ -1895,7 +1895,7 @@ class Goal( ):
 
 
 
-# NationalProgram( value )
+# NationalProgram( code value )
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
     __source = None
@@ -2046,7 +2046,7 @@ class NationalProgram( ):
 
 
 
-# Objective( value )
+# Objective( code  )
 class Objective( ):
     '''Defines the Objective Class'''
     __source = None
@@ -2172,7 +2172,7 @@ class Objective( ):
 
 
 
-# Organization( value )
+# Organization( code  )
 class Organization( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2283,7 +2283,7 @@ class Organization( ):
             err.show( )
 
 
-# Project( value )
+# Project( code  )
 class Project( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2409,7 +2409,7 @@ class Project( ):
 
 
 
-# CapitalPlanningInvestmentCode( value )
+# CapitalPlanningInvestmentCode( code  )
 class CapitalPlanningInvestmentCode( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2537,7 +2537,7 @@ class CapitalPlanningInvestmentCode( ):
 
 
 
-# SiteProjectCode( value )
+# SiteProjectCode( code  )
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
     __source = None
@@ -2661,7 +2661,7 @@ class SiteProjectCode( ):
 
 
 
-# StateOrganization( value )
+# StateOrganization( code  )
 class StateOrganization( ):
     '''StateOrganization( fgrp ) class
     representing state codes'''
@@ -2783,7 +2783,7 @@ class StateOrganization( ):
 
 
 
-# HeadquartersOffice( value )
+# HeadquartersOffice( code  )
 class HeadquartersOffice( ):
     '''Defines a regional RPIO'''
     __source = None
@@ -2912,7 +2912,7 @@ class HeadquartersOffice( ):
 
 
 
-# HumanResourceOrganization( value )
+# HumanResourceOrganization( code  )
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
     __source = None
@@ -3037,7 +3037,7 @@ class HumanResourceOrganization( ):
 
 
 
-# ProgramArea( value )
+# ProgramArea( code  )
 class ProgramArea( ):
     '''defines the ProgramArea class'''
     __source = None
@@ -3164,7 +3164,7 @@ class ProgramArea( ):
 
 
 
-# ProgramProject( value )
+# ProgramProject( code  )
 class ProgramProject( ):
     '''Defines the ProgramProject Class'''
     __source = None
@@ -3287,7 +3287,7 @@ class ProgramProject( ):
 
 
 
-# ResponsibilityCenter( value )
+# ResponsibilityCenter( code  )
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
     __source = None
@@ -3423,7 +3423,7 @@ class ResponsibilityCenter( ):
 
 
 
-# ResourcePlanningOffice( value )
+# ResourcePlanningOffice( code  )
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __source = None
@@ -3979,7 +3979,7 @@ class ProgramResultsCode( ):
             err.show( )
 
 
-# RegionalOffice( value )
+# RegionalOffice( code  )
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __source = None
@@ -4091,7 +4091,7 @@ class RegionalOffice( ):
             err.show( )
 
 
-# SiteProject( value )
+# SiteProject( code  )
 class SiteProject( ):
     '''Defines the Site Project Code Class'''
     __source = None
@@ -4262,7 +4262,7 @@ class SiteProject( ):
 
 
 
-# FederalHoliday( bfy, efy, value )
+# FederalHoliday( bfy, name )
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
     __source = None
@@ -4772,7 +4772,7 @@ class FederalHoliday( ):
             err.show( )
 
 
-# TreasurySymbol( bfy, efy, value )
+# TreasurySymbol( bfy, efy, code )
 class TreasurySymbol( ):
     '''TreasurySymbol( value )
     creates object that represents a TAFS'''
@@ -5081,7 +5081,7 @@ class PayrollCostCode( ):
 
 
 
-# WorkCode( value )
+# WorkCode( code )
 class WorkCode( ):
     '''Defines the Organization Class'''
     __source = None
@@ -5594,7 +5594,7 @@ class Transfer( ):
 
 
 
-
+# CostArea( code )
 class CostArea( ):
     __source = None
     __provider = None
