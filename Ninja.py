@@ -1983,7 +1983,7 @@ class DataRow( ):
         if isinstance( value, Source ):
             self.__source = value
 
-    def __init__( self, names = [ ], values = ( ), source = None ):
+    def __init__( self, names = None, values = ( ), source = None ):
         self.__source = source if isinstance( source, Source ) else None
         self.__names = names if isinstance( names, list ) else None
         self.__values = value if isinstance( values, tuple ) else None
