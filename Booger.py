@@ -2115,7 +2115,7 @@ class SplashPanel( Sith ):
             err.show( )
 
 
-# Notification( heading )
+# Notification( )
 class Notification( Sith ):
     '''object providing form processing behavior '''
     __themebackground = None
