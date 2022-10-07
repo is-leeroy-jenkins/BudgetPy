@@ -115,6 +115,7 @@ class Pascal( ):
             err.show( )
 
 
+
 class SqlPath( ):
     '''class providing relative paths to the folders containing sql files and
     driver paths used in the application'''
