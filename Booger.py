@@ -9,7 +9,7 @@ import random
 import io
 import textwrap
 from googlesearch import search
-from Minion import *
+from Minion import App
 import traceback
 import textwrap
 import numpy as np

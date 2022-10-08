@@ -1,8 +1,7 @@
 import subprocess as sp
 import os
-from Booger import ErrorDialog
-from Static import Client
 from Booger import *
+from Static import Client
 
 
 # App( client )
