@@ -3,6 +3,7 @@ import PySimpleGUI as sg
 import fitz
 import sys
 import traceback
+import os
 from sys import exit, exc_info
 from datetime import datetime, date
 import random
@@ -121,7 +122,8 @@ class Error( Exception ):
         if isinstance( value, str ) and value != '':
             self.__class = value
 
-    def __init__( self, heading = '', cause = '', method = '', module = '' ):
+    def __init__( self, heading = '', cause = '',
+                  method = '', module = '' ):
         super( ).__init__( )
         self.__heading = heading if isinstance( heading, str ) else '\t\tSomething unexpected happened!'
         self.__class = cause if isinstance( cause, str ) and cause != '' else None
