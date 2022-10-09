@@ -430,36 +430,37 @@ class DbConfig( ):
         self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
         self.__sqlserverpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
-        self.__data =  [ 'Allocations', 'Actuals', 'ApplicationTables', 'Apportionments', 'AppropriationDocuments',
-                       'BudgetaryResourceExecution', 'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
-                       'CarryoverEstimates', 'CarryoverSurvey', 'Changes', 'CongressionalReprogrammings',
-                        'Appropriations', 'SubAppropriations', 'FundCategories',
-                       'Deobligations', 'Defactos', 'DocumentControlNumbers',
-                       'Obligations', 'OperatingPlans', 'OperatingPlanUpdates',
-                       'ObjectClassOutlays', 'CarryoverOutlays',
-                       'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
-                       'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
-                       'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations' 
-                       'Reprogrammings', 'SiteActivity', 'SiteProjectCodes', 'SpecialAccounts',
-                       'StatusOfFunds', 'Supplementals', 'Transfers', 'HumanResourceOrganizations'
-                       'HeadquartersAuthority', 'TravelObligations',
-                       'StatusOfAppropriations', 'StatusOfEarmarks',
-                       'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-                       'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
-                       'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
-                       'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
-                       'UnliquidatedObligations', 'UnobligatedAuthority',
-                       'Accounts', 'ActivityCodes', 'AllowanceHolders',
-                       'Appropriations', 'BudgetObjectClasses',
-                       'CostAreas', 'CPIC', 'Divisions',
-                       'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-                       'FiscalYears', 'FiscalYearsBackUp', 'Funds',
-                       'FundSymbols', 'Goals', 'GsPayScales', 'Images',
-                       'Messages', 'NationalPrograms', 'Objectives',
-                       'Organizations', 'ProgramAreas', 'ProgramDescriptions',
-                       'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
-                       'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                       'SchemaTypes', 'StateOrganizations', 'Sources' ]
+        self.__data = [ 'Allocations', 'Actuals', 'ApplicationTables',
+                        'Apportionments', 'AppropriationDocuments', 'BudgetaryResourceExecution',
+                        'BudgetControls', 'BudgetDocuments', 'BudgetOutlays',
+                        'CarryoverEstimates', 'CarryoverSurvey', 'Changes',
+                        'CongressionalReprogrammings', 'Appropriations', 'SubAppropriations',
+                        'FundCategories', 'Deobligations', 'Defactos',
+                        'DocumentControlNumbers', 'Obligations', 'OperatingPlans',
+                        'OperatingPlanUpdates', 'ObjectClassOutlays', 'CarryoverOutlays',
+                        'QueryDefinitions', 'RegionalAuthority', 'SpendingRates',
+                        'GrowthRates', 'ReimbursableAgreements', 'ReimbursableFunds',
+                        'ReimbursableSurvey', 'Reports', 'StatusOfAppropriations'
+                        'Reprogrammings', 'SiteActivity', 'SiteProjectCodes',
+                        'SpecialAccounts', 'StatusOfFunds', 'Supplementals', 'Transfers',
+                        'HumanResourceOrganizations', 'HeadquartersAuthority', 'TravelObligations',
+                        'StatusOfAppropriations', 'StatusOfEarmarks',
+                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                        'PayrollAuthority', 'TransTypes', 'ProgramFinancingSchedule',
+                        'PayrollRequests', 'CarryoverRequests', 'CompassLevels',
+                        'AdministrativeRequests', 'OpenCommitments', 'Expenditures',
+                        'UnliquidatedObligations', 'UnobligatedAuthority',
+                        'Accounts', 'ActivityCodes', 'AllowanceHolders',
+                        'Appropriations', 'BudgetObjectClasses',
+                        'CostAreas', 'CPIC', 'Divisions',
+                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                        'FiscalYears', 'FiscalYearsBackUp', 'Funds',
+                        'FundSymbols', 'Goals', 'GsPayScales', 'Images',
+                        'Messages', 'NationalPrograms', 'Objectives',
+                        'Organizations', 'ProgramAreas', 'ProgramDescriptions',
+                        'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
+                        'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
+                        'SchemaTypes', 'StateOrganizations', 'Sources' ]
 
     def __str__( self ):
         if isinstance( self.__table, str ):
@@ -536,7 +537,7 @@ class Connection( DbConfig ):
 
     @configuration.setter
     def configuration( self, value ):
-        if isinstance( value, DataModeel ):
+        if isinstance( value, DbConfig ):
             self.__configuration = value
 
     @property
@@ -566,7 +567,7 @@ class Connection( DbConfig ):
 
     @driver.setter
     def driver( self, value ):
-        if value is not None:
+        if isinstance( value, str ) and value != '':
             self.__driver = value
 
     @property
@@ -576,7 +577,7 @@ class Connection( DbConfig ):
 
     @path.setter
     def path( self, value ):
-        if isinstance( value, str ):
+        if isinstance( value, str ) and value != '':
             self.__path = value
 
     @property
