@@ -97,6 +97,11 @@ class Source( Enum ):
     UnliquidatedObligations = auto( )
     UnobligatedBalances = auto( )
     CongressionalControls = auto( )
+    NetAuthority = auto( )
+    NetTransfers = auto( )
+    NetDeobligations = auto( )
+    NetObligations = auto( )
+    PRC = auto( )
     '''Reference Models: data tables used to describe 
     elements of the account code structure'''
     Accounts = auto( )

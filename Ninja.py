@@ -460,7 +460,9 @@ class DbConfig( ):
                         'Organizations', 'ProgramAreas', 'ProgramDescriptions',
                         'ProgramProjects', 'Projects', 'Providers', 'RegionalOffices'
                         'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
-                        'SchemaTypes', 'StateOrganizations', 'Sources' ]
+                        'SchemaTypes', 'StateOrganizations', 'Sources',
+                        'NetAuthority', 'NetObligations', 'NetTransfers',
+                        'NetDeobligations', 'PRC' ]
 
     def __str__( self ):
         if isinstance( self.__table, str ):
