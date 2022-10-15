@@ -180,7 +180,7 @@ class SqlPath( ):
         if isinstance( self.__sqldriver, str ):
             return self.__sqldriver
 
-    @sqlitedriver.setter
+    @sqldriver.setter
     def sqldriver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ) and value != '':
@@ -682,7 +682,7 @@ class SqlConfig( ):
         if isinstance( self.__paramstyle, ParamStyle ):
             return self.__paramstyle
 
-    @values.setter
+    @paramstyle.setter
     def paramstyle( self, value ):
         ''' Property representing the DBI paramstyle attribute'''
         if isinstance( value, ParamStyle ):
@@ -1259,7 +1259,7 @@ class SQLiteData( Query ):
         if isinstance( self.__frame, DataFrame ):
             return self.__frame
 
-    @data.setter
+    @frame.setter
     def frame( self, value ):
         if isinstance( value, DataFrame ):
             self.__frame = value
@@ -1723,7 +1723,7 @@ class DataBuilder( ):
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__dbconfig = DbConfig( self.__source, self.__provider )
-        self.__connection = Connection( self.__dbconfig )
+        self.__connection = Connection( source )
         self.__sqlconfig = SqlConfig( self.__command, self.__names, self.__values )
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
 
@@ -2086,7 +2086,7 @@ class DataTable( ):
     def __init__( self, columns = None, rows = None, source = None, dataframe = None ):
         self.__frame = dataframe if isinstance( dataframe, DataFrame ) else None
         self.__name = name if isinstance( name, str ) and name != '' else None
-        self.__rows = [ tuple( r ) for r in dataframe.items ]
+        self.__rows = [ tuple( r ) for r in dataframe.iterrows( ) ]
         self.__data = self.__rows
         self.__columns = [ str( c ) for c in columns ] if isinstance( columns, list ) else None
         self.__schema = [ DataColumn( c ) for c in columns ] if isinstance( columns, list ) else None

@@ -5,15 +5,16 @@ from http.server import BaseHTTPRequestHandler
 import os
 import socket
 from socketserver import ThreadingMixIn
+import ssl
 import sys
 import threading
-from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple, Union
 from urllib.error import HTTPError
 from urllib.parse import parse_qs, quote_plus, urlparse
 from urllib.request import (
-    build_opener, HTTPHandler, HTTPRedirectHandler, Request,
+    BaseHandler, build_opener, HTTPHandler, HTTPRedirectHandler, HTTPSHandler,
+    Request,
 )
-import warnings
 from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
 
 from .openmetrics import exposition as openmetrics
@@ -247,15 +248,6 @@ def choose_encoder(accept_header: str) -> Tuple[Callable[[CollectorRegistry], by
     return generate_latest, CONTENT_TYPE_LATEST
 
 
-def choose_formatter(accept_header: str) -> Tuple[Callable[[CollectorRegistry], bytes], str]:
-    warnings.warn(
-        "choose_formatter is deprecated and will be removed in 0.15.0, please use choose_encoder instead",
-        DeprecationWarning,
-        stacklevel=2
-    )
-    return choose_encoder(accept_header)
-
-
 def gzip_accepted(accept_encoding_header: str) -> bool:
     accept_encoding_header = accept_encoding_header or ''
     for accepted in accept_encoding_header.split(','):
@@ -324,7 +316,7 @@ def _make_handler(
         timeout: Optional[float],
         headers: Sequence[Tuple[str, str]],
         data: bytes,
-        base_handler: type,
+        base_handler: Union[BaseHandler, type],
 ) -> Callable[[], None]:
     def handle() -> None:
         request = Request(url, data=data)
@@ -397,6 +389,40 @@ def basic_auth_handler(
         default_handler(url, method, timeout, headers, data)()
 
     return handle
+
+
+def tls_auth_handler(
+        url: str,
+        method: str,
+        timeout: Optional[float],
+        headers: List[Tuple[str, str]],
+        data: bytes,
+        certfile: str,
+        keyfile: str,
+        cafile: Optional[str] = None,
+        protocol: int = ssl.PROTOCOL_TLS_CLIENT,
+        insecure_skip_verify: bool = False,
+) -> Callable[[], None]:
+    """Handler that implements an HTTPS connection with TLS Auth.
+
+    The default protocol (ssl.PROTOCOL_TLS_CLIENT) will also enable
+    ssl.CERT_REQUIRED and SSLContext.check_hostname by default. This can be
+    disabled by setting insecure_skip_verify to True.
+    
+    Both this handler and the TLS feature on pushgateay are experimental."""
+    context = ssl.SSLContext(protocol=protocol)
+    if cafile is not None:
+        context.load_verify_locations(cafile)
+    else:
+        context.load_default_certs()
+
+    if insecure_skip_verify:
+        context.check_hostname = False
+        context.verify_mode = ssl.CERT_NONE
+
+    context.load_cert_chain(certfile=certfile, keyfile=keyfile)
+    handler = HTTPSHandler(context=context)
+    return _make_handler(url, method, timeout, headers, data, handler)
 
 
 def push_to_gateway(
