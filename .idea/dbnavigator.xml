@@ -82,7 +82,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="C:\Users\terry\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
+            <file path="C:\Users\teppler\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
@@ -195,6 +195,7 @@
         <object-type name="FUNCTION" sorting-type="NAME" />
         <object-type name="PROCEDURE" sorting-type="NAME" />
         <object-type name="ARGUMENT" sorting-type="POSITION" />
+        <object-type name="TYPE ATTRIBUTE" sorting-type="POSITION" />
       </sorting>
       <default-editors>
         <object-type name="VIEW" editor-type="SELECTION" />

@@ -705,8 +705,8 @@ class SqlConfig( ):
         self.__names = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__paramstyle = style if isinstance( style, ParamStyle ) else ParamStyle.qmark
-        self.__kvp = dict( zip( names, list( values ) ) ) if isinstance( names, list ) and isinstance( values,
-                                                                                                       tuple ) else None
+        self.__kvp = dict( zip( names, list( values ) ) ) \
+            if isinstance( names, list ) and isinstance( values, tuple ) else None
 
     def kvpdump( self ):
         '''dump( ) returns string of 'values = index AND' pairs'''
@@ -1716,7 +1716,8 @@ class DataBuilder( ):
         if isinstance( value, SqlConfig ):
             self.__sqlconfig = value
 
-    def __init__( self, source, provider = Provider.SQLite, command = SQL.SELECTALL, names = None, values = None ):
+    def __init__( self, source, provider = Provider.SQLite,
+                  command = SQL.SELECTALL, names = None, values = None ):
         self.__source = source if isinstance( source, Source ) else None
         self.__provider = provider
         self.__command = command
