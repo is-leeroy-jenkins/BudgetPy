@@ -226,8 +226,8 @@ class ArrayItem:
 
     def mouse_up(self, event):
         i = self.nearestindex(event.x)
-        if i >= self.array.getsize():
-            i = self.array.getsize() - 1
+        if i >= self.array.getsize( ):
+            i = self.array.getsize( ) - 1
         if i < 0:
             i = 0
         other = self.array.items[i]
@@ -360,25 +360,25 @@ def interpolate(oldpts, newpts, n):
 # Various (un)sorting algorithms
 
 def uniform(array):
-    size = array.getsize()
+    size = array.getsize( )
     array.setdata([(size+1)//2] * size)
     array.reset("Uniform data, size %d" % size)
 
 def distinct(array):
-    size = array.getsize()
+    size = array.getsize( )
     array.setdata(range(1, size+1))
     array.reset("Distinct data, size %d" % size)
 
 def randomize(array):
     array.reset("Randomizing")
-    n = array.getsize()
+    n = array.getsize( )
     for i in range(n):
         j = random.randint(0, n-1)
         array.swap(i, j)
     array.message("Randomized")
 
 def insertionsort(array):
-    size = array.getsize()
+    size = array.getsize( )
     array.reset("Insertion sort")
     for i in range(1, size):
         j = i-1
@@ -390,7 +390,7 @@ def insertionsort(array):
     array.message("Sorted")
 
 def selectionsort(array):
-    size = array.getsize()
+    size = array.getsize( )
     array.reset("Selection sort")
     try:
         for i in range(size):
@@ -403,7 +403,7 @@ def selectionsort(array):
         array.hide_partition()
 
 def bubblesort(array):
-    size = array.getsize()
+    size = array.getsize( )
     array.reset("Bubble sort")
     for i in range(size):
         for j in range(1, size):
@@ -412,7 +412,7 @@ def bubblesort(array):
     array.message("Sorted")
 
 def quicksort(array):
-    size = array.getsize()
+    size = array.getsize( )
     array.reset("Quicksort")
     try:
         stack = [(0, size)]

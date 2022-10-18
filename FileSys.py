@@ -28,7 +28,7 @@ class Path( ):
     Path class providing selectedpath information of getsubfolders
     used in the application'''
     __name = None
-    __input = None
+    __buffer = None
     __ext = None
     __currdir = None
     __report = None
@@ -48,17 +48,17 @@ class Path( ):
     def name( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if isinstance( value, str ):
-            self.__input = value
+            self.__buffer = value
 
     @property
     def path( self ):
-        if isinstance( self.__input, str ) and self.__input != '':
-            return self.__input
+        if isinstance( self.__buffer, str ) and self.__buffer != '':
+            return self.__buffer
 
     @path.setter
     def path( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__input = value
+            self.__buffer = value
 
     @property
     def drive( self ):
@@ -137,7 +137,7 @@ class Path( ):
             self.__extsep = value
 
     def __init__( self, filepath ):
-        self.__input = filepath if isinstance( filepath, str ) else None
+        self.__buffer = filepath if isinstance( filepath, str ) else None
         self.__name = os.path.split( filepath )[ 1 ] if isinstance( filepath, str ) else None
         self.__currdir = os.getcwd( )
         self.__ext = os.path.splitext( filepath )[ 1 ] if isinstance( filepath, str ) else None
@@ -150,14 +150,14 @@ class Path( ):
             else os.path.splitdrive( os.path.join( self.__currdir, filepath ) )[ 0 ]
 
     def __str__( self ):
-       if self.__input is not None:
-           return str( self.__input )
+       if self.__buffer is not None:
+           return str( self.__buffer )
 
     def exists( self ):
         '''Method returning a boolean value indicating whether or not the
-        internal 'self.__input' exists'''
+        internal 'self.__buffer' exists'''
         try:
-            if os.path.exists( self.__input ):
+            if os.path.exists( self.__buffer ):
                 return True
             else:
                 return False
@@ -171,9 +171,9 @@ class Path( ):
 
     def isfolder( self ):
         '''Method returning boolean value indicating whether
-        or not self.__input is a folder'''
+        or not self.__buffer is a folder'''
         try:
-            if os.path.isdir( self.__input ):
+            if os.path.isdir( self.__buffer ):
                 return True
             else:
                 return False
@@ -187,9 +187,9 @@ class Path( ):
 
     def isfile( self ):
         '''Method returning boolean value indicating whether
-        or not self.__input is a file'''
+        or not self.__buffer is a file'''
         try:
-            if os.path.isfile( self.__input ):
+            if os.path.isfile( self.__buffer ):
                 return True
             else:
                 return False
@@ -203,12 +203,12 @@ class Path( ):
 
     def isabsolute( self ):
         '''Method to determine if the input path is an
-        absolute file path'''
+        abspath file path'''
         try:
-            if isinstance( self.__input, str ) and self.__input != '':
-                if os.path.isabs( self.__input ) == True:
+            if isinstance( self.__buffer, str ) and self.__buffer != '':
+                if os.path.isabs( self.__buffer ) == True:
                     return True
-                elif os.path.isabs( self.__input ) == False:
+                elif os.path.isabs( self.__buffer ) == False:
                     return False
         except Exception as e:
             exc = Error( e )
@@ -222,10 +222,10 @@ class Path( ):
         '''Method to determine if the input path is an
         relative file path'''
         try:
-            if isinstance( self.__input, str ) and self.__input != '':
-                if os.path.isabs( self.__input ) == True:
+            if isinstance( self.__buffer, str ) and self.__buffer != '':
+                if os.path.isabs( self.__buffer ) == True:
                     return False
-                elif os.path.isabs( self.__input ) == False:
+                elif os.path.isabs( self.__buffer ) == False:
                     return True
         except Exception as e:
             exc = Error( e )
@@ -301,7 +301,7 @@ class File( Path ):
      getsubfolders used in the application'''
     __absolute = None
     __name = None
-    __input = None
+    __buffer = None
     __size = None
     __extension = None
     __directory = None
@@ -326,21 +326,21 @@ class File( Path ):
 
     @property
     def path( self ):
-        if isinstance( self.__input, str ) and self.__input != '':
-            return self.__input
+        if isinstance( self.__buffer, str ) and self.__buffer != '':
+            return self.__buffer
 
     @path.setter
     def path( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__input = value
+            self.__buffer = value
 
     @property
-    def absolute( self ):
+    def abspath( self ):
         if isinstance( self.__absolute, str ) and self.__absolute != '':
             return self.__absolute
 
-    @absolute.setter
-    def absolute( self, value ):
+    @abspath.setter
+    def abspath( self, value ):
         if isinstance( value, str ) and value != '':
             self.__absolute = value
 
@@ -414,22 +414,10 @@ class File( Path ):
         if isinstance( value, float ):
             self.__created = value
 
-    @property
-    def current( self ):
-        if os.path.exists( self.__currdir ):
-            return str( self.__currdir )
-
-    @current.setter
-    def current( self, value ):
-        '''Set the currentdirectory directory to 'selectedpath' '''
-        if os.path.exists( value ) and os.path.isdir( value ):
-            os.chdir( value )
-            self.__currdir = value
-
     def __init__( self, filepath = None ):
         super( ).__init__( filepath )
         self.__absolute = filepath if os.path.isabs( filepath ) else os.getcwd( ) +'\\' + filepath
-        self.__input = filepath if not os.path.isabs( filepath ) else os.path.relpath( filepath )
+        self.__buffer = filepath if not os.path.isabs( filepath ) else os.path.relpath( filepath )
         self.__name = os.path.basename( filepath )
         self.__size = os.path.getsize( filepath )
         self.__directory = os.path.dirname( filepath )
@@ -437,7 +425,6 @@ class File( Path ):
         self.__created = os.path.getctime( filepath )
         self.__accessed = os.path.getatime( filepath )
         self.__modified = os.path.getmtime( filepath )
-        self.__currdir = os.getcwd( )
         self.__drive = super( ).drive
 
     def __str__( self ):
