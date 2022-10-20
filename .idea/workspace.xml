@@ -9,40 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/etc/img/ninja/ninja.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileSys.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileSys.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/os.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/os.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageFont.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PIL/ImageFont.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI/PySimpleGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PySimpleGUI/PySimpleGUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/breakpoint.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/breakpoint.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/module.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/backends/backend_svg.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/backends/backend_svg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/tests/test_axes.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/tests/test_axes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/tests/test_fontconfig_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/tests/test_fontconfig_pattern.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/tests/test_legend.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/tests/test_legend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/tests/test_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/matplotlib/tests/test_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/axes_grid1/axes_divider.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/axes_grid1/axes_divider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/axes_grid1/axes_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/axes_grid1/axes_size.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/axes_grid1/inset_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/axes_grid1/inset_locator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/~-es_grid1/axes_divider.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/~-es_grid1/axes_divider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/~-es_grid1/axes_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/~-es_grid1/axes_size.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/~-es_grid1/inset_locator.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/mpl_toolkits/~-es_grid1/inset_locator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_vendor/distlib/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_vendor/distlib/resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_vendor/pygments/formatters/img.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_vendor/pygments/formatters/img.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/plotly/matplotlylib/mplexporter/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/plotly/matplotlylib/mplexporter/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/prompt_toolkit/key_binding/bindings/completion.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/prompt_toolkit/key_binding/bindings/completion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/prompt_toolkit/output/conemu.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/prompt_toolkit/output/conemu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/prompt_toolkit/output/vt100.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/prompt_toolkit/output/vt100.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/prompt_toolkit/output/windows10.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/prompt_toolkit/output/windows10.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pygments/formatters/img.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pygments/formatters/img.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/_lasso_builtins.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/_lasso_builtins.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/matlab.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/matlab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/mosel.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pygments/lexers/mosel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/scipy/cluster/tests/test_hierarchy.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/scipy/cluster/tests/test_hierarchy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/test/test_genericpath.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/test/test_genericpath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Tools/demo/sortvisu.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Tools/demo/sortvisu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,13 +207,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00353" summary="updates from main rig;">
-      <created>1656857857955</created>
-      <option name="number" value="00353" />
-      <option name="presentableId" value="LOCAL-00353" />
-      <option name="project" value="LOCAL" />
-      <updated>1656857857955</updated>
     </task>
     <task id="LOCAL-00354" summary="updates from main rig;">
       <created>1656857923641</created>
@@ -583,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665868600779</updated>
     </task>
-    <option name="localTasksCounter" value="402" />
+    <task id="LOCAL-00402" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1665949081736</created>
+      <option name="number" value="00402" />
+      <option name="presentableId" value="LOCAL-00402" />
+      <option name="project" value="LOCAL" />
+      <updated>1665949081737</updated>
+    </task>
+    <option name="localTasksCounter" value="403" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
