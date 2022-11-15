@@ -462,7 +462,7 @@ class DbConfig( ):
                         'ReferenceTables', 'ResourcePlanningOffices', 'ResponsibilityCenters',
                         'SchemaTypes', 'StateOrganizations', 'Sources',
                         'NetAuthority', 'NetObligations', 'NetTransfers',
-                        'NetDeobligations', 'PRC' ]
+                        'NetDeobligations']
 
     def __str__( self ):
         if isinstance( self.__table, str ):

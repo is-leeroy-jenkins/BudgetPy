@@ -243,7 +243,7 @@ def is_storage_device(name):
     "nvme0n1p1"). If name is a virtual device (e.g. "loop1", "ram")
     return True.
     """
-    # Readapted from iostat source code, see:
+    # Re-adapted from iostat source code, see:
     # https://github.com/sysstat/sysstat/blob/
     #     97912938cd476645b267280069e83b1c8dc0e1c7/common.c#L208
     # Some devices may have a slash in their name (e.g. cciss/c0d0...).
@@ -916,7 +916,7 @@ class Connections:
                     # # out if there are multiple references to the
                     # # same inode. We won't do this for UNIX sockets.
                     # if len(inodes[inode]) > 1 and family != socket.AF_UNIX:
-                    #     raise ValueError("ambiguos inode with multiple "
+                    #     raise ValueError("ambiguous inode with multiple "
                     #                      "PIDs references")
                     pid, fd = inodes[inode][0]
                 else:
@@ -1060,7 +1060,7 @@ def net_if_stats():
     for name in names:
         try:
             mtu = cext_posix.net_if_mtu(name)
-            isup = cext_posix.net_if_is_running(name)
+            flags = cext_posix.net_if_flags(name)
             duplex, speed = cext.net_if_duplex_speed(name)
         except OSError as err:
             # https://github.com/giampaolo/psutil/issues/1279
@@ -1069,7 +1069,10 @@ def net_if_stats():
             else:
                 debug(err)
         else:
-            ret[name] = _common.snicstats(isup, duplex_map[duplex], speed, mtu)
+            output_flags = ','.join(flags)
+            isup = 'running' in flags
+            ret[name] = _common.snicstats(isup, duplex_map[duplex], speed, mtu,
+                                          output_flags)
     return ret
 
 
@@ -1684,7 +1687,7 @@ class Process(object):
         data = bcat("%s/%s/stat" % (self._procfs_path, self.pid))
         # Process name is between parentheses. It can contain spaces and
         # other parentheses. This is taken into account by looking for
-        # the first occurrence of "(" and the last occurence of ")".
+        # the first occurrence of "(" and the last occurrence of ")".
         rpar = data.rfind(b')')
         name = data[data.find(b'(') + 1:rpar]
         fields = data[rpar + 2:].split()
@@ -2058,9 +2061,9 @@ class Process(object):
             try:
                 with open_binary(fname) as f:
                     st = f.read().strip()
-            except FileNotFoundError:
-                # no such file or directory; it means thread
-                # disappeared on us
+            except (FileNotFoundError, ProcessLookupError):
+                # no such file or directory or no such process;
+                # it means thread disappeared on us
                 hit_enoent = True
                 continue
             # ignore the first two values ("pid (exe)")
@@ -2214,7 +2217,7 @@ class Process(object):
                         with open_binary(file) as f:
                             pos = int(f.readline().split()[1])
                             flags = int(f.readline().split()[1], 8)
-                    except FileNotFoundError:
+                    except (FileNotFoundError, ProcessLookupError):
                         # fd gone in the meantime; process may
                         # still be alive
                         hit_enoent = True

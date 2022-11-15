@@ -49,6 +49,7 @@ from psutil.tests import HAS_PROC_CPU_NUM
 from psutil.tests import HAS_PROC_IO_COUNTERS
 from psutil.tests import HAS_RLIMIT
 from psutil.tests import HAS_THREADS
+from psutil.tests import MACOS_11PLUS
 from psutil.tests import PYPY
 from psutil.tests import PYTHON_EXE
 from psutil.tests import PsutilTestCase
@@ -700,7 +701,7 @@ class TestProcess(PsutilTestCase):
                     self.assertEqual(exe.replace(ver, ''),
                                      PYTHON_EXE.replace(ver, ''))
                 except AssertionError:
-                    # Tipically MACOS. Really not sure what to do here.
+                    # Typically MACOS. Really not sure what to do here.
                     pass
 
         out = sh([exe, "-c", "import os; print('hey')"])
@@ -1426,6 +1427,10 @@ class TestProcess(PsutilTestCase):
 
     @unittest.skipIf(not HAS_ENVIRON, "not supported")
     @unittest.skipIf(not POSIX, "POSIX only")
+    @unittest.skipIf(
+        MACOS_11PLUS,
+        "macOS 11+ can't get another process environment, issue #2084"
+    )
     def test_weird_environ(self):
         # environment variables can contain values without an equals sign
         code = textwrap.dedent("""
@@ -1492,7 +1497,7 @@ if POSIX and os.getuid() == 0:
 
                 def test_(self):
                     try:
-                        meth()
+                        meth()  # noqa
                     except psutil.AccessDenied:
                         pass
                 setattr(self, attr, types.MethodType(test_, self))
@@ -1534,7 +1539,7 @@ class TestPopen(PsutilTestCase):
 
     def test_misc(self):
         # XXX this test causes a ResourceWarning on Python 3 because
-        # psutil.__subproc instance doesn't get propertly freed.
+        # psutil.__subproc instance doesn't get properly freed.
         # Not sure what to do though.
         cmd = [PYTHON_EXE, "-c", "import time; time.sleep(60);"]
         with psutil.Popen(cmd, stdout=subprocess.PIPE,

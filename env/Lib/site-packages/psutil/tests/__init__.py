@@ -18,6 +18,7 @@ import functools
 import gc
 import inspect
 import os
+import platform
 import random
 import re
 import select
@@ -47,6 +48,7 @@ from psutil import POSIX
 from psutil import SUNOS
 from psutil import WINDOWS
 from psutil._common import bytes2human
+from psutil._common import memoize
 from psutil._common import print_color
 from psutil._common import supports_ipv6
 from psutil._compat import PY3
@@ -84,7 +86,8 @@ __all__ = [
     "HAS_CPU_AFFINITY", "HAS_CPU_FREQ", "HAS_ENVIRON", "HAS_PROC_IO_COUNTERS",
     "HAS_IONICE", "HAS_MEMORY_MAPS", "HAS_PROC_CPU_NUM", "HAS_RLIMIT",
     "HAS_SENSORS_BATTERY", "HAS_BATTERY", "HAS_SENSORS_FANS",
-    "HAS_SENSORS_TEMPERATURES", "HAS_MEMORY_FULL_INFO",
+    "HAS_SENSORS_TEMPERATURES", "HAS_MEMORY_FULL_INFO", "MACOS_11PLUS",
+    "MACOS_12PLUS",
     # subprocesses
     'pyrun', 'terminate', 'reap_children', 'spawn_testproc', 'spawn_zombie',
     'spawn_children_pair',
@@ -129,6 +132,35 @@ CI_TESTING = APPVEYOR or GITHUB_ACTIONS
 IS_64BIT = sys.maxsize > 2 ** 32
 
 
+@memoize
+def macos_version():
+    version_str = platform.mac_ver()[0]
+    version = tuple(map(int, version_str.split(".")[:2]))
+    if version == (10, 16):
+        # When built against an older macOS SDK, Python will report
+        # macOS 10.16 instead of the real version.
+        version_str = subprocess.check_output(
+            [
+                sys.executable,
+                "-sS",
+                "-c",
+                "import platform; print(platform.mac_ver()[0])",
+            ],
+            env={"SYSTEM_VERSION_COMPAT": "0"},
+            universal_newlines=True,
+        )
+        version = tuple(map(int, version_str.split(".")[:2]))
+    return version
+
+
+if MACOS:
+    MACOS_11PLUS = macos_version() > (10, 15)
+    MACOS_12PLUS = macos_version() >= (12, 0)
+else:
+    MACOS_11PLUS = False
+    MACOS_12PLUS = False
+
+
 # --- configurable defaults
 
 # how many times retry_on_failure() decorator will retry
@@ -142,7 +174,7 @@ GLOBAL_TIMEOUT = 5
 if CI_TESTING:
     NO_RETRIES *= 3
     GLOBAL_TIMEOUT *= 3
-    TOLERANCE_SYS_MEM *= 3
+    TOLERANCE_SYS_MEM *= 4
     TOLERANCE_DISK_USAGE *= 3
 
 # --- file names
@@ -308,7 +340,7 @@ def spawn_testproc(cmd=None, **kwds):
     return it as a subprocess.Popen instance.
     If "cmd" is specified that is used instead of python.
     By default stdin and stdout are redirected to /dev/null.
-    It also attemps to make sure the process is in a reasonably
+    It also attempts to make sure the process is in a reasonably
     initialized state.
     The process is registered for cleanup on reap_children().
     """
@@ -563,7 +595,7 @@ def reap_children(recursive=False):
     """Terminate and wait() any subprocess started by this test suite
     and any children currently running, ensuring that no processes stick
     around to hog resources.
-    If resursive is True it also tries to terminate and wait()
+    If recursive is True it also tries to terminate and wait()
     all grandchildren started by this process.
     """
     # Get the children here before terminating them, as in case of

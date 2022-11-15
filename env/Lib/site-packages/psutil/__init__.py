@@ -211,7 +211,7 @@ if hasattr(_psplatform.Process, "rlimit"):
 AF_LINK = _psplatform.AF_LINK
 
 __author__ = "Giampaolo Rodola'"
-__version__ = "5.9.2"
+__version__ = "5.9.4"
 version_info = tuple([int(num) for num in __version__.split('.')])
 
 _timer = getattr(time, 'monotonic', time.time)
@@ -373,7 +373,7 @@ class Process(object):
                 raise NoSuchProcess(pid, msg='process PID not found')
             else:
                 self._gone = True
-        # This pair is supposed to indentify a Process instance
+        # This pair is supposed to identify a Process instance
         # univocally over time (the PID alone is not enough as
         # it might refer to a process whose PID has been reused).
         # This will be used later in __eq__() and is_running().
@@ -1051,7 +1051,7 @@ class Process(object):
         """Return a namedtuple with variable fields depending on the
         platform, representing memory information about the process.
 
-        The "portable" fields available on all plaforms are `rss` and `vms`.
+        The "portable" fields available on all platforms are `rss` and `vms`.
 
         All numbers are expressed in bytes.
         """
@@ -1205,7 +1205,7 @@ class Process(object):
     def suspend(self):
         """Suspend process execution with SIGSTOP pre-emptively checking
         whether PID has been reused.
-        On Windows this has the effect ot suspending all process threads.
+        On Windows this has the effect of suspending all process threads.
         """
         if POSIX:
             self._send_signal(signal.SIGSTOP)

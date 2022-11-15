@@ -12,6 +12,7 @@ Some of these are duplicates of tests test_system.py and test_process.py
 import errno
 import multiprocessing
 import os
+import platform
 import signal
 import stat
 import sys
@@ -34,6 +35,7 @@ from psutil import WINDOWS
 from psutil._compat import FileNotFoundError
 from psutil._compat import long
 from psutil._compat import range
+from psutil._compat import unicode
 from psutil.tests import APPVEYOR
 from psutil.tests import CI_TESTING
 from psutil.tests import GITHUB_ACTIONS
@@ -234,6 +236,9 @@ class TestSystemAPITypes(PsutilTestCase):
     def test_cpu_count(self):
         self.assertIsInstance(psutil.cpu_count(), int)
 
+    # TODO: remove this once 1892 is fixed
+    @unittest.skipIf(MACOS and platform.machine() == 'arm64',
+                     "skipped due to #1892")
     @unittest.skipIf(not HAS_CPU_FREQ, "not supported")
     def test_cpu_freq(self):
         if psutil.cpu_freq() is None:
@@ -397,17 +402,28 @@ class TestFetchAllProcesses(PsutilTestCase):
     """
 
     def setUp(self):
-        self.pool = multiprocessing.Pool()
+        # Using a pool in a CI env may result in deadlock, see:
+        # https://github.com/giampaolo/psutil/issues/2104
+        if not CI_TESTING:
+            self.pool = multiprocessing.Pool()
 
     def tearDown(self):
-        self.pool.terminate()
-        self.pool.join()
+        if not CI_TESTING:
+            self.pool.terminate()
+            self.pool.join()
 
     def iter_proc_info(self):
         # Fixes "can't pickle <function proc_info>: it's not the
         # same object as test_contracts.proc_info".
         from psutil.tests.test_contracts import proc_info
-        return self.pool.imap_unordered(proc_info, psutil.pids())
+
+        if not CI_TESTING:
+            return self.pool.imap_unordered(proc_info, psutil.pids())
+        else:
+            ls = []
+            for pid in psutil.pids():
+                ls.append(proc_info(pid))
+            return ls
 
     def test_all(self):
         failures = []
@@ -437,7 +453,7 @@ class TestFetchAllProcesses(PsutilTestCase):
             self.assertIsInstance(part, str)
 
     def exe(self, ret, info):
-        self.assertIsInstance(ret, (str, type(None)))
+        self.assertIsInstance(ret, (str, unicode, type(None)))
         if not ret:
             self.assertEqual(ret, '')
         else:
@@ -465,7 +481,7 @@ class TestFetchAllProcesses(PsutilTestCase):
         self.assertGreaterEqual(ret, 0)
 
     def name(self, ret, info):
-        self.assertIsInstance(ret, str)
+        self.assertIsInstance(ret, (str, unicode))
         if APPVEYOR and not ret and info['status'] == 'stopped':
             return
         # on AIX, "<exiting>" processes don't have names

@@ -90,7 +90,7 @@ except NameError:
             )
             return winreg.HKEY_LOCAL_MACHINE
         except OSError:
-            # Either not exist, or no permissions to createtable subkey means
+            # Either not exist, or no permissions to create subkey means
             # must be HKCU
             return winreg.HKEY_CURRENT_USER
 
@@ -538,7 +538,7 @@ def install(lib_dir):
         os.mkdir(make_dir)
 
     try:
-        # createtable shortcuts
+        # create shortcuts
         # CSIDL_COMMON_PROGRAMS only available works on NT/2000/XP, and
         # will fail there if the user has no admin rights.
         fldr = get_shortcuts_folder()
@@ -578,6 +578,15 @@ def install(lib_dir):
         # Don't let this error sound fatal
         pass
     print("The pywin32 extensions were successfully installed.")
+
+    if is_bdist_wininst:
+        # Open a web page with info about the .exe installers being deprecated.
+        import webbrowser
+
+        try:
+            webbrowser.open("https://mhammond.github.io/pywin32_installers.html")
+        except webbrowser.Error:
+            print("Please visit https://mhammond.github.io/pywin32_installers.html")
 
 
 def uninstall(lib_dir):
