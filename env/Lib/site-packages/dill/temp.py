@@ -17,7 +17,6 @@ __all__ = ['dump_source', 'dump', 'dumpIO_source', 'dumpIO',\
            'capture']
 
 import contextlib
-from ._dill import PY3
 
 
 @contextlib.contextmanager
@@ -32,10 +31,7 @@ def capture(stream='stdout'):
 
     """
     import sys
-    if PY3:
-        from io import StringIO
-    else:
-        from StringIO import StringIO
+    from io import StringIO
     orig = getattr(sys, stream)
     setattr(sys, stream, StringIO())
     try:
@@ -110,6 +106,7 @@ NOTE: Keep the return value for as long as you want your file to exist !
     """ #XXX: write a "load_source"?
     from .source import importable, getname
     import tempfile
+    kwds.setdefault('delete', True)
     kwds.pop('suffix', '') # this is *always* '.py'
     alias = kwds.pop('alias', '') #XXX: include an alias so a name is known
     name = str(alias) or getname(object)
@@ -161,6 +158,7 @@ NOTE: Keep the return value for as long as you want your file to exist !
     """
     import dill as pickle
     import tempfile
+    kwds.setdefault('delete', True)
     file = tempfile.NamedTemporaryFile(**kwds)
     pickle.dump(object, file)
     file.flush()
@@ -176,10 +174,7 @@ def loadIO(buffer, **kwds):
     [1, 2, 3, 4, 5]
     """
     import dill as pickle
-    if PY3:
-        from io import BytesIO as StringIO
-    else:
-        from StringIO import StringIO
+    from io import BytesIO as StringIO
     value = getattr(buffer, 'getvalue', buffer) # value or buffer.getvalue
     if value != buffer: value = value() # buffer.getvalue()
     return pickle.load(StringIO(value))
@@ -193,10 +188,7 @@ Loads with "dill.temp.loadIO".  Returns the buffer object.
     [1, 2, 3, 4, 5]
     """
     import dill as pickle
-    if PY3:
-        from io import BytesIO as StringIO
-    else:
-        from StringIO import StringIO
+    from io import BytesIO as StringIO
     file = StringIO()
     pickle.dump(object, file)
     file.flush()
@@ -217,7 +209,7 @@ def loadIO_source(buffer, **kwds):
     alias = kwds.pop('alias', None)
     source = getattr(buffer, 'getvalue', buffer) # source or buffer.getvalue
     if source != buffer: source = source() # buffer.getvalue()
-    if PY3: source = source.decode() # buffer to string
+    source = source.decode() # buffer to string
     if not alias:
         tag = source.strip().splitlines()[-1].split()
         if tag[0] != '#NAME:':
@@ -243,10 +235,7 @@ Optional kwds:
     If 'alias' is specified, the object will be renamed to the given string.
     """
     from .source import importable, getname
-    if PY3:
-        from io import BytesIO as StringIO
-    else:
-        from StringIO import StringIO
+    from io import BytesIO as StringIO
     alias = kwds.pop('alias', '') #XXX: include an alias so a name is known
     name = str(alias) or getname(object)
     name = "\n#NAME: %s\n" % name
