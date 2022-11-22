@@ -60,6 +60,7 @@
       <sourceFolder url="file://$MODULE_DIR$/ipynb/logs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ipynb/notebooks" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/python.exe" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32/lib" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

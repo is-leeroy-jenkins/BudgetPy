@@ -1377,7 +1377,7 @@ class Fund( ):
     @property
     def id( self ):
         if isinstance( self.__fundsid, int ):
-            self.__fundsid
+            return self.__fundsid
 
     @id.setter
     def id( self, value ):
@@ -1456,7 +1456,7 @@ class Fund( ):
 
     @property
     def multiyearindicator( self ):
-        if isinstance( self.__multiyearindicator) \
+        if isinstance( self.__multiyearindicator, str ) \
                 and self.__multiyearindicator != '':
             return self.__multiyearindicator
 
@@ -1575,8 +1575,8 @@ class Fund( ):
 
     @applyatalllevels.setter
     def applyatalllevels( self, value ):
-        if isinstance( self.__applyatalllevels, str ) and self.__applyatalllevels != '':
-            return self.__applyatalllevels
+        if isinstance( value, str ) and value != '':
+           self.__applyatalllevels = value
 
     @property
     def batsfund( self ):
@@ -2866,7 +2866,7 @@ class HeadquartersOffice( ):
 
 
     def __str__( self ):
-        if isinstance( self.__code ):
+        if isinstance( self.__code, str ):
             return self.__code
 
     def getdata( self ):
@@ -3369,7 +3369,7 @@ class ResponsibilityCenter( ):
                           'Title' ]
 
     def __str__( self ):
-        if isinstance( self.__code ) and self.__code != '':
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
@@ -3504,7 +3504,7 @@ class ResourcePlanningOffice( ):
                           'Name' ]
 
     def __str__( self ):
-        if isinstance( self.__code ) and self.__code != '':
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
@@ -3940,7 +3940,7 @@ class ProgramResultsCode( ):
                            'NpmName' ]
 
     def __str__( self ):
-        if isinstance( self.__code ) and self.__code != '':
+        if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
     def getdata( self ):
@@ -4061,7 +4061,7 @@ class RegionalOffice( ):
                           'RpioName' ]
 
     def __str__( self ):
-        if isinstance( self.__code ):
+        if isinstance( self.__code, str ):
             return self.__code
 
     def getdata( self ):
