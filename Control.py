@@ -10489,7 +10489,7 @@ class SpecialAccounts( ):
         if isinstance( self.__specialaccountnumber, str ) and self.__specialaccountnumber != '':
             return self.__specialaccountnumber
 
-    @specialaccountfundcode.setter
+    @specialaccountnumber.setter
     def specialaccountnumber( self, value ):
         if isinstance( value, str ) and value != '':
             self.__specialaccountnumber = value
