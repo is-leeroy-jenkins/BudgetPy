@@ -6754,6 +6754,7 @@ class CongressionalControl( ):
             err.show( )
 
 
+
 # CompassLevel( bfy, efy, fund )
 class CompassLevels( ):
     '''object representing Compass data levels 1-7'''

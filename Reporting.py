@@ -5,12 +5,12 @@ from Static import Source, Provider, SQL
 from datetime import datetime, date
 
 # Apportionment( bfy, efy, code )
-class Apportionment( ):
+class ApportionmentData( ):
     '''Apportionment( bfy, efy, omb )
     initializes object representing Letters Of Apportionment'''
     __source = None
     __provider = None
-    __apportionmentsid = None
+    __apportionmentdataid = None
     __bfy = None
     __efy = None
     __treasuryfundsymbol = None
@@ -191,7 +191,7 @@ class Apportionment( ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and efy != '' else None
         self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
-        self.__fields = [ 'ApportionmentsId',
+        self.__fields = [ 'ApportionmentDataId',
                           'FiscalYear',
                           'BFY',
                           'EFY',
@@ -4133,7 +4133,6 @@ class CarryoverOutlays( ):
             err.show( )
 
 
-
 # UnobligatedBalance( bfy, efy, fundcode )
 class UnobligatedBalances( ):
     '''object provides OMB data on unobligated
@@ -4310,7 +4309,6 @@ class UnobligatedBalances( ):
             err.show( )
 
 
-
 class StatusOfSupplementalFunds( ):
     __source = None
     __provider = None
@@ -4372,7 +4370,6 @@ class StatusOfSupplementalFunds( ):
                            'Available',
                            'NpmCode',
                            'NpmName' ]
-
 
 
 class StatusOfJobsActFunding( ):
@@ -4442,7 +4439,6 @@ class StatusOfJobsActFunding( ):
                            'Obligations',
                            'Used',
                            'Available' ]
-
 
 
 class LedgerAccounts( ):
@@ -4563,7 +4559,6 @@ class LedgerAccounts( ):
                           'ClosingAmount' ]
 
 
-
 class ProgramFinancingSchedule( ):
     __source = None
     __provider = None
@@ -4656,7 +4651,6 @@ class ProgramFinancingSchedule( ):
                           'BudgetAmount',
                           'AgencyAmount',
                           'Amount' ]
-
 
 
 class PublicLaws( ):
