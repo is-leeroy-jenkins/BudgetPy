@@ -1927,7 +1927,7 @@ class DataColumn( ):
             err.show( )
 
 
-# DataRow( names, values, source )
+# DataRow( names = None, values = ( ), source = None)
 class DataRow( ):
     '''Defines the DataRow Class with optional arguments
     ( names: list, values: list, source: Source )'''
@@ -2022,7 +2022,7 @@ class DataRow( ):
             return 'Row ID: ' + str( self.__index )
 
 
-# DataTable( columns, rows, source, dataframe )
+# DataTable( columns = None, rows = None, source = None, dataframe = None  )
 class DataTable( ):
     '''Defines the DataTable Class with optional arguments
     ( columns: list( str ), rows: list( tuple ), source: Source,
