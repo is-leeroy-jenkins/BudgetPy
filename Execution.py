@@ -13661,8 +13661,8 @@ class ProgramArea( ):
             err.show( )
 
 
-# ProgramProject( code, provider = Provider.SQLite  )
-class ProgramProject( ):
+# ProgramProjects( code, provider = Provider.SQLite  )
+class ProgramProjects( ):
     '''Defines the ProgramProject Class'''
     __source = None
     __provider = None
@@ -13748,9 +13748,11 @@ class ProgramProject( ):
         self.__provider = provider
         self.__source = Source.ProgramProjects
         self.__code = code if isinstance( code, str ) else None
-        self.__fields = [ 'ProgramProjectId',
+        self.__fields = [ 'ProgramProjectsId',
                           'Code',
-                          'Name' ]
+                          'Name',
+                          'ProgramAreaCode',
+                          'ProgramAreaName' ]
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -19848,10 +19850,10 @@ class TreasurySymbols( ):
             command = SQL.SELECTALL
             n = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
             v = (self.__bfy, self.__efy, self.__treasuryaccountcode)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
-            sql = SqlStatement( dconfig, sconfig )
+            dbcfg = DbConfig( source, provider )
+            sqlcfg = SqlConfig( names = n, values = v )
+            cnx = Connection( dbcfg )
+            sql = SqlStatement( dbcfg, sqlcfg )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )
