@@ -13669,7 +13669,8 @@ class ProgramProjects( ):
     __programprojectsid = None
     __code = None
     __name = None
-    __description = None
+    __programareacode = None
+    __programareaname = None
     __fields = None
     __data = None
     __frame = None
@@ -13705,14 +13706,24 @@ class ProgramProjects( ):
             self.__name = value
 
     @property
-    def description( self ):
-        if isinstance( self.__description, str ) and self.__description != '':
-            return self.__description
+    def programareacode( self ):
+        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+            return self.__programareacode
 
-    @description.setter
-    def description( self, value ):
+    @programareacode.setter
+    def programareacode( self, value ):
         if isinstance( value, str ) and value != '':
-            self.__description = value
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.____programareaname = value
 
     @property
     def data( self ):
@@ -13779,7 +13790,7 @@ class ProgramProjects( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
-            exc.cause = 'ProgramProject'
+            exc.cause = 'ProgramProjects'
             exc.method = 'getdata( self )'
             err = ErrorDialog( exc )
             err.show( )

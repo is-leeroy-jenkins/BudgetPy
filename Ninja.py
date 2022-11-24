@@ -436,7 +436,7 @@ class DbConfig( ):
         values value details'''
         self.__provider = provider if isinstance( provider, Provider ) else None
         self.__source = source if isinstance( source, Source ) else None
-        self.__table = source.name
+        self.__table = source.name if isinstance( source, Source ) else None
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
         self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
@@ -950,7 +950,7 @@ class SqlStatement( ):
         self.__commandtype = sqlconfig.command
         self.__provider = dataconfig.provider
         self.__source = dataconfig.source
-        self.__table = dataconfig.table
+        self.__table = dataconfig.source.name
         self.__names = sqlconfig.names
         self.__values = sqlconfig.values
 

@@ -9,9 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/PortableApps.comLauncherRuntimeData-SQLiteDatabaseBrowserPortable.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Execution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spc/reload_all_modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/spc/reload_all_modules.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,13 +210,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00362" summary="updates from main rig;">
-      <created>1657065501122</created>
-      <option name="number" value="00362" />
-      <option name="presentableId" value="LOCAL-00362" />
-      <option name="project" value="LOCAL" />
-      <updated>1657065501122</updated>
     </task>
     <task id="LOCAL-00363" summary="updates from main rig;">
       <created>1657106447392</created>
@@ -552,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669316752063</updated>
     </task>
-    <option name="localTasksCounter" value="411" />
+    <task id="LOCAL-00411" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1669319302888</created>
+      <option name="number" value="00411" />
+      <option name="presentableId" value="LOCAL-00411" />
+      <option name="project" value="LOCAL" />
+      <updated>1669319302888</updated>
+    </task>
+    <option name="localTasksCounter" value="412" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
