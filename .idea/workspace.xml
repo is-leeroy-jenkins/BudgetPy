@@ -8,17 +8,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/db/access/datamodels/sql/INSERT/InsertAppropriationLevelAuthorityUpdates.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/access/datamodels/sql/INSERT/InsertDeobligationActivityUpdates.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/access/datamodels/sql/INSERT/InsertObligationActivityUpdates.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/access/datamodels/sql/INSERT/InsertTransferActivityUpdates.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/AppropriationLevelAuthority.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/AppropriationLevelAuthority.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/access/datamodels/sql/UPDATE/UpdateAppropriationLevelAuthorityTreasuryData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/access/datamodels/sql/UPDATE/UpdateAppropriationLevelAuthorityTreasuryData.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" afterDir="false" />
-    </list>
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -214,20 +204,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00364" summary="updates from main rig;">
-      <created>1657108031162</created>
-      <option name="number" value="00364" />
-      <option name="presentableId" value="LOCAL-00364" />
-      <option name="project" value="LOCAL" />
-      <updated>1657108031162</updated>
-    </task>
-    <task id="LOCAL-00365" summary="updates from main rig;">
-      <created>1657320189607</created>
-      <option name="number" value="00365" />
-      <option name="presentableId" value="LOCAL-00365" />
-      <option name="project" value="LOCAL" />
-      <updated>1657320189607</updated>
     </task>
     <task id="LOCAL-00366" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1657393603915</created>
@@ -558,7 +534,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669396808160</updated>
     </task>
-    <option name="localTasksCounter" value="413" />
+    <task id="LOCAL-00413" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1669409709173</created>
+      <option name="number" value="00413" />
+      <option name="presentableId" value="LOCAL-00413" />
+      <option name="project" value="LOCAL" />
+      <updated>1669409709173</updated>
+    </task>
+    <task id="LOCAL-00414" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1669409777791</created>
+      <option name="number" value="00414" />
+      <option name="presentableId" value="LOCAL-00414" />
+      <option name="project" value="LOCAL" />
+      <updated>1669409777791</updated>
+    </task>
+    <option name="localTasksCounter" value="415" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
