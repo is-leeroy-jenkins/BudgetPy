@@ -1,19 +1,18 @@
-CREATE TABLE AppropriationLevelAuthority
+CREATE TABLE IF NOT EXISTS "AppropriationLevelAuthority" 
 (
-	AppropriationLevelAuthorityId AUTOINCREMENT NOT NULL UNIQUE,
-	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
-	BudgetAccountName TEXT(80) NULL DEFAULT NS,
-	FiscalYear TEXT(80) NULL DEFAULT NS,
-	FundCode TEXT(80) NULL DEFAULT NS,
-	FundName TEXT(80) NULL DEFAULT NS,
-	Budgeted DECIMAL NULL DEFAULT 0.0,
-	Posted DECIMAL NULL DEFAULT 0.0,
-	CarryOut DECIMAL NULL DEFAULT 0.0,
-	CarryIn DECIMAL NULL DEFAULT 0.0,
-	EstimatedReimbursements DECIMAL NULL DEFAULT 0.0,
-	EstimatedRecoveries DECIMAL NULL DEFAULT 0.0,
-	CONSTRAINT AppropriationLevelAuthorityPrimaryKey 
-		PRIMARY KEY(AppropriationLevelAuthorityId)
+	"AppropriationLevelAuthorityId"	INTEGER NOT NULL UNIQUE,
+	"BFY"	TEXT NULL DEFAULT 'NS',
+	"EFY"	TEXT NULL DEFAULT 'NS',
+	"FundCode"	TEXT NULL DEFAULT 'NS',
+	"FundName"	TEXT NULL DEFAULT 'NS',
+	"BudgetAccountCode"	TEXT NULL DEFAULT 'NS',
+	"BudgetAccountName"	TEXT NULL DEFAULT 'NS',
+	"TreasuryAccountCode"	TEXT NULL DEFAULT 'NS',
+	"TreasuryAccountName"	TEXT NULL DEFAULT 'NS',
+	"Budgeted"	NUMERIC NULL DEFAULT 0.0,
+	"CarryOver"	NUMERIC NULL DEFAULT 0.0,
+	"TotalReimbursements"	NUMERIC NULL DEFAULT 0.0,
+	"TotalRecoveries"	NUMERIC NULL DEFAULT 0.0,
+	"TotalAuthority"	NUMERIC NULL DEFAULT 0.0,
+	PRIMARY KEY("AppropriationLevelAuthorityId" AUTOINCREMENT)
 );
-
-

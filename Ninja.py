@@ -1490,9 +1490,9 @@ class AccessData( Query ):
             err.show( )
 
 
-# SqlServerData( connection, sqlstatement )
-class SqlServerData( Query ):
-    '''SqlServerData( value, sqlconfig ) object
+# SqlData( connection, sqlstatement )
+class SqlData( Query ):
+    '''SqlData( value, sqlconfig ) object
     represents the values models in the MS SQL Server
     database'''
     __source = None
@@ -1616,7 +1616,7 @@ class SqlServerData( Query ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'SqlServerData'
+            exc.cause = 'SqlData'
             exc.method = 'createtable( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1631,7 +1631,7 @@ class SqlServerData( Query ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Ninja'
-            exc.cause = 'SqlServerData'
+            exc.cause = 'SqlData'
             exc.method = 'createframe( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1760,7 +1760,7 @@ class DataBuilder( ):
                 self.__data = [ tuple( i ) for i in access.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
-                sqlserver = SqlServerData( self.__connection, self.__sqlstatement )
+                sqlserver = SqlData( self.__connection, self.__sqlstatement )
                 self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
                 return self.__data
             else:

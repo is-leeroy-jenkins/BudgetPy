@@ -1,7 +1,9 @@
-UPDATE Deobligations 
-INNER JOIN Funds 
-ON (Funds.BFY = Deobligations.BFY) 
-AND (Funds.Code = Deobligations.FundCode) 
-SET Deobligations.TreasurySymbol = Funds.TreasuryAccountCode, Deobligations.OmbAccountCode = Funds.OmbAccountCode, Deobligations.OmbAccountName = Funds.OmbAccountName
-WHERE Funds.Code = Deobligations.FundCode 
-AND Funds.BFY = Deobligations.BFY;
+UPDATE AppropriationLevelAuthority 
+INNER JOIN FundSymbols 
+ON (AppropriationLevelAuthority.FundCode = FundSymbols.FundCode) 
+AND (AppropriationLevelAuthority.EFY = FundSymbols.EFY) 
+AND (AppropriationLevelAuthority.BFY = FundSymbols.BFY) 
+SET AppropriationLevelAuthority.TreasuryAccountCode = FundSymbols.TreasuryAccountCode, 
+AppropriationLevelAuthority.TreasuryAccountName = FundSymbols.TreasuryAccountName, 
+AppropriationLevelAuthority.BudgetAccountCode = FundSymbols.BudgetAccountCode, 
+AppropriationLevelAuthority.BudgetAccountName = FundSymbols.BudgetAccountName;
