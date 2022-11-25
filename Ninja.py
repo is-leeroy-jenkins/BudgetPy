@@ -434,7 +434,7 @@ class DbConfig( ):
     def __init__( self, source, provider = Provider.SQLite ):
         '''Constructor for the DbConfig class providing
         values value details'''
-        self.__provider = provider if isinstance( provider, Provider ) else None
+        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name if isinstance( source, Source ) else None
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'

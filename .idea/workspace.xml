@@ -8,75 +8,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Execution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata-5.0.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata-5.0.0.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata-5.0.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata-5.0.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata-5.0.0.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata-5.0.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata-5.0.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_adapters.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_adapters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_collections.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_collections.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_functools.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_functools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_itertools.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_itertools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_meta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_py39compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_py39compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/importlib_metadata/_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_distutils/_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_distutils/_log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_distutils/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_distutils/log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_entry_points.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/_entry_points.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/build_meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/build_meta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/command/build_clib.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/command/build_clib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/command/upload_docs.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/command/upload_docs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/dist.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/dist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/setuptools/logging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3-1.26.12.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3-1.26.12.dist-info/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3-1.26.12.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3-1.26.12.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3-1.26.12.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3-1.26.12.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3-1.26.12.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/_collections.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/_collections.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/_version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/connectionpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/connectionpool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/_appengine_environ.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/_appengine_environ.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/_securetransport/bindings.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/_securetransport/bindings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/_securetransport/low_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/_securetransport/low_level.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/appengine.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/appengine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/ntlmpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/ntlmpool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/pyopenssl.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/pyopenssl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/securetransport.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/securetransport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/socks.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/contrib/socks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/fields.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/filepost.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/filepost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/packages/backports/makefile.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/packages/backports/makefile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/packages/six.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/packages/six.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/poolmanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/poolmanager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/proxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/retry.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/retry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/ssl_.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/ssl_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/ssl_match_hostname.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/ssl_match_hostname.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/ssltransport.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/ssltransport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/timeout.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/timeout.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/wait.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/urllib3/util/wait.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/PortableApps.comLauncherRuntimeData-SQLiteDatabaseBrowserPortable.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +121,7 @@
     "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
     "last_opened_file_path": "C:/Users/terry/repos/BudgetPy",
     "run.code.analysis.last.selected.profile": "aBudget",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "settings.editor.selected.configurable": "krasa.IdeaIconPack",
     "settings.editor.splitter.proportion": "0.19928508"
   },
   "keyToStringList": {
@@ -273,13 +211,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00361" summary="updates from main rig;">
-      <created>1657064343018</created>
-      <option name="number" value="00361" />
-      <option name="presentableId" value="LOCAL-00361" />
-      <option name="project" value="LOCAL" />
-      <updated>1657064343018</updated>
     </task>
     <task id="LOCAL-00362" summary="updates from main rig;">
       <created>1657065501122</created>
@@ -617,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669391911295</updated>
     </task>
-    <option name="localTasksCounter" value="410" />
+    <task id="LOCAL-00410" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1669392306900</created>
+      <option name="number" value="00410" />
+      <option name="presentableId" value="LOCAL-00410" />
+      <option name="project" value="LOCAL" />
+      <updated>1669392306901</updated>
+    </task>
+    <option name="localTasksCounter" value="411" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
