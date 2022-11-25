@@ -36,7 +36,6 @@ class Unit( ):
             return self.__code
 
 
-
 class Element( Unit ):
     '''Element class represents fundemental program unit'''
     __index = None
@@ -607,6 +606,248 @@ class Appropriation( ):
         self.__provider = Provider.SQLite
         self.__code = code if isinstance( code, str ) and code != '' else None
         self.__fields = [ 'AppropriationsId',
+                           'Code',
+                           'Name' ]
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
+
+    def getdata( self ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code' ]
+            v = ( self.__code )
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'Appropriations'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'Appropriation'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+
+# AppropriationAvailableBalances( code, provider = Provider.SQLite )
+class AppropriationAvailableBalances( ):
+    '''Defines the Appropriation Class'''
+    __source = None
+    __provider = None
+    __appropriationavailablebalancesid = None
+    __code = None
+    __name = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__appropriationavailablebalancesid, int ):
+            return self.__appropriationavailablebalancesid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__appropriationavailablebalancesid  = value
+
+    @property
+    def code( self ):
+        if isinstance( self.__code, str) and self.__code != '':
+            return self.__code
+
+    @code.setter
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__name = name
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
+    def __init__( self, code ):
+        self.__source = Source.Appropriations
+        self.__provider = Provider.SQLite
+        self.__code = code if isinstance( code, str ) and code != '' else None
+        self.__fields = [ 'AppropriationAvailableBalancesId',
+                           'Code',
+                           'Name' ]
+
+    def __str__( self ):
+        if isinstance( self.__code, str ) and self.__code != '':
+            return self.__code
+
+    def getdata( self ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'Code' ]
+            v = ( self.__code )
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'Appropriations'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Execution'
+            exc.cause = 'Appropriation'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+
+# AppropriationLevelAuthority( code, provider = Provider.SQLite )
+class AppropriationLevelAuthority( ):
+    '''Defines the Appropriation Class'''
+    __source = None
+    __provider = None
+    __appropriationlevelauthorityid = None
+    __code = None
+    __name = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__appropriationlevelauthorityid , int ):
+            return self.__appropriationlevelauthorityid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__appropriationlevelauthorityid  = value
+
+    @property
+    def code( self ):
+        if isinstance( self.__code, str) and self.__code != '':
+            return self.__code
+
+    @code.setter
+    def code( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__code = value
+
+    @property
+    def name( self ):
+        if isinstance( self.__name, str ) and self.__name != '':
+            return self.__name
+
+    @name.setter
+    def name( self, name ):
+        if isinstance( name, str ) and name != '':
+            self.__name = name
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @property
+    def data( self ):
+        if isinstance( self.__data, list ):
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
+    def __init__( self, code ):
+        self.__source = Source.Appropriations
+        self.__provider = Provider.SQLite
+        self.__code = code if isinstance( code, str ) and code != '' else None
+        self.__fields = [ 'AppropriationLevelAuthorityId',
                            'Code',
                            'Name' ]
 
@@ -19176,6 +19417,121 @@ class StatusOfJobsActFunding( ):
         self.__provider = provider
         self.__source = Source.StatusOfJobsActFunding
         self.__fields = [ 'StatusOfJobsActFundingId',
+                           'StatusOfFundsId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'BocCode',
+                           'BocName',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'NpmCode',
+                           'NpmName',
+                           'RcCode',
+                           'RcName',
+                           'LowerName',
+                           'Amount',
+                           'Budgeted',
+                           'Posted',
+                           'OpenCommitments',
+                           'ULO',
+                           'Expenditures',
+                           'Obligations',
+                           'Used',
+                           'Available' ]
+
+
+# StatusOfEarmarks( bfy, efy, fundcode, provider = Provider.SQLite )
+class StatusOfEarmarks( ):
+    __source = None
+    __provider = None
+    __statusofearmarksid = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __fields = None
+    __data  = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__statusofearmarksid, int ):
+            return self.__statusofearmarksid
+
+    @id.setter
+    def id( self, value ):
+        if isinstance( value, int ):
+            self.__statusofearmarksid = value
+
+    @property
+    def bfy( self ):
+        if isinstance( self.__bfy, str ) and self.__bfy != '':
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if isinstance( self.__efy, str ) and self.__efy != '':
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__efy = value
+
+    @property
+    def fundcode( self ):
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if isinstance( self.__fundname, str ) and self.__fundname != '':
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__fundname = value
+
+    @property
+    def fields( self ):
+        if isinstance( self.__fields, list ) and len( self.__fields ) > 0:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if isinstance( value, list ) and len( value ) > 0:
+            self.__fields = value
+
+    def __init__( self, bfy, efy, fundcode, provider = Provider.SQLite ):
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__efy = efy if isinstance( efy, str ) and len( efy ) == 4 else None
+        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+        self.__provider = provider
+        self.__source = Source.StatusOfEarmarks
+        self.__fields = [ 'StatusOfEarmarksId',
                            'StatusOfFundsId',
                            'BudgetLevel',
                            'BFY',
