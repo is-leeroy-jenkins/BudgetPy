@@ -225,7 +225,7 @@ class Accounts( ):
 
     def copy( self ):
         try:
-            clone = Account( code = self.__code )
+            clone = Accounts( code = self.__code )
             clone.code = self.__code
             clone.goalcode = self.__goalcode
             clone.objectivecode = self.__objectivecode
@@ -20046,7 +20046,7 @@ class SiteActivity( ):
                            'Refunded',
                            'Reversal' ]
 
-    def getdata( self ):
+    def getdata( self ) -> list[ tuple ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -20060,7 +20060,7 @@ class SiteActivity( ):
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )
             data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
+            self.__data =  [ tuple( i ) for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -20072,7 +20072,7 @@ class SiteActivity( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def getframe( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
