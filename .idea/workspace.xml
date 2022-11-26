@@ -8,7 +8,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="" />
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/spc/data_test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Execution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/sqlitebrowser.reg" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +119,7 @@
     "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
     "last_opened_file_path": "C:/Users/terry/repos/BudgetPy",
     "run.code.analysis.last.selected.profile": "aBudget",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
     "settings.editor.splitter.proportion": "0.19928508"
   },
   "keyToStringList": {
@@ -204,6 +209,27 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
+    </task>
+    <task id="LOCAL-00364" summary="updates from main rig;">
+      <created>1657108031162</created>
+      <option name="number" value="00364" />
+      <option name="presentableId" value="LOCAL-00364" />
+      <option name="project" value="LOCAL" />
+      <updated>1657108031162</updated>
+    </task>
+    <task id="LOCAL-00365" summary="updates from main rig;">
+      <created>1657320189607</created>
+      <option name="number" value="00365" />
+      <option name="presentableId" value="LOCAL-00365" />
+      <option name="project" value="LOCAL" />
+      <updated>1657320189607</updated>
+    </task>
+    <task id="LOCAL-00366" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1657393603915</created>
+      <option name="number" value="00366" />
+      <option name="presentableId" value="LOCAL-00366" />
+      <option name="project" value="LOCAL" />
+      <updated>1657393603916</updated>
     </task>
     <task id="LOCAL-00367" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1657934976773</created>
@@ -479,76 +505,55 @@
       <updated>1668536064226</updated>
     </task>
     <task id="LOCAL-00406" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669130144994</created>
+      <created>1669148374721</created>
       <option name="number" value="00406" />
       <option name="presentableId" value="LOCAL-00406" />
       <option name="project" value="LOCAL" />
-      <updated>1669130144995</updated>
+      <updated>1669148374721</updated>
     </task>
     <task id="LOCAL-00407" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669220411032</created>
+      <created>1669241053404</created>
       <option name="number" value="00407" />
       <option name="presentableId" value="LOCAL-00407" />
       <option name="project" value="LOCAL" />
-      <updated>1669220411033</updated>
+      <updated>1669241053404</updated>
     </task>
     <task id="LOCAL-00408" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669221068523</created>
+      <created>1669310571252</created>
       <option name="number" value="00408" />
       <option name="presentableId" value="LOCAL-00408" />
       <option name="project" value="LOCAL" />
-      <updated>1669221068523</updated>
+      <updated>1669310571252</updated>
     </task>
     <task id="LOCAL-00409" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669391911294</created>
+      <created>1669313705517</created>
       <option name="number" value="00409" />
       <option name="presentableId" value="LOCAL-00409" />
       <option name="project" value="LOCAL" />
-      <updated>1669391911295</updated>
+      <updated>1669313705517</updated>
     </task>
     <task id="LOCAL-00410" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669392306900</created>
+      <created>1669316752063</created>
       <option name="number" value="00410" />
       <option name="presentableId" value="LOCAL-00410" />
       <option name="project" value="LOCAL" />
-      <updated>1669392306901</updated>
+      <updated>1669316752063</updated>
     </task>
     <task id="LOCAL-00411" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669393769399</created>
+      <created>1669319302888</created>
       <option name="number" value="00411" />
       <option name="presentableId" value="LOCAL-00411" />
       <option name="project" value="LOCAL" />
-      <updated>1669393769399</updated>
+      <updated>1669319302888</updated>
     </task>
     <task id="LOCAL-00412" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669396808159</created>
+      <created>1669322003321</created>
       <option name="number" value="00412" />
       <option name="presentableId" value="LOCAL-00412" />
       <option name="project" value="LOCAL" />
-      <updated>1669396808160</updated>
+      <updated>1669322003321</updated>
     </task>
-    <task id="LOCAL-00413" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669409709173</created>
-      <option name="number" value="00413" />
-      <option name="presentableId" value="LOCAL-00413" />
-      <option name="project" value="LOCAL" />
-      <updated>1669409709173</updated>
-    </task>
-    <task id="LOCAL-00414" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669409777791</created>
-      <option name="number" value="00414" />
-      <option name="presentableId" value="LOCAL-00414" />
-      <option name="project" value="LOCAL" />
-      <updated>1669409777791</updated>
-    </task>
-    <task id="LOCAL-00415" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1669410873732</created>
-      <option name="number" value="00415" />
-      <option name="presentableId" value="LOCAL-00415" />
-      <option name="project" value="LOCAL" />
-      <updated>1669410873732</updated>
-    </task>
-    <option name="localTasksCounter" value="416" />
+    <option name="localTasksCounter" value="413" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

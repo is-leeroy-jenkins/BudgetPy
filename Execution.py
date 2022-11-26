@@ -69,8 +69,8 @@ class Element( Unit ):
             return self.__code
 
 
-# Account( code, provider = Provider.SQLite )
-class Account( ):
+# Accounts( code, provider = Provider.SQLite )
+class Accounts( ):
     '''defines the Account Code class'''
     __source = None
     __provider = None
@@ -281,8 +281,8 @@ class Account( ):
             err.show( )
 
 
-# Activity( code, provider = Provider.SQLite )
-class Activity( ):
+# ActivityCodes( code, provider = Provider.SQLite )
+class ActivityCodes( ):
     '''Defines the Activity Class'''
     __source = None
     __provider = None
@@ -408,8 +408,8 @@ class Activity( ):
             err.show( )
 
 
-# AllowanceHolder( code, provider = Provider.SQLite )
-class AllowanceHolder( ):
+# AllowanceHolders( code, provider = Provider.SQLite )
+class AllowanceHolders( ):
     '''Defines the AllowanceHolder Class'''
     __source = None
     __provider = None
@@ -534,8 +534,8 @@ class AllowanceHolder( ):
             err.show( )
 
 
-# Appropriation( code, provider = Provider.SQLite )
-class Appropriation( ):
+# Appropriations( code, provider = Provider.SQLite )
+class Appropriations( ):
     '''Defines the Appropriation Class'''
     __source = None
     __provider = None
@@ -1918,8 +1918,8 @@ class Actuals( ):
             err.show( )
 
 
-# AppropriationDocument( bfy, fund, provider = Provider.SQLite )
-class AppropriationDocument( ):
+# AppropriationDocuments( bfy, fund, provider = Provider.SQLite )
+class AppropriationDocuments( ):
     '''object representing Level 1 documents'''
     __source = None
     __provider = None
@@ -2297,8 +2297,8 @@ class AppropriationDocument( ):
             err.show( )
 
 
-# BudgetDocument( bfy, fund, provider = Provider.SQLite )
-class BudgetDocument( ):
+# BudgetDocuments( bfy, fund, provider = Provider.SQLite )
+class BudgetDocuments( ):
     '''object representing Level 2-3 documents'''
     __source = None
     __provider = None
@@ -2833,8 +2833,8 @@ class BudgetDocument( ):
             err.show( )
 
 
-# BudgetControl( code, provider = Provider.SQLite )
-class BudgetControl( ):
+# BudgetControls( code, provider = Provider.SQLite )
+class BudgetControls( ):
     '''object representing compass control data'''
     __source = None
     __provider = None
@@ -3605,8 +3605,8 @@ class BudgetFiscalYear( ):
             err.show( )
 
 
-# BudgetObjectClass( code, provider = Provider.SQLite  )
-class BudgetObjectClass( ):
+# BudgetObjectClasses( code, provider = Provider.SQLite  )
+class BudgetObjectClasses( ):
     '''Defines the BudgetObjectClass Class'''
     __source = None
     __provider = None
@@ -4242,8 +4242,8 @@ class BudgetOutlays( ):
             err.show( )
 
 
-# CongressionalControl( bfy, fund, provider = Provider.SQLite )
-class CongressionalControl( ):
+# CongressionalControls( bfy, fund, provider = Provider.SQLite )
+class CongressionalControls( ):
     '''object representing congressional control data'''
     __source = None
     __provider = None
@@ -4715,8 +4715,8 @@ class CompassLevels( ):
             err.show( )
 
 
-# Commitment( bfy, fund, account, boc, provider = Provider.SQLite )
-class Commitment( ):
+# Commitments( bfy, fund, account, boc, provider = Provider.SQLite )
+class Commitments( ):
     '''Defines the CommitmentS class.'''
     __source = None
     __provider = None
@@ -6106,12 +6106,12 @@ class CarryoverSurvey( ):
             err.show( )
 
 
-# CapitalPlanningInvestmentCode( code, provider = Provider.SQLite  )
-class CapitalPlanningInvestmentCode( ):
+# CapitalPlanningInvestmentCodes( code, provider = Provider.SQLite  )
+class CapitalPlanningInvestmentCodes( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
-    __cpicid = None
+    __capitalplanninginvestmentcodesid = None
     __code = None
     __name = None
     __fields = None
@@ -6120,8 +6120,8 @@ class CapitalPlanningInvestmentCode( ):
 
     @property
     def id( self ):
-        if isinstance( self.__cpicid, int ):
-            return self.__cpicid
+        if isinstance( self.__capitalplanninginvestmentcodesid, int ):
+            return self.__capitalplanninginvestmentcodesid
 
     @id.setter
     def id( self, value ):
@@ -6196,7 +6196,7 @@ class CapitalPlanningInvestmentCode( ):
             source = self.__source
             provider = self.__provider
             n = [ 'Code', ]
-            v = (self.__code,)
+            v = ( self.__code, )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
