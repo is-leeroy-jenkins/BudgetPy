@@ -7378,8 +7378,8 @@ class Deobligation( ):
             err.show( )
 
 
-# DocumentControlNumber( dcn, provider = Provider.SQLite )
-class DocumentControlNumber( ):
+# DocumentControlNumbers( dcn, provider = Provider.SQLite )
+class DocumentControlNumbers( ):
     ''' object provides DCN data'''
     __source = None
     __provider = None
@@ -8206,8 +8206,8 @@ class FinanceObjectClass( ):
             err.show( )
 
 
-# Fund( bfy, efy, code, provider = Provider.SQLite )
-class Fund( ):
+# Funds( bfy, efy, code, provider = Provider.SQLite )
+class Funds( ):
     '''Defines the Fund Class'''
     __source = None
     __provider = None
@@ -9163,8 +9163,8 @@ class FederalHoliday( ):
             err.show( )
 
 
-# FullTimeEquivalent( bfy, fund, provider = Provider.SQLite )
-class FullTimeEquivalent( ):
+# FullTimeEquivalents( bfy, fund, provider = Provider.SQLite )
+class FullTimeEquivalents( ):
     '''object representing Operating Plan FTE'''
     __source = None
     __provider = None
@@ -9648,8 +9648,8 @@ class GeneralLedgerAccounts( ):
                           'ClosingAmount' ]
 
 
-# Goal( code, provider = Provider.SQLite )
-class Goal( ):
+# Goals( code, provider = Provider.SQLite )
+class Goals( ):
     '''Defines the Goal Class'''
     __source = None
     __provider = None
@@ -10356,8 +10356,8 @@ class HeadquartersAuthority( ):
             err.show( )
 
 
-# HeadquartersOffice( code, provider = Provider.SQLite  )
-class HeadquartersOffice( ):
+# HeadquartersOffices( code, provider = Provider.SQLite  )
+class HeadquartersOffices( ):
     '''Defines a regional RPIO'''
     __source = None
     __provider = None
@@ -10484,8 +10484,8 @@ class HeadquartersOffice( ):
             err.show( )
 
 
-# HumanResourceOrganization( code, provider = Provider.SQLite )
-class HumanResourceOrganization( ):
+# HumanResourceOrganizations( code, provider = Provider.SQLite )
+class HumanResourceOrganizations( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
@@ -10836,8 +10836,8 @@ class MonthlyOutlays( ):
             err.show( )
 
 
-# NationalProgram( code value, provider = Provider.SQLite )
-class NationalProgram( ):
+# NationalPrograms( code value, provider = Provider.SQLite )
+class NationalPrograms( ):
     '''Defines the NationalProgram Class'''
     __source = None
     __provider = None
@@ -10986,8 +10986,8 @@ class NationalProgram( ):
             err.show( )
 
 
-# Objective( code, provider = Provider.SQLite )
-class Objective( ):
+# Objectives( code, provider = Provider.SQLite )
+class Objectives( ):
     '''Defines the Objective Class'''
     __source = None
     __provider = None
@@ -11113,8 +11113,8 @@ class Objective( ):
             err.show( )
 
 
-# Organization( code, provider = Provider.SQLite  )
-class Organization( ):
+# Organizations( code, provider = Provider.SQLite  )
+class Organizations( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
@@ -11474,8 +11474,8 @@ class ObjectClassOutlays( ):
             err.show( )
 
 
-# OperatingPlan( bfy, efy, fundcode, provider = Provider.SQLite )
-class OperatingPlan( ):
+# OperatingPlans( bfy, efy, fundcode, provider = Provider.SQLite )
+class OperatingPlans( ):
     '''object representing Operating plan allocations'''
     __source = None
     __provider = None
@@ -11836,8 +11836,8 @@ class OperatingPlan( ):
             err.show( )
 
 
-# OpenCommitment( bfy, fund, account, boc, provider = Provider.SQLite )
-class OpenCommitment( ):
+# OpenCommitments( bfy, fund, account, boc, provider = Provider.SQLite )
+class OpenCommitments( ):
     ''' OpenCommitment( bfy, fund, account, boc )
     initializes object providing OpenCommitment data.'''
     __source = None
@@ -13651,8 +13651,8 @@ class PayrollActivity( ):
             err.show( )
 
 
-# Project( code, provider = Provider.SQLite  )
-class Project( ):
+# Projects( code, provider = Provider.SQLite  )
+class Projects( ):
     '''Defines the Organization Class'''
     __source = None
     __projectsid = None
@@ -13776,8 +13776,8 @@ class Project( ):
             err.show( )
 
 
-# ProgramArea( code, provider = Provider.SQLite  )
-class ProgramArea( ):
+# ProgramAreas( code, provider = Provider.SQLite  )
+class ProgramAreas( ):
     '''defines the ProgramArea class'''
     __source = None
     __provider = None
@@ -14611,8 +14611,8 @@ class ProgramResultsCode( ):
             err.show( )
 
 
-# ResponsibilityCenter( code, provider = Provider.SQLite  )
-class ResponsibilityCenter( ):
+# ResponsibilityCenters( code, provider = Provider.SQLite  )
+class ResponsibilityCenters( ):
     '''Defines the ResponsibilityCenter Class'''
     __source = None
     __provider = None
@@ -14746,8 +14746,8 @@ class ResponsibilityCenter( ):
             err.show( )
 
 
-# ResourcePlanningOffice( code, provider = Provider.SQLite  )
-class ResourcePlanningOffice( ):
+# ResourcePlanningOffices( code, provider = Provider.SQLite  )
+class ResourcePlanningOffices( ):
     '''defines the ResponsiblePlanningOffice class'''
     __source = None
     __provider = None
@@ -14872,8 +14872,8 @@ class ResourcePlanningOffice( ):
             err.show( )
 
 
-# RegionalOffice( code, provider = Provider.SQLite  )
-class RegionalOffice( ):
+# RegionalOffices( code, provider = Provider.SQLite  )
+class RegionalOffices( ):
     '''Defines a regional RPIO'''
     __source = None
     __provider = None
@@ -17847,8 +17847,8 @@ class SubAppropriations( ):
             err.show( )
 
 
-# SiteProjectCode( code, provider = Provider.SQLite  )
-class SiteProjectCode( ):
+# SiteProjectCodes( code, provider = Provider.SQLite  )
+class SiteProjectCodes( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
@@ -17970,8 +17970,8 @@ class SiteProjectCode( ):
             err.show( )
 
 
-# StateOrganization( code, provider = Provider.SQLite  )
-class StateOrganization( ):
+# StateOrganizations( code, provider = Provider.SQLite  )
+class StateOrganizations( ):
     '''StateOrganization( fgrp ) class
     representing state codes'''
     __source = None
@@ -20253,8 +20253,8 @@ class TreasurySymbols( ):
             err.show( )
 
 
-# Transfer( documentnumber, provider = Provider.SQLite )
-class Transfer( ):
+# Transfers( documentnumber, provider = Provider.SQLite )
+class Transfers( ):
     ''' Transfer( documentnumber ) initializes object
     representing EPA reprogrammings'''
     __source = None
@@ -20639,8 +20639,8 @@ class Transfer( ):
             err.show( )
 
 
-# TransType( bfy, fundcode, provider = Provider.SQLite )
-class TransType( ):
+# TransTypes( bfy, fundcode, provider = Provider.SQLite )
+class TransTypes( ):
     __source = None
     __provider = None
     __transtypesid = None
@@ -21107,8 +21107,8 @@ class UnobligatedBalances( ):
             err.show( )
 
 
-# UnliquidatedObligation( bfy, fund, account, boc, provider = Provider.SQLite )
-class UnliquidatedObligation( ):
+# UnliquidatedObligations( bfy, fund, account, boc, provider = Provider.SQLite )
+class UnliquidatedObligations( ):
     '''UnliquidatedObligation( bfy, fund, account, boc )
     initializes object providing ULO data'''
     __source = None
@@ -21638,8 +21638,8 @@ class UnliquidatedObligation( ):
             err.show( )
 
 
-# WorkCode( code, provider = Provider.SQLite )
-class WorkCode( ):
+# WorkCodes( code, provider = Provider.SQLite )
+class WorkCodes( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
