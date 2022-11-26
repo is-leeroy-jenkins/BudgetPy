@@ -223,7 +223,7 @@ class Accounts( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def copy( self ):
+    def copy( self ) -> Accounts:
         try:
             clone = Accounts( code = self.__code )
             clone.code = self.__code
@@ -240,7 +240,7 @@ class Accounts( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getdata( self ):
+    def getdata( self ) -> list[ tuple ]:
         try:
             source = Source.Accounts
             provider = Provider.SQLite
@@ -253,7 +253,7 @@ class Accounts( ):
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )
             data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
+            self.__data =  [ tuple( i ) for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -265,7 +265,7 @@ class Accounts( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def getframe( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -366,12 +366,12 @@ class ActivityCodes( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def getdata( self ) -> list[ tuple ]:
         try:
             source = self.__source
             provider = self.__provider
             n = [ 'Code', ]
-            v = (self.__code,)
+            v = ( self.__code, )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -380,7 +380,7 @@ class ActivityCodes( ):
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )
             data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
+            self.__data =  [ tuple( i ) for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -392,7 +392,7 @@ class ActivityCodes( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def getframe( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
