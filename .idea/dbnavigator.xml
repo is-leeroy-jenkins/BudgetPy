@@ -38,6 +38,9 @@
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="8ad9fcf2-c8e8-4ff6-8d38-09e03d8bb901" />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="8ad9fcf2-c8e8-4ff6-8d38-09e03d8bb901" dataset="main.Accounts" active-filter-id="" />
+  </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
   </component>
@@ -82,7 +85,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="C:\Users\teppler\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
+            <file path="C:\Users\terry\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />

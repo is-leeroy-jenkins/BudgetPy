@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS "ObjectClassOutlays" 
 (
-	"ObjectClassOutlaysId"	INTEGER NOT NULL UNIQUE,
+	"ObjectClassOutlaysId"	INTEGER,
 	"ReportYear"	TEXT(80) NULL DEFAULT 'NS',
 	"OmbAgencyCode"	TEXT(80) NULL DEFAULT 'NS',
 	"OmbAgencyName"	TEXT(80) NULL DEFAULT 'NS',
@@ -15,8 +15,7 @@ CREATE TABLE IF NOT EXISTS "ObjectClassOutlays"
 	"BocCode"	TEXT(80) NULL DEFAULT 'NS',
 	"BocName"	TEXT(80) NULL DEFAULT 'NS',
 	"FinanceObjectClass"	TEXT(80) NULL DEFAULT 'NS',
-	"PriorYear"	NUMERIC NULL DEFAULT 0.0,
-	"CurrentYear"	NUMERIC NULL DEFAULT 0.0,
-	"BudgetYear"	NUMERIC NULL DEFAULT 0.0,
-	PRIMARY KEY("ObjectClassOutlaysId" AUTOINCREMENT)
+	"PriorYear"	NUMERIC DEFAULT 0.0,
+	"CurrentYear"	NUMERIC DEFAULT 0.0,
+	"BudgetYear"	INTEGER DEFAULT 0.0
 );
