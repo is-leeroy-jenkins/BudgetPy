@@ -223,10 +223,9 @@ class Accounts( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def copy( self ) -> Accounts:
+    def copy( self ):
         try:
             clone = Accounts( code = self.__code )
-            clone.code = self.__code
             clone.goalcode = self.__goalcode
             clone.objectivecode = self.__objectivecode
             clone.npmcode = self.__npmcode

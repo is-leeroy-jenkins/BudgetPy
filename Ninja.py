@@ -621,7 +621,7 @@ class Connection( DbConfig ):
         self.__dsn = source.name + ';'
         self.__connectionstring = super( ).getconnectionstring( )
 
-    def connect( self ) -> Connection:
+    def connect( self ):
         try:
             if self.__provider.name == Provider.Access.name:
                 return db.connect( self.__connectionstring )
