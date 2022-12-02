@@ -425,15 +425,11 @@ class DbConfig( ):
     def table( self, value ):
         if isinstance( value, str ) and value in self.__data:
             self.__table = value
-        elif value in self.__references:
-            self.__table = value
-        else:
-            self.__table = None
 
     def __init__( self, source, provider = Provider.SQLite ):
         '''Constructor for the DbConfig class providing
         values value details'''
-        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
+        self.__provider = provider if isinstance( provider, Provider ) else None
         self.__source = source if isinstance( source, Source ) else None
         self.__table = source.name if isinstance( source, Source ) else None
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
@@ -550,16 +546,6 @@ class Connection( DbConfig ):
     __connection = None
 
     @property
-    def configuration( self ):
-        if isinstance( self.__configuration, DbConfig ):
-            return self.__configuration
-
-    @configuration.setter
-    def configuration( self, value ):
-        if isinstance( value, DbConfig ):
-            self.__configuration = value
-
-    @property
     def driver( self ):
         if isinstance( self.__driver, str ):
             return self.__driver
@@ -591,11 +577,11 @@ class Connection( DbConfig ):
 
     def __init__( self, source, provider = Provider.SQLite ):
         super( ).__init__( source, provider )
-        self.__source = source
-        self.__provider = provider
+        self.__source = super( ).source
+        self.__provider = super( ).provider
         self.__path = super( ).getpath( )
         self.__driver = super( ).getdriver( )
-        self.__dsn = source.name + ';'
+        self.__dsn = super( ).table + ';' if provider == Provider.SQLite else None
         self.__connectionstring = super( ).getconnectionstring( )
 
     def connect( self ):
@@ -802,9 +788,9 @@ class SqlConfig( ):
             err.show( )
 
 
-# SqlStatement( dbconfig,  sqlconfig )
+# SqlStatement( dbconfig,  sqlcfg )
 class SqlStatement( ):
-    '''SqlStatement( dataconfig, sqlconfig ) Class
+    '''SqlStatement( dbcfg, sqlcfg ) Class
     represents the values models used in the SQLite database'''
     __cmdtyp = None
     __sqlcfg = None
@@ -921,15 +907,15 @@ class SqlStatement( ):
         if isinstance( value, str ) and value != '':
             self.__text = value
 
-    def __init__( self, dataconfig, sqlconfig ):
-        self.__sqlcfg = sqlconfig if isinstance( sqlconfig, SqlConfig ) else None
-        self.__dbcfg = dataconfig if isinstance( dataconfig, DbConfig ) else None
-        self.__cmdtyp = sqlconfig.command
-        self.__provider = dataconfig.provider
-        self.__source = dataconfig.source
-        self.__table = dataconfig.source.name
-        self.__names = sqlconfig.names
-        self.__values = sqlconfig.values
+    def __init__( self, dbcfg, sqlcfg ):
+        self.__sqlcfg = sqlcfg if isinstance( sqlcfg, SqlConfig ) else None
+        self.__dbcfg = dbcfg if isinstance( dbcfg, DbConfig ) else None
+        self.__cmdtyp = sqlcfg.command
+        self.__provider = dbcfg.provider
+        self.__source = dbcfg.source
+        self.__table = dbcfg.table
+        self.__names = sqlcfg.names
+        self.__values = sqlcfg.values
 
     def __str__( self ):
         if isinstance( self.__text, str ) and self.__text != '':
@@ -990,10 +976,9 @@ class SqlStatement( ):
 # Query( connection, sqlstatement )
 class Query( ):
     '''Base class for database interaction'''
-    __connx = None
+    __cnx = None
     __sql = None
     __sqlcfg = None
-    __dbcfg = None
     __cmdtype = None
     __source = None
     __table = None
@@ -1038,13 +1023,13 @@ class Query( ):
 
     @property
     def connection( self ):
-        if isinstance( self.__connx, Connection ):
-            return self.__connx
+        if isinstance( self.__cnx, Connection ):
+            return self.__cnx
 
     @connection.setter
     def connection( self, value ):
         if isinstance( value, Connection ):
-            self.__connx = value
+            self.__cnx = value
 
     @property
     def sqlstatement( self ):
@@ -1120,15 +1105,15 @@ class Query( ):
             self.__xstring = str( value )
 
     def __init__( self, connection, sqlstatement ):
-        self.__connx = connection if isinstance( connection, Connection ) else None
+        self.__cnx = connection if isinstance( connection, Connection ) else None
         self.__sql = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__dbcfg = connection.configuration
         self.__sqlcfg = sqlstatement.sqlconfig
         self.__source = connection.source
         self.__provider = connection.provider
         self.__cmdtype = sqlstatement.commandtype
         self.__path = connection.path
         self.__xstring = connection.connectionstring
+        self.__text = sqlstatement.getquery( )
 
     def __str__( self ):
         if isinstance( self.__text, str ) and self.__text != '':
@@ -1188,7 +1173,7 @@ class Query( ):
 
 # SQLiteData( connection, sqlstatement )
 class SQLiteData( Query ):
-    '''SQLiteData( value, sqlconfig ) represents
+    '''SQLiteData( value, sqlcfg ) represents
      the budget execution values classes'''
     __driver = None
     __dsn = None
@@ -1288,7 +1273,7 @@ class SQLiteData( Query ):
 
 # AccessData( connection, sqlstatement )
 class AccessData( Query ):
-    '''AccessData( value, sqlconfig ) class
+    '''AccessData( value, sqlcfg ) class
       represents the budget execution
       values model classes in the MS ACCDB database'''
     __query = None
@@ -1296,6 +1281,7 @@ class AccessData( Query ):
     __dsn = None
     __data = None
     __columns = None
+    __query = None
 
     @property
     def data( self ):
@@ -1327,6 +1313,16 @@ class AccessData( Query ):
         if isinstance( value, list ):
             self.__columns = value
 
+    @property
+    def query( self ):
+        if isinstance( self.__query, str ) and self.__query != '':
+            return self.__query
+
+    @query.setter
+    def query( self, value ):
+        if isinstance( value, str ) and value != '':
+            self.__query = value
+
     def __init__( self, connection, sqlstatement ):
         super( ).__init__( connection, sqlstatement )
         self.__source = super( ).source
@@ -1334,7 +1330,7 @@ class AccessData( Query ):
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
         self.__query = sqlstatement.getquery( )
-        self.__table = connection.source.name
+        self.__table = super( ).table
         self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
 
@@ -1379,7 +1375,7 @@ class AccessData( Query ):
 
 # SqlData( connection, sqlstatement )
 class SqlData( Query ):
-    '''SqlData( value, sqlconfig ) object
+    '''SqlData( value, sqlcfg ) object
     represents the values models in the MS SQL Server
     database'''
     __query = None
@@ -1492,7 +1488,7 @@ class DataBuilder( ):
     __provider = None
     __dbcfg = None
     __sqlcfg = None
-    __conx = None
+    __cnx = None
     __sql = None
     __query = None
     __data = None
@@ -1587,26 +1583,26 @@ class DataBuilder( ):
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
         self.__dbcfg = DbConfig( self.__source, self.__provider )
-        self.__conx = Connection( source )
+        self.__cnx = Connection( source )
         self.__sqlcfg = SqlConfig( self.__cmdtyp, self.__names, self.__values )
         self.__sql = SqlStatement( self.__dbcfg, self.__sqlcfg )
 
     def createtable( self ) -> list[ tuple ]:
         try:
             if self.__provider == Provider.SQLite:
-                sqlite = SQLiteData( self.__conx, self.__sql )
+                sqlite = SQLiteData( self.__cnx, self.__sql )
                 self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.Access:
-                access = AccessData( self.__conx, self.__sql )
+                access = AccessData( self.__cnx, self.__sql )
                 self.__data = [ tuple( i ) for i in access.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
-                sqlserver = SqlData( self.__conx, self.__sql )
+                sqlserver = SqlData( self.__cnx, self.__sql )
                 self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
                 return self.__data
             else:
-                sqlite = SQLiteData( self.__conx, self.__sql )
+                sqlite = SQLiteData( self.__cnx, self.__sql )
                 self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
                 return self.__data
         except Exception as e:
