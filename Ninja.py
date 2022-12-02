@@ -544,9 +544,6 @@ class DbConfig( ):
 class Connection( DbConfig ):
     '''Connection( source, provider = Provider.SQLite ) initializes
     object used to connect to the databases'''
-    __configuration = None
-    __provider = None
-    __source = None
     __driver = None
     __path = None
     __connectionstring = None
@@ -561,26 +558,6 @@ class Connection( DbConfig ):
     def configuration( self, value ):
         if isinstance( value, DbConfig ):
             self.__configuration = value
-
-    @property
-    def source( self ):
-        if isinstance( self.__source, Source ):
-            return self.__source
-
-    @source.setter
-    def source( self, value ):
-        if isinstance( value, Source ):
-            self.__source = value
-
-    @property
-    def provider( self ):
-        if isinstance( self.__provider, Provider ):
-            return self.__provider
-
-    @provider.setter
-    def provider( self, value ):
-        if isinstance( value, Provider ):
-            self.__provider = value
 
     @property
     def driver( self ):
