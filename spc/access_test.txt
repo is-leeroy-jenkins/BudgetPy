@@ -1,0 +1,7 @@
+src = Source.Accounts
+pro = Provider.Access
+cnx = Connection( src, pro )
+dcfg = DbConfig( src, pro )
+scfg = SqlConfig( )
+sql = SqlStatement( dcfg, scfg )
+access = AccessData( cnx, sql )
