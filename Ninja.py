@@ -686,10 +686,10 @@ class SqlConfig( ):
             self.__kvp = value
 
     def __init__( self, command = SQL.SELECTALL, names = [ ], values = ( ), style = None ):
-        self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
-        self.__names = names if isinstance( names, list ) else None
-        self.__values = values if isinstance( values, tuple ) else None
-        self.__paramstyle = style if isinstance( style, ParamStyle ) else ParamStyle.qmark
+        self.__command = command
+        self.__names = names if names is not None else [ ]
+        self.__values = values if values is not None else ( )
+        self.__paramstyle = style if style is not None else ParamStyle.qmark
         self.__kvp = dict( zip( names, list( values ) ) ) \
             if isinstance( names, list ) and isinstance( values, tuple ) else None
 
@@ -753,11 +753,10 @@ class SqlConfig( ):
         '''columndump( ) returns a string of columns
         used in select and insert statements from list self.__names'''
         try:
-            if isinstance( self.__names, list ):
+            if self.__names is not None:
                 cols = ''
-                columns = ''
                 for n in self.__names:
-                    cols += f'{n}, '
+                    cols += f'{ n }, '
                 columns = '(' + cols.rstrip( ', ' ) + ')'
                 return columns
         except Exception as e:
@@ -772,9 +771,8 @@ class SqlConfig( ):
         '''valuedump( ) returns a string of values
         used in select statements from list self.__names'''
         try:
-            if isinstance( self.__values, tuple ):
+            if self.__values is not None:
                 vals = ''
-                values = ''
                 for v in self.__values:
                     vals += f'{v}, '
                 values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
