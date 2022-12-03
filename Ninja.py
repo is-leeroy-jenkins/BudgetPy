@@ -431,7 +431,7 @@ class DbConfig( ):
         values value details'''
         self.__provider = provider
         self.__source = source
-        self.__table = source.name if isinstance( source, Source ) else None
+        self.__table = source.name
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
         self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
@@ -486,11 +486,11 @@ class DbConfig( ):
 
     def getdriver( self ):
         try:
-            if self.__provider.name == Provider.SQLite.name:
+            if self.__provider.name == 'SQLite':
                 return self.getpath( )
-            elif self.__provider.name == Provider.Access.name:
+            elif self.__provider.name == 'Access':
                 return self.__accessdriver
-            elif self.__provider.name == Provider.SqlServer.name:
+            elif self.__provider.name == 'SqlServer':
                 return self.__sqldriver
             else:
                 return self.__sqlitedriver
@@ -503,11 +503,11 @@ class DbConfig( ):
 
     def getpath( self ):
         try:
-            if self.__provider.name == Provider.SQLite.name:
+            if self.__provider.name == 'SQLite':
                 return self.__sqlitepath
-            elif self.__provider.name == Provider.Access.name:
+            elif self.__provider.name == 'Access':
                 return self.__accesspath
-            elif self.__provider.name == Provider.SqlServer.name:
+            elif self.__provider.name == 'SqlServer':
                 return self.__sqlpath
             else:
                 return self.__sqlitepath
