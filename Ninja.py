@@ -21,7 +21,7 @@ class Pascal( ):
 
     @input.setter
     def input( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__input = value
 
     @property
@@ -134,7 +134,7 @@ class SqlPath( ):
     @sqlitedriver.setter
     def sqlitedriver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if value is not None and value != '':
+        if value != '':
             self.__sqlitedriver = value
 
     @property
@@ -146,7 +146,7 @@ class SqlPath( ):
     @sqlitedata.setter
     def sqlitedata( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if value is not None and value != '':
+        if value != '':
             self.__sqlitedata = value
 
     @property
@@ -158,7 +158,7 @@ class SqlPath( ):
     @accessdriver.setter
     def accessdriver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if value is not None and value != '':
+        if value != '':
             self.__accessdriver = value
 
     @property
@@ -170,7 +170,7 @@ class SqlPath( ):
     @accessdata.setter
     def accessdata( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if value is not None and value != '':
+        if value != '':
             self.__accessdata = value
 
     @property
@@ -182,7 +182,7 @@ class SqlPath( ):
     @sqldriver.setter
     def sqldriver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if value is not None and value != '':
+        if value != '':
             self.__sqldriver = value
 
     @property
@@ -194,7 +194,7 @@ class SqlPath( ):
     @sqldata.setter
     def sqldata( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if value is not None and value != '':
+        if value != '':
             self.__sqldata = value
 
     def __init__( self ):
@@ -423,7 +423,7 @@ class DbConfig( ):
 
     @table.setter
     def table( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__table = value
 
     def __init__( self, source, provider = Provider.SQLite ):
@@ -547,32 +547,33 @@ class Connection( DbConfig ):
 
     @property
     def driver( self ):
-        if isinstance( self.__driver, str ):
+        if self.__driver is not None:
             return self.__driver
 
     @driver.setter
     def driver( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__driver = value
 
     @property
     def path( self ):
-        if isinstance( self.__path, str ):
+        if self.__path is not None:
             return self.__path
 
     @path.setter
     def path( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__path = value
 
     @property
     def connectionstring( self ):
-        if isinstance( self.__connectionstring, str ) and self.__connectionstring != '':
+        if self.__connectionstring is not None \
+                and self.__connectionstring != '':
             return self.__connectionstring
 
     @connectionstring.setter
     def connectionstring( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__connectionstring = value
 
     def __init__( self, source, provider = Provider.SQLite ):
@@ -603,7 +604,7 @@ class Connection( DbConfig ):
     def disconnect( self ):
         ''' Flushes and closes existing connection'''
         try:
-            if self.__connection is not None:
+            if isinstance( self.__connection, Connection ):
                 self.__connection.flush( )
                 self.__connection.close( )
                 self.__connection = None
@@ -628,60 +629,60 @@ class SqlConfig( ):
 
     @property
     def command( self ):
-        if isinstance( self.__command, SQL ):
+        if self.__command is not None:
             return self.__command
 
     @command.setter
     def command( self, value ):
-        if isinstance( value, SQL ):
+        if value != '':
             self.__command = value
 
     @property
     def names( self ):
         ''' builds crit from provider index namevaluepairs'''
-        if isinstance( self.__names, list ):
+        if self.__names is not None:
             return self.__names
 
     @names.setter
     def names( self, value ):
         ''' builds crit from provider index namevaluepairs'''
-        if value is not None and isinstance( value, list ):
+        if value is not None:
             self.__names = value
 
     @property
     def values( self ):
         ''' builds crit from provider index namevaluepairs'''
-        if isinstance( self.__values, tuple ):
+        if self.__values is not None:
             return self.__values
 
     @values.setter
     def values( self, value ):
         ''' builds crit from provider index namevaluepairs'''
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__values = value
 
     @property
     def paramstyle( self ):
         ''' Property representing the DBI paramstyle'''
-        if isinstance( self.__paramstyle, ParamStyle ):
+        if self.__paramstyle is not None:
             return self.__paramstyle
 
     @paramstyle.setter
     def paramstyle( self, value ):
         ''' Property representing the DBI paramstyle attribute'''
-        if isinstance( value, ParamStyle ):
+        if value is not None:
             self.__paramstyle = value
         else:
             self.__paramstyle = ParamStyle.qmark
 
     @property
     def keyvaluepairs( self ):
-        if isinstance( self.__kvp, dict ):
+        if self.__kvp is not None:
             return self.__kvp
 
     @keyvaluepairs.setter
     def keyvaluepairs( self, value ):
-        if isinstance( value, dict ):
+        if value is not None:
             self.__kvp = value
 
     def __init__( self, command = SQL.SELECTALL, names = [ ], values = ( ), style = None ):
@@ -697,7 +698,6 @@ class SqlConfig( ):
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 pairs = ''
-                criteria = ''
                 kvp = zip( self.__names, self.__values )
                 for k, v in kvp:
                     pairs += f'{k} = \'{v}\' AND '
@@ -874,7 +874,7 @@ class SqlStatement( ):
 
     @table.setter
     def table( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__table = value
 
     @property
@@ -904,7 +904,7 @@ class SqlStatement( ):
 
     @commandtext.setter
     def commandtext( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__text = value
 
     def __init__( self, dbcfg, sqlcfg ):
@@ -1061,7 +1061,7 @@ class Query( ):
 
     @table.setter
     def table( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__table = value
 
     @property
@@ -1091,7 +1091,7 @@ class Query( ):
 
     @commandtext.setter
     def commandtext( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__text = value
 
     @property
@@ -1320,7 +1320,7 @@ class AccessData( Query ):
 
     @query.setter
     def query( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
@@ -1987,7 +1987,7 @@ class BudgetData( ):
 
     @name.setter
     def name( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__name = value
 
     @property
@@ -1997,7 +1997,7 @@ class BudgetData( ):
 
     @path.setter
     def path( self, value ):
-        if value is not None and value != '':
+        if value != '':
             self.__path = value
 
     @property
