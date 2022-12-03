@@ -26,19 +26,19 @@ class Pascal( ):
 
     @property
     def output( self ):
-        if isinstance( self.__output, str ) and self.__output != '':
+        if  self.__output is not None and self.__output != '':
             return self.__output
 
     @output.setter
     def output( self, value ):
-        if isinstance( value, str ) and value != self.__input:
+        if value is not None and value != self.__input:
             self.__output = value
 
     def __init__( self, input = None ):
-        self.__input = input if isinstance( input, str ) and input != '' else None
+        self.__input = input if input is not None and input != '' else None
 
     def __str__( self ):
-        if isinstance( self.__output, str ) and self.__output != '':
+        if self.__output is not None and self.__output != '':
             return self.__output
 
     def split( self ):
@@ -140,7 +140,7 @@ class SqlPath( ):
     @property
     def sqlitedata( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqlitedata, str ):
+        if self.__sqlitedata is not None:
             return self.__sqlitedata
 
     @sqlitedata.setter
@@ -152,7 +152,7 @@ class SqlPath( ):
     @property
     def accessdriver( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__accessdriver, str ):
+        if self.__accessdriver is not None:
             return self.__accessdriver
 
     @accessdriver.setter
@@ -164,7 +164,7 @@ class SqlPath( ):
     @property
     def accessdata( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__accessdata, str ):
+        if self.__accessdata is not None:
             return self.__accessdata
 
     @accessdata.setter
@@ -176,7 +176,7 @@ class SqlPath( ):
     @property
     def sqldriver( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqldriver, str ):
+        if self.__sqldriver is not None:
             return self.__sqldriver
 
     @sqldriver.setter
@@ -188,7 +188,7 @@ class SqlPath( ):
     @property
     def sqldata( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqldata, str ):
+        if self.__sqldata is not None:
             return self.__sqldata
 
     @sqldata.setter
@@ -289,9 +289,9 @@ class SqlFile( ):
             'SchemaTypes', 'SpendingRates', 'StateOrganizations',
             'SubAppropriations', 'TransTypes', 'UnobligatedAuthority',
             'URL', 'WorkCodes' ]
-        self.__command = command if isinstance( command, SQL ) else SQL.SELECTALL
-        self.__source = source if isinstance( source, Source ) else Source.StatusOfFunds
-        self.__provider = provider if isinstance( provider, Provider ) else Provider.SQLite
+        self.__command = command if command is not None else SQL.SELECTALL
+        self.__source = source if source, Source is not None else Source.StatusOfFunds
+        self.__provider = provider if provider is not None else Provider.SQLite
 
     def getpath( self ):
         '''Method returning a string representing
