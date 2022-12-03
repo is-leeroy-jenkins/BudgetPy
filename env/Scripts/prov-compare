@@ -1,4 +1,4 @@
-#!C:\Users\teppler\source\compilers\py\python\python.exe
+#!C:\Users\terry\source\compilers\py\python\python.exe
 # encoding: utf-8
 """
 prov-compare -- Compare two PROV-JSON, PROV-XML, or RDF (PROV-O) files for equivalence

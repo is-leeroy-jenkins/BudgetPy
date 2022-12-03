@@ -16,12 +16,12 @@ class Pascal( ):
 
     @property
     def input( self ):
-        if isinstance( self.__input, str ) and self.__input != '':
+        if self.__input is not None:
             return self.__input
 
     @input.setter
     def input( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__input = value
 
     @property
@@ -45,7 +45,7 @@ class Pascal( ):
         '''takes the string provided as an input argument
          and formats it into pascal case'''
         try:
-            if isinstance( self.__input, str ) and self.__input.count( ' ' ) == 0:
+            if self.__input != '' and self.__input.count( ' ' ) == 0:
                 input = list( self.__input )
                 rtnstr = ''
                 outstr = ''
@@ -128,13 +128,13 @@ class SqlPath( ):
     @property
     def sqlitedriver( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( self.__sqlitedriver, str ):
+        if self.__sqlitedriver is not None:
             return self.__sqlitedriver
 
     @sqlitedriver.setter
     def sqlitedriver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__sqlitedriver = value
 
     @property
@@ -146,7 +146,7 @@ class SqlPath( ):
     @sqlitedata.setter
     def sqlitedata( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__sqlitedata = value
 
     @property
@@ -158,7 +158,7 @@ class SqlPath( ):
     @accessdriver.setter
     def accessdriver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__accessdriver = value
 
     @property
@@ -170,7 +170,7 @@ class SqlPath( ):
     @accessdata.setter
     def accessdata( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__accessdata = value
 
     @property
@@ -182,7 +182,7 @@ class SqlPath( ):
     @sqldriver.setter
     def sqldriver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__sqldriver = value
 
     @property
@@ -194,7 +194,7 @@ class SqlPath( ):
     @sqldata.setter
     def sqldata( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__sqldata = value
 
     def __init__( self ):
@@ -217,32 +217,32 @@ class SqlFile( ):
 
     @property
     def provider( self ):
-        if isinstance( self.__provider, Provider ):
+        if self.__provider is not None:
             return self.__provider
 
     @provider.setter
     def provider( self, value ):
-        if isinstance( value, Provider ):
+        if value is not None:
             self.__provider = value
 
     @property
     def source( self ):
-        if isinstance( self.__source, Source ):
+        if self.__source is not None:
             return self.__source
 
     @source.setter
     def source( self, value ):
-        if isinstance( value, Source ):
+        if value is not None:
             self.__source = value
 
     @property
     def command( self ):
-        if isinstance( self.__command, SQL ):
+        if  self.__command is not None:
             return self.__command
 
     @command.setter
     def command( self, value ):
-        if isinstance( value, SQL ):
+        if value is not None:
             self.__command = value
 
     def __init__( self, source = None, provider = None,
@@ -382,15 +382,15 @@ class SqlFile( ):
 
 # DbConfig( source, provider = Provider.SQLite )
 class DbConfig( ):
-    '''DbConfig( source, provider  ) provides list of Budget Execution
+    '''DbConfig( source, provider = Provider.SQLite ) provides list of Budget Execution
     tables across two databases ( values and references ) '''
-    __data = [ ]
     __source = None
     __provider = None
+    __data = [ ]
     __accessdriver = None
     __accesspath = None
     __sqldriver = None
-    __sqlserverpath = None
+    __sqlpath = None
     __sqlitepath = None
     __sqlitedriver = None
     __table = None
@@ -398,45 +398,45 @@ class DbConfig( ):
 
     @property
     def source( self ):
-        if isinstance( self.__source, Source ):
+        if self.__source is not None:
             return self.__source
 
     @source.setter
     def source( self, value ):
-        if isinstance( value, Source ):
+        if value is not None:
             self.__source = value
 
     @property
     def provider( self ):
-        if isinstance( self.__provider, Provider ):
+        if self.__provider is not None:
             return self.__provider
 
     @provider.setter
     def provider( self, value ):
-        if isinstance( value, Provider ):
+        if value is not None:
             self.__provider = value
 
     @property
     def table( self ):
-        if isinstance( self.__table, str ) and self.__table != '':
+        if self.__table is not None and self.__table != '':
             return self.__table
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, str ) and value in self.__data:
+        if value is not None and value != '':
             self.__table = value
 
     def __init__( self, source, provider = Provider.SQLite ):
         '''Constructor for the DbConfig class providing
         values value details'''
-        self.__provider = provider if isinstance( provider, Provider ) else None
-        self.__source = source if isinstance( source, Source ) else None
+        self.__provider = provider
+        self.__source = source
         self.__table = source.name if isinstance( source, Source ) else None
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
         self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
-        self.__sqlserverpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
+        self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
         self.__data = [ 'Actuals', 'AdministrativeRequests', 'Allocations',
             'AmericanRescuePlan', 'AnnualCarryoverEstimates', 'AnnualCarryoverSurvey',
             'AnnualReimbursableEstimates', 'AnnualReimbursableSurvey', 'ApplicationTables',
@@ -503,12 +503,12 @@ class DbConfig( ):
 
     def getpath( self ):
         try:
-            if self.__provider == Provider.SQLite:
+            if self.__provider.name == Provider.SQLite.name:
                 return self.__sqlitepath
-            elif self.__provider == Provider.Access:
+            elif self.__provider.name == Provider.Access.name:
                 return self.__accesspath
-            elif self.__provider == Provider.SqlServer:
-                return self.__sqlreferencepath
+            elif self.__provider.name == Provider.SqlServer.name:
+                return self.__sqlpath
             else:
                 return self.__sqlitepath
         except Exception as e:
@@ -552,7 +552,7 @@ class Connection( DbConfig ):
 
     @driver.setter
     def driver( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__driver = value
 
     @property
@@ -562,7 +562,7 @@ class Connection( DbConfig ):
 
     @path.setter
     def path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__path = value
 
     @property
@@ -572,7 +572,7 @@ class Connection( DbConfig ):
 
     @connectionstring.setter
     def connectionstring( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__connectionstring = value
 
     def __init__( self, source, provider = Provider.SQLite ):
@@ -874,7 +874,7 @@ class SqlStatement( ):
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__table = value
 
     @property
@@ -904,7 +904,7 @@ class SqlStatement( ):
 
     @commandtext.setter
     def commandtext( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__text = value
 
     def __init__( self, dbcfg, sqlcfg ):
@@ -1061,7 +1061,7 @@ class Query( ):
 
     @table.setter
     def table( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__table = value
 
     @property
@@ -1091,7 +1091,7 @@ class Query( ):
 
     @commandtext.setter
     def commandtext( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__text = value
 
     @property
@@ -1320,7 +1320,7 @@ class AccessData( Query ):
 
     @query.setter
     def query( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
@@ -1987,7 +1987,7 @@ class BudgetData( ):
 
     @name.setter
     def name( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__name = value
 
     @property
@@ -1997,7 +1997,7 @@ class BudgetData( ):
 
     @path.setter
     def path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None and value != '':
             self.__path = value
 
     @property
