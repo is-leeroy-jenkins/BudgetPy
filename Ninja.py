@@ -290,7 +290,7 @@ class SqlFile( ):
             'SubAppropriations', 'TransTypes', 'UnobligatedAuthority',
             'URL', 'WorkCodes' ]
         self.__command = command if command is not None else SQL.SELECTALL
-        self.__source = source if source, Source is not None else Source.StatusOfFunds
+        self.__source = source if source is not None else Source.StatusOfFunds
         self.__provider = provider if provider is not None else Provider.SQLite
 
     def getpath( self ):
