@@ -839,27 +839,27 @@ class SqlStatement( ):
 
     @provider.setter
     def provider( self, value ):
-        if isinstance( value, Provider ):
+        if value is not None:
             self.__provider = value
 
     @property
     def path( self ):
-        if isinstance( self.__path, str ):
+        if self.__path is not None:
             return self.__path
 
     @path.setter
     def path( self, value ):
-        if isinstance( value, str ):
+        if value is not None:
             self.__path = value
 
     @property
     def commandtype( self ):
-        if isinstance( self.__cmdtyp, SQL ):
+        if self.__cmdtyp is not None:
             return self.__cmdtyp
 
     @commandtype.setter
     def commandtype( self, value ):
-        if isinstance( value, SQL ):
+        if value is not None:
             self.__cmdtyp = value
         else:
             command = SQL( 'SELECT' )
@@ -877,27 +877,27 @@ class SqlStatement( ):
 
     @property
     def names( self ):
-        if isinstance( self.__names, list ):
+        if self.__names is not None:
             return self.__names
 
     @names.setter
     def names( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__names = value
 
     @property
     def values( self ):
-        if isinstance( self.__values, tuple ):
+        if self.__values is not None:
             return self.__values
 
     @values.setter
     def values( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__values = value
 
     @property
     def commandtext( self ):
-        if isinstance( self.__text, str ) and self.__text != '':
+        if self.__text is not None:
             return self.__text
 
     @commandtext.setter
@@ -920,6 +920,7 @@ class SqlStatement( ):
             return self.__text
 
     def getquery( self ) -> str:
+
         try:
             table = self.__table
             columns = self.__sqlcfg.columndump( )
