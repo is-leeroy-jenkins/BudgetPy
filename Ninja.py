@@ -906,21 +906,21 @@ class SqlStatement( ):
             self.__text = value
 
     def __init__( self, dbcfg, sqlcfg ):
-        self.__sqlcfg = sqlcfg if isinstance( sqlcfg, SqlConfig ) else None
-        self.__dbcfg = dbcfg if isinstance( dbcfg, DbConfig ) else None
+        self.__dbcfg = dbcfg
+        self.__sqlcfg = sqlcfg
         self.__cmdtyp = sqlcfg.command
         self.__provider = dbcfg.provider
         self.__source = dbcfg.source
         self.__table = dbcfg.table
         self.__names = sqlcfg.names
         self.__values = sqlcfg.values
+        self.__text = self.getquery( )
 
     def __str__( self ):
         if isinstance( self.__text, str ) and self.__text != '':
             return self.__text
 
     def getquery( self ) -> str:
-
         try:
             table = self.__table
             columns = self.__sqlcfg.columndump( )
