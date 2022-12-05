@@ -4943,7 +4943,7 @@ class Commitments( ):
 
     @property
     def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rccode.setter
@@ -4953,7 +4953,7 @@ class Commitments( ):
 
     @property
     def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rcname.setter
@@ -4963,7 +4963,7 @@ class Commitments( ):
 
     @property
     def documenttype( self ):
-        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @documenttype.setter
@@ -4973,7 +4973,7 @@ class Commitments( ):
 
     @property
     def documentnumber( self ):
-        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+        if self.__documentnumber is not None:
             return self.__documentnumber
 
     @documentnumber.setter
@@ -4983,7 +4983,7 @@ class Commitments( ):
 
     @property
     def documentcontrolnumber( self ):
-        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+        if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
@@ -4993,8 +4993,7 @@ class Commitments( ):
 
     @property
     def referencedocumentnumber( self ):
-        if isinstance( self.__referencedocumentnumber,
-                str ) and self.__referencedocumentnumber != '':
+        if self.__referencedocumentnumbe is not None:
             return self.__referencedocumentnumber
 
     @referencedocumentnumber.setter
@@ -5004,7 +5003,7 @@ class Commitments( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, datetime ):
+        if self.__processeddate is not None:
             return self.__processeddate
 
     @processeddate.setter
@@ -5014,7 +5013,7 @@ class Commitments( ):
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, datetime ):
+        if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @lastactivitydate.setter
@@ -5024,7 +5023,7 @@ class Commitments( ):
 
     @property
     def age( self ):
-        if isinstance( self.__age, int ):
+        if self.__age is not None:
             return self.__age
 
     @age.setter
@@ -5034,7 +5033,7 @@ class Commitments( ):
 
     @property
     def vendorcode( self ):
-        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+        if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendorcode.setter
@@ -5044,7 +5043,7 @@ class Commitments( ):
 
     @property
     def vendorname( self ):
-        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+        if self.__vendorname is not None:
             return self.__vendorname
 
     @vendorname.setter
@@ -5054,7 +5053,7 @@ class Commitments( ):
 
     @property
     def foccode( self ):
-        if isinstance( self.__foccode, str ) and self.__foccode != '':
+        if self.__foccode is not None:
             return self.__foccode
 
     @foccode.setter
@@ -5064,7 +5063,7 @@ class Commitments( ):
 
     @property
     def focname( self ):
-        if isinstance( self.__focname, str ) and self.__focname != '':
+        if self.__focname is not None:
             return self.__focname
 
     @focname.setter
@@ -5074,7 +5073,7 @@ class Commitments( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -5084,7 +5083,7 @@ class Commitments( ):
 
     @property
     def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @programprojectcode.setter
@@ -5094,7 +5093,7 @@ class Commitments( ):
 
     @property
     def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if  self.__programprojectname is not None:
             return self.__programprojectname
 
     @programprojectname.setter
@@ -5104,7 +5103,7 @@ class Commitments( ):
 
     @property
     def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @programareacode.setter
@@ -5114,7 +5113,7 @@ class Commitments( ):
 
     @property
     def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @programareaname.setter
@@ -5124,7 +5123,7 @@ class Commitments( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if  self.__goalcode is not None:
             return self.__goalcode
 
     @goalcode.setter
@@ -5134,7 +5133,7 @@ class Commitments( ):
 
     @property
     def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goalname.setter
@@ -5144,7 +5143,7 @@ class Commitments( ):
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objectivecode.setter
@@ -5154,7 +5153,7 @@ class Commitments( ):
 
     @property
     def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objectivename.setter
@@ -5164,7 +5163,7 @@ class Commitments( ):
 
     @property
     def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npmcode.setter
@@ -5174,7 +5173,7 @@ class Commitments( ):
 
     @property
     def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npmname.setter
@@ -6619,7 +6618,7 @@ class Defacto( ):
 
     @property
     def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rccode.setter
@@ -6639,7 +6638,7 @@ class Defacto( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -6649,7 +6648,7 @@ class Defacto( ):
 
     @property
     def budgeted( self ):
-        if isinstance( self.__budgeted, float ):
+        if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
@@ -6659,7 +6658,7 @@ class Defacto( ):
 
     @property
     def posted( self ):
-        if isinstance( self.__posted, float ):
+        if self.__posted is not None:
             return self.__posted
 
     @posted.setter
@@ -6669,7 +6668,7 @@ class Defacto( ):
 
     @property
     def opencommitments( self ):
-        if isinstance( self.__opencommitments, float ):
+        if self.__opencommitments is not None:
             return self.__opencommitments
 
     @opencommitments.setter
@@ -6679,7 +6678,7 @@ class Defacto( ):
 
     @property
     def obligations( self ):
-        if isinstance( self.__obligations, float ):
+        if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
@@ -6689,7 +6688,7 @@ class Defacto( ):
 
     @property
     def unliquidatedobligations( self ):
-        if isinstance( self.__unliquidatedobligations, float ):
+        if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidatedobligations.setter
@@ -6709,7 +6708,7 @@ class Defacto( ):
 
     @property
     def used( self ):
-        if isinstance( self.__used, float ):
+        if self.__used is not None:
             return self.__used
 
     @used.setter
@@ -6719,7 +6718,7 @@ class Defacto( ):
 
     @property
     def available( self ):
-        if isinstance( self.__avaialable, float ):
+        if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
@@ -7089,28 +7088,8 @@ class Deobligation( ):
             self.__accountcode = value
 
     @property
-    def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
-            return self.__orgcode
-
-    @orgcode.setter
-    def orgcode( self, value ):
-        if value is not None:
-            self.__orgcode = value
-
-    @property
-    def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
-            return self.__orgname
-
-    @orgname.setter
-    def orgname( self, value ):
-        if value is not None:
-            self.__orgname = value
-
-    @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -7120,7 +7099,7 @@ class Deobligation( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -7130,7 +7109,7 @@ class Deobligation( ):
 
     @property
     def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rccode.setter
@@ -7140,7 +7119,7 @@ class Deobligation( ):
 
     @property
     def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rcname.setter
@@ -7150,7 +7129,7 @@ class Deobligation( ):
 
     @property
     def documenttype( self ):
-        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @documenttype.setter
@@ -7160,7 +7139,7 @@ class Deobligation( ):
 
     @property
     def documentnumber( self ):
-        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+        if self.__documentnumber is not None:
             return self.__documentnumber
 
     @documentnumber.setter
@@ -7170,7 +7149,7 @@ class Deobligation( ):
 
     @property
     def documentcontrolnumber( self ):
-        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+        if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
@@ -7180,8 +7159,7 @@ class Deobligation( ):
 
     @property
     def referencedocumentnumber( self ):
-        if isinstance( self.__referencedocumentnumber,
-                str ) and self.__referencedocumentnumber != '':
+        if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @referencedocumentnumber.setter
