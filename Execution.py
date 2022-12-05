@@ -496,7 +496,7 @@ class AllowanceHolders( ):
             source = self.__source
             provider = self.__provider
             n = [ 'Code', ]
-            v = (self.__code,)
+            v = ( self.__code, )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
