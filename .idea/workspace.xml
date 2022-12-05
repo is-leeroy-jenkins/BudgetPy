@@ -9,25 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/gui/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/fitz" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/fitz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/get_objgraph" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/get_objgraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/log2design.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/log2design.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-connect" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-connect" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-play" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-play" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-ports" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-ports" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/mido-serve" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/mido-serve" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/prov-compare" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/prov-compare" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/prov-convert" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/prov-convert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/pydocx-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pydocx-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/pyjson5-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pyjson5-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/reload-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/reload-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/sessionmirror.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/sessionmirror.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/undill" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/undill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/BudgetPy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/notebooks/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/notebooks/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/Execution.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,13 +207,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00373" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1659042902055</created>
-      <option name="number" value="00373" />
-      <option name="presentableId" value="LOCAL-00373" />
-      <option name="project" value="LOCAL" />
-      <updated>1659042902057</updated>
     </task>
     <task id="LOCAL-00374" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1659130507831</created>
@@ -568,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670020826439</updated>
     </task>
-    <option name="localTasksCounter" value="422" />
+    <task id="LOCAL-00422" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1670249808000</created>
+      <option name="number" value="00422" />
+      <option name="presentableId" value="LOCAL-00422" />
+      <option name="project" value="LOCAL" />
+      <updated>1670249808000</updated>
+    </task>
+    <option name="localTasksCounter" value="423" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
