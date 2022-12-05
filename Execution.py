@@ -4596,7 +4596,7 @@ class CompassLevels( ):
 
     @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -4606,7 +4606,7 @@ class CompassLevels( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
@@ -4616,8 +4616,7 @@ class CompassLevels( ):
 
     @property
     def appropriationcode( self ):
-        if isinstance( self.__appropriationcode, str ) \
-                and self.__appropriationcode != '':
+        if self.__appropriationcode is not None:
             return self.__appropriationcode
 
     @appropriationcode.setter
@@ -4627,8 +4626,7 @@ class CompassLevels( ):
 
     @property
     def appropriationname( self ):
-        if isinstance( self.__appropriationname, str ) \
-                and self.__appropriationname != '':
+        if self.__appropriationname is not None:
             return self.__appropriationname
 
     @appropriationname.setter
@@ -4638,8 +4636,7 @@ class CompassLevels( ):
 
     @property
     def subappropriationcode( self ):
-        if isinstance( self.__subappropriationcode, str ) \
-                and self.__subappropriationcode != '':
+        if self.__subappropriationcode is not None:
             return self.__subappropriationcode
 
     @subappropriationcode.setter
@@ -7169,27 +7166,27 @@ class Deobligation( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, datetime ):
+        if self.__processeddate is not None:
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__processeddate = value
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, datetime ):
+        if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @lastactivitydate.setter
     def lastactivitydate( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__lastactivitydate = value
 
     @property
     def age( self ):
-        if isinstance( self.__age, int ):
+        if self.__age is not None:
             return self.__age
 
     @age.setter
@@ -7199,7 +7196,7 @@ class Deobligation( ):
 
     @property
     def vendorcode( self ):
-        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+        if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendorcode.setter
@@ -7209,7 +7206,7 @@ class Deobligation( ):
 
     @property
     def vendorname( self ):
-        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+        if self.__vendorname is not None:
             return self.__vendorname
 
     @vendorname.setter
@@ -7219,7 +7216,7 @@ class Deobligation( ):
 
     @property
     def foccode( self ):
-        if isinstance( self.__foccode, str ) and self.__foccode != '':
+        if self.__foccode is not None:
             return self.__foccode
 
     @foccode.setter
@@ -7229,7 +7226,7 @@ class Deobligation( ):
 
     @property
     def focname( self ):
-        if isinstance( self.__focname, str ) and self.__focname != '':
+        if self.__focname is not None:
             return self.__focname
 
     @focname.setter
@@ -7239,7 +7236,7 @@ class Deobligation( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -7249,7 +7246,7 @@ class Deobligation( ):
 
     @property
     def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @programprojectcode.setter
@@ -7259,7 +7256,7 @@ class Deobligation( ):
 
     @property
     def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @programprojectname.setter
@@ -7269,7 +7266,7 @@ class Deobligation( ):
 
     @property
     def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @programareacode.setter
@@ -7279,7 +7276,7 @@ class Deobligation( ):
 
     @property
     def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @programareaname.setter
@@ -7289,7 +7286,7 @@ class Deobligation( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goalcode.setter
@@ -7299,7 +7296,7 @@ class Deobligation( ):
 
     @property
     def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goalname.setter
@@ -7309,7 +7306,7 @@ class Deobligation( ):
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objectivecode.setter
@@ -7319,7 +7316,7 @@ class Deobligation( ):
 
     @property
     def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objectivename.setter
@@ -7329,7 +7326,7 @@ class Deobligation( ):
 
     @property
     def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npmcode.setter
@@ -7339,7 +7336,7 @@ class Deobligation( ):
 
     @property
     def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npmname.setter
