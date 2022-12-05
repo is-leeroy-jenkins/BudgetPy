@@ -4301,7 +4301,7 @@ class CongressionalControls( ):
 
     @property
     def id( self ):
-        if isinstance( self.__congressionalcontrolsid, int ):
+        if self.__congressionalcontrolsid is not None:
             return self.__congressionalcontrolsid
 
     @id.setter
@@ -4314,6 +4314,11 @@ class CongressionalControls( ):
         if isinstance( self.__bfy, str ) and self.__bfy != '':
             return self.__bfy
 
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
     @bfy.setter
     def bfy( self, value ):
         if value is not None:
@@ -4321,7 +4326,7 @@ class CongressionalControls( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -4561,17 +4566,17 @@ class CompassLevels( ):
 
     @property
     def id( self ):
-        if isinstance( self.__compasslevelsid, int ):
+        if self.__compasslevelsid is not None:
             return self.__compasslevelsid
 
     @id.setter
     def id( self, value ):
-        if isinstance( value, int ) and value > -1:
+        if value is not None:
             self.__compasslevelsid = value
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -4581,7 +4586,7 @@ class CompassLevels( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -4828,7 +4833,7 @@ class Commitments( ):
 
     @property
     def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpiocode.setter
@@ -4838,17 +4843,17 @@ class Commitments( ):
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpiocode.setter
+    def rpiocode( self, value ):
         if value is not None:
-            self.__rpioname = value
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ahcode.setter
@@ -4858,7 +4863,7 @@ class Commitments( ):
 
     @property
     def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ahname.setter
@@ -4868,7 +4873,7 @@ class Commitments( ):
 
     @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -4878,7 +4883,7 @@ class Commitments( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
@@ -4888,7 +4893,7 @@ class Commitments( ):
 
     @property
     def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
@@ -4898,7 +4903,7 @@ class Commitments( ):
 
     @property
     def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
@@ -4908,7 +4913,7 @@ class Commitments( ):
 
     @property
     def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @accountcode.setter
@@ -4918,7 +4923,7 @@ class Commitments( ):
 
     @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -4928,7 +4933,7 @@ class Commitments( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -5709,27 +5714,27 @@ class CarryoverEstimates( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
     def bfy( self, value ):
-        if isinstance( value, str ) and len( value ) == 4:
+        if value is not None:
             self.__bfy = value
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
     def efy( self, value ):
-        if isinstance( value, str ) and len( value ) == 4:
+        if value is not None:
             self.__efy = value
 
     @property
     def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpiocode.setter
@@ -5739,37 +5744,17 @@ class CarryoverEstimates( ):
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpiocode.setter
+    def rpiocode( self, value ):
         if value is not None:
-            self.__rpioname = value
-
-    @property
-    def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
-            return self.__fundcode
-
-    @fundcode.setter
-    def fundcode( self, value ):
-        if value is not None:
-            self.__fundcode = value
-
-    @property
-    def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
-            return self.__fundname
-
-    @fundname.setter
-    def fundname( self, value ):
-        if value is not None:
-            self.__fundname = value
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ahcode.setter
@@ -5779,7 +5764,7 @@ class CarryoverEstimates( ):
 
     @property
     def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ahname.setter
@@ -5788,14 +5773,74 @@ class CarryoverEstimates( ):
             self.__ahname = value
 
     @property
+    def fundcode( self ):
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if value is not None:
+            self.__orgname = value
+
+    @property
     def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @accountcode.setter
     def accountcode( self, value ):
         if value is not None:
             self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if self.__boccode is not None:
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if value is not None:
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if self.__bocname is not None:
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if value is not None:
+            self.__bocname = value
 
     @property
     def programprojectcode( self ):
@@ -5826,26 +5871,6 @@ class CarryoverEstimates( ):
     def orgcode( self, value ):
         if value is not None:
             self.__orgcode = value
-
-    @property
-    def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
-            return self.__boccode
-
-    @boccode.setter
-    def boccode( self, value ):
-        if value is not None:
-            self.__boccode = value
-
-    @property
-    def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
-            return self.__bocname
-
-    @bocname.setter
-    def bocname( self, value ):
-        if value is not None:
-            self.__bocname = value
 
     @property
     def availablebalance( self ):
@@ -6028,7 +6053,7 @@ class CarryoverSurvey( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -6038,7 +6063,7 @@ class CarryoverSurvey( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -6464,7 +6489,7 @@ class Defacto( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -6474,7 +6499,7 @@ class Defacto( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -6484,7 +6509,7 @@ class Defacto( ):
 
     @property
     def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpiocode.setter
@@ -6494,7 +6519,7 @@ class Defacto( ):
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpiocode.setter
@@ -6504,7 +6529,7 @@ class Defacto( ):
 
     @property
     def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ahcode.setter
@@ -6514,7 +6539,7 @@ class Defacto( ):
 
     @property
     def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ahname.setter
@@ -6524,7 +6549,7 @@ class Defacto( ):
 
     @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -6534,7 +6559,7 @@ class Defacto( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
@@ -6544,7 +6569,7 @@ class Defacto( ):
 
     @property
     def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
@@ -6554,7 +6579,7 @@ class Defacto( ):
 
     @property
     def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
@@ -6564,7 +6589,7 @@ class Defacto( ):
 
     @property
     def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @accountcode.setter
@@ -6574,7 +6599,7 @@ class Defacto( ):
 
     @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -6584,7 +6609,7 @@ class Defacto( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -6604,7 +6629,7 @@ class Defacto( ):
 
     @property
     def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rcname.setter
@@ -6704,7 +6729,7 @@ class Defacto( ):
 
     @property
     def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @programprojectcode.setter
@@ -6714,7 +6739,7 @@ class Defacto( ):
 
     @property
     def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @programprojectname.setter
@@ -6724,7 +6749,7 @@ class Defacto( ):
 
     @property
     def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @programareacode.setter
@@ -6744,7 +6769,7 @@ class Defacto( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goalcode.setter
@@ -6754,7 +6779,7 @@ class Defacto( ):
 
     @property
     def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goalname.setter
@@ -6764,7 +6789,7 @@ class Defacto( ):
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objectivecode.setter
@@ -6774,7 +6799,7 @@ class Defacto( ):
 
     @property
     def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objectivename.setter
@@ -6784,7 +6809,7 @@ class Defacto( ):
 
     @property
     def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npmcode.setter
@@ -6794,7 +6819,7 @@ class Defacto( ):
 
     @property
     def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npmname.setter
@@ -6955,7 +6980,7 @@ class Deobligation( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -6965,7 +6990,7 @@ class Deobligation( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -6975,7 +7000,7 @@ class Deobligation( ):
 
     @property
     def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpiocode.setter
@@ -6985,7 +7010,7 @@ class Deobligation( ):
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpiocode.setter
@@ -6995,7 +7020,7 @@ class Deobligation( ):
 
     @property
     def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ahcode.setter
@@ -7005,7 +7030,7 @@ class Deobligation( ):
 
     @property
     def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ahname.setter
@@ -7015,7 +7040,7 @@ class Deobligation( ):
 
     @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -7025,13 +7050,43 @@ class Deobligation( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
     def fundname( self, value ):
         if value is not None:
             self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if value is not None:
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if self.__accountcode is not None:
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if value is not None:
+            self.__accountcode = value
 
     @property
     def orgcode( self ):
@@ -7052,16 +7107,6 @@ class Deobligation( ):
     def orgname( self, value ):
         if value is not None:
             self.__orgname = value
-
-    @property
-    def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
-            return self.__accountcode
-
-    @accountcode.setter
-    def accountcode( self, value ):
-        if value is not None:
-            self.__accountcode = value
 
     @property
     def boccode( self ):
@@ -7622,7 +7667,7 @@ class Expenditures( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -7632,7 +7677,7 @@ class Expenditures( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -7642,7 +7687,7 @@ class Expenditures( ):
 
     @property
     def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpiocode.setter
@@ -7652,17 +7697,17 @@ class Expenditures( ):
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpiocode.setter
+    def rpiocode( self, value ):
         if value is not None:
-            self.__rpioname = value
+            self.__rpiocode = value
 
     @property
     def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ahcode.setter
@@ -7672,7 +7717,7 @@ class Expenditures( ):
 
     @property
     def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ahname.setter
@@ -7682,7 +7727,7 @@ class Expenditures( ):
 
     @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -7692,7 +7737,7 @@ class Expenditures( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
@@ -7702,7 +7747,7 @@ class Expenditures( ):
 
     @property
     def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
@@ -7712,7 +7757,7 @@ class Expenditures( ):
 
     @property
     def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
@@ -7722,7 +7767,7 @@ class Expenditures( ):
 
     @property
     def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @accountcode.setter
@@ -7732,7 +7777,7 @@ class Expenditures( ):
 
     @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -7742,7 +7787,7 @@ class Expenditures( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -7751,8 +7796,29 @@ class Expenditures( ):
             self.__bocname = value
 
     @property
+    def orgcode( self ):
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if value is not None:
+            self.__orgname = value
+
+
+    @property
     def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rccode.setter
@@ -7762,7 +7828,7 @@ class Expenditures( ):
 
     @property
     def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rcname.setter
@@ -7772,7 +7838,7 @@ class Expenditures( ):
 
     @property
     def documenttype( self ):
-        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @documenttype.setter
@@ -7782,7 +7848,7 @@ class Expenditures( ):
 
     @property
     def documentnumber( self ):
-        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+        if self.__documentnumber is not None:
             return self.__documentnumber
 
     @documentnumber.setter
@@ -7792,7 +7858,7 @@ class Expenditures( ):
 
     @property
     def documentcontrolnumber( self ):
-        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+        if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
@@ -7802,8 +7868,7 @@ class Expenditures( ):
 
     @property
     def referencedocumentnumber( self ):
-        if isinstance( self.__referencedocumentnumber,
-                str ) and self.__referencedocumentnumber != '':
+        if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @referencedocumentnumber.setter
@@ -7813,27 +7878,27 @@ class Expenditures( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, datetime ):
+        if self.__processeddate is not None:
             return self.__processeddate
 
     @processeddate.setter
     def processeddate( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__processeddate = value
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, datetime ):
+        if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @lastactivitydate.setter
     def lastactivitydate( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__lastactivitydate = value
 
     @property
     def age( self ):
-        if isinstance( self.__age, int ):
+        if self.__age is not None:
             return self.__age
 
     @age.setter
@@ -7843,7 +7908,7 @@ class Expenditures( ):
 
     @property
     def vendorcode( self ):
-        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+        if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendorcode.setter
@@ -7853,7 +7918,7 @@ class Expenditures( ):
 
     @property
     def vendorname( self ):
-        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+        if self.__vendorname is not None:
             return self.__vendorname
 
     @vendorname.setter
@@ -7863,7 +7928,7 @@ class Expenditures( ):
 
     @property
     def foccode( self ):
-        if isinstance( self.__foccode, str ) and self.__foccode != '':
+        if self.__foccode is not None:
             return self.__foccode
 
     @foccode.setter
@@ -7873,7 +7938,7 @@ class Expenditures( ):
 
     @property
     def focname( self ):
-        if isinstance( self.__focname, str ) and self.__focname != '':
+        if self.__focname is not None:
             return self.__focname
 
     @focname.setter
@@ -7883,7 +7948,7 @@ class Expenditures( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -7893,7 +7958,7 @@ class Expenditures( ):
 
     @property
     def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @programprojectcode.setter
@@ -7903,7 +7968,7 @@ class Expenditures( ):
 
     @property
     def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @programprojectname.setter
@@ -7913,7 +7978,7 @@ class Expenditures( ):
 
     @property
     def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @programareacode.setter
@@ -7923,7 +7988,7 @@ class Expenditures( ):
 
     @property
     def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @programareaname.setter
@@ -7933,7 +7998,7 @@ class Expenditures( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goalcode.setter
@@ -7943,7 +8008,7 @@ class Expenditures( ):
 
     @property
     def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goalname.setter
@@ -7953,7 +8018,7 @@ class Expenditures( ):
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objectivecode.setter
@@ -7963,7 +8028,7 @@ class Expenditures( ):
 
     @property
     def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objectivename.setter
@@ -7973,7 +8038,7 @@ class Expenditures( ):
 
     @property
     def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npmcode.setter
@@ -7983,7 +8048,7 @@ class Expenditures( ):
 
     @property
     def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npmname.setter
@@ -8734,8 +8799,17 @@ class FederalHoliday( ):
     @bfy.setter
     def bfy( self, value ):
         if value is not None:
-            self.__bfy = str( value )
-            self.__data[ 'value' ] = self.__bfy
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
 
     @property
     def name( self ):
@@ -9235,7 +9309,7 @@ class FullTimeEquivalents( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -9245,7 +9319,7 @@ class FullTimeEquivalents( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -9584,7 +9658,7 @@ class GeneralLedgerAccounts( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -9594,7 +9668,7 @@ class GeneralLedgerAccounts( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -10067,7 +10141,7 @@ class HeadquartersAuthority( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -10077,7 +10151,7 @@ class HeadquartersAuthority( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -10147,7 +10221,7 @@ class HeadquartersAuthority( ):
 
     @property
     def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
@@ -10157,7 +10231,7 @@ class HeadquartersAuthority( ):
 
     @property
     def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
@@ -10167,7 +10241,7 @@ class HeadquartersAuthority( ):
 
     @property
     def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @accountcode.setter
@@ -10177,7 +10251,7 @@ class HeadquartersAuthority( ):
 
     @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -10187,7 +10261,7 @@ class HeadquartersAuthority( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -10247,7 +10321,7 @@ class HeadquartersAuthority( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goalcode.setter
@@ -10257,7 +10331,7 @@ class HeadquartersAuthority( ):
 
     @property
     def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goalname.setter
@@ -10267,7 +10341,7 @@ class HeadquartersAuthority( ):
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objectivecode.setter
@@ -10277,7 +10351,7 @@ class HeadquartersAuthority( ):
 
     @property
     def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objectivename.setter
@@ -10287,7 +10361,7 @@ class HeadquartersAuthority( ):
 
     @property
     def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npmcode.setter
@@ -10297,7 +10371,7 @@ class HeadquartersAuthority( ):
 
     @property
     def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npmname.setter
@@ -10710,7 +10784,7 @@ class MonthlyOutlays( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -10720,7 +10794,7 @@ class MonthlyOutlays( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -11545,7 +11619,7 @@ class OperatingPlans( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -11555,7 +11629,7 @@ class OperatingPlans( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -11930,7 +12004,7 @@ class OpenCommitments( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -11940,7 +12014,7 @@ class OpenCommitments( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -12460,7 +12534,7 @@ class Obligations( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -12470,7 +12544,7 @@ class Obligations( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -13064,13 +13138,23 @@ class PublicLaws( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
     def bfy( self, value ):
         if value is not None:
             self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
 
     @property
     def lawnumber( self ):
@@ -13092,9 +13176,10 @@ class PublicLaws( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, bfy, number, provider = Provider.SQLite ):
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__lawnumber = number if isinstance( number, str ) and number != '' else None
+    def __init__( self, bfy, efy, number, provider = Provider.SQLite ):
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__lawnumber = number
         self.__provider = provider
         self.__source = Source.PublicLaws
         self.__fields = [ 'PublicLawsId',
@@ -13171,7 +13256,7 @@ class PayrollActivity( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -13181,7 +13266,7 @@ class PayrollActivity( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -14265,23 +14350,23 @@ class ProgramResultsCode( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, year ):
-        if isinstance( year, str) and len( year ) == 4:
-            self.__bfy = year
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, year ):
-        if isinstance( year, str) and len( year ) == 4:
-            self.__efy = year
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
 
     @property
     def rpiocode( self ):
@@ -15045,7 +15130,7 @@ class ReimbursableSurvey( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -15055,7 +15140,7 @@ class ReimbursableSurvey( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -15196,13 +15281,23 @@ class ReimbursableAgreements( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
     def bfy( self, value ):
         if value is not None:
             self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
 
     @property
     def fundcode( self ):
@@ -15473,7 +15568,7 @@ class RegionalAuthority( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -15483,7 +15578,7 @@ class RegionalAuthority( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -15851,7 +15946,7 @@ class StatusOfFunds( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -15861,7 +15956,7 @@ class StatusOfFunds( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -16335,7 +16430,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -16345,7 +16440,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -16805,7 +16900,7 @@ class StateGrantObligation( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -16815,7 +16910,7 @@ class StateGrantObligation( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -17116,7 +17211,7 @@ class SpecialAccounts( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -17126,7 +17221,7 @@ class SpecialAccounts( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -17433,7 +17528,7 @@ class SuperfundSites( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -17443,7 +17538,7 @@ class SuperfundSites( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -19280,7 +19375,7 @@ class StatusOfSupplementalFunds( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -19290,7 +19385,7 @@ class StatusOfSupplementalFunds( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -19395,7 +19490,7 @@ class StatusOfJobsActFunding( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -19405,7 +19500,7 @@ class StatusOfJobsActFunding( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -19510,7 +19605,7 @@ class StatusOfEarmarks( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -19520,7 +19615,7 @@ class StatusOfEarmarks( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -19659,7 +19754,7 @@ class SiteActivity( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -19669,7 +19764,7 @@ class SiteActivity( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -20333,22 +20428,22 @@ class Transfers( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
     def bfy( self, value ):
-        if isinstance( value, str ) and len( value ) == 4:
+        if value is not None:
             self.__bfy = value
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
     def efy( self, value ):
-        if isinstance( value, str ) and len( value ) == 4:
+        if value is not None:
             self.__efy = value
 
     @property
@@ -20703,7 +20798,7 @@ class TransTypes( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -20713,7 +20808,7 @@ class TransTypes( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -20993,7 +21088,7 @@ class UnobligatedBalances( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -21003,7 +21098,7 @@ class UnobligatedBalances( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -21201,7 +21296,7 @@ class UnliquidatedObligations( ):
 
     @property
     def bfy( self ):
-        if isinstance( self.__bfy, str ) and self.__bfy != '':
+        if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
@@ -21211,7 +21306,7 @@ class UnliquidatedObligations( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
