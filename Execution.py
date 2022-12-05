@@ -12958,7 +12958,7 @@ class Obligations( ):
 
     @property
     def documenttype( self ):
-        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+        if self.__documenttyp is not None:
             return self.__documenttype
 
     @documenttype.setter
@@ -12968,7 +12968,7 @@ class Obligations( ):
 
     @property
     def documentnumber( self ):
-        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+        if self.__documentnumber is not None:
             return self.__documentnumber
 
     @documentnumber.setter
@@ -12978,7 +12978,7 @@ class Obligations( ):
 
     @property
     def documentcontrolnumber( self ):
-        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+        if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @documentcontrolnumber.setter
@@ -12988,8 +12988,7 @@ class Obligations( ):
 
     @property
     def referencedocumentnumber( self ):
-        if isinstance( self.__referencedocumentnumber,
-                str ) and self.__referencedocumentnumber != '':
+        if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @referencedocumentnumber.setter
@@ -12999,7 +12998,7 @@ class Obligations( ):
 
     @property
     def processeddate( self ):
-        if isinstance( self.__processeddate, datetime ):
+        if self.__processeddate is not None:
             return self.__processeddate
 
     @processeddate.setter
@@ -13009,7 +13008,7 @@ class Obligations( ):
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, datetime ):
+        if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @lastactivitydate.setter
@@ -13019,7 +13018,7 @@ class Obligations( ):
 
     @property
     def age( self ):
-        if isinstance( self.__age, int ):
+        if self.__age is not None:
             return self.__age
 
     @age.setter
@@ -13029,7 +13028,7 @@ class Obligations( ):
 
     @property
     def vendorcode( self ):
-        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+        if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendorcode.setter
@@ -13039,7 +13038,7 @@ class Obligations( ):
 
     @property
     def vendorname( self ):
-        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+        if self.__vendorname is not None:
             return self.__vendorname
 
     @vendorname.setter
@@ -13049,7 +13048,7 @@ class Obligations( ):
 
     @property
     def foccode( self ):
-        if isinstance( self.__foccode, str ) and self.__foccode != '':
+        if self.__foccode is not None:
             return self.__foccode
 
     @foccode.setter
@@ -13059,7 +13058,7 @@ class Obligations( ):
 
     @property
     def focname( self ):
-        if isinstance( self.__focname, str ) and self.__focname != '':
+        if self.__focname is not None:
             return self.__focname
 
     @focname.setter
@@ -16319,7 +16318,7 @@ class StatusOfFunds( ):
 
     @property
     def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpiocode.setter
@@ -16329,7 +16328,7 @@ class StatusOfFunds( ):
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpiocode.setter
@@ -16339,7 +16338,7 @@ class StatusOfFunds( ):
 
     @property
     def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ahcode.setter
@@ -16349,7 +16348,7 @@ class StatusOfFunds( ):
 
     @property
     def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ahname.setter
@@ -16359,7 +16358,7 @@ class StatusOfFunds( ):
 
     @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -16369,7 +16368,7 @@ class StatusOfFunds( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
@@ -16379,7 +16378,7 @@ class StatusOfFunds( ):
 
     @property
     def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
@@ -16389,7 +16388,7 @@ class StatusOfFunds( ):
 
     @property
     def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
@@ -16399,7 +16398,7 @@ class StatusOfFunds( ):
 
     @property
     def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @accountcode.setter
@@ -16409,7 +16408,7 @@ class StatusOfFunds( ):
 
     @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -16419,7 +16418,7 @@ class StatusOfFunds( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -16429,7 +16428,7 @@ class StatusOfFunds( ):
 
     @property
     def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rccode.setter
@@ -16439,7 +16438,7 @@ class StatusOfFunds( ):
 
     @property
     def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rcname.setter
@@ -16449,7 +16448,7 @@ class StatusOfFunds( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -16459,7 +16458,7 @@ class StatusOfFunds( ):
 
     @property
     def budgeted( self ):
-        if isinstance( self.__budgeted, float ):
+        if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
@@ -16469,7 +16468,7 @@ class StatusOfFunds( ):
 
     @property
     def posted( self ):
-        if isinstance( self.__posted, float ):
+        if self.__posted is not None:
             return self.__posted
 
     @posted.setter
@@ -16479,7 +16478,7 @@ class StatusOfFunds( ):
 
     @property
     def opencommitments( self ):
-        if isinstance( self.__opencommitments, float ):
+        if self.__opencommitments is not None:
             return self.__opencommitments
 
     @opencommitments.setter
@@ -16489,7 +16488,7 @@ class StatusOfFunds( ):
 
     @property
     def obligations( self ):
-        if isinstance( self.__obligations, float ):
+        if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
@@ -16499,7 +16498,7 @@ class StatusOfFunds( ):
 
     @property
     def unliquidatedobligations( self ):
-        if isinstance( self.__unliquidatedobligations, float ):
+        if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidatedobligations.setter
@@ -16519,7 +16518,7 @@ class StatusOfFunds( ):
 
     @property
     def used( self ):
-        if isinstance( self.__used, float ):
+        if self.__used is not None:
             return self.__used
 
     @used.setter
@@ -16529,7 +16528,7 @@ class StatusOfFunds( ):
 
     @property
     def available( self ):
-        if isinstance( self.__avaialable, float ):
+        if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
@@ -16539,7 +16538,7 @@ class StatusOfFunds( ):
 
     @property
     def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @programprojectcode.setter
@@ -16549,7 +16548,7 @@ class StatusOfFunds( ):
 
     @property
     def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @programprojectname.setter
@@ -16559,7 +16558,7 @@ class StatusOfFunds( ):
 
     @property
     def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @programareacode.setter
@@ -16579,7 +16578,7 @@ class StatusOfFunds( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goalcode.setter
@@ -16589,7 +16588,7 @@ class StatusOfFunds( ):
 
     @property
     def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goalname.setter
@@ -16599,7 +16598,7 @@ class StatusOfFunds( ):
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objectivecode.setter
@@ -16609,7 +16608,7 @@ class StatusOfFunds( ):
 
     @property
     def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objectivename.setter
@@ -16619,7 +16618,7 @@ class StatusOfFunds( ):
 
     @property
     def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npmcode.setter
@@ -16629,7 +16628,7 @@ class StatusOfFunds( ):
 
     @property
     def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npmname.setter
@@ -16803,7 +16802,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpiocode.setter
@@ -16813,7 +16812,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpiocode.setter
@@ -16823,7 +16822,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ahcode.setter
@@ -16833,7 +16832,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ahname.setter
@@ -16843,7 +16842,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -16853,7 +16852,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
@@ -16863,7 +16862,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
@@ -16873,7 +16872,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
@@ -16883,7 +16882,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @accountcode.setter
@@ -16893,7 +16892,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -16903,7 +16902,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -16913,7 +16912,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rccode.setter
@@ -16923,7 +16922,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rcname.setter
@@ -16933,7 +16932,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -16943,7 +16942,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def budgeted( self ):
-        if isinstance( self.__budgeted, float ):
+        if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
@@ -16953,7 +16952,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def posted( self ):
-        if isinstance( self.__posted, float ):
+        if self.__posted is not None:
             return self.__posted
 
     @posted.setter
@@ -16963,7 +16962,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def opencommitments( self ):
-        if isinstance( self.__opencommitments, float ):
+        if self.__opencommitments is not None:
             return self.__opencommitments
 
     @opencommitments.setter
@@ -16973,7 +16972,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def obligations( self ):
-        if isinstance( self.__obligations, float ):
+        if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
@@ -16983,7 +16982,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def unliquidatedobligations( self ):
-        if isinstance( self.__unliquidatedobligations, float ):
+        if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidatedobligations.setter
@@ -17003,7 +17002,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def used( self ):
-        if isinstance( self.__used, float ):
+        if self.__used is not None:
             return self.__used
 
     @used.setter
@@ -17013,7 +17012,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def available( self ):
-        if isinstance( self.__avaialable, float ):
+        if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
@@ -17023,7 +17022,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @programprojectcode.setter
@@ -17033,7 +17032,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @programprojectname.setter
@@ -17043,7 +17042,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @programareacode.setter
@@ -17063,7 +17062,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goalcode.setter
@@ -17073,7 +17072,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goalname.setter
@@ -17083,7 +17082,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objectivecode.setter
@@ -17093,7 +17092,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objectivename.setter
@@ -17103,7 +17102,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npmcode.setter
@@ -17113,7 +17112,7 @@ class StatusOfSupplementalFunding( ):
 
     @property
     def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npmname.setter
@@ -19706,15 +19705,44 @@ class SpendingRates( ):
 # StatusOfSupplementalFunds( bfy, efy, fundcode, provider = Provider.SQLite )
 class StatusOfSupplementalFunds( ):
     __statusofsupplementalfundsid = None
-    __source = None
-    __provider = None
+    __statusoffundsid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __amount = None
+    __budgeted = None
+    __posted = None
+    __opencommitments = None
+    __obligations = None
+    __unliquidatedobligations = None
+    __expenditures = None
+    __used = None
+    __avaialable = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
     __fields = None
     __data = None
     __frame = None
-    __bfy = None
-    __efy = None
-    __fundcode = None
-    __fundname = None
 
     @property
     def id( self ):
@@ -19747,8 +19775,48 @@ class StatusOfSupplementalFunds( ):
             self.__efy = value
 
     @property
+    def rpiocode( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if self.__ahcode is not None:
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if value is not None:
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if self.__ahname is not None:
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if value is not None:
+            self.__ahname = value
+
+    @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -19758,13 +19826,273 @@ class StatusOfSupplementalFunds( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
     def fundname( self, value ):
         if value is not None:
             self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if value is not None:
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if self.__accountcode is not None:
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if value is not None:
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if self.__boccode is not None:
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if value is not None:
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if self.__bocname is not None:
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if value is not None:
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if self.__rccode is not None:
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if value is not None:
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if self.__rcname is not None:
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if value is not None:
+            self.__rcname = value
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def budgeted( self ):
+        if self.__budgeted is not None:
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if value is not None:
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if self.__posted is not None:
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( self.__posted, value ):
+            self.__posted = value
+
+    @property
+    def opencommitments( self ):
+        if self.__opencommitments is not None:
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if self.__unliquidatedobligations is not None:
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if value is not None:
+            self.__unliquidatedobligations = value
+
+    @property
+    def expenditures( self ):
+        if isinstance( self.__expenditures, float ):
+            return self.__expenditures
+
+    @expenditures.setter
+    def expenditures( self, value ):
+        if value is not None:
+            self.__expenditures = value
+
+    @property
+    def used( self ):
+        if self.__used is not None:
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if value is not None:
+            self.__used = value
+
+    @property
+    def available( self ):
+        if self.__avaialable is not None:
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__avaialable = value
+
+    @property
+    def programprojectcode( self ):
+        if self.__programprojectcode is not None:
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if value is not None:
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if self.__programprojectname is not None:
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if value is not None:
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if self.__programareacode is not None:
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if value is not None:
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if value is not None:
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if self.__goalcode is not None:
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if value is not None:
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if self.__goalname is not None:
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if value is not None:
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if self.__objectivecode is not None:
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if value is not None:
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if self.__objectivename is not None:
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if value is not None:
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if self.__npmcode is not None:
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if value is not None:
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if self.__npmname is not None:
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if value is not None:
+            self.__npmname = value
 
     @property
     def fields( self ):
@@ -19823,12 +20151,43 @@ class StatusOfJobsActFunding( ):
     __source = None
     __provider = None
     __statusofjobsactfundingid = None
+    __statusoffundsid = None
     __bfy = None
     __efy = None
+    __rpiocode = None
+    __rpioname = None
     __fundcode = None
     __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __amount = None
+    __budgeted = None
+    __posted = None
+    __opencommitments = None
+    __obligations = None
+    __unliquidatedobligations = None
+    __expenditures = None
+    __used = None
+    __avaialable = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
     __fields = None
-    __data  = None
+    __data = None
     __frame = None
 
     @property
@@ -19862,8 +20221,48 @@ class StatusOfJobsActFunding( ):
             self.__efy = value
 
     @property
+    def rpiocode( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if self.__ahcode is not None:
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if value is not None:
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if self.__ahname is not None:
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if value is not None:
+            self.__ahname = value
+
+    @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -19873,13 +20272,273 @@ class StatusOfJobsActFunding( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
     def fundname( self, value ):
         if value is not None:
             self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if value is not None:
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if self.__accountcode is not None:
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if value is not None:
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if self.__boccode is not None:
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if value is not None:
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if self.__bocname is not None:
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if value is not None:
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if self.__rccode is not None:
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if value is not None:
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if self.__rcname is not None:
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if value is not None:
+            self.__rcname = value
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def budgeted( self ):
+        if self.__budgeted is not None:
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if value is not None:
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if self.__posted is not None:
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( self.__posted, value ):
+            self.__posted = value
+
+    @property
+    def opencommitments( self ):
+        if self.__opencommitments is not None:
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if self.__unliquidatedobligations is not None:
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if value is not None:
+            self.__unliquidatedobligations = value
+
+    @property
+    def expenditures( self ):
+        if isinstance( self.__expenditures, float ):
+            return self.__expenditures
+
+    @expenditures.setter
+    def expenditures( self, value ):
+        if value is not None:
+            self.__expenditures = value
+
+    @property
+    def used( self ):
+        if self.__used is not None:
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if value is not None:
+            self.__used = value
+
+    @property
+    def available( self ):
+        if self.__avaialable is not None:
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__avaialable = value
+
+    @property
+    def programprojectcode( self ):
+        if self.__programprojectcode is not None:
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if value is not None:
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if self.__programprojectname is not None:
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if value is not None:
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if self.__programareacode is not None:
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if value is not None:
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if value is not None:
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if self.__goalcode is not None:
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if value is not None:
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if self.__goalname is not None:
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if value is not None:
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if self.__objectivecode is not None:
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if value is not None:
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if self.__objectivename is not None:
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if value is not None:
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if self.__npmcode is not None:
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if value is not None:
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if self.__npmname is not None:
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if value is not None:
+            self.__npmname = value
 
     @property
     def fields( self ):
@@ -19938,12 +20597,43 @@ class StatusOfEarmarks( ):
     __source = None
     __provider = None
     __statusofearmarksid = None
+    __statusoffundsid = None
     __bfy = None
     __efy = None
+    __rpiocode = None
+    __rpioname = None
     __fundcode = None
     __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __amount = None
+    __budgeted = None
+    __posted = None
+    __opencommitments = None
+    __obligations = None
+    __unliquidatedobligations = None
+    __expenditures = None
+    __used = None
+    __avaialable = None
+    __programprojectcode = None
+    __programprojectname = None
+    __programareacode = None
+    __programareaname = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
     __fields = None
-    __data  = None
+    __data = None
     __frame = None
 
     @property
@@ -19977,8 +20667,48 @@ class StatusOfEarmarks( ):
             self.__efy = value
 
     @property
+    def rpiocode( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if self.__ahcode is not None:
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if value is not None:
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if self.__ahname is not None:
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if value is not None:
+            self.__ahname = value
+
+    @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -19988,13 +20718,273 @@ class StatusOfEarmarks( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
     def fundname( self, value ):
         if value is not None:
             self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if value is not None:
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if self.__accountcode is not None:
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if value is not None:
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if self.__boccode is not None:
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if value is not None:
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if self.__bocname is not None:
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if value is not None:
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if self.__rccode is not None:
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if value is not None:
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if self.__rcname is not None:
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if value is not None:
+            self.__rcname = value
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def budgeted( self ):
+        if self.__budgeted is not None:
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if value is not None:
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if self.__posted is not None:
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( self.__posted, value ):
+            self.__posted = value
+
+    @property
+    def opencommitments( self ):
+        if self.__opencommitments is not None:
+            return self.__opencommitments
+
+    @opencommitments.setter
+    def opencommitments( self, value ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if self.__unliquidatedobligations is not None:
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if value is not None:
+            self.__unliquidatedobligations = value
+
+    @property
+    def expenditures( self ):
+        if isinstance( self.__expenditures, float ):
+            return self.__expenditures
+
+    @expenditures.setter
+    def expenditures( self, value ):
+        if value is not None:
+            self.__expenditures = value
+
+    @property
+    def used( self ):
+        if self.__used is not None:
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if value is not None:
+            self.__used = value
+
+    @property
+    def available( self ):
+        if self.__avaialable is not None:
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__avaialable = value
+
+    @property
+    def programprojectcode( self ):
+        if self.__programprojectcode is not None:
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if value is not None:
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if self.__programprojectname is not None:
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if value is not None:
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if self.__programareacode is not None:
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if value is not None:
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if value is not None:
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if self.__goalcode is not None:
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if value is not None:
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if self.__goalname is not None:
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if value is not None:
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if self.__objectivecode is not None:
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if value is not None:
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if self.__objectivename is not None:
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if value is not None:
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if self.__npmcode is not None:
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if value is not None:
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if self.__npmname is not None:
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if value is not None:
+            self.__npmname = value
 
     @property
     def fields( self ):
