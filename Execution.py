@@ -69,7 +69,7 @@ class Element( Unit ):
             return self.__code
 
 
-# Accounts( code, provider = Provider.SQLite )
+# Accounts( fundcode, provider = Provider.SQLite )
 class Accounts( ):
     '''defines the Account Code class'''
     __source = None
@@ -280,7 +280,7 @@ class Accounts( ):
             err.show( )
 
 
-# ActivityCodes( code, provider = Provider.SQLite )
+# ActivityCodes( fundcode, provider = Provider.SQLite )
 class ActivityCodes( ):
     '''Defines the Activity Class'''
     __source = None
@@ -407,7 +407,7 @@ class ActivityCodes( ):
             err.show( )
 
 
-# AllowanceHolders( code, provider = Provider.SQLite )
+# AllowanceHolders( fundcode, provider = Provider.SQLite )
 class AllowanceHolders( ):
     '''Defines the AllowanceHolder Class'''
     __source = None
@@ -533,7 +533,7 @@ class AllowanceHolders( ):
             err.show( )
 
 
-# Appropriations( code, provider = Provider.SQLite )
+# Appropriations( fundcode, provider = Provider.SQLite )
 class Appropriations( ):
     '''Defines the Appropriation Class'''
     __source = None
@@ -654,14 +654,27 @@ class Appropriations( ):
             err.show( )
 
 
-# AppropriationAvailableBalances( code, provider = Provider.SQLite )
+# AppropriationAvailableBalances( fundcode, provider = Provider.SQLite )
 class AppropriationAvailableBalances( ):
     '''Defines the Appropriation Class'''
     __source = None
     __provider = None
     __appropriationavailablebalancesid = None
-    __code = None
-    __name = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __ombaccountcode = None
+    __ombaccountname = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __authority = None
+    __budgeted = None
+    __carryover = None
+    __reimbursements = None
+    __recoveries = None
+    __used = None
+    __available = None
     __fields = None
     __data = None
     __frame = None
@@ -677,24 +690,86 @@ class AppropriationAvailableBalances( ):
             self.__appropriationavailablebalancesid  = value
 
     @property
-    def code( self ):
-        if  self.__code is not None:
-            return self.__code
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
 
-    @code.setter
-    def code( self, value ):
+    @bfy.setter
+    def bfy( self, value ):
         if value is not None:
-            self.__code = value
+            self.__bfy = value
 
     @property
-    def name( self ):
-        if self.__name is not None:
-            return self.__name
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
 
-    @name.setter
-    def name( self, name ):
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def fundcode( self ):
+        if  self.__fundcode is not None:
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
         if  name is not None:
-            self.__name = name
+            self.__fundname = name
+
+    @property
+    def treasuryaccountcode( self ):
+        if isinstance( self.__treasuryaccountcode, str ) \
+                and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasuryaccountcode.setter
+    def treasuryaccountcode( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasuryaccountname( self ):
+        if isinstance( self.__treasuryaccountname, str ) \
+                and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasuryaccountname( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def ombaccountcode( self ):
+        if self.__ombaccountcode is not None:
+            return self.__ombaccountcode
+
+    @ombaccountcode.setter
+    def ombaccountcode( self, value ):
+        if value is not None:
+            self.__ombaccountcode = value
+
+    @property
+    def ombaccountname( self ):
+        if self.__ombaccountname is not None:
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, value ):
+        if value is not None:
+            self.__ombaccountname = value
 
     @property
     def data( self ):
@@ -724,21 +799,21 @@ class AppropriationAvailableBalances( ):
     def __init__( self, code ):
         self.__source = Source.Appropriations
         self.__provider = Provider.SQLite
-        self.__code = code 
+        self.__fundcode = code
         self.__fields = [ 'AppropriationAvailableBalancesId',
                            'Code',
                            'Name' ]
 
     def __str__( self ):
-        if isinstance( self.__code, str ) and self.__code != '':
-            return self.__code
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
 
     def getdata( self ):
         try:
             source = self.__source
             provider = self.__provider
             n = [ 'Code' ]
-            v = ( self.__code )
+            v = (self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -775,7 +850,7 @@ class AppropriationAvailableBalances( ):
             err.show( )
 
 
-# AppropriationLevelAuthority( code, provider = Provider.SQLite )
+# AppropriationLevelAuthority( fundcode, provider = Provider.SQLite )
 class AppropriationLevelAuthority( ):
     '''Defines the Appropriation Class'''
     __source = None
@@ -1287,7 +1362,7 @@ class Allocations( ):
             err.show( )
 
 
-# ApportionmentData( bfy, efy, code, provider = Provider.SQLite )
+# ApportionmentData( bfy, efy, fundcode, provider = Provider.SQLite )
 class ApportionmentData( ):
     '''Apportionment( bfy, efy, omb )
     initializes object representing Letters Of Apportionment'''
@@ -2866,7 +2941,7 @@ class BudgetDocuments( ):
             err.show( )
 
 
-# BudgetControls( code, provider = Provider.SQLite )
+# BudgetControls( fundcode, provider = Provider.SQLite )
 class BudgetControls( ):
     '''object representing compass control data'''
     __source = None
@@ -3638,7 +3713,7 @@ class BudgetFiscalYear( ):
             err.show( )
 
 
-# BudgetObjectClasses( code, provider = Provider.SQLite  )
+# BudgetObjectClasses( fundcode, provider = Provider.SQLite  )
 class BudgetObjectClasses( ):
     '''Defines the BudgetObjectClass Class'''
     __source = None
@@ -3776,9 +3851,9 @@ class BudgetObjectClasses( ):
             err.show( )
 
 
-# BudgetaryResourceExecution( bfy, efy, code, provider = Provider.SQLite )
+# BudgetaryResourceExecution( bfy, efy, fundcode, provider = Provider.SQLite )
 class BudgetaryResourceExecution( ):
-    '''BudgetaryResourceExecution( bfy, efy, code )
+    '''BudgetaryResourceExecution( bfy, efy, fundcode )
     initializes object representing MAX A-11 DE, SF-133'''
     __source = None
     __provider = None
@@ -5622,7 +5697,7 @@ class CarryoverOutlays( ):
             err.show( )
 
 
-# CostArea( code, provider = Provider.SQLite )
+# CostArea( fundcode, provider = Provider.SQLite )
 class CostArea( ):
     __source = None
     __provider = None
@@ -6160,7 +6235,7 @@ class CarryoverSurvey( ):
             err.show( )
 
 
-# CapitalPlanningInvestmentCodes( code, provider = Provider.SQLite  )
+# CapitalPlanningInvestmentCodes( fundcode, provider = Provider.SQLite  )
 class CapitalPlanningInvestmentCodes( ):
     '''Defines the Organization Class'''
     __source = None
@@ -7583,7 +7658,7 @@ class DocumentControlNumbers( ):
 
 # Expenditure( bfy, fund, account, boc, provider = Provider.SQLite )
 class Expenditures( ):
-    '''Expenditure( bfy, fund, account, code, provider = Provider.SQLite )
+    '''Expenditure( bfy, fund, account, fundcode, provider = Provider.SQLite )
     initializes object providing Expenditure data'''
     __source = None
     __provider = None
@@ -8128,7 +8203,7 @@ class Expenditures( ):
             err.show( )
 
 
-# FinanceObjectClass( code, provider = Provider.SQLite  )
+# FinanceObjectClass( fundcode, provider = Provider.SQLite  )
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
     __source = None
@@ -8278,7 +8353,7 @@ class FinanceObjectClass( ):
             err.show( )
 
 
-# Funds( bfy, efy, code, provider = Provider.SQLite )
+# Funds( bfy, efy, fundcode, provider = Provider.SQLite )
 class Funds( ):
     '''Defines the Fund Class'''
     __source = None
@@ -8725,7 +8800,7 @@ class Funds( ):
             err.show( )
 
 
-# FederalHoliday( bfy, name, provider = Provider.SQLite )
+# FederalHoliday( bfy, fundname, provider = Provider.SQLite )
 class FederalHoliday( ):
     '''Defines the FederalHoliday class'''
     __source = None
@@ -9739,7 +9814,7 @@ class GeneralLedgerAccounts( ):
                           'ClosingAmount' ]
 
 
-# Goals( code, provider = Provider.SQLite )
+# Goals( fundcode, provider = Provider.SQLite )
 class Goals( ):
     '''Defines the Goal Class'''
     __source = None
@@ -10467,7 +10542,7 @@ class HeadquartersAuthority( ):
             err.show( )
 
 
-# HeadquartersOffices( code, provider = Provider.SQLite  )
+# HeadquartersOffices( fundcode, provider = Provider.SQLite  )
 class HeadquartersOffices( ):
     '''Defines a regional RPIO'''
     __source = None
@@ -10595,7 +10670,7 @@ class HeadquartersOffices( ):
             err.show( )
 
 
-# HumanResourceOrganizations( code, provider = Provider.SQLite )
+# HumanResourceOrganizations( fundcode, provider = Provider.SQLite )
 class HumanResourceOrganizations( ):
     '''Defines the Organization Class'''
     __source = None
@@ -10947,7 +11022,7 @@ class MonthlyOutlays( ):
             err.show( )
 
 
-# NationalPrograms( code value, provider = Provider.SQLite )
+# NationalPrograms( fundcode value, provider = Provider.SQLite )
 class NationalPrograms( ):
     '''Defines the NationalProgram Class'''
     __source = None
@@ -11097,7 +11172,7 @@ class NationalPrograms( ):
             err.show( )
 
 
-# Objectives( code, provider = Provider.SQLite )
+# Objectives( fundcode, provider = Provider.SQLite )
 class Objectives( ):
     '''Defines the Objective Class'''
     __source = None
@@ -11224,7 +11299,7 @@ class Objectives( ):
             err.show( )
 
 
-# Organizations( code, provider = Provider.SQLite  )
+# Organizations( fundcode, provider = Provider.SQLite  )
 class Organizations( ):
     '''Defines the Organization Class'''
     __source = None
@@ -13932,7 +14007,7 @@ class PayrollActivity( ):
             err.show( )
 
 
-# Projects( code, provider = Provider.SQLite  )
+# Projects( fundcode, provider = Provider.SQLite  )
 class Projects( ):
     '''Defines the Organization Class'''
     __source = None
@@ -14057,7 +14132,7 @@ class Projects( ):
             err.show( )
 
 
-# ProgramAreas( code, provider = Provider.SQLite  )
+# ProgramAreas( fundcode, provider = Provider.SQLite  )
 class ProgramAreas( ):
     '''defines the ProgramArea class'''
     __source = None
@@ -14183,7 +14258,7 @@ class ProgramAreas( ):
             err.show( )
 
 
-# ProgramProjects( code, provider = Provider.SQLite  )
+# ProgramProjects( fundcode, provider = Provider.SQLite  )
 class ProgramProjects( ):
     '''Defines the ProgramProject Class'''
     __source = None
@@ -14318,7 +14393,7 @@ class ProgramProjects( ):
             err.show( )
 
 
-# PayrollCostCodes( bfy, code, provider = Provider.SQLite )
+# PayrollCostCodes( bfy, fundcode, provider = Provider.SQLite )
 class PayrollCostCodes( ):
     __source = None
     __provider = None
@@ -14981,7 +15056,7 @@ class ProgramResultsCode( ):
             err.show( )
 
 
-# ResponsibilityCenters( code, provider = Provider.SQLite  )
+# ResponsibilityCenters( fundcode, provider = Provider.SQLite  )
 class ResponsibilityCenters( ):
     '''Defines the ResponsibilityCenter Class'''
     __source = None
@@ -15088,7 +15163,7 @@ class ResponsibilityCenters( ):
             source = Source.ResponsibilityCenters
             command = SQL.SELECTALL
             names = [ 'Code', ]
-            values = ( self.__code, )
+            values = ( self.__fundcode,)
             df = DataBuilder( provider, source, command, names, values )
             self.__data = df.createtable( )
             return self.__data
@@ -15116,7 +15191,7 @@ class ResponsibilityCenters( ):
             err.show( )
 
 
-# ResourcePlanningOffices( code, provider = Provider.SQLite  )
+# ResourcePlanningOffices( fundcode, provider = Provider.SQLite  )
 class ResourcePlanningOffices( ):
     '''defines the ResponsiblePlanningOffice class'''
     __source = None
@@ -15242,7 +15317,7 @@ class ResourcePlanningOffices( ):
             err.show( )
 
 
-# RegionalOffices( code, provider = Provider.SQLite  )
+# RegionalOffices( fundcode, provider = Provider.SQLite  )
 class RegionalOffices( ):
     '''Defines a regional RPIO'''
     __source = None
@@ -18036,7 +18111,7 @@ class SuperfundSites( ):
             err.show( )
 
 
-# SiteProject( code, provider = Provider.SQLite  )
+# SiteProject( fundcode, provider = Provider.SQLite  )
 class SiteProjectCodes( ):
     '''Defines the Site Project Code Class'''
     __source = None
@@ -18206,7 +18281,7 @@ class SiteProjectCodes( ):
             err.show( )
 
 
-# Appropriation( code, provider = Provider.SQLite )
+# Appropriation( fundcode, provider = Provider.SQLite )
 class SubAppropriations( ):
     '''Defines the Appropriation Class'''
     __source = None
@@ -18327,7 +18402,7 @@ class SubAppropriations( ):
             err.show( )
 
 
-# SiteProjectCodes( code, provider = Provider.SQLite  )
+# SiteProjectCodes( fundcode, provider = Provider.SQLite  )
 class SiteProjectCodes( ):
     '''Defines the Organization Class'''
     __source = None
@@ -18450,7 +18525,7 @@ class SiteProjectCodes( ):
             err.show( )
 
 
-# StateOrganizations( code, provider = Provider.SQLite  )
+# StateOrganizations( fundcode, provider = Provider.SQLite  )
 class StateOrganizations( ):
     '''StateOrganization( fgrp ) class
     representing state codes'''
@@ -19304,7 +19379,7 @@ class StatusOfAppropriations( ):
 
 # SpendingRates( account, provider = Provider.SQLite )
 class SpendingRates( ):
-    '''SpendingRates( code ) initializes
+    '''SpendingRates( fundcode ) initializes
     object providing OMB spending rate data'''
     __source = None
     __provider = None
@@ -21559,7 +21634,7 @@ class SiteActivity( ):
             err.show( )
 
 
-# TreasurySymbols( bfy, efy, code, provider = Provider.SQLite )
+# TreasurySymbols( bfy, efy, fundcode, provider = Provider.SQLite )
 class TreasurySymbols( ):
     '''TreasurySymbol( value )
     creates object that represents a TAFS'''
@@ -23109,7 +23184,7 @@ class UnliquidatedObligations( ):
             err.show( )
 
 
-# WorkCodes( code, provider = Provider.SQLite )
+# WorkCodes( fundcode, provider = Provider.SQLite )
 class WorkCodes( ):
     '''Defines the Organization Class'''
     __source = None
