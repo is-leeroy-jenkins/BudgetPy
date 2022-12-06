@@ -796,13 +796,27 @@ class AppropriationAvailableBalances( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, code ):
+    def __init__( self, bfy, efy, fundcode ):
         self.__source = Source.Appropriations
         self.__provider = Provider.SQLite
-        self.__fundcode = code
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__fundcode = fundcode
         self.__fields = [ 'AppropriationAvailableBalancesId',
-                           'Code',
-                           'Name' ]
+                          'BFY',
+                          'EFY',
+                          'FundCode',
+                          'FundName',
+                          'OmbAccountCode',
+                          'OmbAccountName',
+                          'TreasuryAccountCode',
+                          'TreasuryAccountName',
+                          'TotalAuthority',
+                          'Budgeted',
+                          'TotalReimbursements',
+                          'TotalRecoveries',
+                          'TotalUsed',
+                          'TotalAvailable']
 
     def __str__( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
@@ -856,8 +870,19 @@ class AppropriationLevelAuthority( ):
     __source = None
     __provider = None
     __appropriationlevelauthorityid = None
-    __code = None
-    __name = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __ombaccountcode = None
+    __ombaccountname = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgeted = None
+    __carryover = None
+    __reimbursements = None
+    __authority = None
+    __recoveries = None
     __fields = None
     __data = None
     __frame = None
@@ -873,24 +898,86 @@ class AppropriationLevelAuthority( ):
             self.__appropriationlevelauthorityid  = value
 
     @property
-    def code( self ):
-        if  self.__code is not None:
-            return self.__code
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
 
-    @code.setter
-    def code( self, value ):
+    @bfy.setter
+    def bfy( self, value ):
         if value is not None:
-            self.__code = value
+            self.__bfy = value
 
     @property
-    def name( self ):
-        if self.__name is not None:
-            return self.__name
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
 
-    @name.setter
-    def name( self, name ):
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def fundcode( self ):
+        if  self.__fundcode is not None:
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, name ):
         if  name is not None:
-            self.__name = name
+            self.__fundname = name
+
+    @property
+    def treasuryaccountcode( self ):
+        if isinstance( self.__treasuryaccountcode, str ) \
+                and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasuryaccountcode.setter
+    def treasuryaccountcode( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasuryaccountname( self ):
+        if isinstance( self.__treasuryaccountname, str ) \
+                and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasuryaccountname( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def ombaccountcode( self ):
+        if self.__ombaccountcode is not None:
+            return self.__ombaccountcode
+
+    @ombaccountcode.setter
+    def ombaccountcode( self, value ):
+        if value is not None:
+            self.__ombaccountcode = value
+
+    @property
+    def ombaccountname( self ):
+        if self.__ombaccountname is not None:
+            return self.__ombaccountname
+
+    @ombaccountname.setter
+    def ombaccountname( self, value ):
+        if value is not None:
+            self.__ombaccountname = value
 
     @property
     def data( self ):
