@@ -772,6 +772,66 @@ class AppropriationAvailableBalances( ):
             self.__ombaccountname = value
 
     @property
+    def authority( self ):
+        if self.__authority is not None:
+            return self.__authority
+
+    @authority.setter
+    def authority( self, value ):
+        if value is not None:
+            self.__authority = value
+
+    @property
+    def budgeted( self ):
+        if self.__budgeted is not None:
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if value is not None:
+            self.__budgeted = value
+
+    @property
+    def reimbursements( self ):
+        if self.__reimbursements is not None:
+            return self.__reimbursements
+
+    @reimbursements.setter
+    def reimbursements( self, value ):
+        if value is not None:
+            self.__reimbursements = value
+
+    @property
+    def recoveries( self ):
+        if self.__recoveries is not None:
+            return self.__recoveries
+
+    @recoveries.setter
+    def recoveries( self, value ):
+        if value is not None:
+            self.__recoveries = value
+
+    @property
+    def used( self ):
+        if self.__used is not None:
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if value is not None:
+            self.__used = value
+
+    @property
+    def available( self ):
+        if self.__available is not None:
+            return self.__available
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__available = value
+
+    @property
     def data( self ):
         if self.__data is not None:
             return self.__data
