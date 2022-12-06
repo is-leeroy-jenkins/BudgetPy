@@ -654,7 +654,7 @@ class Appropriations( ):
             err.show( )
 
 
-# AppropriationAvailableBalances( fundcode, provider = Provider.SQLite )
+# AppropriationAvailableBalances( bfy, efy, fundcode, provider = Provider.SQLite )
 class AppropriationAvailableBalances( ):
     '''Defines the Appropriation Class'''
     __source = None
@@ -924,7 +924,7 @@ class AppropriationAvailableBalances( ):
             err.show( )
 
 
-# AppropriationLevelAuthority( fundcode, provider = Provider.SQLite )
+# AppropriationLevelAuthority( vfy, efy, fundcode, provider = Provider.SQLite )
 class AppropriationLevelAuthority( ):
     '''Defines the Appropriation Class'''
     __source = None
@@ -1040,6 +1040,46 @@ class AppropriationLevelAuthority( ):
             self.__ombaccountname = value
 
     @property
+    def authority( self ):
+        if self.__authority is not None:
+            return self.__authority
+
+    @authority.setter
+    def authority( self, value ):
+        if value is not None:
+            self.__authority = value
+
+    @property
+    def budgeted( self ):
+        if self.__budgeted is not None:
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if value is not None:
+            self.__budgeted = value
+
+    @property
+    def reimbursements( self ):
+        if self.__reimbursements is not None:
+            return self.__reimbursements
+
+    @reimbursements.setter
+    def reimbursements( self, value ):
+        if value is not None:
+            self.__reimbursements = value
+
+    @property
+    def recoveries( self ):
+        if self.__recoveries is not None:
+            return self.__recoveries
+
+    @recoveries.setter
+    def recoveries( self, value ):
+        if value is not None:
+            self.__recoveries = value
+
+    @property
     def data( self ):
         if self.__data is not None:
             return self.__data
@@ -1064,10 +1104,12 @@ class AppropriationLevelAuthority( ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__fields = value
 
-    def __init__( self, code ):
+    def __init__( self, bfy, efy, fundcode ):
         self.__source = Source.Appropriations
         self.__provider = Provider.SQLite
-        self.__code = code 
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__fundcode = fundcode
         self.__fields = [ 'AppropriationLevelAuthorityId',
                            'Code',
                            'Name' ]
