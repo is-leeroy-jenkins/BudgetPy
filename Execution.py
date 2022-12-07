@@ -18480,12 +18480,14 @@ class SiteProjectCodes( ):
             err.show( )
 
 
-# Appropriation( fundcode, provider = Provider.SQLite )
+# Appropriation( bfy, efy, fundcode, provider = Provider.SQLite )
 class SubAppropriations( ):
     '''Defines the Appropriation Class'''
     __source = None
     __provider = None
     __subappropriationsid = None
+    __bfy = None
+    __efy = None
     __code = None
     __name = None
     __fields = None
@@ -18523,6 +18525,26 @@ class SubAppropriations( ):
             self.__name = name
 
     @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
     def data( self ):
         if self.__data is not None:
             return self.__data
@@ -18547,9 +18569,11 @@ class SubAppropriations( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, bfy, efy, code, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Appropriations
+        self.__bfy = bfy
+        self.__efy = efy
         self.__code = code 
         self.__fields = [ 'SubAppropriationsId',
                            'Code',
@@ -18601,7 +18625,7 @@ class SubAppropriations( ):
             err.show( )
 
 
-# SiteProjectCodes( fundcode, provider = Provider.SQLite  )
+# SiteProjectCodes( code, provider = Provider.SQLite  )
 class SiteProjectCodes( ):
     '''Defines the Organization Class'''
     __source = None
@@ -18676,7 +18700,7 @@ class SiteProjectCodes( ):
     def __init__( self, code, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.SiteProjectCodes
-        self.__code = code if isinstance( code, str ) else None
+        self.__code = code
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
@@ -18792,7 +18816,7 @@ class StateOrganizations( ):
     def __init__( self, code, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.StateOrganizations
-        self.__code = code if isinstance( code, str ) else None
+        self.__code = code
         self.__fields = [ 'StateOrganizationsId',
                           'Name',
                           'Code',
@@ -18983,8 +19007,7 @@ class StatusOfAppropriations( ):
 
     @property
     def appropriationcode( self ):
-        if isinstance( self.__appropriationcode, str ) \
-                and self.__appropriationcode != '':
+        if self.__appropriationcode is not None:
             return self.__appropriationcode
 
     @appropriationcode.setter
@@ -18994,8 +19017,7 @@ class StatusOfAppropriations( ):
 
     @property
     def subappropriationcode( self ):
-        if isinstance( self.__subappropriationcode, str ) \
-                and self.__subappropriationcode != '':
+        if self.__subappropriationcode is not None:
             return self.__subappropriationcode
 
     @subappropriationcode.setter
@@ -19005,8 +19027,7 @@ class StatusOfAppropriations( ):
 
     @property
     def appropriationdescription( self ):
-        if isinstance( self.__appropriationdescription, str ) \
-                and self.__appropriationdescription != '':
+        if self.__appropriationdescription is not None:
             return self.__appropriationdescription
 
     @appropriationdescription.setter
@@ -19016,8 +19037,7 @@ class StatusOfAppropriations( ):
 
     @property
     def fundgroup( self ):
-        if isinstance( self.__fundgroup, str ) \
-                and self.__fundgroup != '':
+        if self.__fundgroup is not None:
             return self.__fundgroup
 
     @fundgroup.setter
@@ -19027,8 +19047,7 @@ class StatusOfAppropriations( ):
 
     @property
     def fundgroupname( self ):
-        if isinstance( self.__fundgroupname, str ) \
-                and self.__fundgroupname != '':
+        if self.__fundgroupname is not None:
             return self.__fundgroupname
 
     @fundgroupname.setter
@@ -19038,8 +19057,7 @@ class StatusOfAppropriations( ):
 
     @property
     def documenttype( self ):
-        if isinstance( self.__documenttype, str ) \
-                and self.__documenttype != '':
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @documenttype.setter
@@ -19049,8 +19067,7 @@ class StatusOfAppropriations( ):
 
     @property
     def transtype( self ):
-        if isinstance( self.__transtype, str ) \
-                and self.__transtype != '':
+        if self.__transtype is not None:
             return self.__transtype
 
     @transtype.setter
@@ -19060,8 +19077,7 @@ class StatusOfAppropriations( ):
 
     @property
     def actualrecoverytranstype( self ):
-        if isinstance( self.__actualrecoverytranstype, str ) \
-                and self.__actualrecoverytranstype != '':
+        if self.__actualrecoverytranstype is not None:
             return self.__actualrecoverytranstype
 
     @actualrecoverytranstype.setter
@@ -19071,8 +19087,7 @@ class StatusOfAppropriations( ):
 
     @property
     def commitmentspendingcontrolflag( self ):
-        if isinstance( self.__commitmentspendingcontrolflag, str ) \
-                and self.__commitmentspendingcontrolflag != '':
+        if self.__commitmentspendingcontrolflag is not None:
             return self.__commitmentspendingcontrolflag
 
     @commitmentspendingcontrolflag.setter
@@ -19082,8 +19097,7 @@ class StatusOfAppropriations( ):
 
     @property
     def agreementlimit( self ):
-        if isinstance( self.__agreementlimit, str ) \
-                and self.__agreementlimit != '':
+        if self.__agreementlimit is not None:
             return self.__agreementlimit
 
     @agreementlimit.setter
@@ -19093,8 +19107,7 @@ class StatusOfAppropriations( ):
 
     @property
     def estimatedrecoveriestranstype( self ):
-        if isinstance( self.__estimatedrecoveriestranstype, str ) \
-                and self.__estimatedrecoveriestranstype != '':
+        if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
     @estimatedrecoveriestranstype.setter
@@ -19104,8 +19117,7 @@ class StatusOfAppropriations( ):
 
     @property
     def estimatedreimbursementstranstype( self ):
-        if isinstance( self.__estimatedreimbursementstranstype, str ) \
-                and self.__estimatedreimbursementstranstype != '':
+        if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
     @estimatedreimbursementstranstype.setter
@@ -19115,8 +19127,7 @@ class StatusOfAppropriations( ):
 
     @property
     def expensespendingcontrolflag( self ):
-        if isinstance( self.__expensespendingcontrolflag, str ) \
-                and self.__expensespendingcontrolflag != '':
+        if self.__expensespendingcontrolflag is not None:
             return self.__expensespendingcontrolflag
 
     @expensespendingcontrolflag.setter
@@ -19126,8 +19137,7 @@ class StatusOfAppropriations( ):
 
     @property
     def obligationspendingcontrolflag( self ):
-        if isinstance( self.__obligationspendingcontrolflag, str ) \
-                and self.__obligationspendingcontrolflag != '':
+        if self.__obligationspendingcontrolflag is not None:
             return self.__obligationspendingcontrolflag
 
     @obligationspendingcontrolflag.setter
@@ -19137,8 +19147,7 @@ class StatusOfAppropriations( ):
 
     @property
     def precommitmentspendingcontrolflag( self ):
-        if isinstance( self.__precommitmentspendingcontrolflag, str ) \
-                and self.__precommitmentspendingcontrolflag != '':
+        if self.__precommitmentspendingcontrolflag is not None:
             return self.__precommitmentspendingcontrolflag
 
     @precommitmentspendingcontrolflag.setter
@@ -19148,8 +19157,7 @@ class StatusOfAppropriations( ):
 
     @property
     def postedcontrolflag( self ):
-        if isinstance( self.__postedcontrolflag, str ) \
-                and self.__postedcontrolflag != '':
+        if self.__postedcontrolflag is not None:
             return self.__postedcontrolflag
 
     @postedcontrolflag.setter
@@ -19159,7 +19167,7 @@ class StatusOfAppropriations( ):
 
     @property
     def postedflag( self ):
-        if isinstance( self.__postedflag, str ) and self.__postedflag != '':
+        if self.__postedflag is not None:
             return self.__postedflag
 
     @postedflag.setter
@@ -19169,8 +19177,7 @@ class StatusOfAppropriations( ):
 
     @property
     def recordcarryoveratlowerlevel( self ):
-        if isinstance( self.__recordcarryoveratlowerlevel, str ) \
-                and self.__recordcarryoveratlowerlevel != '':
+        if self.__recordcarryoveratlowerlevel is not None:
             return self.__recordcarryoveratlowerlevel
 
     @recordcarryoveratlowerlevel.setter
@@ -19180,8 +19187,7 @@ class StatusOfAppropriations( ):
 
     @property
     def reimbursablespendingoption( self ):
-        if isinstance( self.__reimbursablespendingoption, str ) \
-                and self.__reimbursablespendingoption != '':
+        if self.__reimbursablespendingoption is not None:
             return self.__reimbursablespendingoption
 
     @reimbursablespendingoption.setter
@@ -19191,8 +19197,7 @@ class StatusOfAppropriations( ):
 
     @property
     def recoveriesoption( self ):
-        if isinstance( self.__recoveriesoption, str ) \
-                and self.__recoveriesoption != '':
+        if self.__recoveriesoption is not None:
             return self.__recoveriesoption
 
     @recoveriesoption.setter
@@ -19202,8 +19207,7 @@ class StatusOfAppropriations( ):
 
     @property
     def recoveriesspendingoption( self ):
-        if isinstance( self.__recoveriesspendingoption, str ) \
-                and self.__recoveriesspendingoption != '':
+        if self.__recoveriesspendingoption is not None:
             return self.__recoveriesspendingoption
 
     @recoveriesspendingoption.setter
@@ -19213,7 +19217,7 @@ class StatusOfAppropriations( ):
 
     @property
     def originalbudgetedamount( self ):
-        if isinstance( self.__originalbudgetedamount, float ):
+        if self.__originalbudgetedamount is not None:
             return self.__originalbudgetedamount
 
     @originalbudgetedamount.setter
@@ -19223,7 +19227,7 @@ class StatusOfAppropriations( ):
 
     @property
     def apportionmentsposted( self ):
-        if isinstance( self.__apportionmentsposted, float ):
+        if self.__apportionmentsposted is not None:
             return self.__apportionmentsposted
 
     @apportionmentsposted.setter
@@ -19233,7 +19237,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalauthority( self ):
-        if isinstance( self.__totalauthority, float ):
+        if self.__totalauthority is not None:
             return self.__totalauthority
 
     @totalauthority.setter
@@ -19243,7 +19247,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalbudgeted( self ):
-        if isinstance( self.__totalbudgeted, float ):
+        if self.__totalbudgeted is not None:
             return self.__totalbudgeted
 
     @totalbudgeted.setter
@@ -19253,7 +19257,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalpostedamount( self ):
-        if isinstance( self.__totalpostedamount, float ):
+        if self.__totalpostedamount is not None:
             return self.__totalpostedamount
 
     @totalpostedamount.setter
@@ -19263,7 +19267,7 @@ class StatusOfAppropriations( ):
 
     @property
     def fundswithdrawnprioryearamounts( self ):
-        if isinstance( self.__fundswithdrawnprioryearamounts, float ):
+        if self.__fundswithdrawnprioryearamounts is not None:
             return self.__fundswithdrawnprioryearamounts
 
     @fundswithdrawnprioryearamounts.setter
@@ -19273,7 +19277,7 @@ class StatusOfAppropriations( ):
 
     @property
     def fundinginamount( self ):
-        if isinstance( self.__fundinginamount, float ):
+        if self.__fundinginamount is not None:
             return self.__fundinginamount
 
     @fundinginamount.setter
@@ -19283,7 +19287,7 @@ class StatusOfAppropriations( ):
 
     @property
     def fundingoutamount( self ):
-        if isinstance( self.__fundingoutamount, float ):
+        if self.__fundingoutamount is not None:
             return self.__fundingoutamount
 
     @fundingoutamount.setter
@@ -19293,7 +19297,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalaccrualrecoveries( self ):
-        if isinstance( self.__totalaccrualrecoveries, float ):
+        if self.__totalaccrualrecoveries is not None:
             return self.__totalaccrualrecoveries
 
     @totalaccrualrecoveries.setter
@@ -19303,7 +19307,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalactualreimbursements( self ):
-        if isinstance( self.__totalactualreimbursements, float ):
+        if self.__totalactualreimbursements is not None:
             return self.__totalactualreimbursements
 
     @totalactualreimbursements.setter
@@ -19313,7 +19317,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalagreementreimbursables( self ):
-        if isinstance( self.__totalagreementreimbursables, float ):
+        if self.__totalagreementreimbursables is not None:
             return self.__totalagreementreimbursables
 
     @totalagreementreimbursables.setter
@@ -19323,7 +19327,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalcarriedforwardin( self ):
-        if isinstance( self.__totalcarriedforwardin, float ):
+        if self.__totalcarriedforwardin is not None:
             return self.__totalcarriedforwardin
 
     @totalcarriedforwardin.setter
@@ -19333,7 +19337,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalcarriedforwardout( self ):
-        if isinstance( self.__totalcarriedforwardout, float ):
+        if self.__totalcarriedforwardout is not None:
             return self.__totalcarriedforwardout
 
     @totalcarriedforwardout.setter
@@ -19343,7 +19347,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalestimatedrecoveries( self ):
-        if isinstance( self.__totalestimatedrecoveries, float ):
+        if self.__totalestimatedrecoveries is not None:
             return self.__totalestimatedrecoveries
 
     @totalestimatedrecoveries.setter
@@ -19353,7 +19357,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalestimatedreimbursements( self ):
-        if isinstance( self.__totalestimatedreimbursements, float ):
+        if self.__totalestimatedreimbursements is not None:
             return self.__totalestimatedreimbursements
 
     @totalestimatedreimbursements.setter
@@ -19363,7 +19367,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalexpenses( self ):
-        if isinstance( self.__totalexpenses, float ):
+        if self.__totalexpenses is not None:
             return self.__totalexpenses
 
     @totalexpenses.setter
@@ -19373,7 +19377,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalexpenditureexpenses( self ):
-        if isinstance( self.__totalexpenditureexpenses, float ):
+        if self.__totalexpenditureexpenses is not None:
             return self.__totalexpenditureexpenses
 
     @totalexpenditureexpenses.setter
@@ -19383,7 +19387,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalexpenseaccruals( self ):
-        if isinstance( self.__totalexpenseaccruals, float ):
+        if self.__totalexpenseaccruals is not None:
             return self.__totalexpenseaccruals
 
     @totalexpenseaccruals.setter
@@ -19393,7 +19397,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalprecommitments( self ):
-        if isinstance( self.__totalprecommitments, float ):
+        if self.__totalprecommitments is not None:
             return self.__totalprecommitments
 
     @totalprecommitments.setter
@@ -19403,7 +19407,7 @@ class StatusOfAppropriations( ):
 
     @property
     def unliquidatedprecommitments( self ):
-        if isinstance( self.__unliquidatedprecommitments, float ):
+        if self.__unliquidatedprecommitments is not None:
             return self.__unliquidatedprecommitments
 
     @unliquidatedprecommitments.setter
@@ -19413,7 +19417,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalobligations( self ):
-        if isinstance( self.__totalobligations, float ):
+        if self.__totalobligations is not None:
             return self.__totalobligations
 
     @totalobligations.setter
@@ -19423,7 +19427,7 @@ class StatusOfAppropriations( ):
 
     @property
     def unliquidatedobligations( self ):
-        if isinstance( self.__unliquidatedobligations, float ):
+        if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidatedobligations.setter
@@ -19433,7 +19437,7 @@ class StatusOfAppropriations( ):
 
     @property
     def voidedamount( self ):
-        if isinstance( self.__voidedamount, float ):
+        if self.__voidedamount is not None:
             return self.__voidedamount
 
     @voidedamount.setter
@@ -19443,7 +19447,7 @@ class StatusOfAppropriations( ):
 
     @property
     def totalusedamount( self ):
-        if isinstance( self.__totalusedamount, float ):
+        if self.__totalusedamount is not None:
             return self.__totalusedamount
 
     @totalusedamount.setter
@@ -19453,7 +19457,7 @@ class StatusOfAppropriations( ):
 
     @property
     def availableamount( self ):
-        if isinstance( self.__availableamount, float ):
+        if self.__availableamount is not None:
             return self.__availableamount
 
     @availableamount.setter
