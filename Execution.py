@@ -18977,7 +18977,7 @@ class StatusOfAppropriations( ):
 
     @property
     def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
@@ -18987,7 +18987,7 @@ class StatusOfAppropriations( ):
 
     @property
     def budgetlevel( self ):
-        if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != '':
+        if self.__budgetlevel is not None:
             return self.__budgetlevel
 
     @budgetlevel.setter
@@ -18997,8 +18997,7 @@ class StatusOfAppropriations( ):
 
     @property
     def appropriationfundcode( self ):
-        if isinstance( self.__appropriationfundcode, str ) \
-                and self.__appropriationfundcode != '':
+        if self.__appropriationfundcode is not None:
             return self.__appropriationfundcode
 
     @appropriationfundcode.setter
@@ -19019,7 +19018,7 @@ class StatusOfAppropriations( ):
 
     @property
     def appropriationcreationdate( self ):
-        if isinstance( self.__appropriationcreationdate, datetime ):
+        if self.__appropriationcreationdate is not None:
             return self.__appropriationcreationdate
 
     @appropriationcreationdate.setter
