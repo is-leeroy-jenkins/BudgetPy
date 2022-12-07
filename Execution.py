@@ -69,7 +69,7 @@ class Element( Unit ):
             return self.__code
 
 
-# Accounts( fundcode, provider = Provider.SQLite )
+# Accounts( code, provider = Provider.SQLite )
 class Accounts( ):
     '''defines the Account Code class'''
     __source = None
@@ -198,9 +198,9 @@ class Accounts( ):
             self.__fields = value
 
     def __init__( self, code, provider = Provider.SQLite ):
+        self.__code = code
         self.__provider = provider
         self.__source = Source.Accounts
-        self.__code = code if isinstance( code, str ) and len( code ) >= 6 else None
         self.__goalcode = self.__code[ 0 ]
         self.__objectivecode = self.__code[ 1:3 ]
         self.__npmcode = self.__code[ 3 ]
@@ -280,7 +280,7 @@ class Accounts( ):
             err.show( )
 
 
-# ActivityCodes( fundcode, provider = Provider.SQLite )
+# ActivityCodes( code, provider = Provider.SQLite )
 class ActivityCodes( ):
     '''Defines the Activity Class'''
     __source = None
@@ -355,7 +355,7 @@ class ActivityCodes( ):
     def __init__( self, code, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ActivityCodes
-        self.__code = code 
+        self.__code = code
         self.__fields = [ 'ActivityCodesId',
                            'Code',
                            'Name',
@@ -1729,9 +1729,9 @@ class ApportionmentData( ):
     def __init__( self, bfy, efy, omb, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Apportionments
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
-        self.__ombaccountcode = omb if isinstance( omb, str ) and len( omb ) == 4 else None
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__ombaccountcode = omb
         self.__fields = [ 'ApportionmentDataId',
                           'FiscalYear',
                           'BFY',
