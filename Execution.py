@@ -23319,14 +23319,13 @@ class UnliquidatedObligations( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy = None, fund = None,
-                  account = None, boc = None, provider = Provider.SQLite ):
+    def __init__( self, bfy, fund, account, boc, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.UnliquidatedObligations
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__accountcode = account if isinstance( account, str ) and account != '' else None
-        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+        self.__bfy = bfy
+        self.__fundcode = fund
+        self.__accountcode = account
+        self.__boccode = boc
         self.__fields = [ 'UnliquidatedObligationsId'
                            'ObligationsId',
                            'BFY',
@@ -23485,7 +23484,7 @@ class WorkCodes( ):
     def __init__( self, code, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.WorkCodes
-        self.__code = code if isinstance( code, str ) else None
+        self.__code = code
         self.__frame = DataFrame
         self.__fields = None
 
