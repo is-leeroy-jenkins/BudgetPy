@@ -69,7 +69,7 @@ class Element( Unit ):
             return self.__code
 
 
-# Accounts( code, provider = Provider.SQLite )
+# Accounts( treas, provider = Provider.SQLite )
 class Accounts( ):
     '''defines the Account Code class'''
     __source = None
@@ -280,7 +280,7 @@ class Accounts( ):
             err.show( )
 
 
-# ActivityCodes( code, provider = Provider.SQLite )
+# ActivityCodes( treas, provider = Provider.SQLite )
 class ActivityCodes( ):
     '''Defines the Activity Class'''
     __source = None
@@ -1551,7 +1551,7 @@ class Allocations( ):
             err.show( )
 
 
-# ApportionmentData( bfy, efy, code, provider = Provider.SQLite )
+# ApportionmentData( bfy, efy, treas, provider = Provider.SQLite )
 class ApportionmentData( ):
     '''Apportionment( bfy, efy, omb )
     initializes object representing Letters Of Apportionment'''
@@ -3901,7 +3901,7 @@ class BudgetFiscalYear( ):
             err.show( )
 
 
-# BudgetObjectClasses( code, provider = Provider.SQLite  )
+# BudgetObjectClasses( treas, provider = Provider.SQLite  )
 class BudgetObjectClasses( ):
     '''Defines the BudgetObjectClass Class'''
     __source = None
@@ -6424,7 +6424,7 @@ class CarryoverSurvey( ):
             err.show( )
 
 
-# CapitalPlanningInvestmentCodes( code, provider = Provider.SQLite  )
+# CapitalPlanningInvestmentCodes( treas, provider = Provider.SQLite  )
 class CapitalPlanningInvestmentCodes( ):
     '''Defines the Organization Class'''
     __source = None
@@ -8392,7 +8392,7 @@ class Expenditures( ):
             err.show( )
 
 
-# FinanceObjectClass( code, provider = Provider.SQLite  )
+# FinanceObjectClass( treas, provider = Provider.SQLite  )
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
     __source = None
@@ -9999,7 +9999,7 @@ class GeneralLedgerAccounts( ):
                           'ClosingAmount' ]
 
 
-# Goals( code, provider = Provider.SQLite )
+# Goals( treas, provider = Provider.SQLite )
 class Goals( ):
     '''Defines the Goal Class'''
     __source = None
@@ -10728,7 +10728,7 @@ class HeadquartersAuthority( ):
             err.show( )
 
 
-# HeadquartersOffices( code, provider = Provider.SQLite  )
+# HeadquartersOffices( treas, provider = Provider.SQLite  )
 class HeadquartersOffices( ):
     '''Defines a regional RPIO'''
     __source = None
@@ -10856,7 +10856,7 @@ class HeadquartersOffices( ):
             err.show( )
 
 
-# HumanResourceOrganizations( code, provider = Provider.SQLite )
+# HumanResourceOrganizations( treas, provider = Provider.SQLite )
 class HumanResourceOrganizations( ):
     '''Defines the Organization Class'''
     __source = None
@@ -11208,7 +11208,7 @@ class MonthlyOutlays( ):
             err.show( )
 
 
-# NationalPrograms( code value, provider = Provider.SQLite )
+# NationalPrograms( treas value, provider = Provider.SQLite )
 class NationalPrograms( ):
     '''Defines the NationalProgram Class'''
     __source = None
@@ -11358,7 +11358,7 @@ class NationalPrograms( ):
             err.show( )
 
 
-# Objectives( code, provider = Provider.SQLite )
+# Objectives( treas, provider = Provider.SQLite )
 class Objectives( ):
     '''Defines the Objective Class'''
     __source = None
@@ -11847,7 +11847,7 @@ class ObjectClassOutlays( ):
             err.show( )
 
 
-# OperatingPlans( bfy, efy, code, provider = Provider.SQLite )
+# OperatingPlans( bfy, efy, treas, provider = Provider.SQLite )
 class OperatingPlans( ):
     '''object representing Operating plan allocations'''
     __operatingplansid = None
@@ -14215,7 +14215,7 @@ class PayrollActivity( ):
             err.show( )
 
 
-# Projects( code, provider = Provider.SQLite  )
+# Projects( treas, provider = Provider.SQLite  )
 class Projects( ):
     '''Defines the Organization Class'''
     __source = None
@@ -14340,7 +14340,7 @@ class Projects( ):
             err.show( )
 
 
-# ProgramAreas( code, provider = Provider.SQLite  )
+# ProgramAreas( treas, provider = Provider.SQLite  )
 class ProgramAreas( ):
     '''defines the ProgramArea class'''
     __source = None
@@ -14466,7 +14466,7 @@ class ProgramAreas( ):
             err.show( )
 
 
-# ProgramProjects( code, provider = Provider.SQLite  )
+# ProgramProjects( treas, provider = Provider.SQLite  )
 class ProgramProjects( ):
     '''Defines the ProgramProject Class'''
     __source = None
@@ -14601,7 +14601,7 @@ class ProgramProjects( ):
             err.show( )
 
 
-# PayrollCostCodes( bfy, efy, code, provider = Provider.SQLite )
+# PayrollCostCodes( bfy, efy, treas, provider = Provider.SQLite )
 class PayrollCostCodes( ):
     __source = None
     __provider = None
@@ -18647,7 +18647,7 @@ class SubAppropriations( ):
             err.show( )
 
 
-# SiteProjectCodes( code, provider = Provider.SQLite  )
+# SiteProjectCodes( treas, provider = Provider.SQLite  )
 class SiteProjectCodes( ):
     '''Defines the Organization Class'''
     __source = None
@@ -21416,7 +21416,7 @@ class SiteActivity( ):
 
     @property
     def rpiocode( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpiocode.setter
@@ -21426,7 +21426,7 @@ class SiteActivity( ):
 
     @property
     def rpioname( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpiocode.setter
@@ -21436,7 +21436,7 @@ class SiteActivity( ):
 
     @property
     def ahcode( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ahcode.setter
@@ -21446,7 +21446,7 @@ class SiteActivity( ):
 
     @property
     def ahname( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ahname.setter
@@ -21456,7 +21456,7 @@ class SiteActivity( ):
 
     @property
     def fundcode( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fundcode.setter
@@ -21466,7 +21466,7 @@ class SiteActivity( ):
 
     @property
     def fundname( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fundname.setter
@@ -21476,7 +21476,7 @@ class SiteActivity( ):
 
     @property
     def orgcode( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
@@ -21486,7 +21486,7 @@ class SiteActivity( ):
 
     @property
     def orgname( self ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
@@ -21496,7 +21496,7 @@ class SiteActivity( ):
 
     @property
     def accountcode( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @accountcode.setter
@@ -21506,7 +21506,7 @@ class SiteActivity( ):
 
     @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -21516,7 +21516,7 @@ class SiteActivity( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -21526,7 +21526,7 @@ class SiteActivity( ):
 
     @property
     def rccode( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rccode.setter
@@ -21536,7 +21536,7 @@ class SiteActivity( ):
 
     @property
     def rcname( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rcname.setter
@@ -21546,7 +21546,7 @@ class SiteActivity( ):
 
     @property
     def programprojectcode( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @programprojectcode.setter
@@ -21556,7 +21556,7 @@ class SiteActivity( ):
 
     @property
     def programprojectname( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @programprojectname.setter
@@ -21566,7 +21566,7 @@ class SiteActivity( ):
 
     @property
     def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @programareacode.setter
@@ -21576,7 +21576,7 @@ class SiteActivity( ):
 
     @property
     def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @programareaname.setter
@@ -21586,7 +21586,7 @@ class SiteActivity( ):
 
     @property
     def epasiteid( self ):
-        if isinstance( self.__epasiteid, str ) and self.__epasiteid != '':
+        if self.__epasiteid is not None:
             return self.__epasiteid
 
     @epasiteid.setter
@@ -21596,7 +21596,7 @@ class SiteActivity( ):
 
     @property
     def projecttype( self ):
-        if isinstance( self.__projecttype, str ) and self.__projecttype != '':
+        if self.__projecttype is not None:
             return self.__projecttype
 
     @projecttype.setter
@@ -21606,7 +21606,7 @@ class SiteActivity( ):
 
     @property
     def siteprojectcode( self ):
-        if isinstance( self.__siteprojectcode, str ) and self.__siteprojectcode != '':
+        if self.__siteprojectcode is not None:
             return self.__siteprojectcode
 
     @siteprojectcode.setter
@@ -21616,7 +21616,7 @@ class SiteActivity( ):
 
     @property
     def siteprojectname( self ):
-        if isinstance( self.__siteprojectname, str ) and self.__siteprojectname != '':
+        if self.__siteprojectname is not None:
             return self.__siteprojectname
 
     @siteprojectname.setter
@@ -21626,7 +21626,7 @@ class SiteActivity( ):
 
     @property
     def ssid( self ):
-        if isinstance( self.__ssid, str ) and self.__ssid != '':
+        if self.__ssid is not None:
             return self.__ssid
 
     @ssid.setter
@@ -21636,7 +21636,7 @@ class SiteActivity( ):
 
     @property
     def actioncode( self ):
-        if isinstance( self.__actioncode, str ) and self.__actioncode != '':
+        if self.__actioncode is not None:
             return self.__actioncode
 
     @actioncode.setter
@@ -21646,7 +21646,7 @@ class SiteActivity( ):
 
     @property
     def operableunit( self ):
-        if isinstance( self.__operableunit, str ) and self.__operableunit != '':
+        if self.__operableunit is not None:
             return self.__operableunit
 
     @operableunit.setter
@@ -21656,7 +21656,7 @@ class SiteActivity( ):
 
     @property
     def state( self ):
-        if isinstance( self.__state, str ) and self.__state != '':
+        if self.__state is not None:
             return self.__state
 
     @state.setter
@@ -21666,7 +21666,7 @@ class SiteActivity( ):
 
     @property
     def city( self ):
-        if isinstance( self.__city, str ) and self.__city != '':
+        if self.__city is not None:
             return self.__city
 
     @city.setter
@@ -21676,7 +21676,7 @@ class SiteActivity( ):
 
     @property
     def congress( self ):
-        if isinstance( self.__congress, str ) and self.__congress != '':
+        if self.__congress is not None:
             return self.__congress
 
     @congress.setter
@@ -21686,7 +21686,7 @@ class SiteActivity( ):
 
     @property
     def startdate( self ):
-        if isinstance( self.__startdate, str ) and self.__startdate != '':
+        if self.__startdate is not None:
             return self.__startdate
 
     @startdate.setter
@@ -21696,7 +21696,7 @@ class SiteActivity( ):
 
     @property
     def enddate( self ):
-        if isinstance( self.__enddate, str ) and self.__enddate != '':
+        if self.__enddate is not None:
             return self.__enddate
 
     @enddate.setter
@@ -21706,7 +21706,7 @@ class SiteActivity( ):
 
     @property
     def lastactivitydate( self ):
-        if isinstance( self.__lastactivitydate, str ) and self.__lastactivitydate != '':
+        if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @lastactivitydate.setter
@@ -21716,7 +21716,7 @@ class SiteActivity( ):
 
     @property
     def requested( self ):
-        if isinstance( self.__requested, float ):
+        if self.__requested is not None:
             return self.__requested
 
     @requested.setter
@@ -21726,7 +21726,7 @@ class SiteActivity( ):
 
     @property
     def accepted( self ):
-        if isinstance( self.__accepted, float ):
+        if self.__accepted is not None:
             return self.__accepted
 
     @accepted.setter
@@ -21736,7 +21736,7 @@ class SiteActivity( ):
 
     @property
     def closed( self ):
-        if isinstance( self.__closed, float ):
+        if self.__closed is not None:
             return self.__closed
 
     @closed.setter
@@ -21746,7 +21746,7 @@ class SiteActivity( ):
 
     @property
     def refunded( self ):
-        if isinstance( self.__refunded, float ):
+        if self.__refunded is not None:
             return self.__refunded
 
     @refunded.setter
@@ -21756,7 +21756,7 @@ class SiteActivity( ):
 
     @property
     def reversal( self ):
-        if isinstance( self.__reversal, float ):
+        if self.__reversal is not None:
             return self.__reversal
 
     @reversal.setter
@@ -21774,11 +21774,12 @@ class SiteActivity( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy = None, rpio = None, provider = Provider.SQLite ):
+    def __init__( self, bfy, efy, rpio, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.SiteActivity
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__rpiocode = rpio
         self.__fields = [ 'SiteActivityId',
                            'BFY',
                            'EFY',
@@ -21959,12 +21960,12 @@ class TreasurySymbols( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, code, provider = Provider.SQLite ):
+    def __init__( self, bfy, efy, treas, provider = Provider.SQLite ):
         self.__provider = provider
         self.__soruce = Source.FundSymbols
-        self.__bfy = bfy if isinstance( bfy, str ) else None
-        self.__efy = efy if isinstance( efy, str ) else None
-        self.__treasuryaccountcode = code if isinstance( code, str ) else None
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__treasuryaccountcode = treas
         self.__fields = [ 'TreasurySymbolsId',
                           'BFY',
                           'EFY',
