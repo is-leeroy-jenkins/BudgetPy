@@ -11,6 +11,7 @@ from openpyxl.xml.functions import xmlfile
 from openpyxl.xml.constants import SHEET_MAIN_NS
 
 from openpyxl.comments.comment_sheet import CommentRecord
+from openpyxl.drawing.legacy import LegacyDrawing
 from openpyxl.packaging.relationship import Relationship, RelationshipList
 from openpyxl.styles.differential import DifferentialStyle
 
@@ -48,6 +49,8 @@ class WorksheetWriter:
         self.ws = ws
         self.ws._hyperlinks = []
         self.ws._comments = []
+        self.controls = []
+        self.control_images = []
         if out is None:
             out = create_temporary_file()
         self.out = out
@@ -242,7 +245,7 @@ class WorksheetWriter:
 
 
     def write_drawings(self):
-        if self.ws._charts or self.ws._images:
+        if self.ws._charts or self.ws._images or self.ws._shapes:
             rel = Relationship(type="drawing", Target="")
             self._rels.append(rel)
             drawing = Related()
@@ -255,9 +258,42 @@ class WorksheetWriter:
         Comments & VBA controls use VML and require an additional element
         that is no longer in the specification.
         """
-        if (self.ws.legacy_drawing is not None or self.ws._comments):
-            legacy = Related(id="anysvml")
-            self.xf.send(legacy.to_tree("legacyDrawing"))
+        if not self.ws.legacy_drawing and not self.ws._comments:
+            return
+        if not self.ws.legacy_drawing:
+            self.ws.legacy_drawing = LegacyDrawing(vml=None)
+
+        rel = Relationship(type="vmlDrawing", Target="")
+        self._rels.append(rel)
+        legacy = Related(id=rel.id)
+        self.ws.legacy_drawing._rel_id = rel.id
+        self.xf.send(legacy.to_tree("legacyDrawing"))
+
+
+    def write_controls(self):
+        controls = self.ws.controls
+        if not controls:
+            return
+
+        targets = []
+        for ctrl in controls.control:
+            shape = ctrl.shape # ActiveX or CtrlProp
+            self.controls.append(shape)
+            rel = Relationship(Type=shape.rel_type, Target="")
+            self._rels.append(rel)
+            ctrl.id = rel.id
+            shape._rel_id = rel.id
+            embedded = getattr(ctrl.controlPr, "image", None)
+
+            if embedded:
+                embedded.id = None
+                if embedded.Target not in targets:
+                    self.control_images.append(embedded)
+                    self._rels.append(embedded)
+                    targets.append(embedded.Target)
+                ctrl.controlPr.id = embedded.id
+
+        self.xf.send(controls.to_tree())
 
 
     def write_tables(self):
@@ -348,6 +384,7 @@ class WorksheetWriter:
         self.write_breaks()
         self.write_drawings()
         self.write_legacy()
+        self.write_controls()
         self.write_tables()
 
 

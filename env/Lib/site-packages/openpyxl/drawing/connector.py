@@ -106,12 +106,16 @@ class ShapeMeta(Serialisable):
     cNvPr = Typed(expected_type=NonVisualDrawingProps)
     cNvSpPr = Typed(expected_type=NonVisualDrawingShapeProps)
 
+    __elements__ = ("cNvPr", "cNvSpPr")
+
     def __init__(self, cNvPr=None, cNvSpPr=None):
         self.cNvPr = cNvPr
         self.cNvSpPr = cNvSpPr
 
 
 class Shape(Serialisable):
+
+    tagname = "sp"
 
     macro = String(allow_none=True)
     textlink = String(allow_none=True)
@@ -123,6 +127,8 @@ class Shape(Serialisable):
     graphicalProperties = Alias("spPr")
     style = Typed(expected_type=ShapeStyle, allow_none=True)
     txBody = Typed(expected_type=RichText, allow_none=True)
+
+    __elements__ = ("nvSpPr", "spPr", "style", "txBody")
 
     def __init__(self,
                  macro=None,

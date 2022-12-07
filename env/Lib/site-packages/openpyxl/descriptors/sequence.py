@@ -22,7 +22,7 @@ class Sequence(Descriptor):
 
     def __set__(self, instance, seq):
         if not isinstance(seq, self.seq_types):
-            raise TypeError("Value must be a sequence")
+            raise TypeError(f"Value for {self.name} of class {instance.__class__.__name__} must be a sequence")
         seq = [_convert(self.expected_type, value) for value in seq]
         if self.unique:
             seq = IndexedList(seq)

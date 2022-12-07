@@ -9,17 +9,28 @@ from openpyxl.descriptors import (
     Bool,
     Sequence,
 )
+from openpyxl.descriptors.nested import NestedText
 
-from openpyxl.drawing.spreadsheet_drawing import AnchorMarker
+from openpyxl.drawing.anchor import AnchorMarker
 from openpyxl.xml.constants import SHEET_DRAWING_NS
+
+
+class AnchorMarker(AnchorMarker):
+
+    ## XDR namespace for child elements only
+
+    col = NestedText(expected_type=int, namespace=SHEET_DRAWING_NS)
+    colOff = NestedText(expected_type=int, namespace=SHEET_DRAWING_NS)
+    row = NestedText(expected_type=int, namespace=SHEET_DRAWING_NS)
+    rowOff = NestedText(expected_type=int, namespace=SHEET_DRAWING_NS)
 
 
 class ObjectAnchor(Serialisable):
 
     tagname = "anchor"
 
-    _from = Typed(expected_type=AnchorMarker, namespace=SHEET_DRAWING_NS)
-    to = Typed(expected_type=AnchorMarker, namespace=SHEET_DRAWING_NS)
+    _from = Typed(expected_type=AnchorMarker)
+    to = Typed(expected_type=AnchorMarker)
     moveWithCells = Bool(allow_none=True)
     sizeWithCells = Bool(allow_none=True)
     z_order = Integer(allow_none=True, hyphenated=True)
@@ -43,7 +54,7 @@ class ObjectPr(Serialisable):
 
     tagname = "objectPr"
 
-    anchor = Typed(expected_type=ObjectAnchor, )
+    anchor = Typed(expected_type=ObjectAnchor)
     locked = Bool(allow_none=True)
     defaultSize = Bool(allow_none=True)
     _print = Bool(allow_none=True)

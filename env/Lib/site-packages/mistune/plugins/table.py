@@ -1,130 +1,135 @@
 import re
+from ..helpers import PREVENT_BACKSLASH
 
-__all__ = ['plugin_table']
+# https://michelf.ca/projects/php-markdown/extra/#table
 
-TABLE_PATTERN = re.compile(
-    r' {0,3}\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*'
+__all__ = ['table', 'table_in_quote', 'table_in_list']
+
+
+TABLE_PATTERN = (
+  r'^ {0,3}\|(?P<table_head>.+)\|[ \t]*\n'
+  r' {0,3}\|(?P<table_align> *[-:]+[-| :]*)\|[ \t]*\n'
+  r'(?P<table_body>(?: {0,3}\|.*\|[ \t]*(?:\n|$))*)\n*'
 )
-NP_TABLE_PATTERN = re.compile(
-    r' {0,3}(\S.*\|.*)\n *([-:]+ *\|[-| :]*)\n((?:.*\|.*(?:\n|$))*)\n*'
+NP_TABLE_PATTERN = (
+  r'^ {0,3}(?P<nptable_head>\S.*\|.*)\n'
+  r' {0,3}(?P<nptable_align>[-:]+ *\|[-| :]*)\n'
+  r'(?P<nptable_body>(?:.*\|.*(?:\n|$))*)\n*'
 )
-HEADER_SUB = re.compile(r'\| *$')
-HEADER_SPLIT = re.compile(r' *\| *')
-ALIGN_SPLIT = re.compile(r' *\| *')
+
+TABLE_CELL = re.compile(r'^ {0,3}\|(.+)\|[ \t]*$')
+CELL_SPLIT = re.compile(r' *' + PREVENT_BACKSLASH + r'\| *')
+ALIGN_CENTER = re.compile(r'^ *:-+: *$')
+ALIGN_LEFT = re.compile(r'^ *:-+ *$')
+ALIGN_RIGHT = re.compile(r'^ *-+: *$')
 
 
-def parse_table(self, m, state):
-    header = HEADER_SUB.sub('', m.group(1)).strip()
-    align = HEADER_SUB.sub('', m.group(2))
-    thead, aligns = _process_table(header, align)
+def parse_table(block, m, state):
+    pos = m.end()
+    header = m.group('table_head')
+    align = m.group('table_align')
+    thead, aligns = _process_thead(header, align)
+    if not thead:
+        return
 
-    text = re.sub(r'(?: *\| *)?\n$', '', m.group(3))
     rows = []
-    for i, v in enumerate(text.split('\n')):
-        v = re.sub(r'^ *\| *| *\| *$', '', v)
-        rows.append(_process_row(v, aligns))
+    body = m.group('table_body')
+    for text in body.splitlines():
+        m = TABLE_CELL.match(text)
+        if not m:  # pragma: no cover
+            return
+        row = _process_row(m.group(1), aligns)
+        if not row:
+            return
+        rows.append(row)
 
     children = [thead, {'type': 'table_body', 'children': rows}]
-    return {'type': 'table', 'children': children}
+    state.append_token({'type': 'table', 'children': children})
+    return pos
 
 
-def parse_nptable(self, m, state):
-    thead, aligns = _process_table(m.group(1), m.group(2))
+def parse_nptable(block, m, state):
+    header = m.group('nptable_head')
+    align = m.group('nptable_align')
+    thead, aligns = _process_thead(header, align)
+    if not thead:
+        return
 
-    text = re.sub(r'\n$', '', m.group(3))
     rows = []
-    for i, v in enumerate(text.split('\n')):
-        rows.append(_process_row(v, aligns))
+    body = m.group('nptable_body')
+    for text in body.splitlines():
+        row = _process_row(text, aligns)
+        if not row:
+            return
+        rows.append(row)
 
     children = [thead, {'type': 'table_body', 'children': rows}]
-    return {'type': 'table', 'children': children}
+    state.append_token({'type': 'table', 'children': children})
+    return m.end()
 
 
-def _process_table(header, align):
-    headers = HEADER_SPLIT.split(header)
-    aligns = ALIGN_SPLIT.split(align)
+def _process_thead(header, align):
+    headers = CELL_SPLIT.split(header)
+    aligns = CELL_SPLIT.split(align)
+    if len(headers) != len(aligns):
+      return None, None
 
-    if header.endswith('|'):
-        headers.append('')
-
-    cells = []
     for i, v in enumerate(aligns):
-        if re.search(r'^ *-+: *$', v):
-            aligns[i] = 'right'
-        elif re.search(r'^ *:-+: *$', v):
+        if ALIGN_CENTER.match(v):
             aligns[i] = 'center'
-        elif re.search(r'^ *:-+ *$', v):
+        elif ALIGN_LEFT.match(v):
             aligns[i] = 'left'
+        elif ALIGN_RIGHT.match(v):
+            aligns[i] = 'right'
         else:
             aligns[i] = None
 
-        if len(headers) > i:
-            cells.append({
-                'type': 'table_cell',
-                'text': headers[i],
-                'params': (aligns[i], True)
-            })
-
-    i += 1
-    while i + 1 < len(headers):
-        cells.append({
+    children = [
+        {
             'type': 'table_cell',
-            'text': headers[i],
-            'params': (None, True)
-        })
-        aligns.append(None)
-        i += 1
-
-    thead = {'type': 'table_head', 'children': cells}
+            'text': text.strip(),
+            'attrs': {'align': aligns[i], 'head': True}
+        }
+        for i, text in enumerate(headers)
+    ]
+    thead = {'type': 'table_head', 'children': children}
     return thead, aligns
 
 
-def _process_row(row, aligns):
-    cells = []
-    for i, s in enumerate(re.split(r' *(?<!\\)\| *', row)):
-        text = re.sub(r'\\\|', '|', s.strip())
-        if len(aligns) < i + 1:
-            cells.append({
-                'type': 'table_cell',
-                'text': text,
-                'params': (None, False)
-            })
-        else:
-            cells.append({
-                'type': 'table_cell',
-                'text': text,
-                'params': (aligns[i], False)
-            })
+def _process_row(text, aligns):
+    cells = CELL_SPLIT.split(text)
+    if len(cells) != len(aligns):
+        return None
 
-    if len(cells) < len(aligns):
-        for align in aligns[len(cells):]:
-            cells.append({
-                'type': 'table_cell',
-                'text': '',
-                'params': (align, False),
-            })
-
-    return {'type': 'table_row', 'children': cells}
+    children = [
+        {
+            'type': 'table_cell',
+            'text': text.strip(),
+            'attrs': {'align': aligns[i], 'head': False}
+        }
+        for i, text in enumerate(cells)
+    ]
+    return {'type': 'table_row', 'children': children}
 
 
-def render_html_table(text):
+def render_table(renderer, text):
     return '<table>\n' + text + '</table>\n'
 
 
-def render_html_table_head(text):
+def render_table_head(renderer, text):
     return '<thead>\n<tr>\n' + text + '</tr>\n</thead>\n'
 
 
-def render_html_table_body(text):
+def render_table_body(renderer, text):
     return '<tbody>\n' + text + '</tbody>\n'
 
 
-def render_html_table_row(text):
+def render_table_row(renderer, text):
     return '<tr>\n' + text + '</tr>\n'
 
 
-def render_html_table_cell(text, align=None, is_head=False):
-    if is_head:
+def render_table_cell(renderer, text, align=None, head=False):
+    if head:
         tag = 'th'
     else:
         tag = 'td'
@@ -136,27 +141,39 @@ def render_html_table_cell(text, align=None, is_head=False):
     return html + '>' + text + '</' + tag + '>\n'
 
 
-def render_ast_table_cell(children, align=None, is_head=False):
-    return {
-        'type': 'table_cell',
-        'children': children,
-        'align': align,
-        'is_head': is_head
-    }
+def table(md):
+    """A mistune plugin to support table, spec defined at
+    https://michelf.ca/projects/php-markdown/extra/#table
+
+    Here is an example:
+
+    .. code-block:: text
+
+        First Header  | Second Header
+        ------------- | -------------
+        Content Cell  | Content Cell
+        Content Cell  | Content Cell
+
+    :param md: Markdown instance
+    """
+    md.block.register('table', TABLE_PATTERN, parse_table, before='paragraph')
+    md.block.register('nptable', NP_TABLE_PATTERN, parse_nptable, before='paragraph')
+
+    if md.renderer and md.renderer.NAME == 'html':
+        md.renderer.register('table', render_table)
+        md.renderer.register('table_head', render_table_head)
+        md.renderer.register('table_body', render_table_body)
+        md.renderer.register('table_row', render_table_row)
+        md.renderer.register('table_cell', render_table_cell)
 
 
-def plugin_table(md):
-    md.block.register_rule('table', TABLE_PATTERN, parse_table)
-    md.block.register_rule('nptable', NP_TABLE_PATTERN, parse_nptable)
-    md.block.rules.append('table')
-    md.block.rules.append('nptable')
+def table_in_quote(md):
+    """Enable table plugin in block quotes."""
+    md.block.insert_rule(md.block.block_quote_rules, 'table', before='paragraph')
+    md.block.insert_rule(md.block.block_quote_rules, 'nptable', before='paragraph')
 
-    if md.renderer.NAME == 'html':
-        md.renderer.register('table', render_html_table)
-        md.renderer.register('table_head', render_html_table_head)
-        md.renderer.register('table_body', render_html_table_body)
-        md.renderer.register('table_row', render_html_table_row)
-        md.renderer.register('table_cell', render_html_table_cell)
 
-    elif md.renderer.NAME == 'ast':
-        md.renderer.register('table_cell', render_ast_table_cell)
+def table_in_list(md):
+    """Enable table plugin in list."""
+    md.block.insert_rule(md.block.list_rules, 'table', before='paragraph')
+    md.block.insert_rule(md.block.list_rules, 'nptable', before='paragraph')
