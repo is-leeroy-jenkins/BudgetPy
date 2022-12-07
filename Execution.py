@@ -1697,8 +1697,7 @@ class ApportionmentData( ):
 
     @property
     def subline( self ):
-        if isinstance( self.__subline, str ) \
-                and self.__subline != '':
+        if self.__subline is not None:
             return self.__subline
 
     @subline.setter
@@ -1708,7 +1707,7 @@ class ApportionmentData( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
