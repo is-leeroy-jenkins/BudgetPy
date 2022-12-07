@@ -1,16 +1,26 @@
-try:
-    from urllib.parse import quote
-    import html
-except ImportError:
-    from urllib import quote
-    html = None
+import re
+from urllib.parse import quote
+from html import _replace_charref
 
 
-PUNCTUATION = r'''\\!"#$%&'()*+,./:;<=>?@\[\]^`{}|_~-'''
-ESCAPE_TEXT = r'\\[' + PUNCTUATION + ']'
+_expand_tab_re = re.compile(r'^( {0,3})\t', flags=re.M)
+
+
+def expand_leading_tab(text, width=4):
+    def repl(m):
+        s = m.group(1)
+        return s + ' ' * (width - len(s))
+    return _expand_tab_re.sub(repl, text)
+
+
+def expand_tab(text, space='    '):
+    repl = r'\1' + space
+    return _expand_tab_re.sub(repl, text)
 
 
 def escape(s, quote=True):
+    """Escape characters of ``&<>``. If quote=True, ``"`` will be
+    converted to ``&quote;``."""
     s = s.replace("&", "&amp;")
     s = s.replace("<", "&lt;")
     s = s.replace(">", "&gt;")
@@ -20,22 +30,52 @@ def escape(s, quote=True):
 
 
 def escape_url(link):
+    """Escape URL for safety."""
     safe = (
         ':/?#@'           # gen-delims - '[]' (rfc3986)
         '!$&()*+,;='      # sub-delims - "'" (rfc3986)
         '%'               # leave already-encoded octets alone
     )
-
-    if html is None:
-        return quote(link.encode('utf-8'), safe=safe)
-    return html.escape(quote(html.unescape(link), safe=safe))
+    return escape(quote(unescape(link), safe=safe))
 
 
-def escape_html(s):
-    if html is not None:
-        return html.escape(html.unescape(s)).replace('&#x27;', "'")
-    return escape(s)
+def safe_entity(s):
+    """Escape characters for safety."""
+    return escape(unescape(s))
 
 
 def unikey(s):
-    return ' '.join(s.split()).lower()
+    """Generate a unique key for links and footnotes."""
+    key = ' '.join(s.split()).strip()
+    return key.lower().upper()
+
+
+_charref_re = re.compile(
+    r'&(#[0-9]{1,7};'
+    r'|#[xX][0-9a-fA-F]+;'
+    r'|[^\t\n\f <&#;]{1,32};)'
+)
+
+
+def unescape(s):
+    """
+    Copy from `html.unescape`, but `_charref` is different. CommonMark
+    does not accept entity references without a trailing semicolon
+    """
+    if '&' not in s:
+        return s
+    return _charref_re.sub(_replace_charref, s)
+
+
+_striptags_re = re.compile(r'(<!--.*?-->|<[^>]*>)')
+
+
+def striptags(s):
+    return _striptags_re.sub('', s)
+
+
+_strip_end_re = re.compile(r'\n\s+$')
+
+
+def strip_end(src):
+    return _strip_end_re.sub('\n', src)

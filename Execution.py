@@ -11634,7 +11634,7 @@ class ObjectClassOutlays( ):
 
     @property
     def reportyear( self ):
-        if isinstance( self.__reportyear, str ) and len( self.__reportyear ) == 4:
+        if self.__reportyear is not None:
             return self.__reportyear
 
     @reportyear.setter
@@ -11644,7 +11644,7 @@ class ObjectClassOutlays( ):
 
     @property
     def ombagencycode( self ):
-        if isinstance( self.__ombagencycode, str ) and self.__ombagencycode != '':
+        if self.__ombagencycode is not None:
             return self.__ombagencycode
 
     @ombagencycode.setter
@@ -11654,7 +11654,7 @@ class ObjectClassOutlays( ):
 
     @property
     def budgetaccountcode( self ):
-        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+        if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budgetaccountcode.setter
@@ -11664,7 +11664,7 @@ class ObjectClassOutlays( ):
 
     @property
     def budgetaccountname( self ):
-        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+        if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budgetaccountname.setter
@@ -11674,7 +11674,7 @@ class ObjectClassOutlays( ):
 
     @property
     def obligationtype( self ):
-        if isinstance( self.__obligationtype, str ) and self.__obligationtype != '':
+        if self.__obligationtype is not None:
             return self.__obligationtype
 
     @obligationtype.setter
@@ -11684,7 +11684,7 @@ class ObjectClassOutlays( ):
 
     @property
     def directreimbursabletitle( self ):
-        if isinstance( self.__directreimbursabletitle, str ) and self.__directreimbursabletitle != '':
+        if self.__directreimbursabletitle is not None:
             return self.__directreimbursabletitle
 
     @directreimbursabletitle.setter
@@ -11694,7 +11694,7 @@ class ObjectClassOutlays( ):
 
     @property
     def objectclassgroupnumber( self ):
-        if isinstance( self.__objectclassgroupnumber, str ) and self.__objectclassgroupnumber != '':
+        if self.__objectclassgroupnumber is not None:
             return self.__objectclassgroupnumber
 
     @objectclassgroupnumber.setter
@@ -11704,7 +11704,7 @@ class ObjectClassOutlays( ):
 
     @property
     def objectclassgroupname( self ):
-        if isinstance( self.__objectclassgroupname, str ) and self.__objectclassgroupname != '':
+        if self.__objectclassgroupname is not None:
             return self.__objectclassgroupname
 
     @objectclassgroupname.setter
@@ -11714,7 +11714,7 @@ class ObjectClassOutlays( ):
 
     @property
     def boccode( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boccode.setter
@@ -11724,7 +11724,7 @@ class ObjectClassOutlays( ):
 
     @property
     def bocname( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @bocname.setter
@@ -11734,7 +11734,7 @@ class ObjectClassOutlays( ):
 
     @property
     def financeobjectclass( self ):
-        if isinstance( self.__financeobjectclass, str ) and self.__financeobjectclass != '':
+        if self.__financeobjectclass is not None:
             return self.__financeobjectclass
 
     @financeobjectclass.setter
@@ -11744,7 +11744,7 @@ class ObjectClassOutlays( ):
 
     @property
     def prioryear( self ):
-        if isinstance( self.__prioryear, float ):
+        if self.__prioryear is not None:
             return self.__prioryear
 
     @prioryear.setter
@@ -11754,7 +11754,7 @@ class ObjectClassOutlays( ):
 
     @property
     def currentyear( self ):
-        if isinstance( self.__currentyear, float ):
+        if self.__currentyear is not None:
             return self.__currentyear
 
     @currentyear.setter
@@ -11764,7 +11764,7 @@ class ObjectClassOutlays( ):
 
     @property
     def budgetyear( self ):
-        if isinstance( self.__budgetyear, float ):
+        if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budgetyear.setter
@@ -11782,9 +11782,10 @@ class ObjectClassOutlays( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, account, provider = Provider.SQLite ):
+    def __init__( self, year, account, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ObjectClassOutlays
+        self.__reportyear = year
         self.__budgetaccountcode = account
         self.__fields = [ 'ObjectClassOutlaysId',
                           'ReportYear',
@@ -11850,6 +11851,7 @@ class ObjectClassOutlays( ):
 # OperatingPlans( bfy, efy, code, provider = Provider.SQLite )
 class OperatingPlans( ):
     '''object representing Operating plan allocations'''
+    __operatingplansid = None
     __source = None
     __provider = None
     __operatingplansid = None
@@ -11882,6 +11884,16 @@ class OperatingPlans( ):
     __fields = None
     __data = None
     __frame = None
+
+    @property
+    def id( self ):
+        if self.__operatingplansid is not None:
+            return self.__operatingplansid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__operatingplansid = value
 
     @property
     def bfy( self ):
@@ -12260,13 +12272,13 @@ class OpenCommitments( ):
 
     @property
     def id( self ):
-        if self.__expendituresid is not None:
-            return self.__expendituresid
+        if self.__opencommitmentsid is not None:
+            return self.__opencommitmentsid
 
     @id.setter
     def id( self, value ):
         if value is not None:
-            self.__expendituresid = value
+            self.__opencommitmentsid = value
 
     @property
     def bfy( self ):
@@ -13341,6 +13353,7 @@ class Obligations( ):
         self.__provider = provider
         self.__source = Source.Obligations
         self.__bfy = bfy
+        self.__efy = efy
         self.__fundcode = fund
         self.__accountcode = account
         self.__boccode = boc
@@ -13431,6 +13444,7 @@ class ProgramFinancingSchedule( ):
     __source = None
     __provider = None
     __bfy = None
+    __efy = None
     __programfinancingscheduleid = None
     __reportyear = None
     __ledgeraccountcode = None
@@ -13462,9 +13476,18 @@ class ProgramFinancingSchedule( ):
             self.__bfy = value
 
     @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
     def treasuryaccountcode( self ):
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
@@ -13474,8 +13497,7 @@ class ProgramFinancingSchedule( ):
 
     @property
     def treasuryaccountname( self ):
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasuryaccountname.setter
@@ -13485,7 +13507,7 @@ class ProgramFinancingSchedule( ):
 
     @property
     def budgetaccountcode( self ):
-        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+        if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budgetaccountcode.setter
@@ -13495,7 +13517,7 @@ class ProgramFinancingSchedule( ):
 
     @property
     def budgetaccountname( self ):
-        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+        if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budgetaccountname.setter
@@ -13515,6 +13537,7 @@ class ProgramFinancingSchedule( ):
 
     def __init__( self, bfy, efy, account, provider = Provider.SQLite ):
         self.__bfy = bfy
+        self.__efy = efy
         self.__budgetaccountcode = account
         self.__provider = provider
         self.__source = Source.ProgramFinancingSchedule
@@ -13581,7 +13604,7 @@ class PublicLaws( ):
 
     @property
     def lawnumber( self ):
-        if isinstance( self.__lawnumber, str ) and self.__lawnumber != '':
+        if self.__lawnumber is not None:
             return self.__lawnumber
 
     @lawnumber.setter
@@ -13869,7 +13892,7 @@ class PayrollActivity( ):
 
     @property
     def hrorgcode( self ):
-        if isinstance( self.__hrorgcode, str ) and self.__hrorgcode != '':
+        if self.__hrorgcode is not None:
             return self.__hrorgcode
 
     @hrorgcode.setter
@@ -13879,7 +13902,7 @@ class PayrollActivity( ):
 
     @property
     def hrorgname( self ):
-        if isinstance( self.__hrorgname, str ) and self.__hrorgname != '':
+        if self.__hrorgname is not None:
             return self.__hrorgname
 
     @hrorgname.setter
@@ -13889,7 +13912,7 @@ class PayrollActivity( ):
 
     @property
     def workcode( self ):
-        if isinstance( self.__workcode, str ) and self.__workcode != '':
+        if self.__workcode is not None:
             return self.__workcode
 
     @workcode.setter
@@ -13899,7 +13922,7 @@ class PayrollActivity( ):
 
     @property
     def workcodename( self ):
-        if isinstance( self.__workcodename, str ) and self.__workcodename != '':
+        if self.__workcodename is not None:
             return self.__workcodename
 
     @workcodename.setter
@@ -13909,7 +13932,7 @@ class PayrollActivity( ):
 
     @property
     def payperiod( self ):
-        if isinstance( self.__payperiod, int ):
+        if self.__payperiod is not None:
             return self.__payperiod
 
     @payperiod.setter
@@ -13919,7 +13942,7 @@ class PayrollActivity( ):
 
     @property
     def startdate( self ):
-        if isinstance( self.__startdate, datetime ):
+        if self.__startdate is not None:
             return self.__startdate
 
     @startdate.setter
@@ -13929,7 +13952,7 @@ class PayrollActivity( ):
 
     @property
     def enddate( self ):
-        if isinstance( self.__enddate, datetime ):
+        if self.__enddate is not None:
             return self.__enddate
 
     @enddate.setter
@@ -13939,7 +13962,7 @@ class PayrollActivity( ):
 
     @property
     def checkdate( self ):
-        if isinstance( self.__checkdate, datetime ):
+        if self.__checkdate is not None:
             return self.__checkdate
 
     @checkdate.setter
@@ -13949,7 +13972,7 @@ class PayrollActivity( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -13959,7 +13982,7 @@ class PayrollActivity( ):
 
     @property
     def hours( self ):
-        if isinstance( self.__hours, float ):
+        if self.__hours is not None:
             return self.__hours
 
     @hours.setter
@@ -13969,7 +13992,7 @@ class PayrollActivity( ):
 
     @property
     def basepaid( self ):
-        if isinstance( self.__basepaid, float ):
+        if self.__basepaid is not None:
             return self.__basepaid
 
     @basepaid.setter
@@ -13979,7 +14002,7 @@ class PayrollActivity( ):
 
     @property
     def basehours( self ):
-        if isinstance( self.__basehours, float ):
+        if self.__basehours is not None:
             return self.__basehours
 
     @basehours.setter
@@ -13989,7 +14012,7 @@ class PayrollActivity( ):
 
     @property
     def benefits( self ):
-        if isinstance( self.__benefits, float ):
+        if self.__benefits is not None:
             return self.__benefits
 
     @benefits.setter
@@ -13999,7 +14022,7 @@ class PayrollActivity( ):
 
     @property
     def overtimepaid( self ):
-        if isinstance( self.__overtimepaid, float ):
+        if  self.__overtimepaid is not None:
             return self.__overtimepaid
 
     @overtimepaid.setter
@@ -14009,7 +14032,7 @@ class PayrollActivity( ):
 
     @property
     def overtimehours( self ):
-        if isinstance( self.__overtimehours, float ):
+        if self.__overtimehours is not None:
             return self.__overtimehours
 
     @overtimehours.setter
@@ -14019,7 +14042,7 @@ class PayrollActivity( ):
 
     @property
     def programareacode( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @programareacode.setter
@@ -14029,7 +14052,7 @@ class PayrollActivity( ):
 
     @property
     def programareaname( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @programareaname.setter
@@ -14039,7 +14062,7 @@ class PayrollActivity( ):
 
     @property
     def goalcode( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goalcode.setter
@@ -14049,7 +14072,7 @@ class PayrollActivity( ):
 
     @property
     def goalname( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goalname.setter
@@ -14059,7 +14082,7 @@ class PayrollActivity( ):
 
     @property
     def objectivecode( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objectivecode.setter
@@ -14069,7 +14092,7 @@ class PayrollActivity( ):
 
     @property
     def objectivename( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objectivename.setter
@@ -14079,7 +14102,7 @@ class PayrollActivity( ):
 
     @property
     def npmcode( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npmcode.setter
@@ -14089,7 +14112,7 @@ class PayrollActivity( ):
 
     @property
     def npmname( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npmname.setter

@@ -8,7 +8,6 @@ from openpyxl.descriptors import (
     Set,
     MinMax,
 )
-from openpyxl.descriptors.excel import Percentage
 from openpyxl.descriptors.nested import (
     NestedNoneSet,
     NestedValue,
@@ -213,6 +212,7 @@ class HSLColor(Serialisable):
 class RGBPercent(Serialisable):
 
     tagname = "rgbClr"
+    namespace = DRAWING_NS
 
     r = MinMax(min=0, max=100)
     g = MinMax(min=0, max=100)
