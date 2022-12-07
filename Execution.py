@@ -4042,7 +4042,8 @@ class BudgetObjectClasses( ):
 # BudgetaryResourceExecution( bfy, efy, fundcode, provider = Provider.SQLite )
 class BudgetaryResourceExecution( ):
     '''BudgetaryResourceExecution( bfy, efy, fundcode )
-    initializes object representing MAX A-11 DE, SF-133'''
+    initializes object representing the MAX A-11 DE/SF-133
+    Status Of Budgetary Resources Execution Report'''
     __source = None
     __provider = None
     __budgetaryresourceexecutionid = None
@@ -17508,8 +17509,8 @@ class StatusOfSupplementalFunding( ):
             err.show( )
 
 
-# StateGrantObligation( bfy, rpio, provider = Provider.SQLite )
-class StateGrantObligation( ):
+# StateGrantObligations( bfy, rpio, provider = Provider.SQLite )
+class StateGrantObligations( ):
     '''object representing the BIS'''
     __source = None
     __provider = None
@@ -17782,7 +17783,7 @@ class StateGrantObligation( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'StateGrantObligation'
+            exc.cause = 'StateGrantObligations'
             exc.method = 'getdata( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -17797,7 +17798,7 @@ class StateGrantObligation( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'StateGrantObligation'
+            exc.cause = 'StateGrantObligations'
             exc.method = 'getframe( self )'
             err = ErrorDialog( exc )
             err.show( )
