@@ -4918,12 +4918,12 @@ class CompassLevels( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy = None, efy = None, fund = None, provider = Provider.SQLite ):
+    def __init__( self, bfy, efy, fund, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.CompassLevels
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
-        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__fundcode = fund
         self.__fields = [ 'CompassLevelsId',
                            'BudgetLevel',
                            'BFY',
