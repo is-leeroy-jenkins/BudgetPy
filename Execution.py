@@ -11070,7 +11070,7 @@ class MonthlyOutlays( ):
 
     @property
     def taxationcode( self ):
-        if isinstance( self.__taxationcode, str ) and self.__taxationcode != '':
+        if self.__taxationcode is not None:
             return self.__taxationcode
 
     @taxationcode.setter
@@ -11080,7 +11080,7 @@ class MonthlyOutlays( ):
 
     @property
     def treasuryagency( self ):
-        if isinstance( self.__treasuryagency, str ) and self.__treasuryagency != '':
+        if self.__treasuryagency is not None:
             return self.__treasuryagency
 
     @treasuryagency.setter
@@ -11090,7 +11090,7 @@ class MonthlyOutlays( ):
 
     @property
     def treasuryaccount( self ):
-        if isinstance( self.__treasuryaccount, str ) and self.__treasuryaccount != '':
+        if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
     @treasuryaccount.setter
@@ -11100,7 +11100,7 @@ class MonthlyOutlays( ):
 
     @property
     def ombaccount( self ):
-        if isinstance( self.__ombaccount, str ) and self.__ombaccount != '':
+        if self.__ombaccount is not None:
             return self.__ombaccount
 
     @ombaccount.setter
@@ -11110,7 +11110,7 @@ class MonthlyOutlays( ):
 
     @property
     def budgetaccountname( self ):
-        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+        if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budgetaccountname.setter
