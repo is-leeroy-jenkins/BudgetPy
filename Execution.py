@@ -664,8 +664,8 @@ class AppropriationAvailableBalances( ):
     __efy = None
     __fundcode = None
     __fundname = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __authority = None
@@ -752,24 +752,24 @@ class AppropriationAvailableBalances( ):
             self.__treasuryaccountname = value
 
     @property
-    def ombaccountcode( self ):
-        if self.__ombaccountcode is not None:
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if self.__ombaccountname is not None:
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def authority( self ):
@@ -934,8 +934,8 @@ class AppropriationLevelAuthority( ):
     __efy = None
     __fundcode = None
     __fundname = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgeted = None
@@ -1020,24 +1020,24 @@ class AppropriationLevelAuthority( ):
             self.__treasuryaccountname = value
 
     @property
-    def ombaccountcode( self ):
-        if self.__ombaccountcode is not None:
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if self.__ombaccountname is not None:
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def authority( self ):
@@ -1551,7 +1551,7 @@ class Allocations( ):
             err.show( )
 
 
-# ApportionmentData( bfy, efy, fundcode, provider = Provider.SQLite )
+# ApportionmentData( bfy, efy, code, provider = Provider.SQLite )
 class ApportionmentData( ):
     '''Apportionment( bfy, efy, omb )
     initializes object representing Letters Of Apportionment'''
@@ -1561,8 +1561,8 @@ class ApportionmentData( ):
     __bfy = None
     __efy = None
     __treasuryfundsymbol = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __ombagency = None
     __treasuryagency = None
     __linenumber = None
@@ -1616,24 +1616,24 @@ class ApportionmentData( ):
             self.__treasuryfundsymbol = value
 
     @property
-    def ombaccountcode( self ):
-        if self.__ombaccountcode is not None:
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if self.__ombaccountname is not None:
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def ombagency( self ):
@@ -1731,7 +1731,7 @@ class ApportionmentData( ):
         self.__source = Source.Apportionments
         self.__bfy = bfy
         self.__efy = efy
-        self.__ombaccountcode = omb
+        self.__budgetaccountcode = omb
         self.__fields = [ 'ApportionmentDataId',
                           'FiscalYear',
                           'BFY',
@@ -1759,7 +1759,7 @@ class ApportionmentData( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-            v = (self.__bfy, self.__efy, self.__ombaccountcode)
+            v = (self.__bfy, self.__efy, self.__budgetaccountcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -4050,8 +4050,8 @@ class BudgetaryResourceExecution( ):
     __bfy = None
     __efy = None
     __treasuryfundsymbol = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -4097,24 +4097,24 @@ class BudgetaryResourceExecution( ):
             self.__treasuryfundsymbol = value
 
     @property
-    def ombaccountcode( self ):
-        if self.__ombaccountcode is not None:
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if  self.__ombaccountname is not None:
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if  self.__budgetaccountname is not None:
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def fields( self ):
@@ -4131,7 +4131,7 @@ class BudgetaryResourceExecution( ):
         self.__source = Source.BudgetResourceExecution
         self.__bfy = bfy if isinstance( bfy, str ) else None
         self.__efy = efy if isinstance( efy, str ) else None
-        self.__ombaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
+        self.__budgetaccountcode = code if isinstance( code, str ) and len( code ) == 4 else None
         self.__fields = [ 'BudgetaryResourceExecutionId',
                           'FiscalYear',
                           'BFY',
@@ -4169,7 +4169,7 @@ class BudgetaryResourceExecution( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-            v = (self.__bfy, self.__efy, self.__ombaccountcode)
+            v = (self.__bfy, self.__efy, self.__budgetaccountcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -4214,8 +4214,8 @@ class BudgetOutlays( ):
     __provider = None
     __budgetoutlaysid = None
     __reportyear = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __linenumber = None
     __linesection = None
     __linename = None
@@ -4319,24 +4319,24 @@ class BudgetOutlays( ):
             self.__beacategoryname = value
 
     @property
-    def ombaccountcode( self ):
-        if self.__ombaccountcode is not None:
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if self.__ombaccountname is not None:
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def prioryear( self ):
@@ -4471,7 +4471,7 @@ class BudgetOutlays( ):
     def __init__( self, account, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.BudgetOutlays
-        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__budgetaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
         self.__fields = [ 'BudgetOutlaysId',
                           'ReportYear',
                           'Category',
@@ -4502,7 +4502,7 @@ class BudgetOutlays( ):
             source = self.__source
             provider = self.__provider
             n = [ 'OmbAccountCode', ]
-            v = (self.__ombaccountcode,)
+            v = (self.__budgetaccountcode,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -5549,8 +5549,8 @@ class CarryoverOutlays( ):
     __source = None
     __provider = None
     __carryoveroutlaysid = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __linenumber = None
     __carryover = None
     __carryoveroutlays = None
@@ -5606,24 +5606,24 @@ class CarryoverOutlays( ):
             self.__linenumber = value
 
     @property
-    def ombaccountcode( self ):
-        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def carryover( self ):
@@ -5819,7 +5819,7 @@ class CarryoverOutlays( ):
         self.__provider = provider
         self.__source = Source.CarryoverOutlays
         self.__budgetyear = bfy if isinstance( bfy, str ) and bfy != '' else None
-        self.__ombaccountcode = omb if isinstance( omb, str ) and omb != '' else None
+        self.__budgetaccountcode = omb if isinstance( omb, str ) and omb != '' else None
         self.__fields = [ 'CarryoverOutlaysId',
                           'ReportYear',
                           'AgencyName',
@@ -5849,7 +5849,7 @@ class CarryoverOutlays( ):
             source = Source.CarryoverOutlays
             provider = Provider.SQLite
             n = [ 'BudgetYear', 'OmbAccountCode' ]
-            v = (self.__budgetyear, self.__ombaccountcode)
+            v = (self.__budgetyear, self.__budgetaccountcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -8575,8 +8575,8 @@ class Funds( ):
     __securityorg = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __apportionmentaccountcode = None
     __fields = None
     __data = None
@@ -8849,24 +8849,24 @@ class Funds( ):
             self.__treasuryaccountname = value
 
     @property
-    def ombaccountcode( self ):
-        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def apportionmentaccountcode( self ):
@@ -11003,7 +11003,7 @@ class MonthlyOutlays( ):
     __ombagency = None
     __ombbureau = None
     __ombaccount = None
-    __ombaccountname = None
+    __budgetaccountname = None
     __january = None
     __feburary = None
     __march = None
@@ -11111,14 +11111,14 @@ class MonthlyOutlays( ):
             self.__ombaccount = value
 
     @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def fields( self ):
@@ -11135,7 +11135,7 @@ class MonthlyOutlays( ):
         self.__source = Source.MonthlyOutlays
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
-        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) <= 5 else None
+        self.__budgetaccountcode = account if isinstance( account, str ) and len( account ) <= 5 else None
         self.__fields = [ 'MonthlyOutlaysId',
                           'FiscalYear',
                           'LineNumber',
@@ -11174,7 +11174,7 @@ class MonthlyOutlays( ):
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-            v = (self.__bfy, self.__efy, self.__ombaccountcode)
+            v = (self.__bfy, self.__efy, self.__budgetaccountcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -11608,8 +11608,8 @@ class ObjectClassOutlays( ):
     __objectclassoutlaysid = None
     __reportyear = None
     __ombagencycode = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __obligationtype = None
     __directreimbursabletitle = None
     __objectclassgroupnumber = None
@@ -11655,24 +11655,24 @@ class ObjectClassOutlays( ):
             self.__ombagencycode = value
 
     @property
-    def ombaccountcode( self ):
-        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def obligationtype( self ):
@@ -11787,7 +11787,7 @@ class ObjectClassOutlays( ):
     def __init__( self, account, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ObjectClassOutlays
-        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__budgetaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
         self.__fields = [ 'ObjectClassOutlaysId',
                           'ReportYear',
                           'OmbAgencyCode',
@@ -11812,7 +11812,7 @@ class ObjectClassOutlays( ):
             source = Source.ObjectClassOutlays
             provider = Provider.SQLite
             n = [ 'OmbAccountCode', ]
-            v = (self.__ombaccountcode,)
+            v = (self.__budgetaccountcode,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -13439,8 +13439,8 @@ class ProgramFinancingSchedule( ):
     __reportyear = None
     __ledgeraccountcode = None
     __treasuryagencycode = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __fundname = None
@@ -13488,24 +13488,24 @@ class ProgramFinancingSchedule( ):
             self.__treasuryaccountname = value
 
     @property
-    def ombaccountcode( self ):
-        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def fields( self ):
@@ -13519,7 +13519,7 @@ class ProgramFinancingSchedule( ):
 
     def __init__( self, bfy, account, provider = Provider.SQLite ):
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__ombaccountcode = account if isinstance( account, str ) and account != '' else None
+        self.__budgetaccountcode = account if isinstance( account, str ) and account != '' else None
         self.__provider = provider
         self.__source = Source.ProgramFinancingSchedule
         self.__fields = [ 'ProgramFinancingScheduleId',
@@ -19579,8 +19579,8 @@ class SpendingRates( ):
     __treasuryagencyname = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __ombaccounttitle = None
     __subfunction = None
     __linenumber = None
@@ -19677,24 +19677,24 @@ class SpendingRates( ):
             self.__ombagencyname = value
 
     @property
-    def ombaccountcode( self ):
-        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def subfunction( self ):
@@ -19899,7 +19899,7 @@ class SpendingRates( ):
     def __init__( self, account, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.SpendingRates
-        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__budgetaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
         self.__fields = [ 'SpendingRatesId',
                           'OmbAgencyCode',
                           'OmbAgencyName',
@@ -19938,7 +19938,7 @@ class SpendingRates( ):
             provider = self.__provider
             command = SQL.SELECTALL
             names = [ 'OmbAccountCode', ]
-            values = ( self.__ombaccountcode, )
+            values = ( self.__budgetaccountcode, )
             data = DataBuilder( provider, source, command, names, values )
             self.__data = data.createtable( )
             return self.__data
@@ -21834,8 +21834,8 @@ class TreasurySymbols( ):
     __treasuryagencycode = None
     __bfy = None
     __efy = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __fields = None
@@ -21895,24 +21895,24 @@ class TreasurySymbols( ):
             self.__treasuryaccountname = value
 
     @property
-    def ombaccountcode( self ):
-        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def fields( self ):
@@ -22491,8 +22491,8 @@ class UnobligatedAuthority( ):
     __provider = None
     __unobligatedauthorityid = None
     __reportyear = None
-    __ombaccountcode = None
-    __ombaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __ombaccounttitle = None
     __linenumber = None
     __linename = None
@@ -22544,24 +22544,24 @@ class UnobligatedAuthority( ):
             self.__linename = value
 
     @property
-    def ombaccountcode( self ):
-        if isinstance( self.__ombaccountcode, str ) and self.__ombaccountcode != '':
-            return self.__ombaccountcode
+    def budgetaccountcode( self ):
+        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+            return self.__budgetaccountcode
 
-    @ombaccountcode.setter
-    def ombaccountcode( self, value ):
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
         if value is not None:
-            self.__ombaccountcode = value
+            self.__budgetaccountcode = value
 
     @property
-    def ombaccountname( self ):
-        if isinstance( self.__ombaccountname, str ) and self.__ombaccountname != '':
-            return self.__ombaccountname
+    def budgetaccountname( self ):
+        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+            return self.__budgetaccountname
 
-    @ombaccountname.setter
-    def ombaccountname( self, value ):
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
         if value is not None:
-            self.__ombaccountname = value
+            self.__budgetaccountname = value
 
     @property
     def prioryear( self ):
@@ -22606,7 +22606,7 @@ class UnobligatedAuthority( ):
     def __init__( self, account, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.UnobligatedAuthority
-        self.__ombaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__budgetaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
         self.__fields = [ 'UnobligatedAuthorityId',
                           'ReportYear',
                           'AgencyCode',
@@ -22627,7 +22627,7 @@ class UnobligatedAuthority( ):
             source = self.__source
             provider = self.__provider
             n = [ 'OmbAccountCode', ]
-            v = (self.__ombaccountcode,)
+            v = (self.__budgetaccountcode,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
