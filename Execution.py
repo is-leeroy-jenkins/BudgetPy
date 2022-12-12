@@ -14216,7 +14216,7 @@ class PayrollActivity( ):
             err.show( )
 
 
-# Projects( treas, provider = Provider.SQLite  )
+# Projects( code, provider = Provider.SQLite  )
 class Projects( ):
     '''Defines the Organization Class'''
     __source = None
@@ -14341,7 +14341,7 @@ class Projects( ):
             err.show( )
 
 
-# ProgramAreas( treas, provider = Provider.SQLite  )
+# ProgramAreas( code, provider = Provider.SQLite  )
 class ProgramAreas( ):
     '''defines the ProgramArea class'''
     __source = None
@@ -14467,7 +14467,7 @@ class ProgramAreas( ):
             err.show( )
 
 
-# ProgramProjects( treas, provider = Provider.SQLite  )
+# ProgramProjects( code, provider = Provider.SQLite  )
 class ProgramProjects( ):
     '''Defines the ProgramProject Class'''
     __source = None
@@ -14602,7 +14602,7 @@ class ProgramProjects( ):
             err.show( )
 
 
-# PayrollCostCodes( bfy, efy, treas, provider = Provider.SQLite )
+# PayrollCostCodes( bfy, efy, code, provider = Provider.SQLite )
 class PayrollCostCodes( ):
     __source = None
     __provider = None
@@ -18648,7 +18648,7 @@ class SubAppropriations( ):
             err.show( )
 
 
-# SiteProjectCodes( treas, provider = Provider.SQLite  )
+# SiteProjectCodes( code, provider = Provider.SQLite  )
 class SiteProjectCodes( ):
     '''Defines the Organization Class'''
     __source = None
