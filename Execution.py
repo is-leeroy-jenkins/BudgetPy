@@ -3901,7 +3901,7 @@ class BudgetFiscalYear( ):
             err.show( )
 
 
-# BudgetObjectClasses( treas, provider = Provider.SQLite  )
+# BudgetObjectClasses( code, provider = Provider.SQLite  )
 class BudgetObjectClasses( ):
     '''Defines the BudgetObjectClass Class'''
     __source = None
