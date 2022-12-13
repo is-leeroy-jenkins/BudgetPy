@@ -1,4 +1,4 @@
-#!C:\Users\teppler\source\compilers\py\python\python.exe
+#!C:\Users\terry\source\compilers\py\python\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'reload==0.9','console_scripts','reload'
 import re
 import sys

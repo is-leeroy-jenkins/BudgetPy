@@ -1,4 +1,4 @@
-#!C:\Users\teppler\source\compilers\py\python\python.exe
+#!C:\Users\terry\source\compilers\py\python\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'json5==0.9.8','console_scripts','pyjson5'
 import re
 import sys
