@@ -1,22 +1,20 @@
+"""A terminals extension app."""
 import os
 import shlex
 import sys
 from shutil import which
 
+from jupyter_core.utils import ensure_async
+from jupyter_server.extension.application import ExtensionApp
+from jupyter_server.transutils import trans
 from traitlets import Type
 
 from . import api_handlers, handlers
 from .terminalmanager import TerminalManager
 
-try:
-    from jupyter_server.extension.application import ExtensionApp
-    from jupyter_server.transutils import trans
-    from jupyter_server.utils import ensure_async
-except ModuleNotFoundError:
-    raise ModuleNotFoundError("Jupyter Server must be installed to use this extension.")
-
 
 class TerminalsExtensionApp(ExtensionApp):
+    """A terminals extension app."""
 
     name = "jupyter_server_terminals"
 
@@ -34,10 +32,14 @@ class TerminalsExtensionApp(ExtensionApp):
     terminals_available = False
 
     def initialize_settings(self):
+        """Initialize settings."""
         self.initialize_configurables()
-        self.settings.update(dict(terminals_available=True, terminal_manager=self.terminal_manager))
+        self.settings.update(
+            {"terminals_available": True, "terminal_manager": self.terminal_manager}
+        )
 
     def initialize_configurables(self):
+        """Initialize configurables."""
         if os.name == "nt":
             default_shell = "powershell.exe"
         else:
@@ -67,6 +69,7 @@ class TerminalsExtensionApp(ExtensionApp):
         self.terminal_manager.log = self.serverapp.log
 
     def initialize_handlers(self):
+        """Initialize handlers."""
         self.handlers.append(
             (
                 r"/terminals/websocket/(\w+)",
@@ -81,6 +84,7 @@ class TerminalsExtensionApp(ExtensionApp):
         ]
 
     def current_activity(self):
+        """Get current activity info."""
         if self.terminals_available:
             terminals = self.terminal_manager.terminals
             if terminals:
@@ -104,4 +108,5 @@ class TerminalsExtensionApp(ExtensionApp):
         await ensure_async(terminal_manager.terminate_all())
 
     async def stop_extension(self):
+        """Stop the extension."""
         await self.cleanup_terminals()

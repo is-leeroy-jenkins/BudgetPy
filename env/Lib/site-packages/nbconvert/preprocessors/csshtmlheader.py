@@ -7,14 +7,14 @@
 import hashlib
 import os
 
-from jupyterlab_pygments import JupyterStyle
+from jupyterlab_pygments import JupyterStyle  # type:ignore
 from pygments.style import Style
 from traitlets import Type, Unicode, Union
 
 from .base import Preprocessor
 
 try:
-    from notebook import DEFAULT_STATIC_FILES_PATH
+    from notebook import DEFAULT_STATIC_FILES_PATH  # type:ignore
 except ImportError:
     DEFAULT_STATIC_FILES_PATH = None
 
@@ -34,6 +34,7 @@ class CSSHTMLHeaderPreprocessor(Preprocessor):
     ).tag(config=True)
 
     def __init__(self, *pargs, **kwargs):
+        """Initialize the preprocessor."""
         Preprocessor.__init__(self, *pargs, **kwargs)
         self._default_css_hash = None
 

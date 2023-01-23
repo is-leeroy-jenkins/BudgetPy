@@ -1,3 +1,4 @@
+"""A qt exporter."""
 import os
 import sys
 import tempfile
@@ -8,8 +9,10 @@ from .html import HTMLExporter
 
 
 class QtExporter(HTMLExporter):
+    """A qt exporter."""
 
     paginate = None
+    format = ""
 
     @default("file_extension")
     def _file_extension_default(self):
@@ -45,6 +48,7 @@ class QtExporter(HTMLExporter):
         return s.data
 
     def from_notebook_node(self, nb, resources=None, **kw):
+        """Convert from notebook node."""
         self._check_launch_reqs()
         html, resources = super().from_notebook_node(nb, resources=resources, **kw)
 

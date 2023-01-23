@@ -1,29 +1,30 @@
+"""API handlers for terminals."""
 import json
 from pathlib import Path
 from typing import Optional
 
+from jupyter_server.auth.decorator import authorized
+from jupyter_server.base.handlers import APIHandler
 from tornado import web
 
 from .base import TerminalsMixin
-
-try:
-    from jupyter_server.auth.decorator import authorized
-    from jupyter_server.base.handlers import APIHandler
-except ModuleNotFoundError:
-    raise ModuleNotFoundError("Jupyter Server must be installed to use this extension.")
-
 
 AUTH_RESOURCE = "terminals"
 
 
 class TerminalAPIHandler(APIHandler):
+    """The base terminal handler."""
+
     auth_resource = AUTH_RESOURCE
 
 
 class TerminalRootHandler(TerminalsMixin, TerminalAPIHandler):
+    """The root termanal API handler."""
+
     @web.authenticated
     @authorized
     def get(self):
+        """Get the list of terminals."""
         models = self.terminal_manager.list()
         self.finish(json.dumps(models))
 
@@ -60,17 +61,21 @@ class TerminalRootHandler(TerminalsMixin, TerminalAPIHandler):
 
 
 class TerminalHandler(TerminalsMixin, TerminalAPIHandler):
+    """A handler for a specific terminal."""
+
     SUPPORTED_METHODS = ("GET", "DELETE")  # type:ignore[assignment]
 
     @web.authenticated
     @authorized
     def get(self, name):
+        """Get a terminal by name."""
         model = self.terminal_manager.get(name)
         self.finish(json.dumps(model))
 
     @web.authenticated
     @authorized
     async def delete(self, name):
+        """Remove a terminal by name."""
         await self.terminal_manager.terminate(name, force=True)
         self.set_status(204)
         self.finish()

@@ -1,10 +1,11 @@
+"""A qt screenshot exporter."""
 import os
 
 try:
-    from PyQt5 import QtCore
-    from PyQt5.QtGui import QPageLayout, QPageSize
-    from PyQt5.QtWebEngineWidgets import QWebEngineSettings, QWebEngineView
-    from PyQt5.QtWidgets import QApplication
+    from PyQt5 import QtCore  # type:ignore
+    from PyQt5.QtGui import QPageLayout, QPageSize  # type:ignore
+    from PyQt5.QtWebEngineWidgets import QWebEngineSettings, QWebEngineView  # type:ignore
+    from PyQt5.QtWidgets import QApplication  # type:ignore
 
     QT_INSTALLED = True
 except ModuleNotFoundError:
@@ -17,11 +18,15 @@ if QT_INSTALLED:
         APP = QApplication([])
 
     class QtScreenshot(QWebEngineView):
+        """A qt screenshot exporter."""
+
         def __init__(self):
+            """Initialize the exporter."""
             super().__init__()
             self.app = APP
 
         def capture(self, url, output_file, paginate):
+            """Capture the screenshot."""
             self.output_file = output_file
             self.paginate = paginate
             self.load(QtCore.QUrl(url))
@@ -34,7 +39,8 @@ if QT_INSTALLED:
                 self.export = self.export_pdf
 
                 def cleanup(*args):
-                    self.app.quit()
+                    """Cleanup the app."""
+                    self.app.quit()  # type:ignore
                     self.get_data()
 
                 self.page().pdfPrintingFinished.connect(cleanup)
@@ -43,15 +49,17 @@ if QT_INSTALLED:
             else:
                 raise RuntimeError(f"Export file extension not supported: {output_file}")
             self.show()
-            self.app.exec()
+            self.app.exec()  # type:ignore
 
         def on_loaded(self):
+            """Handle app load."""
             self.size = self.page().contentsSize().toSize()
             self.resize(self.size)
             # Wait for resize
             QtCore.QTimer.singleShot(1000, self.export)
 
         def export_pdf(self):
+            """Export to pdf."""
             if self.paginate:
                 page_size = QPageSize(QPageSize.A4)
                 page_layout = QPageLayout(page_size, QPageLayout.Portrait, QtCore.QMarginsF())
@@ -66,11 +74,13 @@ if QT_INSTALLED:
             self.page().printToPdf(self.output_file, pageLayout=page_layout)
 
         def export_png(self):
+            """Export to png."""
             self.grab().save(self.output_file, "PNG")
-            self.app.quit()
+            self.app.quit()  # type:ignore
             self.get_data()
 
         def get_data(self):
+            """Get output data."""
             if os.path.exists(self.output_file):
                 with open(self.output_file, "rb") as f:
                     self.data = f.read()

@@ -1,27 +1,25 @@
 """Tornado handlers for the terminal emulator."""
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
+from jupyter_server._tz import utcnow
+from jupyter_server.auth.utils import warn_disabled_authorization
+from jupyter_server.base.handlers import JupyterHandler
+from jupyter_server.base.websocket import WebSocketMixin
 from terminado.websocket import TermSocket as BaseTermSocket
 from tornado import web
 
 from .base import TerminalsMixin
 
-try:
-    from jupyter_server._tz import utcnow
-    from jupyter_server.auth.utils import warn_disabled_authorization
-    from jupyter_server.base.handlers import JupyterHandler
-    from jupyter_server.base.websocket import WebSocketMixin
-except ModuleNotFoundError:
-    raise ModuleNotFoundError("Jupyter Server must be installed to use this extension.")
-
 AUTH_RESOURCE = "terminals"
 
 
 class TermSocket(TerminalsMixin, WebSocketMixin, JupyterHandler, BaseTermSocket):
+    """A terminal websocket."""
 
     auth_resource = AUTH_RESOURCE
 
     def initialize(self, name, term_manager, **kwargs):
+        """Initialize the socket."""
         BaseTermSocket.initialize(self, term_manager, **kwargs)
         TerminalsMixin.initialize(self, name)
 
@@ -32,6 +30,7 @@ class TermSocket(TerminalsMixin, WebSocketMixin, JupyterHandler, BaseTermSocket)
         return True
 
     def get(self, *args, **kwargs):
+        """Get the terminal socket."""
         user = self.current_user
 
         if not user:
@@ -44,15 +43,17 @@ class TermSocket(TerminalsMixin, WebSocketMixin, JupyterHandler, BaseTermSocket)
         elif not self.authorizer.is_authorized(self, user, "execute", self.auth_resource):
             raise web.HTTPError(403)
 
-        if not args[0] in self.term_manager.terminals:
+        if args[0] not in self.term_manager.terminals:
             raise web.HTTPError(404)
         return super().get(*args, **kwargs)
 
     def on_message(self, message):
+        """Handle a socket mesage."""
         super().on_message(message)
         self._update_activity()
 
     def write_message(self, message, binary=False):
+        """Write a message to the socket."""
         super().write_message(message, binary=binary)
         self._update_activity()
 

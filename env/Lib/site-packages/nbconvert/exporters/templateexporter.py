@@ -9,6 +9,7 @@ that uses Jinja2 to export notebook files into different formats.
 import html
 import json
 import os
+import typing as t
 import uuid
 import warnings
 from pathlib import Path
@@ -22,6 +23,7 @@ from jinja2 import (
     TemplateNotFound,
 )
 from jupyter_core.paths import jupyter_path
+from nbformat import NotebookNode
 from traitlets import Bool, Dict, HasTraits, List, Unicode, default, observe, validate
 from traitlets.config import Config
 from traitlets.utils.importstring import import_item
@@ -101,6 +103,7 @@ def recursive_update(target, new):
 
 # define function at the top level to avoid pickle errors
 def deprecated(msg):
+    """Emit a deprecation warning."""
     warnings.warn(msg, DeprecationWarning)
 
 
@@ -114,18 +117,21 @@ class ExtensionTolerantLoader(BaseLoader):
     """
 
     def __init__(self, loader, extension):
+        """Initialize the loader."""
         self.loader = loader
         self.extension = extension
 
     def get_source(self, environment, template):
+        """Get the source for a template."""
         try:
             return self.loader.get_source(environment, template)
         except TemplateNotFound:
             if template.endswith(self.extension):
-                raise TemplateNotFound(template)
+                raise TemplateNotFound(template) from None
             return self.loader.get_source(environment, template + self.extension)
 
     def list_templates(self):
+        """List available templates."""
         return self.loader.list_templates()
 
 
@@ -217,7 +223,7 @@ class TemplateExporter(Exporter):
     def _template_file_changed(self, change):
         new = change["new"]
         if new == "default":
-            self.template_file = self.default_template
+            self.template_file = self.default_template  # type:ignore
             return
         # check if template_file is a file path
         # rather than a name already on template_path
@@ -370,7 +376,21 @@ class TemplateExporter(Exporter):
         self.log.debug("    template_paths: %s", os.pathsep.join(self.template_paths))
         return self.environment.get_template(template_file)
 
-    def from_notebook_node(self, nb, resources=None, **kw):
+    def from_filename(  # type:ignore
+        self, filename: str, resources: t.Optional[dict] = None, **kw: t.Any
+    ) -> t.Tuple[str, dict]:
+        """Convert a notebook from a filename."""
+        return super().from_filename(filename, resources, **kw)  # type:ignore
+
+    def from_file(  # type:ignore
+        self, file_stream: t.Any, resources: t.Optional[dict] = None, **kw: t.Any
+    ) -> t.Tuple[str, dict]:
+        """Convert a notebook from a file."""
+        return super().from_file(file_stream, resources, **kw)  # type:ignore
+
+    def from_notebook_node(  # type:ignore
+        self, nb: NotebookNode, resources: t.Optional[dict] = None, **kw: t.Any
+    ) -> t.Tuple[str, dict]:
         """
         Convert a notebook from a notebook node instance.
 
@@ -511,7 +531,7 @@ class TemplateExporter(Exporter):
         #  * We rely on recursive_update, which can only merge dicts, lists will be overwritten
         #  * We can use the key with numerical prefixing to guarantee ordering (/etc/*.d/XY-file style)
         #  * We can disable preprocessors by overwriting the value with None
-        for _, preprocessor in sorted(preprocessors.items(), key=lambda x: x[0]):
+        for _, preprocessor in sorted(preprocessors.items(), key=lambda x: x[0]):  # type:ignore
             if preprocessor is not None:
                 kwargs = preprocessor.copy()
                 preprocessor_cls = kwargs.pop("type")
@@ -522,7 +542,7 @@ class TemplateExporter(Exporter):
                 self.register_preprocessor(preprocessor)
 
     def _get_conf(self):
-        conf = {}  # the configuration once all conf files are merged
+        conf: dict = {}  # the configuration once all conf files are merged
         for path in map(Path, self.template_paths):
             conf_path = path / "conf.json"
             if conf_path.exists():
@@ -567,21 +587,22 @@ class TemplateExporter(Exporter):
 
     @classmethod
     def get_compatibility_base_template_conf(cls, name):
+        """Get the base template config."""
         # Hard-coded base template confs to use for backwards compatibility for 5.x-only templates
         if name == "display_priority":
-            return dict(base_template="base")
+            return {"base_template": "base"}
         if name == "full":
-            return dict(base_template="classic", mimetypes={"text/html": True})
+            return {"base_template": "classic", "mimetypes": {"text/html": True}}
 
     def get_template_names(self):
-        # finds a list of template names where each successive template name is the base template
+        """Finds a list of template names where each successive template name is the base template"""
         template_names = []
         root_dirs = self.get_prefix_root_dirs()
         base_template = self.template_name
-        merged_conf = {}  # the configuration once all conf files are merged
+        merged_conf: dict = {}  # the configuration once all conf files are merged
         while base_template is not None:
             template_names.append(base_template)
-            conf = {}
+            conf: dict = {}
             found_at_least_one = False
             for base_dir in self.extra_template_basedirs:
                 template_dir = os.path.join(base_dir, base_template)
@@ -635,6 +656,7 @@ class TemplateExporter(Exporter):
         return template_names
 
     def get_prefix_root_dirs(self):
+        """Get the prefix root dirs."""
         # We look at the usual jupyter locations, and for development purposes also
         # relative to the package directory (first entry, meaning with highest precedence)
         root_dirs = []
