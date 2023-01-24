@@ -62,7 +62,7 @@
       <sourceFolder url="file://$MODULE_DIR$/env/python.exe" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32/lib" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python  (budgetpy)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
