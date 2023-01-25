@@ -37,7 +37,7 @@ class Unit( ):
 
 
 class Element( Unit ):
-    '''Element class represents fundemental program unit'''
+    '''Element class represents fundamental program unit'''
     __index = None
     __code = None
     __name = None
@@ -18773,7 +18773,7 @@ class SiteProjectCodes( ):
 
 # StateOrganizations( fundcode, provider = Provider.SQLite  )
 class StateOrganizations( ):
-    '''StateOrganization( fgrp ) class
+    '''StateOrganization( code ) class
     representing state codes'''
     __source = None
     __provider = None
@@ -22520,7 +22520,7 @@ class TransTypes( ):
                           'SequesterReturn' ]
 
 
-# UnobligatedAuthority( account, provider = Provider.SQLite )
+# Unobligated Authority( account, provider = Provider.SQLite )
 class UnobligatedAuthority( ):
     '''UnobligatedAuthority( bfy, omb )
     object provides OMB data'''
