@@ -1008,7 +1008,7 @@ class Query( ):
         if isinstance( value, Provider ):
             self.__provider = value
         else:
-            self.__provider = Database( 'SQLite' )
+            self.__provider = Provider.SQLite
 
     @property
     def path( self ):
@@ -1849,7 +1849,7 @@ class DataRow( ):
     def __init__( self, names = None, values = ( ), source = None ):
         self.__source = source if isinstance( source, Source ) else None
         self.__names = names if isinstance( names, list ) else None
-        self.__values = value if isinstance( values, tuple ) else None
+        self.__values = values if isinstance( values, tuple ) else None
         self.__items = zip( names, list( values ) )
         self.__key = str( self.__names[ 0 ] ) if isinstance( self.__names, list ) else None
         self.__index = int( self.__values[ 0 ] ) if isinstance( self.__values, tuple ) else None
@@ -1944,7 +1944,7 @@ class DataTable( ):
 
     def __init__( self, columns = None, rows = None, source = None, dataframe = None ):
         self.__frame = dataframe if isinstance( dataframe, DataFrame ) else None
-        self.__name = name if isinstance( name, str ) and name != '' else None
+        self.__name = source.name if isinstance( source, Source ) and source.name != '' else None
         self.__rows = [ tuple( r ) for r in dataframe.iterrows( ) ]
         self.__data = self.__rows
         self.__columns = [ str( c ) for c in columns ] if isinstance( columns, list ) else None
