@@ -21860,6 +21860,614 @@ class SiteActivity( ):
             err.show( )
 
 
+class SpendingDocument( ):
+    # provides data on spending documents
+    __source = None
+    __provider = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __ahcode = None
+    __ahname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __programprojectname = None
+    __boccode = None
+    __bocname = None
+    __rccode = None
+    __rcname = None
+    __documenttype = None
+    __documentnumber = None
+    __documentcontrolnumber = None
+    __referencedocumentnumber = None
+    __programprojectcode = None
+    __programareacode = None
+    __programareaname = None
+    __processeddate = None
+    __lastactivitydate = None
+    __age = None
+    __vendorcode = None
+    __vendorage = None
+    __foccode = None
+    __focname = None
+    __amount = None
+    __commitments = None
+    __obligations = None
+    __deobligations = None
+    __unliquidatedobligations = None
+    __goalcode = None
+    __goalname = None
+    __objectivecode = None
+    __objectivename = None
+    __npmcode = None
+    __npmname = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__obligationsid, int ):
+            return self.__obligationsid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__obligationsid = value
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def rpiocode( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpiocode.setter
+    def rpiocode( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpioname( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpioname.setter
+    def rpioname( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def ahcode( self ):
+        if self.__ahcode is not None:
+            return self.__ahcode
+
+    @ahcode.setter
+    def ahcode( self, value ):
+        if value is not None:
+            self.__ahcode = value
+
+    @property
+    def ahname( self ):
+        if self.__ahname is not None:
+            return self.__ahname
+
+    @ahname.setter
+    def ahname( self, value ):
+        if value is not None:
+            self.__ahname = value
+
+    @property
+    def fundcode( self ):
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fundcode.setter
+    def fundcode( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fundname( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fundname.setter
+    def fundname( self, value ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def orgcode( self ):
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @orgcode.setter
+    def orgcode( self, value ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def orgname( self ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @orgname.setter
+    def orgname( self, value ):
+        if value is not None:
+            self.__orgname = value
+
+    @property
+    def accountcode( self ):
+        if self.__accountcode is not None:
+            return self.__accountcode
+
+    @accountcode.setter
+    def accountcode( self, value ):
+        if value is not None:
+            self.__accountcode = value
+
+    @property
+    def boccode( self ):
+        if self.__boccode is not None:
+            return self.__boccode
+
+    @boccode.setter
+    def boccode( self, value ):
+        if value is not None:
+            self.__boccode = value
+
+    @property
+    def bocname( self ):
+        if self.__bocname is not None:
+            return self.__bocname
+
+    @bocname.setter
+    def bocname( self, value ):
+        if value is not None:
+            self.__bocname = value
+
+    @property
+    def rccode( self ):
+        if self.__rccode is not None:
+            return self.__rccode
+
+    @rccode.setter
+    def rccode( self, value ):
+        if value is not None:
+            self.__rccode = value
+
+    @property
+    def rcname( self ):
+        if self.__rcname is not None:
+            return self.__rcname
+
+    @rcname.setter
+    def rcname( self, value ):
+        if value is not None:
+            self.__rcname = value
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def budgeted( self ):
+        if self.__budgeted is not None:
+            return self.__budgeted
+
+    @budgeted.setter
+    def budgeted( self, value ):
+        if value is not None:
+            self.__budgeted = value
+
+    @property
+    def posted( self ):
+        if self.__posted is not None:
+            return self.__posted
+
+    @posted.setter
+    def posted( self, value ):
+        if isinstance( self.__posted, value ):
+            self.__posted = value
+
+    @property
+    def commitments( self ):
+        if self.__commitments is not None:
+            return self.__commitments
+
+    @commitments.setter
+    def commitments( self, value ):
+        if value is not None:
+            self.__commitments = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def unliquidatedobligations( self ):
+        if self.__unliquidatedobligations is not None:
+            return self.__unliquidatedobligations
+
+    @unliquidatedobligations.setter
+    def unliquidatedobligations( self, value ):
+        if value is not None:
+            self.__unliquidatedobligations = value
+
+    @property
+    def expenditures( self ):
+        if isinstance( self.__expenditures, float ):
+            return self.__expenditures
+
+    @expenditures.setter
+    def expenditures( self, value ):
+        if value is not None:
+            self.__expenditures = value
+
+    @property
+    def used( self ):
+        if self.__used is not None:
+            return self.__used
+
+    @used.setter
+    def used( self, value ):
+        if value is not None:
+            self.__used = value
+
+    @property
+    def available( self ):
+        if self.__avaialable is not None:
+            return self.__avaialable
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__avaialable = value
+
+    @property
+    def programprojectcode( self ):
+        if self.__programprojectcode is not None:
+            return self.__programprojectcode
+
+    @programprojectcode.setter
+    def programprojectcode( self, value ):
+        if value is not None:
+            self.__programprojectcode = value
+
+    @property
+    def programprojectname( self ):
+        if self.__programprojectname is not None:
+            return self.__programprojectname
+
+    @programprojectname.setter
+    def programprojectname( self, value ):
+        if value is not None:
+            self.__programprojectname = value
+
+    @property
+    def programareacode( self ):
+        if self.__programareacode is not None:
+            return self.__programareacode
+
+    @programareacode.setter
+    def programareacode( self, value ):
+        if value is not None:
+            self.__programareacode = value
+
+    @property
+    def programareaname( self ):
+        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+            return self.__programareaname
+
+    @programareaname.setter
+    def programareaname( self, value ):
+        if value is not None:
+            self.__programareaname = value
+
+    @property
+    def goalcode( self ):
+        if self.__goalcode is not None:
+            return self.__goalcode
+
+    @goalcode.setter
+    def goalcode( self, value ):
+        if value is not None:
+            self.__goalcode = value
+
+    @property
+    def goalname( self ):
+        if self.__goalname is not None:
+            return self.__goalname
+
+    @goalname.setter
+    def goalname( self, value ):
+        if value is not None:
+            self.__goalname = value
+
+    @property
+    def objectivecode( self ):
+        if self.__objectivecode is not None:
+            return self.__objectivecode
+
+    @objectivecode.setter
+    def objectivecode( self, value ):
+        if value is not None:
+            self.__objectivecode = value
+
+    @property
+    def objectivename( self ):
+        if self.__objectivename is not None:
+            return self.__objectivename
+
+    @objectivename.setter
+    def objectivename( self, value ):
+        if value is not None:
+            self.__objectivename = value
+
+    @property
+    def npmcode( self ):
+        if self.__npmcode is not None:
+            return self.__npmcode
+
+    @npmcode.setter
+    def npmcode( self, value ):
+        if value is not None:
+            self.__npmcode = value
+
+    @property
+    def npmname( self ):
+        if self.__npmname is not None:
+            return self.__npmname
+
+    @npmname.setter
+    def npmname( self, value ):
+        if value is not None:
+            self.__npmname = value
+
+    @property
+    def documenttype( self ):
+        if self.__documenttyp is not None:
+            return self.__documenttype
+
+    @documenttype.setter
+    def documenttype( self, value ):
+        if value is not None:
+            self.__documenttype = value
+
+    @property
+    def documentnumber( self ):
+        if self.__documentnumber is not None:
+            return self.__documentnumber
+
+    @documentnumber.setter
+    def documentnumber( self, value ):
+        if value is not None:
+            self.__documentnumber = value
+
+    @property
+    def documentcontrolnumber( self ):
+        if self.__documentcontrolnumber is not None:
+            return self.__documentcontrolnumber
+
+    @documentcontrolnumber.setter
+    def documentcontrolnumber( self, value ):
+        if value is not None:
+            self.__documentcontrolnumber = value
+
+    @property
+    def referencedocumentnumber( self ):
+        if self.__referencedocumentnumber is not None:
+            return self.__referencedocumentnumber
+
+    @referencedocumentnumber.setter
+    def referencedocumentnumber( self, value ):
+        if value is not None:
+            self.__referencedocumentnumber = value
+
+    @property
+    def processeddate( self ):
+        if self.__processeddate is not None:
+            return self.__processeddate
+
+    @processeddate.setter
+    def processeddate( self, value ):
+        if isinstance( value, datetime ):
+            self.__processeddate = value
+
+    @property
+    def lastactivitydate( self ):
+        if self.__lastactivitydate is not None:
+            return self.__lastactivitydate
+
+    @lastactivitydate.setter
+    def lastactivitydate( self, value ):
+        if isinstance( value, datetime ):
+            self.__lastactivitydate = value
+
+    @property
+    def age( self ):
+        if self.__age is not None:
+            return self.__age
+
+    @age.setter
+    def age( self, value ):
+        if value is not None:
+            self.__age = value
+
+    @property
+    def vendorcode( self ):
+        if self.__vendorcode is not None:
+            return self.__vendorcode
+
+    @vendorcode.setter
+    def vendorcode( self, value ):
+        if value is not None:
+            self.__vendorcode = value
+
+    @property
+    def vendorname( self ):
+        if self.__vendorname is not None:
+            return self.__vendorname
+
+    @vendorname.setter
+    def vendorname( self, value ):
+        if value is not None:
+            self.__vendorname = value
+
+    @property
+    def foccode( self ):
+        if self.__foccode is not None:
+            return self.__foccode
+
+    @foccode.setter
+    def foccode( self, value ):
+        if value is not None:
+            self.__foccode = value
+
+    @property
+    def focname( self ):
+        if self.__focname is not None:
+            return self.__focname
+
+    @focname.setter
+    def focname( self, value ):
+        if value is not None:
+            self.__focname = value
+
+    @property
+    def fields( self ):
+        if self.__fields is not None:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if value is not None:
+            self.__fields = value
+
+    def __init__( self, bfy, efy, fund, account, boc, provider = Provider.SQLite ):
+        self.__provider = provider
+        self.__source = Source.Obligations
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__fundcode = fund
+        self.__accountcode = account
+        self.__boccode = boc
+        self.__fields = [ 'ObligationsId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RcCode',
+                           'RcName',
+                           'DocumentType',
+                           'DocumentNumber',
+                           'DocumentControlNumber',
+                           'ReferenceDocumentNumber',
+                           'ProcessedDate',
+                           'LastActivityDate',
+                           'Age',
+                           'BocCode',
+                           'BocName',
+                           'FocCode',
+                           'FocName',
+                           'NpmCode',
+                           'NpmName',
+                           'VendorCode',
+                           'VendorName',
+                           'OpenCommitments',
+                           'Obligations',
+                           'ULO',
+                           'Expenditures' ]
+
+    def __str__( self ):
+        if isinstance( self.__amount, float ):
+            return str( self.__amount )
+
+    def getdata( self ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
+            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Control'
+            exc.cause = 'Obligaions'
+            exc.method = 'getdata( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def getframe( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.getframe( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Control'
+            exc.cause = 'Obligations'
+            exc.method = 'getframe( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
 # TreasurySymbols( bfy, efy, fundcode, provider = Provider.SQLite )
 class TreasurySymbols( ):
     '''TreasurySymbol( value )
