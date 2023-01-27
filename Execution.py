@@ -1795,7 +1795,7 @@ class ApportionmentData( ):
             err.show( )
 
 
-# Acutals( bfy, fund, provider = Provider.SQLite  )
+# Actuals( bfy, fund, provider = Provider.SQLite  )
 class Actuals( ):
     '''Object representing expenditure data'''
     __source = None
@@ -8555,13 +8555,13 @@ class Funds( ):
     __efy = None
     __shortname = None
     __status = None
-    __bpoa = None
-    __epoa = None
+    __beginningperiodofavailability = None
+    __endingperiodofavailability = None
     __main = None
     __multiyearindicator = None
-    __sublevel = None
-    __ata = None
-    __aid = None
+    __sublevelprefix = None
+    __allocationtransferagency = None
+    __agencyidentifier = None
     __fundcategory = None
     __appropriationcode = None
     __appropriationname = None
@@ -8635,23 +8635,23 @@ class Funds( ):
 
     @property
     def bpoa( self ):
-        if self.__bpoa is not None:
-            return self.__bpoa
+        if self.__beginningperiodofavailability is not None:
+            return self.__beginningperiodofavailability
 
     @bpoa.setter
     def bpoa( self, value ):
         if value is not None:
-            self.__bpoa = value
+            self.__beginningperiodofavailability = value
 
     @property
     def epoa( self ):
-        if self.__epoa is not None:
-            return self.__epoa
+        if self.__endingperiodofavailability is not None:
+            return self.__endingperiodofavailability
 
     @epoa.setter
     def epoa( self, value ):
         if value is not None:
-            self.__epoa = value
+            self.__endingperiodofavailability = value
 
     @property
     def main( self ):
@@ -8675,33 +8675,33 @@ class Funds( ):
 
     @property
     def sublevel( self ):
-        if self.__sublevel is not None:
-            return self.__sublevel
+        if self.__sublevelprefix is not None:
+            return self.__sublevelprefix
 
     @sublevel.setter
     def sublevel( self, value ):
         if value is not None:
-            self.__sublevel = value
+            self.__sublevelprefix = value
 
     @property
     def ata( self ):
-        if self.__ata is not None:
-            return self.__ata
+        if self.__allocationtransferagency is not None:
+            return self.__allocationtransferagency
 
     @ata.setter
     def ata( self, value ):
         if value is not None:
-            self.__ata = value
+            self.__allocationtransferagency = value
 
     @property
     def aid( self ):
-        if self.__aid is not None:
-            return self.__aid
+        if self.__agencyidentifier is not None:
+            return self.__agencyidentifier
 
     @aid.setter
     def aid( self, value ):
         if value is not None:
-            self.__aid = value
+            self.__agencyidentifier = value
 
     @property
     def fundcategory( self ):
@@ -11003,7 +11003,7 @@ class MonthlyOutlays( ):
     __ombaccount = None
     __budgetaccountname = None
     __january = None
-    __feburary = None
+    __february = None
     __march = None
     __april = None
     __may = None
@@ -22467,6 +22467,7 @@ class SpendingDocument( ):
             exc.method = 'getframe( self )'
             err = ErrorDialog( exc )
             err.show( )
+
 
 # TreasurySymbols( bfy, efy, fundcode, provider = Provider.SQLite )
 class TreasurySymbols( ):
