@@ -1,13 +1,13 @@
-CREATE TABLE ProgramProjects
+CREATE TABLE IF NOT EXISTS ProgramProjects
 (
 	ProgramProjectId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyProgramProjects PRIMARY KEY AUTOINCREMENT,
-	Code TEXT(255) NOT NULL,
-	Name TEXT(255) NULL,
-	Title TEXT(255) NULL,
-	Laws TEXT(255) NULL,
-	Narrative TEXT(255) NULL,
-	Definition TEXT(255) NULL,
-	ProgramAreaCode TEXT(255) NULL,
-	ProgramAreaName TEXT(255) NULL
+	Code TEXT(80) NOT NULL,
+	Name TEXT(80) NULL,
+	Title TEXT(80) NULL,
+	Laws TEXT(80) NULL,
+	Narrative TEXT(80) NULL,
+	Definition TEXT(80) NULL,
+	ProgramAreaCode TEXT(80) NULL,
+	ProgramAreaName TEXT(80) NULL
 );
 

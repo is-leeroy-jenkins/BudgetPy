@@ -33,6 +33,10 @@ CREATE TABLE StatusOfFunds
     Available DECIMAL NULL DEFAULT 0.0,
     NpmCode TEXT(80) NULL DEFAULT NS,
     NpmName TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName TEXT(80) NULL DEFAULT NS,
+	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName TEXT(80) NULL DEFAULT NS,
     CONSTRAINT StatusOfFundsPrimaryKey 
       PRIMARY KEY(StatusOfFundsId)
 );

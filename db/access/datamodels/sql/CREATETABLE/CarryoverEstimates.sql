@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS CarryoverEstimates 
+CREATE TABLE CarryoverEstimates 
 (
     CarryoverEstimatesId INTEGER NOT NULL UNIQUE,
     BudgetLevel TEXT(80) NULL DEFAULT NS,

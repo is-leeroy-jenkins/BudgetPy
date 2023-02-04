@@ -1,9 +1,9 @@
-CREATE TABLE PublicLaws (
+CREATE TABLE IF NOT EXISTS PublicLaws (
 	PublicLawsId	INTEGER NOT NULL UNIQUE,
-	LawNumber	TEXT(255),
-	BillTitle	TEXT(255),
-	EnactedDate	TEXT(255),
-	Congress	TEXT(255),
-	BFY	TEXT(255),
+	LawNumber	TEXT(80),
+	BillTitle	TEXT(80),
+	EnactedDate	TEXT(80),
+	Congress	TEXT(80),
+	BFY	TEXT(80),
 	PRIMARY KEY(PublicLawsId AUTOINCREMENT)
-)
+);

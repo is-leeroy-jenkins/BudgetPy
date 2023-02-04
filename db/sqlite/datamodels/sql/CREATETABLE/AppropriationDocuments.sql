@@ -20,11 +20,11 @@ CREATE TABLE IF NOT EXISTS "AppropriationDocuments"
 	"ExpenseControls"	TEXT(80) NULL DEFAULT 'NS'
 	"ReimbursementControls"	TEXT(80) NULL DEFAULT 'NS'
 	"ReimbursableAgreementControls"	TEXT(80) NULL DEFAULT 'NS'
-	"Budgeted"	NUMERIC NULL DEFAULT 0.0,
-	"Posted"	NUMERIC NULL DEFAULT 0.0,
-	"CarryOut"	NUMERIC NULL DEFAULT 0.0,
-	"CarryIn"	NUMERIC NULL DEFAULT 0.0,
-	"EstimatedReimbursements"	NUMERIC NULL DEFAULT 0,
-	"EstimatedRecoveries"	NUMERIC NULL DEFAULT 0,
+	"Budgeted"	DOUBLE NULL DEFAULT 0.0.0,
+	"Posted"	DOUBLE NULL DEFAULT 0.0.0,
+	"CarryOut"	DOUBLE NULL DEFAULT 0.0.0,
+	"CarryIn"	DOUBLE NULL DEFAULT 0.0.0,
+	"EstimatedReimbursements"	DOUBLE NULL DEFAULT 0.0,
+	"EstimatedRecoveries"	DOUBLE NULL DEFAULT 0.0,
 	PRIMARY KEY("AppropriationDocumentsId" AUTOINCREMENT)
 );

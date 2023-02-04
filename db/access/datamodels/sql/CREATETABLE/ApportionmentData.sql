@@ -1,11 +1,11 @@
-CREATE TABLE ApportionmentsData
+CREATE TABLE ApportionmentData
 (
 	ApportionmentDataId AUTOINCREMENT NOT NULL UNIQUE,
 	FiscalYear TEXT(80) NULL DEFAULT NS,
 	BFY TEXT(80) NULL DEFAULT NS,
 	EFY TEXT(80) NULL DEFAULT NS,
-	TreasuryAppropriationFundSymbol TEXT(80) NULL DEFAULT NS,
-	TreasuryAppropriationFundSymbolName TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName TEXT(80) NULL DEFAULT NS,
 	ApportionmentAccountCode TEXT(80) NULL DEFAULT NS,
 	ApportionmentAccountName TEXT(80) NULL DEFAULT NS,
 	AvailabilityType TEXT(80) NULL DEFAULT NS,

@@ -1,16 +1,16 @@
-CREATE TABLE Accounts
+CREATE TABLE IF NOT EXISTS Accounts 
 (
-    AccountsId INTEGER NOT NULL UNIQUE,
-    Code TEXT(80),
-    ProgramAreaCode TEXT(80),
-    GoalCode TEXT(80),
-    ObjectiveCode TEXT(80),
-    NpmCode TEXT(80),
-    NpmName TEXT(80),
-    ProgramProjectCode TEXT(80),
-    ProgramProjectName TEXT(80),
-    ActivityCode TEXT(80),
-    ActivityName TEXT(80),
-    AgencyActivity TEXT(80),
-    PRIMARY KEY(AccountsId)
+	AccountsId	INTEGER NOT NULL UNIQUE,
+	Code	TEXT(255),
+	ProgramAreaCode	TEXT(255),
+	GoalCode	TEXT(255),
+	ObjectiveCode	TEXT(255),
+	NpmCode	TEXT(255),
+	NpmName	TEXT(255),
+	ProgramProjectCode	TEXT(255),
+	ProgramProjectName	TEXT(255),
+	ActivityCode	TEXT(255),
+	ActivityName	TEXT(255),
+	AgencyActivity	TEXT(255),
+	PRIMARY KEY(AccountsId AUTOINCREMENT)
 );
