@@ -26,7 +26,6 @@ from pyarrow.fs import LocalFileSystem, SubTreeFileSystem
 from pyarrow.tests.parquet.common import (
     parametrize_legacy_dataset, parametrize_legacy_dataset_not_supported)
 from pyarrow.util import guid
-from pyarrow.vendored.version import Version
 
 try:
     import pyarrow.parquet as pq
@@ -315,6 +314,7 @@ def test_pandas_parquet_configuration_options(tempdir, use_legacy_dataset):
 
 
 @pytest.mark.pandas
+@pytest.mark.filterwarnings("ignore:Parquet format '2.0':FutureWarning")
 def test_spark_flavor_preserves_pandas_metadata():
     df = _test_dataframe(size=100)
     df.index = np.arange(0, 10 * len(df), 10)
@@ -561,10 +561,6 @@ def test_pandas_categorical_roundtrip(use_legacy_dataset):
 def test_write_to_dataset_pandas_preserve_extensiondtypes(
     tempdir, use_legacy_dataset
 ):
-    # ARROW-8251 - preserve pandas extension dtypes in roundtrip
-    if Version(pd.__version__) < Version("1.0.0"):
-        pytest.skip("__arrow_array__ added to pandas in 1.0.0")
-
     df = pd.DataFrame({'part': 'a', "col": [1, 2, 3]})
     df['col'] = df['col'].astype("Int64")
     table = pa.table(df)
@@ -629,8 +625,12 @@ def test_write_to_dataset_pandas_preserve_index(tempdir, use_legacy_dataset):
 
 
 @pytest.mark.pandas
+@parametrize_legacy_dataset
 @pytest.mark.parametrize('preserve_index', [True, False, None])
-def test_dataset_read_pandas_common_metadata(tempdir, preserve_index):
+@pytest.mark.parametrize('metadata_fname', ["_metadata", "_common_metadata"])
+def test_dataset_read_pandas_common_metadata(
+    tempdir, use_legacy_dataset, preserve_index, metadata_fname
+):
     # ARROW-1103
     nfiles = 5
     size = 5
@@ -662,9 +662,9 @@ def test_dataset_read_pandas_common_metadata(tempdir, preserve_index):
     table_for_metadata = pa.Table.from_pandas(
         df, preserve_index=preserve_index
     )
-    pq.write_metadata(table_for_metadata.schema, dirpath / '_metadata')
+    pq.write_metadata(table_for_metadata.schema, dirpath / metadata_fname)
 
-    dataset = pq.ParquetDataset(dirpath)
+    dataset = pq.ParquetDataset(dirpath, use_legacy_dataset=use_legacy_dataset)
     columns = ['uint8', 'strings']
     result = dataset.read_pandas(columns=columns).to_pandas()
     expected = pd.concat([x[columns] for x in frames])

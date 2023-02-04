@@ -207,8 +207,6 @@ def gcsfs(request, gcs_server):
 
     host, port = gcs_server['connection']
     bucket = 'pyarrow-filesystem/'
-    # Make sure the server is alive.
-    assert gcs_server['process'].poll() is None
 
     fs = GcsFileSystem(
         endpoint_override=f'{host}:{port}',
@@ -217,7 +215,10 @@ def gcsfs(request, gcs_server):
         anonymous=True,
         retry_time_limit=timedelta(seconds=45)
     )
-    fs.create_dir(bucket)
+    try:
+        fs.create_dir(bucket)
+    except OSError as e:
+        pytest.skip(f"Could not create directory in {fs}: {e}")
 
     yield dict(
         fs=fs,
@@ -1316,6 +1317,30 @@ def test_s3_proxy_options(monkeypatch):
                                     'port': 8999})
 
 
+@pytest.mark.s3
+def test_s3fs_wrong_region():
+    from pyarrow.fs import S3FileSystem
+
+    # wrong region for bucket
+    # anonymous=True incase CI/etc has invalid credentials
+    fs = S3FileSystem(region='eu-north-1', anonymous=True)
+
+    msg = ("When getting information for bucket 'voltrondata-labs-datasets': "
+           r"AWS Error UNKNOWN \(HTTP status 301\) during HeadBucket "
+           "operation: No response body. Looks like the configured region is "
+           "'eu-north-1' while the bucket is located in 'us-east-2'."
+           "|NETWORK_CONNECTION")
+    with pytest.raises(OSError, match=msg) as exc:
+        fs.get_file_info("voltrondata-labs-datasets")
+
+    # Sometimes fails on unrelated network error, so next call would also fail.
+    if 'NETWORK_CONNECTION' in str(exc.value):
+        return
+
+    fs = S3FileSystem(region='us-east-2', anonymous=True)
+    fs.get_file_info("voltrondata-labs-datasets")
+
+
 @pytest.mark.hdfs
 def test_hdfs_options(hdfs_connection):
     from pyarrow.fs import HadoopFileSystem
@@ -1395,12 +1420,16 @@ def test_hdfs_options(hdfs_connection):
     ('mock:foo/bar', _MockFileSystem, 'foo/bar'),
     ('mock:/foo/bar', _MockFileSystem, 'foo/bar'),
     ('mock:///foo/bar', _MockFileSystem, 'foo/bar'),
+    ('mock:///some%20path/%C3%A9', _MockFileSystem, 'some path/é'),
     ('file:/', LocalFileSystem, '/'),
     ('file:///', LocalFileSystem, '/'),
     ('file:/foo/bar', LocalFileSystem, '/foo/bar'),
     ('file:///foo/bar', LocalFileSystem, '/foo/bar'),
+    ('file:///some%20path/%C3%A9', LocalFileSystem, '/some path/é'),
+    # no %-decoding for non-URI inputs
     ('/', LocalFileSystem, '/'),
     ('/foo/bar', LocalFileSystem, '/foo/bar'),
+    ('/some path/%20é', LocalFileSystem, '/some path/%20é'),
 ])
 def test_filesystem_from_uri(uri, expected_klass, expected_path):
     fs, path = FileSystem.from_uri(uri)

@@ -1560,7 +1560,8 @@ class ApportionmentData( ):
     __apportionmentdataid = None
     __bfy = None
     __efy = None
-    __treasuryfundsymbol = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
     __budgetaccountcode = None
     __budgetaccountname = None
     __ombagency = None
@@ -1606,14 +1607,24 @@ class ApportionmentData( ):
             self.__efy = value
 
     @property
-    def treasuryfundsymbol( self ):
-        if self.__treasuryfundsymbol is not None:
-            return self.__treasuryfundsymbol
+    def treasuryaccountcode( self ):
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
 
-    @treasuryfundsymbol.setter
-    def treasuryfundsymbol( self, value ):
+    @treasuryaccountcode.setter
+    def treasuryaccountcode( self, value ):
         if value is not None:
-            self.__treasuryfundsymbol = value
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasuryaccountname( self ):
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasuryaccountname( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
 
     @property
     def budgetaccountcode( self ):
@@ -1831,6 +1842,10 @@ class Actuals( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -2126,6 +2141,46 @@ class Actuals( ):
             self.__npmname = value
 
     @property
+    def treasuryaccountcode( self ):
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasuryaccountcode.setter
+    def treasuryaccountcode( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasuryaccountname( self ):
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasuryaccountname( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budgetaccountcode( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budgetaccountname( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
     def fields( self ):
         if self.__fields is not None:
             return self.__fields
@@ -2245,6 +2300,10 @@ class AppropriationDocuments( ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -2508,6 +2567,46 @@ class AppropriationDocuments( ):
     def estimatedrecoveries( self, value ):
         if value is not None:
             self.__estimatedrecoveries = value
+
+    @property
+    def treasuryaccountcode( self ):
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasuryaccountcode.setter
+    def treasuryaccountcode( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasuryaccountname( self ):
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasuryaccountname( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budgetaccountcode( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budgetaccountcode.setter
+    def budgetaccountcode( self, value ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budgetaccountname( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budgetaccountname.setter
+    def budgetaccountname( self, value ):
+        if value is not None:
+            self.__budgetaccountname = value
 
     @property
     def fields( self ):

@@ -3,8 +3,8 @@ from threading import Lock
 import time
 import types
 from typing import (
-    Any, Callable, Dict, Iterable, List, Optional, Sequence, Type, TypeVar,
-    Union,
+    Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple, Type,
+    TypeVar, Union,
 )
 
 from . import values  # retain this import style for testability
@@ -275,7 +275,7 @@ class Counter(MetricWrapperBase):
 
     def _metric_init(self) -> None:
         self._value = values.ValueClass(self._type, self._name, self._name + '_total', self._labelnames,
-                                        self._labelvalues)
+                                        self._labelvalues, self._documentation)
         self._created = time.time()
 
     def inc(self, amount: float = 1, exemplar: Optional[Dict[str, str]] = None) -> None:
@@ -288,7 +288,7 @@ class Counter(MetricWrapperBase):
             _validate_exemplar(exemplar)
             self._value.set_exemplar(Exemplar(exemplar, amount, time.time()))
 
-    def count_exceptions(self, exception: Type[BaseException] = Exception) -> ExceptionCounter:
+    def count_exceptions(self, exception: Union[Type[BaseException], Tuple[Type[BaseException], ...]] = Exception) -> ExceptionCounter:
         """Count exceptions in a block of code or function.
 
         Can be used as a function decorator or context manager.
@@ -377,7 +377,7 @@ class Gauge(MetricWrapperBase):
     def _metric_init(self) -> None:
         self._value = values.ValueClass(
             self._type, self._name, self._name, self._labelnames, self._labelvalues,
-            multiprocess_mode=self._multiprocess_mode
+            self._documentation, multiprocess_mode=self._multiprocess_mode
         )
 
     def inc(self, amount: float = 1) -> None:
@@ -469,8 +469,8 @@ class Summary(MetricWrapperBase):
 
     def _metric_init(self) -> None:
         self._count = values.ValueClass(self._type, self._name, self._name + '_count', self._labelnames,
-                                        self._labelvalues)
-        self._sum = values.ValueClass(self._type, self._name, self._name + '_sum', self._labelnames, self._labelvalues)
+                                        self._labelvalues, self._documentation)
+        self._sum = values.ValueClass(self._type, self._name, self._name + '_sum', self._labelnames, self._labelvalues, self._documentation)
         self._created = time.time()
 
     def observe(self, amount: float) -> None:
@@ -583,14 +583,15 @@ class Histogram(MetricWrapperBase):
         self._buckets: List[values.ValueClass] = []
         self._created = time.time()
         bucket_labelnames = self._labelnames + ('le',)
-        self._sum = values.ValueClass(self._type, self._name, self._name + '_sum', self._labelnames, self._labelvalues)
+        self._sum = values.ValueClass(self._type, self._name, self._name + '_sum', self._labelnames, self._labelvalues, self._documentation)
         for b in self._upper_bounds:
             self._buckets.append(values.ValueClass(
                 self._type,
                 self._name,
                 self._name + '_bucket',
                 bucket_labelnames,
-                self._labelvalues + (floatToGoString(b),))
+                self._labelvalues + (floatToGoString(b),),
+                self._documentation)
             )
 
     def observe(self, amount: float, exemplar: Optional[Dict[str, str]] = None) -> None:
