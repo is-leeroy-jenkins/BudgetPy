@@ -8,17 +8,124 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/CapitalPlanningInvestmentCodes.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/ColumnSchema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/CompassOutlays.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/FundCategories.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/GrossUtilization.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/RecoveryAct.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/SpendingDocuments.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/StatusOfEarmarks.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/SubAppropriations.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/TreasurySymbols.sql" afterDir="false" />
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5-5.15.8.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5-5.15.8.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5-5.15.8.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5-5.15.8.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5-5.15.8.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5-5.15.8.dist-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QAxContainer.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QAxContainer.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QAxContainer.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QAxContainer.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/Qt.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/Qt.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/Qt5/qsci/api/python/PyQt5.api" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/Qt5/qsci/api/python/PyQt5.api" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtBluetooth.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtBluetooth.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtBluetooth.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtBluetooth.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtCore.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtCore.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtCore.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtCore.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtDBus.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtDBus.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtDBus.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtDBus.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtDesigner.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtDesigner.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtDesigner.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtDesigner.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtGui.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtGui.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtGui.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtGui.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtHelp.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtHelp.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtHelp.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtHelp.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtLocation.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtLocation.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtLocation.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtLocation.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtMultimedia.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtMultimedia.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtMultimedia.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtMultimedia.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtMultimediaWidgets.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtMultimediaWidgets.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtMultimediaWidgets.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtMultimediaWidgets.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtNetwork.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtNetwork.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtNetwork.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtNetwork.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtNfc.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtNfc.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtNfc.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtNfc.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtOpenGL.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtOpenGL.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtOpenGL.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtOpenGL.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtPositioning.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtPositioning.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtPositioning.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtPositioning.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtPrintSupport.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtPrintSupport.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtPrintSupport.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtPrintSupport.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQml.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQml.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQml.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQml.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuick.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuick.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuick.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuick.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuick3D.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuick3D.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuick3D.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuick3D.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuickWidgets.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuickWidgets.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuickWidgets.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtQuickWidgets.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtRemoteObjects.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtRemoteObjects.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtRemoteObjects.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtRemoteObjects.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSensors.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSensors.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSensors.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSensors.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSerialPort.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSerialPort.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSerialPort.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSerialPort.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSql.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSql.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSql.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSql.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSvg.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSvg.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSvg.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtSvg.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtTest.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtTest.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtTest.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtTest.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtTextToSpeech.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtTextToSpeech.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtTextToSpeech.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtTextToSpeech.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWebChannel.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWebChannel.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWebChannel.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWebChannel.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWebSockets.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWebSockets.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWebSockets.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWebSockets.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWidgets.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWidgets.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWidgets.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWidgets.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWinExtras.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWinExtras.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWinExtras.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtWinExtras.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtXml.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtXml.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtXml.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtXml.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtXmlPatterns.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtXmlPatterns.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtXmlPatterns.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/QtXmlPatterns.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/_QOpenGLFunctions_2_0.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/_QOpenGLFunctions_2_0.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/_QOpenGLFunctions_2_1.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/_QOpenGLFunctions_2_1.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/_QOpenGLFunctions_4_1_Core.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/_QOpenGLFunctions_4_1_Core.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QAxContainer/QAxContainer.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QAxContainer/QAxContainer.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtBluetooth/QtBluetooth.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtBluetooth/QtBluetooth.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtCore/QtCore.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtCore/QtCore.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtCore/qglobal.sip" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtCore/qglobal.sip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtDBus/QtDBus.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtDBus/QtDBus.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtDesigner/QtDesigner.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtDesigner/QtDesigner.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtGui/QtGui.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtGui/QtGui.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtHelp/QtHelp.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtHelp/QtHelp.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtLocation/QtLocation.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtLocation/QtLocation.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtMultimedia/QtMultimedia.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtMultimedia/QtMultimedia.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtMultimediaWidgets/QtMultimediaWidgets.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtMultimediaWidgets/QtMultimediaWidgets.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtNetwork/QtNetwork.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtNetwork/QtNetwork.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtNfc/QtNfc.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtNfc/QtNfc.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtOpenGL/QtOpenGL.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtOpenGL/QtOpenGL.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtPositioning/QtPositioning.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtPositioning/QtPositioning.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtPrintSupport/QtPrintSupport.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtPrintSupport/QtPrintSupport.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtQml/QtQml.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtQml/QtQml.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtQuick/QtQuick.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtQuick/QtQuick.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtQuick3D/QtQuick3D.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtQuick3D/QtQuick3D.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtQuickWidgets/QtQuickWidgets.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtQuickWidgets/QtQuickWidgets.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtRemoteObjects/QtRemoteObjects.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtRemoteObjects/QtRemoteObjects.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtSensors/QtSensors.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtSensors/QtSensors.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtSerialPort/QtSerialPort.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtSerialPort/QtSerialPort.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtSql/QtSql.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtSql/QtSql.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtSvg/QtSvg.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtSvg/QtSvg.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtTest/QtTest.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtTest/QtTest.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtTextToSpeech/QtTextToSpeech.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtTextToSpeech/QtTextToSpeech.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtWebChannel/QtWebChannel.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtWebChannel/QtWebChannel.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtWebSockets/QtWebSockets.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtWebSockets/QtWebSockets.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtWidgets/QtWidgets.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtWidgets/QtWidgets.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtWinExtras/QtWinExtras.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtWinExtras/QtWinExtras.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtXml/QtXml.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtXml/QtXml.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtXmlPatterns/QtXmlPatterns.toml" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/bindings/QtXmlPatterns/QtXmlPatterns.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/pylupdate.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/pylupdate.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/pyrcc.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/pyrcc.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/sip.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/PyQt5/sip.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/pylupdate5.exe" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pylupdate5.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/pyrcc5.exe" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pyrcc5.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Scripts/pyuic5.exe" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pyuic5.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +232,7 @@
     &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/repos/BudgetPy&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;aBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.19928508&quot;
   },
   &quot;keyToStringList&quot;: {
