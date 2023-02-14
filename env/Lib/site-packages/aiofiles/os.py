@@ -8,7 +8,7 @@ def wrap(func):
     @wraps(func)
     async def run(*args, loop=None, executor=None, **kwargs):
         if loop is None:
-            loop = asyncio.get_event_loop()
+            loop = asyncio.get_running_loop()
         pfunc = partial(func, *args, **kwargs)
         return await loop.run_in_executor(executor, pfunc)
 
@@ -33,6 +33,7 @@ symlink = wrap(os.symlink)
 readlink = wrap(os.readlink)
 listdir = wrap(os.listdir)
 scandir = wrap(os.scandir)
+access = wrap(os.access)
 
 if hasattr(os, "sendfile"):
     sendfile = wrap(os.sendfile)
