@@ -8684,11 +8684,13 @@ class Funds( ):
 
     @property
     def id( self ):
+        ''' Gets the 'id' property '''
         if self.__fundsid is not None:
             return self.__fundsid
 
     @id.setter
     def id( self, value ):
+        ''' Sets the 'id' property '''
         if value is not None:
             self.__fundsid = value
 
@@ -15887,7 +15889,7 @@ class ReimbursableSurvey( ):
             err.show( )
 
 
-# ReimbursableAgreements( agreementnumber, provider = Provide.SQLite )
+# ReimbursableAgreements( number, provider = Provide.SQLite )
 class ReimbursableAgreements( ):
     __source = None
     __provider = None
@@ -16095,9 +16097,10 @@ class ReimbursableAgreements( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, agreementnumber, provider = Provider.SQLite ):
+    def __init__( self, number, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ReimbursableAgreements
+        self.__agreementnumber = number
         self.__fields = [ 'ReimbursableAgreementsId'
                           'BFY',
                           'EFY',
