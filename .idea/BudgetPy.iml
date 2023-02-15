@@ -61,12 +61,13 @@
       <sourceFolder url="file://$MODULE_DIR$/ipynb/notebooks" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/python.exe" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32/lib" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (venv)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="C:\Users\terry\repos\BudgetPy" />
+    <option name="requirementsPath" value="C:\Users\teppler\source\repos\BudgetPy\requirements.txt" />
     <option name="versionSpecifier" value="Don't specify version" />
     <option name="removeUnused" value="true" />
     <option name="modifyBaseFiles" value="true" />
