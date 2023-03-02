@@ -985,7 +985,7 @@ class Query( ):
     __names = None
     __values = None
     __path = None
-    __xstring = None
+    __cxstring = None
     __text = None
 
     @property
@@ -1095,13 +1095,13 @@ class Query( ):
 
     @property
     def connectionstring( self ):
-        if isinstance( self.__xstring, str ):
-            return self.__xstring
+        if isinstance( self.__cxstring, str ):
+            return self.__cxstring
 
     @connectionstring.setter
     def connectionstring( self, value ):
         if isinstance( value, str ):
-            self.__xstring = str( value )
+            self.__cxstring = str( value )
 
     def __init__( self, connection, sqlstatement ):
         self.__cnx = connection if isinstance( connection, Connection ) else None
@@ -1111,7 +1111,7 @@ class Query( ):
         self.__provider = connection.provider
         self.__cmdtype = sqlstatement.commandtype
         self.__path = connection.path
-        self.__xstring = connection.connectionstring
+        self.__cxstring = connection.connectionstring
         self.__text = sqlstatement.getquery( )
 
     def __str__( self ):
