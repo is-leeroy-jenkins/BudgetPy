@@ -2269,6 +2269,65 @@ class Actuals( ):
             err.show( )
 
 
+# ApplicationTables( name, provider = Provider.SQLite )
+class ApplicationTables( ):
+    # Provides tables for the application
+    __source = None
+    __provider = None
+    __applicationtablesid = None
+    __tablename = None
+    __model = None
+    __title = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if self.__applicationtablesid is not None:
+            return self.__applicationtablesid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__applicationtablesid = value
+
+    @property
+    def tablename( self ):
+        if self.__tablename is not None:
+            return self.__tablename
+
+    @tablename.setter
+    def tablename( self, value ):
+        if value is not None:
+            self.__tablename = value
+
+    @property
+    def model( self ):
+        if self.__model is not None:
+            return self.__model
+
+    @model.setter
+    def model( self, value ):
+        if value is not None:
+            self.__model = value
+
+    @property
+    def title( self ):
+        if self.__title is not None:
+            return self.__title
+
+    @title.setter
+    def title( self, value ):
+        if value is not None:
+            self.__title = value
+
+    def __init__( self, name, provider = Provider.SQLite ):
+        self.__source = Source.ApplicationTables
+        self.__provider = provider
+        self.__tablename = name
+
+
 # AppropriationDocuments( bfy, fund, provider = Provider.SQLite )
 class AppropriationDocuments( ):
     '''object representing Level 1 documents'''
