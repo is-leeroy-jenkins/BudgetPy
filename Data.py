@@ -543,7 +543,6 @@ class Connection( DbConfig ):
     __driver = None
     __path = None
     __connectionstring = None
-    __connection = None
 
     @property
     def driver( self ):
@@ -598,21 +597,6 @@ class Connection( DbConfig ):
             exc.module = 'Ninja'
             exc.cause = 'Connection'
             exc.method = 'connect( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def disconnect( self ):
-        ''' Flushes and closes existing connection'''
-        try:
-            if isinstance( self.__connection, Connection ):
-                self.__connection.flush( )
-                self.__connection.close( )
-                self.__connection = None
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'Connection'
-            exc.method = 'disconnect( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1280,7 +1264,6 @@ class AccessData( Query ):
     __dsn = None
     __data = None
     __columns = None
-    __query = None
 
     @property
     def data( self ):
