@@ -7,6 +7,6 @@
 *.laccdb
 */venv
 */env
-*.idea
+*/.idea
 *.idea!/Booger.py
 *workspace.xml
