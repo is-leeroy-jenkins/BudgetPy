@@ -1193,12 +1193,12 @@ class SQLiteData( Query ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, ntuple ):
+        if isinstance( self.__data, tuple ):
             return self.__data
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, ntuple ):
+        if isinstance( value, tuple ):
             self.__data = value
 
     @property
@@ -1406,12 +1406,12 @@ class SqlData( Query ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, ntuple ):
+        if isinstance( self.__data, tuple ):
             return self.__data
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, ntuple ):
+        if isinstance( value, tuple ):
             self.__data = value
 
     @property
@@ -1884,12 +1884,12 @@ class DataTable( ):
 
     @property
     def data( self ):
-        if isinstance( self.__rows, list( tuple ) ):
+        if isinstance( self.__rows, tuple ):
             return self.__rows
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, list( tuple ) ):
+        if isinstance( value, tuple ):
             self.__rows = value
 
     @property
@@ -2001,12 +2001,12 @@ class BudgetData( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, list( tuple ) ):
+        if isinstance( self.__data, tuple  ):
             return self.__data
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, list( tuple ) ):
+        if isinstance( value, tuple ):
             self.__data = value
 
     @property
