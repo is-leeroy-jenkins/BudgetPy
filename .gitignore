@@ -12,3 +12,4 @@
 */idea
 *.idea!/Booger.py
 *workspace.xml
+*sonarlint.xml
