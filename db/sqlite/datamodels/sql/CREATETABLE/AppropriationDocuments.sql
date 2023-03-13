@@ -1,30 +1,34 @@
 CREATE TABLE IF NOT EXISTS "AppropriationDocuments" 
 (
 	"AppropriationDocumentsId"	INTEGER NOT NULL UNIQUE,
-	"BFY"	TEXT(80) NULL DEFAULT 'NS'
-	"EFY"	TEXT(80) NULL DEFAULT 'NS'
-	"FundCode"	TEXT(80) NULL DEFAULT 'NS'
-	"Fund"	TEXT(80) NULL DEFAULT 'NS'
-	"DocumentType"	TEXT(80) NULL DEFAULT 'NS'
-	"DocumentNumber"	TEXT(80) NULL DEFAULT 'NS'
-	"DocumentDate"	TEXT(80) NULL DEFAULT 'NS'
-	"LastDocumentDate"	TEXT(80) NULL DEFAULT 'NS'
-	"BudgetLevel"	TEXT(80) NULL DEFAULT 'NS'
-	"BudgetingControls"	TEXT(80) NULL DEFAULT 'NS'
-	"PostingControls"	TEXT(80) NULL DEFAULT 'NS'
-	"PreCommitmentControls"	TEXT(80) NULL DEFAULT 'NS'
-	"CommitmentControls"	TEXT(80) NULL DEFAULT 'NS'
-	"ObligationControls"	TEXT(80) NULL DEFAULT 'NS'
-	"AccrualControls"	TEXT(80) NULL DEFAULT 'NS'
-	"ExpenditureControls"	TEXT(80) NULL DEFAULT 'NS'
-	"ExpenseControls"	TEXT(80) NULL DEFAULT 'NS'
-	"ReimbursementControls"	TEXT(80) NULL DEFAULT 'NS'
-	"ReimbursableAgreementControls"	TEXT(80) NULL DEFAULT 'NS'
-	"Budgeted"	DOUBLE NULL DEFAULT 0.0.0,
-	"Posted"	DOUBLE NULL DEFAULT 0.0.0,
-	"CarryOut"	DOUBLE NULL DEFAULT 0.0.0,
-	"CarryIn"	DOUBLE NULL DEFAULT 0.0.0,
-	"EstimatedReimbursements"	DOUBLE NULL DEFAULT 0.0,
-	"EstimatedRecoveries"	DOUBLE NULL DEFAULT 0.0,
+	"FiscalYear"	TEXT(80) DEFAULT 'NS',
+	"BFY"	TEXT(80) DEFAULT 'NS',
+	"EFY"	TEXT(80) DEFAULT 'NS',
+	"AppropriationFund"	TEXT(80) DEFAULT 'NS',
+	"FundCode"	TEXT(80) DEFAULT 'NS',
+	"DocumentType"	TEXT(80) DEFAULT 'NS',
+	"DocumentNumber"	TEXT(80) DEFAULT 'NS',
+	"DocumentDate"	TEXT(80) DEFAULT 'NS',
+	"BudgetLevel"	TEXT(80) DEFAULT 'NS',
+	"BudgetingControls"	TEXT(80) DEFAULT 'NS',
+	"PostingControls"	TEXT(80) DEFAULT 'NS',
+	"PreCommitmentControls"	TEXT(80) DEFAULT 'NS',
+	"CommitmentControls"	TEXT(80) DEFAULT 'NS',
+	"ObligationControls"	TEXT(80) DEFAULT 'NS',
+	"AccrualControls"	TEXT(80) DEFAULT 'NS',
+	"ExpenditureControls"	TEXT(80) DEFAULT 'NS',
+	"ExpenseControls"	TEXT(80) DEFAULT 'NS',
+	"ReimbursementControls"	TEXT(80) DEFAULT 'NS',
+	"ReimbursableAgreementControls"	TEXT(80) DEFAULT 'NS',
+	"TreasuryAccountCode"	TEXT(80) DEFAULT 'NS',
+	"TreasuryAccountName"	TEXT(80) DEFAULT 'NS',
+	"BudgetAccountCode"	TEXT(80) DEFAULT 'NS',
+	"BudgetAccountName"	TEXT(80) DEFAULT 'NS',
+	"Budgeted"	DOUBLE DEFAULT 0.0,
+	"Posted"	DOUBLE DEFAULT 0.0,
+	"CarryoverOut"	DOUBLE DEFAULT 0.0,
+	"CarryoverIn"	DOUBLE DEFAULT 0.0,
+	"Reimbursements"	DOUBLE DEFAULT 0.0,
+	"Recoveries"	DOUBLE DEFAULT 0.0,
 	PRIMARY KEY("AppropriationDocumentsId" AUTOINCREMENT)
 );
