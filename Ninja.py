@@ -118,52 +118,52 @@ class Accounts( ):
             self.__name = value
 
     @property
-    def goalcode( self ):
+    def goal_code( self ):
         if isinstance( self.__goalcode, str ) and self.__goalcode != '':
             return self.__goalcode
 
-    @goalcode.setter
-    def goalcode( self, value ):
+    @goal_code.setter
+    def goal_code( self, value ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def objectivecode( self ):
+    def objective_code( self ):
         if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
             return self.__objectivecode
 
-    @objectivecode.setter
-    def objectivecode( self, value ):
+    @objective_code.setter
+    def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def npmcode( self ):
+    def npm_code( self ):
         if isinstance( self.__npmcode, str) and self.__npmcode != '':
             return self.__npmcode
 
-    @npmcode.setter
-    def npmcode( self, value ):
+    @npm_code.setter
+    def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def programprojectcode( self ):
+    def program_project_code( self ):
         if isinstance( self.__programprojectcode , str ):
             return self.__programprojectcode
 
-    @programprojectcode.setter
-    def programprojectcode( self, value ):
+    @program_project_code.setter
+    def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def programprojectname( self ):
+    def program_project_name( self ):
         if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
             return self.__programprojectcode
 
-    @programprojectname.setter
-    def programprojectname( self, value ):
+    @program_project_name.setter
+    def program_project_name( self, value ):
         if value is not None:
             self.__programprojectname = value
 
@@ -226,10 +226,10 @@ class Accounts( ):
     def copy( self ):
         try:
             clone = Accounts( code = self.__code )
-            clone.goalcode = self.__goalcode
-            clone.objectivecode = self.__objectivecode
-            clone.npmcode = self.__npmcode
-            clone.programprojectcode = self.__programprojectcode
+            clone.goal_code = self.__goalcode
+            clone.objective_code = self.__objectivecode
+            clone.npm_code = self.__npmcode
+            clone.program_project_code = self.__programprojectcode
             return clone
         except Exception as e:
             exc = Error( e )
@@ -239,7 +239,7 @@ class Accounts( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getdata( self ) -> list[ tuple ]:
+    def get_data( self ) -> list[ tuple ]:
         try:
             source = Source.Accounts
             provider = Provider.SQLite
@@ -264,7 +264,7 @@ class Accounts( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ) -> DataFrame:
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -365,7 +365,7 @@ class ActivityCodes( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ) -> list[ tuple ]:
+    def get_data( self ) -> list[ tuple ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -391,7 +391,7 @@ class ActivityCodes( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ) -> DataFrame:
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -491,7 +491,7 @@ class AllowanceHolders( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self ):
         try:
             source = self.__source
             provider = self.__provider
@@ -517,7 +517,7 @@ class AllowanceHolders( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -612,7 +612,7 @@ class Appropriations( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self ):
         try:
             source = self.__source
             provider = self.__provider
@@ -638,7 +638,7 @@ class Appropriations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -710,64 +710,64 @@ class AppropriationAvailableBalances( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if  self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, name ):
+    @fund_name.setter
+    def fund_name( self, name ):
         if  name is not None:
             self.__fundname = name
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if isinstance( self.__treasuryaccountcode, str ) \
                 and self.__treasuryaccountcode != '':
             return self.__treasuryaccountcode
 
-    @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    @treasury_account_code.setter
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if isinstance( self.__treasuryaccountname, str ) \
                 and self.__treasuryaccountname != '':
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -882,7 +882,7 @@ class AppropriationAvailableBalances( ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    def getdata( self ):
+    def get_data( self ):
         try:
             source = self.__source
             provider = self.__provider
@@ -908,7 +908,7 @@ class AppropriationAvailableBalances( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -978,64 +978,64 @@ class AppropriationLevelAuthority( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if  self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, name ):
+    @fund_name.setter
+    def fund_name( self, name ):
         if  name is not None:
             self.__fundname = name
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if isinstance( self.__treasuryaccountcode, str ) \
                 and self.__treasuryaccountcode != '':
             return self.__treasuryaccountcode
 
-    @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    @treasury_account_code.setter
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if isinstance( self.__treasuryaccountname, str ) \
                 and self.__treasuryaccountname != '':
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -1118,7 +1118,7 @@ class AppropriationLevelAuthority( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -1144,7 +1144,7 @@ class AppropriationLevelAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -1228,82 +1228,82 @@ class Allocations( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -1509,7 +1509,7 @@ class Allocations( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -1535,7 +1535,7 @@ class Allocations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -1607,42 +1607,42 @@ class ApportionmentData( ):
             self.__efy = value
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -1764,7 +1764,7 @@ class ApportionmentData( ):
                           'Footnote',
                           'Narrative' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -1790,7 +1790,7 @@ class ApportionmentData( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -1881,82 +1881,82 @@ class Actuals( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -2141,42 +2141,42 @@ class Actuals( ):
             self.__npmname = value
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -2227,7 +2227,7 @@ class Actuals( ):
                            'ObjectiveCode',
                            'ObjectiveName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -2253,7 +2253,7 @@ class Actuals( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -2398,12 +2398,12 @@ class AppropriationDocuments( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
@@ -2628,42 +2628,42 @@ class AppropriationDocuments( ):
             self.__estimatedrecoveries = value
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -2709,7 +2709,7 @@ class AppropriationDocuments( ):
                            'EstimatedReimbursements',
                            'EstimatedRecoveries' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -2735,7 +2735,7 @@ class AppropriationDocuments( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -2840,17 +2840,17 @@ class BudgetDocuments( ):
             self.__budgetlevel = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
@@ -2860,42 +2860,42 @@ class BudgetDocuments( ):
             self.__rpioname = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if isinstance( self.__ahcode, str ) and self.__ahcode != '':
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if isinstance( self.__ahname, str ) and self.__ahname != '':
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
@@ -2940,22 +2940,22 @@ class BudgetDocuments( ):
             self.__lastdocumentdate = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if isinstance( self.__orgcode, str ) and self.__orgcode != '':
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if isinstance( self.__orgname, str ) and self.__orgname != '':
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -3245,7 +3245,7 @@ class BudgetDocuments( ):
                            'EstimatedRecoveries',
                            'EstimatedReimbursements' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -3271,7 +3271,7 @@ class BudgetDocuments( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -3363,12 +3363,12 @@ class BudgetControls( ):
             self.__name = value
 
     @property
-    def budgetedtranstype( self ):
+    def budgeted_transtype( self ):
         if self.__budgetedtranstype is not None:
             return self.__budgetedtranstype
 
-    @budgetedtranstype.setter
-    def budgetedtranstype( self, value ):
+    @budgeted_transtype.setter
+    def budgeted_transtype( self, value ):
         if value is not None:
             self.__budgetedtranstype = value
 
@@ -3377,97 +3377,97 @@ class BudgetControls( ):
         if self.__postedtranstype is not None:
             return self.__postedtranstype
 
-    @postedtranstype.setter
+    @posted_transtype.setter
     def postedtranstype( self, value ):
         if value is not None:
             self.__postedtranstype = value
 
     @property
-    def spendingadjustmenttranstype( self ):
+    def spending_adjustment_transtype( self ):
         if self.__spendingadjustmenttranstype is not None:
             return self.__spendingadjustmenttranstype
 
-    @spendingadjustmenttranstype.setter
-    def spendingadjustmenttranstype( self, value ):
+    @spending_adjustment_transtype.setter
+    def spending_adjustment_transtype( self, value ):
         if value is not None:
             self.__spendingadjustmenttranstype = value
 
     @property
-    def estimatedreimbursementstranstype( self ):
+    def estimated_reimbursements_transtype( self ):
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
-    @estimatedreimbursementstranstype.setter
+    @estimated_reimbursements_transtype.setter
     def estimatedreimbursementstranstype( self, value ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
 
     @property
-    def estimatedrecoveriestranstype( self ):
+    def estimated_recoveries_transtype( self  ):
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
-    @estimatedrecoveriestranstype.setter
-    def estimatedrecoveriestranstype( self, value ):
+    @estimated_recoveriestranstype.setter
+    def estimated_recoveries_transtype( self, value ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
     @property
-    def actualrecoveriestranstype( self ):
+    def actual_recoveries_transtype( self ):
         if self.__actualrecoveriestranstype is not None:
             return self.__actualrecoveriestranstype
 
-    @actualrecoveriestranstype.setter
-    def actualrecoveriestranstype( self, value ):
+    @actual_recoveries_transtype.setter
+    def actual_recoveries_transtype( self, value ):
         if value is not None:
             self.__actualrecoveriestranstype = value
 
     @property
-    def statusreservetranstype( self ):
+    def status_reserve_transtype( self ):
         if self.__statusreservetranstype is not None:
             return self.__statusreservetranstype
 
-    @statusreservetranstype.setter
-    def statusreservetranstype( self, value ):
+    @status_reserve_transtype.setter
+    def status_reserve_transtype( self, value ):
         if value is not None:
             self.__statusreservetranstype = value
 
     @property
-    def profitlosstranstype( self ):
+    def profit_loss_transtype( self ):
         if self.__profitlosstranstype is not None:
             return self.__profitlosstranstype
 
-    @profitlosstranstype.setter
-    def profitlosstranstype( self, value ):
+    @profit_loss_transtype.setter
+    def profit_loss_transtype( self, value ):
         if value is not None:
             self.__profitlosstranstype = value
 
     @property
-    def estimatedreimbursementsspendingoptions( self ):
+    def estimated_reimbursements_spending_options( self ):
         if self.__estimatedreimbursementsspendingoptions is not None:
             return self.__estimatedreimbursementsspendingoptions
 
-    @estimatedreimbursementsspendingoptions.setter
-    def estimatedreimbursementsspendingoptions( self, value ):
+    @estimated_reimbursements_spending_options.setter
+    def estimated_reimbursements_spending_options( self, value ):
         if value is not None:
             self.__estimatedreimbursementsspendingoptions = value
 
     @property
-    def estimatedreimbursementsbudgetingoptions( self ):
+    def estimated_reimbursements_budgeting_options( self ):
         if self.__estimatedreimbursementsbudgetingoptions is not None:
             return self.__estimatedreimbursementsbudgetingoptions
 
-    @estimatedreimbursementsbudgetingoptions.setter
-    def estimatedreimbursementsbudgetingoptions( self, value ):
+    @estimated_reimbursements_budgeting_options.setter
+    def estimated_reimbursements_budgeting_options( self, value ):
         if value is not None:
             self.__estimatedreimbursementsbudgetingoptions = value
 
     @property
-    def trackingagreementlowerlevels( self ):
+    def tracking_agreement_lower_levels( self ):
         if self.__trackingagreementlowerlevels is not None:
             return self.__trackingagreementlowerlevels
 
-    @trackingagreementlowerlevels.setter
+    @tracking_agreement_lower_levels.setter
     def trackingagreementlowerlevels( self, value ):
         if value is not None:
             self.__trackingagreementlowerlevels = value
@@ -3748,7 +3748,7 @@ class BudgetControls( ):
                            'TransactionTypeControl',
                            'AuthorityDistributionControl' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -3774,7 +3774,7 @@ class BudgetControls( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4017,7 +4017,7 @@ class BudgetFiscalYear( ):
         if self.__bfy is not None:
             return self.__bfy
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -4043,7 +4043,7 @@ class BudgetFiscalYear( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4155,7 +4155,7 @@ class BudgetObjectClasses( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -4181,7 +4181,7 @@ class BudgetObjectClasses( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4256,22 +4256,22 @@ class BudgetaryResourceExecution( ):
             self.__treasuryfundsymbol = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if  self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -4323,7 +4323,7 @@ class BudgetaryResourceExecution( ):
                           'Agency',
                           'Bureau' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -4349,7 +4349,7 @@ class BudgetaryResourceExecution( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4478,22 +4478,22 @@ class BudgetOutlays( ):
             self.__beacategoryname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -4656,7 +4656,7 @@ class BudgetOutlays( ):
                           'BudgetYear8',
                           'BudgetYear9' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -4682,7 +4682,7 @@ class BudgetOutlays( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4758,22 +4758,22 @@ class CongressionalControls( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
@@ -4906,7 +4906,7 @@ class CongressionalControls( ):
                            'DecreaseRestriction',
                            'MemoRequirement' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -5018,22 +5018,22 @@ class CompassLevels( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
@@ -5131,7 +5131,7 @@ class CompassLevels( ):
                            'ActualReimbursements',
                            'AgreementReimbursables' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -5157,7 +5157,7 @@ class CompassLevels( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -5252,82 +5252,82 @@ class Commitments( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -5660,7 +5660,7 @@ class Commitments( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -5686,7 +5686,7 @@ class Commitments( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -5765,22 +5765,22 @@ class CarryoverOutlays( ):
             self.__linenumber = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -6003,7 +6003,7 @@ class CarryoverOutlays( ):
                           'OutYear8',
                           'OutYear9' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = Source.CarryoverOutlays
             provider = Provider.SQLite
@@ -6029,7 +6029,7 @@ class CarryoverOutlays( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -6152,82 +6152,82 @@ class CarryoverEstimates( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -6282,12 +6282,12 @@ class CarryoverEstimates( ):
             self.__programprojectname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if isinstance( self.__orgcode, str ) and self.__orgcode != '':
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
@@ -6402,7 +6402,7 @@ class CarryoverEstimates( ):
         if isinstance( self.__unobligatedauthority, float ):
             return str( self.__unobligatedauthority )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -6428,7 +6428,7 @@ class CarryoverEstimates( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -6491,22 +6491,22 @@ class CarryoverSurvey( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
@@ -6541,7 +6541,7 @@ class CarryoverSurvey( ):
                           'FundName',
                           'Amount' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -6567,7 +6567,7 @@ class CarryoverSurvey( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -6668,7 +6668,7 @@ class CapitalPlanningInvestmentCodes( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -6694,7 +6694,7 @@ class CapitalPlanningInvestmentCodes( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -6809,7 +6809,7 @@ class DataRuleDescription( ):
                           'RuleDescription',
                           'ScheduleOrder' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -6835,7 +6835,7 @@ class DataRuleDescription( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -6927,82 +6927,82 @@ class Defacto( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -7296,7 +7296,7 @@ class Defacto( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -7322,7 +7322,7 @@ class Defacto( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -7418,82 +7418,82 @@ class Deobligation( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -7812,7 +7812,7 @@ class Deobligation( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -7838,7 +7838,7 @@ class Deobligation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -7881,17 +7881,17 @@ class DocumentControlNumbers( ):
             self.__documentcontrolnumbersid = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
@@ -7962,7 +7962,7 @@ class DocumentControlNumbers( ):
                            'DocumentPrefix',
                            'DocumentControlNumbe' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -7988,7 +7988,7 @@ class DocumentControlNumbers( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -8084,82 +8084,82 @@ class Expenditures( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -8194,22 +8194,22 @@ class Expenditures( ):
             self.__bocname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -8509,7 +8509,7 @@ class Expenditures( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -8535,7 +8535,7 @@ class Expenditures( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -8659,7 +8659,7 @@ class FinanceObjectClass( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -8685,7 +8685,7 @@ class FinanceObjectClass( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -8984,42 +8984,42 @@ class Funds( ):
             self.__securityorg = value
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -9101,7 +9101,7 @@ class Funds( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -9127,7 +9127,7 @@ class Funds( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -9315,7 +9315,7 @@ class FederalHoliday( ):
         if not self.__name == '':
             return self.__name
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -9341,7 +9341,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -9733,82 +9733,82 @@ class FullTimeEquivalents( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -9996,7 +9996,7 @@ class FullTimeEquivalents( ):
                            'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
                            'ObjectiveCode', 'ObjectiveName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -10022,7 +10022,7 @@ class FullTimeEquivalents( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe'''
         try:
             src = self.__source
@@ -10082,22 +10082,22 @@ class GeneralLedgerAccounts( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
@@ -10245,7 +10245,7 @@ class Goals( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -10455,7 +10455,7 @@ class GrowthRates( ):
                           'OutYear9',
                           'Sort' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -10481,7 +10481,7 @@ class GrowthRates( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -10565,82 +10565,82 @@ class HeadquartersAuthority( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -10847,7 +10847,7 @@ class HeadquartersAuthority( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -10873,7 +10873,7 @@ class HeadquartersAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -10912,17 +10912,17 @@ class HeadquartersOffices( ):
             self.___resourceplanningofficesid = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ):
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
@@ -10975,7 +10975,7 @@ class HeadquartersOffices( ):
         if isinstance( self.__code, str ):
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -11001,7 +11001,7 @@ class HeadquartersOffices( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11099,7 +11099,7 @@ class HumanResourceOrganizations( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -11125,7 +11125,7 @@ class HumanResourceOrganizations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11269,12 +11269,12 @@ class MonthlyOutlays( ):
             self.__ombaccount = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -11327,7 +11327,7 @@ class MonthlyOutlays( ):
                           'August',
                           'September' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -11353,7 +11353,7 @@ class MonthlyOutlays( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11477,7 +11477,7 @@ class NationalPrograms( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -11503,7 +11503,7 @@ class NationalPrograms( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11604,7 +11604,7 @@ class Objectives( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = Source.Objectives
             provider = Provider.SQLite
@@ -11630,7 +11630,7 @@ class Objectives( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11730,7 +11730,7 @@ class Organizations( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -11813,22 +11813,22 @@ class ObjectClassOutlays( ):
             self.__ombagencycode = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -11966,7 +11966,7 @@ class ObjectClassOutlays( ):
                           'CurrentYear',
                           'BudgetYear' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = Source.ObjectClassOutlays
             provider = Provider.SQLite
@@ -11992,7 +11992,7 @@ class ObjectClassOutlays( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -12076,17 +12076,17 @@ class OperatingPlans( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
@@ -12096,62 +12096,62 @@ class OperatingPlans( ):
             self.__rpioname = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -12339,7 +12339,7 @@ class OperatingPlans( ):
                            'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
                            'ObjectiveCode', 'ObjectiveName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             src = self.__source
             pdr = self.__provider
@@ -12365,7 +12365,7 @@ class OperatingPlans( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -12461,82 +12461,82 @@ class OpenCommitments( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -12949,7 +12949,7 @@ class OpenCommitments( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -12975,7 +12975,7 @@ class OpenCommitments( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -13070,82 +13070,82 @@ class Obligations( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -13557,7 +13557,7 @@ class Obligations( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -13583,7 +13583,7 @@ class Obligations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -13646,42 +13646,42 @@ class ProgramFinancingSchedule( ):
             self.__efy = value
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -13881,82 +13881,82 @@ class PayrollActivity( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if isinstance( self.__ahcode, str ) and self.__ahcode != '':
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if isinstance( self.__ahname, str ) and self.__ahname != '':
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if isinstance( self.__orgcode, str ) and self.__orgcode != '':
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if isinstance( self.__orgname, str ) and self.__orgname != '':
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -14334,7 +14334,7 @@ class PayrollActivity( ):
                            'OvertimePaid',
                            'OvertimeHours' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -14360,7 +14360,7 @@ class PayrollActivity( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -14459,7 +14459,7 @@ class Projects( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -14485,7 +14485,7 @@ class Projects( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -14585,7 +14585,7 @@ class ProgramAreas( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -14611,7 +14611,7 @@ class ProgramAreas( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -14735,7 +14735,7 @@ class ProgramProjects( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -14812,22 +14812,22 @@ class PayrollCostCodes( ):
             self.__bfy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if isinstance( self.__ahcode, str ) and self.__ahcode != '':
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
@@ -14987,82 +14987,82 @@ class ProgramResultsCode( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -15400,7 +15400,7 @@ class ProgramResultsCode( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -15420,7 +15420,7 @@ class ProgramResultsCode( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -15521,7 +15521,7 @@ class ResponsibilityCenters( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -15555,7 +15555,7 @@ class ResponsibilityCenters( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -15655,7 +15655,7 @@ class ResourcePlanningOffices( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -15681,7 +15681,7 @@ class ResourcePlanningOffices( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -15720,17 +15720,17 @@ class RegionalOffices( ):
             self.___resourceplanningofficesid = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str) and len( self.__rpio ) == 2:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if isinstance( value, str ) and len( value ) == 2:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
@@ -15782,7 +15782,7 @@ class RegionalOffices( ):
         if isinstance( self.__code, str ):
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -15856,22 +15856,22 @@ class ReimbursableSurvey( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
@@ -15907,7 +15907,7 @@ class ReimbursableSurvey( ):
                            'FundName',
                            'Amount' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             src = self.__source
             pro = self.__provider
@@ -15932,7 +15932,7 @@ class ReimbursableSurvey( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -16007,22 +16007,22 @@ class ReimbursableAgreements( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
@@ -16047,12 +16047,12 @@ class ReimbursableAgreements( ):
             self.__accountcode = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if isinstance( self.__orgcode, str ) and self.__orgcode != '':
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
@@ -16185,7 +16185,7 @@ class ReimbursableAgreements( ):
         if isinstance( self.__agreementnumber, str ) and self.__agreementnumber != '':
             return self.__agreementnumber
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -16211,7 +16211,7 @@ class ReimbursableAgreements( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -16295,82 +16295,82 @@ class RegionalAuthority( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -16657,7 +16657,7 @@ class RegionalAuthority( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -16683,7 +16683,7 @@ class RegionalAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -16774,82 +16774,82 @@ class StatusOfFunds( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -17142,7 +17142,7 @@ class StatusOfFunds( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -17166,7 +17166,7 @@ class StatusOfFunds( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -17258,82 +17258,82 @@ class StatusOfSupplementalFunding( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -17628,7 +17628,7 @@ class StatusOfSupplementalFunding( ):
                            'NpmName' ]
 
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -17654,7 +17654,7 @@ class StatusOfSupplementalFunding( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -17729,82 +17729,82 @@ class StateGrantObligations( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if isinstance( self.__ahcode, str ) and self.__ahcode != '':
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if isinstance( self.__ahname, str ) and self.__ahname != '':
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if isinstance( self.__orgcode, str ) and self.__orgcode != '':
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if isinstance( self.__orgname, str ) and self.__orgname != '':
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -17923,7 +17923,7 @@ class StateGrantObligations( ):
                            'BocName',
                            'Amount' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -17949,7 +17949,7 @@ class StateGrantObligations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -18040,17 +18040,17 @@ class SpecialAccounts( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
@@ -18265,7 +18265,7 @@ class SpecialAccounts( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -18291,7 +18291,7 @@ class SpecialAccounts( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -18357,17 +18357,17 @@ class SuperfundSites( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
@@ -18452,7 +18452,7 @@ class SuperfundSites( ):
                            'EpaSiteId' ]
 
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -18478,7 +18478,7 @@ class SuperfundSites( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -18622,7 +18622,7 @@ class SiteProjectCodes( ):
         if isinstance( self.__name, str ):
             return self.__name
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -18648,7 +18648,7 @@ class SiteProjectCodes( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -18767,7 +18767,7 @@ class SubAppropriations( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -18793,7 +18793,7 @@ class SubAppropriations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -18890,7 +18890,7 @@ class SiteProjectCodes( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -18916,7 +18916,7 @@ class SiteProjectCodes( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -19011,7 +19011,7 @@ class StateOrganizations( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -19037,7 +19037,7 @@ class StateOrganizations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -19289,21 +19289,21 @@ class StatusOfAppropriations( ):
             self.__agreementlimit = value
 
     @property
-    def estimatedrecoveriestranstype( self ):
+    def estimated_recoveries_transtype( self  ):
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
-    @estimatedrecoveriestranstype.setter
-    def estimatedrecoveriestranstype( self, value ):
+    @estimated_recoveriestranstype.setter
+    def estimated_recoveries_transtype( self, value ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
     @property
-    def estimatedreimbursementstranstype( self ):
+    def estimated_reimbursements_transtype( self ):
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
-    @estimatedreimbursementstranstype.setter
+    @estimated_reimbursements_transtype.setter
     def estimatedreimbursementstranstype( self, value ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
@@ -19721,7 +19721,7 @@ class StatusOfAppropriations( ):
                            'TotalUsedAmount',
                            'AvailableAmount' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -19747,7 +19747,7 @@ class StatusOfAppropriations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -19834,22 +19834,22 @@ class SpendingRates( ):
             self.__treasuryagencyname = value
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if isinstance( self.__treasuryaccountcode, str ) and self.__treasuryaccountcode != '':
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if isinstance( self.__treasuryaccountname, str ) and self.__treasuryaccountname != '':
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
@@ -19874,22 +19874,22 @@ class SpendingRates( ):
             self.__ombagencyname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -20129,7 +20129,7 @@ class SpendingRates( ):
                           'OutYear11',
                           'TotalSpendout' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -20147,7 +20147,7 @@ class SpendingRates( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -20236,82 +20236,82 @@ class StatusOfSupplementalFunds( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -20682,82 +20682,82 @@ class StatusOfJobsActFunding( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -21128,82 +21128,82 @@ class StatusOfEarmarks( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -21577,82 +21577,82 @@ class SiteActivity( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -21979,7 +21979,7 @@ class SiteActivity( ):
                            'Refunded',
                            'Reversal' ]
 
-    def getdata( self ) -> list[ tuple ]:
+    def get_data( self  ) -> list[ tuple ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -22005,7 +22005,7 @@ class SiteActivity( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ) -> DataFrame:
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -22101,17 +22101,17 @@ class SpendingDocument( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if self.__rpiocode is not None:
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if self.__rpioname is not None:
             return self.__rpioname
 
@@ -22121,62 +22121,62 @@ class SpendingDocument( ):
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if self.__ahcode is not None:
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if self.__ahname is not None:
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if self.__fundcode is not None:
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if self.__fundname is not None:
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if self.__orgcode is not None:
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if self.__orgname is not None:
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -22588,7 +22588,7 @@ class SpendingDocument( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -22614,7 +22614,7 @@ class SpendingDocument( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -22680,44 +22680,44 @@ class TreasurySymbols( ):
             self.__efy = value
 
     @property
-    def treasuryaccountcode( self ):
+    def treasury_account_code( self ):
         if isinstance( self.__treasuryaccountcode, str ) \
                 and self.__treasuryaccountcode != '':
             return self.__treasuryaccountcode
 
     @treasuryaccountcode.setter
-    def treasuryaccountcode( self, value ):
+    def treasury_account_code( self, value ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasuryaccountname( self ):
+    def treasury_account_name( self ):
         if isinstance( self.__treasuryaccountname, str ) \
                 and self.__treasuryaccountname != '':
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
-    def treasuryaccountname( self, value ):
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -22752,7 +22752,7 @@ class TreasurySymbols( ):
         if isinstance( self.__treasuryaccountname, str ) and self.__treasuryaccountname != '':
             return self.__treasuryaccountname
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -22779,7 +22779,7 @@ class TreasurySymbols( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -22901,17 +22901,17 @@ class Transfers( ):
             self.__processeddate = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
@@ -22921,42 +22921,42 @@ class Transfers( ):
             self.__rpiocode = name
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if isinstance( self.__ahcode, str ) and self.__ahcode != '':
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if isinstance( self.__ahname, str ) and self.__ahname != '':
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
@@ -23011,12 +23011,12 @@ class Transfers( ):
             self.__activityname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if isinstance( self.__orgcode, str ) and self.__orgcode != '':
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
@@ -23139,7 +23139,7 @@ class Transfers( ):
                            'Purpose',
                            'ExtendedPurpose' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             src = self.__source
             pdr = self.__provider
@@ -23166,7 +23166,7 @@ class Transfers( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe'''
         try:
             src = self.__source
@@ -23231,12 +23231,12 @@ class TransTypes( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
@@ -23351,22 +23351,22 @@ class UnobligatedAuthority( ):
             self.__linename = value
 
     @property
-    def budgetaccountcode( self ):
+    def budget_account_code( self ):
         if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
-    def budgetaccountcode( self, value ):
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budgetaccountname( self ):
+    def budget_account_name( self ):
         if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
-    def budgetaccountname( self, value ):
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -23429,7 +23429,7 @@ class UnobligatedAuthority( ):
                           'AgencyName',
                           'BureauName' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -23455,7 +23455,7 @@ class UnobligatedAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -23521,22 +23521,22 @@ class UnobligatedBalances( ):
             self.__efy = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
@@ -23607,7 +23607,7 @@ class UnobligatedBalances( ):
                            'AccountName',
                            'Amount' ]
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = Source.CarryoverOutlays
             provider = Provider.SQLite
@@ -23633,7 +23633,7 @@ class UnobligatedBalances( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -23729,82 +23729,82 @@ class UnliquidatedObligations( ):
             self.__efy = value
 
     @property
-    def rpiocode( self ):
+    def rpio_code( self ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpioname( self ):
+    def rpio_name( self ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpiocode.setter
-    def rpiocode( self, value ):
+    @rpio_code.setter
+    def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ahcode( self ):
+    def ah_code( self ):
         if isinstance( self.__ahcode, str ) and self.__ahcode != '':
             return self.__ahcode
 
-    @ahcode.setter
-    def ahcode( self, value ):
+    @ah_code.setter
+    def ah_code( self, value ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ahname( self ):
+    def ah_name( self ):
         if isinstance( self.__ahname, str ) and self.__ahname != '':
             return self.__ahname
 
-    @ahname.setter
-    def ahname( self, value ):
+    @ah_name.setter
+    def ah_name( self, value ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fundcode( self ):
+    def fund_code( self ):
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    @fundcode.setter
-    def fundcode( self, value ):
+    @fund_code.setter
+    def fund_code( self, value ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fundname( self ):
+    def fund_name( self ):
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
-    @fundname.setter
-    def fundname( self, value ):
+    @fund_name.setter
+    def fund_name( self, value ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def orgcode( self ):
+    def org_code( self ):
         if isinstance( self.__orgcode, str ) and self.__orgcode != '':
             return self.__orgcode
 
     @orgcode.setter
-    def orgcode( self, value ):
+    def org_code( self, value ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def orgname( self ):
+    def org_name( self  ):
         if isinstance( self.__orgname, str ) and self.__orgname != '':
             return self.__orgname
 
     @orgname.setter
-    def orgname( self, value ):
+    def org_name( self, value  ):
         if value is not None:
             self.__orgname = value
 
@@ -24137,7 +24137,7 @@ class UnliquidatedObligations( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -24163,7 +24163,7 @@ class UnliquidatedObligations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -24262,7 +24262,7 @@ class WorkCodes( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def getdata( self ):
+    def get_data( self  ):
         try:
             source = self.__source
             provider = self.__provider
@@ -24288,7 +24288,7 @@ class WorkCodes( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:

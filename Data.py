@@ -382,7 +382,7 @@ class SqlFile( ):
 
 # DbConfig( source, provider = Provider.SQLite )
 class DbConfig( ):
-    '''DbConfig( source, provider = Provider.SQLite ) provides list of Budget Execution
+    '''DbConfig( source, provider = Provider. SQLite ) provides list of Budget Execution
     tables across two databases ( values and references ) '''
     __source = None
     __provider = None
@@ -969,7 +969,7 @@ class Query( ):
     __names = None
     __values = None
     __path = None
-    __cxstring = None
+    __connectionstring = None
     __text = None
 
     @property
@@ -1079,13 +1079,13 @@ class Query( ):
 
     @property
     def connectionstring( self ):
-        if isinstance( self.__cxstring, str ):
-            return self.__cxstring
+        if isinstance( self.__connectionstring, str ):
+            return self.__connectionstring
 
     @connectionstring.setter
     def connectionstring( self, value ):
         if isinstance( value, str ):
-            self.__cxstring = str( value )
+            self.__connectionstring = str( value )
 
     def __init__( self, connection, sqlstatement ):
         self.__cnx = connection if isinstance( connection, Connection ) else None
@@ -1095,7 +1095,7 @@ class Query( ):
         self.__provider = connection.provider
         self.__cmdtype = sqlstatement.commandtype
         self.__path = connection.path
-        self.__cxstring = connection.connectionstring
+        self.__connectionstring = connection.connectionstring
         self.__text = sqlstatement.getquery( )
 
     def __str__( self ):
