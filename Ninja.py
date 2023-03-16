@@ -3361,62 +3361,62 @@ class BudgetControls( ):
             self.__postedtranstype = value
 
     @property
-    def spending_adjustment_transtype( self ):
+    def spending_adjustment_trans_type( self ):
         if self.__spendingadjustmenttranstype is not None:
             return self.__spendingadjustmenttranstype
 
-    @spending_adjustment_transtype.setter
-    def spending_adjustment_transtype( self, value ):
+    @spending_adjustment_trans_type.setter
+    def spending_adjustment_trans_type( self, value ):
         if value is not None:
             self.__spendingadjustmenttranstype = value
 
     @property
-    def estimated_reimbursements_transtype( self ):
+    def estimated_reimbursements_trans_type( self ):
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
-    @estimated_reimbursements_transtype.setter
-    def estimatedreimbursementstranstype( self, value ):
+    @estimated_reimbursements_trans_type.setter
+    def estimated_reimbursements_trans_type( self, value ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
 
     @property
-    def estimated_recoveries_transtype( self  ):
+    def estimated_recoveries_trans_type( self  ):
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
-    @estimated_recoveriestranstype.setter
-    def estimated_recoveries_transtype( self, value ):
+    @estimated_recoveries_trans_type.setter
+    def estimated_recoveries_trans_type( self, value ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
     @property
-    def actual_recoveries_transtype( self ):
+    def actual_recoveries_trans_type( self ):
         if self.__actualrecoveriestranstype is not None:
             return self.__actualrecoveriestranstype
 
-    @actual_recoveries_transtype.setter
-    def actual_recoveries_transtype( self, value ):
+    @actual_recoveries_trans_type.setter
+    def actual_recoveries_trans_type( self, value ):
         if value is not None:
             self.__actualrecoveriestranstype = value
 
     @property
-    def status_reserve_transtype( self ):
+    def status_reserve_trans_type( self ):
         if self.__statusreservetranstype is not None:
             return self.__statusreservetranstype
 
-    @status_reserve_transtype.setter
-    def status_reserve_transtype( self, value ):
+    @status_reserve_trans_type.setter
+    def status_reserve_trans_type( self, value ):
         if value is not None:
             self.__statusreservetranstype = value
 
     @property
-    def profit_loss_transtype( self ):
+    def profit_loss_trans_type( self ):
         if self.__profitlosstranstype is not None:
             return self.__profitlosstranstype
 
-    @profit_loss_transtype.setter
-    def profit_loss_transtype( self, value ):
+    @profit_loss_trans_type.setter
+    def profit_loss_trans_type( self, value ):
         if value is not None:
             self.__profitlosstranstype = value
 
@@ -3446,12 +3446,12 @@ class BudgetControls( ):
             return self.__trackingagreementlowerlevels
 
     @tracking_agreement_lower_levels.setter
-    def trackingagreementlowerlevels( self, value ):
+    def tracking_agreement_lower_levels( self, value ):
         if value is not None:
             self.__trackingagreementlowerlevels = value
 
     @property
-    def budgetestimatedlowerlevels( self ):
+    def budget_estimated_lower_levels( self ):
         if self.__budgetedestimatedlowerlevels is not None:
             return self.__budgetedestimatedlowerlevels
 
@@ -3481,7 +3481,7 @@ class BudgetControls( ):
             self.__recoverybudgetmismatch = value
 
     @property
-    def profit_losss_pending_option( self ):
+    def profit_loss_spending_option( self ):
         if self.__profitlossspendingoption is not None:
             return self.__profitlossspendingoption
 
@@ -3491,7 +3491,7 @@ class BudgetControls( ):
             self.__profitlossspendingoption = value
 
     @property
-    def profit_loss_budget_ingoption( self ):
+    def profit_loss_budgeting_option( self ):
         if self.__profitlossbudgetingoption is not None:
             return self.__profitlossbudgetingoption
 
@@ -3526,7 +3526,7 @@ class BudgetControls( ):
             return self.__recoveriescarryinamountcontrol
 
     @recoveries_carryin_amount_control.setter
-    def recoveriescarryinamountcontrol( self, value ):
+    def recoveries_carryin_amount_control( self, value ):
         if value is not None:
             self.__recoveriescarryinamountcontrol = value
 
@@ -3621,7 +3621,7 @@ class BudgetControls( ):
             self.__reimbursementspendingcontrol = value
 
     @property
-    def reimbursable_agreementspending_control( self ):
+    def reimbursable_agreement_spending_control( self ):
         if self.__reimbursableagreementspendingcontrol is not None:
             return self.__reimbursableagreementspendingcontrol
 
@@ -3656,7 +3656,7 @@ class BudgetControls( ):
             return self.__transactiontypecontrol
 
     @transaction_type_control.setter
-    def transactiontypecontrol( self, value ):
+    def transaction_type_control( self, value ):
         if value is not None:
             self.__transactiontypecontrol = value
 
@@ -4490,7 +4490,7 @@ class BudgetOutlays( ):
         if self.__currentyear is not None:
             return self.__currentyear
 
-    @currentyear.setter
+    @current_year.setter
     def current_year( self, value ):
         if  value is not None:
             self.__currentyear = value
@@ -4500,7 +4500,7 @@ class BudgetOutlays( ):
         if self.__budgetyear is not None:
             return self.__budgetyear
 
-    @budgetyear.setter
+    @budget_year.setter
     def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
@@ -4510,7 +4510,7 @@ class BudgetOutlays( ):
         if self.__outyear1 is not None:
             return self.__outyear1
 
-    @outyear1.setter
+    @out_year_1.setter
     def out_year_1( self, value ):
         if value is not None:
             self.__outyear1 = value
@@ -4520,7 +4520,7 @@ class BudgetOutlays( ):
         if self.__outyear2 is not None:
             return self.__outyear2
 
-    @outyear2.setter
+    @out_year_2.setter
     def out_year_2( self, value ):
         if value is not None:
             self.__outyear2 = value
@@ -4530,7 +4530,7 @@ class BudgetOutlays( ):
         if isinstance( self.__outyear3, float ):
             return self.__outyear3
 
-    @outyear3.setter
+    @out_year_3.setter
     def out_year_3( self, value ):
         if value is not None:
             self.__outyear3 = value
@@ -4560,7 +4560,7 @@ class BudgetOutlays( ):
         if self.__outyear6 is not None:
             return self.__outyear6
 
-    @outyear6.setter
+    @out_year_6.setter
     def out_year_6( self, value ):
         if value is not None:
             self.__outyear6 = value
@@ -4570,7 +4570,7 @@ class BudgetOutlays( ):
         if self.__outyear7 is not None:
             return self.__outyear7
 
-    @outyear7.setter
+    @out_year_7.setter
     def outyear7( self, value ):
         if value is not None:
             self.__outyear7 = value
@@ -4580,7 +4580,7 @@ class BudgetOutlays( ):
         if self.__outyear8 is not None:
             return self.__outyear8
 
-    @outyear8.setter
+    @out_year_8.setter
     def out_year_8( self, value ):
         if value is not None:
             self.__outyear8 = value
@@ -4590,7 +4590,7 @@ class BudgetOutlays( ):
         if self.__outyear9 is not None:
             return self.__outyear9
 
-    @outyear9.setter
+    @out_year_9.setter
     def out_year_9( self, value ):
         if value is not None:
             self.__outyear9 = value
@@ -5374,7 +5374,7 @@ class Commitments( ):
         if self.__documentnumber is not None:
             return self.__documentnumber
 
-    @documentnumber.setter
+    @document_number.setter
     def document_number( self, value ):
         if value is not None:
             self.__documentnumber = value
@@ -5384,7 +5384,7 @@ class Commitments( ):
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
-    @documentcontrolnumber.setter
+    @document_control_number.setter
     def document_control_number( self, value ):
         if value is not None:
             self.__documentcontrolnumber = value
@@ -5394,7 +5394,7 @@ class Commitments( ):
         if self.__referencedocumentnumbe is not None:
             return self.__referencedocumentnumber
 
-    @referencedocumentnumber.setter
+    @reference_document_number.setter
     def reference_document_number( self, value ):
         if value is not None:
             self.__referencedocumentnumber = value
@@ -5727,7 +5727,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__budgetyear, float ):
             return self.__budgetyear
 
-    @budgetyear.setter
+    @budget_year.setter
     def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
@@ -5773,12 +5773,12 @@ class CarryoverOutlays( ):
             self.__carryover = value
 
     @property
-    def carryoveroutlays( self ):
+    def carryover_outlays( self ):
         if isinstance( self.__carryoveroutlays, float ):
             return self.__carryoveroutlays
 
-    @carryoveroutlays.setter
-    def carryoveroutlays( self, value ):
+    @carryover_outlays.setter
+    def carryover_outlays( self, value ):
         if value is not None:
             self.__carryoveroutlays = value
 
@@ -5803,12 +5803,12 @@ class CarryoverOutlays( ):
             self.__delta = value
 
     @property
-    def availablebalance( self ):
+    def available_balance( self ):
         if isinstance( self.__availablebalance, float ) and self.__availablebalance > 0:
             return self.__availablebalance
 
-    @availablebalance.setter
-    def availablebalance( self, value ):
+    @available_balance.setter
+    def available_balance( self, value ):
         if isinstance( value, float ) and value > 0:
             self.__availablebalance = value
 
@@ -5817,18 +5817,18 @@ class CarryoverOutlays( ):
         if isinstance( self.__currentyear, float ):
             return self.__currentyear
 
-    @currentyear.setter
+    @current_year.setter
     def current_year( self, value ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def currentyearadjustment( self ):
+    def current_year_adjustment( self ):
         if isinstance( self.__currentyearadjustment, float ):
             return self.__currentyearadjustment
 
-    @currentyearadjustment.setter
-    def currentyearadjustment( self, value ):
+    @current_year_adjustment.setter
+    def current_year_adjustment( self, value ):
         if value is not None:
             self.__currentyearadjustment = value
 
@@ -5837,18 +5837,18 @@ class CarryoverOutlays( ):
         if isinstance( self.__budgetyear, float ):
             return self.__budgetyear
 
-    @budgetyear.setter
+    @budget_year.setter
     def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def budgetyearadjustment( self ):
+    def budget_year_adjustment( self ):
         if isinstance( self.__budgetyearadjustment, float ):
             return self.__budgetyearadjustment
 
-    @budgetyearadjustment.setter
-    def budgetyearadjustment( self, value ):
+    @budget_year_adjustment.setter
+    def budget_year_adjustment( self, value ):
         if value is not None:
             self.__budgetyearadjustment = value
 
@@ -5857,7 +5857,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__outyear1, float ):
             return self.__outyear1
 
-    @outyear1.setter
+    @out_year_1.setter
     def out_year_1( self, value ):
         if value is not None:
             self.__outyear1 = value
@@ -5867,7 +5867,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__outyear2, float ):
             return self.__outyear2
 
-    @outyear2.setter
+    @out_year_2.setter
     def out_year_2( self, value ):
         if value is not None:
             self.__outyear2 = value
@@ -5877,7 +5877,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__outyear3, float ):
             return self.__outyear3
 
-    @outyear3.setter
+    @out_year_3.setter
     def out_year_3( self, value ):
         if value is not None:
             self.__outyear3 = value
@@ -5907,7 +5907,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__outyear6, float ):
             return self.__outyear6
 
-    @outyear6.setter
+    @out_year_6.setter
     def out_year_6( self, value ):
         if value is not None:
             self.__outyear6 = value
@@ -5917,7 +5917,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__outyear7, float ):
             return self.__outyear7
 
-    @outyear7.setter
+    @out_year_7.setter
     def outyear7( self, value ):
         if value is not None:
             self.__outyear7 = value
@@ -5927,7 +5927,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__outyear8, float ):
             return self.__outyear8
 
-    @outyear8.setter
+    @out_year_8.setter
     def out_year_8( self, value ):
         if value is not None:
             self.__outyear8 = value
@@ -5937,7 +5937,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__outyear9, float ):
             return self.__outyear9
 
-    @outyear9.setter
+    @out_year_9.setter
     def out_year_9( self, value ):
         if value is not None:
             self.__outyear9 = value
@@ -6284,18 +6284,18 @@ class CarryoverEstimates( ):
         if isinstance( self.__opencommitments, float ):
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def unobligatedauthority( self ):
+    def unobligated_authority( self ):
         if isinstance( self.__unobligatedauthority, float ):
             return self.__unobligatedauthority
 
-    @unobligatedauthority.setter
-    def unobligatedauthority( self, value ):
+    @unobligated_authority.setter
+    def unobligated_authority( self, value ):
         if value is not None:
             self.__unobligatedauthority = value
 
@@ -6739,28 +6739,28 @@ class DataRuleDescription( ):
         if isinstance( self.__linedescription, str ) and self.__linedescription != '':
             return self.__linedescription
 
-    @linedescription.setter
+    @line_description.setter
     def line_description( self, value ):
         if value is not None:
             self.__linedescription = value
 
     @property
-    def rulenumber( self ):
+    def rule_number( self ):
         if isinstance( self.__rulenumber, str ) and self.__rulenumber != '':
             return self.__rulenumber
 
-    @rulenumber.setter
-    def rulenumber( self, value ):
+    @rule_number.setter
+    def rule_number( self, value ):
         if value is not None:
             self.__rulenumber = value
 
     @property
-    def ruledescription( self ):
+    def rule_description( self ):
         if isinstance( self.__ruledescription, str ) and self.__ruledescription != '':
             return self.__ruledescription
 
-    @ruledescription.setter
-    def ruledescription( self, value ):
+    @rule_description.setter
+    def rule_description( self, value ):
         if value is not None:
             self.__ruledescription = value
 
@@ -7069,7 +7069,7 @@ class Defacto( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -7089,7 +7089,7 @@ class Defacto( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -7540,7 +7540,7 @@ class Deobligation( ):
         if self.__documentnumber is not None:
             return self.__documentnumber
 
-    @documentnumber.setter
+    @document_number.setter
     def document_number( self, value ):
         if value is not None:
             self.__documentnumber = value
@@ -7550,7 +7550,7 @@ class Deobligation( ):
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
-    @documentcontrolnumber.setter
+    @document_control_number.setter
     def document_control_number( self, value ):
         if value is not None:
             self.__documentcontrolnumber = value
@@ -7560,7 +7560,7 @@ class Deobligation( ):
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
-    @referencedocumentnumber.setter
+    @reference_document_number.setter
     def reference_document_number( self, value ):
         if value is not None:
             self.__referencedocumentnumber = value
@@ -7903,7 +7903,7 @@ class DocumentControlNumbers( ):
         if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
             return self.__documentnumber
 
-    @documentnumber.setter
+    @document_number.setter
     def document_number( self, value ):
         if value is not None:
             self.__documentnumber = value
@@ -7913,7 +7913,7 @@ class DocumentControlNumbers( ):
         if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
             return self.__documentcontrolnumber
 
-    @documentcontrolnumber.setter
+    @document_control_number.setter
     def document_control_number( self, value ):
         if value is not None:
             self.__documentcontrolnumber = value
@@ -10084,7 +10084,7 @@ class GeneralLedgerAccounts( ):
         if self.__accountnumber is not None:
             return self.__accountnumber
 
-    @accountnumber.setter
+    @account_number.setter
     def account_number( self, value ):
         if value is not None:
             self.__accountnumber = value
@@ -10094,7 +10094,7 @@ class GeneralLedgerAccounts( ):
         if self.__accountname is not None:
             return self.__accountname
 
-    @accountname.setter
+    @account_name.setter
     def account_name( self, value ):
         if value is not None:
             self.__accountname = value
@@ -10104,7 +10104,7 @@ class GeneralLedgerAccounts( ):
         if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
-    @treasurysymbol.setter
+    @treasury_symbol.setter
     def treasury_symbol( self, value ):
         if value is not None:
             self.__treasuryaccount = value
@@ -10308,7 +10308,7 @@ class GrowthRates( ):
         if self.__budgetyear is not None:
             return self.__budgetyear
 
-    @budgetyear.setter
+    @budget_year.setter
     def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
@@ -10318,7 +10318,7 @@ class GrowthRates( ):
         if self.__outyear1 is not None:
             return self.__outyear1
 
-    @outyear1.setter
+    @out_year_1.setter
     def out_year_1( self, value ):
         if value is not None:
             self.__outyear1 = value
@@ -10328,7 +10328,7 @@ class GrowthRates( ):
         if self.__outyear2 is not None:
             return self.__outyear2
 
-    @outyear2.setter
+    @out_year_2.setter
     def out_year_2( self, value ):
         if value is not None:
             self.__outyear2 = value
@@ -10338,7 +10338,7 @@ class GrowthRates( ):
         if self.__outyear3 is not None:
             return self.__outyear3
 
-    @outyear3.setter
+    @out_year_3.setter
     def out_year_3( self, value ):
         if value is not None:
             self.__outyear3 = value
@@ -10368,7 +10368,7 @@ class GrowthRates( ):
         if self.__outyear6 is not None:
             return self.__outyear6
 
-    @outyear6.setter
+    @out_year_6.setter
     def out_year_6( self, value ):
         if value is not None:
             self.__outyear6 = value
@@ -10378,8 +10378,8 @@ class GrowthRates( ):
         if self.__outyear7 is not None:
             return self.__outyear7
 
-    @outyear7.setter
-    def outyear7( self, value ):
+    @out_year_7.setter
+    def out_year_7( self, value ):
         if value is not None:
             self.__outyear7 = value
 
@@ -10388,7 +10388,7 @@ class GrowthRates( ):
         if self.__outyear8 is not None:
             return self.__outyear8
 
-    @outyear8.setter
+    @out_year_8.setter
     def out_year_8( self, value ):
         if value is not None:
             self.__outyear8 = value
@@ -10398,7 +10398,7 @@ class GrowthRates( ):
         if self.__outyear9 is not None:
             return self.__outyear9
 
-    @outyear9.setter
+    @out_year_9.setter
     def out_year_9( self, value ):
         if value is not None:
             self.__outyear9 = value
@@ -11811,42 +11811,42 @@ class ObjectClassOutlays( ):
             self.__budgetaccountname = value
 
     @property
-    def obligationtype( self ):
+    def obligation_type( self ):
         if self.__obligationtype is not None:
             return self.__obligationtype
 
-    @obligationtype.setter
-    def obligationtype( self, value ):
+    @obligation_type.setter
+    def obligation_type( self, value ):
         if value is not None:
             self.__obligationtype = value
 
     @property
-    def directreimbursabletitle( self ):
+    def direct_reimbursable_title( self ):
         if self.__directreimbursabletitle is not None:
             return self.__directreimbursabletitle
 
-    @directreimbursabletitle.setter
-    def directreimbursabletitle( self, value ):
+    @direct_reimbursable_title.setter
+    def direct_reimbursable_title( self, value ):
         if value is not None:
             self.__directreimbursabletitle = value
 
     @property
-    def objectclassgroupnumber( self ):
+    def object_class_group_number( self ):
         if self.__objectclassgroupnumber is not None:
             return self.__objectclassgroupnumber
 
-    @objectclassgroupnumber.setter
-    def objectclassgroupnumber( self, value ):
+    @object_class_group_number.setter
+    def object_class_group_number( self, value ):
         if value is not None:
             self.__objectclassgroupnumber = value
 
     @property
-    def objectclassgroupname( self ):
+    def object_class_group_name( self ):
         if self.__objectclassgroupname is not None:
             return self.__objectclassgroupname
 
-    @objectclassgroupname.setter
-    def objectclassgroupname( self, value ):
+    @object_class_group_name.setter
+    def object_class_group_name( self, value ):
         if value is not None:
             self.__objectclassgroupname = value
 
@@ -11871,12 +11871,12 @@ class ObjectClassOutlays( ):
             self.__bocname = value
 
     @property
-    def financeobjectclass( self ):
+    def finance_object_class( self ):
         if self.__financeobjectclass is not None:
             return self.__financeobjectclass
 
-    @financeobjectclass.setter
-    def financeobjectclass( self, value ):
+    @finance_object_class.setter
+    def finance_object_class( self, value ):
         if value is not None:
             self.__financeobjectclass = value
 
@@ -11895,7 +11895,7 @@ class ObjectClassOutlays( ):
         if self.__currentyear is not None:
             return self.__currentyear
 
-    @currentyear.setter
+    @current_year.setter
     def current_year( self, value ):
         if value is not None:
             self.__currentyear = value
@@ -11905,7 +11905,7 @@ class ObjectClassOutlays( ):
         if self.__budgetyear is not None:
             return self.__budgetyear
 
-    @budgetyear.setter
+    @budget_year.setter
     def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
@@ -12603,7 +12603,7 @@ class OpenCommitments( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -12623,7 +12623,7 @@ class OpenCommitments( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -12773,7 +12773,7 @@ class OpenCommitments( ):
         if self.__documentnumber is not None:
             return self.__documentnumber
 
-    @documentnumber.setter
+    @document_number.setter
     def document_number( self, value ):
         if value is not None:
             self.__documentnumber = value
@@ -12783,7 +12783,7 @@ class OpenCommitments( ):
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
-    @documentcontrolnumber.setter
+    @document_control_number.setter
     def document_control_number( self, value ):
         if value is not None:
             self.__documentcontrolnumber = value
@@ -12793,7 +12793,7 @@ class OpenCommitments( ):
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
-    @referencedocumentnumber.setter
+    @reference_document_number.setter
     def reference_document_number( self, value ):
         if value is not None:
             self.__referencedocumentnumber = value
@@ -13212,7 +13212,7 @@ class Obligations( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -13232,7 +13232,7 @@ class Obligations( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -13382,7 +13382,7 @@ class Obligations( ):
         if self.__documentnumber is not None:
             return self.__documentnumber
 
-    @documentnumber.setter
+    @document_number.setter
     def document_number( self, value ):
         if value is not None:
             self.__documentnumber = value
@@ -13392,7 +13392,7 @@ class Obligations( ):
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
-    @documentcontrolnumber.setter
+    @document_control_number.setter
     def document_control_number( self, value ):
         if value is not None:
             self.__documentcontrolnumber = value
@@ -13402,7 +13402,7 @@ class Obligations( ):
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
-    @referencedocumentnumber.setter
+    @reference_document_number.setter
     def reference_document_number( self, value ):
         if value is not None:
             self.__referencedocumentnumber = value
@@ -15129,7 +15129,7 @@ class ProgramResultsCode( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -15149,7 +15149,7 @@ class ProgramResultsCode( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -16089,7 +16089,7 @@ class ReimbursableAgreements( ):
         if isinstance( self.__opencommitments, float ):
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -16109,7 +16109,7 @@ class ReimbursableAgreements( ):
         if isinstance( self.__unliquidatedobligations, float ):
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -16437,7 +16437,7 @@ class RegionalAuthority( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -16457,7 +16457,7 @@ class RegionalAuthority( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -16916,7 +16916,7 @@ class StatusOfFunds( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -16936,7 +16936,7 @@ class StatusOfFunds( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -18379,7 +18379,7 @@ class SuperfundSites( ):
         if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
             return self.__nplstatusname
 
-    @siteprojectname.setter
+    @site_project_name.setter
     def site_project_name( self, value ):
         if value is not None:
             self.__nplstatusname = value
@@ -18399,7 +18399,7 @@ class SuperfundSites( ):
         if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
             return self.__cerclisid
 
-    @epasiteid.setter
+    @epa_site_id.setter
     def epa_site_id( self, value ):
         if value is not None:
             self.__cerclisid = value
@@ -19136,7 +19136,7 @@ class StatusOfAppropriations( ):
             self.__budgetlevel = value
 
     @property
-    def appropriationfundcode( self ):
+    def appropriation_fund_code( self ):
         if self.__appropriationfundcode is not None:
             return self.__appropriationfundcode
 
@@ -19201,7 +19201,7 @@ class StatusOfAppropriations( ):
         if self.__fundgroup is not None:
             return self.__fundgroup
 
-    @fundgroup.setter
+    @fund_group.setter
     def fund_group( self, value ):
         if value is not None:
             self.__fundgroup = value
@@ -19267,22 +19267,22 @@ class StatusOfAppropriations( ):
             self.__agreementlimit = value
 
     @property
-    def estimated_recoveries_transtype( self  ):
+    def estimated_recoveries_trans_type( self  ):
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
-    @estimated_recoveriestranstype.setter
-    def estimated_recoveries_transtype( self, value ):
+    @estimated_recoveries_trans_type.setter
+    def estimated_recoveries_trans_type( self, value ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
     @property
-    def estimated_reimbursements_transtype( self ):
+    def estimated_reimbursements_trans_type( self ):
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
-    @estimated_reimbursements_transtype.setter
-    def estimatedreimbursementstranstype( self, value ):
+    @estimated_reimbursements_trans_type.setter
+    def estimated_reimbursements_trans_type( self, value ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
 
@@ -19347,7 +19347,7 @@ class StatusOfAppropriations( ):
             self.__recordcarryoveratlowerlevel = value
 
     @property
-    def reimbursables_pending_option( self ):
+    def reimbursable_spending_option( self ):
         if self.__reimbursablespendingoption is not None:
             return self.__reimbursablespendingoption
 
@@ -19926,7 +19926,7 @@ class SpendingRates( ):
         if isinstance( self.__yearofauthority, str ) and self.__yearofauthority != '':
             return self.__yearofauthority
 
-    @year_rof_authority.setter
+    @year_of_authority.setter
     def year_of_authority( self, value ):
         if value is not None:
             self.__yearofauthority = value
@@ -19956,7 +19956,7 @@ class SpendingRates( ):
         if isinstance( self.__outyear2, float ):
             return self.__outyear2
 
-    @outyear2.setter
+    @out_year_2.setter
     def out_year_2( self, value ):
         if value is not None:
             self.__outyear2 = value
@@ -19966,7 +19966,7 @@ class SpendingRates( ):
         if isinstance( self.__outyear3, float ):
             return self.__outyear3
 
-    @outyear3.setter
+    @out_year_3.setter
     def out_year_3( self, value ):
         if value is not None:
             self.__outyear3 = value
@@ -20378,7 +20378,7 @@ class StatusOfSupplementalFunds( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -20398,7 +20398,7 @@ class StatusOfSupplementalFunds( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -20824,7 +20824,7 @@ class StatusOfJobsActFunding( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -20844,7 +20844,7 @@ class StatusOfJobsActFunding( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -21270,7 +21270,7 @@ class StatusOfEarmarks( ):
         if self.__opencommitments is not None:
             return self.__opencommitments
 
-    @opencommitments.setter
+    @open_commitments.setter
     def open_commitments( self, value ):
         if value is not None:
             self.__opencommitments = value
@@ -21290,7 +21290,7 @@ class StatusOfEarmarks( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -21735,22 +21735,22 @@ class SiteActivity( ):
             self.__epasiteid = value
 
     @property
-    def projecttype( self ):
+    def project_type( self ):
         if self.__projecttype is not None:
             return self.__projecttype
 
     @project_type.setter
-    def projecttype( self, value ):
+    def project_type( self, value ):
         if value is not None:
             self.__projecttype = value
 
     @property
-    def siteprojectcode( self ):
+    def site_project_code( self ):
         if self.__siteprojectcode is not None:
             return self.__siteprojectcode
 
-    @siteprojectcode.setter
-    def siteprojectcode( self, value ):
+    @site_project_code.setter
+    def site_project_code( self, value ):
         if value is not None:
             self.__siteprojectcode = value
 
@@ -21759,7 +21759,7 @@ class SiteActivity( ):
         if self.__siteprojectname is not None:
             return self.__siteprojectname
 
-    @siteprojectname.setter
+    @site_project_name.setter
     def site_project_name( self, value ):
         if value is not None:
             self.__siteprojectname = value
@@ -21775,22 +21775,22 @@ class SiteActivity( ):
             self.__ssid = value
 
     @property
-    def actioncode( self ):
+    def action_code( self ):
         if self.__actioncode is not None:
             return self.__actioncode
 
-    @actioncode.setter
-    def actioncode( self, code ):
+    @action_code.setter
+    def action_code( self, code ):
         if code is not None:
             self.__actioncode = code
 
     @property
-    def operableunit( self ):
+    def operable_unit( self ):
         if self.__operableunit is not None:
             return self.__operableunit
 
-    @operableunit.setter
-    def operableunit( self, value ):
+    @operable_unit.setter
+    def operable_unit( self, value ):
         if value is not None:
             self.__operableunit = value
 
@@ -21825,22 +21825,22 @@ class SiteActivity( ):
             self.__congress = value
 
     @property
-    def startdate( self ):
+    def start_date( self ):
         if self.__startdate is not None:
             return self.__startdate
 
-    @startdate.setter
-    def startdate( self, value ):
+    @start_date.setter
+    def start_date( self, value ):
         if value is not None:
             self.__startdate = value
 
     @property
-    def enddate( self ):
+    def end_date( self ):
         if self.__enddate is not None:
             return self.__enddate
 
-    @enddate.setter
-    def enddate( self, value ):
+    @end_date.setter
+    def end_date( self, value ):
         if value is not None:
             self.__enddate = value
 
@@ -22263,7 +22263,7 @@ class SpendingDocument( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
@@ -22413,7 +22413,7 @@ class SpendingDocument( ):
         if self.__documentnumber is not None:
             return self.__documentnumber
 
-    @documentnumber.setter
+    @document_number.setter
     def document_number( self, value ):
         if value is not None:
             self.__documentnumber = value
