@@ -1312,7 +1312,7 @@ class Allocations( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -1322,7 +1322,7 @@ class Allocations( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -1332,7 +1332,7 @@ class Allocations( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -1372,7 +1372,7 @@ class Allocations( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -1392,7 +1392,7 @@ class Allocations( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -1402,8 +1402,8 @@ class Allocations( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -1422,7 +1422,7 @@ class Allocations( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -1432,7 +1432,7 @@ class Allocations( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -1442,7 +1442,7 @@ class Allocations( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -1452,7 +1452,7 @@ class Allocations( ):
         if  self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -2023,7 +2023,7 @@ class Actuals( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -2043,7 +2043,7 @@ class Actuals( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -2053,8 +2053,8 @@ class Actuals( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -2073,7 +2073,7 @@ class Actuals( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -2083,7 +2083,7 @@ class Actuals( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -2093,7 +2093,7 @@ class Actuals( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -2103,7 +2103,7 @@ class Actuals( ):
         if  self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -2972,7 +2972,7 @@ class BudgetDocuments( ):
         if isinstance( self.__programareacode, str ) and self.__programareacode != '':
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -2982,8 +2982,8 @@ class BudgetDocuments( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -2992,7 +2992,7 @@ class BudgetDocuments( ):
         if isinstance( self.__boccode, str ) and self.__boccode != '':
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -3002,7 +3002,7 @@ class BudgetDocuments( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -3455,218 +3455,218 @@ class BudgetControls( ):
         if self.__budgetedestimatedlowerlevels is not None:
             return self.__budgetedestimatedlowerlevels
 
-    @budgetestimatedlowerlevels.setter
-    def budgetestimatedlowerlevels( self, value ):
+    @budget_estimated_lower_levels.setter
+    def budget_estimated_lower_levels( self, value ):
         if value is not None:
             self.__budgetestimatedlowerlevels = value
 
     @property
-    def recoverynextlevel( self ):
+    def recovery_next_level( self ):
         if self.__recoverynextlevel is not None:
             return self.__recoverynextlevel
 
-    @recoverynextlevel.setter
-    def recoverynextlevel( self, value ):
+    @recovery_next_level.setter
+    def recovery_next_level( self, value ):
         if value is not None:
             self.__recoverynextlevel = value
 
     @property
-    def recoverybudgetmismatch( self ):
+    def recovery_budget_mismatch( self ):
         if self.__recoverybudgetmismatch is not None:
             return self.__recoverybudgetmismatch
 
-    @recoverybudgetmismatch.setter
-    def recoverybudgetmismatch( self, value ):
+    @recovery_budget_mismatch.setter
+    def recovery_budget_mismatch( self, value ):
         if value is not None:
             self.__recoverybudgetmismatch = value
 
     @property
-    def profitlossspendingoption( self ):
+    def profit_losss_pending_option( self ):
         if self.__profitlossspendingoption is not None:
             return self.__profitlossspendingoption
 
-    @profitlossspendingoption.setter
-    def profitlossspendingoption( self, value ):
+    @profit_loss_spending_option.setter
+    def profit_loss_spending_option( self, value ):
         if value is not None:
             self.__profitlossspendingoption = value
 
     @property
-    def profitlossbudgetingoption( self ):
+    def profit_loss_budget_ingoption( self ):
         if self.__profitlossbudgetingoption is not None:
             return self.__profitlossbudgetingoption
 
-    @profitlossbudgetingoption.setter
-    def profitlossbudgetingoption( self, value ):
+    @profit_loss_budgeting_option.setter
+    def profit_loss_budgeting_option( self, value ):
         if value is not None:
             self.__profitlossbudgetingoption = value
 
     @property
-    def recoveriescarryinlowerelevelcontrol( self ):
+    def recoveries_carryin_lower_level_control( self ):
         if self.__recoveriescarryinlowerelevelcontrol is not None:
             return self.__recoveriescarryinlowerelevelcontrol
 
-    @recoveriescarryinlowerelevelcontrol.setter
-    def recoveriescarryinlowerelevelcontrol( self, value ):
+    @recoveries_carryin_lower_level_control.setter
+    def recoveries_carryin_lower_level_control( self, value ):
         if value is not None:
             self.__recoveriescarryinlowerelevelcontrol = value
 
     @property
-    def recoveriescarryinlowerlevel( self ):
+    def recoveries_carryin_lower_level( self ):
         if self.__recoveriescarryinlowerlevel is not None:
             return self.__recoveriescarryinlowerlevel
 
-    @recoveriescarryinlowerlevel.setter
-    def recoveriescarryinlowerlevel( self, value ):
+    @recoveries_carryin_lower_level.setter
+    def recoveries_carryin_lower_level( self, value ):
         if value is not None:
             self.__recoveriescarryinlowerlevel = value
 
     @property
-    def recoveriescarryinamountcontrol( self ):
+    def recoveries_carryin_amount_control( self ):
         if self.__recoveriescarryinamountcontrol is not None:
             return self.__recoveriescarryinamountcontrol
 
-    @recoveriescarryinamountcontrol.setter
+    @recoveries_carryin_amount_control.setter
     def recoveriescarryinamountcontrol( self, value ):
         if value is not None:
             self.__recoveriescarryinamountcontrol = value
 
     @property
-    def budgetedcontrol( self ):
+    def budgeted_control( self ):
         if self.__budgetedcontrol is not None:
             return self.__budgetedcontrol
 
-    @budgetedcontrol.setter
-    def budgetedcontrol( self, value ):
+    @budgeted_control.setter
+    def budgeted_control( self, value ):
         if value is not None:
             self.__budgetedcontrol = value
 
     @property
-    def postedcontrol( self ):
+    def posted_control( self ):
         if self.__postedcontrol is not None:
             return self.__postedcontrol
 
-    @postedcontrol.setter
-    def postedcontrol( self, value ):
+    @posted_control.setter
+    def posted_control( self, value ):
         if value is not None:
             self.__postedcontrol = value
 
     @property
-    def precommitmentspendingcontrol( self ):
+    def precommitment_spending_control( self ):
         if self.__precommitmentspendingcontrol is not None:
             return self.__precommitmentspendingcontrol
 
-    @precommitmentspendingcontrol.setter
-    def precommitmentspendingcontrol( self, value ):
+    @precommitment_spending_control.setter
+    def precommitment_spending_control( self, value ):
         if value is not None:
             self.__precommitmentspendingcontrol = value
 
     @property
-    def commitmentspendingcontrol( self ):
+    def commitment_spending_control( self ):
         if self.__commitmentspendingcontrol is not None:
             return self.__commitmentspendingcontrol
 
-    @commitmentspendingcontrol.setter
-    def commitmentspendingcontrol( self, value ):
+    @commitment_spending_control.setter
+    def commitment_spending_control( self, value ):
         if value is not None:
             self.__commitmentspendingcontrol = value
 
     @property
-    def obligationspendingcontrol( self ):
+    def obligation_spending_control( self ):
         if self.__obligationspendingcontrol is not None:
             return self.__obligationspendingcontrol
 
-    @obligationspendingcontrol.setter
-    def obligationspendingcontrol( self, value ):
+    @obligation_spending_control.setter
+    def obligation_spending_control( self, value ):
         if value is not None:
             self.__obligationspendingcontrol = value
 
     @property
-    def accrualspendingcontrol( self ):
+    def accrual_spending_control( self ):
         if self.__accrualspendingcontrol is not None:
             return self.__accrualspendingcontrol
 
-    @accrualspendingcontrol.setter
-    def accrualspendingcontrol( self, value ):
+    @accrual_spending_control.setter
+    def accrual_spending_control( self, value ):
         if value is not None:
             self.__accrualspendingcontrol = value
 
     @property
-    def expenditurespendingcontrol( self ):
+    def expenditure_spending_control( self ):
         if self.__expenditurespendingcontrol is not None:
             return self.__expenditurespendingcontrol
 
-    @expenditurespendingcontrol.setter
-    def expenditurespendingcontrol( self, value ):
+    @expenditure_spending_control.setter
+    def expenditure_spending_control( self, value ):
         if value is not None:
             self.__expenditurespendingcontrol = value
 
     @property
-    def expensespendingcontrol( self ):
+    def expense_spending_control( self ):
         if self.__expensespendingcontrol is not None:
             return self.__expensespendingcontrol
 
-    @expensespendingcontrol.setter
-    def expensespendingcontrol( self, value ):
+    @expense_spending_control.setter
+    def expense_spending_control( self, value ):
         if value is not None:
             self.__expensespendingcontrol = value
 
     @property
-    def reimbursementspendingcontrol( self ):
+    def reimbursement_spending_control( self ):
         if self.__reimbursementspendingcontrol is not None:
             return self.__reimbursementspendingcontrol
 
-    @reimbursementspendingcontrol.setter
-    def reimbursementspendingcontrol( self, value ):
+    @reimbursement_spending_control.setter
+    def reimbursement_spending_control( self, value ):
         if value is not None:
             self.__reimbursementspendingcontrol = value
 
     @property
-    def reimbursableagreementspendingcontrol( self ):
+    def reimbursable_agreementspending_control( self ):
         if self.__reimbursableagreementspendingcontrol is not None:
             return self.__reimbursableagreementspendingcontrol
 
-    @reimbursableagreementspendingcontrol.setter
-    def reimbursableagreementspendingcontrol( self, value ):
+    @reimbursable_agreement_spending_control.setter
+    def reimbursable_agreement_spending_control( self, value ):
         if value is not None:
             self.__reimbursableagreementspendingcontrol = value
 
     @property
-    def ftebudgetingcontrol( self ):
+    def fte_budgeting_control( self ):
         if self.__ftebudgetingcontrol is not None:
             return self.__ftebudgetingcontrol
 
-    @ftebudgetingcontrol.setter
-    def ftebudgetingcontrol( self, value ):
+    @fte_budgeting_control.setter
+    def fte_budgeting_control( self, value ):
         if value is not None:
             self.__ftebudgetingcontrol = value
 
     @property
-    def ftespendingcontrol( self ):
+    def fte_spending_control( self ):
         if  self.__ftespendingcontrol is not None:
             return self.__ftespendingcontrol
 
-    @ftespendingcontrol.setter
-    def ftespendingcontrol( self, value ):
+    @fte_spending_control.setter
+    def fte_spending_control( self, value ):
         if value is not None:
             self.__ftespendingcontrol = value
 
     @property
-    def transactiontypecontrol( self ):
+    def transaction_type_control( self ):
         if  self.__transactiontypecontrol is not None:
             return self.__transactiontypecontrol
 
-    @transactiontypecontrol.setter
+    @transaction_type_control.setter
     def transactiontypecontrol( self, value ):
         if value is not None:
             self.__transactiontypecontrol = value
 
     @property
-    def authoritydistributioncontrol( self ):
+    def authority_distribution_control( self ):
         if  self.__authoritydistributioncontrol is not None:
             return self.__authoritydistributioncontrol
 
-    @authoritydistributioncontrol.setter
-    def authoritydistributioncontrol( self, value ):
+    @authority_distribution_control.setter
+    def authority_distribution_control( self, value ):
         if value is not None:
             self.__authoritydistributioncontrol = value
 
@@ -3803,52 +3803,52 @@ class BudgetFiscalYear( ):
             self.__budgetfiscalyearsid = value
 
     @property
-    def firstyear( self ):
+    def first_year( self ):
         if self.__bfy is not None:
             return self.__bfy
 
-    @firstyear.setter
-    def firstyear( self, value ):
+    @first_year.setter
+    def first_year( self, value ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def lastyear( self ):
+    def last_year( self ):
         if self.__efy is not None:
             return self.__efy
 
-    @lastyear.setter
-    def lastyear( self, value ):
+    @last_year.setter
+    def last_year( self, value ):
         if value is not None:
             self.__efy = value
 
     @property
-    def currentyear( self ):
+    def current_year( self ):
         if self.__currentyear is not None:
             return self.__currentyear
 
-    @currentyear.setter
-    def currentyear( self, value ):
+    @current_year.setter
+    def current_year( self, value ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def startdate( self ):
+    def start_date( self ):
         if isinstance( self.__startdate, datetime ):
             return self.__startdate
 
-    @startdate.setter
-    def startdate( self, value ):
+    @start_date.setter
+    def start_date( self, value ):
         if isinstance( value, datetime ):
             self.__startdate = value
 
     @property
-    def enddate( self ):
+    def end_date( self ):
         if isinstance( self.__enddate, datetime ):
             return self.__enddate
 
-    @enddate.setter
-    def enddate( self, value ):
+    @end_date.setter
+    def end_date( self, value ):
         if isinstance( value, datetime ):
             self.__enddate = value
 
@@ -3903,17 +3903,17 @@ class BudgetFiscalYear( ):
             self.__date = value
 
     @property
-    def currentday( self ):
+    def current_day( self ):
         if isinstance( self.__currentday, int ):
             return self.__currentday
 
-    @currentday.setter
-    def currentday( self, value ):
+    @current_day.setter
+    def current_day( self, value ):
         if isinstance( value, int ) and (0 <= value <= 7):
             self.__currentday = value
 
     @property
-    def currentmonth( self ):
+    def current_month( self ):
         if isinstance( self.__currentmonth, int ):
             return self.__currentmonth
 
@@ -4386,12 +4386,12 @@ class BudgetOutlays( ):
             self.__budgetoutlaysid = value
 
     @property
-    def reportyear( self ):
+    def report_year( self ):
         if self.__reportyear is not None:
             return self.__reportyear
 
-    @reportyear.setter
-    def reportyear( self, value ):
+    @report_year.setter
+    def report_year( self, value ):
         if value is not None:
             self.__reportyear = value
 
@@ -4400,58 +4400,58 @@ class BudgetOutlays( ):
         if self.__linenumber is not None:
             return self.__linenumber
 
-    @linenumber.setter
+    @line_number.setter
     def line_number( self, value ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def linesection( self ):
+    def line_section( self ):
         if self.__linesection is not None:
             return self.__linesection
 
-    @linesection.setter
-    def linesection( self, value ):
+    @line_section.setter
+    def line_section( self, value ):
         if value is not None:
             self.__linesection = value
 
     @property
-    def linename( self ):
+    def line_name( self ):
         if self.__linename is not None:
             return self.__linename
 
-    @linename.setter
-    def linename( self, value ):
+    @line_name.setter
+    def line_name( self, value ):
         if value is not None:
             self.__linename = value
 
     @property
-    def linecategory( self ):
+    def line_category( self ):
         if self.__linecategory is not None:
             return self.__linecategory
 
-    @linecategory.setter
-    def linecategory( self, value ):
+    @line_category.setter
+    def line_category( self, value ):
         if value is not None:
             self.__linecategory = value
 
     @property
-    def beacategory( self ):
+    def bea_category( self ):
         if self.__beacategory is not None:
             return self.__beacategory
 
-    @beacategory.setter
-    def beacategory( self, value ):
+    @bea_category.setter
+    def bea_category( self, value ):
         if value is not None:
             self.__beacategory = value
 
     @property
-    def beacategoryname( self ):
+    def bea_category_name( self ):
         if  self.__beacategoryname is not None:
             return self.__beacategoryname
 
-    @beacategoryname.setter
-    def beacategoryname( self, value ):
+    @bea_category_name.setter
+    def bea_category_name( self, value ):
         if value is not None:
             self.__beacategoryname = value
 
@@ -4476,97 +4476,97 @@ class BudgetOutlays( ):
             self.__budgetaccountname = value
 
     @property
-    def prioryear( self ):
+    def prior_year( self ):
         if self.__prioryear is not None:
             return self.__prioryear
 
-    @prioryear.setter
-    def prioryear( self, value ):
+    @prior_year.setter
+    def prior_year( self, value ):
         if value is not None:
             self.__prioryear = value
 
     @property
-    def currentyear( self ):
+    def current_year( self ):
         if self.__currentyear is not None:
             return self.__currentyear
 
     @currentyear.setter
-    def currentyear( self, value ):
+    def current_year( self, value ):
         if  value is not None:
             self.__currentyear = value
 
     @property
-    def budgetyear( self ):
+    def budget_year( self ):
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budgetyear.setter
-    def budgetyear( self, value ):
+    def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def outyear1( self ):
+    def out_year_1( self ):
         if self.__outyear1 is not None:
             return self.__outyear1
 
     @outyear1.setter
-    def outyear1( self, value ):
+    def out_year_1( self, value ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def outyear2( self ):
+    def out_year_2( self ):
         if self.__outyear2 is not None:
             return self.__outyear2
 
     @outyear2.setter
-    def outyear2( self, value ):
+    def out_year_2( self, value ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def outyear3( self ):
+    def out_year_3( self ):
         if isinstance( self.__outyear3, float ):
             return self.__outyear3
 
     @outyear3.setter
-    def outyear3( self, value ):
+    def out_year_3( self, value ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def outyear4( self ):
+    def out_year_4( self ):
         if isinstance( self.__outyear4, float ):
             return self.__outyear4
 
-    @outyear4.setter
-    def outyear4( self, value ):
+    @out_year_4.setter
+    def out_year_4( self, value ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def outyear5( self ):
+    def out_year_5( self ):
         if self.__outyear5 is not None:
             return self.__outyear5
 
-    @outyear5.setter
-    def outyear5( self, value ):
+    @out_year_5.setter
+    def out_year_5( self, value ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def outyear6( self ):
+    def out_year_6( self ):
         if self.__outyear6 is not None:
             return self.__outyear6
 
     @outyear6.setter
-    def outyear6( self, value ):
+    def out_year_6( self, value ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def outyear7( self ):
+    def out_year_7( self ):
         if self.__outyear7 is not None:
             return self.__outyear7
 
@@ -4576,22 +4576,22 @@ class BudgetOutlays( ):
             self.__outyear7 = value
 
     @property
-    def outyear8( self ):
+    def out_year_8( self ):
         if self.__outyear8 is not None:
             return self.__outyear8
 
     @outyear8.setter
-    def outyear8( self, value ):
+    def out_year_8( self, value ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def outyear9( self ):
+    def out_year_9( self ):
         if self.__outyear9 is not None:
             return self.__outyear9
 
     @outyear9.setter
-    def outyear9( self, value ):
+    def out_year_9( self, value ):
         if value is not None:
             self.__outyear9 = value
 
@@ -4760,7 +4760,7 @@ class CongressionalControls( ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -4800,7 +4800,7 @@ class CongressionalControls( ):
         if isinstance( self.__programareacode, str ) and self.__programareacode != '':
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -4810,8 +4810,8 @@ class CongressionalControls( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -5314,7 +5314,7 @@ class Commitments( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -5324,7 +5324,7 @@ class Commitments( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -5334,7 +5334,7 @@ class Commitments( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -5364,7 +5364,7 @@ class Commitments( ):
         if self.__documenttype is not None:
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -5404,7 +5404,7 @@ class Commitments( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processeddate.setter
+    @processed_date.setter
     def processed_date( self, value ):
         if isinstance( value, datetime ):
             self.__processeddate = value
@@ -5414,7 +5414,7 @@ class Commitments( ):
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
-    @lastactivitydate.setter
+    @last_activity_date.setter
     def last_activity_date( self, value ):
         if isinstance( value, datetime ):
             self.__lastactivitydate = value
@@ -5434,7 +5434,7 @@ class Commitments( ):
         if self.__vendorcode is not None:
             return self.__vendorcode
 
-    @vendorcode.setter
+    @vendor_code.setter
     def vendor_code( self, value ):
         if value is not None:
             self.__vendorcode = value
@@ -5444,7 +5444,7 @@ class Commitments( ):
         if self.__vendorname is not None:
             return self.__vendorname
 
-    @vendorname.setter
+    @vendor_name.setter
     def vendor_name( self, value ):
         if value is not None:
             self.__vendorname = value
@@ -5454,7 +5454,7 @@ class Commitments( ):
         if self.__foccode is not None:
             return self.__foccode
 
-    @foccode.setter
+    @foc_code.setter
     def foc_code( self, value ):
         if value is not None:
             self.__foccode = value
@@ -5464,7 +5464,7 @@ class Commitments( ):
         if self.__focname is not None:
             return self.__focname
 
-    @focname.setter
+    @foc_name.setter
     def foc_name( self, value ):
         if value is not None:
             self.__focname = value
@@ -5484,7 +5484,7 @@ class Commitments( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -5504,7 +5504,7 @@ class Commitments( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -5514,8 +5514,8 @@ class Commitments( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -5534,7 +5534,7 @@ class Commitments( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -5544,7 +5544,7 @@ class Commitments( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -5554,7 +5554,7 @@ class Commitments( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -5564,7 +5564,7 @@ class Commitments( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -5723,12 +5723,12 @@ class CarryoverOutlays( ):
             self.__carryoveroutlaysid = value
 
     @property
-    def budgetyear( self ):
+    def budget_year( self ):
         if isinstance( self.__budgetyear, float ):
             return self.__budgetyear
 
     @budgetyear.setter
-    def budgetyear( self, value ):
+    def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
 
@@ -5737,7 +5737,7 @@ class CarryoverOutlays( ):
         if isinstance( self.__linenumber, str ) and self.__linenumber != '':
             return self.__linenumber
 
-    @linenumber.setter
+    @line_number.setter
     def line_number( self, value ):
         if value is not None:
             self.__linenumber = value
@@ -5813,12 +5813,12 @@ class CarryoverOutlays( ):
             self.__availablebalance = value
 
     @property
-    def currentyear( self ):
+    def current_year( self ):
         if isinstance( self.__currentyear, float ):
             return self.__currentyear
 
     @currentyear.setter
-    def currentyear( self, value ):
+    def current_year( self, value ):
         if value is not None:
             self.__currentyear = value
 
@@ -5833,12 +5833,12 @@ class CarryoverOutlays( ):
             self.__currentyearadjustment = value
 
     @property
-    def budgetyear( self ):
+    def budget_year( self ):
         if isinstance( self.__budgetyear, float ):
             return self.__budgetyear
 
     @budgetyear.setter
-    def budgetyear( self, value ):
+    def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
 
@@ -5853,67 +5853,67 @@ class CarryoverOutlays( ):
             self.__budgetyearadjustment = value
 
     @property
-    def outyear1( self ):
+    def out_year_1( self ):
         if isinstance( self.__outyear1, float ):
             return self.__outyear1
 
     @outyear1.setter
-    def outyear1( self, value ):
+    def out_year_1( self, value ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def outyear2( self ):
+    def out_year_2( self ):
         if isinstance( self.__outyear2, float ):
             return self.__outyear2
 
     @outyear2.setter
-    def outyear2( self, value ):
+    def out_year_2( self, value ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def outyear3( self ):
+    def out_year_3( self ):
         if isinstance( self.__outyear3, float ):
             return self.__outyear3
 
     @outyear3.setter
-    def outyear3( self, value ):
+    def out_year_3( self, value ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def outyear4( self ):
+    def out_year_4( self ):
         if isinstance( self.__outyear4, float ):
             return self.__outyear4
 
-    @outyear4.setter
-    def outyear4( self, value ):
+    @out_year_4.setter
+    def out_year_4( self, value ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def outyear5( self ):
+    def out_year_5( self ):
         if isinstance( self.__outyear5, float ):
             return self.__outyear5
 
-    @outyear5.setter
-    def outyear5( self, value ):
+    @out_year_5.setter
+    def out_year_5( self, value ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def outyear6( self ):
+    def out_year_6( self ):
         if isinstance( self.__outyear6, float ):
             return self.__outyear6
 
     @outyear6.setter
-    def outyear6( self, value ):
+    def out_year_6( self, value ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def outyear7( self ):
+    def out_year_7( self ):
         if isinstance( self.__outyear7, float ):
             return self.__outyear7
 
@@ -5923,22 +5923,22 @@ class CarryoverOutlays( ):
             self.__outyear7 = value
 
     @property
-    def outyear8( self ):
+    def out_year_8( self ):
         if isinstance( self.__outyear8, float ):
             return self.__outyear8
 
     @outyear8.setter
-    def outyear8( self, value ):
+    def out_year_8( self, value ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def outyear9( self ):
+    def out_year_9( self ):
         if isinstance( self.__outyear9, float ):
             return self.__outyear9
 
     @outyear9.setter
-    def outyear9( self, value ):
+    def out_year_9( self, value ):
         if value is not None:
             self.__outyear9 = value
 
@@ -6100,12 +6100,12 @@ class CarryoverEstimates( ):
             self.__allocationsid = value
 
     @property
-    def budgetlevel( self ):
+    def budget_level( self ):
         if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != "":
             return self.__budgetlevel
 
-    @budgetlevel.setter
-    def budgetlevel( self, value ):
+    @budget_level.setter
+    def budget_level( self, value ):
         if value is not None:
             self.__budgetlevel = value
 
@@ -6214,7 +6214,7 @@ class CarryoverEstimates( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -6224,7 +6224,7 @@ class CarryoverEstimates( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -6234,7 +6234,7 @@ class CarryoverEstimates( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -6244,7 +6244,7 @@ class CarryoverEstimates( ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -6304,7 +6304,7 @@ class CarryoverEstimates( ):
         if isinstance( self.__programareacode, str ) and self.__programareacode != '':
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -6314,8 +6314,8 @@ class CarryoverEstimates( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -6729,7 +6729,7 @@ class DataRuleDescription( ):
         if isinstance( self.__linenumber, str ) and self.__linenumber != '':
             return self.__linenumber
 
-    @linenumber.setter
+    @line_number.setter
     def line_number( self, value ):
         if value is not None:
             self.__linenumber = value
@@ -6989,7 +6989,7 @@ class Defacto( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -6999,7 +6999,7 @@ class Defacto( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -7009,7 +7009,7 @@ class Defacto( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -7129,7 +7129,7 @@ class Defacto( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -7149,7 +7149,7 @@ class Defacto( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -7159,8 +7159,8 @@ class Defacto( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -7179,7 +7179,7 @@ class Defacto( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -7189,7 +7189,7 @@ class Defacto( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -7199,7 +7199,7 @@ class Defacto( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -7209,7 +7209,7 @@ class Defacto( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -7480,7 +7480,7 @@ class Deobligation( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -7490,7 +7490,7 @@ class Deobligation( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -7500,7 +7500,7 @@ class Deobligation( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -7530,7 +7530,7 @@ class Deobligation( ):
         if self.__documenttype is not None:
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -7570,7 +7570,7 @@ class Deobligation( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processeddate.setter
+    @processed_date.setter
     def processed_date( self, value ):
         if value is not None:
             self.__processeddate = value
@@ -7580,7 +7580,7 @@ class Deobligation( ):
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
-    @lastactivitydate.setter
+    @last_activity_date.setter
     def last_activity_date( self, value ):
         if value is not None:
             self.__lastactivitydate = value
@@ -7600,7 +7600,7 @@ class Deobligation( ):
         if self.__vendorcode is not None:
             return self.__vendorcode
 
-    @vendorcode.setter
+    @vendor_code.setter
     def vendor_code( self, value ):
         if value is not None:
             self.__vendorcode = value
@@ -7610,7 +7610,7 @@ class Deobligation( ):
         if self.__vendorname is not None:
             return self.__vendorname
 
-    @vendorname.setter
+    @vendor_name.setter
     def vendor_name( self, value ):
         if value is not None:
             self.__vendorname = value
@@ -7620,7 +7620,7 @@ class Deobligation( ):
         if self.__foccode is not None:
             return self.__foccode
 
-    @foccode.setter
+    @foc_code.setter
     def foc_code( self, value ):
         if value is not None:
             self.__rccode = value
@@ -7630,7 +7630,7 @@ class Deobligation( ):
         if self.__focname is not None:
             return self.__focname
 
-    @focname.setter
+    @foc_name.setter
     def foc_name( self, value ):
         if value is not None:
             self.__focname = value
@@ -7650,7 +7650,7 @@ class Deobligation( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -7670,7 +7670,7 @@ class Deobligation( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -7680,8 +7680,8 @@ class Deobligation( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -7700,7 +7700,7 @@ class Deobligation( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -7710,7 +7710,7 @@ class Deobligation( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -7720,7 +7720,7 @@ class Deobligation( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -7730,7 +7730,7 @@ class Deobligation( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -7873,8 +7873,8 @@ class DocumentControlNumbers( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
             self.__rpioname = value
 
@@ -7883,7 +7883,7 @@ class DocumentControlNumbers( ):
         if isinstance( self.__documenttype, str ) and self.__documenttype != '':
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -8146,7 +8146,7 @@ class Expenditures( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -8156,7 +8156,7 @@ class Expenditures( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -8166,7 +8166,7 @@ class Expenditures( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -8216,7 +8216,7 @@ class Expenditures( ):
         if self.__documenttype is not None:
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -8226,7 +8226,7 @@ class Expenditures( ):
         if self.__documentnumber is not None:
             return self.__documentnumber
 
-    @documentnumber.setter
+    @document_number.setter
     def document_number( self, value ):
         if value is not None:
             self.__documentnumber = value
@@ -8236,7 +8236,7 @@ class Expenditures( ):
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
-    @documentcontrolnumber.setter
+    @document_control_number.setter
     def document_control_number( self, value ):
         if value is not None:
             self.__documentcontrolnumber = value
@@ -8246,7 +8246,7 @@ class Expenditures( ):
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
-    @referencedocumentnumber.setter
+    @reference_document_number.setter
     def reference_document_number( self, value ):
         if value is not None:
             self.__referencedocumentnumber = value
@@ -8256,7 +8256,7 @@ class Expenditures( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processeddate.setter
+    @processed_date.setter
     def processed_date( self, value ):
         if value is not None:
             self.__processeddate = value
@@ -8266,7 +8266,7 @@ class Expenditures( ):
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
-    @lastactivitydate.setter
+    @last_activity_date.setter
     def last_activity_date( self, value ):
         if value is not None:
             self.__lastactivitydate = value
@@ -8286,7 +8286,7 @@ class Expenditures( ):
         if self.__vendorcode is not None:
             return self.__vendorcode
 
-    @vendorcode.setter
+    @vendor_code.setter
     def vendor_code( self, value ):
         if value is not None:
             self.__vendorcode = value
@@ -8296,7 +8296,7 @@ class Expenditures( ):
         if self.__vendorname is not None:
             return self.__vendorname
 
-    @vendorname.setter
+    @vendor_name.setter
     def vendor_name( self, value ):
         if value is not None:
             self.__vendorname = value
@@ -8306,7 +8306,7 @@ class Expenditures( ):
         if self.__foccode is not None:
             return self.__foccode
 
-    @foccode.setter
+    @foc_code.setter
     def foc_code( self, value ):
         if value is not None:
             self.__rccode = value
@@ -8316,7 +8316,7 @@ class Expenditures( ):
         if self.__focname is not None:
             return self.__focname
 
-    @focname.setter
+    @foc_name.setter
     def foc_name( self, value ):
         if value is not None:
             self.__focname = value
@@ -8336,7 +8336,7 @@ class Expenditures( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -8356,7 +8356,7 @@ class Expenditures( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -8366,8 +8366,8 @@ class Expenditures( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -8386,7 +8386,7 @@ class Expenditures( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -8396,7 +8396,7 @@ class Expenditures( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -8406,7 +8406,7 @@ class Expenditures( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -8416,7 +8416,7 @@ class Expenditures( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -8578,7 +8578,7 @@ class FinanceObjectClass( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -8588,7 +8588,7 @@ class FinanceObjectClass( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def bocname( self, name ):
         if  name is not None:
             self.__bocname = name
@@ -9795,7 +9795,7 @@ class FullTimeEquivalents( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -9805,7 +9805,7 @@ class FullTimeEquivalents( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -9815,7 +9815,7 @@ class FullTimeEquivalents( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -9855,7 +9855,7 @@ class FullTimeEquivalents( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -9875,7 +9875,7 @@ class FullTimeEquivalents( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -9885,8 +9885,8 @@ class FullTimeEquivalents( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -9905,7 +9905,7 @@ class FullTimeEquivalents( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -9915,7 +9915,7 @@ class FullTimeEquivalents( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -9925,7 +9925,7 @@ class FullTimeEquivalents( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -9935,7 +9935,7 @@ class FullTimeEquivalents( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -10304,77 +10304,77 @@ class GrowthRates( ):
             self.__description = value
 
     @property
-    def budgetyear( self ):
+    def budget_year( self ):
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budgetyear.setter
-    def budgetyear( self, value ):
+    def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def outyear1( self ):
+    def out_year_1( self ):
         if self.__outyear1 is not None:
             return self.__outyear1
 
     @outyear1.setter
-    def outyear1( self, value ):
+    def out_year_1( self, value ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def outyear2( self ):
+    def out_year_2( self ):
         if self.__outyear2 is not None:
             return self.__outyear2
 
     @outyear2.setter
-    def outyear2( self, value ):
+    def out_year_2( self, value ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def outyear3( self ):
+    def out_year_3( self ):
         if self.__outyear3 is not None:
             return self.__outyear3
 
     @outyear3.setter
-    def outyear3( self, value ):
+    def out_year_3( self, value ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def outyear4( self ):
+    def out_year_4( self ):
         if self.__outyear4 is not None:
             return self.__outyear4
 
-    @outyear4.setter
-    def outyear4( self, value ):
+    @out_year_4.setter
+    def out_year_4( self, value ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def outyear5( self ):
+    def out_year_5( self ):
         if self.__outyear5 is not None:
             return self.__outyear5
 
-    @outyear5.setter
-    def outyear5( self, value ):
+    @out_year_5.setter
+    def out_year_5( self, value ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def outyear6( self ):
+    def out_year_6( self ):
         if self.__outyear6 is not None:
             return self.__outyear6
 
     @outyear6.setter
-    def outyear6( self, value ):
+    def out_year_6( self, value ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def outyear7( self ):
+    def out_year_7( self ):
         if self.__outyear7 is not None:
             return self.__outyear7
 
@@ -10384,22 +10384,22 @@ class GrowthRates( ):
             self.__outyear7 = value
 
     @property
-    def outyear8( self ):
+    def out_year_8( self ):
         if self.__outyear8 is not None:
             return self.__outyear8
 
     @outyear8.setter
-    def outyear8( self, value ):
+    def out_year_8( self, value ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def outyear9( self ):
+    def out_year_9( self ):
         if self.__outyear9 is not None:
             return self.__outyear9
 
     @outyear9.setter
-    def outyear9( self, value ):
+    def out_year_9( self, value ):
         if value is not None:
             self.__outyear9 = value
 
@@ -10627,7 +10627,7 @@ class HeadquartersAuthority( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -10637,7 +10637,7 @@ class HeadquartersAuthority( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -10647,7 +10647,7 @@ class HeadquartersAuthority( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -10687,7 +10687,7 @@ class HeadquartersAuthority( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -10707,7 +10707,7 @@ class HeadquartersAuthority( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -10717,8 +10717,8 @@ class HeadquartersAuthority( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -10737,7 +10737,7 @@ class HeadquartersAuthority( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -10747,7 +10747,7 @@ class HeadquartersAuthority( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -10757,7 +10757,7 @@ class HeadquartersAuthority( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -10767,7 +10767,7 @@ class HeadquartersAuthority( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -10904,8 +10904,8 @@ class HeadquartersOffices( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
             self.__rpioname = value
 
@@ -11171,18 +11171,18 @@ class MonthlyOutlays( ):
         if isinstance( self.__linenumber, str ) and self.__linenumber != '':
             return self.__linenumber
 
-    @linenumber.setter
+    @line_number.setter
     def line_number( self, value ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def linename( self ):
+    def line_name( self ):
         if isinstance( self.__linename, str ) and self.__linename != '':
             return self.__linename
 
-    @linename.setter
-    def linename( self, value ):
+    @line_name.setter
+    def line_name( self, value ):
         if value is not None:
             self.__linename = value
 
@@ -11771,12 +11771,12 @@ class ObjectClassOutlays( ):
             self.__objectclassoutlaysid = value
 
     @property
-    def reportyear( self ):
+    def report_year( self ):
         if self.__reportyear is not None:
             return self.__reportyear
 
-    @reportyear.setter
-    def reportyear( self, value ):
+    @report_year.setter
+    def report_year( self, value ):
         if isinstance( value, str ) and len( value ) == 4:
             self.__reportyear = value
 
@@ -11855,7 +11855,7 @@ class ObjectClassOutlays( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -11865,7 +11865,7 @@ class ObjectClassOutlays( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -11881,32 +11881,32 @@ class ObjectClassOutlays( ):
             self.__financeobjectclass = value
 
     @property
-    def prioryear( self ):
+    def prior_year( self ):
         if self.__prioryear is not None:
             return self.__prioryear
 
-    @prioryear.setter
-    def prioryear( self, value ):
+    @prior_year.setter
+    def prior_year( self, value ):
         if value is not None:
             self.__prioryear = value
 
     @property
-    def currentyear( self ):
+    def current_year( self ):
         if self.__currentyear is not None:
             return self.__currentyear
 
     @currentyear.setter
-    def currentyear( self, value ):
+    def current_year( self, value ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def budgetyear( self ):
+    def budget_year( self ):
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budgetyear.setter
-    def budgetyear( self, value ):
+    def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
 
@@ -12068,8 +12068,8 @@ class OperatingPlans( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
             self.__rpioname = value
 
@@ -12138,7 +12138,7 @@ class OperatingPlans( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -12148,7 +12148,7 @@ class OperatingPlans( ):
         if self.__boccod is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -12158,7 +12158,7 @@ class OperatingPlans( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -12198,7 +12198,7 @@ class OperatingPlans( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -12218,7 +12218,7 @@ class OperatingPlans( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -12228,8 +12228,8 @@ class OperatingPlans( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -12248,7 +12248,7 @@ class OperatingPlans( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -12258,7 +12258,7 @@ class OperatingPlans( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -12268,7 +12268,7 @@ class OperatingPlans( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -12278,7 +12278,7 @@ class OperatingPlans( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -12523,7 +12523,7 @@ class OpenCommitments( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -12533,7 +12533,7 @@ class OpenCommitments( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -12543,7 +12543,7 @@ class OpenCommitments( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -12663,7 +12663,7 @@ class OpenCommitments( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -12683,7 +12683,7 @@ class OpenCommitments( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -12693,8 +12693,8 @@ class OpenCommitments( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -12713,7 +12713,7 @@ class OpenCommitments( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -12723,7 +12723,7 @@ class OpenCommitments( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -12733,7 +12733,7 @@ class OpenCommitments( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -12743,7 +12743,7 @@ class OpenCommitments( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -12763,7 +12763,7 @@ class OpenCommitments( ):
         if self.__documenttype is not None:
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -12803,7 +12803,7 @@ class OpenCommitments( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processeddate.setter
+    @processed_date.setter
     def processed_date( self, value ):
         if isinstance( value, datetime ):
             self.__processeddate = value
@@ -12813,7 +12813,7 @@ class OpenCommitments( ):
         if  self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
-    @lastactivitydate.setter
+    @last_activity_date.setter
     def last_activity_date( self, value ):
         if value is not None:
             self.__lastactivitydate = value
@@ -12833,7 +12833,7 @@ class OpenCommitments( ):
         if self.__vendorcode is not None:
             return self.__vendorcode
 
-    @vendorcode.setter
+    @vendor_code.setter
     def vendor_code( self, value ):
         if value is not None:
             self.__vendorcode = value
@@ -12843,7 +12843,7 @@ class OpenCommitments( ):
         if self.__vendorname is not None:
             return self.__vendorname
 
-    @vendorname.setter
+    @vendor_name.setter
     def vendor_name( self, value ):
         if value is not None:
             self.__vendorname = value
@@ -12853,7 +12853,7 @@ class OpenCommitments( ):
         if self.__foccode is not None:
             return self.__foccode
 
-    @foccode.setter
+    @foc_code.setter
     def foc_code( self, value ):
         if value is not None:
             self.__foccode = value
@@ -12863,7 +12863,7 @@ class OpenCommitments( ):
         if self.__focname is not None:
             return self.__focname
 
-    @focname.setter
+    @foc_name.setter
     def foc_name( self, value ):
         if value is not None:
             self.__focname = value
@@ -13132,7 +13132,7 @@ class Obligations( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -13142,7 +13142,7 @@ class Obligations( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -13152,7 +13152,7 @@ class Obligations( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -13272,7 +13272,7 @@ class Obligations( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -13292,7 +13292,7 @@ class Obligations( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -13302,8 +13302,8 @@ class Obligations( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -13322,7 +13322,7 @@ class Obligations( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -13332,7 +13332,7 @@ class Obligations( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -13342,7 +13342,7 @@ class Obligations( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -13352,7 +13352,7 @@ class Obligations( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -13372,7 +13372,7 @@ class Obligations( ):
         if self.__documenttyp is not None:
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -13412,7 +13412,7 @@ class Obligations( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processeddate.setter
+    @processed_date.setter
     def processed_date( self, value ):
         if isinstance( value, datetime ):
             self.__processeddate = value
@@ -13422,7 +13422,7 @@ class Obligations( ):
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
-    @lastactivitydate.setter
+    @last_activity_date.setter
     def last_activity_date( self, value ):
         if isinstance( value, datetime ):
             self.__lastactivitydate = value
@@ -13442,7 +13442,7 @@ class Obligations( ):
         if self.__vendorcode is not None:
             return self.__vendorcode
 
-    @vendorcode.setter
+    @vendor_code.setter
     def vendor_code( self, value ):
         if value is not None:
             self.__vendorcode = value
@@ -13452,7 +13452,7 @@ class Obligations( ):
         if self.__vendorname is not None:
             return self.__vendorname
 
-    @vendorname.setter
+    @vendor_name.setter
     def vendor_name( self, value ):
         if value is not None:
             self.__vendorname = value
@@ -13462,7 +13462,7 @@ class Obligations( ):
         if self.__foccode is not None:
             return self.__foccode
 
-    @foccode.setter
+    @foc_code.setter
     def foc_code( self, value ):
         if value is not None:
             self.__foccode = value
@@ -13472,7 +13472,7 @@ class Obligations( ):
         if self.__focname is not None:
             return self.__focname
 
-    @focname.setter
+    @foc_name.setter
     def foc_name( self, value ):
         if value is not None:
             self.__focname = value
@@ -13943,7 +13943,7 @@ class PayrollActivity( ):
         if isinstance( self.__accountcode, str ) and self.__accountcode != '':
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -13953,7 +13953,7 @@ class PayrollActivity( ):
         if isinstance( self.__boccode, str ) and self.__boccode != '':
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -13963,7 +13963,7 @@ class PayrollActivity( ):
         if isinstance( self.__bocname, str ) and self.__bocname != '':
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -14013,7 +14013,7 @@ class PayrollActivity( ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -14183,7 +14183,7 @@ class PayrollActivity( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -14193,8 +14193,8 @@ class PayrollActivity( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -14213,7 +14213,7 @@ class PayrollActivity( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -14223,7 +14223,7 @@ class PayrollActivity( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -14233,7 +14233,7 @@ class PayrollActivity( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -14243,7 +14243,7 @@ class PayrollActivity( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -14654,7 +14654,7 @@ class ProgramProjects( ):
         if isinstance( self.__programareacode, str ) and self.__programareacode != '':
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -14664,8 +14664,8 @@ class ProgramProjects( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.____programareaname = value
 
@@ -15049,7 +15049,7 @@ class ProgramResultsCode( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -15059,7 +15059,7 @@ class ProgramResultsCode( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -15069,7 +15069,7 @@ class ProgramResultsCode( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -15189,7 +15189,7 @@ class ProgramResultsCode( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -15209,7 +15209,7 @@ class ProgramResultsCode( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -15219,8 +15219,8 @@ class ProgramResultsCode( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -15239,7 +15239,7 @@ class ProgramResultsCode( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -15249,7 +15249,7 @@ class ProgramResultsCode( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -15259,7 +15259,7 @@ class ProgramResultsCode( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -15269,7 +15269,7 @@ class ProgramResultsCode( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -15712,8 +15712,8 @@ class RegionalOffices( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
             self.__rpioname = value
 
@@ -16019,7 +16019,7 @@ class ReimbursableAgreements( ):
         if isinstance( self.__accountcode, str ) and self.__accountcode != '':
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -16059,7 +16059,7 @@ class ReimbursableAgreements( ):
         if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
             return self.__vendorcode
 
-    @vendorcode.setter
+    @vendor_code.setter
     def vendor_code( self, value ):
         if value is not None:
             self.__vendorcode = value
@@ -16069,7 +16069,7 @@ class ReimbursableAgreements( ):
         if isinstance( self.__vendorname, str ) and self.__vendorname != '':
             return self.__vendorname
 
-    @vendorname.setter
+    @vendor_name.setter
     def vendor_name( self, value ):
         if value is not None:
             self.__vendorname = value
@@ -16357,7 +16357,7 @@ class RegionalAuthority( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -16367,7 +16367,7 @@ class RegionalAuthority( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -16377,7 +16377,7 @@ class RegionalAuthority( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -16497,7 +16497,7 @@ class RegionalAuthority( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -16517,7 +16517,7 @@ class RegionalAuthority( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -16527,8 +16527,8 @@ class RegionalAuthority( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -16547,7 +16547,7 @@ class RegionalAuthority( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -16557,7 +16557,7 @@ class RegionalAuthority( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -16567,7 +16567,7 @@ class RegionalAuthority( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -16577,7 +16577,7 @@ class RegionalAuthority( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -16836,7 +16836,7 @@ class StatusOfFunds( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -16846,7 +16846,7 @@ class StatusOfFunds( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -16856,7 +16856,7 @@ class StatusOfFunds( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -16976,7 +16976,7 @@ class StatusOfFunds( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -16996,7 +16996,7 @@ class StatusOfFunds( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -17006,8 +17006,8 @@ class StatusOfFunds( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -17026,7 +17026,7 @@ class StatusOfFunds( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -17036,7 +17036,7 @@ class StatusOfFunds( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -17046,7 +17046,7 @@ class StatusOfFunds( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -17056,7 +17056,7 @@ class StatusOfFunds( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -17320,7 +17320,7 @@ class StatusOfSupplementalFunding( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -17330,7 +17330,7 @@ class StatusOfSupplementalFunding( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -17340,7 +17340,7 @@ class StatusOfSupplementalFunding( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -17491,7 +17491,7 @@ class StatusOfSupplementalFunding( ):
             return self.__programareaname
 
     @program_area_name.setter
-    def programareaname( self, value ):
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -17510,7 +17510,7 @@ class StatusOfSupplementalFunding( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -17520,7 +17520,7 @@ class StatusOfSupplementalFunding( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -17530,7 +17530,7 @@ class StatusOfSupplementalFunding( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -17540,7 +17540,7 @@ class StatusOfSupplementalFunding( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -17791,7 +17791,7 @@ class StateGrantObligations( ):
         if isinstance( self.__accountcode, str ) and self.__accountcode != '':
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -17801,7 +17801,7 @@ class StateGrantObligations( ):
         if isinstance( self.__boccode, str ) and self.__boccode != '':
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -17811,7 +17811,7 @@ class StateGrantObligations( ):
         if isinstance( self.__bocname, str ) and self.__bocname != '':
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -17837,22 +17837,22 @@ class StateGrantObligations( ):
             self.__rcname = value
 
     @property
-    def statecode( self ):
+    def state_code( self ):
         if isinstance( self.__statecode, str ) and self.__statecode != '':
             return self.__statecode
 
-    @statecode.setter
-    def statecode( self, value ):
+    @state_code.setter
+    def state_code( self, value ):
         if value is not None:
             self.__statecode = value
 
     @property
-    def statename( self ):
+    def state_name( self ):
         if isinstance( self.__statename, str ) and self.__statename != '':
             return self.__statename
 
-    @statename.setter
-    def statename( self, value ):
+    @state_name.setter
+    def state_name( self, value ):
         if value is not None:
             self.__statename = value
 
@@ -18032,8 +18032,8 @@ class SpecialAccounts( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
             self.__rpioname = value
 
@@ -18042,7 +18042,7 @@ class SpecialAccounts( ):
         if isinstance( self.__foccode, str ) and self.__foccode != '':
             return self.__foccode
 
-    @foccode.setter
+    @foc_code.setter
     def foc_code( self, value ):
         if value is not None:
             self.__rccode = value
@@ -18052,7 +18052,7 @@ class SpecialAccounts( ):
         if isinstance( self.__focname, str ) and self.__focname != '':
             return self.__focname
 
-    @focname.setter
+    @foc_name.setter
     def foc_name( self, value ):
         if value is not None:
             self.__focname = value
@@ -18062,7 +18062,7 @@ class SpecialAccounts( ):
         if isinstance( self.__accountcode, str ) and self.__accountcode != '':
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -18072,7 +18072,7 @@ class SpecialAccounts( ):
         if isinstance( self.__boccode, str ) and self.__boccode != '':
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -18082,7 +18082,7 @@ class SpecialAccounts( ):
         if isinstance( self.__bocname, str ) and self.__bocname != '':
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -18349,8 +18349,8 @@ class SuperfundSites( ):
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
             self.__rpioname = value
 
@@ -19126,12 +19126,12 @@ class StatusOfAppropriations( ):
             self.__efy = value
 
     @property
-    def budgetlevel( self ):
+    def budget_level( self ):
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
-    @budgetlevel.setter
-    def budgetlevel( self, value ):
+    @budget_level.setter
+    def budget_level( self, value ):
         if value is not None:
             self.__budgetlevel = value
 
@@ -19140,79 +19140,79 @@ class StatusOfAppropriations( ):
         if self.__appropriationfundcode is not None:
             return self.__appropriationfundcode
 
-    @appropriationfundcode.setter
-    def appropriationfundcode( self, value ):
+    @appropriation_fund_code.setter
+    def appropriation_fund_code( self, value ):
         if value is not None:
             self.__appropriationfundcode = value
 
     @property
-    def appropriationfundname( self ):
+    def appropriation_fund_name( self ):
         if isinstance( self.__appropriationfundname, str ) \
                 and self.__appropriationfundname != '':
             return self.__appropriationfundname
 
-    @appropriationfundname.setter
-    def appropriationfundname( self, value ):
+    @appropriation_fund_name.setter
+    def appropriation_fund_name( self, value ):
         if value is not None:
             self.__appropriationfundname = value
 
     @property
-    def appropriationcreationdate( self ):
+    def appropriation_creation_date( self ):
         if self.__appropriationcreationdate is not None:
             return self.__appropriationcreationdate
 
-    @appropriationcreationdate.setter
-    def appropriationcreationdate( self, value ):
+    @appropriation_creation_date.setter
+    def appropriation_creation_date( self, value ):
         if isinstance( value, datetime ):
             self.__appropriationcreationdate = value
 
     @property
-    def appropriationcode( self ):
+    def appropriation_code( self ):
         if self.__appropriationcode is not None:
             return self.__appropriationcode
 
-    @appropriationcode.setter
-    def appropriationcode( self, value ):
+    @appropriation_code.setter
+    def appropriation_code( self, value ):
         if value is not None:
             self.__appropriationcode = value
 
     @property
-    def subappropriationcode( self ):
+    def subappropriation_code( self ):
         if self.__subappropriationcode is not None:
             return self.__subappropriationcode
 
-    @subappropriationcode.setter
-    def subappropriationcode( self, value ):
+    @subappropriation_code.setter
+    def subappropriation_code( self, value ):
         if value is not None:
             self.__subappropriationcode = value
 
     @property
-    def appropriationdescription( self ):
+    def appropriation_description( self ):
         if self.__appropriationdescription is not None:
             return self.__appropriationdescription
 
-    @appropriationdescription.setter
-    def appropriationdescription( self, value ):
+    @appropriation_description.setter
+    def appropriation_description( self, value ):
         if value is not None:
             self.__appropriationdescription = value
 
     @property
-    def fundgroup( self ):
+    def fund_group( self ):
         if self.__fundgroup is not None:
             return self.__fundgroup
 
     @fundgroup.setter
-    def fundgroup( self, value ):
+    def fund_group( self, value ):
         if value is not None:
             self.__fundgroup = value
 
     @property
-    def fundgroupname( self ):
+    def fund_group_name( self ):
         if self.__fundgroupname is not None:
             return self.__fundgroupname
 
-    @fundgroupname.setter
-    def fundgroupname( self, value ):
+    @fund_group_name.setter
+    def fund_group_name( self, value ):
         if value is not None:
             self.__fundgroupname = value
 
@@ -19221,7 +19221,7 @@ class StatusOfAppropriations( ):
         if self.__documenttype is not None:
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -19231,38 +19231,38 @@ class StatusOfAppropriations( ):
         if self.__transtype is not None:
             return self.__transtype
 
-    @transtype.setter
-    def transtype( self, value ):
+    @trans_type.setter
+    def trans_type( self, value ):
         if value is not None:
             self.__transtype = value
 
     @property
-    def actualrecoverytranstype( self ):
+    def actual_recovery_trans_type( self ):
         if self.__actualrecoverytranstype is not None:
             return self.__actualrecoverytranstype
 
-    @actualrecoverytranstype.setter
-    def actualrecoverytranstype( self, value ):
+    @actual_recovery_trans_type.setter
+    def actual_recovery_trans_type( self, value ):
         if value is not None:
             self.__actualrecoverytranstype = value
 
     @property
-    def commitmentspendingcontrolflag( self ):
+    def commitment_spending_control_flag( self ):
         if self.__commitmentspendingcontrolflag is not None:
             return self.__commitmentspendingcontrolflag
 
-    @commitmentspendingcontrolflag.setter
-    def commitmentspendingcontrolflag( self, value ):
+    @commitment_spending_control_flag.setter
+    def commitment_spending_control_flag( self, value ):
         if value is not None:
             self.__commitmentspendingcontrolflag = value
 
     @property
-    def agreementlimit( self ):
+    def agreement_limit( self ):
         if self.__agreementlimit is not None:
             return self.__agreementlimit
 
-    @agreementlimit.setter
-    def agreementlimit( self, value ):
+    @agreement_limit.setter
+    def agreement_limit( self, value ):
         if value is not None:
             self.__agreementlimit = value
 
@@ -19287,302 +19287,302 @@ class StatusOfAppropriations( ):
             self.__estimatedreimbursementstranstype = value
 
     @property
-    def expensespendingcontrolflag( self ):
+    def expense_spending_control_flag( self ):
         if self.__expensespendingcontrolflag is not None:
             return self.__expensespendingcontrolflag
 
-    @expensespendingcontrolflag.setter
-    def expensespendingcontrolflag( self, value ):
+    @expense_spending_control_flag.setter
+    def expense_spending_control_flag( self, value ):
         if value is not None:
             self.__expensespendingcontrolflag = value
 
     @property
-    def obligationspendingcontrolflag( self ):
+    def obligation_spending_control_flag( self ):
         if self.__obligationspendingcontrolflag is not None:
             return self.__obligationspendingcontrolflag
 
-    @obligationspendingcontrolflag.setter
-    def obligationspendingcontrolflag( self, value ):
+    @obligation_spending_control_flag.setter
+    def obligation_spending_control_flag( self, value ):
         if value is not None:
             self.__obligationspendingcontrolflag = value
 
     @property
-    def precommitmentspendingcontrolflag( self ):
+    def precommitment_spending_control_flag( self ):
         if self.__precommitmentspendingcontrolflag is not None:
             return self.__precommitmentspendingcontrolflag
 
-    @precommitmentspendingcontrolflag.setter
-    def precommitmentspendingcontrolflag( self, value ):
+    @precommitment_spending_control_flag.setter
+    def precommitment_spending_control_flag( self, value ):
         if value is not None:
             self.__precommitmentspendingcontrolflag = value
 
     @property
-    def postedcontrolflag( self ):
+    def posted_control_flag( self ):
         if self.__postedcontrolflag is not None:
             return self.__postedcontrolflag
 
-    @postedcontrolflag.setter
-    def postedcontrolflag( self, value ):
+    @posted_control_flag.setter
+    def posted_control_flag( self, value ):
         if value is not None:
             self.__expensespendingcontrolflag = value
 
     @property
-    def postedflag( self ):
+    def posted_flag( self ):
         if self.__postedflag is not None:
             return self.__postedflag
 
-    @postedflag.setter
-    def postedflag( self, value ):
+    @posted_flag.setter
+    def posted_flag( self, value ):
         if value is not None:
             self.__postedflag = value
 
     @property
-    def recordcarryoveratlowerlevel( self ):
+    def record_carryover_at_lower_level( self ):
         if self.__recordcarryoveratlowerlevel is not None:
             return self.__recordcarryoveratlowerlevel
 
-    @recordcarryoveratlowerlevel.setter
-    def recordcarryoveratlowerlevel( self, value ):
+    @record_carryover_at_lower_level.setter
+    def record_carryover_at_lower_level( self, value ):
         if value is not None:
             self.__recordcarryoveratlowerlevel = value
 
     @property
-    def reimbursablespendingoption( self ):
+    def reimbursables_pending_option( self ):
         if self.__reimbursablespendingoption is not None:
             return self.__reimbursablespendingoption
 
-    @reimbursablespendingoption.setter
-    def reimbursablespendingoption( self, value ):
+    @reimbursable_spending_option.setter
+    def reimbursable_spending_option( self, value ):
         if value is not None:
             self.__reimbursablespendingoption = value
 
     @property
-    def recoveriesoption( self ):
+    def recoveries_option( self ):
         if self.__recoveriesoption is not None:
             return self.__recoveriesoption
 
-    @recoveriesoption.setter
-    def recoveriesoption( self, value ):
+    @recoveries_option.setter
+    def recoveries_option( self, value ):
         if value is not None:
             self.__recoveriesoption = value
 
     @property
-    def recoveriesspendingoption( self ):
+    def recoveries_spending_option( self ):
         if self.__recoveriesspendingoption is not None:
             return self.__recoveriesspendingoption
 
-    @recoveriesspendingoption.setter
-    def recoveriesspendingoption( self, value ):
+    @recoveries_spending_option.setter
+    def recoveries_spending_option( self, value ):
         if value is not None:
             self.__recoveriesspendingoption = value
 
     @property
-    def originalbudgetedamount( self ):
+    def original_budgeted_amount( self ):
         if self.__originalbudgetedamount is not None:
             return self.__originalbudgetedamount
 
-    @originalbudgetedamount.setter
-    def originalbudgetedamount( self, value ):
+    @original_budgeted_amount.setter
+    def original_budgeted_amount( self, value ):
         if value is not None:
             self.__originalbudgetedamount = value
 
     @property
-    def apportionmentsposted( self ):
+    def apportionments_posted( self ):
         if self.__apportionmentsposted is not None:
             return self.__apportionmentsposted
 
-    @apportionmentsposted.setter
-    def apportionmentsposted( self, value ):
+    @apportionments_posted.setter
+    def apportionments_posted( self, value ):
         if value is not None:
             self.__apportionmentsposted = value
 
     @property
-    def totalauthority( self ):
+    def total_authority( self ):
         if self.__totalauthority is not None:
             return self.__totalauthority
 
-    @totalauthority.setter
-    def totalauthority( self, value ):
+    @total_authority.setter
+    def total_authority( self, value ):
         if value is not None:
             self.__totalauthority = value
 
     @property
-    def totalbudgeted( self ):
+    def total_budgeted( self ):
         if self.__totalbudgeted is not None:
             return self.__totalbudgeted
 
-    @totalbudgeted.setter
-    def totalbudgeted( self, value ):
+    @total_budgeted.setter
+    def total_budgeted( self, value ):
         if value is not None:
             self.__totalbudgeted = value
 
     @property
-    def totalpostedamount( self ):
+    def total_posted_amount( self ):
         if self.__totalpostedamount is not None:
             return self.__totalpostedamount
 
-    @totalpostedamount.setter
-    def totalpostedamount( self, value ):
+    @total_posted_amount.setter
+    def total_posted_amount( self, value ):
         if value is not None:
             self.__totalpostedamount = value
 
     @property
-    def fundswithdrawnprioryearamounts( self ):
+    def funds_withdrawn_prior_year_amounts( self ):
         if self.__fundswithdrawnprioryearamounts is not None:
             return self.__fundswithdrawnprioryearamounts
 
-    @fundswithdrawnprioryearamounts.setter
-    def fundswithdrawnprioryearamounts( self, value ):
+    @funds_withdrawn_prior_year_amounts.setter
+    def funds_withdrawn_prior_year_amounts( self, value ):
         if value is not None:
             self.__fundswithdrawnprioryearamounts = value
 
     @property
-    def fundinginamount( self ):
+    def funding_in_amount( self ):
         if self.__fundinginamount is not None:
             return self.__fundinginamount
 
-    @fundinginamount.setter
-    def fundinginamount( self, value ):
+    @funding_in_amount.setter
+    def funding_in_amount( self, value ):
         if value is not None:
             self.__fundinginamount = value
 
     @property
-    def fundingoutamount( self ):
+    def funding_out_amount( self ):
         if self.__fundingoutamount is not None:
             return self.__fundingoutamount
 
-    @fundingoutamount.setter
-    def fundingoutamount( self, value ):
+    @funding_out_amount.setter
+    def funding_out_amount( self, value ):
         if value is not None:
             self.__fundingoutamount = value
 
     @property
-    def totalaccrualrecoveries( self ):
+    def total_accrual_recoveries( self ):
         if self.__totalaccrualrecoveries is not None:
             return self.__totalaccrualrecoveries
 
-    @totalaccrualrecoveries.setter
-    def totalaccrualrecoveries( self, value ):
+    @total_accrual_recoveries.setter
+    def total_accrual_recoveries( self, value ):
         if value is not None:
             self.__totalaccrualrecoveries = value
 
     @property
-    def totalactualreimbursements( self ):
+    def total_actual_reimbursements( self ):
         if self.__totalactualreimbursements is not None:
             return self.__totalactualreimbursements
 
-    @totalactualreimbursements.setter
-    def totalactualreimbursements( self, value ):
+    @total_actual_reimbursements.setter
+    def total_actual_reimbursements( self, value ):
         if value is not None:
             self.__totalactualreimbursements = value
 
     @property
-    def totalagreementreimbursables( self ):
+    def total_agreement_reimbursables( self ):
         if self.__totalagreementreimbursables is not None:
             return self.__totalagreementreimbursables
 
-    @totalagreementreimbursables.setter
-    def totalagreementreimbursables( self, value ):
+    @total_agreement_reimbursables.setter
+    def total_agreement_reimbursables( self, value ):
         if value is not None:
             self.__totalagreementreimbursables = value
 
     @property
-    def totalcarriedforwardin( self ):
+    def total_carried_forward_in( self ):
         if self.__totalcarriedforwardin is not None:
             return self.__totalcarriedforwardin
 
-    @totalcarriedforwardin.setter
-    def totalcarriedforwardin( self, value ):
+    @total_carried_forward_in.setter
+    def total_carried_forward_in( self, value ):
         if value is not None:
             self.__totalcarriedforwardin = value
 
     @property
-    def totalcarriedforwardout( self ):
+    def total_carried_forward_out( self ):
         if self.__totalcarriedforwardout is not None:
             return self.__totalcarriedforwardout
 
-    @totalcarriedforwardout.setter
-    def totalcarriedforwardout( self, value ):
+    @total_carried_forward_out.setter
+    def total_carried_forward_out( self, value ):
         if value is not None:
             self.__totalcarriedforwardout = value
 
     @property
-    def totalestimatedrecoveries( self ):
+    def total_estimated_recoveries( self ):
         if self.__totalestimatedrecoveries is not None:
             return self.__totalestimatedrecoveries
 
-    @totalestimatedrecoveries.setter
-    def totalestimatedrecoveries( self, value ):
+    @total_estimated_recoveries.setter
+    def total_estimated_recoveries( self, value ):
         if value is not None:
             self.__totalestimatedrecoveries = value
 
     @property
-    def totalestimatedreimbursements( self ):
+    def total_estimated_reimbursements( self ):
         if self.__totalestimatedreimbursements is not None:
             return self.__totalestimatedreimbursements
 
-    @totalestimatedreimbursements.setter
-    def totalestimatedreimbursements( self, value ):
+    @total_estimated_reimbursements.setter
+    def total_estimated_reimbursements( self, value ):
         if value is not None:
             self.__totalestimatedreimbursements = value
 
     @property
-    def totalexpenses( self ):
+    def total_expenses( self ):
         if self.__totalexpenses is not None:
             return self.__totalexpenses
 
-    @totalexpenses.setter
-    def totalexpenses( self, value ):
+    @total_expenses.setter
+    def total_expenses( self, value ):
         if value is not None:
             self.__totalexpenses = value
 
     @property
-    def totalexpenditureexpenses( self ):
+    def total_expenditure_expenses( self ):
         if self.__totalexpenditureexpenses is not None:
             return self.__totalexpenditureexpenses
 
-    @totalexpenditureexpenses.setter
-    def totalexpenditureexpenses( self, value ):
+    @total_expenditure_expenses.setter
+    def total_expenditure_expenses( self, value ):
         if value is not None:
             self.__totalexpenditureexpenses = value
 
     @property
-    def totalexpenseaccruals( self ):
+    def total_expense_accruals( self ):
         if self.__totalexpenseaccruals is not None:
             return self.__totalexpenseaccruals
 
-    @totalexpenseaccruals.setter
-    def totalexpenseaccruals( self, value ):
+    @total_expense_accruals.setter
+    def total_expense_accruals( self, value ):
         if value is not None:
             self.__totalexpenseaccruals = value
 
     @property
-    def totalprecommitments( self ):
+    def total_precommitments( self ):
         if self.__totalprecommitments is not None:
             return self.__totalprecommitments
 
-    @totalprecommitments.setter
-    def totalprecommitments( self, value ):
+    @total_precommitments.setter
+    def total_precommitments( self, value ):
         if value is not None:
             self.__totalprecommitments = value
 
     @property
-    def unliquidatedprecommitments( self ):
+    def unliquidated_precommitments( self ):
         if self.__unliquidatedprecommitments is not None:
             return self.__unliquidatedprecommitments
 
-    @unliquidatedprecommitments.setter
-    def unliquidatedprecommitments( self, value ):
+    @unliquidated_precommitments.setter
+    def unliquidated_precommitments( self, value ):
         if value is not None:
             self.__unliquidatedprecommitments = value
 
     @property
-    def totalobligations( self ):
+    def total_obligations( self ):
         if self.__totalobligations is not None:
             return self.__totalobligations
 
-    @totalobligations.setter
-    def totalobligations( self, value ):
+    @total_obligations.setter
+    def total_obligations( self, value ):
         if value is not None:
             self.__totalobligations = value
 
@@ -19591,38 +19591,38 @@ class StatusOfAppropriations( ):
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
-    @unliquidatedobligations.setter
+    @unliquidated_obligations.setter
     def unliquidated_obligations( self, value ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def voidedamount( self ):
+    def voided_amount( self ):
         if self.__voidedamount is not None:
             return self.__voidedamount
 
-    @voidedamount.setter
-    def voidedamount( self, value ):
+    @voided_amount.setter
+    def voided_amount( self, value ):
         if value is not None:
             self.__voidedamount = value
 
     @property
-    def totalusedamount( self ):
+    def total_used_amount( self ):
         if self.__totalusedamount is not None:
             return self.__totalusedamount
 
-    @totalusedamount.setter
-    def totalusedamount( self, value ):
+    @total_used_amount.setter
+    def total_used_amount( self, value ):
         if value is not None:
             self.__totalusedamount = value
 
     @property
-    def availableamount( self ):
+    def available_amount( self ):
         if self.__availableamount is not None:
             return self.__availableamount
 
-    @availableamount.setter
-    def availableamount( self, value ):
+    @available_amount.setter
+    def available_amount( self, value ):
         if value is not None:
             self.__availableamount = value
 
@@ -19792,22 +19792,22 @@ class SpendingRates( ):
             self.__spendingratesid = value
 
     @property
-    def treasuryagencycode( self ):
+    def treasury_agency_code( self ):
         if isinstance( self.__treasuryagencycode, str ) and self.__treasuryagencycode != '':
             return self.__treasuryagencycode
 
-    @treasuryagencycode.setter
-    def treasuryagencycode( self, value ):
+    @treasury_agency_code.setter
+    def treasury_agency_code( self, value ):
         if value is not None:
             self.__treasuryagencycode = value
 
     @property
-    def treasuryagencyname( self ):
+    def treasury_agency_name( self ):
         if isinstance( self.__treasuryagencyname, str ) and self.__treasuryagencyname != '':
             return self.__treasuryagencyname
 
-    @treasuryagencyname.setter
-    def treasuryagencyname( self, value ):
+    @treasury_agency_name.setter
+    def treasury_agency_name( self, value ):
         if value is not None:
             self.__treasuryagencyname = value
 
@@ -19832,22 +19832,22 @@ class SpendingRates( ):
             self.__treasuryaccountname = value
 
     @property
-    def ombagencycode( self ):
+    def omb_agency_code( self ):
         if isinstance( self.__ombagencycode, str ) and self.__ombagencycode != '':
             return self.__ombagencycode
 
-    @ombagencycode.setter
-    def ombagencycode( self, value ):
+    @omb_agency_code.setter
+    def omb_agency_code( self, value ):
         if value is not None:
             self.__ombagencycode = value
 
     @property
-    def ombagencyname( self ):
+    def omb_agency_name( self ):
         if isinstance( self.__ombagencyname, str ) and self.__ombagencyname != '':
             return self.__ombagencyname
 
-    @ombagencyname.setter
-    def ombagencyname( self, value ):
+    @omb_agency_name.setter
+    def omb_agency_name( self, value ):
         if value is not None:
             self.__ombagencyname = value
 
@@ -19906,158 +19906,158 @@ class SpendingRates( ):
         if isinstance( self.__linenumber, str ) and self.__linenumber != '':
             return self.__linenumber
 
-    @linenumber.setter
+    @line_number.setter
     def line_number( self, value ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def linename( self ):
+    def line_name( self ):
         if isinstance( self.__linename, str ) and self.__linename != '':
             return self.__linename
 
-    @linename.setter
-    def linename( self, value ):
+    @line_name.setter
+    def line_name( self, value ):
         if value is not None:
             self.__linename = value
 
     @property
-    def yearofauthority( self ):
+    def year_of_authority( self ):
         if isinstance( self.__yearofauthority, str ) and self.__yearofauthority != '':
             return self.__yearofauthority
 
-    @yearofauthority.setter
-    def yearofauthority( self, value ):
+    @year_rof_authority.setter
+    def year_of_authority( self, value ):
         if value is not None:
             self.__yearofauthority = value
 
     @property
-    def budgetauthority( self ):
+    def budget_authority( self ):
         if isinstance( self.__budgetauthority, float ):
             return self.__budgetauthority
 
-    @budgetauthority.setter
-    def budgetauthority( self, value ):
+    @budget_authority.setter
+    def budget_authority( self, value ):
         if value is not None:
             self.__budgetauthority = value
 
     @property
-    def outyear1( self ):
+    def out_year_1( self ):
         if isinstance( self.__outyear1, float ):
             return self.__outyear1
 
-    @outyear1.setter
-    def outyear1( self, value ):
+    @out_year_1.setter
+    def out_year_1( self, value ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def outyear2( self ):
+    def out_year_2( self ):
         if isinstance( self.__outyear2, float ):
             return self.__outyear2
 
     @outyear2.setter
-    def outyear2( self, value ):
+    def out_year_2( self, value ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def outyear3( self ):
+    def out_year_3( self ):
         if isinstance( self.__outyear3, float ):
             return self.__outyear3
 
     @outyear3.setter
-    def outyear3( self, value ):
+    def out_year_3( self, value ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def outyear4( self ):
+    def out_year_4( self ):
         if isinstance( self.__outyear4, float ):
             return self.__outyear4
 
-    @outyear4.setter
-    def outyear4( self, value ):
+    @out_year_4.setter
+    def out_year_4( self, value ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def outyear5( self ):
+    def out_year_5( self ):
         if isinstance( self.__outyear5, float ):
             return self.__outyear5
 
-    @outyear5.setter
-    def outyear5( self, value ):
+    @out_year_5.setter
+    def out_year_5( self, value ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def outyear6( self ):
+    def out_year_6( self ):
         if isinstance( self.__outyear6, float ):
             return self.__outyear6
 
-    @outyear6.setter
-    def outyear6( self, value ):
+    @out_year_6.setter
+    def out_year_6( self, value ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def outyear7( self ):
+    def out_year_7( self ):
         if isinstance( self.__outyear7, float ):
             return self.__outyear7
 
-    @outyear7.setter
-    def outyear7( self, value ):
+    @out_year_7.setter
+    def out_year_7( self, value ):
         if value is not None:
             self.__outyear7 = value
 
     @property
-    def outyear8( self ):
+    def out_year_8( self ):
         if isinstance( self.__outyear8, float ):
             return self.__outyear8
 
-    @outyear8.setter
-    def outyear8( self, value ):
+    @out_year_8.setter
+    def out_year_8( self, value ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def outyear9( self ):
+    def out_year_9( self ):
         if isinstance( self.__outyear9, float ):
             return self.__outyear9
 
-    @outyear9.setter
-    def outyear9( self, value ):
+    @out_year_9.setter
+    def out_year_9( self, value ):
         if value is not None:
             self.__outyear9 = value
 
     @property
-    def outyear10( self ):
+    def out_year_10( self ):
         if isinstance( self.__outyear10, float ):
             return self.__outyear10
 
-    @outyear10.setter
-    def outyear10( self, value ):
+    @out_year_10.setter
+    def out_year_10( self, value ):
         if value is not None:
             self.__outyear10 = value
 
     @property
-    def outyear11( self ):
+    def out_year_11( self ):
         if isinstance( self.__outyear11, float ):
             return self.__outyear11
 
-    @outyear11.setter
-    def outyear11( self, value ):
+    @out_year_11.setter
+    def out_year_11( self, value ):
         if value is not None:
             self.__outyear11 = value
 
     @property
-    def totalspendout( self ):
+    def total_spendout( self ):
         if isinstance( self.__totalspendout, float ):
             return self.__totalspendout
 
-    @totalspendout.setter
-    def totalspendout( self, value ):
+    @total_spendout.setter
+    def total_spendout( self, value ):
         if value is not None:
             self.__totalspendout = value
 
@@ -20298,7 +20298,7 @@ class StatusOfSupplementalFunds( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -20308,7 +20308,7 @@ class StatusOfSupplementalFunds( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -20318,7 +20318,7 @@ class StatusOfSupplementalFunds( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -20438,7 +20438,7 @@ class StatusOfSupplementalFunds( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -20458,7 +20458,7 @@ class StatusOfSupplementalFunds( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -20468,8 +20468,8 @@ class StatusOfSupplementalFunds( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -20488,7 +20488,7 @@ class StatusOfSupplementalFunds( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -20498,7 +20498,7 @@ class StatusOfSupplementalFunds( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -20508,7 +20508,7 @@ class StatusOfSupplementalFunds( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -20518,7 +20518,7 @@ class StatusOfSupplementalFunds( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -20744,7 +20744,7 @@ class StatusOfJobsActFunding( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -20754,7 +20754,7 @@ class StatusOfJobsActFunding( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -20764,7 +20764,7 @@ class StatusOfJobsActFunding( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -20884,7 +20884,7 @@ class StatusOfJobsActFunding( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -20904,7 +20904,7 @@ class StatusOfJobsActFunding( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -20914,8 +20914,8 @@ class StatusOfJobsActFunding( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -20934,7 +20934,7 @@ class StatusOfJobsActFunding( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -20944,7 +20944,7 @@ class StatusOfJobsActFunding( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -20954,7 +20954,7 @@ class StatusOfJobsActFunding( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -20964,7 +20964,7 @@ class StatusOfJobsActFunding( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -21190,7 +21190,7 @@ class StatusOfEarmarks( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -21200,7 +21200,7 @@ class StatusOfEarmarks( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -21210,7 +21210,7 @@ class StatusOfEarmarks( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -21330,7 +21330,7 @@ class StatusOfEarmarks( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -21350,7 +21350,7 @@ class StatusOfEarmarks( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -21360,8 +21360,8 @@ class StatusOfEarmarks( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -21380,7 +21380,7 @@ class StatusOfEarmarks( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -21390,7 +21390,7 @@ class StatusOfEarmarks( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -21400,7 +21400,7 @@ class StatusOfEarmarks( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -21410,7 +21410,7 @@ class StatusOfEarmarks( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -21639,7 +21639,7 @@ class SiteActivity( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -21649,7 +21649,7 @@ class SiteActivity( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -21659,7 +21659,7 @@ class SiteActivity( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -21689,7 +21689,7 @@ class SiteActivity( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -21709,7 +21709,7 @@ class SiteActivity( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -21719,8 +21719,8 @@ class SiteActivity( ):
         if self.__programareaname is not None:
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -21849,7 +21849,7 @@ class SiteActivity( ):
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
-    @lastactivitydate.setter
+    @last_activity_date.setter
     def last_activity_date( self, value ):
         if value is not None:
             self.__lastactivitydate = value
@@ -22093,8 +22093,8 @@ class SpendingDocument( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpioname.setter
-    def rpioname( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
             self.__rpiocode = value
 
@@ -22163,7 +22163,7 @@ class SpendingDocument( ):
         if self.__accountcode is not None:
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -22173,7 +22173,7 @@ class SpendingDocument( ):
         if self.__boccode is not None:
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -22183,7 +22183,7 @@ class SpendingDocument( ):
         if self.__bocname is not None:
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -22303,7 +22303,7 @@ class SpendingDocument( ):
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -22323,7 +22323,7 @@ class SpendingDocument( ):
         if self.__programareacode is not None:
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -22333,8 +22333,8 @@ class SpendingDocument( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -22353,7 +22353,7 @@ class SpendingDocument( ):
         if self.__goalname is not None:
             return self.__goalname
 
-    @goalname.setter
+    @goal_name.setter
     def goal_name( self, value ):
         if value is not None:
             self.__goalname = value
@@ -22363,7 +22363,7 @@ class SpendingDocument( ):
         if self.__objectivecode is not None:
             return self.__objectivecode
 
-    @objectivecode.setter
+    @objective_code.setter
     def objective_code( self, value ):
         if value is not None:
             self.__objectivecode = value
@@ -22373,7 +22373,7 @@ class SpendingDocument( ):
         if self.__objectivename is not None:
             return self.__objectivename
 
-    @objectivename.setter
+    @objective_name.setter
     def objective_name( self, value ):
         if value is not None:
             self.__objectivename = value
@@ -22383,7 +22383,7 @@ class SpendingDocument( ):
         if self.__npmcode is not None:
             return self.__npmcode
 
-    @npmcode.setter
+    @npm_code.setter
     def npm_code( self, value ):
         if value is not None:
             self.__npmcode = value
@@ -22403,7 +22403,7 @@ class SpendingDocument( ):
         if self.__documenttyp is not None:
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -22423,7 +22423,7 @@ class SpendingDocument( ):
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
-    @documentcontrolnumber.setter
+    @document_control_number.setter
     def document_control_number( self, value ):
         if value is not None:
             self.__documentcontrolnumber = value
@@ -22433,7 +22433,7 @@ class SpendingDocument( ):
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
-    @referencedocumentnumber.setter
+    @reference_document_number.setter
     def reference_document_number( self, value ):
         if value is not None:
             self.__referencedocumentnumber = value
@@ -22443,7 +22443,7 @@ class SpendingDocument( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processeddate.setter
+    @processed_date.setter
     def processed_date( self, value ):
         if isinstance( value, datetime ):
             self.__processeddate = value
@@ -22453,7 +22453,7 @@ class SpendingDocument( ):
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
-    @lastactivitydate.setter
+    @last_activity_date.setter
     def last_activity_date( self, value ):
         if isinstance( value, datetime ):
             self.__lastactivitydate = value
@@ -22473,7 +22473,7 @@ class SpendingDocument( ):
         if self.__vendorcode is not None:
             return self.__vendorcode
 
-    @vendorcode.setter
+    @vendor_code.setter
     def vendor_code( self, value ):
         if value is not None:
             self.__vendorcode = value
@@ -22483,7 +22483,7 @@ class SpendingDocument( ):
         if self.__vendorname is not None:
             return self.__vendorname
 
-    @vendorname.setter
+    @vendor_name.setter
     def vendor_name( self, value ):
         if value is not None:
             self.__vendorname = value
@@ -22493,7 +22493,7 @@ class SpendingDocument( ):
         if self.__foccode is not None:
             return self.__foccode
 
-    @foccode.setter
+    @foc_code.setter
     def foc_code( self, value ):
         if value is not None:
             self.__foccode = value
@@ -22503,7 +22503,7 @@ class SpendingDocument( ):
         if self.__focname is not None:
             return self.__focname
 
-    @focname.setter
+    @foc_name.setter
     def foc_name( self, value ):
         if value is not None:
             self.__focname = value
@@ -22839,12 +22839,12 @@ class Transfers( ):
             self.__efy = value
 
     @property
-    def budgetlevel( self ):
+    def budget_level( self ):
         if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != '':
             return self.__budgetlevel
 
-    @budgetlevel.setter
-    def budgetlevel( self, value ):
+    @budget_level.setter
+    def budget_level( self, value ):
         if value is not None:
             self.__budgetlevel = value
 
@@ -22853,7 +22853,7 @@ class Transfers( ):
         if isinstance( self.__documenttype, str ) and self.__documenttype != '':
             return self.__documenttype
 
-    @documenttype.setter
+    @document_type.setter
     def document_type( self, value ):
         if value is not None:
             self.__documenttype = value
@@ -22863,7 +22863,7 @@ class Transfers( ):
         if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
             return self.__documentnumber
 
-    @documentnumber.setter
+    @document_number.setter
     def document_number( self, value ):
         if value is not None:
             self.__documentnumber = value
@@ -22873,7 +22873,7 @@ class Transfers( ):
         if isinstance( self.__processeddate, datetime ):
             return self.__processeddate
 
-    @processeddate.setter
+    @processed_date.setter
     def processed_date( self, value ):
         if isinstance( value, datetime ):
             self.__processeddate = value
@@ -22893,8 +22893,8 @@ class Transfers( ):
         if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
             return self.__rpiocode
 
-    @rpioname.setter
-    def rpioname( self, name ):
+    @rpio_name.setter
+    def rpio_name( self, name ):
         if  name is not None:
             self.__rpiocode = name
 
@@ -22943,7 +22943,7 @@ class Transfers( ):
         if isinstance( self.__accountcode, str ) and self.__accountcode != '':
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -22953,7 +22953,7 @@ class Transfers( ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -23023,7 +23023,7 @@ class Transfers( ):
         if isinstance( self.__boccode, str ) and self.__boccode != '':
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -23033,7 +23033,7 @@ class Transfers( ):
         if isinstance( self.__bocname, str ) and self.__bocname != '':
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -23053,7 +23053,7 @@ class Transfers( ):
         if isinstance( self.__programareacode, str ) and self.__programareacode != '':
             return self.__programareacode
 
-    @programareacode.setter
+    @program_area_code.setter
     def program_area_code( self, value ):
         if value is not None:
             self.__programareacode = value
@@ -23063,8 +23063,8 @@ class Transfers( ):
         if isinstance( self.__programareaname, str ) and self.__programareaname != '':
             return self.__programareaname
 
-    @programareaname.setter
-    def programareaname( self, value ):
+    @program_area_name.setter
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
@@ -23233,7 +23233,7 @@ class TransTypes( ):
         if isinstance( self.__treasuryaccount, str ) and self.__treasuryaccount != '':
             return self.__treasuryaccount
 
-    @treasurysymbol.setter
+    @treasury_symbol.setter
     def treasury_symbol( self, value ):
         if value is not None:
             self.__treasuryaccount = value
@@ -23299,12 +23299,12 @@ class UnobligatedAuthority( ):
             self.__unobligatedauthorityid = value
 
     @property
-    def reportyear( self ):
+    def report_year( self ):
         if isinstance( self.__reportyear, str ) and len( self.__reportyear ) == 4:
             return self.__reportyear
 
-    @reportyear.setter
-    def reportyear( self, value ):
+    @report_year.setter
+    def report_year( self, value ):
         if isinstance( value, str ) and len( value ) == 4:
             self.__reportyear = value
 
@@ -23313,18 +23313,18 @@ class UnobligatedAuthority( ):
         if isinstance( self.__linenumber, str ) and self.__linenumber != '':
             return self.__linenumber
 
-    @linenumber.setter
+    @line_number.setter
     def line_number( self, value ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def linename( self ):
+    def line_name( self ):
         if isinstance( self.__linename, str ) and self.__linename != '':
             return self.__linename
 
-    @linename.setter
-    def linename( self, value ):
+    @line_name.setter
+    def line_name( self, value ):
         if value is not None:
             self.__linename = value
 
@@ -23349,32 +23349,32 @@ class UnobligatedAuthority( ):
             self.__budgetaccountname = value
 
     @property
-    def prioryear( self ):
+    def prior_year( self ):
         if isinstance( self.__prioryear, float ):
             return self.__prioryear
 
-    @prioryear.setter
-    def prioryear( self, value ):
+    @prior_year.setter
+    def prior_year( self, value ):
         if value is not None:
             self.__prioryear = value
 
     @property
-    def currentyear( self ):
+    def current_year( self ):
         if isinstance( self.__currentyear, float ):
             return self.__currentyear
 
-    @currentyear.setter
-    def currentyear( self, value ):
+    @current_year.setter
+    def current_year( self, value ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def budgetyear( self ):
+    def budget_year( self ):
         if isinstance( self.__budgetyear, float ):
             return self.__budgetyear
 
-    @budgetyear.setter
-    def budgetyear( self, value ):
+    @budget_year.setter
+    def budget_year( self, value ):
         if value is not None:
             self.__budgetyear = value
 
@@ -23791,7 +23791,7 @@ class UnliquidatedObligations( ):
         if isinstance( self.__accountcode, str ) and self.__accountcode != '':
             return self.__accountcode
 
-    @accountcode.setter
+    @account_code.setter
     def account_code( self, value ):
         if value is not None:
             self.__accountcode = value
@@ -23801,7 +23801,7 @@ class UnliquidatedObligations( ):
         if isinstance( self.__boccode, str ) and self.__boccode != '':
             return self.__boccode
 
-    @boccode.setter
+    @boc_code.setter
     def boc_code( self, value ):
         if value is not None:
             self.__boccode = value
@@ -23811,7 +23811,7 @@ class UnliquidatedObligations( ):
         if isinstance( self.__bocname, str ) and self.__bocname != '':
             return self.__bocname
 
-    @bocname.setter
+    @boc_name.setter
     def boc_name( self, value ):
         if value is not None:
             self.__bocname = value
@@ -23962,7 +23962,7 @@ class UnliquidatedObligations( ):
         if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
             return self.__programprojectcode
 
-    @programprojectcode.setter
+    @program_project_code.setter
     def program_project_code( self, value ):
         if value is not None:
             self.__programprojectcode = value
@@ -23993,7 +23993,7 @@ class UnliquidatedObligations( ):
             return self.__programareaname
 
     @program_area_name.setter
-    def programareaname( self, value ):
+    def program_area_name( self, value ):
         if value is not None:
             self.__programareaname = value
 
