@@ -3341,22 +3341,22 @@ class BudgetControls( ):
             self.__name = value
 
     @property
-    def budgeted_transtype( self ):
+    def budgeted_trans_type( self ):
         if self.__budgetedtranstype is not None:
             return self.__budgetedtranstype
 
-    @budgeted_transtype.setter
-    def budgeted_transtype( self, value ):
+    @budgeted_trans_type.setter
+    def budgeted_trans_type( self, value ):
         if value is not None:
             self.__budgetedtranstype = value
 
     @property
-    def postedtranstype( self ):
+    def posted_trans_type( self ):
         if self.__postedtranstype is not None:
             return self.__postedtranstype
 
-    @posted_transtype.setter
-    def postedtranstype( self, value ):
+    @posted_trans_type.setter
+    def posted_trans_type( self, value ):
         if value is not None:
             self.__postedtranstype = value
 
@@ -18088,102 +18088,102 @@ class SpecialAccounts( ):
             self.__bocname = value
 
     @property
-    def specialaccountfundcode( self ):
+    def special_account_fund_code( self ):
         if isinstance( self.__specialaccountfundcode, str ) and self.__specialaccountfundcode != '':
             return self.__specialaccountfundcode
 
-    @specialaccountfundcode.setter
-    def specialaccountfundcode( self, value ):
+    @special_account_fund_code.setter
+    def special_account_fund_code( self, value ):
         if value is not None:
             self.__specialaccountfundcode = value
 
     @property
-    def specialaccountfundname( self ):
+    def special_account_fund_name( self ):
         if isinstance( self.__specialaccountfundname, str ) and self.__specialaccountfundname != '':
             return self.__specialaccountfundname
 
-    @specialaccountfundname.setter
-    def specialaccountfundname( self, value ):
+    @special_account_fund_name.setter
+    def special_account_fund_name( self, value ):
         if value is not None:
             self.__specialaccountfundname = value
 
     @property
-    def specialaccountnumber( self ):
+    def special_account_number( self ):
         if isinstance( self.__specialaccountnumber, str ) and self.__specialaccountnumber != '':
             return self.__specialaccountnumber
 
-    @specialaccountnumber.setter
-    def specialaccountnumber( self, value ):
+    @special_account_number.setter
+    def special_account_number( self, value ):
         if value is not None:
             self.__specialaccountnumber = value
 
     @property
-    def specialaccountname( self ):
+    def special_account_name( self ):
         if isinstance( self.__specialaccountnumber, str ) and self.__specialaccountnumber != '':
             return self.__specialaccountnumber
 
-    @specialaccountname.setter
-    def specialaccountname( self, value ):
+    @special_account_name.setter
+    def special_account_name( self, value ):
         if value is not None:
             self.__specialaccountnumber = value
 
     @property
-    def accountstatus( self ):
+    def account_status( self ):
         if isinstance( self.__accountstatus, str ) and self.__accountstatus != '':
             return self.__accountstatus
 
-    @accountstatus.setter
-    def accountstatus( self, value ):
+    @account_status.setter
+    def account_status( self, value ):
         if value is not None:
             self.__accountstatus = value
 
     @property
-    def nplstatus( self ):
+    def npl_status( self ):
         if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
             return self.__nplstatus
 
-    @nplstatus.setter
+    @npl_status.setter
     def nplstatus( self, value ):
         if value is not None:
             self.__nplstatus = value
 
     @property
-    def nplstatuscode( self ):
+    def npl_status_code( self ):
         if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
             return self.__nplstatuscode
 
-    @nplstatuscode.setter
-    def nplstatuscode( self, value ):
+    @npl_status_code.setter
+    def npl_status_code( self, value ):
         if value is not None:
             self.__nplstatuscode = value
 
     @property
-    def nplstatusname( self ):
+    def npl_status_name( self ):
         if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
             return self.__nplstatusname
 
-    @nplstatusname.setter
-    def nplstatusname( self, value ):
+    @npl_status_name.setter
+    def npl_status_name( self, value ):
         if value is not None:
             self.__nplstatusname = value
 
     @property
-    def siteid( self ):
+    def site_id( self ):
         if isinstance( self.__siteid, str ) and self.__siteid != '':
             return self.__siteid
 
-    @siteid.setter
-    def siteid( self, value ):
+    @site_id.setter
+    def site_id( self, value ):
         if value is not None:
             self.__value = value
 
     @property
-    def cerclisid( self ):
+    def cerclis_id( self ):
         if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
             return self.__cerclisid
 
-    @cerclisid.setter
-    def cerclisid( self, value ):
+    @cerclis_id.setter
+    def cerclis_id( self, value ):
         if value is not None:
             self.__cerclisid = value
 
@@ -18375,12 +18375,12 @@ class SuperfundSites( ):
             self.__nplstatuscode = value
 
     @property
-    def siteprojectname( self ):
+    def site_project_name( self ):
         if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
             return self.__nplstatusname
 
     @siteprojectname.setter
-    def siteprojectname( self, value ):
+    def site_project_name( self, value ):
         if value is not None:
             self.__nplstatusname = value
 
@@ -18395,12 +18395,12 @@ class SuperfundSites( ):
             self.__ssid = value
 
     @property
-    def epasiteid( self ):
+    def epa_site_id( self ):
         if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
             return self.__cerclisid
 
     @epasiteid.setter
-    def epasiteid( self, value ):
+    def epa_site_id( self, value ):
         if value is not None:
             self.__cerclisid = value
 
@@ -19227,7 +19227,7 @@ class StatusOfAppropriations( ):
             self.__documenttype = value
 
     @property
-    def transtype( self ):
+    def trans_type( self ):
         if self.__transtype is not None:
             return self.__transtype
 
@@ -21725,12 +21725,12 @@ class SiteActivity( ):
             self.__programareaname = value
 
     @property
-    def epasiteid( self ):
+    def epa_site_id( self ):
         if self.__epasiteid is not None:
             return self.__epasiteid
 
-    @epasiteid.setter
-    def epasiteid( self, value ):
+    @epa_site_id.setter
+    def epa_site_id( self, value ):
         if value is not None:
             self.__epasiteid = value
 
@@ -21739,7 +21739,7 @@ class SiteActivity( ):
         if self.__projecttype is not None:
             return self.__projecttype
 
-    @projecttype.setter
+    @project_type.setter
     def projecttype( self, value ):
         if value is not None:
             self.__projecttype = value
@@ -21755,12 +21755,12 @@ class SiteActivity( ):
             self.__siteprojectcode = value
 
     @property
-    def siteprojectname( self ):
+    def site_project_name( self ):
         if self.__siteprojectname is not None:
             return self.__siteprojectname
 
     @siteprojectname.setter
-    def siteprojectname( self, value ):
+    def site_project_name( self, value ):
         if value is not None:
             self.__siteprojectname = value
 
