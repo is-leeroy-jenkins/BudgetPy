@@ -1465,10 +1465,10 @@ class DataBuilder( ):
     command: DataCommand, names: list, values: tuple ) '''
     __names = None
     __values = None
-    __cmdtyp = None
+    __commandtype = None
     __source = None
     __provider = None
-    __dbcfg = None
+    __dbconfig = None
     __sqlcfg = None
     __cnx = None
     __sql = None
@@ -1502,14 +1502,14 @@ class DataBuilder( ):
     @property
     def command( self ):
         '''Gets an instance of the DataCommand object'''
-        if isinstance( self.__cmdtyp, SQL ):
-            return self.__cmdtyp
+        if isinstance( self.__commandtype, SQL ):
+            return self.__commandtype
 
     @command.setter
     def command( self, value ):
         '''Set the command property to a DataCommand instance'''
         if isinstance( value, SQL ):
-            self.__cmdtyp = value
+            self.__commandtype = value
 
     @property
     def names( self ):
@@ -1537,13 +1537,13 @@ class DataBuilder( ):
 
     @property
     def db_config( self ):
-        if isinstance( self.__dbcfg, DbConfig ):
-            return self.__dbcfg
+        if isinstance( self.__dbconfig, DbConfig ):
+            return self.__dbconfig
 
     @db_config.setter
     def db_config( self, value ):
         if isinstance( value, DbConfig ):
-            self.__dbcfg = value
+            self.__dbconfig = value
 
     @property
     def sql_config( self ):
@@ -1561,13 +1561,13 @@ class DataBuilder( ):
                   command = SQL.SELECTALL, names = None, values = None ):
         self.__source = source if isinstance( source, Source ) else None
         self.__provider = provider
-        self.__cmdtyp = command
+        self.__commandtype = command
         self.__name = names if isinstance( names, list ) else None
         self.__values = values if isinstance( values, tuple ) else None
-        self.__dbcfg = DbConfig( self.__source, self.__provider )
+        self.__dbconfig = DbConfig( self.__source, self.__provider )
         self.__cnx = Connection( source )
-        self.__sqlcfg = SqlConfig( self.__cmdtyp, self.__names, self.__values )
-        self.__sql = SqlStatement( self.__dbcfg, self.__sqlcfg )
+        self.__sqlcfg = SqlConfig( self.__commandtype, self.__names, self.__values )
+        self.__sql = SqlStatement( self.__dbconfig, self.__sqlcfg )
 
     def create_table( self ) -> list[ tuple ]:
         try:
@@ -2039,7 +2039,7 @@ class BudgetData( ):
         self.__sql = f'SELECT * FROM {source.name};'
 
     def get_frame( self ):
-        '''Facotry method that returns a pandas DataFrame object
+        '''Factory method that returns a pandas DataFrame object
         based on the Source input arguement 'source' given to the constructor'''
         try:
             path = self.__path
