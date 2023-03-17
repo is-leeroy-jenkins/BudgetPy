@@ -2809,7 +2809,7 @@ class DatePanel( Sith ):
                 Defines the layout and creates the window for the main window
                 If the parm test_window is True, then a simplified, and EASY to close version is shown
 
-                :param location: (x,y) location to createtable the window
+                :param location: (x,y) location to create_table the window
                 :type location: Tuple[int, int]
                 :param test_window: If True, then this is a test window & will close by clicking on it
                 :type test_window: bool

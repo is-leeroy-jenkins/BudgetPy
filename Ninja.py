@@ -270,12 +270,12 @@ class Accounts( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Account'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -397,12 +397,12 @@ class ActivityCodes( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Activity'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -523,12 +523,12 @@ class AllowanceHolders( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'AllowanceHolder'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -644,12 +644,12 @@ class Appropriations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Appropriation'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -914,12 +914,12 @@ class AppropriationAvailableBalances( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Appropriation'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1150,12 +1150,12 @@ class AppropriationLevelAuthority( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Appropriation'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1541,12 +1541,12 @@ class Allocations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Allocations'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1774,12 +1774,12 @@ class ApportionmentData( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'Apportionment'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -2237,12 +2237,12 @@ class Actuals( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Actuals'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -2719,12 +2719,12 @@ class AppropriationDocuments( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'AppropriationDocument'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -3255,12 +3255,12 @@ class BudgetDocuments( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'BudgetDocument'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -3758,12 +3758,12 @@ class BudgetControls( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'BudgetControl'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4027,12 +4027,12 @@ class BudgetFiscalYear( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'BudgetFiscalYear'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4165,12 +4165,12 @@ class BudgetObjectClasses( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'BudgetObjectClass'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4333,12 +4333,12 @@ class BudgetaryResourceExecution( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'BudgetaryResourceExecution'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4666,12 +4666,12 @@ class BudgetOutlays( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'BudgetOutlays'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -5141,12 +5141,12 @@ class CompassLevels( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'CompassLevels'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -5670,12 +5670,12 @@ class Commitments( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Commitment'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6013,12 +6013,12 @@ class CarryoverOutlays( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'CarryoverOutlays'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6412,12 +6412,12 @@ class CarryoverEstimates( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'CarryoverEstimates'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6551,12 +6551,12 @@ class CarryoverSurvey( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'CarrryoverOutlays'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6678,12 +6678,12 @@ class CapitalPlanningInvestmentCodes( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ITProjectCode'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6819,12 +6819,12 @@ class DataRuleDescription( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'DataRuleDescription'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -7306,12 +7306,12 @@ class Defacto( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Defacto'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -7822,12 +7822,12 @@ class Deobligation( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Deobligations'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -7972,12 +7972,12 @@ class DocumentControlNumbers( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'DocumentControlNumber'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -8519,12 +8519,12 @@ class Expenditures( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Expenditures'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -8669,12 +8669,12 @@ class FinanceObjectClass( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FinanceObjectClass'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -9111,12 +9111,12 @@ class Funds( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Fund'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -9325,12 +9325,12 @@ class FederalHoliday( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -10005,12 +10005,12 @@ class FullTimeEquivalents( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'FullTimeEquivalent'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -10465,12 +10465,12 @@ class GrowthRates( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'GrowthRates'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -10857,12 +10857,12 @@ class HeadquartersAuthority( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'HeadquartersAuthority'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -10985,12 +10985,12 @@ class HeadquartersOffices( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'HeadquartersOffice'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11109,12 +11109,12 @@ class HumanResourceOrganizations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'HumanResourceOrganization'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11327,7 +11327,7 @@ class MonthlyOutlays( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'MonthlyOutlays'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11337,12 +11337,12 @@ class MonthlyOutlays( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'MonthlyOutlays'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11487,12 +11487,12 @@ class NationalPrograms( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'NationalProgram'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11614,12 +11614,12 @@ class Objectives( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Objective'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11976,12 +11976,12 @@ class ObjectClassOutlays( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'ObjectClassOutlays'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -12349,12 +12349,12 @@ class OperatingPlans( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'OperatingPlan'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -12959,12 +12959,12 @@ class OpenCommitments( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'OpenCommitment'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -13567,12 +13567,12 @@ class Obligations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Obligations'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -14344,12 +14344,12 @@ class PayrollActivity( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'PayrollActivity'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -14469,12 +14469,12 @@ class Projects( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Project'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -14595,12 +14595,12 @@ class ProgramAreas( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ProgramArea'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15388,7 +15388,7 @@ class ProgramResultsCode( ):
             values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
                        self.__ahcode, self.__accountcode, self.__boccode, self.__amount )
             db = DataBuilder( provider, source, command, names, values )
-            self.__data = db.createtable( )
+            self.__data = db.create_table( )
             return self.__data
         except Exception as e:
             exc = Error( e )
@@ -15404,12 +15404,12 @@ class ProgramResultsCode( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ProgramResultsCode'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15523,7 +15523,7 @@ class ResponsibilityCenters( ):
             names = [ 'Code', ]
             values = ( self.__fundcode,)
             df = DataBuilder( provider, source, command, names, values )
-            self.__data = df.createtable( )
+            self.__data = df.create_table( )
             return self.__data
         except Exception as e:
             exc = Error( e )
@@ -15539,12 +15539,12 @@ class ResponsibilityCenters( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ResponsibilityCenter'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15665,12 +15665,12 @@ class ResourcePlanningOffices( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ResourcePlanningOffice'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15916,12 +15916,12 @@ class ReimbursableSurvey( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'ReimbursableSurvey'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -16195,12 +16195,12 @@ class ReimbursableAgreements( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'ObjectClassOutlays'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -16667,12 +16667,12 @@ class RegionalAuthority( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'RegionalAuthority'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -17150,12 +17150,12 @@ class StatusOfFunds( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'StatusOfFunds'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -17638,12 +17638,12 @@ class StatusOfSupplementalFunding( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'StatusOfSupplementalFunding'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -17933,12 +17933,12 @@ class StateGrantObligations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'StateGrantObligations'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18275,12 +18275,12 @@ class SpecialAccounts( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'SpecialAccounts'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18462,12 +18462,12 @@ class SuperfundSites( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'SuperfundSites'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18509,22 +18509,22 @@ class SiteProjectCodes( ):
             self.__ssid = value
 
     @property
-    def actioncode( self ):
+    def action_code( self ):
         if isinstance( self.__actioncode, str ):
             return self.__actioncode
 
-    @actioncode.setter
-    def actioncode( self, value ):
+    @action_code.setter
+    def action_code( self, value ):
         if isinstance( self.__actioncode, str ) and self.__actioncode != '':
             self.__actioncode = value
 
     @property
-    def operableunit( self ):
+    def operable_unit( self ):
         if isinstance( self.__operableunit, str ) and self.__operableunit != '':
             return self.__operableunit
 
-    @operableunit.setter
-    def operableunit( self, value ):
+    @operable_unit.setter
+    def operable_unit( self, value ):
         if value is not None:
             self.__operableunit =  value
 
@@ -18632,12 +18632,12 @@ class SiteProjectCodes( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'SiteProject'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18777,12 +18777,12 @@ class SubAppropriations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Appropriation'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18900,12 +18900,12 @@ class SiteProjectCodes( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'SiteProjectCode'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -19021,12 +19021,12 @@ class StateOrganizations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'StateOrganization'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -19731,12 +19731,12 @@ class StatusOfAppropriations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'StatusOfAppropriations'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -20115,7 +20115,7 @@ class SpendingRates( ):
             names = [ 'OmbAccountCode', ]
             values = ( self.__budgetaccountcode, )
             data = DataBuilder( provider, source, command, names, values )
-            self.__data = data.createtable( )
+            self.__data = data.create_table( )
             return self.__data
         except Exception as e:
             exc = Error( e )
@@ -20131,12 +20131,12 @@ class SpendingRates( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'SpendingRates'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -21989,12 +21989,12 @@ class SiteActivity( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'SiteActivity'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -22598,12 +22598,12 @@ class SpendingDocument( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Obligations'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -22763,12 +22763,12 @@ class TreasurySymbols( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'TreasurySymbol'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -23149,12 +23149,12 @@ class Transfers( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Transfer'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -23439,12 +23439,12 @@ class UnobligatedAuthority( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'UnobligatedAuthority'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -23617,12 +23617,12 @@ class UnobligatedBalances( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'UnobligatedBalances'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -24147,12 +24147,12 @@ class UnliquidatedObligations( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'UnliquidatedObligations'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -24272,12 +24272,12 @@ class WorkCodes( ):
         try:
             src = self.__source
             data = BudgetData( src )
-            return data.getframe( )
+            return data.get_frame( )
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'WorkCode'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 

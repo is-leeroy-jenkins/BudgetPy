@@ -322,7 +322,7 @@ class SqlFile( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlFile'
-            exc.method = 'getpath( self )'
+            exc.method = 'get_path( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -375,7 +375,7 @@ class SqlFile( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlFile'
-            exc.method = 'getquery( self, other )'
+            exc.method = 'get_query( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -484,10 +484,10 @@ class DbConfig( ):
         if isinstance( self.__table, str ):
             return self.__table
 
-    def getdriver( self ):
+    def get_driver( self ):
         try:
             if self.__provider.name == 'SQLite':
-                return self.getpath( )
+                return self.get_path( )
             elif self.__provider.name == 'Access':
                 return self.__accessdriver
             elif self.__provider.name == 'SqlServer':
@@ -497,11 +497,11 @@ class DbConfig( ):
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
-            exc.method = 'getdriver( self )'
+            exc.method = 'get_driver( self )'
             error = ErrorDialog( exc )
             error.show( )
 
-    def getpath( self ):
+    def get_path( self ):
         try:
             if self.__provider.name == 'SQLite':
                 return self.__sqlitepath
@@ -514,15 +514,15 @@ class DbConfig( ):
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
-            exc.method = 'getpath( self )'
+            exc.method = 'get_path( self )'
             error = ErrorDialog( exc )
             error.show( )
 
-    def getconnectionstring( self ):
+    def get_connectionstring( self ):
         try:
-            path = self.getpath( )
+            path = self.get_path( )
             if self.__provider.name == Provider.Access.name:
-                return self.getdriver( ) + path
+                return self.get_driver( ) + path
             elif self.__provider.name == Provider.SqlServer.name:
                 return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' + f'AttachDBFileName={ path }' \
                        + f'DATABASE={ path }Trusted_Connection=yes;'
@@ -531,7 +531,7 @@ class DbConfig( ):
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
-            exc.method = 'getconnectionstring( self )'
+            exc.method = 'get_connectionstring( self )'
             error = ErrorDialog( exc )
             error.show( )
 
@@ -579,10 +579,10 @@ class Connection( DbConfig ):
         super( ).__init__( source, provider )
         self.__source = super( ).source
         self.__provider = super( ).provider
-        self.__path = super( ).getpath( )
-        self.__driver = super( ).getdriver( )
+        self.__path = super( ).get_path( )
+        self.__driver = super( ).get_driver( )
         self.__dsn = super( ).table + ';' if provider == Provider.SQLite else None
-        self.__connectionstring = super( ).getconnectionstring( )
+        self.__connectionstring = super( ).get_connectionstring( )
 
     def connect( self ):
         try:
@@ -646,26 +646,26 @@ class SqlConfig( ):
             self.__values = value
 
     @property
-    def paramstyle( self ):
-        ''' Property representing the DBI paramstyle'''
+    def param_style( self ):
+        ''' Property representing the DBI param_style'''
         if self.__paramstyle is not None:
             return self.__paramstyle
 
-    @paramstyle.setter
-    def paramstyle( self, value ):
-        ''' Property representing the DBI paramstyle attribute'''
+    @param_style.setter
+    def param_style( self, value ):
+        ''' Property representing the DBI param_style attribute'''
         if value is not None:
             self.__paramstyle = value
         else:
             self.__paramstyle = ParamStyle.qmark
 
     @property
-    def keyvaluepairs( self ):
+    def key_value_pairs( self ):
         if self.__kvp is not None:
             return self.__kvp
 
-    @keyvaluepairs.setter
-    def keyvaluepairs( self, value ):
+    @key_value_pairs.setter
+    def key_value_pairs( self, value ):
         if value is not None:
             self.__kvp = value
 
@@ -677,7 +677,7 @@ class SqlConfig( ):
         self.__kvp = dict( zip( names, list( values ) ) ) \
             if isinstance( names, list ) and isinstance( values, tuple ) else None
 
-    def kvpdump( self ) -> str:
+    def kvp_dump( self ) -> str:
         '''dump( ) returns string of 'values = index AND' pairs'''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
@@ -691,12 +691,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'kvpdump( self )'
+            exc.method = 'kvp_dump( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def wheredump( self ) -> str:
-        '''wheredump( ) returns a string
+    def where_dump( self ) -> str:
+        '''where_dump( ) returns a string
         using list arguments names and values'''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
@@ -710,12 +710,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'wheredump( self )'
+            exc.method = 'where_dump( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def setdump( self ) -> str:
-        '''setdump( ) returns a string
+    def set_dump( self ) -> str:
+        '''set_dump( ) returns a string
         using list arguments names and values'''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
@@ -729,12 +729,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'setdump( self )'
+            exc.method = 'set_dump( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def columndump( self ) -> str:
-        '''columndump( ) returns a string of columns
+    def column_dump( self ) -> str:
+        '''column_dump( ) returns a string of columns
         used in select and insert statements from list self.__names'''
         try:
             if self.__names is not None:
@@ -747,12 +747,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'columndump( self )'
+            exc.method = 'column_dump( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def valuedump( self ) -> str:
-        '''valuedump( ) returns a string of values
+    def value_dump( self ) -> str:
+        '''value_dump( ) returns a string of values
         used in select statements from list self.__names'''
         try:
             if self.__values is not None:
@@ -765,12 +765,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'valuedump( self )'
+            exc.method = 'value_dump( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# SqlStatement( dbconfig,  sqlcfg )
+# SqlStatement( db_config,  sqlcfg )
 class SqlStatement( ):
     '''SqlStatement( dbcfg, sqlcfg ) Class
     represents the values models used in the SQLite database'''
@@ -785,23 +785,23 @@ class SqlStatement( ):
     __text = None
 
     @property
-    def dataconfig( self ):
+    def data_config( self ):
         if isinstance( self.__dbcfg, DbConfig ):
             return self.__dbcfg
 
-    @dataconfig.setter
-    def dataconfig( self, value ):
+    @data_config.setter
+    def data_config( self, value ):
         if isinstance( value, DbConfig ):
             self.__dbcfg = value
 
     @property
-    def sqlconfig( self ):
+    def sql_config( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlcfg, SqlConfig ):
             return self.__sqlcfg
 
-    @sqlconfig.setter
-    def sqlconfig( self, value ):
+    @sql_config.setter
+    def sql_config( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
         if isinstance( value, SqlConfig ):
             self.__sqlcfg = value
@@ -837,12 +837,12 @@ class SqlStatement( ):
             self.__path = value
 
     @property
-    def commandtype( self ):
+    def command_type( self ):
         if self.__cmdtyp is not None:
             return self.__cmdtyp
 
-    @commandtype.setter
-    def commandtype( self, value ):
+    @command_type.setter
+    def command_type( self, value ):
         if value is not None:
             self.__cmdtyp = value
         else:
@@ -880,12 +880,12 @@ class SqlStatement( ):
             self.__values = value
 
     @property
-    def commandtext( self ):
+    def command_text( self ):
         if self.__text is not None:
             return self.__text
 
-    @commandtext.setter
-    def commandtext( self, value ):
+    @command_text.setter
+    def command_text( self, value ):
         if value != '':
             self.__text = value
 
@@ -898,18 +898,18 @@ class SqlStatement( ):
         self.__table = dbcfg.table
         self.__names = sqlcfg.names
         self.__values = sqlcfg.values
-        self.__text = self.getquery( )
+        self.__text = self.get_query( )
 
     def __str__( self ):
         if isinstance( self.__text, str ) and self.__text != '':
             return self.__text
 
-    def getquery( self ) -> str:
+    def get_query( self ) -> str:
         try:
             table = self.__table
-            columns = self.__sqlcfg.columndump( )
-            values = self.__sqlcfg.valuedump( )
-            predicate = self.__sqlcfg.wheredump( )
+            columns = self.__sqlcfg.column_dump( )
+            values = self.__sqlcfg.value_dump( )
+            predicate = self.__sqlcfg.where_dump( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__cmdtyp == SQL.SELECTALL:
                     if len( self.__names ) == 0:
@@ -929,7 +929,7 @@ class SqlStatement( ):
                     self.__text = f'INSERT INTO { table } ' + f'{ columns } ' + f'{ values }'
                     return self.__text
                 elif self.__cmdtyp == SQL.UPDATE:
-                    self.__text = f'UPDATE { table } ' + f'{ self.__sqlcfg.setdump( ) } ' + f'{ values }'
+                    self.__text = f'UPDATE { table } ' + f'{ self.__sqlcfg.set_dump( ) } ' + f'{ values }'
                     return self.__text
                 elif self.__cmdtyp == SQL.DELETE:
                     self.__text = f'DELETE FROM { table } ' + f' {predicate }'
@@ -956,7 +956,7 @@ class SqlStatement( ):
             err.show( )
 
 
-# Query( connection, sqlstatement )
+# Query( connection, sql_statement )
 class Query( ):
     '''Base class for database interaction'''
     __cnx = None
@@ -1015,25 +1015,25 @@ class Query( ):
             self.__cnx = value
 
     @property
-    def sqlstatement( self ):
+    def sql_statement( self ):
         if isinstance( self.__sql, SqlStatement ):
             return self.__sql
 
-    @sqlstatement.setter
-    def sqlstatement( self, value ):
+    @sql_statement.setter
+    def sql_statement( self, value ):
         if isinstance( value, SqlStatement ):
             self.__sql = value
 
     @property
-    def commandtype( self ):
+    def command_type( self ):
         if self.__cmdtype is not None:
             return self.__cmdtype
         if self.__cmdtype is None:
             cmd = SQL( 'SELECT' )
             return cmd
 
-    @commandtype.setter
-    def commandtype( self, value ):
+    @command_type.setter
+    def command_type( self, value ):
         if isinstance( value, SQL ):
             self.__cmdtype = value
 
@@ -1068,46 +1068,46 @@ class Query( ):
             self.__values = value
 
     @property
-    def commandtext( self ):
+    def command_text( self ):
         if isinstance( self.__text, str ) and self.__text != '':
             return self.__text
 
-    @commandtext.setter
-    def commandtext( self, value ):
+    @command_text.setter
+    def command_text( self, value ):
         if value != '':
             self.__text = value
 
     @property
-    def connectionstring( self ):
+    def connection_string( self ):
         if isinstance( self.__connectionstring, str ):
             return self.__connectionstring
 
-    @connectionstring.setter
-    def connectionstring( self, value ):
+    @connection_string.setter
+    def connection_string( self, value ):
         if isinstance( value, str ):
             self.__connectionstring = str( value )
 
     def __init__( self, connection, sqlstatement ):
         self.__cnx = connection if isinstance( connection, Connection ) else None
         self.__sql = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__sqlcfg = sqlstatement.sqlconfig
+        self.__sqlcfg = sqlstatement.sql_config
         self.__source = connection.source
         self.__provider = connection.provider
-        self.__cmdtype = sqlstatement.commandtype
+        self.__cmdtype = sqlstatement.command_type
         self.__path = connection.path
         self.__connectionstring = connection.connectionstring
-        self.__text = sqlstatement.getquery( )
+        self.__text = sqlstatement.get_query( )
 
     def __str__( self ):
         if isinstance( self.__text, str ) and self.__text != '':
             return self.__text
 
-    def getquery( self ):
+    def get_query( self ):
         try:
             table = self.__table
-            columns = self.__sqlcfg.columndump( )
-            values = self.__sqlcfg.valuedump( )
-            predicate = self.__sqlcfg.wheredump( )
+            columns = self.__sqlcfg.column_dump( )
+            values = self.__sqlcfg.value_dump( )
+            predicate = self.__sqlcfg.where_dump( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__cmdtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
@@ -1127,7 +1127,7 @@ class Query( ):
                     self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__text
                 elif self.__cmdtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{self.__sqlcfg.setdump( )} ' + f'{values}'
+                    self.__text = f'UPDATE {table} ' + f'{self.__sqlcfg.set_dump( )} ' + f'{values}'
                     return self.__text
                 elif self.__cmdtype == SQL.DELETE:
                     self.__text = f'DELETE FROM {table} ' + f'{predicate}'
@@ -1154,7 +1154,7 @@ class Query( ):
             err.show( )
 
 
-# SQLiteData( connection, sqlstatement )
+# SQLiteData( connection, sql_statement )
 class SQLiteData( Query ):
     '''SQLiteData( value, sqlcfg ) represents
      the budget execution values classes'''
@@ -1209,17 +1209,17 @@ class SQLiteData( Query ):
         super( ).__init__( connection, sqlstatement )
         self.__provider = Provider.SQLite
         self.__connection = super( ).connection
-        self.__sqlstatement = super( ).sqlstatement
+        self.__sqlstatement = super( ).sql_statement
         self.__source = super( ).source
         self.__table = super( ).source.name
         self.__driver = super( ).connection.driver
-        self.__query = super( ).sqlstatement.getquery( )
+        self.__query = super( ).sql_statement.get_query( )
 
     def __str__( self ):
         if isinstance( self.__query, str ) and self.__query != '':
             return self.__query
 
-    def createtable( self ) -> list[ tuple ]:
+    def create_table( self ) -> list[ tuple ]:
         try:
             query = self.__query
             sqlite = self.__connection.connect( )
@@ -1234,11 +1234,11 @@ class SQLiteData( Query ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SQLiteData'
-            exc.method = 'createtable( self )'
+            exc.method = 'create_table( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def createframe( self ) -> DataFrame:
+    def create_frame( self ) -> DataFrame:
         try:
             query = f'SELECT * FROM {self.__source.name}'
             connection = self.__connection.connect( )
@@ -1249,12 +1249,12 @@ class SQLiteData( Query ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SQLiteData'
-            exc.method = 'createframe( self )'
+            exc.method = 'create_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# AccessData( connection, sqlstatement )
+# AccessData( connection, sql_statement )
 class AccessData( Query ):
     '''AccessData( value, sqlcfg ) class
       represents the budget execution
@@ -1310,8 +1310,8 @@ class AccessData( Query ):
         self.__source = super( ).source
         self.__provider = Provider.Access
         self.__connection = super( ).connection
-        self.__sqlstatement = super( ).sqlstatement
-        self.__query = sqlstatement.getquery( )
+        self.__sqlstatement = super( ).sql_statement
+        self.__query = sqlstatement.get_query( )
         self.__table = super( ).table
         self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
@@ -1320,7 +1320,7 @@ class AccessData( Query ):
         if isinstance( self.__query, str ) and self.__query != '':
             return self.__query
 
-    def createtable( self ) -> list[ tuple ]:
+    def create_table( self ) -> list[ tuple ]:
         try:
             query = self.__query
             access = self.__connection.connect( )
@@ -1335,11 +1335,11 @@ class AccessData( Query ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'AccessData'
-            exc.method = 'createtable( self )'
+            exc.method = 'create_table( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def createframe( self ) -> DataFrame:
+    def create_frame( self ) -> DataFrame:
         try:
             query = self.__query
             connection = self.__connection.connect( )
@@ -1350,12 +1350,12 @@ class AccessData( Query ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'AccessData'
-            exc.method = 'createframe( self )'
+            exc.method = 'create_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# SqlData( connection, sqlstatement )
+# SqlData( connection, sql_statement )
 class SqlData( Query ):
     '''SqlData( value, sqlcfg ) object
     represents the values models in the MS SQL Server
@@ -1413,7 +1413,7 @@ class SqlData( Query ):
         self.__connection = connection
         self.__source = connection.source
         self.__sqlstatement = sqlstatement
-        self.__query = sqlstatement.getquery( )
+        self.__query = sqlstatement.get_query( )
         self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{ SQL Server Native Client 11.0 };'
@@ -1422,7 +1422,7 @@ class SqlData( Query ):
         if isinstance( self.__query, str ) and self.__query != '':
             return self.__query
 
-    def createtable( self ) -> list[ tuple ]:
+    def create_table( self ) -> list[ tuple ]:
         try:
             query = self.__query
             conection = self.__connection.connect( )
@@ -1437,11 +1437,11 @@ class SqlData( Query ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlData'
-            exc.method = 'createtable( self )'
+            exc.method = 'create_table( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def createframe( self ) -> DataFrame:
+    def create_frame( self ) -> DataFrame:
         try:
             query = f'SELECT * FROM {self.__table}'
             connection = self.__connection.connect( )
@@ -1452,7 +1452,7 @@ class SqlData( Query ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlData'
-            exc.method = 'createframe( self )'
+            exc.method = 'create_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1536,23 +1536,23 @@ class DataBuilder( ):
             self.__values = value
 
     @property
-    def dbconfig( self ):
+    def db_config( self ):
         if isinstance( self.__dbcfg, DbConfig ):
             return self.__dbcfg
 
-    @dbconfig.setter
-    def dbconfig( self, value ):
+    @db_config.setter
+    def db_config( self, value ):
         if isinstance( value, DbConfig ):
             self.__dbcfg = value
 
     @property
-    def sqlconfig( self ):
+    def sql_config( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlcfg, SqlConfig ):
             return self.__sqlcfg
 
-    @sqlconfig.setter
-    def sqlconfig( self, value ):
+    @sql_config.setter
+    def sql_config( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
         if isinstance( value, SqlConfig ):
             self.__sqlcfg = value
@@ -1569,7 +1569,7 @@ class DataBuilder( ):
         self.__sqlcfg = SqlConfig( self.__cmdtyp, self.__names, self.__values )
         self.__sql = SqlStatement( self.__dbcfg, self.__sqlcfg )
 
-    def createtable( self ) -> list[ tuple ]:
+    def create_table( self ) -> list[ tuple ]:
         try:
             if self.__provider == Provider.SQLite:
                 sqlite = SQLiteData( self.__cnx, self.__sql )
@@ -1591,7 +1591,7 @@ class DataBuilder( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'DataBuilder'
-            exc.method = 'createtable( self )'
+            exc.method = 'create_table( self )'
             error = ErrorDialog( exc )
             error.show( )
 
@@ -1714,7 +1714,7 @@ class DataColumn( ):
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
-    def isnumeric( self ):
+    def is_numeric( self ):
         '''Method used to return a boolean value indicating whether
         the data column contains numeric data'''
         try:
@@ -1726,11 +1726,11 @@ class DataColumn( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'DataColumn'
-            exc.method = 'isnumeric( self )'
+            exc.method = 'is_numeric( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def istext( self ):
+    def is_text( self ):
         '''Method used to return a boolean value indicating
         whether the data column contains text data'''
         try:
@@ -1742,7 +1742,7 @@ class DataColumn( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'DataColumn'
-            exc.method = 'istext( self )'
+            exc.method = 'is_text( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -2035,10 +2035,10 @@ class BudgetData( ):
     def __init__( self, source ):
         self.__source = source if isinstance( source, Source ) else None
         self.__name = source.name
-        self.__path = DbConfig( source, Provider.SQLite ).getpath( )
+        self.__path = DbConfig( source, Provider.SQLite ).get_path( )
         self.__sql = f'SELECT * FROM {source.name};'
 
-    def getframe( self ):
+    def get_frame( self ):
         '''Facotry method that returns a pandas DataFrame object
         based on the Source input arguement 'source' given to the constructor'''
         try:
@@ -2053,6 +2053,6 @@ class BudgetData( ):
             exc = Error( e )
             exc.module = 'Booger'
             exc.cause = 'BudgetData'
-            exc.method = 'getframe( self )'
+            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
