@@ -26,7 +26,7 @@ class Pascal( ):
 
     @property
     def output( self ):
-        if  self.__output is not None and self.__output != '':
+        if self.__output is not None and self.__output != '':
             return self.__output
 
     @output.setter
@@ -114,7 +114,6 @@ class Pascal( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 class SqlPath( ):
     '''class providing relative paths to the folders containing sql files and
     driver paths used in the application'''
@@ -199,12 +198,11 @@ class SqlPath( ):
 
     def __init__( self ):
         self.__sqlitedriver = 'sqlite3'
-        self.__sqlitedata =  r'db\sqlite\datamodels\sql'
+        self.__sqlitedata = r'db\sqlite\datamodels\sql'
         self.__accessdriver = r'DRIVER={Microsoft ACCDB Driver (*.mdb, *.accdb)};DBQ='
         self.__accessdata = r'db\access\datamodels\sql'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
         self.__sqldata = r'db\mssql\datamodels\sql'
-
 
 # SqlFile( source = None, provider = None, command = None  )
 class SqlFile( ):
@@ -237,7 +235,7 @@ class SqlFile( ):
 
     @property
     def command( self ):
-        if  self.__command is not None:
+        if self.__command is not None:
             return self.__command
 
     @command.setter
@@ -247,48 +245,48 @@ class SqlFile( ):
 
     def __init__( self, source = None, provider = None,
                   command = None ):
-        self.__data  = [ 'Actuals', 'AdministrativeRequests', 'Allocations',
-            'AmericanRescuePlan', 'AnnualCarryoverEstimates', 'AnnualCarryoverSurvey',
-            'AnnualReimbursableEstimates', 'AnnualReimbursableSurvey', 'ApplicationTables',
-            'AppropriationAvailableBalances', 'AppropriationDocuments', 'AppropriationLevelAuthority',
-            'BudgetDocuments', 'CarryoverApportionments', 'CarryoverRequests',
-            'Changes', 'CompassLevels', 'CompassOutlays',
-            'CongressionalReprogrammings', 'Contacts', 'Defactos',
-            'DeobligationActivity', 'Deobligations', 'DocumentControlNumbers',
-            'Earmarks', 'Expenditures', 'PayPeriods',
-            'PayrollActivity', 'PayrollAuthority','PayrollCostCodes',
-            'PayrollRequests', 'PRC', 'ProjectCostCodes',
-            'QueryDefinitions', 'RegionalAuthority', 'ReimbursableAgreements',
-            'ReimbursableFunds','Reports','Reprogrammings',
-            'GrossAuthority',   'GrossUtilization', 'HeadquartersAuthority',
-            'HumanResourceOrganizations', 'JobsActCarryoverEstimates',  'MonthlyLedgerAccountBalances',
-            'NetAuthority', 'ObligationActivity', 'Obligations',
-            'OpenCommitments', 'SiteActivity', 'SiteProjectCodes',
-            'SpecialAccounts', 'StateGrantObligations', 'StatusOfAppropriations',
-            'StatusOfBudgetaryResources', 'StatusOfEarmarks', 'StatusOfFunds',
-            'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-            'SupplementalCarryoverEstimates',  'SupplementalReimburseableEstimates', 'TransferActivity',
-            'Transfers', 'UnliquidatedObligations', 'UnobligatedBalances',
-            'AccountingEvents', 'Accounts', 'ActivityCodes',
-            'AllowanceHolders', 'ApportionmentData', 'Appropriations',
-            'BudgetaryResourceExecution', 'BudgetControls', 'BudgetObjectClasses',
-            'BudgetOutlays', 'CapitalPlanningInvestmentCodes', 'CarryoverOutlays',
-            'CongressionalControls', 'CostAreas', 'DataRuleDescriptions',
-            'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-            'FiscalYears', 'FiscalYearsBackUp', 'FundCategories',
-            'Funds', 'FundSymbols', 'GeneralLedgerAccounts',
-            'Goals', 'GrowthRates', 'GsPayScales',
-            'HeadquartersOffices', 'Images', 'InfrastructureAccounts',
-            'Messages', 'MonthlyOutlays', 'NationalPrograms',
-            'ObjectClassOutlays', 'Objectives', 'OperatingPlans',
-            'OperatingPlanUpdates', 'Organizations', 'ProgramAreas',
-            'ProgramFinancingSchedule', 'ProgramProjectDescriptions', 'ProgramProjects',
-            'Projects', 'Providers', 'PublicLaws',
-            'RecoveryAct', 'ReferenceTables', 'RegionalOffices',
-            'ResourcePlanningOffices', 'Resources', 'ResponsibilityCenters',
-            'SchemaTypes', 'SpendingRates', 'StateOrganizations',
-            'SubAppropriations', 'TransTypes', 'UnobligatedAuthority',
-            'URL', 'WorkCodes' ]
+        self.__data = [ 'Actuals', 'AdministrativeRequests', 'Allocations',
+                        'AmericanRescuePlan', 'AnnualCarryoverEstimates', 'AnnualCarryoverSurvey',
+                        'AnnualReimbursableEstimates', 'AnnualReimbursableSurvey', 'ApplicationTables',
+                        'AppropriationAvailableBalances', 'AppropriationDocuments', 'AppropriationLevelAuthority',
+                        'BudgetDocuments', 'CarryoverApportionments', 'CarryoverRequests',
+                        'Changes', 'CompassLevels', 'CompassOutlays',
+                        'CongressionalReprogrammings', 'Contacts', 'Defactos',
+                        'DeobligationActivity', 'Deobligations', 'DocumentControlNumbers',
+                        'Earmarks', 'Expenditures', 'PayPeriods',
+                        'PayrollActivity', 'PayrollAuthority', 'PayrollCostCodes',
+                        'PayrollRequests', 'PRC', 'ProjectCostCodes',
+                        'QueryDefinitions', 'RegionalAuthority', 'ReimbursableAgreements',
+                        'ReimbursableFunds', 'Reports', 'Reprogrammings',
+                        'GrossAuthority', 'GrossUtilization', 'HeadquartersAuthority',
+                        'HumanResourceOrganizations', 'JobsActCarryoverEstimates', 'MonthlyLedgerAccountBalances',
+                        'NetAuthority', 'ObligationActivity', 'Obligations',
+                        'OpenCommitments', 'SiteActivity', 'SiteProjectCodes',
+                        'SpecialAccounts', 'StateGrantObligations', 'StatusOfAppropriations',
+                        'StatusOfBudgetaryResources', 'StatusOfEarmarks', 'StatusOfFunds',
+                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                        'SupplementalCarryoverEstimates', 'SupplementalReimburseableEstimates', 'TransferActivity',
+                        'Transfers', 'UnliquidatedObligations', 'UnobligatedBalances',
+                        'AccountingEvents', 'Accounts', 'ActivityCodes',
+                        'AllowanceHolders', 'ApportionmentData', 'Appropriations',
+                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetObjectClasses',
+                        'BudgetOutlays', 'CapitalPlanningInvestmentCodes', 'CarryoverOutlays',
+                        'CongressionalControls', 'CostAreas', 'DataRuleDescriptions',
+                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                        'FiscalYears', 'FiscalYearsBackUp', 'FundCategories',
+                        'Funds', 'FundSymbols', 'GeneralLedgerAccounts',
+                        'Goals', 'GrowthRates', 'GsPayScales',
+                        'HeadquartersOffices', 'Images', 'InfrastructureAccounts',
+                        'Messages', 'MonthlyOutlays', 'NationalPrograms',
+                        'ObjectClassOutlays', 'Objectives', 'OperatingPlans',
+                        'OperatingPlanUpdates', 'Organizations', 'ProgramAreas',
+                        'ProgramFinancingSchedule', 'ProgramProjectDescriptions', 'ProgramProjects',
+                        'Projects', 'Providers', 'PublicLaws',
+                        'RecoveryAct', 'ReferenceTables', 'RegionalOffices',
+                        'ResourcePlanningOffices', 'Resources', 'ResponsibilityCenters',
+                        'SchemaTypes', 'SpendingRates', 'StateOrganizations',
+                        'SubAppropriations', 'TransTypes', 'UnobligatedAuthority',
+                        'URL', 'WorkCodes' ]
         self.__command = command if command is not None else SQL.SELECTALL
         self.__source = source if source is not None else Source.StatusOfFunds
         self.__provider = provider if provider is not None else Provider.SQLite
@@ -307,16 +305,16 @@ class SqlFile( ):
             current = os.getcwd( )
             path = ''
             if provider == 'SQLite' and source in data:
-                path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
+                path = f'{sqlpath.sqlitedata}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
             elif provider == 'ACCDB' and source in data:
-                path = f'{ sqlpath.accessdata }\\{ command }\\{ source }.sql'
+                path = f'{sqlpath.accessdata}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
             elif provider == 'SqlServer' and source in data:
-                path = f'{ sqlpath.sqldata }\\{ command }\\{ source }.sql'
+                path = f'{sqlpath.sqldata}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
             else:
-                path = f'{ sqlpath.sqlitedata }\\{ command }\\{ source }.sql'
+                path = f'{sqlpath.sqlitedata}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
         except Exception as e:
             exc = Error( e )
@@ -338,16 +336,16 @@ class SqlFile( ):
             current = os.getcwd( )
             folder = ''
             if provider == 'SQLite' and source in data:
-                folder = f'{ sqlpath.sqlitedata }\\{ command }'
+                folder = f'{sqlpath.sqlitedata}\\{command}'
                 return os.path.join( current, folder )
             elif provider == 'ACCDB' and source in data:
-                folder = f'{ sqlpath.accessdata }\\{ command }'
+                folder = f'{sqlpath.accessdata}\\{command}'
                 return os.path.join( current, folder )
             elif provider == 'SqlServer' and source in data:
-                folder = f'{ sqlpath.sqldata }\\{ command }'
+                folder = f'{sqlpath.sqldata}\\{command}'
                 return os.path.join( current, folder )
             else:
-                folder = f'{ sqlpath.sqlitedata }\\{ command }'
+                folder = f'{sqlpath.sqlitedata}\\{command}'
                 return os.path.join( current, folder )
         except Exception as e:
             exc = Error( e )
@@ -378,7 +376,6 @@ class SqlFile( ):
             exc.method = 'get_query( self, other )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # DbConfig( source, provider = Provider.SQLite )
 class DbConfig( ):
@@ -438,47 +435,47 @@ class DbConfig( ):
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
         self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
         self.__data = [ 'Actuals', 'AdministrativeRequests', 'Allocations',
-            'AmericanRescuePlan', 'AnnualCarryoverEstimates', 'AnnualCarryoverSurvey',
-            'AnnualReimbursableEstimates', 'AnnualReimbursableSurvey', 'ApplicationTables',
-            'AppropriationAvailableBalances', 'AppropriationDocuments', 'AppropriationLevelAuthority',
-            'BudgetDocuments', 'CarryoverApportionments', 'CarryoverRequests',
-            'Changes', 'CompassLevels', 'CompassOutlays',
-            'CongressionalReprogrammings', 'Contacts', 'Defactos',
-            'DeobligationActivity', 'Deobligations', 'DocumentControlNumbers',
-            'Earmarks', 'Expenditures', 'PayPeriods',
-            'PayrollActivity', 'PayrollAuthority','PayrollCostCodes',
-            'PayrollRequests', 'PRC', 'ProjectCostCodes',
-            'QueryDefinitions', 'RegionalAuthority', 'ReimbursableAgreements',
-            'ReimbursableFunds','Reports','Reprogrammings',
-            'GrossAuthority',   'GrossUtilization', 'HeadquartersAuthority',
-            'HumanResourceOrganizations', 'JobsActCarryoverEstimates',  'MonthlyLedgerAccountBalances',
-            'NetAuthority', 'ObligationActivity', 'Obligations',
-            'OpenCommitments', 'SiteActivity', 'SiteProjectCodes',
-            'SpecialAccounts', 'StateGrantObligations', 'StatusOfAppropriations',
-            'StatusOfBudgetaryResources', 'StatusOfEarmarks', 'StatusOfFunds',
-            'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
-            'SupplementalCarryoverEstimates',  'SupplementalReimburseableEstimates', 'TransferActivity',
-            'Transfers', 'UnliquidatedObligations', 'UnobligatedBalances',
-            'AccountingEvents', 'Accounts', 'ActivityCodes',
-            'AllowanceHolders', 'ApportionmentData', 'Appropriations',
-            'BudgetaryResourceExecution', 'BudgetControls', 'BudgetObjectClasses',
-            'BudgetOutlays', 'CapitalPlanningInvestmentCodes', 'CarryoverOutlays',
-            'CongressionalControls', 'CostAreas', 'DataRuleDescriptions',
-            'Documents', 'FederalHolidays', 'FinanceObjectClasses',
-            'FiscalYears', 'FiscalYearsBackUp', 'FundCategories',
-            'Funds', 'FundSymbols', 'GeneralLedgerAccounts',
-            'Goals', 'GrowthRates', 'GsPayScales',
-            'HeadquartersOffices', 'Images', 'InfrastructureAccounts',
-            'Messages', 'MonthlyOutlays', 'NationalPrograms',
-            'ObjectClassOutlays', 'Objectives', 'OperatingPlans',
-            'OperatingPlanUpdates', 'Organizations', 'ProgramAreas',
-            'ProgramFinancingSchedule', 'ProgramProjectDescriptions', 'ProgramProjects',
-            'Projects', 'Providers', 'PublicLaws',
-            'RecoveryAct', 'ReferenceTables', 'RegionalOffices',
-            'ResourcePlanningOffices', 'Resources', 'ResponsibilityCenters',
-            'SchemaTypes', 'SpendingRates', 'StateOrganizations',
-            'SubAppropriations', 'TransTypes', 'UnobligatedAuthority',
-            'URL', 'WorkCodes' ]
+                        'AmericanRescuePlan', 'AnnualCarryoverEstimates', 'AnnualCarryoverSurvey',
+                        'AnnualReimbursableEstimates', 'AnnualReimbursableSurvey', 'ApplicationTables',
+                        'AppropriationAvailableBalances', 'AppropriationDocuments', 'AppropriationLevelAuthority',
+                        'BudgetDocuments', 'CarryoverApportionments', 'CarryoverRequests',
+                        'Changes', 'CompassLevels', 'CompassOutlays',
+                        'CongressionalReprogrammings', 'Contacts', 'Defactos',
+                        'DeobligationActivity', 'Deobligations', 'DocumentControlNumbers',
+                        'Earmarks', 'Expenditures', 'PayPeriods',
+                        'PayrollActivity', 'PayrollAuthority', 'PayrollCostCodes',
+                        'PayrollRequests', 'PRC', 'ProjectCostCodes',
+                        'QueryDefinitions', 'RegionalAuthority', 'ReimbursableAgreements',
+                        'ReimbursableFunds', 'Reports', 'Reprogrammings',
+                        'GrossAuthority', 'GrossUtilization', 'HeadquartersAuthority',
+                        'HumanResourceOrganizations', 'JobsActCarryoverEstimates', 'MonthlyLedgerAccountBalances',
+                        'NetAuthority', 'ObligationActivity', 'Obligations',
+                        'OpenCommitments', 'SiteActivity', 'SiteProjectCodes',
+                        'SpecialAccounts', 'StateGrantObligations', 'StatusOfAppropriations',
+                        'StatusOfBudgetaryResources', 'StatusOfEarmarks', 'StatusOfFunds',
+                        'StatusOfJobsActFunding', 'StatusOfSupplementalFunding', 'SuperfundSites',
+                        'SupplementalCarryoverEstimates', 'SupplementalReimburseableEstimates', 'TransferActivity',
+                        'Transfers', 'UnliquidatedObligations', 'UnobligatedBalances',
+                        'AccountingEvents', 'Accounts', 'ActivityCodes',
+                        'AllowanceHolders', 'ApportionmentData', 'Appropriations',
+                        'BudgetaryResourceExecution', 'BudgetControls', 'BudgetObjectClasses',
+                        'BudgetOutlays', 'CapitalPlanningInvestmentCodes', 'CarryoverOutlays',
+                        'CongressionalControls', 'CostAreas', 'DataRuleDescriptions',
+                        'Documents', 'FederalHolidays', 'FinanceObjectClasses',
+                        'FiscalYears', 'FiscalYearsBackUp', 'FundCategories',
+                        'Funds', 'FundSymbols', 'GeneralLedgerAccounts',
+                        'Goals', 'GrowthRates', 'GsPayScales',
+                        'HeadquartersOffices', 'Images', 'InfrastructureAccounts',
+                        'Messages', 'MonthlyOutlays', 'NationalPrograms',
+                        'ObjectClassOutlays', 'Objectives', 'OperatingPlans',
+                        'OperatingPlanUpdates', 'Organizations', 'ProgramAreas',
+                        'ProgramFinancingSchedule', 'ProgramProjectDescriptions', 'ProgramProjects',
+                        'Projects', 'Providers', 'PublicLaws',
+                        'RecoveryAct', 'ReferenceTables', 'RegionalOffices',
+                        'ResourcePlanningOffices', 'Resources', 'ResponsibilityCenters',
+                        'SchemaTypes', 'SpendingRates', 'StateOrganizations',
+                        'SubAppropriations', 'TransTypes', 'UnobligatedAuthority',
+                        'URL', 'WorkCodes' ]
 
     def __str__( self ):
         if isinstance( self.__table, str ):
@@ -524,17 +521,16 @@ class DbConfig( ):
             if self.__provider.name == Provider.Access.name:
                 return self.get_driver( ) + path
             elif self.__provider.name == Provider.SqlServer.name:
-                return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' + f'AttachDBFileName={ path }' \
-                       + f'DATABASE={ path }Trusted_Connection=yes;'
+                return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' + f'AttachDBFileName={path}' \
+                       + f'DATABASE={path}Trusted_Connection=yes;'
             else:
-                return f'{ path } '
+                return f'{path} '
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
             exc.method = 'get_connectionstring( self )'
             error = ErrorDialog( exc )
             error.show( )
-
 
 # Connection( source, provider = Provider.SQLite )
 class Connection( DbConfig ):
@@ -599,7 +595,6 @@ class Connection( DbConfig ):
             exc.method = 'connect( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # SqlConfig( command = SQL.SELECTALL, names = [ ], values = ( ), style = None )
 class SqlConfig( ):
@@ -740,7 +735,7 @@ class SqlConfig( ):
             if self.__names is not None:
                 cols = ''
                 for n in self.__names:
-                    cols += f'{ n }, '
+                    cols += f'{n}, '
                 columns = '(' + cols.rstrip( ', ' ) + ')'
                 return columns
         except Exception as e:
@@ -768,7 +763,6 @@ class SqlConfig( ):
             exc.method = 'value_dump( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # SqlStatement( db_config,  sqlcfg )
 class SqlStatement( ):
@@ -913,39 +907,39 @@ class SqlStatement( ):
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__cmdtyp == SQL.SELECTALL:
                     if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM { table }'
+                        self.__text = f'SELECT * FROM {table}'
                         return self.__text
                     if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f'FROM { table }' + f' { predicate }'
+                        self.__text = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
                         return self.__text
                 elif self.__cmdtyp == SQL.SELECT:
                     if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM { table }'
+                        self.__text = f'SELECT * FROM {table}'
                         return self.__text
                     if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f' FROM { table }' + f' { predicate }'
+                        self.__text = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
                         return self.__text
                 elif self.__cmdtyp == SQL.INSERT:
-                    self.__text = f'INSERT INTO { table } ' + f'{ columns } ' + f'{ values }'
+                    self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__text
                 elif self.__cmdtyp == SQL.UPDATE:
-                    self.__text = f'UPDATE { table } ' + f'{ self.__sqlcfg.set_dump( ) } ' + f'{ values }'
+                    self.__text = f'UPDATE {table} ' + f'{self.__sqlcfg.set_dump( )} ' + f'{values}'
                     return self.__text
                 elif self.__cmdtyp == SQL.DELETE:
-                    self.__text = f'DELETE FROM { table } ' + f' {predicate }'
+                    self.__text = f'DELETE FROM {table} ' + f' {predicate}'
                     return self.__text
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__cmdtyp == SQL.SELECT:
                         cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__text = f'SELECT { cols } FROM { table }'
+                        self.__text = f'SELECT {cols} FROM {table}'
                         return self.__text
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__cmdtyp == SQL.SELECTALL:
-                        self.__text = f'SELECT * FROM { table }'
+                        self.__text = f'SELECT * FROM {table}'
                         return self.__text
                 elif self.__cmdtyp == 'DELETE':
-                    self.__text = f'DELETE FROM { table }'
+                    self.__text = f'DELETE FROM {table}'
                     return self.__text
         except Exception as e:
             exc = Error( e )
@@ -954,7 +948,6 @@ class SqlStatement( ):
             exc.method = 'getcommandtext( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Query( connection, sql_statement )
 class Query( ):
@@ -1127,23 +1120,23 @@ class Query( ):
                     self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__text
                 elif self.__cmdtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{self.__sqlcfg.set_dump( )} ' + f'{values}'
+                    self.__text = f'UPDATE {table} ' + f'{ self.__sqlcfg.set_dump( ) } ' + f'{ values }'
                     return self.__text
                 elif self.__cmdtype == SQL.DELETE:
-                    self.__text = f'DELETE FROM {table} ' + f'{predicate}'
+                    self.__text = f'DELETE FROM { table } ' + f'{ predicate }'
                     return self.__text
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__cmdtype == SQL.SELECT:
                         cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__text = f'SELECT {cols} FROM {table}'
+                        self.__text = f'SELECT { cols } FROM { table }'
                         return self.__text
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__cmdtype == SQL.SELECTALL:
                         self.__text = f'SELECT * FROM {table}'
                         return self.__text
                 elif self.__cmdtype == 'DELETE':
-                    self.__text = f'DELETE FROM {table}'
+                    self.__text = f'DELETE FROM { table }'
                     return self.__text
         except Exception as e:
             exc = Error( e )
@@ -1152,7 +1145,6 @@ class Query( ):
             exc.method = 'getcommandtext( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # SQLiteData( connection, sql_statement )
 class SQLiteData( Query ):
@@ -1252,7 +1244,6 @@ class SQLiteData( Query ):
             exc.method = 'create_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # AccessData( connection, sql_statement )
 class AccessData( Query ):
@@ -1354,7 +1345,6 @@ class AccessData( Query ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # SqlData( connection, sql_statement )
 class SqlData( Query ):
     '''SqlData( value, sqlcfg ) object
@@ -1455,7 +1445,6 @@ class SqlData( Query ):
             exc.method = 'create_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # DataBuilder( provider, source, command, names, values )
 class DataBuilder( ):
@@ -1594,7 +1583,6 @@ class DataBuilder( ):
             exc.method = 'create_table( self )'
             error = ErrorDialog( exc )
             error.show( )
-
 
 # DataColumn( name = '', datatype = None, value = None  )
 class DataColumn( ):
@@ -1746,7 +1734,6 @@ class DataColumn( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # DataRow( names = None, values = ( ), source = None)
 class DataRow( ):
     '''Defines the DataRow Class with optional arguments
@@ -1840,7 +1827,6 @@ class DataRow( ):
     def __str__( self ):
         if isinstance( self.__index, int ) and self.__index > -1:
             return 'Row ID: ' + str( self.__index )
-
 
 # DataTable( columns = None, rows = None, source = None, dataframe = None  )
 class DataTable( ):
@@ -1937,7 +1923,6 @@ class DataTable( ):
         if self.__name is not None:
             return self.__name
 
-
 # BudgetData( source )
 class BudgetData( ):
     '''Class containing factory method for providing
@@ -1984,7 +1969,7 @@ class BudgetData( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, tuple  ):
+        if isinstance( self.__data, tuple ):
             return self.__data
 
     @data.setter

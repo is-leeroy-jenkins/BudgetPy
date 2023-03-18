@@ -260,7 +260,7 @@ class Accounts( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Account'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -387,7 +387,7 @@ class ActivityCodes( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Activity'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -513,7 +513,7 @@ class AllowanceHolders( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'AllowanceHolder'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -634,7 +634,7 @@ class Appropriations( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Appropriations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -904,7 +904,7 @@ class AppropriationAvailableBalances( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Appropriations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1140,7 +1140,7 @@ class AppropriationLevelAuthority( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Appropriations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1531,7 +1531,7 @@ class Allocations( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Allocations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1764,7 +1764,7 @@ class ApportionmentData( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'Apportionment'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -2227,7 +2227,7 @@ class Actuals( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Actuals'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -2709,7 +2709,7 @@ class AppropriationDocuments( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'AppropriationDocument'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -3245,7 +3245,7 @@ class BudgetDocuments( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'BudgetDocument'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -3748,7 +3748,7 @@ class BudgetControls( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'BudgetControl'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4017,7 +4017,7 @@ class BudgetFiscalYear( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'BudgetFiscalYear'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4155,7 +4155,7 @@ class BudgetObjectClasses( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'BudgetObjectClass'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4323,7 +4323,7 @@ class BudgetaryResourceExecution( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'BudgetaryResourceExecution'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4656,7 +4656,7 @@ class BudgetOutlays( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'BudgetOutlays'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4906,7 +4906,7 @@ class CongressionalControls( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'CongressionalControl'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -5131,7 +5131,7 @@ class CompassLevels( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'CompassLevels'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -5660,7 +5660,7 @@ class Commitments( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Commitment'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6003,7 +6003,7 @@ class CarryoverOutlays( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'CarryoverOutlays'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6402,7 +6402,7 @@ class CarryoverEstimates( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'CarryoverEstimates'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6541,7 +6541,7 @@ class CarryoverSurvey( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'CarryoverOutlays'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6668,7 +6668,7 @@ class CapitalPlanningInvestmentCodes( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ITProjectCode'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -6809,7 +6809,7 @@ class DataRuleDescription( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'DataRuleDescription'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -7296,7 +7296,7 @@ class Defacto( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Defacto'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -7812,7 +7812,7 @@ class Deobligation( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Deobligations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -7962,7 +7962,7 @@ class DocumentControlNumbers( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'DocumentControlNumber'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -8509,7 +8509,7 @@ class Expenditures( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Expenditures'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -8659,7 +8659,7 @@ class FinanceObjectClass( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FinanceObjectClass'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -9101,7 +9101,7 @@ class Funds( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Fund'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -9315,7 +9315,7 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -9996,7 +9996,7 @@ class FullTimeEquivalents( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'FullTimeEquivalent'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -10245,7 +10245,7 @@ class Goals( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Goal'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -10455,7 +10455,7 @@ class GrowthRates( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'GrowthRates'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -10847,7 +10847,7 @@ class HeadquartersAuthority( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'HeadquartersAuthority'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -10975,7 +10975,7 @@ class HeadquartersOffices( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'HeadquartersOffice'
-            exc.method = 'getdata( self ) '
+            exc.method = 'get_data( self ) '
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11099,7 +11099,7 @@ class HumanResourceOrganizations( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'HumanResourceOrganization'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11477,7 +11477,7 @@ class NationalPrograms( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'NationalProgram'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11604,7 +11604,7 @@ class Objectives( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Objective'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11730,7 +11730,7 @@ class Organizations( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Organization'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11966,7 +11966,7 @@ class ObjectClassOutlays( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'ObjectClassOutlays'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -12339,7 +12339,7 @@ class OperatingPlans( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'OperatingPlan'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -12949,7 +12949,7 @@ class OpenCommitments( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'OpenCommitment'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -13557,7 +13557,7 @@ class Obligations( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Obligaions'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -14334,7 +14334,7 @@ class PayrollActivity( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'PayrollActivity'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -14459,7 +14459,7 @@ class Projects( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Project'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -14585,7 +14585,7 @@ class ProgramAreas( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ProgramArea'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -14735,7 +14735,7 @@ class ProgramProjects( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ProgramProjects'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15394,7 +15394,7 @@ class ProgramResultsCode( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ProgramResultsCode'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15529,7 +15529,7 @@ class ResponsibilityCenters( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ResponsibilityCenter'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15655,7 +15655,7 @@ class ResourcePlanningOffices( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'ResourcePlanningOffice'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15782,7 +15782,7 @@ class RegionalOffices( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'RegionalOffice'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -15906,7 +15906,7 @@ class ReimbursableSurvey( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'ReimbursableSurvey'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -16185,7 +16185,7 @@ class ReimbursableAgreements( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'ObjectClassOutlays'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -16657,7 +16657,7 @@ class RegionalAuthority( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'RegionalAuthority'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -17140,7 +17140,7 @@ class StatusOfFunds( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'StatusOfFunds'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -17628,7 +17628,7 @@ class StatusOfSupplementalFunding( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'StatusOfSupplementalFunding'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -17923,7 +17923,7 @@ class StateGrantObligations( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'StateGrantObligations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18265,7 +18265,7 @@ class SpecialAccounts( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'SpecialAccounts'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18452,7 +18452,7 @@ class SuperfundSites( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'SuperfundSites'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18622,7 +18622,7 @@ class SiteProjectCodes( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'SiteProject'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18767,7 +18767,7 @@ class SubAppropriations( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'SubAppropriations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -18890,7 +18890,7 @@ class SiteProjectCodes( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'SiteProjectCode'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -19011,7 +19011,7 @@ class StateOrganizations( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'StateOrganization'
-            exc.method = 'getdata( self ) '
+            exc.method = 'get_data( self ) '
             err = ErrorDialog( exc )
             err.show( )
 
@@ -19721,7 +19721,7 @@ class StatusOfAppropriations( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'StatusOfAppropriations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -20121,7 +20121,7 @@ class SpendingRates( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'SpendingRates'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -21979,7 +21979,7 @@ class SiteActivity( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'SiteActivity'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -22588,7 +22588,7 @@ class SpendingDocument( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Obligaions'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -22753,7 +22753,7 @@ class TreasurySymbols( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'TreasurySymbol'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -23140,7 +23140,7 @@ class Transfers( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Transfer'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -23429,7 +23429,7 @@ class UnobligatedAuthority( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'UnobligatedAuthority'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -23607,7 +23607,7 @@ class UnobligatedBalances( ):
             exc = Error( e )
             exc.module = 'Reporting'
             exc.cause = 'UnobligatedBalances'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -24137,7 +24137,7 @@ class UnliquidatedObligations( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'UnliquidatedObligations'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -24262,7 +24262,7 @@ class WorkCodes( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'WorkCode'
-            exc.method = 'getdata( self )'
+            exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
