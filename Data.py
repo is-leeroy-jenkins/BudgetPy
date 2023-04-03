@@ -207,7 +207,7 @@ class SqlPath( ):
 # SqlFile( source = None, provider = None, command = None  )
 class SqlFile( ):
     '''Class providing access to sql sub-folders in the application provided
-    optional arguements source, provider, and command'''
+    optional arguments source, provider, and command'''
     __data = None
     __command = None
     __source = None
@@ -291,7 +291,7 @@ class SqlFile( ):
         self.__source = source if source is not None else Source.StatusOfFunds
         self.__provider = provider if provider is not None else Provider.SQLite
 
-    def getpath( self ):
+    def get_path( self ):
         '''Method returning a string representing
          the absolute path to the SQL file used to execute the
          command 'self.__cmdtype' against the table given by the
@@ -324,7 +324,7 @@ class SqlFile( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getdirectory( self ):
+    def get_directory( self ):
         '''Method creates and returns a string representing
         the parent directory where the SQL file resides'''
         try:
@@ -351,17 +351,17 @@ class SqlFile( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlFile'
-            exc.method = 'getdirectory( self )'
+            exc.method = 'get_directory( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def getquery( self ):
+    def get_query( self ):
         '''Method reads the given '.sql' file and returns
         a string representing the text used the sql query'''
         try:
             source = self.__source.name
-            paths = self.getpath( )
-            folder = self.getdirectory( )
+            paths = self.get_path( )
+            folder = self.get_directory( )
             sql = ''
             for name in os.listdir( folder ):
                 if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
@@ -672,7 +672,7 @@ class SqlConfig( ):
         self.__kvp = dict( zip( names, list( values ) ) ) \
             if isinstance( names, list ) and isinstance( values, tuple ) else None
 
-    def kvp_dump( self ) -> str:
+    def dump_kvp( self ) -> str:
         '''dump( ) returns string of 'values = index AND' pairs'''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
@@ -686,12 +686,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'kvp_dump( self )'
+            exc.method = 'dump_kvp( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def where_dump( self ) -> str:
-        '''where_dump( ) returns a string
+    def dump_where( self ) -> str:
+        '''dump_where( ) returns a string
         using list arguments names and values'''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
@@ -705,12 +705,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'where_dump( self )'
+            exc.method = 'dump_where( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def set_dump( self ) -> str:
-        '''set_dump( ) returns a string
+    def dump_set( self ) -> str:
+        '''dump_set( ) returns a string
         using list arguments names and values'''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
@@ -724,12 +724,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'set_dump( self )'
+            exc.method = 'dump_set( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def column_dump( self ) -> str:
-        '''column_dump( ) returns a string of columns
+    def dump_columns( self ) -> str:
+        '''dump_columns( ) returns a string of columns
         used in select and insert statements from list self.__names'''
         try:
             if self.__names is not None:
@@ -742,12 +742,12 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'column_dump( self )'
+            exc.method = 'dump_columns( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def value_dump( self ) -> str:
-        '''value_dump( ) returns a string of values
+    def dump_values( self ) -> str:
+        '''dump_values( ) returns a string of values
         used in select statements from list self.__names'''
         try:
             if self.__values is not None:
@@ -760,7 +760,7 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'value_dump( self )'
+            exc.method = 'dump_values( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -901,9 +901,9 @@ class SqlStatement( ):
     def get_query( self ) -> str:
         try:
             table = self.__table
-            columns = self.__sqlcfg.column_dump( )
-            values = self.__sqlcfg.value_dump( )
-            predicate = self.__sqlcfg.where_dump( )
+            columns = self.__sqlcfg.dump_columns( )
+            values = self.__sqlcfg.dump_values( )
+            predicate = self.__sqlcfg.dump_where( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__cmdtyp == SQL.SELECTALL:
                     if len( self.__names ) == 0:
@@ -923,7 +923,7 @@ class SqlStatement( ):
                     self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__text
                 elif self.__cmdtyp == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{self.__sqlcfg.set_dump( )} ' + f'{values}'
+                    self.__text = f'UPDATE {table} ' + f'{self.__sqlcfg.dump_set( )} ' + f'{values}'
                     return self.__text
                 elif self.__cmdtyp == SQL.DELETE:
                     self.__text = f'DELETE FROM {table} ' + f' {predicate}'
@@ -1098,9 +1098,9 @@ class Query( ):
     def get_query( self ):
         try:
             table = self.__table
-            columns = self.__sqlcfg.column_dump( )
-            values = self.__sqlcfg.value_dump( )
-            predicate = self.__sqlcfg.where_dump( )
+            columns = self.__sqlcfg.dump_columns( )
+            values = self.__sqlcfg.dump_values( )
+            predicate = self.__sqlcfg.dump_where( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__cmdtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
@@ -1120,7 +1120,7 @@ class Query( ):
                     self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__text
                 elif self.__cmdtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{ self.__sqlcfg.set_dump( ) } ' + f'{ values }'
+                    self.__text = f'UPDATE {table} ' + f'{ self.__sqlcfg.dump_set( ) } ' + f'{ values }'
                     return self.__text
                 elif self.__cmdtype == SQL.DELETE:
                     self.__text = f'DELETE FROM { table } ' + f'{ predicate }'
