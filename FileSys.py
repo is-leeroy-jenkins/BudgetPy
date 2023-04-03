@@ -22,10 +22,10 @@ import enum
 import sys
 from sys import exc_info
 
-# Path( filepath )
+# Path( file_path )
 class Path( ):
     ''' Path( filename ) initializes the
-    Path class providing selectedpath information of getsubfolders
+    Path class providing selectedpath information of get_subfolders
     used in the application'''
     __name = None
     __buffer = None
@@ -81,58 +81,58 @@ class Path( ):
             self.__ext = str( value )
 
     @property
-    def currentdirectory( self ):
+    def current_directory( self ):
         if os.path.exists( self.__currdir ):
             return self.__currdir
 
-    @currentdirectory.setter
-    def currentdirectory( self, value ):
-        '''Set the currentdirectory directory to 'selectedpath' '''
+    @current_directory.setter
+    def current_directory( self, value ):
+        '''Set the current_directory directory to 'selectedpath' '''
         if os.path.exists( value ):
             os.chdir( value )
             self.__currdir = value
 
     @property
-    def parentdirectory( self ):
+    def parent_directory( self ):
         if isinstance( self.__parentdirectory, str ) and self.__parentdirectory != '':
             return self.__parentdirectory
 
-    @parentdirectory.setter
-    def parentdirectory( self, value ):
-        '''Set the currentdirectory directory to 'selectedpath' '''
+    @parent_directory.setter
+    def parent_directory( self, value ):
+        '''Set the current_directory directory to 'selectedpath' '''
         if isinstance( value, str ):
             self.__parentdirectory = value
 
     @property
-    def pathseparator( self ):
+    def path_separator( self ):
         if isinstance( self.__pathsep, str ):
             return self.__pathsep
 
-    @pathseparator.setter
-    def pathseparator( self, value ):
-        '''Set the currentdirectory directory to 'selectedpath' '''
+    @path_separator.setter
+    def path_separator( self, value ):
+        '''Set the current_directory directory to 'selectedpath' '''
         if isinstance( value, str ):
             self.__pathsep = value
 
     @property
-    def driveseparator( self ):
+    def drive_separator( self ):
         if isinstance( self.__drivesep, str ):
             return self.__drivesep
 
-    @driveseparator.setter
-    def driveseparator( self, value ):
-        '''Set the currentdirectory directory to 'selectedpath' '''
+    @drive_separator.setter
+    def drive_separator( self, value ):
+        '''Set the current_directory directory to 'selectedpath' '''
         if isinstance( value, str ):
             self.__drivesep = value
 
     @property
-    def extensionseparator( self ):
+    def extension_separator( self ):
         if isinstance( self.__extsep, str ):
             return self.__extsep
 
-    @extensionseparator.setter
-    def extensionseparator( self, value ):
-        '''Set the currentdirectory directory to 'selectedpath' '''
+    @extension_separator.setter
+    def extension_separator( self, value ):
+        '''Set the current_directory directory to 'selectedpath' '''
         if isinstance( value, str ):
             self.__extsep = value
 
@@ -169,7 +169,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def isfolder( self ):
+    def is_folder( self ):
         '''Method returning boolean value indicating whether
         or not self.__buffer is a folder'''
         try:
@@ -181,11 +181,11 @@ class Path( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Path'
-            exc.method = 'isfolder( self )'
+            exc.method = 'is_folder( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def isfile( self ):
+    def is_file( self ):
         '''Method returning boolean value indicating whether
         or not self.__buffer is a file'''
         try:
@@ -197,13 +197,13 @@ class Path( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Path'
-            exc.method = 'isfile( self )'
+            exc.method = 'is_file( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def isabsolute( self ):
+    def is_absolute_path( self ):
         '''Method to determine if the input path is an
-        abspath file path'''
+        absolute_path file path'''
         try:
             if isinstance( self.__buffer, str ) and self.__buffer != '':
                 if os.path.isabs( self.__buffer ) == True:
@@ -214,11 +214,11 @@ class Path( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Path'
-            exc.method = 'isabsolute( self )'
+            exc.method = 'is_absolute_path( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def isrelative( self ):
+    def is_relative_path( self ):
         '''Method to determine if the input path is an
         relative file path'''
         try:
@@ -231,7 +231,7 @@ class Path( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Path'
-            exc.method = 'isrelative( self )'
+            exc.method = 'is_relative_path( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -251,7 +251,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getextension( self, other ):
+    def get_extension( self, other ):
         '''Returns string representing the file extension of 'other' '''
         try:
             if isinstance( other, str ) and os.path.exists( other ):
@@ -260,11 +260,11 @@ class Path( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Path'
-            exc.method = 'getextension( self, other )'
+            exc.method = 'get_extension( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def getreportpath( self, ext = EXT.XLSX ):
+    def get_report_path( self, ext = EXT.XLSX ):
         '''Method returns string representing the relative path
         to the report template
         '''
@@ -275,7 +275,7 @@ class Path( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Path'
-            exc.method = 'getreportpath( self )'
+            exc.method = 'get_report_path( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -294,11 +294,11 @@ class Path( ):
             err.show( )
 
 
-# File( filepath )
+# File( file_path )
 class File( Path ):
     '''File( selectedpath ) initializes the
      File Class providing file information for
-     getsubfolders used in the application'''
+     get_subfolders used in the application'''
     __absolute = None
     __name = None
     __buffer = None
@@ -335,12 +335,12 @@ class File( Path ):
             self.__buffer = value
 
     @property
-    def abspath( self ):
+    def absolute_path( self ):
         if isinstance( self.__absolute, str ) and self.__absolute != '':
             return self.__absolute
 
-    @abspath.setter
-    def abspath( self, value ):
+    @absolute_path.setter
+    def absolute_path( self, value ):
         if isinstance( value, str ) and value != '':
             self.__absolute = value
 
@@ -414,17 +414,17 @@ class File( Path ):
         if isinstance( value, float ):
             self.__created = value
 
-    def __init__( self, filepath = None ):
-        super( ).__init__( filepath )
-        self.__absolute = filepath if os.path.isabs( filepath ) else os.getcwd( ) +'\\' + filepath
-        self.__buffer = filepath if not os.path.isabs( filepath ) else os.path.relpath( filepath )
-        self.__name = os.path.basename( filepath )
-        self.__size = os.path.getsize( filepath )
-        self.__directory = os.path.dirname( filepath )
-        self.__extension = list( os.path.splitext( filepath ) )[ 1 ]
-        self.__created = os.path.getctime( filepath )
-        self.__accessed = os.path.getatime( filepath )
-        self.__modified = os.path.getmtime( filepath )
+    def __init__( self, file_path = None ):
+        super( ).__init__( file_path )
+        self.__absolute = file_path if os.path.isabs( file_path ) else os.getcwd( ) + '\\' + file_path
+        self.__buffer = file_path if not os.path.isabs( file_path ) else os.path.relpath( file_path )
+        self.__name = os.path.basename( file_path )
+        self.__size = os.path.getsize( file_path )
+        self.__directory = os.path.dirname( file_path )
+        self.__extension = list( os.path.splitext( file_path ) )[ 1 ]
+        self.__created = os.path.getctime( file_path )
+        self.__accessed = os.path.getatime( file_path )
+        self.__modified = os.path.getmtime( file_path )
         self.__drive = super( ).drive
 
     def __str__( self ):
@@ -438,7 +438,7 @@ class File( Path ):
             return False
 
     def rename( self, other ):
-        '''Renames the currentdirectory file to 'other' '''
+        '''Renames the current_directory file to 'other' '''
         try:
             if isinstance( other, str ) and not other == '':
                 src = os.path.abspath( self.__path )
@@ -454,7 +454,7 @@ class File( Path ):
             err.show( )
 
     def move( self, destination ):
-        '''renames currentdirectory file'''
+        '''renames current_directory file'''
         try:
             if os.path.isdir( destination ):
                 return os.path.join( self.__name, destination )
@@ -467,7 +467,7 @@ class File( Path ):
             err.show( )
 
     def create( self, other, lines = None ):
-        ''' creates and returns 'selectedpath' file '''
+        ''' creates and returns 'selected_path' file '''
         try:
             if isinstance( other, str ):
                 newfile = open( other, 'r+' )
@@ -510,7 +510,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getsize( self, other ):
+    def get_size( self, other ):
         '''gets the size of another file'''
         try:
             if self.__path is not None and os.path.isfile( other ):
@@ -519,11 +519,11 @@ class File( Path ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'File'
-            exc.method = 'getsize( self, other )'
+            exc.method = 'get_size( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def getdrive( self, other ):
+    def get_drive( self, other ):
         '''gets the drive of another file'''
         try:
             if os.path.exists( other ):
@@ -532,11 +532,11 @@ class File( Path ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'File'
-            exc.method = 'getdrive( self, other )'
+            exc.method = 'get_drive( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def getextension( self, other ):
+    def get_extension( self, other ):
         ''' gets and returns extension of 'selectedpath' 'file' '''
         try:
             if other is not None and os.path.isfile( other ):
@@ -545,7 +545,7 @@ class File( Path ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'File'
-            exc.method = 'getextension( self, other )'
+            exc.method = 'get_extension( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -625,9 +625,9 @@ class File( Path ):
             err.show( )
 
 
-# Folder( dirpath )
+# Folder( dir_path )
 class Folder( ):
-    '''Folder( selectedpath ) initializes the
+    '''Folder( selected_path ) initializes the
      Folder Class providing file directory information'''
     __absolute = None
     __relative = None
@@ -722,20 +722,20 @@ class Folder( ):
         if os.path.exists( value ):
             os.chdir( value )
 
-    def __init__( self, dirpath ):
+    def __init__( self, dir_path ):
         self.__current = os.getcwd( )
-        self.__path = dirpath
-        self.__name = os.path.basename( dirpath )
-        self.__parent = os.path.dirname( dirpath )
-        self.__absolute = self.__path if os.path.isabs( dirpath ) else None
-        self.__relative = self.__path if not os.path.isabs( dirpath ) \
+        self.__path = dir_path
+        self.__name = os.path.basename( dir_path )
+        self.__parent = os.path.dirname( dir_path )
+        self.__absolute = self.__path if os.path.isabs( dir_path ) else None
+        self.__relative = self.__path if not os.path.isabs( dir_path ) \
             else f'{ os.getcwd( ) }\\{ self.__name }'
 
     def __str__( self ):
         if self.__path is not None:
             return self.__path
 
-    def getfiles( self ):
+    def get_files( self ):
         '''Iterates subfolders in the base directory
         and returns a list of subfile paths'''
         try:
@@ -751,12 +751,12 @@ class Folder( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Folder'
-            exc.method = 'getfiles( self )'
+            exc.method = 'get_files( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def getsubfiles( self ):
-        '''Iterates getsubfolders in the base directory'''
+    def get_subfiles( self ):
+        '''Iterates get_subfolders in the base directory'''
         try:
             current = self.__current
             abspath = self.__absolute
@@ -772,14 +772,14 @@ class Folder( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Folder'
-            exc.method = 'getsubfolders( self )'
+            exc.method = 'get_subfolders( self )'
             err = ErrorDialog( exc )
             err.show( )
 
         return filenames
 
-    def getsubfolders( self ):
-        '''Iterates getsubfolders in the base directory'''
+    def get_subfolders( self ):
+        '''Iterates get_subfolders in the base directory'''
         try:
             current = self.__current
             abspath = self.__absolute
@@ -795,14 +795,14 @@ class Folder( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Folder'
-            exc.method = 'getsubfolders( self )'
+            exc.method = 'get_subfolders( self )'
             err = ErrorDialog( exc )
             err.show( )
 
         return filenames
 
     def rename( self, new_name ):
-        '''renames currentdirectory file'''
+        '''renames current_directory file'''
         try:
             if self.__name is not None and isinstance( new_name, str ):
                 return os.rename( self.__name, new_name )
@@ -815,7 +815,7 @@ class Folder( ):
             err.show( )
 
     def move( self, destination ):
-        '''renames currentdirectory file'''
+        '''renames current_directory file'''
         try:
             if not destination == '' and not os.path.exists( destination ):
                 return os.path.join( self.__name, destination )
@@ -865,7 +865,7 @@ class Folder( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getsize( self, other ):
+    def get_size( self, other ):
         ''' gets and returns size of 'selectedpath' '''
         try:
             if other is not None and os.path.isdir( other ):
@@ -878,7 +878,7 @@ class Folder( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def getdrive( self, other ):
+    def get_drive( self, other ):
         ''' gets and returns parent directory of 'selectedpath' '''
         try:
             if other is not None and os.path.isdir( other ):
@@ -887,12 +887,12 @@ class Folder( ):
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Folder'
-            exc.method = 'getdrive( self, other )'
+            exc.method = 'get_drive( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
     def iterate( self ):
-        '''iterates getsubfolders in the base directory'''
+        '''iterates get_subfolders in the base directory'''
         try:
             for i in os.walk( self.__path ):
                 yield i
@@ -1084,7 +1084,7 @@ class MessageBuilder( ):
 
 # Document( )
 class Document( ):
-    '''Excel( selectedpath ) class provides
+    '''Excel( selected_path ) class provides
     the spreadsheet for Budget Py reports '''
     __path = None
     __name = None
@@ -1112,9 +1112,9 @@ class Document( ):
         if value is not None and len( value ) > 0:
             self.__name = str( value )
 
-    def __init__( self, fullpath ):
-        self.__path = fullpath if isinstance( fullpath, str ) else None
-        self.__name = os.path.split( fullpath )[ 1 ] if isinstance( fullpath, str ) else None
+    def __init__( self, full_path ):
+        self.__path = full_path if isinstance( full_path, str ) else None
+        self.__name = os.path.split( full_path )[ 1 ] if isinstance( full_path, str ) else None
         self.__title = self.__name
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
@@ -1124,9 +1124,9 @@ class Document( ):
             return self.__path
 
 
-# Excel( fullpath )
+# Excel( full_path )
 class Excel( ):
-    '''Excel( selectedpath ) class provides
+    '''Excel( selected_path ) class provides
     the spreadsheet for Budget Py reports '''
     __path = None
     __workbook = None
@@ -1291,7 +1291,7 @@ class ExcelReport( ):
         self.__dimensions = (self.__rows, self.__columns)
 
 
-# ZipFile( selectedpath )
+# ZipFile( selected_path )
 class ZipFile( ):
     __infile = None
     __name = None
