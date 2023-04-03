@@ -125,73 +125,73 @@ class SqlPath( ):
     __sqldata = None
 
     @property
-    def sqlitedriver( self ):
+    def sqlite_driver( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if self.__sqlitedriver is not None:
             return self.__sqlitedriver
 
-    @sqlitedriver.setter
-    def sqlitedriver( self, value ):
+    @sqlite_driver.setter
+    def sqlite_driver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if value != '':
             self.__sqlitedriver = value
 
     @property
-    def sqlitedata( self ):
+    def sqlite_data( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if self.__sqlitedata is not None:
             return self.__sqlitedata
 
-    @sqlitedata.setter
-    def sqlitedata( self, value ):
+    @sqlite_data.setter
+    def sqlite_data( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if value != '':
             self.__sqlitedata = value
 
     @property
-    def accessdriver( self ):
+    def access_driver( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if self.__accessdriver is not None:
             return self.__accessdriver
 
-    @accessdriver.setter
-    def accessdriver( self, value ):
+    @access_driver.setter
+    def access_driver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if value != '':
             self.__accessdriver = value
 
     @property
-    def accessdata( self ):
+    def access_data( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if self.__accessdata is not None:
             return self.__accessdata
 
-    @accessdata.setter
-    def accessdata( self, value ):
+    @access_data.setter
+    def access_data( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if value != '':
             self.__accessdata = value
 
     @property
-    def sqldriver( self ):
+    def sql_driver( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if self.__sqldriver is not None:
             return self.__sqldriver
 
-    @sqldriver.setter
-    def sqldriver( self, value ):
+    @sql_driver.setter
+    def sql_driver( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if value != '':
             self.__sqldriver = value
 
     @property
-    def sqldata( self ):
+    def sql_data( self ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if self.__sqldata is not None:
             return self.__sqldata
 
-    @sqldata.setter
-    def sqldata( self, value ):
+    @sql_data.setter
+    def sql_data( self, value ):
         '''Returns string representing the title of the selectedpath 'base' '''
         if value != '':
             self.__sqldata = value
@@ -305,16 +305,16 @@ class SqlFile( ):
             current = os.getcwd( )
             path = ''
             if provider == 'SQLite' and source in data:
-                path = f'{sqlpath.sqlitedata}\\{command}\\{source}.sql'
+                path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
             elif provider == 'ACCDB' and source in data:
-                path = f'{sqlpath.accessdata}\\{command}\\{source}.sql'
+                path = f'{sqlpath.access_data}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
             elif provider == 'SqlServer' and source in data:
-                path = f'{sqlpath.sqldata}\\{command}\\{source}.sql'
+                path = f'{sqlpath.sql_data}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
             else:
-                path = f'{sqlpath.sqlitedata}\\{command}\\{source}.sql'
+                path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
         except Exception as e:
             exc = Error( e )
@@ -336,16 +336,16 @@ class SqlFile( ):
             current = os.getcwd( )
             folder = ''
             if provider == 'SQLite' and source in data:
-                folder = f'{sqlpath.sqlitedata}\\{command}'
+                folder = f'{sqlpath.sqlite_data}\\{command}'
                 return os.path.join( current, folder )
             elif provider == 'ACCDB' and source in data:
-                folder = f'{sqlpath.accessdata}\\{command}'
+                folder = f'{sqlpath.access_data}\\{command}'
                 return os.path.join( current, folder )
             elif provider == 'SqlServer' and source in data:
-                folder = f'{sqlpath.sqldata}\\{command}'
+                folder = f'{sqlpath.sql_data}\\{command}'
                 return os.path.join( current, folder )
             else:
-                folder = f'{sqlpath.sqlitedata}\\{command}'
+                folder = f'{sqlpath.sqlite_data}\\{command}'
                 return os.path.join( current, folder )
         except Exception as e:
             exc = Error( e )
@@ -561,13 +561,13 @@ class Connection( DbConfig ):
             self.__path = value
 
     @property
-    def connectionstring( self ):
+    def connection_string( self ):
         if self.__connectionstring is not None \
                 and self.__connectionstring != '':
             return self.__connectionstring
 
-    @connectionstring.setter
-    def connectionstring( self, value ):
+    @connection_string.setter
+    def connection_string( self, value ):
         if value != '':
             self.__connectionstring = value
 
@@ -655,12 +655,12 @@ class SqlConfig( ):
             self.__paramstyle = ParamStyle.qmark
 
     @property
-    def keyvaluepairs( self ):
+    def key_value_pairs( self ):
         if self.__kvp is not None:
             return self.__kvp
 
-    @keyvaluepairs.setter
-    def keyvaluepairs( self, value ):
+    @key_value_pairs.setter
+    def key_value_pairs( self, value ):
         if value is not None:
             self.__kvp = value
 
@@ -779,23 +779,23 @@ class SqlStatement( ):
     __text = None
 
     @property
-    def dataconfig( self ):
+    def data_config( self ):
         if isinstance( self.__dbcfg, DbConfig ):
             return self.__dbcfg
 
-    @dataconfig.setter
-    def dataconfig( self, value ):
+    @data_config.setter
+    def data_config( self, value ):
         if isinstance( value, DbConfig ):
             self.__dbcfg = value
 
     @property
-    def sqlconfig( self ):
+    def sql_config( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlcfg, SqlConfig ):
             return self.__sqlcfg
 
-    @sqlconfig.setter
-    def sqlconfig( self, value ):
+    @sql_config.setter
+    def sql_config( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
         if isinstance( value, SqlConfig ):
             self.__sqlcfg = value
@@ -831,12 +831,12 @@ class SqlStatement( ):
             self.__path = value
 
     @property
-    def commandtype( self ):
+    def command_type( self ):
         if self.__cmdtyp is not None:
             return self.__cmdtyp
 
-    @commandtype.setter
-    def commandtype( self, value ):
+    @command_type.setter
+    def command_type( self, value ):
         if value is not None:
             self.__cmdtyp = value
         else:
@@ -874,12 +874,12 @@ class SqlStatement( ):
             self.__values = value
 
     @property
-    def commandtext( self ):
+    def command_text( self ):
         if self.__text is not None:
             return self.__text
 
-    @commandtext.setter
-    def commandtext( self, value ):
+    @command_text.setter
+    def command_text( self, value ):
         if value != '':
             self.__text = value
 
@@ -1008,25 +1008,25 @@ class Query( ):
             self.__cnx = value
 
     @property
-    def sqlstatement( self ):
+    def sql_statement( self ):
         if isinstance( self.__sql, SqlStatement ):
             return self.__sql
 
-    @sqlstatement.setter
-    def sqlstatement( self, value ):
+    @sql_statement.setter
+    def sql_statement( self, value ):
         if isinstance( value, SqlStatement ):
             self.__sql = value
 
     @property
-    def commandtype( self ):
+    def command_type( self ):
         if self.__cmdtype is not None:
             return self.__cmdtype
         if self.__cmdtype is None:
             cmd = SQL( 'SELECT' )
             return cmd
 
-    @commandtype.setter
-    def commandtype( self, value ):
+    @command_type.setter
+    def command_type( self, value ):
         if isinstance( value, SQL ):
             self.__cmdtype = value
 
@@ -1061,22 +1061,22 @@ class Query( ):
             self.__values = value
 
     @property
-    def commandtext( self ):
+    def command_text( self ):
         if isinstance( self.__text, str ) and self.__text != '':
             return self.__text
 
-    @commandtext.setter
-    def commandtext( self, value ):
+    @command_text.setter
+    def command_text( self, value ):
         if value != '':
             self.__text = value
 
     @property
-    def connectionstring( self ):
+    def connection_string( self ):
         if isinstance( self.__connectionstring, str ):
             return self.__connectionstring
 
-    @connectionstring.setter
-    def connectionstring( self, value ):
+    @connection_string.setter
+    def connection_string( self, value ):
         if isinstance( value, str ):
             self.__connectionstring = str( value )
 
@@ -1088,7 +1088,7 @@ class Query( ):
         self.__provider = connection.provider
         self.__cmdtype = sqlstatement.command_type
         self.__path = connection.path
-        self.__connectionstring = connection.connectionstring
+        self.__connectionstring = connection.connection_string
         self.__text = sqlstatement.get_query( )
 
     def __str__( self ):
@@ -1525,23 +1525,23 @@ class DataBuilder( ):
             self.__values = value
 
     @property
-    def dbconfig( self ):
+    def data_config( self ):
         if isinstance( self.__dbconfig, DbConfig ):
             return self.__dbconfig
 
-    @dbconfig.setter
-    def dbconfig( self, value ):
+    @data_config.setter
+    def data_config( self, value ):
         if isinstance( value, DbConfig ):
             self.__dbconfig = value
 
     @property
-    def sqlconfig( self ):
+    def sql_config( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlcfg, SqlConfig ):
             return self.__sqlcfg
 
-    @sqlconfig.setter
-    def sqlconfig( self, value ):
+    @sql_config.setter
+    def sql_config( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
         if isinstance( value, SqlConfig ):
             self.__sqlcfg = value

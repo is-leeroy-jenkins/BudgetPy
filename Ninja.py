@@ -18143,7 +18143,7 @@ class SpecialAccounts( ):
             return self.__nplstatus
 
     @npl_status.setter
-    def nplstatus( self, value ):
+    def npl_status( self, value ):
         if value is not None:
             self.__nplstatus = value
 
