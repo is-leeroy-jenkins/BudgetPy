@@ -641,13 +641,13 @@ class SqlConfig( ):
             self.__values = value
 
     @property
-    def param_style( self ):
+    def paramstyle( self ):
         ''' Property representing the DBI param_style'''
         if self.__paramstyle is not None:
             return self.__paramstyle
 
-    @param_style.setter
-    def param_style( self, value ):
+    @paramstyle.setter
+    def paramstyle( self, value ):
         ''' Property representing the DBI param_style attribute'''
         if value is not None:
             self.__paramstyle = value
@@ -655,12 +655,12 @@ class SqlConfig( ):
             self.__paramstyle = ParamStyle.qmark
 
     @property
-    def key_value_pairs( self ):
+    def keyvaluepairs( self ):
         if self.__kvp is not None:
             return self.__kvp
 
-    @key_value_pairs.setter
-    def key_value_pairs( self, value ):
+    @keyvaluepairs.setter
+    def keyvaluepairs( self, value ):
         if value is not None:
             self.__kvp = value
 
@@ -779,23 +779,23 @@ class SqlStatement( ):
     __text = None
 
     @property
-    def data_config( self ):
+    def dataconfig( self ):
         if isinstance( self.__dbcfg, DbConfig ):
             return self.__dbcfg
 
-    @data_config.setter
-    def data_config( self, value ):
+    @dataconfig.setter
+    def dataconfig( self, value ):
         if isinstance( value, DbConfig ):
             self.__dbcfg = value
 
     @property
-    def sql_config( self ):
+    def sqlconfig( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlcfg, SqlConfig ):
             return self.__sqlcfg
 
-    @sql_config.setter
-    def sql_config( self, value ):
+    @sqlconfig.setter
+    def sqlconfig( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
         if isinstance( value, SqlConfig ):
             self.__sqlcfg = value
@@ -831,12 +831,12 @@ class SqlStatement( ):
             self.__path = value
 
     @property
-    def command_type( self ):
+    def commandtype( self ):
         if self.__cmdtyp is not None:
             return self.__cmdtyp
 
-    @command_type.setter
-    def command_type( self, value ):
+    @commandtype.setter
+    def commandtype( self, value ):
         if value is not None:
             self.__cmdtyp = value
         else:
@@ -874,12 +874,12 @@ class SqlStatement( ):
             self.__values = value
 
     @property
-    def command_text( self ):
+    def commandtext( self ):
         if self.__text is not None:
             return self.__text
 
-    @command_text.setter
-    def command_text( self, value ):
+    @commandtext.setter
+    def commandtext( self, value ):
         if value != '':
             self.__text = value
 
@@ -1008,25 +1008,25 @@ class Query( ):
             self.__cnx = value
 
     @property
-    def sql_statement( self ):
+    def sqlstatement( self ):
         if isinstance( self.__sql, SqlStatement ):
             return self.__sql
 
-    @sql_statement.setter
-    def sql_statement( self, value ):
+    @sqlstatement.setter
+    def sqlstatement( self, value ):
         if isinstance( value, SqlStatement ):
             self.__sql = value
 
     @property
-    def command_type( self ):
+    def commandtype( self ):
         if self.__cmdtype is not None:
             return self.__cmdtype
         if self.__cmdtype is None:
             cmd = SQL( 'SELECT' )
             return cmd
 
-    @command_type.setter
-    def command_type( self, value ):
+    @commandtype.setter
+    def commandtype( self, value ):
         if isinstance( value, SQL ):
             self.__cmdtype = value
 
@@ -1061,22 +1061,22 @@ class Query( ):
             self.__values = value
 
     @property
-    def command_text( self ):
+    def commandtext( self ):
         if isinstance( self.__text, str ) and self.__text != '':
             return self.__text
 
-    @command_text.setter
-    def command_text( self, value ):
+    @commandtext.setter
+    def commandtext( self, value ):
         if value != '':
             self.__text = value
 
     @property
-    def connection_string( self ):
+    def connectionstring( self ):
         if isinstance( self.__connectionstring, str ):
             return self.__connectionstring
 
-    @connection_string.setter
-    def connection_string( self, value ):
+    @connectionstring.setter
+    def connectionstring( self, value ):
         if isinstance( value, str ):
             self.__connectionstring = str( value )
 
@@ -1104,20 +1104,20 @@ class Query( ):
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__cmdtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM {table}'
+                        self.__text = f'SELECT * FROM { table }'
                         return self.__text
                     if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
+                        self.__text = f'SELECT ' + columns + f'FROM { table }' + f' { predicate }'
                         return self.__text
                 elif self.__cmdtype == SQL.SELECT:
                     if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM {table}'
+                        self.__text = f'SELECT * FROM { table }'
                         return self.__text
                     if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
+                        self.__text = f'SELECT ' + columns + f' FROM { table }' + f' { predicate }'
                         return self.__text
                 elif self.__cmdtype == SQL.INSERT:
-                    self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
+                    self.__text = f'INSERT INTO {table} ' + f'{ columns } ' + f'{ values }'
                     return self.__text
                 elif self.__cmdtype == SQL.UPDATE:
                     self.__text = f'UPDATE {table} ' + f'{ self.__sqlcfg.dump_set( ) } ' + f'{ values }'
@@ -1133,7 +1133,7 @@ class Query( ):
                         return self.__text
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__cmdtype == SQL.SELECTALL:
-                        self.__text = f'SELECT * FROM {table}'
+                        self.__text = f'SELECT * FROM { table }'
                         return self.__text
                 elif self.__cmdtype == 'DELETE':
                     self.__text = f'DELETE FROM { table }'
@@ -1142,7 +1142,7 @@ class Query( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlStatement'
-            exc.method = 'getcommandtext( self )'
+            exc.method = 'get_query( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1415,13 +1415,13 @@ class SqlData( Query ):
     def create_table( self ) -> list[ tuple ]:
         try:
             query = self.__query
-            conection = self.__connection.connect( )
-            cursor = conection.cursor( )
+            connection = self.__connection.connect( )
+            cursor = connection.cursor( )
             data = cursor.execute( query )
             self.__columns = [ i[ 0 ] for i in cursor.description ]
             self.__data = [ tuple( i ) for i in data.fetchall( ) ]
             cursor.close( )
-            conection.close( )
+            connection.close( )
             return self.__data
         except Exception as e:
             exc = Error( e )
@@ -1525,23 +1525,23 @@ class DataBuilder( ):
             self.__values = value
 
     @property
-    def db_config( self ):
+    def dbconfig( self ):
         if isinstance( self.__dbconfig, DbConfig ):
             return self.__dbconfig
 
-    @db_config.setter
-    def db_config( self, value ):
+    @dbconfig.setter
+    def dbconfig( self, value ):
         if isinstance( value, DbConfig ):
             self.__dbconfig = value
 
     @property
-    def sql_config( self ):
+    def sqlconfig( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlcfg, SqlConfig ):
             return self.__sqlcfg
 
-    @sql_config.setter
-    def sql_config( self, value ):
+    @sqlconfig.setter
+    def sqlconfig( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
         if isinstance( value, SqlConfig ):
             self.__sqlcfg = value
