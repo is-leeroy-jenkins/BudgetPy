@@ -103,7 +103,7 @@ class App( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def runargs( self, args ):
+    def run_args( self, args ):
         '''Method starts a process running the member
          client program with the provided string 'args' '''
         try:
@@ -124,7 +124,7 @@ class App( ):
             exc = Error( e )
             exc.module = 'Minion'
             exc.cause = 'App'
-            exc.method = 'runargs( self, args )'
+            exc.method = 'run_args( self, args )'
             err = ErrorDialog( exc )
             err.show( )
 

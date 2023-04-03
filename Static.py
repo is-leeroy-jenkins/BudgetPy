@@ -192,7 +192,7 @@ class Model( Enum ):
 
 
 class ParamStyle( Enum ):
-    '''Enumeration of paramstyles'''
+    '''Enumeration of parameter styles'''
     format = 1
     number = 2
     pyformat = 3

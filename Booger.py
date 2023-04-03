@@ -99,13 +99,13 @@ class Error( Exception ):
             self.__type = value
 
     @property
-    def stacktrace( self ):
+    def stack_trace( self ):
         '''Gets string returned by the 'traceback.format_exc( ) method '''
         if isinstance( self.__trace, str ):
             return self.__trace
 
-    @stacktrace.setter
-    def stacktrace( self, value ):
+    @stack_trace.setter
+    def stack_trace( self, value ):
         '''Sets string returned by the 'traceback.format_exc( ) method '''
         if isinstance( value, str ):
             self.__trace = value
@@ -166,12 +166,12 @@ class ButtonIcon( ):
             self.__name = value
 
     @property
-    def filepath( self ):
+    def file_path( self ):
         if isinstance( self.__filepath, str ) and self.__filepath != '':
             return self.__filepath
 
-    @filepath.setter
-    def filepath( self, value ):
+    @file_path.setter
+    def file_path( self, value ):
         if isinstance( value, str ) and value != '':
             self.__filepath = value
 
@@ -213,12 +213,12 @@ class TitleIcon( ):
             self.__name = value
 
     @property
-    def filepath( self ):
+    def file_path( self ):
         if isinstance( self.__filepath, str ) and self.__filepath != '':
             return self.__filepath
 
-    @filepath.setter
-    def filepath( self, value ):
+    @file_path.setter
+    def file_path( self, value ):
         if isinstance( value, str ) and value != '':
             self.__filepath = value
 
@@ -306,7 +306,7 @@ class ColorFormat( ):
         self.__hex = None
         self.__hsl = None
 
-    def hextohsl( self, hex ):
+    def hex_to_hsl( self, hex ):
         '''Converts the string input argument 'hex' representing a
          hexidecimal color returing its equivalent 'hsl' value as a tuple'''
         self.__hex = hex
@@ -317,14 +317,14 @@ class ColorFormat( ):
         hsl = rgbtohsl( r, g, b )
         return hsl
 
-    def hextorgb( self, hex ):
+    def hex_to_rgb( self, hex ):
         '''Converts the string input argument 'hex' representing a
          hexidecimal color into its equivalent 'rgb' value'''
         hex = hex.lstrip( '#' )
         hlen = len( hex )
         return tuple( int( hex[ i:i + hlen // 3 ], 16 ) for i in range( 0, hlen, hlen // 3 ) )
 
-    def rgbtohsl( self, r, g, b ):
+    def rgb_to_hsl( self, r, g, b ):
         '''Converts integer input arguments 'r, g, and b' representing
          an rgb color into its equivalent hsl color '''
         r = float( r )
@@ -347,7 +347,7 @@ class ColorFormat( ):
             h /= 6
         return h, s, v
 
-    def hsltorgb( self, h, s, l ):
+    def hsl_to_rgb( self, h, s, l ):
         def hue_to_rgb( p, q, t ):
             t += 1 if t < 0 else 0
             t -= 1 if t > 1 else 0
@@ -370,12 +370,12 @@ class ColorFormat( ):
 
         return r, g, b
 
-    def hsvtohsl( self, h, s, v ):
+    def hsv_to_hsl( self, h, s, v ):
         l = 0.5 * v * (2 - s)
         s = v * s / (1 - fabs( 2 * l - 1 ))
         return h, s, l
 
-    def hsltohsv( self, h, s, l ):
+    def hsl_to_hsv( self, h, s, l ):
         v = (2 * l + s * (1 - fabs( 2 * l - 1 ))) / 2
         s = 2 * (v - l) / v
         return h, s, v
@@ -414,44 +414,44 @@ class Sith( ):
             self.__formsize = value
 
     @property
-    def settingspath( self ):
+    def settings_path( self ):
         '''Gets the size proerty as a tuple'''
         if isinstance( self.__settingspath, tuple ):
             return self.__settingspath
 
-    @settingspath.setter
-    def settingspath( self, value ):
+    @settings_path.setter
+    def settings_path( self, value ):
         '''Sets the size property'''
         if isinstance( value, tuple ):
             self.__settingspath = value
 
     @property
-    def themebackground( self ):
+    def theme_background( self ):
         if isinstance( self.__themebackground, str ) and self.__themebackground != '':
             return self.__themebackground
 
-    @themebackground.setter
-    def themebackground( self, value ):
+    @theme_background.setter
+    def theme_background( self, value ):
         if isinstance( value, str ) and value != '':
             self.__themebackground = value
 
     @property
-    def themetextcolor( self ):
+    def theme_textcolor( self ):
         if isinstance( self.__themetextcolor, str ):
             return self.__themetextcolor
 
-    @themetextcolor.setter
-    def themetextcolor( self, value ):
+    @theme_textcolor.setter
+    def theme_textcolor( self, value ):
         if isinstance( value, str ) and value != '':
             self.__themetextcolor = value
 
     @property
-    def elementbackcolor( self ):
+    def element_backcolor( self ):
         if isinstance( self.__elementbackcolor, str ) and self.__elementbackcolor != '':
             return self.__elementbackcolor
 
-    @elementbackcolor.setter
-    def elementbackcolor( self, value ):
+    @element_backcolor.setter
+    def element_backcolor( self, value ):
         if isinstance( value, str ) and value != '':
             self.__elementbackcolor = value
 
@@ -460,118 +460,118 @@ class Sith( ):
         if isinstance( self.__elementforecolor, str ) and self.__elementforecolor != '':
             return self.__elementforecolor
 
-    @elementbackcolor.setter
-    def elementforecolor( self, value ):
+    @element_backcolor.setter
+    def element_forecolor( self, value ):
         if isinstance( value, str ) and value != '':
             self.__elementforecolor = value
 
     @property
-    def textforecolor( self ):
+    def text_forecolor( self ):
         if isinstance( self.__themetextcolor, str ) and self.__themetextcolor != '':
             return self.__themetextcolor
 
-    @textforecolor.setter
-    def textforecolor( self, value ):
+    @text_forecolor.setter
+    def text_forecolor( self, value ):
         if isinstance( value, str ) and value != '':
             self.__themetextcolor = value
 
     @property
-    def textbackcolor( self ):
+    def text_backcolor( self ):
         if isinstance( self.__textbackcolor, str ) and self.__textbackcolor != '':
             return self.__textbackcolor
 
-    @textbackcolor.setter
-    def textbackcolor( self, value ):
+    @text_backcolor.setter
+    def text_backcolor( self, value ):
         if isinstance( value, str ) and value != '':
             self.__textbackcolor = value
 
     @property
-    def inputbackcolor( self ):
+    def input_backcolor( self ):
         if isinstance( self.__inputbackcolor, str ) and self.__inputbackcolor != '':
             return self.__inputbackcolor
 
-    @inputbackcolor.setter
-    def inputbackcolor( self, value ):
+    @input_backcolor.setter
+    def input_backcolor( self, value ):
         if isinstance( value, str ) and value != '':
             self.__inputbackcolor = value
 
     @property
-    def inputforecolor( self ):
+    def input_forecolor( self ):
         if isinstance( self.__inputforecolor, str ) and self.__inputforecolor != '':
             return self.__inputforecolor
 
-    @inputforecolor.setter
-    def inputforecolor( self, value ):
+    @input_forecolor.setter
+    def input_forecolor( self, value ):
         if isinstance( value, str ) and value != '':
             self.__inputforecolor = value
 
     @property
-    def buttoncolor( self ):
+    def button_color( self ):
         if isinstance( self.__buttoncolor, tuple ):
             return self.__buttoncolor
 
-    @buttoncolor.setter
-    def buttoncolor( self, value ):
+    @button_color.setter
+    def button_color( self, value ):
         if isinstance( value, tuple ):
             self.__buttoncolor = value
 
     @property
-    def buttonbackcolor( self ):
+    def button_backcolor( self ):
         if isinstance( self.__buttonbackcolor, str ):
             return self.__buttonbackcolor
 
-    @buttonbackcolor.setter
-    def buttonbackcolor( self, value ):
+    @button_backcolor.setter
+    def button_backcolor( self, value ):
         if isinstance( value, str ):
             self.__buttonbackcolor = value
 
     @property
-    def buttonforecolor( self ):
+    def button_forecolor( self ):
         if isinstance( self.__buttonforecolor, str ):
             return self.__buttonforecolor
 
-    @buttonforecolor.setter
-    def buttonforecolor( self, value ):
+    @button_forecolor.setter
+    def button_forecolor( self, value ):
         if isinstance( value, str ):
             self.__buttonforecolor = value
 
     @property
-    def iconpath( self ):
+    def icon_path( self ):
         if isinstance( self.__icon, str ) and self.__icon != '':
             return self.__icon
 
-    @iconpath.setter
-    def iconpath( self, value ):
+    @icon_path.setter
+    def icon_path( self, value ):
         if isinstance( value, str ) and value != '':
             self.__icon = value
 
     @property
-    def themefont( self ):
+    def theme_font( self ):
         if isinstance( self.__themefont, tuple ):
             return self.__themefont
 
-    @themefont.setter
-    def themefont( self, value ):
+    @theme_font.setter
+    def theme_font( self, value ):
         if isinstance( value, tuple ):
             self.__themefont = value
 
     @property
-    def scrollbarcolor( self ):
+    def scrollbar_color( self ):
         if isinstance( self.__scrollbarcolor, str ) and self.__scrollbarcolor != '':
             return self.__scrollbarcolor
 
-    @scrollbarcolor.setter
-    def scrollbarcolor( self, value ):
+    @scrollbar_color.setter
+    def scrollbar_color( self, value ):
         if isinstance( value, str ) and value != '':
             self.__scrollbarcolor = value
 
     @property
-    def progressbarcolor( self ):
+    def progressbar_color( self ):
         if isinstance( self.__progressbarcolor, tuple ):
             return self.__progressbarcolor
 
-    @progressbarcolor.setter
-    def progressbarcolor( self, value ):
+    @progressbar_color.setter
+    def progressbar_color( self, value ):
         if isinstance( value, tuple ):
             self.__progressbarcolor = value
 
@@ -629,12 +629,12 @@ class FileDialog( Sith ):
     __text = None
 
     @property
-    def selectedpath( self ):
+    def selected_path( self ):
         if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
             return self.__selecteditem
 
-    @selectedpath.setter
-    def selectedpath( self, value ):
+    @selected_path.setter
+    def selected_path( self, value ):
         if isinstance( value, str ) and value != '':
             self.__selecteditem = value
 
@@ -650,16 +650,16 @@ class FileDialog( Sith ):
 
     def __init__( self, extension = EXT.XLSX ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 200)
         self.__selecteditem = None
         self.__message = 'Search for File'
@@ -726,27 +726,27 @@ class FolderDialog( Sith ):
     __selecteditem = None
 
     @property
-    def selectedpath( self ):
+    def selected_path( self ):
         if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
             return self.__selecteditem
 
-    @selectedpath.setter
-    def selectedpath( self, value ):
+    @selected_path.setter
+    def selected_path( self, value ):
         if isinstance( value, str ) and value != '':
             self.__selecteditem = value
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 200)
         self.__selecteditem = None
 
@@ -817,27 +817,27 @@ class SaveFileDialog( Sith ):
             self_original = value
 
     @property
-    def filename( self ):
+    def file_name( self ):
         if isinstance( self.__filename, str ) and self.__filename != '':
             return self.__filename
 
-    @filename.setter
-    def filename( self, value ):
+    @file_name.setter
+    def file_name( self, value ):
         if isinstance( value, str ):
             self__filename = value
 
     def __init__( self, path = '' ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (400, 200)
         self.__original = path if isinstance( path, str ) and os.path.isfile( path ) else None
 
@@ -918,16 +918,16 @@ class GoogleDialog( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 200)
         self.__image = os.getcwd( ) + r'\etc\img\app\web\google.png'
 
@@ -962,7 +962,7 @@ class GoogleDialog( Sith ):
                     app = App( chrome )
                     for result in list( google ):
                         self.__results.append( result )
-                        app.runargs( result )
+                        app.run_args( result )
 
             window.close( )
         except Exception as e:
@@ -1072,16 +1072,16 @@ class EmailDialog( Sith ):
 
     def __init__( self, sender = '', receiver = '', subject = '', message = '' ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
         self.__formsize = (600, 500)
         self.__sender = sender if isinstance( sender, str ) and sender != '' else None
@@ -1180,16 +1180,16 @@ class MessageDialog( Sith ):
     def __init__( self, text = '' ):
         self.__text = text if isinstance( text, str ) and text != '' else None
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (400, 200)
 
     def __str__( self ):
@@ -1334,18 +1334,18 @@ class ErrorDialog( Sith ):
         self.__exception = exception if isinstance( exception, Error ) else None
         self.__heading = exception.message
         self.__module = exception.module
-        self.__info = exception.stacktrace
+        self.__info = exception.stack_trace
         self.__cause = exception.cause
         self.__method = exception.method
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (500, 275)
 
     def __str__( self ):
@@ -1420,17 +1420,17 @@ class InputDialog( Sith ):
 
     def __init__( self, question ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
+        self.__themebackground = super( ).theme_background
         self.__question = question if isinstance( question, str ) else None
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 200)
         self.__response = None
 
@@ -1503,17 +1503,17 @@ class ScrollingDialog( Sith ):
 
     def __init__( self, text = '' ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
-        self.__arrowcolor = super( ).scrollbarcolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
+        self.__arrowcolor = super( ).scrollbar_color
         self.__formsize = (650, 500)
         self.__text = text if isinstance( text, str ) and text != '' else None
 
@@ -1527,7 +1527,7 @@ class ScrollingDialog( Sith ):
             space = (5, 1)
             btnsize = (25, 1)
             arrow = self.__arrowcolor
-            back = super( ).buttonbackcolor
+            back = super( ).button_backcolor
             padsz = (3, 3, 3, 3)
             layout = [ [ sg.Text( ' ', size = line ) ],
                        [ sg.Text( ' ', size = line ) ],
@@ -1591,16 +1591,16 @@ class ContactForm( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
         self.__formsize = (450, 200)
 
@@ -1673,12 +1673,12 @@ class GridForm( Sith ):
             self.__formsize = value
 
     @property
-    def fieldwidth( self ):
+    def field_width( self ):
         if isinstance( self.__width, tuple ):
             return self.__width
 
-    @fieldwidth.setter
-    def fieldwidth( self, value ):
+    @field_width.setter
+    def field_width( self, value ):
         if isinstance( value, tuple ) and len( value ) == 2:
             self.__width = value
 
@@ -1704,16 +1704,16 @@ class GridForm( Sith ):
 
     def __init__( self, rows = 30, columns = 10 ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__image = None
         self.__width = (17, 1)
         self.__rows = rows
@@ -1797,16 +1797,16 @@ class LoadingPanel( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\loaders\loading.gif'
         self.__formsize = (800, 600)
         self.__timeout = 6000
@@ -1886,16 +1886,16 @@ class WaitingPanel( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\loaders\loader.gif'
         self.__themefont = ('Roboto', 9)
         self.__formsize = (800, 600)
@@ -1977,16 +1977,16 @@ class ProcessingPanel( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\loaders\processing.gif'
         self.__formsize = (800, 600)
         self.__timeout = None
@@ -2051,12 +2051,12 @@ class SplashPanel( Sith ):
     __timeout = None
 
     @property
-    def formsize( self ):
+    def form_size( self ):
         if isinstance( self.__formsize, tuple ):
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @form_size.setter
+    def form_size( self, value ):
         if isinstance( value, tuple ):
             self.__formsize = value
 
@@ -2072,18 +2072,18 @@ class SplashPanel( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
-        self.__buttonforecolor = super( ).buttonforecolor
-        self.__buttobackcolor = super( ).buttonbackcolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
+        self.__buttonforecolor = super( ).button_forecolor
+        self.__buttobackcolor = super( ).button_backcolor
         self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
         self.__formsize = (800, 600)
         self.__timeout = 6000
@@ -2146,14 +2146,14 @@ class Notification( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__success = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
                          b'/gAAAACXBIWXMAAAEKAAABCgEWpLzLAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5r' \
                          b'c2NhcGUub3Jnm+48GgAAAHJQTFRF////ZsxmbbZJYL9gZrtVar9VZsJcbMRYaM' \
@@ -2262,16 +2262,16 @@ class ImageSizeEncoder( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
 
     def show( self ):
         version = '1.3.1'
@@ -2471,16 +2471,16 @@ class PdfForm( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (600, 800)
 
     def show( self ):
@@ -2618,7 +2618,7 @@ class CalendarDialog( Sith ):
     __year = None
 
     @property
-    def selecteditem( self ):
+    def selected_item( self ):
         if isinstance( self.__selecteditem, tuple ):
             yr = str( self.__selecteditem[ 2 ] )
             mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
@@ -2626,8 +2626,8 @@ class CalendarDialog( Sith ):
             date = f'{yr}/{mo}/{dy}'
             return date
 
-    @selecteditem.setter
-    def selecteditem( self, value ):
+    @selected_item.setter
+    def selected_item( self, value ):
         if isinstance( value, tuple ):
             self.__selecteditem = value
 
@@ -2663,16 +2663,16 @@ class CalendarDialog( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 250)
 
     def __str__( self ):
@@ -2739,16 +2739,16 @@ class DatePanel( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 250)
 
     def show( self ):
@@ -2816,7 +2816,7 @@ class DatePanel( Sith ):
                 :return: newly created window
                 :rtype: sg.Window
                 """
-                title = sg.user_settings_get_entry( '-seconditems-', '' )
+                title = sg.user_settings_get_entry( '-second_items-', '' )
                 if not test_window:
                     theme = sg.user_settings_get_entry( '-theme-', THEME )
                     sg.theme( theme )
@@ -2875,11 +2875,11 @@ class DatePanel( Sith ):
                 if event == 'Edit Me':
                     sg.execute_editor( __file__ )
                 elif event == 'Choose Title':
-                    new_title = sg.popup_get_text( 'Choose a seconditems for your Widget',
+                    new_title = sg.popup_get_text( 'Choose a second_items for your Widget',
                                                    location = window.current_location( ), keep_on_top = True )
                     if new_title is not None:
                         window[ '-TITLE-' ].update( new_title )
-                        sg.user_settings_set_entry( '-seconditems-', new_title )
+                        sg.user_settings_set_entry( '-second_items-', new_title )
                 elif event == 'Show Refresh Info':
                     window[ '-REFRESHED-' ].update( visible = True )
                     sg.user_settings_set_entry( '-show refresh-', True )
@@ -2960,27 +2960,27 @@ class ComboBoxDialog( Sith ):
             self.__items = value
 
     @property
-    def selecteditem( self ):
+    def selected_item( self ):
         if isinstance( self.__selecteditem, str ):
             return self.__selecteditem
 
-    @selecteditem.setter
-    def selecteditem( self, value ):
+    @selected_item.setter
+    def selected_item( self, value ):
         if isinstance( value, str ):
             self.__selecteditem = value
 
     def __init__( self, data = None ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (400, 150)
         self.__items = data if isinstance( data, list ) and len( data ) > 0 else None
 
@@ -3067,27 +3067,27 @@ class ListBoxDialog( Sith ):
             self.__items = value
 
     @property
-    def selecteditem( self ):
+    def selected_item( self ):
         if isinstance( self.__selecteditem, str ):
             return self.__selecteditem
 
-    @selecteditem.setter
-    def selecteditem( self, value ):
+    @selected_item.setter
+    def selected_item( self, value ):
         if isinstance( value, str ) and value != '':
             self.__selecteditem = value
 
     def __init__( self, data = None ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (400, 250)
         self.__image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
         self.__items = data if isinstance( data, list ) else None
@@ -3217,16 +3217,16 @@ class ColorDialog( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 450)
 
     def show( self ):
@@ -4001,72 +4001,72 @@ class BudgetForm( Sith ):
     __formlayout = None
 
     @property
-    def titleitems( self ):
+    def title_items( self ):
         if isinstance( self.__titleitems, list ):
             return self.__titleitems
 
-    @titleitems.setter
-    def titleitems( self, value ):
+    @title_items.setter
+    def title_items( self, value ):
         if isinstance( value, list ):
             self.__titleitems = value
 
     @property
-    def headeritems( self ):
+    def header_items( self ):
         if isinstance( self.__headeritems, list ):
             return self.__headeritems
 
-    @headeritems.setter
-    def headeritems( self, value ):
+    @header_items.setter
+    def header_items( self, value ):
         if isinstance( value, list ) and len( value ) == 3:
             self.__headeritems = value
 
     @property
-    def firstitems( self ):
+    def first_items( self ):
         if isinstance( self.__firstitems, list ):
             return self.__firstitems
 
-    @firstitems.setter
-    def firstitems( self, value ):
+    @first_items.setter
+    def first_items( self, value ):
         if isinstance( value, list ):
             self.__firstitems = value
 
     @property
-    def seconditems( self ):
+    def second_items( self ):
         if isinstance( self.__seconditems, list ):
             return self.__seconditems
 
-    @seconditems.setter
-    def seconditems( self, value ):
+    @second_items.setter
+    def second_items( self, value ):
         if isinstance( value, list ):
             self.__seconditems = value
 
     @property
-    def thirditems( self ):
+    def third_items( self ):
         if isinstance( self.__thirditems, list ):
             return self.__thirditems
 
-    @thirditems.setter
-    def thirditems( self, value ):
+    @third_items.setter
+    def third_items( self, value ):
         if isinstance( value, list ):
             self.__thirditems = value
 
     @property
-    def fourthitems( self ):
+    def fourth_items( self ):
         if isinstance( self.__fourthitems, list ):
             return self.__fourthitems
 
-    @fourthitems.setter
-    def fourthitems( self, value ):
+    @fourth_items.setter
+    def fourth_items( self, value ):
         if isinstance( value, list ):
             self.__fourthitems = value
 
     @property
-    def formsize( self ):
+    def form_size( self ):
         if isinstance( self.__formsize, tuple ):
             return self.__formsize
 
-    @formsize.setter
-    def formsize( self, value ):
+    @form_size.setter
+    def form_size( self, value ):
         if isinstance( value, tuple ):
             self.__formsize = value
 
@@ -4082,20 +4082,20 @@ class BudgetForm( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (1200, 650)
         self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
 
-    def createtitle( self, items ):
+    def create_title( self, items ):
         if isinstance( items, list ) and len( items ) == 2:
             try:
                 blu = '#051F3D'
@@ -4119,11 +4119,11 @@ class BudgetForm( Sith ):
                 exc = Error( e )
                 exc.module = 'Booger'
                 exc.cause = 'BudgetForm'
-                exc.method = 'createtitle( self, items )'
+                exc.method = 'create_title( self, items )'
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def createheader( self, items ):
+    def create_header( self, items ):
         if isinstance( items, list ) and len( items ) == 3:
             try:
                 blu = '#051F3D'
@@ -4145,11 +4145,11 @@ class BudgetForm( Sith ):
                 exc = Error( e )
                 exc.module = 'Booger'
                 exc.cause = 'BudgetForm'
-                exc.method = 'createheader( self, items )'
+                exc.method = 'create_header( self, items )'
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def createfirst( self, items ):
+    def create_first( self, items ):
         if isinstance( items, list ) and len( items ) == 7:
             try:
                 blu = '#051F3D'
@@ -4179,7 +4179,7 @@ class BudgetForm( Sith ):
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def createsecond( self, items ):
+    def create_second( self, items ):
         if isinstance( items, list ) and len( items ) == 7:
             try:
                 blu = '#051F3D'
@@ -4205,11 +4205,11 @@ class BudgetForm( Sith ):
                 exc = Error( e )
                 exc.module = 'Booger'
                 exc.cause = 'BudgetForm'
-                exc.method = 'createsecond( self, items )'
+                exc.method = 'create_second( self, items )'
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def createthird( self, items ):
+    def create_third( self, items ):
         if isinstance( items, list ) and len( items ) == 7:
             try:
                 blu = '#051F3D'
@@ -4239,7 +4239,7 @@ class BudgetForm( Sith ):
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def createfourth( self, items ):
+    def create_fourth( self, items ):
         if isinstance( items, list ) and len( items ) == 7:
             try:
                 blu = '#051F3D'
@@ -4265,11 +4265,11 @@ class BudgetForm( Sith ):
                 exc = Error( e )
                 exc.module = 'Booger'
                 exc.cause = 'BudgetForm'
-                exc.method = 'createfourth( self, items )'
+                exc.method = 'create_fourth( self, items )'
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def setlayout( self ):
+    def set_layout( self ):
         try:
             blu = '#051F3D'
             blk = '#101010'
@@ -4309,7 +4309,7 @@ class BudgetForm( Sith ):
             exc = Error( e )
             exc.module = 'Booger'
             exc.cause = 'BudgetForm'
-            exc.method = 'setlayout( self, items )'
+            exc.method = 'set_layout( self, items )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -4445,7 +4445,7 @@ class ChartPanel( Sith ):
     def __init__( self ):
         super( ).__init__( )
         sg.theme( 'DarkGrey15' )
-        self.__icon = super( ).iconpath
+        self.__icon = super( ).icon_path
         self.__formsize = (700, 600)
 
     def show( self ):
@@ -4528,16 +4528,16 @@ class CsvForm( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (800, 600)
 
     def show( self ):
@@ -4547,7 +4547,7 @@ class CsvForm( Sith ):
             spc = (25, 1)
             fd = FileDialog( )
             fd.show( )
-            filename = fd.selectedpath
+            filename = fd.selected_path
 
             if filename == '':
                 msg = MessageDialog( 'No file path was provided!' )
@@ -4644,16 +4644,16 @@ class ExcelForm( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (1200, 650)
 
     def show( self ):
@@ -4663,7 +4663,7 @@ class ExcelForm( Sith ):
             spc = (25, 1)
             fd = FileDialog( )
             fd.show( )
-            filename = fd.selectedpath
+            filename = fd.selected_path
 
             if filename == '':
                 msg = MessageDialog( 'No file was provided!' )
@@ -4771,16 +4771,16 @@ class GraphForm( Sith ):
 
     def __init__( self ):
         super( ).__init__( )
-        self.__themebackground = super( ).themebackground
-        self.__themefont = super( ).themefont
-        self.__icon = super( ).iconpath
-        self.__elementbackcolor = super( ).elementbackcolor
+        self.__themebackground = super( ).theme_background
+        self.__themefont = super( ).theme_font
+        self.__icon = super( ).icon_path
+        self.__elementbackcolor = super( ).element_backcolor
         self.__elementforecolor = super( ).elementforecolor
-        self.__themetextcolor = super( ).textforecolor
-        self.__textbackcolor = super( ).textbackcolor
-        self.__inputbackcolor = super( ).inputbackcolor
-        self.__inputforecolor = super( ).inputforecolor
-        self.__buttoncolor = super( ).buttoncolor
+        self.__themetextcolor = super( ).text_forecolor
+        self.__textbackcolor = super( ).text_backcolor
+        self.__inputbackcolor = super( ).input_backcolor
+        self.__inputforecolor = super( ).input_forecolor
+        self.__buttoncolor = super( ).button_color
         self.__formsize = (800, 600)
 
     def show( self ):

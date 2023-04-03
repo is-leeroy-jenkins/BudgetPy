@@ -24,8 +24,8 @@ from sys import exc_info
 
 # Path( file_path )
 class Path( ):
-    ''' Path( filename ) initializes the
-    Path class providing selectedpath information of get_subfolders
+    ''' Path( file_name ) initializes the
+    Path class providing selected_path information of get_subfolders
     used in the application'''
     __name = None
     __buffer = None
@@ -40,13 +40,13 @@ class Path( ):
 
     @property
     def name( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if isinstance( self.__name, str ):
             return self.__name
 
     @name.setter
     def name( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if isinstance( value, str ):
             self.__buffer = value
 
@@ -87,7 +87,7 @@ class Path( ):
 
     @current_directory.setter
     def current_directory( self, value ):
-        '''Set the current_directory directory to 'selectedpath' '''
+        '''Set the current_directory directory to 'selected_path' '''
         if os.path.exists( value ):
             os.chdir( value )
             self.__currdir = value
@@ -99,7 +99,7 @@ class Path( ):
 
     @parent_directory.setter
     def parent_directory( self, value ):
-        '''Set the current_directory directory to 'selectedpath' '''
+        '''Set the current_directory directory to 'selected_path' '''
         if isinstance( value, str ):
             self.__parentdirectory = value
 
@@ -110,7 +110,7 @@ class Path( ):
 
     @path_separator.setter
     def path_separator( self, value ):
-        '''Set the current_directory directory to 'selectedpath' '''
+        '''Set the current_directory directory to 'selected_path' '''
         if isinstance( value, str ):
             self.__pathsep = value
 
@@ -121,7 +121,7 @@ class Path( ):
 
     @drive_separator.setter
     def drive_separator( self, value ):
-        '''Set the current_directory directory to 'selectedpath' '''
+        '''Set the current_directory directory to 'selected_path' '''
         if isinstance( value, str ):
             self.__drivesep = value
 
@@ -132,7 +132,7 @@ class Path( ):
 
     @extension_separator.setter
     def extension_separator( self, value ):
-        '''Set the current_directory directory to 'selectedpath' '''
+        '''Set the current_directory directory to 'selected_path' '''
         if isinstance( value, str ):
             self.__extsep = value
 
@@ -296,7 +296,7 @@ class Path( ):
 
 # File( file_path )
 class File( Path ):
-    '''File( selectedpath ) initializes the
+    '''File( selected_path ) initializes the
      File Class providing file information for
      get_subfolders used in the application'''
     __absolute = None
@@ -537,7 +537,7 @@ class File( Path ):
             err.show( )
 
     def get_extension( self, other ):
-        ''' gets and returns extension of 'selectedpath' 'file' '''
+        ''' gets and returns extension of 'selected_path' 'file' '''
         try:
             if other is not None and os.path.isfile( other ):
                 return str( list( os.path.splitext( other ) )[ 1 ] )
@@ -640,25 +640,25 @@ class Folder( ):
 
     @property
     def name( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if os.path.exists( self.__path ):
             return str( list( os.path.split( self.__path ) )[ 1 ] )
 
     @name.setter
     def name( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if isinstance( value, str ):
             self.__path = value
 
     @property
     def directory( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @directory.setter
     def directory( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if os.path.isdir( value ):
             self.__name = value
 
@@ -853,7 +853,7 @@ class Folder( ):
             err.show( )
 
     def delete( self, other ):
-        ''' deletes 'selectedpath' directory '''
+        ''' deletes 'selected_path' directory '''
         try:
             if other is not None and os.path.isdir( other ):
                 os.rmdir( other )
@@ -866,7 +866,7 @@ class Folder( ):
             err.show( )
 
     def get_size( self, other ):
-        ''' gets and returns size of 'selectedpath' '''
+        ''' gets and returns size of 'selected_path' '''
         try:
             if other is not None and os.path.isdir( other ):
                 return os.path.getsize( other )
@@ -879,7 +879,7 @@ class Folder( ):
             err.show( )
 
     def get_drive( self, other ):
-        ''' gets and returns parent directory of 'selectedpath' '''
+        ''' gets and returns parent directory of 'selected_path' '''
         try:
             if other is not None and os.path.isdir( other ):
                 return os.path.splitdrive( other )[ 0 ]

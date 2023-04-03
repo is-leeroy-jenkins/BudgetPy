@@ -126,73 +126,73 @@ class SqlPath( ):
 
     @property
     def sqlite_driver( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if self.__sqlitedriver is not None:
             return self.__sqlitedriver
 
     @sqlite_driver.setter
     def sqlite_driver( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if value != '':
             self.__sqlitedriver = value
 
     @property
     def sqlite_data( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if self.__sqlitedata is not None:
             return self.__sqlitedata
 
     @sqlite_data.setter
     def sqlite_data( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if value != '':
             self.__sqlitedata = value
 
     @property
     def access_driver( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if self.__accessdriver is not None:
             return self.__accessdriver
 
     @access_driver.setter
     def access_driver( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if value != '':
             self.__accessdriver = value
 
     @property
     def access_data( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if self.__accessdata is not None:
             return self.__accessdata
 
     @access_data.setter
     def access_data( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if value != '':
             self.__accessdata = value
 
     @property
     def sql_driver( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if self.__sqldriver is not None:
             return self.__sqldriver
 
     @sql_driver.setter
     def sql_driver( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if value != '':
             self.__sqldriver = value
 
     @property
     def sql_data( self ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if self.__sqldata is not None:
             return self.__sqldata
 
     @sql_data.setter
     def sql_data( self, value ):
-        '''Returns string representing the title of the selectedpath 'base' '''
+        '''Returns string representing the title of the selected_path 'base' '''
         if value != '':
             self.__sqldata = value
 
