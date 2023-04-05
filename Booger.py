@@ -1602,7 +1602,7 @@ class ContactForm( Sith ):
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-        self.__formsize = (600, 300)
+        self.__formsize = (500, 300)
 
     def show( self ):
         try:
@@ -4654,7 +4654,7 @@ class ExcelForm( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (1200, 650)
+        self.__formsize = (1350, 700)
 
     def show( self ):
         try:
