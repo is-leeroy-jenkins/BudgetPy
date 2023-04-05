@@ -115,7 +115,7 @@ class Pascal( ):
             err.show( )
 
 class SqlPath( ):
-    '''class providing relative paths to the folders containing sql files and
+    '''class providing relative_path paths to the folders containing sql files and
     driver paths used in the application'''
     __accessdriver = None
     __accessdata = None
@@ -293,7 +293,7 @@ class SqlFile( ):
 
     def get_path( self ):
         '''Method returning a string representing
-         the absolute path to the SQL file used to execute the
+         the absolute_path path to the SQL file used to execute the
          command 'self.__cmdtype' against the table given by the
          member self.__source depending on the member self.__provider'''
         try:

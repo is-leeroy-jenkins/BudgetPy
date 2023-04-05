@@ -220,7 +220,7 @@ class Path( ):
 
     def is_relative_path( self ):
         '''Method to determine if the input path is an
-        relative file path'''
+        relative_path file path'''
         try:
             if isinstance( self.__buffer, str ) and self.__buffer != '':
                 if os.path.isabs( self.__buffer ) == True:
@@ -265,7 +265,7 @@ class Path( ):
             err.show( )
 
     def get_report_path( self, ext = EXT.XLSX ):
-        '''Method returns string representing the relative path
+        '''Method returns string representing the relative_path path
         to the report template
         '''
         try:
@@ -626,12 +626,12 @@ class File( Path ):
 
 
 # Folder( dir_path )
-class Folder( ):
+class Folder( Path ):
     '''Folder( selected_path ) initializes the
      Folder Class providing file directory information'''
     __absolute = None
     __relative = None
-    __path = None
+    __buffer = None
     __name = None
     __parent = None
     __dir = None
@@ -664,31 +664,31 @@ class Folder( ):
 
     @property
     def path( self ):
-        if isinstance( self.__path, str ):
-            return self.__path
+        if isinstance( super( ).__buffer, str ):
+            return super( ).__buffer
 
     @path.setter
     def path( self, value ):
-        if os.path.exists( value ):
-            self.__path = str( value )
+        if value is not None:
+            super( ).__buffer = value
 
     @property
-    def absolute( self ):
+    def absolute_path( self ):
         if isinstance( self.__absolute, str ) and self.__absolute != '':
             return self.__absolute
 
-    @absolute.setter
-    def absolute( self, value ):
+    @absolute_path.setter
+    def absolute_path( self, value ):
         if os.path.exists( value ) and os.path.isabs( value ):
             self.__absolute = value
 
     @property
-    def relative( self ):
+    def relative_path( self ):
         if isinstance( self.__relative, str ) and self.__relative != '':
             return self.__relative
 
-    @relative.setter
-    def relative( self, value ):
+    @relative_path.setter
+    def relative_path( self, value ):
         if isinstance( self.__relative, str ) and not os.path.isabs( value ):
             self.__relative = value
 
@@ -719,8 +719,9 @@ class Folder( ):
 
     @current.setter
     def current( self, value ):
-        if os.path.exists( value ):
+        if value is not None:
             os.chdir( value )
+            self.__current = os.getcwd( );
 
     def __init__( self, dir_path ):
         self.__current = os.getcwd( )
