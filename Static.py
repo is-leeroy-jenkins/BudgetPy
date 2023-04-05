@@ -91,6 +91,7 @@ class Source( Enum ):
     HumanResourceOrganizations = auto( )
     JobsActCarryoverEstimates = auto( )
     MonthlyLedgerAccountBalances = auto( )
+    MonthlyActuals = auto( )
     NetAuthority = auto( )
     ObligationActivity = auto( )
     Obligations = auto( )

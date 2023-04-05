@@ -26,6 +26,10 @@ class Pascal( ):
 
     @property
     def output( self ):
+        """
+
+        @return:
+        """
         if self.__output is not None and self.__output != '':
             return self.__output
 
@@ -34,25 +38,26 @@ class Pascal( ):
         if value is not None and value != self.__input:
             self.__output = value
 
-    def __init__( self, input = None ):
-        self.__input = input if input is not None and input != '' else None
+    def __init__( self, buffer = None ):
+        self.__input = buffer if buffer is not None and buffer != '' else None
 
     def __str__( self ):
         if self.__output is not None and self.__output != '':
             return self.__output
 
     def split( self ):
-        '''takes the string provided as an input argument
-         and formats it into pascal case'''
+        '''takes the string provided as an inbuffer argument
+         and formats it into pascal case
+         @return: '''
         try:
             if self.__input != '' and self.__input.count( ' ' ) == 0:
-                input = list( self.__input )
+                inbuffer = list( self.__input )
                 rtnstr = ''
                 outstr = ''
-                cnt = len( input )
+                cnt = len( inbuffer )
 
                 for i in range( cnt ):
-                    char = input[ i ]
+                    char = inbuffer[ i ]
                     if i <= 1 and char.islower( ):
                         outstr += f'{char}'
                     elif i <= 1 and char.isupper( ):
@@ -86,11 +91,11 @@ class Pascal( ):
         '''removes ' ' from strings previously formatted into pascal casing with split( self ) '''
         try:
             if isinstance( self.__input, str ) and self.__input.count( ' ' ) > 0:
-                input = list( self.__input )
+                inbuffer = list( self.__input )
                 outlist = list( )
                 outstr = ''
 
-                for char in input:
+                for char in inbuffer:
                     if char != ' ':
                         outlist.append( char )
 
@@ -243,6 +248,95 @@ class SqlFile( ):
         if value is not None:
             self.__command = value
 
+    @property
+    def filepath( self ):
+        '''Method returning a string representing
+         the absolute_path path to the SQL file used to execute the
+         command 'self.__cmdtype' against the table given by the
+         member self.__source depending on the member self.__provider'''
+        try:
+            sqlpath = SqlPath( )
+            data = self.__data
+            provider = self.__provider.name
+            source = self.__source.name
+            command = self.__command.name
+            current = os.getcwd( )
+            path = ''
+            if provider == 'SQLite' and source in data:
+                path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
+                return os.path.join( current, path )
+            elif provider == 'ACCDB' and source in data:
+                path = f'{sqlpath.access_data}\\{command}\\{source}.sql'
+                return os.path.join( current, path )
+            elif provider == 'SqlServer' and source in data:
+                path = f'{sqlpath.sql_data}\\{command}\\{source}.sql'
+                return os.path.join( current, path )
+            else:
+                path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
+                return os.path.join( current, path )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlFile'
+            exc.method = 'filepath( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    @property
+    def directory( self ):
+        '''Method creates and returns a string representing
+        the parent directory where the SQL file resides'''
+        try:
+            sqlpath = SqlPath( )
+            data = self.__data
+            source = self.__source.name
+            provider = self.__provider.name
+            command = self.__command.name
+            current = os.getcwd( )
+            folder = ''
+            if provider == 'SQLite' and source in data:
+                folder = f'{sqlpath.sqlite_data}\\{command}'
+                return os.path.join( current, folder )
+            elif provider == 'ACCDB' and source in data:
+                folder = f'{sqlpath.access_data}\\{command}'
+                return os.path.join( current, folder )
+            elif provider == 'SqlServer' and source in data:
+                folder = f'{sqlpath.sql_data}\\{command}'
+                return os.path.join( current, folder )
+            else:
+                folder = f'{sqlpath.sqlite_data}\\{command}'
+                return os.path.join( current, folder )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlFile'
+            exc.method = 'directory( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    @property
+    def query( self ):
+        '''Method reads the given '.sql' file and returns
+        a string representing the text used the sql query'''
+        try:
+            source = self.__source.name
+            paths = self.filepath
+            folder = self.directory
+            sql = ''
+            for name in os.listdir( folder ):
+                if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
+                    path = os.path.join( folder, name )
+                    query = open( path )
+                    sql = query.read( )
+                    return sql
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Ninja'
+            exc.cause = 'SqlFile'
+            exc.method = 'query( self, other )'
+            err = ErrorDialog( exc )
+            err.show( )
+
     def __init__( self, source = None, provider = None,
                   command = None ):
         self.__data = [ 'Actual', 'AdministrativeRequests', 'Allocation',
@@ -290,92 +384,6 @@ class SqlFile( ):
         self.__command = command if command is not None else SQL.SELECTALL
         self.__source = source if source is not None else Source.StatusOfFunds
         self.__provider = provider if provider is not None else Provider.SQLite
-
-    def get_path( self ):
-        '''Method returning a string representing
-         the absolute_path path to the SQL file used to execute the
-         command 'self.__cmdtype' against the table given by the
-         member self.__source depending on the member self.__provider'''
-        try:
-            sqlpath = SqlPath( )
-            data = self.__data
-            provider = self.__provider.name
-            source = self.__source.name
-            command = self.__command.name
-            current = os.getcwd( )
-            path = ''
-            if provider == 'SQLite' and source in data:
-                path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
-                return os.path.join( current, path )
-            elif provider == 'ACCDB' and source in data:
-                path = f'{sqlpath.access_data}\\{command}\\{source}.sql'
-                return os.path.join( current, path )
-            elif provider == 'SqlServer' and source in data:
-                path = f'{sqlpath.sql_data}\\{command}\\{source}.sql'
-                return os.path.join( current, path )
-            else:
-                path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
-                return os.path.join( current, path )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'get_path( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_directory( self ):
-        '''Method creates and returns a string representing
-        the parent directory where the SQL file resides'''
-        try:
-            sqlpath = SqlPath( )
-            data = self.__data
-            source = self.__source.name
-            provider = self.__provider.name
-            command = self.__command.name
-            current = os.getcwd( )
-            folder = ''
-            if provider == 'SQLite' and source in data:
-                folder = f'{sqlpath.sqlite_data}\\{command}'
-                return os.path.join( current, folder )
-            elif provider == 'ACCDB' and source in data:
-                folder = f'{sqlpath.access_data}\\{command}'
-                return os.path.join( current, folder )
-            elif provider == 'SqlServer' and source in data:
-                folder = f'{sqlpath.sql_data}\\{command}'
-                return os.path.join( current, folder )
-            else:
-                folder = f'{sqlpath.sqlite_data}\\{command}'
-                return os.path.join( current, folder )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'get_directory( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_query( self ):
-        '''Method reads the given '.sql' file and returns
-        a string representing the text used the sql query'''
-        try:
-            source = self.__source.name
-            paths = self.get_path( )
-            folder = self.get_directory( )
-            sql = ''
-            for name in os.listdir( folder ):
-                if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
-                    path = os.path.join( folder, name )
-                    query = open( path )
-                    sql = query.read( )
-                    return sql
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'get_query( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
 
 # DbConfig( source, provider = Provider.SQLite )
 class DbConfig( ):
@@ -511,7 +519,7 @@ class DbConfig( ):
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
-            exc.method = 'get_path( self )'
+            exc.method = 'filepath( self )'
             error = ErrorDialog( exc )
             error.show( )
 
@@ -664,7 +672,7 @@ class SqlConfig( ):
         if value is not None:
             self.__kvp = value
 
-    def __init__( self, command = SQL.SELECTALL, names = [ ], values = ( ), style = None ):
+    def __init__( self, command = SQL.SELECTALL, names = ( ), values = ( ), style = None ):
         self.__command = command
         self.__names = names if names is not None else [ ]
         self.__values = values if values is not None else ( )
@@ -673,7 +681,9 @@ class SqlConfig( ):
             if isinstance( names, list ) and isinstance( values, tuple ) else None
 
     def dump_kvp( self ) -> str:
-        '''dump( ) returns string of 'values = index AND' pairs'''
+        '''dump( ) returns string of 'values = index AND' pairs
+        @return:
+        '''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 pairs = ''
@@ -692,7 +702,8 @@ class SqlConfig( ):
 
     def dump_where( self ) -> str:
         '''dump_where( ) returns a string
-        using list arguments names and values'''
+        using list arguments names and values
+        @return: '''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 pairs = ''
@@ -711,7 +722,8 @@ class SqlConfig( ):
 
     def dump_set( self ) -> str:
         '''dump_set( ) returns a string
-        using list arguments names and values'''
+        using list arguments names and values
+        @return: '''
         try:
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 pairs = ''
@@ -730,7 +742,8 @@ class SqlConfig( ):
 
     def dump_columns( self ) -> str:
         '''dump_columns( ) returns a string of columns
-        used in select and insert statements from list self.__names'''
+        used in select and insert statements from list self.__names
+        @return: '''
         try:
             if self.__names is not None:
                 cols = ''
@@ -748,7 +761,8 @@ class SqlConfig( ):
 
     def dump_values( self ) -> str:
         '''dump_values( ) returns a string of values
-        used in select statements from list self.__names'''
+        used in select statements from list self.__names
+        @return: '''
         try:
             if self.__values is not None:
                 vals = ''
@@ -831,19 +845,6 @@ class SqlStatement( ):
             self.__path = value
 
     @property
-    def command_type( self ):
-        if self.__cmdtyp is not None:
-            return self.__cmdtyp
-
-    @command_type.setter
-    def command_type( self, value ):
-        if value is not None:
-            self.__cmdtyp = value
-        else:
-            command = SQL( 'SELECT' )
-            self.__cmdtyp = command
-
-    @property
     def table( self ):
         if self.__table is not None:
             return self.__table
@@ -882,6 +883,19 @@ class SqlStatement( ):
     def command_text( self, value ):
         if value != '':
             self.__text = value
+
+    @property
+    def command_type( self ):
+        if self.__cmdtyp is not None:
+            return self.__cmdtyp
+
+    @command_type.setter
+    def command_type( self, value ):
+        if value is not None:
+            self.__cmdtyp = value
+        else:
+            command = SQL( 'SELECT' )
+            self.__cmdtyp = command
 
     def __init__( self, dbcfg, sqlcfg ):
         self.__dbcfg = dbcfg
@@ -1142,7 +1156,7 @@ class Query( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlStatement'
-            exc.method = 'get_query( self )'
+            exc.method = 'query( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1302,7 +1316,7 @@ class AccessData( Query ):
         self.__provider = Provider.Access
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sql_statement
-        self.__query = sqlstatement.get_query( )
+        self.__query = sqlstatement.query
         self.__table = super( ).table
         self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
@@ -1403,7 +1417,7 @@ class SqlData( Query ):
         self.__connection = connection
         self.__source = connection.source
         self.__sqlstatement = sqlstatement
-        self.__query = sqlstatement.get_query( )
+        self.__query = sqlstatement.query
         self.__table = connection.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{ SQL Server Native Client 11.0 };'
@@ -2025,7 +2039,7 @@ class BudgetData( ):
 
     def get_frame( self ):
         '''Factory method that returns a pandas DataFrame object
-        based on the Source input arguement 'source' given to the constructor'''
+        based on the Source buffer arguement 'source' given to the constructor'''
         try:
             path = self.__path
             src = self.__source

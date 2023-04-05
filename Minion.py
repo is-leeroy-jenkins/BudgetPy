@@ -8,7 +8,7 @@ from Static import Client
 class App( ):
     '''App( client ) initializes object providing
      factory methods run( ) and run( args ) that run
-     processes based on 'client' enumeration input args'''
+     processes based on 'client' enumeration buffer args'''
     __app = None
     __sqliteclient = None
     __accessclient = None

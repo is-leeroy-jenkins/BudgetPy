@@ -202,7 +202,7 @@ class Path( ):
             err.show( )
 
     def is_absolute_path( self ):
-        '''Method to determine if the input path is an
+        '''Method to determine if the buffer path is an
         absolute_path file path'''
         try:
             if isinstance( self.__buffer, str ) and self.__buffer != '':
@@ -219,7 +219,7 @@ class Path( ):
             err.show( )
 
     def is_relative_path( self ):
-        '''Method to determine if the input path is an
+        '''Method to determine if the buffer path is an
         relative_path file path'''
         try:
             if isinstance( self.__buffer, str ) and self.__buffer != '':
