@@ -1694,7 +1694,7 @@ class GridForm( Sith ):
 
     @property
     def columns( self ):
-        if isinstance( self.__columns, str ) and self.__columns != '':
+        if isinstance( self.__columns, int ) and self.__columns != 0:
             return self.__columns
 
     @columns.setter
