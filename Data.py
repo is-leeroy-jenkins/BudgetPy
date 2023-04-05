@@ -778,9 +778,9 @@ class SqlConfig( ):
             err = ErrorDialog( exc )
             err.show( )
 
-# SqlStatement( db_config,  sqlcfg )
+# SqlStatement( db_config,  sql_cfg )
 class SqlStatement( ):
-    '''SqlStatement( dbcfg, sqlcfg ) Class
+    '''SqlStatement( db_config, sql_cfg ) Class
     represents the values models used in the SQLite database'''
     __cmdtyp = None
     __sqlcfg = None
