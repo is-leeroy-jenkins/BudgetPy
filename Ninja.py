@@ -69,8 +69,8 @@ class Element( Unit ):
             return self.__code
 
 
-# Accounts( treas, provider = Provider.SQLite )
-class Accounts( ):
+# Account( treas, provider = Provider.SQLite )
+class Account( ):
     '''defines the Account Code class'''
     __source = None
     __provider = None
@@ -225,7 +225,7 @@ class Accounts( ):
 
     def copy( self ):
         try:
-            clone = Accounts( code = self.__code )
+            clone = Account( code = self.__code )
             clone.goal_code = self.__goalcode
             clone.objective_code = self.__objectivecode
             clone.npm_code = self.__npmcode
@@ -280,8 +280,8 @@ class Accounts( ):
             err.show( )
 
 
-# ActivityCodes( treas, provider = Provider.SQLite )
-class ActivityCodes( ):
+# ActivityCode( treas, provider = Provider.SQLite )
+class ActivityCode( ):
     '''Defines the Activity Class'''
     __source = None
     __provider = None
@@ -407,8 +407,8 @@ class ActivityCodes( ):
             err.show( )
 
 
-# AllowanceHolders( fundcode, provider = Provider.SQLite )
-class AllowanceHolders( ):
+# AllowanceHolder( fundcode, provider = Provider.SQLite )
+class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
     __source = None
     __provider = None
@@ -533,8 +533,8 @@ class AllowanceHolders( ):
             err.show( )
 
 
-# Appropriations( fundcode, provider = Provider.SQLite )
-class Appropriations( ):
+# Appropriation( fundcode, provider = Provider.SQLite )
+class Appropriation( ):
     '''Defines the Appropriation Class'''
     __source = None
     __provider = None
@@ -633,7 +633,7 @@ class Appropriations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
-            exc.cause = 'Appropriations'
+            exc.cause = 'Appropriation'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -654,8 +654,8 @@ class Appropriations( ):
             err.show( )
 
 
-# AppropriationAvailableBalances( bfy, efy, fundcode, provider = Provider.SQLite )
-class AppropriationAvailableBalances( ):
+# AppropriationAvailableBalance( bfy, efy, fundcode, provider = Provider.SQLite )
+class AppropriationAvailableBalance( ):
     '''Defines the Appropriation Class'''
     __source = None
     __provider = None
@@ -903,7 +903,7 @@ class AppropriationAvailableBalances( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
-            exc.cause = 'Appropriations'
+            exc.cause = 'Appropriation'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1139,7 +1139,7 @@ class AppropriationLevelAuthority( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
-            exc.cause = 'Appropriations'
+            exc.cause = 'Appropriation'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1161,7 +1161,7 @@ class AppropriationLevelAuthority( ):
 
 
 # Allocation( bfy, fund, provider = Provider.SQLite )
-class Allocations( ):
+class Allocation( ):
     '''object representing operating plan data'''
     __source = None
     __provider = None
@@ -1530,7 +1530,7 @@ class Allocations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'Allocations'
+            exc.cause = 'Allocation'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1545,7 +1545,7 @@ class Allocations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'Allocations'
+            exc.cause = 'Allocation'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -1784,8 +1784,8 @@ class ApportionmentData( ):
             err.show( )
 
 
-# Actuals( bfy, fund, provider = Provider.SQLite  )
-class Actuals( ):
+# Actual( bfy, fund, provider = Provider.SQLite  )
+class Actual( ):
     '''Object representing expenditure data'''
     __source = None
     __provider = None
@@ -2196,7 +2196,7 @@ class Actuals( ):
                            'BocCode',
                            'BocName',
                            'ULO',
-                           'Obligations',
+                           'Obligation',
                            'Balance',
                            'ProgramAreaCode',
                            'ProgramAreaName',
@@ -2226,7 +2226,7 @@ class Actuals( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'Actuals'
+            exc.cause = 'Actual'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -2241,14 +2241,14 @@ class Actuals( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'Actuals'
+            exc.cause = 'Actual'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# ApplicationTables( name, provider = Provider.SQLite )
-class ApplicationTables( ):
+# ApplicationTable( name, provider = Provider.SQLite )
+class ApplicationTable( ):
     # Provides tables for the application
     __source = None
     __provider = None
@@ -2306,8 +2306,8 @@ class ApplicationTables( ):
         self.__tablename = name
 
 
-# AppropriationDocuments( bfy, fund, provider = Provider.SQLite )
-class AppropriationDocuments( ):
+# AppropriationDocument( bfy, fund, provider = Provider.SQLite )
+class AppropriationDocument( ):
     '''object representing Level 1 documents'''
     __source = None
     __provider = None
@@ -2729,8 +2729,8 @@ class AppropriationDocuments( ):
             err.show( )
 
 
-# BudgetDocuments( bfy, fund, provider = Provider.SQLite )
-class BudgetDocuments( ):
+# BudgetDocument( bfy, fund, provider = Provider.SQLite )
+class BudgetDocument( ):
     '''object representing Level 2-3 documents'''
     __source = None
     __provider = None
@@ -3265,8 +3265,8 @@ class BudgetDocuments( ):
             err.show( )
 
 
-# BudgetControls( fundcode, provider = Provider.SQLite )
-class BudgetControls( ):
+# BudgetControl( fundcode, provider = Provider.SQLite )
+class BudgetControl( ):
     '''object representing compass control data'''
     __source = None
     __provider = None
@@ -4037,8 +4037,8 @@ class BudgetFiscalYear( ):
             err.show( )
 
 
-# BudgetObjectClasses( code, provider = Provider.SQLite  )
-class BudgetObjectClasses( ):
+# BudgetObjectClass( code, provider = Provider.SQLite  )
+class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
     __source = None
     __provider = None
@@ -4186,7 +4186,8 @@ class BudgetaryResourceExecution( ):
     __bfy = None
     __efy = None
     __fundcode = None
-    __treasuryfundsymbol = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
     __budgetaccountcode = None
     __budgetaccountname = None
     __fields = None
@@ -4224,14 +4225,24 @@ class BudgetaryResourceExecution( ):
             self.__efy = value
 
     @property
-    def treasuryfundsymbol( self ):
-        if self.__treasuryfundsymbol is not None:
-            return self.__treasuryfundsymbol
+    def treasury_account_code( self ):
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
 
-    @treasuryfundsymbol.setter
-    def treasuryfundsymbol( self, value ):
+    @treasury_account_code.setter
+    def treasury_account_code( self, value ):
         if value is not None:
-            self.__treasuryfundsymbol = value
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ):
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
 
     @property
     def budget_account_code( self ):
@@ -4343,9 +4354,9 @@ class BudgetaryResourceExecution( ):
             err.show( )
 
 
-# BudgetOutlays( account, provider = Provider.SQLite )
-class BudgetOutlays( ):
-    '''BudgetOutlays( bfy, omb )
+# BudgetOutlay( account, provider = Provider.SQLite )
+class BudgetOutlay( ):
+    '''BudgetOutlay( bfy, omb )
     object provides OMB data'''
     __source = None
     __provider = None
@@ -4655,7 +4666,7 @@ class BudgetOutlays( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'BudgetOutlays'
+            exc.cause = 'BudgetOutlay'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -4670,14 +4681,14 @@ class BudgetOutlays( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'BudgetOutlays'
+            exc.cause = 'BudgetOutlay'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# CongressionalControls( bfy, fund, provider = Provider.SQLite )
-class CongressionalControls( ):
+# CongressionalControl( bfy, fund, provider = Provider.SQLite )
+class CongressionalControl( ):
     '''object representing congressional control data'''
     __source = None
     __provider = None
@@ -4912,7 +4923,7 @@ class CongressionalControls( ):
 
 
 # CompassLevel( bfy, efy, fund, provider = Provider.SQLite )
-class CompassLevels( ):
+class CompassLevel( ):
     '''object representing Compass data levels 1-7'''
     __source = None
     __provider = None
@@ -5130,7 +5141,7 @@ class CompassLevels( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'CompassLevels'
+            exc.cause = 'CompassLevel'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -5145,14 +5156,14 @@ class CompassLevels( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'CompassLevels'
+            exc.cause = 'CompassLevel'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# Commitments( bfy, fund, account, boc, provider = Provider.SQLite )
-class Commitments( ):
+# Commitment( bfy, fund, account, boc, provider = Provider.SQLite )
+class Commitment( ):
     '''Defines the CommitmentS class.'''
     __source = None
     __provider = None
@@ -5629,10 +5640,10 @@ class Commitments( ):
                            'NpmName',
                            'VendorCode',
                            'VendorName',
-                           'OpenCommitments',
-                           'Obligations',
+                           'OpenCommitment',
+                           'Obligation',
                            'ULO',
-                           'Expenditures' ]
+                           'Expenditure' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -5680,8 +5691,8 @@ class Commitments( ):
             err.show( )
 
 
-# CarryoverOutlays( bfy, omb, provider = Provider.SQLite )
-class CarryoverOutlays( ):
+# CarryoverOutlay( bfy, omb, provider = Provider.SQLite )
+class CarryoverOutlay( ):
     ''' object provides OMB data '''
     __source = None
     __provider = None
@@ -5963,7 +5974,7 @@ class CarryoverOutlays( ):
                           'OmbAccountName',
                           'LINE',
                           'Carryover',
-                          'CarryoverOutlays',
+                          'CarryoverOutlay',
                           'Delta',
                           'AvailableBalance',
                           'ULO',
@@ -6002,7 +6013,7 @@ class CarryoverOutlays( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'CarryoverOutlays'
+            exc.cause = 'CarryoverOutlay'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -6017,7 +6028,7 @@ class CarryoverOutlays( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'CarryoverOutlays'
+            exc.cause = 'CarryoverOutlay'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -6058,9 +6069,9 @@ class CostArea( ):
                           'Name' ]
 
 
-# CarryoverEstimates( bfy, provider = Provider.SQLite )
-class CarryoverEstimates( ):
-    '''CarryoverEstimates( bfy ) initializes object bfy
+# CarryoverEstimate( bfy, provider = Provider.SQLite )
+class CarryoverEstimate( ):
+    '''CarryoverEstimate( bfy ) initializes object bfy
     providing Carryover Estimate data for'''
     __source = None
     __provider = None
@@ -6373,7 +6384,7 @@ class CarryoverEstimates( ):
                            'BocCode',
                            'BocName',
                            'AvailableBalance',
-                           'OpenCommitments',
+                           'OpenCommitment',
                            'UnobligatedAuthority' ]
 
     def __str__( self ):
@@ -6401,7 +6412,7 @@ class CarryoverEstimates( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'CarryoverEstimates'
+            exc.cause = 'CarryoverEstimate'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -6416,7 +6427,7 @@ class CarryoverEstimates( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'CarryoverEstimates'
+            exc.cause = 'CarryoverEstimate'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -6540,7 +6551,7 @@ class CarryoverSurvey( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'CarryoverOutlays'
+            exc.cause = 'CarryoverOutlay'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -7265,10 +7276,10 @@ class Defacto( ):
                            'Amount',
                            'Budgeted',
                            'Posted',
-                           'OpenCommitments',
+                           'OpenCommitment',
                            'ULO',
-                           'Expenditures',
-                           'Obligations',
+                           'Expenditure',
+                           'Obligation',
                            'Used',
                            'Available',
                            'NpmCode',
@@ -7832,8 +7843,8 @@ class Deobligation( ):
             err.show( )
 
 
-# DocumentControlNumbers( dcn, provider = Provider.SQLite )
-class DocumentControlNumbers( ):
+# DocumentControlNumber( dcn, provider = Provider.SQLite )
+class DocumentControlNumber( ):
     ''' object provides DCN data'''
     __source = None
     __provider = None
@@ -7983,7 +7994,7 @@ class DocumentControlNumbers( ):
 
 
 # Expenditure( bfy, fund, account, boc, provider = Provider.SQLite )
-class Expenditures( ):
+class Expenditure( ):
     '''Expenditure( bfy, fund, account, fundcode, provider = Provider.SQLite )
     initializes object providing Expenditure data'''
     __source = None
@@ -8508,7 +8519,7 @@ class Expenditures( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'Expenditures'
+            exc.cause = 'Expenditure'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -8523,7 +8534,7 @@ class Expenditures( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'Expenditures'
+            exc.cause = 'Expenditure'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -8679,8 +8690,8 @@ class FinanceObjectClass( ):
             err.show( )
 
 
-# Funds( bfy, efy, fundcode, provider = Provider.SQLite )
-class Funds( ):
+# Fund( bfy, efy, fundcode, provider = Provider.SQLite )
+class Fund( ):
     '''Defines the Fund Class'''
     __source = None
     __provider = None
@@ -9643,8 +9654,8 @@ class FederalHoliday( ):
             err.show( )
 
 
-# FullTimeEquivalents( bfy, fund, provider = Provider.SQLite )
-class FullTimeEquivalents( ):
+# FullTimeEquivalent( bfy, fund, provider = Provider.SQLite )
+class FullTimeEquivalent( ):
     '''object representing Operating Plan FTE'''
     __source = None
     __provider = None
@@ -10015,8 +10026,8 @@ class FullTimeEquivalents( ):
             err.show( )
 
 
-# GeneralLedgerAccounts( bfy, number, provider = Provider.SQLite )
-class GeneralLedgerAccounts( ):
+# GeneralLedgerAccount( bfy, number, provider = Provider.SQLite )
+class GeneralLedgerAccount( ):
     __source = None
     __provider = None
     __generalledgeraccountsid = None
@@ -10138,8 +10149,8 @@ class GeneralLedgerAccounts( ):
                           'ClosingAmount' ]
 
 
-# Goals( treas, provider = Provider.SQLite )
-class Goals( ):
+# Goal( treas, provider = Provider.SQLite )
+class Goal( ):
     '''Defines the Goal Class'''
     __source = None
     __provider = None
@@ -10250,9 +10261,9 @@ class Goals( ):
             err.show( )
 
 
-# GrowthRates( bfy, id, provider = Provider.SQLite )
-class GrowthRates( ):
-    '''GrowthRates( bfy, id )
+# GrowthRate( bfy, id, provider = Provider.SQLite )
+class GrowthRate( ):
+    '''GrowthRate( bfy, id )
     initializes object providing OMB growth rate data'''
     __source = None
     __provider = None
@@ -10454,7 +10465,7 @@ class GrowthRates( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'GrowthRates'
+            exc.cause = 'GrowthRate'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -10469,7 +10480,7 @@ class GrowthRates( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'GrowthRates'
+            exc.cause = 'GrowthRate'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -10477,7 +10488,7 @@ class GrowthRates( ):
 
 # HeadquartersAuthority( bfy, rpio, provider = Provider.SQLite )
 class HeadquartersAuthority( ):
-    '''object representing HQ Allocations'''
+    '''object representing HQ Allocation'''
     __source = None
     __provider = None
     __headquartersauthorityid = None
@@ -10867,8 +10878,8 @@ class HeadquartersAuthority( ):
             err.show( )
 
 
-# HeadquartersOffices( treas, provider = Provider.SQLite  )
-class HeadquartersOffices( ):
+# HeadquartersOffice( treas, provider = Provider.SQLite  )
+class HeadquartersOffice( ):
     '''Defines a regional RPIO'''
     __source = None
     __provider = None
@@ -10995,8 +11006,8 @@ class HeadquartersOffices( ):
             err.show( )
 
 
-# HumanResourceOrganizations( treas, provider = Provider.SQLite )
-class HumanResourceOrganizations( ):
+# HumanResourceOrganization( treas, provider = Provider.SQLite )
+class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
@@ -11119,9 +11130,9 @@ class HumanResourceOrganizations( ):
             err.show( )
 
 
-# MonthlyOutlays( bfy, efy, account, provider = Provider.SQLite )
-class MonthlyOutlays( ):
-    '''MonthlyOutlays( bfy, efy, omb ) initializes
+# MonthlyOutlay( bfy, efy, account, provider = Provider.SQLite )
+class MonthlyOutlay( ):
+    '''MonthlyOutlay( bfy, efy, omb ) initializes
     object providing OMB outlay data'''
     __source = None
     __provider = None
@@ -11326,7 +11337,7 @@ class MonthlyOutlays( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'MonthlyOutlays'
+            exc.cause = 'MonthlyOutlay'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -11341,14 +11352,14 @@ class MonthlyOutlays( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'MonthlyOutlays'
+            exc.cause = 'MonthlyOutlay'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# NationalPrograms( treas value, provider = Provider.SQLite )
-class NationalPrograms( ):
+# NationalProgram( treas value, provider = Provider.SQLite )
+class NationalProgram( ):
     '''Defines the NationalProgram Class'''
     __source = None
     __provider = None
@@ -11497,8 +11508,8 @@ class NationalPrograms( ):
             err.show( )
 
 
-# Objectives( treas, provider = Provider.SQLite )
-class Objectives( ):
+# Objective( treas, provider = Provider.SQLite )
+class Objective( ):
     '''Defines the Objective Class'''
     __source = None
     __provider = None
@@ -11624,8 +11635,8 @@ class Objectives( ):
             err.show( )
 
 
-# Organizations( fundcode, provider = Provider.SQLite  )
-class Organizations( ):
+# Organization( fundcode, provider = Provider.SQLite  )
+class Organization( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
@@ -11735,9 +11746,9 @@ class Organizations( ):
             err.show( )
 
 
-# ObjectClassOutlays( account, provider = Provider.SQLite )
-class ObjectClassOutlays( ):
-    '''ObjectClassOutlays( bfy, omb )
+# ObjectClassOutlay( account, provider = Provider.SQLite )
+class ObjectClassOutlay( ):
+    '''ObjectClassOutlay( bfy, omb )
     object provides OMB outlay data'''
     __source = None
     __provider = None
@@ -11965,7 +11976,7 @@ class ObjectClassOutlays( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'ObjectClassOutlays'
+            exc.cause = 'ObjectClassOutlay'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -11980,14 +11991,14 @@ class ObjectClassOutlays( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'ObjectClassOutlays'
+            exc.cause = 'ObjectClassOutlay'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# OperatingPlans( bfy, efy, treas, provider = Provider.SQLite )
-class OperatingPlans( ):
+# OperatingPlan( bfy, efy, treas, provider = Provider.SQLite )
+class OperatingPlan( ):
     '''object representing Operating plan allocations'''
     __operatingplansid = None
     __source = None
@@ -12359,8 +12370,8 @@ class OperatingPlans( ):
             err.show( )
 
 
-# OpenCommitments( bfy, efy, fund, account, boc, provider = Provider.SQLite )
-class OpenCommitments( ):
+# OpenCommitment( bfy, efy, fund, account, boc, provider = Provider.SQLite )
+class OpenCommitment( ):
     ''' OpenCommitment( bfy, fund, account, boc )
     initializes object providing OpenCommitment data.'''
     __source = None
@@ -12918,10 +12929,10 @@ class OpenCommitments( ):
                            'NpmName',
                            'VendorCode',
                            'VendorName',
-                           'OpenCommitments',
-                           'Obligations',
+                           'OpenCommitment',
+                           'Obligation',
                            'ULO',
-                           'Expenditures' ]
+                           'Expenditure' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -12969,8 +12980,8 @@ class OpenCommitments( ):
             err.show( )
 
 
-# Obligations( bfy, efy, fund, account, boc, provider = Provider.SQLite )
-class Obligations( ):
+# Obligation( bfy, efy, fund, account, boc, provider = Provider.SQLite )
+class Obligation( ):
     '''Obligation( bfy, efy, fund, account, boc )
     initializes object providing Obligation data'''
     __source = None
@@ -13526,10 +13537,10 @@ class Obligations( ):
                            'NpmName',
                            'VendorCode',
                            'VendorName',
-                           'OpenCommitments',
-                           'Obligations',
+                           'OpenCommitment',
+                           'Obligation',
                            'ULO',
-                           'Expenditures' ]
+                           'Expenditure' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -13571,7 +13582,7 @@ class Obligations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'Obligations'
+            exc.cause = 'Obligation'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -13696,8 +13707,8 @@ class ProgramFinancingSchedule( ):
                           'Amount' ]
 
 
-# PublicLaws( bfy, number, provider = Provider.SQLite )
-class PublicLaws( ):
+# PublicLaw( bfy, number, provider = Provider.SQLite )
+class PublicLaw( ):
     __source = None
     __provider = None
     __publiclawsid = None
@@ -14354,8 +14365,8 @@ class PayrollActivity( ):
             err.show( )
 
 
-# Projects( code, provider = Provider.SQLite  )
-class Projects( ):
+# Project( code, provider = Provider.SQLite  )
+class Project( ):
     '''Defines the Organization Class'''
     __source = None
     __projectsid = None
@@ -14479,8 +14490,8 @@ class Projects( ):
             err.show( )
 
 
-# ProgramAreas( code, provider = Provider.SQLite  )
-class ProgramAreas( ):
+# ProgramArea( code, provider = Provider.SQLite  )
+class ProgramArea( ):
     '''defines the ProgramArea class'''
     __source = None
     __provider = None
@@ -14605,8 +14616,8 @@ class ProgramAreas( ):
             err.show( )
 
 
-# ProgramProjects( code, provider = Provider.SQLite  )
-class ProgramProjects( ):
+# ProgramProject( code, provider = Provider.SQLite  )
+class ProgramProject( ):
     '''Defines the ProgramProject Class'''
     __source = None
     __provider = None
@@ -14734,14 +14745,14 @@ class ProgramProjects( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
-            exc.cause = 'ProgramProjects'
+            exc.cause = 'ProgramProject'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# PayrollCostCodes( bfy, efy, code, provider = Provider.SQLite )
-class PayrollCostCodes( ):
+# PayrollCostCode( bfy, efy, code, provider = Provider.SQLite )
+class PayrollCostCode( ):
     __source = None
     __provider = None
     __payrollcostcodesid = None
@@ -15414,8 +15425,8 @@ class ProgramResultsCode( ):
             err.show( )
 
 
-# ResponsibilityCenters( fundcode, provider = Provider.SQLite  )
-class ResponsibilityCenters( ):
+# ResponsibilityCenter( fundcode, provider = Provider.SQLite  )
+class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
     __source = None
     __provider = None
@@ -15549,8 +15560,8 @@ class ResponsibilityCenters( ):
             err.show( )
 
 
-# ResourcePlanningOffices( fundcode, provider = Provider.SQLite  )
-class ResourcePlanningOffices( ):
+# ResourcePlanningOffice( fundcode, provider = Provider.SQLite  )
+class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
     __source = None
     __provider = None
@@ -15675,8 +15686,8 @@ class ResourcePlanningOffices( ):
             err.show( )
 
 
-# RegionalOffices( fundcode, provider = Provider.SQLite  )
-class RegionalOffices( ):
+# RegionalOffice( fundcode, provider = Provider.SQLite  )
+class RegionalOffice( ):
     '''Defines a regional RPIO'''
     __source = None
     __provider = None
@@ -15926,8 +15937,8 @@ class ReimbursableSurvey( ):
             err.show( )
 
 
-# ReimbursableAgreements( number, provider = Provide.SQLite )
-class ReimbursableAgreements( ):
+# ReimbursableAgreement( number, provider = Provide.SQLite )
+class ReimbursableAgreement( ):
     __source = None
     __provider = None
     __reimbursableagreementsid = None
@@ -16154,8 +16165,8 @@ class ReimbursableAgreements( ):
                           'VendorCode',
                           'VendorName',
                           'Amount',
-                          'OpenCommitments',
-                          'Obligations',
+                          'OpenCommitment',
+                          'Obligation',
                           'ULO',
                           'Available' ]
 
@@ -16184,7 +16195,7 @@ class ReimbursableAgreements( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'ObjectClassOutlays'
+            exc.cause = 'ObjectClassOutlay'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -16199,7 +16210,7 @@ class ReimbursableAgreements( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'ObjectClassOutlays'
+            exc.cause = 'ObjectClassOutlay'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -16207,7 +16218,7 @@ class ReimbursableAgreements( ):
 
 # RegionalAuthority( bfy, efy, fund, provider = Provider.SQLite )
 class RegionalAuthority( ):
-    '''object representing Regional Allocations'''
+    '''object representing Regional Allocation'''
     __source = None
     __provider = None
     __regionalauthorityid = None
@@ -17111,10 +17122,10 @@ class StatusOfFunds( ):
                            'Amount',
                            'Budgeted',
                            'Posted',
-                           'OpenCommitments',
+                           'OpenCommitment',
                            'ULO',
-                           'Expenditures',
-                           'Obligations',
+                           'Expenditure',
+                           'Obligation',
                            'Used',
                            'Available',
                            'NpmCode',
@@ -17596,10 +17607,10 @@ class StatusOfSupplementalFunding( ):
                            'Amount',
                            'Budgeted',
                            'Posted',
-                           'OpenCommitments',
+                           'OpenCommitment',
                            'ULO',
-                           'Expenditures',
-                           'Obligations',
+                           'Expenditure',
+                           'Obligation',
                            'Used',
                            'Available',
                            'NpmCode',
@@ -17648,8 +17659,8 @@ class StatusOfSupplementalFunding( ):
             err.show( )
 
 
-# StateGrantObligations( bfy, rpio, provider = Provider.SQLite )
-class StateGrantObligations( ):
+# StateGrantObligation( bfy, rpio, provider = Provider.SQLite )
+class StateGrantObligation( ):
     '''object representing the BIS'''
     __source = None
     __provider = None
@@ -17922,7 +17933,7 @@ class StateGrantObligations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'StateGrantObligations'
+            exc.cause = 'StateGrantObligation'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -17937,14 +17948,14 @@ class StateGrantObligations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'StateGrantObligations'
+            exc.cause = 'StateGrantObligation'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
 # SpecialAccount( bfy, fund, account, boc, provider = Provider.SQLite )
-class SpecialAccounts( ):
+class SpecialAccount( ):
     '''' object providing SF Special Account data'''
     __source = None
     __provider = None
@@ -18231,8 +18242,8 @@ class SpecialAccounts( ):
                            'FocName',
                            'TransactionDate',
                            'AvailableBalance',
-                           'OpenCommitments',
-                           'Obligations',
+                           'OpenCommitment',
+                           'Obligation',
                            'ULO',
                            'Disbursements',
                            'UnpaidBalances',
@@ -18264,7 +18275,7 @@ class SpecialAccounts( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'SpecialAccounts'
+            exc.cause = 'SpecialAccount'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -18279,14 +18290,14 @@ class SpecialAccounts( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'SpecialAccounts'
+            exc.cause = 'SpecialAccount'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
 # SuperfundSite( bfy, rpio, provider = Provider.SQLite )
-class SuperfundSites( ):
+class SuperfundSite( ):
     ''' object providing SF Site data '''
     __source = None
     __provider = None
@@ -18451,7 +18462,7 @@ class SuperfundSites( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
-            exc.cause = 'SuperfundSites'
+            exc.cause = 'SuperfundSite'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -18466,184 +18477,14 @@ class SuperfundSites( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'SuperfundSites'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-
-# SiteProject( fundcode, provider = Provider.SQLite  )
-class SiteProjectCodes( ):
-    '''Defines the Site Project Code Class'''
-    __source = None
-    __provider = None
-    __siteprojectcodesid = None
-    __epaid = None
-    __ssid = None
-    __actioncode = None
-    __operableunit = None
-    __code = None
-    __name = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__siteprojectcodesid, int ):
-            return self.___siteprojectcodesid
-
-    @id.setter
-    def id( self, value ):
-        if value is not None:
-            self.__siteprojectcodesid = value
-
-    @property
-    def ssid( self ):
-        if isinstance( self.__ssid, str ) and self.__ssid != '':
-            return self.__ssid
-
-    @ssid.setter
-    def ssid( self, value ):
-        if value is not None:
-            self.__ssid = value
-
-    @property
-    def action_code( self ):
-        if isinstance( self.__actioncode, str ):
-            return self.__actioncode
-
-    @action_code.setter
-    def action_code( self, value ):
-        if isinstance( self.__actioncode, str ) and self.__actioncode != '':
-            self.__actioncode = value
-
-    @property
-    def operable_unit( self ):
-        if isinstance( self.__operableunit, str ) and self.__operableunit != '':
-            return self.__operableunit
-
-    @operable_unit.setter
-    def operable_unit( self, value ):
-        if value is not None:
-            self.__operableunit =  value
-
-    @property
-    def epaid( self ):
-        if isinstance( self.__epaid, str ) and self.__epaid != '':
-            return self.__epaid
-
-    @epaid.setter
-    def epaid( self, value ):
-        if value is not None:
-            self.__epaid =  value
-
-    @property
-    def code( self ):
-        if isinstance( self.__code, str ) and self.__code != '':
-            return self.__code
-
-    @code.setter
-    def code( self, value ):
-        if value is not None:
-            self.__code = value
-
-    @property
-    def name( self ):
-        if self.__name is not None:
-            return self.__name
-
-    @name.setter
-    def name( self, value ):
-        if value is not None:
-            self.__name = value
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, value ):
-        if isinstance( value, list ):
-            self.__data = value
-
-    @property
-    def table( self ):
-        if self.__frame is not None:
-            return self.__frame
-
-    @table.setter
-    def table( self, value ):
-        if value is not None:
-            self.__frame = value
-
-    @property
-    def fields( self ):
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, code, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.SiteProjectCodes
-        self.__code = str( code )
-        self.__ssid = self.__code[ 0: 4 ]
-        self.__actioncode = self.__code[ 4:6 ]
-        self.__operableunit = self.__code[ 6:9 ]
-
-    def __str__( self ):
-        if isinstance( self.__name, str ):
-            return self.__name
-
-    def get_data( self  ):
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'Code', ]
-            v = (self.__code,)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Execution'
-            exc.cause = 'SiteProject'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ):
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Execution'
-            exc.cause = 'SiteProject'
+            exc.cause = 'SuperfundSite'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
 # Appropriation( bfy, efy, fundcode, provider = Provider.SQLite )
-class SubAppropriations( ):
+class SubAppropriation( ):
     '''Defines the Appropriation Class'''
     __source = None
     __provider = None
@@ -18766,7 +18607,7 @@ class SubAppropriations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
-            exc.cause = 'SubAppropriations'
+            exc.cause = 'SubAppropriation'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -18787,8 +18628,8 @@ class SubAppropriations( ):
             err.show( )
 
 
-# SiteProjectCodes( code, provider = Provider.SQLite  )
-class SiteProjectCodes( ):
+# SiteProjectCode( code, provider = Provider.SQLite  )
+class SiteProjectCode( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
@@ -18910,8 +18751,8 @@ class SiteProjectCodes( ):
             err.show( )
 
 
-# StateOrganizations( fundcode, provider = Provider.SQLite  )
-class StateOrganizations( ):
+# StateOrganization( fundcode, provider = Provider.SQLite  )
+class StateOrganization( ):
     '''StateOrganization( code ) class
     representing state codes'''
     __source = None
@@ -19741,9 +19582,9 @@ class StatusOfAppropriations( ):
             err.show( )
 
 
-# SpendingRates( account, provider = Provider.SQLite )
-class SpendingRates( ):
-    '''SpendingRates( fundcode ) initializes
+# SpendingRate( account, provider = Provider.SQLite )
+class SpendingRate( ):
+    '''SpendingRate( fundcode ) initializes
     object providing OMB spending rate data'''
     __source = None
     __provider = None
@@ -20120,7 +19961,7 @@ class SpendingRates( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'SpendingRates'
+            exc.cause = 'SpendingRate'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -20135,7 +19976,7 @@ class SpendingRates( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'SpendingRates'
+            exc.cause = 'SpendingRate'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -20575,10 +20416,10 @@ class StatusOfSupplementalFunds( ):
                            'Amount',
                            'Budgeted',
                            'Posted',
-                           'OpenCommitments',
+                           'OpenCommitment',
                            'ULO',
-                           'Expenditures',
-                           'Obligations',
+                           'Expenditure',
+                           'Obligation',
                            'Used',
                            'Available',
                            'NpmCode',
@@ -21023,10 +20864,10 @@ class StatusOfJobsActFunding( ):
                            'Amount',
                            'Budgeted',
                            'Posted',
-                           'OpenCommitments',
+                           'OpenCommitment',
                            'ULO',
-                           'Expenditures',
-                           'Obligations',
+                           'Expenditure',
+                           'Obligation',
                            'Used',
                            'Available' ]
 
@@ -21469,10 +21310,10 @@ class StatusOfEarmarks( ):
                            'Amount',
                            'Budgeted',
                            'Posted',
-                           'OpenCommitments',
+                           'OpenCommitment',
                            'ULO',
-                           'Expenditures',
-                           'Obligations',
+                           'Expenditure',
+                           'Obligation',
                            'Used',
                            'Available' ]
 
@@ -22557,10 +22398,10 @@ class SpendingDocument( ):
                            'NpmName',
                            'VendorCode',
                            'VendorName',
-                           'OpenCommitments',
-                           'Obligations',
+                           'OpenCommitment',
+                           'Obligation',
                            'ULO',
-                           'Expenditures' ]
+                           'Expenditure' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -22602,14 +22443,14 @@ class SpendingDocument( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'Obligations'
+            exc.cause = 'Obligation'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# TreasurySymbols( bfy, efy, fundcode, provider = Provider.SQLite )
-class TreasurySymbols( ):
+# TreasurySymbol( bfy, efy, fundcode, provider = Provider.SQLite )
+class TreasurySymbol( ):
     '''TreasurySymbol( value )
     creates object that represents a TAFS'''
     __source = None
@@ -22773,8 +22614,8 @@ class TreasurySymbols( ):
             err.show( )
 
 
-# Transfers( documentnumber, provider = Provider.SQLite )
-class Transfers( ):
+# Transfer( documentnumber, provider = Provider.SQLite )
+class Transfer( ):
     ''' Transfer( documentnumber ) initializes object
     representing EPA reprogrammings'''
     __source = None
@@ -23159,8 +23000,8 @@ class Transfers( ):
             err.show( )
 
 
-# TransTypes( bfy, fundcode, provider = Provider.SQLite )
-class TransTypes( ):
+# TransType( bfy, fundcode, provider = Provider.SQLite )
+class TransType( ):
     __source = None
     __provider = None
     __transtypesid = None
@@ -23450,7 +23291,7 @@ class UnobligatedAuthority( ):
 
 
 # UnobligatedBalance( bfy, efy, fundcode, provider = Provider.SQLite )
-class UnobligatedBalances( ):
+class UnobligatedBalance( ):
     '''object provides OMB data on unobligated
     balances by Fund Code and General Ledger Account'''
     __source = None
@@ -23606,7 +23447,7 @@ class UnobligatedBalances( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'UnobligatedBalances'
+            exc.cause = 'UnobligatedBalance'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -23621,14 +23462,14 @@ class UnobligatedBalances( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Reporting'
-            exc.cause = 'UnobligatedBalances'
+            exc.cause = 'UnobligatedBalance'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# UnliquidatedObligations( bfy, fund, account, boc, provider = Provider.SQLite )
-class UnliquidatedObligations( ):
+# UnliquidatedObligation( bfy, fund, account, boc, provider = Provider.SQLite )
+class UnliquidatedObligation( ):
     '''UnliquidatedObligation( bfy, fund, account, boc )
     initializes object providing ULO data'''
     __source = None
@@ -24106,10 +23947,10 @@ class UnliquidatedObligations( ):
                            'NpmName',
                            'VendorCode',
                            'VendorName',
-                           'OpenCommitments',
-                           'Obligations',
+                           'OpenCommitment',
+                           'Obligation',
                            'ULO',
-                           'Expenditures' ]
+                           'Expenditure' ]
 
     def __str__( self ):
         if isinstance( self.__amount, float ):
@@ -24136,7 +23977,7 @@ class UnliquidatedObligations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'UnliquidatedObligations'
+            exc.cause = 'UnliquidatedObligation'
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -24151,14 +23992,14 @@ class UnliquidatedObligations( ):
         except Exception as e:
             exc = Error( e )
             exc.module = 'Control'
-            exc.cause = 'UnliquidatedObligations'
+            exc.cause = 'UnliquidatedObligation'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 
-# WorkCodes( fundcode, provider = Provider.SQLite )
-class WorkCodes( ):
+# WorkCode( fundcode, provider = Provider.SQLite )
+class WorkCode( ):
     '''Defines the Organization Class'''
     __source = None
     __provider = None
