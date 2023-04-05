@@ -660,7 +660,7 @@ class FileDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (450, 200)
+        self.__formsize = (500, 250)
         self.__selecteditem = None
         self.__message = 'Search for File'
         self.__extension = extension if isinstance( extension, EXT ) else EXT.XLSX
@@ -747,7 +747,7 @@ class FolderDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (450, 200)
+        self.__formsize = (500, 250)
         self.__selecteditem = None
 
     def __str__( self ):
@@ -838,7 +838,7 @@ class SaveFileDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (400, 200)
+        self.__formsize = (400, 250)
         self.__original = path if isinstance( path, str ) and os.path.isfile( path ) else None
 
     def __str__( self ):
@@ -928,7 +928,7 @@ class GoogleDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (450, 200)
+        self.__formsize = (500, 250)
         self.__image = os.getcwd( ) + r'\etc\img\app\web\google.png'
 
     def __str__( self ):
@@ -1083,7 +1083,7 @@ class EmailDialog( Sith ):
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-        self.__formsize = (600, 500)
+        self.__formsize = (650, 550)
         self.__sender = sender if isinstance( sender, str ) and sender != '' else None
         self.__receiver = receiver if isinstance( receiver, str ) and receiver != '' else None
         self.__subject = subject if isinstance( subject, str ) and subject != '' else None
@@ -1190,7 +1190,7 @@ class MessageDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (400, 200)
+        self.__formsize = (450, 250)
 
     def __str__( self ):
         if isinstance( self.__text, str ):
@@ -1346,7 +1346,7 @@ class ErrorDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (500, 275)
+        self.__formsize = (500, 300)
 
     def __str__( self ):
         if isinstance( self.__info, str ):
@@ -1431,7 +1431,7 @@ class InputDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (450, 200)
+        self.__formsize = (500, 250)
         self.__response = None
 
     def __str__( self ):
@@ -1514,7 +1514,7 @@ class ScrollingDialog( Sith ):
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
         self.__arrowcolor = super( ).scrollbar_color
-        self.__formsize = (650, 500)
+        self.__formsize = (700, 600)
         self.__text = text if isinstance( text, str ) and text != '' else None
 
     def __str__( self ):
@@ -1602,7 +1602,7 @@ class ContactForm( Sith ):
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-        self.__formsize = (450, 200)
+        self.__formsize = (500, 250)
 
     def show( self ):
         try:
@@ -2673,7 +2673,7 @@ class CalendarDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (450, 250)
+        self.__formsize = (500, 250)
 
     def __str__( self ):
         if isinstance( self.__selecteditem, tuple ):
@@ -2749,7 +2749,7 @@ class DatePanel( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (450, 250)
+        self.__formsize = (500, 250)
 
     def show( self ):
         try:
