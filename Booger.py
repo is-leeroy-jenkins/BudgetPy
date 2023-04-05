@@ -16,13 +16,13 @@ import textwrap
 import numpy as np
 from pandas import read_csv as CsvReader
 from pandas import read_excel as ExcelReader
-# from matplotlib.backends.backend_tkagg import FigureCanvasAgg
-# import matplotlib.figure
-# import matplotlib.pyplot as plt
-# from matplotlib import cm
-# from mpl_toolkits.mplot3d.axes3d import get_test_data
-# from matplotlib.ticker import NullFormatter
-# from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
+from matplotlib.backends.backend_tkagg import FigureCanvasAgg
+import matplotlib.figure
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from mpl_toolkits.mplot3d.axes3d import get_test_data
+from matplotlib.ticker import NullFormatter
+from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
 from Static import EXT
 
 
