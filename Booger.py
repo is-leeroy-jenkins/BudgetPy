@@ -1602,7 +1602,7 @@ class ContactForm( Sith ):
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
         self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-        self.__formsize = (500, 250)
+        self.__formsize = (600, 300)
 
     def show( self ):
         try:
