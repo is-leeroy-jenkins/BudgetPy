@@ -629,8 +629,8 @@ class File( Path ):
 class Folder( Path ):
     '''Folder( selected_path ) initializes the
      Folder Class providing file directory information'''
-    __absolute = None
-    __relative = None
+    __absolutepath = None
+    __relativepath = None
     __buffer = None
     __name = None
     __parent = None
@@ -674,23 +674,23 @@ class Folder( Path ):
 
     @property
     def absolute_path( self ):
-        if isinstance( self.__absolute, str ) and self.__absolute != '':
-            return self.__absolute
+        if isinstance( self.__absolutepath, str ) and self.__absolutepath != '':
+            return self.__absolutepath
 
     @absolute_path.setter
     def absolute_path( self, value ):
         if os.path.exists( value ) and os.path.isabs( value ):
-            self.__absolute = value
+            self.__absolutepath = value
 
     @property
     def relative_path( self ):
-        if isinstance( self.__relative, str ) and self.__relative != '':
-            return self.__relative
+        if isinstance( self.__relativepath, str ) and self.__relativepath != '':
+            return self.__relativepath
 
     @relative_path.setter
     def relative_path( self, value ):
-        if isinstance( self.__relative, str ) and not os.path.isabs( value ):
-            self.__relative = value
+        if isinstance( self.__relativepath, str ) and not os.path.isabs( value ):
+            self.__relativepath = value
 
     @property
     def parent( self ):
@@ -728,8 +728,8 @@ class Folder( Path ):
         self.__path = dir_path
         self.__name = os.path.basename( dir_path )
         self.__parent = os.path.dirname( dir_path )
-        self.__absolute = self.__path if os.path.isabs( dir_path ) else None
-        self.__relative = self.__path if not os.path.isabs( dir_path ) \
+        self.__absolutepath = self.__path if os.path.isabs( dir_path ) else None
+        self.__relativepath = self.__path if not os.path.isabs( dir_path ) \
             else f'{ os.getcwd( ) }\\{ self.__name }'
 
     def __str__( self ):
@@ -741,7 +741,7 @@ class Folder( Path ):
         and returns a list of subfile paths'''
         try:
             current = self.__current
-            abspath = self.__absolute
+            abspath = self.__absolutepath
             filenames = [ ]
             for i in os.listdir( abspath ):
                 path = os.path.join( abspath, i )
@@ -760,7 +760,7 @@ class Folder( Path ):
         '''Iterates get_subfolders in the base directory'''
         try:
             current = self.__current
-            abspath = self.__absolute
+            abspath = self.__absolutepath
             filenames = [ ]
             for i in os.walk( abspath ):
                 dirpath = i[ 0 ]
@@ -783,7 +783,7 @@ class Folder( Path ):
         '''Iterates get_subfolders in the base directory'''
         try:
             current = self.__current
-            abspath = self.__absolute
+            abspath = self.__absolutepath
             filenames = [ ]
             for i in os.walk( abspath ):
                 if len( i[ 1 ] ) > 0:

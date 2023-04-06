@@ -252,7 +252,7 @@ class SqlFile( ):
     def filepath( self ):
         '''Method returning a string representing
          the absolute_path path to the SQL file used to execute the
-         command 'self.__cmdtype' against the table given by the
+         command 'self.__cmdtype' against the table_name given by the
          member self.__source depending on the member self.__provider'''
         try:
             sqlpath = SqlPath( )
@@ -422,18 +422,18 @@ class DbConfig( ):
             self.__provider = value
 
     @property
-    def table( self ):
+    def table_name( self ):
         if self.__table is not None and self.__table != '':
             return self.__table
 
-    @table.setter
-    def table( self, value ):
+    @table_name.setter
+    def table_name( self, value ):
         if value != '':
             self.__table = value
 
     def __init__( self, source, provider = Provider.SQLite ):
         '''Constructor for the DbConfig class providing
-        values value details'''
+        value details'''
         self.__provider = provider
         self.__source = source
         self.__table = source.name
@@ -585,7 +585,7 @@ class Connection( DbConfig ):
         self.__provider = super( ).provider
         self.__path = super( ).get_path( )
         self.__driver = super( ).get_driver( )
-        self.__dsn = super( ).table + ';' if provider == Provider.SQLite else None
+        self.__dsn = super( ).table_name + ';' if provider == Provider.SQLite else None
         self.__connectionstring = super( ).get_connectionstring( )
 
     def connect( self ):
@@ -680,7 +680,7 @@ class SqlConfig( ):
         self.__kvp = dict( zip( names, list( values ) ) ) \
             if isinstance( names, list ) and isinstance( values, tuple ) else None
 
-    def dump_kvp( self ) -> str:
+    def dump_pairs( self ) -> str:
         '''dump( ) returns string of 'values = index AND' pairs
         @return:
         '''
@@ -696,7 +696,7 @@ class SqlConfig( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlConfig'
-            exc.method = 'dump_kvp( self )'
+            exc.method = 'dump_pairs( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -778,7 +778,7 @@ class SqlConfig( ):
             err = ErrorDialog( exc )
             err.show( )
 
-# SqlStatement( db_config,  sql_cfg )
+# SqlStatement( dbconfig,  sqlcfg )
 class SqlStatement( ):
     '''SqlStatement( db_config, sql_cfg ) Class
     represents the values models used in the SQLite database'''
@@ -791,28 +791,6 @@ class SqlStatement( ):
     __names = None
     __values = None
     __text = None
-
-    @property
-    def data_config( self ):
-        if isinstance( self.__dbcfg, DbConfig ):
-            return self.__dbcfg
-
-    @data_config.setter
-    def data_config( self, value ):
-        if isinstance( value, DbConfig ):
-            self.__dbcfg = value
-
-    @property
-    def sql_config( self ):
-        '''Gets instance of the SqlConfig class'''
-        if isinstance( self.__sqlcfg, SqlConfig ):
-            return self.__sqlcfg
-
-    @sql_config.setter
-    def sql_config( self, value ):
-        '''Sets property to an instance of the SqlConfig class'''
-        if isinstance( value, SqlConfig ):
-            self.__sqlcfg = value
 
     @property
     def source( self ):
@@ -845,12 +823,12 @@ class SqlStatement( ):
             self.__path = value
 
     @property
-    def table( self ):
+    def table_name( self ):
         if self.__table is not None:
             return self.__table
 
-    @table.setter
-    def table( self, value ):
+    @table_name.setter
+    def table_name( self, value ):
         if value != '':
             self.__table = value
 
@@ -898,12 +876,10 @@ class SqlStatement( ):
             self.__cmdtyp = command
 
     def __init__( self, dbcfg, sqlcfg ):
-        self.__dbcfg = dbcfg
-        self.__sqlcfg = sqlcfg
         self.__cmdtyp = sqlcfg.command
         self.__provider = dbcfg.provider
         self.__source = dbcfg.source
-        self.__table = dbcfg.table
+        self.__table = dbcfg.table_name
         self.__names = sqlcfg.names
         self.__values = sqlcfg.values
         self.__text = self.get_query( )
@@ -963,7 +939,7 @@ class SqlStatement( ):
             err = ErrorDialog( exc )
             err.show( )
 
-# Query( connection, sql_statement )
+# Query( connection, sqlstatement )
 class Query( ):
     '''Base class for database interaction'''
     __cnx = None
@@ -1097,7 +1073,7 @@ class Query( ):
     def __init__( self, connection, sqlstatement ):
         self.__cnx = connection if isinstance( connection, Connection ) else None
         self.__sql = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__sqlcfg = sqlstatement.sql_config
+        self.__sqlcfg = sqlstatement.sqlconfig
         self.__source = connection.source
         self.__provider = connection.provider
         self.__cmdtype = sqlstatement.command_type
@@ -1160,7 +1136,7 @@ class Query( ):
             err = ErrorDialog( exc )
             err.show( )
 
-# SQLiteData( connection, sql_statement )
+# SQLiteData( connection, sqlstatement )
 class SQLiteData( Query ):
     '''SQLiteData( value, sqlcfg ) represents
      the budget execution values classes'''
@@ -1259,7 +1235,7 @@ class SQLiteData( Query ):
             err = ErrorDialog( exc )
             err.show( )
 
-# AccessData( connection, sql_statement )
+# AccessData( connection, sqlstatement )
 class AccessData( Query ):
     '''AccessData( value, sqlcfg ) class
       represents the budget execution
@@ -1359,7 +1335,7 @@ class AccessData( Query ):
             err = ErrorDialog( exc )
             err.show( )
 
-# SqlData( connection, sql_statement )
+# SqlData( connection, sqlstatement )
 class SqlData( Query ):
     '''SqlData( value, sqlcfg ) object
     represents the values models in the MS SQL Server
@@ -1539,23 +1515,23 @@ class DataBuilder( ):
             self.__values = value
 
     @property
-    def data_config( self ):
+    def dataconfig( self ):
         if isinstance( self.__dbconfig, DbConfig ):
             return self.__dbconfig
 
-    @data_config.setter
-    def data_config( self, value ):
+    @dataconfig.setter
+    def dataconfig( self, value ):
         if isinstance( value, DbConfig ):
             self.__dbconfig = value
 
     @property
-    def sql_config( self ):
+    def sqlconfig( self ):
         '''Gets instance of the SqlConfig class'''
         if isinstance( self.__sqlcfg, SqlConfig ):
             return self.__sqlcfg
 
-    @sql_config.setter
-    def sql_config( self, value ):
+    @sqlconfig.setter
+    def sqlconfig( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
         if isinstance( value, SqlConfig ):
             self.__sqlcfg = value
