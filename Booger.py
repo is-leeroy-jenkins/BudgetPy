@@ -25,7 +25,6 @@ from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
 from Static import EXT
 
-
 # Error( heading = '' )
 class Error( Exception ):
     '''Class wrapping exception data used as
@@ -137,7 +136,6 @@ class Error( Exception ):
         if isinstance( self.__info, str ) and self__trace != '':
             return self.__info
 
-
 # ButtonIcon( png )
 class ButtonIcon( ):
     '''class representing form images'''
@@ -184,7 +182,6 @@ class ButtonIcon( ):
         if isinstance( self.__filepath, str ):
             return self.__filepath
 
-
 # TitleIcon( ico )
 class TitleIcon( ):
     '''class representing form images'''
@@ -230,7 +227,6 @@ class TitleIcon( ):
     def __str__( self ):
         if isinstance( self.__filepath, str ):
             return self.__filepath
-
 
 # ColorFormat(  )
 class ColorFormat( ):
@@ -379,7 +375,6 @@ class ColorFormat( ):
         v = (2 * l + s * (1 - fabs( 2 * l - 1 ))) / 2
         s = 2 * (v - l) / v
         return h, s, v
-
 
 # Sith( )
 class Sith( ):
@@ -601,7 +596,6 @@ class Sith( ):
         sg.set_options( font = self.__themefont )
         sg.user_settings_save( 'Budget', self.__settingspath )
 
-
 # FileDialog( ) -> str
 class FileDialog( Sith ):
     '''class that handles filenames a file'''
@@ -708,7 +702,6 @@ class FileDialog( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # FolderDialog( ) -> str
 class FolderDialog( Sith ):
     '''Class defining dialog used to select a directory path'''
@@ -786,7 +779,6 @@ class FolderDialog( Sith ):
             exc.method = 'show( self )'
             error = ErrorDialog( exc )
             error.show( )
-
 
 # SaveFileDialog( path = '' )
 class SaveFileDialog( Sith ):
@@ -866,7 +858,6 @@ class SaveFileDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # GoogleDialog(  )
 class GoogleDialog( Sith ):
@@ -972,7 +963,6 @@ class GoogleDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # EmailDialog( sender = '', receiver = '', subject = '', heading = '' )
 class EmailDialog( Sith ):
@@ -1148,7 +1138,6 @@ class EmailDialog( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # MessageDialog( text = '' )
 class MessageDialog( Sith ):
     ''' MessageDialog( text = '' ):
@@ -1233,7 +1222,6 @@ class MessageDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ErrorDialog( exception )
 class ErrorDialog( Sith ):
@@ -1380,7 +1368,6 @@ class ErrorDialog( Sith ):
 
         window.close( )
 
-
 # Input( question )
 class InputDialog( Sith ):
     '''class that produces a contact buffer form'''
@@ -1474,7 +1461,6 @@ class InputDialog( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ScrollingDialog( text = '' )
 class ScrollingDialog( Sith ):
     '''Provides form for multiline buffer/output'''
@@ -1563,7 +1549,6 @@ class ScrollingDialog( Sith ):
             err = ErrorDialog( exc )
             err.show( ), l
 
-
 # ContactForm( contact )
 class ContactForm( Sith ):
     '''class that produces a contact buffer form'''
@@ -1642,7 +1627,6 @@ class ContactForm( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # GridForm( )
 class GridForm( Sith ):
@@ -1757,7 +1741,6 @@ class GridForm( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # LoadingPanel( )
 class LoadingPanel( Sith ):
     '''object providing form loading behavior '''
@@ -1845,7 +1828,6 @@ class LoadingPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # WaitingPanel( )
 class WaitingPanel( Sith ):
@@ -1936,7 +1918,6 @@ class WaitingPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ProcessingPanel( )
 class ProcessingPanel( Sith ):
@@ -2032,7 +2013,6 @@ class ProcessingPanel( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # SplashPanel( )
 class SplashPanel( Sith ):
     '''Class providing splash dialog behavior'''
@@ -2115,7 +2095,6 @@ class SplashPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Notification( )
 class Notification( Sith ):
@@ -2241,7 +2220,6 @@ class Notification( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ImageSizeEncoder( )
 class ImageSizeEncoder( Sith ):
@@ -2443,7 +2421,6 @@ class ImageSizeEncoder( Sith ):
 
         window.close( )
 
-
 # PdfForm( )
 class PdfForm( Sith ):
     '''Creates form to view a PDF'''
@@ -2597,7 +2574,6 @@ class PdfForm( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
     '''class creates form providing today selection behavior'''
@@ -2709,7 +2685,6 @@ class CalendarDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # DatePanel( )
 class DatePanel( Sith ):
@@ -2921,7 +2896,6 @@ class DatePanel( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ComboBoxDialog( data )
 class ComboBoxDialog( Sith ):
     '''Logger object provides form for log printing'''
@@ -3026,7 +3000,6 @@ class ComboBoxDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ListBoxDialog( data )
 class ListBoxDialog( Sith ):
@@ -3154,7 +3127,6 @@ class ListBoxDialog( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ColorDialog( )
 class ColorDialog( Sith ):
@@ -3970,7 +3942,6 @@ class ColorDialog( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # BudgetForm( )
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
@@ -4414,7 +4385,6 @@ class BudgetForm( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ChartPanel( )
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
@@ -4500,7 +4470,6 @@ class ChartPanel( Sith ):
             excp.method = 'show( self)'
             err = ErrorDialog( excp )
             err.show( )
-
 
 # CsvForm( )
 class CsvForm( Sith ):
@@ -4616,7 +4585,6 @@ class CsvForm( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ExcelForm( )
 class ExcelForm( Sith ):
@@ -4752,7 +4720,6 @@ class ExcelForm( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # GraphForm( )
 class GraphForm( Sith ):

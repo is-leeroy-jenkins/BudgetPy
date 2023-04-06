@@ -293,7 +293,6 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # File( file_path )
 class File( Path ):
     '''File( selected_path ) initializes the
@@ -624,7 +623,6 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # Folder( dir_path )
 class Folder( Path ):
     '''Folder( selected_path ) initializes the
@@ -905,7 +903,6 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # Message( sender, receiver, body, subject, copy )
 class Message( ):
     '''Message( frm, to, body, subject ) initializes
@@ -987,7 +984,6 @@ class Message( ):
         if isinstance( self.__body, str ) and self.__body != '':
             return self.__body
 
-
 # Emai( sender, receiver, body, subject, copy )
 class Email( Message ):
     '''Email( frm, to, body, subject ) initializes
@@ -1000,7 +996,6 @@ class Email( Message ):
         self.__body = super( ).body
         self.__others = super( ).copy
         self.__subject = super( ).subject
-
 
 # MessageBuilder(  )
 class MessageBuilder( ):
@@ -1082,7 +1077,6 @@ class MessageBuilder( ):
         if self.__body is not None:
             return self.__body
 
-
 # Document( )
 class Document( ):
     '''Excel( selected_path ) class provides
@@ -1123,7 +1117,6 @@ class Document( ):
     def __str__( self ):
         if self.__path is not None:
             return self.__path
-
 
 # Excel( full_path )
 class Excel( ):
@@ -1203,7 +1196,6 @@ class Excel( ):
             exc.method = 'save( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ExcelReport( title, rows = 46, cols = 12 )
 class ExcelReport( ):
@@ -1290,7 +1282,6 @@ class ExcelReport( ):
         self.__rows = rows if isinstance( rows, int ) and rows > -1 else None
         self.__columns = cols if isinstance( cols, int ) and cols > -1 else None
         self.__dimensions = (self.__rows, self.__columns)
-
 
 # ZipFile( selected_path )
 class ZipFile( ):

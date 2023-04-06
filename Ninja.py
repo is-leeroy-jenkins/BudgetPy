@@ -9,8 +9,7 @@ from Data import DbConfig, SqlConfig, Connection, \
 from Static import Source, Provider
 from datetime import datetime, date
 from pandas import DataFrame
-
-
+from pyodbc import Row as Row
 
 class Unit( ):
     '''Unit( value, value ) initializes object
@@ -34,7 +33,6 @@ class Unit( ):
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
-
 
 class Element( Unit ):
     '''Element class represents fundamental program unit'''
@@ -67,7 +65,6 @@ class Element( Unit ):
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
-
 
 # Account( treas, provider = Provider.SQLite )
 class Account( ):
@@ -279,7 +276,6 @@ class Account( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ActivityCode( treas, provider = Provider.SQLite )
 class ActivityCode( ):
     '''Defines the Activity Class'''
@@ -406,7 +402,6 @@ class ActivityCode( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # AllowanceHolder( fundcode, provider = Provider.SQLite )
 class AllowanceHolder( ):
     '''Defines the AllowanceHolder Class'''
@@ -532,7 +527,6 @@ class AllowanceHolder( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # Appropriation( fundcode, provider = Provider.SQLite )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
@@ -652,7 +646,6 @@ class Appropriation( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # AppropriationAvailableBalance( bfy, efy, fundcode, provider = Provider.SQLite )
 class AppropriationAvailableBalance( ):
@@ -923,7 +916,6 @@ class AppropriationAvailableBalance( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # AppropriationLevelAuthority( vfy, efy, fundcode, provider = Provider.SQLite )
 class AppropriationLevelAuthority( ):
     '''Defines the Appropriation Class'''
@@ -1158,7 +1150,6 @@ class AppropriationLevelAuthority( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Allocation( bfy, fund, provider = Provider.SQLite )
 class Allocation( ):
@@ -1550,7 +1541,6 @@ class Allocation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ApportionmentData( bfy, efy, treas, provider = Provider.SQLite )
 class ApportionmentData( ):
     '''Apportionment( bfy, efy, omb )
@@ -1782,7 +1772,6 @@ class ApportionmentData( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Actual( bfy, fund, provider = Provider.SQLite  )
 class Actual( ):
@@ -2246,7 +2235,6 @@ class Actual( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ApplicationTable( name, provider = Provider.SQLite )
 class ApplicationTable( ):
     # Provides tables for the application
@@ -2304,7 +2292,6 @@ class ApplicationTable( ):
         self.__source = Source.ApplicationTables
         self.__provider = provider
         self.__tablename = name
-
 
 # AppropriationDocument( bfy, fund, provider = Provider.SQLite )
 class AppropriationDocument( ):
@@ -2727,7 +2714,6 @@ class AppropriationDocument( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # BudgetDocument( bfy, fund, provider = Provider.SQLite )
 class BudgetDocument( ):
@@ -3264,7 +3250,6 @@ class BudgetDocument( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # BudgetControl( fundcode, provider = Provider.SQLite )
 class BudgetControl( ):
     '''object representing compass control data'''
@@ -3767,7 +3752,6 @@ class BudgetControl( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # BudgetFiscalYear( bfy, efy, date = None, provider = Provider.SQLite )
 class BudgetFiscalYear( ):
     '''Class to describe the federal fiscal year'''
@@ -4036,7 +4020,6 @@ class BudgetFiscalYear( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # BudgetObjectClass( code, provider = Provider.SQLite  )
 class BudgetObjectClass( ):
     '''Defines the BudgetObjectClass Class'''
@@ -4173,7 +4156,6 @@ class BudgetObjectClass( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # BudgetaryResourceExecution( bfy, efy, fundcode, provider = Provider.SQLite )
 class BudgetaryResourceExecution( ):
@@ -4352,7 +4334,6 @@ class BudgetaryResourceExecution( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # BudgetOutlay( account, provider = Provider.SQLite )
 class BudgetOutlay( ):
@@ -4686,7 +4667,6 @@ class BudgetOutlay( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # CongressionalControl( bfy, fund, provider = Provider.SQLite )
 class CongressionalControl( ):
     '''object representing congressional control data'''
@@ -4920,7 +4900,6 @@ class CongressionalControl( ):
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # CompassLevel( bfy, efy, fund, provider = Provider.SQLite )
 class CompassLevel( ):
@@ -5160,7 +5139,6 @@ class CompassLevel( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Commitment( bfy, fund, account, boc, provider = Provider.SQLite )
 class Commitment( ):
@@ -5690,7 +5668,6 @@ class Commitment( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # CarryoverOutlay( bfy, omb, provider = Provider.SQLite )
 class CarryoverOutlay( ):
     ''' object provides OMB data '''
@@ -6033,7 +6010,6 @@ class CarryoverOutlay( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # CostArea( fundcode, provider = Provider.SQLite )
 class CostArea( ):
     __source = None
@@ -6067,7 +6043,6 @@ class CostArea( ):
         self.__fields = [ 'CostAreasId',
                           'Code',
                           'Name' ]
-
 
 # CarryoverEstimate( bfy, provider = Provider.SQLite )
 class CarryoverEstimate( ):
@@ -6432,7 +6407,6 @@ class CarryoverEstimate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # CarryoverSurvey( bfy, efy, fund, provider = Provider.SQLite )
 class CarryoverSurvey( ):
     '''CarryoverSurvey( bfy ) initializes object
@@ -6571,7 +6545,6 @@ class CarryoverSurvey( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # CapitalPlanningInvestmentCodes( treas, provider = Provider.SQLite  )
 class CapitalPlanningInvestmentCodes( ):
     '''Defines the Organization Class'''
@@ -6697,7 +6670,6 @@ class CapitalPlanningInvestmentCodes( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # DataRuleDescription( schedule, line, rule, provider = Provider.SQLite )
 class DataRuleDescription( ):
@@ -6838,7 +6810,6 @@ class DataRuleDescription( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Defacto( bfy, fund, provider = Provider.SQLite )
 class Defacto( ):
@@ -7325,7 +7296,6 @@ class Defacto( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Deobligation( bfy, fund, account, boc, provider = Provider.SQLite )
 class Deobligation( ):
@@ -7842,7 +7812,6 @@ class Deobligation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # DocumentControlNumber( dcn, provider = Provider.SQLite )
 class DocumentControlNumber( ):
     ''' object provides DCN data'''
@@ -7991,7 +7960,6 @@ class DocumentControlNumber( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Expenditure( bfy, fund, account, boc, provider = Provider.SQLite )
 class Expenditure( ):
@@ -8539,7 +8507,6 @@ class Expenditure( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # FinanceObjectClass( treas, provider = Provider.SQLite  )
 class FinanceObjectClass( ):
     '''Defines the Finance Object Class'''
@@ -8688,7 +8655,6 @@ class FinanceObjectClass( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Fund( bfy, efy, fundcode, provider = Provider.SQLite )
 class Fund( ):
@@ -9130,7 +9096,6 @@ class Fund( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # FederalHoliday( bfy, efy, name, provider = Provider.SQLite )
 class FederalHoliday( ):
@@ -9653,7 +9618,6 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # FullTimeEquivalent( bfy, fund, provider = Provider.SQLite )
 class FullTimeEquivalent( ):
     '''object representing Operating Plan FTE'''
@@ -10025,7 +9989,6 @@ class FullTimeEquivalent( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # GeneralLedgerAccount( bfy, number, provider = Provider.SQLite )
 class GeneralLedgerAccount( ):
     __source = None
@@ -10148,7 +10111,6 @@ class GeneralLedgerAccount( ):
                           'DebitBalance',
                           'ClosingAmount' ]
 
-
 # Goal( treas, provider = Provider.SQLite )
 class Goal( ):
     '''Defines the Goal Class'''
@@ -10259,7 +10221,6 @@ class Goal( ):
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # GrowthRate( bfy, id, provider = Provider.SQLite )
 class GrowthRate( ):
@@ -10484,7 +10445,6 @@ class GrowthRate( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # HeadquartersAuthority( bfy, rpio, provider = Provider.SQLite )
 class HeadquartersAuthority( ):
@@ -10877,7 +10837,6 @@ class HeadquartersAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # HeadquartersOffice( treas, provider = Provider.SQLite  )
 class HeadquartersOffice( ):
     '''Defines a regional RPIO'''
@@ -11005,7 +10964,6 @@ class HeadquartersOffice( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # HumanResourceOrganization( treas, provider = Provider.SQLite )
 class HumanResourceOrganization( ):
     '''Defines the Organization Class'''
@@ -11128,7 +11086,6 @@ class HumanResourceOrganization( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # MonthlyOutlay( bfy, efy, account, provider = Provider.SQLite )
 class MonthlyOutlay( ):
@@ -11357,7 +11314,6 @@ class MonthlyOutlay( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # NationalProgram( treas value, provider = Provider.SQLite )
 class NationalProgram( ):
     '''Defines the NationalProgram Class'''
@@ -11507,7 +11463,6 @@ class NationalProgram( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # Objective( treas, provider = Provider.SQLite )
 class Objective( ):
     '''Defines the Objective Class'''
@@ -11634,7 +11589,6 @@ class Objective( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # Organization( fundcode, provider = Provider.SQLite  )
 class Organization( ):
     '''Defines the Organization Class'''
@@ -11744,7 +11698,6 @@ class Organization( ):
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ObjectClassOutlay( account, provider = Provider.SQLite )
 class ObjectClassOutlay( ):
@@ -11995,7 +11948,6 @@ class ObjectClassOutlay( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # OperatingPlan( bfy, efy, treas, provider = Provider.SQLite )
 class OperatingPlan( ):
@@ -12368,7 +12320,6 @@ class OperatingPlan( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # OpenCommitment( bfy, efy, fund, account, boc, provider = Provider.SQLite )
 class OpenCommitment( ):
@@ -12979,7 +12930,6 @@ class OpenCommitment( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # Obligation( bfy, efy, fund, account, boc, provider = Provider.SQLite )
 class Obligation( ):
     '''Obligation( bfy, efy, fund, account, boc )
@@ -13587,7 +13537,6 @@ class Obligation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ProgramFinancingScedule( bfy, efy, account, provider = Provider.SQLite )
 class ProgramFinancingSchedule( ):
     __source = None
@@ -13706,7 +13655,6 @@ class ProgramFinancingSchedule( ):
                           'AgencyAmount',
                           'Amount' ]
 
-
 # PublicLaw( bfy, number, provider = Provider.SQLite )
 class PublicLaw( ):
     __source = None
@@ -13783,7 +13731,6 @@ class PublicLaw( ):
                           'EnactedDate',
                           'Congress',
                           'BFY' ]
-
 
 # PayrollActivity( bfy, efy, fund, provider = Provider.SQLite )
 class PayrollActivity( ):
@@ -14364,7 +14311,6 @@ class PayrollActivity( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # Project( code, provider = Provider.SQLite  )
 class Project( ):
     '''Defines the Organization Class'''
@@ -14488,7 +14434,6 @@ class Project( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ProgramArea( code, provider = Provider.SQLite  )
 class ProgramArea( ):
@@ -14614,7 +14559,6 @@ class ProgramArea( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ProgramProject( code, provider = Provider.SQLite  )
 class ProgramProject( ):
@@ -14749,7 +14693,6 @@ class ProgramProject( ):
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # PayrollCostCode( bfy, efy, code, provider = Provider.SQLite )
 class PayrollCostCode( ):
@@ -14904,7 +14847,6 @@ class PayrollCostCode( ):
                            'WorkCodeName',
                            'HrOrgCode',
                            'HrOrgName' ]
-
 
 # ProgramResultsCode( bfy, efy, rpio, ah, account, boc, amount = 0.0, provider = Provider.SQLite )
 class ProgramResultsCode( ):
@@ -15424,7 +15366,6 @@ class ProgramResultsCode( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ResponsibilityCenter( fundcode, provider = Provider.SQLite  )
 class ResponsibilityCenter( ):
     '''Defines the ResponsibilityCenter Class'''
@@ -15559,7 +15500,6 @@ class ResponsibilityCenter( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # ResourcePlanningOffice( fundcode, provider = Provider.SQLite  )
 class ResourcePlanningOffice( ):
     '''defines the ResponsiblePlanningOffice class'''
@@ -15685,7 +15625,6 @@ class ResourcePlanningOffice( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # RegionalOffice( fundcode, provider = Provider.SQLite  )
 class RegionalOffice( ):
     '''Defines a regional RPIO'''
@@ -15796,7 +15735,6 @@ class RegionalOffice( ):
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ReimbursableSurvey( bfy, efy, fund, provider = Provider.SQLite )
 class ReimbursableSurvey( ):
@@ -15935,7 +15873,6 @@ class ReimbursableSurvey( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # ReimbursableAgreement( number, provider = Provide.SQLite )
 class ReimbursableAgreement( ):
@@ -16214,7 +16151,6 @@ class ReimbursableAgreement( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # RegionalAuthority( bfy, efy, fund, provider = Provider.SQLite )
 class RegionalAuthority( ):
@@ -16686,7 +16622,6 @@ class RegionalAuthority( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # StatusOfFunds( bfy, fund, provider = Provider.SQLite )
 class StatusOfFunds( ):
@@ -17169,7 +17104,6 @@ class StatusOfFunds( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # StatusOfSupplementalFunding( bfy, fund, provider = Provider.SQLite )
 class StatusOfSupplementalFunding( ):
@@ -17658,7 +17592,6 @@ class StatusOfSupplementalFunding( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # StateGrantObligation( bfy, rpio, provider = Provider.SQLite )
 class StateGrantObligation( ):
     '''object representing the BIS'''
@@ -17952,7 +17885,6 @@ class StateGrantObligation( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # SpecialAccount( bfy, fund, account, boc, provider = Provider.SQLite )
 class SpecialAccount( ):
@@ -18295,7 +18227,6 @@ class SpecialAccount( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # SuperfundSite( bfy, rpio, provider = Provider.SQLite )
 class SuperfundSite( ):
     ''' object providing SF Site data '''
@@ -18482,7 +18413,6 @@ class SuperfundSite( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # Appropriation( bfy, efy, fundcode, provider = Provider.SQLite )
 class SubAppropriation( ):
     '''Defines the Appropriation Class'''
@@ -18627,7 +18557,6 @@ class SubAppropriation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # SiteProjectCode( code, provider = Provider.SQLite  )
 class SiteProjectCode( ):
     '''Defines the Organization Class'''
@@ -18750,7 +18679,6 @@ class SiteProjectCode( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # StateOrganization( fundcode, provider = Provider.SQLite  )
 class StateOrganization( ):
     '''StateOrganization( code ) class
@@ -18870,7 +18798,6 @@ class StateOrganization( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # StatusOfAppropriations( bfy, efy, fund, provider = Provider.SQLite )
 class StatusOfAppropriations( ):
@@ -19581,7 +19508,6 @@ class StatusOfAppropriations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # SpendingRate( account, provider = Provider.SQLite )
 class SpendingRate( ):
     '''SpendingRate( fundcode ) initializes
@@ -19980,7 +19906,6 @@ class SpendingRate( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # StatusOfSupplementalFunds( bfy, efy, fundcode, provider = Provider.SQLite )
 class StatusOfSupplementalFunds( ):
@@ -20424,7 +20349,6 @@ class StatusOfSupplementalFunds( ):
                            'Available',
                            'NpmCode',
                            'NpmName' ]
-
 
 # StatusOfJobsActFunding( bfy, efy, fundcode, provider = Provider.SQLite )
 class StatusOfJobsActFunding( ):
@@ -20871,7 +20795,6 @@ class StatusOfJobsActFunding( ):
                            'Used',
                            'Available' ]
 
-
 # StatusOfEarmarks( bfy, efy, fundcode, provider = Provider.SQLite )
 class StatusOfEarmarks( ):
     __source = None
@@ -21316,7 +21239,6 @@ class StatusOfEarmarks( ):
                            'Obligation',
                            'Used',
                            'Available' ]
-
 
 # SiteActivity( bfy, rpio, provider = Provider.SQLite  )
 class SiteActivity( ):
@@ -21839,7 +21761,7 @@ class SiteActivity( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
+# SpendingDocumnet( bfy, efy, fund, account, boc, provider = Provider.SQLite )
 class SpendingDocument( ):
     # provides data on spending documents
     __source = None
@@ -22407,12 +22329,12 @@ class SpendingDocument( ):
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def get_data( self  ):
+    def get_data( self ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -22433,7 +22355,7 @@ class SpendingDocument( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -22447,7 +22369,6 @@ class SpendingDocument( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # TreasurySymbol( bfy, efy, fundcode, provider = Provider.SQLite )
 class TreasurySymbol( ):
@@ -22612,7 +22533,6 @@ class TreasurySymbol( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # Transfer( documentnumber, provider = Provider.SQLite )
 class Transfer( ):
@@ -22999,7 +22919,6 @@ class Transfer( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # TransType( bfy, fundcode, provider = Provider.SQLite )
 class TransType( ):
     __source = None
@@ -23107,7 +23026,6 @@ class TransType( ):
                           'RescissionPriorYear',
                           'SequesterReduction',
                           'SequesterReturn' ]
-
 
 # Unobligated Authority( account, provider = Provider.SQLite )
 class UnobligatedAuthority( ):
@@ -23289,7 +23207,6 @@ class UnobligatedAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-
 # UnobligatedBalance( bfy, efy, fundcode, provider = Provider.SQLite )
 class UnobligatedBalance( ):
     '''object provides OMB data on unobligated
@@ -23466,7 +23383,6 @@ class UnobligatedBalance( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # UnliquidatedObligation( bfy, fund, account, boc, provider = Provider.SQLite )
 class UnliquidatedObligation( ):
@@ -23996,7 +23912,6 @@ class UnliquidatedObligation( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
 # WorkCode( fundcode, provider = Provider.SQLite )
 class WorkCode( ):
