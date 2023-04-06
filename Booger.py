@@ -4289,14 +4289,14 @@ class BudgetForm( Sith ):
             blu = '#051F3D'
             blk = '#101010'
             mblk = '#1E1E1E'
-            BPAD_TOP = ((5, 5), (5, 5))
-            BPAD_LEFT = ((5, 5), (5, 5))
-            BPAD_LEFT_INSIDE = (5, (5, 5))
-            BPAD_RIGHT = ((5, 5), (5, 5))
+            BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
+            BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
+            BPAD_LEFT_INSIDE = ( 5, ( 5, 5 ) )
+            BPAD_RIGHT = ( ( 5, 5 ), ( 5, 5 ) )
             hdr = 'Roboto 20'
             li = 'Roboto 10'
-            frasz = (450, 150)
-            hdrsz = (920, 100)
+            frasz = ( 450, 150 )
+            hdrsz = ( 920, 100 )
             self.__titlelayout = [
                     [ sg.Text( 'Budget Execution', font = hdr, background_color = mblk,
                                enable_events = True, grab = False ), sg.Push( background_color = mblk ),
@@ -4338,8 +4338,7 @@ class BudgetForm( Sith ):
                     [ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = mblk,
                                 expand_x = True, border_width = 0, grab = True ) ],
                     [ sg.Frame( '',
-                                [ [ sg.Frame( '', self.__headerlayout, size = frasz, pad = BPAD_TOP, expand_x = True,
-                                              relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
+                                [ [ sg.Frame( '', self.__headerlayout, size = frasz, pad = BPAD_TOP, expand_x = True, relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
                                 pad = BPAD_LEFT, background_color = blu, border_width = 0,
                                 expand_x = True, expand_y = False ), ],
                     [ sg.Frame( '',
@@ -4359,7 +4358,7 @@ class BudgetForm( Sith ):
                     [ sg.Sizegrip( background_color = mblk ) ] ]
             window = sg.Window( '  Budget Execution', self.__formlayout,
                                 size = self.__formsize,
-                                margins = (0, 0),
+                                margins = ( 0, 0 ),
                                 background_color = blk,
                                 grab_anywhere = True,
                                 no_titlebar = True,
