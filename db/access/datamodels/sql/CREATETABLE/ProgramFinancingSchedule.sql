@@ -1,6 +1,6 @@
 CREATE TABLE ProgramFinancingSchedule 
 (
-    ProgramFinancingScheduleId INTEGER NOT NULL UNIQUE,
+    ProgramFinancingScheduleId AUTOINCREMENT NOT NULL UNIQUE,
     ReportYear TEXT(80) NULL DEFAULT NS,
     TreasuryAgencyCode TEXT(80) NULL DEFAULT NS,
     TreasuryAccountCode TEXT(80) NULL DEFAULT NS,

@@ -22,7 +22,6 @@ CREATE TABLE [dbo].[StatusOfFunds]
 	[Amount] [float] NULL,
 	[OpenCommitments] [float] NULL,
 	[ULO] [float] NULL,
-	[Total Expense Accruals] [float] NULL,
 	[Expenditures] [float] NULL,
 	[Obligations] [float] NULL,
 	[Used] [float] NULL,

@@ -38,6 +38,6 @@ CREATE TABLE 'WorkCodes'
 	'ProjectCode' TEXT(80) NULL DEFAULT 'NS',
 	'ProjectName' TEXT(80) NULL DEFAULT 'NS',
 	'BudgetYear' TEXT(80) NULL DEFAULT 'NS',
-	'AllocationPercentage' DOUBLE NULL DEFAULT 0.0,
+	'AllocationPercentage' DECIMAL NULL DEFAULT 0.0,
 	PRIMARY KEY('WorkCodesId' AUTOINCREMENT)
 );

@@ -1,6 +1,6 @@
 CREATE TABLE  Obligations  
 (
-	 ObligationsId INTEGER NOT NULL UNIQUE,
+	 ObligationsId AUTOINCREMENT NOT NULL UNIQUE,
 	 BFY TEXT(80) NULL DEFAULT NS,
 	 EFY TEXT(80) NULL DEFAULT NS,
 	 TreasurySymbol  TEXT(80) NULL DEFAULT NS,
@@ -40,5 +40,5 @@ CREATE TABLE  Obligations
 	 TreasuryAccountName TEXT(80) NULL DEFAULT NS,
 	 BudgetAccountCode TEXT(80) NULL DEFAULT NS,
 	 BudgetAccountName TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY( ObligationsId  AUTOINCREMENT)
+	PRIMARY KEY( ObligationsId  AUTOINCREMENT )
 );

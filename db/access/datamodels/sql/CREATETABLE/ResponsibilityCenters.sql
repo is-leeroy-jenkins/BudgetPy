@@ -1,6 +1,6 @@
 CREATE TABLE ResponsibilityCenters 
 (
-    ResponsibilityCentersId INTEGER NOT NULL UNIQUE,
+    ResponsibilityCentersId AUTOINCREMENT NOT NULL UNIQUE,
     Code TEXT(80) NULL DEFAULT NS,
     Name TEXT(80) NULL DEFAULT NS,
     Title TEXT(80) NULL DEFAULT NS,

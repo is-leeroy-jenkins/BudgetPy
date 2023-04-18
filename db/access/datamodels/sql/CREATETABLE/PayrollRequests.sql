@@ -1,6 +1,6 @@
 CREATE TABLE  PayrollRequests  
 (
-	 PayrollRequestsId INTEGER NOT NULL UNIQUE,
+	 PayrollRequestsId AUTOINCREMENT NOT NULL UNIQUE,
 	 ControlTeamAnalyst TEXT(80) NULL DEFAULT NS,
 	 RpioCode TEXT(80) NULL DEFAULT NS,
 	 DocumentTitle TEXT(80) NULL DEFAULT NS,
@@ -13,5 +13,5 @@ CREATE TABLE  PayrollRequests
 	 Comments TEXT(80) NULL DEFAULT NS,
 	 RequestDocument TEXT(80) NULL DEFAULT NS,
 	 Duration INTEGER DEFAULT 0,
-	PRIMARY KEY( PayrollRequestsId  AUTOINCREMENT)
+	PRIMARY KEY( PayrollRequestsId )
 );

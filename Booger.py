@@ -23,7 +23,7 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d.axes3d import get_test_data
 from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
-from Static import EXT
+from Static import EXT, Client
 
 # Error( heading = '' )
 class Error( Exception ):
@@ -944,13 +944,12 @@ class GoogleDialog( Sith ):
 
             while True:
                 event, values = window.read( )
-                if event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel'):
+                if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel' ):
                     break
                 elif event == 'Submit':
                     self.__querytext = values[ '-QUERY-' ]
                     google = search( term = self.__querytext, num_results = 5, lang = 'en' )
-                    chrome = Client.Chrome
-                    app = App( chrome )
+                    app = App( Client.Edge )
                     for result in list( google ):
                         self.__results.append( result )
                         app.run_args( result )
@@ -2197,8 +2196,8 @@ class Notification( Sith ):
                        b'kDVx/sobu1mfCpdVfllJszthT0J/8eu0CtpCI778VgUnAhEES3LZFYp99QQj5jFbRcC5' \
                        b'QKrUI9F3+KYn4j4YjAN07D3GzAoqbFRB98Kbf8PsM98bIAVl6HghD2P8Avm6w' \
                        b'ywIVvIgAAAAASUVORK5CYII='
-        self.__message = 'This heading is intended to inform you that the action you' \
-                         'have performed has been successful. There is no need for further action.'
+        self.__message = '\r\nThe action you have performed \
+                          has been successful!'
 
     def __str__( self ):
         if isinstance( self.__message, str ):
@@ -2896,7 +2895,7 @@ class DatePanel( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-# ComboBoxDialog( data )
+# ComboBoxDialog( list )
 class ComboBoxDialog( Sith ):
     '''Logger object provides form for log printing'''
     __themebackground = None
@@ -2919,7 +2918,7 @@ class ComboBoxDialog( Sith ):
             return self.__formsize
 
     @size.setter
-    def size( self, value ):
+    def size( self, value:int ):
         if isinstance( value, tuple ):
             self.__formsize = value
 
@@ -2929,7 +2928,7 @@ class ComboBoxDialog( Sith ):
             return self.__items
 
     @items.setter
-    def items( self, value ):
+    def items( self, value:list ):
         if isinstance( value, list ):
             self.__items = value
 
@@ -2939,11 +2938,11 @@ class ComboBoxDialog( Sith ):
             return self.__selecteditem
 
     @selected_item.setter
-    def selected_item( self, value ):
+    def selected_item( self, value:str ):
         if isinstance( value, str ):
             self.__selecteditem = value
 
-    def __init__( self, data = None ):
+    def __init__( self, data:list = None ):
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -4415,7 +4414,7 @@ class ChartPanel( Sith ):
         super( ).__init__( )
         sg.theme( 'DarkGrey15' )
         self.__icon = super( ).icon_path
-        self.__formsize = (700, 600)
+        self.__formsize = ( 750, 650 )
 
     def show( self ):
         try:

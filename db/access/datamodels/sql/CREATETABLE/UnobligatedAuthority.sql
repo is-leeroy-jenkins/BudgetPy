@@ -1,6 +1,6 @@
 CREATE TABLE UnobligatedAuthority 
 (
-    UnobligatedAuthorityId INTEGER NOT NULL UNIQUE,
+    UnobligatedAuthorityId AUTOINCREMENT NOT NULL UNIQUE,
     BudgetYear TEXT(80) NULL DEFAULT NS,
     AgencyTitle TEXT(80) NULL DEFAULT NS,
     BureauTitle TEXT(80) NULL DEFAULT NS,

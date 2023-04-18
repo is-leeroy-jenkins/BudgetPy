@@ -10,6 +10,7 @@ from Static import Source, Provider, SQL, ParamStyle
 from Booger import Error, ErrorDialog
 import enum
 
+# Pascal( input )
 class Pascal( ):
     __input = None
     __output = None
@@ -119,6 +120,7 @@ class Pascal( ):
             err = ErrorDialog( exc )
             err.show( )
 
+# SqlPath( )
 class SqlPath( ):
     '''class providing relative_path paths to the folders containing sql files and
     driver paths used in the application'''
@@ -780,11 +782,11 @@ class SqlConfig( ):
 
 # SqlStatement( dbconfig,  sqlcfg )
 class SqlStatement( ):
-    '''SqlStatement( db_config, sql_cfg ) Class
+    '''SqlStatement( dbconfig, sqlcfg ) Class
     represents the values models used in the SQLite database'''
-    __cmdtyp = None
-    __sqlcfg = None
-    __dbcfg = None
+    __commandtype = None
+    __sqlconfig = None
+    __dbconfig = None
     __source = None
     __provider = None
     __table = None
@@ -864,19 +866,19 @@ class SqlStatement( ):
 
     @property
     def command_type( self ):
-        if self.__cmdtyp is not None:
-            return self.__cmdtyp
+        if self.__commandtype is not None:
+            return self.__commandtype
 
     @command_type.setter
     def command_type( self, value ):
         if value is not None:
-            self.__cmdtyp = value
+            self.__commandtype = value
         else:
             command = SQL( 'SELECT' )
-            self.__cmdtyp = command
+            self.__commandtype = command
 
     def __init__( self, dbcfg, sqlcfg ):
-        self.__cmdtyp = sqlcfg.command
+        self.__commandtype = sqlcfg.command
         self.__provider = dbcfg.provider
         self.__source = dbcfg.source
         self.__table = dbcfg.table_name
@@ -891,44 +893,44 @@ class SqlStatement( ):
     def get_query( self ) -> str:
         try:
             table = self.__table
-            columns = self.__sqlcfg.dump_columns( )
-            values = self.__sqlcfg.dump_values( )
-            predicate = self.__sqlcfg.dump_where( )
+            columns = self.__sqlconfig.dump_columns( )
+            values = self.__sqlconfig.dump_values( )
+            predicate = self.__sqlconfig.dump_where( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-                if self.__cmdtyp == SQL.SELECTALL:
+                if self.__commandtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
                         self.__text = f'SELECT * FROM {table}'
                         return self.__text
                     if len( self.__names ) > 0:
                         self.__text = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
                         return self.__text
-                elif self.__cmdtyp == SQL.SELECT:
+                elif self.__commandtype == SQL.SELECT:
                     if len( self.__names ) == 0:
                         self.__text = f'SELECT * FROM {table}'
                         return self.__text
                     if len( self.__names ) > 0:
                         self.__text = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
                         return self.__text
-                elif self.__cmdtyp == SQL.INSERT:
+                elif self.__commandtype == SQL.INSERT:
                     self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__text
-                elif self.__cmdtyp == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{self.__sqlcfg.dump_set( )} ' + f'{values}'
+                elif self.__commandtype == SQL.UPDATE:
+                    self.__text = f'UPDATE {table} ' + f'{self.__sqlconfig.dump_set( )} ' + f'{values}'
                     return self.__text
-                elif self.__cmdtyp == SQL.DELETE:
+                elif self.__commandtype == SQL.DELETE:
                     self.__text = f'DELETE FROM {table} ' + f' {predicate}'
                     return self.__text
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
-                    if self.__cmdtyp == SQL.SELECT:
+                    if self.__commandtype == SQL.SELECT:
                         cols = columns.lstrip( '(' ).rstrip( ')' )
                         self.__text = f'SELECT {cols} FROM {table}'
                         return self.__text
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
-                    if self.__cmdtyp == SQL.SELECTALL:
+                    if self.__commandtype == SQL.SELECTALL:
                         self.__text = f'SELECT * FROM {table}'
                         return self.__text
-                elif self.__cmdtyp == 'DELETE':
+                elif self.__commandtype == 'DELETE':
                     self.__text = f'DELETE FROM {table}'
                     return self.__text
         except Exception as e:

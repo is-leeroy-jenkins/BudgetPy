@@ -1,6 +1,6 @@
 CREATE TABLE MonthlyOutlays 
 (
-    MonthlyOutlaysId INTEGER NOT NULL UNIQUE,
+    MonthlyOutlaysId AUTOINCREMENT NOT NULL UNIQUE,
     FiscalYear TEXT(80) NULL DEFAULT NS,
     LineNumber TEXT(80) NULL DEFAULT NS,
     LineTitle TEXT(80) NULL DEFAULT NS,

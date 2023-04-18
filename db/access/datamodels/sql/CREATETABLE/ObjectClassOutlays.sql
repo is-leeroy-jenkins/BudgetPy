@@ -17,5 +17,5 @@ CREATE TABLE  ObjectClassOutlays
 	 FinanceObjectClass TEXT(80) NULL DEFAULT NS,
 	 PriorYear DOUBLE NULL DEFAULT 0.0,
 	 CurrentYear DOUBLE NULL DEFAULT 0.0,
-	 BudgetYear INTEGER DEFAULT 0.0
+	 BudgetYear DOUBLE NULL DEFAULT 0.0
 );

@@ -127,6 +127,7 @@ class Source( Enum ):
     BudgetOutlays = auto( )
     CapitalPlanningInvestmentCodes = auto( )
     CarryoverOutlays = auto( )
+    ColumnSchema = auto( )
     CongressionalControls = auto( )
     CostAreas = auto( )
     DataRuleDescriptions = auto( )

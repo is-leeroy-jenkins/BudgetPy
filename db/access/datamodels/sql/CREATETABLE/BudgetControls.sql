@@ -1,6 +1,6 @@
 CREATE TABLE  BudgetControls  
 (
-	 BudgetControlsId INTEGER NOT NULL UNIQUE,
+	 BudgetControlsId AUTOINCREMENT NOT NULL UNIQUE,
 	 Code TEXT(80) NULL DEFAULT NS,
 	 Name TEXT(80) NULL DEFAULT NS,
 	 BudgetedTransType TEXT(80) NULL DEFAULT NS,
@@ -38,5 +38,5 @@ CREATE TABLE  BudgetControls
 	 FteSpendingControl TEXT(80) NULL DEFAULT NS,
 	 TransactionTypeControl TEXT(80) NULL DEFAULT NS,
 	 AuthorityDistributionControl TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY( BudgetControlsId  AUTOINCREMENT)
+	PRIMARY KEY( BudgetControlsId )
 );

@@ -1,6 +1,6 @@
 CREATE TABLE GrossBudgetAuthorityOutlays 
 (
-    GrossBudgetAuthorityOutlaysId INTEGER NOT NULL UNIQUE,
+    GrossBudgetAuthorityOutlaysId AUTOINCREMENT NOT NULL UNIQUE,
     ReportYear TEXT(80) NULL DEFAULT NS,
     AgencyName TEXT(80) NULL DEFAULT NS,
     OmbAccount TEXT(80) NULL DEFAULT NS,

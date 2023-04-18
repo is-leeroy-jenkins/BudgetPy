@@ -6671,6 +6671,77 @@ class CapitalPlanningInvestmentCodes( ):
             err = ErrorDialog( exc )
             err.show( )
 
+# ColumnSchema( column, table, provider = Provider.SQLite )
+class ColumnSchema( ):
+    '''Provides data on the columns used in the application'''
+    __source = None
+    __provider = None
+    __columnschemaid = None
+    __datatype = None
+    __columnname = None
+    __tablename = None
+    __columncaption = None
+    __fields = None
+    __data = None
+    __frame = None
+
+
+    @property
+    def id( self ):
+        if self.__columnschemaid is not None:
+            return self.__columnschemaid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__columnschemaid = value
+
+    @property
+    def data_type( self ):
+        if self.__datatype is not None:
+            return self.__datatype
+
+    @data_type.setter
+    def data_type( self, value ):
+        if value is not None:
+            self.__datatype = value
+
+    @property
+    def column_name( self ):
+        if self.__columnname is not None:
+            return self.__columnname
+
+    @column_name.setter
+    def column_name( self, value ):
+        if value is not None:
+            self.__columnname = value
+
+    @property
+    def table_name( self ):
+        if self.__tablename is not None:
+            return self.__tablename
+
+    @table_name.setter
+    def table_name( self, value ):
+        if value is not None:
+            self.__tablename = value
+
+    @property
+    def column_caption( self ):
+        if self.__columncaption is not None:
+            return self.__columncaption
+
+    @column_caption.setter
+    def column_caption( self, value ):
+        if value is not None:
+            self.__columncaption = value
+
+    def __init__( self, column, table, provider = Provider.SQLite ):
+        self.__source = Source.ColumnSchema
+        self.__provider = provider
+        self.__columnname = column
+        self.__tablename = table
+
 # DataRuleDescription( schedule, line, rule, provider = Provider.SQLite )
 class DataRuleDescription( ):
     ''' DataRuleDescription( schedule, line, rule )

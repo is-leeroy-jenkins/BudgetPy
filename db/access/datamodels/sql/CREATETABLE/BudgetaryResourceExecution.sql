@@ -1,6 +1,6 @@
 CREATE TABLE BudgetaryResourceExecution 
 (
-    BudgetaryResourceExecutionId INTEGER NOT NULL UNIQUE,
+    BudgetaryResourceExecutionId AUTOINCREMENT NOT NULL UNIQUE,
     FiscalYear TEXT(80) NULL DEFAULT NS,
     Agency TEXT(80) NULL DEFAULT NS,
     Bureau TEXT(80) NULL DEFAULT NS,

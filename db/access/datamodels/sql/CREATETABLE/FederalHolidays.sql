@@ -1,6 +1,6 @@
 CREATE TABLE FederalHolidays 
 (
-    FederalHolidaysId INTEGER NOT NULL UNIQUE,
+    FederalHolidaysId  AUTOINCREMENT NOT NULL UNIQUE,
     BFY TEXT(80) NULL DEFAULT NS,
     Columbus TEXT(80) NULL DEFAULT NS,
     Veterans TEXT(80) NULL DEFAULT NS,

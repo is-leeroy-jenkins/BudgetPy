@@ -1,6 +1,6 @@
 CREATE TABLE CarryoverOutlays 
 (
-    CarryoverOutlaysId INTEGER NOT NULL UNIQUE,
+    CarryoverOutlaysId AUTOINCREMENT NOT NULL UNIQUE,
     ReportYear TEXT(80) NULL DEFAULT NS,
     AgencyName TEXT(80) NULL DEFAULT NS,
     OmbAccountName TEXT(80) NULL DEFAULT NS,

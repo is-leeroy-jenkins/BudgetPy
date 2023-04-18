@@ -1,0 +1,30 @@
+CREATE TABLE [dbo].[SpendingDocuments]
+(
+	[SpendingDocumentsId] [int] IDENTITY(1,1) NOT NULL,
+	[BFY] [nvarchar](255) NULL,
+	[EFY] [nvarchar](255) NULL,
+	[TreasurySymbol] [nvarchar](255) NULL,
+	[RpioCode] [nvarchar](255) NULL,
+	[RpioName] [nvarchar](255) NULL,
+	[FundCode] [nvarchar](255) NULL,
+	[FundName] [nvarchar](255) NULL,
+	[AhCode] [nvarchar](255) NULL,
+	[AhName] [nvarchar](255) NULL,
+	[AccountCode] [nvarchar](255) NULL,
+	[RpioActivityCode] [nvarchar](255) NULL,
+	[ProgramProjectName] [nvarchar](255) NULL,
+	[ProgramAreaCode] [nvarchar](255) NULL,
+	[ProgramAreaName] [nvarchar](255) NULL,
+	[PurchaseRequestNumber] [nvarchar](255) NULL,
+	[DocumentType] [nvarchar](255) NULL,
+	[DocumentControlNumber] [nvarchar](255) NULL,
+	[BocCode] [nvarchar](255) NULL,
+	[BocName] [nvarchar](255) NULL,
+	[OriginalActionDate] [datetime] NULL,
+	[LastActionDate] [datetime] NULL,
+	[Commitments] [float] NULL,
+	[Obligations] [float] NULL,
+	[Deobligations] [float] NULL,
+	[UnliqudatedObligations] [float] NULL
+);
+

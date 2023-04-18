@@ -1,6 +1,6 @@
 CREATE TABLE CongressionalControls 
 (
-    CongressionalControlsId INTEGER NOT NULL UNIQUE,
+    CongressionalControlsId AUTOINCREMENT NOT NULL UNIQUE,
     FundCode TEXT(80) NULL DEFAULT NS,
     FundName TEXT(80) NULL DEFAULT NS,
     ProgramAreaCode TEXT(80) NULL DEFAULT NS,

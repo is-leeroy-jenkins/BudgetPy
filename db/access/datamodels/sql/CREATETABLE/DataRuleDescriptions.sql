@@ -1,6 +1,6 @@
 CREATE TABLE DataRuleDescriptions 
 (
-    DataRuleDescriptionsId INTEGER NOT NULL UNIQUE,
+    DataRuleDescriptionsId AUTOINCREMENT NOT NULL UNIQUE,
     Schedule TEXT(80) NULL DEFAULT NS,
     LineNumber TEXT(80) NULL DEFAULT NS,
     RuleNumber TEXT(80) NULL DEFAULT NS,

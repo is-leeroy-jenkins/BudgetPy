@@ -1,5 +1,4 @@
 UPDATE FullTimeEquivalents
-INNER JOIN Allocations
-ON FullTimeEquivalents.FundCode = Allocations.FundCode
-SET FullTimeEquivalents.FundName = Allocations.FundName
-WHERE FullTimeEquivalents.FundName <> Allocations.FundName;
+INNER JOIN ResourcePlanningOffices
+ON FullTimeEquivalents.RpioCode = ResourcePlanningOffices.Code
+SET FullTimeEquivalents.RpioName = ResourcePlanningOffices.Name;

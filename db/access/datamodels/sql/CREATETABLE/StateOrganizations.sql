@@ -1,6 +1,6 @@
 CREATE TABLE StateOrganizations 
 (
-    StateOrganizationsId INTEGER NOT NULL UNIQUE,
+    StateOrganizationsId AUTOINCREMENT NOT NULL UNIQUE,
     Name TEXT(80) NULL DEFAULT NS,
     Code TEXT(80) NULL DEFAULT NS,
     RpioName TEXT(80) NULL DEFAULT NS,

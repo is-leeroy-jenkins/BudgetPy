@@ -1,6 +1,6 @@
 CREATE TABLE  PayrollCostCodes  
 (
-	 PayrollCostCodesId INTEGER NOT NULL UNIQUE,
+	 PayrollCostCodesId AUTOINCREMENT NOT NULL UNIQUE,
 	 RpioCode TEXT(80) NULL DEFAULT NS,
 	 RpioName TEXT(80) NULL DEFAULT NS,
 	 AhCode TEXT(80) NULL DEFAULT NS,
@@ -13,5 +13,5 @@ CREATE TABLE  PayrollCostCodes
 	 HrOrgName TEXT(80) NULL DEFAULT NS,
 	 WorkCode TEXT(80) NULL DEFAULT NS,
 	 WorkCodeName TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY( PayrollCostCodesId  AUTOINCREMENT)
+	PRIMARY KEY( PayrollCostCodesId )
 );
