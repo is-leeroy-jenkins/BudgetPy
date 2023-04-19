@@ -11436,7 +11436,7 @@ class MonthlyActual( ):
 
     def __init__( self, bfy = None, fund = None, provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.Actuals
+        self.__source = Source.MonthlyActuals
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
         self.__fields = [ 'ActualsId',
