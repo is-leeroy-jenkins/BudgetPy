@@ -11158,6 +11158,360 @@ class HumanResourceOrganization( ):
             err = ErrorDialog( exc )
             err.show( )
 
+# Actual( bfy, fund, provider = Provider.SQLite  )
+class MonthlyActual( ):
+    '''Object representing expenditure data'''
+    __source = None
+    __provider = None
+    __monthlyactualsid = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __rpiocode = None
+    __rpioname = None
+    __ahcode = None
+    __ahname = None
+    __appropriationcode = None
+    __appropriationname = None
+    __subappropriationcode = None
+    __subappropriationname = None
+    __orgcode = None
+    __orgname = None
+    __accountcode = None
+    __programprojectcode = None
+    __programprojectname = None
+    __boccode = None
+    __bocname = None
+    __netoutlays = None
+    __grossoutlays = None
+    __obligations = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if self.__actualsid is not None:
+            return self.__actualsid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__id = value
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def fund_code( self ):
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def rpio_code( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpio_name( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def ah_code( self ):
+        if self.__ahcode is not None:
+            return self.__ahcode
+
+    @ah_code.setter
+    def ah_code( self, value ):
+        if value is not None:
+            self.__ahcode = value
+
+    @property
+    def ah_name( self ):
+        if self.__ahname is not None:
+            return self.__ahname
+
+    @ah_name.setter
+    def ah_name( self, value ):
+        if value is not None:
+            self.__ahname = value
+
+    @property
+    def org_code( self ):
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @org_code.setter
+    def org_code( self, value ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def org_name( self  ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @org_name.setter
+    def org_name( self, value  ):
+        if value is not None:
+            self.__orgname = value
+
+    @property
+    def account_code( self ):
+        if self.__accountcode is not None:
+            return self.__accountcode
+
+    @account_code.setter
+    def account_code( self, value ):
+        if value is not None:
+            self.__accountcode = value
+
+    @property
+    def boc_code( self ):
+        if self.__boccode is not None:
+            return self.__boccode
+
+    @boc_code.setter
+    def boc_code( self, value ):
+        if value is not None:
+            self.__boccode = value
+
+    @property
+    def boc_name( self ):
+        if self.__bocname is not None:
+            return self.__bocname
+
+    @boc_name.setter
+    def boc_name( self, value ):
+        if value is not None:
+            self.__bocname = value
+
+    @property
+    def gross_outlays( self ):
+        if self.__grossoutlays is not None:
+            return self.__grossoutlays
+
+    @gross_outlays.setter
+    def gross_outlays( self, value ):
+        if value is not None:
+            self.__grossoutlays = value
+
+    @property
+    def net_outlays( self ):
+        if self.__netoutlays is not None:
+            return self.__netoutlays
+
+    @net_outlays.setter
+    def net_outlays( self, value ):
+        if value is not None:
+            self.__netoutlays  = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def program_project_code( self ):
+        if self.__programprojectcode is not None:
+            return self.__programprojectcode
+
+    @program_project_code.setter
+    def program_project_code( self, value ):
+        if value is not None:
+            self.__programprojectcode = value
+
+    @property
+    def program_project_name( self ):
+        if self.__programprojectname is not None:
+            return self.__programprojectname
+
+    @program_project_name.setter
+    def program_project_name( self, value ):
+        if value is not None:
+            self.__programprojectname = value
+
+    @property
+    def treasury_account_code( self ):
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ):
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
+    def fields( self ):
+        if self.__fields is not None:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if value is not None:
+            self.__fields = value
+
+    def __init__( self, bfy = None, fund = None, provider = Provider.SQLite ):
+        self.__provider = provider
+        self.__source = Source.Actuals
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fundcode = fund if isinstance(fund, str ) and fund != '' else None
+        self.__fields = [ 'ActualsId',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'AppropriationCode',
+                           'AppropriationName',
+                           'SubAppropriationCode',
+                           'SubAppropriationName',
+                           'OrgCode',
+                           'OrgName',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'RpioActivityCode',
+                           'RpioActivityName',
+                           'BocCode',
+                           'BocName',
+                           'ULO',
+                           'Obligation',
+                           'Balance',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'GoalCode',
+                           'GoalName',
+                           'ObjectiveCode',
+                           'ObjectiveName' ]
+
+    def get_data( self  ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'FundCode' ]
+            v = (self.__bfy, self.__fundcode)
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Control'
+            exc.cause = 'Actual'
+            exc.method = 'get_data( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def get_frame( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.get_frame( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Control'
+            exc.cause = 'Actual'
+            exc.method = 'get_frame( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
 # MonthlyOutlay( bfy, efy, account, provider = Provider.SQLite )
 class MonthlyOutlay( ):
     '''MonthlyOutlay( bfy, efy, omb ) initializes

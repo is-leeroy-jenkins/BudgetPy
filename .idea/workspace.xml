@@ -118,7 +118,7 @@
     &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/teppler/source/repos/BudgetPy/env/Scripts/pip.exe&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;aBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.23238696&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -208,13 +208,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00430" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1670453542656</created>
-      <option name="number" value="00430" />
-      <option name="presentableId" value="LOCAL-00430" />
-      <option name="project" value="LOCAL" />
-      <updated>1670453542656</updated>
     </task>
     <task id="LOCAL-00431" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1670453779318</created>
@@ -552,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681740910031</updated>
     </task>
-    <option name="localTasksCounter" value="479" />
+    <task id="LOCAL-00479" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1681847227091</created>
+      <option name="number" value="00479" />
+      <option name="presentableId" value="LOCAL-00479" />
+      <option name="project" value="LOCAL" />
+      <updated>1681847227091</updated>
+    </task>
+    <option name="localTasksCounter" value="480" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
