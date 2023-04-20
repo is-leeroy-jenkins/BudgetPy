@@ -1961,12 +1961,12 @@ class BudgetData( ):
 
     @property
     def data( self ):
-        if isinstance( self.__data, tuple ):
+        if self.__data is not None:
             return self.__data
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__data = value
 
     @property
@@ -2001,12 +2001,12 @@ class BudgetData( ):
 
     @property
     def frame( self ):
-        if isinstance( self.__data, DataFrame ):
-            return self.__data
+        if self.__frame is not None:
+            return self.__frame
 
     @frame.setter
     def frame( self, value ):
-        if isinstance( value, DataFrame ):
+        if value is not None:
             self.__frame = value
 
     def __init__( self, source ):
@@ -2014,6 +2014,8 @@ class BudgetData( ):
         self.__name = source.name
         self.__path = DbConfig( source, Provider.SQLite ).get_path( )
         self.__sql = f'SELECT * FROM {source.name};'
+        self.__frame = self.get_frame( )
+        self.__data = [ tuple( i ) for i in self.get_frame( ).iterrows( ) ]
         self.__columns = list( self.get_frame( ).columns )
         self.__index = self.get_frame( ).index
 
