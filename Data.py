@@ -1991,12 +1991,12 @@ class BudgetData( ):
 
     @property
     def index( self ):
-        if isinstance( self.__index, DataFrame.id ):
+        if self.__index is not None:
             return self.__index
 
     @index.setter
     def index( self, value ):
-        if isinstance( value, DataFrame.id ):
+        if value is not None:
             self.__index = value
 
     @property
@@ -2014,6 +2014,8 @@ class BudgetData( ):
         self.__name = source.name
         self.__path = DbConfig( source, Provider.SQLite ).get_path( )
         self.__sql = f'SELECT * FROM {source.name};'
+        self.__columns = list( self.get_frame( ).columns )
+        self.__index = self.get_frame( ).index
 
     def get_frame( self ):
         '''Factory method that returns a pandas DataFrame object

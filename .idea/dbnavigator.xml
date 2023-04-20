@@ -88,7 +88,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="C:\Users\terry\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
+            <file path="C:\Users\teppler\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
@@ -245,7 +245,7 @@
         <enable-column-tooltip value="true" />
       </general>
       <sorting>
-        <nulls-first value="true" />
+        <nulls-first value="false" />
         <max-sorting-columns value="4" />
       </sorting>
       <audit-columns>
