@@ -256,7 +256,7 @@
     </dataset-grid-settings>
     <dataset-editor-settings>
       <text-editor-popup>
-        <active value="false" />
+        <active value="true" />
         <active-if-empty value="false" />
         <data-length-threshold value="100" />
         <popup-delay value="1000" />
