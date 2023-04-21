@@ -3060,7 +3060,7 @@ class ListBoxDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (400, 250)
+        self.__formsize = ( 400, 250 )
         self.__image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
         self.__items = data if isinstance( data, list ) else None
 
@@ -4620,13 +4620,13 @@ class ExcelForm( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (1350, 700)
+        self.__formsize = ( 1350, 700 )
 
     def show( self ):
         try:
-            sm = (3, 1)
-            med = (15, 1)
-            spc = (25, 1)
+            sm = ( 3, 1 )
+            med = ( 15, 1 )
+            spc = ( 25, 1 )
             fd = FileDialog( )
             fd.show( )
             filename = fd.selected_path
@@ -4642,7 +4642,7 @@ class ExcelForm( Sith ):
             button = sg.popup_yes_no( 'First Row Has Headers?',
                                       title = 'Headers?',
                                       icon = self.__icon,
-                                      font = ('Roboto', 9) )
+                                      font = ( 'Roboto', 9 ) )
 
             if filename is not None:
                 try:

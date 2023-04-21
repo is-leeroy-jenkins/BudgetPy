@@ -10,6 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileColors">
-    <fileColor scope="All Changed Files" color="Forest" />
+    <fileColor scope="All Changed Files" color="Spice" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -117,8 +118,8 @@
     "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
     "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy/env/Scripts/pip.exe",
     "run.code.analysis.last.selected.profile": "aBudget",
-    "settings.editor.selected.configurable": "com.jetbrains.python.documentation.PythonDocumentationConfigurable",
-    "settings.editor.splitter.proportion": "0.23238696"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "settings.editor.splitter.proportion": "0.21538462"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -207,13 +208,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00435" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1670455728626</created>
-      <option name="number" value="00435" />
-      <option name="presentableId" value="LOCAL-00435" />
-      <option name="project" value="LOCAL" />
-      <updated>1670455728626</updated>
     </task>
     <task id="LOCAL-00436" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1670931084959</created>
@@ -551,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681996767291</updated>
     </task>
-    <option name="localTasksCounter" value="484" />
+    <task id="LOCAL-00484" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1681998315209</created>
+      <option name="number" value="00484" />
+      <option name="presentableId" value="LOCAL-00484" />
+      <option name="project" value="LOCAL" />
+      <updated>1681998315209</updated>
+    </task>
+    <option name="localTasksCounter" value="485" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
