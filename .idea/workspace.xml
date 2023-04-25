@@ -9,7 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/BudgetPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BudgetPy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,28 +107,28 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/teppler/source/repos/BudgetPy/env/Scripts/pip.exe&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.21538462&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
+    "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy/env/Scripts/pip.exe",
+    "run.code.analysis.last.selected.profile": "aBudget",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+    "settings.editor.splitter.proportion": "0.21538462"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
@@ -209,13 +208,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00438" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1670939744879</created>
-      <option name="number" value="00438" />
-      <option name="presentableId" value="LOCAL-00438" />
-      <option name="project" value="LOCAL" />
-      <updated>1670939744879</updated>
     </task>
     <task id="LOCAL-00439" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1674477273871</created>
@@ -553,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682103476780</updated>
     </task>
-    <option name="localTasksCounter" value="487" />
+    <task id="LOCAL-00487" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1682360158545</created>
+      <option name="number" value="00487" />
+      <option name="presentableId" value="LOCAL-00487" />
+      <option name="project" value="LOCAL" />
+      <updated>1682360158545</updated>
+    </task>
+    <option name="localTasksCounter" value="488" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

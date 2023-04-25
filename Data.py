@@ -12,6 +12,7 @@ import enum
 
 # Pascal( input )
 class Pascal( ):
+    ''' Splits 'input' argument into Pascal Casing'''
     __input = None
     __output = None
 
