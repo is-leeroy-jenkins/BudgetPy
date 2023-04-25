@@ -406,6 +406,7 @@ class DbConfig( ):
 
     @property
     def source( self ):
+        '''Gets the Source property'''
         if self.__source is not None:
             return self.__source
 
@@ -416,6 +417,7 @@ class DbConfig( ):
 
     @property
     def provider( self ):
+        '''Get the Provider property'''
         if self.__provider is not None:
             return self.__provider
 
@@ -426,6 +428,7 @@ class DbConfig( ):
 
     @property
     def table_name( self ):
+        '''Gets the'''
         if self.__table is not None and self.__table != '':
             return self.__table
 
@@ -493,6 +496,7 @@ class DbConfig( ):
             return self.__table
 
     def get_driver( self ):
+        '''Returns a string defining the driver being used'''
         try:
             if self.__provider.name == 'SQLite':
                 return self.get_path( )
@@ -510,6 +514,7 @@ class DbConfig( ):
             error.show( )
 
     def get_path( self ):
+        '''Returns the path to the DB in use'''
         try:
             if self.__provider.name == 'SQLite':
                 return self.__sqlitepath
@@ -527,6 +532,7 @@ class DbConfig( ):
             error.show( )
 
     def get_connectionstring( self ):
+        '''Returns a connection string for the DB in use'''
         try:
             path = self.get_path( )
             if self.__provider.name == Provider.Access.name:
