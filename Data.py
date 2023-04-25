@@ -803,6 +803,10 @@ class SqlStatement( ):
 
     @property
     def source( self ):
+        """
+
+        @return: =Source
+        """
         if isinstance( self.__source, Source ):
             return self.__source
 
@@ -813,6 +817,10 @@ class SqlStatement( ):
 
     @property
     def provider( self ):
+        """
+
+        @return: Provider
+        """
         if self.__provider is not None:
             return self.__provider
 
