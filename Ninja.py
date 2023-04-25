@@ -6051,49 +6051,30 @@ class CarryoverEstimate( ):
     __source = None
     __provider = None
     __carryoverestimatesid = None
-    __budgetlevel = None
     __bfy = None
     __efy = None
     __rpiocode = None
     __rpioname = None
-    __ahcode = None
-    __ahname = None
     __fundcode = None
     __fundname = None
-    __orgcode = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
-    __availablebalance = None
+    __amount = None
     __opencommitments = None
-    __unobligatedauthority = None
-    __programprojectcode = None
-    __programprojectname = None
-    __programareacode = None
-    __programareaname = None
+    __obligations = None
+    __estimate = None
+    __treasuryaccountcode = None
     __fields = None
     __data = None
     __frame = None
 
     @property
     def id( self ):
-        if isinstance( self.__allocationsid, int ):
-            return self.__allocationsid
+        if isinstance( self.__annualcarryoverestimatesid, int ):
+            return self.__annualcarryoverestimatesid
 
     @id.setter
     def id( self, value ):
         if value is not None:
-            self.__allocationsid = value
-
-    @property
-    def budget_level( self ):
-        if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != "":
-            return self.__budgetlevel
-
-    @budget_level.setter
-    def budget_level( self, value ):
-        if value is not None:
-            self.__budgetlevel = value
+            self.__annualcarryoverestimatesid = value
 
     @property
     def bfy( self ):
@@ -6134,26 +6115,6 @@ class CarryoverEstimate( ):
     def rpio_code( self, value ):
         if value is not None:
             self.__rpiocode = value
-
-    @property
-    def ah_code( self ):
-        if self.__ahcode is not None:
-            return self.__ahcode
-
-    @ah_code.setter
-    def ah_code( self, value ):
-        if value is not None:
-            self.__ahcode = value
-
-    @property
-    def ah_name( self ):
-        if self.__ahname is not None:
-            return self.__ahname
-
-    @ah_name.setter
-    def ah_name( self, value ):
-        if value is not None:
-            self.__ahname = value
 
     @property
     def fund_code( self ):
