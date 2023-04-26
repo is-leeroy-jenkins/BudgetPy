@@ -448,7 +448,7 @@ class DbConfig( ):
         self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
         self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
-        self.__data = [ 'Actual', 'AdministrativeRequests', 'Allocation',
+        self.__data = [ 'Actuals', 'AdministrativeRequests', 'Allocation',
                         'AmericanRescuePlan', 'AnnualCarryoverEstimates', 'AnnualCarryoverSurvey',
                         'AnnualReimbursableEstimates', 'AnnualReimbursableSurvey', 'ApplicationTable',
                         'AppropriationAvailableBalance', 'AppropriationDocument', 'AppropriationLevelAuthority',
@@ -462,8 +462,8 @@ class DbConfig( ):
                         'QueryDefinitions', 'RegionalAuthority', 'ReimbursableAgreement',
                         'ReimbursableFunds', 'Reports', 'Reprogrammings',
                         'GrossAuthority', 'GrossUtilization', 'HeadquartersAuthority',
-                        'HumanResourceOrganization', 'JobsActCarryoverEstimates', 'MonthlyLedgerAccountBalances',
-                        'NetAuthority', 'ObligationActivity', 'Obligation',
+                        'HumanResourceOrganization', 'InflationReductionActCarryoverEstimates', 'JobsActCarryoverEstimates', 'MonthlyLedgerAccountBalances',
+                        'MonthlyActuals', 'NetAuthority', 'ObligationActivity', 'Obligation',
                         'OpenCommitment', 'SiteActivity', 'SiteProjectCode',
                         'SpecialAccount', 'StateGrantObligation', 'StatusOfAppropriations',
                         'StatusOfBudgetaryResources', 'StatusOfEarmarks', 'StatusOfFunds',
@@ -474,7 +474,7 @@ class DbConfig( ):
                         'AllowanceHolder', 'ApportionmentData', 'Appropriation',
                         'BudgetaryResourceExecution', 'BudgetControl', 'BudgetObjectClass',
                         'BudgetOutlay', 'CapitalPlanningInvestmentCodes', 'CarryoverOutlay',
-                        'CongressionalControl', 'CostAreas', 'DataRuleDescriptions',
+                        'CongressionalControl', 'CostAreas', 'ColumnSchema','DataRuleDescriptions',
                         'Documents', 'FederalHolidays', 'FinanceObjectClasses',
                         'FiscalYears', 'FiscalYearsBackUp', 'FundCategories',
                         'Fund', 'FundSymbols', 'GeneralLedgerAccount',

@@ -527,6 +527,500 @@ class AllowanceHolder( ):
             err = ErrorDialog( exc )
             err.show( )
 
+# CarryoverEstimate( bfy, provider = Provider.SQLite )
+class AnnualCarryoverEstimate( ):
+    '''CarryoverEstimate( bfy ) initializes object bfy
+    providing Carryover Estimate data for'''
+    __source = None
+    __provider = None
+    __annualcarryoverestimatesid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __amount = None
+    __opencommitments = None
+    __obligations = None
+    __estimate = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__annualcarryoverestimatesid, int ):
+            return self.__annualcarryoverestimatesid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__annualcarryoverestimatesid = value
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def rpio_code( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpio_name( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def fund_code( self ):
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__availablebalance, float ):
+            return self.__availablebalance
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__availablebalance = value
+
+    @property
+    def open_commitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @open_commitments.setter
+    def open_commitments( self, value ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def treasury_account_code( self ):
+        if isinstance( self.__treasuryaccountcode, str ) \
+                and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ):
+        if isinstance( self.__treasuryaccountname, str ) \
+                and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def table( self ):
+        if self.__frame is not None:
+            return self.__frame
+
+    @table.setter
+    def table( self, value ):
+        if value is not None:
+            self.__frame = value
+
+    @property
+    def fields( self ):
+        if self.__fields is not None:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if value is not None:
+            self.__fields = value
+
+
+    def __init__( self, bfy, provider = Provider.SQLite ):
+        self.__provider = provider
+        self.__source = Source.CarryoverEstimates
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fields = [ 'CarryoverEstimatesId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'BocCode',
+                           'BocName',
+                           'AvailableBalance',
+                           'OpenCommitment',
+                           'UnobligatedAuthority' ]
+
+    def __str__( self ):
+        if isinstance( self.__unobligatedauthority, float ):
+            return str( self.__unobligatedauthority )
+
+    def get_data( self  ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY' ]
+            v = (self.__bfy, self.__efy)
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
+            exc.method = 'get_data( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def get_frame( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.get_frame( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
+            exc.method = 'get_frame( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+# ReimbursableEstimate( bfy, provider = Provider.SQLite )
+class AnnualReimbursableEstimate( ):
+    '''CarryoverEstimate( bfy ) initializes object bfy
+    providing Carryover Estimate data for'''
+    __source = None
+    __provider = None
+    __annualreimbursableestimatesid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __amount = None
+    __opencommitments = None
+    __obligations = None
+    __estimate = None
+    __treasuryaccountcode = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__annualcarryoverestimatesid, int ):
+            return self.__annualcarryoverestimatesid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__annualcarryoverestimatesid = value
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def rpio_code( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpio_name( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def fund_code( self ):
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__availablebalance, float ):
+            return self.__availablebalance
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__availablebalance = value
+
+    @property
+    def open_commitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @open_commitments.setter
+    def open_commitments( self, value ):
+        if value is not None:
+            self.__opencommitments = value
+
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def table( self ):
+        if self.__frame is not None:
+            return self.__frame
+
+    @table.setter
+    def table( self, value ):
+        if value is not None:
+            self.__frame = value
+
+    @property
+    def fields( self ):
+        if self.__fields is not None:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if value is not None:
+            self.__fields = value
+
+
+    def __init__( self, bfy, provider = Provider.SQLite ):
+        self.__provider = provider
+        self.__source = Source.CarryoverEstimates
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fields = [ 'CarryoverEstimatesId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'BocCode',
+                           'BocName',
+                           'AvailableBalance',
+                           'OpenCommitment',
+                           'UnobligatedAuthority' ]
+
+    def __str__( self ):
+        if isinstance( self.__unobligatedauthority, float ):
+            return str( self.__unobligatedauthority )
+
+    def get_data( self  ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY' ]
+            v = (self.__bfy, self.__efy)
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
+            exc.method = 'get_data( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def get_frame( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.get_frame( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
+            exc.method = 'get_frame( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
 # Appropriation( fundcode, provider = Provider.SQLite )
 class Appropriation( ):
     '''Defines the Appropriation Class'''
@@ -6044,330 +6538,6 @@ class CostArea( ):
                           'Code',
                           'Name' ]
 
-# CarryoverEstimate( bfy, provider = Provider.SQLite )
-class CarryoverEstimate( ):
-    '''CarryoverEstimate( bfy ) initializes object bfy
-    providing Carryover Estimate data for'''
-    __source = None
-    __provider = None
-    __carryoverestimatesid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __rpioname = None
-    __fundcode = None
-    __fundname = None
-    __amount = None
-    __opencommitments = None
-    __obligations = None
-    __estimate = None
-    __treasuryaccountcode = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ):
-        if isinstance( self.__annualcarryoverestimatesid, int ):
-            return self.__annualcarryoverestimatesid
-
-    @id.setter
-    def id( self, value ):
-        if value is not None:
-            self.__annualcarryoverestimatesid = value
-
-    @property
-    def bfy( self ):
-        if self.__bfy is not None:
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def efy( self ):
-        if self.__efy is not None:
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value ):
-        if value is not None:
-            self.__efy = value
-
-    @property
-    def rpio_code( self ):
-        if self.__rpiocode is not None:
-            return self.__rpiocode
-
-    @rpio_code.setter
-    def rpio_code( self, value ):
-        if value is not None:
-            self.__rpiocode = value
-
-    @property
-    def rpio_name( self ):
-        if self.__rpioname is not None:
-            return self.__rpioname
-
-    @rpio_code.setter
-    def rpio_code( self, value ):
-        if value is not None:
-            self.__rpiocode = value
-
-    @property
-    def fund_code( self ):
-        if self.__fundcode is not None:
-            return self.__fundcode
-
-    @fund_code.setter
-    def fund_code( self, value ):
-        if value is not None:
-            self.__fundcode = value
-
-    @property
-    def fund_name( self ):
-        if self.__fundname is not None:
-            return self.__fundname
-
-    @fund_name.setter
-    def fund_name( self, value ):
-        if value is not None:
-            self.__fundname = value
-
-    @property
-    def org_code( self ):
-        if self.__orgcode is not None:
-            return self.__orgcode
-
-    @org_code.setter
-    def org_code( self, value ):
-        if value is not None:
-            self.__orgcode = value
-
-    @property
-    def org_name( self  ):
-        if self.__orgname is not None:
-            return self.__orgname
-
-    @org_name.setter
-    def org_name( self, value  ):
-        if value is not None:
-            self.__orgname = value
-
-    @property
-    def account_code( self ):
-        if self.__accountcode is not None:
-            return self.__accountcode
-
-    @account_code.setter
-    def account_code( self, value ):
-        if value is not None:
-            self.__accountcode = value
-
-    @property
-    def boc_code( self ):
-        if self.__boccode is not None:
-            return self.__boccode
-
-    @boc_code.setter
-    def boc_code( self, value ):
-        if value is not None:
-            self.__boccode = value
-
-    @property
-    def boc_name( self ):
-        if self.__bocname is not None:
-            return self.__bocname
-
-    @boc_name.setter
-    def boc_name( self, value ):
-        if value is not None:
-            self.__bocname = value
-
-    @property
-    def program_project_code( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
-            return self.__programprojectcode
-
-    @program_project_code.setter
-    def program_project_code( self, value ):
-        if value is not None:
-            self.__programprojectcode = value
-
-    @property
-    def program_project_name( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
-            return self.__programprojectname
-
-    @program_project_name.setter
-    def program_project_name( self, value ):
-        if value is not None:
-            self.__programprojectname = value
-
-    @property
-    def org_code( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
-            return self.__orgcode
-
-    @org_code.setter
-    def org_code( self, value ):
-        if value is not None:
-            self.__orgcode = value
-
-    @property
-    def availablebalance( self ):
-        if isinstance( self.__availablebalance, float ):
-            return self.__availablebalance
-
-    @availablebalance.setter
-    def availablebalance( self, value ):
-        if value is not None:
-            self.__availablebalance = value
-
-    @property
-    def open_commitments( self ):
-        if isinstance( self.__opencommitments, float ):
-            return self.__opencommitments
-
-    @open_commitments.setter
-    def open_commitments( self, value ):
-        if value is not None:
-            self.__opencommitments = value
-
-    @property
-    def unobligated_authority( self ):
-        if isinstance( self.__unobligatedauthority, float ):
-            return self.__unobligatedauthority
-
-    @unobligated_authority.setter
-    def unobligated_authority( self, value ):
-        if value is not None:
-            self.__unobligatedauthority = value
-
-    @property
-    def program_area_code( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
-            return self.__programareacode
-
-    @program_area_code.setter
-    def program_area_code( self, value ):
-        if value is not None:
-            self.__programareacode = value
-
-    @property
-    def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
-            return self.__programareaname
-
-    @program_area_name.setter
-    def program_area_name( self, value ):
-        if value is not None:
-            self.__programareaname = value
-
-    @property
-    def data( self ):
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, value ):
-        if isinstance( value, list ):
-            self.__data = value
-
-    @property
-    def table( self ):
-        if self.__frame is not None:
-            return self.__frame
-
-    @table.setter
-    def table( self, value ):
-        if value is not None:
-            self.__frame = value
-
-    @property
-    def fields( self ):
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value ):
-        if value is not None:
-            self.__fields = value
-
-
-    def __init__( self, bfy, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.CarryoverEstimates
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__fields = [ 'CarryoverEstimatesId',
-                           'BudgetLevel',
-                           'BFY',
-                           'EFY',
-                           'RpioCode',
-                           'RpioName',
-                           'AhCode',
-                           'AhName',
-                           'FundCode',
-                           'FundName',
-                           'OrgCode',
-                           'AccountCode',
-                           'ProgramProjectCode',
-                           'ProgramProjectName',
-                           'ProgramAreaCode',
-                           'ProgramAreaName',
-                           'BocCode',
-                           'BocName',
-                           'AvailableBalance',
-                           'OpenCommitment',
-                           'UnobligatedAuthority' ]
-
-    def __str__( self ):
-        if isinstance( self.__unobligatedauthority, float ):
-            return str( self.__unobligatedauthority )
-
-    def get_data( self  ):
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'BFY', 'EFY' ]
-            v = (self.__bfy, self.__efy)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'CarryoverEstimate'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ):
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'CarryoverEstimate'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
 # CarryoverSurvey( bfy, efy, fund, provider = Provider.SQLite )
 class CarryoverSurvey( ):
     '''CarryoverSurvey( bfy ) initializes object
@@ -11115,6 +11285,564 @@ class HumanResourceOrganization( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'HumanResourceOrganization'
+            exc.method = 'get_frame( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+# CarryoverEstimate( bfy, provider = Provider.SQLite )
+class SupplementalCarryoverEstimate( ):
+    '''CarryoverEstimate( bfy ) initializes object bfy
+    providing Carryover Estimate data for'''
+    __source = None
+    __provider = None
+    __supplementalcarryoverestimatesid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __amount = None
+    __opencommitments = None
+    __obligations = None
+    __estimate = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__annualcarryoverestimatesid, int ):
+            return self.__annualcarryoverestimatesid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__annualcarryoverestimatesid = value
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def rpio_code( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpio_name( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def fund_code( self ):
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__availablebalance, float ):
+            return self.__availablebalance
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__availablebalance = value
+
+    @property
+    def open_commitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @open_commitments.setter
+    def open_commitments( self, value ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def treasury_account_code( self ):
+        if isinstance( self.__treasuryaccountcode, str ) \
+                and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ):
+        if isinstance( self.__treasuryaccountname, str ) \
+                and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def table( self ):
+        if self.__frame is not None:
+            return self.__frame
+
+    @table.setter
+    def table( self, value ):
+        if value is not None:
+            self.__frame = value
+
+    @property
+    def fields( self ):
+        if self.__fields is not None:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if value is not None:
+            self.__fields = value
+
+
+    def __init__( self, bfy, provider = Provider.SQLite ):
+        self.__provider = provider
+        self.__source = Source.CarryoverEstimates
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fields = [ 'CarryoverEstimatesId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'BocCode',
+                           'BocName',
+                           'AvailableBalance',
+                           'OpenCommitment',
+                           'UnobligatedAuthority' ]
+
+    def __str__( self ):
+        if isinstance( self.__unobligatedauthority, float ):
+            return str( self.__unobligatedauthority )
+
+    def get_data( self  ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY' ]
+            v = (self.__bfy, self.__efy)
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
+            exc.method = 'get_data( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def get_frame( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.get_frame( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
+            exc.method = 'get_frame( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+# CarryoverEstimate( bfy, provider = Provider.SQLite )
+class JobsActCarryoverEstimate( ):
+    '''CarryoverEstimate( bfy ) initializes object bfy
+    providing Carryover Estimate data for'''
+    __source = None
+    __provider = None
+    __jobsactcarryoverestimatesid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __amount = None
+    __opencommitments = None
+    __obligations = None
+    __estimate = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__jobsactcarryoverestimatesid, int ):
+            return self.__jobsactcarryoverestimatesid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__annualcarryoverestimatesid = value
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def rpio_code( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpio_name( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def fund_code( self ):
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__availablebalance, float ):
+            return self.__availablebalance
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__availablebalance = value
+
+    @property
+    def open_commitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @open_commitments.setter
+    def open_commitments( self, value ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def treasury_account_code( self ):
+        if isinstance( self.__treasuryaccountcode, str ) \
+                and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ):
+        if isinstance( self.__treasuryaccountname, str ) \
+                and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def table( self ):
+        if self.__frame is not None:
+            return self.__frame
+
+    @table.setter
+    def table( self, value ):
+        if value is not None:
+            self.__frame = value
+
+    @property
+    def fields( self ):
+        if self.__fields is not None:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if value is not None:
+            self.__fields = value
+
+
+    def __init__( self, bfy, provider = Provider.SQLite ):
+        self.__provider = provider
+        self.__source = Source.CarryoverEstimates
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fields = [ 'CarryoverEstimatesId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'BocCode',
+                           'BocName',
+                           'AvailableBalance',
+                           'OpenCommitment',
+                           'UnobligatedAuthority' ]
+
+    def __str__( self ):
+        if isinstance( self.__unobligatedauthority, float ):
+            return str( self.__unobligatedauthority )
+
+    def get_data( self  ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY' ]
+            v = (self.__bfy, self.__efy)
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
+            exc.method = 'get_data( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def get_frame( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.get_frame( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -22752,6 +23480,285 @@ class SpendingDocument( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Obligation'
+            exc.method = 'get_frame( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+# CarryoverEstimate( bfy, provider = Provider.SQLite )
+class SupplementalCarryoverEstimate( ):
+    '''CarryoverEstimate( bfy ) initializes object bfy
+    providing Carryover Estimate data for'''
+    __source = None
+    __provider = None
+    __supplementalcarryoverestimatesid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __amount = None
+    __opencommitments = None
+    __obligations = None
+    __estimate = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ):
+        if isinstance( self.__annualcarryoverestimatesid, int ):
+            return self.__annualcarryoverestimatesid
+
+    @id.setter
+    def id( self, value ):
+        if value is not None:
+            self.__annualcarryoverestimatesid = value
+
+    @property
+    def bfy( self ):
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ):
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def rpio_code( self ):
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpio_name( self ):
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpio_code.setter
+    def rpio_code( self, value ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def fund_code( self ):
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ):
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def amount( self ):
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def available( self ):
+        if isinstance( self.__availablebalance, float ):
+            return self.__availablebalance
+
+    @available.setter
+    def available( self, value ):
+        if value is not None:
+            self.__availablebalance = value
+
+    @property
+    def open_commitments( self ):
+        if isinstance( self.__opencommitments, float ):
+            return self.__opencommitments
+
+    @open_commitments.setter
+    def open_commitments( self, value ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ):
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def treasury_account_code( self ):
+        if isinstance( self.__treasuryaccountcode, str ) \
+                and self.__treasuryaccountcode != '':
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ):
+        if isinstance( self.__treasuryaccountname, str ) \
+                and self.__treasuryaccountname != '':
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
+    def data( self ):
+        if self.__data is not None:
+            return self.__data
+
+    @data.setter
+    def data( self, value ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def table( self ):
+        if self.__frame is not None:
+            return self.__frame
+
+    @table.setter
+    def table( self, value ):
+        if value is not None:
+            self.__frame = value
+
+    @property
+    def fields( self ):
+        if self.__fields is not None:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value ):
+        if value is not None:
+            self.__fields = value
+
+
+    def __init__( self, bfy, provider = Provider.SQLite ):
+        self.__provider = provider
+        self.__source = Source.CarryoverEstimates
+        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__fields = [ 'CarryoverEstimatesId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'BocCode',
+                           'BocName',
+                           'AvailableBalance',
+                           'OpenCommitment',
+                           'UnobligatedAuthority' ]
+
+    def __str__( self ):
+        if isinstance( self.__unobligatedauthority, float ):
+            return str( self.__unobligatedauthority )
+
+    def get_data( self  ):
+        try:
+            source = self.__source
+            provider = self.__provider
+            n = [ 'BFY', 'EFY' ]
+            v = (self.__bfy, self.__efy)
+            dconfig = DbConfig( source, provider )
+            sconfig = SqlConfig( names = n, values = v )
+            cnx = Connection( dconfig )
+            sql = SqlStatement( dconfig, sconfig )
+            sqlite = cnx.connect( )
+            cursor = sqlite.cursor( )
+            query = sql.getcommandtext( )
+            data = cursor.execute( query )
+            self.__data =  [ i for i in data.fetchall( ) ]
+            cursor.close( )
+            sqlite.close( )
+            return self.__data
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
+            exc.method = 'get_data( self )'
+            err = ErrorDialog( exc )
+            err.show( )
+
+    def get_frame( self ):
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            src = self.__source
+            data = BudgetData( src )
+            return data.get_frame( )
+        except Exception as e:
+            exc = Error( e )
+            exc.module = 'Reporting'
+            exc.cause = 'CarryoverEstimate'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )

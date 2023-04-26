@@ -39,6 +39,18 @@ class Path( ):
     __parentdirectory = None
 
     @property
+    def buffer( self ):
+        '''Get the input string'''
+        if self.__buffer is not None:
+            return self.__buffer
+
+    @buffer.setter
+    def buffer( self, value ):
+        '''Sets the input string'''
+        if value is not None:
+            self.__buffer = value
+
+    @property
     def name( self ):
         '''Returns string representing the title of the selected_path 'base' '''
         if isinstance( self.__name, str ):
@@ -416,7 +428,7 @@ class File( Path ):
     def __init__( self, file_path = None ):
         super( ).__init__( file_path )
         self.__absolute = file_path if os.path.isabs( file_path ) else os.getcwd( ) + '\\' + file_path
-        self.__buffer = file_path if not os.path.isabs( file_path ) else os.path.relpath( file_path )
+        self.__buffer = super( ).buffer
         self.__name = os.path.basename( file_path )
         self.__size = os.path.getsize( file_path )
         self.__directory = os.path.dirname( file_path )
@@ -662,13 +674,13 @@ class Folder( Path ):
 
     @property
     def path( self ):
-        if isinstance( super( ).__buffer, str ):
-            return super( ).__buffer
+        if self.__buffer is not None:
+            return self.__buffer
 
     @path.setter
     def path( self, value ):
         if value is not None:
-            super( ).__buffer = value
+            self.__buffer = value
 
     @property
     def absolute_path( self ):
@@ -722,6 +734,8 @@ class Folder( Path ):
             self.__current = os.getcwd( );
 
     def __init__( self, dir_path ):
+        super( ).__init__( dir_path )
+        self.__buffer = super( ).buffer
         self.__current = os.getcwd( )
         self.__path = dir_path
         self.__name = os.path.basename( dir_path )
