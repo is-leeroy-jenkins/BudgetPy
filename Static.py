@@ -20,7 +20,6 @@ class EXT( Enum ):
 
 class BOC( Enum ):
     '''Enumeration of object class codes'''
-    NS = 0
     PAYROLL = 10
     FTE = 17
     EXPENSES = 36
@@ -40,7 +39,8 @@ class NPM( Enum ):
     H = 7
     J = 8
     M = 9
-    NS = 10
+    Y = 10
+    W = 11
 
 
 class Source( Enum ):
@@ -54,7 +54,6 @@ class Source( Enum ):
     AnnualCarryoverSurvey = auto( )
     AnnualReimbursableEstimates = auto( )
     AnnualReimbursableSurvey = auto( )
-    ApplicationTables = auto( )
     AppropriationAvailableBalances = auto( )
     AppropriationDocuments = auto( )
     AppropriationLevelAuthority = auto( )
@@ -81,6 +80,7 @@ class Source( Enum ):
     ProjectCostCodes = auto( )
     QueryDefinitions = auto( )
     RegionalAuthority = auto( )
+    RecoveryAct = auto( )
     ReimbursableAgreements = auto( )
     ReimbursableFunds = auto( )
     Reports = auto( )
@@ -89,6 +89,7 @@ class Source( Enum ):
     GrossUtilization = auto( )
     HeadquartersAuthority = auto( )
     HumanResourceOrganizations = auto( )
+    InflationReductionActCarryoverEstimates = auto( )
     JobsActCarryoverEstimates = auto( )
     MonthlyLedgerAccountBalances = auto( )
     MonthlyActuals = auto( )
@@ -99,12 +100,15 @@ class Source( Enum ):
     SiteActivity = auto( )
     SiteProjectCodes = auto( )
     SpecialAccounts = auto( )
+    SpendingRates = auto( )
+    SpendingDocuments = auto( )
     StateGrantObligations = auto( )
     StatusOfAppropriations = auto( )
     StatusOfBudgetaryResources = auto( )
     StatusOfEarmarks = auto( )
     StatusOfFunds = auto( )
     StatusOfJobsActFunding = auto( )
+    StatusOfInflationReductionActFunds = auto( )
     StatusOfSupplementalFunding = auto( )
     SuperfundSites = auto( )
     SupplementalCarryoverEstimates = auto( )
@@ -120,6 +124,7 @@ class Source( Enum ):
     ActivityCodes = auto( )
     AllowanceHolders = auto( )
     ApportionmentData = auto( )
+    ApplicationTables = auto( )
     Appropriations = auto( )
     BudgetaryResourceExecution = auto( )
     BudgetControls = auto( )
@@ -128,6 +133,7 @@ class Source( Enum ):
     CapitalPlanningInvestmentCodes = auto( )
     CarryoverOutlays = auto( )
     ColumnSchema = auto( )
+    CompassErrors = auto( )
     CongressionalControls = auto( )
     CostAreas = auto( )
     DataRuleDescriptions = auto( )
@@ -180,11 +186,10 @@ class Source( Enum ):
 class Provider( Enum ):
     '''Enumeration of data providers'''
     SQLite = 0
-    SqlServer = 1
-    Access = 2
+    Access = 1
+    SqlServer = 2
     Excel = 3
     CSV = 4
-    NS = 5
 
 
 class Model( Enum ):
@@ -220,7 +225,6 @@ class SQL( Enum ):
 
 class Client( Enum ):
     '''Enumeration of auxiliary applications'''
-    NS = auto( )
     SQLite = auto( )
     Access = auto( )
     Excel = auto( )
