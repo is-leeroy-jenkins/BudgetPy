@@ -118,7 +118,7 @@
     "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
     "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy/env/Scripts/pip.exe",
     "run.code.analysis.last.selected.profile": "aBudget",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Python",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "settings.editor.splitter.proportion": "0.21538462"
   },
   "keyToStringList": {
@@ -208,13 +208,6 @@
       <workItem from="1650838730664" duration="459000" />
       <workItem from="1650839260524" duration="449000" />
       <workItem from="1650839766145" duration="1594000" />
-    </task>
-    <task id="LOCAL-00444" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1675722003100</created>
-      <option name="number" value="00444" />
-      <option name="presentableId" value="LOCAL-00444" />
-      <option name="project" value="LOCAL" />
-      <updated>1675722003101</updated>
     </task>
     <task id="LOCAL-00445" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1675966603874</created>
@@ -552,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682602246795</updated>
     </task>
-    <option name="localTasksCounter" value="493" />
+    <task id="LOCAL-00493" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1683655868140</created>
+      <option name="number" value="00493" />
+      <option name="presentableId" value="LOCAL-00493" />
+      <option name="project" value="LOCAL" />
+      <updated>1683655868140</updated>
+    </task>
+    <option name="localTasksCounter" value="494" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
