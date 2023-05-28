@@ -1,7 +1,6 @@
-CREATE TABLE [dbo].[ExecutionTables]
+CREATE TABLE ExecutionTables
 (
-	[ExecutionTableId] [int] IDENTITY(1,1) NOT NULL,
-	[TableName] [nvarchar](255) NULL,
-	[Type] [nvarchar](255) NULL
+	ExecutionTablesId INT NOT NULL IDENTITY(1,1),
+	TableName NVARCHAR(80) NULL,
+	TableType NVARCHAR(80) NULL
 );
-

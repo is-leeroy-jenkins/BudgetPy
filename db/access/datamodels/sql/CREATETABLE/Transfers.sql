@@ -30,10 +30,14 @@ CREATE TABLE Transfers
     BocCode TEXT(80) NULL DEFAULT NS,
     BocName TEXT(80) NULL DEFAULT NS,
     NpmCode TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
     Purpose TEXT(80) NULL DEFAULT NS,
     ExtendedPurpose TEXT(80) NULL DEFAULT NS,
     ResourceType TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName TEXT(255) NULL DEFAULT NS,
+	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName TEXT(255) NULL DEFAULT NS,
     CONSTRAINT TransfersPrimaryKey
         PRIMARY KEY(TransfersId)
 );

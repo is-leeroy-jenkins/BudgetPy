@@ -4,5 +4,6 @@ CREATE TABLE ResponsibilityCenters
     Code TEXT(80) NULL DEFAULT NS,
     Name TEXT(80) NULL DEFAULT NS,
     Title TEXT(80) NULL DEFAULT NS,
-    CONSTRAINT PrimaryKeyResponsibilityCenters PRIMARY KEY(ResponsibilityCentersId)
-)
+    CONSTRAINT ResponsibilityCentersPrimaryKey 
+        PRIMARY KEY(ResponsibilityCentersId)
+);

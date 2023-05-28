@@ -20,5 +20,6 @@ CREATE TABLE ProgramFinancingSchedule
     BudgetAmount DOUBLE NULL DEFAULT 0.0,
     AgencyAmount DOUBLE NULL DEFAULT 0.0,
     Amount DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(ProgramFinancingScheduleId)
+    CONSTRAINTS ProgramFinancingSchedulePrimaryKey 
+        PRIMARY KEY(ProgramFinancingScheduleId)
 );

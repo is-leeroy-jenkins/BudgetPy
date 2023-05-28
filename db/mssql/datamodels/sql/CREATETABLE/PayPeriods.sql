@@ -1,9 +1,8 @@
-CREATE TABLE [dbo].[PayPeriods]
+CREATE TABLE PayPeriods  
 (
-	[PayPeriodId] [int] IDENTITY(1,1) NOT NULL,
-	[Period] [nvarchar](255) NOT NULL,
-	[PayPeriod] [nvarchar](255) NULL,
-	[StartDate] [datetime] NULL,
-	[EndDate] [datetime] NULL
+	 PayPeriodsId INT NOT NULL IDENTITY(1,1),
+	 Period NVARCHAR(80) NULL,
+	 PayPeriod NVARCHAR(80) NULL,
+	 StartDate NVARCHAR(80) NULL,
+	 EndDate NVARCHAR(80) NULL
 );
-

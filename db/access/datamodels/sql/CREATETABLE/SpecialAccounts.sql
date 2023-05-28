@@ -25,14 +25,14 @@ CREATE TABLE SpecialAccounts
     FocCode TEXT(80) NULL DEFAULT NS,
     FocName TEXT(80) NULL DEFAULT NS,
     TransactionDate TEXT(80) NULL DEFAULT NS,
-    AvailableBalance DECIMAL NULL DEFAULT 0.0,
-    OpenCommitments DECIMAL NULL DEFAULT 0.0,
-    Obligations DECIMAL NULL DEFAULT 0.0,
-    ULO DECIMAL NULL DEFAULT 0.0,
-    Disbursements DECIMAL NULL DEFAULT 0.0,
-    UnpaidBalances DECIMAL NULL DEFAULT 0.0,
-    Collections DECIMAL NULL DEFAULT 0.0,
-    CumulativeReceipts DECIMAL NULL DEFAULT 0.0,
+    AvailableBalance DOUBLE NULL DEFAULT 0.0,
+    OpenCommitments DOUBLE NULL DEFAULT 0.0,
+    Obligations DOUBLE NULL DEFAULT 0.0,
+    UnliquidatedObligations DOUBLE NULL DEFAULT 0.0,
+    Disbursements DOUBLE NULL DEFAULT 0.0,
+    UnpaidBalances DOUBLE NULL DEFAULT 0.0,
+    Collections DOUBLE NULL DEFAULT 0.0,
+    CumulativeReceipts DOUBLE NULL DEFAULT 0.0,
     CONSTRAINT SpecialAccountsPrimaryKey
         PRIMARY KEY(SpecialAccountsId)
 );

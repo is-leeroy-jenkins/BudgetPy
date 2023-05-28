@@ -16,5 +16,6 @@ CREATE TABLE GeneralLedgerAccounts
 	AttributeValue	TEXT(80) NULL DEFAULT NS,
 	Usage	TEXT(80) NULL DEFAULT NS,
 	Deposit	TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY(GeneralLedgerAccountsId)
+	CONSTRAINT GeneralLedgerAccountPrimaryKey 
+        PRIMARY KEY(GeneralLedgerAccountsId)
 );

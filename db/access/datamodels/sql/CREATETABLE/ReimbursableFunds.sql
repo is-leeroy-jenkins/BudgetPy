@@ -10,11 +10,11 @@ CREATE TABLE ReimbursableFunds
     BocCode TEXT(80) NULL DEFAULT NS,
     DocumentControlNumber TEXT(80) NULL DEFAULT NS,
     AgreeementNumber TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
-    OpenCommitments DECIMAL NULL DEFAULT 0.0,
-    Obligations DECIMAL NULL DEFAULT 0.0,
-    ULO DECIMAL NULL DEFAULT 0.0,
-    Available DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
+    OpenCommitments DOUBLE NULL DEFAULT 0.0,
+    Obligations DOUBLE NULL DEFAULT 0.0,
+    UnliquidatedObligations DOUBLE NULL DEFAULT 0.0,
+    Available DOUBLE NULL DEFAULT 0.0,
     CONSTRAINT ReimbursableFundsPrimaryKey
         PRIMARY KEY(ReimbursableFundsId)
 );

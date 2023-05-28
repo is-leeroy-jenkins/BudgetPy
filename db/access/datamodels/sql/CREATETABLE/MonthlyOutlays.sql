@@ -32,5 +32,6 @@ CREATE TABLE MonthlyOutlays
     July DOUBLE NULL DEFAULT 0.0,
     August DOUBLE NULL DEFAULT 0.0,
     September DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(MonthlyOutlaysId)
+    CONSTRAINT MonthlyOutlaysPrimaryKey
+        PRIMARY KEY(MonthlyOutlaysId)
 );

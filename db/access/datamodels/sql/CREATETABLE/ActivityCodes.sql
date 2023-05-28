@@ -4,5 +4,6 @@ CREATE TABLE ActivityCodes
     Code TEXT(80) NULL DEFAULT NS,
     Name TEXT(80) NULL DEFAULT NS,
     Title TEXT(80) NULL DEFAULT NS
-    PRIMARY KEY(ActivityCodesId)
+    CONSTRAINT AccountCodesPrimaryKey
+        PRIMARY KEY(ActivityCodesId)
 );

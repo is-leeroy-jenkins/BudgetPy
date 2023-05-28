@@ -14,11 +14,11 @@ CREATE TABLE ReimbursableAgreements
     AccountCode TEXT(80) NULL DEFAULT NS,
     VendorCode TEXT(80) NULL DEFAULT NS,
     VendorName TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL DEFAULT 0.0,
-    OpenCommitments DECIMAL DEFAULT 0.0,
-    Obligations DECIMAL DEFAULT 0.0,
-    ULO DECIMAL DEFAULT 0.0,
-    Available DECIMAL DEFAULT 0.0,
+    Amount DOUBLE DEFAULT 0.0,
+    OpenCommitments DOUBLE DEFAULT 0.0,
+    Obligations DOUBLE DEFAULT 0.0,
+    UnliquidatedObligations DOUBLE DEFAULT 0.0,
+    Available DOUBLE DEFAULT 0.0,
     CONSTRAINT ReimbursableAgreementsPrimaryKey
         PRIMARY KEY(ReimbursableAgreementsId)
 );

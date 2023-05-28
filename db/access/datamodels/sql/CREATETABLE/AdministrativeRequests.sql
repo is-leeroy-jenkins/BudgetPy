@@ -18,7 +18,7 @@ CREATE TABLE AdministrativeRequests
     RequestType TEXT(80) NULL DEFAULT NS,
     TypeCode TEXT(80) NULL DEFAULT NS,
     Decision TEXT(80) NULL DEFAULT NS,
-    CONSTRAINT AdministrativeRequestsId
+    CONSTRAINT AdministrativeRequestsPrimaryKey
         PRIMARY KEY(AdministrativeRequestsId)
 );
 

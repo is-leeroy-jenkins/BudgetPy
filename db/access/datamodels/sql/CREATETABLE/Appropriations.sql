@@ -4,6 +4,6 @@
     BFY TEXT(80) NOT NULL,
     Title TEXT(80) NULL DEFAULT NS,
     PublicLaw TEXT(80) NULL DEFAULT NS,
-    EnactedDate DATETIME,
+    EnactedDate DATETIME NULL,
     CONSTRAINT PrimaryKeyAppropriations PRIMARY KEY(AppropriationsId)
 );

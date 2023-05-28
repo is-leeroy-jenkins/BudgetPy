@@ -5,5 +5,6 @@ CREATE TABLE StateOrganizations
     Code TEXT(80) NULL DEFAULT NS,
     RpioName TEXT(80) NULL DEFAULT NS,
     RpioCode TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(StateOrganizationsId)
+    CONSTRAINT StateOrganizationsPrimaryKey
+        PRIMARY KEY(StateOrganizationsId)
 );

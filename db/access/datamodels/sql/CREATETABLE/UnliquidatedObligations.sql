@@ -1,6 +1,6 @@
-CREATE TABLE OpenCommitments 
+CREATE TABLE UnliquidatedObligations
 (
-    OpenCommitmentsId AUTOINCREMENT NOT NULL UNIQUE,
+    UnliquidatedObligationsId AUTOINCREMENT NOT NULL UNIQUE,
     ObligationsId INTEGER NOT NULL,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
@@ -32,7 +32,11 @@ CREATE TABLE OpenCommitments
     NpmName TEXT(80) NULL DEFAULT NS,
     VendorCode TEXT(80) NULL DEFAULT NS,
     VendorName TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
+	TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName TEXT(255) NULL DEFAULT NS,
+	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName TEXT(255) NULL DEFAULT NS,
     CONSTRAINT OpenCommitmentsPrimaryKey
         PRIMARY KEY(OpenCommitmentsId)
 );

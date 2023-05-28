@@ -4,7 +4,7 @@ CREATE TABLE AnnualCarryoverSurvey
     BFY TEXT(80) NULL DEFAULT NS,
     FundCode TEXT(80) NULL DEFAULT NS,
     FundName TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
     CONSTRAINT AnnualCarryoverSurveyPrimaryKey
         PRIMARY KEY(AnnualCarryoverSurveyId)
 );

@@ -1,0 +1,9 @@
+CREATE TABLE PublicLaws 
+(
+	PublicLawsId	INT NOT NULL IDENTITY(1,1),
+	LawNumber	NVARCHAR(80) NULL,
+	BillTitle	NVARCHAR(80) NULL,
+	EnactedDate	NVARCHAR(80) NULL,
+	Congress	NVARCHAR(80) NULL,
+	BFY	NVARCHAR(80) NULL
+);

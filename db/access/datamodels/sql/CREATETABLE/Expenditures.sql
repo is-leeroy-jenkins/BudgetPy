@@ -32,7 +32,11 @@ CREATE TABLE Expenditures
     NpmName TEXT(80) NULL DEFAULT NS,
     VendorCode TEXT(80) NULL DEFAULT NS,
     VendorName TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
+	TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName TEXT(255) NULL DEFAULT NS,
+	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName TEXT(255) NULL DEFAULT NS,
     CONSTRAINT ExpendituresForeignKey
         FOREIGN KEY(ObligationsId) REFERENCES Obligations(ObligationsId),
     CONSTRAINT ExpendituresPrimaryKey

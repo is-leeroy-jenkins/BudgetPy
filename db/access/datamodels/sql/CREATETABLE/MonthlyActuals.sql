@@ -20,12 +20,13 @@ CREATE TABLE MonthlyActuals
 	ProgramProjectName	TEXT(80) NULL DEFAULT NS,
 	BocCode	TEXT(80) NULL DEFAULT NS,
 	BocName	TEXT(80) NULL DEFAULT NS,
-	NetOutlays	DECIMAL NULL DEFAULT 0.0,
-	GrossOutlays	DECIMAL NULL DEFAULT 0.0,
-	Obligations	DECIMAL NULL DEFAULT 0.0,
+	NetOutlays	DOUBLE NULL DEFAULT 0.0,
+	GrossOutlays	DOUBLE NULL DEFAULT 0.0,
+	Obligations	DOUBLE NULL DEFAULT 0.0,
 	TreasuryAccountCode	TEXT(80) NULL DEFAULT NS,
 	TreasuryAccountName	TEXT(80) NULL DEFAULT NS,
 	BudgetAccountCode	TEXT(80) NULL DEFAULT NS,
 	BudgetAccountName	TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY(MonthlyActualsId)
+	CONSTRAINT MonthlyActualsPrimaryKey 
+        PRIMARY KEY(MonthlyActualsId)
 );

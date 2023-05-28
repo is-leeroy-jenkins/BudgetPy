@@ -1,10 +1,8 @@
-CREATE TABLE [dbo].[ColumnSchema]
+CREATE TABLE ColumnSchema
 (
-	[ColumnSchemaId] [int] IDENTITY(1,1) NOT NULL,
-	[DataType] [nvarchar](255) NULL,
-	[ColumnName] [nvarchar](255) NULL,
-	[TableName] [nvarchar](255) NULL,
-	[ColumnCaption] [nvarchar](255) NULL
+	ColumnSchemaId	INT NOT NULL IDENTITY(1,1),
+	DataType	NVARCHAR(80) NULL,
+	ColumnName	NVARCHAR(80) NULL,
+	TableName	NVARCHAR(80) NULL,
+	ColumnCaption	NVARCHAR(80) NULL
 );
-
-

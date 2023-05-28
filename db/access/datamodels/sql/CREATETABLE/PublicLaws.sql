@@ -6,5 +6,6 @@ CREATE TABLE PublicLaws
     EnactedDate TEXT(80) NULL DEFAULT NS,
     Congress TEXT(80) NULL DEFAULT NS,
     BFY TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(PublicLawsId)
-)
+    CONSTRAINT PublicLawsPrimaryKey
+        PRIMARY KEY(PublicLawsId)
+);

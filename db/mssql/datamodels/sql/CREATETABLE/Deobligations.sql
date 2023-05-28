@@ -1,16 +1,25 @@
-CREATE TABLE [dbo].[Deobligations]
+CREATE TABLE Deobligations 
 (
-	[DeobligationId] [int] IDENTITY(1,1) NOT NULL,
-	[RPIO] [nvarchar](255) NULL,
-	[BFY] [nvarchar](255) NULL,
-	[FundCode] [nvarchar](255) NULL,
-	[DocumentNumber] [nvarchar](255) NULL,
-	[CalendarYear] [nvarchar](255) NULL,
-	[OrgCode] [nvarchar](255) NULL,
-	[ProgramProjectCode] [nvarchar](255) NULL,
-	[AccountCode] [nvarchar](255) NULL,
-	[BocCode] [nvarchar](255) NULL,
-	[Date] [datetime] NULL,
-	[Amount] [float] NULL
+	DeobligationsId	INT NOT NULL IDENTITY(1,1),
+	BFY	NVARCHAR(80) NULL,
+	RpioCode	NVARCHAR(80) NULL,
+	RpioName	NVARCHAR(80) NULL,
+	AhCode	NVARCHAR(80) NULL,
+	AhName	NVARCHAR(80) NULL,
+	FundCode	NVARCHAR(80) NULL,
+	FundName	NVARCHAR(80) NULL,
+	AccountCode	NVARCHAR(80) NULL,
+	NpmCode	NVARCHAR(80) NULL,
+	NpmName	NVARCHAR(80) NULL,
+	ProgramProjectCode	NVARCHAR(80) NULL,
+	ProgramProjectName	NVARCHAR(80) NULL,
+	OrgCode	NVARCHAR(80) NULL,
+	OrgName	NVARCHAR(80) NULL,
+	BocCode	NVARCHAR(80) NULL,
+	BocName	NVARCHAR(80) NULL,
+	DocumentNumber	NVARCHAR(80) NULL,
+	FocCode	NVARCHAR(80) NULL,
+	FocName	NVARCHAR(80) NULL,
+	ProcessedDate	NVARCHAR(80) NULL,
+	Amount	FLOAT NULL
 );
-

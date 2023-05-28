@@ -1,13 +1,19 @@
-CREATE TABLE [dbo].[PayrollCostCodes]
+CREATE TABLE ProjectCostCodes 
 (
-	[PayrollCostCodeId] [int] IDENTITY(1,1) NOT NULL,
-	[RPIO] [nvarchar](255) NULL,
-	[AhCode] [nvarchar](255) NULL,
-	[BFY] [nvarchar](255) NULL,
-	[RcCode] [nvarchar](255) NULL,
-	[DivisionName] [nvarchar](255) NULL,
-	[WorkCode] [nvarchar](255) NULL,
-	[WorkCodeName] [nvarchar](255) NULL,
-	[HrOrgCode] [nvarchar](255) NULL,
-	[HrOrgName] [nvarchar](255) NULL
+	ProjectCostCodesId INT NOT NULL IDENTITY(1,1),
+	BFY	NVARCHAR(80) NULL,
+	RpioCode	NVARCHAR(80) NULL,
+	RpioName	NVARCHAR(80) NULL,
+	AhCode	NVARCHAR(80) NULL,
+	AhName	NVARCHAR(80) NULL,
+	FundCode	NVARCHAR(80) NULL,
+	FundName	NVARCHAR(80) NULL,
+	AccountCode	NVARCHAR(80) NULL,
+	ProgramProjectName	NVARCHAR(80) NULL,
+	BocCode	NVARCHAR(80) NULL,
+	BocName	NVARCHAR(80) NULL,
+	OrgCode	NVARCHAR(80) NULL,
+	OrgName	NVARCHAR(80) NULL,
+	VendorCode	NVARCHAR(80) NULL,
+	VendorName	NVARCHAR(80) NULL
 );

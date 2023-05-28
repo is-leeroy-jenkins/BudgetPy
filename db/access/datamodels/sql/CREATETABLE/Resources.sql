@@ -6,5 +6,6 @@ CREATE TABLE Resources
 	Location	TEXT(80) NULL DEFAULT NS,
 	FileExtension NULL DEFAULT NS,
 	Caption	TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY(ResourcesId)
+	CONSTRAINT ResourcesPrimaryKey
+        PRIMARY KEY(ResourcesId)
 );

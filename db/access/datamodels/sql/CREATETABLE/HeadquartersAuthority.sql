@@ -1,6 +1,6 @@
 CREATE TABLE HeadquartersAuthority 
 (
-    HeadquartersAuthorityId INTEGER NOT NULL,
+    HeadquartersAuthorityId AUTOINCREMENT NOT NULL UNIQUE,
     AllocationsId INTEGER,
     StatusOfFundsId INTEGER,
     BudgetLevel TEXT(80) NULL DEFAULT NS,
@@ -23,7 +23,7 @@ CREATE TABLE HeadquartersAuthority
     RcName TEXT(80) NULL DEFAULT NS,
     BocCode TEXT(80) NULL DEFAULT NS,
     BocName TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
     NpmCode TEXT(80) NULL DEFAULT NS,
     NpmName TEXT(80) NULL DEFAULT NS,
     CONSTRAINT HeadquartersAuthorityPrimaryKey

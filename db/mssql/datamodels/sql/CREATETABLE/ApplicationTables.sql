@@ -1,9 +1,7 @@
-CREATE TABLE [dbo].[ApplicationTables]
+CREATE TABLE ApplicationTables 
 (
-	[ApplicationTablesId] [int] IDENTITY(1,1) NOT NULL,
-	[TableName] [nvarchar](255) NULL,
-	[Model] [nvarchar](255) NULL,
-	[Title] [nvarchar](255) NULL
+	ApplicationTablesId	INT NOT NULL IDENTITY(1,1),
+	TableName	NVARCHAR(80) NULL,
+	Title	NVARCHAR(80) NULL,
+	Model	NVARCHAR(80) NULL
 );
-
-

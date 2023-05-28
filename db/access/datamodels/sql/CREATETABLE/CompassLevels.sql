@@ -18,9 +18,9 @@ CREATE TABLE CompassLevels
 	CarryoverOut	DOUBLE DEFAULT 0.0,
 	Recoveries	DOUBLE DEFAULT 0.0,
 	Reimbursements	DOUBLE DEFAULT 0.0,
-	TreasuryAccountCode	TEXT(80) NULL DEFAULT NS,
-	TreasuryAccountName	TEXT(80) NULL DEFAULT NS,
-	BudgetAccountCode	TEXT(80) NULL DEFAULT NS,
-	BudgetAccountName	TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName TEXT(255) NULL DEFAULT NS,
+	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName TEXT(255) NULL DEFAULT NS,
 	PRIMARY KEY(CompassLevelsId)
 );

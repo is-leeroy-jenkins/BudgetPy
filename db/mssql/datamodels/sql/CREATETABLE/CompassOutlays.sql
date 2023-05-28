@@ -1,0 +1,26 @@
+CREATE TABLE CompassOutlays 
+(
+    CompassOutlaysId INT NOT NULL IDENTITY(1,1),
+    BFY NVARCHAR(80) NULL,
+    EFY NVARCHAR(80) NULL,
+    FundCode NVARCHAR(80) NULL,
+    FundName NVARCHAR(80) NULL,
+    AppropriationCode NVARCHAR(80) NULL,
+    AppropriationName NVARCHAR(80) NULL,
+    TreasurySymbol NVARCHAR(80) NULL,
+	TreasuryAccountCode	NVARCHAR(80) NULL,
+	TreasuryAccountName NVARCHAR(MAX) NULL,
+	BudgetAccountCode	NVARCHAR(80) NULL,
+	BudgetAccountName NVARCHAR(MAX) NULL,
+    ProgramAreaCode NVARCHAR(80) NULL,
+    ProgramAreaName NVARCHAR(80) NULL,
+    ProgramProjectCode NVARCHAR(80) NULL,
+    ProgramProjectName NVARCHAR(80) NULL,
+    BocCode NVARCHAR(80) NULL,
+    BocName NVARCHAR(80) NULL,
+    ProcessedDate NVARCHAR(80) NULL,
+    LastActivityDate NVARCHAR(80) NULL,
+    TotalObligations FLOAT NULL,
+    UnliquidatedObligations FLOAT NULL,
+    ObligationsPaid FLOAT NULL
+);

@@ -1,19 +1,18 @@
-CREATE TABLE [dbo].[ReimbursableFunds]
+CREATE TABLE ReimbursableFunds 
 (
-	[ReimbursableFundId] [int] IDENTITY(1,1) NOT NULL,
-	[RPIO] [nvarchar](255) NULL,
-	[BFY] [nvarchar](255) NULL,
-	[FundCode] [nvarchar](255) NULL,
-	[AccountCode] [nvarchar](255) NULL,
-	[RcCode] [nvarchar](255) NULL,
-	[DivisionName] [nvarchar](255) NULL,
-	[BocCode] [nvarchar](255) NULL,
-	[DocumentControlNumber] [nvarchar](255) NULL,
-	[AgreeementNumber] [nvarchar](255) NULL,
-	[Amount] [money] NULL,
-	[OpenCommitments] [money] NULL,
-	[Obligations] [money] NULL,
-	[ULO] [money] NULL,
-	[Available] [money] NULL
+	ReimbursableFundsId	INT NOT NULL IDENTITY(1,1),
+	RpioCode	NVARCHAR(80) NULL,
+	BFY	NVARCHAR(80) NULL,
+	FundCode	NVARCHAR(80) NULL,
+	AccountCode	NVARCHAR(80) NULL,
+	RcCode	NVARCHAR(80) NULL,
+	RcName	NVARCHAR(80) NULL,
+	BocCode	NVARCHAR(80) NULL,
+	DocumentControlNumber	NVARCHAR(80) NULL,
+	AgreeementNumber	NVARCHAR(80) NULL,
+	Amount	FLOAT NULL,
+	OpenCommitments	FLOAT NULL,
+	Obligations	FLOAT NULL,
+	ULO	FLOAT NULL,
+	Available	FLOAT NULL
 );
-

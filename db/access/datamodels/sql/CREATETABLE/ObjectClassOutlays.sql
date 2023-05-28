@@ -1,6 +1,6 @@
 CREATE TABLE  ObjectClassOutlays  
 (
-	 ObjectClassOutlaysId INTEGER,
+	 ObjectClassOutlaysId AUTOINCREMENT NOT NULL UNIQUE,
 	 ReportYear TEXT(80) NULL DEFAULT NS,
 	 OmbAgencyCode TEXT(80) NULL DEFAULT NS,
 	 OmbAgencyName TEXT(80) NULL DEFAULT NS,
@@ -18,4 +18,6 @@ CREATE TABLE  ObjectClassOutlays
 	 PriorYear DOUBLE NULL DEFAULT 0.0,
 	 CurrentYear DOUBLE NULL DEFAULT 0.0,
 	 BudgetYear DOUBLE NULL DEFAULT 0.0
+     CONSTRAINT ObjectClassOutlaysPrimaryKey 
+        PRIMARY KEY(ObjectClassOutlaysId)
 );

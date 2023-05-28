@@ -1,6 +1,6 @@
 CREATE TABLE ProgramProjects
 (
-	ProgramProjectId INTEGER NOT NULL UNIQUE CONSTRAINT PrimaryKeyProgramProjects PRIMARY KEY AUTOINCREMENT,
+	ProgramProjectId AUTOINCREMENT NOT NULL UNIQUE,
 	Code TEXT(80) NULL DEFAULT NS,
 	Name TEXT(80) NULL DEFAULT NS,
 	Title TEXT(80) NULL DEFAULT NS,
@@ -8,6 +8,8 @@ CREATE TABLE ProgramProjects
 	Narrative TEXT(80) NULL DEFAULT NS,
 	Definition TEXT(80) NULL DEFAULT NS,
 	ProgramAreaCode TEXT(80) NULL DEFAULT NS,
-	ProgramAreaName TEXT(80) NULL DEFAULT NS
+	ProgramAreaName TEXT(80) NULL DEFAULT NS,
+    CONSTRAINT ProgramProjectsPrimaryKey 
+        PRIMARY KEY(ProgramProjectId) 
 );
 

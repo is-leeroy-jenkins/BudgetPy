@@ -33,5 +33,6 @@ CREATE TABLE SpendingRates
 	Line TEXT(80) NULL DEFAULT NS,
 	Agency TEXT(80) NULL DEFAULT NS,
 	AgencyAccount TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY(SpendingRatesId)
+	CONSTRAINT SpendingRatesPrimaryKey
+        PRIMARY KEY(SpendingRatesId)
 );

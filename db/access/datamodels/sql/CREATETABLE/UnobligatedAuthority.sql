@@ -16,5 +16,6 @@ CREATE TABLE UnobligatedAuthority
     PriorYearAmount DOUBLE NULL DEFAULT 0.0,
     CurrentYearAmount DOUBLE NULL DEFAULT 0.0,
     BudgetYearAmount DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(UnobligatedAuthorityId)
+    CONSTRAINT UnobligatedAuthorityPrimaryKey
+        PRIMARY KEY(UnobligatedAuthorityId)
 );

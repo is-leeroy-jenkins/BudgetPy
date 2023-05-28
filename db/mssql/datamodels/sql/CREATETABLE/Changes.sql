@@ -1,12 +1,11 @@
-CREATE TABLE [dbo].[Changes]
+CREATE TABLE Changes 
 (
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[TableName] [nvarchar](255) NULL,
-	[FieldName] [nvarchar](255) NULL,
-	[Action] [nvarchar](255) NULL,
-	[OldValue] [nvarchar](255) NULL,
-	[NewValue] [nvarchar](255) NULL,
-	[TimeStamp] [datetime] NULL,
-	[Message] [nvarchar](255) NULL
+	ChangesId	INT NOT NULL IDENTITY(1,1),
+	TableName	NVARCHAR(80) NULL,
+	FieldName	NVARCHAR(80) NULL,
+	Action	NVARCHAR(80) NULL,
+	OldValue	NVARCHAR(80) NULL,
+	NewValue	NVARCHAR(80) NULL,
+	TimeStamp	datetime NULL,
+	Message	NVARCHAR(80) NULL
 );
-

@@ -9,7 +9,7 @@ CREATE TABLE CarryoverOutlays
     CarryoverOutlays DOUBLE NULL DEFAULT 0.0,
     Delta DOUBLE NULL DEFAULT 0.0,
     AvailableBalance DOUBLE NULL DEFAULT 0.0,
-    ULO DOUBLE NULL DEFAULT 0.0,
+    UnliquidatedObligations DOUBLE NULL DEFAULT 0.0,
     CurrentYearAdjustment DOUBLE NULL DEFAULT 0.0,
     BudgetYearAdjustment DOUBLE NULL DEFAULT 0.0,
     CurrentYear DOUBLE NULL DEFAULT 0.0,

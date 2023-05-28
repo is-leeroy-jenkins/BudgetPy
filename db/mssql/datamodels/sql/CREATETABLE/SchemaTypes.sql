@@ -1,0 +1,6 @@
+CREATE TABLE SchemaTypes 
+(
+	SchemaTypesId	INT NOT NULL IDENTITY(1,1),
+	TypeName	NVARCHAR(80) NULL,
+	Database	NVARCHAR(80) NULL
+);

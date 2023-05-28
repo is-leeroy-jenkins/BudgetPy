@@ -1,0 +1,7 @@
+CREATE TABLE CompassErrors2 
+(
+	CompassErrorsId	INT NOT NULL IDENTITY(1,1),
+	Code	NVARCHAR(80) NULL,
+	Message	NVARCHAR(80) NULL,
+	Severity	NVARCHAR(80) NULL
+);

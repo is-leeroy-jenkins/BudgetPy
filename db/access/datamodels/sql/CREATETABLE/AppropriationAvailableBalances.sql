@@ -7,10 +7,10 @@ CREATE TABLE AppropriationAvailableBalances
 	AppropriationFundName TEXT(80) NULL DEFAULT NS,
 	TreasurySymbol TEXT(80) NULL DEFAULT NS,
 	OmbAccountCode TEXT(80) NULL DEFAULT NS,
-	Availability TEXT(80) NULL DEFAULT NS,DECIMAL
+	Availability TEXT(80) NULL DEFAULT NS,
 	TotalAuthority  NULL,
-	TotalUsed DECIMAL NULL DEFAULT 0.0,
-	Available DECIMAL NULL DEFAULT 0.0
+	TotalUsed DOUBLE NULL DEFAULT 0.0,
+	Available DOUBLE NULL DEFAULT 0.0,
 	CONSTRAINT AppropriationAvailableBalancesPrimaryKey 
 		PRIMARY KEY(AppropriationAvailableBalancesId)
 );

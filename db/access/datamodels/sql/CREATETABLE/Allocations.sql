@@ -12,7 +12,7 @@ CREATE TABLE Allocations
     AccountCode TEXT(80) NULL DEFAULT NS,
     BocCode TEXT(80) NULL DEFAULT NS,
     RcCode TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
     RpioName TEXT(80) NULL DEFAULT NS,
     FundName TEXT(80) NULL DEFAULT NS,
     AhName TEXT(80) NULL DEFAULT NS,
@@ -25,6 +25,10 @@ CREATE TABLE Allocations
     ProgramProjectName TEXT(80) NULL DEFAULT NS,
     ProgramAreaCode TEXT(80) NULL DEFAULT NS,
     ProgramAreaName TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName TEXT(255) NULL DEFAULT NS,
+	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName TEXT(255) NULL DEFAULT NS,
     CONSTRAINT AllocationsPrimaryKey 
       PRIMARY KEY(AllocationsId),
     CONSTRAINT StatusOfFundsForeignKey 

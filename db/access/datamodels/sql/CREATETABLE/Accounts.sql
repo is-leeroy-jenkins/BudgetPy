@@ -12,5 +12,6 @@ CREATE TABLE Accounts
  ActivityCode TEXT(80) NULL DEFAULT NS,
  ActivityName TEXT(80) NULL DEFAULT NS,
  AgencyActivity TEXT(80) NULL DEFAULT NS,
- PRIMARY KEY(AccountsId)
+ CONSTRAINT AccountsPrimaryKey 
+    PRIMARY KEY(AccountsId)
 );

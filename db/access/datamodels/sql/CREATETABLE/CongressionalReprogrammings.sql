@@ -20,7 +20,7 @@ CREATE TABLE CongressionalReprogrammings
     BocName TEXT(80) NULL DEFAULT NS,
     FromTo TEXT(80) NULL DEFAULT NS,
     ActivityCode TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
     Description TEXT(MAX) NULL DEFAULT NS,
     ExtendedDescription TEXT(MAX) NULL DEFAULT NS,
     Cycle TEXT(80) NULL DEFAULT NS,

@@ -1,0 +1,25 @@
+CREATE TABLE CompassLevels 
+(
+	CompassLevelsId INT NOT NULL IDENTITY(1,1),
+	BFY	NVARCHAR(80) NULL,
+	EFY	NVARCHAR(80) NULL,
+	FundCode	NVARCHAR(80) NULL,
+	FundName	NVARCHAR(80) NULL,
+	TreasurySymbol	NVARCHAR(80) NULL,
+	BudgetLevel	NVARCHAR(80) NULL,
+	RpioCode	NVARCHAR(80) NULL,
+	RpioName	NVARCHAR(80) NULL,
+	AccountCode	NVARCHAR(80) NULL,
+	ProgramProjectName	NVARCHAR(80) NULL,
+	ProgramAreaCode	NVARCHAR(80) NULL,
+	ProgramAreaName	NVARCHAR(80) NULL,
+	Authority	FLOAT NULL,
+	CarryoverIn	FLOAT NULL,
+	CarryoverOut	FLOAT NULL,
+	Recoveries	FLOAT NULL,
+	Reimbursements	FLOAT NULL,
+	TreasuryAccountCode	NVARCHAR(80) NULL,
+	TreasuryAccountName NVARCHAR(MAX) NULL,
+	BudgetAccountCode	NVARCHAR(80) NULL,
+	BudgetAccountName NVARCHAR(MAX) NULL
+);
