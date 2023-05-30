@@ -252,7 +252,7 @@ class SqlFile( ):
             self.__command = value
 
     @property
-    def filepath( self ):
+    def path( self ):
         '''Method returning a string representing
          the absolute_path path to the SQL file used to execute the
          command 'self.__cmdtype' against the table_name given by the
@@ -281,7 +281,7 @@ class SqlFile( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlFile'
-            exc.method = 'filepath( self )'
+            exc.method = 'path( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -323,7 +323,7 @@ class SqlFile( ):
         a string representing the text used the sql query'''
         try:
             source = self.__source.name
-            paths = self.filepath
+            paths = self.path
             folder = self.directory
             sql = ''
             for name in os.listdir( folder ):
@@ -616,7 +616,7 @@ class DbConfig( ):
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
-            exc.method = 'filepath( self )'
+            exc.method = 'path( self )'
             error = ErrorDialog( exc )
             error.show( )
 
