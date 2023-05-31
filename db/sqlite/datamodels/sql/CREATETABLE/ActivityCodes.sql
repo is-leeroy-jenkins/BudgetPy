@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS ActivityCodes 
 (
 	ActivityCodesId INTEGER,
-	Code	TEXT(80),
-	Name	TEXT(80),
-	Title	TEXT(80),
+	Code	TEXT(80) NULL DEFAULT NS,
+	Name	TEXT(80) NULL DEFAULT NS,
+	Title	TEXT(80) NULL DEFAULT NS,
 	PRIMARY KEY(ActivityCodesId AUTOINCREMENT)
 );

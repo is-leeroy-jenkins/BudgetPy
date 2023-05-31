@@ -1,6 +1,6 @@
 CREATE TABLE FullTimeEquivalents 
 (
-	FullTimeEquivalentsId INT NOT NULL IDENTITY(1,1),
+	FullTimeEquivalentsId	INT NOT NULL IDENTITY(1,1),
     OperatingPlansId INT NOT NULL,
 	BFY	NVARCHAR(80) NULL,
 	EFY	NVARCHAR(80) NULL,

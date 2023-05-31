@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS AllowanceHolders 
 (
 	AllowanceHoldersId	INTEGER NOT NULL UNIQUE,
-	Code	TEXT(255) NOT NULL,
-	Name	TEXT(255),
+	Code	TEXT(80) NOT NULL,
+	Name	TEXT(80) NULL DEFAULT NS,
 	CONSTRAINT PrimaryKeyAllowanceHolders PRIMARY KEY(AllowanceHoldersId AUTOINCREMENT)
 );

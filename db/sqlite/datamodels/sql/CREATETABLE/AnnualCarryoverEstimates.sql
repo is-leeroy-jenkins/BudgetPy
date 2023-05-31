@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS AnnualCarryoverEstimates
     ProgramAreaName TEXT(80) NULL DEFAULT NS,
     BocCode TEXT(80) NULL DEFAULT NS,
     BocName TEXT(80) NULL DEFAULT NS,
-    AvailableBalance DECIMAL NULL DEFAULT 0.0,
-    OpenCommitments DECIMAL NULL DEFAULT 0.0,
-    UnobligatedAuthority DECIMAL NULL DEFAULT 0.0,
+    AvailableBalance DOUBLE NULL DEFAULT 0.0,
+    OpenCommitments DOUBLE NULL DEFAULT 0.0,
+    UnobligatedAuthority DOUBLE NULL DEFAULT 0.0,
     PRIMARY KEY(AnnualCarryoverEstimatesId AUTOINCREMENT)
 );

@@ -30,5 +30,9 @@ CREATE TABLE Actuals
 	GoalCode	NVARCHAR(80) NULL,
 	GoalName	NVARCHAR(80) NULL,
 	ObjectiveCode	NVARCHAR(80) NULL,
-	ObjectiveName	NVARCHAR(80) NULL
+	ObjectiveName	NVARCHAR(80) NULL,
+	TreasuryAccountCode	NVARCHAR(80) NULL,
+	TreasuryAccountName NVARCHAR(MAX) NULL,
+	BudgetAccountCode	NVARCHAR(80) NULL,
+	BudgetAccountName NVARCHAR(MAX) NULL
 );

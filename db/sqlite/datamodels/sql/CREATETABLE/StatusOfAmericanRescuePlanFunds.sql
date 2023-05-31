@@ -38,5 +38,5 @@ CREATE TABLE StatusOfAmericanRescuePlanFunds
 	TreasuryAccountName	TEXT(80) NULL DEFAULT NS,
 	BudgetAccountCode	TEXT(80) NULL DEFAULT NS,
 	BudgetAccountName	TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY(AmericanRescuePlanId AUTOINCREMENT)
+	PRIMARY KEY(StatusOfAmericanRescuePlanFundsId AUTOINCREMENT)
 );

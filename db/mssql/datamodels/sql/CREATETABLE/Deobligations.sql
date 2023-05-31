@@ -2,12 +2,14 @@ CREATE TABLE Deobligations
 (
 	DeobligationsId	INT NOT NULL IDENTITY(1,1),
 	BFY	NVARCHAR(80) NULL,
+    EFY NVARCHAR(80) NULL,
+	FundCode	NVARCHAR(80) NULL,
+	FundName	NVARCHAR(80) NULL,
+    TreasuryAccountCode NVARCHAR(80) NULL,
 	RpioCode	NVARCHAR(80) NULL,
 	RpioName	NVARCHAR(80) NULL,
 	AhCode	NVARCHAR(80) NULL,
 	AhName	NVARCHAR(80) NULL,
-	FundCode	NVARCHAR(80) NULL,
-	FundName	NVARCHAR(80) NULL,
 	AccountCode	NVARCHAR(80) NULL,
 	NpmCode	NVARCHAR(80) NULL,
 	NpmName	NVARCHAR(80) NULL,
@@ -20,6 +22,9 @@ CREATE TABLE Deobligations
 	DocumentNumber	NVARCHAR(80) NULL,
 	FocCode	NVARCHAR(80) NULL,
 	FocName	NVARCHAR(80) NULL,
-	ProcessedDate	NVARCHAR(80) NULL,
-	Amount	FLOAT NULL
+	ProcessedDate	DATETIME NULL,
+	Amount	FLOAT NULL,
+	TreasuryAccountName NVARCHAR(MAX) NULL,
+	BudgetAccountCode	NVARCHAR(80) NULL,
+	BudgetAccountName NVARCHAR(MAX) NULL
 );

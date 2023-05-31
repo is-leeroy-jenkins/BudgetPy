@@ -1,17 +1,17 @@
-CREATE TABLE IF NOT EXISTS 'CarryoverRequests' 
+CREATE TABLE IF NOT EXISTS CarryoverRequests 
 (
-	'CarryoverReissuanceRequestsId'	INTEGER NOT NULL UNIQUE,
-	'ControlTeamAnalyst'	TEXT,
-	'RpioCode'	TEXT,
-	'DocumentTitle'	TEXT,
-	'Amount'	TEXT,
-	'FundCode'	TEXT,
-	'Status'	TEXT,
-	'OriginalRequestDate'	TEXT,
-	'LastActivityDate'	TEXT,
-	'BFS'	TEXT,
-	'Comments'	TEXT,
-	'RequestDocument'	TEXT,
-	'Duration'	TEXT,
-	PRIMARY KEY('CarryoverReissuanceRequestsId' AUTOINCREMENT)
+	CarryoverReissuanceRequestsId	INTEGER NOT NULL UNIQUE,
+	ControlTeamAnalyst	TEXT(80) NULL DEFAULT NS,
+	RpioCode	TEXT(80) NULL DEFAULT NS,
+	DocumentTitle	TEXT(80) NULL DEFAULT NS,
+	Amount	TEXT(80) NULL DEFAULT NS,
+	FundCode	TEXT(80) NULL DEFAULT NS,
+	Status	TEXT(80) NULL DEFAULT NS,
+	OriginalRequestDate	TEXT(80) NULL DEFAULT NS,
+	LastActivityDate	TEXT(80) NULL DEFAULT NS,
+	BFS	TEXT(80) NULL DEFAULT NS,
+	Comments	TEXT(80) NULL DEFAULT NS,
+	RequestDocument	TEXT(80) NULL DEFAULT NS,
+	Duration	TEXT(80) NULL DEFAULT NS,
+	PRIMARY KEY(CarryoverReissuanceRequestsId AUTOINCREMENT)
 );

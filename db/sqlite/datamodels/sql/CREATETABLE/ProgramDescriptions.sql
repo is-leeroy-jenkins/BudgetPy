@@ -1,13 +1,13 @@
 CREATE TABLE ProgramDescriptions 
 (
 	ProgramDescriptionsId	INTEGER NOT NULL UNIQUE,
-	Code	TEXT(255) NOT NULL,
-	Name	TEXT(255),
-	Title	TEXT(255),
-	Laws	TEXT(255),
-	Narrative	TEXT(255),
-	Definition	TEXT(255),
-	ProgramAreaCode	TEXT(255),
-	ProgramAreaName	TEXT(255),
+	Code	TEXT(80) NOT NULL,
+	Name	TEXT(80) NULL DEFAULT NS,
+	Title	TEXT(80) NULL DEFAULT NS,
+	Laws	TEXT(80) NULL DEFAULT NS,
+	Narrative	TEXT(80) NULL DEFAULT NS,
+	Definition	TEXT(80) NULL DEFAULT NS,
+	ProgramAreaCode	TEXT(80) NULL DEFAULT NS,
+	ProgramAreaName	TEXT(80) NULL DEFAULT NS,
 	CONSTRAINT PrimaryKeyProgramDescriptions PRIMARY KEY(ProgramDescriptionsId AUTOINCREMENT)
 );
