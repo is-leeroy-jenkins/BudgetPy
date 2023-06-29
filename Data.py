@@ -1153,7 +1153,7 @@ class Query( ):
 
     @values.setter
     def values( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__values = value
 
     @property
@@ -1270,7 +1270,7 @@ class SQLiteData( Query ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__data = value
 
     @property
@@ -1480,7 +1480,7 @@ class SqlData( Query ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__data = value
 
     @property
@@ -1617,7 +1617,7 @@ class DataBuilder( ):
     @values.setter
     def values( self, value ):
         '''Sets tuple of value values'''
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__values = value
 
     @property
@@ -1879,7 +1879,7 @@ class DataRow( ):
 
     @items.setter
     def items( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__items = value
 
     @property
@@ -1954,7 +1954,7 @@ class DataTable( ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__rows = value
 
     @property
