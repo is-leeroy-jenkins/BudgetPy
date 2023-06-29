@@ -1698,47 +1698,47 @@ class DataColumn( ):
 
     @property
     def id( self ):
-        if isinstance( self.__id, int ):
+        if self.__id > -1:
             return self.__id
 
     @id.setter
     def id( self, value ):
-        if isinstance( value, int ):
+        if value > -1:
             self.__id = value
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ):
+        if self.__name != None:
             return self.__name
 
     @name.setter
     def name( self, value ):
-        if isinstance( value, str ):
+        if value is not None:
             self.__name = value
 
     @property
     def value( self ):
-        if isinstance( self.__value, object ):
+        if self.__type is not None:
             return self.__value
 
     @value.setter
     def value( self, value ):
-        if isinstance( value, object ):
+        if value is not None:
             self.__value = value
 
     @property
     def type( self ):
-        if isinstance( self.__type, object ):
+        if self.__type is not None:
             return self.__type
 
     @type.setter
     def type( self, value ):
-        if isinstance( value, object ):
+        if value is not None:
             self.__type = value
 
     @property
     def ordinal( self ):
-        if isinstance( self.__id, int ):
+        if self.__value > -1:
             return self.__id
 
     @ordinal.setter
@@ -1849,7 +1849,7 @@ class DataRow( ):
 
     @id.setter
     def id( self, value ):
-        if isinstance( value, int ):
+        if value is not None:
             self.__index = value
 
     @property
