@@ -23,7 +23,7 @@ class Pascal( ):
 
     @input.setter
     def input( self, value ):
-        if value != '':
+        if value is not None:
             self.__input = value
 
     @property
@@ -141,7 +141,7 @@ class SqlPath( ):
     @sqlite_driver.setter
     def sqlite_driver( self, value ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if value != '':
+        if value is not None:
             self.__sqlitedriver = value
 
     @property
@@ -153,7 +153,7 @@ class SqlPath( ):
     @sqlite_data.setter
     def sqlite_data( self, value ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if value != '':
+        if value is not None:
             self.__sqlitedata = value
 
     @property
@@ -165,7 +165,7 @@ class SqlPath( ):
     @access_driver.setter
     def access_driver( self, value ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if value != '':
+        if value is not None:
             self.__accessdriver = value
 
     @property
@@ -177,7 +177,7 @@ class SqlPath( ):
     @access_data.setter
     def access_data( self, value ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if value != '':
+        if value is not None:
             self.__accessdata = value
 
     @property
@@ -189,7 +189,7 @@ class SqlPath( ):
     @sql_driver.setter
     def sql_driver( self, value ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if value != '':
+        if value is not None:
             self.__sqldriver = value
 
     @property
@@ -201,7 +201,7 @@ class SqlPath( ):
     @sql_data.setter
     def sql_data( self, value ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if value != '':
+        if value is not None:
             self.__sqldata = value
 
     def __init__( self ):
@@ -434,7 +434,7 @@ class DbConfig( ):
 
     @table_name.setter
     def table_name( self, value ):
-        if value != '':
+        if value is not None:
             self.__table = value
 
     def __init__( self, source, provider = Provider.SQLite ):
@@ -653,7 +653,7 @@ class Connection( DbConfig ):
 
     @driver.setter
     def driver( self, value ):
-        if value != '':
+        if value is not None:
             self.__driver = value
 
     @property
@@ -663,7 +663,7 @@ class Connection( DbConfig ):
 
     @path.setter
     def path( self, value ):
-        if value != '':
+        if value is not None:
             self.__path = value
 
     @property
@@ -674,7 +674,7 @@ class Connection( DbConfig ):
 
     @connection_string.setter
     def connection_string( self, value ):
-        if value != '':
+        if value is not None:
             self.__connectionstring = value
 
     def __init__( self, source, provider = Provider.SQLite ):
@@ -719,7 +719,7 @@ class SqlConfig( ):
 
     @command.setter
     def command( self, value ):
-        if value != '':
+        if value is not None:
             self.__command = value
 
     @property
@@ -935,7 +935,7 @@ class SqlStatement( ):
 
     @table_name.setter
     def table_name( self, value ):
-        if value != '':
+        if value is not None:
             self.__table = value
 
     @property
@@ -965,7 +965,7 @@ class SqlStatement( ):
 
     @command_text.setter
     def command_text( self, value ):
-        if value != '':
+        if value is not None:
             self.__text = value
 
     @property
@@ -1133,7 +1133,7 @@ class Query( ):
 
     @table.setter
     def table( self, value ):
-        if value != '':
+        if value is not None:
             self.__table = value
 
     @property
@@ -1163,7 +1163,7 @@ class Query( ):
 
     @command_text.setter
     def command_text( self, value ):
-        if value != '':
+        if value is not None:
             self.__text = value
 
     @property
@@ -1389,7 +1389,7 @@ class AccessData( Query ):
 
     @query.setter
     def query( self, value ):
-        if value != '':
+        if value is not None:
             self.__query = value
 
     def __init__( self, connection, sqlstatement ):
@@ -2050,7 +2050,7 @@ class BudgetData( ):
 
     @name.setter
     def name( self, value ):
-        if value != '':
+        if value is not None:
             self.__name = value
 
     @property
@@ -2060,7 +2060,7 @@ class BudgetData( ):
 
     @path.setter
     def path( self, value ):
-        if value != '':
+        if value is not None:
             self.__path = value
 
     @property
