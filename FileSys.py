@@ -326,7 +326,7 @@ class File( Path ):
     @property
     def name( self ):
         '''Get the title property'''
-        if not self.__name == '':
+        if self.__name is not None:
             return self.__name
 
     @name.setter
@@ -337,22 +337,22 @@ class File( Path ):
 
     @property
     def path( self ):
-        if isinstance( self.__buffer, str ) and self.__buffer != '':
+        if self.__buffer is not None:
             return self.__buffer
 
     @path.setter
     def path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__buffer = value
 
     @property
     def absolute_path( self ):
-        if isinstance( self.__absolute, str ) and self.__absolute != '':
+        if self.__absolute is not None:
             return self.__absolute
 
     @absolute_path.setter
     def absolute_path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__absolute = value
 
     @property
