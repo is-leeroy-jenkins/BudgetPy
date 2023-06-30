@@ -357,12 +357,12 @@ class File( Path ):
 
     @property
     def size( self ):
-        if isinstance( self.__size, int ):
+        if self.__size is not None:
             return self.__size
 
     @size.setter
     def size( self, value ):
-        if isinstance( value, int ):
+        if value is not None:
             self.__size = value
 
     @property
@@ -373,7 +373,7 @@ class File( Path ):
     @directory.setter
     def directory( self, value ):
         if os.path.isdir( value ):
-            self.__directory = str( os.path.dirname( value ) )
+            self.__directory = os.path.dirname( value )
 
     @property
     def extension( self ):
