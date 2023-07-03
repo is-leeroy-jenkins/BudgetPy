@@ -22,7 +22,7 @@ import enum
 import sys
 from sys import exc_info
 
-# Path( file_path )
+# Path( path )
 class Path( ):
     ''' Path( file_name ) initializes the
     Path class providing selected_path information of get_subfolders
@@ -305,7 +305,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-# File( file_path )
+# File( path )
 class File( Path ):
     '''File( selected_path ) initializes the
      File Class providing file information for
@@ -425,17 +425,17 @@ class File( Path ):
         if isinstance( value, float ):
             self.__created = value
 
-    def __init__( self, file_path = None ):
-        super( ).__init__( file_path )
-        self.__absolute = file_path if os.path.isabs( file_path ) else os.getcwd( ) + '\\' + file_path
+    def __init__( self, path = None ):
+        super( ).__init__( path )
+        self.__absolute = path if os.path.isabs( path ) else os.getcwd( ) + '\\' + path
         self.__buffer = super( ).buffer
-        self.__name = os.path.basename( file_path )
-        self.__size = os.path.getsize( file_path )
-        self.__directory = os.path.dirname( file_path )
-        self.__extension = list( os.path.splitext( file_path ) )[ 1 ]
-        self.__created = os.path.getctime( file_path )
-        self.__accessed = os.path.getatime( file_path )
-        self.__modified = os.path.getmtime( file_path )
+        self.__name = os.path.basename( path )
+        self.__size = os.path.getsize( path )
+        self.__directory = os.path.dirname( path )
+        self.__extension = list( os.path.splitext( path ) )[ 1 ]
+        self.__created = os.path.getctime( path )
+        self.__accessed = os.path.getatime( path )
+        self.__modified = os.path.getmtime( path )
         self.__drive = super( ).drive
 
     def __str__( self ):
@@ -635,7 +635,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-# Folder( dir_path )
+# Folder( path )
 class Folder( Path ):
     '''Folder( selected_path ) initializes the
      Folder Class providing file directory information'''
@@ -733,15 +733,15 @@ class Folder( Path ):
             os.chdir( value )
             self.__current = os.getcwd( );
 
-    def __init__( self, dir_path ):
-        super( ).__init__( dir_path )
+    def __init__( self, path ):
+        super( ).__init__( path )
         self.__buffer = super( ).buffer
         self.__current = os.getcwd( )
-        self.__path = dir_path
-        self.__name = os.path.basename( dir_path )
-        self.__parent = os.path.dirname( dir_path )
-        self.__absolutepath = self.__path if os.path.isabs( dir_path ) else None
-        self.__relativepath = self.__path if not os.path.isabs( dir_path ) \
+        self.__path = path
+        self.__name = os.path.basename( path )
+        self.__parent = os.path.dirname( path )
+        self.__absolutepath = self.__path if os.path.isabs( path ) else None
+        self.__relativepath = self.__path if not os.path.isabs( path ) \
             else f'{ os.getcwd( ) }\\{ self.__name }'
 
     def __str__( self ):
@@ -814,16 +814,16 @@ class Folder( Path ):
 
         return filenames
 
-    def rename( self, new_name ):
+    def rename( self, name ):
         '''renames current_directory file'''
         try:
-            if self.__name is not None and isinstance( new_name, str ):
-                return os.rename( self.__name, new_name )
+            if self.__name is not None and isinstance( name, str ):
+                return os.rename( self.__name, name )
         except Exception as e:
             exc = Error( e )
             exc.module = 'FileSys'
             exc.cause = 'Folder'
-            exc.method = 'rename( self, new_name )'
+            exc.method = 'rename( self, name )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -1132,7 +1132,7 @@ class Document( ):
         if self.__path is not None:
             return self.__path
 
-# Excel( full_path )
+# Excel( fullpath )
 class Excel( ):
     '''Excel( selected_path ) class provides
     the spreadsheet for Budget Py reports '''
@@ -1297,7 +1297,7 @@ class ExcelReport( ):
         self.__columns = cols if isinstance( cols, int ) and cols > -1 else None
         self.__dimensions = (self.__rows, self.__columns)
 
-# ZipFile( selected_path )
+# ZipFile( path )
 class ZipFile( ):
     __infile = None
     __name = None

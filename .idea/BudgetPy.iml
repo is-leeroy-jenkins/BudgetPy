@@ -61,9 +61,10 @@
       <sourceFolder url="file://$MODULE_DIR$/ipynb/notebooks" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/python.exe" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/env/Lib/site-packages/win32/lib" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <sourceFolder url="file://$MODULE_DIR$/spc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/venv" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (BudgetPy)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 ( BudgetPy )" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
