@@ -79,9 +79,9 @@ class BudgetUnit( DataUnit ):
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
-    @treasuryaccountcode.setter
+    @treasury_account_code.setter
     def treasury_account_code( self, value ):
-        if value is None:
+        if value is not None:
             self.__treasuryaccountcode = value
 
     @property
@@ -89,9 +89,9 @@ class BudgetUnit( DataUnit ):
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
-    @treasuryaccountname.setter
+    @treasury_account_name.setter
     def treasury_account_name( self, value ):
-        if value is None:
+        if value is not None:
             self.__treasuryaccountname = value
 
     @property
@@ -99,9 +99,9 @@ class BudgetUnit( DataUnit ):
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
-    @budgetaccountcode.setter
+    @budget_account_code.setter
     def budget_account_code( self, value ):
-        if value is None:
+        if value is not None:
             self.__budgetaccountcode = value
 
     @property
@@ -109,9 +109,9 @@ class BudgetUnit( DataUnit ):
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
-    @budgetaccountname.setter
+    @budget_account_name.setter
     def budget_account_name( self, value ):
-        if value is None:
+        if value is not None:
             self.__budgetaccountname = value
 
     def __init__( self, id, code, name, treas, omb ):
