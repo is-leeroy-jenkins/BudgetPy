@@ -34,8 +34,9 @@ class Unit( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-class Element( Unit ):
-    '''Element class represents fundamental program unit'''
+# DataUnit( id, code, name )
+class DataUnit( Unit ):
+    '''DataUnit class represents fundamental program unit'''
     __index = None
     __code = None
     __name = None
@@ -58,13 +59,65 @@ class Element( Unit ):
     def __init__( self, id, code, name ):
         super( ).__init__( id )
         self.__id = super( ).__id
-        self.__code = code if isinstance( code, str ) else None
-        self.__name = name if isinstance( name, str ) else None
-        self.__code = code if isinstance( code, str ) else None
+        self.__code = code if code is not None else None
+        self.__name = name if name is not None else None
 
     def __str__( self ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
+
+# BudgetUnit( id, code, name, treas, omb )
+class BudgetUnit( DataUnit ):
+    #base class for OMB reporting classes
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+
+    @property
+    def treasury_account_code( self ):
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasuryaccountcode.setter
+    def treasury_account_code( self, value ):
+        if value is None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ):
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasuryaccountname.setter
+    def treasury_account_name( self, value ):
+        if value is None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ):
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budgetaccountcode.setter
+    def budget_account_code( self, value ):
+        if value is None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ):
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budgetaccountname.setter
+    def budget_account_name( self, value ):
+        if value is None:
+            self.__budgetaccountname = value
+
+    def __init__( self, id, code, name, treas, omb ):
+        super( ).__init__( id, code, name )
+        self.__treasuryaccountcode = treas if treas is not None else None
+        self.__budgetaccountcode = omb if omb is not None else None
 
 # Account( treas, provider = Provider.SQLite )
 class Account( ):

@@ -1334,7 +1334,7 @@ class Query( ):
 # SQLiteData( connection, sqlstatement )
 class SQLiteData( Query ):
     '''SQLiteData( value, sqlcfg ) represents
-     the budget execution values classes'''
+     the omb execution values classes'''
     __driver = None
     __dsn = None
     __query = None
@@ -1433,7 +1433,7 @@ class SQLiteData( Query ):
 # AccessData( connection, sqlstatement )
 class AccessData( Query ):
     '''AccessData( value, sqlcfg ) class
-      represents the budget execution
+      represents the omb execution
       values model classes in the MS ACCDB database'''
     __query = None
     __driver = None
