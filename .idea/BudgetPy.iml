@@ -78,6 +78,9 @@
     <option name="myDocStringFormat" value="Epytext" />
     <option name="renderExternalDocumentation" value="true" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="986bc810-5b52-4315-88db-eefacd3f1af8" />
+  </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="py.test" />
   </component>

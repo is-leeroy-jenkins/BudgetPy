@@ -139,7 +139,7 @@ class Account( ):
 
     @property
     def id( self ):
-        if isinstance( self.__accountsid, int ):
+        if self.__accountsid is not None:
             return self.__accountsid
 
     @id.setter
@@ -159,7 +159,7 @@ class Account( ):
 
     @property
     def name( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @name.setter
@@ -169,7 +169,7 @@ class Account( ):
 
     @property
     def goal_code( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
@@ -4649,32 +4649,32 @@ class BudgetFiscalYear( ):
 
     @start_date.setter
     def start_date( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__startdate = value
 
     @property
     def end_date( self ):
-        if isinstance( self.__enddate, datetime ):
+        if self.__enddate is not None:
             return self.__enddate
 
     @end_date.setter
     def end_date( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__enddate = value
 
     @property
     def expiration( self ):
-        if isinstance( self.__expiration, datetime):
+        if self.__expiration is not None:
             return self.__expiration
 
     @expiration.setter
     def expiration( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__expiration = value
 
     @property
     def weekends( self ):
-        if isinstance( self.__weekends, int ):
+        if self.__weekends is not None:
             return self.__weekends
 
     @weekends.setter
@@ -4684,7 +4684,7 @@ class BudgetFiscalYear( ):
 
     @property
     def workdays( self ):
-        if isinstance( self.__workdays, float ):
+        if self.__workdays is not None:
             return self.__workdays
 
     @workdays.setter
@@ -4694,27 +4694,27 @@ class BudgetFiscalYear( ):
 
     @property
     def today( self ):
-        if isinstance( self.__today, date ):
+        if self.__today is not None:
             return self.__today
 
     @today.setter
     def today( self, value ):
-        if isinstance( value, date ):
+        if value is not None:
             self.__today = value
 
     @property
     def date( self ):
-        if isinstance( self.__date, date ):
+        if self.__date is not None:
             return self.__date
 
     @date.setter
     def date( self, value ):
-        if isinstance( value, date ):
+        if value is not None:
             self.__date = value
 
     @property
     def current_day( self ):
-        if isinstance( self.__currentday, int ):
+        if self.__currentday is not None:
             return self.__currentday
 
     @current_day.setter
