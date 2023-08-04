@@ -179,7 +179,7 @@ class Account( ):
 
     @property
     def objective_code( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
@@ -189,7 +189,7 @@ class Account( ):
 
     @property
     def npm_code( self ):
-        if isinstance( self.__npmcode, str) and self.__npmcode != '':
+        if  self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
@@ -199,7 +199,7 @@ class Account( ):
 
     @property
     def program_project_code( self ):
-        if isinstance( self.__programprojectcode , str ):
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
@@ -209,7 +209,7 @@ class Account( ):
 
     @property
     def program_project_name( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_name.setter
@@ -224,7 +224,7 @@ class Account( ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__data = value
 
     @property
@@ -378,7 +378,7 @@ class ActivityCode( ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__data = value
 
     @property
@@ -411,7 +411,7 @@ class ActivityCode( ):
                            'Title' ]
 
     def __str__( self ):
-        if isinstance( self.__code, str ) and self.__code != '':
+        if self.__code is not None:
             return self.__code
 
     def get_data( self ) -> list[ tuple ]:
@@ -514,7 +514,7 @@ class AllowanceHolder( ):
 
     @table.setter
     def table( self, frame ):
-        if isinstance( frame, DataFrame ):
+        if frame is not None:
             self.__frame = frame
 
     @property
@@ -607,7 +607,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 
     @property
     def id( self ):
-        if isinstance( self.__arpcarryoverestimatesid, int ):
+        if self.__arpcarryoverestimatesid is not None:
             return self.__arpcarryoverestimatesid
 
     @id.setter
@@ -687,7 +687,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 
     @property
     def available( self ):
-        if isinstance( self.__availablebalance, float ):
+        if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available.setter
@@ -697,7 +697,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 
     @property
     def open_commitments( self ):
-        if isinstance( self.__opencommitments, float ):
+        if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
@@ -717,8 +717,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 
     @property
     def treasury_account_code( self ):
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -728,8 +727,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 
     @property
     def treasury_account_name( self ):
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
@@ -764,7 +762,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__data = value
 
     @property
@@ -886,7 +884,7 @@ class AnnualCarryoverEstimate( ):
 
     @property
     def id( self ):
-        if isinstance( self.__annualcarryoverestimatesid, int ):
+        if self.__annualcarryoverestimatesid is not None:
             return self.__annualcarryoverestimatesid
 
     @id.setter
@@ -966,7 +964,7 @@ class AnnualCarryoverEstimate( ):
 
     @property
     def available( self ):
-        if isinstance( self.__availablebalance, float ):
+        if self.__available is not None:
             return self.__availablebalance
 
     @available.setter
@@ -976,7 +974,7 @@ class AnnualCarryoverEstimate( ):
 
     @property
     def open_commitments( self ):
-        if isinstance( self.__opencommitments, float ):
+        if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
@@ -996,8 +994,7 @@ class AnnualCarryoverEstimate( ):
 
     @property
     def treasury_account_code( self ):
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -1007,8 +1004,7 @@ class AnnualCarryoverEstimate( ):
 
     @property
     def treasury_account_name( self ):
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
@@ -1094,7 +1090,7 @@ class AnnualCarryoverEstimate( ):
                            'UnobligatedAuthority' ]
 
     def __str__( self ):
-        if isinstance( self.__unobligatedauthority, float ):
+        if self.__unobligatedauthrity is not None:
             return str( self.__unobligatedauthority )
 
     def get_data( self  ):
