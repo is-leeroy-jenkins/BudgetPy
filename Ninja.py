@@ -4258,22 +4258,22 @@ class BudgetControl( ):
             self.__trackingagreementlowerlevels = value
 
     @property
-    def budget_estimated_lower_levels( self ):
+    def budget_estimated_lowerlevels( self ):
         if self.__budgetedestimatedlowerlevels is not None:
             return self.__budgetedestimatedlowerlevels
 
-    @budget_estimated_lower_levels.setter
-    def budget_estimated_lower_levels( self, value ):
+    @budget_estimated_lowerlevels.setter
+    def budget_estimated_lowerlevels( self, value ):
         if value is not None:
             self.__budgetestimatedlowerlevels = value
 
     @property
-    def recovery_next_level( self ):
+    def recovery_nextlevel( self ):
         if self.__recoverynextlevel is not None:
             return self.__recoverynextlevel
 
-    @recovery_next_level.setter
-    def recovery_next_level( self, value ):
+    @recovery_nextlevel.setter
+    def recovery_nextlevel( self, value ):
         if value is not None:
             self.__recoverynextlevel = value
 
@@ -4308,22 +4308,22 @@ class BudgetControl( ):
             self.__profitlossbudgetingoption = value
 
     @property
-    def recoveries_carryin_lower_level_control( self ):
+    def recoveries_carryin_lowerlevel_control( self ):
         if self.__recoveriescarryinlowerelevelcontrol is not None:
             return self.__recoveriescarryinlowerelevelcontrol
 
-    @recoveries_carryin_lower_level_control.setter
-    def recoveries_carryin_lower_level_control( self, value ):
+    @recoveries_carryin_lowerlevel_control.setter
+    def recoveries_carryin_lowerlevel_control( self, value ):
         if value is not None:
             self.__recoveriescarryinlowerelevelcontrol = value
 
     @property
-    def recoveries_carryin_lower_level( self ):
+    def recoveries_carryin_lowerlevel( self ):
         if self.__recoveriescarryinlowerlevel is not None:
             return self.__recoveriescarryinlowerlevel
 
-    @recoveries_carryin_lower_level.setter
-    def recoveries_carryin_lower_level( self, value ):
+    @recoveries_carryin_lowerlevel.setter
+    def recoveries_carryin_lowerlevel( self, value ):
         if value is not None:
             self.__recoveriescarryinlowerlevel = value
 
@@ -4428,12 +4428,12 @@ class BudgetControl( ):
             self.__reimbursementspendingcontrol = value
 
     @property
-    def reimbursable_agreement_spending_control( self ):
+    def reimbursableagreement_spending_control( self ):
         if self.__reimbursableagreementspendingcontrol is not None:
             return self.__reimbursableagreementspendingcontrol
 
-    @reimbursable_agreement_spending_control.setter
-    def reimbursable_agreement_spending_control( self, value ):
+    @reimbursableagreement_spending_control.setter
+    def reimbursableagreement_spending_control( self, value ):
         if value is not None:
             self.__reimbursableagreementspendingcontrol = value
 
@@ -4640,7 +4640,7 @@ class BudgetFiscalYear( ):
 
     @property
     def start_date( self ):
-        if isinstance( self.__startdate, datetime ):
+        if self.__startdate is not None:
             return self.__startdate
 
     @start_date.setter
@@ -4715,17 +4715,17 @@ class BudgetFiscalYear( ):
 
     @current_day.setter
     def current_day( self, value ):
-        if isinstance( value, int ) and (0 <= value <= 7):
+        if value is not None:
             self.__currentday = value
 
     @property
     def current_month( self ):
-        if isinstance( self.__currentmonth, int ):
+        if self.__currentmonth is not None:
             return self.__currentmonth
 
     @property
     def holidays( self ):
-        if isinstance( self.__holidays, list ):
+        if self.__holidays is not None:
             return self.__holidays
 
     @property
@@ -4735,7 +4735,7 @@ class BudgetFiscalYear( ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__data = value
 
     @property
