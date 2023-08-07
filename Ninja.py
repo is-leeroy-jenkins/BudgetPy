@@ -8360,17 +8360,17 @@ class DocumentControlNumber( ):
 
     @property
     def id( self ):
-        if isinstance( self.__documentcontrolnumbersid, int ):
+        if self.__documentcontrolnumbersid is not None:
             return self.__documentcontrolnumbersid
 
     @id.setter
     def id( self, value ):
-        if isinstance( value, int ) and value > -1:
+        if value is not None:
             self.__documentcontrolnumbersid = value
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -8380,7 +8380,7 @@ class DocumentControlNumber( ):
 
     @property
     def rpio_name( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
@@ -8390,7 +8390,7 @@ class DocumentControlNumber( ):
 
     @property
     def document_type( self ):
-        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
@@ -8399,18 +8399,18 @@ class DocumentControlNumber( ):
             self.__documenttype = value
 
     @property
-    def documentprefix( self ):
-        if isinstance( self.__documentprefix, str ) and self.__documentprefix != '':
+    def document_prefix( self ):
+        if self.__documentprefix is not None:
             return self.__documentprefix
 
-    @documentprefix.setter
-    def documentprefix( self, value ):
+    @document_prefix.setter
+    def document_prefix( self, value ):
         if value is not None:
             self.__documentprefix = value
 
     @property
     def document_number( self ):
-        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+        if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
@@ -8420,7 +8420,7 @@ class DocumentControlNumber( ):
 
     @property
     def document_control_number( self ):
-        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+        if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
