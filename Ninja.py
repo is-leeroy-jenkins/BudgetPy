@@ -5550,7 +5550,7 @@ class CongressionalControl( ):
 
     @property
     def fund_code( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
@@ -5560,7 +5560,7 @@ class CongressionalControl( ):
 
     @property
     def fund_name( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
@@ -5570,7 +5570,7 @@ class CongressionalControl( ):
 
     @property
     def program_project_code( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
@@ -5589,28 +5589,28 @@ class CongressionalControl( ):
             self.__programprojectname = value
 
     @property
-    def subprojectcode( self ):
-        if isinstance( self.__subprojectcode, str ) and self.__subprojectcode != '':
+    def sub_project_code( self ):
+        if self.__subprojectcode is not None:
             return self.__subprojectcode
 
-    @subprojectcode.setter
-    def subprojectcode( self, value ):
+    @sub_project_code.setter
+    def sub_project_code( self, value ):
         if value is not None:
             self.__subprojectcode = value
 
     @property
-    def subprojectname( self ):
-        if isinstance( self.__subprojectname, str ) and self.__subprojectname != '':
+    def sub_project_name( self ):
+        if self.__subprojectname is not None:
             return self.__subprojectname
 
-    @subprojectname.setter
-    def subprojectname( self, value ):
+    @sub_project_name.setter
+    def sub_project_name( self, value ):
         if value is not None:
             self.__subprojectname = value
 
     @property
     def program_area_code( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
@@ -5620,7 +5620,7 @@ class CongressionalControl( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -5629,43 +5629,43 @@ class CongressionalControl( ):
             self.__programareaname = value
 
     @property
-    def reprogrammingrestriction( self ):
-        if isinstance( self.__reprogrammingrestriction, bool ):
+    def reprogramming_restriction( self ):
+        if self.__reprogrammingrestriction is not None:
             return self.__reprogrammingrestriction
 
-    @reprogrammingrestriction.setter
-    def reprogrammingrestriction( self, value ):
-        if isinstance( value, bool ):
+    @reprogramming_restriction.setter
+    def reprogramming_restriction( self, value ):
+        if value is not None:
             self.__reprogrammingrestriction = value
 
     @property
-    def increaserestriction( self ):
-        if isinstance( self.__increaserestriction, bool ):
+    def increase_restriction( self ):
+        if self.__increaserestriction is not None:
             return self.__increaserestriction
 
-    @increaserestriction.setter
-    def increaserestriction( self, value ):
-        if isinstance( value, bool ):
+    @increase_restriction.setter
+    def increase_restriction( self, value ):
+        if value is not None:
             self.__increaserestriction = value
 
     @property
-    def decreaserestriction( self ):
-        if isinstance( self.__decreaserestriction, bool ):
+    def decrease_restriction( self ):
+        if self.__decreaserestriction is not None:
             return self.__decreaserestriction
 
-    @decreaserestriction.setter
-    def decreaserestriction( self, value ):
-        if isinstance( value, bool ):
+    @decrease_restriction.setter
+    def decrease_restriction( self, value ):
+        if value is not None:
             self.__decreaserestriction = value
 
     @property
-    def memorandumrequired( self ):
-        if isinstance( self.__memorandumrequired, bool ):
+    def memorandum_required( self ):
+        if self.__memorandumrequired is not None:
             return self.__memorandumrequired
 
-    @memorandumrequired.setter
-    def memorandumrequired( self, value ):
-        if isinstance( value, bool ):
+    @memorandum_required.setter
+    def memorandum_required( self, value ):
+        if value is not None:
             self.__memorandumrequired = value
 
     @property
@@ -5828,32 +5828,32 @@ class CompassLevel( ):
             self.__fundname = value
 
     @property
-    def appropriationcode( self ):
+    def appropriation_code( self ):
         if self.__appropriationcode is not None:
             return self.__appropriationcode
 
-    @appropriationcode.setter
-    def appropriationcode( self, value ):
+    @appropriation_code.setter
+    def appropriation_code( self, value ):
         if value is not None:
             self.__appropriationcode = value
 
     @property
-    def appropriationname( self ):
+    def appropriation_name( self ):
         if self.__appropriationname is not None:
             return self.__appropriationname
 
-    @appropriationname.setter
-    def appropriationname( self, value ):
+    @appropriation_name.setter
+    def appropriation_name( self, value ):
         if value is not None:
             self.__appropriationname = value
 
     @property
-    def subappropriationcode( self ):
+    def sub_appropriation_code( self ):
         if self.__subappropriationcode is not None:
             return self.__subappropriationcode
 
-    @subappropriationcode.setter
-    def subappropriationcode( self, value ):
+    @sub_appropriation_code.setter
+    def sub_appropriation_code( self, value ):
         if value is not None:
             self.__subappropriationcode = value
 
@@ -6534,7 +6534,7 @@ class CarryoverOutlay( ):
 
     @property
     def budget_year( self ):
-        if isinstance( self.__budgetyear, float ):
+        if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budget_year.setter
@@ -6544,7 +6544,7 @@ class CarryoverOutlay( ):
 
     @property
     def line_number( self ):
-        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+        if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
@@ -6554,7 +6554,7 @@ class CarryoverOutlay( ):
 
     @property
     def budget_account_code( self ):
-        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+        if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
@@ -6564,7 +6564,7 @@ class CarryoverOutlay( ):
 
     @property
     def budget_account_name( self ):
-        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+        if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
@@ -6574,7 +6574,7 @@ class CarryoverOutlay( ):
 
     @property
     def carryover( self ):
-        if isinstance( self.__carryover, float ):
+        if self.__carryover is not None:
             return self.__carryover
 
     @carryover.setter
@@ -6584,7 +6584,7 @@ class CarryoverOutlay( ):
 
     @property
     def carryover_outlays( self ):
-        if isinstance( self.__carryoveroutlays, float ):
+        if self.__carryoveroutlays is not None:
             return self.__carryoveroutlays
 
     @carryover_outlays.setter
@@ -6593,18 +6593,18 @@ class CarryoverOutlay( ):
             self.__carryoveroutlays = value
 
     @property
-    def ulo( self ):
-        if isinstance( self.__ulo, float ) and self.__ulo > 0:
+    def unliquidated_obligations( self ):
+        if self.__ulo is not None:
             return self.__ulo
 
-    @ulo.setter
-    def ulo( self, value ):
-        if isinstance( value, float ) and value > 0:
+    @unliquidated_obligations.setter
+    def unliquidated_obligations( self, value ):
+        if value is not None:
             self.__ulo = value
 
     @property
     def delta( self ):
-        if isinstance( self.__delta, float ) and self.__delta > 0:
+        if self.__delta is not None:
             return self.__delta
 
     @delta.setter
@@ -6614,17 +6614,17 @@ class CarryoverOutlay( ):
 
     @property
     def available_balance( self ):
-        if isinstance( self.__availablebalance, float ) and self.__availablebalance > 0:
+        if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available_balance.setter
     def available_balance( self, value ):
-        if isinstance( value, float ) and value > 0:
+        if value is not None:
             self.__availablebalance = value
 
     @property
     def current_year( self ):
-        if isinstance( self.__currentyear, float ):
+        if self.__currentyear is not None:
             return self.__currentyear
 
     @current_year.setter
@@ -6634,7 +6634,7 @@ class CarryoverOutlay( ):
 
     @property
     def current_year_adjustment( self ):
-        if isinstance( self.__currentyearadjustment, float ):
+        if self.__currentyearadjustment is not None:
             return self.__currentyearadjustment
 
     @current_year_adjustment.setter
@@ -6644,7 +6644,7 @@ class CarryoverOutlay( ):
 
     @property
     def budget_year( self ):
-        if isinstance( self.__budgetyear, float ):
+        if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budget_year.setter
@@ -6654,7 +6654,7 @@ class CarryoverOutlay( ):
 
     @property
     def budget_year_adjustment( self ):
-        if isinstance( self.__budgetyearadjustment, float ):
+        if self.__budgetyearadjustment is not None:
             return self.__budgetyearadjustment
 
     @budget_year_adjustment.setter
@@ -6664,7 +6664,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_1( self ):
-        if isinstance( self.__outyear1, float ):
+        if self.__outyear1 is not None:
             return self.__outyear1
 
     @out_year_1.setter
@@ -6674,7 +6674,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_2( self ):
-        if isinstance( self.__outyear2, float ):
+        if self.__outyear2 is not None:
             return self.__outyear2
 
     @out_year_2.setter
@@ -6684,7 +6684,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_3( self ):
-        if isinstance( self.__outyear3, float ):
+        if self.__outyear3 is not None:
             return self.__outyear3
 
     @out_year_3.setter
@@ -6694,7 +6694,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_4( self ):
-        if isinstance( self.__outyear4, float ):
+        if self.__outyear4 is not None:
             return self.__outyear4
 
     @out_year_4.setter
@@ -6704,7 +6704,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_5( self ):
-        if isinstance( self.__outyear5, float ):
+        if self.__outyear5 is not None:
             return self.__outyear5
 
     @out_year_5.setter
@@ -6714,7 +6714,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_6( self ):
-        if isinstance( self.__outyear6, float ):
+        if self.__outyear6 is not None:
             return self.__outyear6
 
     @out_year_6.setter
@@ -6724,7 +6724,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_7( self ):
-        if isinstance( self.__outyear7, float ):
+        if self.__outyear7 is not None:
             return self.__outyear7
 
     @out_year_7.setter
@@ -6734,7 +6734,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_8( self ):
-        if isinstance( self.__outyear8, float ):
+        if self.__outyear8 is not None:
             return self.__outyear8
 
     @out_year_8.setter
@@ -6744,7 +6744,7 @@ class CarryoverOutlay( ):
 
     @property
     def out_year_9( self ):
-        if isinstance( self.__outyear9, float ):
+        if self.__outyear9 is not None:
             return self.__outyear9
 
     @out_year_9.setter
