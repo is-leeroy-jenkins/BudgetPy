@@ -11644,7 +11644,7 @@ class InflationReductionActCarryoverEstimate( ):
 
     @property
     def id( self ):
-        if isinstance( self.__annualcarryoverestimatesid, int ):
+        if self.__annualcarryoverestimatesid is not None:
             return self.__annualcarryoverestimatesid
 
     @id.setter
@@ -11923,7 +11923,7 @@ class JobsActCarryoverEstimate( ):
 
     @property
     def id( self ):
-        if isinstance( self.__jobsactcarryoverestimatesid, int ):
+        if self.__jobsactcarryoverestimatesid is not None:
             return self.__jobsactcarryoverestimatesid
 
     @id.setter
@@ -12003,7 +12003,7 @@ class JobsActCarryoverEstimate( ):
 
     @property
     def available( self ):
-        if isinstance( self.__availablebalance, float ):
+        if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available.setter
@@ -12013,7 +12013,7 @@ class JobsActCarryoverEstimate( ):
 
     @property
     def open_commitments( self ):
-        if isinstance( self.__opencommitments, float ):
+        if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
@@ -12033,8 +12033,7 @@ class JobsActCarryoverEstimate( ):
 
     @property
     def treasury_account_code( self ):
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -12044,8 +12043,7 @@ class JobsActCarryoverEstimate( ):
 
     @property
     def treasury_account_name( self ):
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
