@@ -6869,7 +6869,7 @@ class CostArea( ):
 # CarryoverSurvey( bfy, efy, fund, provider = Provider.SQLite )
 class CarryoverSurvey( ):
     '''CarryoverSurvey( bfy ) initializes object
-    providing carryover survey data'''
+    providing carry_over survey data'''
     __source = None
     __provider = None
     __carryoversurveyid = None
@@ -9097,7 +9097,7 @@ class FinanceObjectClass( ):
             return self.__bocname
 
     @boc_name.setter
-    def bocname( self, name ):
+    def boc_name( self, name ):
         if  name is not None:
             self.__bocname = name
 
@@ -9259,12 +9259,12 @@ class Fund( ):
             self.__name = value
 
     @property
-    def shortname( self ):
+    def short_name( self ):
         if self.__shortname is not None:
             return self.__shortname
 
-    @shortname.setter
-    def shortname( self, value ):
+    @short_name.setter
+    def short_name( self, value ):
         if value is not None:
             self.__shortname = value
 
@@ -9309,162 +9309,162 @@ class Fund( ):
            self.__main = value
 
     @property
-    def multiyearindicator( self ):
+    def multiyear_indicator( self ):
         if self.__multiyearindicator is not None:
             return self.__multiyearindicator
 
-    @multiyearindicator.setter
-    def multiyearindicator( self, value ):
+    @multiyear_indicator.setter
+    def multiyear_indicator( self, value ):
         if value is not None:
             self.__multiyearindicator = value
 
     @property
-    def sublevel( self ):
+    def sub_level( self ):
         if self.__sublevelprefix is not None:
             return self.__sublevelprefix
 
-    @sublevel.setter
-    def sublevel( self, value ):
+    @sub_level.setter
+    def sub_level( self, value ):
         if value is not None:
             self.__sublevelprefix = value
 
     @property
-    def ata( self ):
+    def allocation_transfer_agency( self ):
         if self.__allocationtransferagency is not None:
             return self.__allocationtransferagency
 
-    @ata.setter
-    def ata( self, value ):
+    @allocation_transfer_agency.setter
+    def allocation_transfer_agency( self, value ):
         if value is not None:
             self.__allocationtransferagency = value
 
     @property
-    def aid( self ):
+    def agency_identifier( self ):
         if self.__agencyidentifier is not None:
             return self.__agencyidentifier
 
-    @aid.setter
-    def aid( self, value ):
+    @agency_identifier.setter
+    def agency_identifier( self, value ):
         if value is not None:
             self.__agencyidentifier = value
 
     @property
-    def fundcategory( self ):
+    def fund_category( self ):
         if self.__fundcategory is not None:
             return self.__fundcategory
 
-    @fundcategory.setter
-    def fundcategory( self, value ):
+    @fund_category.setter
+    def fund_category( self, value ):
         if value is not None:
             self.__fundcategory = value
 
     @property
-    def appropriationcode( self ):
+    def appropriation_code( self ):
         if self.__appropriationcode is not None:
             return self.__appropriationcode
 
-    @appropriationcode.setter
-    def appropriationcode( self, value ):
+    @appropriation_code.setter
+    def appropriation_code( self, value ):
         if value is not None:
             self.__appropriationcode = value
 
     @property
-    def appropriationname( self ):
+    def appropriation_name( self ):
         if self.__appropriationname is not None:
             return self.__appropriationname
 
-    @appropriationname.setter
-    def appropriationname( self, name ):
+    @appropriation_name.setter
+    def appropriation_name( self, name ):
         if  name is not None:
             self.__appropriationname = name
 
     @property
-    def fundgroup( self ):
+    def fund_group( self ):
         if self.__fundgroup is not None:
             return self.__fundgroup
 
-    @fundgroup.setter
-    def fundgroup( self, value ):
+    @fund_group.setter
+    def fund_group( self, value ):
         if value is not None:
             self.__fundgroup = value
 
     @property
-    def noyear( self ):
+    def no_year( self ):
         if self.__noyear is not None:
             return self.__noyear
 
-    @noyear.setter
-    def noyear( self, value ):
+    @no_year.setter
+    def no_year( self, value ):
         if value is not None:
             self.__noyear = value
 
     @property
-    def carryover( self ):
+    def carry_over( self ):
         if self.__carryover is not None:
             return self.__carryover
 
-    @carryover.setter
-    def carryover( self, value ):
+    @carry_over.setter
+    def carry_over( self, value ):
         if value is not None:
             self.__carryover = value
 
     @property
-    def cancelledyearspendingaccount( self ):
+    def cancelled_spending_account( self ):
         if self.__cancelledyearspendingaccount is not None:
             return self.__cancelledyearspendingaccount
 
-    @cancelledyearspendingaccount.setter
-    def cancelledyearspendingaccount( self, acct ):
+    @cancelled_spending_account.setter
+    def cancelled_spending_account( self, acct ):
         if  acct is not None:
             self.__cancelledyearspendingaccount = acct
 
     @property
-    def applyatalllevels( self ):
+    def apply_all_levels( self ):
         if  self.__applyatalllevels is not None:
             return self.__applyatalllevels
 
-    @applyatalllevels.setter
-    def applyatalllevels( self, value ):
+    @apply_all_levels.setter
+    def apply_all_levels( self, value ):
         if value is not None:
            self.__applyatalllevels = value
 
     @property
-    def batsfund( self ):
+    def bats_fund( self ):
         if self.__batsfund is not None:
             return self.__batsfund
 
-    @batsfund.setter
-    def batsfund( self, value ):
+    @bats_fund.setter
+    def bats_fund( self, value ):
         if value is not None:
             self.__batsfund = value
 
     @property
-    def batsenddate( self ):
+    def bats_end_date( self ):
         if self.__batsenddate is not None:
             return self.__batsenddate
 
-    @batsenddate.setter
-    def batsenddate( self, value ):
+    @bats_end_date.setter
+    def bats_end_date( self, value ):
         if isinstance( value, datetime ):
             self.__batsenddate = value
 
     @property
-    def batsoptionid( self ):
+    def bats_option_id( self ):
         if self.__batsoptionid is not None:
             return self.__batsoptionid
 
-    @batsoptionid.setter
-    def batsoptionid( self, value ):
+    @bats_option_id.setter
+    def bats_option_id( self, value ):
         if value is not None:
             self.__batsoptionid = value
 
     @property
-    def securityorg( self ):
+    def security_org( self ):
         if self.__securityorg is not None:
             return self.__securityorg
 
-    @securityorg.setter
-    def securityorg( self, value ):
+    @security_org.setter
+    def security_org( self, value ):
         if value is not None:
             self.__securityorg = value
 
@@ -9509,12 +9509,12 @@ class Fund( ):
             self.__budgetaccountname = value
 
     @property
-    def apportionmentaccountcode( self ):
+    def apportionment_account_code( self ):
         if self.__apportionmentaccountcode is not None:
             return self.__apportionmentaccountcode
 
-    @apportionmentaccountcode.setter
-    def apportionmentaccountcode( self, value ):
+    @apportionment_account_code.setter
+    def apportionment_account_code( self, value ):
         if value is not None:
             self.__apportionmentaccountcode = value
 
@@ -9774,8 +9774,8 @@ class FederalHoliday( ):
         self.__efy = efy
         self.__year = int( bfy )
         self.__today = dt.datetime.today( )
-        self.__name = self.setname( name )
-        self.__date = self.setdate( name )
+        self.__name = self.set_name( name )
+        self.__date = self.set_date( name )
         self.__dayofweek = self.__date.day
         self.__month = self.__date.month
         self.__day = self.__date.isoweekday( )
@@ -9840,7 +9840,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def columbusday( self ):
+    def columbus_day( self ):
         '''The second Monday in October'''
         try:
             if self.__year is not None:
@@ -9860,7 +9860,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def veteransday( self ):
+    def veterans_day( self ):
         '''Veterans Day, November 11'''
         try:
             if self.__year is not None:
@@ -9870,11 +9870,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'veteransday( self )'
+            exc.method = 'veterans_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def thanksgivingday( self ):
+    def thanksgiving_day( self ):
         '''The fourth Thursday in November'''
         try:
             if self.__year is not None:
@@ -9890,11 +9890,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'thanksgivingday( self )'
+            exc.method = 'thanksgiving_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def christmasday( self ):
+    def christmas_day( self ):
         '''Christmas Day, December 25'''
         try:
             if self.__year is not None:
@@ -9904,11 +9904,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'christmasday( self )'
+            exc.method = 'christmas_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def newyearsday( self ):
+    def new_years_day( self ):
         '''January 1'''
         try:
             if self.__year is not None:
@@ -9918,11 +9918,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'newyearsday( self )'
+            exc.method = 'new_years_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def martinlutherkingday( self ):
+    def martinlutherkings_day( self ):
         '''The third Monday in January'''
         try:
             if self.__year is not None:
@@ -9938,11 +9938,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'martinlutherkingday( self )'
+            exc.method = 'martinlutherkings_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def washingtonsday( self ):
+    def washingtons_day( self ):
         '''The third Monday in February'''
         try:
             if self.__year is not None:
@@ -9958,11 +9958,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'washingtonsday( self )'
+            exc.method = 'washingtons_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def memorialday( self ):
+    def memorial_day( self ):
         '''The last Monday in May'''
         try:
             if self.__year is not None:
@@ -9978,11 +9978,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'memorialday( self )'
+            exc.method = 'memorial_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def juneteenthday( self ):
+    def juneteenth_day( self ):
         '''Juneteenth National Independence Day, June 19'''
         try:
             if self.__year is not None:
@@ -9992,11 +9992,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'juneteenthday( self )'
+            exc.method = 'juneteenth_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def independence( self ):
+    def independence_day( self ):
         '''Independence Day, July 4'''
         try:
             if self.__year is not None:
@@ -10006,11 +10006,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'independence( self )'
+            exc.method = 'independence_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def laborday( self ):
+    def labor_day( self ):
         '''The first Monday in September'''
         try:
             if self.__year is not None:
@@ -10028,11 +10028,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'laborday( self )'
+            exc.method = 'labor_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def dayofweek( self ):
+    def day_of_week( self ):
         try:
             if 0 < self.__day < 8 and  self.__day == 1:
                 self.__dayofweek = 'Monday'
@@ -10059,11 +10059,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'dayofweek( self )'
+            exc.method = 'day_of_week( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def isweekday( self ):
+    def is_weekday( self ):
         try:
             if 1 <= self.__date.isoweekday() <= 5:
                 return True
@@ -10073,11 +10073,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'isweekday( self )'
+            exc.method = 'is_weekday( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def isweekend( self ):
+    def is_weekend( self ):
         try:
             if 5 < self.__date.isoweekday() <= 7:
                 return True
@@ -10087,52 +10087,52 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'isweekend( self )'
+            exc.method = 'is_weekend( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def setdate( self, name ):
+    def set_date( self, name ):
         try:
             if isinstance( name, str ) and name in self.__list:
                 if name == 'Columbus':
-                    self.__date = self.columbusday( )
+                    self.__date = self.columbus_day( )
                     return self.__date
                 elif name == 'Veterans':
-                    self.__date = self.veteransday( )
+                    self.__date = self.veterans_day( )
                     return self.__date
                 elif name == 'Thanksgiving':
-                    self.__date = self.thanksgivingday( )
+                    self.__date = self.thanksgiving_day( )
                     return self.__date
                 elif name == 'Christmas':
-                    self.__date = self.christmasday( )
+                    self.__date = self.christmas_day( )
                     return self.__date
                 elif name == 'NewYearsDay':
-                    self.__date = self.newyearsday( )
+                    self.__date = self.new_years_day( )
                     return self.__date
                 elif name == 'MartinLutherKing':
-                    self.__date = self.martinlutherkingday( )
+                    self.__date = self.martinlutherkings_day( )
                     return self.__date
                 elif name == 'Washingtons':
-                    self.__date = self.washingtonsday( )
+                    self.__date = self.washingtons_day( )
                     return self.__date
                 elif name == 'Memorial':
-                    self.__date = self.memorialday( )
+                    self.__date = self.memorial_day( )
                     return self.__date
                 elif name == 'Juneteenth':
-                    self.__date = self.juneteenthday( )
+                    self.__date = self.juneteenth_day( )
                     return self.__date
                 elif name == 'Labor':
-                    self.__date = self.laborday( )
+                    self.__date = self.labor_day( )
                     return self.__date
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'setdate( self, value )'
+            exc.method = 'set_date( self, value )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def setname( self, name ):
+    def set_name( self, name ):
         try:
             if isinstance( name, str ) and name in self.__list:
                 self.__name = name
@@ -10144,7 +10144,7 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'setname( self, value  ) '
+            exc.method = 'set_name( self, value  ) '
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11015,7 +11015,7 @@ class HeadquartersAuthority( ):
 
     @property
     def id( self ):
-        if isinstance( self.__statusoffundsid, int ):
+        if self.__statusoffundsid is not None:
             return self.__statusoffundsid
 
     @id.setter
@@ -11391,7 +11391,7 @@ class HeadquartersOffice( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ):
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -11401,7 +11401,7 @@ class HeadquartersOffice( ):
 
     @property
     def rpio_name( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
@@ -11508,7 +11508,7 @@ class HumanResourceOrganization( ):
 
     @property
     def id( self ):
-        if isinstance( self.__humanresourceorganizationsid, int ):
+        if self.__humanresourceorganizationsid is not None:
             return self.__humanresourceorganizationsid
 
     @id.setter

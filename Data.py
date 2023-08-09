@@ -532,11 +532,11 @@ class DbConfig( ):
         self.__provider = provider
         self.__source = source
         self.__table = source.name
-        self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
+        self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Dallocation_transfer_agency.db'
         self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
-        self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
+        self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Dallocation_transfer_agency.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
-        self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
+        self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Dallocation_transfer_agency.mdf'
         self.__data = [ 'AccountingEvents',
                         'Accounts',
                         'ActivityCodes',
