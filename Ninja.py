@@ -21019,7 +21019,7 @@ class SpendingRate( ):
 
     @property
     def omb_agency_code( self ):
-        if isinstance( self.__ombagencycode, str ) and self.__ombagencycode != '':
+        if self.__ombagencycode is not None:
             return self.__ombagencycode
 
     @omb_agency_code.setter
@@ -21029,7 +21029,7 @@ class SpendingRate( ):
 
     @property
     def omb_agency_name( self ):
-        if isinstance( self.__ombagencyname, str ) and self.__ombagencyname != '':
+        if self.__ombagencyname is not None:
             return self.__ombagencyname
 
     @omb_agency_name.setter
@@ -21039,7 +21039,7 @@ class SpendingRate( ):
 
     @property
     def budget_account_code( self ):
-        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+        if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
@@ -21049,7 +21049,7 @@ class SpendingRate( ):
 
     @property
     def budget_account_name( self ):
-        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+        if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
@@ -21059,7 +21059,7 @@ class SpendingRate( ):
 
     @property
     def subfunction( self ):
-        if isinstance( self.__subfunction, str ) and self.__subfunction != '':
+        if self.__subfunction is not None:
             return self.__subfunction
 
     @subfunction.setter
@@ -21069,7 +21069,7 @@ class SpendingRate( ):
 
     @property
     def category( self ):
-        if isinstance( self.__category, str ) and self.__category != '':
+        if self.__category is not None:
             return self.__category
 
     @category.setter
@@ -21079,7 +21079,7 @@ class SpendingRate( ):
 
     @property
     def subcategory( self ):
-        if isinstance( self.__subcategory, str ) and self.__subcategory != '':
+        if self.__subcategory is not None:
             return self.__subcategory
 
     @subcategory.setter
@@ -21089,7 +21089,7 @@ class SpendingRate( ):
 
     @property
     def line_number( self ):
-        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+        if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
@@ -21099,7 +21099,7 @@ class SpendingRate( ):
 
     @property
     def line_name( self ):
-        if isinstance( self.__linename, str ) and self.__linename != '':
+        if self.__linename is not None:
             return self.__linename
 
     @line_name.setter
@@ -21109,7 +21109,7 @@ class SpendingRate( ):
 
     @property
     def year_of_authority( self ):
-        if isinstance( self.__yearofauthority, str ) and self.__yearofauthority != '':
+        if self.__yearofauthority is not None:
             return self.__yearofauthority
 
     @year_of_authority.setter
@@ -21119,7 +21119,7 @@ class SpendingRate( ):
 
     @property
     def budget_authority( self ):
-        if isinstance( self.__budgetauthority, float ):
+        if self.__budgetauthority is not None:
             return self.__budgetauthority
 
     @budget_authority.setter
@@ -21129,7 +21129,7 @@ class SpendingRate( ):
 
     @property
     def out_year_1( self ):
-        if isinstance( self.__outyear1, float ):
+        if self.__outyear1 is not None:
             return self.__outyear1
 
     @out_year_1.setter
@@ -21139,7 +21139,7 @@ class SpendingRate( ):
 
     @property
     def out_year_2( self ):
-        if isinstance( self.__outyear2, float ):
+        if self.__outyear2 is not None:
             return self.__outyear2
 
     @out_year_2.setter
@@ -21149,7 +21149,7 @@ class SpendingRate( ):
 
     @property
     def out_year_3( self ):
-        if isinstance( self.__outyear3, float ):
+        if self.__outyear3 is not None:
             return self.__outyear3
 
     @out_year_3.setter
@@ -21159,7 +21159,7 @@ class SpendingRate( ):
 
     @property
     def out_year_4( self ):
-        if isinstance( self.__outyear4, float ):
+        if self.__outyear4 is not None:
             return self.__outyear4
 
     @out_year_4.setter
@@ -21169,7 +21169,7 @@ class SpendingRate( ):
 
     @property
     def out_year_5( self ):
-        if isinstance( self.__outyear5, float ):
+        if self.__outyear5 is not None:
             return self.__outyear5
 
     @out_year_5.setter
@@ -21179,7 +21179,7 @@ class SpendingRate( ):
 
     @property
     def out_year_6( self ):
-        if isinstance( self.__outyear6, float ):
+        if self.__outyear6 is not None:
             return self.__outyear6
 
     @out_year_6.setter
@@ -21189,7 +21189,7 @@ class SpendingRate( ):
 
     @property
     def out_year_7( self ):
-        if isinstance( self.__outyear7, float ):
+        if self.__outyear7 is not None:
             return self.__outyear7
 
     @out_year_7.setter
@@ -21199,7 +21199,7 @@ class SpendingRate( ):
 
     @property
     def out_year_8( self ):
-        if isinstance( self.__outyear8, float ):
+        if self.__outyear8 is not None:
             return self.__outyear8
 
     @out_year_8.setter
@@ -21209,7 +21209,7 @@ class SpendingRate( ):
 
     @property
     def out_year_9( self ):
-        if isinstance( self.__outyear9, float ):
+        if self.__outyear9 is not None:
             return self.__outyear9
 
     @out_year_9.setter
@@ -21219,7 +21219,7 @@ class SpendingRate( ):
 
     @property
     def out_year_10( self ):
-        if isinstance( self.__outyear10, float ):
+        if self.__outyear10 is not None:
             return self.__outyear10
 
     @out_year_10.setter
@@ -21229,7 +21229,7 @@ class SpendingRate( ):
 
     @property
     def out_year_11( self ):
-        if isinstance( self.__outyear11, float ):
+        if self.__outyear11 is not None:
             return self.__outyear11
 
     @out_year_11.setter
@@ -21239,7 +21239,7 @@ class SpendingRate( ):
 
     @property
     def total_spendout( self ):
-        if isinstance( self.__totalspendout, float ):
+        if self.__totalspendout is not None:
             return self.__totalspendout
 
     @total_spendout.setter
@@ -21370,7 +21370,7 @@ class StatusOfSupplementalFunds( ):
 
     @property
     def id( self ):
-        if isinstance( self.__statusofsupplementalfundsid, int ):
+        if self.__statusofsupplementalfundsid is not None:
             return self.__statusofsupplementalfundsid
 
     @id.setter
@@ -24783,7 +24783,7 @@ class UnobligatedAuthority( ):
 
     @property
     def budget_account_code( self ):
-        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+        if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
@@ -24793,7 +24793,7 @@ class UnobligatedAuthority( ):
 
     @property
     def budget_account_name( self ):
-        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+        if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
