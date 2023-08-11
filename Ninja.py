@@ -5580,7 +5580,7 @@ class CongressionalControl( ):
 
     @property
     def program_project_name( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
@@ -7668,7 +7668,7 @@ class Defacto( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -11215,7 +11215,7 @@ class HeadquartersAuthority( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -14680,7 +14680,7 @@ class Obligation( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -15238,7 +15238,7 @@ class PayrollActivity( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -15258,7 +15258,7 @@ class PayrollActivity( ):
 
     @property
     def ah_code( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
@@ -15268,7 +15268,7 @@ class PayrollActivity( ):
 
     @property
     def ah_name( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
@@ -15298,7 +15298,7 @@ class PayrollActivity( ):
 
     @property
     def org_code( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
@@ -15308,7 +15308,7 @@ class PayrollActivity( ):
 
     @property
     def org_name( self  ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @org_name.setter
@@ -15318,7 +15318,7 @@ class PayrollActivity( ):
 
     @property
     def account_code( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
@@ -15328,7 +15328,7 @@ class PayrollActivity( ):
 
     @property
     def boc_code( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
@@ -15338,7 +15338,7 @@ class PayrollActivity( ):
 
     @property
     def boc_name( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
@@ -15348,7 +15348,7 @@ class PayrollActivity( ):
 
     @property
     def rc_code( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
@@ -15358,7 +15358,7 @@ class PayrollActivity( ):
 
     @property
     def rc_name( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
@@ -15388,7 +15388,7 @@ class PayrollActivity( ):
 
     @property
     def program_project_code( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
@@ -15398,7 +15398,7 @@ class PayrollActivity( ):
 
     @property
     def program_project_name( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
@@ -16036,7 +16036,7 @@ class ProgramProject( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -16352,10 +16352,10 @@ class ProgramResultsCode( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -16529,7 +16529,7 @@ class ProgramResultsCode( ):
 
     @property
     def expenditures( self ):
-        if isinstance( self.__expenditures, float ):
+        if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
@@ -16589,7 +16589,7 @@ class ProgramResultsCode( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -16658,23 +16658,23 @@ class ProgramResultsCode( ):
             self.__npmname = value
 
     @property
-    def activitycode( self ):
-        if isinstance( self.__activitycode, str ) and self.__activitycode != '':
+    def activity_code( self ):
+        if self.__activitycode is not None:
             return self.__activitycode
 
-    @activitycode.setter
-    def activitycode( self, value ):
-        if isinstance( value, str ) and self.__activitycode != '':
+    @activity_code.setter
+    def activity_code( self, value ):
+        if value is not None:
             self.__activitycode = value
 
     @property
-    def activityname( self ):
-        if isinstance( self.__activityname, str ) and self.__activityname != '':
+    def activity_name( self ):
+        if self.__activityname is not None:
             return self.__activityname
 
-    @activityname.setter
-    def activityname( self, value ):
-        if isinstance( value, str ) and self.__activityname != '':
+    @activity_name.setter
+    def activity_name( self, value ):
+        if value is not None:
             self.__activityname = value
 
     @property
@@ -17384,7 +17384,7 @@ class ReimbursableAgreement( ):
 
     @property
     def account_code( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
@@ -17394,7 +17394,7 @@ class ReimbursableAgreement( ):
 
     @property
     def org_code( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
@@ -17404,7 +17404,7 @@ class ReimbursableAgreement( ):
 
     @property
     def rc_code( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
@@ -17414,7 +17414,7 @@ class ReimbursableAgreement( ):
 
     @property
     def rc_name( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
@@ -17424,7 +17424,7 @@ class ReimbursableAgreement( ):
 
     @property
     def vendor_code( self ):
-        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+        if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
@@ -19092,7 +19092,7 @@ class StateGrantObligation( ):
 
     @property
     def ah_code( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
@@ -19102,7 +19102,7 @@ class StateGrantObligation( ):
 
     @property
     def ah_name( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
@@ -19132,7 +19132,7 @@ class StateGrantObligation( ):
 
     @property
     def org_code( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
@@ -19142,7 +19142,7 @@ class StateGrantObligation( ):
 
     @property
     def org_name( self  ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @org_name.setter
@@ -19152,7 +19152,7 @@ class StateGrantObligation( ):
 
     @property
     def account_code( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
@@ -19162,7 +19162,7 @@ class StateGrantObligation( ):
 
     @property
     def boc_code( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
@@ -19172,7 +19172,7 @@ class StateGrantObligation( ):
 
     @property
     def boc_name( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
@@ -19182,7 +19182,7 @@ class StateGrantObligation( ):
 
     @property
     def rc_code( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
@@ -19192,7 +19192,7 @@ class StateGrantObligation( ):
 
     @property
     def rc_name( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
@@ -19352,7 +19352,7 @@ class SpecialAccount( ):
 
     @property
     def id( self ):
-        if isinstance( self.__specialaccountsid, int ):
+        if self.__specialaccountsid is not None:
             return self.__specialaccountsid
 
     @id.setter
@@ -19382,7 +19382,7 @@ class SpecialAccount( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -19392,7 +19392,7 @@ class SpecialAccount( ):
 
     @property
     def rpio_name( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
@@ -19402,7 +19402,7 @@ class SpecialAccount( ):
 
     @property
     def foc_code( self ):
-        if isinstance( self.__foccode, str ) and self.__foccode != '':
+        if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
@@ -19412,7 +19412,7 @@ class SpecialAccount( ):
 
     @property
     def foc_name( self ):
-        if isinstance( self.__focname, str ) and self.__focname != '':
+        if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
@@ -19422,7 +19422,7 @@ class SpecialAccount( ):
 
     @property
     def account_code( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
@@ -19432,7 +19432,7 @@ class SpecialAccount( ):
 
     @property
     def boc_code( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
@@ -19442,7 +19442,7 @@ class SpecialAccount( ):
 
     @property
     def boc_name( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
@@ -19452,7 +19452,7 @@ class SpecialAccount( ):
 
     @property
     def special_account_fund_code( self ):
-        if isinstance( self.__specialaccountfundcode, str ) and self.__specialaccountfundcode != '':
+        if self.__specialaccountfundcode is not None:
             return self.__specialaccountfundcode
 
     @special_account_fund_code.setter
@@ -19462,7 +19462,7 @@ class SpecialAccount( ):
 
     @property
     def special_account_fund_name( self ):
-        if isinstance( self.__specialaccountfundname, str ) and self.__specialaccountfundname != '':
+        if self.__specialaccountfundname is not None:
             return self.__specialaccountfundname
 
     @special_account_fund_name.setter
@@ -19472,7 +19472,7 @@ class SpecialAccount( ):
 
     @property
     def special_account_number( self ):
-        if isinstance( self.__specialaccountnumber, str ) and self.__specialaccountnumber != '':
+        if self.__specialaccountnumber is not None:
             return self.__specialaccountnumber
 
     @special_account_number.setter
@@ -19482,7 +19482,7 @@ class SpecialAccount( ):
 
     @property
     def special_account_name( self ):
-        if isinstance( self.__specialaccountnumber, str ) and self.__specialaccountnumber != '':
+        if self.__specialaccountnumber is not None:
             return self.__specialaccountnumber
 
     @special_account_name.setter
@@ -19492,7 +19492,7 @@ class SpecialAccount( ):
 
     @property
     def account_status( self ):
-        if isinstance( self.__accountstatus, str ) and self.__accountstatus != '':
+        if self.__accountstatus is not None:
             return self.__accountstatus
 
     @account_status.setter
@@ -19502,7 +19502,7 @@ class SpecialAccount( ):
 
     @property
     def npl_status( self ):
-        if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
+        if self.__nplstatus is not None:
             return self.__nplstatus
 
     @npl_status.setter
@@ -19512,7 +19512,7 @@ class SpecialAccount( ):
 
     @property
     def npl_status_code( self ):
-        if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
+        if self.__nplstatuscode is not None:
             return self.__nplstatuscode
 
     @npl_status_code.setter
@@ -19522,7 +19522,7 @@ class SpecialAccount( ):
 
     @property
     def npl_status_name( self ):
-        if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
+        if self.__nplstatusname is not None:
             return self.__nplstatusname
 
     @npl_status_name.setter
@@ -19532,7 +19532,7 @@ class SpecialAccount( ):
 
     @property
     def site_id( self ):
-        if isinstance( self.__siteid, str ) and self.__siteid != '':
+        if self.__siteid is not None:
             return self.__siteid
 
     @site_id.setter
@@ -19542,7 +19542,7 @@ class SpecialAccount( ):
 
     @property
     def cerclis_id( self ):
-        if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
+        if self.__cerclisid is not None:
             return self.__cerclisid
 
     @cerclis_id.setter
@@ -19698,7 +19698,7 @@ class SuperfundSite( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -20116,7 +20116,7 @@ class StateOrganization( ):
 
     @property
     def id( self ):
-        if isinstance( self.__stateorganizationsid, int ):
+        if self.__stateorganizationsid is not None:
             return self.__stateorganizationsid
 
     @id.setter
@@ -20151,7 +20151,7 @@ class StateOrganization( ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__data = value
 
     @property
@@ -20175,7 +20175,7 @@ class StateOrganization( ):
                           'RpioCode' ]
 
     def __str__( self ):
-        if isinstance( self.__code, str ) and self.__code != '':
+        if self.__code is not None:
             return self.__code
 
     def get_data( self  ):
@@ -20285,12 +20285,12 @@ class StatusOfAppropriations( ):
 
     @property
     def id( self ):
-        if isinstance( self.__statusofappropriationsid, int ):
+        if self.__statusofappropriationsid is not None:
             return self.__statusofappropriationsid
 
     @id.setter
     def id( self, value ):
-        if isinstance( value, int ) and value > -1:
+        if value is not None:
             self.__statusofappropriationsid = value
 
     @property
@@ -20335,8 +20335,7 @@ class StatusOfAppropriations( ):
 
     @property
     def appropriation_fund_name( self ):
-        if isinstance( self.__appropriationfundname, str ) \
-                and self.__appropriationfundname != '':
+        if self.__appropriationfundname is not None:
             return self.__appropriationfundname
 
     @appropriation_fund_name.setter
@@ -20351,7 +20350,7 @@ class StatusOfAppropriations( ):
 
     @appropriation_creation_date.setter
     def appropriation_creation_date( self, value ):
-        if isinstance( value, datetime ):
+        if  value is not None:
             self.__appropriationcreationdate = value
 
     @property
@@ -21651,7 +21650,7 @@ class StatusOfSupplementalFunds( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -22096,7 +22095,7 @@ class StatusOfJobsActFunding( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -22541,7 +22540,7 @@ class StatusOfEarmarks( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -23513,7 +23512,7 @@ class SpendingDocument( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -24346,7 +24345,7 @@ class Transfer( ):
 
     @property
     def rpio_name( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_name.setter
@@ -25180,7 +25179,7 @@ class UnliquidatedObligation( ):
 
     @property
     def ah_code( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
@@ -25190,7 +25189,7 @@ class UnliquidatedObligation( ):
 
     @property
     def ah_name( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
@@ -25200,7 +25199,7 @@ class UnliquidatedObligation( ):
 
     @property
     def fund_code( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
@@ -25210,7 +25209,7 @@ class UnliquidatedObligation( ):
 
     @property
     def fund_name( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
@@ -25220,7 +25219,7 @@ class UnliquidatedObligation( ):
 
     @property
     def org_code( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
@@ -25230,7 +25229,7 @@ class UnliquidatedObligation( ):
 
     @property
     def org_name( self  ):
-        if isinstance( self.__orgname, str ) and self.__orgname != '':
+        if self.__orgname is not None:
             return self.__orgname
 
     @org_name.setter
@@ -25240,7 +25239,7 @@ class UnliquidatedObligation( ):
 
     @property
     def account_code( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
@@ -25250,7 +25249,7 @@ class UnliquidatedObligation( ):
 
     @property
     def boc_code( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
@@ -25260,7 +25259,7 @@ class UnliquidatedObligation( ):
 
     @property
     def boc_name( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
@@ -25270,7 +25269,7 @@ class UnliquidatedObligation( ):
 
     @property
     def rc_code( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
@@ -25280,7 +25279,7 @@ class UnliquidatedObligation( ):
 
     @property
     def rc_name( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
@@ -25290,7 +25289,7 @@ class UnliquidatedObligation( ):
 
     @property
     def document_type( self ):
-        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
@@ -25300,7 +25299,7 @@ class UnliquidatedObligation( ):
 
     @property
     def document_number( self ):
-        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+        if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
@@ -25310,7 +25309,7 @@ class UnliquidatedObligation( ):
 
     @property
     def document_control_number( self ):
-        if isinstance( self.__documentcontrolnumber, str ) and self.__documentcontrolnumber != '':
+        if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
@@ -25320,8 +25319,7 @@ class UnliquidatedObligation( ):
 
     @property
     def reference_document_number( self ):
-        if isinstance( self.__referencedocumentnumber,
-                str ) and self.__referencedocumentnumber != '':
+        if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
@@ -25331,7 +25329,7 @@ class UnliquidatedObligation( ):
 
     @property
     def processed_date( self ):
-        if isinstance( self.__processeddate, datetime ):
+        if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
@@ -25341,17 +25339,17 @@ class UnliquidatedObligation( ):
 
     @property
     def last_activity_date( self ):
-        if isinstance( self.__lastactivitydate, datetime ):
+        if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
     def last_activity_date( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__lastactivitydate = value
 
     @property
     def age( self ):
-        if isinstance( self.__age, int ):
+        if self.__age is not None:
             return self.__age
 
     @age.setter
@@ -25361,7 +25359,7 @@ class UnliquidatedObligation( ):
 
     @property
     def vendor_code( self ):
-        if isinstance( self.__vendorcode, str ) and self.__vendorcode != '':
+        if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
@@ -25371,7 +25369,7 @@ class UnliquidatedObligation( ):
 
     @property
     def vendor_name( self ):
-        if isinstance( self.__vendorname, str ) and self.__vendorname != '':
+        if self.__vendorname is not None:
             return self.__vendorname
 
     @vendor_name.setter
@@ -25381,7 +25379,7 @@ class UnliquidatedObligation( ):
 
     @property
     def foc_code( self ):
-        if isinstance( self.__foccode, str ) and self.__foccode != '':
+        if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
@@ -25391,7 +25389,7 @@ class UnliquidatedObligation( ):
 
     @property
     def foc_name( self ):
-        if isinstance( self.__focname, str ) and self.__focname != '':
+        if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
@@ -25401,7 +25399,7 @@ class UnliquidatedObligation( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -25411,7 +25409,7 @@ class UnliquidatedObligation( ):
 
     @property
     def program_project_code( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
@@ -25421,7 +25419,7 @@ class UnliquidatedObligation( ):
 
     @property
     def program_project_name( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
@@ -25431,7 +25429,7 @@ class UnliquidatedObligation( ):
 
     @property
     def program_area_code( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
@@ -25441,7 +25439,7 @@ class UnliquidatedObligation( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -25451,7 +25449,7 @@ class UnliquidatedObligation( ):
 
     @property
     def goal_code( self ):
-        if isinstance( self.__goalcode, str ) and self.__goalcode != '':
+        if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
@@ -25461,7 +25459,7 @@ class UnliquidatedObligation( ):
 
     @property
     def goal_name( self ):
-        if isinstance( self.__goalname, str ) and self.__goalname != '':
+        if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
@@ -25471,7 +25469,7 @@ class UnliquidatedObligation( ):
 
     @property
     def objective_code( self ):
-        if isinstance( self.__objectivecode, str ) and self.__objectivecode != '':
+        if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
@@ -25481,7 +25479,7 @@ class UnliquidatedObligation( ):
 
     @property
     def objective_name( self ):
-        if isinstance( self.__objectivename, str ) and self.__objectivename != '':
+        if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
@@ -25491,7 +25489,7 @@ class UnliquidatedObligation( ):
 
     @property
     def npm_code( self ):
-        if isinstance( self.__npmcode, str ) and self.__npmcode != '':
+        if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
@@ -25501,7 +25499,7 @@ class UnliquidatedObligation( ):
 
     @property
     def npm_name( self ):
-        if isinstance( self.__npmname, str ) and self.__npmname != '':
+        if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
