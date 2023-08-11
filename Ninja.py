@@ -24118,8 +24118,7 @@ class TreasurySymbol( ):
 
     @property
     def treasury_account_code( self ):
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -24129,8 +24128,7 @@ class TreasurySymbol( ):
 
     @property
     def treasury_account_name( self ):
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
@@ -24140,7 +24138,7 @@ class TreasurySymbol( ):
 
     @property
     def budget_account_code( self ):
-        if isinstance( self.__budgetaccountcode, str ) and self.__budgetaccountcode != '':
+        if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
@@ -24150,7 +24148,7 @@ class TreasurySymbol( ):
 
     @property
     def budget_account_name( self ):
-        if isinstance( self.__budgetaccountname, str ) and self.__budgetaccountname != '':
+        if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
@@ -24298,7 +24296,7 @@ class Transfer( ):
 
     @property
     def budget_level( self ):
-        if isinstance( self.__budgetlevel, str ) and self.__budgetlevel != '':
+        if self.__budgetlevel is not None:
             return self.__budgetlevel
 
     @budget_level.setter
@@ -24308,7 +24306,7 @@ class Transfer( ):
 
     @property
     def document_type( self ):
-        if isinstance( self.__documenttype, str ) and self.__documenttype != '':
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
@@ -24318,7 +24316,7 @@ class Transfer( ):
 
     @property
     def document_number( self ):
-        if isinstance( self.__documentnumber, str ) and self.__documentnumber != '':
+        if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
@@ -24328,17 +24326,17 @@ class Transfer( ):
 
     @property
     def processed_date( self ):
-        if isinstance( self.__processeddate, datetime ):
+        if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
     def processed_date( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__processeddate = value
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -24358,7 +24356,7 @@ class Transfer( ):
 
     @property
     def fund_code( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
@@ -24368,7 +24366,7 @@ class Transfer( ):
 
     @property
     def fund_name( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
@@ -24378,7 +24376,7 @@ class Transfer( ):
 
     @property
     def ah_code( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
@@ -24388,7 +24386,7 @@ class Transfer( ):
 
     @property
     def ah_name( self ):
-        if isinstance( self.__ahname, str ) and self.__ahname != '':
+        if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
@@ -24398,7 +24396,7 @@ class Transfer( ):
 
     @property
     def account_code( self ):
-        if isinstance( self.__accountcode, str ) and self.__accountcode != '':
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
@@ -24408,7 +24406,7 @@ class Transfer( ):
 
     @property
     def program_project_code( self ):
-        if isinstance( self.__programprojectcode, str ) and self.__programprojectcode != '':
+        if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
@@ -24418,7 +24416,7 @@ class Transfer( ):
 
     @property
     def program_project_name( self ):
-        if isinstance( self.__programprojectname, str ) and self.__programprojectname != '':
+        if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
@@ -24427,28 +24425,28 @@ class Transfer( ):
             self.__programprojectname = value
 
     @property
-    def activitycode( self ):
-        if isinstance( self.__activitycode, str ) and self.__activitycode != '':
+    def activity_code( self ):
+        if self.__activitycode is not None:
             return self.__activitycode
 
-    @activitycode.setter
-    def activitycode( self, value ):
-        if isinstance( value, str ) and self.__activitycode != '':
+    @activity_code.setter
+    def activity_code( self, value ):
+        if value is not None:
             self.__activitycode = value
 
     @property
-    def activityname( self ):
-        if isinstance( self.__activityname, str ) and self.__activityname != '':
+    def activity_name( self ):
+        if self.__activityname is not None:
             return self.__activityname
 
-    @activityname.setter
-    def activityname( self, value ):
+    @activity_name.setter
+    def activity_name( self, value ):
         if isinstance( value, str ) and self.__activityname != '':
             self.__activityname = value
 
     @property
     def org_code( self ):
-        if isinstance( self.__orgcode, str ) and self.__orgcode != '':
+        if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
@@ -24458,7 +24456,7 @@ class Transfer( ):
 
     @property
     def rc_code( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
@@ -24468,7 +24466,7 @@ class Transfer( ):
 
     @property
     def rc_name( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
@@ -24478,7 +24476,7 @@ class Transfer( ):
 
     @property
     def boc_code( self ):
-        if isinstance( self.__boccode, str ) and self.__boccode != '':
+        if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
@@ -24488,7 +24486,7 @@ class Transfer( ):
 
     @property
     def boc_name( self ):
-        if isinstance( self.__bocname, str ) and self.__bocname != '':
+        if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
@@ -24498,7 +24496,7 @@ class Transfer( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -24508,7 +24506,7 @@ class Transfer( ):
 
     @property
     def program_area_code( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
@@ -24518,7 +24516,7 @@ class Transfer( ):
 
     @property
     def program_area_name( self ):
-        if isinstance( self.__programareaname, str ) and self.__programareaname != '':
+        if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
@@ -24667,7 +24665,7 @@ class TransType( ):
 
     @property
     def fund_code( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
@@ -24677,7 +24675,7 @@ class TransType( ):
 
     @property
     def appropriation( self ):
-        if isinstance( self.__appropriation, str ) and self.__appropriation != '':
+        if self.__appropriation is not None:
             return self.__appropriation
 
     @appropriation.setter
@@ -24687,7 +24685,7 @@ class TransType( ):
 
     @property
     def treasury_symbol( self ):
-        if isinstance( self.__treasuryaccount, str ) and self.__treasuryaccount != '':
+        if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
     @treasury_symbol.setter
@@ -24955,7 +24953,7 @@ class UnobligatedBalance( ):
 
     @property
     def fund_code( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
@@ -24965,7 +24963,7 @@ class UnobligatedBalance( ):
 
     @property
     def fund_name( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
@@ -24975,7 +24973,7 @@ class UnobligatedBalance( ):
 
     @property
     def account_number( self ):
-        if isinstance( self.__accountnumber, str ) and self.__accountnumber != '':
+        if self.__accountnumber is not None:
             return self.__accountnumber
 
     @account_number.setter
@@ -24995,7 +24993,7 @@ class UnobligatedBalance( ):
 
     @property
     def treasury_symbol( self ):
-        if isinstance( self.__treasuryaccount, str ) and self.__treasuryaccount != '':
+        if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
     @treasury_symbol.setter
@@ -25005,7 +25003,7 @@ class UnobligatedBalance( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
