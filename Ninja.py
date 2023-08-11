@@ -24763,7 +24763,7 @@ class UnobligatedAuthority( ):
 
     @property
     def line_number( self ):
-        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+        if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
