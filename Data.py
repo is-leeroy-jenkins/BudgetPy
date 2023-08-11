@@ -518,7 +518,7 @@ class DbConfig( ):
     @property
     def table_name( self ):
         '''Gets the'''
-        if self.__table is not None and self.__table != '':
+        if self.__table is not None:
             return self.__table
 
     @table_name.setter
@@ -836,13 +836,13 @@ class SqlConfig( ):
             self.__values = value
 
     @property
-    def paramstyle( self ):
+    def param_style( self ):
         ''' Property representing the DBI param_style'''
         if self.__paramstyle is not None:
             return self.__paramstyle
 
-    @paramstyle.setter
-    def paramstyle( self, value ):
+    @param_style.setter
+    def param_style( self, value ):
         ''' Property representing the DBI param_style attribute'''
         if value is not None:
             self.__paramstyle = value
