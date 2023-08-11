@@ -12566,7 +12566,7 @@ class MonthlyOutlay( ):
 
     @property
     def id( self ):
-        if isinstance( self.__monthlyoutlaysid, int ):
+        if self.__monthlyoutlaysid is not None:
             return self.__monthlyoutlaysid
 
     @id.setter
@@ -12576,7 +12576,7 @@ class MonthlyOutlay( ):
 
     @property
     def line_number( self ):
-        if isinstance( self.__linenumber, str ) and self.__linenumber != '':
+        if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
@@ -12586,7 +12586,7 @@ class MonthlyOutlay( ):
 
     @property
     def line_name( self ):
-        if isinstance( self.__linename, str ) and self.__linename != '':
+        if self.__linename is not None:
             return self.__linename
 
     @line_name.setter
@@ -12615,42 +12615,42 @@ class MonthlyOutlay( ):
             self.__efy = value
 
     @property
-    def taxationcode( self ):
+    def taxation_code( self ):
         if self.__taxationcode is not None:
             return self.__taxationcode
 
-    @taxationcode.setter
-    def taxationcode( self, value ):
+    @taxation_code.setter
+    def taxation_code( self, value ):
         if value is not None:
             self.__taxationcode = value
 
     @property
-    def treasuryagency( self ):
+    def treasury_agency( self ):
         if self.__treasuryagency is not None:
             return self.__treasuryagency
 
-    @treasuryagency.setter
-    def treasuryagency( self, value ):
+    @treasury_agency.setter
+    def treasury_agency( self, value ):
         if value is not None:
             self.__treasuryagency = value
 
     @property
-    def treasuryaccount( self ):
+    def treasury_account( self ):
         if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
-    @treasuryaccount.setter
-    def treasuryaccount( self, value ):
+    @treasury_account.setter
+    def treasury_account( self, value ):
         if value is not None:
             self.__treasuryaccount = value
 
     @property
-    def ombaccount( self ):
+    def budget_account( self ):
         if self.__ombaccount is not None:
             return self.__ombaccount
 
-    @ombaccount.setter
-    def ombaccount( self, value ):
+    @budget_account.setter
+    def budget_account( self, value ):
         if value is not None:
             self.__ombaccount = value
 
@@ -13185,12 +13185,12 @@ class ObjectClassOutlay( ):
             self.__reportyear = value
 
     @property
-    def ombagencycode( self ):
+    def agency_code( self ):
         if self.__ombagencycode is not None:
             return self.__ombagencycode
 
-    @ombagencycode.setter
-    def ombagencycode( self, value ):
+    @agency_code.setter
+    def agency_code( self, value ):
         if value is not None:
             self.__ombagencycode = value
 
@@ -13233,26 +13233,6 @@ class ObjectClassOutlay( ):
     def direct_reimbursable_title( self, value ):
         if value is not None:
             self.__directreimbursabletitle = value
-
-    @property
-    def object_class_group_number( self ):
-        if self.__objectclassgroupnumber is not None:
-            return self.__objectclassgroupnumber
-
-    @object_class_group_number.setter
-    def object_class_group_number( self, value ):
-        if value is not None:
-            self.__objectclassgroupnumber = value
-
-    @property
-    def object_class_group_name( self ):
-        if self.__objectclassgroupname is not None:
-            return self.__objectclassgroupname
-
-    @object_class_group_name.setter
-    def object_class_group_name( self, value ):
-        if value is not None:
-            self.__objectclassgroupname = value
 
     @property
     def boc_code( self ):
@@ -16185,7 +16165,7 @@ class PayrollCostCode( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -16195,7 +16175,7 @@ class PayrollCostCode( ):
 
     @property
     def ah_code( self ):
-        if isinstance( self.__ahcode, str ) and self.__ahcode != '':
+        if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
@@ -16205,7 +16185,7 @@ class PayrollCostCode( ):
 
     @property
     def rc_code( self ):
-        if isinstance( self.__rccode, str ) and self.__rccode != '':
+        if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
@@ -16215,7 +16195,7 @@ class PayrollCostCode( ):
 
     @property
     def rc_name( self ):
-        if isinstance( self.__rcname, str ) and self.__rcname != '':
+        if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
@@ -16224,42 +16204,42 @@ class PayrollCostCode( ):
             self.__rcname = value
 
     @property
-    def workcode( self ):
-        if isinstance( self.__workcode, str ) and self.__workcode != '':
+    def work_code( self ):
+        if self.__workcode is not None:
             return self.__workcode
 
-    @workcode.setter
-    def workcode( self, value ):
+    @work_code.setter
+    def work_code( self, value ):
         if value is not None:
             self.__workcode = value
 
     @property
-    def workcodename( self ):
+    def work_code_name( self ):
         if isinstance( self.__workcodename, str ) and self.__workcodename != '':
             return self.__workcodename
 
-    @workcodename.setter
-    def workcodename( self, value ):
+    @work_code_name.setter
+    def work_code_name( self, value ):
         if value is not None:
             self.__workcodename = value
 
     @property
-    def hrorgcode( self ):
+    def hr_org_code( self ):
         if isinstance( self.__hrorgcode, str ) and self.__hrorgcode != '':
             return self.__hrorgcode
 
-    @hrorgcode.setter
-    def hrorgcode( self, value ):
+    @hr_org_code.setter
+    def hr_org_code( self, value ):
         if value is not None:
             self.__hrorgcode = value
 
     @property
-    def hrorgname( self ):
+    def hr_org_name( self ):
         if isinstance( self.__hrorgname, str ) and self.__hrorgname != '':
             return self.__hrorgname
 
-    @hrorgname.setter
-    def hrorgname( self, value ):
+    @hr_org_name.setter
+    def hr_org_name( self, value ):
         if value is not None:
             self.__hrorgname = value
 
@@ -17079,7 +17059,7 @@ class RegionalOffice( ):
 
     @property
     def id( self ):
-        if isinstance( self.__resourceplanningofficesid, int ):
+        if self.__resourceplanningofficesid is not None:
             return self.__resourceplanningofficesid
 
     @id.setter
@@ -17089,17 +17069,17 @@ class RegionalOffice( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str) and len( self.__rpio ) == 2:
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
     def rpio_code( self, value ):
-        if isinstance( value, str ) and len( value ) == 2:
+        if value is not None:
             self.__rpiocode = value
 
     @property
     def rpio_name( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
@@ -17114,7 +17094,7 @@ class RegionalOffice( ):
 
     @data.setter
     def data( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__data = value
 
     @property
@@ -17224,7 +17204,7 @@ class ReimbursableSurvey( ):
 
     @property
     def fund_code( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
@@ -17234,7 +17214,7 @@ class ReimbursableSurvey( ):
 
     @property
     def fund_name( self ):
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
+        if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
@@ -17244,7 +17224,7 @@ class ReimbursableSurvey( ):
 
     @property
     def amount( self ):
-        if isinstance( self.__amount, float ):
+        if self.__amount is not None:
             return self.__amount
 
     @amount.setter
@@ -17374,7 +17354,7 @@ class ReimbursableAgreement( ):
 
     @property
     def fund_code( self ):
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
@@ -17384,7 +17364,7 @@ class ReimbursableAgreement( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -17393,12 +17373,12 @@ class ReimbursableAgreement( ):
             self.__rpiocode = value
 
     @property
-    def agreementnumber( self ):
+    def agreement_number( self ):
         if isinstance( self.__agreementnumber, str ) and self.__agreementnumber != '':
             return self.__agreementnumber
 
-    @agreementnumber.setter
-    def agreementnumber( self, value ):
+    @agreement_number.setter
+    def agreement_number( self, value ):
         if value is not None:
             self.__agreementnumber = value
 
@@ -17474,7 +17454,7 @@ class ReimbursableAgreement( ):
 
     @property
     def open_commitments( self ):
-        if isinstance( self.__opencommitments, float ):
+        if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
@@ -17494,7 +17474,7 @@ class ReimbursableAgreement( ):
 
     @property
     def unliquidated_obligations( self ):
-        if isinstance( self.__unliquidatedobligations, float ):
+        if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
@@ -17504,7 +17484,7 @@ class ReimbursableAgreement( ):
 
     @property
     def available( self ):
-        if isinstance( self.__avaialable, float ):
+        if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
@@ -17674,10 +17654,10 @@ class RegionalAuthority( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -18152,10 +18132,10 @@ class StatusOfFunds( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -18635,10 +18615,10 @@ class StatusOfSupplementalFunding( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -19092,7 +19072,7 @@ class StateGrantObligation( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -19102,13 +19082,13 @@ class StateGrantObligation( ):
 
     @property
     def rpio_name( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -21434,10 +21414,10 @@ class StatusOfSupplementalFunds( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -21879,10 +21859,10 @@ class StatusOfJobsActFunding( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -22324,10 +22304,10 @@ class StatusOfEarmarks( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -22501,7 +22481,7 @@ class StatusOfEarmarks( ):
 
     @property
     def expenditures( self ):
-        if isinstance( self.__expenditures, float ):
+        if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
@@ -22772,10 +22752,10 @@ class SiteActivity( ):
         if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
@@ -23917,7 +23897,7 @@ class SupplementalCarryoverEstimate( ):
 
     @property
     def available( self ):
-        if isinstance( self.__availablebalance, float ):
+        if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available.setter
@@ -23927,7 +23907,7 @@ class SupplementalCarryoverEstimate( ):
 
     @property
     def open_commitments( self ):
-        if isinstance( self.__opencommitments, float ):
+        if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
@@ -23947,8 +23927,7 @@ class SupplementalCarryoverEstimate( ):
 
     @property
     def treasury_account_code( self ):
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -23958,8 +23937,7 @@ class SupplementalCarryoverEstimate( ):
 
     @property
     def treasury_account_name( self ):
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
@@ -25184,7 +25162,7 @@ class UnliquidatedObligation( ):
 
     @property
     def rpio_code( self ):
-        if isinstance( self.__rpiocode, str ) and self.__rpiocode != '':
+        if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
@@ -25194,13 +25172,13 @@ class UnliquidatedObligation( ):
 
     @property
     def rpio_name( self ):
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
+        if self.__rpioname is not None:
             return self.__rpioname
 
-    @rpio_code.setter
-    def rpio_code( self, value ):
+    @rpio_name.setter
+    def rpio_name( self, value ):
         if value is not None:
-            self.__rpiocode = value
+            self.__rpioname = value
 
     @property
     def ah_code( self ):
