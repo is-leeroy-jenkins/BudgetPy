@@ -25129,7 +25129,7 @@ class UnliquidatedObligation( ):
 
     @property
     def id( self ):
-        if isinstance( self.__expendituresid, int ):
+        if self.__expendituresid is not None:
             return self.__expendituresid
 
     @id.setter
