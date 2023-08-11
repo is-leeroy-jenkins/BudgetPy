@@ -20969,7 +20969,7 @@ class SpendingRate( ):
 
     @property
     def id( self ):
-        if isinstance( self.__spendingratesid, int ):
+        if self.__spendingratesid is not None:
             return self.__spendingratesid
 
     @id.setter
@@ -20979,7 +20979,7 @@ class SpendingRate( ):
 
     @property
     def treasury_agency_code( self ):
-        if isinstance( self.__treasuryagencycode, str ) and self.__treasuryagencycode != '':
+        if self.__treasuryagencycode is not None:
             return self.__treasuryagencycode
 
     @treasury_agency_code.setter
@@ -20989,7 +20989,7 @@ class SpendingRate( ):
 
     @property
     def treasury_agency_name( self ):
-        if isinstance( self.__treasuryagencyname, str ) and self.__treasuryagencyname != '':
+        if self.__treasuryagencyname is not None:
             return self.__treasuryagencyname
 
     @treasury_agency_name.setter
@@ -20999,7 +20999,7 @@ class SpendingRate( ):
 
     @property
     def treasury_account_code( self ):
-        if isinstance( self.__treasuryaccountcode, str ) and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -21009,7 +21009,7 @@ class SpendingRate( ):
 
     @property
     def treasury_account_name( self ):
-        if isinstance( self.__treasuryaccountname, str ) and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
