@@ -16026,7 +16026,7 @@ class ProgramProject( ):
 
     @property
     def program_area_code( self ):
-        if isinstance( self.__programareacode, str ) and self.__programareacode != '':
+        if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
@@ -16135,7 +16135,7 @@ class PayrollCostCode( ):
 
     @property
     def id( self ):
-        if isinstance( self.__payrollcostcodesid, int ):
+        if self.__payrollcostcodesid is not None:
             return self.__payrollcostcodesid
 
     @id.setter
@@ -20364,12 +20364,12 @@ class StatusOfAppropriations( ):
             self.__appropriationcode = value
 
     @property
-    def subappropriation_code( self ):
+    def sub_appropriation_code( self ):
         if self.__subappropriationcode is not None:
             return self.__subappropriationcode
 
-    @subappropriation_code.setter
-    def subappropriation_code( self, value ):
+    @sub_appropriation_code.setter
+    def sub_appropriation_code( self, value ):
         if value is not None:
             self.__subappropriationcode = value
 
@@ -20424,22 +20424,22 @@ class StatusOfAppropriations( ):
             self.__transtype = value
 
     @property
-    def actual_recovery_trans_type( self ):
+    def recovery_trans_type( self ):
         if self.__actualrecoverytranstype is not None:
             return self.__actualrecoverytranstype
 
-    @actual_recovery_trans_type.setter
-    def actual_recovery_trans_type( self, value ):
+    @recovery_trans_type.setter
+    def recovery_trans_type( self, value ):
         if value is not None:
             self.__actualrecoverytranstype = value
 
     @property
-    def commitment_spending_control_flag( self ):
+    def commitment_control_flag( self ):
         if self.__commitmentspendingcontrolflag is not None:
             return self.__commitmentspendingcontrolflag
 
-    @commitment_spending_control_flag.setter
-    def commitment_spending_control_flag( self, value ):
+    @commitment_control_flag.setter
+    def commitment_control_flag( self, value ):
         if value is not None:
             self.__commitmentspendingcontrolflag = value
 
