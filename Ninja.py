@@ -24844,7 +24844,7 @@ class UnobligatedAuthority( ):
     def __init__( self, account, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.UnobligatedAuthority
-        self.__budgetaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__budgetaccountcode = account
         self.__fields = [ 'UnobligatedAuthorityId',
                           'ReportYear',
                           'AgencyCode',
