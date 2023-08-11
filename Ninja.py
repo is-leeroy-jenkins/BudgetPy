@@ -20414,22 +20414,22 @@ class StatusOfAppropriations( ):
             self.__documenttype = value
 
     @property
-    def trans_type( self ):
+    def transtype( self ):
         if self.__transtype is not None:
             return self.__transtype
 
-    @trans_type.setter
-    def trans_type( self, value ):
+    @transtype.setter
+    def transtype( self, value ):
         if value is not None:
             self.__transtype = value
 
     @property
-    def recovery_trans_type( self ):
+    def recovery_transtype( self ):
         if self.__actualrecoverytranstype is not None:
             return self.__actualrecoverytranstype
 
-    @recovery_trans_type.setter
-    def recovery_trans_type( self, value ):
+    @recovery_transtype.setter
+    def recovery_transtype( self, value ):
         if value is not None:
             self.__actualrecoverytranstype = value
 
@@ -20454,52 +20454,52 @@ class StatusOfAppropriations( ):
             self.__agreementlimit = value
 
     @property
-    def estimated_recoveries_trans_type( self  ):
+    def estimated_recoveries_transtype( self ):
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
-    @estimated_recoveries_trans_type.setter
-    def estimated_recoveries_trans_type( self, value ):
+    @estimated_recoveries_transtype.setter
+    def estimated_recoveries_transtype( self, value ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
     @property
-    def estimated_reimbursements_trans_type( self ):
+    def estimated_reimbursements_transtype( self ):
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
-    @estimated_reimbursements_trans_type.setter
-    def estimated_reimbursements_trans_type( self, value ):
+    @estimated_reimbursements_transtype.setter
+    def estimated_reimbursements_transtype( self, value ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
 
     @property
-    def expense_spending_control_flag( self ):
+    def expense_control_flag( self ):
         if self.__expensespendingcontrolflag is not None:
             return self.__expensespendingcontrolflag
 
-    @expense_spending_control_flag.setter
-    def expense_spending_control_flag( self, value ):
+    @expense_control_flag.setter
+    def expense_control_flag( self, value ):
         if value is not None:
             self.__expensespendingcontrolflag = value
 
     @property
-    def obligation_spending_control_flag( self ):
+    def obligation_control_flag( self ):
         if self.__obligationspendingcontrolflag is not None:
             return self.__obligationspendingcontrolflag
 
-    @obligation_spending_control_flag.setter
-    def obligation_spending_control_flag( self, value ):
+    @obligation_control_flag.setter
+    def obligation_control_flag( self, value ):
         if value is not None:
             self.__obligationspendingcontrolflag = value
 
     @property
-    def precommitment_spending_control_flag( self ):
+    def precommitment_control_flag( self ):
         if self.__precommitmentspendingcontrolflag is not None:
             return self.__precommitmentspendingcontrolflag
 
-    @precommitment_spending_control_flag.setter
-    def precommitment_spending_control_flag( self, value ):
+    @precommitment_control_flag.setter
+    def precommitment_control_flag( self, value ):
         if value is not None:
             self.__precommitmentspendingcontrolflag = value
 
@@ -20524,12 +20524,12 @@ class StatusOfAppropriations( ):
             self.__postedflag = value
 
     @property
-    def record_carryover_at_lower_level( self ):
+    def record_lower_level( self ):
         if self.__recordcarryoveratlowerlevel is not None:
             return self.__recordcarryoveratlowerlevel
 
-    @record_carryover_at_lower_level.setter
-    def record_carryover_at_lower_level( self, value ):
+    @record_lower_level.setter
+    def record_lower_level( self, value ):
         if value is not None:
             self.__recordcarryoveratlowerlevel = value
 
@@ -20614,12 +20614,12 @@ class StatusOfAppropriations( ):
             self.__totalpostedamount = value
 
     @property
-    def funds_withdrawn_prior_year_amounts( self ):
+    def funds_withdrawn_amounts( self ):
         if self.__fundswithdrawnprioryearamounts is not None:
             return self.__fundswithdrawnprioryearamounts
 
-    @funds_withdrawn_prior_year_amounts.setter
-    def funds_withdrawn_prior_year_amounts( self, value ):
+    @funds_withdrawn_amounts.setter
+    def funds_withdrawn_amounts( self, value ):
         if value is not None:
             self.__fundswithdrawnprioryearamounts = value
 
@@ -20674,22 +20674,22 @@ class StatusOfAppropriations( ):
             self.__totalagreementreimbursables = value
 
     @property
-    def total_carried_forward_in( self ):
+    def total_carried_in( self ):
         if self.__totalcarriedforwardin is not None:
             return self.__totalcarriedforwardin
 
-    @total_carried_forward_in.setter
-    def total_carried_forward_in( self, value ):
+    @total_carried_in.setter
+    def total_carried_in( self, value ):
         if value is not None:
             self.__totalcarriedforwardin = value
 
     @property
-    def total_carried_forward_out( self ):
+    def total_carried_out( self ):
         if self.__totalcarriedforwardout is not None:
             return self.__totalcarriedforwardout
 
-    @total_carried_forward_out.setter
-    def total_carried_forward_out( self, value ):
+    @total_carried_out.setter
+    def total_carried_out( self, value ):
         if value is not None:
             self.__totalcarriedforwardout = value
 
