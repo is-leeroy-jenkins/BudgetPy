@@ -166,7 +166,7 @@ class Path( ):
            return str( self.__buffer )
 
     def exists( self ):
-        '''Method returning a boolean value indicating whether or not the
+        '''Method returning a boolean value indicating whether the
         internal 'self.__buffer' exists'''
         try:
             if os.path.exists( self.__buffer ):
@@ -182,8 +182,7 @@ class Path( ):
             err.show( )
 
     def is_folder( self ):
-        '''Method returning boolean value indicating whether
-        or not self.__buffer is a folder'''
+        '''Method returning boolean value indicating whether         self.__buffer is a folder'''
         try:
             if os.path.isdir( self.__buffer ):
                 return True
@@ -198,8 +197,7 @@ class Path( ):
             err.show( )
 
     def is_file( self ):
-        '''Method returning boolean value indicating whether
-        or not self.__buffer is a file'''
+        '''Method returning boolean value indicating whether         self.__buffer is a file'''
         try:
             if os.path.isfile( self.__buffer ):
                 return True
@@ -231,7 +229,7 @@ class Path( ):
             err.show( )
 
     def is_relative_path( self ):
-        '''Method to determine if the buffer path is an
+        '''Method to determine if the buffer path is a
         relative_path file path'''
         try:
             if isinstance( self.__buffer, str ) and self.__buffer != '':
@@ -480,7 +478,7 @@ class File( Path ):
     def create( self, other, lines = None ):
         ''' creates and returns 'selected_path' file '''
         try:
-            if isinstance( other, str ):
+            if other is not None:
                 newfile = open( other, 'r+' )
                 if isinstance( lines, list ) and len( lines ) > 0:
                     for line in lines:
@@ -518,45 +516,6 @@ class File( Path ):
             exc.module = 'FileSys'
             exc.cause = 'File'
             exc.method = 'delete( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_size( self, other ):
-        '''gets the size of another file'''
-        try:
-            if self.__path is not None and os.path.isfile( other ):
-                return os.path.getsize( other )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'get_size( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_drive( self, other ):
-        '''gets the drive of another file'''
-        try:
-            if os.path.exists( other ):
-                return str( list( os.path.splitdrive( other ) )[ 0 ] )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'get_drive( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_extension( self, other ):
-        ''' gets and returns extension of 'selected_path' 'file' '''
-        try:
-            if other is not None and os.path.isfile( other ):
-                return str( list( os.path.splitext( other ) )[ 1 ] )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'get_extension( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -988,14 +947,14 @@ class Message( ):
             self.__others = list( value )
 
     def __init__( self, sender, receiver, body, subject, copy = '' ):
-        self.__sender = sender if isinstance( sender, str ) and sender != '' else None
-        self.__receiver = receiver if isinstance( receiver, str ) and receiver != '' else None
-        self.__body = body if isinstance( body, str ) and body != '' else None
-        self.__others = copy if isinstance( copy, list ) and len( copy ) > 0 else None
-        self.__subject = subject if isinstance( subject, str ) and subject != '' else None
+        self.__sender = sender
+        self.__receiver = receiver
+        self.__body = body
+        self.__others = copy
+        self.__subject = subject
 
     def __str__( self ):
-        if isinstance( self.__body, str ) and self.__body != '':
+        if self.__body is not None:
             return self.__body
 
 # Emai( sender, receiver, body, subject, copy )
@@ -1023,55 +982,55 @@ class MessageBuilder( ):
     @property
     def sender( self ):
         ''' Gets the sender's email address '''
-        if isinstance( self.__from, str ) and self.__from != '':
+        if self.__from is not None:
             return self.__from
 
     @sender.setter
     def sender( self, value ):
         ''' Set the sender's email address '''
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__from = value
 
     @property
     def receiver( self ):
         ''' Gets the sender's email address '''
-        if isinstance( self.__to, str ) and self.__to != '':
+        if self.__to is not None:
             return self.__to
 
     @receiver.setter
     def receiver( self, value ):
         ''' Sets the receiver's email address '''
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__to = value
 
     @property
     def subject( self ):
         ''' Gets the email's subject line '''
-        if isinstance( self.__subject, str ) and self.__subject != '':
+        if self.__subject is not None:
             return self.__subject
 
     @subject.setter
     def subject( self, value ):
         ''' Sets the email's subject line '''
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__subject = value
 
     @property
     def body( self ):
         ''' Gets the email's subject line '''
-        if isinstance( self.__body, str ) and self.__body != '':
+        if self.__body is not None:
             return self.__body
 
     @body.setter
     def body( self, value ):
         ''' Sets the email's subject line '''
         if value is not None:
-            self.__to = str( value )
+            self.__body = str( value )
 
     @property
     def copy( self ):
         ''' Gets the addresses to send copies  '''
-        if isinstance( self.__others, list ):
+        if self.__others is not None:
             return self.__others
 
     @copy.setter

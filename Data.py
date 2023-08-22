@@ -126,8 +126,8 @@ class Pascal( ):
 
 # SqlPath( )
 class SqlPath( ):
-    '''class providing relative_path paths to the folders containing sql files and
-    driver paths used in the application'''
+    '''class providing relative_path paths to the
+    folders containing sql files and driver paths used in the application'''
     __accessdriver = None
     __accessdata = None
     __sqlitedriver = None
