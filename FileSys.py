@@ -606,29 +606,30 @@ class Folder( Path ):
     __dir = None
     __drive = None
     __current = None
+    __size = None
 
     @property
     def name( self ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if os.path.exists( self.__path ):
+        if self.__path is not None:
             return str( list( os.path.split( self.__path ) )[ 1 ] )
 
     @name.setter
     def name( self, value ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if isinstance( value, str ):
+        if value is not None:
             self.__path = value
 
     @property
     def directory( self ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if isinstance( self.__name, str ) and self.__name != '':
-            return self.__name
+        if self.__path is not None:
+            return str( list( os.path.split( self.__path ) )[ 1 ] )
 
     @directory.setter
     def directory( self, value ):
         '''Returns string representing the title of the selected_path 'base' '''
-        if os.path.isdir( value ):
+        if value is not None:
             self.__name = value
 
     @property
@@ -643,22 +644,22 @@ class Folder( Path ):
 
     @property
     def absolute_path( self ):
-        if isinstance( self.__absolutepath, str ) and self.__absolutepath != '':
+        if self.__absolutepath is not None:
             return self.__absolutepath
 
     @absolute_path.setter
     def absolute_path( self, value ):
-        if os.path.exists( value ) and os.path.isabs( value ):
+        if value is not None:
             self.__absolutepath = value
 
     @property
     def relative_path( self ):
-        if isinstance( self.__relativepath, str ) and self.__relativepath != '':
+        if self.__relativepath is not None:
             return self.__relativepath
 
     @relative_path.setter
     def relative_path( self, value ):
-        if isinstance( self.__relativepath, str ) and not os.path.isabs( value ):
+        if self.__relativepath is not None:
             self.__relativepath = value
 
     @property
@@ -668,8 +669,8 @@ class Folder( Path ):
 
     @parent.setter
     def parent( self, value ):
-        if os.path.isdir( value ):
-            self.__parent = str( value )
+        if value is not None:
+            self.__parent = value
 
     @property
     def drive( self ):
@@ -678,8 +679,18 @@ class Folder( Path ):
 
     @drive.setter
     def drive( self, value ):
-        if os.path.ismount( value ):
-            self.__drive = str( value )
+        if value is not None:
+            self.__drive = value
+
+    @property
+    def size( self ):
+        if self.__size is not None:
+            return self.__size
+
+    @size.setter
+    def size( self, value ):
+        if value is not None:
+            self.__size = value
 
     @property
     def current( self ):
@@ -695,19 +706,20 @@ class Folder( Path ):
     def __init__( self, path ):
         super( ).__init__( path )
         self.__buffer = super( ).buffer
+        self.__size = os.path.getsize( path )
+        self.__drive = super( ).drive
         self.__current = os.getcwd( )
         self.__path = path
         self.__name = os.path.basename( path )
         self.__parent = os.path.dirname( path )
-        self.__absolutepath = self.__path if os.path.isabs( path ) else None
-        self.__relativepath = self.__path if not os.path.isabs( path ) \
-            else f'{ os.getcwd( ) }\\{ self.__name }'
+        self.__absolutepath = os.path.isabs( path )
+        self.__relativepath = f'{ os.getcwd( ) }\\{ os.path.basename( path ) }'
 
     def __str__( self ):
         if self.__path is not None:
             return self.__path
 
-    def get_files( self ):
+    def get_files( self ) -> list:
         '''Iterates subfolders in the base directory
         and returns a list of subfile paths'''
         try:
@@ -727,7 +739,7 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_subfiles( self ):
+    def get_subfiles( self ) -> list:
         '''Iterates get_subfolders in the base directory'''
         try:
             current = self.__current
@@ -750,7 +762,7 @@ class Folder( Path ):
 
         return filenames
 
-    def get_subfolders( self ):
+    def get_subfolders( self ) -> list:
         '''Iterates get_subfolders in the base directory'''
         try:
             current = self.__current
@@ -799,7 +811,7 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def exists( self, other ):
+    def exists( self, other ) -> bool:
         '''determines if the base file exists'''
         try:
             if not other == '' and os.path.isdir( other ):
@@ -834,32 +846,6 @@ class Folder( Path ):
             exc.module = 'FileSys'
             exc.cause = 'Folder'
             exc.method = 'delete( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_size( self, other ):
-        ''' gets and returns size of 'selected_path' '''
-        try:
-            if other is not None and os.path.isdir( other ):
-                return os.path.getsize( other )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = ''
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_drive( self, other ):
-        ''' gets and returns parent directory of 'selected_path' '''
-        try:
-            if other is not None and os.path.isdir( other ):
-                return os.path.splitdrive( other )[ 0 ]
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'get_drive( self, other )'
             err = ErrorDialog( exc )
             err.show( )
 
