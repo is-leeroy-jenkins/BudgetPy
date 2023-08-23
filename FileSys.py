@@ -64,37 +64,37 @@ class Path( ):
 
     @property
     def path( self ):
-        if isinstance( self.__buffer, str ) and self.__buffer != '':
+        if self.__buffer is not None:
             return self.__buffer
 
     @path.setter
     def path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__buffer = value
 
     @property
     def drive( self ):
-        if isinstance( self.__drive, str ) and self.__drive != '':
+        if self.__drive is not None:
             return self.__drive
 
     @drive.setter
     def drive( self, value ):
-        if isinstance( value, str ):
+        if value is not None:
             self.__drive = os.path.splitdrive( value )[ 0 ]
 
     @property
     def extension( self ):
-        if  isinstance( self.__ext, str ):
-            return str( self.__ext )
+        if  self.__ext is not None:
+            return self.__ext
 
     @extension.setter
     def extension( self, value ):
-        if  isinstance( value, str ):
+        if  value is not None:
             self.__ext = str( value )
 
     @property
     def current_directory( self ):
-        if os.path.exists( self.__currdir ):
+        if self.__currdir is not None:
             return self.__currdir
 
     @current_directory.setter
@@ -106,66 +106,65 @@ class Path( ):
 
     @property
     def parent_directory( self ):
-        if isinstance( self.__parentdirectory, str ) and self.__parentdirectory != '':
+        if self.__parentdirectory is not None:
             return self.__parentdirectory
 
     @parent_directory.setter
     def parent_directory( self, value ):
         '''Set the current_directory directory to 'selected_path' '''
-        if isinstance( value, str ):
+        if value is not None:
             self.__parentdirectory = value
 
     @property
     def path_separator( self ):
-        if isinstance( self.__pathsep, str ):
+        if self.__pathsep is not None:
             return self.__pathsep
 
     @path_separator.setter
     def path_separator( self, value ):
         '''Set the current_directory directory to 'selected_path' '''
-        if isinstance( value, str ):
+        if value is not None:
             self.__pathsep = value
 
     @property
     def drive_separator( self ):
-        if isinstance( self.__drivesep, str ):
+        if self.__drivesep is not None:
             return self.__drivesep
 
     @drive_separator.setter
     def drive_separator( self, value ):
         '''Set the current_directory directory to 'selected_path' '''
-        if isinstance( value, str ):
+        if value is not None:
             self.__drivesep = value
 
     @property
     def extension_separator( self ):
-        if isinstance( self.__extsep, str ):
+        if self.__extsep is not None:
             return self.__extsep
 
     @extension_separator.setter
     def extension_separator( self, value ):
         '''Set the current_directory directory to 'selected_path' '''
-        if isinstance( value, str ):
+        if value is not None:
             self.__extsep = value
 
     def __init__( self, filepath ):
-        self.__buffer = filepath if isinstance( filepath, str ) else None
-        self.__name = os.path.split( filepath )[ 1 ] if isinstance( filepath, str ) else None
+        self.__buffer = filepath
+        self.__name = os.path.split( filepath )[ 1 ]
         self.__currdir = os.getcwd( )
-        self.__ext = os.path.splitext( filepath )[ 1 ] if isinstance( filepath, str ) else None
+        self.__ext = os.path.splitext( filepath )[ 1 ]
         self.__parentdirectory = os.path.split( filepath )[ 0 ]
         self.__report = r'etc\templates\report\Excel.xlsx'
         self.__pathsep = os.path.sep
         self.__extsep = os.extsep
         self.__drivesep = ':\\'
-        self.__drive = os.path.splitdrive( filepath )[ 0 ] if os.path.ismount( filepath ) \
-            else os.path.splitdrive( os.path.join( self.__currdir, filepath ) )[ 0 ]
+        self.__drive = os.path.splitdrive( filepath )[ 0 ]
 
     def __str__( self ):
        if self.__buffer is not None:
            return str( self.__buffer )
 
-    def exists( self ):
+    def exists( self ) -> bool:
         '''Method returning a boolean value indicating whether the
         internal 'self.__buffer' exists'''
         try:
@@ -181,7 +180,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_folder( self ):
+    def is_folder( self ) -> bool:
         '''Method returning boolean value indicating whether         self.__buffer is a folder'''
         try:
             if os.path.isdir( self.__buffer ):
@@ -196,7 +195,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_file( self ):
+    def is_file( self ) -> bool:
         '''Method returning boolean value indicating whether         self.__buffer is a file'''
         try:
             if os.path.isfile( self.__buffer ):
@@ -211,7 +210,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_absolute_path( self ):
+    def is_absolute_path( self ) -> bool:
         '''Method to determine if the buffer path is an
         absolute_path file path'''
         try:
@@ -228,7 +227,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_relative_path( self ):
+    def is_relative_path( self ) -> bool:
         '''Method to determine if the buffer path is a
         relative_path file path'''
         try:
@@ -245,7 +244,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def verify( self, other ):
+    def verify( self, other ) -> bool:
         '''Method returns a boolean value indicating if
         the external path 'other' exists'''
         try:
@@ -261,7 +260,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_extension( self, other ):
+    def get_extension( self, other ) -> str:
         '''Returns string representing the file extension of 'other' '''
         try:
             if isinstance( other, str ) and os.path.exists( other ):
@@ -274,7 +273,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_report_path( self, ext = EXT.XLSX ):
+    def get_report_path( self, ext = EXT.XLSX ) -> str:
         '''Method returns string representing the relative_path path
         to the report template
         '''
@@ -289,7 +288,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def join( self, first, second ):
+    def join( self, first, second ) -> str:
         ''' Method concatenates the path provided by the argument 'first'
         to the path provided by argument 'second' '''
         try:
@@ -850,7 +849,7 @@ class Folder( Path ):
             err.show( )
 
     def iterate( self ):
-        '''iterates get_subfolders in the base directory'''
+        '''iterates subfolders in the base directory'''
         try:
             for i in os.walk( self.__path ):
                 yield i
@@ -1155,7 +1154,7 @@ class Excel( ):
             exc.method = 'save( self )'
             err = ErrorDialog( exc )
             err.show( )
-
+7
 # ExcelReport( title, rows = 46, cols = 12 )
 class ExcelReport( ):
     '''ExcelReport( title ) class provides
