@@ -210,7 +210,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_absolute_path( self ) -> bool:
+    def is_absolute( self ) -> bool:
         '''Method to determine if the buffer path is an
         absolute_path file path'''
         try:
@@ -227,7 +227,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_relative_path( self ) -> bool:
+    def is_relative( self ) -> bool:
         '''Method to determine if the buffer path is a
         relative_path file path'''
         try:
@@ -273,7 +273,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_report_path( self, ext = EXT.XLSX ) -> str:
+    def get_reportpath( self, ext = EXT.XLSX ) -> str:
         '''Method returns string representing the relative_path path
         to the report template
         '''
@@ -611,7 +611,7 @@ class Folder( Path ):
     def name( self ):
         '''Returns string representing the title of the selected_path 'base' '''
         if self.__path is not None:
-            return str( list( os.path.split( self.__path ) )[ 1 ] )
+            return self.__path
 
     @name.setter
     def name( self, value ):
