@@ -1,6 +1,6 @@
 from PIL import Image, ImageTk, ImageSequence, ImageGrab
 import PySimpleGUI as sg
-import fitz
+#import fitz
 import sys
 import traceback
 import os
@@ -23,7 +23,7 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d.axes3d import get_test_data
 from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
-from Static import EXT, Client
+from Static import EXT, Client, PNG
 
 # Error( heading = '' )
 class Error( Exception ):
@@ -121,13 +121,13 @@ class Error( Exception ):
         if isinstance( value, str ) and value != '':
             self.__class = value
 
-    def __init__( self, heading = '', cause = '',
+    def __init__( self, exception, heading = '', cause = '',
                   method = '', module = '' ):
         super( ).__init__( )
         self.__heading = heading if isinstance( heading, str ) else '\t\tSomething unexpected happened!'
-        self.__class = cause if isinstance( cause, str ) and cause != '' else None
-        self.__method = method if isinstance( method, str ) and method != '' else None
-        self.__module = module if isinstance( module, str ) and module != '' else None
+        self.__class = cause
+        self.__method = method
+        self.__module = module
         self.__type = exc_info( )[ 0 ]
         self.__trace = traceback.format_exc( )
         self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + traceback.format_exc( )
@@ -399,90 +399,90 @@ class Sith( ):
     @property
     def size( self ):
         '''Gets the size proerty as a tuple'''
-        if isinstance( self.__formsize, tuple ):
+        if self.__formsize is not None:
             return self.__formsize
 
     @size.setter
     def size( self, value ):
         '''Sets the size property'''
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__formsize = value
 
     @property
     def settings_path( self ):
         '''Gets the size proerty as a tuple'''
-        if isinstance( self.__settingspath, tuple ):
+        if self.__settingspath is not None:
             return self.__settingspath
 
     @settings_path.setter
     def settings_path( self, value ):
         '''Sets the size property'''
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__settingspath = value
 
     @property
     def theme_background( self ):
-        if isinstance( self.__themebackground, str ) and self.__themebackground != '':
+        if self.__themebackground is not None:
             return self.__themebackground
 
     @theme_background.setter
     def theme_background( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__themebackground = value
 
     @property
     def theme_textcolor( self ):
-        if isinstance( self.__themetextcolor, str ):
+        if self.__themetextcolor is not None:
             return self.__themetextcolor
 
     @theme_textcolor.setter
     def theme_textcolor( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__themetextcolor = value
 
     @property
     def element_backcolor( self ):
-        if isinstance( self.__elementbackcolor, str ) and self.__elementbackcolor != '':
+        if self.__elementbackcolor is not None:
             return self.__elementbackcolor
 
     @element_backcolor.setter
     def element_backcolor( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__elementbackcolor = value
 
     @property
-    def elementforecolor( self ):
-        if isinstance( self.__elementforecolor, str ) and self.__elementforecolor != '':
+    def element_forecolor( self ):
+        if self.__elementforecolor is not None:
             return self.__elementforecolor
 
-    @element_backcolor.setter
+    @element_forecolor.setter
     def element_forecolor( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__elementforecolor = value
 
     @property
     def text_forecolor( self ):
-        if isinstance( self.__themetextcolor, str ) and self.__themetextcolor != '':
+        if self.__themetextcolor is not None:
             return self.__themetextcolor
 
     @text_forecolor.setter
     def text_forecolor( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__themetextcolor = value
 
     @property
     def text_backcolor( self ):
-        if isinstance( self.__textbackcolor, str ) and self.__textbackcolor != '':
+        if self.__textbackcolor is not None:
             return self.__textbackcolor
 
     @text_backcolor.setter
     def text_backcolor( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__textbackcolor = value
 
     @property
     def input_backcolor( self ):
-        if isinstance( self.__inputbackcolor, str ) and self.__inputbackcolor != '':
+        if self.__inputbackcolor is not None:
             return self.__inputbackcolor
 
     @input_backcolor.setter
@@ -492,82 +492,82 @@ class Sith( ):
 
     @property
     def input_forecolor( self ):
-        if isinstance( self.__inputforecolor, str ) and self.__inputforecolor != '':
+        if self.__inputforecolor is not None:
             return self.__inputforecolor
 
     @input_forecolor.setter
     def input_forecolor( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__inputforecolor = value
 
     @property
     def button_color( self ):
-        if isinstance( self.__buttoncolor, tuple ):
+        if self.__buttoncolor is not None:
             return self.__buttoncolor
 
     @button_color.setter
     def button_color( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__buttoncolor = value
 
     @property
     def button_backcolor( self ):
-        if isinstance( self.__buttonbackcolor, str ):
+        if self.__buttonbackcolor is not None:
             return self.__buttonbackcolor
 
     @button_backcolor.setter
     def button_backcolor( self, value ):
-        if isinstance( value, str ):
+        if value is not None:
             self.__buttonbackcolor = value
 
     @property
     def button_forecolor( self ):
-        if isinstance( self.__buttonforecolor, str ):
+        if self.__buttonforecolor is not None:
             return self.__buttonforecolor
 
     @button_forecolor.setter
     def button_forecolor( self, value ):
-        if isinstance( value, str ):
+        if value is not None:
             self.__buttonforecolor = value
 
     @property
     def icon_path( self ):
-        if isinstance( self.__icon, str ) and self.__icon != '':
+        if self.__icon is not None:
             return self.__icon
 
     @icon_path.setter
     def icon_path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__icon = value
 
     @property
     def theme_font( self ):
-        if isinstance( self.__themefont, tuple ):
+        if self.__themefont is not None:
             return self.__themefont
 
     @theme_font.setter
     def theme_font( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__themefont = value
 
     @property
     def scrollbar_color( self ):
-        if isinstance( self.__scrollbarcolor, str ) and self.__scrollbarcolor != '':
+        if self.__scrollbarcolor is not None:
             return self.__scrollbarcolor
 
     @scrollbar_color.setter
     def scrollbar_color( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__scrollbarcolor = value
 
     @property
     def progressbar_color( self ):
-        if isinstance( self.__progressbarcolor, tuple ):
+        if self.__progressbarcolor is not None:
             return self.__progressbarcolor
 
     @progressbar_color.setter
     def progressbar_color( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__progressbarcolor = value
 
     def __init__( self ):
@@ -902,7 +902,7 @@ class GoogleDialog( Sith ):
         if isinstance( self.__results, list ) and len( self.__results ) > 0:
             return self.__results
 
-    @search.setter
+    @results.setter
     def results( self, value ):
         if isinstance( value, list ) and len( value ) > 0:
             self.__results = value
@@ -1346,6 +1346,7 @@ class ErrorDialog( Sith ):
         red = '#F70202'
         font = ('Roboto', 10)
         padsz = (3, 3, 3, 3)
+        # noinspection PyTypeChecker
         layout = [ [ sg.Text( r'' ) ],
                    [ sg.Text( f'{msg}', size = (100, 1), key = '-MSG-', text_color = red,
                               font = font ) ],
@@ -1506,6 +1507,7 @@ class ScrollingDialog( Sith ):
         if isinstance( self.__text, str ):
             return self.__text
 
+    # noinspection PyTypeChecker
     def show( self ):
         try:
             line = (100, 1)
@@ -1717,6 +1719,7 @@ class GridForm( Sith ):
             buttons = [ [ sg.Text( '', size = (35, 1) ), sg.Text( '', size = (10, 1) ), ],
                         [ sg.Text( '', size = (100, 1) ), sg.Text( '', size = (100, 1) ), sg.Ok( size = (35, 2) ) ],
                         [ sg.Sizegrip( background_color = black ) ] ]
+            # noinspection PyTypeChecker
             layout = space + header + records + buttons
 
             window = sg.Window( '  Budget Execution', layout,
@@ -4546,7 +4549,7 @@ class CsvForm( Sith ):
             datagrid = [ [ sg.Table( values = data,
                                      headings = header_list,
                                      justification = 'center',
-                                     row_height = '18',
+                                     row_height = 18,
                                      display_row_numbers = True,
                                      vertical_scroll_only = False,
                                      header_background_color = '#1B262E',
@@ -4662,7 +4665,7 @@ class ExcelForm( Sith ):
             datagrid = [ [ sg.Table( values = data,
                                      headings = header_list,
                                      justification = 'center',
-                                     row_height = '18',
+                                     row_height = 18,
                                      display_row_numbers = True,
                                      vertical_scroll_only = False,
                                      header_background_color = '#1B262E',

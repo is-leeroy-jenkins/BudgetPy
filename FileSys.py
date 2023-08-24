@@ -231,7 +231,7 @@ class Path( ):
             err.show( )
 
     def is_relative_path( self ):
-        '''Method to determine if the buffer path is an
+        '''Method to determine if the buffer path is a
         relative_path file path'''
         try:
             if isinstance( self.__buffer, str ) and self.__buffer != '':
@@ -442,8 +442,8 @@ class File( Path ):
         if isinstance( self.__path, str ) and self.__path != '':
             return self.__path
 
-    def exists( self ):
-        if isinstance( self.__path, str ) and os.path.exists( self.__path ):
+    def exists( self ) -> bool:
+        if isinstance( self.__path, str ) and os.path.exists( self.__buffer ):
             return True
         else:
             return False
@@ -452,7 +452,7 @@ class File( Path ):
         '''Renames the current_directory file to 'other' '''
         try:
             if isinstance( other, str ) and not other == '':
-                src = os.path.abspath( self.__path )
+                src = os.path.abspath( self.__buffer )
                 dst = os.path.join( self.directory, other )
                 os.rename( src, dst )
                 return dst
@@ -521,10 +521,10 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_size( self, other ):
+    def get_size( self, other ) -> int:
         '''gets the size of another file'''
         try:
-            if self.__path is not None and os.path.isfile( other ):
+            if os.path.isfile( other ):
                 return os.path.getsize( other )
         except Exception as e:
             exc = Error( e )
@@ -599,7 +599,7 @@ class File( Path ):
         ''' writes the contents of 'lines' to self.__contents '''
         try:
             if isinstance( lines, list ):
-                path = os.path.relpath( self.__path )
+                path = os.path.relpath( self.__buffer )
                 contents = open( path, 'a' )
                 for line in lines:
                     contents.write( line )
@@ -619,7 +619,7 @@ class File( Path ):
             contents = [ ]
             lines = [ ]
             if os.path.isfile( other ):
-                path = os.path.relpath( self.__path )
+                path = os.path.relpath( self.__buffer )
                 contents = open( path, 'a' )
                 lines = open( other, 'r' )
                 for line in lines.readlines( ):
@@ -839,20 +839,6 @@ class Folder( Path ):
             exc.method = 'move( self, destination )'
             err = ErrorDialog( exc )
             err.show( )
-
-    def exists( self, other ):
-        '''determines if the base file exists'''
-        try:
-            if not other == '' and os.path.isdir( other ):
-                return True
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'exists( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
-
     def create( self, other ):
         try:
             if other is not None:
@@ -1131,8 +1117,8 @@ class Document( ):
     def __str__( self ):
         if self.__path is not None:
             return self.__path
-
 # Excel( fullpath )
+
 class Excel( ):
     '''Excel( selected_path ) class provides
     the spreadsheet for Budget Py reports '''
@@ -1331,7 +1317,7 @@ class ZipFile( ):
         self.__zipextension = '.zip'
         self.__filepath = filepath if os.path.isfile( filepath ) else None
         self.__extension = os.path.splitext( filepath )
-        self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
+        self.__zippath = self.__filepath.replace( self.__extension( 0 ), self.__zipextension )
         self.__name = os.path.basename( filepath )
 
     def create( self ):

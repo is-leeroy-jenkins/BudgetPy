@@ -1396,6 +1396,7 @@ class SQLiteData( Query ):
         if isinstance( self.__query, str ) and self.__query != '':
             return self.__query
 
+    # noinspection PyTypeChecker
     def create_table( self ) -> list[ tuple ]:
         try:
             query = self.__query
@@ -1496,14 +1497,14 @@ class AccessData( Query ):
         if isinstance( self.__query, str ) and self.__query != '':
             return self.__query
 
-    def create_table( self ) -> list[ tuple ]:
+    def create_table( self ) -> [ ]:
         try:
             query = self.__query
             access = self.__connection.connect( )
             cursor = access.cursor( )
             data = cursor.execute( query )
             self.__columns = [ i[ 0 ] for i in cursor.description ]
-            self.__data = [ tuple( i ) for i in data.fetchall( ) ]
+            self.__data = [ self.__data.append( i ) for i in data.fetchall( ) ]
             cursor.close( )
             access.close( )
             return self.__data
@@ -1651,12 +1652,12 @@ class DataBuilder( ):
 
     @property
     def source( self ):
-        if isinstance( self.__source, Source ):
+        if self.__source is not None:
             return self.__source
 
     @source.setter
     def source( self, value ):
-        if isinstance( value, Source ):
+        if value is not None:
             self.__source = value
 
     @property
@@ -1676,31 +1677,31 @@ class DataBuilder( ):
     @property
     def command( self ):
         '''Gets an instance of the DataCommand object'''
-        if isinstance( self.__commandtype, SQL ):
+        if self.__commandtype is not None:
             return self.__commandtype
 
     @command.setter
     def command( self, value ):
         '''Set the command property to a DataCommand instance'''
-        if isinstance( value, SQL ):
+        if value is not None:
             self.__commandtype = value
 
     @property
     def names( self ):
         '''Provides list of value names'''
-        if isinstance( self.__names, list ):
+        if self.__names is not None:
             return self.__names
 
     @names.setter
     def names( self, value ):
         '''Sets the list of value names'''
-        if isinstance( value, list ):
+        if value is not None:
             self.__names = value
 
     @property
     def values( self ):
         '''Provides tuple of value values'''
-        if isinstance( self.__values, tuple ):
+        if self.__values is not None:
             return self.__values
 
     @values.setter
@@ -1711,24 +1712,24 @@ class DataBuilder( ):
 
     @property
     def dataconfig( self ):
-        if isinstance( self.__dbconfig, DbConfig ):
+        if self.__dbconfig is not None:
             return self.__dbconfig
 
     @dataconfig.setter
     def dataconfig( self, value ):
-        if isinstance( value, DbConfig ):
+        if value is not None:
             self.__dbconfig = value
 
     @property
     def sqlconfig( self ):
         '''Gets instance of the SqlConfig class'''
-        if isinstance( self.__sqlcfg, SqlConfig ):
+        if self.__sqlcfg is not None:
             return self.__sqlcfg
 
     @sqlconfig.setter
     def sqlconfig( self, value ):
         '''Sets property to an instance of the SqlConfig class'''
-        if isinstance( value, SqlConfig ):
+        if value is not None:
             self.__sqlcfg = value
 
     def __init__( self, source, provider = Provider.SQLite,
@@ -1746,19 +1747,19 @@ class DataBuilder( ):
     def create_table( self ) -> list[ tuple ]:
         try:
             if self.__provider == Provider.SQLite:
-                sqlite = SQLiteData( self.__cnx, self.__sql )
+                sqlite = SQLiteData( self.__cnx, self.__sqlcfg )
                 self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.Access:
-                access = AccessData( self.__cnx, self.__sql )
+                access = AccessData( self.__cnx, self.__sqlcfg )
                 self.__data = [ tuple( i ) for i in access.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
-                sqlserver = SqlData( self.__cnx, self.__sql )
+                sqlserver = SqlData( self.__cnx, self.__sqlcfg )
                 self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
                 return self.__data
             else:
-                sqlite = SQLiteData( self.__cnx, self.__sql )
+                sqlite = SQLiteData( self.__cnx, self.__sqlcfg )
                 self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
                 return self.__data
         except Exception as e:
@@ -1827,7 +1828,7 @@ class DataColumn( ):
 
     @property
     def ordinal( self ):
-        if self.__value > -1:
+        if self.__value is not None:
             return self.__id
 
     @ordinal.setter

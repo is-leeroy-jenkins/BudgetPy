@@ -3226,22 +3226,22 @@ class AppropriationDocument( ):
 
     @property
     def document_date( self ):
-        if isinstance( self.__documentdate, datetime ):
+        if self.__documentdate is not None:
             return self.__documentdate
 
     @document_date.setter
     def document_date( self, value ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__documentdate = value
 
     @property
     def last_document_date( self ):
-        if isinstance( self.__lastdocumentdate, datetime ):
+        if self.__lastdocumentdate is not None:
             return self.__lastdocumentdate
 
     @last_document_date.setter
-    def lastdocumentdate( self, value ):
-        if isinstance( value, datetime ):
+    def last_document_date( self, value ):
+        if value is not None:
             self.__lastdocumentdate = value
 
     @property
@@ -3390,7 +3390,7 @@ class AppropriationDocument( ):
             return self.__carryoverout
 
     @carryover_out.setter
-    def carryoverout( self, value ):
+    def carryover_out( self, value ):
         if value is not None:
             self.__carryoverout = value
 
@@ -5385,7 +5385,7 @@ class BudgetOutlay( ):
             return self.__outyear7
 
     @out_year_7.setter
-    def outyear7( self, value ):
+    def out_year_7( self, value ):
         if value is not None:
             self.__outyear7 = value
 
@@ -6728,7 +6728,7 @@ class CarryoverOutlay( ):
             return self.__outyear7
 
     @out_year_7.setter
-    def outyear7( self, value ):
+    def out_year_7( self, value ):
         if value is not None:
             self.__outyear7 = value
 
