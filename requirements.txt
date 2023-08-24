@@ -1,4 +1,3 @@
-fitz
 matplotlib
 numpy
 openpyxl
