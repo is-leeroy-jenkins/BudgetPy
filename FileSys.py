@@ -309,7 +309,7 @@ class File( Path ):
      get_subfolders used in the application'''
     __absolute = None
     __name = None
-    __buffer = None
+    __path = None
     __size = None
     __extension = None
     __directory = None
@@ -374,7 +374,7 @@ class File( Path ):
 
     @property
     def extension( self ):
-        if isinstance( self.__extension, str ) and self.__extension != '':
+        if self.__extension is not None:
             return self.__extension
 
     @extension.setter
@@ -425,7 +425,7 @@ class File( Path ):
     def __init__( self, path = None ):
         super( ).__init__( path )
         self.__absolute = path if os.path.isabs( path ) else os.getcwd( ) + '\\' + path
-        self.__buffer = super( ).buffer
+        self.__path = super( ).buffer
         self.__name = os.path.basename( path )
         self.__size = os.path.getsize( path )
         self.__directory = os.path.dirname( path )
@@ -440,7 +440,7 @@ class File( Path ):
             return self.__path
 
     def exists( self ):
-        if isinstance( self.__path, str ) and os.path.exists( self.__path ):
+        if os.path.exists( self.__path ):
             return True
         else:
             return False
@@ -599,7 +599,7 @@ class Folder( Path ):
      Folder Class providing file directory information'''
     __absolutepath = None
     __relativepath = None
-    __buffer = None
+    __path = None
     __name = None
     __parent = None
     __dir = None
@@ -623,7 +623,7 @@ class Folder( Path ):
     def directory( self ):
         '''Returns string representing the title of the selected_path 'base' '''
         if self.__path is not None:
-            return str( list( os.path.split( self.__path ) )[ 1 ] )
+            return self.__path
 
     @directory.setter
     def directory( self, value ):
@@ -633,13 +633,13 @@ class Folder( Path ):
 
     @property
     def path( self ):
-        if self.__buffer is not None:
-            return self.__buffer
+        if self.__path is not None:
+            return self.__path
 
     @path.setter
     def path( self, value ):
         if value is not None:
-            self.__buffer = value
+            self.__path = value
 
     @property
     def absolute_path( self ):
@@ -704,14 +704,13 @@ class Folder( Path ):
 
     def __init__( self, path ):
         super( ).__init__( path )
-        self.__buffer = super( ).buffer
         self.__size = os.path.getsize( path )
         self.__drive = super( ).drive
         self.__current = os.getcwd( )
-        self.__path = path
+        self.__path = super().buffer
         self.__name = os.path.basename( path )
         self.__parent = os.path.dirname( path )
-        self.__absolutepath = os.path.isabs( path )
+        self.__absolutepath = os.path.abspath( path )
         self.__relativepath = f'{ os.getcwd( ) }\\{ os.path.basename( path ) }'
 
     def __str__( self ):
@@ -722,11 +721,9 @@ class Folder( Path ):
         '''Iterates subfolders in the base directory
         and returns a list of subfile paths'''
         try:
-            current = self.__current
-            abspath = self.__absolutepath
             filenames = [ ]
-            for i in os.listdir( abspath ):
-                path = os.path.join( abspath, i )
+            for i in os.listdir( self.__absolutepath ):
+                path = os.path.join( self.__absolutepath, i )
                 if os.path.isfile( path ):
                     filenames.append( path )
             return filenames
@@ -764,13 +761,11 @@ class Folder( Path ):
     def get_subfolders( self ) -> list:
         '''Iterates get_subfolders in the base directory'''
         try:
-            current = self.__current
-            abspath = self.__absolutepath
             filenames = [ ]
-            for i in os.walk( abspath ):
+            for i in os.walk( self.__absolutepath ):
                 if len( i[ 1 ] ) > 0:
                     for file in i[ 1 ]:
-                        path = os.path.join( abspath, file )
+                        path = os.path.join( self.__absolutepath, file )
                         if os.path.isdir( path ):
                             filenames.append( path )
             return filenames
@@ -810,10 +805,10 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def exists( self, other ) -> bool:
+    def exists( self ) -> bool:
         '''determines if the base file exists'''
         try:
-            if not other == '' and os.path.isdir( other ):
+            if os.path.isdir( self.__path ):
                 return True
         except Exception as e:
             exc = Error( e )
@@ -1275,7 +1270,7 @@ class ZipFile( ):
         self.__zipextension = '.zip'
         self.__filepath = filepath if os.path.isfile( filepath ) else None
         self.__extension = os.path.splitext( filepath )
-        self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
+        self.__zippath = self.__filepath.replace( self.__extension( 0 ), self.__zipextension )
         self.__name = os.path.basename( filepath )
 
     def create( self ):
