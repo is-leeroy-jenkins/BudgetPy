@@ -72,12 +72,14 @@ class Pascal( ):
                 if len( outstr ) < 5:
                     rtnstr = outstr.replace( ' ', '' )
                 else:
-                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ).replace( 'Rpio', 'RPIO' ).replace(
-                        'Rc', 'RC' ).replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ).replace( 'Omb', 'OMB' ).replace(
-                        'Npm', 'NPM' ).replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ).replace( ' THE ',
-                                                                                                ' The ' ).replace(
-                        ' OR ', ' Or ' ).replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' ).replace( ' OF ',
-                                                                                                         ' Of ' )
+                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' )\
+                        .replace( 'Rpio', 'RPIO' ).replace('Rc', 'RC' )\
+                        .replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' )\
+                        .replace( 'Omb', 'OMB' ).replace('Npm', 'NPM' )\
+                        .replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' )\
+                        .replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' )\
+                        .replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' )\
+                        .replace( ' OF ', ' Of ' )
 
                 self.__output = rtnstr
                 return self.__output
@@ -104,13 +106,14 @@ class Pascal( ):
                 for o in outlist:
                     outstr += f'{o}'
 
-                self.__output = outstr.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ).replace( 'RPIO', 'Rpio' ).replace(
-                    'RC', 'Rc' ).replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ).replace( 'OMB', 'Omb' ).replace( 'NPM',
-                                                                                                                'Npm'
-                                                                                                                ).replace(
-                    'FOC', 'Foc' ).replace( 'ORG', 'Org' ).replace( 'THE', 'The' ).replace( 'OR', 'Or' ).replace( 'AND',
-                                                                                                                  'And' ).replace(
-                    'BUT', 'But' ).replace( 'OF', 'Of' )
+                self.__output = outstr.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' )\
+                    .replace( 'RPIO', 'Rpio' ).replace('RC', 'Rc' )\
+                    .replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' )\
+                    .replace( 'OMB', 'Omb' ).replace( 'NPM','Npm' )\
+                    .replace('FOC', 'Foc' ).replace( 'ORG', 'Org' )\
+                    .replace( 'THE', 'The' ).replace( 'OR', 'Or' )\
+                    .replace( 'AND','And' ).replace( 'BUT', 'But' )\
+                    .replace( 'OF', 'Of' )
 
                 return self.__output
         except Exception as e:
@@ -123,8 +126,8 @@ class Pascal( ):
 
 # SqlPath( )
 class SqlPath( ):
-    '''class providing relative_path paths to the folders containing sql files and
-    driver paths used in the application'''
+    '''class providing relative_path paths to the
+    folders containing sql files and driver paths used in the application'''
     __accessdriver = None
     __accessdata = None
     __sqlitedriver = None
