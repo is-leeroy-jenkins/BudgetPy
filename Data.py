@@ -2218,7 +2218,7 @@ class BudgetData( ):
 
     def get_frame( self ):
         '''Factory method that returns a pandas DataFrame object
-        based on the Source buffer arguement 'source' given to the constructor'''
+        based on the Source input arguement 'source' given to the constructor'''
         try:
             path = self.__path
             src = self.__source

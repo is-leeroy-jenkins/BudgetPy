@@ -28,7 +28,7 @@ from Static import EXT, Client, PNG
 # Error( heading = '' )
 class Error( Exception ):
     '''Class wrapping exception data used as
-    the buffer argument for ErrorDialog class'''
+    the input argument for ErrorDialog class'''
     __class = None
     __module = None
     __method = None
@@ -303,7 +303,7 @@ class ColorFormat( ):
         self.__hsl = None
 
     def hex_to_hsl( self, hex ):
-        '''Converts the string buffer argument 'hex' representing a
+        '''Converts the string input argument 'hex' representing a
          hexidecimal color returing its equivalent 'hsl' value as a tuple'''
         self.__hex = hex
         r, g, b = hextorgb( hex )
@@ -314,14 +314,14 @@ class ColorFormat( ):
         return hsl
 
     def hex_to_rgb( self, hex ):
-        '''Converts the string buffer argument 'hex' representing a
+        '''Converts the string input argument 'hex' representing a
          hexidecimal color into its equivalent 'rgb' value'''
         hex = hex.lstrip( '#' )
         hlen = len( hex )
         return tuple( int( hex[ i:i + hlen // 3 ], 16 ) for i in range( 0, hlen, hlen // 3 ) )
 
     def rgb_to_hsl( self, r, g, b ):
-        '''Converts integer buffer arguments 'r, g, and b' representing
+        '''Converts integer input arguments 'r, g, and b' representing
          an rgb color into its equivalent hsl color '''
         r = float( r )
         g = float( g )
@@ -1370,7 +1370,7 @@ class ErrorDialog( Sith ):
 
 # Input( question )
 class InputDialog( Sith ):
-    '''class that produces a contact buffer form'''
+    '''class that produces a contact input form'''
     __question = None
     __response = None
     __themebackground = None
@@ -1463,7 +1463,7 @@ class InputDialog( Sith ):
 
 # ScrollingDialog( text = '' )
 class ScrollingDialog( Sith ):
-    '''Provides form for multiline buffer/output'''
+    '''Provides form for multiline input/output'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
@@ -1552,7 +1552,7 @@ class ScrollingDialog( Sith ):
 
 # ContactForm( contact )
 class ContactForm( Sith ):
-    '''class that produces a contact buffer form'''
+    '''class that produces a contact input form'''
     __themebackground = None
     __elementbackcolor = None
     __elementforecolor = None
