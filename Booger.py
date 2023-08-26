@@ -4035,9 +4035,6 @@ class BudgetForm( Sith ):
 # ChartPanel( )
 class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
-    __icon = None
-    __formsize = None
-    __themefont = None
 
     @property
     def header( self ):
@@ -4048,16 +4045,6 @@ class ChartPanel( Sith ):
     def header( self, value ):
         if value  is not None:
             self.__header = value
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -4124,23 +4111,13 @@ class CsvForm( Sith ):
 
     @property
     def header( self ):
-        if isin( self.__header, str ) and self.__header != '':
+        if self.__header is not None:
             return self.__header
 
     @header.setter
     def header( self, value ):
         if value  is not None:
             self.__header = value
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -4246,16 +4223,6 @@ class ExcelForm( Sith ):
     def header( self, value ):
         if value  is not None:
             self.__header = value
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -4371,17 +4338,6 @@ class ExcelForm( Sith ):
 # GraphForm( )
 class GraphForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
 
     def __init__( self ):
         super( ).__init__( )
