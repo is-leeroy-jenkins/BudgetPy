@@ -1196,12 +1196,12 @@ class Query( ):
             self.__cnx = value
 
     @property
-    def sql_statement( self ):
-        if isinstance( self.__sql, SqlStatement ):
+    def sql_statement( self ) -> SqlStatement:
+        if self.__sql is not None:
             return self.__sql
 
     @sql_statement.setter
-    def sql_statement( self, value ):
+    def sql_statement( self, value: SqlStatement ):
         if isinstance( value, SqlStatement ):
             self.__sql = value
 
@@ -1229,61 +1229,61 @@ class Query( ):
             self.__table = value
 
     @property
-    def names( self ):
-        if isinstance( self.__names, list ):
+    def names( self ) -> list:
+        if self.__names is not None:
             return self.__names
 
     @names.setter
-    def names( self, value ):
-        if isinstance( value, list ):
+    def names( self, value: list ):
+        if value is not None:
             self.__names = value
 
     @property
-    def values( self ):
-        if isinstance( self.__values, tuple ):
+    def values( self ) -> tuple:
+        if self.__values is not None:
             return self.__values
 
     @values.setter
-    def values( self, value ):
+    def values( self, value: tuple ):
         if value is not None:
             self.__values = value
 
     @property
-    def command_text( self ):
-        if isinstance( self.__text, str ) and self.__text != '':
+    def command_text( self ) -> str:
+        if self.__text is not None:
             return self.__text
 
     @command_text.setter
-    def command_text( self, value ):
+    def command_text( self, value: str ):
         if value is not None:
             self.__text = value
 
     @property
-    def connection_string( self ):
-        if isinstance( self.__connectionstring, str ):
+    def connection_string( self ) -> str:
+        if self.__connectionstring is not None:
             return self.__connectionstring
 
     @connection_string.setter
-    def connection_string( self, value ):
+    def connection_string( self, value: str ):
         if isinstance( value, str ):
             self.__connectionstring = str( value )
 
-    def __init__( self, connection, sqlstatement ):
-        self.__cnx = connection if isinstance( connection, Connection ) else None
-        self.__sql = sqlstatement if isinstance( sqlstatement, SqlStatement ) else None
-        self.__sqlcfg = sqlstatement.sqlconfig
-        self.__source = connection.source
-        self.__provider = connection.provider
-        self.__cmdtype = sqlstatement.command_type
-        self.__path = connection.path
-        self.__connectionstring = connection.connection_string
-        self.__text = sqlstatement.get_query( )
+    def __init__( self, conn: Connection, sql: SqlStatement ):
+        self.__cnx = conn if isinstance( conn, Connection ) else None
+        self.__sql = sql if isinstance( sql, SqlStatement ) else None
+        self.__sqlcfg = sql.sqlconfig
+        self.__source = conn.source
+        self.__provider = conn.provider
+        self.__cmdtype = sql.command_type
+        self.__path = conn.path
+        self.__connectionstring = conn.connection_string
+        self.__text = sql.get_query( )
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__text, str ) and self.__text != '':
             return self.__text
 
-    def get_query( self ):
+    def get_query( self ) -> str:
         try:
             table = self.__table
             columns = self.__sqlcfg.dump_columns( )
@@ -1356,37 +1356,37 @@ class SQLiteData( Query ):
             self.__driver = value
 
     @property
-    def data( self ):
-        if isinstance( self.__data, tuple ):
+    def data( self ) -> tuple:
+        if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: tuple ):
         if value is not None:
             self.__data = value
 
     @property
-    def frame( self ):
-        if isinstance( self.__frame, DataFrame ):
+    def frame( self: DataFrame ):
+        if self.__frame is not None:
             return self.__frame
 
     @frame.setter
-    def frame( self, value ):
-        if isinstance( value, DataFrame ):
+    def frame( self, value: DataFrame ):
+        if value is not None:
             self.__frame = value
 
     @property
-    def columns( self ):
-        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
+    def columns( self ) -> list:
+        if self.__columns is not None:
             return self.__columns
 
     @columns.setter
-    def columns( self, value ):
-        if isinstance( value, list ):
+    def columns( self, value: list ):
+        if value is not None:
             self.__columns = value
 
-    def __init__( self, connection, sqlstatement ):
-        super( ).__init__( connection, sqlstatement )
+    def __init__( self, conn: Connection, sql: SqlStatement ):
+        super( ).__init__( conn, sql )
         self.__provider = Provider.SQLite
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sql_statement
@@ -1395,8 +1395,8 @@ class SQLiteData( Query ):
         self.__driver = super( ).connection.driver
         self.__query = super( ).sql_statement.get_query( )
 
-    def __str__( self ):
-        if isinstance( self.__query, str ) and self.__query != '':
+    def __str__( self ) -> str:
+        if self.__query is not None:
             return self.__query
 
     # noinspection PyTypeChecker
@@ -1485,13 +1485,13 @@ class AccessData( Query ):
         if value is not None:
             self.__query = value
 
-    def __init__( self, connection, sqlstatement ):
-        super( ).__init__( connection, sqlstatement )
+    def __init__( self, conn, sql ):
+        super( ).__init__( conn, sql )
         self.__source = super( ).source
         self.__provider = Provider.Access
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sql_statement
-        self.__query = sqlstatement.query
+        self.__query = sql.query
         self.__table = super( ).table
         self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
@@ -1586,14 +1586,14 @@ class SqlData( Query ):
         if isinstance( value, list ):
             self.__columns = value
 
-    def __init__( self, connection, sqlstatement ):
-        super( ).__init__( connection, sqlstatement )
+    def __init__( self, conn, sql ):
+        super( ).__init__( conn, sql )
         self.__provider = Provider.SqlServer
-        self.__connection = connection
-        self.__source = connection.source
-        self.__sqlstatement = sqlstatement
-        self.__query = sqlstatement.query
-        self.__table = connection.source.name
+        self.__connection = conn
+        self.__source = conn.source
+        self.__sqlstatement = sql
+        self.__query = sql.query
+        self.__table = conn.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{ SQL Server Native Client 11.0 };'
 
@@ -1608,7 +1608,7 @@ class SqlData( Query ):
             cursor = connection.cursor( )
             data = cursor.execute( query )
             self.__columns = [ i[ 0 ] for i in cursor.description ]
-            self.__data = [ tuple( i ) for i in data.fetchall( ) ]
+            self.__data = [ self.__data.append( i ) for i in data.fetchall( ) ]
             cursor.close( )
             connection.close( )
             return self.__data
@@ -1622,7 +1622,7 @@ class SqlData( Query ):
 
     def create_frame( self ) -> DataFrame:
         try:
-            query = f'SELECT * FROM {self.__table}'
+            query = f'SELECT * FROM { self.__table }'
             connection = self.__connection.connect( )
             self.__frame = sqlreader( query, connection )
             connection.close( )
@@ -1750,19 +1750,19 @@ class DataBuilder( ):
     def create_table( self ) -> list[ tuple ]:
         try:
             if self.__provider == Provider.SQLite:
-                sqlite = SQLiteData( self.__cnx, self.__sqlcfg )
+                sqlite = SQLiteData( self.__cnx, self.__sql )
                 self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.Access:
-                access = AccessData( self.__cnx, self.__sqlcfg )
+                access = AccessData( self.__cnx, self.__sql )
                 self.__data = [ tuple( i ) for i in access.getdata( ) ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
-                sqlserver = SqlData( self.__cnx, self.__sqlcfg )
+                sqlserver = SqlData( self.__cnx, self.__sql )
                 self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
                 return self.__data
             else:
-                sqlite = SQLiteData( self.__cnx, self.__sqlcfg )
+                sqlite = SQLiteData( self.__cnx, self.__sql )
                 self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
                 return self.__data
         except Exception as e:
