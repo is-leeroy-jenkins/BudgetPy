@@ -40,91 +40,91 @@ class Error( Exception ):
     @property
     def message( self ):
         '''Gets the general heading for the dialog'''
-        if isinstance( self.__heading, str ) and self.__heading != '':
+        if self.__heading is not None:
             return self.__heading
 
     @message.setter
     def message( self, value ):
         '''Sets the general heading for the dialog'''
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__heading = value
 
     @property
     def cause( self ):
         '''Gets string indicating the class generating the exception'''
-        if isinstance( self.__class, str ) and self.__class != '':
+        if self.__class is not None:
             return self.__class
 
     @cause.setter
     def cause( self, value ):
         '''Sets the string indicating the class generating the exception'''
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__class = value
 
     @property
     def method( self ):
         '''Gets a string representing the method generating the exception'''
-        if isinstance( self.__method, str ) and self.__method != '':
+        if self.__method is not None:
             return self.__method
 
     @method.setter
     def method( self, value ):
         '''Sets a string representing method generating the exception'''
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__method = value
 
     @property
     def module( self ):
         '''Gets a string representing module generating the exception'''
-        if isinstance( self.__module, str ) and self.__module != '':
+        if self.__module is not None:
             return self.__module
 
     @module.setter
     def module( self, value ):
         '''Sets a string representing the module generating the exception'''
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__module = value
 
     @property
     def type( self ):
         '''sets the object type generating the exception'''
-        if isinstance( self.__type, Exception ):
+        if self.__type is not None:
             return self.__type
 
     @type.setter
     def type( self, value ):
         '''sets the object type generating the exception'''
-        if isinstance( value, Exception ):
+        if value is not None:
             self.__type = value
 
     @property
     def stack_trace( self ):
         '''Gets string returned by the 'traceback.format_exc( ) method '''
-        if isinstance( self.__trace, str ):
+        if self.__trace is not None:
             return self.__trace
 
     @stack_trace.setter
     def stack_trace( self, value ):
         '''Sets string returned by the 'traceback.format_exc( ) method '''
-        if isinstance( value, str ):
+        if value is not None:
             self.__trace = value
 
     @property
     def info( self ):
         '''Gets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
-        if isinstance( self.__class, str ) and self.__class != '':
+        if self.__class is not None:
             return self.__class
 
     @info.setter
     def info( self, value ):
         '''Sets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__class = value
 
     def __init__( self, exception, heading = '', cause = '',
                   method = '', module = '' ):
         super( ).__init__( )
-        self.__heading = heading if isinstance( heading, str ) else '\t\tSomething unexpected happened!'
+        self.__heading = heading
         self.__class = cause
         self.__method = method
         self.__module = module
@@ -133,7 +133,7 @@ class Error( Exception ):
         self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + traceback.format_exc( )
 
     def __str__( self ):
-        if isinstance( self.__info, str ) and self__trace != '':
+        if self.__info is not None:
             return self.__info
 
 # ButtonIcon( png )
@@ -145,32 +145,32 @@ class ButtonIcon( ):
 
     @property
     def folder( self ):
-        if isinstance( self.__button, str ) and self.__button != '':
+        if self.__button is not None:
             return self.__button
 
     @folder.setter
     def folder( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__button = value
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
+        if self.__name is not None:
             return self.__name
 
     @name.setter
     def name( self, value ):
-        if isinstance( value, str ):
+        if value is not None:
             self.__name = value
 
     @property
     def file_path( self ):
-        if isinstance( self.__filepath, str ) and self.__filepath != '':
+        if self.__filepath is not None:
             return self.__filepath
 
     @file_path.setter
     def file_path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__filepath = value
 
     def __init__( self, png ):
@@ -191,17 +191,17 @@ class TitleIcon( ):
 
     @property
     def folder( self ):
-        if isinstance( self.__button, str ) and self.__button != '':
+        if self.__button is not None:
             return self.__button
 
     @folder.setter
     def folder( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__button = value
 
     @property
     def name( self ):
-        if isinstance( self.__name, str ) and self.__name != '':
+        if self.__name is not None:
             return self.__name
 
     @name.setter
@@ -211,12 +211,12 @@ class TitleIcon( ):
 
     @property
     def file_path( self ):
-        if isinstance( self.__filepath, str ) and self.__filepath != '':
+        if self.__filepath is not None:
             return self.__filepath
 
     @file_path.setter
     def file_path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__filepath = value
 
     def __init__( self, ico ):
@@ -487,7 +487,7 @@ class Sith( ):
 
     @input_backcolor.setter
     def input_backcolor( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__inputbackcolor = value
 
     @property
@@ -629,7 +629,7 @@ class FileDialog( Sith ):
 
     @selected_path.setter
     def selected_path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__selecteditem = value
 
     @property
@@ -639,7 +639,7 @@ class FileDialog( Sith ):
 
     @message.setter
     def message( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__message = value
 
     def __init__( self, extension = EXT.XLSX ):
@@ -725,7 +725,7 @@ class FolderDialog( Sith ):
 
     @selected_path.setter
     def selected_path( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__selecteditem = value
 
     def __init__( self ):
@@ -884,7 +884,7 @@ class GoogleDialog( Sith ):
 
     @search.setter
     def search( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__querytext = value
 
     @property
@@ -894,7 +894,7 @@ class GoogleDialog( Sith ):
 
     @image.setter
     def image( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__image = value
 
     @property
@@ -996,7 +996,7 @@ class EmailDialog( Sith ):
 
     @sender.setter
     def sender( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__sender = value
 
     @property
@@ -1006,7 +1006,7 @@ class EmailDialog( Sith ):
 
     @receiver.setter
     def receiver( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__receiver = value
 
     @property
@@ -1016,7 +1016,7 @@ class EmailDialog( Sith ):
 
     @message.setter
     def message( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__message = value
 
     @property
@@ -1026,7 +1026,7 @@ class EmailDialog( Sith ):
 
     @subject.setter
     def subject( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__subject = value
 
     @property
@@ -1046,7 +1046,7 @@ class EmailDialog( Sith ):
 
     @username.setter
     def username( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__username = value
 
     @property
@@ -1056,7 +1056,7 @@ class EmailDialog( Sith ):
 
     @password.setter
     def password( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__password = value
 
     def __init__( self, sender = '', receiver = '', subject = '', message = '' ):
@@ -1162,7 +1162,7 @@ class MessageDialog( Sith ):
 
     @text.setter
     def text( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__text = value
 
     def __init__( self, text = '' ):
@@ -1255,7 +1255,7 @@ class ErrorDialog( Sith ):
     @info.setter
     def info( self, value ):
         '''Sets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__class = value
 
     @property
@@ -1267,7 +1267,7 @@ class ErrorDialog( Sith ):
     @cause.setter
     def cause( self, value ):
         '''Sets the string indicating the class generating the exception'''
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__class = value
 
     @property
@@ -1279,7 +1279,7 @@ class ErrorDialog( Sith ):
     @method.setter
     def method( self, value ):
         '''Sets a string representing method generating the exception'''
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__method = value
 
     @property
@@ -1291,7 +1291,7 @@ class ErrorDialog( Sith ):
     @module.setter
     def module( self, value ):
         '''Sets a string representing the module generating the exception'''
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__module = value
 
     @property
@@ -1313,7 +1313,7 @@ class ErrorDialog( Sith ):
 
     @message.setter
     def message( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__heading = value
 
     def __init__( self, exception ):
@@ -1392,7 +1392,7 @@ class InputDialog( Sith ):
 
     @question.setter
     def question( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__question = value
 
     @property
@@ -1402,7 +1402,7 @@ class InputDialog( Sith ):
 
     @response.setter
     def response( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__response = value
 
     def __init__( self, question ):
@@ -1484,7 +1484,7 @@ class ScrollingDialog( Sith ):
 
     @text.setter
     def text( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__text = value
 
     def __init__( self, text = '' ):
@@ -2122,7 +2122,7 @@ class Notification( Sith ):
 
     @message.setter
     def message( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__message = value
 
     def __init__( self ):
@@ -3048,7 +3048,7 @@ class ListBoxDialog( Sith ):
 
     @selected_item.setter
     def selected_item( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__selecteditem = value
 
     def __init__( self, data = None ):
@@ -3156,7 +3156,7 @@ class ColorDialog( Sith ):
 
     @rgb.setter
     def rgb( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__rgb = value
 
     @property
@@ -3166,7 +3166,7 @@ class ColorDialog( Sith ):
 
     @hex.setter
     def hex( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__hex = value
 
     @property
@@ -3176,7 +3176,7 @@ class ColorDialog( Sith ):
 
     @argb.setter
     def argb( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__argb = value
 
     @property
@@ -3186,7 +3186,7 @@ class ColorDialog( Sith ):
 
     @html.setter
     def html( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__html = value
 
     def __init__( self ):
@@ -4050,7 +4050,7 @@ class BudgetForm( Sith ):
 
     @image.setter
     def image( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__image = value
 
     def __init__( self ):
@@ -4400,7 +4400,7 @@ class ChartPanel( Sith ):
 
     @header.setter
     def header( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__header = value
 
     @property
@@ -4483,7 +4483,7 @@ class CsvForm( Sith ):
 
     @header.setter
     def header( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__header = value
 
     @property
@@ -4598,7 +4598,7 @@ class ExcelForm( Sith ):
 
     @header.setter
     def header( self, value ):
-        if isinstance( value, str ) and value != '':
+        if value  is not None:
             self.__header = value
 
     @property
