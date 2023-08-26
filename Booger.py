@@ -398,13 +398,13 @@ class Sith( ):
     __settingspath = None
 
     @property
-    def size( self ):
+    def size( self ) -> int:
         '''Gets the size proerty as a tuple'''
         if self.__formsize is not None:
             return self.__formsize
 
     @size.setter
-    def size( self, value ):
+    def size( self, value: int ):
         '''Sets the size property'''
         if value is not None:
             self.__formsize = value

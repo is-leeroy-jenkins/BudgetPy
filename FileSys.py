@@ -5,18 +5,6 @@ import zipfile as zp
 import openpyxl as xl
 from openpyxl import Workbook
 from Booger import Error, ErrorDialog
-from openpyxl.chart import ( AreaChart, AreaChart3D, BarChart, BarChart3D,
-                             Reference, Series, PieChart,  PieChart3D,
-                             ProjectedPieChart, LineChart, LineChart3D )
-from openpyxl.chart.series import DataPoint
-from openpyxl.styles import ( NamedStyle, PatternFill, Border, Side,
-                              Protection, Font, Fill, Color,
-                              GradientFill, Alignment )
-from openpyxl.formatting import Rule
-from openpyxl.styles.differential import DifferentialStyle
-from openpyxl.comments import Comment
-from openpyxl.worksheet.table import Table, TableStyleInfo
-from openpyxl.utils import units
 from Static import Source, Provider, SQL, Model, EXT
 import enum
 import sys
