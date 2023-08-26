@@ -1,6 +1,7 @@
 from PIL import Image, ImageTk, ImageSequence, ImageGrab
 import PySimpleGUI as sg
 #import fitz
+from enum import Enum
 import sys
 import traceback
 import os
