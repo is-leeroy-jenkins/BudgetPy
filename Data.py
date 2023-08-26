@@ -1140,10 +1140,10 @@ class SqlStatement( ):
 # Query( connection, sqlstatement )
 class Query( ):
     '''Base class for database interaction'''
-    __cnx = None
-    __sql = None
-    __sqlcfg = None
-    __cmdtype = None
+    __connection = None
+    __sqlstatement = None
+    __sqlconfiguration = None
+    __commandtype = None
     __source = None
     __table = None
     __provider = None
@@ -1187,36 +1187,36 @@ class Query( ):
 
     @property
     def connection( self ):
-        if isinstance( self.__cnx, Connection ):
-            return self.__cnx
+        if isinstance( self.__connection, Connection ):
+            return self.__connection
 
     @connection.setter
     def connection( self, value ):
         if isinstance( value, Connection ):
-            self.__cnx = value
+            self.__connection = value
 
     @property
     def sql_statement( self ) -> SqlStatement:
-        if self.__sql is not None:
-            return self.__sql
+        if self.__sqlstatement is not None:
+            return self.__sqlstatement
 
     @sql_statement.setter
     def sql_statement( self, value: SqlStatement ):
         if isinstance( value, SqlStatement ):
-            self.__sql = value
+            self.__sqlstatement = value
 
     @property
     def command_type( self ):
-        if self.__cmdtype is not None:
-            return self.__cmdtype
-        if self.__cmdtype is None:
+        if self.__commandtype is not None:
+            return self.__commandtype
+        if self.__commandtype is None:
             cmd = SQL( 'SELECT' )
             return cmd
 
     @command_type.setter
     def command_type( self, value ):
         if isinstance( value, SQL ):
-            self.__cmdtype = value
+            self.__commandtype = value
 
     @property
     def table( self ):
@@ -1269,12 +1269,12 @@ class Query( ):
             self.__connectionstring = str( value )
 
     def __init__( self, conn: Connection, sql: SqlStatement ):
-        self.__cnx = conn if isinstance( conn, Connection ) else None
-        self.__sql = sql if isinstance( sql, SqlStatement ) else None
-        self.__sqlcfg = sql.sqlconfig
+        self.__connection = conn if isinstance( conn, Connection ) else None
+        self.__sqlstatement = sql if isinstance( sql, SqlStatement ) else None
+        self.__sqlconfiguration = sql.sqlconfig
         self.__source = conn.source
         self.__provider = conn.provider
-        self.__cmdtype = sql.command_type
+        self.__commandtype = sql.command_type
         self.__path = conn.path
         self.__connectionstring = conn.connection_string
         self.__text = sql.get_query( )
@@ -1286,44 +1286,44 @@ class Query( ):
     def get_query( self ) -> str:
         try:
             table = self.__table
-            columns = self.__sqlcfg.dump_columns( )
-            values = self.__sqlcfg.dump_values( )
-            predicate = self.__sqlcfg.dump_where( )
+            columns = self.__sqlconfiguration.dump_columns( )
+            values = self.__sqlconfiguration.dump_values( )
+            predicate = self.__sqlconfiguration.dump_where( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-                if self.__cmdtype == SQL.SELECTALL:
+                if self.__commandtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
                         self.__text = f'SELECT * FROM { table }'
                         return self.__text
                     if len( self.__names ) > 0:
                         self.__text = f'SELECT ' + columns + f'FROM { table }' + f' { predicate }'
                         return self.__text
-                elif self.__cmdtype == SQL.SELECT:
+                elif self.__commandtype == SQL.SELECT:
                     if len( self.__names ) == 0:
                         self.__text = f'SELECT * FROM { table }'
                         return self.__text
                     if len( self.__names ) > 0:
                         self.__text = f'SELECT ' + columns + f' FROM { table }' + f' { predicate }'
                         return self.__text
-                elif self.__cmdtype == SQL.INSERT:
+                elif self.__commandtype == SQL.INSERT:
                     self.__text = f'INSERT INTO {table} ' + f'{ columns } ' + f'{ values }'
                     return self.__text
-                elif self.__cmdtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{ self.__sqlcfg.dump_set( ) } ' + f'{ values }'
+                elif self.__commandtype == SQL.UPDATE:
+                    self.__text = f'UPDATE {table} ' + f'{ self.__sqlconfiguration.dump_set( ) } ' + f'{ values }'
                     return self.__text
-                elif self.__cmdtype == SQL.DELETE:
+                elif self.__commandtype == SQL.DELETE:
                     self.__text = f'DELETE FROM { table } ' + f'{ predicate }'
                     return self.__text
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
-                    if self.__cmdtype == SQL.SELECT:
+                    if self.__commandtype == SQL.SELECT:
                         cols = columns.lstrip( '(' ).rstrip( ')' )
                         self.__text = f'SELECT { cols } FROM { table }'
                         return self.__text
                 elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
-                    if self.__cmdtype == SQL.SELECTALL:
+                    if self.__commandtype == SQL.SELECTALL:
                         self.__text = f'SELECT * FROM { table }'
                         return self.__text
-                elif self.__cmdtype == 'DELETE':
+                elif self.__commandtype == 'DELETE':
                     self.__text = f'DELETE FROM { table }'
                     return self.__text
         except Exception as e:
@@ -1346,13 +1346,13 @@ class SQLiteData( Query ):
     __columns = None
 
     @property
-    def driver( self ):
-        if isinstance( self.__driver, str ):
+    def driver( self ) -> str:
+        if self.__driver is not None:
             return self.__driver
 
     @driver.setter
-    def driver( self, value ):
-        if isinstance( value, str ):
+    def driver( self, value: str ):
+        if value is not None:
             self.__driver = value
 
     @property
