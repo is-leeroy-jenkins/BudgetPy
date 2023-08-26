@@ -173,13 +173,13 @@ class ButtonIcon( ):
         if value  is not None:
             self.__filepath = value
 
-    def __init__( self, png ):
-        self.__name = png.name if isinstance( png, PNG ) else None
+    def __init__( self, png: Enum ):
+        self.__name = png.name
         self.__button = os.getcwd( ) + r'\etc\img\button'
         self.__filepath = self.__button + r'\\' + self.__name + '.png'
 
-    def __str__( self ):
-        if isinstance( self.__filepath, str ):
+    def __str__( self ) -> str:
+        if self.__filepath is not None:
             return self.__filepath
 
 # TitleIcon( ico )
@@ -244,57 +244,57 @@ class ColorFormat( ):
     @property
     def red( self ):
         '''Property returning color tuple ( r, g, b ) '''
-        if isinstance( self.__red, int ):
+        if self.__red is not None:
             return self.__red
 
     @red.setter
     def red( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__red = value
 
     @property
     def green( self ):
         '''Property returning color tuple ( r, g, b ) '''
-        if isinstance( self.__green, int ):
+        if self.__green is not None:
             return self.__green
 
     @green.setter
     def green( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__green = value
 
     @property
     def blue( self ):
         '''Property returning color tuple ( r, g, b ) '''
-        if isinstance( self.__blue, int ):
+        if self.__blue is not None:
             return self.__blue
 
     @blue.setter
     def blue( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__blue = value
 
     @property
     def rgb( self ):
         '''Property returning color tuple ( r, g, b ) '''
-        if isinstance( self.__rgb, tuple ):
+        if self.__rgb is not None:
             return self.__rgb
 
     @rgb.setter
     def rgb( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__rgb = value
 
     @property
     def hex( self ):
         '''Property returning color string '#rrggbb '''
-        if isinstance( self.__hex, str ) and self.__hex.startswith( '#' ):
+        if self.__hex is not None:
             return self.__hex
 
     @hex.setter
     def hex( self, value ):
         '''Property sets hex value of a color to a string '#rrggbb' '''
-        if isinstance( value, str ) and value.startswith( '#' ):
+        if value is not None:
             self.__hex = value
 
     def __init__( self ):
@@ -313,7 +313,7 @@ class ColorFormat( ):
         hsl = rgbtohsl( r, g, b )
         return hsl
 
-    def hex_to_rgb( self, hex ):
+    def hex_to_rgb( self, hex ) -> tuple:
         '''Converts the string input argument 'hex' representing a
          hexidecimal color into its equivalent 'rgb' value'''
         hex = hex.lstrip( '#' )
@@ -343,7 +343,7 @@ class ColorFormat( ):
             h /= 6
         return h, s, v
 
-    def hsl_to_rgb( self, h, s, l ):
+    def hsl_to_rgb( self, h: int, s: int, l: int ) -> tuple:
         def hue_to_rgb( p, q, t ):
             t += 1 if t < 0 else 0
             t -= 1 if t > 1 else 0
@@ -366,12 +366,12 @@ class ColorFormat( ):
 
         return r, g, b
 
-    def hsv_to_hsl( self, h, s, v ):
+    def hsv_to_hsl( self, h: int, s: int, v: int ) -> tuple:
         l = 0.5 * v * (2 - s)
         s = v * s / (1 - fabs( 2 * l - 1 ))
         return h, s, l
 
-    def hsl_to_hsv( self, h, s, l ):
+    def hsl_to_hsv( self, h: int, s: int, l: int ) -> tuple:
         v = (2 * l + s * (1 - fabs( 2 * l - 1 ))) / 2
         s = 2 * (v - l) / v
         return h, s, v
@@ -599,18 +599,7 @@ class Sith( ):
 # FileDialog( ) -> str
 class FileDialog( Sith ):
     '''class that handles filenames a file'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __themefont = None
     __selecteditem = None
-    __formsize = None
     __extension = None
     __message = None
     __excel = None
@@ -624,7 +613,7 @@ class FileDialog( Sith ):
 
     @property
     def selected_path( self ):
-        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+        if self.__selecteditem is not None:
             return self.__selecteditem
 
     @selected_path.setter
@@ -634,7 +623,7 @@ class FileDialog( Sith ):
 
     @property
     def message( self ):
-        if isinstance( self.__message, str ) and self.__message != '':
+        if self.__message is not None:
             return self.__message
 
     @message.setter
@@ -658,17 +647,17 @@ class FileDialog( Sith ):
         self.__selecteditem = None
         self.__message = 'Search for File'
         self.__extension = extension if isinstance( extension, EXT ) else EXT.XLSX
-        self.__excel = (('Excel Files', '*.xlsx'),)
-        self.__csv = (('CSV Files', '*.csv'),)
-        self.__pdf = (('PDF Files', '*.pdf'),)
-        self.__sql = (('SQL Files', '*.sql'),)
-        self.__text = (('Text Files', '*.txt'),)
-        self.__access = (('MS ACCDB Databases', '*.accdb'),)
-        self.__sqlite = (('SQLite Databases', '*.db'),)
-        self.__sqlserver = (('SQL Server Databases', '*.mdf', '*.ldf', '*.sdf'),)
+        self.__excel = ( ( 'Excel Files', '*.xlsx' ), )
+        self.__csv = ( ( 'CSV Files', '*.csv' ) ,)
+        self.__pdf = ( ( 'PDF Files', '*.pdf' ), )
+        self.__sql = ( ( 'SQL Files', '*.sql' , ), )
+        self.__text = ( ( 'Text Files', '*.txt'),)
+        self.__access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
+        self.__sqlite = ( ( 'SQLite Databases', '*.db' ), )
+        self.__sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), )
 
-    def __str__( self ):
-        if isinstance( self.__selecteditem, str ):
+    def __str__( self ) -> str:
+        if self.__selecteditem is not None:
             return self.__selecteditem
 
     def show( self ):
@@ -705,22 +694,11 @@ class FileDialog( Sith ):
 # FolderDialog( ) -> str
 class FolderDialog( Sith ):
     '''Class defining dialog used to select a directory path'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __selecteditem = None
 
     @property
     def selected_path( self ):
-        if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
+        if self.__selecteditem is not None:
             return self.__selecteditem
 
     @selected_path.setter
@@ -743,7 +721,7 @@ class FolderDialog( Sith ):
         self.__formsize = (475, 250)
         self.__selecteditem = None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__selecteditem, str ):
             return self.__selecteditem
 
@@ -784,38 +762,27 @@ class FolderDialog( Sith ):
 class SaveFileDialog( Sith ):
     '''SaveFileDialog( path = '' ):
     class provides form to located file destinations'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __original = None
     __filename = None
 
     @property
     def original( self ):
-        if isinstance( self.__original, str ) and self.__original != '':
+        if self.__original is not None:
             return self.__original
 
     @original.setter
     def original( self, value ):
-        if isinstance( value, str ) and os.path.exists( value ):
-            self_original = value
+        if value is not None:
+            self.__original = value
 
     @property
     def file_name( self ):
-        if isinstance( self.__filename, str ) and self.__filename != '':
+        if self.__filename is not None:
             return self.__filename
 
     @file_name.setter
     def file_name( self, value ):
-        if isinstance( value, str ):
+        if value is not None:
             self__filename = value
 
     def __init__( self, path = '' ):
@@ -862,24 +829,13 @@ class SaveFileDialog( Sith ):
 # GoogleDialog(  )
 class GoogleDialog( Sith ):
     '''GoogleDialog(  ): class that renames a folder'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __image = None
     __querytext = None
     __results = None
 
     @property
     def search( self ):
-        if isinstance( self.__querytext, str ) and self.__querytext != '':
+        if iself.__querytext is not None:
             return self.__querytext
 
     @search.setter
@@ -889,7 +845,7 @@ class GoogleDialog( Sith ):
 
     @property
     def image( self ):
-        if isinstance( self.__image, str ) and self.__image != '':
+        if self.__image is not None:
             return self.__image
 
     @image.setter
@@ -899,12 +855,12 @@ class GoogleDialog( Sith ):
 
     @property
     def results( self ):
-        if isinstance( self.__results, list ) and len( self.__results ) > 0:
+        if self.__results is not None:
             return self.__results
 
     @results.setter
     def results( self, value ):
-        if isinstance( value, list ) and len( value ) > 0:
+        if value is not None:
             self.__results = value
 
     def __init__( self ):
@@ -919,10 +875,10 @@ class GoogleDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (500, 250)
+        self.__formsize = ( 500, 250 )
         self.__image = os.getcwd( ) + r'\etc\img\app\web\google.png'
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__results, list ):
             return self.__results[ 0 ]
 
@@ -931,11 +887,11 @@ class GoogleDialog( Sith ):
             self.__results = [ ]
             layout = [ [ sg.Text( r'' ) ],
                        [ sg.Image( source = self.__image ) ],
-                       [ sg.Text( '', size = (10, 1) ), sg.Input( '', key = '-QUERY-', size = (40, 2) ) ],
-                       [ sg.Text( r'', size = (100, 1) ) ],
-                       [ sg.Text( r'', size = (100, 1) ) ],
-                       [ sg.Text( r'', size = (10, 1) ), sg.Submit( size = (15, 1) ),
-                         sg.Text( r'', size = (5, 1) ), sg.Cancel( size = (15, 1) ) ] ]
+                       [ sg.Text( '', size = ( 10, 1 ) ), sg.Input( '', key = '-QUERY-', size = ( 40, 2 ) ) ],
+                       [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                       [ sg.Text( r'', size = ( 100, 1 ) ) ],
+                       [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ) ),
+                         sg.Text( r'', size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
 
             window = sg.Window( '  Budget Execution', layout,
                                 icon = self.__icon,
@@ -968,18 +924,7 @@ class EmailDialog( Sith ):
     '''EmailDialog( sender = '', receiver = '', subject = '', heading = '' ):
     Class providing form used to send email messages. Constructor
     accepts optional string arguments 'sender', 'receiver', 'subject', and 'heading' '''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
     __image = None
-    __formsize = None
-    __themefont = None
     __folderpath = None
     __sender = None
     __receiver = None
@@ -991,7 +936,7 @@ class EmailDialog( Sith ):
 
     @property
     def sender( self ):
-        if isinstance( self.__sender, str ) and self.__sender != '':
+        if self.__sender is not None:
             return self.__sender
 
     @sender.setter
@@ -1001,7 +946,7 @@ class EmailDialog( Sith ):
 
     @property
     def receiver( self ):
-        if isinstance( self.__receiver, str ) and self.__receiver != '':
+        if self.__receiver is not None:
             return self.__receiver
 
     @receiver.setter
@@ -1011,7 +956,7 @@ class EmailDialog( Sith ):
 
     @property
     def message( self ):
-        if isinstance( self.__message, str ) and self.__message != '':
+        if self.__message is not None:
             return self.__message
 
     @message.setter
@@ -1021,7 +966,7 @@ class EmailDialog( Sith ):
 
     @property
     def subject( self ):
-        if isinstance( self.__subject, str ) and self.__subject != '':
+        if self.__subject is not None:
             return self.__subject
 
     @subject.setter
@@ -1031,17 +976,17 @@ class EmailDialog( Sith ):
 
     @property
     def others( self ):
-        if isinstance( self.__others, list ):
+        if self.__others is not None:
             return self.__others
 
     @others.setter
     def others( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__others = value
 
     @property
     def username( self ):
-        if isinstance( self.__username, str ) and self.__username != '':
+        if self.__username is not None:
             return self.__username
 
     @username.setter
@@ -1051,7 +996,7 @@ class EmailDialog( Sith ):
 
     @property
     def password( self ):
-        if isinstance( self.__password, str ) and self.__password != '':
+        if self.__password is not None:
             return self.__password
 
     @password.setter
@@ -1078,16 +1023,16 @@ class EmailDialog( Sith ):
         self.__subject = subject if isinstance( subject, str ) and subject != '' else None
         self.__message = message if isinstance( message, str ) and message != '' else None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__message, str ):
             return self.__message
 
     def show( self ):
         try:
-            btn = (20, 1)
-            inp = (35, 1)
-            spc = (5, 1)
-            img = (50, 22)
+            btn = ( 20, 1 )
+            inp = ( 35, 1 )
+            spc = ( 5, 1 )
+            img = ( 50, 22 )
             clr = '#69B1EF'
             layout = [ [ sg.Text( ' ', size = spc ), ],
                        [ sg.Text( ' ', size = spc ), ],
@@ -1116,7 +1061,7 @@ class EmailDialog( Sith ):
 
             while True:  # Event Loop
                 event, values = window.read( )
-                if event in (sg.WIN_CLOSED, 'Cancel', 'Exit'):
+                if event in ( sg.WIN_CLOSED, 'Cancel', 'Exit' ):
                     break
                 if event == 'Send':
                     sg.popup_quick_message( 'Sending your heading... this will take a moment...',
@@ -1142,22 +1087,11 @@ class MessageDialog( Sith ):
     ''' MessageDialog( text = '' ):
     Class that provides form used
      to display informational messages '''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __text = None
 
     @property
     def text( self ):
-        if isinstance( self.__text, str ) and self.__text != '':
+        if self.__text is not None:
             return self.__text
 
     @text.setter
@@ -1166,7 +1100,7 @@ class MessageDialog( Sith ):
             self.__text = value
 
     def __init__( self, text = '' ):
-        self.__text = text if isinstance( text, str ) and text != '' else None
+        self.__text = text
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -1186,22 +1120,22 @@ class MessageDialog( Sith ):
 
     def show( self ):
         try:
-            txtsz = (100, 1)
-            btnsz = (10, 1)
+            txtsz = ( 100, 1 )
+            btnsz = ( 10, 1 )
             layout = [ [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
-                       [ sg.Text( r'', size = (5, 1) ),
+                       [ sg.Text( r'', size = ( 5, 1 ) ),
                          sg.Text( self.__text,
-                                  font = ('Roboto', 11),
+                                  font = ( 'Roboto', 11 ),
                                   enable_events = True,
                                   key = '-TEXT-',
                                   text_color = '#69B1EF',
-                                  size = (80, 1) ) ],
+                                  size = ( 80, 1 ) ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
-                       [ sg.Text( r'', size = (5, 1) ), sg.Ok( size = btnsz ),
-                         sg.Text( r'', size = (15, 1) ), sg.Cancel( size = btnsz ) ] ]
+                       [ sg.Text( r'', size = ( 5, 1 ) ), sg.Ok( size = btnsz ),
+                         sg.Text( r'', size = ( 15, 1 ) ), sg.Cancel( size = btnsz ) ] ]
 
             window = sg.Window( r'  Budget Execution', layout,
                                 icon = self.__icon,
@@ -1210,7 +1144,7 @@ class MessageDialog( Sith ):
 
             while True:
                 event, values = window.read( )
-                if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel'):
+                if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel' ):
                     break
 
             window.close( )
@@ -1234,22 +1168,11 @@ class ErrorDialog( Sith ):
     __trace = None
     __info = None
     __exception = None
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
 
     @property
     def info( self ):
         '''Gets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
-        if isinstance( self.__class, str ) and self.__class != '':
+        if self.__class is not None:
             return self.__class
 
     @info.setter
@@ -1261,7 +1184,7 @@ class ErrorDialog( Sith ):
     @property
     def cause( self ):
         '''Gets string indicating the class generating the exception'''
-        if isinstance( self.__class, str ) and self.__class != '':
+        if self.__class is not None:
             return self.__class
 
     @cause.setter
@@ -1273,7 +1196,7 @@ class ErrorDialog( Sith ):
     @property
     def method( self ):
         '''Gets a string representing the method generating the exception'''
-        if isinstance( self.__method, str ) and self.__method != '':
+        if self.__method is not None:
             return self.__method
 
     @method.setter
@@ -1285,7 +1208,7 @@ class ErrorDialog( Sith ):
     @property
     def module( self ):
         '''Gets a string representing module generating the exception'''
-        if isinstance( self.__module, str ) and self.__module != '':
+        if self.__module is not None:
             return self.__module
 
     @module.setter
@@ -1297,18 +1220,18 @@ class ErrorDialog( Sith ):
     @property
     def type( self ):
         '''sets the object type generating the exception'''
-        if isinstance( self.__type, Exception ):
+        if self.__type is not None:
             return self.__type
 
     @type.setter
     def type( self, value ):
         '''sets the object type generating the exception'''
-        if isinstance( value, Exception ):
+        if  value is not None:
             self.__type = value
 
     @property
     def message( self ):
-        if isinstance( self.__heading, str ) and self.__heading != '':
+        if self.__heading is not None:
             return self.__heading
 
     @message.setter
@@ -1344,17 +1267,17 @@ class ErrorDialog( Sith ):
         info = f'Module:\t{self.__module}\r\nClass:\t{self.__cause}\r\n' \
                f'Method:\t{self.__method}\r\n \r\n{self.__info}'
         red = '#F70202'
-        font = ('Roboto', 10)
-        padsz = (3, 3, 3, 3)
+        font = ( 'Roboto', 10 )
+        padsz = ( 3, 3, 3, 3 )
         # noinspection PyTypeChecker
         layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( f'{msg}', size = (100, 1), key = '-MSG-', text_color = red,
+                   [ sg.Text( f'{msg}', size = ( 100, 1 ), key = '-MSG-', text_color = red,
                               font = font ) ],
-                   [ sg.Text( r'', size = (150, 1) ) ],
-                   [ sg.Multiline( f'{info}', key = '-INFO-', size = (80, 7), pad = padsz ) ],
+                   [ sg.Text( r'', size = ( 150, 1 ) ) ],
+                   [ sg.Multiline( f'{info}', key = '-INFO-', size = ( 80, 7 ), pad = padsz ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( r'', size = (20, 1) ), sg.Cancel( size = (15, 1), key = '-CANCEL-' ),
-                     sg.Text( r'', size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
+                   [ sg.Text( r'', size = ( 20, 1 ) ), sg.Cancel( size = ( 15, 1 ), key = '-CANCEL-' ),
+                     sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
 
         window = sg.Window( r' Budget Execution', layout,
                             icon = self.__icon,
@@ -1363,7 +1286,7 @@ class ErrorDialog( Sith ):
 
         while True:
             event, values = window.read( )
-            if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Canel', '-OK-'):
+            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Canel', '-OK-' ):
                 break
 
         window.close( )
@@ -1373,21 +1296,11 @@ class InputDialog( Sith ):
     '''class that produces a contact input form'''
     __question = None
     __response = None
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
     __themefont = None
 
     @property
     def question( self ):
-        if isinstance( self.__question, str ) and self.__question != '':
+        if self.__question is not None:
             return self.__question
 
     @question.setter
@@ -1397,7 +1310,7 @@ class InputDialog( Sith ):
 
     @property
     def response( self ):
-        if isinstance( self.__response, str ) and self.__response != '':
+        if self.__response is not None:
             return self.__response
 
     @response.setter
@@ -1421,7 +1334,7 @@ class InputDialog( Sith ):
         self.__formsize = (500, 250)
         self.__response = None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__response, str ):
             return self.__response
 
@@ -1464,22 +1377,11 @@ class InputDialog( Sith ):
 # ScrollingDialog( text = '' )
 class ScrollingDialog( Sith ):
     '''Provides form for multiline input/output'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
     __arrowcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
 
     @property
     def text( self ):
-        if isinstance( self.__text, str ) and self.__text != '':
+        if self.__text is not None:
             return self.__text
 
     @text.setter
@@ -1503,7 +1405,7 @@ class ScrollingDialog( Sith ):
         self.__formsize = (700, 600)
         self.__text = text if isinstance( text, str ) and text != '' else None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__text, str ):
             return self.__text
 
@@ -1553,26 +1455,15 @@ class ScrollingDialog( Sith ):
 # ContactForm( contact )
 class ContactForm( Sith ):
     '''class that produces a contact input form'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
 
     @property
     def size( self ):
-        if isinstance( self.__formsize, tuple ):
+        if self.__formsize is not None:
             return self.__formsize
 
     @size.setter
     def size( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__formsize = value
 
     def __init__( self ):
@@ -1632,59 +1523,38 @@ class ContactForm( Sith ):
 # GridForm( )
 class GridForm( Sith ):
     '''object providing form that simulates a datagrid '''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
     __width = None
-    __themefont = None
     __rows = None
     __columns = None
 
     @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
-
-    @property
     def field_width( self ):
-        if isinstance( self.__width, tuple ):
+        if self.__width is not None:
             return self.__width
 
     @field_width.setter
     def field_width( self, value ):
-        if isinstance( value, tuple ) and len( value ) == 2:
+        if value is not None:
             self.__width = value
 
     @property
     def rows( self ):
-        if isinstance( self.__rows, int ):
+        if self.__rows is not None:
             return self.__rows
 
     @rows.setter
     def rows( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__rows = value
 
     @property
     def columns( self ):
-        if isinstance( self.__columns, int ) and self.__columns != 0:
+        if self.__columns is not None:
             return self.__columns
 
     @columns.setter
     def columns( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__columns = value
 
     def __init__( self, rows = 30, columns = 10 ):
@@ -1746,29 +1616,8 @@ class GridForm( Sith ):
 # LoadingPanel( )
 class LoadingPanel( Sith ):
     '''object providing form loading behavior '''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __image = None
     __timeout = None
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     @property
     def timeout( self ):
@@ -1777,7 +1626,7 @@ class LoadingPanel( Sith ):
 
     @timeout.setter
     def timeout( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__timeout = value
 
     def __init__( self ):
@@ -1834,29 +1683,8 @@ class LoadingPanel( Sith ):
 # WaitingPanel( )
 class WaitingPanel( Sith ):
     '''object providing form loader behavior '''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __image = None
     __timeout = None
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     @property
     def timeout( self ):
@@ -1865,7 +1693,7 @@ class WaitingPanel( Sith ):
 
     @timeout.setter
     def timeout( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__timeout = value
 
     def __init__( self ):
@@ -1885,7 +1713,7 @@ class WaitingPanel( Sith ):
         self.__formsize = (800, 600)
         self.__timeout = 6000
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             layout = [ [ sg.Text( '',
                                   background_color = '#000000',
@@ -1897,9 +1725,9 @@ class WaitingPanel( Sith ):
             window = sg.Window( '  Waiting...', layout,
                                 icon = self.__icon,
                                 element_justification = 'c',
-                                margins = (0, 0),
-                                element_padding = (0, 0),
-                                size = (800, 600),
+                                margins = ( 0, 0 ),
+                                element_padding = ( 0, 0),
+                                size = ( 800, 600 ),
                                 finalize = True )
 
             window[ '-T-' ].expand( True, True, True )
@@ -1924,38 +1752,17 @@ class WaitingPanel( Sith ):
 # ProcessingPanel( )
 class ProcessingPanel( Sith ):
     '''object providing form processing behavior '''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __image = None
     __timeout = None
 
     @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
-
-    @property
     def timeout( self ):
-        if isinstance( self.__timeout, int ):
+        if self.__timeout is not None:
             return self.__timeout
 
     @timeout.setter
     def timeout( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__timeout = value
 
     def __init__( self ):
@@ -2018,38 +1825,17 @@ class ProcessingPanel( Sith ):
 # SplashPanel( )
 class SplashPanel( Sith ):
     '''Class providing splash dialog behavior'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __image = None
     __timeout = None
 
     @property
-    def form_size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @form_size.setter
-    def form_size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
-
-    @property
     def timeout( self ):
-        if isinstance( self.__timeout, int ):
+        if self.__timeout is not None:
             return self.__timeout
 
     @timeout.setter
     def timeout( self, value ):
-        if isinstance( value, int ):
+        if value  is not None:
             self.__timeout = value
 
     def __init__( self ):
@@ -2101,23 +1887,12 @@ class SplashPanel( Sith ):
 # Notification( )
 class Notification( Sith ):
     '''object providing form processing behavior '''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __image = None
     __message = None
 
     @property
     def message( self ):
-        if isinstance( self.__message, str ) and self.__message != '':
+        if self.__message is not None:
             return self.__message
 
     @message.setter
@@ -2202,7 +1977,7 @@ class Notification( Sith ):
         self.__message = '\r\nThe action you have performed \
                           has been successful!'
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__message, str ):
             return self.__message
 
@@ -2226,17 +2001,6 @@ class Notification( Sith ):
 # ImageSizeEncoder( )
 class ImageSizeEncoder( Sith ):
     '''Class resizing image and encoding behavior'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __image = None
     __timeout = None
 
@@ -2426,27 +2190,6 @@ class ImageSizeEncoder( Sith ):
 # PdfForm( )
 class PdfForm( Sith ):
     '''Creates form to view a PDF'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -2579,17 +2322,6 @@ class PdfForm( Sith ):
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
     '''class creates form providing today selection behavior'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __selecteditem = None
     __day = None
     __month = None
@@ -2651,9 +2383,9 @@ class CalendarDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = (500, 250)
+        self.__formsize = ( 500, 250 )
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__selecteditem, tuple ):
             yr = str( self.__selecteditem[ 2 ] )
             mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
@@ -2663,8 +2395,8 @@ class CalendarDialog( Sith ):
 
     def show( self ):
         try:
-            btnsize = (20, 1)
-            calendar = (250, 250)
+            btnsize = ( 20, 1 )
+            calendar = ( 250, 250 )
 
             months = [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL',
                        'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ]
@@ -2691,28 +2423,7 @@ class CalendarDialog( Sith ):
 # DatePanel( )
 class DatePanel( Sith ):
     ''' Desktop widget displaying today time text'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __selecteditem = None
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     def __init__( self ):
         super( ).__init__( )
@@ -2901,29 +2612,8 @@ class DatePanel( Sith ):
 # ComboBoxDialog( list )
 class ComboBoxDialog( Sith ):
     '''Logger object provides form for log printing'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __items = None
     __selecteditem = None
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value:int ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     @property
     def items( self ):
@@ -3006,30 +2696,9 @@ class ComboBoxDialog( Sith ):
 # ListBoxDialog( data )
 class ListBoxDialog( Sith ):
     '''List search and selection'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __selecteditem = None
     __items = None
     __image = None
-
-    @property
-    def size( self ):
-        if isinstance( self.__formsize, tuple ):
-            return self.__formsize
-
-    @size.setter
-    def size( self, value ):
-        if isinstance( value, tuple ):
-            self.__formsize = value
 
     @property
     def items( self ):
@@ -3133,17 +2802,6 @@ class ListBoxDialog( Sith ):
 # ColorDialog( )
 class ColorDialog( Sith ):
     '''class provides a form to select colors returning string values'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __formsize = None
-    __themefont = None
     __rgb = None
     __hex = None
     __html = None
@@ -3151,7 +2809,7 @@ class ColorDialog( Sith ):
 
     @property
     def rgb( self ):
-        if isinstance( self.__rgb, str ) and self.__rgb != '':
+        if self.__rgb is not None:
             return self.__rgb
 
     @rgb.setter
@@ -3161,7 +2819,7 @@ class ColorDialog( Sith ):
 
     @property
     def hex( self ):
-        if isinstance( self.__hex, str ) and self.__hex != '':
+        if self.__hex is not None:
             return self.__hex
 
     @hex.setter
@@ -3171,7 +2829,7 @@ class ColorDialog( Sith ):
 
     @property
     def argb( self ):
-        if isinstance( self.__argb, str ) and self.__argb != '':
+        if self.__argb is not None:
             return self.__argb
 
     @argb.setter
@@ -3181,7 +2839,7 @@ class ColorDialog( Sith ):
 
     @property
     def html( self ):
-        if isinstance( self.__html, str ) and self.__html != '':
+        if self.__html is not None:
             return self.__html
 
     @html.setter
@@ -3947,18 +3605,6 @@ class ColorDialog( Sith ):
 # BudgetForm( )
 class BudgetForm( Sith ):
     '''class defining basic dashboard for the application'''
-    __themebackground = None
-    __elementbackcolor = None
-    __elementforecolor = None
-    __themetextcolor = None
-    __textbackcolor = None
-    __inputbackcolor = None
-    __inputforecolor = None
-    __buttoncolor = None
-    __icon = None
-    __image = None
-    __formsize = None
-    __themefont = None
     __titleitems = None
     __titlelayout = None
     __headerlayout = None
@@ -3975,77 +3621,77 @@ class BudgetForm( Sith ):
 
     @property
     def title_items( self ):
-        if isinstance( self.__titleitems, list ):
+        if self.__titleitems is not None:
             return self.__titleitems
 
     @title_items.setter
     def title_items( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__titleitems = value
 
     @property
     def header_items( self ):
-        if isinstance( self.__headeritems, list ):
+        if self.__headeritems is not None:
             return self.__headeritems
 
     @header_items.setter
     def header_items( self, value ):
-        if isinstance( value, list ) and len( value ) == 3:
+        if value is not None:
             self.__headeritems = value
 
     @property
     def first_items( self ):
-        if isinstance( self.__firstitems, list ):
+        if self.__firstitems is not None:
             return self.__firstitems
 
     @first_items.setter
     def first_items( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__firstitems = value
 
     @property
     def second_items( self ):
-        if isinstance( self.__seconditems, list ):
+        if self.__seconditems is not None:
             return self.__seconditems
 
     @second_items.setter
     def second_items( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__seconditems = value
 
     @property
     def third_items( self ):
-        if isinstance( self.__thirditems, list ):
+        if self.__thirditems is not None:
             return self.__thirditems
 
     @third_items.setter
     def third_items( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__thirditems = value
 
     @property
     def fourth_items( self ):
-        if isinstance( self.__fourthitems, list ):
+        if self.__fourthitems is not None:
             return self.__fourthitems
 
     @fourth_items.setter
     def fourth_items( self, value ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__fourthitems = value
 
     @property
     def form_size( self ):
-        if isinstance( self.__formsize, tuple ):
+        if self.__formsize is not None:
             return self.__formsize
 
     @form_size.setter
     def form_size( self, value ):
-        if isinstance( value, tuple ):
+        if value is not None:
             self.__formsize = value
 
     @property
     def image( self ):
-        if isinstance( self.__image, str ):
+        if self.__image is not None:
             return self.__image
 
     @image.setter
@@ -4068,8 +3714,8 @@ class BudgetForm( Sith ):
         self.__formsize = (1200, 650)
         self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
 
-    def create_title( self, items ):
-        if isinstance( items, list ) and len( items ) == 2:
+    def create_title( self, items: list ) -> list:
+        if items is not None:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4096,8 +3742,8 @@ class BudgetForm( Sith ):
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def create_header( self, items ):
-        if isinstance( items, list ) and len( items ) == 3:
+    def create_header( self, items: list ) -> list:
+        if items is not None:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4122,8 +3768,8 @@ class BudgetForm( Sith ):
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def create_first( self, items ):
-        if isinstance( items, list ) and len( items ) == 7:
+    def create_first( self, items: list ) -> list:
+        if items is not None:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4152,8 +3798,8 @@ class BudgetForm( Sith ):
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def create_second( self, items ):
-        if isinstance( items, list ) and len( items ) == 7:
+    def create_second( self, items: list ) -> list:
+        if items is not None:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4182,8 +3828,8 @@ class BudgetForm( Sith ):
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def create_third( self, items ):
-        if isinstance( items, list ) and len( items ) == 7:
+    def create_third( self, items: list ) -> list:
+        if items is not None:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4208,12 +3854,12 @@ class BudgetForm( Sith ):
                 exc = Error( e )
                 exc.module = 'Booger'
                 exc.cause = 'BudgetForm'
-                exc.method = 'setthirdtext( self, items )'
+                exc.method = 'create_third( self, items: list )'
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def create_fourth( self, items ):
-        if isinstance( items, list ) and len( items ) == 7:
+    def create_fourth( self, items: list ) -> list:
+        if items is not None:
             try:
                 blu = '#051F3D'
                 blk = '#101010'
@@ -4238,11 +3884,11 @@ class BudgetForm( Sith ):
                 exc = Error( e )
                 exc.module = 'Booger'
                 exc.cause = 'BudgetForm'
-                exc.method = 'create_fourth( self, items )'
+                exc.method = 'create_fourth( self, items: list )'
                 err = ErrorDialog( exc )
                 err.show( )
 
-    def set_layout( self ):
+    def set_layout( self ) -> list:
         try:
             blu = '#051F3D'
             blk = '#101010'
