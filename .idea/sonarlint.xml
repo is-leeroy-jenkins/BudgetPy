@@ -12,6 +12,8 @@
         <option value="DIRECTORY:ipynb" />
         <option value="DIRECTORY:etc" />
         <option value="DIRECTORY:db" />
+        <option value="DIRECTORY:venv" />
+        <option value="DIRECTORY:spc" />
       </list>
     </option>
     <option name="projectKey" value="BudgetPy" />
