@@ -1,14 +1,10 @@
 import sqlite3 as sqlite
-import pandas
-import string
-from pandas import DataFrame, Index, MultiIndex, Series
+from pandas import DataFrame
 from pandas import read_sql as sqlreader
 import pyodbc as db
 import os
-from collections import namedtuple as ntuple
 from Static import Source, Provider, SQL, ParamStyle
 from Booger import Error, ErrorDialog
-import enum
 
 # Pascal( input )
 class Pascal( ):
@@ -537,7 +533,8 @@ class DbConfig( ):
         self.__table = source.name
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Dallocation_transfer_agency.db'
         self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
-        self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Dallocation_transfer_agency.accdb'
+        self.__accesspath = os.getcwd( ) + \
+                            r'\db\access\datamodels\Dallocation_transfer_agency.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
         self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Dallocation_transfer_agency.mdf'
         self.__data = [ 'AccountingEvents',
@@ -719,7 +716,8 @@ class DbConfig( ):
             if self.__provider.name == Provider.Access.name:
                 return self.get_driver( ) + path
             elif self.__provider.name == Provider.SqlServer.name:
-                return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' + f'AttachDBFileName={path}' \
+                return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' \
+                    + f'AttachDBFileName={path}' \
                        + f'DATABASE={path}Trusted_Connection=yes;'
             else:
                 return f'{path} '
@@ -1111,7 +1109,8 @@ class SqlStatement( ):
                     self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__text
                 elif self.__commandtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{self.__sqlconfig.dump_set( )} ' + f'{values}'
+                    self.__text = f'UPDATE {table} ' + f'{self.__sqlconfig.dump_set( )} ' \
+                                  + f'{values}'
                     return self.__text
                 elif self.__commandtype == SQL.DELETE:
                     self.__text = f'DELETE FROM {table} ' + f' {predicate}'
@@ -1122,7 +1121,8 @@ class SqlStatement( ):
                         cols = columns.lstrip( '(' ).rstrip( ')' )
                         self.__text = f'SELECT {cols} FROM {table}'
                         return self.__text
-                elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
+                elif not isinstance( self.__names, list ) \
+                        and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
                         self.__text = f'SELECT * FROM {table}'
                         return self.__text
@@ -1269,9 +1269,9 @@ class Query( ):
             self.__connectionstring = str( value )
 
     def __init__( self, conn: Connection, sql: SqlStatement ):
-        self.__connection = conn if isinstance( conn, Connection ) else None
-        self.__sqlstatement = sql if isinstance( sql, SqlStatement ) else None
-        self.__sqlconfiguration = sql.sqlconfig
+        self.__connection = conn
+        self.__sqlstatement = sql
+        self.__sqlconfiguration = SqlConfig( )
         self.__source = conn.source
         self.__provider = conn.provider
         self.__commandtype = sql.command_type
@@ -1308,7 +1308,8 @@ class Query( ):
                     self.__text = f'INSERT INTO {table} ' + f'{ columns } ' + f'{ values }'
                     return self.__text
                 elif self.__commandtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{ self.__sqlconfiguration.dump_set( ) } ' + f'{ values }'
+                    self.__text = f'UPDATE {table} ' \
+                                  + f'{ self.__sqlconfiguration.dump_set( ) } ' + f'{ values }'
                     return self.__text
                 elif self.__commandtype == SQL.DELETE:
                     self.__text = f'DELETE FROM { table } ' + f'{ predicate }'
@@ -1319,7 +1320,8 @@ class Query( ):
                         cols = columns.lstrip( '(' ).rstrip( ')' )
                         self.__text = f'SELECT { cols } FROM { table }'
                         return self.__text
-                elif not isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
+                elif not isinstance( self.__names, list ) \
+                        and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
                         self.__text = f'SELECT * FROM { table }'
                         return self.__text
@@ -1485,13 +1487,13 @@ class AccessData( Query ):
         if value is not None:
             self.__query = value
 
-    def __init__( self, conn, sql ):
+    def __init__( self, conn: Connection, sql: SqlStatement ):
         super( ).__init__( conn, sql )
         self.__source = super( ).source
         self.__provider = Provider.Access
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sql_statement
-        self.__query = sql.query
+        self.__query = sql.get_query( )
         self.__table = super( ).table
         self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
@@ -1592,7 +1594,7 @@ class SqlData( Query ):
         self.__connection = conn
         self.__source = conn.source
         self.__sqlstatement = sql
-        self.__query = sql.query
+        self.__query = sql.get_query( )
         self.__table = conn.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{ SQL Server Native Client 11.0 };'
@@ -1751,19 +1753,19 @@ class DataBuilder( ):
         try:
             if self.__provider == Provider.SQLite:
                 sqlite = SQLiteData( self.__cnx, self.__sql )
-                self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
+                self.__data = [ tuple( i ) for i in sqlite.data ]
                 return self.__data
             elif self.__provider == Provider.Access:
                 access = AccessData( self.__cnx, self.__sql )
-                self.__data = [ tuple( i ) for i in access.getdata( ) ]
+                self.__data = [ tuple( i ) for i in access.data ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
                 sqlserver = SqlData( self.__cnx, self.__sql )
-                self.__data = [ tuple( i ) for i in sqlserver.getdata( ) ]
+                self.__data = [ tuple( i ) for i in sqlserver.data ]
                 return self.__data
             else:
                 sqlite = SQLiteData( self.__cnx, self.__sql )
-                self.__data = [ tuple( i ) for i in sqlite.getdata( ) ]
+                self.__data = [ tuple( i ) for i in sqlite.data ]
                 return self.__data
         except Exception as e:
             exc = Error( e )
@@ -2106,7 +2108,7 @@ class DataTable( ):
         self.__rows = [ tuple( r ) for r in dataframe.iterrows( ) ]
         self.__data = self.__rows
         self.__columns = [ str( c ) for c in columns ] if isinstance( columns, list ) else None
-        self.__schema = [ DataColumn( c ) for c in columns ] if isinstance( columns, list ) else None
+        self.__schema = [ DataColumn( c ) for c in columns ]
 
     def __str__( self ):
         if self.__name is not None:
