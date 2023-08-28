@@ -1,5 +1,7 @@
 import datetime as dt
 from datetime import datetime, date
+from typing import List
+
 from Static import Source, Provider, SQL
 from Booger import Error, ErrorDialog
 import sys
@@ -9,7 +11,7 @@ from Data import DbConfig, SqlConfig, Connection, \
 from Static import Source, Provider
 from datetime import datetime, date
 from pandas import DataFrame
-from pyodbc import Row as Row
+from pyodbc import Row as Row, Row
 
 class Unit( ):
     '''Unit( value, value ) initializes object
@@ -47,8 +49,8 @@ class DataUnit( Unit ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
-        if isinstance( name, str ):
+    def name( self, name: str ):
+        if name is not None:
             self.__name = name
 
     @property
@@ -56,7 +58,7 @@ class DataUnit( Unit ):
         if self.__name is not None:
             return self.__name
 
-    def __init__( self, id, code, name ):
+    def __init__( self, id: int, code: str, name: str ):
         super( ).__init__( id )
         self.__id = super( ).__id
         self.__code = code if code is not None else None
@@ -80,7 +82,7 @@ class BudgetUnit( DataUnit ):
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
@@ -90,7 +92,7 @@ class BudgetUnit( DataUnit ):
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
@@ -100,7 +102,7 @@ class BudgetUnit( DataUnit ):
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
@@ -110,11 +112,11 @@ class BudgetUnit( DataUnit ):
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
-    def __init__( self, id, code, name, treas, omb ):
+    def __init__( self, id: int, code: str, nam: str, treas: str, om ):
         super( ).__init__( id, code, name )
         self.__treasuryaccountcode = treas if treas is not None else None
         self.__budgetaccountcode = omb if omb is not None else None
@@ -143,7 +145,7 @@ class Account( ):
             return self.__accountsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__accountsid = value
 
@@ -153,7 +155,7 @@ class Account( ):
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
@@ -163,7 +165,7 @@ class Account( ):
             return self.__programprojectname
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
@@ -173,7 +175,7 @@ class Account( ):
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
@@ -183,7 +185,7 @@ class Account( ):
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
@@ -193,7 +195,7 @@ class Account( ):
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
@@ -203,7 +205,7 @@ class Account( ):
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
@@ -213,7 +215,7 @@ class Account( ):
             return self.__programprojectcode
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
@@ -223,7 +225,7 @@ class Account( ):
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if value is not None:
             self.__data = value
 
@@ -233,7 +235,7 @@ class Account( ):
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
@@ -243,11 +245,11 @@ class Account( ):
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: str ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider = Provider.SQLite ):
         self.__code = code
         self.__provider = provider
         self.__source = Source.Accounts
@@ -270,7 +272,7 @@ class Account( ):
                            'AgencyActivity' ]
 
     def __str__( self ):
-        if isinstance( self.__code, str ) and self.__code != '':
+        if self.__code is not None:
             return self.__code
 
     def copy( self ):
@@ -289,7 +291,7 @@ class Account( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_data( self ) -> list[ tuple ]:
+    def get_data( self ) -> list[ Row ]:
         try:
             source = Source.Accounts
             provider = Provider.SQLite
@@ -302,7 +304,7 @@ class Account( ):
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )
             data = cursor.execute( query )
-            self.__data =  [ tuple( i ) for i in data.fetchall( ) ]
+            self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -347,7 +349,7 @@ class ActivityCode( ):
             return self.__activitycodesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__activitycodesid = value
 
@@ -357,7 +359,7 @@ class ActivityCode( ):
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
@@ -367,7 +369,7 @@ class ActivityCode( ):
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
@@ -377,7 +379,7 @@ class ActivityCode( ):
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if value is not None:
             self.__data = value
 
@@ -387,7 +389,7 @@ class ActivityCode( ):
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
@@ -397,11 +399,11 @@ class ActivityCode( ):
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: str ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ActivityCodes
         self.__code = code
@@ -414,7 +416,7 @@ class ActivityCode( ):
         if self.__code is not None:
             return self.__code
 
-    def get_data( self ) -> list[ tuple ]:
+    def get_data( self ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -428,7 +430,7 @@ class ActivityCode( ):
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )
             data = cursor.execute( query )
-            self.__data =  [ tuple( i ) for i in data.fetchall( ) ]
+            self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -473,7 +475,7 @@ class AllowanceHolder( ):
             return self.__allowancholdersid
 
     @id.setter
-    def id( self, id ):
+    def id( self, id: int ):
         if id is not None:
             self.__allowancholdersid = id
 
@@ -483,7 +485,7 @@ class AllowanceHolder( ):
             return self.__code
 
     @code.setter
-    def code( self, code ):
+    def code( self, code: str ):
         if code is not None:
             self.__code = code
 
@@ -493,7 +495,7 @@ class AllowanceHolder( ):
             return self.__name
 
     @name.setter
-    def name( self, name ):
+    def name( self, name: str ):
         if  name is not None:
             self.__name = name
 
@@ -503,7 +505,7 @@ class AllowanceHolder( ):
             return self.__data
 
     @data.setter
-    def data( self, cache ):
+    def data( self, cache: str ):
         if list is not None:
             self.__data = cache
 
@@ -513,7 +515,7 @@ class AllowanceHolder( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
+    def table( self, frame: str ):
         if frame is not None:
             self.__frame = frame
 
@@ -523,11 +525,11 @@ class AllowanceHolder( ):
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: str ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.AllowanceHolders
         self.__code = code if isinstance( self.__code, str ) else None
@@ -539,7 +541,7 @@ class AllowanceHolder( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self ):
+    def get_data( self ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -565,7 +567,7 @@ class AllowanceHolder( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -611,7 +613,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__arpcarryoverestimatesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__annualcarryoverestimatesid = value
 
@@ -621,7 +623,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
@@ -631,7 +633,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
@@ -641,7 +643,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
@@ -651,7 +653,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
@@ -661,7 +663,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
@@ -671,7 +673,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
@@ -681,7 +683,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: str ):
         if value is not None:
             self.__amount = value
 
@@ -691,7 +693,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__availablebalance
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: str ):
         if value is not None:
             self.__availablebalance = value
 
@@ -701,7 +703,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: str ):
         if value is not None:
             self.__opencommitments = value
 
@@ -711,7 +713,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: str ):
         if value is not None:
             self.__obligations = value
 
@@ -721,7 +723,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
@@ -731,7 +733,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
@@ -741,7 +743,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
@@ -751,7 +753,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -761,7 +763,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if value is not None:
             self.__data = value
 
@@ -771,7 +773,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
@@ -781,12 +783,12 @@ class AmericanRescuePlanCarryoverEstimate( ):
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list ):
         if value is not None:
             self.__fields = value
 
 
-    def __init__( self, bfy, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.CarryoverEstimates
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -2392,7 +2394,7 @@ class ApportionmentData( ):
             return self.__apportionmentsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__apportionmentsid = value
 
@@ -2402,7 +2404,7 @@ class ApportionmentData( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
@@ -2412,7 +2414,7 @@ class ApportionmentData( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
