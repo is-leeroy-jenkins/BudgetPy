@@ -1,14 +1,10 @@
-import io
-from datetime import datetime, date
+from datetime import datetime
 import os
 import zipfile as zp
 import openpyxl as xl
 from openpyxl import Workbook
 from Booger import Error, ErrorDialog
-from Static import Source, Provider, SQL, Model, EXT
-import enum
-import sys
-from sys import exc_info
+from Static import EXT
 
 # Path( path )
 class Path( ):
@@ -33,7 +29,7 @@ class Path( ):
             return self.__input
 
     @input.setter
-    def input( self, value ):
+    def input( self, value: str ):
         '''Sets the input string'''
         if value is not None:
             self.__input = value
@@ -45,7 +41,7 @@ class Path( ):
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         '''Returns string representing the title of the selected_path 'base' '''
         if isinstance( value, str ):
             self.__input = value
@@ -56,7 +52,7 @@ class Path( ):
             return self.__input
 
     @path.setter
-    def path( self, value ):
+    def path( self, value: str ):
         if value is not None:
             self.__input = value
 
@@ -66,7 +62,7 @@ class Path( ):
             return self.__drive
 
     @drive.setter
-    def drive( self, value ):
+    def drive( self, value: str ):
         if value is not None:
             self.__drive = os.path.splitdrive( value )[ 0 ]
 
@@ -76,7 +72,7 @@ class Path( ):
             return self.__ext
 
     @extension.setter
-    def extension( self, value ):
+    def extension( self, value: str ):
         if  value is not None:
             self.__ext = str( value )
 
@@ -86,7 +82,7 @@ class Path( ):
             return self.__currdir
 
     @current_directory.setter
-    def current_directory( self, value ):
+    def current_directory( self, value: str ):
         '''Set the current_directory directory to 'selected_path' '''
         if os.path.exists( value ):
             os.chdir( value )
@@ -98,7 +94,7 @@ class Path( ):
             return self.__parentdirectory
 
     @parent_directory.setter
-    def parent_directory( self, value ):
+    def parent_directory( self, value: str ):
         '''Set the current_directory directory to 'selected_path' '''
         if value is not None:
             self.__parentdirectory = value
@@ -109,7 +105,7 @@ class Path( ):
             return self.__pathsep
 
     @path_separator.setter
-    def path_separator( self, value ):
+    def path_separator( self, value: str ):
         '''Set the current_directory directory to 'selected_path' '''
         if value is not None:
             self.__pathsep = value
@@ -120,7 +116,7 @@ class Path( ):
             return self.__drivesep
 
     @drive_separator.setter
-    def drive_separator( self, value ):
+    def drive_separator( self, value: str ):
         '''Set the current_directory directory to 'selected_path' '''
         if value is not None:
             self.__drivesep = value
@@ -131,7 +127,7 @@ class Path( ):
             return self.__extsep
 
     @extension_separator.setter
-    def extension_separator( self, value ):
+    def extension_separator( self, value: str ):
         '''Set the current_directory directory to 'selected_path' '''
         if value is not None:
             self.__extsep = value
@@ -664,7 +660,7 @@ class Folder( Path ):
     def current( self, value ):
         if value is not None:
             os.chdir( value )
-            self.__current = os.getcwd( );
+            self.__current = os.getcwd( )
 
     def __init__( self, path ):
         super( ).__init__( path )
@@ -720,8 +716,6 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-        return filenames
-
     def get_subfolders( self ) -> list:
         '''Iterates get_subfolders in the base directory'''
         try:
@@ -740,8 +734,6 @@ class Folder( Path ):
             exc.method = 'get_subfolders( self )'
             err = ErrorDialog( exc )
             err.show( )
-
-        return filenames
 
     def rename( self, name ):
         '''renames current_directory file'''
@@ -837,10 +829,10 @@ class Message( ):
             return self.__sender
 
     @sender.setter
-    def sender( self, value ):
+    def sender( self, value: str ):
         ''' Set the sender's email address '''
         if value is not None:
-            self.__sender = str( value )
+            self.__sender = value
 
     @property
     def receiver( self ):
@@ -849,10 +841,10 @@ class Message( ):
             return [ self.__receiver, ]
 
     @receiver.setter
-    def receiver( self, value ):
+    def receiver( self, value: str ):
         ''' Sets the receiver's email address '''
         if value is not None:
-            self.__receiver = str( value )
+            self.__receiver = value
 
     @property
     def subject( self ):
@@ -861,10 +853,10 @@ class Message( ):
             return self.__subject
 
     @subject.setter
-    def subject( self, value ):
+    def subject( self, value: str ):
         ''' Sets the email's subject line '''
         if value is not None:
-            self.__receiver = str( value )
+            self.__receiver = value
 
     @property
     def body( self ):
@@ -873,10 +865,10 @@ class Message( ):
             return self.__body
 
     @body.setter
-    def body( self, value ):
+    def body( self, value: str ):
         ''' Sets the email's subject line '''
         if value is not None:
-            self.__receiver = str( value )
+            self.__receiver = value
 
     @property
     def copy( self ):
@@ -885,12 +877,12 @@ class Message( ):
             return self.__others
 
     @copy.setter
-    def copy( self, value ):
+    def copy( self, value: list ):
         ''' Sets the address's to send copies  '''
         if value is not None:
-            self.__others = list( value )
+            self.__others = value
 
-    def __init__( self, sender, receiver, body, subject, copy = '' ):
+    def __init__( self, sender: str, receiver: str, body: str, subject: str, copy = '' ):
         self.__sender = sender
         self.__receiver = receiver
         self.__body = body
@@ -906,7 +898,7 @@ class Email( Message ):
     '''Email( frm, to, body, subject ) initializes
     class providing email behavior '''
 
-    def __init__( self, sender, receiver, body, subject, copy = '' ):
+    def __init__( self, sender: str, receiver: str, body: str, subject: str, copy = '' ):
         super( ).__init__( sender, receiver, body, subject, copy )
         self.__sender = super( ).sender
         self.__receiver = super( ).receiver
@@ -930,7 +922,7 @@ class MessageBuilder( ):
             return self.__from
 
     @sender.setter
-    def sender( self, value ):
+    def sender( self, value: str ):
         ''' Set the sender's email address '''
         if value is not None:
             self.__from = value
@@ -942,7 +934,7 @@ class MessageBuilder( ):
             return self.__to
 
     @receiver.setter
-    def receiver( self, value ):
+    def receiver( self, value: str ):
         ''' Sets the receiver's email address '''
         if value is not None:
             self.__to = value
@@ -954,7 +946,7 @@ class MessageBuilder( ):
             return self.__subject
 
     @subject.setter
-    def subject( self, value ):
+    def subject( self, value: str ):
         ''' Sets the email's subject line '''
         if value is not None:
             self.__subject = value
@@ -966,7 +958,7 @@ class MessageBuilder( ):
             return self.__body
 
     @body.setter
-    def body( self, value ):
+    def body( self, value: str ):
         ''' Sets the email's subject line '''
         if value is not None:
             self.__body = str( value )
@@ -978,10 +970,10 @@ class MessageBuilder( ):
             return self.__others
 
     @copy.setter
-    def copy( self, value ):
+    def copy( self, value: list ):
         ''' Sets the address's to send copies  '''
         if value is not None:
-            self.__others = list( value )
+            self.__others = value
 
     def __init__( self, sender = '', receiver = '', body = '', copy = '', subject = ''):
         self.__from = sender if isinstance( sender, str ) and sender != '' else None
@@ -1009,8 +1001,8 @@ class Document( ):
             return self.__path
 
     @path.setter
-    def path( self, value ):
-        if isinstance( value, str ) and value != '':
+    def path( self, value: str ):
+        if value is not None:
             self.__path = value
 
     @property
@@ -1020,13 +1012,13 @@ class Document( ):
             return self.__name
 
     @name.setter
-    def name( self, value ):
-        if value is not None and len( value ) > 0:
-            self.__name = str( value )
+    def name( self, value: str ):
+        if value is not None:
+            self.__name = value
 
-    def __init__( self, full_path ):
-        self.__path = full_path if isinstance( full_path, str ) else None
-        self.__name = os.path.split( full_path )[ 1 ] if isinstance( full_path, str ) else None
+    def __init__( self, full_path: str ):
+        self.__path = full_path
+        self.__name = os.path.split( full_path )[ 1 ]
         self.__title = self.__name
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
@@ -1074,24 +1066,24 @@ class Excel( ):
             return self.__workbook
 
     @workbook.setter
-    def workbook( self, value ):
+    def workbook( self, value: Workbook ):
         ''' Gets the report template '''
-        if isinstance( value, Workbook ):
+        if value is not None:
             self.__workbook = value
 
     @property
     def worksheet( self ):
         ''' Gets the workbooks worksheet '''
-        if isinstance( self.__workbook, Workbook ):
+        if self.__workbook is not None:
             return self.__workbook.active
 
     @worksheet.setter
-    def worksheet( self, value ):
+    def worksheet( self, value: Workbook ):
         ''' Gets the workbooks worksheet '''
-        if isinstance( value, Workbook ):
+        if value is not None:
             self.__name = value.active
 
-    def __init__( self, fullpath ):
+    def __init__( self, fullpath: str ):
         self.__path = fullpath if isinstance( fullpath, str ) else None
         self.__name = os.path.split( fullpath )[ 1 ] if isinstance( fullpath, str ) else None
         self.__title = self.__name
@@ -1170,7 +1162,7 @@ class ExcelReport( ):
     def workbook( self ):
         ''' Gets the report template '''
         if self.__path is not None:
-            self.__workbook = xl.open( self.__path )
+            self.__workbook = xl.load_workbook( self.__path )
             return self.__workbook
 
     @workbook.setter
@@ -1233,7 +1225,7 @@ class ZipFile( ):
         self.__zipextension = '.zip'
         self.__filepath = path
         self.__extension = os.path.splitext( path )
-        self.__zippath = self.__filepath.replace( self.__extension( 0 ), self.__zipextension )
+        self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
         self.__name = os.path.basename( path )
 
     def create( self ):
