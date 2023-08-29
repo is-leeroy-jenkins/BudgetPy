@@ -20,19 +20,19 @@ class Unit( ):
     __index = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__index, int ):
             return self.__index
 
     @id.setter
-    def id( self, id ):
+    def id( self, id: int ):
         if isinstance( id, int ):
             self.__index = id
 
-    def __init__( self, id ):
+    def __init__( self, id: int ):
         self.__index = id if isinstance( id, int ) else None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
@@ -44,7 +44,7 @@ class DataUnit( Unit ):
     __name = None
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
@@ -54,7 +54,7 @@ class DataUnit( Unit ):
             self.__name = name
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if self.__name is not None:
             return self.__name
 
@@ -77,7 +77,7 @@ class BudgetUnit( DataUnit ):
     __budgetaccountname = None
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
@@ -87,7 +87,7 @@ class BudgetUnit( DataUnit ):
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
@@ -97,7 +97,7 @@ class BudgetUnit( DataUnit ):
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
@@ -107,7 +107,7 @@ class BudgetUnit( DataUnit ):
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
@@ -140,7 +140,7 @@ class Account( ):
 
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__accountsid is not None:
             return self.__accountsid
 
@@ -150,7 +150,7 @@ class Account( ):
             self.__accountsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
@@ -160,7 +160,7 @@ class Account( ):
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
@@ -170,7 +170,7 @@ class Account( ):
             self.__name = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
@@ -180,7 +180,7 @@ class Account( ):
             self.__goalcode = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
@@ -190,7 +190,7 @@ class Account( ):
             self.__objectivecode = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if  self.__npmcode is not None:
             return self.__npmcode
 
@@ -200,7 +200,7 @@ class Account( ):
             self.__npmcode = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
@@ -210,7 +210,7 @@ class Account( ):
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
@@ -220,7 +220,7 @@ class Account( ):
             self.__programprojectname = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
@@ -230,7 +230,7 @@ class Account( ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
@@ -240,7 +240,7 @@ class Account( ):
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> str:
         if self.__fields is not None:
             return self.__fields
 
@@ -275,7 +275,7 @@ class Account( ):
         if self.__code is not None:
             return self.__code
 
-    def copy( self ):
+    def copy( self ) -> Account:
         try:
             clone = Account( code = self.__code )
             clone.goal_code = self.__goalcode
@@ -344,7 +344,7 @@ class ActivityCode( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__activitycodesid is not None:
             return self.__activitycodesid
 
@@ -470,7 +470,7 @@ class AllowanceHolder( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__allowancholdersid is not None:
             return self.__allowancholdersid
 
@@ -480,7 +480,7 @@ class AllowanceHolder( ):
             self.__allowancholdersid = id
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
@@ -490,7 +490,7 @@ class AllowanceHolder( ):
             self.__code = code
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
@@ -500,12 +500,12 @@ class AllowanceHolder( ):
             self.__name = name
 
     @property
-    def data( self ):
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, cache: str ):
+    def data( self, cache: list[ Row ] ):
         if list is not None:
             self.__data = cache
 
@@ -520,12 +520,12 @@ class AllowanceHolder( ):
             self.__frame = frame
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value: str ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -608,7 +608,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__arpcarryoverestimatesid is not None:
             return self.__arpcarryoverestimatesid
 
@@ -618,7 +618,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__annualcarryoverestimatesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
@@ -628,7 +628,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
@@ -638,7 +638,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
@@ -648,7 +648,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
@@ -658,7 +658,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__rpiocode = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
@@ -668,7 +668,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
@@ -678,57 +678,57 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__fundname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value: str ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available.setter
-    def available( self, value: str ):
+    def available( self, value: float ):
         if value is not None:
             self.__availablebalance = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value: str ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value: str ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> float:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value: str ):
+    def treasury_account_code( self, value: float ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
@@ -738,7 +738,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
@@ -748,7 +748,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
@@ -758,12 +758,12 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__budgetaccountname = value
 
     @property
-    def data( self ):
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list[ Row ] ):
         if value is not None:
             self.__data = value
 
@@ -778,12 +778,12 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value: list ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -884,112 +884,112 @@ class AnnualCarryoverEstimate( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__annualcarryoverestimatesid is not None:
             return self.__annualcarryoverestimatesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__annualcarryoverestimatesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__available is not None:
             return self.__availablebalance
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__availablebalance = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
@@ -999,7 +999,7 @@ class AnnualCarryoverEstimate( ):
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
@@ -1009,7 +1009,7 @@ class AnnualCarryoverEstimate( ):
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
@@ -1019,7 +1019,7 @@ class AnnualCarryoverEstimate( ):
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
@@ -1029,7 +1029,7 @@ class AnnualCarryoverEstimate( ):
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
@@ -1039,7 +1039,7 @@ class AnnualCarryoverEstimate( ):
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -1049,7 +1049,7 @@ class AnnualCarryoverEstimate( ):
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str):
         if value is not None:
             self.__frame = value
 
@@ -1059,12 +1059,12 @@ class AnnualCarryoverEstimate( ):
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: str ):
         if value is not None:
             self.__fields = value
 
 
-    def __init__( self, bfy, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.CarryoverEstimates
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -1094,7 +1094,7 @@ class AnnualCarryoverEstimate( ):
         if self.__unobligatedauthrity is not None:
             return str( self.__unobligatedauthority )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -1120,7 +1120,7 @@ class AnnualCarryoverEstimate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -1158,7 +1158,7 @@ class AnnualReimbursableEstimate( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__annualcarryoverestimatesid is not None:
             return self.__annualcarryoverestimatesid
 
@@ -1168,7 +1168,7 @@ class AnnualReimbursableEstimate( ):
             self.__annualcarryoverestimatesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
@@ -1178,7 +1178,7 @@ class AnnualReimbursableEstimate( ):
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
@@ -1188,7 +1188,7 @@ class AnnualReimbursableEstimate( ):
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
@@ -1198,7 +1198,7 @@ class AnnualReimbursableEstimate( ):
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
@@ -1208,7 +1208,7 @@ class AnnualReimbursableEstimate( ):
             self.__rpiocode = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
@@ -1218,7 +1218,7 @@ class AnnualReimbursableEstimate( ):
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
@@ -1228,58 +1228,57 @@ class AnnualReimbursableEstimate( ):
             self.__fundname = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__availablebalance = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if isinstance( self.__opencommitments, float ):
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
-
     @property
-    def data( self ):
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: list[ Row ] ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
 
-    def __init__( self, bfy, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.CarryoverEstimates
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -1305,11 +1304,11 @@ class AnnualReimbursableEstimate( ):
                            'OpenCommitment',
                            'UnobligatedAuthority' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__unobligatedauthority, float ):
             return str( self.__unobligatedauthority )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -1335,7 +1334,7 @@ class AnnualReimbursableEstimate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -1363,61 +1362,56 @@ class Appropriation( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__appropriationsid is not None:
             return self.__appropriationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__appropriationsid  = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, name ):
+    def name( self, name: str  ):
         if  name is not None:
             self.__name = name
 
     @property
-    def data( self ):
-        if self.__data is not None:
-            return self.__data
-
-    @property
-    def data( self ):
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, valu: list[ Row ] ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code ):
+    def __init__( self, code: str ):
         self.__source = Source.Appropriations
         self.__provider = Provider.SQLite
         self.__code = code 
@@ -1425,11 +1419,11 @@ class Appropriation( ):
                            'Code',
                            'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self ):
+    def get_data( self ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -1455,7 +1449,7 @@ class Appropriation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
