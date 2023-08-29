@@ -1490,154 +1490,154 @@ class AppropriationAvailableBalance( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__appropriationavailablebalancesid is not None:
             return self.__appropriationavailablebalancesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__appropriationavailablebalancesid  = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if  self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, name ):
+    def fund_name( self, name: str ):
         if  name is not None:
             self.__fundname = name
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if isinstance( self.__treasuryaccountcode, str ) \
                 and self.__treasuryaccountcode != '':
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if isinstance( self.__treasuryaccountname, str ) \
                 and self.__treasuryaccountname != '':
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def authority( self ):
+    def authority( self ) -> float:
         if self.__authority is not None:
             return self.__authority
 
     @authority.setter
-    def authority( self, value ):
+    def authority( self, value: float ):
         if value is not None:
             self.__authority = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> float:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: float ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def reimbursements( self ):
+    def reimbursements( self ) -> float:
         if self.__reimbursements is not None:
             return self.__reimbursements
 
     @reimbursements.setter
-    def reimbursements( self, value ):
+    def reimbursements( self, value: float ):
         if value is not None:
             self.__reimbursements = value
 
     @property
-    def recoveries( self ):
+    def recoveries( self ) -> float:
         if self.__recoveries is not None:
             return self.__recoveries
 
     @recoveries.setter
-    def recoveries( self, value ):
+    def recoveries( self, value: float ):
         if value is not None:
             self.__recoveries = value
 
     @property
-    def used( self ):
+    def used( self ) -> float:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: float ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__available is not None:
             return self.__available
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__available = value
 
@@ -1647,12 +1647,12 @@ class AppropriationAvailableBalance( ):
             return self.__data
 
     @property
-    def data( self ):
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: list[ Row ] ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -1666,7 +1666,7 @@ class AppropriationAvailableBalance( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fundcode ):
+    def __init__( self, bfy: str, efy: str, fundcode: str ):
         self.__source = Source.Appropriations
         self.__provider = Provider.SQLite
         self.__bfy = bfy
@@ -1688,11 +1688,11 @@ class AppropriationAvailableBalance( ):
                           'TotalUsed',
                           'TotalAvailable']
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
-    def get_data( self ):
+    def get_data( self ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -1718,7 +1718,7 @@ class AppropriationAvailableBalance( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
