@@ -64,7 +64,7 @@ class DataUnit( Unit ):
         self.__code = code if code is not None else None
         self.__name = name if name is not None else None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
@@ -220,12 +220,12 @@ class Account( ):
             self.__programprojectname = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list[ Row ] ):
         if value is not None:
             self.__data = value
 
@@ -240,12 +240,12 @@ class Account( ):
             self.__frame = value
 
     @property
-    def fields( self ) -> str:
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value: str ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -271,7 +271,7 @@ class Account( ):
                            'ActivityName',
                            'AgencyActivity' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__code is not None:
             return self.__code
 
@@ -354,7 +354,7 @@ class ActivityCode( ):
             self.__activitycodesid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
@@ -364,7 +364,7 @@ class ActivityCode( ):
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
@@ -374,7 +374,7 @@ class ActivityCode( ):
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
@@ -384,7 +384,7 @@ class ActivityCode( ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
@@ -394,12 +394,12 @@ class ActivityCode( ):
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value: str ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -412,7 +412,7 @@ class ActivityCode( ):
                            'Name',
                            'Title' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__code is not None:
             return self.__code
 
@@ -510,7 +510,7 @@ class AllowanceHolder( ):
             self.__data = cache
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
@@ -537,7 +537,7 @@ class AllowanceHolder( ):
                            'Code',
                            'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
@@ -768,7 +768,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
@@ -814,7 +814,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
                            'OpenCommitment',
                            'UnobligatedAuthority' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__unobligatedauthority, float ):
             return str( self.__unobligatedauthority )
 
@@ -994,7 +994,7 @@ class AnnualCarryoverEstimate( ):
             self.__obligations = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
@@ -1004,7 +1004,7 @@ class AnnualCarryoverEstimate( ):
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
@@ -1014,7 +1014,7 @@ class AnnualCarryoverEstimate( ):
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
@@ -1024,7 +1024,7 @@ class AnnualCarryoverEstimate( ):
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
@@ -1034,7 +1034,7 @@ class AnnualCarryoverEstimate( ):
             self.__budgetaccountname = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
@@ -1044,7 +1044,7 @@ class AnnualCarryoverEstimate( ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
@@ -1054,12 +1054,12 @@ class AnnualCarryoverEstimate( ):
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value: str ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -1090,7 +1090,7 @@ class AnnualCarryoverEstimate( ):
                            'OpenCommitment',
                            'UnobligatedAuthority' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__unobligatedauthrity is not None:
             return str( self.__unobligatedauthority )
 
@@ -1163,7 +1163,7 @@ class AnnualReimbursableEstimate( ):
             return self.__annualcarryoverestimatesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__annualcarryoverestimatesid = value
 
@@ -1173,7 +1173,7 @@ class AnnualReimbursableEstimate( ):
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
@@ -1183,7 +1183,7 @@ class AnnualReimbursableEstimate( ):
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
@@ -1193,7 +1193,7 @@ class AnnualReimbursableEstimate( ):
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
@@ -1203,7 +1203,7 @@ class AnnualReimbursableEstimate( ):
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
@@ -1213,7 +1213,7 @@ class AnnualReimbursableEstimate( ):
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
@@ -1223,7 +1223,7 @@ class AnnualReimbursableEstimate( ):
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
@@ -1642,7 +1642,7 @@ class AppropriationAvailableBalance( ):
             self.__available = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
@@ -1657,12 +1657,12 @@ class AppropriationAvailableBalance( ):
             self.__data = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -1757,47 +1757,47 @@ class AppropriationLevelAuthority( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__appropriationlevelauthorityid is not None:
             return self.__appropriationlevelauthorityid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__appropriationlevelauthorityid  = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if  self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
@@ -1807,113 +1807,108 @@ class AppropriationLevelAuthority( ):
             self.__fundname = name
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if isinstance( self.__treasuryaccountcode, str ) \
                 and self.__treasuryaccountcode != '':
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if isinstance( self.__treasuryaccountname, str ) \
                 and self.__treasuryaccountname != '':
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def authority( self ):
+    def authority( self ) -> float:
         if self.__authority is not None:
             return self.__authority
 
     @authority.setter
-    def authority( self, value ):
+    def authority( self, value: float ):
         if value is not None:
             self.__authority = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> float:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: float ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def reimbursements( self ):
+    def reimbursements( self ) -> float:
         if self.__reimbursements is not None:
             return self.__reimbursements
 
     @reimbursements.setter
-    def reimbursements( self, value ):
+    def reimbursements( self, value: float ):
         if value is not None:
             self.__reimbursements = value
 
     @property
-    def recoveries( self ):
+    def recoveries( self ) -> float:
         if self.__recoveries is not None:
             return self.__recoveries
 
     @recoveries.setter
-    def recoveries( self, value ):
+    def recoveries( self, value: str ):
         if value is not None:
             self.__recoveries = value
 
     @property
-    def data( self ):
-        if self.__data is not None:
-            return self.__data
-
-    @property
-    def data( self ):
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: list[ Row ] ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fundcode ):
+    def __init__( self, bfy: str, efy: str, fundcode: str ):
         self.__source = Source.Appropriations
         self.__provider = Provider.SQLite
         self.__bfy = bfy
@@ -1923,11 +1918,11 @@ class AppropriationLevelAuthority( ):
                            'Code',
                            'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -1953,7 +1948,7 @@ class AppropriationLevelAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -2006,282 +2001,282 @@ class Allocation( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__statusoffundsid is not None:
             return self.__statusoffundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__statusoffundsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str  ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str  ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str  ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str  ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str  ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def org_name( self  ):
+    def org_name( self  ) -> str:
         if self.__orgname is not None:
             return self.__orgname
 
     @org_name.setter
-    def org_name( self, value  ):
+    def org_name( self, value: str   ):
         if value is not None:
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str  ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str  ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str  ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str  ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str  ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if  self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -2317,7 +2312,7 @@ class Allocation( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -2343,7 +2338,7 @@ class Allocation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -2382,7 +2377,7 @@ class ApportionmentData( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__apportionmentsid is not None:
             return self.__apportionmentsid
 
@@ -2392,7 +2387,7 @@ class ApportionmentData( ):
             self.__apportionmentsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
@@ -2402,7 +2397,7 @@ class ApportionmentData( ):
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
@@ -2412,112 +2407,112 @@ class ApportionmentData( ):
             self.__efy = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def line_number( self ):
+    def line_number( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
-    def line_number( self, value ):
+    def line_number( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def line_description( self ):
+    def line_description( self ) -> str:
         if self.__linedescription is not None:
             return self.__linedescription
 
     @line_description.setter
-    def line_description( self, value ):
+    def line_description( self, value: str ):
         if value is not None:
             self.__linedescription = value
 
     @property
-    def section_number( self ):
+    def section_number( self ) -> str:
         if self.__sectionnumber is not None:
             return self.__sectionnumber
 
     @section_number.setter
-    def section_number( self, value ):
+    def section_number( self, value: str ):
         if value is not None:
             self.__sectionnumber = value
 
     @property
-    def section_description( self ):
+    def section_description( self ) -> str:
         if self.__sectiondescription is not None:
             return self.__sectiondescription
 
     @section_description.setter
-    def section_description( self, value ):
+    def section_description( self, value: str ):
         if value is not None:
             self.__sectiondescription = value
 
     @property
-    def subline( self ):
+    def subline( self ) -> str:
         if self.__subline is not None:
             return self.__subline
 
     @subline.setter
-    def subline( self, value ):
+    def subline( self, value: str ):
         if value is not None:
             self.__subline = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -2549,7 +2544,7 @@ class ApportionmentData( ):
                           'Footnote',
                           'Narrative' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -2575,7 +2570,7 @@ class ApportionmentData( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -2635,102 +2630,102 @@ class Actual( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__actualsid is not None:
             return self.__actualsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__id = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -2745,232 +2740,232 @@ class Actual( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def balance( self ):
+    def balance( self ) -> str:
         if self.__balance is not None:
             return self.__balance
 
     @balance.setter
-    def balance( self, value ):
+    def balance( self, value: str ):
         if value is not None:
             self.__balance = value
 
     @property
-    def ulo( self ):
+    def ulo( self ) -> str:
         if self.__ulo is not None:
             return self.__ulo
 
     @ulo.setter
-    def ulo( self, value ):
+    def ulo( self, value: str ):
         if value is not None:
             self.__ulo = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if  self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -3011,7 +3006,7 @@ class Actual( ):
                            'ObjectiveCode',
                            'ObjectiveName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -3037,7 +3032,7 @@ class Actual( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -3066,42 +3061,42 @@ class ApplicationTable( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__applicationtablesid is not None:
             return self.__applicationtablesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__applicationtablesid = value
 
     @property
-    def table_name( self ):
+    def table_name( self ) -> str:
         if self.__tablename is not None:
             return self.__tablename
 
     @table_name.setter
-    def table_name( self, value ):
+    def table_name( self, value: str ):
         if value is not None:
             self.__tablename = value
 
     @property
-    def model( self ):
+    def model( self ) -> str:
         if self.__model is not None:
             return self.__model
 
     @model.setter
-    def model( self, value ):
+    def model( self, value: str ):
         if value is not None:
             self.__model = value
 
     @property
-    def title( self ):
+    def title( self ) -> str:
         if self.__title is not None:
             return self.__title
 
     @title.setter
-    def title( self, value ):
+    def title( self, value: str ):
         if value is not None:
             self.__title = value
 
@@ -3150,312 +3145,312 @@ class AppropriationDocument( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__appropriationdocumentsid is not None:
             return self.__appropriationdocumentsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__appropriationdocumentsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund( self ):
+    def fund( self ) -> str:
         if self.__fund is not None:
             return self.__fund
 
     @fund.setter
-    def fund( self, value ):
+    def fund( self, value: str ):
         if value is not None:
             self.__fund = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentname is not None:
             return self.__documentname
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentname = value
 
     @property
-    def document_date( self ):
+    def document_date( self ) -> str:
         if self.__documentdate is not None:
             return self.__documentdate
 
     @document_date.setter
-    def document_date( self, value ):
+    def document_date( self, value: str ):
         if value is not None:
             self.__documentdate = value
 
     @property
-    def last_document_date( self ):
+    def last_document_date( self ) -> str:
         if self.__lastdocumentdate is not None:
             return self.__lastdocumentdate
 
     @last_document_date.setter
-    def last_document_date( self, value ):
+    def last_document_date( self, value: str ):
         if value is not None:
             self.__lastdocumentdate = value
 
     @property
-    def budget_level( self ):
+    def budget_level( self ) -> str:
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
     @budget_level.setter
-    def budget_level( self, value ):
+    def budget_level( self, value: str ):
         if value is not None:
             self.__budgetlevel = value
 
     @property
-    def budgeting_controls( self ):
+    def budgeting_controls( self ) -> str:
         if self.__budgetingcontrols is not None:
             return self.__budgetingcontrols
 
     @budgeting_controls.setter
-    def budgeting_controls( self, value ):
+    def budgeting_controls( self, value: str ):
         if value is not None:
             self.__budgetingcontrols = value
 
     @property
-    def posting_controls( self ):
+    def posting_controls( self ) -> str:
         if self.__postingcontrols is not None:
             return self.__postingcontrols
 
     @posting_controls.setter
-    def posting_controls( self, value ):
+    def posting_controls( self, value: str ):
         if value is not None:
             self.__postingcontrols = value
 
     @property
-    def precommitment_controls( self ):
+    def precommitment_controls( self ) -> str:
         if self.__precommitmentcontrols is not None:
             return self.__precommitmentcontrols
 
     @precommitment_controls.setter
-    def precommitment_controls( self, value ):
+    def precommitment_controls( self, value: str ):
         if value is not None:
             self.__precommitmentcontrols = value
 
     @property
-    def commitment_controls( self ):
+    def commitment_controls( self ) -> str:
         if self.__commitmentcontrols is not None:
             return self.__commitmentcontrols
 
     @commitment_controls.setter
-    def commitment_controls( self, value ):
+    def commitment_controls( self, value: str ):
         if value is not None:
             self.__commitmentcontrols = value
 
     @property
-    def obligation_controls( self ):
+    def obligation_controls( self ) -> str:
         if self.__obligationcontrols is not None:
             return self.__obligationcontrols
 
     @obligation_controls.setter
-    def obligation_controls( self, value ):
+    def obligation_controls( self, value: str ):
         if value is not None:
             self.__obligationcontrols = value
 
     @property
-    def accrual_controls( self ):
+    def accrual_controls( self ) -> str:
         if self.__accrualcontrols is not None:
             return self.__accrualcontrols
 
     @accrual_controls.setter
-    def accrual_controls( self, value ):
+    def accrual_controls( self, value: str ):
         if value is not None:
             self.__accrualcontrols = value
 
     @property
-    def expenditure_controls( self ):
+    def expenditure_controls( self ) -> str:
         if self.__expenditurecontrols is not None:
             return self.__expenditurecontrols
 
     @expenditure_controls.setter
-    def expenditure_controls( self, value ):
+    def expenditure_controls( self, value: str ):
         if value is not None:
             self.__expenditurecontrols = value
 
     @property
-    def expense_controls( self ):
+    def expense_controls( self ) -> str:
         if self.__expensecontrols is not None:
             return self.__expensecontrols
 
     @expense_controls.setter
-    def expense_controls( self, value ):
+    def expense_controls( self, value: str ):
         if value is not None:
             self.__expensecontrols = value
 
     @property
-    def reimbursement_controls( self ):
+    def reimbursement_controls( self ) -> str:
         if self.__reimbursementcontrols is not None:
             return self.__reimbursementcontrols
 
     @reimbursement_controls.setter
-    def reimbursement_controls( self, value ):
+    def reimbursement_controls( self, value: str ):
         if value is not None:
             self.__reimbursementcontrols = value
 
     @property
-    def reimbursable_agreement_controls( self ):
+    def reimbursable_agreement_controls( self ) -> str:
         if self.__reimbursableagreementcontrols is not None:
             return self.__reimbursableagreementcontrols
 
     @reimbursable_agreement_controls.setter
-    def reimbursable_agreement_controls( self, value ):
+    def reimbursable_agreement_controls( self, value: str ):
         if value is not None:
             self.__reimbursableagreementcontrols = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if value is not None:
             self.__posted = value
 
     @property
-    def carryover_in( self ):
+    def carryover_in( self ) -> str:
         if self.__carryoverin is not None:
             return self.__carryoverin
 
     @carryover_in.setter
-    def carryover_in( self, value ):
+    def carryover_in( self, value: str ):
         if value is not None:
             self.__carryoverin = value
 
     @property
-    def carryover_out( self ):
+    def carryover_out( self ) -> str:
         if self.__carryoverout is not None:
             return self.__carryoverout
 
     @carryover_out.setter
-    def carryover_out( self, value ):
+    def carryover_out( self, value: str ):
         if value is not None:
             self.__carryoverout = value
 
     @property
-    def estimated_reimbursements( self ):
+    def estimated_reimbursements( self ) -> str:
         if self.__reimbursementcontrols is not None:
             return self.__reimbursementcontrols
 
     @estimated_reimbursements.setter
-    def estimated_reimbursements( self, value ):
+    def estimated_reimbursements( self, value: str ):
         if value is not None:
             self.__estimatedreimbursements = value
 
     @property
-    def estimated_recoveries( self ):
+    def estimated_recoveries( self ) -> str:
         if self.__estimatedrecoveries is not None:
             return self.__estimatedrecoveries
 
     @estimated_recoveries.setter
-    def estimated_recoveries( self, value ):
+    def estimated_recoveries( self, value: str ):
         if value is not None:
             self.__estimatedrecoveries = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -3491,7 +3486,7 @@ class AppropriationDocument( ):
                            'EstimatedReimbursements',
                            'EstimatedRecoveries' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -3517,7 +3512,7 @@ class AppropriationDocument( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -3581,152 +3576,152 @@ class BudgetDocument( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__statusoffundsid, int ):
             return self.__statusoffundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if self.__statusoffundsid is not None:
             self.__statusoffundsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def budget_level( self ):
+    def budget_level( self ) -> str:
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
     @budget_level.setter
-    def budget_level( self, value ):
+    def budget_level( self, value: str ):
         if value is not None:
             self.__budgetlevel = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fund_code is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentname = value
 
     @property
-    def document_date( self ):
+    def document_date( self ) -> str:
         if self.__documentdate is not None:
             return self.__documentdate
 
     @document_date.setter
-    def document_date( self, value ):
+    def document_date( self, value: str ):
         if value is not None:
             self.__documentdate = value
 
     @property
-    def last_document_date( self ):
+    def last_document_date( self ) -> str:
         if self.__lastdocumnetdate is not None:
             return self.__lastdocumentdate
 
     @last_document_date.setter
-    def last_document_date( self, value ):
+    def last_document_date( self, value: str ):
         if value is not None:
             self.__lastdocumentdate = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -3741,242 +3736,242 @@ class BudgetDocument( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def budgeting_controls( self ):
+    def budgeting_controls( self ) -> str:
         if self.__budgetingcontrols is not None:
             return self.__budgetingcontrols
 
     @budgeting_controls.setter
-    def budgeting_controls( self, value ):
+    def budgeting_controls( self, value: str ):
         if value is not None:
             self.__budgetingcontrols = value
 
     @property
-    def posting_controls( self ):
+    def posting_controls( self ) -> str:
         if  self.__postingcontrols is not None:
             return self.__postingcontrols
 
     @posting_controls.setter
-    def posting_controls( self, value ):
+    def posting_controls( self, value: str ):
         if value is not None:
             self.__postingcontrols = value
 
     @property
-    def precommitment_controls( self ):
+    def precommitment_controls( self ) -> str:
         if  self.__precommitmentcontrols is not None:
             return self.__precommitmentcontrols
 
     @precommitment_controls.setter
-    def precommitment_controls( self, value ):
+    def precommitment_controls( self, value: str ):
         if value is not None:
             self.__precommitmentcontrols = value
 
     @property
-    def commitment_controls( self ):
+    def commitment_controls( self ) -> str:
         if self.__commitmentcontrols is not None:
             return self.__commitmentcontrols
 
     @commitment_controls.setter
-    def commitment_controls( self, value ):
+    def commitment_controls( self, value: str ):
         if value is not None:
             self.__commitmentcontrols = value
 
     @property
-    def obligation_controls( self ):
+    def obligation_controls( self ) -> str:
         if self.__obligationcontrols is not None:
             return self.__obligationcontrols
 
     @obligation_controls.setter
-    def obligation_controls( self, value ):
+    def obligation_controls( self, value: str ):
         if value is not None:
             self.__obligationcontrols = value
 
     @property
-    def accrual_controls( self ):
+    def accrual_controls( self ) -> str:
         if self.__accrual_controls is not None:
             return self.__accrualcontrols
 
     @accrual_controls.setter
-    def accrual_controls( self, value ):
+    def accrual_controls( self, value: str ):
         if value is not None:
             self.__accrualcontrols = value
 
     @property
-    def expenditure_controls( self ):
+    def expenditure_controls( self ) -> str:
         if self.__expenditurecontrols is not None:
             return self.__expenditurecontrols
 
     @expenditure_controls.setter
-    def expenditure_controls( self, value ):
+    def expenditure_controls( self, value: str ):
         if value is not None:
             self.__expenditurecontrols = value
 
     @property
-    def expense_controls( self ):
+    def expense_controls( self ) -> str:
         if self.__expense_controls is not None:
             return self.__expensecontrols
 
     @expense_controls.setter
-    def expense_controls( self, value ):
+    def expense_controls( self, value: str ):
         if value is not None:
             self.__expensecontrols = value
 
     @property
-    def reimbursement_controls( self ):
+    def reimbursement_controls( self ) -> str:
         if self.__reimbursementcontrols is not None:
             return self.__reimbursementcontrols
 
     @reimbursement_controls.setter
-    def reimbursement_controls( self, value ):
+    def reimbursement_controls( self, value: str ):
         if value is not None:
             self.__reimbursementcontrols = value
 
     @property
-    def reimbursable_agreement_controls( self ):
+    def reimbursable_agreement_controls( self ) -> str:
         if self.__reimbursableagreementcontrols is not NOne:
             return self.__reimbursableagreementcontrols
 
     @reimbursable_agreement_controls.setter
-    def reimbursable_agreement_controls( self, value ):
+    def reimbursable_agreement_controls( self, value: str ):
         if value is not None:
             self.__reimbursableagreementcontrols = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if value is not None:
             self.__posted = value
 
     @property
-    def carryover_in( self ):
+    def carryover_in( self ) -> str:
         if isinstance( self.__carryoverin, float ):
             return self.__carryoverin
 
     @carryover_in.setter
-    def carryover_in( self, value ):
+    def carryover_in( self, value: str ):
         if value is not None:
             self.__carryoverin = value
 
     @property
-    def carryover_out( self ):
+    def carryover_out( self ) -> str:
         if self.__carryoverout is not None:
             return self.__carryoverout
 
     @carryover_out.setter
-    def carryover_out( self, value ):
+    def carryover_out( self, value: str ):
         if value is not None:
             self.__carryoverout = value
 
     @property
-    def estimated_reimbursements( self ):
+    def estimated_reimbursements( self ) -> str:
         if self.__reimbursementcontrols is not None:
             return self.__reimbursementcontrols
 
     @estimated_reimbursements.setter
-    def estimated_reimbursements( self, value ):
+    def estimated_reimbursements( self, value: str ):
         if value is not None:
             self.__estimatedreimbursements = value
 
     @property
-    def estimated_recoveries( self ):
+    def estimated_recoveries( self ) -> str:
         if self.__estimatedrecoveries is not None:
             return self.__estimatedrecoveries
 
     @estimated_recoveries.setter
-    def estimated_recoveries( self, value ):
+    def estimated_recoveries( self, value: str ):
         if value is not None:
             self.__estimatedrecoveries = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -4026,7 +4021,7 @@ class BudgetDocument( ):
                            'EstimatedRecoveries',
                            'EstimatedReimbursements' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -4052,7 +4047,7 @@ class BudgetDocument( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4113,372 +4108,372 @@ class BudgetControl( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__budgetcontrolsid is not None:
             return self.__budgetcontrolsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__budgetcontrolsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def budgeted_transtype( self ):
+    def budgeted_transtype( self ) -> str:
         if self.__budgetedtranstype is not None:
             return self.__budgetedtranstype
 
     @budgeted_transtype.setter
-    def budgeted_transtype( self, value ):
+    def budgeted_transtype( self, value: str ):
         if value is not None:
             self.__budgetedtranstype = value
 
     @property
-    def posted_transtype( self ):
+    def posted_transtype( self ) -> str:
         if self.__postedtranstype is not None:
             return self.__postedtranstype
 
     @posted_transtype.setter
-    def posted_transtype( self, value ):
+    def posted_transtype( self, value: str ):
         if value is not None:
             self.__postedtranstype = value
 
     @property
-    def spending_adjustment_transtype( self ):
+    def spending_adjustment_transtype( self ) -> str:
         if self.__spendingadjustmenttranstype is not None:
             return self.__spendingadjustmenttranstype
 
     @spending_adjustment_transtype.setter
-    def spending_adjustment_transtype( self, value ):
+    def spending_adjustment_transtype( self, value: str ):
         if value is not None:
             self.__spendingadjustmenttranstype = value
 
     @property
-    def estimated_reimbursements_transtype( self ):
+    def estimated_reimbursements_transtype( self ) -> str:
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
     @estimated_reimbursements_transtype.setter
-    def estimated_reimbursements_transtype( self, value ):
+    def estimated_reimbursements_transtype( self, value: str ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
 
     @property
-    def estimated_recoveries_transtype( self ):
+    def estimated_recoveries_transtype( self ) -> str:
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
     @estimated_recoveries_transtype.setter
-    def estimated_recoveries_transtype( self, value ):
+    def estimated_recoveries_transtype( self, value: str ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
     @property
-    def actual_recoveries_transtype( self ):
+    def actual_recoveries_transtype( self ) -> str:
         if self.__actualrecoveriestranstype is not None:
             return self.__actualrecoveriestranstype
 
     @actual_recoveries_transtype.setter
-    def actual_recoveries_transtype( self, value ):
+    def actual_recoveries_transtype( self, value: str ):
         if value is not None:
             self.__actualrecoveriestranstype = value
 
     @property
-    def status_reserve_transtype( self ):
+    def status_reserve_transtype( self ) -> str:
         if self.__statusreservetranstype is not None:
             return self.__statusreservetranstype
 
     @status_reserve_transtype.setter
-    def status_reserve_transtype( self, value ):
+    def status_reserve_transtype( self, value: str ):
         if value is not None:
             self.__statusreservetranstype = value
 
     @property
-    def profit_loss_transtype( self ):
+    def profit_loss_transtype( self ) -> str:
         if self.__profitlosstranstype is not None:
             return self.__profitlosstranstype
 
     @profit_loss_transtype.setter
-    def profit_loss_transtype( self, value ):
+    def profit_loss_transtype( self, value: str ):
         if value is not None:
             self.__profitlosstranstype = value
 
     @property
-    def estimated_reimbursements_spending_options( self ):
+    def estimated_reimbursements_spending_options( self ) -> str:
         if self.__estimatedreimbursementsspendingoptions is not None:
             return self.__estimatedreimbursementsspendingoptions
 
     @estimated_reimbursements_spending_options.setter
-    def estimated_reimbursements_spending_options( self, value ):
+    def estimated_reimbursements_spending_options( self, value: str ):
         if value is not None:
             self.__estimatedreimbursementsspendingoptions = value
 
     @property
-    def estimated_reimbursements_budgeting_options( self ):
+    def estimated_reimbursements_budgeting_options( self ) -> str:
         if self.__estimatedreimbursementsbudgetingoptions is not None:
             return self.__estimatedreimbursementsbudgetingoptions
 
     @estimated_reimbursements_budgeting_options.setter
-    def estimated_reimbursements_budgeting_options( self, value ):
+    def estimated_reimbursements_budgeting_options( self, value: str ):
         if value is not None:
             self.__estimatedreimbursementsbudgetingoptions = value
 
     @property
-    def tracking_agreement_lower_levels( self ):
+    def tracking_agreement_lower_levels( self ) -> str:
         if self.__trackingagreementlowerlevels is not None:
             return self.__trackingagreementlowerlevels
 
     @tracking_agreement_lower_levels.setter
-    def tracking_agreement_lower_levels( self, value ):
+    def tracking_agreement_lower_levels( self, value: str ):
         if value is not None:
             self.__trackingagreementlowerlevels = value
 
     @property
-    def budget_estimated_lowerlevels( self ):
+    def budget_estimated_lowerlevels( self ) -> str:
         if self.__budgetedestimatedlowerlevels is not None:
             return self.__budgetedestimatedlowerlevels
 
     @budget_estimated_lowerlevels.setter
-    def budget_estimated_lowerlevels( self, value ):
+    def budget_estimated_lowerlevels( self, value: str ):
         if value is not None:
             self.__budgetestimatedlowerlevels = value
 
     @property
-    def recovery_nextlevel( self ):
+    def recovery_nextlevel( self ) -> str:
         if self.__recoverynextlevel is not None:
             return self.__recoverynextlevel
 
     @recovery_nextlevel.setter
-    def recovery_nextlevel( self, value ):
+    def recovery_nextlevel( self, value: str ):
         if value is not None:
             self.__recoverynextlevel = value
 
     @property
-    def recovery_budget_mismatch( self ):
+    def recovery_budget_mismatch( self ) -> str:
         if self.__recoverybudgetmismatch is not None:
             return self.__recoverybudgetmismatch
 
     @recovery_budget_mismatch.setter
-    def recovery_budget_mismatch( self, value ):
+    def recovery_budget_mismatch( self, value: str ):
         if value is not None:
             self.__recoverybudgetmismatch = value
 
     @property
-    def profit_loss_spending_option( self ):
+    def profit_loss_spending_option( self ) -> str:
         if self.__profitlossspendingoption is not None:
             return self.__profitlossspendingoption
 
     @profit_loss_spending_option.setter
-    def profit_loss_spending_option( self, value ):
+    def profit_loss_spending_option( self, value: str ):
         if value is not None:
             self.__profitlossspendingoption = value
 
     @property
-    def profit_loss_budgeting_option( self ):
+    def profit_loss_budgeting_option( self ) -> str:
         if self.__profitlossbudgetingoption is not None:
             return self.__profitlossbudgetingoption
 
     @profit_loss_budgeting_option.setter
-    def profit_loss_budgeting_option( self, value ):
+    def profit_loss_budgeting_option( self, value: str ):
         if value is not None:
             self.__profitlossbudgetingoption = value
 
     @property
-    def recoveries_carryin_lowerlevel_control( self ):
+    def recoveries_carryin_lowerlevel_control( self ) -> str:
         if self.__recoveriescarryinlowerelevelcontrol is not None:
             return self.__recoveriescarryinlowerelevelcontrol
 
     @recoveries_carryin_lowerlevel_control.setter
-    def recoveries_carryin_lowerlevel_control( self, value ):
+    def recoveries_carryin_lowerlevel_control( self, value: str ):
         if value is not None:
             self.__recoveriescarryinlowerelevelcontrol = value
 
     @property
-    def recoveries_carryin_lowerlevel( self ):
+    def recoveries_carryin_lowerlevel( self ) -> str:
         if self.__recoveriescarryinlowerlevel is not None:
             return self.__recoveriescarryinlowerlevel
 
     @recoveries_carryin_lowerlevel.setter
-    def recoveries_carryin_lowerlevel( self, value ):
+    def recoveries_carryin_lowerlevel( self, value: str ):
         if value is not None:
             self.__recoveriescarryinlowerlevel = value
 
     @property
-    def recoveries_carryin_amount_control( self ):
+    def recoveries_carryin_amount_control( self ) -> str:
         if self.__recoveriescarryinamountcontrol is not None:
             return self.__recoveriescarryinamountcontrol
 
     @recoveries_carryin_amount_control.setter
-    def recoveries_carryin_amount_control( self, value ):
+    def recoveries_carryin_amount_control( self, value: str ):
         if value is not None:
             self.__recoveriescarryinamountcontrol = value
 
     @property
-    def budgeted_control( self ):
+    def budgeted_control( self ) -> str:
         if self.__budgetedcontrol is not None:
             return self.__budgetedcontrol
 
     @budgeted_control.setter
-    def budgeted_control( self, value ):
+    def budgeted_control( self, value: str ):
         if value is not None:
             self.__budgetedcontrol = value
 
     @property
-    def posted_control( self ):
+    def posted_control( self ) -> str:
         if self.__postedcontrol is not None:
             return self.__postedcontrol
 
     @posted_control.setter
-    def posted_control( self, value ):
+    def posted_control( self, value: str ):
         if value is not None:
             self.__postedcontrol = value
 
     @property
-    def precommitment_spending_control( self ):
+    def precommitment_spending_control( self ) -> str:
         if self.__precommitmentspendingcontrol is not None:
             return self.__precommitmentspendingcontrol
 
     @precommitment_spending_control.setter
-    def precommitment_spending_control( self, value ):
+    def precommitment_spending_control( self, value: str ):
         if value is not None:
             self.__precommitmentspendingcontrol = value
 
     @property
-    def commitment_spending_control( self ):
+    def commitment_spending_control( self ) -> str:
         if self.__commitmentspendingcontrol is not None:
             return self.__commitmentspendingcontrol
 
     @commitment_spending_control.setter
-    def commitment_spending_control( self, value ):
+    def commitment_spending_control( self, value: str ):
         if value is not None:
             self.__commitmentspendingcontrol = value
 
     @property
-    def obligation_spending_control( self ):
+    def obligation_spending_control( self ) -> str:
         if self.__obligationspendingcontrol is not None:
             return self.__obligationspendingcontrol
 
     @obligation_spending_control.setter
-    def obligation_spending_control( self, value ):
+    def obligation_spending_control( self, value: str ):
         if value is not None:
             self.__obligationspendingcontrol = value
 
     @property
-    def accrual_spending_control( self ):
+    def accrual_spending_control( self ) -> str:
         if self.__accrualspendingcontrol is not None:
             return self.__accrualspendingcontrol
 
     @accrual_spending_control.setter
-    def accrual_spending_control( self, value ):
+    def accrual_spending_control( self, value: str ):
         if value is not None:
             self.__accrualspendingcontrol = value
 
     @property
-    def expenditure_spending_control( self ):
+    def expenditure_spending_control( self ) -> str:
         if self.__expenditurespendingcontrol is not None:
             return self.__expenditurespendingcontrol
 
     @expenditure_spending_control.setter
-    def expenditure_spending_control( self, value ):
+    def expenditure_spending_control( self, value: str ):
         if value is not None:
             self.__expenditurespendingcontrol = value
 
     @property
-    def expense_spending_control( self ):
+    def expense_spending_control( self ) -> str:
         if self.__expensespendingcontrol is not None:
             return self.__expensespendingcontrol
 
     @expense_spending_control.setter
-    def expense_spending_control( self, value ):
+    def expense_spending_control( self, value: str ):
         if value is not None:
             self.__expensespendingcontrol = value
 
     @property
-    def reimbursement_spending_control( self ):
+    def reimbursement_spending_control( self ) -> str:
         if self.__reimbursementspendingcontrol is not None:
             return self.__reimbursementspendingcontrol
 
     @reimbursement_spending_control.setter
-    def reimbursement_spending_control( self, value ):
+    def reimbursement_spending_control( self, value: str ):
         if value is not None:
             self.__reimbursementspendingcontrol = value
 
     @property
-    def reimbursableagreement_spending_control( self ):
+    def reimbursableagreement_spending_control( self ) -> str:
         if self.__reimbursableagreementspendingcontrol is not None:
             return self.__reimbursableagreementspendingcontrol
 
     @reimbursableagreement_spending_control.setter
-    def reimbursableagreement_spending_control( self, value ):
+    def reimbursableagreement_spending_control( self, value: str ):
         if value is not None:
             self.__reimbursableagreementspendingcontrol = value
 
     @property
-    def fte_budgeting_control( self ):
+    def fte_budgeting_control( self ) -> str:
         if self.__ftebudgetingcontrol is not None:
             return self.__ftebudgetingcontrol
 
     @fte_budgeting_control.setter
-    def fte_budgeting_control( self, value ):
+    def fte_budgeting_control( self, value: str ):
         if value is not None:
             self.__ftebudgetingcontrol = value
 
     @property
-    def fte_spending_control( self ):
+    def fte_spending_control( self ) -> str:
         if  self.__ftespendingcontrol is not None:
             return self.__ftespendingcontrol
 
     @fte_spending_control.setter
-    def fte_spending_control( self, value ):
+    def fte_spending_control( self, value: str ):
         if value is not None:
             self.__ftespendingcontrol = value
 
     @property
-    def transaction_type_control( self ):
+    def transaction_type_control( self ) -> str:
         if  self.__transactiontypecontrol is not None:
             return self.__transactiontypecontrol
 
     @transaction_type_control.setter
-    def transaction_type_control( self, value ):
+    def transaction_type_control( self, value: str ):
         if value is not None:
             self.__transactiontypecontrol = value
 
     @property
-    def authority_distribution_control( self ):
+    def authority_distribution_control( self ) -> str:
         if  self.__authoritydistributioncontrol is not None:
             return self.__authoritydistributioncontrol
 
     @authority_distribution_control.setter
-    def authority_distribution_control( self, value ):
+    def authority_distribution_control( self, value: str ):
         if value is not None:
             self.__authoritydistributioncontrol = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -4528,7 +4523,7 @@ class BudgetControl( ):
                            'TransactionTypeControl',
                            'AuthorityDistributionControl' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -4554,7 +4549,7 @@ class BudgetControl( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4594,147 +4589,147 @@ class BudgetFiscalYear( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__budgetfiscalyearsid is not None:
             return self.__budgetfiscalyearsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__budgetfiscalyearsid = value
 
     @property
-    def first_year( self ):
+    def first_year( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @first_year.setter
-    def first_year( self, value ):
+    def first_year( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def last_year( self ):
+    def last_year( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @last_year.setter
-    def last_year( self, value ):
+    def last_year( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def current_year( self ):
+    def current_year( self ) -> str:
         if self.__currentyear is not None:
             return self.__currentyear
 
     @current_year.setter
-    def current_year( self, value ):
+    def current_year( self, value: str ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def start_date( self ):
+    def start_date( self ) -> str:
         if self.__startdate is not None:
             return self.__startdate
 
     @start_date.setter
-    def start_date( self, value ):
+    def start_date( self, value: str ):
         if value is not None:
             self.__startdate = value
 
     @property
-    def end_date( self ):
+    def end_date( self ) -> str:
         if self.__enddate is not None:
             return self.__enddate
 
     @end_date.setter
-    def end_date( self, value ):
+    def end_date( self, value: str ):
         if value is not None:
             self.__enddate = value
 
     @property
-    def expiration( self ):
+    def expiration( self ) -> str:
         if self.__expiration is not None:
             return self.__expiration
 
     @expiration.setter
-    def expiration( self, value ):
+    def expiration( self, value: str ):
         if value is not None:
             self.__expiration = value
 
     @property
-    def weekends( self ):
+    def weekends( self ) -> str:
         if self.__weekends is not None:
             return self.__weekends
 
     @weekends.setter
-    def weekends( self, value ):
+    def weekends( self, value: str ):
         if value is not None:
             self.__weekends = value
 
     @property
-    def workdays( self ):
+    def workdays( self ) -> str:
         if self.__workdays is not None:
             return self.__workdays
 
     @workdays.setter
-    def workdays( self, value ):
+    def workdays( self, value: str ):
         if value is not None:
             self.__workdays = value
 
     @property
-    def today( self ):
+    def today( self ) -> str:
         if self.__today is not None:
             return self.__today
 
     @today.setter
-    def today( self, value ):
+    def today( self, value: str ):
         if value is not None:
             self.__today = value
 
     @property
-    def date( self ):
+    def date( self ) -> str:
         if self.__date is not None:
             return self.__date
 
     @date.setter
-    def date( self, value ):
+    def date( self, value: str ):
         if value is not None:
             self.__date = value
 
     @property
-    def current_day( self ):
+    def current_day( self ) -> str:
         if self.__currentday is not None:
             return self.__currentday
 
     @current_day.setter
-    def current_day( self, value ):
+    def current_day( self, value: str ):
         if value is not None:
             self.__currentday = value
 
     @property
-    def current_month( self ):
+    def current_month( self ) -> str:
         if self.__currentmonth is not None:
             return self.__currentmonth
 
     @property
-    def holidays( self ):
+    def holidays( self ) -> str:
         if self.__holidays is not None:
             return self.__holidays
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if value is not None:
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
@@ -4744,12 +4739,12 @@ class BudgetFiscalYear( ):
             self.__frame = frame
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -4792,11 +4787,11 @@ class BudgetFiscalYear( ):
                           'Weekends',
                           'Availability' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -4822,7 +4817,7 @@ class BudgetFiscalYear( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4852,37 +4847,37 @@ class BudgetObjectClass( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__accountsid is not None:
             return self.__accountsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__accountsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def value( self ):
+    def value( self ) -> str:
         if self.__value is not None:
             return self.__value
 
@@ -4892,32 +4887,32 @@ class BudgetObjectClass( ):
             self.__value = val
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if value is not None:
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -4929,11 +4924,11 @@ class BudgetObjectClass( ):
                           'Code',
                           'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -4959,7 +4954,7 @@ class BudgetObjectClass( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -4994,82 +4989,82 @@ class BudgetaryResourceExecution( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__budgetaryresourceexecutionid is not None:
             return self.__budgetaryresourceexecutionid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__budgetaryresourceexecutionid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if  self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -5111,7 +5106,7 @@ class BudgetaryResourceExecution( ):
                           'Agency',
                           'Bureau' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -5137,7 +5132,7 @@ class BudgetaryResourceExecution( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -5185,232 +5180,232 @@ class BudgetOutlay( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__budgetoutlaysid is not None:
             return self.__budgetoutlaysid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__budgetoutlaysid = value
 
     @property
-    def report_year( self ):
+    def report_year( self ) -> str:
         if self.__reportyear is not None:
             return self.__reportyear
 
     @report_year.setter
-    def report_year( self, value ):
+    def report_year( self, value: str ):
         if value is not None:
             self.__reportyear = value
 
     @property
-    def line_number( self ):
+    def line_number( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
-    def line_number( self, value ):
+    def line_number( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def line_section( self ):
+    def line_section( self ) -> str:
         if self.__linesection is not None:
             return self.__linesection
 
     @line_section.setter
-    def line_section( self, value ):
+    def line_section( self, value: str ):
         if value is not None:
             self.__linesection = value
 
     @property
-    def line_name( self ):
+    def line_name( self ) -> str:
         if self.__linename is not None:
             return self.__linename
 
     @line_name.setter
-    def line_name( self, value ):
+    def line_name( self, value: str ):
         if value is not None:
             self.__linename = value
 
     @property
-    def line_category( self ):
+    def line_category( self ) -> str:
         if self.__linecategory is not None:
             return self.__linecategory
 
     @line_category.setter
-    def line_category( self, value ):
+    def line_category( self, value: str ):
         if value is not None:
             self.__linecategory = value
 
     @property
-    def bea_category( self ):
+    def bea_category( self ) -> str:
         if self.__beacategory is not None:
             return self.__beacategory
 
     @bea_category.setter
-    def bea_category( self, value ):
+    def bea_category( self, value: str ):
         if value is not None:
             self.__beacategory = value
 
     @property
-    def bea_category_name( self ):
+    def bea_category_name( self ) -> str:
         if  self.__beacategoryname is not None:
             return self.__beacategoryname
 
     @bea_category_name.setter
-    def bea_category_name( self, value ):
+    def bea_category_name( self, value: str ):
         if value is not None:
             self.__beacategoryname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def prior_year( self ):
+    def prior_year( self ) -> str:
         if self.__prioryear is not None:
             return self.__prioryear
 
     @prior_year.setter
-    def prior_year( self, value ):
+    def prior_year( self, value: str ):
         if value is not None:
             self.__prioryear = value
 
     @property
-    def current_year( self ):
+    def current_year( self ) -> str:
         if self.__currentyear is not None:
             return self.__currentyear
 
     @current_year.setter
-    def current_year( self, value ):
+    def current_year( self, value: str ):
         if  value is not None:
             self.__currentyear = value
 
     @property
-    def budget_year( self ):
+    def budget_year( self ) -> str:
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budget_year.setter
-    def budget_year( self, value ):
+    def budget_year( self, value: str ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def out_year_1( self ):
+    def out_year_1( self ) -> str:
         if self.__outyear1 is not None:
             return self.__outyear1
 
     @out_year_1.setter
-    def out_year_1( self, value ):
+    def out_year_1( self, value: str ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def out_year_2( self ):
+    def out_year_2( self ) -> str:
         if self.__outyear2 is not None:
             return self.__outyear2
 
     @out_year_2.setter
-    def out_year_2( self, value ):
+    def out_year_2( self, value: str ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def out_year_3( self ):
+    def out_year_3( self ) -> str:
         if isinstance( self.__outyear3, float ):
             return self.__outyear3
 
     @out_year_3.setter
-    def out_year_3( self, value ):
+    def out_year_3( self, value: str ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def out_year_4( self ):
+    def out_year_4( self ) -> str:
         if isinstance( self.__outyear4, float ):
             return self.__outyear4
 
     @out_year_4.setter
-    def out_year_4( self, value ):
+    def out_year_4( self, value: str ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def out_year_5( self ):
+    def out_year_5( self ) -> str:
         if self.__outyear5 is not None:
             return self.__outyear5
 
     @out_year_5.setter
-    def out_year_5( self, value ):
+    def out_year_5( self, value: str ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def out_year_6( self ):
+    def out_year_6( self ) -> str:
         if self.__outyear6 is not None:
             return self.__outyear6
 
     @out_year_6.setter
-    def out_year_6( self, value ):
+    def out_year_6( self, value: str ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def out_year_7( self ):
+    def out_year_7( self ) -> str:
         if self.__outyear7 is not None:
             return self.__outyear7
 
     @out_year_7.setter
-    def out_year_7( self, value ):
+    def out_year_7( self, value: str ):
         if value is not None:
             self.__outyear7 = value
 
     @property
-    def out_year_8( self ):
+    def out_year_8( self ) -> str:
         if self.__outyear8 is not None:
             return self.__outyear8
 
     @out_year_8.setter
-    def out_year_8( self, value ):
+    def out_year_8( self, value: str ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def out_year_9( self ):
+    def out_year_9( self ) -> str:
         if self.__outyear9 is not None:
             return self.__outyear9
 
     @out_year_9.setter
-    def out_year_9( self, value ):
+    def out_year_9( self, value: str ):
         if value is not None:
             self.__outyear9 = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -5443,7 +5438,7 @@ class BudgetOutlay( ):
                           'BudgetYear8',
                           'BudgetYear9' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -5469,7 +5464,7 @@ class BudgetOutlay( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -5509,167 +5504,167 @@ class CongressionalControl( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__congressionalcontrolsid is not None:
             return self.__congressionalcontrolsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__congressionalcontrolsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def sub_project_code( self ):
+    def sub_project_code( self ) -> str:
         if self.__subprojectcode is not None:
             return self.__subprojectcode
 
     @sub_project_code.setter
-    def sub_project_code( self, value ):
+    def sub_project_code( self, value: str ):
         if value is not None:
             self.__subprojectcode = value
 
     @property
-    def sub_project_name( self ):
+    def sub_project_name( self ) -> str:
         if self.__subprojectname is not None:
             return self.__subprojectname
 
     @sub_project_name.setter
-    def sub_project_name( self, value ):
+    def sub_project_name( self, value: str ):
         if value is not None:
             self.__subprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def reprogramming_restriction( self ):
+    def reprogramming_restriction( self ) -> str:
         if self.__reprogrammingrestriction is not None:
             return self.__reprogrammingrestriction
 
     @reprogramming_restriction.setter
-    def reprogramming_restriction( self, value ):
+    def reprogramming_restriction( self, value: str ):
         if value is not None:
             self.__reprogrammingrestriction = value
 
     @property
-    def increase_restriction( self ):
+    def increase_restriction( self ) -> str:
         if self.__increaserestriction is not None:
             return self.__increaserestriction
 
     @increase_restriction.setter
-    def increase_restriction( self, value ):
+    def increase_restriction( self, value: str ):
         if value is not None:
             self.__increaserestriction = value
 
     @property
-    def decrease_restriction( self ):
+    def decrease_restriction( self ) -> str:
         if self.__decreaserestriction is not None:
             return self.__decreaserestriction
 
     @decrease_restriction.setter
-    def decrease_restriction( self, value ):
+    def decrease_restriction( self, value: str ):
         if value is not None:
             self.__decreaserestriction = value
 
     @property
-    def memorandum_required( self ):
+    def memorandum_required( self ) -> str:
         if self.__memorandumrequired is not None:
             return self.__memorandumrequired
 
     @memorandum_required.setter
-    def memorandum_required( self, value ):
+    def memorandum_required( self, value: str ):
         if value is not None:
             self.__memorandumrequired = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -5692,7 +5687,7 @@ class CongressionalControl( ):
                            'DecreaseRestriction',
                            'MemoRequirement' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -5773,92 +5768,92 @@ class CompassLevel( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__compasslevelsid is not None:
             return self.__compasslevelsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__compasslevelsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def appropriation_code( self ):
+    def appropriation_code( self ) -> str:
         if self.__appropriationcode is not None:
             return self.__appropriationcode
 
     @appropriation_code.setter
-    def appropriation_code( self, value ):
+    def appropriation_code( self, value: str ):
         if value is not None:
             self.__appropriationcode = value
 
     @property
-    def appropriation_name( self ):
+    def appropriation_name( self ) -> str:
         if self.__appropriationname is not None:
             return self.__appropriationname
 
     @appropriation_name.setter
-    def appropriation_name( self, value ):
+    def appropriation_name( self, value: str ):
         if value is not None:
             self.__appropriationname = value
 
     @property
-    def sub_appropriation_code( self ):
+    def sub_appropriation_code( self ) -> str:
         if self.__subappropriationcode is not None:
             return self.__subappropriationcode
 
     @sub_appropriation_code.setter
-    def sub_appropriation_code( self, value ):
+    def sub_appropriation_code( self, value: str ):
         if value is not None:
             self.__subappropriationcode = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -5916,7 +5911,7 @@ class CompassLevel( ):
                            'ActualReimbursements',
                            'AgreementReimbursables' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -5942,7 +5937,7 @@ class CompassLevel( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -6006,102 +6001,102 @@ class Commitment( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__expendituresid, int ):
             return self.__expendituresid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__expendituresid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if isinstance( self.__efy, str ) and self.__efy != '':
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -6116,282 +6111,282 @@ class Commitment( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def document_control_number( self ):
+    def document_control_number( self ) -> str:
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
-    def document_control_number( self, value ):
+    def document_control_number( self, value: str ):
         if value is not None:
             self.__documentcontrolnumber = value
 
     @property
-    def reference_document_number( self ):
+    def reference_document_number( self ) -> str:
         if self.__referencedocumentnumbe is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
-    def reference_document_number( self, value ):
+    def reference_document_number( self, value: str ):
         if value is not None:
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ):
+    def processed_date( self ) -> str:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value ):
+    def processed_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ):
+    def last_activity_date( self ) -> str:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value ):
+    def last_activity_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
-    def age( self ):
+    def age( self ) -> str:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value ):
+    def age( self, value: str ):
         if value is not None:
             self.__age = value
 
     @property
-    def vendor_code( self ):
+    def vendor_code( self ) -> str:
         if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
-    def vendor_code( self, value ):
+    def vendor_code( self, value: str ):
         if value is not None:
             self.__vendorcode = value
 
     @property
-    def vendor_name( self ):
+    def vendor_name( self ) -> str:
         if self.__vendorname is not None:
             return self.__vendorname
 
     @vendor_name.setter
-    def vendor_name( self, value ):
+    def vendor_name( self, value: str ):
         if value is not None:
             self.__vendorname = value
 
     @property
-    def foc_code( self ):
+    def foc_code( self ) -> str:
         if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
-    def foc_code( self, value ):
+    def foc_code( self, value: str ):
         if value is not None:
             self.__foccode = value
 
     @property
-    def foc_name( self ):
+    def foc_name( self ) -> str:
         if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
-    def foc_name( self, value ):
+    def foc_name( self, value: str ):
         if value is not None:
             self.__focname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if  self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if  self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -6440,11 +6435,11 @@ class Commitment( ):
                            'ULO',
                            'Expenditure' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -6470,7 +6465,7 @@ class Commitment( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -6518,242 +6513,242 @@ class CarryoverOutlay( ):
 
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__carryoveroutlaysid, int ):
             return self.__carryoveroutlaysid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__carryoveroutlaysid = value
 
     @property
-    def budget_year( self ):
+    def budget_year( self ) -> str:
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budget_year.setter
-    def budget_year( self, value ):
+    def budget_year( self, value: str ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def line_number( self ):
+    def line_number( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
-    def line_number( self, value ):
+    def line_number( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def carryover( self ):
+    def carryover( self ) -> str:
         if self.__carryover is not None:
             return self.__carryover
 
     @carryover.setter
-    def carryover( self, value ):
+    def carryover( self, value: str ):
         if value is not None:
             self.__carryover = value
 
     @property
-    def carryover_outlays( self ):
+    def carryover_outlays( self ) -> str:
         if self.__carryoveroutlays is not None:
             return self.__carryoveroutlays
 
     @carryover_outlays.setter
-    def carryover_outlays( self, value ):
+    def carryover_outlays( self, value: str ):
         if value is not None:
             self.__carryoveroutlays = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__ulo is not None:
             return self.__ulo
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__ulo = value
 
     @property
-    def delta( self ):
+    def delta( self ) -> str:
         if self.__delta is not None:
             return self.__delta
 
     @delta.setter
-    def delta( self, value ):
+    def delta( self, value: str ):
         if isinstance( value, float ) and value > 0:
             self.__delta = value
 
     @property
-    def available_balance( self ):
+    def available_balance( self ) -> str:
         if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available_balance.setter
-    def available_balance( self, value ):
+    def available_balance( self, value: str ):
         if value is not None:
             self.__availablebalance = value
 
     @property
-    def current_year( self ):
+    def current_year( self ) -> str:
         if self.__currentyear is not None:
             return self.__currentyear
 
     @current_year.setter
-    def current_year( self, value ):
+    def current_year( self, value: str ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def current_year_adjustment( self ):
+    def current_year_adjustment( self ) -> str:
         if self.__currentyearadjustment is not None:
             return self.__currentyearadjustment
 
     @current_year_adjustment.setter
-    def current_year_adjustment( self, value ):
+    def current_year_adjustment( self, value: str ):
         if value is not None:
             self.__currentyearadjustment = value
 
     @property
-    def budget_year( self ):
+    def budget_year( self ) -> str:
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budget_year.setter
-    def budget_year( self, value ):
+    def budget_year( self, value: str ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def budget_year_adjustment( self ):
+    def budget_year_adjustment( self ) -> str:
         if self.__budgetyearadjustment is not None:
             return self.__budgetyearadjustment
 
     @budget_year_adjustment.setter
-    def budget_year_adjustment( self, value ):
+    def budget_year_adjustment( self, value: str ):
         if value is not None:
             self.__budgetyearadjustment = value
 
     @property
-    def out_year_1( self ):
+    def out_year_1( self ) -> str:
         if self.__outyear1 is not None:
             return self.__outyear1
 
     @out_year_1.setter
-    def out_year_1( self, value ):
+    def out_year_1( self, value: str ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def out_year_2( self ):
+    def out_year_2( self ) -> str:
         if self.__outyear2 is not None:
             return self.__outyear2
 
     @out_year_2.setter
-    def out_year_2( self, value ):
+    def out_year_2( self, value: str ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def out_year_3( self ):
+    def out_year_3( self ) -> str:
         if self.__outyear3 is not None:
             return self.__outyear3
 
     @out_year_3.setter
-    def out_year_3( self, value ):
+    def out_year_3( self, value: str ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def out_year_4( self ):
+    def out_year_4( self ) -> str:
         if self.__outyear4 is not None:
             return self.__outyear4
 
     @out_year_4.setter
-    def out_year_4( self, value ):
+    def out_year_4( self, value: str ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def out_year_5( self ):
+    def out_year_5( self ) -> str:
         if self.__outyear5 is not None:
             return self.__outyear5
 
     @out_year_5.setter
-    def out_year_5( self, value ):
+    def out_year_5( self, value: str ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def out_year_6( self ):
+    def out_year_6( self ) -> str:
         if self.__outyear6 is not None:
             return self.__outyear6
 
     @out_year_6.setter
-    def out_year_6( self, value ):
+    def out_year_6( self, value: str ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def out_year_7( self ):
+    def out_year_7( self ) -> str:
         if self.__outyear7 is not None:
             return self.__outyear7
 
     @out_year_7.setter
-    def out_year_7( self, value ):
+    def out_year_7( self, value: str ):
         if value is not None:
             self.__outyear7 = value
 
     @property
-    def out_year_8( self ):
+    def out_year_8( self ) -> str:
         if self.__outyear8 is not None:
             return self.__outyear8
 
     @out_year_8.setter
-    def out_year_8( self, value ):
+    def out_year_8( self, value: str ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def out_year_9( self ):
+    def out_year_9( self ) -> str:
         if self.__outyear9 is not None:
             return self.__outyear9
 
     @out_year_9.setter
-    def out_year_9( self, value ):
+    def out_year_9( self, value: str ):
         if value is not None:
             self.__outyear9 = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -6786,7 +6781,7 @@ class CarryoverOutlay( ):
                           'OutYear8',
                           'OutYear9' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = Source.CarryoverOutlays
             provider = Provider.SQLite
@@ -6812,7 +6807,7 @@ class CarryoverOutlay( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -6835,22 +6830,22 @@ class CostArea( ):
     __fields = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__transfersid, int ):
             return self.__transfersid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__transfersid = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -6878,72 +6873,72 @@ class CarryoverSurvey( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__allocationsid, int ):
             return self.__allocationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__allocationsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if isinstance( self.__amount, float):
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -6958,7 +6953,7 @@ class CarryoverSurvey( ):
                           'FundName',
                           'Amount' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -6984,7 +6979,7 @@ class CarryoverSurvey( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -7012,62 +7007,62 @@ class CapitalPlanningInvestmentCodes( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__capitalplanninginvestmentcodesid, int ):
             return self.__capitalplanninginvestmentcodesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__accountsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -7080,11 +7075,11 @@ class CapitalPlanningInvestmentCodes( ):
                           'Code',
                           'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -7110,7 +7105,7 @@ class CapitalPlanningInvestmentCodes( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -7141,52 +7136,52 @@ class ColumnSchema( ):
 
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__columnschemaid is not None:
             return self.__columnschemaid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__columnschemaid = value
 
     @property
-    def data_type( self ):
+    def data_type( self ) -> str:
         if self.__datatype is not None:
             return self.__datatype
 
     @data_type.setter
-    def data_type( self, value ):
+    def data_type( self, value: str ):
         if value is not None:
             self.__datatype = value
 
     @property
-    def column_name( self ):
+    def column_name( self ) -> str:
         if self.__columnname is not None:
             return self.__columnname
 
     @column_name.setter
-    def column_name( self, value ):
+    def column_name( self, value: str ):
         if value is not None:
             self.__columnname = value
 
     @property
-    def table_name( self ):
+    def table_name( self ) -> str:
         if self.__tablename is not None:
             return self.__tablename
 
     @table_name.setter
-    def table_name( self, value ):
+    def table_name( self, value: str ):
         if value is not None:
             self.__tablename = value
 
     @property
-    def column_caption( self ):
+    def column_caption( self ) -> str:
         if self.__columncaption is not None:
             return self.__columncaption
 
     @column_caption.setter
-    def column_caption( self, value ):
+    def column_caption( self, value: str ):
         if value is not None:
             self.__columncaption = value
 
@@ -7213,72 +7208,72 @@ class DataRuleDescription( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__dataruledescriptionsid, int ):
             return self.__dataruledescriptionsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__dataruledescriptionsid = value
 
     @property
-    def schedule( self ):
+    def schedule( self ) -> str:
         if isinstance( self.__schedule, str ) and self.__schedule != '':
             return self.__schedule
 
     @schedule.setter
-    def schedule( self, value ):
+    def schedule( self, value: str ):
         if value is not None:
             self.__schedule = value
 
     @property
-    def line_number( self ):
+    def line_number( self ) -> str:
         if isinstance( self.__linenumber, str ) and self.__linenumber != '':
             return self.__linenumber
 
     @line_number.setter
-    def line_number( self, value ):
+    def line_number( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def line_description( self ):
+    def line_description( self ) -> str:
         if isinstance( self.__linedescription, str ) and self.__linedescription != '':
             return self.__linedescription
 
     @line_description.setter
-    def line_description( self, value ):
+    def line_description( self, value: str ):
         if value is not None:
             self.__linedescription = value
 
     @property
-    def rule_number( self ):
+    def rule_number( self ) -> str:
         if isinstance( self.__rulenumber, str ) and self.__rulenumber != '':
             return self.__rulenumber
 
     @rule_number.setter
-    def rule_number( self, value ):
+    def rule_number( self, value: str ):
         if value is not None:
             self.__rulenumber = value
 
     @property
-    def rule_description( self ):
+    def rule_description( self ) -> str:
         if isinstance( self.__ruledescription, str ) and self.__ruledescription != '':
             return self.__ruledescription
 
     @rule_description.setter
-    def rule_description( self, value ):
+    def rule_description( self, value: str ):
         if value is not None:
             self.__ruledescription = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -7295,7 +7290,7 @@ class DataRuleDescription( ):
                           'RuleDescription',
                           'ScheduleOrder' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -7321,7 +7316,7 @@ class DataRuleDescription( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -7382,102 +7377,102 @@ class Defacto( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__statusoffundsid, int ):
             return self.__statusoffundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if isinstance( value, int ) and value > -1:
             self.__statusoffundsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -7492,252 +7487,252 @@ class Defacto( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -7781,7 +7776,7 @@ class Defacto( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -7807,7 +7802,7 @@ class Defacto( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -7872,102 +7867,102 @@ class Deobligation( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__deobligationsid, int ):
             return self.__deobligationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__deobligationsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -7982,282 +7977,282 @@ class Deobligation( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def document_control_number( self ):
+    def document_control_number( self ) -> str:
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
-    def document_control_number( self, value ):
+    def document_control_number( self, value: str ):
         if value is not None:
             self.__documentcontrolnumber = value
 
     @property
-    def reference_document_number( self ):
+    def reference_document_number( self ) -> str:
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
-    def reference_document_number( self, value ):
+    def reference_document_number( self, value: str ):
         if value is not None:
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ):
+    def processed_date( self ) -> str:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value ):
+    def processed_date( self, value: str ):
         if value is not None:
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ):
+    def last_activity_date( self ) -> str:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value ):
+    def last_activity_date( self, value: str ):
         if value is not None:
             self.__lastactivitydate = value
 
     @property
-    def age( self ):
+    def age( self ) -> str:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value ):
+    def age( self, value: str ):
         if value is not None:
             self.__age = value
 
     @property
-    def vendor_code( self ):
+    def vendor_code( self ) -> str:
         if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
-    def vendor_code( self, value ):
+    def vendor_code( self, value: str ):
         if value is not None:
             self.__vendorcode = value
 
     @property
-    def vendor_name( self ):
+    def vendor_name( self ) -> str:
         if self.__vendorname is not None:
             return self.__vendorname
 
     @vendor_name.setter
-    def vendor_name( self, value ):
+    def vendor_name( self, value: str ):
         if value is not None:
             self.__vendorname = value
 
     @property
-    def foc_code( self ):
+    def foc_code( self ) -> str:
         if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
-    def foc_code( self, value ):
+    def foc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def foc_name( self ):
+    def foc_name( self ) -> str:
         if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
-    def foc_name( self, value ):
+    def foc_name( self, value: str ):
         if value is not None:
             self.__focname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -8292,11 +8287,11 @@ class Deobligation( ):
                            'ProcessedDate',
                            'Amount' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -8322,7 +8317,7 @@ class Deobligation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -8354,82 +8349,82 @@ class DocumentControlNumber( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__documentcontrolnumbersid is not None:
             return self.__documentcontrolnumbersid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__documentcontrolnumbersid = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_prefix( self ):
+    def document_prefix( self ) -> str:
         if self.__documentprefix is not None:
             return self.__documentprefix
 
     @document_prefix.setter
-    def document_prefix( self, value ):
+    def document_prefix( self, value: str ):
         if value is not None:
             self.__documentprefix = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def document_control_number( self ):
+    def document_control_number( self ) -> str:
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
-    def document_control_number( self, value ):
+    def document_control_number( self, value: str ):
         if value is not None:
             self.__documentcontrolnumber = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -8445,7 +8440,7 @@ class DocumentControlNumber( ):
                            'DocumentPrefix',
                            'DocumentControlNumbe' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -8471,7 +8466,7 @@ class DocumentControlNumber( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -8536,102 +8531,102 @@ class Expenditure( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__expendituresid, int ):
             return self.__expendituresid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__expendituresid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -8646,42 +8641,42 @@ class Expenditure( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -8696,252 +8691,252 @@ class Expenditure( ):
             self.__orgname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def document_control_number( self ):
+    def document_control_number( self ) -> str:
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
-    def document_control_number( self, value ):
+    def document_control_number( self, value: str ):
         if value is not None:
             self.__documentcontrolnumber = value
 
     @property
-    def reference_document_number( self ):
+    def reference_document_number( self ) -> str:
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
-    def reference_document_number( self, value ):
+    def reference_document_number( self, value: str ):
         if value is not None:
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ):
+    def processed_date( self ) -> str:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value ):
+    def processed_date( self, value: str ):
         if value is not None:
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ):
+    def last_activity_date( self ) -> str:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value ):
+    def last_activity_date( self, value: str ):
         if value is not None:
             self.__lastactivitydate = value
 
     @property
-    def age( self ):
+    def age( self ) -> str:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value ):
+    def age( self, value: str ):
         if value is not None:
             self.__age = value
 
     @property
-    def vendor_code( self ):
+    def vendor_code( self ) -> str:
         if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
-    def vendor_code( self, value ):
+    def vendor_code( self, value: str ):
         if value is not None:
             self.__vendorcode = value
 
     @property
-    def vendor_name( self ):
+    def vendor_name( self ) -> str:
         if self.__vendorname is not None:
             return self.__vendorname
 
     @vendor_name.setter
-    def vendor_name( self, value ):
+    def vendor_name( self, value: str ):
         if value is not None:
             self.__vendorname = value
 
     @property
-    def foc_code( self ):
+    def foc_code( self ) -> str:
         if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
-    def foc_code( self, value ):
+    def foc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def foc_name( self ):
+    def foc_name( self ) -> str:
         if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
-    def foc_name( self, value ):
+    def foc_name( self, value: str ):
         if value is not None:
             self.__focname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -8987,11 +8982,11 @@ class Expenditure( ):
                            'VendorName',
                            'Amount' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -9017,7 +9012,7 @@ class Expenditure( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -9047,7 +9042,7 @@ class FinanceObjectClass( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__financeobjectclassesid is not None:
             return self.__financeobjectclassesid
 
@@ -9057,7 +9052,7 @@ class FinanceObjectClass( ):
             self.__financeobjectclassesid = id
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
@@ -9067,7 +9062,7 @@ class FinanceObjectClass( ):
             self.__code = code
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
@@ -9077,17 +9072,17 @@ class FinanceObjectClass( ):
             self.__name = name
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
@@ -9097,7 +9092,7 @@ class FinanceObjectClass( ):
             self.__bocname = name
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
@@ -9107,7 +9102,7 @@ class FinanceObjectClass( ):
             self.__data = cache
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
@@ -9117,12 +9112,12 @@ class FinanceObjectClass( ):
             self.__frame = frame
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -9136,11 +9131,11 @@ class FinanceObjectClass( ):
                           'BocCode',
                           'BocName' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -9166,7 +9161,7 @@ class FinanceObjectClass( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -9222,149 +9217,149 @@ class Fund( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         ''' Gets the 'id' property '''
         if self.__fundsid is not None:
             return self.__fundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         ''' Sets the 'id' property '''
         if value is not None:
             self.__fundsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def short_name( self ):
+    def short_name( self ) -> str:
         if self.__shortname is not None:
             return self.__shortname
 
     @short_name.setter
-    def short_name( self, value ):
+    def short_name( self, value: str ):
         if value is not None:
             self.__shortname = value
 
     @property
-    def status( self ):
+    def status( self ) -> str:
         if self.__status is not None:
             return self.__status
 
     @status.setter
-    def status( self, value ):
+    def status( self, value: str ):
         if isinstance( value, str ) and value in [ 'ACTIVE', 'INACTIVE' ]:
             self.__status = value
 
     @property
-    def bpoa( self ):
+    def bpoa( self ) -> str:
         if self.__beginningperiodofavailability is not None:
             return self.__beginningperiodofavailability
 
     @bpoa.setter
-    def bpoa( self, value ):
+    def bpoa( self, value: str ):
         if value is not None:
             self.__beginningperiodofavailability = value
 
     @property
-    def epoa( self ):
+    def epoa( self ) -> str:
         if self.__endingperiodofavailability is not None:
             return self.__endingperiodofavailability
 
     @epoa.setter
-    def epoa( self, value ):
+    def epoa( self, value: str ):
         if value is not None:
             self.__endingperiodofavailability = value
 
     @property
-    def main( self ):
+    def main( self ) -> str:
         if self.__main is not None:
             return self.__main
 
     @main.setter
-    def main( self, value ):
+    def main( self, value: str ):
         if value is not None:
            self.__main = value
 
     @property
-    def multiyear_indicator( self ):
+    def multiyear_indicator( self ) -> str:
         if self.__multiyearindicator is not None:
             return self.__multiyearindicator
 
     @multiyear_indicator.setter
-    def multiyear_indicator( self, value ):
+    def multiyear_indicator( self, value: str ):
         if value is not None:
             self.__multiyearindicator = value
 
     @property
-    def sub_level( self ):
+    def sub_level( self ) -> str:
         if self.__sublevelprefix is not None:
             return self.__sublevelprefix
 
     @sub_level.setter
-    def sub_level( self, value ):
+    def sub_level( self, value: str ):
         if value is not None:
             self.__sublevelprefix = value
 
     @property
-    def allocation_transfer_agency( self ):
+    def allocation_transfer_agency( self ) -> str:
         if self.__allocationtransferagency is not None:
             return self.__allocationtransferagency
 
     @allocation_transfer_agency.setter
-    def allocation_transfer_agency( self, value ):
+    def allocation_transfer_agency( self, value: str ):
         if value is not None:
             self.__allocationtransferagency = value
 
     @property
-    def agency_identifier( self ):
+    def agency_identifier( self ) -> str:
         if self.__agencyidentifier is not None:
             return self.__agencyidentifier
 
     @agency_identifier.setter
-    def agency_identifier( self, value ):
+    def agency_identifier( self, value: str ):
         if value is not None:
             self.__agencyidentifier = value
 
     @property
-    def fund_category( self ):
+    def fund_category( self ) -> str:
         if self.__fundcategory is not None:
             return self.__fundcategory
 
     @fund_category.setter
-    def fund_category( self, value ):
+    def fund_category( self, value: str ):
         if value is not None:
             self.__fundcategory = value
 
     @property
-    def appropriation_code( self ):
+    def appropriation_code( self ) -> str:
         if self.__appropriationcode is not None:
             return self.__appropriationcode
 
     @appropriation_code.setter
-    def appropriation_code( self, value ):
+    def appropriation_code( self, value: str ):
         if value is not None:
             self.__appropriationcode = value
 
     @property
-    def appropriation_name( self ):
+    def appropriation_name( self ) -> str:
         if self.__appropriationname is not None:
             return self.__appropriationname
 
@@ -9374,37 +9369,37 @@ class Fund( ):
             self.__appropriationname = name
 
     @property
-    def fund_group( self ):
+    def fund_group( self ) -> str:
         if self.__fundgroup is not None:
             return self.__fundgroup
 
     @fund_group.setter
-    def fund_group( self, value ):
+    def fund_group( self, value: str ):
         if value is not None:
             self.__fundgroup = value
 
     @property
-    def no_year( self ):
+    def no_year( self ) -> str:
         if self.__noyear is not None:
             return self.__noyear
 
     @no_year.setter
-    def no_year( self, value ):
+    def no_year( self, value: str ):
         if value is not None:
             self.__noyear = value
 
     @property
-    def carry_over( self ):
+    def carry_over( self ) -> str:
         if self.__carryover is not None:
             return self.__carryover
 
     @carry_over.setter
-    def carry_over( self, value ):
+    def carry_over( self, value: str ):
         if value is not None:
             self.__carryover = value
 
     @property
-    def cancelled_spending_account( self ):
+    def cancelled_spending_account( self ) -> str:
         if self.__cancelledyearspendingaccount is not None:
             return self.__cancelledyearspendingaccount
 
@@ -9414,132 +9409,132 @@ class Fund( ):
             self.__cancelledyearspendingaccount = acct
 
     @property
-    def apply_all_levels( self ):
+    def apply_all_levels( self ) -> str:
         if  self.__applyatalllevels is not None:
             return self.__applyatalllevels
 
     @apply_all_levels.setter
-    def apply_all_levels( self, value ):
+    def apply_all_levels( self, value: str ):
         if value is not None:
            self.__applyatalllevels = value
 
     @property
-    def bats_fund( self ):
+    def bats_fund( self ) -> str:
         if self.__batsfund is not None:
             return self.__batsfund
 
     @bats_fund.setter
-    def bats_fund( self, value ):
+    def bats_fund( self, value: str ):
         if value is not None:
             self.__batsfund = value
 
     @property
-    def bats_end_date( self ):
+    def bats_end_date( self ) -> str:
         if self.__batsenddate is not None:
             return self.__batsenddate
 
     @bats_end_date.setter
-    def bats_end_date( self, value ):
+    def bats_end_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__batsenddate = value
 
     @property
-    def bats_option_id( self ):
+    def bats_option_id( self ) -> str:
         if self.__batsoptionid is not None:
             return self.__batsoptionid
 
     @bats_option_id.setter
-    def bats_option_id( self, value ):
+    def bats_option_id( self, value: str ):
         if value is not None:
             self.__batsoptionid = value
 
     @property
-    def security_org( self ):
+    def security_org( self ) -> str:
         if self.__securityorg is not None:
             return self.__securityorg
 
     @security_org.setter
-    def security_org( self, value ):
+    def security_org( self, value: str ):
         if value is not None:
             self.__securityorg = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def apportionment_account_code( self ):
+    def apportionment_account_code( self ) -> str:
         if self.__apportionmentaccountcode is not None:
             return self.__apportionmentaccountcode
 
     @apportionment_account_code.setter
-    def apportionment_account_code( self, value ):
+    def apportionment_account_code( self, value: str ):
         if value is not None:
             self.__apportionmentaccountcode = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -9577,11 +9572,11 @@ class Fund( ):
                           'BatsOptionId',
                           'SecurityOrg' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -9607,7 +9602,7 @@ class Fund( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -9654,97 +9649,97 @@ class FederalHoliday( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__federalholidaysid is not None:
             return self.__federalholidaysid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__federalholidaysid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value in self.__list:
             self.__name = value
 
     @property
-    def date( self ):
+    def date( self ) -> str:
         if self.__date is not None:
             return self.__date
 
     @property
-    def day( self ):
+    def day( self ) -> str:
         if self.__day is not None:
             return self.__day
 
     @property
-    def month( self ):
+    def month( self ) -> str:
         if self.__month is not None:
             return self.__month
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def list( self ):
+    def list( self ) -> str:
         if self.__list is not None:
             return self.__list
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def observances( self ):
+    def observances( self ) -> str:
         if isinstance( self.__observance, dict ):
             return self.__observance
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -9790,11 +9785,11 @@ class FederalHoliday( ):
         self.__data = None
         self.__frame = None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if not self.__name == '':
             return self.__name
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -9820,7 +9815,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -9835,7 +9830,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def columbus_day( self ):
+    def columbus_day( self ) -> str:
         '''The second Monday in October'''
         try:
             if self.__year is not None:
@@ -9855,7 +9850,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def veterans_day( self ):
+    def veterans_day( self ) -> str:
         '''Veterans Day, November 11'''
         try:
             if self.__year is not None:
@@ -9869,7 +9864,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def thanksgiving_day( self ):
+    def thanksgiving_day( self ) -> str:
         '''The fourth Thursday in November'''
         try:
             if self.__year is not None:
@@ -9889,7 +9884,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def christmas_day( self ):
+    def christmas_day( self ) -> str:
         '''Christmas Day, December 25'''
         try:
             if self.__year is not None:
@@ -9903,7 +9898,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def new_years_day( self ):
+    def new_years_day( self ) -> str:
         '''January 1'''
         try:
             if self.__year is not None:
@@ -9917,7 +9912,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def martinlutherkings_day( self ):
+    def martinlutherkings_day( self ) -> str:
         '''The third Monday in January'''
         try:
             if self.__year is not None:
@@ -9937,7 +9932,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def washingtons_day( self ):
+    def washingtons_day( self ) -> str:
         '''The third Monday in February'''
         try:
             if self.__year is not None:
@@ -9957,7 +9952,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def memorial_day( self ):
+    def memorial_day( self ) -> str:
         '''The last Monday in May'''
         try:
             if self.__year is not None:
@@ -9977,7 +9972,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def juneteenth_day( self ):
+    def juneteenth_day( self ) -> str:
         '''Juneteenth National Independence Day, June 19'''
         try:
             if self.__year is not None:
@@ -9991,7 +9986,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def independence_day( self ):
+    def independence_day( self ) -> str:
         '''Independence Day, July 4'''
         try:
             if self.__year is not None:
@@ -10005,7 +10000,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def labor_day( self ):
+    def labor_day( self ) -> str:
         '''The first Monday in September'''
         try:
             if self.__year is not None:
@@ -10027,7 +10022,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def day_of_week( self ):
+    def day_of_week( self ) -> str:
         try:
             if 0 < self.__day < 8 and  self.__day == 1:
                 self.__dayofweek = 'Monday'
@@ -10058,7 +10053,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_weekday( self ):
+    def is_weekday( self ) -> str:
         try:
             if 1 <= self.__date.isoweekday() <= 5:
                 return True
@@ -10072,7 +10067,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_weekend( self ):
+    def is_weekend( self ) -> str:
         try:
             if 5 < self.__date.isoweekday() <= 7:
                 return True
@@ -10181,102 +10176,102 @@ class FullTimeEquivalent( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__fulltimeequivalentsid is not None:
             return self.__fulltimeequivalentsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__fulltimeequivalentsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -10291,172 +10286,172 @@ class FullTimeEquivalent( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -10474,7 +10469,7 @@ class FullTimeEquivalent( ):
                            'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
                            'ObjectiveCode', 'ObjectiveName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -10500,7 +10495,7 @@ class FullTimeEquivalent( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe'''
         try:
             src = self.__source
@@ -10529,92 +10524,92 @@ class GeneralLedgerAccount( ):
     __fields = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__ledgeraccountsid is not None:
             return self.__ledgeraccountsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__ledgeraccountsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def account_number( self ):
+    def account_number( self ) -> str:
         if self.__accountnumber is not None:
             return self.__accountnumber
 
     @account_number.setter
-    def account_number( self, value ):
+    def account_number( self, value: str ):
         if value is not None:
             self.__accountnumber = value
 
     @property
-    def account_name( self ):
+    def account_name( self ) -> str:
         if self.__accountname is not None:
             return self.__accountname
 
     @account_name.setter
-    def account_name( self, value ):
+    def account_name( self, value: str ):
         if value is not None:
             self.__accountname = value
 
     @property
-    def treasury_symbol( self ):
+    def treasury_symbol( self ) -> str:
         if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
     @treasury_symbol.setter
-    def treasury_symbol( self, value ):
+    def treasury_symbol( self, value: str ):
         if value is not None:
             self.__treasuryaccount = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -10649,62 +10644,62 @@ class Goal( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__goalsid is not None:
             return self.__goalsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__goalsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -10717,11 +10712,11 @@ class Goal( ):
                           'Name',
                           'Title' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -10771,142 +10766,142 @@ class GrowthRate( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__growthratesid is not None:
             return self.__growthratesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__growthratesid = value
 
     @property
-    def rateid( self ):
+    def rateid( self ) -> str:
         if self.__rateid is not None:
             return self.__rateid
 
     @rateid.setter
-    def rateid( self, value ):
+    def rateid( self, value: str ):
         if value is not None:
             self.__rateid = value
 
     @property
-    def description( self ):
+    def description( self ) -> str:
         if self.__description is not None:
             return self.__description
 
     @description.setter
-    def description( self, value ):
+    def description( self, value: str ):
         if value is not None:
             self.__description = value
 
     @property
-    def budget_year( self ):
+    def budget_year( self ) -> str:
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budget_year.setter
-    def budget_year( self, value ):
+    def budget_year( self, value: str ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def out_year_1( self ):
+    def out_year_1( self ) -> str:
         if self.__outyear1 is not None:
             return self.__outyear1
 
     @out_year_1.setter
-    def out_year_1( self, value ):
+    def out_year_1( self, value: str ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def out_year_2( self ):
+    def out_year_2( self ) -> str:
         if self.__outyear2 is not None:
             return self.__outyear2
 
     @out_year_2.setter
-    def out_year_2( self, value ):
+    def out_year_2( self, value: str ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def out_year_3( self ):
+    def out_year_3( self ) -> str:
         if self.__outyear3 is not None:
             return self.__outyear3
 
     @out_year_3.setter
-    def out_year_3( self, value ):
+    def out_year_3( self, value: str ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def out_year_4( self ):
+    def out_year_4( self ) -> str:
         if self.__outyear4 is not None:
             return self.__outyear4
 
     @out_year_4.setter
-    def out_year_4( self, value ):
+    def out_year_4( self, value: str ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def out_year_5( self ):
+    def out_year_5( self ) -> str:
         if self.__outyear5 is not None:
             return self.__outyear5
 
     @out_year_5.setter
-    def out_year_5( self, value ):
+    def out_year_5( self, value: str ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def out_year_6( self ):
+    def out_year_6( self ) -> str:
         if self.__outyear6 is not None:
             return self.__outyear6
 
     @out_year_6.setter
-    def out_year_6( self, value ):
+    def out_year_6( self, value: str ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def out_year_7( self ):
+    def out_year_7( self ) -> str:
         if self.__outyear7 is not None:
             return self.__outyear7
 
     @out_year_7.setter
-    def out_year_7( self, value ):
+    def out_year_7( self, value: str ):
         if value is not None:
             self.__outyear7 = value
 
     @property
-    def out_year_8( self ):
+    def out_year_8( self ) -> str:
         if self.__outyear8 is not None:
             return self.__outyear8
 
     @out_year_8.setter
-    def out_year_8( self, value ):
+    def out_year_8( self, value: str ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def out_year_9( self ):
+    def out_year_9( self ) -> str:
         if self.__outyear9 is not None:
             return self.__outyear9
 
     @out_year_9.setter
-    def out_year_9( self, value ):
+    def out_year_9( self, value: str ):
         if value is not None:
             self.__outyear9 = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -10930,7 +10925,7 @@ class GrowthRate( ):
                           'OutYear9',
                           'Sort' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -10956,7 +10951,7 @@ class GrowthRate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11009,102 +11004,102 @@ class HeadquartersAuthority( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__statusoffundsid is not None:
             return self.__statusoffundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__statusoffundsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -11119,172 +11114,172 @@ class HeadquartersAuthority( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -11321,7 +11316,7 @@ class HeadquartersAuthority( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -11347,7 +11342,7 @@ class HeadquartersAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11375,62 +11370,62 @@ class HeadquartersOffice( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__resourceplanningofficesid, int ):
             return self.__resourceplanningofficesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.___resourceplanningofficesid = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -11444,11 +11439,11 @@ class HeadquartersOffice( ):
                           'RpioName' ]
 
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__code is not None:
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -11474,7 +11469,7 @@ class HeadquartersOffice( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11502,62 +11497,62 @@ class HumanResourceOrganization( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__humanresourceorganizationsid is not None:
             return self.__humanresourceorganizationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__humanresourceorganizationsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -11567,11 +11562,11 @@ class HumanResourceOrganization( ):
         self.__code = code
         self.__frame = DataFrame
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -11597,7 +11592,7 @@ class HumanResourceOrganization( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11638,184 +11633,184 @@ class InflationReductionActCarryoverEstimate( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__annualcarryoverestimatesid is not None:
             return self.__annualcarryoverestimatesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__annualcarryoverestimatesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if isinstance( self.__availablebalance, float ):
             return self.__availablebalance
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__availablebalance = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if isinstance( self.__opencommitments, float ):
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if isinstance( self.__treasuryaccountcode, str ) \
                 and self.__treasuryaccountcode != '':
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if isinstance( self.__treasuryaccountname, str ) \
                 and self.__treasuryaccountname != '':
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -11846,11 +11841,11 @@ class InflationReductionActCarryoverEstimate( ):
                            'OpenCommitment',
                            'UnobligatedAuthority' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__unobligatedauthority, float ):
             return str( self.__unobligatedauthority )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -11876,7 +11871,7 @@ class InflationReductionActCarryoverEstimate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -11917,182 +11912,182 @@ class JobsActCarryoverEstimate( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__jobsactcarryoverestimatesid is not None:
             return self.__jobsactcarryoverestimatesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__annualcarryoverestimatesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__availablebalance = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -12123,11 +12118,11 @@ class JobsActCarryoverEstimate( ):
                            'OpenCommitment',
                            'UnobligatedAuthority' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__unobligatedauthority, float ):
             return str( self.__unobligatedauthority )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -12153,7 +12148,7 @@ class JobsActCarryoverEstimate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -12205,102 +12200,102 @@ class MonthlyActual( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__actualsid is not None:
             return self.__actualsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__id = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -12315,132 +12310,132 @@ class MonthlyActual( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def gross_outlays( self ):
+    def gross_outlays( self ) -> str:
         if self.__grossoutlays is not None:
             return self.__grossoutlays
 
     @gross_outlays.setter
-    def gross_outlays( self, value ):
+    def gross_outlays( self, value: str ):
         if value is not None:
             self.__grossoutlays = value
 
     @property
-    def net_outlays( self ):
+    def net_outlays( self ) -> str:
         if self.__netoutlays is not None:
             return self.__netoutlays
 
     @net_outlays.setter
-    def net_outlays( self, value ):
+    def net_outlays( self, value: str ):
         if value is not None:
             self.__netoutlays  = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -12481,7 +12476,7 @@ class MonthlyActual( ):
                            'ObjectiveCode',
                            'ObjectiveName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -12507,7 +12502,7 @@ class MonthlyActual( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -12560,112 +12555,112 @@ class MonthlyOutlay( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__monthlyoutlaysid is not None:
             return self.__monthlyoutlaysid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__monthlyoutlaysid = value
 
     @property
-    def line_number( self ):
+    def line_number( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
-    def line_number( self, value ):
+    def line_number( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def line_name( self ):
+    def line_name( self ) -> str:
         if self.__linename is not None:
             return self.__linename
 
     @line_name.setter
-    def line_name( self, value ):
+    def line_name( self, value: str ):
         if value is not None:
             self.__linename = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def taxation_code( self ):
+    def taxation_code( self ) -> str:
         if self.__taxationcode is not None:
             return self.__taxationcode
 
     @taxation_code.setter
-    def taxation_code( self, value ):
+    def taxation_code( self, value: str ):
         if value is not None:
             self.__taxationcode = value
 
     @property
-    def treasury_agency( self ):
+    def treasury_agency( self ) -> str:
         if self.__treasuryagency is not None:
             return self.__treasuryagency
 
     @treasury_agency.setter
-    def treasury_agency( self, value ):
+    def treasury_agency( self, value: str ):
         if value is not None:
             self.__treasuryagency = value
 
     @property
-    def treasury_account( self ):
+    def treasury_account( self ) -> str:
         if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
     @treasury_account.setter
-    def treasury_account( self, value ):
+    def treasury_account( self, value: str ):
         if value is not None:
             self.__treasuryaccount = value
 
     @property
-    def budget_account( self ):
+    def budget_account( self ) -> str:
         if self.__ombaccount is not None:
             return self.__ombaccount
 
     @budget_account.setter
-    def budget_account( self, value ):
+    def budget_account( self, value: str ):
         if value is not None:
             self.__ombaccount = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -12708,7 +12703,7 @@ class MonthlyOutlay( ):
                           'August',
                           'September' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -12734,7 +12729,7 @@ class MonthlyOutlay( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -12764,82 +12759,82 @@ class NationalProgram( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__nationalprogramsid, int ):
             return self.__nationalprogramsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__nationalprogramsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def rpio( self ):
+    def rpio( self ) -> str:
         if isinstance( self.__rpio, str ) and self.__rpio != '':
             return self.__rpio
 
     @rpio.setter
-    def rpio( self, value ):
+    def rpio( self, value: str ):
         if value is not None:
             self.__rpio = value
 
     @property
-    def title( self ):
+    def title( self ) -> str:
         if isinstance( self.__title, str ) and self.__title != '':
             return self.__title
 
     @title.setter
-    def title( self, value ):
+    def title( self, value: str ):
         if value is not None:
             self.__title = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -12853,11 +12848,11 @@ class NationalProgram( ):
                           'RpioCode',
                           'Title' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -12883,7 +12878,7 @@ class NationalProgram( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -12911,62 +12906,62 @@ class Objective( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__objectivesid, int ):
             return self.__objectivesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__objectivesid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -12979,11 +12974,11 @@ class Objective( ):
                           'Name',
                           'Title' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = Source.Objectives
             provider = Provider.SQLite
@@ -13009,7 +13004,7 @@ class Objective( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -13037,7 +13032,7 @@ class Organization( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__organizationsid, int ):
             return self.__organizationsid
 
@@ -13047,7 +13042,7 @@ class Organization( ):
             self.__organizationsid = id
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
@@ -13057,7 +13052,7 @@ class Organization( ):
             self.__code = code
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
@@ -13067,7 +13062,7 @@ class Organization( ):
             self.__name = name
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
@@ -13077,7 +13072,7 @@ class Organization( ):
             self.__data = cache
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
@@ -13087,12 +13082,12 @@ class Organization( ):
             self.__frame = frame
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -13104,11 +13099,11 @@ class Organization( ):
                           'Code',
                           'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -13160,142 +13155,142 @@ class ObjectClassOutlay( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__objectclassoutlaysid, int ):
             return self.__objectclassoutlaysid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__objectclassoutlaysid = value
 
     @property
-    def report_year( self ):
+    def report_year( self ) -> str:
         if self.__reportyear is not None:
             return self.__reportyear
 
     @report_year.setter
-    def report_year( self, value ):
+    def report_year( self, value: str ):
         if isinstance( value, str ) and len( value ) == 4:
             self.__reportyear = value
 
     @property
-    def agency_code( self ):
+    def agency_code( self ) -> str:
         if self.__ombagencycode is not None:
             return self.__ombagencycode
 
     @agency_code.setter
-    def agency_code( self, value ):
+    def agency_code( self, value: str ):
         if value is not None:
             self.__ombagencycode = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def obligation_type( self ):
+    def obligation_type( self ) -> str:
         if self.__obligationtype is not None:
             return self.__obligationtype
 
     @obligation_type.setter
-    def obligation_type( self, value ):
+    def obligation_type( self, value: str ):
         if value is not None:
             self.__obligationtype = value
 
     @property
-    def direct_reimbursable_title( self ):
+    def direct_reimbursable_title( self ) -> str:
         if self.__directreimbursabletitle is not None:
             return self.__directreimbursabletitle
 
     @direct_reimbursable_title.setter
-    def direct_reimbursable_title( self, value ):
+    def direct_reimbursable_title( self, value: str ):
         if value is not None:
             self.__directreimbursabletitle = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def finance_object_class( self ):
+    def finance_object_class( self ) -> str:
         if self.__financeobjectclass is not None:
             return self.__financeobjectclass
 
     @finance_object_class.setter
-    def finance_object_class( self, value ):
+    def finance_object_class( self, value: str ):
         if value is not None:
             self.__financeobjectclass = value
 
     @property
-    def prior_year( self ):
+    def prior_year( self ) -> str:
         if self.__prioryear is not None:
             return self.__prioryear
 
     @prior_year.setter
-    def prior_year( self, value ):
+    def prior_year( self, value: str ):
         if value is not None:
             self.__prioryear = value
 
     @property
-    def current_year( self ):
+    def current_year( self ) -> str:
         if self.__currentyear is not None:
             return self.__currentyear
 
     @current_year.setter
-    def current_year( self, value ):
+    def current_year( self, value: str ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def budget_year( self ):
+    def budget_year( self ) -> str:
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budget_year.setter
-    def budget_year( self, value ):
+    def budget_year( self, value: str ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -13323,7 +13318,7 @@ class ObjectClassOutlay( ):
                           'CurrentYear',
                           'BudgetYear' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = Source.ObjectClassOutlays
             provider = Provider.SQLite
@@ -13349,7 +13344,7 @@ class ObjectClassOutlay( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -13402,102 +13397,102 @@ class OperatingPlan( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__operatingplansid is not None:
             return self.__operatingplansid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__operatingplansid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -13512,172 +13507,172 @@ class OperatingPlan( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccod is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
@@ -13695,7 +13690,7 @@ class OperatingPlan( ):
                            'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
                            'ObjectiveCode', 'ObjectiveName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             src = self.__source
             pdr = self.__provider
@@ -13721,7 +13716,7 @@ class OperatingPlan( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -13786,102 +13781,102 @@ class OpenCommitment( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__opencommitmentsid is not None:
             return self.__opencommitmentsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__opencommitmentsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -13896,362 +13891,362 @@ class OpenCommitment( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def document_control_number( self ):
+    def document_control_number( self ) -> str:
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
-    def document_control_number( self, value ):
+    def document_control_number( self, value: str ):
         if value is not None:
             self.__documentcontrolnumber = value
 
     @property
-    def reference_document_number( self ):
+    def reference_document_number( self ) -> str:
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
-    def reference_document_number( self, value ):
+    def reference_document_number( self, value: str ):
         if value is not None:
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ):
+    def processed_date( self ) -> str:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value ):
+    def processed_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ):
+    def last_activity_date( self ) -> str:
         if  self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value ):
+    def last_activity_date( self, value: str ):
         if value is not None:
             self.__lastactivitydate = value
 
     @property
-    def age( self ):
+    def age( self ) -> str:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value ):
+    def age( self, value: str ):
         if value is not None:
             self.__age = value
 
     @property
-    def vendor_code( self ):
+    def vendor_code( self ) -> str:
         if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
-    def vendor_code( self, value ):
+    def vendor_code( self, value: str ):
         if value is not None:
             self.__vendorcode = value
 
     @property
-    def vendor_name( self ):
+    def vendor_name( self ) -> str:
         if self.__vendorname is not None:
             return self.__vendorname
 
     @vendor_name.setter
-    def vendor_name( self, value ):
+    def vendor_name( self, value: str ):
         if value is not None:
             self.__vendorname = value
 
     @property
-    def foc_code( self ):
+    def foc_code( self ) -> str:
         if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
-    def foc_code( self, value ):
+    def foc_code( self, value: str ):
         if value is not None:
             self.__foccode = value
 
     @property
-    def foc_name( self ):
+    def foc_name( self ) -> str:
         if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
-    def foc_name( self, value ):
+    def foc_name( self, value: str ):
         if value is not None:
             self.__focname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -14300,11 +14295,11 @@ class OpenCommitment( ):
                            'ULO',
                            'Expenditure' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -14330,7 +14325,7 @@ class OpenCommitment( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -14394,102 +14389,102 @@ class Obligation( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__obligationsid, int ):
             return self.__obligationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__obligationsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -14504,362 +14499,362 @@ class Obligation( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttyp is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def document_control_number( self ):
+    def document_control_number( self ) -> str:
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
-    def document_control_number( self, value ):
+    def document_control_number( self, value: str ):
         if value is not None:
             self.__documentcontrolnumber = value
 
     @property
-    def reference_document_number( self ):
+    def reference_document_number( self ) -> str:
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
-    def reference_document_number( self, value ):
+    def reference_document_number( self, value: str ):
         if value is not None:
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ):
+    def processed_date( self ) -> str:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value ):
+    def processed_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ):
+    def last_activity_date( self ) -> str:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value ):
+    def last_activity_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
-    def age( self ):
+    def age( self ) -> str:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value ):
+    def age( self, value: str ):
         if value is not None:
             self.__age = value
 
     @property
-    def vendor_code( self ):
+    def vendor_code( self ) -> str:
         if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
-    def vendor_code( self, value ):
+    def vendor_code( self, value: str ):
         if value is not None:
             self.__vendorcode = value
 
     @property
-    def vendor_name( self ):
+    def vendor_name( self ) -> str:
         if self.__vendorname is not None:
             return self.__vendorname
 
     @vendor_name.setter
-    def vendor_name( self, value ):
+    def vendor_name( self, value: str ):
         if value is not None:
             self.__vendorname = value
 
     @property
-    def foc_code( self ):
+    def foc_code( self ) -> str:
         if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
-    def foc_code( self, value ):
+    def foc_code( self, value: str ):
         if value is not None:
             self.__foccode = value
 
     @property
-    def foc_name( self ):
+    def foc_name( self ) -> str:
         if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
-    def foc_name( self, value ):
+    def foc_name( self, value: str ):
         if value is not None:
             self.__focname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -14907,11 +14902,11 @@ class Obligation( ):
                            'ULO',
                            'Expenditure' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -14937,7 +14932,7 @@ class Obligation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -14979,72 +14974,72 @@ class ProgramFinancingSchedule( ):
     __frame = None
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -15085,52 +15080,52 @@ class PublicLaw( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__publiclawsid, int ):
             return self.__publiclawsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__publiclawsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def lawnumber( self ):
+    def lawnumber( self ) -> str:
         if self.__lawnumber is not None:
             return self.__lawnumber
 
     @lawnumber.setter
-    def lawnumber( self, value ):
+    def lawnumber( self, value: str ):
         if value is not None:
             self.__lawnumber = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -15202,102 +15197,102 @@ class PayrollActivity( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__payrollactivityid, int ):
             return self.__payrollactivityid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__payrollactivityid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -15312,332 +15307,332 @@ class PayrollActivity( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def subrccode( self ):
+    def subrccode( self ) -> str:
         if isinstance( self.__subrccode, str ) and self.__subrccode != '':
             return self.__subrccode
 
     @subrccode.setter
-    def subrccode( self, value ):
+    def subrccode( self, value: str ):
         if value is not None:
             self.__subrccode = value
 
     @property
-    def subrcname( self ):
+    def subrcname( self ) -> str:
         if isinstance( self.__subrcname, str ) and self.__subrcname != '':
             return self.__subrcname
 
     @subrcname.setter
-    def subrcname( self, value ):
+    def subrcname( self, value: str ):
         if value is not None:
             self.__subrcname = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def hrorgcode( self ):
+    def hrorgcode( self ) -> str:
         if self.__hrorgcode is not None:
             return self.__hrorgcode
 
     @hrorgcode.setter
-    def hrorgcode( self, value ):
+    def hrorgcode( self, value: str ):
         if value is not None:
             self.__hrorgcode = value
 
     @property
-    def hrorgname( self ):
+    def hrorgname( self ) -> str:
         if self.__hrorgname is not None:
             return self.__hrorgname
 
     @hrorgname.setter
-    def hrorgname( self, value ):
+    def hrorgname( self, value: str ):
         if value is not None:
             self.__hrorgname = value
 
     @property
-    def workcode( self ):
+    def workcode( self ) -> str:
         if self.__workcode is not None:
             return self.__workcode
 
     @workcode.setter
-    def workcode( self, value ):
+    def workcode( self, value: str ):
         if value is not None:
             self.__workcode = value
 
     @property
-    def workcodename( self ):
+    def workcodename( self ) -> str:
         if self.__workcodename is not None:
             return self.__workcodename
 
     @workcodename.setter
-    def workcodename( self, value ):
+    def workcodename( self, value: str ):
         if value is not None:
             self.__workcodename = value
 
     @property
-    def payperiod( self ):
+    def payperiod( self ) -> str:
         if self.__payperiod is not None:
             return self.__payperiod
 
     @payperiod.setter
-    def payperiod( self, value ):
+    def payperiod( self, value: str ):
         if value is not None:
             self.__payperiod = value
 
     @property
-    def startdate( self ):
+    def startdate( self ) -> str:
         if self.__startdate is not None:
             return self.__startdate
 
     @startdate.setter
-    def startdate( self, value ):
+    def startdate( self, value: str ):
         if isinstance( value, datetime ):
             self.__startdate = value
 
     @property
-    def enddate( self ):
+    def enddate( self ) -> str:
         if self.__enddate is not None:
             return self.__enddate
 
     @enddate.setter
-    def enddate( self, value ):
+    def enddate( self, value: str ):
         if isinstance( value, datetime ):
             self.__startdate = value
 
     @property
-    def checkdate( self ):
+    def checkdate( self ) -> str:
         if self.__checkdate is not None:
             return self.__checkdate
 
     @checkdate.setter
-    def checkdate( self, value ):
+    def checkdate( self, value: str ):
         if isinstance( value, datetime ):
             self.__checkdate = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def hours( self ):
+    def hours( self ) -> str:
         if self.__hours is not None:
             return self.__hours
 
     @hours.setter
-    def hours( self, value ):
+    def hours( self, value: str ):
         if value is not None:
             self.__hours = value
 
     @property
-    def basepaid( self ):
+    def basepaid( self ) -> str:
         if self.__basepaid is not None:
             return self.__basepaid
 
     @basepaid.setter
-    def basepaid( self, value ):
+    def basepaid( self, value: str ):
         if isinstance( value, float):
             self.__basepaid = value
 
     @property
-    def basehours( self ):
+    def basehours( self ) -> str:
         if self.__basehours is not None:
             return self.__basehours
 
     @basehours.setter
-    def basehours( self, value ):
+    def basehours( self, value: str ):
         if value is not None:
             self.__basehours = value
 
     @property
-    def benefits( self ):
+    def benefits( self ) -> str:
         if self.__benefits is not None:
             return self.__benefits
 
     @benefits.setter
-    def benefits( self, value ):
+    def benefits( self, value: str ):
         if value is not None:
             self.__benefits = value
 
     @property
-    def overtimepaid( self ):
+    def overtimepaid( self ) -> str:
         if  self.__overtimepaid is not None:
             return self.__overtimepaid
 
     @overtimepaid.setter
-    def overtimepaid( self, value ):
+    def overtimepaid( self, value: str ):
         if value is not None:
             self.__overtimepaid = value
 
     @property
-    def overtimehours( self ):
+    def overtimehours( self ) -> str:
         if self.__overtimehours is not None:
             return self.__overtimehours
 
     @overtimehours.setter
-    def overtimehours( self, value ):
+    def overtimehours( self, value: str ):
         if value is not None:
             self.__overtimehours = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -15685,7 +15680,7 @@ class PayrollActivity( ):
                            'OvertimePaid',
                            'OvertimeHours' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -15711,7 +15706,7 @@ class PayrollActivity( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -15738,62 +15733,62 @@ class Project( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__projectsid, int ):
             return self.__projectsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__accountsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -15805,11 +15800,11 @@ class Project( ):
                           'Code',
                           'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -15835,7 +15830,7 @@ class Project( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -15863,62 +15858,62 @@ class ProgramArea( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__programareasid, int ):
             return self.__programareasid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__accountsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -15930,11 +15925,11 @@ class ProgramArea( ):
                           'Code',
                           'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -15960,7 +15955,7 @@ class ProgramArea( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -15990,82 +15985,82 @@ class ProgramProject( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__programprojectsid , int ):
             return self.__programprojectsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__programprojectsid  = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.____programareaname = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -16079,11 +16074,11 @@ class ProgramProject( ):
                           'ProgramAreaCode',
                           'ProgramAreaName' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -16129,122 +16124,122 @@ class PayrollCostCode( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__payrollcostcodesid is not None:
             return self.__payrollcostcodesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__payrollcostcodesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def work_code( self ):
+    def work_code( self ) -> str:
         if self.__workcode is not None:
             return self.__workcode
 
     @work_code.setter
-    def work_code( self, value ):
+    def work_code( self, value: str ):
         if value is not None:
             self.__workcode = value
 
     @property
-    def work_code_name( self ):
+    def work_code_name( self ) -> str:
         if isinstance( self.__workcodename, str ) and self.__workcodename != '':
             return self.__workcodename
 
     @work_code_name.setter
-    def work_code_name( self, value ):
+    def work_code_name( self, value: str ):
         if value is not None:
             self.__workcodename = value
 
     @property
-    def hr_org_code( self ):
+    def hr_org_code( self ) -> str:
         if isinstance( self.__hrorgcode, str ) and self.__hrorgcode != '':
             return self.__hrorgcode
 
     @hr_org_code.setter
-    def hr_org_code( self, value ):
+    def hr_org_code( self, value: str ):
         if value is not None:
             self.__hrorgcode = value
 
     @property
-    def hr_org_name( self ):
+    def hr_org_name( self ) -> str:
         if isinstance( self.__hrorgname, str ) and self.__hrorgname != '':
             return self.__hrorgname
 
     @hr_org_name.setter
-    def hr_org_name( self, value ):
+    def hr_org_name( self, value: str ):
         if value is not None:
             self.__hrorgname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -16303,7 +16298,7 @@ class ProgramResultsCode( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__allocationsid, int ):
             return self.__allocationsid
 
@@ -16313,92 +16308,92 @@ class ProgramResultsCode( ):
             self.__allocationsid = id
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -16413,292 +16408,292 @@ class ProgramResultsCode( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def activity_code( self ):
+    def activity_code( self ) -> str:
         if self.__activitycode is not None:
             return self.__activitycode
 
     @activity_code.setter
-    def activity_code( self, value ):
+    def activity_code( self, value: str ):
         if value is not None:
             self.__activitycode = value
 
     @property
-    def activity_name( self ):
+    def activity_name( self ) -> str:
         if self.__activityname is not None:
             return self.__activityname
 
     @activity_name.setter
-    def activity_name( self, value ):
+    def activity_name( self, value: str ):
         if value is not None:
             self.__activityname = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -16742,11 +16737,11 @@ class ProgramResultsCode( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -16766,7 +16761,7 @@ class ProgramResultsCode( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -16794,62 +16789,62 @@ class ResponsibilityCenter( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__responsibilitycentersid, int ):
             return self.__responsibilitycentersid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__accountsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -16862,11 +16857,11 @@ class ResponsibilityCenter( ):
                           'Name',
                           'Title' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -16900,7 +16895,7 @@ class ResponsibilityCenter( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -16928,62 +16923,62 @@ class ResourcePlanningOffice( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__resourceplanningofficesid, int ):
             return self.__resourceplanningofficesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__resourceplanningofficesid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -16995,11 +16990,11 @@ class ResourcePlanningOffice( ):
                           'Code',
                           'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -17025,7 +17020,7 @@ class ResourcePlanningOffice( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -17053,62 +17048,62 @@ class RegionalOffice( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__resourceplanningofficesid is not None:
             return self.__resourceplanningofficesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.___resourceplanningofficesid = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if value is not None:
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -17121,11 +17116,11 @@ class RegionalOffice( ):
                           'RpioCode',
                           'RpioName' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__code is not None:
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -17168,72 +17163,72 @@ class ReimbursableSurvey( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__reimbursablesurveyid, int ):
             return self.__reimbursablesurveyid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__reimbursablesurveyid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -17249,7 +17244,7 @@ class ReimbursableSurvey( ):
                            'FundName',
                            'Amount' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             src = self.__source
             pro = self.__provider
@@ -17274,7 +17269,7 @@ class ReimbursableSurvey( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -17318,182 +17313,182 @@ class ReimbursableAgreement( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__reimbursableagreementsid, int ):
             return self.__reimbursableagreementsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__reimbursableagreementsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def agreement_number( self ):
+    def agreement_number( self ) -> str:
         if isinstance( self.__agreementnumber, str ) and self.__agreementnumber != '':
             return self.__agreementnumber
 
     @agreement_number.setter
-    def agreement_number( self, value ):
+    def agreement_number( self, value: str ):
         if value is not None:
             self.__agreementnumber = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def vendor_code( self ):
+    def vendor_code( self ) -> str:
         if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
-    def vendor_code( self, value ):
+    def vendor_code( self, value: str ):
         if value is not None:
             self.__vendorcode = value
 
     @property
-    def vendor_name( self ):
+    def vendor_name( self ) -> str:
         if isinstance( self.__vendorname, str ) and self.__vendorname != '':
             return self.__vendorname
 
     @vendor_name.setter
-    def vendor_name( self, value ):
+    def vendor_name( self, value: str ):
         if value is not None:
             self.__vendorname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if isinstance( self.__obligations, float ):
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -17522,11 +17517,11 @@ class ReimbursableAgreement( ):
                           'ULO',
                           'Available' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__agreementnumber, str ) and self.__agreementnumber != '':
             return self.__agreementnumber
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -17552,7 +17547,7 @@ class ReimbursableAgreement( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -17605,102 +17600,102 @@ class RegionalAuthority( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__statusoffundsid is not None:
             return self.__statusoffundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__statusoffundsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -17715,252 +17710,252 @@ class RegionalAuthority( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -17997,7 +17992,7 @@ class RegionalAuthority( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -18023,7 +18018,7 @@ class RegionalAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -18083,102 +18078,102 @@ class StatusOfFunds( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__statusoffundsid is not None:
             return self.__statusoffundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__statusoffundsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -18193,252 +18188,252 @@ class StatusOfFunds( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -18481,7 +18476,7 @@ class StatusOfFunds( ):
                            'NpmCode',
                            'NpmName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -18505,7 +18500,7 @@ class StatusOfFunds( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -18566,102 +18561,102 @@ class StatusOfSupplementalFunding( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__statusoffundsid, int ):
             return self.__statusoffundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if isinstance( value, int ) and value > -1:
             self.__statusoffundsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -18676,252 +18671,252 @@ class StatusOfSupplementalFunding( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -18966,7 +18961,7 @@ class StatusOfSupplementalFunding( ):
                            'NpmName' ]
 
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -18992,7 +18987,7 @@ class StatusOfSupplementalFunding( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -19036,102 +19031,102 @@ class StateGrantObligation( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__stategrantobligationsid, int ):
             return self.__stategrantobligationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__stategrantobligationsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if isinstance( self.__fundcode, str ) and self.__fundcode != '':
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if isinstance( self.__fundname, str ) and self.__fundname != '':
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -19146,92 +19141,92 @@ class StateGrantObligation( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def state_code( self ):
+    def state_code( self ) -> str:
         if isinstance( self.__statecode, str ) and self.__statecode != '':
             return self.__statecode
 
     @state_code.setter
-    def state_code( self, value ):
+    def state_code( self, value: str ):
         if value is not None:
             self.__statecode = value
 
     @property
-    def state_name( self ):
+    def state_name( self ) -> str:
         if isinstance( self.__statename, str ) and self.__statename != '':
             return self.__statename
 
     @state_name.setter
-    def state_name( self, value ):
+    def state_name( self, value: str ):
         if value is not None:
             self.__statename = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if isinstance( self.__amount, float ):
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -19260,7 +19255,7 @@ class StateGrantObligation( ):
                            'BocName',
                            'Amount' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -19286,7 +19281,7 @@ class StateGrantObligation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -19346,212 +19341,212 @@ class SpecialAccount( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__specialaccountsid is not None:
             return self.__specialaccountsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__specialaccountsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def foc_code( self ):
+    def foc_code( self ) -> str:
         if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
-    def foc_code( self, value ):
+    def foc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def foc_name( self ):
+    def foc_name( self ) -> str:
         if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
-    def foc_name( self, value ):
+    def foc_name( self, value: str ):
         if value is not None:
             self.__focname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def special_account_fund_code( self ):
+    def special_account_fund_code( self ) -> str:
         if self.__specialaccountfundcode is not None:
             return self.__specialaccountfundcode
 
     @special_account_fund_code.setter
-    def special_account_fund_code( self, value ):
+    def special_account_fund_code( self, value: str ):
         if value is not None:
             self.__specialaccountfundcode = value
 
     @property
-    def special_account_fund_name( self ):
+    def special_account_fund_name( self ) -> str:
         if self.__specialaccountfundname is not None:
             return self.__specialaccountfundname
 
     @special_account_fund_name.setter
-    def special_account_fund_name( self, value ):
+    def special_account_fund_name( self, value: str ):
         if value is not None:
             self.__specialaccountfundname = value
 
     @property
-    def special_account_number( self ):
+    def special_account_number( self ) -> str:
         if self.__specialaccountnumber is not None:
             return self.__specialaccountnumber
 
     @special_account_number.setter
-    def special_account_number( self, value ):
+    def special_account_number( self, value: str ):
         if value is not None:
             self.__specialaccountnumber = value
 
     @property
-    def special_account_name( self ):
+    def special_account_name( self ) -> str:
         if self.__specialaccountnumber is not None:
             return self.__specialaccountnumber
 
     @special_account_name.setter
-    def special_account_name( self, value ):
+    def special_account_name( self, value: str ):
         if value is not None:
             self.__specialaccountnumber = value
 
     @property
-    def account_status( self ):
+    def account_status( self ) -> str:
         if self.__accountstatus is not None:
             return self.__accountstatus
 
     @account_status.setter
-    def account_status( self, value ):
+    def account_status( self, value: str ):
         if value is not None:
             self.__accountstatus = value
 
     @property
-    def npl_status( self ):
+    def npl_status( self ) -> str:
         if self.__nplstatus is not None:
             return self.__nplstatus
 
     @npl_status.setter
-    def npl_status( self, value ):
+    def npl_status( self, value: str ):
         if value is not None:
             self.__nplstatus = value
 
     @property
-    def npl_status_code( self ):
+    def npl_status_code( self ) -> str:
         if self.__nplstatuscode is not None:
             return self.__nplstatuscode
 
     @npl_status_code.setter
-    def npl_status_code( self, value ):
+    def npl_status_code( self, value: str ):
         if value is not None:
             self.__nplstatuscode = value
 
     @property
-    def npl_status_name( self ):
+    def npl_status_name( self ) -> str:
         if self.__nplstatusname is not None:
             return self.__nplstatusname
 
     @npl_status_name.setter
-    def npl_status_name( self, value ):
+    def npl_status_name( self, value: str ):
         if value is not None:
             self.__nplstatusname = value
 
     @property
-    def site_id( self ):
+    def site_id( self ) -> str:
         if self.__siteid is not None:
             return self.__siteid
 
     @site_id.setter
-    def site_id( self, value ):
+    def site_id( self, value: str ):
         if value is not None:
             self.__value = value
 
     @property
-    def cerclis_id( self ):
+    def cerclis_id( self ) -> str:
         if self.__cerclisid is not None:
             return self.__cerclisid
 
     @cerclis_id.setter
-    def cerclis_id( self, value ):
+    def cerclis_id( self, value: str ):
         if value is not None:
             self.__cerclisid = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -19597,11 +19592,11 @@ class SpecialAccount( ):
                            'Collections',
                            'CumulativeReceipts' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -19627,7 +19622,7 @@ class SpecialAccount( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -19662,112 +19657,112 @@ class SuperfundSite( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__specialaccountsid, int ):
             return self.__specialaccountsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__specialaccountsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if isinstance( self.__rpioname, str ) and self.__rpioname != '':
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def city( self ):
+    def city( self ) -> str:
         if isinstance( self.__nplstatus, str ) and self.__nplstatus != '':
             return self.__nplstatus
 
     @city.setter
-    def city( self, value ):
+    def city( self, value: str ):
         if value is not None:
             self.__nplstatus = value
 
     @property
-    def state( self ):
+    def state( self ) -> str:
         if isinstance( self.__nplstatuscode, str ) and self.__nplstatuscode != '':
             return self.__nplstatuscode
 
     @state.setter
-    def state( self, value ):
+    def state( self, value: str ):
         if value is not None:
             self.__nplstatuscode = value
 
     @property
-    def site_project_name( self ):
+    def site_project_name( self ) -> str:
         if isinstance( self.__nplstatusname, str ) and self.__nplstatusname != '':
             return self.__nplstatusname
 
     @site_project_name.setter
-    def site_project_name( self, value ):
+    def site_project_name( self, value: str ):
         if value is not None:
             self.__nplstatusname = value
 
     @property
-    def ssid( self ):
+    def ssid( self ) -> str:
         if isinstance( self.__ssid, str ) and self.__ssid != '':
             return self.__ssid
 
     @ssid.setter
-    def ssid( self, value ):
+    def ssid( self, value: str ):
         if value is not None:
             self.__ssid = value
 
     @property
-    def epa_site_id( self ):
+    def epa_site_id( self ) -> str:
         if isinstance( self.__cerclisid, str ) and self.__cerclisid != '':
             return self.__cerclisid
 
     @epa_site_id.setter
-    def epa_site_id( self, value ):
+    def epa_site_id( self, value: str ):
         if value is not None:
             self.__cerclisid = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -19787,7 +19782,7 @@ class SuperfundSite( ):
                            'EpaSiteId' ]
 
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -19813,7 +19808,7 @@ class SuperfundSite( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -19843,27 +19838,27 @@ class SubAppropriation( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__subappropriationsid , int ):
             return self.__appropriationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__appropriationsid  = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
@@ -19873,47 +19868,47 @@ class SubAppropriation( ):
             self.__name = name
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -19927,11 +19922,11 @@ class SubAppropriation( ):
                            'Code',
                            'Name' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -19957,7 +19952,7 @@ class SubAppropriation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -19985,62 +19980,62 @@ class SiteProjectCode( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__siteprojectcodesid, int ):
             return self.__siteprojectcodesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__siteprojectcodesid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -20049,11 +20044,11 @@ class SiteProjectCode( ):
         self.__source = Source.SiteProjectCodes
         self.__code = code
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -20079,7 +20074,7 @@ class SiteProjectCode( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -20110,52 +20105,52 @@ class StateOrganization( ):
     __data = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__stateorganizationsid is not None:
             return self.__stateorganizationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__stateorganizationsid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> str:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: str ):
         if value is not None:
             self.__data = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -20169,11 +20164,11 @@ class StateOrganization( ):
                           'RpioName',
                           'RpioCode' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__code is not None:
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -20199,7 +20194,7 @@ class StateOrganization( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -20279,542 +20274,542 @@ class StatusOfAppropriations( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__statusofappropriationsid is not None:
             return self.__statusofappropriationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__statusofappropriationsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def budget_level( self ):
+    def budget_level( self ) -> str:
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
     @budget_level.setter
-    def budget_level( self, value ):
+    def budget_level( self, value: str ):
         if value is not None:
             self.__budgetlevel = value
 
     @property
-    def appropriation_fund_code( self ):
+    def appropriation_fund_code( self ) -> str:
         if self.__appropriationfundcode is not None:
             return self.__appropriationfundcode
 
     @appropriation_fund_code.setter
-    def appropriation_fund_code( self, value ):
+    def appropriation_fund_code( self, value: str ):
         if value is not None:
             self.__appropriationfundcode = value
 
     @property
-    def appropriation_fund_name( self ):
+    def appropriation_fund_name( self ) -> str:
         if self.__appropriationfundname is not None:
             return self.__appropriationfundname
 
     @appropriation_fund_name.setter
-    def appropriation_fund_name( self, value ):
+    def appropriation_fund_name( self, value: str ):
         if value is not None:
             self.__appropriationfundname = value
 
     @property
-    def appropriation_creation_date( self ):
+    def appropriation_creation_date( self ) -> str:
         if self.__appropriationcreationdate is not None:
             return self.__appropriationcreationdate
 
     @appropriation_creation_date.setter
-    def appropriation_creation_date( self, value ):
+    def appropriation_creation_date( self, value: str ):
         if  value is not None:
             self.__appropriationcreationdate = value
 
     @property
-    def appropriation_code( self ):
+    def appropriation_code( self ) -> str:
         if self.__appropriationcode is not None:
             return self.__appropriationcode
 
     @appropriation_code.setter
-    def appropriation_code( self, value ):
+    def appropriation_code( self, value: str ):
         if value is not None:
             self.__appropriationcode = value
 
     @property
-    def sub_appropriation_code( self ):
+    def sub_appropriation_code( self ) -> str:
         if self.__subappropriationcode is not None:
             return self.__subappropriationcode
 
     @sub_appropriation_code.setter
-    def sub_appropriation_code( self, value ):
+    def sub_appropriation_code( self, value: str ):
         if value is not None:
             self.__subappropriationcode = value
 
     @property
-    def appropriation_description( self ):
+    def appropriation_description( self ) -> str:
         if self.__appropriationdescription is not None:
             return self.__appropriationdescription
 
     @appropriation_description.setter
-    def appropriation_description( self, value ):
+    def appropriation_description( self, value: str ):
         if value is not None:
             self.__appropriationdescription = value
 
     @property
-    def fund_group( self ):
+    def fund_group( self ) -> str:
         if self.__fundgroup is not None:
             return self.__fundgroup
 
     @fund_group.setter
-    def fund_group( self, value ):
+    def fund_group( self, value: str ):
         if value is not None:
             self.__fundgroup = value
 
     @property
-    def fund_group_name( self ):
+    def fund_group_name( self ) -> str:
         if self.__fundgroupname is not None:
             return self.__fundgroupname
 
     @fund_group_name.setter
-    def fund_group_name( self, value ):
+    def fund_group_name( self, value: str ):
         if value is not None:
             self.__fundgroupname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def transtype( self ):
+    def transtype( self ) -> str:
         if self.__transtype is not None:
             return self.__transtype
 
     @transtype.setter
-    def transtype( self, value ):
+    def transtype( self, value: str ):
         if value is not None:
             self.__transtype = value
 
     @property
-    def recovery_transtype( self ):
+    def recovery_transtype( self ) -> str:
         if self.__actualrecoverytranstype is not None:
             return self.__actualrecoverytranstype
 
     @recovery_transtype.setter
-    def recovery_transtype( self, value ):
+    def recovery_transtype( self, value: str ):
         if value is not None:
             self.__actualrecoverytranstype = value
 
     @property
-    def commitment_control_flag( self ):
+    def commitment_control_flag( self ) -> str:
         if self.__commitmentspendingcontrolflag is not None:
             return self.__commitmentspendingcontrolflag
 
     @commitment_control_flag.setter
-    def commitment_control_flag( self, value ):
+    def commitment_control_flag( self, value: str ):
         if value is not None:
             self.__commitmentspendingcontrolflag = value
 
     @property
-    def agreement_limit( self ):
+    def agreement_limit( self ) -> str:
         if self.__agreementlimit is not None:
             return self.__agreementlimit
 
     @agreement_limit.setter
-    def agreement_limit( self, value ):
+    def agreement_limit( self, value: str ):
         if value is not None:
             self.__agreementlimit = value
 
     @property
-    def estimated_recoveries_transtype( self ):
+    def estimated_recoveries_transtype( self ) -> str:
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
     @estimated_recoveries_transtype.setter
-    def estimated_recoveries_transtype( self, value ):
+    def estimated_recoveries_transtype( self, value: str ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
     @property
-    def estimated_reimbursements_transtype( self ):
+    def estimated_reimbursements_transtype( self ) -> str:
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
     @estimated_reimbursements_transtype.setter
-    def estimated_reimbursements_transtype( self, value ):
+    def estimated_reimbursements_transtype( self, value: str ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
 
     @property
-    def expense_control_flag( self ):
+    def expense_control_flag( self ) -> str:
         if self.__expensespendingcontrolflag is not None:
             return self.__expensespendingcontrolflag
 
     @expense_control_flag.setter
-    def expense_control_flag( self, value ):
+    def expense_control_flag( self, value: str ):
         if value is not None:
             self.__expensespendingcontrolflag = value
 
     @property
-    def obligation_control_flag( self ):
+    def obligation_control_flag( self ) -> str:
         if self.__obligationspendingcontrolflag is not None:
             return self.__obligationspendingcontrolflag
 
     @obligation_control_flag.setter
-    def obligation_control_flag( self, value ):
+    def obligation_control_flag( self, value: str ):
         if value is not None:
             self.__obligationspendingcontrolflag = value
 
     @property
-    def precommitment_control_flag( self ):
+    def precommitment_control_flag( self ) -> str:
         if self.__precommitmentspendingcontrolflag is not None:
             return self.__precommitmentspendingcontrolflag
 
     @precommitment_control_flag.setter
-    def precommitment_control_flag( self, value ):
+    def precommitment_control_flag( self, value: str ):
         if value is not None:
             self.__precommitmentspendingcontrolflag = value
 
     @property
-    def posted_control_flag( self ):
+    def posted_control_flag( self ) -> str:
         if self.__postedcontrolflag is not None:
             return self.__postedcontrolflag
 
     @posted_control_flag.setter
-    def posted_control_flag( self, value ):
+    def posted_control_flag( self, value: str ):
         if value is not None:
             self.__expensespendingcontrolflag = value
 
     @property
-    def posted_flag( self ):
+    def posted_flag( self ) -> str:
         if self.__postedflag is not None:
             return self.__postedflag
 
     @posted_flag.setter
-    def posted_flag( self, value ):
+    def posted_flag( self, value: str ):
         if value is not None:
             self.__postedflag = value
 
     @property
-    def record_lower_level( self ):
+    def record_lower_level( self ) -> str:
         if self.__recordcarryoveratlowerlevel is not None:
             return self.__recordcarryoveratlowerlevel
 
     @record_lower_level.setter
-    def record_lower_level( self, value ):
+    def record_lower_level( self, value: str ):
         if value is not None:
             self.__recordcarryoveratlowerlevel = value
 
     @property
-    def reimbursable_spending_option( self ):
+    def reimbursable_spending_option( self ) -> str:
         if self.__reimbursablespendingoption is not None:
             return self.__reimbursablespendingoption
 
     @reimbursable_spending_option.setter
-    def reimbursable_spending_option( self, value ):
+    def reimbursable_spending_option( self, value: str ):
         if value is not None:
             self.__reimbursablespendingoption = value
 
     @property
-    def recoveries_option( self ):
+    def recoveries_option( self ) -> str:
         if self.__recoveriesoption is not None:
             return self.__recoveriesoption
 
     @recoveries_option.setter
-    def recoveries_option( self, value ):
+    def recoveries_option( self, value: str ):
         if value is not None:
             self.__recoveriesoption = value
 
     @property
-    def recoveries_spending_option( self ):
+    def recoveries_spending_option( self ) -> str:
         if self.__recoveriesspendingoption is not None:
             return self.__recoveriesspendingoption
 
     @recoveries_spending_option.setter
-    def recoveries_spending_option( self, value ):
+    def recoveries_spending_option( self, value: str ):
         if value is not None:
             self.__recoveriesspendingoption = value
 
     @property
-    def original_budgeted_amount( self ):
+    def original_budgeted_amount( self ) -> str:
         if self.__originalbudgetedamount is not None:
             return self.__originalbudgetedamount
 
     @original_budgeted_amount.setter
-    def original_budgeted_amount( self, value ):
+    def original_budgeted_amount( self, value: str ):
         if value is not None:
             self.__originalbudgetedamount = value
 
     @property
-    def apportionments_posted( self ):
+    def apportionments_posted( self ) -> str:
         if self.__apportionmentsposted is not None:
             return self.__apportionmentsposted
 
     @apportionments_posted.setter
-    def apportionments_posted( self, value ):
+    def apportionments_posted( self, value: str ):
         if value is not None:
             self.__apportionmentsposted = value
 
     @property
-    def total_authority( self ):
+    def total_authority( self ) -> str:
         if self.__totalauthority is not None:
             return self.__totalauthority
 
     @total_authority.setter
-    def total_authority( self, value ):
+    def total_authority( self, value: str ):
         if value is not None:
             self.__totalauthority = value
 
     @property
-    def total_budgeted( self ):
+    def total_budgeted( self ) -> str:
         if self.__totalbudgeted is not None:
             return self.__totalbudgeted
 
     @total_budgeted.setter
-    def total_budgeted( self, value ):
+    def total_budgeted( self, value: str ):
         if value is not None:
             self.__totalbudgeted = value
 
     @property
-    def total_posted_amount( self ):
+    def total_posted_amount( self ) -> str:
         if self.__totalpostedamount is not None:
             return self.__totalpostedamount
 
     @total_posted_amount.setter
-    def total_posted_amount( self, value ):
+    def total_posted_amount( self, value: str ):
         if value is not None:
             self.__totalpostedamount = value
 
     @property
-    def funds_withdrawn_amounts( self ):
+    def funds_withdrawn_amounts( self ) -> str:
         if self.__fundswithdrawnprioryearamounts is not None:
             return self.__fundswithdrawnprioryearamounts
 
     @funds_withdrawn_amounts.setter
-    def funds_withdrawn_amounts( self, value ):
+    def funds_withdrawn_amounts( self, value: str ):
         if value is not None:
             self.__fundswithdrawnprioryearamounts = value
 
     @property
-    def funding_in_amount( self ):
+    def funding_in_amount( self ) -> str:
         if self.__fundinginamount is not None:
             return self.__fundinginamount
 
     @funding_in_amount.setter
-    def funding_in_amount( self, value ):
+    def funding_in_amount( self, value: str ):
         if value is not None:
             self.__fundinginamount = value
 
     @property
-    def funding_out_amount( self ):
+    def funding_out_amount( self ) -> str:
         if self.__fundingoutamount is not None:
             return self.__fundingoutamount
 
     @funding_out_amount.setter
-    def funding_out_amount( self, value ):
+    def funding_out_amount( self, value: str ):
         if value is not None:
             self.__fundingoutamount = value
 
     @property
-    def total_accrual_recoveries( self ):
+    def total_accrual_recoveries( self ) -> str:
         if self.__totalaccrualrecoveries is not None:
             return self.__totalaccrualrecoveries
 
     @total_accrual_recoveries.setter
-    def total_accrual_recoveries( self, value ):
+    def total_accrual_recoveries( self, value: str ):
         if value is not None:
             self.__totalaccrualrecoveries = value
 
     @property
-    def total_actual_reimbursements( self ):
+    def total_actual_reimbursements( self ) -> str:
         if self.__totalactualreimbursements is not None:
             return self.__totalactualreimbursements
 
     @total_actual_reimbursements.setter
-    def total_actual_reimbursements( self, value ):
+    def total_actual_reimbursements( self, value: str ):
         if value is not None:
             self.__totalactualreimbursements = value
 
     @property
-    def total_agreement_reimbursables( self ):
+    def total_agreement_reimbursables( self ) -> str:
         if self.__totalagreementreimbursables is not None:
             return self.__totalagreementreimbursables
 
     @total_agreement_reimbursables.setter
-    def total_agreement_reimbursables( self, value ):
+    def total_agreement_reimbursables( self, value: str ):
         if value is not None:
             self.__totalagreementreimbursables = value
 
     @property
-    def total_carried_in( self ):
+    def total_carried_in( self ) -> str:
         if self.__totalcarriedforwardin is not None:
             return self.__totalcarriedforwardin
 
     @total_carried_in.setter
-    def total_carried_in( self, value ):
+    def total_carried_in( self, value: str ):
         if value is not None:
             self.__totalcarriedforwardin = value
 
     @property
-    def total_carried_out( self ):
+    def total_carried_out( self ) -> str:
         if self.__totalcarriedforwardout is not None:
             return self.__totalcarriedforwardout
 
     @total_carried_out.setter
-    def total_carried_out( self, value ):
+    def total_carried_out( self, value: str ):
         if value is not None:
             self.__totalcarriedforwardout = value
 
     @property
-    def total_estimated_recoveries( self ):
+    def total_estimated_recoveries( self ) -> str:
         if self.__totalestimatedrecoveries is not None:
             return self.__totalestimatedrecoveries
 
     @total_estimated_recoveries.setter
-    def total_estimated_recoveries( self, value ):
+    def total_estimated_recoveries( self, value: str ):
         if value is not None:
             self.__totalestimatedrecoveries = value
 
     @property
-    def total_estimated_reimbursements( self ):
+    def total_estimated_reimbursements( self ) -> str:
         if self.__totalestimatedreimbursements is not None:
             return self.__totalestimatedreimbursements
 
     @total_estimated_reimbursements.setter
-    def total_estimated_reimbursements( self, value ):
+    def total_estimated_reimbursements( self, value: str ):
         if value is not None:
             self.__totalestimatedreimbursements = value
 
     @property
-    def total_expenses( self ):
+    def total_expenses( self ) -> str:
         if self.__totalexpenses is not None:
             return self.__totalexpenses
 
     @total_expenses.setter
-    def total_expenses( self, value ):
+    def total_expenses( self, value: str ):
         if value is not None:
             self.__totalexpenses = value
 
     @property
-    def total_expenditure_expenses( self ):
+    def total_expenditure_expenses( self ) -> str:
         if self.__totalexpenditureexpenses is not None:
             return self.__totalexpenditureexpenses
 
     @total_expenditure_expenses.setter
-    def total_expenditure_expenses( self, value ):
+    def total_expenditure_expenses( self, value: str ):
         if value is not None:
             self.__totalexpenditureexpenses = value
 
     @property
-    def total_expense_accruals( self ):
+    def total_expense_accruals( self ) -> str:
         if self.__totalexpenseaccruals is not None:
             return self.__totalexpenseaccruals
 
     @total_expense_accruals.setter
-    def total_expense_accruals( self, value ):
+    def total_expense_accruals( self, value: str ):
         if value is not None:
             self.__totalexpenseaccruals = value
 
     @property
-    def total_precommitments( self ):
+    def total_precommitments( self ) -> str:
         if self.__totalprecommitments is not None:
             return self.__totalprecommitments
 
     @total_precommitments.setter
-    def total_precommitments( self, value ):
+    def total_precommitments( self, value: str ):
         if value is not None:
             self.__totalprecommitments = value
 
     @property
-    def unliquidated_precommitments( self ):
+    def unliquidated_precommitments( self ) -> str:
         if self.__unliquidatedprecommitments is not None:
             return self.__unliquidatedprecommitments
 
     @unliquidated_precommitments.setter
-    def unliquidated_precommitments( self, value ):
+    def unliquidated_precommitments( self, value: str ):
         if value is not None:
             self.__unliquidatedprecommitments = value
 
     @property
-    def total_obligations( self ):
+    def total_obligations( self ) -> str:
         if self.__totalobligations is not None:
             return self.__totalobligations
 
     @total_obligations.setter
-    def total_obligations( self, value ):
+    def total_obligations( self, value: str ):
         if value is not None:
             self.__totalobligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def voided_amount( self ):
+    def voided_amount( self ) -> str:
         if self.__voidedamount is not None:
             return self.__voidedamount
 
     @voided_amount.setter
-    def voided_amount( self, value ):
+    def voided_amount( self, value: str ):
         if value is not None:
             self.__voidedamount = value
 
     @property
-    def total_used_amount( self ):
+    def total_used_amount( self ) -> str:
         if self.__totalusedamount is not None:
             return self.__totalusedamount
 
     @total_used_amount.setter
-    def total_used_amount( self, value ):
+    def total_used_amount( self, value: str ):
         if value is not None:
             self.__totalusedamount = value
 
     @property
-    def available_amount( self ):
+    def available_amount( self ) -> str:
         if self.__availableamount is not None:
             return self.__availableamount
 
     @available_amount.setter
-    def available_amount( self, value ):
+    def available_amount( self, value: str ):
         if value is not None:
             self.__availableamount = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -20881,7 +20876,7 @@ class StatusOfAppropriations( ):
                            'TotalUsedAmount',
                            'AvailableAmount' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -20907,7 +20902,7 @@ class StatusOfAppropriations( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -20963,292 +20958,292 @@ class SpendingRate( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__spendingratesid is not None:
             return self.__spendingratesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__spendingratesid = value
 
     @property
-    def treasury_agency_code( self ):
+    def treasury_agency_code( self ) -> str:
         if self.__treasuryagencycode is not None:
             return self.__treasuryagencycode
 
     @treasury_agency_code.setter
-    def treasury_agency_code( self, value ):
+    def treasury_agency_code( self, value: str ):
         if value is not None:
             self.__treasuryagencycode = value
 
     @property
-    def treasury_agency_name( self ):
+    def treasury_agency_name( self ) -> str:
         if self.__treasuryagencyname is not None:
             return self.__treasuryagencyname
 
     @treasury_agency_name.setter
-    def treasury_agency_name( self, value ):
+    def treasury_agency_name( self, value: str ):
         if value is not None:
             self.__treasuryagencyname = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def omb_agency_code( self ):
+    def omb_agency_code( self ) -> str:
         if self.__ombagencycode is not None:
             return self.__ombagencycode
 
     @omb_agency_code.setter
-    def omb_agency_code( self, value ):
+    def omb_agency_code( self, value: str ):
         if value is not None:
             self.__ombagencycode = value
 
     @property
-    def omb_agency_name( self ):
+    def omb_agency_name( self ) -> str:
         if self.__ombagencyname is not None:
             return self.__ombagencyname
 
     @omb_agency_name.setter
-    def omb_agency_name( self, value ):
+    def omb_agency_name( self, value: str ):
         if value is not None:
             self.__ombagencyname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def subfunction( self ):
+    def subfunction( self ) -> str:
         if self.__subfunction is not None:
             return self.__subfunction
 
     @subfunction.setter
-    def subfunction( self, value ):
+    def subfunction( self, value: str ):
         if value is not None:
             self.__subfunction = value
 
     @property
-    def category( self ):
+    def category( self ) -> str:
         if self.__category is not None:
             return self.__category
 
     @category.setter
-    def category( self, value ):
+    def category( self, value: str ):
         if value is not None:
             self.__category = value
 
     @property
-    def subcategory( self ):
+    def subcategory( self ) -> str:
         if self.__subcategory is not None:
             return self.__subcategory
 
     @subcategory.setter
-    def subcategory( self, value ):
+    def subcategory( self, value: str ):
         if value is not None:
             self.__subcategory = value
 
     @property
-    def line_number( self ):
+    def line_number( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
-    def line_number( self, value ):
+    def line_number( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def line_name( self ):
+    def line_name( self ) -> str:
         if self.__linename is not None:
             return self.__linename
 
     @line_name.setter
-    def line_name( self, value ):
+    def line_name( self, value: str ):
         if value is not None:
             self.__linename = value
 
     @property
-    def year_of_authority( self ):
+    def year_of_authority( self ) -> str:
         if self.__yearofauthority is not None:
             return self.__yearofauthority
 
     @year_of_authority.setter
-    def year_of_authority( self, value ):
+    def year_of_authority( self, value: str ):
         if value is not None:
             self.__yearofauthority = value
 
     @property
-    def budget_authority( self ):
+    def budget_authority( self ) -> str:
         if self.__budgetauthority is not None:
             return self.__budgetauthority
 
     @budget_authority.setter
-    def budget_authority( self, value ):
+    def budget_authority( self, value: str ):
         if value is not None:
             self.__budgetauthority = value
 
     @property
-    def out_year_1( self ):
+    def out_year_1( self ) -> str:
         if self.__outyear1 is not None:
             return self.__outyear1
 
     @out_year_1.setter
-    def out_year_1( self, value ):
+    def out_year_1( self, value: str ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def out_year_2( self ):
+    def out_year_2( self ) -> str:
         if self.__outyear2 is not None:
             return self.__outyear2
 
     @out_year_2.setter
-    def out_year_2( self, value ):
+    def out_year_2( self, value: str ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def out_year_3( self ):
+    def out_year_3( self ) -> str:
         if self.__outyear3 is not None:
             return self.__outyear3
 
     @out_year_3.setter
-    def out_year_3( self, value ):
+    def out_year_3( self, value: str ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def out_year_4( self ):
+    def out_year_4( self ) -> str:
         if self.__outyear4 is not None:
             return self.__outyear4
 
     @out_year_4.setter
-    def out_year_4( self, value ):
+    def out_year_4( self, value: str ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def out_year_5( self ):
+    def out_year_5( self ) -> str:
         if self.__outyear5 is not None:
             return self.__outyear5
 
     @out_year_5.setter
-    def out_year_5( self, value ):
+    def out_year_5( self, value: str ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def out_year_6( self ):
+    def out_year_6( self ) -> str:
         if self.__outyear6 is not None:
             return self.__outyear6
 
     @out_year_6.setter
-    def out_year_6( self, value ):
+    def out_year_6( self, value: str ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def out_year_7( self ):
+    def out_year_7( self ) -> str:
         if self.__outyear7 is not None:
             return self.__outyear7
 
     @out_year_7.setter
-    def out_year_7( self, value ):
+    def out_year_7( self, value: str ):
         if value is not None:
             self.__outyear7 = value
 
     @property
-    def out_year_8( self ):
+    def out_year_8( self ) -> str:
         if self.__outyear8 is not None:
             return self.__outyear8
 
     @out_year_8.setter
-    def out_year_8( self, value ):
+    def out_year_8( self, value: str ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def out_year_9( self ):
+    def out_year_9( self ) -> str:
         if self.__outyear9 is not None:
             return self.__outyear9
 
     @out_year_9.setter
-    def out_year_9( self, value ):
+    def out_year_9( self, value: str ):
         if value is not None:
             self.__outyear9 = value
 
     @property
-    def out_year_10( self ):
+    def out_year_10( self ) -> str:
         if self.__outyear10 is not None:
             return self.__outyear10
 
     @out_year_10.setter
-    def out_year_10( self, value ):
+    def out_year_10( self, value: str ):
         if value is not None:
             self.__outyear10 = value
 
     @property
-    def out_year_11( self ):
+    def out_year_11( self ) -> str:
         if self.__outyear11 is not None:
             return self.__outyear11
 
     @out_year_11.setter
-    def out_year_11( self, value ):
+    def out_year_11( self, value: str ):
         if value is not None:
             self.__outyear11 = value
 
     @property
-    def total_spendout( self ):
+    def total_spendout( self ) -> str:
         if self.__totalspendout is not None:
             return self.__totalspendout
 
     @total_spendout.setter
-    def total_spendout( self, value ):
+    def total_spendout( self, value: str ):
         if value is not None:
             self.__totalspendout = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -21288,7 +21283,7 @@ class SpendingRate( ):
                           'OutYear11',
                           'TotalSpendout' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -21306,7 +21301,7 @@ class SpendingRate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -21364,102 +21359,102 @@ class StatusOfSupplementalFunds( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__statusofsupplementalfundsid is not None:
             return self.__statusofsupplementalfundsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__statusofsupplementalfundsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -21474,261 +21469,261 @@ class StatusOfSupplementalFunds( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fundcode, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str, fundcode: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.StatusOfSupplementalFunding
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__efy = efy if isinstance( efy, str ) and len( efy ) == 4 else None
-        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+        self.__bfy = bfy 
+        self.__efy = efy 
+        self.__fundcode = fundcode 
         self.__fields =[ 'StatusOfSupplementalFundsId',
                            'StatusOfFundsId',
                            'BudgetLevel',
@@ -21809,102 +21804,102 @@ class StatusOfJobsActFunding( ):
     __frame = None
 
     @property
-    def id( self ):
-        if isinstance( self.__statusofjobsactfundingid, int ):
+    def id( self ) -> int:
+        if self.__statusofjobsactfundingid is not None:
             return self.__statusofjobsactfundingid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__statusofjobsactfundingid= value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -21919,259 +21914,259 @@ class StatusOfJobsActFunding( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
-        if isinstance( self.__posted, value ):
+    def posted( self, value: float ):
+        if value is not None:
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> float:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: float ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
-        if isinstance( self.__expenditures, float ):
+    def expenditures( self ) -> float:
+        if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: float ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fundcode, provider = Provider.SQLite ):
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__efy = efy if isinstance( efy, str ) and len( efy ) == 4 else None
-        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+    def __init__( self, bfy: str, efy: str, fundcode: str, provider = Provider.SQLite ):
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__fundcode = fundcode
         self.__provider = provider
         self.__source = Source.StatusOfJobsActFunding
         self.__fields = [ 'StatusOfJobsActFundingId',
@@ -22254,102 +22249,102 @@ class StatusOfEarmarks( ):
     __frame = None
 
     @property
-    def id( self ):
-        if isinstance( self.__statusofearmarksid, int ):
+    def id( self ) -> int:
+        if self.__statusofearmarksid is not None:
             return self.__statusofearmarksid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__statusofearmarksid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -22364,259 +22359,259 @@ class StatusOfEarmarks( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> float:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: float ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: float ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> float:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: float ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> float:
         if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: float ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> float:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: float ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> flaot:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fundcode, provider = Provider.SQLite ):
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__efy = efy if isinstance( efy, str ) and len( efy ) == 4 else None
-        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+    def __init__( self, bfy: str, efy: str, fundcode: str, provider = Provider.SQLite ):
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__fundcode = fundcode
         self.__provider = provider
         self.__source = Source.StatusOfEarmarks
         self.__fields = [ 'StatusOfEarmarksId',
@@ -22702,102 +22697,102 @@ class SiteActivity( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__siteactivityid, int ):
             return self.__siteactivityid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__siteactivityid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -22812,147 +22807,147 @@ class SiteActivity( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def epa_site_id( self ):
+    def epa_site_id( self ) -> str:
         if self.__epasiteid is not None:
             return self.__epasiteid
 
     @epa_site_id.setter
-    def epa_site_id( self, value ):
+    def epa_site_id( self, value: str ):
         if value is not None:
             self.__epasiteid = value
 
     @property
-    def project_type( self ):
+    def project_type( self ) -> str:
         if self.__projecttype is not None:
             return self.__projecttype
 
     @project_type.setter
-    def project_type( self, value ):
+    def project_type( self, value: str ):
         if value is not None:
             self.__projecttype = value
 
     @property
-    def site_project_code( self ):
+    def site_project_code( self ) -> str:
         if self.__siteprojectcode is not None:
             return self.__siteprojectcode
 
     @site_project_code.setter
-    def site_project_code( self, value ):
+    def site_project_code( self, value: str ):
         if value is not None:
             self.__siteprojectcode = value
 
     @property
-    def site_project_name( self ):
+    def site_project_name( self ) -> str:
         if self.__siteprojectname is not None:
             return self.__siteprojectname
 
     @site_project_name.setter
-    def site_project_name( self, value ):
+    def site_project_name( self, value: str ):
         if value is not None:
             self.__siteprojectname = value
 
     @property
-    def ssid( self ):
+    def ssid( self ) -> str:
         if self.__ssid is not None:
             return self.__ssid
 
     @ssid.setter
-    def ssid( self, value ):
+    def ssid( self, value: str ):
         if value is not None:
             self.__ssid = value
 
     @property
-    def action_code( self ):
+    def action_code( self ) -> str:
         if self.__actioncode is not None:
             return self.__actioncode
 
@@ -22962,132 +22957,132 @@ class SiteActivity( ):
             self.__actioncode = code
 
     @property
-    def operable_unit( self ):
+    def operable_unit( self ) -> str:
         if self.__operableunit is not None:
             return self.__operableunit
 
     @operable_unit.setter
-    def operable_unit( self, value ):
+    def operable_unit( self, value: str ):
         if value is not None:
             self.__operableunit = value
 
     @property
-    def state( self ):
+    def state( self ) -> str:
         if self.__state is not None:
             return self.__state
 
     @state.setter
-    def state( self, value ):
+    def state( self, value: str ):
         if value is not None:
             self.__state = value
 
     @property
-    def city( self ):
+    def city( self ) -> str:
         if self.__city is not None:
             return self.__city
 
     @city.setter
-    def city( self, value ):
+    def city( self, value: str ):
         if value is not None:
             self.__city = value
 
     @property
-    def congress( self ):
+    def congress( self ) -> str:
         if self.__congress is not None:
             return self.__congress
 
     @congress.setter
-    def congress( self, value ):
+    def congress( self, value: str ):
         if value is not None:
             self.__congress = value
 
     @property
-    def start_date( self ):
+    def start_date( self ) -> str:
         if self.__startdate is not None:
             return self.__startdate
 
     @start_date.setter
-    def start_date( self, value ):
+    def start_date( self, value: str ):
         if value is not None:
             self.__startdate = value
 
     @property
-    def end_date( self ):
+    def end_date( self ) -> str:
         if self.__enddate is not None:
             return self.__enddate
 
     @end_date.setter
-    def end_date( self, value ):
+    def end_date( self, value: str ):
         if value is not None:
             self.__enddate = value
 
     @property
-    def last_activity_date( self ):
+    def last_activity_date( self ) -> str:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value ):
+    def last_activity_date( self, value: str ):
         if value is not None:
             self.__lastactivitydate = value
 
     @property
-    def requested( self ):
+    def requested( self ) -> float:
         if self.__requested is not None:
             return self.__requested
 
     @requested.setter
-    def requested( self, value ):
+    def requested( self, value: float ):
         if value is not None:
             self.__requested = value
 
     @property
-    def accepted( self ):
+    def accepted( self ) -> float:
         if self.__accepted is not None:
             return self.__accepted
 
     @accepted.setter
-    def accepted( self, value ):
+    def accepted( self, value: float ):
         if value is not None:
             self.__accepted = value
 
     @property
-    def closed( self ):
+    def closed( self ) -> float:
         if self.__closed is not None:
             return self.__closed
 
     @closed.setter
-    def closed( self, value ):
+    def closed( self, value: str ):
         if value is not None:
             self.__closed = value
 
     @property
-    def refunded( self ):
+    def refunded( self ) -> float:
         if self.__refunded is not None:
             return self.__refunded
 
     @refunded.setter
-    def refunded( self, value ):
+    def refunded( self, value: float ):
         if value is not None:
             self.__refunded = value
 
     @property
-    def reversal( self ):
+    def reversal( self ) -> float:
         if self.__reversal is not None:
             return self.__reversal
 
     @reversal.setter
-    def reversal( self, value ):
+    def reversal( self, value: float ):
         if value is not None:
             self.__reversal = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
@@ -23134,7 +23129,7 @@ class SiteActivity( ):
                            'Refunded',
                            'Reversal' ]
 
-    def get_data( self  ) -> list[ tuple ]:
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -23148,7 +23143,7 @@ class SiteActivity( ):
             cursor = sqlite.cursor( )
             query = sql.getcommandtext( )
             data = cursor.execute( query )
-            self.__data =  [ tuple( i ) for i in data.fetchall( ) ]
+            self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
             return self.__data
@@ -23226,102 +23221,102 @@ class SpendingDocument( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__obligationsid, int ):
             return self.__obligationsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__obligationsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -23336,366 +23331,366 @@ class SpendingDocument( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def budgeted( self ):
+    def budgeted( self ) -> str:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value ):
+    def budgeted( self, value: str ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ):
+    def posted( self ) -> str:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value ):
+    def posted( self, value: str ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
     @property
-    def commitments( self ):
+    def commitments( self ) -> str:
         if self.__commitments is not None:
             return self.__commitments
 
     @commitments.setter
-    def commitments( self, value ):
+    def commitments( self, value: str ):
         if value is not None:
             self.__commitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ):
+    def unliquidated_obligations( self ) -> str:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value ):
+    def unliquidated_obligations( self, value: str ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ):
+    def expenditures( self ) -> str:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value ):
+    def expenditures( self, value: str ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ):
+    def used( self ) -> str:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value ):
+    def used( self, value: str ):
         if value is not None:
             self.__used = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__avaialable = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttyp is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def document_control_number( self ):
+    def document_control_number( self ) -> str:
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
-    def document_control_number( self, value ):
+    def document_control_number( self, value: str ):
         if value is not None:
             self.__documentcontrolnumber = value
 
     @property
-    def reference_document_number( self ):
+    def reference_document_number( self ) -> str:
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
-    def reference_document_number( self, value ):
+    def reference_document_number( self, value: str ):
         if value is not None:
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ):
+    def processed_date( self ) -> str:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value ):
+    def processed_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ):
+    def last_activity_date( self ) -> str:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value ):
+    def last_activity_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
-    def age( self ):
+    def age( self ) -> str:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value ):
+    def age( self, value: str ):
         if value is not None:
             self.__age = value
 
     @property
-    def vendor_code( self ):
+    def vendor_code( self ) -> str:
         if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
-    def vendor_code( self, value ):
+    def vendor_code( self, value: str ):
         if value is not None:
             self.__vendorcode = value
 
     @property
-    def vendor_name( self ):
+    def vendor_name( self ) -> str:
         if self.__vendorname is not None:
             return self.__vendorname
 
     @vendor_name.setter
-    def vendor_name( self, value ):
+    def vendor_name( self, value: str ):
         if value is not None:
             self.__vendorname = value
 
     @property
-    def foc_code( self ):
+    def foc_code( self ) -> str:
         if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
-    def foc_code( self, value ):
+    def foc_code( self, value: str ):
         if value is not None:
             self.__foccode = value
 
     @property
-    def foc_name( self ):
+    def foc_name( self ) -> str:
         if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
-    def foc_name( self, value ):
+    def foc_name( self, value: str ):
         if value is not None:
             self.__focname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fund, account, boc, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str, fund: str, account: str, boc: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Obligations
         self.__bfy = bfy
@@ -23739,9 +23734,9 @@ class SpendingDocument( ):
                            'ULO',
                            'Expenditure' ]
 
-    def __str__( self ):
-        if isinstance( self.__amount, float ):
-            return str( self.__amount )
+    def __str__( self ) -> float:
+        if self.__amount is not None:
+            return self.__amount
 
     def get_data( self ) -> list[ Row ]:
         try:
@@ -23810,190 +23805,190 @@ class SupplementalCarryoverEstimate( ):
     __frame = None
 
     @property
-    def id( self ):
-        if isinstance( self.__annualcarryoverestimatesid, int ):
+    def id( self ) -> int:
+        if self.__annualcarryoverestimatesid is not None:
             return self.__annualcarryoverestimatesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__annualcarryoverestimatesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def available( self ):
+    def available( self ) -> float:
         if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available.setter
-    def available( self, value ):
+    def available( self, value: float ):
         if value is not None:
             self.__availablebalance = value
 
     @property
-    def open_commitments( self ):
+    def open_commitments( self ) -> float:
         if self.__opencommitments is not None:
             return self.__opencommitments
 
     @open_commitments.setter
-    def open_commitments( self, value ):
+    def open_commitments( self, value: float ):
         if value is not None:
             self.__opencommitments = value
 
     @property
-    def obligations( self ):
+    def obligations( self ) -> float:
         if self.__obligations is not None:
             return self.__obligations
 
     @obligations.setter
-    def obligations( self, value ):
+    def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def data( self ):
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: list[ Row ] ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
 
-    def __init__( self, bfy, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.CarryoverEstimates
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__bfy = bfy
         self.__fields = [ 'CarryoverEstimatesId',
                            'BudgetLevel',
                            'BFY',
@@ -24016,11 +24011,11 @@ class SupplementalCarryoverEstimate( ):
                            'OpenCommitment',
                            'UnobligatedAuthority' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__unobligatedauthority, float ):
             return str( self.__unobligatedauthority )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -24046,7 +24041,7 @@ class SupplementalCarryoverEstimate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -24081,86 +24076,86 @@ class TreasurySymbol( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__treasurysymbolsid, int ):
             return self.__treasurysymbolsid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__treasurysymbolsid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
-        if isinstance( self.__efy, str ) and self.__efy != '':
+    def efy( self ) -> str:
+        if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def treasury_account_code( self ):
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
     @property
-    def treasury_account_name( self ):
+    def treasury_account_name( self ) -> str:
         if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
-    def treasury_account_name( self, value ):
+    def treasury_account_name( self, value: str ):
         if value is not None:
             self.__treasuryaccountname = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, treas, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str, treas: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__soruce = Source.FundSymbols
         self.__bfy = bfy
@@ -24177,11 +24172,11 @@ class TreasurySymbol( ):
                           'OmbAccountName',
                           'ApportionmentAccountCode' ]
 
-    def __str__( self ):
-        if isinstance( self.__treasuryaccountname, str ) and self.__treasuryaccountname != '':
+    def __str__( self ) -> str:
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -24208,7 +24203,7 @@ class TreasurySymbol( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -24259,87 +24254,87 @@ class Transfer( ):
     __frame = None
 
     @property
-    def id( self ):
-        if isinstance( self.__transfersid, int ):
+    def id( self ) -> int:
+        if self.__transfersid is not None:
             return self.__transfersid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__transfersid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def budget_level( self ):
+    def budget_level( self ) -> str:
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
     @budget_level.setter
-    def budget_level( self, value ):
+    def budget_level( self, value: str ):
         if value is not None:
             self.__budgetlevel = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def processed_date( self ):
+    def processed_date( self ) -> str:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value ):
+    def processed_date( self, value: str ):
         if value is not None:
             self.__processeddate = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
@@ -24349,189 +24344,189 @@ class Transfer( ):
             self.__rpiocode = name
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def activity_code( self ):
+    def activity_code( self ) -> str:
         if self.__activitycode is not None:
             return self.__activitycode
 
     @activity_code.setter
-    def activity_code( self, value ):
+    def activity_code( self, value: str ):
         if value is not None:
             self.__activitycode = value
 
     @property
-    def activity_name( self ):
+    def activity_name( self ) -> str:
         if self.__activityname is not None:
             return self.__activityname
 
     @activity_name.setter
-    def activity_name( self, value ):
-        if isinstance( value, str ) and self.__activityname != '':
+    def activity_name( self, value: str ):
+        if value is not None:
             self.__activityname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, documentnumber, provider = Provider.SQLite ):
+    def __init__( self, documentnumber: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Transfers
-        self.__documentnumber = documentnumber if isinstance( documentnumber, str ) else None
+        self.__documentnumber = documentnumber
         self.__fields = [ 'TransfersId',
                            'BudgetLevel',
                            'DocPrefix',
@@ -24567,7 +24562,7 @@ class Transfer( ):
                            'Purpose',
                            'ExtendedPurpose' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             src = self.__source
             pdr = self.__provider
@@ -24594,7 +24589,7 @@ class Transfer( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe'''
         try:
             src = self.__source
@@ -24628,80 +24623,80 @@ class TransType( ):
     __frame = None
 
     @property
-    def id( self ):
-        if isinstance( self.__transtypesid, int ):
+    def id( self ) -> int:
+        if self.__transtypesid is not None:
             return self.__transtypesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__transtypesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def appropriation( self ):
+    def appropriation( self ) -> str:
         if self.__appropriation is not None:
             return self.__appropriation
 
     @appropriation.setter
-    def appropriation( self, value ):
+    def appropriation( self, value: str ):
         if value is not None:
             self.__appropriation = value
 
     @property
-    def treasury_symbol( self ):
+    def treasury_symbol( self ) -> str:
         if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
     @treasury_symbol.setter
-    def treasury_symbol( self, value ):
+    def treasury_symbol( self, value: str ):
         if value is not None:
             self.__treasuryaccount = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, fundcode, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, fundcode: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.TransTypes
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+        self.__bfy = bfy
+        self.__fundcode = fundcode
         self.__fields = [ 'TransTypesId',
                           'FundCode',
                           'Appropriation',
@@ -24737,106 +24732,106 @@ class UnobligatedAuthority( ):
     __frame = None
 
     @property
-    def id( self ):
-        if isinstance( self.__unobligatedauthorityid, int ):
+    def id( self ) -> int:
+        if self.__unobligatedauthorityid is not None:
             return self.__unobligatedauthorityid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__unobligatedauthorityid = value
 
     @property
-    def report_year( self ):
-        if isinstance( self.__reportyear, str ) and len( self.__reportyear ) == 4:
+    def report_year( self ) -> str:
+        if self.__reportyear is not None:
             return self.__reportyear
 
     @report_year.setter
-    def report_year( self, value ):
+    def report_year( self, value: str ):
         if isinstance( value, str ) and len( value ) == 4:
             self.__reportyear = value
 
     @property
-    def line_number( self ):
+    def line_number( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
     @line_number.setter
-    def line_number( self, value ):
+    def line_number( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def line_name( self ):
-        if isinstance( self.__linename, str ) and self.__linename != '':
+    def line_name( self ) -> str:
+        if self.__linename is not None:
             return self.__linename
 
     @line_name.setter
-    def line_name( self, value ):
+    def line_name( self, value: str ):
         if value is not None:
             self.__linename = value
 
     @property
-    def budget_account_code( self ):
+    def budget_account_code( self ) -> str:
         if self.__budgetaccountcode is not None:
             return self.__budgetaccountcode
 
     @budget_account_code.setter
-    def budget_account_code( self, value ):
+    def budget_account_code( self, value: str ):
         if value is not None:
             self.__budgetaccountcode = value
 
     @property
-    def budget_account_name( self ):
+    def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
-    def budget_account_name( self, value ):
+    def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
 
     @property
-    def prior_year( self ):
+    def prior_year( self ) -> str:
         if isinstance( self.__prioryear, float ):
             return self.__prioryear
 
     @prior_year.setter
-    def prior_year( self, value ):
+    def prior_year( self, value: str ):
         if value is not None:
             self.__prioryear = value
 
     @property
-    def current_year( self ):
+    def current_year( self ) -> str:
         if isinstance( self.__currentyear, float ):
             return self.__currentyear
 
     @current_year.setter
-    def current_year( self, value ):
+    def current_year( self, value: str ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def budget_year( self ):
+    def budget_year( self ) -> str:
         if isinstance( self.__budgetyear, float ):
             return self.__budgetyear
 
     @budget_year.setter
-    def budget_year( self, value ):
+    def budget_year( self, value: str ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, account, provider = Provider.SQLite ):
+    def __init__( self, account: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.UnobligatedAuthority
         self.__budgetaccountcode = account
@@ -24855,7 +24850,7 @@ class UnobligatedAuthority( ):
                           'AgencyName',
                           'BureauName' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -24881,7 +24876,7 @@ class UnobligatedAuthority( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -24916,111 +24911,111 @@ class UnobligatedBalance( ):
     __data = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__unobligatedbalancesid, int ):
             return self.__unobligatedbalancesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__unobligatedbalancesid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def account_number( self ):
+    def account_number( self ) -> str:
         if self.__accountnumber is not None:
             return self.__accountnumber
 
     @account_number.setter
-    def account_number( self, value ):
+    def account_number( self, value: str ):
         if value is not None:
             self.__accountnumber = value
 
     @property
-    def account_name( self ):
+    def account_name( self ) -> str:
         if isinstance( self.__accountname, str ) and self.__accountname != '':
             return self.__accountname
 
     @account_name.setter
-    def account_name( self, value ):
+    def account_name( self, value: str ):
         if value is not None:
             self.__accountname = value
 
     @property
-    def treasury_symbol( self ):
+    def treasury_symbol( self ) -> str:
         if self.__treasuryaccount is not None:
             return self.__treasuryaccount
 
     @treasury_symbol.setter
-    def treasury_symbol( self, value ):
+    def treasury_symbol( self, value: str ):
         if value is not None:
             self.__treasuryaccount = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> str:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fundcode, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str, fundcode: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.UnobligatedBalances
-        self.__bfy = bfy if isinstance( bfy, str ) and bfy != '' else None
-        self.__efy = efy if isinstance( efy, str ) and efy != '' else None
-        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__fundcode = fundcode
         self.__fields =[ 'UnobligatedBalancesId',
                            'BudgetYear',
                            'BFY',
@@ -25032,7 +25027,7 @@ class UnobligatedBalance( ):
                            'AccountName',
                            'Amount' ]
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = Source.CarryoverOutlays
             provider = Provider.SQLite
@@ -25058,7 +25053,7 @@ class UnobligatedBalance( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -25123,102 +25118,102 @@ class UnliquidatedObligation( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if self.__expendituresid is not None:
             return self.__expendituresid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__expendituresid = value
 
     @property
-    def bfy( self ):
+    def bfy( self ) -> str:
         if self.__bfy is not None:
             return self.__bfy
 
     @bfy.setter
-    def bfy( self, value ):
+    def bfy( self, value: str ):
         if value is not None:
             self.__bfy = value
 
     @property
-    def efy( self ):
+    def efy( self ) -> str:
         if self.__efy is not None:
             return self.__efy
 
     @efy.setter
-    def efy( self, value ):
+    def efy( self, value: str ):
         if value is not None:
             self.__efy = value
 
     @property
-    def rpio_code( self ):
+    def rpio_code( self ) -> str:
         if self.__rpiocode is not None:
             return self.__rpiocode
 
     @rpio_code.setter
-    def rpio_code( self, value ):
+    def rpio_code( self, value: str ):
         if value is not None:
             self.__rpiocode = value
 
     @property
-    def rpio_name( self ):
+    def rpio_name( self ) -> str:
         if self.__rpioname is not None:
             return self.__rpioname
 
     @rpio_name.setter
-    def rpio_name( self, value ):
+    def rpio_name( self, value: str ):
         if value is not None:
             self.__rpioname = value
 
     @property
-    def ah_code( self ):
+    def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
 
     @ah_code.setter
-    def ah_code( self, value ):
+    def ah_code( self, value: str ):
         if value is not None:
             self.__ahcode = value
 
     @property
-    def ah_name( self ):
+    def ah_name( self ) -> str:
         if self.__ahname is not None:
             return self.__ahname
 
     @ah_name.setter
-    def ah_name( self, value ):
+    def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
 
     @property
-    def fund_code( self ):
+    def fund_code( self ) -> str:
         if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
-    def fund_code( self, value ):
+    def fund_code( self, value: str ):
         if value is not None:
             self.__fundcode = value
 
     @property
-    def fund_name( self ):
+    def fund_name( self ) -> str:
         if self.__fundname is not None:
             return self.__fundname
 
     @fund_name.setter
-    def fund_name( self, value ):
+    def fund_name( self, value: str ):
         if value is not None:
             self.__fundname = value
 
     @property
-    def org_code( self ):
+    def org_code( self ) -> str:
         if self.__orgcode is not None:
             return self.__orgcode
 
     @org_code.setter
-    def org_code( self, value ):
+    def org_code( self, value: str ):
         if value is not None:
             self.__orgcode = value
 
@@ -25233,286 +25228,286 @@ class UnliquidatedObligation( ):
             self.__orgname = value
 
     @property
-    def account_code( self ):
+    def account_code( self ) -> str:
         if self.__accountname is not None:
             return self.__accountcode
 
     @account_code.setter
-    def account_code( self, value ):
+    def account_code( self, value: str ):
         if value is not None:
             self.__accountcode = value
 
     @property
-    def boc_code( self ):
+    def boc_code( self ) -> str:
         if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
-    def boc_code( self, value ):
+    def boc_code( self, value: str ):
         if value is not None:
             self.__boccode = value
 
     @property
-    def boc_name( self ):
+    def boc_name( self ) -> str:
         if self.__bocname is not None:
             return self.__bocname
 
     @boc_name.setter
-    def boc_name( self, value ):
+    def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
 
     @property
-    def rc_code( self ):
+    def rc_code( self ) -> str:
         if self.__rccode is not None:
             return self.__rccode
 
     @rc_code.setter
-    def rc_code( self, value ):
+    def rc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def rc_name( self ):
+    def rc_name( self ) -> str:
         if self.__rcname is not None:
             return self.__rcname
 
     @rc_name.setter
-    def rc_name( self, value ):
+    def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
 
     @property
-    def document_type( self ):
+    def document_type( self ) -> str:
         if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
-    def document_type( self, value ):
+    def document_type( self, value: str ):
         if value is not None:
             self.__documenttype = value
 
     @property
-    def document_number( self ):
+    def document_number( self ) -> str:
         if self.__documentnumber is not None:
             return self.__documentnumber
 
     @document_number.setter
-    def document_number( self, value ):
+    def document_number( self, value: str ):
         if value is not None:
             self.__documentnumber = value
 
     @property
-    def document_control_number( self ):
+    def document_control_number( self ) -> str:
         if self.__documentcontrolnumber is not None:
             return self.__documentcontrolnumber
 
     @document_control_number.setter
-    def document_control_number( self, value ):
+    def document_control_number( self, value: str ):
         if value is not None:
             self.__documentcontrolnumber = value
 
     @property
-    def reference_document_number( self ):
+    def reference_document_number( self ) -> str:
         if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
-    def reference_document_number( self, value ):
+    def reference_document_number( self, value: str ):
         if value is not None:
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ):
+    def processed_date( self ) -> str:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value ):
+    def processed_date( self, value: str ):
         if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ):
+    def last_activity_date( self ) -> str:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value ):
+    def last_activity_date( self, value: str ):
         if value is not None:
             self.__lastactivitydate = value
 
     @property
-    def age( self ):
+    def age( self ) -> str:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value ):
+    def age( self, value: str ):
         if value is not None:
             self.__age = value
 
     @property
-    def vendor_code( self ):
+    def vendor_code( self ) -> str:
         if self.__vendorcode is not None:
             return self.__vendorcode
 
     @vendor_code.setter
-    def vendor_code( self, value ):
+    def vendor_code( self, value: str ):
         if value is not None:
             self.__vendorcode = value
 
     @property
-    def vendor_name( self ):
+    def vendor_name( self ) -> str:
         if self.__vendorname is not None:
             return self.__vendorname
 
     @vendor_name.setter
-    def vendor_name( self, value ):
+    def vendor_name( self, value: str ):
         if value is not None:
             self.__vendorname = value
 
     @property
-    def foc_code( self ):
+    def foc_code( self ) -> str:
         if self.__foccode is not None:
             return self.__foccode
 
     @foc_code.setter
-    def foc_code( self, value ):
+    def foc_code( self, value: str ):
         if value is not None:
             self.__rccode = value
 
     @property
-    def foc_name( self ):
+    def foc_name( self ) -> str:
         if self.__focname is not None:
             return self.__focname
 
     @foc_name.setter
-    def foc_name( self, value ):
+    def foc_name( self, value: str ):
         if value is not None:
             self.__focname = value
 
     @property
-    def amount( self ):
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
     @amount.setter
-    def amount( self, value ):
+    def amount( self, value: float ):
         if value is not None:
             self.__amount = value
 
     @property
-    def program_project_code( self ):
+    def program_project_code( self ) -> str:
         if self.__programprojectcode is not None:
             return self.__programprojectcode
 
     @program_project_code.setter
-    def program_project_code( self, value ):
+    def program_project_code( self, value: str ):
         if value is not None:
             self.__programprojectcode = value
 
     @property
-    def program_project_name( self ):
+    def program_project_name( self ) -> str:
         if self.__programprojectname is not None:
             return self.__programprojectname
 
     @program_project_name.setter
-    def program_project_name( self, value ):
+    def program_project_name( self, value: str ):
         if value is not None:
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ):
+    def program_area_code( self ) -> str:
         if self.__programareacode is not None:
             return self.__programareacode
 
     @program_area_code.setter
-    def program_area_code( self, value ):
+    def program_area_code( self, value: str ):
         if value is not None:
             self.__programareacode = value
 
     @property
-    def program_area_name( self ):
+    def program_area_name( self ) -> str:
         if self.__programareaname is not None:
             return self.__programareaname
 
     @program_area_name.setter
-    def program_area_name( self, value ):
+    def program_area_name( self, value: str ):
         if value is not None:
             self.__programareaname = value
 
     @property
-    def goal_code( self ):
+    def goal_code( self ) -> str:
         if self.__goalcode is not None:
             return self.__goalcode
 
     @goal_code.setter
-    def goal_code( self, value ):
+    def goal_code( self, value: str ):
         if value is not None:
             self.__goalcode = value
 
     @property
-    def goal_name( self ):
+    def goal_name( self ) -> str:
         if self.__goalname is not None:
             return self.__goalname
 
     @goal_name.setter
-    def goal_name( self, value ):
+    def goal_name( self, value: str ):
         if value is not None:
             self.__goalname = value
 
     @property
-    def objective_code( self ):
+    def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
 
     @objective_code.setter
-    def objective_code( self, value ):
+    def objective_code( self, value: str ):
         if value is not None:
             self.__objectivecode = value
 
     @property
-    def objective_name( self ):
+    def objective_name( self ) -> str:
         if self.__objectivename is not None:
             return self.__objectivename
 
     @objective_name.setter
-    def objective_name( self, value ):
+    def objective_name( self, value: str ):
         if value is not None:
             self.__objectivename = value
 
     @property
-    def npm_code( self ):
+    def npm_code( self ) -> str:
         if self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
-    def npm_code( self, value ):
+    def npm_code( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
     @property
-    def npm_name( self ):
+    def npm_name( self ) -> str:
         if self.__npmname is not None:
             return self.__npmname
 
     @npm_name.setter
-    def npm_name( self, value ):
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, fund, account, boc, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, fund: str, account: str, boc: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.UnliquidatedObligations
         self.__bfy = bfy
@@ -25556,16 +25551,16 @@ class UnliquidatedObligation( ):
                            'ULO',
                            'Expenditure' ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__amount, float ):
             return str( self.__amount )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
             n = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
             cnx = Connection( dconfig )
@@ -25586,7 +25581,7 @@ class UnliquidatedObligation( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
@@ -25614,77 +25609,77 @@ class WorkCode( ):
     __frame = None
 
     @property
-    def id( self ):
+    def id( self ) -> int:
         if isinstance( self.__workcodesid, int ):
             return self.__workcodesid
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value is not None:
             self.__workcodesid = value
 
     @property
-    def code( self ):
+    def code( self ) -> str:
         if  self.__code is not None:
             return self.__code
 
     @code.setter
-    def code( self, value ):
+    def code( self, value: str ):
         if value is not None:
             self.__code = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def data( self ):
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value ):
+    def data( self, value: list[ Row ] ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ):
+    def table( self ) -> str:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__frame = value
 
     @property
-    def fields( self ):
+    def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value ):
+    def fields( self, value: list[ str ] ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.WorkCodes
         self.__code = code
         self.__frame = DataFrame
         self.__fields = None
 
-    def __str__( self ):
-        if isinstance( self.__code, str ) and self.__code != '':
+    def __str__( self ) -> str:
+        if self.__code is not None:
             return self.__code
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -25710,7 +25705,7 @@ class WorkCode( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
