@@ -818,7 +818,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
         if isinstance( self.__unobligatedauthority, float ):
             return str( self.__unobligatedauthority )
 
-    def get_data( self  ):
+    def get_data( self  ) -> list[ Row ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -844,12 +844,11 @@ class AmericanRescuePlanCarryoverEstimate( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def get_frame( self ):
+    def get_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
-            src = self.__source
-            data = BudgetData( src )
+            data = BudgetData( self.__source )
             return data.get_frame( )
         except Exception as e:
             exc = Error( e )
