@@ -22,8 +22,7 @@ class Path( ):
     __drivesep = None
     __parentdirectory = None
 
-    @property
-    def input( self ):
+    def input( self ) -> str:
         '''Get the input string'''
         if self.__input is not None:
             return self.__input
@@ -35,9 +34,9 @@ class Path( ):
             self.__input = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         '''Returns string representing the title of the selected_path 'base' '''
-        if isinstance( self.__name, str ):
+        if self.__name is not None:
             return self.__name
 
     @name.setter
@@ -47,7 +46,7 @@ class Path( ):
             self.__input = value
 
     @property
-    def path( self ):
+    def path( self ) -> str:
         if self.__input is not None:
             return self.__input
 
@@ -57,7 +56,7 @@ class Path( ):
             self.__input = value
 
     @property
-    def drive( self ):
+    def drive( self ) -> str:
         if self.__drive is not None:
             return self.__drive
 
@@ -67,7 +66,7 @@ class Path( ):
             self.__drive = os.path.splitdrive( value )[ 0 ]
 
     @property
-    def extension( self ):
+    def extension( self ) -> str:
         if  self.__ext is not None:
             return self.__ext
 
@@ -77,7 +76,7 @@ class Path( ):
             self.__ext = str( value )
 
     @property
-    def current_directory( self ):
+    def current_directory( self ) -> str:
         if self.__currdir is not None:
             return self.__currdir
 
@@ -89,7 +88,7 @@ class Path( ):
             self.__currdir = value
 
     @property
-    def parent_directory( self ):
+    def parent_directory( self ) -> str:
         if self.__parentdirectory is not None:
             return self.__parentdirectory
 
@@ -100,7 +99,7 @@ class Path( ):
             self.__parentdirectory = value
 
     @property
-    def path_separator( self ):
+    def path_separator( self ) -> str:
         if self.__pathsep is not None:
             return self.__pathsep
 
@@ -111,7 +110,7 @@ class Path( ):
             self.__pathsep = value
 
     @property
-    def drive_separator( self ):
+    def drive_separator( self ) -> str:
         if self.__drivesep is not None:
             return self.__drivesep
 
@@ -122,7 +121,7 @@ class Path( ):
             self.__drivesep = value
 
     @property
-    def extension_separator( self ):
+    def extension_separator( self ) -> str:
         if self.__extsep is not None:
             return self.__extsep
 
@@ -144,7 +143,7 @@ class Path( ):
         self.__drivesep = ':\\'
         self.__drive = os.path.splitdrive( filepath )[ 0 ]
 
-    def __str__( self ):
+    def __str__( self ) -> str:
        if self.__input is not None:
            return str( self.__input )
 
@@ -292,95 +291,95 @@ class File( Path ):
     __contents = [ ]
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         '''Get the title property'''
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         '''Set the title property'''
         if os.path.exists( value ):
             self.__name = os.path.basename( value )
 
     @property
-    def path( self ):
+    def path( self ) -> str:
         if self.__buffer is not None:
             return self.__buffer
 
     @path.setter
-    def path( self, value ):
+    def path( self, value: str ):
         if value is not None:
             self.__buffer = value
 
     @property
-    def size( self ):
+    def size( self ) -> int:
         if self.__size is not None:
             return self.__size
 
     @size.setter
-    def size( self, value ):
+    def size( self, value: int ):
         if value is not None:
             self.__size = value
 
     @property
-    def directory( self ):
+    def directory( self ) -> str:
         if self.__directory is not None:
             return self.__directory
 
     @directory.setter
-    def directory( self, value ):
+    def directory( self, value: str ):
         if os.path.isdir( value ):
             self.__directory = os.path.dirname( value )
 
     @property
-    def extension( self ):
+    def extension( self ) -> str:
         if self.__extension is not None:
             return self.__extension
 
     @extension.setter
-    def extension( self, value ):
+    def extension( self, value: str ):
         if isinstance( value, str ) and value != '':
             self.__extension = value
 
     @property
-    def drive( self ):
+    def drive( self ) -> str:
         if self.__drive is not None:
             return self.__drive
 
     @drive.setter
-    def drive( self, value ):
+    def drive( self, value: str ):
         if os.path.ismount( value ):
             self.__drive = str( value )
 
     @property
-    def modified( self ):
-        if isinstance( self.__modified, datetime ):
+    def modified( self ) -> float:
+        if self.__modified is not None:
             return self.__modified
 
     @modified.setter
-    def modified( self, value ):
+    def modified( self, value: float ):
         if isinstance( value, float ):
             self.__modified = value
 
     @property
-    def accessed( self ):
+    def accessed( self ) -> float:
         if self.__accessed is not None:
             return self.__accessed
 
     @accessed.setter
-    def accessed( self, value ):
-        if isinstance( value, float ):
+    def accessed( self, value: float ):
+        if value is not None:
             self.__accessed = value
 
     @property
-    def created( self ):
+    def created( self ) -> float:
         if self.__created is not None:
             return self.__created
 
     @created.setter
-    def created( self, value ):
-        if isinstance( value, float ):
+    def created( self, value: float ):
+        if value is not None:
             self.__created = value
 
     def __init__( self, path = None ):
@@ -395,17 +394,17 @@ class File( Path ):
         self.__modified = os.path.getmtime( path )
         self.__drive = super( ).drive
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__path, str ) and self.__path != '':
             return self.__path
 
-    def exists( self ):
+    def exists( self ) -> bool:
         if os.path.exists( self.__path ):
             return True
         else:
             return False
 
-    def rename( self, other ):
+    def rename( self, other: str ) -> str:
         '''Renames the current_directory file to 'other' '''
         try:
             if isinstance( other, str ) and not other == '':
@@ -421,7 +420,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def move( self, destination ):
+    def move( self, destination: str ) -> str:
         '''renames current_directory file'''
         try:
             if os.path.isdir( destination ):
@@ -434,7 +433,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def create( self, other, lines = None ):
+    def create( self, other: str, lines: list[ str ] = None ):
         ''' creates and returns 'selected_path' file '''
         try:
             if other is not None:
@@ -452,7 +451,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def verify( self, other ):
+    def verify( self, other: str) -> bool:
         '''determines if an external file exists'''
         try:
             if other is not None:
@@ -465,7 +464,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def delete( self, other ):
+    def delete( self, other: str ):
         ''' deletes file at 'self.__selecteditem'   '''
         try:
             if os.path.isfile( other ):
@@ -478,7 +477,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def readlines( self, other ):
+    def readlines( self, other: str ):
         '''reads all lines in 'other' into a list
             then returns the list '''
         try:
@@ -495,7 +494,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def readall( self, other ):
+    def readall( self, other: str ):
         '''reads a single line from the file into a string
             then returns the string'''
         try:
@@ -513,7 +512,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def writelines( self, lines = None ):
+    def writelines( self, lines: list[ str ] = None ):
         ''' writes the contents of 'lines' to self.__contents '''
         try:
             if isinstance( lines, list ):
@@ -531,7 +530,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def writeall( self, other ):
+    def writeall( self, other: str ):
         ''' writes the contents of 'lines' to self.__contents '''
         try:
             contents = [ ]
@@ -568,101 +567,101 @@ class Folder( Path ):
     __size = None
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         '''Returns string representing the title of the selected_path 'base' '''
         if self.__path is not None:
             return self.__path
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         '''Returns string representing the title of the selected_path 'base' '''
         if value is not None:
             self.__path = value
 
     @property
-    def directory( self ):
+    def directory( self ) -> str:
         '''Returns string representing the title of the selected_path 'base' '''
         if self.__path is not None:
             return self.__path
 
     @directory.setter
-    def directory( self, value ):
+    def directory( self, value: str ):
         '''Returns string representing the title of the selected_path 'base' '''
         if value is not None:
             self.__name = value
 
     @property
-    def path( self ):
+    def path( self ) -> str:
         if self.__path is not None:
             return self.__path
 
     @path.setter
-    def path( self, value ):
+    def path( self, value: str ):
         if value is not None:
             self.__path = value
 
     @property
-    def absolute_path( self ):
+    def absolute_path( self ) -> str:
         if self.__absolutepath is not None:
             return self.__absolutepath
 
     @absolute_path.setter
-    def absolute_path( self, value ):
+    def absolute_path( self, value: str ):
         if value is not None:
             self.__absolutepath = value
 
     @property
-    def relative_path( self ):
+    def relative_path( self ) -> str:
         if self.__relativepath is not None:
             return self.__relativepath
 
     @relative_path.setter
-    def relative_path( self, value ):
+    def relative_path( self, value: str ):
         if self.__relativepath is not None:
             self.__relativepath = value
 
     @property
-    def parent( self ):
+    def parent( self ) -> str:
         if self.__parent is not None:
             return self.__parent
 
     @parent.setter
-    def parent( self, value ):
+    def parent( self, value: str ):
         if value is not None:
             self.__parent = value
 
     @property
-    def drive( self ):
+    def drive( self ) -> str:
         if self.__drive is not None:
             return self.__drive
 
     @drive.setter
-    def drive( self, value ):
+    def drive( self, value: str ):
         if value is not None:
             self.__drive = value
 
     @property
-    def size( self ):
+    def size( self ) -> int:
         if self.__size is not None:
             return self.__size
 
     @size.setter
-    def size( self, value ):
+    def size( self, value: int ):
         if value is not None:
             self.__size = value
 
     @property
-    def current( self ):
+    def current( self ) -> str:
         if self.__current is not None:
             return self.__current
 
     @current.setter
-    def current( self, value ):
+    def current( self, value: str ):
         if value is not None:
             os.chdir( value )
             self.__current = os.getcwd( )
 
-    def __init__( self, path ):
+    def __init__( self, path: str ):
         super( ).__init__( path )
         self.__size = os.path.getsize( path )
         self.__drive = super( ).drive
@@ -673,7 +672,7 @@ class Folder( Path ):
         self.__absolutepath = os.path.abspath( path )
         self.__relativepath = f'{ os.getcwd( ) }\\{ os.path.basename( path ) }'
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__path is not None:
             return self.__path
 
@@ -774,7 +773,7 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def create( self, other ):
+    def create( self, other: str ):
         try:
             if other is not None:
                 os.mkdir( other )
@@ -786,7 +785,7 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def delete( self, other ):
+    def delete( self, other: str ):
         ''' deletes 'selected_path' directory '''
         try:
             if other is not None and os.path.isdir( other ):
@@ -799,7 +798,7 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def iterate( self ):
+    def iterate( self ) -> iter:
         '''iterates subfolders in the base directory'''
         try:
             for i in os.walk( self.__path ):
@@ -823,7 +822,7 @@ class Message( ):
     __others = None
 
     @property
-    def sender( self ):
+    def sender( self ) -> str:
         ''' Gets the sender's email address '''
         if self.__sender is not None:
             return self.__sender
@@ -835,19 +834,19 @@ class Message( ):
             self.__sender = value
 
     @property
-    def receiver( self ):
+    def receiver( self ) -> list[ str ]:
         ''' Gets the sender's email address '''
         if self.__receiver is not None:
             return [ self.__receiver, ]
 
     @receiver.setter
-    def receiver( self, value: str ):
+    def receiver( self, value: list[ str ] ):
         ''' Sets the receiver's email address '''
         if value is not None:
             self.__receiver = value
 
     @property
-    def subject( self ):
+    def subject( self ) -> str:
         ''' Gets the email's subject line '''
         if self.__subject is not None:
             return self.__subject
@@ -859,7 +858,7 @@ class Message( ):
             self.__receiver = value
 
     @property
-    def body( self ):
+    def body( self ) -> str:
         ''' Gets the email's subject line '''
         if self.__body is not None:
             return self.__body
@@ -871,7 +870,7 @@ class Message( ):
             self.__receiver = value
 
     @property
-    def copy( self ):
+    def copy( self ) -> str:
         ''' Gets the addresses to send copies  '''
         if self.__others is not None:
             return self.__others
@@ -889,7 +888,7 @@ class Message( ):
         self.__others = copy
         self.__subject = subject
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__body is not None:
             return self.__body
 
@@ -916,7 +915,7 @@ class MessageBuilder( ):
     __others = None
 
     @property
-    def sender( self ):
+    def sender( self ) -> str:
         ''' Gets the sender's email address '''
         if self.__from is not None:
             return self.__from
@@ -928,7 +927,7 @@ class MessageBuilder( ):
             self.__from = value
 
     @property
-    def receiver( self ):
+    def receiver( self ) -> str:
         ''' Gets the sender's email address '''
         if self.__to is not None:
             return self.__to
@@ -940,7 +939,7 @@ class MessageBuilder( ):
             self.__to = value
 
     @property
-    def subject( self ):
+    def subject( self ) -> str:
         ''' Gets the email's subject line '''
         if self.__subject is not None:
             return self.__subject
@@ -952,7 +951,7 @@ class MessageBuilder( ):
             self.__subject = value
 
     @property
-    def body( self ):
+    def body( self ) -> str:
         ''' Gets the email's subject line '''
         if self.__body is not None:
             return self.__body
@@ -961,16 +960,16 @@ class MessageBuilder( ):
     def body( self, value: str ):
         ''' Sets the email's subject line '''
         if value is not None:
-            self.__body = str( value )
+            self.__body = value
 
     @property
-    def copy( self ):
+    def copy( self ) -> str:
         ''' Gets the addresses to send copies  '''
         if self.__others is not None:
             return self.__others
 
     @copy.setter
-    def copy( self, value: list ):
+    def copy( self, value: str ):
         ''' Sets the address's to send copies  '''
         if value is not None:
             self.__others = value
@@ -982,7 +981,7 @@ class MessageBuilder( ):
         self.__others = copy if isinstance( copy, str ) and copy != '' else None
         self.__subject = subject if isinstance( subject, str ) and subject != '' else None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__body is not None:
             return self.__body
 
@@ -995,7 +994,7 @@ class Document( ):
     __title = None
 
     @property
-    def path( self ):
+    def path( self ) -> str:
         ''' Get the title of the workbook '''
         if isinstance( self.__path, str ) and self.__path != '':
             return self.__path
@@ -1006,7 +1005,7 @@ class Document( ):
             self.__path = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         ''' Get the title of the workbook '''
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
@@ -1023,7 +1022,7 @@ class Document( ):
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__path is not None:
             return self.__path
 
@@ -1038,31 +1037,31 @@ class Excel( ):
     __title = None
 
     @property
-    def path( self ):
+    def path( self ) -> str:
         ''' Get the title of the workbook '''
         if isinstance( self.__path, str ) and self.__path != '':
             return self.__path
 
     @path.setter
-    def path( self, value ):
+    def path( self, value: str ):
         if isinstance( value, str ) and value != '':
             self.__path = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         ''' Get the title of the workbook '''
         if isinstance( self.__name, str ) and self.__name != '':
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None and len( value ) > 0:
             self.__name = str( value )
 
     @property
-    def workbook( self ):
+    def workbook( self ) -> Workbook:
         ''' Gets the report template '''
-        if isinstance( self.__workbook, Workbook ):
+        if self.__workbook is not None:
             return self.__workbook
 
     @workbook.setter
@@ -1072,7 +1071,7 @@ class Excel( ):
             self.__workbook = value
 
     @property
-    def worksheet( self ):
+    def worksheet( self ) -> str:
         ''' Gets the workbooks worksheet '''
         if self.__workbook is not None:
             return self.__workbook.active
@@ -1090,7 +1089,7 @@ class Excel( ):
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__path is not None:
             return self.__path
 
@@ -1118,67 +1117,67 @@ class ExcelReport( ):
     __dimensions = None
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         ''' Get the title of the workbook '''
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = str( value )
 
     @property
-    def rows( self ):
+    def rows( self ) -> int:
         if self.__rows is not None:
             return self.__rows
 
     @rows.setter
-    def rows( self, value ):
+    def rows( self, value: int ):
         if value is not None:
             self.__rows = value
 
     @property
-    def columns( self ):
+    def columns( self ) -> int:
         if self.__columns is not None:
             return self.__columns
 
     @columns.setter
-    def columns( self, value ):
+    def columns( self, value: int ):
         if value is not None:
             self.__columns = value
 
     @property
-    def dimensions( self ):
+    def dimensions( self ) -> ( int, int ):
         if self.__dimensions is not None:
             return self.__dimensions
 
     @dimensions.setter
-    def dimensions( self, value ):
+    def dimensions( self, value: ( int, int ) ):
         if value is not None:
             self.__dimensions = value
 
     @property
-    def workbook( self ):
+    def workbook( self ) -> str:
         ''' Gets the report template '''
         if self.__path is not None:
             self.__workbook = xl.load_workbook( self.__path )
             return self.__workbook
 
     @workbook.setter
-    def workbook( self, value ):
+    def workbook( self, value: str ):
         ''' Gets the report template '''
         if value is not None:
             self.__workbook = value
 
     @property
-    def worksheet( self ):
+    def worksheet( self ) -> str:
         ''' Gets the workbooks worksheet '''
         if self.__worksheet is not None:
             return self.__worksheet
 
     @worksheet.setter
-    def worksheet( self, value ):
+    def worksheet( self, value: str ):
         ''' Gets the workbooks worksheet '''
         if self.__workbook is not None and value is not None:
             self.__workbook.worksheets.clear( )
@@ -1201,22 +1200,22 @@ class ZipFile( ):
     __zipextension = None
 
     @property
-    def path( self ):
+    def path( self ) -> str:
         if self.__filepath is not None:
             return self.__filepath
 
     @path.setter
-    def path( self, value ):
+    def path( self, value: str ):
         if value is not None:
             self.__filepath = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if not self.__name == '':
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if not value == '':
             self.__name = value
 

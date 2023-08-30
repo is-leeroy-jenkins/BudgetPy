@@ -19888,17 +19888,12 @@ class SubAppropriation( ):
             self.__efy = value
 
     @property
-    def data( self ) -> str:
-        if self.__data is not None:
-            return self.__data
-
-    @property
-    def data( self ) -> str:
+    def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list[ Row ] ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -19981,7 +19976,7 @@ class SiteProjectCode( ):
 
     @property
     def id( self ) -> int:
-        if isinstance( self.__siteprojectcodesid, int ):
+        if self.__siteprojectcodesid is not None:
             return self.__siteprojectcodesid
 
     @id.setter
