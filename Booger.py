@@ -694,7 +694,7 @@ class FileDialog( Sith ):
 
 # FolderDialog( ) -> str
 class FolderDialog( Sith ):
-    '''Class defining dialog used to select a directory path'''
+    '''Class defining dialog used to select a directory fullpath'''
     __selecteditem = None
 
     @property
@@ -759,9 +759,9 @@ class FolderDialog( Sith ):
             error = ErrorDialog( exc )
             error.show( )
 
-# SaveFileDialog( path = '' )
+# SaveFileDialog( fullpath = '' )
 class SaveFileDialog( Sith ):
-    '''SaveFileDialog( path = '' ):
+    '''SaveFileDialog( fullpath = '' ):
     class provides form to located file destinations'''
     __original = None
     __filename = None
@@ -4144,7 +4144,7 @@ class CsvForm( Sith ):
             filename = fd.selected_path
 
             if filename == '':
-                msg = MessageDialog( 'No file path was provided!' )
+                msg = MessageDialog( 'No file fullpath was provided!' )
                 msg.show( )
                 return
 

@@ -253,7 +253,7 @@ class SqlFile( ):
     @property
     def path( self ):
         '''Method returning a string representing
-         the absolute_path path to the SQL file used to execute the
+         the absolute_path fullpath to the SQL file used to execute the
          command 'self.__cmdtype' against the table_name given by the
          member self.__source depending on the member self.__provider'''
         try:
@@ -280,7 +280,7 @@ class SqlFile( ):
             exc = Error( e )
             exc.module = 'Ninja'
             exc.cause = 'SqlFile'
-            exc.method = 'path( self )'
+            exc.method = 'fullpath( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -692,7 +692,7 @@ class DbConfig( ):
             error.show( )
 
     def get_path( self ):
-        '''Returns the path to the DB in use'''
+        '''Returns the fullpath to the DB in use'''
         try:
             if self.__provider.name == 'SQLite':
                 return self.__sqlitepath
@@ -705,7 +705,7 @@ class DbConfig( ):
         except Exception as e:
             exc = Error( e )
             exc.cause = 'DbConfig Class'
-            exc.method = 'path( self )'
+            exc.method = 'fullpath( self )'
             error = ErrorDialog( exc )
             error.show( )
 

@@ -1,4 +1,3 @@
-from datetime import datetime
 import os
 import zipfile as zp
 import openpyxl as xl
@@ -6,7 +5,7 @@ from openpyxl import Workbook
 from Booger import Error, ErrorDialog
 from Static import EXT
 
-# Path( path )
+# Path( fullpath )
 class Path( ):
     ''' Path( file_name ) initializes the
     Path class providing selected_path information of get_subfolders
@@ -22,6 +21,7 @@ class Path( ):
     __drivesep = None
     __parentdirectory = None
 
+    @property
     def input( self ) -> str:
         '''Get the input string'''
         if self.__input is not None:
@@ -194,8 +194,8 @@ class Path( ):
             err.show( )
 
     def is_absolute( self ) -> bool:
-        '''Method to determine if the input path is an
-        absolute_path file path'''
+        '''Method to determine if the input fullpath is an
+        absolute_path file fullpath'''
         try:
             if isinstance( self.__input, str ) and self.__input != '':
                 if os.path.isabs( self.__input ) == True:
@@ -211,8 +211,8 @@ class Path( ):
             err.show( )
 
     def is_relative( self ) -> bool:
-        '''Method to determine if the input path is a
-        relative_path file path'''
+        '''Method to determine if the input fullpath is a
+        relative_path file fullpath'''
         try:
             if isinstance( self.__input, str ) and self.__input != '':
                 if os.path.isabs( self.__input ) == True:
@@ -229,7 +229,7 @@ class Path( ):
 
     def verify( self, other: str ) -> bool:
         '''Method returns a boolean value indicating if
-        the external path 'other' exists'''
+        the external fullpath 'other' exists'''
         try:
             if os.path.exists( other ):
                 return True
@@ -244,7 +244,7 @@ class Path( ):
             err.show( )
 
     def get_reportpath( self, ext = EXT.XLSX ) -> str:
-        '''Method returns string representing the relative_path path
+        '''Method returns string representing the relative_path fullpath
         to the report template
         '''
         try:
@@ -259,8 +259,8 @@ class Path( ):
             err.show( )
 
     def join( self, first: str, second: str ) -> str:
-        ''' Method concatenates the path provided by the argument 'first'
-        to the path provided by argument 'second' '''
+        ''' Method concatenates the fullpath provided by the argument 'first'
+        to the fullpath provided by argument 'second' '''
         try:
             if os.path.exists( first ) and os.path.exists( second ):
                 return os.path.join( first, second )
@@ -272,7 +272,7 @@ class Path( ):
             err = ErrorDialog( exc )
             err.show( )
 
-# File( path )
+# File( fullpath )
 class File( Path ):
     '''File( selected_path ) initializes the
      File Class providing file information for
@@ -552,7 +552,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-# Folder( path )
+# Folder( fullpath )
 class Folder( Path ):
     '''Folder( selected_path ) initializes the
      Folder Class providing file directory information'''
@@ -661,16 +661,16 @@ class Folder( Path ):
             os.chdir( value )
             self.__current = os.getcwd( )
 
-    def __init__( self, path: str ):
-        super( ).__init__( path )
-        self.__size = os.path.getsize( path )
+    def __init__( self, filepath: str ):
+        super( ).__init__( filepath )
+        self.__size = os.path.getsize( filepath )
         self.__drive = super( ).drive
         self.__current = os.getcwd( )
         self.__path = super().input
-        self.__name = os.path.basename( path )
-        self.__parent = os.path.dirname( path )
-        self.__absolutepath = os.path.abspath( path )
-        self.__relativepath = f'{ os.getcwd( ) }\\{ os.path.basename( path ) }'
+        self.__name = os.path.basename( filepath )
+        self.__parent = os.path.dirname( filepath )
+        self.__absolutepath = os.path.abspath( filepath )
+        self.__relativepath = f'{ os.getcwd( ) }\\{ os.path.basename( filepath ) }'
 
     def __str__( self ) -> str:
         if self.__path is not None:
@@ -1015,9 +1015,9 @@ class Document( ):
         if value is not None:
             self.__name = value
 
-    def __init__( self, full_path: str ):
-        self.__path = full_path
-        self.__name = os.path.split( full_path )[ 1 ]
+    def __init__( self, fullpath: str ):
+        self.__path = fullpath
+        self.__name = os.path.split( fullpath )[ 1 ]
         self.__title = self.__name
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
@@ -1190,7 +1190,7 @@ class ExcelReport( ):
         self.__columns = cols
         self.__dimensions = (self.__rows, self.__columns)
 
-# ZipFile( path )
+# ZipFile( fullpath )
 class ZipFile( ):
     __infile = None
     __name = None
