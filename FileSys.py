@@ -553,7 +553,7 @@ class File( Path ):
 
 # Folder( fullpath )
 class Folder( Path ):
-    '''Folder( selected_path ) initializes the
+    '''Folder( fullpath ) initializes the
      Folder Class providing file directory information'''
     __absolutepath = None
     __relativepath = None
@@ -812,7 +812,7 @@ class Folder( Path ):
 
 # Message( sender, receiver, body, subject, copy )
 class Message( ):
-    '''Message( frm, to, body, subject ) initializes
+    '''Message( sender, receiver, body, subject, copy ) initializes
     class providing email behavior '''
     __sender = None
     __receiver = None
@@ -893,10 +893,11 @@ class Message( ):
 
 # Emai( sender, receiver, body, subject, copy )
 class Email( Message ):
-    '''Email( frm, to, body, subject ) initializes
-    class providing email behavior '''
+    '''Emai( sender, receiver, body, subject, copy )
+    initializes class providing email behavior '''
 
-    def __init__( self, sender: str, receiver: str, body: str, subject: str, copy = '' ):
+    def __init__( self, sender: str, receiver: str, body: str,
+                  subject: str, copy = '' ):
         super( ).__init__( sender, receiver, body, subject, copy )
         self.__sender = super( ).sender
         self.__receiver = super( ).receiver
@@ -907,8 +908,8 @@ class Email( Message ):
 # MessageBuilder(  )
 class MessageBuilder( ):
     ''' Helper class for generating email messages '''
-    __from = None
-    __to = None
+    __sender = None
+    __receiver = None
     __subject = None
     __body = None
     __others = None
@@ -916,26 +917,26 @@ class MessageBuilder( ):
     @property
     def sender( self ) -> str:
         ''' Gets the sender's email address '''
-        if self.__from is not None:
-            return self.__from
+        if self.__sender is not None:
+            return self.__sender
 
     @sender.setter
     def sender( self, value: str ):
         ''' Set the sender's email address '''
         if value is not None:
-            self.__from = value
+            self.__sender = value
 
     @property
     def receiver( self ) -> str:
         ''' Gets the sender's email address '''
-        if self.__to is not None:
-            return self.__to
+        if self.__receiver is not None:
+            return self.__receiver
 
     @receiver.setter
     def receiver( self, value: str ):
         ''' Sets the receiver's email address '''
         if value is not None:
-            self.__to = value
+            self.__receiver = value
 
     @property
     def subject( self ) -> str:
@@ -975,8 +976,8 @@ class MessageBuilder( ):
 
     def __init__( self, sender: str = '', receiver: str = '',
                   body: str = '', copy: str = '', subject: str = ''):
-        self.__from = sender
-        self.__to = receiver
+        self.__sender = sender
+        self.__receiver = receiver
         self.__body = body
         self.__others = copy
         self.__subject = subject
@@ -986,36 +987,13 @@ class MessageBuilder( ):
             return self.__body
 
 # Document( )
-class Document( ):
-    '''Excel( selected_path ) class provides
+class Document( File ):
+    '''Document( fullpath ) class provides
     the spreadsheet for Budget Py reports '''
-    __path = None
-    __name = None
     __title = None
 
-    @property
-    def path( self ) -> str:
-        ''' Get the title of the workbook '''
-        if isinstance( self.__path, str ) and self.__path != '':
-            return self.__path
-
-    @path.setter
-    def path( self, value: str ):
-        if value is not None:
-            self.__path = value
-
-    @property
-    def name( self ) -> str:
-        ''' Get the title of the workbook '''
-        if isinstance( self.__name, str ) and self.__name != '':
-            return self.__name
-
-    @name.setter
-    def name( self, value: str ):
-        if value is not None:
-            self.__name = value
-
     def __init__( self, fullpath: str ):
+        super( ).__init__( fullpath )
         self.__path = fullpath
         self.__name = os.path.split( fullpath )[ 1 ]
         self.__title = self.__name
