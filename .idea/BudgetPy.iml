@@ -65,11 +65,11 @@
       <sourceFolder url="file://$MODULE_DIR$/venv" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python ( BudgetPy )" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="BudgetPy ( venv )" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="C:\Users\teppler\source\repos\BudgetPy\requirements.txt" />
+    <option name="requirementsPath" value="C:\Users\terry\source\repos\BudgetPy\requirements.txt" />
     <option name="versionSpecifier" value="Don't specify version" />
     <option name="removeUnused" value="true" />
     <option name="modifyBaseFiles" value="true" />

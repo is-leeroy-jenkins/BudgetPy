@@ -1749,6 +1749,7 @@ class WaitingPanel( Sith ):
             exc.method = 'show( self )'
             err = ErrorDialog( exc )
             err.show( )
+            return None
 
 # ProcessingPanel( )
 class ProcessingPanel( Sith ):
