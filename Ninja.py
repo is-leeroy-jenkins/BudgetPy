@@ -9704,12 +9704,12 @@ class FederalHoliday( ):
             return self.__month
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -9734,16 +9734,17 @@ class FederalHoliday( ):
             return self.__observance
 
     @property
-    def fields( self ) -> list[ str ]:
+    def fields( self ) -> list:
         if self.__fields is not None:
             return self.__fields
 
     @fields.setter
-    def fields( self, value: list[ str ] ):
+    def fields( self, value: list ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, name = '', provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str, name: str = '',
+                  provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.FederalHolidays
         self.__list = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
@@ -9789,7 +9790,7 @@ class FederalHoliday( ):
         if not self.__name == '':
             return self.__name
 
-    def get_data( self  ) -> list[ Row ]:
+    def get_data( self  ) -> list:
         try:
             source = self.__source
             provider = self.__provider
@@ -22489,7 +22490,7 @@ class StatusOfEarmarks( ):
             self.__used = value
 
     @property
-    def available( self ) -> flaot:
+    def available( self ) -> float:
         if self.__avaialable is not None:
             return self.__avaialable
 
