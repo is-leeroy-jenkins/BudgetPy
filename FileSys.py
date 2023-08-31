@@ -746,7 +746,7 @@ class Folder( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def move( self, destination ):
+    def move( self, destination: str ):
         '''renames current_directory file'''
         try:
             if not destination == '' and not os.path.exists( destination ):
