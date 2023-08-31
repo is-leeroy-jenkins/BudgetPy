@@ -12896,7 +12896,8 @@ class NationalProgram( ):
 
 # Objective( treas, provider = Provider.SQLite )
 class Objective( ):
-    '''Defines the Objective Class'''
+    '''Objective( treas, provider = Provider.SQLite )
+    Defines the Objective Class'''
     __source = None
     __provider = None
     __objectivesid = None
@@ -13022,7 +13023,8 @@ class Objective( ):
 
 # Organization( fundcode, provider = Provider.SQLite  )
 class Organization( ):
-    '''Defines the Organization Class'''
+    '''Organization( fundcode, provider = Provider.SQLite  )
+    Defines the Organization Class'''
     __source = None
     __provider = None
     __organizationsid = None
@@ -13132,7 +13134,7 @@ class Organization( ):
 
 # ObjectClassOutlay( account, provider = Provider.SQLite )
 class ObjectClassOutlay( ):
-    '''ObjectClassOutlay( bfy, omb )
+    '''ObjectClassOutlay( account, provider = Provider.SQLite )
     object provides OMB outlay data'''
     __source = None
     __provider = None
@@ -13362,7 +13364,8 @@ class ObjectClassOutlay( ):
 
 # OperatingPlan( bfy, efy, treas, provider = Provider.SQLite )
 class OperatingPlan( ):
-    '''object representing Operating plan allocations'''
+    '''OperatingPlan( bfy, efy, treas, provider = Provider.SQLite )
+    object representing Operating plan allocations'''
     __operatingplansid = None
     __source = None
     __provider = None
@@ -13734,7 +13737,7 @@ class OperatingPlan( ):
 
 # OpenCommitment( bfy, efy, fund, account, boc, provider = Provider.SQLite )
 class OpenCommitment( ):
-    ''' OpenCommitment( bfy, fund, account, boc )
+    ''' OpenCommitment( bfy, efy, fund, account, boc, provider = Provider.SQLite )
     initializes object providing OpenCommitment data.'''
     __source = None
     __provider = None
