@@ -1,6 +1,5 @@
 import os
 import zipfile as zp
-import openpyxl as xl
 from openpyxl import Workbook
 from Booger import Error, ErrorDialog
 from Static import EXT
@@ -974,12 +973,13 @@ class MessageBuilder( ):
         if value is not None:
             self.__others = value
 
-    def __init__( self, sender = '', receiver = '', body = '', copy = '', subject = ''):
-        self.__from = sender if isinstance( sender, str ) and sender != '' else None
-        self.__to = receiver if isinstance( receiver, str ) and receiver != '' else None
-        self.__body = body if isinstance( body, str ) and body != '' else None
-        self.__others = copy if isinstance( copy, str ) and copy != '' else None
-        self.__subject = subject if isinstance( subject, str ) and subject != '' else None
+    def __init__( self, sender: str = '', receiver: str = '',
+                  body: str = '', copy: str = '', subject: str = ''):
+        self.__from = sender
+        self.__to = receiver
+        self.__body = body
+        self.__others = copy
+        self.__subject = subject
 
     def __str__( self ) -> str:
         if self.__body is not None:
@@ -1083,8 +1083,8 @@ class Excel( ):
             self.__name = value.active
 
     def __init__( self, fullpath: str ):
-        self.__path = fullpath if isinstance( fullpath, str ) else None
-        self.__name = os.path.split( fullpath )[ 1 ] if isinstance( fullpath, str ) else None
+        self.__path = fullpath
+        self.__name = os.path.split( fullpath )[ 1 ]
         self.__title = self.__name
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
@@ -1105,27 +1105,12 @@ class Excel( ):
             err.show( )
 
 # ExcelReport( title, rows = 46, cols = 12 )
-class ExcelReport( ):
-    '''ExcelReport( title ) class provides
+class ExcelReport( Excel ):
+    '''ExcelReport( title, rows = 46, cols = 12 ). Class provides
     the spreadsheet for Budget Py reports '''
-    __path = None
-    __workbook = None
-    __worksheet = None
-    __name = None
     __rows = None
     __columns = None
     __dimensions = None
-
-    @property
-    def name( self ) -> str:
-        ''' Get the title of the workbook '''
-        if self.__name is not None:
-            return self.__name
-
-    @name.setter
-    def name( self, value: str ):
-        if value is not None:
-            self.__name = str( value )
 
     @property
     def rows( self ) -> int:
@@ -1157,38 +1142,13 @@ class ExcelReport( ):
         if value is not None:
             self.__dimensions = value
 
-    @property
-    def workbook( self ) -> str:
-        ''' Gets the report template '''
-        if self.__path is not None:
-            self.__workbook = xl.load_workbook( self.__path )
-            return self.__workbook
-
-    @workbook.setter
-    def workbook( self, value: str ):
-        ''' Gets the report template '''
-        if value is not None:
-            self.__workbook = value
-
-    @property
-    def worksheet( self ) -> str:
-        ''' Gets the workbooks worksheet '''
-        if self.__worksheet is not None:
-            return self.__worksheet
-
-    @worksheet.setter
-    def worksheet( self, value: str ):
-        ''' Gets the workbooks worksheet '''
-        if self.__workbook is not None and value is not None:
-            self.__workbook.worksheets.clear( )
-            self.__worksheet = self.__workbook.create_sheet( title = value, index = 1 )
-
-    def __init__( self, name, rows = 46, cols = 12 ):
+    def __init__( self, name: str, rows: int = 46, cols: int = 12 ):
+        super( ).__init__( name )
         self.__path = r'etc/templates/report/Excel.xlsx'
         self.__name = name
         self.__rows = rows
         self.__columns = cols
-        self.__dimensions = (self.__rows, self.__columns)
+        self.__dimensions = ( self.__rows, self.__columns )
 
 # ZipFile( fullpath )
 class ZipFile( ):
@@ -1219,11 +1179,11 @@ class ZipFile( ):
         if not value == '':
             self.__name = value
 
-    def __init__( self, path ):
+    def __init__( self, path: str ):
         self.__infile = path
         self.__zipextension = '.zip'
         self.__filepath = path
-        self.__extension = os.path.splitext( path )
+        self.__extension = os.path.splitext( path )[ 1 ]
         self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
         self.__name = os.path.basename( path )
 
