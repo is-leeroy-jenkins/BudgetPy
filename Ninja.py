@@ -275,7 +275,7 @@ class Account( ):
         if self.__code is not None:
             return self.__code
 
-    def copy( self ) -> Account:
+    def copy( self ):
         try:
             clone = Account( code = self.__code )
             clone.goal_code = self.__goalcode
@@ -12838,7 +12838,7 @@ class NationalProgram( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.NationalPrograms
         self.__code = code
