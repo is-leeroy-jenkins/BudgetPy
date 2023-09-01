@@ -3,6 +3,8 @@ from pandas import DataFrame
 from pandas import read_sql as sqlreader
 import pyodbc as db
 import os
+
+import pyodbc
 from Static import Source, Provider, SQL, ParamStyle
 from Booger import Error, ErrorDialog
 
@@ -1603,14 +1605,14 @@ class SqlData( Query ):
         if self.__query is not None:
             return self.__query
 
-    def create_table( self ) -> list[ tuple ]:
+    def create_table( self ) -> list[ pyodbc.Row ]:
         try:
             query = self.__query
             connection = self.__connection.connect( )
             cursor = connection.cursor( )
             data = cursor.execute( query )
             self.__columns = [ i[ 0 ] for i in cursor.description ]
-            self.__data = [ self.__data.append( i ) for i in data.fetchall( ) ]
+            self.__data = [ i for i in data.fetchall( ) ]
             cursor.close( )
             connection.close( )
             return self.__data
@@ -2088,7 +2090,7 @@ class DataTable( ):
 
     @property
     def columns( self ) -> list[ str ]:
-        if self.__column is not None:
+        if self.__columns is not None:
             return self.__columns
 
     @columns.setter
