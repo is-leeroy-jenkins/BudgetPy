@@ -118,7 +118,6 @@ class Source( Enum ):
     ReimbursableFunds = auto( )
     Reports = auto( )
     HeadquartersAuthority = auto( )
-    HumanResourceOrganizations = auto( )
     InflationReductionActCarryoverEstimates = auto( )
     JobsActCarryoverEstimates = auto( )
     MonthlyLedgerAccountBalances = auto( )

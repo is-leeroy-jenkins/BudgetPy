@@ -269,12 +269,12 @@ class Account( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -418,17 +418,17 @@ class ActivityCode( ):
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if value is not None:
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -549,7 +549,7 @@ class AllowanceHolder( ):
             self.__data = cache
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
@@ -807,12 +807,12 @@ class AmericanRescuePlanCarryoverEstimate( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -1083,7 +1083,7 @@ class AnnualCarryoverEstimate( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
@@ -1297,12 +1297,12 @@ class AnnualReimbursableEstimate( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -4759,7 +4759,7 @@ class BudgetFiscalYear( ):
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if value is not None:
             self.__data = value
 
@@ -4929,17 +4929,17 @@ class BudgetObjectClass( ):
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if value is not None:
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -6618,12 +6618,12 @@ class CapitalPlanningInvestmentCodes( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -9090,12 +9090,12 @@ class Fund( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -9295,12 +9295,12 @@ class FederalHoliday( ):
             return self.__holidays
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -10265,12 +10265,12 @@ class Goal( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -10767,12 +10767,12 @@ class HeadquartersOffice( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -10837,129 +10837,6 @@ class HeadquartersOffice( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'HeadquartersOffice'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# HumanResourceOrganization( treas, provider = Provider.SQLite )
-class HumanResourceOrganization( ):
-    '''Defines the Organization Class'''
-    __source = None
-    __provider = None
-    __humanresourceorganizationsid = None
-    __code = None
-    __name = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if self.__humanresourceorganizationsid is not None:
-            return self.__humanresourceorganizationsid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__humanresourceorganizationsid = value
-
-    @property
-    def code( self ) -> str:
-        if  self.__code is not None:
-            return self.__code
-
-    @code.setter
-    def code( self, value: str ):
-        if value is not None:
-            self.__code = value
-
-    @property
-    def name( self ) -> str:
-        if self.__name is not None:
-            return self.__name
-
-    @name.setter
-    def name( self, value: str ):
-        if value is not None:
-            self.__name = value
-
-    @property
-    def data( self ) -> str:
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, value: str ):
-        if isinstance( value, list ):
-            self.__data = value
-
-    @property
-    def table( self ) -> str:
-        if self.__frame is not None:
-            return self.__frame
-
-    @table.setter
-    def table( self, value: str ):
-        if value is not None:
-            self.__frame = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, code, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.HumanResourceOrganizations
-        self.__code = code
-        self.__frame = DataFrame
-
-    def __str__( self ) -> str:
-        if isinstance( self.__code, str ) and self.__code != '':
-            return self.__code
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'Code', ]
-            v = (self.__code,)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.get_query( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Execution'
-            exc.cause = 'HumanResourceOrganization'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Execution'
-            exc.cause = 'HumanResourceOrganization'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -11142,22 +11019,22 @@ class InflationReductionActCarryoverEstimate( ):
             self.__budgetaccountname = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -11419,22 +11296,22 @@ class JobsActCarryoverEstimate( ):
             self.__budgetaccountname = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -12166,22 +12043,22 @@ class NationalProgram( ):
             self.__title = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -12304,12 +12181,12 @@ class Objective( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -12431,7 +12308,7 @@ class Organization( ):
             self.__data = cache
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
@@ -13081,23 +12958,23 @@ class OpenCommitment( ):
             self.__amount = value
 
     @property
-    def budgeted( self ) -> str:
+    def budgeted( self ) -> float:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value: str ):
+    def budgeted( self, value: float ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
-        if isinstance( self.__posted, value ):
+    def posted( self, value: float ):
+        if self.__posted is not None:
             self.__posted = value
 
     @property
@@ -13301,7 +13178,7 @@ class OpenCommitment( ):
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ) -> str:
+    def processed_date( self ) -> datetime:
         if self.__processeddate is not None:
             return self.__processeddate
 
@@ -13739,7 +13616,7 @@ class Obligation( ):
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ) -> str:
+    def expenditures( self ) -> float:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
@@ -13909,7 +13786,7 @@ class Obligation( ):
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ) -> str:
+    def processed_date( self ) -> datetime:
         if self.__processeddate is not None:
             return self.__processeddate
 
@@ -13919,7 +13796,7 @@ class Obligation( ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ) -> str:
+    def last_activity_date( self ) -> datetime:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
@@ -14196,22 +14073,22 @@ class Project( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -14321,22 +14198,22 @@ class ProgramArea( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -14468,22 +14345,22 @@ class ProgramProject( ):
             self.____programareaname = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -14757,13 +14634,13 @@ class ProgramResultsCode( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
-        if isinstance( self.__posted, value ):
+    def posted( self, value: float ):
+        if value is not None:
             self.__posted = value
 
     @property
@@ -14947,22 +14824,22 @@ class ProgramResultsCode( ):
             self.__activityname = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list[ tuple ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list[ tuple ] ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -15020,7 +14897,7 @@ class ProgramResultsCode( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ) -> list[ Row ]:
+    def get_data( self  ) -> list[ tuple ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -15029,9 +14906,9 @@ class ProgramResultsCode( ):
                       'AccountCode', 'BocCode', 'Amount' ]
             values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
                        self.__ahcode, self.__accountcode, self.__boccode, self.__amount )
-            db = DataBuilder( provider, source, command, names, values )
+            db = DataBuilder( source, provider, command, names, values )
             self.__data = db.create_table( )
-            return self.__data
+            return [ tuple( i ) for i in self.__data ]
         except Exception as e:
             exc = Error( e )
             exc.module = 'Execution'
@@ -15098,22 +14975,22 @@ class ResponsibilityCenter( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -15163,7 +15040,7 @@ class ResponsibilityCenter( ):
             command = SQL.SELECTALL
             names = [ 'Code', ]
             values = ( self.__fundcode,)
-            df = DataBuilder( provider, source, command, names, values )
+            df = DataBuilder( source, provider, command, names, values )
             self.__data = df.create_table( )
             return self.__data
         except Exception as e:
@@ -15232,22 +15109,22 @@ class ResourcePlanningOffice( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -15362,17 +15239,17 @@ class RegionalOffice( ):
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if value is not None:
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
@@ -18154,7 +18031,7 @@ class StateOrganization( ):
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if value is not None:
             self.__data = value
 
@@ -21979,12 +21856,12 @@ class SupplementalCarryoverEstimate( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, value: str ):
+    def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
 
