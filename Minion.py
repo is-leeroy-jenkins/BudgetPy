@@ -42,7 +42,6 @@
   ******************************************************************************************
   '''
 import subprocess as sp
-import os
 from Booger import *
 from Static import Client
 

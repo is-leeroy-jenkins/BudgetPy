@@ -44,17 +44,14 @@
 import datetime as dt
 from datetime import datetime, date
 from typing import List
-
-from Static import Source, Provider, SQL
+from Static import SQL
 from Booger import Error, ErrorDialog
-import sys
-from sys import exc_info
 from Data import DbConfig, SqlConfig, Connection, \
     SqlStatement, BudgetData, DataBuilder
 from Static import Source, Provider
-from datetime import datetime, date
+from datetime import datetime
 from pandas import DataFrame
-from pyodbc import Row as Row, Row
+from pyodbc import Row as Row
 
 class Unit( ):
     '''Unit( value, value ) initializes object
@@ -344,7 +341,7 @@ class Account( ):
             sql = SqlStatement( cnx, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -470,7 +467,7 @@ class ActivityCode( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -595,7 +592,7 @@ class AllowanceHolder( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -872,7 +869,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -1076,12 +1073,12 @@ class AnnualCarryoverEstimate( ):
             self.__budgetaccountname = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -1148,7 +1145,7 @@ class AnnualCarryoverEstimate( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -1362,7 +1359,7 @@ class AnnualReimbursableEstimate( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -1477,7 +1474,7 @@ class Appropriation( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -1684,11 +1681,6 @@ class AppropriationAvailableBalance( ):
             self.__available = value
 
     @property
-    def data( self ) -> str:
-        if self.__data is not None:
-            return self.__data
-
-    @property
     def data( self ) -> list[ Row ]:
         if self.__data is not None:
             return self.__data
@@ -1746,7 +1738,7 @@ class AppropriationAvailableBalance( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -1926,7 +1918,7 @@ class AppropriationLevelAuthority( ):
             return self.__recoveries
 
     @recoveries.setter
-    def recoveries( self, value: str ):
+    def recoveries( self, value: float ):
         if value is not None:
             self.__recoveries = value
 
@@ -1976,7 +1968,7 @@ class AppropriationLevelAuthority( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -2366,7 +2358,7 @@ class Allocation( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -2598,7 +2590,7 @@ class ApportionmentData( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -3060,7 +3052,7 @@ class Actual( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -3540,7 +3532,7 @@ class AppropriationDocument( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -3968,12 +3960,12 @@ class BudgetDocument( ):
             self.__posted = value
 
     @property
-    def carryover_in( self ) -> str:
-        if isinstance( self.__carryoverin, float ):
+    def carryover_in( self ) -> float:
+        if self.__carryoverin is not None:
             return self.__carryoverin
 
     @carryover_in.setter
-    def carryover_in( self, value: str ):
+    def carryover_in( self, value: float ):
         if value is not None:
             self.__carryoverin = value
 
@@ -4075,7 +4067,7 @@ class BudgetDocument( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -4577,7 +4569,7 @@ class BudgetControl( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -4847,7 +4839,7 @@ class BudgetFiscalYear( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -4985,7 +4977,7 @@ class BudgetObjectClass( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -5163,7 +5155,7 @@ class BudgetaryResourceExecution( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -5325,122 +5317,122 @@ class BudgetOutlay( ):
             self.__budgetaccountname = value
 
     @property
-    def prior_year( self ) -> str:
+    def prior_year( self ) -> float:
         if self.__prioryear is not None:
             return self.__prioryear
 
     @prior_year.setter
-    def prior_year( self, value: str ):
+    def prior_year( self, value: float ):
         if value is not None:
             self.__prioryear = value
 
     @property
-    def current_year( self ) -> str:
+    def current_year( self ) -> float:
         if self.__currentyear is not None:
             return self.__currentyear
 
     @current_year.setter
-    def current_year( self, value: str ):
+    def current_year( self, value: float):
         if  value is not None:
             self.__currentyear = value
 
     @property
-    def budget_year( self ) -> str:
+    def budget_year( self ) -> float:
         if self.__budgetyear is not None:
             return self.__budgetyear
 
     @budget_year.setter
-    def budget_year( self, value: str ):
+    def budget_year( self, value: float ):
         if value is not None:
             self.__budgetyear = value
 
     @property
-    def out_year_1( self ) -> str:
+    def out_year_1( self ) -> float:
         if self.__outyear1 is not None:
             return self.__outyear1
 
     @out_year_1.setter
-    def out_year_1( self, value: str ):
+    def out_year_1( self, value: float):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def out_year_2( self ) -> str:
+    def out_year_2( self ) -> float:
         if self.__outyear2 is not None:
             return self.__outyear2
 
     @out_year_2.setter
-    def out_year_2( self, value: str ):
+    def out_year_2( self, value: float ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def out_year_3( self ) -> str:
-        if isinstance( self.__outyear3, float ):
+    def out_year_3( self ) -> float:
+        if self.__outyear3 is not None:
             return self.__outyear3
 
     @out_year_3.setter
-    def out_year_3( self, value: str ):
+    def out_year_3( self, value: float ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def out_year_4( self ) -> str:
-        if isinstance( self.__outyear4, float ):
+    def out_year_4( self ) -> float:
+        if self.__outyear4 is not None:
             return self.__outyear4
 
     @out_year_4.setter
-    def out_year_4( self, value: str ):
+    def out_year_4( self, value: flaot ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def out_year_5( self ) -> str:
+    def out_year_5( self ) -> float:
         if self.__outyear5 is not None:
             return self.__outyear5
 
     @out_year_5.setter
-    def out_year_5( self, value: str ):
+    def out_year_5( self, value: float ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def out_year_6( self ) -> str:
+    def out_year_6( self ) -> float:
         if self.__outyear6 is not None:
             return self.__outyear6
 
     @out_year_6.setter
-    def out_year_6( self, value: str ):
+    def out_year_6( self, value: float ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def out_year_7( self ) -> str:
+    def out_year_7( self ) -> float:
         if self.__outyear7 is not None:
             return self.__outyear7
 
     @out_year_7.setter
-    def out_year_7( self, value: str ):
+    def out_year_7( self, value: float ):
         if value is not None:
             self.__outyear7 = value
 
     @property
-    def out_year_8( self ) -> str:
+    def out_year_8( self ) -> float:
         if self.__outyear8 is not None:
             return self.__outyear8
 
     @out_year_8.setter
-    def out_year_8( self, value: str ):
+    def out_year_8( self, value: float ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def out_year_9( self ) -> str:
+    def out_year_9( self ) -> float:
         if self.__outyear9 is not None:
             return self.__outyear9
 
     @out_year_9.setter
-    def out_year_9( self, value: str ):
+    def out_year_9( self, value: float ):
         if value is not None:
             self.__outyear9 = value
 
@@ -5454,9 +5446,9 @@ class BudgetOutlay( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, account, provider = Provider.SQLite ):
+    def __init__( self, account: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.BudgetOutlays
+        self.__source = Source.Outlays
         self.__budgetaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
         self.__fields = [ 'BudgetOutlaysId',
                           'ReportYear',
@@ -5495,7 +5487,7 @@ class BudgetOutlay( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -5713,11 +5705,12 @@ class CongressionalControl( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy = None, fundcode = None, provider = Provider.SQLite ):
+    def __init__( self, bfy: str = None, fundcode: str = None,
+                  provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.CongressionalControls
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+        self.__bfy = bfy
+        self.__fundcode = fundcode
         self.__fields = [ 'CongressionalControlsId',
                            'FundCode',
                            'FundName',
@@ -5744,7 +5737,7 @@ class CongressionalControl( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -5760,7 +5753,11 @@ class CongressionalControl( ):
 
 # CompassLevel( bfy, efy, fund, provider = Provider.SQLite )
 class CompassLevel( ):
-    '''object representing Compass data levels 1-7'''
+    '''
+    Constructor: CompassLevel( bfy, efy, fund, provider = Provider.SQLite )
+
+    Purpose: Object representing Compass data levels 1-7
+    '''
     __source = None
     __provider = None
     __compasslevelsid = None
@@ -5968,7 +5965,7 @@ class CompassLevel( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -5999,7 +5996,11 @@ class CompassLevel( ):
 
 # Commitment( bfy, fund, account, boc, provider = Provider.SQLite )
 class Commitment( ):
-    '''Defines the CommitmentS class.'''
+    '''
+    Constructor: Commitment( bfy, fund, account, boc, provider = Provider.SQLite )
+
+    Purpose: Defines the CommitmentS class.
+    '''
     __source = None
     __provider = None
     __opencommitmentsid = None
@@ -6496,7 +6497,7 @@ class Commitment( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -6521,354 +6522,17 @@ class Commitment( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'Commitment'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# CarryoverOutlay( bfy, omb, provider = Provider.SQLite )
-class CarryoverOutlay( ):
-    ''' object provides OMB data '''
-    __source = None
-    __provider = None
-    __carryoveroutlaysid = None
-    __budgetaccountcode = None
-    __budgetaccountname = None
-    __linenumber = None
-    __carryover = None
-    __carryoveroutlays = None
-    __budgetyear = None
-    __budgetyearadjustment = None
-    __currentyear = None
-    __currentyearadjustment = None
-    __delta = None
-    __avaiablebalance = None
-    __ulo = None
-    __outyear1 = None
-    __outyear2 = None
-    __outyear3 = None
-    __outyear4 = None
-    __outyear5 = None
-    __outyear6 = None
-    __outyear7 = None
-    __outyear8 = None
-    __outyear9 = None
-    __fields = None
-    __data = None
-    __frame = None
-
-
-    @property
-    def id( self ) -> int:
-        if isinstance( self.__carryoveroutlaysid, int ):
-            return self.__carryoveroutlaysid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__carryoveroutlaysid = value
-
-    @property
-    def budget_year( self ) -> str:
-        if self.__budgetyear is not None:
-            return self.__budgetyear
-
-    @budget_year.setter
-    def budget_year( self, value: str ):
-        if value is not None:
-            self.__budgetyear = value
-
-    @property
-    def line_number( self ) -> str:
-        if self.__linenumber is not None:
-            return self.__linenumber
-
-    @line_number.setter
-    def line_number( self, value: str ):
-        if value is not None:
-            self.__linenumber = value
-
-    @property
-    def budget_account_code( self ) -> str:
-        if self.__budgetaccountcode is not None:
-            return self.__budgetaccountcode
-
-    @budget_account_code.setter
-    def budget_account_code( self, value: str ):
-        if value is not None:
-            self.__budgetaccountcode = value
-
-    @property
-    def budget_account_name( self ) -> str:
-        if self.__budgetaccountname is not None:
-            return self.__budgetaccountname
-
-    @budget_account_name.setter
-    def budget_account_name( self, value: str ):
-        if value is not None:
-            self.__budgetaccountname = value
-
-    @property
-    def carryover( self ) -> str:
-        if self.__carryover is not None:
-            return self.__carryover
-
-    @carryover.setter
-    def carryover( self, value: str ):
-        if value is not None:
-            self.__carryover = value
-
-    @property
-    def carryover_outlays( self ) -> str:
-        if self.__carryoveroutlays is not None:
-            return self.__carryoveroutlays
-
-    @carryover_outlays.setter
-    def carryover_outlays( self, value: str ):
-        if value is not None:
-            self.__carryoveroutlays = value
-
-    @property
-    def unliquidated_obligations( self ) -> str:
-        if self.__ulo is not None:
-            return self.__ulo
-
-    @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value: str ):
-        if value is not None:
-            self.__ulo = value
-
-    @property
-    def delta( self ) -> str:
-        if self.__delta is not None:
-            return self.__delta
-
-    @delta.setter
-    def delta( self, value: str ):
-        if isinstance( value, float ) and value > 0:
-            self.__delta = value
-
-    @property
-    def available_balance( self ) -> str:
-        if self.__availablebalance is not None:
-            return self.__availablebalance
-
-    @available_balance.setter
-    def available_balance( self, value: str ):
-        if value is not None:
-            self.__availablebalance = value
-
-    @property
-    def current_year( self ) -> str:
-        if self.__currentyear is not None:
-            return self.__currentyear
-
-    @current_year.setter
-    def current_year( self, value: str ):
-        if value is not None:
-            self.__currentyear = value
-
-    @property
-    def current_year_adjustment( self ) -> str:
-        if self.__currentyearadjustment is not None:
-            return self.__currentyearadjustment
-
-    @current_year_adjustment.setter
-    def current_year_adjustment( self, value: str ):
-        if value is not None:
-            self.__currentyearadjustment = value
-
-    @property
-    def budget_year( self ) -> str:
-        if self.__budgetyear is not None:
-            return self.__budgetyear
-
-    @budget_year.setter
-    def budget_year( self, value: str ):
-        if value is not None:
-            self.__budgetyear = value
-
-    @property
-    def budget_year_adjustment( self ) -> str:
-        if self.__budgetyearadjustment is not None:
-            return self.__budgetyearadjustment
-
-    @budget_year_adjustment.setter
-    def budget_year_adjustment( self, value: str ):
-        if value is not None:
-            self.__budgetyearadjustment = value
-
-    @property
-    def out_year_1( self ) -> str:
-        if self.__outyear1 is not None:
-            return self.__outyear1
-
-    @out_year_1.setter
-    def out_year_1( self, value: str ):
-        if value is not None:
-            self.__outyear1 = value
-
-    @property
-    def out_year_2( self ) -> str:
-        if self.__outyear2 is not None:
-            return self.__outyear2
-
-    @out_year_2.setter
-    def out_year_2( self, value: str ):
-        if value is not None:
-            self.__outyear2 = value
-
-    @property
-    def out_year_3( self ) -> str:
-        if self.__outyear3 is not None:
-            return self.__outyear3
-
-    @out_year_3.setter
-    def out_year_3( self, value: str ):
-        if value is not None:
-            self.__outyear3 = value
-
-    @property
-    def out_year_4( self ) -> str:
-        if self.__outyear4 is not None:
-            return self.__outyear4
-
-    @out_year_4.setter
-    def out_year_4( self, value: str ):
-        if value is not None:
-            self.__outyear4 = value
-
-    @property
-    def out_year_5( self ) -> str:
-        if self.__outyear5 is not None:
-            return self.__outyear5
-
-    @out_year_5.setter
-    def out_year_5( self, value: str ):
-        if value is not None:
-            self.__outyear5 = value
-
-    @property
-    def out_year_6( self ) -> str:
-        if self.__outyear6 is not None:
-            return self.__outyear6
-
-    @out_year_6.setter
-    def out_year_6( self, value: str ):
-        if value is not None:
-            self.__outyear6 = value
-
-    @property
-    def out_year_7( self ) -> str:
-        if self.__outyear7 is not None:
-            return self.__outyear7
-
-    @out_year_7.setter
-    def out_year_7( self, value: str ):
-        if value is not None:
-            self.__outyear7 = value
-
-    @property
-    def out_year_8( self ) -> str:
-        if self.__outyear8 is not None:
-            return self.__outyear8
-
-    @out_year_8.setter
-    def out_year_8( self, value: str ):
-        if value is not None:
-            self.__outyear8 = value
-
-    @property
-    def out_year_9( self ) -> str:
-        if self.__outyear9 is not None:
-            return self.__outyear9
-
-    @out_year_9.setter
-    def out_year_9( self, value: str ):
-        if value is not None:
-            self.__outyear9 = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, bfy, omb, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.CarryoverOutlays
-        self.__budgetyear = bfy if isinstance( bfy, str ) and bfy != '' else None
-        self.__budgetaccountcode = omb if isinstance( omb, str ) and omb != '' else None
-        self.__fields = [ 'CarryoverOutlaysId',
-                          'ReportYear',
-                          'AgencyName',
-                          'OmbAccountName',
-                          'LINE',
-                          'Carryover',
-                          'CarryoverOutlay',
-                          'Delta',
-                          'AvailableBalance',
-                          'ULO',
-                          'CurrentYearAdjustment',
-                          'BudgetYearAdjustment',
-                          'CurrentYear',
-                          'BudgetYear',
-                          'OutYear1',
-                          'OutYear2',
-                          'OutYear3',
-                          'OutYear4',
-                          'OutYear5',
-                          'OutYear6',
-                          'OutYear7',
-                          'OutYear8',
-                          'OutYear9' ]
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = Source.CarryoverOutlays
-            provider = Provider.SQLite
-            n = [ 'BudgetYear', 'OmbAccountCode' ]
-            v = (self.__budgetyear, self.__budgetaccountcode)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'CarryoverOutlay'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'CarryoverOutlay'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
 # CostArea( fundcode, provider = Provider.SQLite )
 class CostArea( ):
+    '''
+    Constructor: CostArea( fundcode, provider = Provider.SQLite )
+
+    Purpose: Data class object for cost areas
+    '''
     __source = None
     __provider = None
     __code = None
@@ -6894,150 +6558,12 @@ class CostArea( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__code = code 
         self.__provider = provider
         self.__fields = [ 'CostAreasId',
                           'Code',
                           'Name' ]
-
-# CarryoverSurvey( bfy, efy, fund, provider = Provider.SQLite )
-class CarryoverSurvey( ):
-    '''CarryoverSurvey( bfy ) initializes object
-    providing carry_over survey data'''
-    __source = None
-    __provider = None
-    __carryoversurveyid = None
-    __bfy = None
-    __efy = None
-    __fundcode = None
-    __fundname = None
-    __amount = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if isinstance( self.__allocationsid, int ):
-            return self.__allocationsid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__allocationsid = value
-
-    @property
-    def bfy( self ) -> str:
-        if self.__bfy is not None:
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value: str ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def efy( self ) -> str:
-        if self.__efy is not None:
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value: str ):
-        if value is not None:
-            self.__efy = value
-
-    @property
-    def fund_code( self ) -> str:
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
-            return self.__fundcode
-
-    @fund_code.setter
-    def fund_code( self, value: str ):
-        if value is not None:
-            self.__fundcode = value
-
-    @property
-    def fund_name( self ) -> str:
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
-            return self.__fundname
-
-    @fund_name.setter
-    def fund_name( self, value: str ):
-        if value is not None:
-            self.__fundname = value
-
-    @property
-    def amount( self ) -> float:
-        if isinstance( self.__amount, float):
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value: float ):
-        if value is not None:
-            self.__amount = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, bfy, efy, fund, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.CarryoverSurvey
-        self.__bfy = bfy
-        self.__efy = efy
-        self.__fundcode = fund
-        self.__fields = [ 'CarryoverSurveyId',
-                          'FundCode',
-                          'FundName',
-                          'Amount' ]
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'BFY', 'EFY', 'FundCode', ]
-            v = (self.__bfy, self.__efy, self.__fundcode)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'CarryoverOutlay'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'CarrryoverOutlays'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
 
 # CapitalPlanningInvestmentCodes( treas, provider = Provider.SQLite  )
 class CapitalPlanningInvestmentCodes( ):
@@ -7082,12 +6608,12 @@ class CapitalPlanningInvestmentCodes( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -7136,7 +6662,7 @@ class CapitalPlanningInvestmentCodes( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -7347,7 +6873,7 @@ class DataRuleDescription( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -7592,23 +7118,23 @@ class Defacto( ):
             self.__amount = value
 
     @property
-    def budgeted( self ) -> str:
+    def budgeted( self ) -> float:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value: str ):
+    def budgeted( self, value: float ):
         if value is not None:
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
-        if isinstance( self.__posted, value ):
+    def posted( self, value: float ):
+        if value is not None:
             self.__posted = value
 
     @property
@@ -7632,32 +7158,32 @@ class Defacto( ):
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ) -> str:
+    def unliquidated_obligations( self ) -> float:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value: str ):
+    def unliquidated_obligations( self, value: float ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ) -> str:
+    def expenditures( self ) -> float:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value: str ):
+    def expenditures( self, value: float ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ) -> str:
+    def used( self ) -> float:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value: str ):
+    def used( self, value: float ):
         if value is not None:
             self.__used = value
 
@@ -7833,7 +7359,7 @@ class Defacto( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -8348,7 +7874,7 @@ class Deobligation( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -8497,7 +8023,7 @@ class DocumentControlNumber( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -9043,7 +8569,7 @@ class Expenditure( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -9192,7 +8718,7 @@ class FinanceObjectClass( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -9633,7 +9159,7 @@ class Fund( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -9847,7 +9373,7 @@ class FederalHoliday( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -10527,7 +10053,7 @@ class FullTimeEquivalent( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -10774,7 +10300,7 @@ class Goal( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -10785,230 +10311,6 @@ class Goal( ):
             exc.module = 'Execution'
             exc.cause = 'Goal'
             exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# GrowthRate( bfy, id, provider = Provider.SQLite )
-class GrowthRate( ):
-    '''GrowthRate( bfy, id )
-    initializes object providing OMB growth rate data'''
-    __source = None
-    __provider = None
-    __growthratesid = None
-    __rateid = None
-    __description = None
-    __budgetyear = None
-    __outyear1 = None
-    __outyear2 = None
-    __outyear3 = None
-    __outyear4 = None
-    __outyear5 = None
-    __outyear6 = None
-    __outyear7 = None
-    __outyear8 = None
-    __outyear9 = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if self.__growthratesid is not None:
-            return self.__growthratesid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__growthratesid = value
-
-    @property
-    def rateid( self ) -> str:
-        if self.__rateid is not None:
-            return self.__rateid
-
-    @rateid.setter
-    def rateid( self, value: str ):
-        if value is not None:
-            self.__rateid = value
-
-    @property
-    def description( self ) -> str:
-        if self.__description is not None:
-            return self.__description
-
-    @description.setter
-    def description( self, value: str ):
-        if value is not None:
-            self.__description = value
-
-    @property
-    def budget_year( self ) -> str:
-        if self.__budgetyear is not None:
-            return self.__budgetyear
-
-    @budget_year.setter
-    def budget_year( self, value: str ):
-        if value is not None:
-            self.__budgetyear = value
-
-    @property
-    def out_year_1( self ) -> str:
-        if self.__outyear1 is not None:
-            return self.__outyear1
-
-    @out_year_1.setter
-    def out_year_1( self, value: str ):
-        if value is not None:
-            self.__outyear1 = value
-
-    @property
-    def out_year_2( self ) -> str:
-        if self.__outyear2 is not None:
-            return self.__outyear2
-
-    @out_year_2.setter
-    def out_year_2( self, value: str ):
-        if value is not None:
-            self.__outyear2 = value
-
-    @property
-    def out_year_3( self ) -> str:
-        if self.__outyear3 is not None:
-            return self.__outyear3
-
-    @out_year_3.setter
-    def out_year_3( self, value: str ):
-        if value is not None:
-            self.__outyear3 = value
-
-    @property
-    def out_year_4( self ) -> str:
-        if self.__outyear4 is not None:
-            return self.__outyear4
-
-    @out_year_4.setter
-    def out_year_4( self, value: str ):
-        if value is not None:
-            self.__outyear4 = value
-
-    @property
-    def out_year_5( self ) -> str:
-        if self.__outyear5 is not None:
-            return self.__outyear5
-
-    @out_year_5.setter
-    def out_year_5( self, value: str ):
-        if value is not None:
-            self.__outyear5 = value
-
-    @property
-    def out_year_6( self ) -> str:
-        if self.__outyear6 is not None:
-            return self.__outyear6
-
-    @out_year_6.setter
-    def out_year_6( self, value: str ):
-        if value is not None:
-            self.__outyear6 = value
-
-    @property
-    def out_year_7( self ) -> str:
-        if self.__outyear7 is not None:
-            return self.__outyear7
-
-    @out_year_7.setter
-    def out_year_7( self, value: str ):
-        if value is not None:
-            self.__outyear7 = value
-
-    @property
-    def out_year_8( self ) -> str:
-        if self.__outyear8 is not None:
-            return self.__outyear8
-
-    @out_year_8.setter
-    def out_year_8( self, value: str ):
-        if value is not None:
-            self.__outyear8 = value
-
-    @property
-    def out_year_9( self ) -> str:
-        if self.__outyear9 is not None:
-            return self.__outyear9
-
-    @out_year_9.setter
-    def out_year_9( self, value: str ):
-        if value is not None:
-            self.__outyear9 = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, bfy, id, provider = Provider.SQLite ):
-        self.__bfy = bfy
-        self.__rateid = id
-        self.__provider = provider
-        self.__source = Source.GrowthRates
-        self.__fields = [ 'GrowthRatesId',
-                          'RateId',
-                          'Description',
-                          'BudgetYearRate',
-                          'OutYear1',
-                          'OutYear2',
-                          'OutYear3',
-                          'OutYear4',
-                          'OutYear5',
-                          'OutYear6',
-                          'OutYear7',
-                          'OutYear8',
-                          'OutYear9',
-                          'Sort' ]
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'BFY', 'RateId', ]
-            v = (self.__bfy, self.__rateid)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'GrowthRate'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'GrowthRate'
-            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -11374,7 +10676,7 @@ class HeadquartersAuthority( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -11501,7 +10803,7 @@ class HeadquartersOffice( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -11624,7 +10926,7 @@ class HumanResourceOrganization( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -11903,7 +11205,7 @@ class InflationReductionActCarryoverEstimate( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -12180,7 +11482,7 @@ class JobsActCarryoverEstimate( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -12534,7 +11836,7 @@ class MonthlyActual( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -12761,7 +12063,7 @@ class MonthlyOutlay( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -12910,7 +12212,7 @@ class NationalProgram( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -13037,7 +12339,7 @@ class Objective( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -13163,7 +12465,7 @@ class Organization( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -13174,236 +12476,6 @@ class Organization( ):
             exc.module = 'Execution'
             exc.cause = 'Organization'
             exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# ObjectClassOutlay( account, provider = Provider.SQLite )
-class ObjectClassOutlay( ):
-    '''ObjectClassOutlay( account, provider = Provider.SQLite )
-    object provides OMB outlay data'''
-    __source = None
-    __provider = None
-    __objectclassoutlaysid = None
-    __reportyear = None
-    __ombagencycode = None
-    __budgetaccountcode = None
-    __budgetaccountname = None
-    __obligationtype = None
-    __directreimbursabletitle = None
-    __objectclassgroupnumber = None
-    __objectclassgroupname = None
-    __boccode = None
-    __bocname = None
-    __financeobjectclass = None
-    __prioryear = None
-    __currentyear = None
-    __budgetyear = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if isinstance( self.__objectclassoutlaysid, int ):
-            return self.__objectclassoutlaysid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__objectclassoutlaysid = value
-
-    @property
-    def report_year( self ) -> str:
-        if self.__reportyear is not None:
-            return self.__reportyear
-
-    @report_year.setter
-    def report_year( self, value: str ):
-        if isinstance( value, str ) and len( value ) == 4:
-            self.__reportyear = value
-
-    @property
-    def agency_code( self ) -> str:
-        if self.__ombagencycode is not None:
-            return self.__ombagencycode
-
-    @agency_code.setter
-    def agency_code( self, value: str ):
-        if value is not None:
-            self.__ombagencycode = value
-
-    @property
-    def budget_account_code( self ) -> str:
-        if self.__budgetaccountcode is not None:
-            return self.__budgetaccountcode
-
-    @budget_account_code.setter
-    def budget_account_code( self, value: str ):
-        if value is not None:
-            self.__budgetaccountcode = value
-
-    @property
-    def budget_account_name( self ) -> str:
-        if self.__budgetaccountname is not None:
-            return self.__budgetaccountname
-
-    @budget_account_name.setter
-    def budget_account_name( self, value: str ):
-        if value is not None:
-            self.__budgetaccountname = value
-
-    @property
-    def obligation_type( self ) -> str:
-        if self.__obligationtype is not None:
-            return self.__obligationtype
-
-    @obligation_type.setter
-    def obligation_type( self, value: str ):
-        if value is not None:
-            self.__obligationtype = value
-
-    @property
-    def direct_reimbursable_title( self ) -> str:
-        if self.__directreimbursabletitle is not None:
-            return self.__directreimbursabletitle
-
-    @direct_reimbursable_title.setter
-    def direct_reimbursable_title( self, value: str ):
-        if value is not None:
-            self.__directreimbursabletitle = value
-
-    @property
-    def boc_code( self ) -> str:
-        if self.__boccode is not None:
-            return self.__boccode
-
-    @boc_code.setter
-    def boc_code( self, value: str ):
-        if value is not None:
-            self.__boccode = value
-
-    @property
-    def boc_name( self ) -> str:
-        if self.__bocname is not None:
-            return self.__bocname
-
-    @boc_name.setter
-    def boc_name( self, value: str ):
-        if value is not None:
-            self.__bocname = value
-
-    @property
-    def finance_object_class( self ) -> str:
-        if self.__financeobjectclass is not None:
-            return self.__financeobjectclass
-
-    @finance_object_class.setter
-    def finance_object_class( self, value: str ):
-        if value is not None:
-            self.__financeobjectclass = value
-
-    @property
-    def prior_year( self ) -> str:
-        if self.__prioryear is not None:
-            return self.__prioryear
-
-    @prior_year.setter
-    def prior_year( self, value: str ):
-        if value is not None:
-            self.__prioryear = value
-
-    @property
-    def current_year( self ) -> str:
-        if self.__currentyear is not None:
-            return self.__currentyear
-
-    @current_year.setter
-    def current_year( self, value: str ):
-        if value is not None:
-            self.__currentyear = value
-
-    @property
-    def budget_year( self ) -> str:
-        if self.__budgetyear is not None:
-            return self.__budgetyear
-
-    @budget_year.setter
-    def budget_year( self, value: str ):
-        if value is not None:
-            self.__budgetyear = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, year, account, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.ObjectClassOutlays
-        self.__reportyear = year
-        self.__budgetaccountcode = account
-        self.__fields = [ 'ObjectClassOutlaysId',
-                          'ReportYear',
-                          'OmbAgencyCode',
-                          'OmbAgencyName',
-                          'OmbBureauCode',
-                          'OmbBureauName',
-                          'OmbAccountCode',
-                          'OmbAccountName',
-                          'ObligationType',
-                          'DirectReimbursableTitle',
-                          'ObjectClassGroupNumber',
-                          'ObjectClassGroupName',
-                          'BocCode',
-                          'BocName',
-                          'FinanceObjectClass',
-                          'PriorYear',
-                          'CurrentYear',
-                          'BudgetYear' ]
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = Source.ObjectClassOutlays
-            provider = Provider.SQLite
-            n = [ 'OmbAccountCode', ]
-            v = (self.__budgetaccountcode,)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'ObjectClassOutlay'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'ObjectClassOutlay'
-            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -13751,7 +12823,7 @@ class OperatingPlan( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -14360,7 +13432,7 @@ class OpenCommitment( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -14967,7 +14039,7 @@ class Obligation( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -14995,124 +14067,6 @@ class Obligation( ):
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
-
-# ProgramFinancingScedule( bfy, efy, account, provider = Provider.SQLite )
-class ProgramFinancingSchedule( ):
-    __source = None
-    __provider = None
-    __bfy = None
-    __efy = None
-    __programfinancingscheduleid = None
-    __reportyear = None
-    __ledgeraccountcode = None
-    __treasuryagencycode = None
-    __budgetaccountcode = None
-    __budgetaccountname = None
-    __treasuryaccountcode = None
-    __treasuryaccountname = None
-    __fundname = None
-    __sectionnumber = None
-    __sectionname = None
-    __linenumber = None
-    __linedescription = None
-    __originalamount = None
-    __budgetamount = None
-    __agencyamount = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def bfy( self ) -> str:
-        if self.__bfy is not None:
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value: str ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def efy( self ) -> str:
-        if self.__efy is not None:
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value: str ):
-        if value is not None:
-            self.__efy = value
-
-    @property
-    def treasury_account_code( self ) -> str:
-        if self.__treasuryaccountcode is not None:
-            return self.__treasuryaccountcode
-
-    @treasury_account_code.setter
-    def treasury_account_code( self, value: str ):
-        if value is not None:
-            self.__treasuryaccountcode = value
-
-    @property
-    def treasury_account_name( self ) -> str:
-        if self.__treasuryaccountname is not None:
-            return self.__treasuryaccountname
-
-    @treasury_account_name.setter
-    def treasury_account_name( self, value: str ):
-        if value is not None:
-            self.__treasuryaccountname = value
-
-    @property
-    def budget_account_code( self ) -> str:
-        if self.__budgetaccountcode is not None:
-            return self.__budgetaccountcode
-
-    @budget_account_code.setter
-    def budget_account_code( self, value: str ):
-        if value is not None:
-            self.__budgetaccountcode = value
-
-    @property
-    def budget_account_name( self ) -> str:
-        if self.__budgetaccountname is not None:
-            return self.__budgetaccountname
-
-    @budget_account_name.setter
-    def budget_account_name( self, value: str ):
-        if value is not None:
-            self.__budgetaccountname = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, bfy, efy, account, provider = Provider.SQLite ):
-        self.__bfy = bfy
-        self.__efy = efy
-        self.__budgetaccountcode = account
-        self.__provider = provider
-        self.__source = Source.ProgramFinancingSchedule
-        self.__fields = [ 'ProgramFinancingScheduleId',
-                          'ReportYear',
-                          'TreasuryAccountCode',
-                          'LedgerAccountCode',
-                          'SectionNumber',
-                          'SectionName',
-                          'LineNumber',
-                          'LineDescription',
-                          'OmbAccountCode',
-                          'OmbAccountName',
-                          'FundName',
-                          'OriginalAmount',
-                          'BudgetAmount',
-                          'AgencyAmount',
-                          'Amount' ]
 
 # PublicLaw( bfy, number, provider = Provider.SQLite )
 class PublicLaw( ):
@@ -15190,585 +14144,6 @@ class PublicLaw( ):
                           'EnactedDate',
                           'Congress',
                           'BFY' ]
-
-# PayrollActivity( bfy, efy, fund, provider = Provider.SQLite )
-class PayrollActivity( ):
-    '''provides payroll data'''
-    __source = None
-    __provider = None
-    __payrollactivityid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __rpioname = None
-    __fundcode = None
-    __fundname = None
-    __ahcode = None
-    __ahname = None
-    __orgcode = None
-    __orgname = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
-    __programprojectcode = None
-    __programprojectname = None
-    __programareacode = None
-    __programareaname = None
-    __goalcode = None
-    __goalname = None
-    __objectivecode = None
-    __objectivename = None
-    __npmcode = None
-    __npmname = None
-    __rccode = None
-    __rcname = None
-    __subrccode = None
-    __subrcname = None
-    __hrorgcode = None
-    __hrorgname = None
-    __workcode = None
-    __workcodename = None
-    __payperiod = None
-    __startdate = None
-    __enddate = None
-    __checkdate = None
-    __foccode = None
-    __focname = None
-    __amount = None
-    __hours = None
-    __basepaid = None
-    __basehours = None
-    __benefits = None
-    __overtimepaid = None
-    __overtimehours = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if isinstance( self.__payrollactivityid, int ):
-            return self.__payrollactivityid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__payrollactivityid = value
-
-    @property
-    def bfy( self ) -> str:
-        if self.__bfy is not None:
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value: str ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def efy( self ) -> str:
-        if self.__efy is not None:
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value: str ):
-        if value is not None:
-            self.__efy = value
-
-    @property
-    def rpio_code( self ) -> str:
-        if self.__rpiocode is not None:
-            return self.__rpiocode
-
-    @rpio_code.setter
-    def rpio_code( self, value: str ):
-        if value is not None:
-            self.__rpiocode = value
-
-    @property
-    def rpio_name( self ) -> str:
-        if isinstance( self.__rpioname, str ) and self.__rpioname != '':
-            return self.__rpioname
-
-    @rpio_code.setter
-    def rpio_code( self, value: str ):
-        if value is not None:
-            self.__rpiocode = value
-
-    @property
-    def ah_code( self ) -> str:
-        if self.__ahcode is not None:
-            return self.__ahcode
-
-    @ah_code.setter
-    def ah_code( self, value: str ):
-        if value is not None:
-            self.__ahcode = value
-
-    @property
-    def ah_name( self ) -> str:
-        if self.__ahname is not None:
-            return self.__ahname
-
-    @ah_name.setter
-    def ah_name( self, value: str ):
-        if value is not None:
-            self.__ahname = value
-
-    @property
-    def fund_code( self ) -> str:
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
-            return self.__fundcode
-
-    @fund_code.setter
-    def fund_code( self, value: str ):
-        if value is not None:
-            self.__fundcode = value
-
-    @property
-    def fund_name( self ) -> str:
-        if isinstance( self.__fundname, str ) and self.__fundname != '':
-            return self.__fundname
-
-    @fund_name.setter
-    def fund_name( self, value: str ):
-        if value is not None:
-            self.__fundname = value
-
-    @property
-    def org_code( self ) -> str:
-        if self.__orgcode is not None:
-            return self.__orgcode
-
-    @org_code.setter
-    def org_code( self, value: str ):
-        if value is not None:
-            self.__orgcode = value
-
-    @property
-    def org_name( self  ):
-        if self.__orgname is not None:
-            return self.__orgname
-
-    @org_name.setter
-    def org_name( self, value  ):
-        if value is not None:
-            self.__orgname = value
-
-    @property
-    def account_code( self ) -> str:
-        if self.__accountname is not None:
-            return self.__accountcode
-
-    @account_code.setter
-    def account_code( self, value: str ):
-        if value is not None:
-            self.__accountcode = value
-
-    @property
-    def boc_code( self ) -> str:
-        if self.__boccode is not None:
-            return self.__boccode
-
-    @boc_code.setter
-    def boc_code( self, value: str ):
-        if value is not None:
-            self.__boccode = value
-
-    @property
-    def boc_name( self ) -> str:
-        if self.__bocname is not None:
-            return self.__bocname
-
-    @boc_name.setter
-    def boc_name( self, value: str ):
-        if value is not None:
-            self.__bocname = value
-
-    @property
-    def rc_code( self ) -> str:
-        if self.__rccode is not None:
-            return self.__rccode
-
-    @rc_code.setter
-    def rc_code( self, value: str ):
-        if value is not None:
-            self.__rccode = value
-
-    @property
-    def rc_name( self ) -> str:
-        if self.__rcname is not None:
-            return self.__rcname
-
-    @rc_name.setter
-    def rc_name( self, value: str ):
-        if value is not None:
-            self.__rcname = value
-
-    @property
-    def subrccode( self ) -> str:
-        if isinstance( self.__subrccode, str ) and self.__subrccode != '':
-            return self.__subrccode
-
-    @subrccode.setter
-    def subrccode( self, value: str ):
-        if value is not None:
-            self.__subrccode = value
-
-    @property
-    def subrcname( self ) -> str:
-        if isinstance( self.__subrcname, str ) and self.__subrcname != '':
-            return self.__subrcname
-
-    @subrcname.setter
-    def subrcname( self, value: str ):
-        if value is not None:
-            self.__subrcname = value
-
-    @property
-    def program_project_code( self ) -> str:
-        if self.__programprojectcode is not None:
-            return self.__programprojectcode
-
-    @program_project_code.setter
-    def program_project_code( self, value: str ):
-        if value is not None:
-            self.__programprojectcode = value
-
-    @property
-    def program_project_name( self ) -> str:
-        if self.__programprojectname is not None:
-            return self.__programprojectname
-
-    @program_project_name.setter
-    def program_project_name( self, value: str ):
-        if value is not None:
-            self.__programprojectname = value
-
-    @property
-    def hrorgcode( self ) -> str:
-        if self.__hrorgcode is not None:
-            return self.__hrorgcode
-
-    @hrorgcode.setter
-    def hrorgcode( self, value: str ):
-        if value is not None:
-            self.__hrorgcode = value
-
-    @property
-    def hrorgname( self ) -> str:
-        if self.__hrorgname is not None:
-            return self.__hrorgname
-
-    @hrorgname.setter
-    def hrorgname( self, value: str ):
-        if value is not None:
-            self.__hrorgname = value
-
-    @property
-    def workcode( self ) -> str:
-        if self.__workcode is not None:
-            return self.__workcode
-
-    @workcode.setter
-    def workcode( self, value: str ):
-        if value is not None:
-            self.__workcode = value
-
-    @property
-    def workcodename( self ) -> str:
-        if self.__workcodename is not None:
-            return self.__workcodename
-
-    @workcodename.setter
-    def workcodename( self, value: str ):
-        if value is not None:
-            self.__workcodename = value
-
-    @property
-    def payperiod( self ) -> str:
-        if self.__payperiod is not None:
-            return self.__payperiod
-
-    @payperiod.setter
-    def payperiod( self, value: str ):
-        if value is not None:
-            self.__payperiod = value
-
-    @property
-    def startdate( self ) -> str:
-        if self.__startdate is not None:
-            return self.__startdate
-
-    @startdate.setter
-    def startdate( self, value: str ):
-        if isinstance( value, datetime ):
-            self.__startdate = value
-
-    @property
-    def enddate( self ) -> str:
-        if self.__enddate is not None:
-            return self.__enddate
-
-    @enddate.setter
-    def enddate( self, value: str ):
-        if isinstance( value, datetime ):
-            self.__startdate = value
-
-    @property
-    def checkdate( self ) -> str:
-        if self.__checkdate is not None:
-            return self.__checkdate
-
-    @checkdate.setter
-    def checkdate( self, value: str ):
-        if isinstance( value, datetime ):
-            self.__checkdate = value
-
-    @property
-    def amount( self ) -> float:
-        if self.__amount is not None:
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value: float ):
-        if value is not None:
-            self.__amount = value
-
-    @property
-    def hours( self ) -> str:
-        if self.__hours is not None:
-            return self.__hours
-
-    @hours.setter
-    def hours( self, value: str ):
-        if value is not None:
-            self.__hours = value
-
-    @property
-    def basepaid( self ) -> str:
-        if self.__basepaid is not None:
-            return self.__basepaid
-
-    @basepaid.setter
-    def basepaid( self, value: str ):
-        if isinstance( value, float):
-            self.__basepaid = value
-
-    @property
-    def basehours( self ) -> str:
-        if self.__basehours is not None:
-            return self.__basehours
-
-    @basehours.setter
-    def basehours( self, value: str ):
-        if value is not None:
-            self.__basehours = value
-
-    @property
-    def benefits( self ) -> str:
-        if self.__benefits is not None:
-            return self.__benefits
-
-    @benefits.setter
-    def benefits( self, value: str ):
-        if value is not None:
-            self.__benefits = value
-
-    @property
-    def overtimepaid( self ) -> str:
-        if  self.__overtimepaid is not None:
-            return self.__overtimepaid
-
-    @overtimepaid.setter
-    def overtimepaid( self, value: str ):
-        if value is not None:
-            self.__overtimepaid = value
-
-    @property
-    def overtimehours( self ) -> str:
-        if self.__overtimehours is not None:
-            return self.__overtimehours
-
-    @overtimehours.setter
-    def overtimehours( self, value: str ):
-        if value is not None:
-            self.__overtimehours = value
-
-    @property
-    def program_area_code( self ) -> str:
-        if self.__programareacode is not None:
-            return self.__programareacode
-
-    @program_area_code.setter
-    def program_area_code( self, value: str ):
-        if value is not None:
-            self.__programareacode = value
-
-    @property
-    def program_area_name( self ) -> str:
-        if self.__programareaname is not None:
-            return self.__programareaname
-
-    @program_area_name.setter
-    def program_area_name( self, value: str ):
-        if value is not None:
-            self.__programareaname = value
-
-    @property
-    def goal_code( self ) -> str:
-        if self.__goalcode is not None:
-            return self.__goalcode
-
-    @goal_code.setter
-    def goal_code( self, value: str ):
-        if value is not None:
-            self.__goalcode = value
-
-    @property
-    def goal_name( self ) -> str:
-        if self.__goalname is not None:
-            return self.__goalname
-
-    @goal_name.setter
-    def goal_name( self, value: str ):
-        if value is not None:
-            self.__goalname = value
-
-    @property
-    def objective_code( self ) -> str:
-        if self.__objectivecode is not None:
-            return self.__objectivecode
-
-    @objective_code.setter
-    def objective_code( self, value: str ):
-        if value is not None:
-            self.__objectivecode = value
-
-    @property
-    def objective_name( self ) -> str:
-        if self.__objectivename is not None:
-            return self.__objectivename
-
-    @objective_name.setter
-    def objective_name( self, value: str ):
-        if value is not None:
-            self.__objectivename = value
-
-    @property
-    def npm_code( self ) -> str:
-        if self.__npmcode is not None:
-            return self.__npmcode
-
-    @npm_code.setter
-    def npm_code( self, value: str ):
-        if value is not None:
-            self.__npmcode = value
-
-    @property
-    def npm_name( self ) -> str:
-        if self.__npmname is not None:
-            return self.__npmname
-
-    @npm_name.setter
-    def npm_name( self, value: str ):
-        if value is not None:
-            self.__npmname = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, bfy, efy, fund, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.PayrollActivity
-        self.__bfy = bfy
-        self.__efy = efy
-        self.__fundcode = fund
-        self.__fields = [ 'PayrollActivityId',
-                           'BFY',
-                           'EFY',
-                           'RpioCode',
-                           'RpioName',
-                           'FundCode',
-                           'FundName',
-                           'AhCode',
-                           'AhName',
-                           'RcCode',
-                           'RcName',
-                           'SubRcCode',
-                           'SubRcName',
-                           'AccountCode',
-                           'ProgramProjectCode',
-                           'ProgramProjectName',
-                           'ProgramAreaCode',
-                           'ProgramAreaName',
-                           'NpmCode',
-                           'NpmName',
-                           'FocCode',
-                           'FocName',
-                           'HrOrgCode',
-                           'HrOrgName',
-                           'WorkCode',
-                           'WorkCodeName',
-                           'PayPeriod',
-                           'StartDate',
-                           'EndDate',
-                           'CheckDate',
-                           'Amount',
-                           'Hours',
-                           'BasePaid',
-                           'BaseHours',
-                           'Benefits',
-                           'OvertimePaid',
-                           'OvertimeHours' ]
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'BFY', 'FundCode' ]
-            v = (self.__bfy, self.__fundcode)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Control'
-            exc.cause = 'PayrollActivity'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Control'
-            exc.cause = 'PayrollActivity'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
 
 # Project( code, provider = Provider.SQLite  )
 class Project( ):
@@ -15865,7 +14240,7 @@ class Project( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -15990,7 +14365,7 @@ class ProgramArea( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -16139,7 +14514,7 @@ class ProgramProject( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -16152,160 +14527,6 @@ class ProgramProject( ):
             exc.method = 'get_data( self )'
             err = ErrorDialog( exc )
             err.show( )
-
-# PayrollCostCode( bfy, efy, code, provider = Provider.SQLite )
-class PayrollCostCode( ):
-    __source = None
-    __provider = None
-    __payrollcostcodesid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __ahcode = None
-    __rccode = None
-    __rcname = None
-    __workcode = None
-    __workcodename = None
-    __hrorgcode = None
-    __hrorgname = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if self.__payrollcostcodesid is not None:
-            return self.__payrollcostcodesid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__payrollcostcodesid = value
-
-    @property
-    def bfy( self ) -> str:
-        if self.__bfy is not None:
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value: str ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def efy( self ) -> str:
-        if self.__efy is not None:
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value: str ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def rpio_code( self ) -> str:
-        if self.__rpiocode is not None:
-            return self.__rpiocode
-
-    @rpio_code.setter
-    def rpio_code( self, value: str ):
-        if value is not None:
-            self.__rpiocode = value
-
-    @property
-    def ah_code( self ) -> str:
-        if self.__ahcode is not None:
-            return self.__ahcode
-
-    @ah_code.setter
-    def ah_code( self, value: str ):
-        if value is not None:
-            self.__ahcode = value
-
-    @property
-    def rc_code( self ) -> str:
-        if self.__rccode is not None:
-            return self.__rccode
-
-    @rc_code.setter
-    def rc_code( self, value: str ):
-        if value is not None:
-            self.__rccode = value
-
-    @property
-    def rc_name( self ) -> str:
-        if self.__rcname is not None:
-            return self.__rcname
-
-    @rc_name.setter
-    def rc_name( self, value: str ):
-        if value is not None:
-            self.__rcname = value
-
-    @property
-    def work_code( self ) -> str:
-        if self.__workcode is not None:
-            return self.__workcode
-
-    @work_code.setter
-    def work_code( self, value: str ):
-        if value is not None:
-            self.__workcode = value
-
-    @property
-    def work_code_name( self ) -> str:
-        if isinstance( self.__workcodename, str ) and self.__workcodename != '':
-            return self.__workcodename
-
-    @work_code_name.setter
-    def work_code_name( self, value: str ):
-        if value is not None:
-            self.__workcodename = value
-
-    @property
-    def hr_org_code( self ) -> str:
-        if isinstance( self.__hrorgcode, str ) and self.__hrorgcode != '':
-            return self.__hrorgcode
-
-    @hr_org_code.setter
-    def hr_org_code( self, value: str ):
-        if value is not None:
-            self.__hrorgcode = value
-
-    @property
-    def hr_org_name( self ) -> str:
-        if isinstance( self.__hrorgname, str ) and self.__hrorgname != '':
-            return self.__hrorgname
-
-    @hr_org_name.setter
-    def hr_org_name( self, value: str ):
-        if value is not None:
-            self.__hrorgname = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, bfy, rpio, provider = Provider.SQLite ):
-        self.__rpiocode = rpio if isinstance( rpio, str ) and rpio != '' else None
-        self.__provider = provider
-        self.__source = Source.PayrollCostCodes
-        self.__fields = [ 'PayrollCostCodesId',
-                           'RPIO',
-                           'AhCode',
-                           'BFY',
-                           'RcCode',
-                           'RcName',
-                           'WorkCode',
-                           'WorkCodeName',
-                           'HrOrgCode',
-                           'HrOrgName' ]
 
 # ProgramResultsCode( bfy, efy, rpio, ah, account, boc, amount = 0.0, provider = Provider.SQLite )
 class ProgramResultsCode( ):
@@ -16922,7 +15143,7 @@ class ResponsibilityCenter( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -17055,7 +15276,7 @@ class ResourcePlanningOffice( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -17181,7 +15402,7 @@ class RegionalOffice( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -17192,144 +15413,6 @@ class RegionalOffice( ):
             exc.module = 'Execution'
             exc.cause = 'RegionalOffice'
             exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# ReimbursableSurvey( bfy, efy, fund, provider = Provider.SQLite )
-class ReimbursableSurvey( ):
-    '''ReimbursableSurvey( bfy, fund ) initializes
-    object providing Reimbursable Authority data'''
-    __source = None
-    __provider = None
-    __reimbursablesurveyid = None
-    __bfy = None
-    __efy = None
-    __fundcode = None
-    __fundname = None
-    __amount = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if isinstance( self.__reimbursablesurveyid, int ):
-            return self.__reimbursablesurveyid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__reimbursablesurveyid = value
-
-    @property
-    def bfy( self ) -> str:
-        if self.__bfy is not None:
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value: str ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def efy( self ) -> str:
-        if self.__efy is not None:
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value: str ):
-        if value is not None:
-            self.__efy = value
-
-    @property
-    def fund_code( self ) -> str:
-        if self.__fundcode is not None:
-            return self.__fundcode
-
-    @fund_code.setter
-    def fund_code( self, value: str ):
-        if value is not None:
-            self.__fundcode = value
-
-    @property
-    def fund_name( self ) -> str:
-        if self.__fundname is not None:
-            return self.__fundname
-
-    @fund_name.setter
-    def fund_name( self, value: str ):
-        if value is not None:
-            self.__fundname = value
-
-    @property
-    def amount( self ) -> float:
-        if self.__amount is not None:
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value: float ):
-        if value is not None:
-            self.__amount = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, bfy, efy, fund, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.ReimbursableSurvey
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__efy = efy if isinstance( efy, str ) and len( efy ) == 4 else None
-        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__fields = [ 'ReimbursableSurveyId',
-                           'BFY',
-                           'FundCode',
-                           'FundName',
-                           'Amount' ]
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            src = self.__source
-            pro = self.__provider
-            n = [ 'BFY', 'FundCode', ]
-            v = (self.__bfy, self.__fundcode)
-            cfg = SqlConfig( names = n, values = v )
-            cnx = Connection( source = src, provider = pro )
-            sql = SqlStatement( cnx, cfg )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'ReimbursableSurvey'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'ReimbursableSurvey'
-            exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -17582,7 +15665,7 @@ class ReimbursableAgreement( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -18053,7 +16136,7 @@ class RegionalAuthority( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -18535,7 +16618,7 @@ class StatusOfFunds( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -19022,7 +17105,7 @@ class StatusOfSupplementalFunding( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -19316,7 +17399,7 @@ class StateGrantObligation( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -19657,7 +17740,7 @@ class SpecialAccount( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -19843,7 +17926,7 @@ class SuperfundSite( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -19982,7 +18065,7 @@ class SubAppropriation( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -20007,128 +18090,6 @@ class SubAppropriation( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'Appropriation'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# SiteProjectCode( code, provider = Provider.SQLite  )
-class SiteProjectCode( ):
-    '''Defines the Organization Class'''
-    __source = None
-    __provider = None
-    __siteprojectcodesid = None
-    __code = None
-    __name = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if self.__siteprojectcodesid is not None:
-            return self.__siteprojectcodesid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__siteprojectcodesid = value
-
-    @property
-    def code( self ) -> str:
-        if  self.__code is not None:
-            return self.__code
-
-    @code.setter
-    def code( self, value: str ):
-        if value is not None:
-            self.__code = value
-
-    @property
-    def name( self ) -> str:
-        if self.__name is not None:
-            return self.__name
-
-    @name.setter
-    def name( self, value: str ):
-        if value is not None:
-            self.__name = value
-
-    @property
-    def data( self ) -> str:
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, value: str ):
-        if isinstance( value, list ):
-            self.__data = value
-
-    @property
-    def table( self ) -> str:
-        if self.__frame is not None:
-            return self.__frame
-
-    @table.setter
-    def table( self, value: str ):
-        if value is not None:
-            self.__frame = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, code, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.SiteProjectCodes
-        self.__code = code
-
-    def __str__( self ) -> str:
-        if isinstance( self.__code, str ) and self.__code != '':
-            return self.__code
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'Code', ]
-            v = (self.__code,)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Execution'
-            exc.cause = 'SiteProjectCode'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Execution'
-            exc.cause = 'SiteProjectCode'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
@@ -20224,7 +18185,7 @@ class StateOrganization( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -20932,7 +18893,7 @@ class StatusOfAppropriations( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -23185,7 +21146,7 @@ class SiteActivity( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -23794,7 +21755,7 @@ class SpendingDocument( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -24071,7 +22032,7 @@ class SupplementalCarryoverEstimate( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -24233,7 +22194,7 @@ class TreasurySymbol( ):
             sql = SqlStatement( dbcfg, sqlcfg )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -24619,7 +22580,7 @@ class Transfer( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -24754,186 +22715,6 @@ class TransType( ):
                           'RescissionPriorYear',
                           'SequesterReduction',
                           'SequesterReturn' ]
-
-# Unobligated Authority( account, provider = Provider.SQLite )
-class UnobligatedAuthority( ):
-    '''UnobligatedAuthority( bfy, omb )
-    object provides OMB data'''
-    __source = None
-    __provider = None
-    __unobligatedauthorityid = None
-    __reportyear = None
-    __budgetaccountcode = None
-    __budgetaccountname = None
-    __ombaccounttitle = None
-    __linenumber = None
-    __linename = None
-    __prioryear = None
-    __currentyear = None
-    __budgetyear = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if self.__unobligatedauthorityid is not None:
-            return self.__unobligatedauthorityid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__unobligatedauthorityid = value
-
-    @property
-    def report_year( self ) -> str:
-        if self.__reportyear is not None:
-            return self.__reportyear
-
-    @report_year.setter
-    def report_year( self, value: str ):
-        if isinstance( value, str ) and len( value ) == 4:
-            self.__reportyear = value
-
-    @property
-    def line_number( self ) -> str:
-        if self.__linenumber is not None:
-            return self.__linenumber
-
-    @line_number.setter
-    def line_number( self, value: str ):
-        if value is not None:
-            self.__linenumber = value
-
-    @property
-    def line_name( self ) -> str:
-        if self.__linename is not None:
-            return self.__linename
-
-    @line_name.setter
-    def line_name( self, value: str ):
-        if value is not None:
-            self.__linename = value
-
-    @property
-    def budget_account_code( self ) -> str:
-        if self.__budgetaccountcode is not None:
-            return self.__budgetaccountcode
-
-    @budget_account_code.setter
-    def budget_account_code( self, value: str ):
-        if value is not None:
-            self.__budgetaccountcode = value
-
-    @property
-    def budget_account_name( self ) -> str:
-        if self.__budgetaccountname is not None:
-            return self.__budgetaccountname
-
-    @budget_account_name.setter
-    def budget_account_name( self, value: str ):
-        if value is not None:
-            self.__budgetaccountname = value
-
-    @property
-    def prior_year( self ) -> str:
-        if isinstance( self.__prioryear, float ):
-            return self.__prioryear
-
-    @prior_year.setter
-    def prior_year( self, value: str ):
-        if value is not None:
-            self.__prioryear = value
-
-    @property
-    def current_year( self ) -> str:
-        if isinstance( self.__currentyear, float ):
-            return self.__currentyear
-
-    @current_year.setter
-    def current_year( self, value: str ):
-        if value is not None:
-            self.__currentyear = value
-
-    @property
-    def budget_year( self ) -> str:
-        if isinstance( self.__budgetyear, float ):
-            return self.__budgetyear
-
-    @budget_year.setter
-    def budget_year( self, value: str ):
-        if value is not None:
-            self.__budgetyear = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, account: str, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.UnobligatedAuthority
-        self.__budgetaccountcode = account
-        self.__fields = [ 'UnobligatedAuthorityId',
-                          'ReportYear',
-                          'AgencyCode',
-                          'BureauCode',
-                          'AccountCode',
-                          'OmbAccount',
-                          'OmbAccountName',
-                          'LineName',
-                          'LineNumber',
-                          'BudgetYear',
-                          'PriorYear',
-                          'CurrentYear',
-                          'AgencyName',
-                          'BureauName' ]
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'OmbAccountCode', ]
-            v = (self.__budgetaccountcode,)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'UnobligatedAuthority'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Reporting'
-            exc.cause = 'UnobligatedAuthority'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
 
 # UnobligatedBalance( bfy, efy, fundcode, provider = Provider.SQLite )
 class UnobligatedBalance( ):
@@ -25083,7 +22864,7 @@ class UnobligatedBalance( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -25611,7 +23392,7 @@ class UnliquidatedObligation( ):
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
+            query = sql.get_query( )
             data = cursor.execute( query )
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
@@ -25636,130 +23417,6 @@ class UnliquidatedObligation( ):
             exc = Error( e )
             exc.module = 'Control'
             exc.cause = 'UnliquidatedObligation'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# WorkCode( fundcode, provider = Provider.SQLite )
-class WorkCode( ):
-    '''Defines the Organization Class'''
-    __source = None
-    __provider = None
-    __workcodesid = None
-    __code = None
-    __name = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if isinstance( self.__workcodesid, int ):
-            return self.__workcodesid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__workcodesid = value
-
-    @property
-    def code( self ) -> str:
-        if  self.__code is not None:
-            return self.__code
-
-    @code.setter
-    def code( self, value: str ):
-        if value is not None:
-            self.__code = value
-
-    @property
-    def name( self ) -> str:
-        if self.__name is not None:
-            return self.__name
-
-    @name.setter
-    def name( self, value: str ):
-        if value is not None:
-            self.__name = value
-
-    @property
-    def data( self ) -> list[ Row ]:
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, value: list[ Row ] ):
-        if isinstance( value, list ):
-            self.__data = value
-
-    @property
-    def table( self ) -> str:
-        if self.__frame is not None:
-            return self.__frame
-
-    @table.setter
-    def table( self, value: str ):
-        if value is not None:
-            self.__frame = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, code: str, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.WorkCodes
-        self.__code = code
-        self.__frame = DataFrame
-        self.__fields = None
-
-    def __str__( self ) -> str:
-        if self.__code is not None:
-            return self.__code
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = self.__source
-            provider = self.__provider
-            n = [ 'Code', ]
-            v = (self.__code,)
-            dconfig = DbConfig( source, provider )
-            sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( self.__source )
-            sql = SqlStatement( dconfig, sconfig )
-            sqlite = cnx.connect( )
-            cursor = sqlite.cursor( )
-            query = sql.getcommandtext( )
-            data = cursor.execute( query )
-            self.__data =  [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Execution'
-            exc.cause = 'WorkCode'
-            exc.method = 'get_data( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            src = self.__source
-            data = BudgetData( src )
-            return data.get_frame( )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Execution'
-            exc.cause = 'WorkCode'
             exc.method = 'get_frame( self )'
             err = ErrorDialog( exc )
             err.show( )
