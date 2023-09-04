@@ -42,16 +42,16 @@
   ******************************************************************************************
   '''
 import datetime as dt
-from datetime import datetime, date
-from typing import List
-from Static import SQL, Source
-from Booger import Error, ErrorDialog
-from Data import DbConfig, SqlConfig, Connection, \
-    SqlStatement, BudgetData, DataBuilder
-from Static import Source, Provider
 from datetime import datetime
+
 from pandas import DataFrame
-from pyodbc import Row as Row, Row
+from pyodbc import Row
+
+from Booger import Error, ErrorDialog
+from Data import (DbConfig, SqlConfig, Connection,
+                  SqlStatement, BudgetData, DataBuilder)
+from Static import SQL
+from Static import Source, Provider
 
 class Unit( ):
     '''Unit( value, value ) initializes object
@@ -829,7 +829,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 
     def __init__( self, bfy: str, provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.CarryoverEstimates
+        self.__source = Source.AmericanRescuePlanCarryoverEstimates
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__fields = [ 'CarryoverEstimatesId',
                            'BudgetLevel',
@@ -1105,7 +1105,7 @@ class AnnualCarryoverEstimate( ):
 
     def __init__( self, bfy: str, provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.CarryoverEstimates
+        self.__source = Source.AnnualCarryoverEstimates
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
         self.__frame = DataFrame( )
         self.__fields = [ 'CarryoverEstimatesId',
@@ -1320,8 +1320,8 @@ class AnnualReimbursableEstimate( ):
 
     def __init__( self, bfy: str, provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.CarryoverEstimates
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__source = Source.AnnualReimbursableEstimates
+        self.__bfy = bfy
         self.__fields = [ 'CarryoverEstimatesId',
                            'BudgetLevel',
                            'BFY',
@@ -2551,9 +2551,10 @@ class ApportionmentData( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, omb, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str, omb: str,
+                  provider: Provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.Apportionments
+        self.__source = Source.ApportionmentData
         self.__bfy = bfy
         self.__efy = efy
         self.__budgetaccountcode = omb
@@ -5108,7 +5109,7 @@ class BudgetaryResourceExecution( ):
 
     def __init__( self, bfy, efy, ombcode, provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.BudgetResourceExecution
+        self.__source = Source.BudgetaryResourceExecution
         self.__bfy = bfy
         self.__efy = efy
         self.__budgetaccountcode = ombcode
@@ -20937,7 +20938,7 @@ class SiteActivity( ):
             return self.__closed
 
     @closed.setter
-    def closed( self, value: str ):
+    def closed( self, value: float ):
         if value is not None:
             self.__closed = value
 

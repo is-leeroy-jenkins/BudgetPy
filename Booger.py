@@ -2743,7 +2743,7 @@ class ComboBoxDialog( Sith ):
 		try:
 			btnsize = (10, 1)
 			space = (5, 1)
-			if self.__items == None:
+			if self.__items is None:
 				self.__items = [ f'Item {x} ' for x in range( 30 ) ]
 				values = self.__items
 

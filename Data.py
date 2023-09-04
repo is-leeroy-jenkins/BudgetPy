@@ -1867,7 +1867,7 @@ class DataColumn( ):
 
     @property
     def name( self ) -> str:
-        if self.__name != None:
+        if self.__name is not None:
             return self.__name
 
     @name.setter
@@ -2278,7 +2278,7 @@ class BudgetData( ):
     def __init__( self, source: Source ):
         self.__source = source
         self.__name = source.name
-        self.__path = DbConfig( source, Provider.SQLite ).get_path( )
+        self.__path = DbConfig( source ).get_path( )
         self.__sql = f'SELECT * FROM {source.name};'
         self.__frame = self.get_frame( )
         self.__data = [ tuple( i ) for i in self.get_frame( ).iterrows( ) ]
