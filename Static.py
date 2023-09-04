@@ -106,6 +106,7 @@ class Source( Enum ):
     DocumentControlNumbers = auto( )
     Earmarks = auto( )
     Expenditures = auto( )
+    FullTimeEquivalents = auto( )
     PayPeriods = auto( )
     PayrollAuthority = auto( )
     PayrollRequests = auto( )
