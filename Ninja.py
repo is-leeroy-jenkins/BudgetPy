@@ -413,7 +413,7 @@ class ActivityCode( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
@@ -554,7 +554,7 @@ class AllowanceHolder( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame: str ):
+    def table( self, frame: DataFrame ):
         if frame is not None:
             self.__frame = frame
 
@@ -3389,12 +3389,12 @@ class AppropriationDocument( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
+    def posted( self, value: float ):
         if value is not None:
             self.__posted = value
 
@@ -3950,12 +3950,12 @@ class BudgetDocument( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
+    def posted( self, value: float ):
         if value is not None:
             self.__posted = value
 
@@ -4754,7 +4754,7 @@ class BudgetFiscalYear( ):
             return self.__holidays
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
@@ -4924,7 +4924,7 @@ class BudgetObjectClass( ):
             self.__value = val
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
@@ -8663,7 +8663,7 @@ class FinanceObjectClass( ):
             self.__bocname = name
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
@@ -12298,7 +12298,7 @@ class Organization( ):
             self.__name = name
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
@@ -13576,12 +13576,12 @@ class Obligation( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
+    def posted( self, value: float ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
@@ -15234,7 +15234,7 @@ class RegionalOffice( ):
             self.__rpioname = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
@@ -15798,12 +15798,12 @@ class RegionalAuthority( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
+    def posted( self, value: float ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
@@ -16276,13 +16276,13 @@ class StatusOfFunds( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
-        if isinstance( self.__posted, value ):
+    def posted( self, value: float ):
+        if self.__posted is not None:
             self.__posted = value
 
     @property
@@ -16759,12 +16759,12 @@ class StatusOfSupplementalFunding( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
+    def posted( self, value: float ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
@@ -18026,7 +18026,7 @@ class StateOrganization( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
@@ -18510,7 +18510,7 @@ class StatusOfAppropriations( ):
             return self.__fundinginamount
 
     @funding_in_amount.setter
-    def funding_in_amount( self, value: str ):
+    def funding_in_amount( self, value: float ):
         if value is not None:
             self.__fundinginamount = value
 
@@ -18520,147 +18520,147 @@ class StatusOfAppropriations( ):
             return self.__fundingoutamount
 
     @funding_out_amount.setter
-    def funding_out_amount( self, value: str ):
+    def funding_out_amount( self, value: float ):
         if value is not None:
             self.__fundingoutamount = value
 
     @property
-    def total_accrual_recoveries( self ) -> str:
+    def total_accrual_recoveries( self ) -> float:
         if self.__totalaccrualrecoveries is not None:
             return self.__totalaccrualrecoveries
 
     @total_accrual_recoveries.setter
-    def total_accrual_recoveries( self, value: str ):
+    def total_accrual_recoveries( self, value: float ):
         if value is not None:
             self.__totalaccrualrecoveries = value
 
     @property
-    def total_actual_reimbursements( self ) -> str:
+    def total_actual_reimbursements( self ) -> float:
         if self.__totalactualreimbursements is not None:
             return self.__totalactualreimbursements
 
     @total_actual_reimbursements.setter
-    def total_actual_reimbursements( self, value: str ):
+    def total_actual_reimbursements( self, value: float ):
         if value is not None:
             self.__totalactualreimbursements = value
 
     @property
-    def total_agreement_reimbursables( self ) -> str:
+    def total_agreement_reimbursables( self ) -> float:
         if self.__totalagreementreimbursables is not None:
             return self.__totalagreementreimbursables
 
     @total_agreement_reimbursables.setter
-    def total_agreement_reimbursables( self, value: str ):
+    def total_agreement_reimbursables( self, value: float ):
         if value is not None:
             self.__totalagreementreimbursables = value
 
     @property
-    def total_carried_in( self ) -> str:
+    def total_carried_in( self ) -> float:
         if self.__totalcarriedforwardin is not None:
             return self.__totalcarriedforwardin
 
     @total_carried_in.setter
-    def total_carried_in( self, value: str ):
+    def total_carried_in( self, value: float ):
         if value is not None:
             self.__totalcarriedforwardin = value
 
     @property
-    def total_carried_out( self ) -> str:
+    def total_carried_out( self ) -> float:
         if self.__totalcarriedforwardout is not None:
             return self.__totalcarriedforwardout
 
     @total_carried_out.setter
-    def total_carried_out( self, value: str ):
+    def total_carried_out( self, value: float ):
         if value is not None:
             self.__totalcarriedforwardout = value
 
     @property
-    def total_estimated_recoveries( self ) -> str:
+    def total_estimated_recoveries( self ) -> float:
         if self.__totalestimatedrecoveries is not None:
             return self.__totalestimatedrecoveries
 
     @total_estimated_recoveries.setter
-    def total_estimated_recoveries( self, value: str ):
+    def total_estimated_recoveries( self, value: float ):
         if value is not None:
             self.__totalestimatedrecoveries = value
 
     @property
-    def total_estimated_reimbursements( self ) -> str:
+    def total_estimated_reimbursements( self ) -> float:
         if self.__totalestimatedreimbursements is not None:
             return self.__totalestimatedreimbursements
 
     @total_estimated_reimbursements.setter
-    def total_estimated_reimbursements( self, value: str ):
+    def total_estimated_reimbursements( self, value: float ):
         if value is not None:
             self.__totalestimatedreimbursements = value
 
     @property
-    def total_expenses( self ) -> str:
+    def total_expenses( self ) -> float:
         if self.__totalexpenses is not None:
             return self.__totalexpenses
 
     @total_expenses.setter
-    def total_expenses( self, value: str ):
+    def total_expenses( self, value: float ):
         if value is not None:
             self.__totalexpenses = value
 
     @property
-    def total_expenditure_expenses( self ) -> str:
+    def total_expenditure_expenses( self ) -> float:
         if self.__totalexpenditureexpenses is not None:
             return self.__totalexpenditureexpenses
 
     @total_expenditure_expenses.setter
-    def total_expenditure_expenses( self, value: str ):
+    def total_expenditure_expenses( self, value: float ):
         if value is not None:
             self.__totalexpenditureexpenses = value
 
     @property
-    def total_expense_accruals( self ) -> str:
+    def total_expense_accruals( self ) -> float:
         if self.__totalexpenseaccruals is not None:
             return self.__totalexpenseaccruals
 
     @total_expense_accruals.setter
-    def total_expense_accruals( self, value: str ):
+    def total_expense_accruals( self, value: float ):
         if value is not None:
             self.__totalexpenseaccruals = value
 
     @property
-    def total_precommitments( self ) -> str:
+    def total_precommitments( self ) -> float:
         if self.__totalprecommitments is not None:
             return self.__totalprecommitments
 
     @total_precommitments.setter
-    def total_precommitments( self, value: str ):
+    def total_precommitments( self, value: float ):
         if value is not None:
             self.__totalprecommitments = value
 
     @property
-    def unliquidated_precommitments( self ) -> str:
+    def unliquidated_precommitments( self ) -> float:
         if self.__unliquidatedprecommitments is not None:
             return self.__unliquidatedprecommitments
 
     @unliquidated_precommitments.setter
-    def unliquidated_precommitments( self, value: str ):
+    def unliquidated_precommitments( self, value: float ):
         if value is not None:
             self.__unliquidatedprecommitments = value
 
     @property
-    def total_obligations( self ) -> str:
+    def total_obligations( self ) -> float:
         if self.__totalobligations is not None:
             return self.__totalobligations
 
     @total_obligations.setter
-    def total_obligations( self, value: str ):
+    def total_obligations( self, value: float ):
         if value is not None:
             self.__totalobligations = value
 
     @property
-    def unliquidated_obligations( self ) -> str:
+    def unliquidated_obligations( self ) -> float:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value: str ):
+    def unliquidated_obligations( self, value: float ):
         if value is not None:
             self.__unliquidatedobligations = value
 
@@ -18670,7 +18670,7 @@ class StatusOfAppropriations( ):
             return self.__voidedamount
 
     @voided_amount.setter
-    def voided_amount( self, value: str ):
+    def voided_amount( self, value: float ):
         if value is not None:
             self.__voidedamount = value
 
@@ -18680,7 +18680,7 @@ class StatusOfAppropriations( ):
             return self.__totalusedamount
 
     @total_used_amount.setter
-    def total_used_amount( self, value: str ):
+    def total_used_amount( self, value: float ):
         if value is not None:
             self.__totalusedamount = value
 
@@ -18690,7 +18690,7 @@ class StatusOfAppropriations( ):
             return self.__availableamount
 
     @available_amount.setter
-    def available_amount( self, value: str ):
+    def available_amount( self, value: float ):
         if value is not None:
             self.__availableamount = value
 
@@ -18704,12 +18704,13 @@ class StatusOfAppropriations( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fund, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str,
+                  fund: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.StatusOfAppropriations
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
-        self.__appropriationfundcode = fund if isinstance( fund, str ) and fund != '' else None
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__appropriationfundcode = fund i
         self.__fields =[ 'StatusOfAppropriationsId',
                            'BFY',
                            'EFY',
@@ -19430,12 +19431,12 @@ class StatusOfSupplementalFunds( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
+    def posted( self, value: float ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
@@ -19875,7 +19876,7 @@ class StatusOfJobsActFunding( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
@@ -21292,12 +21293,12 @@ class SpendingDocument( ):
             self.__budgeted = value
 
     @property
-    def posted( self ) -> str:
+    def posted( self ) -> float:
         if self.__posted is not None:
             return self.__posted
 
     @posted.setter
-    def posted( self, value: str ):
+    def posted( self, value: float ):
         if isinstance( self.__posted, value ):
             self.__posted = value
 
