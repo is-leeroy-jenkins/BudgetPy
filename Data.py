@@ -1,3 +1,46 @@
+'''
+  ******************************************************************************************
+      Assembly:                BudgetPy
+      Filename:                Data.py
+      Author:                  Terry D. Eppler
+      Created:                 05-31-2023
+
+      Last Modified By:        Terry D. Eppler
+      Last Modified On:        06-01-2023
+  ******************************************************************************************
+  <copyright file="Data.py" company="Terry D. Eppler">
+
+     This is a Federal Budget, Finance, and Accounting application.
+     Copyright ©  2023  Terry Eppler
+
+     Permission is hereby granted, free of charge, to any person obtaining a copy
+     of this software and associated documentation files (the “Software”),
+     to deal in the Software without restriction,
+     including without limitation the rights to use,
+     copy, modify, merge, publish, distribute, sublicense,
+     and/or sell copies of the Software,
+     and to permit persons to whom the Software is furnished to do so,
+     subject to the following conditions:
+
+     The above copyright notice and this permission notice shall be included in all
+     copies or substantial portions of the Software.
+
+     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+     DEALINGS IN THE SOFTWARE.
+
+     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+
+  </copyright>
+  <summary>
+    Data.py
+  </summary>
+  ******************************************************************************************
+  '''
 import sqlite3 as sqlite
 from pandas import DataFrame
 from pandas import read_sql as sqlreader
@@ -10,8 +53,10 @@ from Booger import Error, ErrorDialog
 
 # Pascal( input )
 class Pascal( ):
-    '''Pascal( input ).
-    Splits 'input' argument into Pascal Casing'''
+    '''
+    Constructor: Pascal( input )
+    Purpose: Claas splits string 'input' argument into Pascal Casing
+    '''
     __input = None
     __output = None
 
@@ -125,8 +170,12 @@ class Pascal( ):
 
 # SqlPath( )
 class SqlPath( ):
-    '''class providing relative_path paths to the
-    folders containing sql files and driver paths used in the application'''
+    '''
+    Purpose: Class providing relative_path paths to the
+    folders containing sql files and driver paths used in the application
+
+    Constructor: SqlPath( )
+    '''
     __accessdriver = None
     __accessdata = None
     __sqlitedriver = None
@@ -216,8 +265,12 @@ class SqlPath( ):
 
 # SqlFile( source = None, provider = None, command = None  )
 class SqlFile( ):
-    '''Class providing access to sql sub-folders in the application provided
-    optional arguments source, provider, and command'''
+    '''
+    Construxtor: SqlFile( source = None, provider = None, command = None  )
+
+    Purpuse: Class providing access to sql sub-folders in the application provided
+    optional arguments source, provider, and command
+    '''
     __data = None
     __command = None
     __source = None
@@ -481,8 +534,12 @@ class SqlFile( ):
 
 # DbConfig( source, provider = Provider.SQLite )
 class DbConfig( ):
-    '''DbConfig( source, provider = Provider. SQLite ) provides list of Budget Execution
-    tables across two databases ( values and references ) '''
+    '''
+    Constructor: DbConfig( source, provider = Provider.SQLite )
+
+    Purpose: DbConfig( source, provider = Provider. SQLite ) provides list of Budget Execution
+    tables across two databases ( values and references )
+    '''
     __source = None
     __provider = None
     __data = [ ]
