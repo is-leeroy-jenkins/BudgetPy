@@ -9190,7 +9190,12 @@ class Fund( ):
 
 # FederalHoliday( bfy, efy, name, provider = Provider.SQLite )
 class FederalHoliday( ):
-    '''Defines the FederalHoliday class'''
+    '''
+    Constructor: FederalHoliday( bfy: str, efy: str,
+            name: str, provider: Provider = Provider.SQLite )
+
+    Purpose: Defines the FederalHoliday class
+    '''
     __source = None
     __provider = None
     __federalholidaysid = None
@@ -9300,8 +9305,8 @@ class FederalHoliday( ):
             self.__frame = value
 
     @property
-    def observances( self ) -> str:
-        if isinstance( self.__observance, dict ):
+    def observances( self ) -> dict:
+        if self.__observance is not None:
             return self.__observance
 
     @property
@@ -10250,12 +10255,12 @@ class Goal( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -10752,12 +10757,12 @@ class HeadquartersOffice( ):
             self.__rpioname = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -12289,13 +12294,13 @@ class Objective( ):
             self.__name = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
-        if isinstance( value, list ):
+    def data( self, value: list ):
+        if value is not None:
             self.__data = value
 
     @property
