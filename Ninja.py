@@ -1088,7 +1088,7 @@ class AnnualCarryoverEstimate( ):
             return self.__frame
 
     @table.setter
-    def table( self, value: str):
+    def table( self, value: DataFrame):
         if value is not None:
             self.__frame = value
 
@@ -1107,6 +1107,7 @@ class AnnualCarryoverEstimate( ):
         self.__provider = provider
         self.__source = Source.CarryoverEstimates
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+        self.__frame = DataFrame( )
         self.__fields = [ 'CarryoverEstimatesId',
                            'BudgetLevel',
                            'BFY',
@@ -16298,32 +16299,32 @@ class StatusOfFunds( ):
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ) -> str:
+    def unliquidated_obligations( self ) -> float:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value: str ):
+    def unliquidated_obligations( self, value: float ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ) -> str:
+    def expenditures( self ) -> float:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value: str ):
+    def expenditures( self, value: float ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ) -> str:
+    def used( self ) -> float:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value: str ):
+    def used( self, value: float ):
         if value is not None:
             self.__used = value
 
@@ -21495,32 +21496,32 @@ class SpendingDocument( ):
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ) -> str:
+    def processed_date( self ) -> datetime:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value: str ):
+    def processed_date( self, value: datetime ):
         if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ) -> str:
+    def last_activity_date( self ) -> datetime:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value: str ):
+    def last_activity_date( self, value: datetime ):
         if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
-    def age( self ) -> str:
+    def age( self ) -> float:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value: str ):
+    def age( self, value: float ):
         if value is not None:
             self.__age = value
 
@@ -22069,7 +22070,7 @@ class TreasurySymbol( ):
             v = (self.__bfy, self.__efy, self.__treasuryaccountcode)
             dbcfg = DbConfig( source, provider )
             sqlcfg = SqlConfig( names = n, values = v )
-            cnx = Connection( dbcfg )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dbcfg, sqlcfg )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -23022,32 +23023,32 @@ class UnliquidatedObligation( ):
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ) -> str:
+    def processed_date( self ) -> datetime:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value: str ):
+    def processed_date( self, value: datetime ):
         if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ) -> str:
+    def last_activity_date( self ) -> datetime:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value: str ):
+    def last_activity_date( self, value: datetime ):
         if value is not None:
             self.__lastactivitydate = value
 
     @property
-    def age( self ) -> str:
+    def age( self ) -> float:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value: str ):
+    def age( self, value: float ):
         if value is not None:
             self.__age = value
 
