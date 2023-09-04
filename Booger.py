@@ -43,7 +43,6 @@
   '''
 from PIL import Image, ImageTk, ImageSequence 
 import PySimpleGUI as sg
-import fitz
 from enum import Enum
 import os
 from sys import exit, exc_info

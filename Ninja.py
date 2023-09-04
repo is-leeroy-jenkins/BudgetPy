@@ -4766,13 +4766,13 @@ class BudgetFiscalYear( ):
             self.__data = value
 
     @property
-    def table( self ) -> DateFrame:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
-        if isinstance( frame, DataFrame ):
+    def table( self, frame: DataFrame ):
+        if frame is not None:
             self.__frame = frame
 
     @property
