@@ -6247,32 +6247,32 @@ class Commitment( ):
             self.__referencedocumentnumber = value
 
     @property
-    def processed_date( self ) -> str:
+    def processed_date( self ) -> datetime:
         if self.__processeddate is not None:
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value: str ):
+    def processed_date( self, value: datetime ):
         if isinstance( value, datetime ):
             self.__processeddate = value
 
     @property
-    def last_activity_date( self ) -> str:
+    def last_activity_date( self ) -> datetime:
         if self.__lastactivitydate is not None:
             return self.__lastactivitydate
 
     @last_activity_date.setter
-    def last_activity_date( self, value: str ):
+    def last_activity_date( self, value: datetime ):
         if isinstance( value, datetime ):
             self.__lastactivitydate = value
 
     @property
-    def age( self ) -> str:
+    def age( self ) -> float:
         if self.__age is not None:
             return self.__age
 
     @age.setter
-    def age( self, value: str ):
+    def age( self, value: float ):
         if value is not None:
             self.__age = value
 
@@ -7169,7 +7169,7 @@ class Defacto( ):
 
     @property
     def expenditures( self ) -> float:
-        if isinstance( self.__expenditures, float ):
+        if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
@@ -8673,12 +8673,12 @@ class FinanceObjectClass( ):
             self.__data = cache
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DataFrame:
         if self.__frame is not None:
             return self.__frame
 
     @table.setter
-    def table( self, frame ):
+    def table( self, frame: DataFram ):
         if isinstance( frame, DataFrame ):
             self.__frame = frame
 
@@ -8692,7 +8692,7 @@ class FinanceObjectClass( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.FinanceObjectClasses
         self.__code = code
@@ -9000,12 +9000,12 @@ class Fund( ):
             self.__batsfund = value
 
     @property
-    def bats_end_date( self ) -> str:
+    def bats_end_date( self ) -> datetime:
         if self.__batsenddate is not None:
             return self.__batsenddate
 
     @bats_end_date.setter
-    def bats_end_date( self, value: str ):
+    def bats_end_date( self, value: datetime ):
         if isinstance( value, datetime ):
             self.__batsenddate = value
 
@@ -9080,12 +9080,12 @@ class Fund( ):
             self.__apportionmentaccountcode = value
 
     @property
-    def data( self ) -> str:
+    def data( self ) -> list:
         if self.__data is not None:
             return self.__data
 
     @data.setter
-    def data( self, value: str ):
+    def data( self, value: list ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -9208,7 +9208,7 @@ class FederalHoliday( ):
     __veterans = None
     __thanksgiving = None
     __christmas = None
-    __list = None
+    __holidays = None
     __today = None
     __date = None
     __dayofweek = None
@@ -9256,38 +9256,38 @@ class FederalHoliday( ):
 
     @name.setter
     def name( self, value: str ):
-        if value in self.__list:
+        if value in self.__holidays:
             self.__name = value
 
     @property
-    def date( self ) -> str:
+    def date( self ) -> datetime:
         if self.__date is not None:
             return self.__date
 
     @property
-    def day( self ) -> str:
+    def day( self ) -> int:
         if self.__day is not None:
             return self.__day
 
     @property
-    def month( self ) -> str:
+    def month( self ) -> int:
         if self.__month is not None:
             return self.__month
 
     @property
-    def data( self ) -> list:
+    def data( self ) -> list[ str ]:
         if self.__data is not None:
             return self.__data
 
     @data.setter
     def data( self, value: list ):
-        if isinstance( value, list ):
+        if value is not None:
             self.__data = value
 
     @property
-    def list( self ) -> str:
-        if self.__list is not None:
-            return self.__list
+    def holidays( self ) -> list[ str ]:
+        if self.__holidays is not None:
+            return self.__holidays
 
     @property
     def table( self ) -> str:
@@ -9318,7 +9318,7 @@ class FederalHoliday( ):
                   provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.FederalHolidays
-        self.__list = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
+        self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                         'NewYearsDay', 'MartinLutherKing', 'Washingtons',
                         'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
         self.__observance = { 'Columbus': 'The second Monday in October',
@@ -9402,7 +9402,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def columbus_day( self ) -> str:
+    def get_columbus_day( self ) -> datetime:
         '''The second Monday in October'''
         try:
             if self.__year is not None:
@@ -9422,7 +9422,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def veterans_day( self ) -> str:
+    def get_veterans_day( self ) -> datetime:
         '''Veterans Day, November 11'''
         try:
             if self.__year is not None:
@@ -9432,11 +9432,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'veterans_day( self )'
+            exc.method = 'get_veterans_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def thanksgiving_day( self ) -> str:
+    def get_thanksgiving_day( self ) -> datetime:
         '''The fourth Thursday in November'''
         try:
             if self.__year is not None:
@@ -9452,11 +9452,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'thanksgiving_day( self )'
+            exc.method = 'get_thanksgiving_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def christmas_day( self ) -> str:
+    def get_christmas_day( self ) -> datetime:
         '''Christmas Day, December 25'''
         try:
             if self.__year is not None:
@@ -9466,11 +9466,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'christmas_day( self )'
+            exc.method = 'get_christmas_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def new_years_day( self ) -> str:
+    def get_newyears_day( self ) -> datetime:
         '''January 1'''
         try:
             if self.__year is not None:
@@ -9480,11 +9480,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'new_years_day( self )'
+            exc.method = 'get_newyears_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def martinlutherkings_day( self ) -> str:
+    def get_martinlutherking_day( self ) -> datetime:
         '''The third Monday in January'''
         try:
             if self.__year is not None:
@@ -9500,11 +9500,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'martinlutherkings_day( self )'
+            exc.method = 'get_martinlutherking_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def washingtons_day( self ) -> str:
+    def get_presidents_day( self ) -> datetime:
         '''The third Monday in February'''
         try:
             if self.__year is not None:
@@ -9520,11 +9520,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'washingtons_day( self )'
+            exc.method = 'get_presidents_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def memorial_day( self ) -> str:
+    def get_memorial_day( self ) -> datetime:
         '''The last Monday in May'''
         try:
             if self.__year is not None:
@@ -9540,11 +9540,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'memorial_day( self )'
+            exc.method = 'get_memorial_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def juneteenth_day( self ) -> str:
+    def get_juneteenth_day( self ) -> datetime:
         '''Juneteenth National Independence Day, June 19'''
         try:
             if self.__year is not None:
@@ -9554,11 +9554,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'juneteenth_day( self )'
+            exc.method = 'get_juneteenth_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def independence_day( self ) -> str:
+    def get_independence_day( self ) -> datetime:
         '''Independence Day, July 4'''
         try:
             if self.__year is not None:
@@ -9568,11 +9568,11 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'independence_day( self )'
+            exc.method = 'get_independence_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
-    def labor_day( self ) -> str:
+    def get_labor_day( self ) -> datetime:
         '''The first Monday in September'''
         try:
             if self.__year is not None:
@@ -9590,7 +9590,7 @@ class FederalHoliday( ):
             exc = Error( e )
             exc.module = 'Execution'
             exc.cause = 'FederalHoliday'
-            exc.method = 'labor_day( self )'
+            exc.method = 'get_labor_day( self )'
             err = ErrorDialog( exc )
             err.show( )
 
@@ -9625,7 +9625,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_weekday( self ) -> str:
+    def is_weekday( self ) -> bool:
         try:
             if 1 <= self.__date.isoweekday() <= 5:
                 return True
@@ -9639,7 +9639,7 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def is_weekend( self ) -> str:
+    def is_weekend( self ) -> bool:
         try:
             if 5 < self.__date.isoweekday() <= 7:
                 return True
@@ -9653,38 +9653,38 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def set_date( self, name ):
+    def set_date( self, name: str ):
         try:
-            if isinstance( name, str ) and name in self.__list:
+            if isinstance( name, str ) and name in self.__holidays:
                 if name == 'Columbus':
-                    self.__date = self.columbus_day( )
+                    self.__date = self.get_columbus_day( )
                     return self.__date
                 elif name == 'Veterans':
-                    self.__date = self.veterans_day( )
+                    self.__date = self.get_veterans_day( )
                     return self.__date
                 elif name == 'Thanksgiving':
-                    self.__date = self.thanksgiving_day( )
+                    self.__date = self.get_thanksgiving_day( )
                     return self.__date
                 elif name == 'Christmas':
-                    self.__date = self.christmas_day( )
+                    self.__date = self.get_christmas_day( )
                     return self.__date
                 elif name == 'NewYearsDay':
-                    self.__date = self.new_years_day( )
+                    self.__date = self.get_newyears_day( )
                     return self.__date
                 elif name == 'MartinLutherKing':
-                    self.__date = self.martinlutherkings_day( )
+                    self.__date = self.get_martinlutherking_day( )
                     return self.__date
                 elif name == 'Washingtons':
-                    self.__date = self.washingtons_day( )
+                    self.__date = self.get_presidents_day( )
                     return self.__date
                 elif name == 'Memorial':
-                    self.__date = self.memorial_day( )
+                    self.__date = self.get_memorial_day( )
                     return self.__date
                 elif name == 'Juneteenth':
-                    self.__date = self.juneteenth_day( )
+                    self.__date = self.get_juneteenth_day( )
                     return self.__date
                 elif name == 'Labor':
-                    self.__date = self.labor_day( )
+                    self.__date = self.get_labor_day( )
                     return self.__date
         except Exception as e:
             exc = Error( e )
@@ -9694,9 +9694,9 @@ class FederalHoliday( ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def set_name( self, name ):
+    def set_name( self, name: str ):
         try:
-            if isinstance( name, str ) and name in self.__list:
+            if isinstance( name, str ) and name in self.__holidays:
                 self.__name = name
                 return self.__name
             else:
@@ -9712,7 +9712,11 @@ class FederalHoliday( ):
 
 # FullTimeEquivalent( bfy, fund, provider = Provider.SQLite )
 class FullTimeEquivalent( ):
-    '''object representing Operating Plan FTE'''
+    '''
+    Constructor: FullTimeEquivalent( bfy: str, fund: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Object representing Operating Plan FTE
+    '''
     __source = None
     __provider = None
     __fulltimeequivalentsid = None
