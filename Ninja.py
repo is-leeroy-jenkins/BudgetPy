@@ -18710,7 +18710,7 @@ class StatusOfAppropriations( ):
         self.__source = Source.StatusOfAppropriations
         self.__bfy = bfy
         self.__efy = efy
-        self.__appropriationfundcode = fund i
+        self.__appropriationfundcode = fund
         self.__fields =[ 'StatusOfAppropriationsId',
                            'BFY',
                            'EFY',
