@@ -138,7 +138,6 @@ class Account( ):
     __data = None
     __frame = None
 
-
     @property
     def id( self ) -> int:
         if self.__accountsid is not None:
@@ -424,7 +423,7 @@ class ActivityCode( ):
             v = ( self.__code, )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -549,7 +548,7 @@ class AllowanceHolder( ):
             v = ( self.__code, )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -826,7 +825,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
             v = (self.__bfy, self.__efy)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -1102,7 +1101,7 @@ class AnnualCarryoverEstimate( ):
             v = (self.__bfy, self.__efy)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -1316,7 +1315,7 @@ class AnnualReimbursableEstimate( ):
             v = (self.__bfy, self.__efy)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -1431,7 +1430,7 @@ class Appropriation( ):
             v = ( self.__code )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -1700,7 +1699,7 @@ class AppropriationAvailableBalance( ):
             v = (self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -1930,7 +1929,7 @@ class AppropriationLevelAuthority( ):
             v = ( self.__code )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -2320,7 +2319,7 @@ class Allocation( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -2497,7 +2496,7 @@ class ApportionmentData( ):
             self.__subline = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -2552,7 +2551,7 @@ class ApportionmentData( ):
             v = (self.__bfy, self.__efy, self.__budgetaccountcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -3014,7 +3013,7 @@ class Actual( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -3494,7 +3493,7 @@ class AppropriationDocument( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -4029,7 +4028,7 @@ class BudgetDocument( ):
             v = (self.__bfy, self.__efy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -4531,7 +4530,7 @@ class BudgetControl( ):
             v = (self.__bfy, self.__efy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -4566,7 +4565,8 @@ class BudgetControl( ):
 
 # BudgetFiscalYear( bfy, efy, date = None, provider = Provider.SQLite )
 class BudgetFiscalYear( ):
-    '''Class to describe the federal fiscal year'''
+    '''BudgetFiscalYear( bfy, efy, date = None, provider = Provider.SQLite ).
+    Class to describe the federal fiscal year'''
     __source = None
     __provider = None
     __budgetfiscalyearsid = None
@@ -4619,32 +4619,32 @@ class BudgetFiscalYear( ):
             self.__efy = value
 
     @property
-    def current_year( self ) -> str:
+    def current_year( self ) -> int:
         if self.__currentyear is not None:
             return self.__currentyear
 
     @current_year.setter
-    def current_year( self, value: str ):
+    def current_year( self, value: int ):
         if value is not None:
             self.__currentyear = value
 
     @property
-    def start_date( self ) -> str:
+    def start_date( self ) -> datetime:
         if self.__startdate is not None:
             return self.__startdate
 
     @start_date.setter
-    def start_date( self, value: str ):
+    def start_date( self, value: datetime ):
         if value is not None:
             self.__startdate = value
 
     @property
-    def end_date( self ) -> str:
+    def end_date( self ) -> datetime:
         if self.__enddate is not None:
             return self.__enddate
 
     @end_date.setter
-    def end_date( self, value: str ):
+    def end_date( self, value: datetime ):
         if value is not None:
             self.__enddate = value
 
@@ -4679,42 +4679,42 @@ class BudgetFiscalYear( ):
             self.__workdays = value
 
     @property
-    def today( self ) -> str:
+    def today( self ) -> datetime:
         if self.__today is not None:
             return self.__today
 
     @today.setter
-    def today( self, value: str ):
+    def today( self, value: datetime ):
         if value is not None:
             self.__today = value
 
     @property
-    def date( self ) -> str:
+    def date( self ) -> datetime:
         if self.__date is not None:
             return self.__date
 
     @date.setter
-    def date( self, value: str ):
+    def date( self, value: datetime ):
         if value is not None:
             self.__date = value
 
     @property
-    def current_day( self ) -> str:
+    def current_day( self ) -> int:
         if self.__currentday is not None:
             return self.__currentday
 
     @current_day.setter
-    def current_day( self, value: str ):
+    def current_day( self, value: int ):
         if value is not None:
             self.__currentday = value
 
     @property
-    def current_month( self ) -> str:
+    def current_month( self ) -> int:
         if self.__currentmonth is not None:
             return self.__currentmonth
 
     @property
-    def holidays( self ) -> str:
+    def holidays( self ) -> list[ str ]:
         if self.__holidays is not None:
             return self.__holidays
 
@@ -4729,7 +4729,7 @@ class BudgetFiscalYear( ):
             self.__data = value
 
     @property
-    def table( self ) -> str:
+    def table( self ) -> DateFrame:
         if self.__frame is not None:
             return self.__frame
 
@@ -4748,7 +4748,8 @@ class BudgetFiscalYear( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, date = None, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str,
+                  dt: datetime = None, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source  = Source.FiscalYears
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -4756,10 +4757,10 @@ class BudgetFiscalYear( ):
         self.__today = datetime.today( )
         self.__currentday = datetime.today( ).day
         self.__currentmonth = datetime.today( ).month
-        self.__date = date if isinstance( date, datetime ) else datetime.today( )
+        self.__date = dt if isinstance( dt, datetime ) else datetime.today( )
         self.__currentyear = datetime.today( ).year
-        self.__startdate = datetime( datetime.today( ).year, 10, 1 ) if isinstance( self.__currentyear, int ) else None
-        self.__enddate = datetime( datetime.today( ).year + 1, 9, 30 ) if isinstance( self.__currentyear, int ) else None
+        self.__startdate = datetime( datetime.today( ).year, 10, 1 )
+        self.__enddate = datetime( datetime.today( ).year + 1, 9, 30 )
         self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
                             'NewYearsDay', 'MartinLutherKing', 'Washingtons',
                             'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
@@ -4799,7 +4800,7 @@ class BudgetFiscalYear( ):
             v = (self.__bfy, self.__efy)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -4834,7 +4835,8 @@ class BudgetFiscalYear( ):
 
 # BudgetObjectClass( code, provider = Provider.SQLite  )
 class BudgetObjectClass( ):
-    '''Defines the BudgetObjectClass Class'''
+    '''BudgetObjectClass( code, provider = Provider.SQLite  ).
+    Defines the BudgetObjectClass Class'''
     __source = None
     __provider = None
     __budgetobjectclassesid = None
@@ -4882,7 +4884,7 @@ class BudgetObjectClass( ):
             return self.__value
 
     @value.setter
-    def value( self, val ):
+    def value( self, val: str ):
         if val is not None:
             self.__value = val
 
@@ -4916,7 +4918,7 @@ class BudgetObjectClass( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.BudgetObjectClasses
         self.__code = code 
@@ -4925,7 +4927,7 @@ class BudgetObjectClass( ):
                           'Name' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__code, str ) and self.__code != '':
+        if self.__code is not None:
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
@@ -4936,7 +4938,7 @@ class BudgetObjectClass( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -5114,7 +5116,7 @@ class BudgetaryResourceExecution( ):
             v = (self.__bfy, self.__efy, self.__budgetaccountcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -5446,7 +5448,7 @@ class BudgetOutlay( ):
             v = (self.__budgetaccountcode,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -5695,7 +5697,7 @@ class CongressionalControl( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -5919,7 +5921,7 @@ class CompassLevel( ):
             v = (self.__bfy, self.__efy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -6271,7 +6273,7 @@ class Commitment( ):
             self.__focname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -6447,7 +6449,7 @@ class Commitment( ):
             v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -6789,7 +6791,7 @@ class CarryoverOutlay( ):
             v = (self.__budgetyear, self.__budgetaccountcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -6923,7 +6925,7 @@ class CarryoverSurvey( ):
             self.__fundname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if isinstance( self.__amount, float):
             return self.__amount
 
@@ -6961,7 +6963,7 @@ class CarryoverSurvey( ):
             v = (self.__bfy, self.__efy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -7087,7 +7089,7 @@ class CapitalPlanningInvestmentCodes( ):
             v = ( self.__code, )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -7298,7 +7300,7 @@ class DataRuleDescription( ):
             v = (self.__schedule, self.__linenumber, self.__rulenumber)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -7537,7 +7539,7 @@ class Defacto( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -7784,7 +7786,7 @@ class Defacto( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -8137,7 +8139,7 @@ class Deobligation( ):
             self.__focname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -8299,7 +8301,7 @@ class Deobligation( ):
             v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -8448,7 +8450,7 @@ class DocumentControlNumber( ):
             v = (self.__dcn,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -8821,7 +8823,7 @@ class Expenditure( ):
             self.__focname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -8994,7 +8996,7 @@ class Expenditure( ):
             v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -9143,7 +9145,7 @@ class FinanceObjectClass( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -9584,7 +9586,7 @@ class Fund( ):
             v = (self.__bfy, self.__efy, self.__code)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -9798,7 +9800,7 @@ class FederalHoliday( ):
             v = (self.__bfy, self.__efy, self.__name,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -10337,7 +10339,7 @@ class FullTimeEquivalent( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -10478,7 +10480,7 @@ class FullTimeEquivalent( ):
             v = (self.__bfy, self.__fundcode,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -10725,7 +10727,7 @@ class Goal( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -10934,7 +10936,7 @@ class GrowthRate( ):
             v = (self.__bfy, self.__rateid)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -11165,7 +11167,7 @@ class HeadquartersAuthority( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -11325,7 +11327,7 @@ class HeadquartersAuthority( ):
             v = (self.__bfy, self.__rpiocode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -11452,7 +11454,7 @@ class HeadquartersOffice( ):
             v = (self.__rpiocode,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -11575,7 +11577,7 @@ class HumanResourceOrganization( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -11704,7 +11706,7 @@ class InflationReductionActCarryoverEstimate( ):
             self.__fundname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -11854,7 +11856,7 @@ class InflationReductionActCarryoverEstimate( ):
             v = (self.__bfy, self.__efy)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -11983,7 +11985,7 @@ class JobsActCarryoverEstimate( ):
             self.__fundname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -12131,7 +12133,7 @@ class JobsActCarryoverEstimate( ):
             v = (self.__bfy, self.__efy)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -12485,7 +12487,7 @@ class MonthlyActual( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -12712,7 +12714,7 @@ class MonthlyOutlay( ):
             v = (self.__bfy, self.__efy, self.__budgetaccountcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -12861,7 +12863,7 @@ class NationalProgram( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -12988,7 +12990,7 @@ class Objective( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -13114,7 +13116,7 @@ class Organization( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -13329,7 +13331,7 @@ class ObjectClassOutlay( ):
             v = (self.__budgetaccountcode,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -13561,7 +13563,7 @@ class OperatingPlan( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if isinstance( self.__amount, float ):
             return self.__amount
 
@@ -13702,7 +13704,7 @@ class OperatingPlan( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source = src, provider = pdr )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -13945,7 +13947,7 @@ class OpenCommitment( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -14311,7 +14313,7 @@ class OpenCommitment( ):
             v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -14553,7 +14555,7 @@ class Obligation( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -14918,7 +14920,7 @@ class Obligation( ):
             v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -15481,7 +15483,7 @@ class PayrollActivity( ):
             self.__checkdate = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -15692,7 +15694,7 @@ class PayrollActivity( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -15816,7 +15818,7 @@ class Project( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -15941,7 +15943,7 @@ class ProgramArea( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -16090,7 +16092,7 @@ class ProgramProject( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -16462,7 +16464,7 @@ class ProgramResultsCode( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -16873,7 +16875,7 @@ class ResponsibilityCenter( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -17006,7 +17008,7 @@ class ResourcePlanningOffice( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -17132,7 +17134,7 @@ class RegionalOffice( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -17217,7 +17219,7 @@ class ReimbursableSurvey( ):
             self.__fundname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -17437,7 +17439,7 @@ class ReimbursableAgreement( ):
             self.__vendorname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if isinstance( self.__amount, float ):
             return self.__amount
 
@@ -17533,7 +17535,7 @@ class ReimbursableAgreement( ):
             v = (self.__bfy,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -17764,7 +17766,7 @@ class RegionalAuthority( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -18004,7 +18006,7 @@ class RegionalAuthority( ):
             v = (self.__bfy, self.__rpiocode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -18242,7 +18244,7 @@ class StatusOfFunds( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -18486,7 +18488,7 @@ class StatusOfFunds( ):
             provider = self.__provider
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -18725,7 +18727,7 @@ class StatusOfSupplementalFunding( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -18973,7 +18975,7 @@ class StatusOfSupplementalFunding( ):
             v = (self.__bfy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -19215,7 +19217,7 @@ class StateGrantObligation( ):
             self.__statename = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if isinstance( self.__amount, float ):
             return self.__amount
 
@@ -19267,7 +19269,7 @@ class StateGrantObligation( ):
             v = (self.__rpiocode, self.__rpiocode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -19608,7 +19610,7 @@ class SpecialAccount( ):
             v = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -19794,7 +19796,7 @@ class SuperfundSite( ):
             v = (self.__bfy, self.__rpiocode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -19933,7 +19935,7 @@ class SubAppropriation( ):
             v = ( self.__code )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -20055,7 +20057,7 @@ class SiteProjectCode( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -20175,7 +20177,7 @@ class StateOrganization( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -20553,7 +20555,7 @@ class StatusOfAppropriations( ):
             self.__recoveriesspendingoption = value
 
     @property
-    def original_budgeted_amount( self ) -> str:
+    def original_budgeted_amount( self ) -> float:
         if self.__originalbudgetedamount is not None:
             return self.__originalbudgetedamount
 
@@ -20593,7 +20595,7 @@ class StatusOfAppropriations( ):
             self.__totalbudgeted = value
 
     @property
-    def total_posted_amount( self ) -> str:
+    def total_posted_amount( self ) -> float:
         if self.__totalpostedamount is not None:
             return self.__totalpostedamount
 
@@ -20613,7 +20615,7 @@ class StatusOfAppropriations( ):
             self.__fundswithdrawnprioryearamounts = value
 
     @property
-    def funding_in_amount( self ) -> str:
+    def funding_in_amount( self ) -> float:
         if self.__fundinginamount is not None:
             return self.__fundinginamount
 
@@ -20623,7 +20625,7 @@ class StatusOfAppropriations( ):
             self.__fundinginamount = value
 
     @property
-    def funding_out_amount( self ) -> str:
+    def funding_out_amount( self ) -> float:
         if self.__fundingoutamount is not None:
             return self.__fundingoutamount
 
@@ -20773,7 +20775,7 @@ class StatusOfAppropriations( ):
             self.__unliquidatedobligations = value
 
     @property
-    def voided_amount( self ) -> str:
+    def voided_amount( self ) -> float:
         if self.__voidedamount is not None:
             return self.__voidedamount
 
@@ -20783,7 +20785,7 @@ class StatusOfAppropriations( ):
             self.__voidedamount = value
 
     @property
-    def total_used_amount( self ) -> str:
+    def total_used_amount( self ) -> float:
         if self.__totalusedamount is not None:
             return self.__totalusedamount
 
@@ -20793,7 +20795,7 @@ class StatusOfAppropriations( ):
             self.__totalusedamount = value
 
     @property
-    def available_amount( self ) -> str:
+    def available_amount( self ) -> float:
         if self.__availableamount is not None:
             return self.__availableamount
 
@@ -20883,7 +20885,7 @@ class StatusOfAppropriations( ):
             v = (self.__bfy, self.__efy, self.__appropriationfundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -21518,7 +21520,7 @@ class StatusOfSupplementalFunds( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -21963,7 +21965,7 @@ class StatusOfJobsActFunding( ):
             self.__rcname = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -23136,7 +23138,7 @@ class SiteActivity( ):
             v = (self.__bfy, self.__rpiocode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -23745,7 +23747,7 @@ class SpendingDocument( ):
             v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -24022,7 +24024,7 @@ class SupplementalCarryoverEstimate( ):
             v = (self.__bfy, self.__efy)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -24570,7 +24572,7 @@ class Transfer( ):
             v = (self.__documentnumber,)
             dconfig = DbConfig( source = src, provider = pdr )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -24857,7 +24859,7 @@ class UnobligatedAuthority( ):
             v = (self.__budgetaccountcode,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -24990,7 +24992,7 @@ class UnobligatedBalance( ):
             self.__treasuryaccount = value
 
     @property
-    def amount( self ) -> str:
+    def amount( self ) -> float:
         if self.__amount is not None:
             return self.__amount
 
@@ -25034,7 +25036,7 @@ class UnobligatedBalance( ):
             v = (self.__bfy, self.__efy, self.__fundcode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -25562,7 +25564,7 @@ class UnliquidatedObligation( ):
             v = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )
@@ -25686,7 +25688,7 @@ class WorkCode( ):
             v = (self.__code,)
             dconfig = DbConfig( source, provider )
             sconfig = SqlConfig( names = n, values = v )
-            cnx = Connection( dconfig )
+            cnx = Connection( self.__source )
             sql = SqlStatement( dconfig, sconfig )
             sqlite = cnx.connect( )
             cursor = sqlite.cursor( )

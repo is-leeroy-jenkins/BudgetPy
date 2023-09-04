@@ -10,7 +10,8 @@ from Booger import Error, ErrorDialog
 
 # Pascal( input )
 class Pascal( ):
-    ''' Splits 'input' argument into Pascal Casing'''
+    '''Pascal( input ).
+    Splits 'input' argument into Pascal Casing'''
     __input = None
     __output = None
 
@@ -70,13 +71,13 @@ class Pascal( ):
                 if len( outstr ) < 5:
                     rtnstr = outstr.replace( ' ', '' )
                 else:
-                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' )\
-                        .replace( 'Rpio', 'RPIO' ).replace('Rc', 'RC' )\
-                        .replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' )\
-                        .replace( 'Omb', 'OMB' ).replace('Npm', 'NPM' )\
-                        .replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' )\
-                        .replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' )\
-                        .replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' )\
+                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ) \
+                        .replace( 'Rpio', 'RPIO' ).replace( 'Rc', 'RC' ) \
+                        .replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ) \
+                        .replace( 'Omb', 'OMB' ).replace( 'Npm', 'NPM' ) \
+                        .replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ) \
+                        .replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' ) \
+                        .replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' ) \
                         .replace( ' OF ', ' Of ' )
 
                 self.__output = rtnstr
@@ -104,13 +105,13 @@ class Pascal( ):
                 for o in outlist:
                     outstr += f'{o}'
 
-                self.__output = outstr.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' )\
-                    .replace( 'RPIO', 'Rpio' ).replace('RC', 'Rc' )\
-                    .replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' )\
-                    .replace( 'OMB', 'Omb' ).replace( 'NPM','Npm' )\
-                    .replace('FOC', 'Foc' ).replace( 'ORG', 'Org' )\
-                    .replace( 'THE', 'The' ).replace( 'OR', 'Or' )\
-                    .replace( 'AND','And' ).replace( 'BUT', 'But' )\
+                self.__output = outstr.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ) \
+                    .replace( 'RPIO', 'Rpio' ).replace( 'RC', 'Rc' ) \
+                    .replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ) \
+                    .replace( 'OMB', 'Omb' ).replace( 'NPM', 'Npm' ) \
+                    .replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
+                    .replace( 'THE', 'The' ).replace( 'OR', 'Or' ) \
+                    .replace( 'AND', 'And' ).replace( 'BUT', 'But' ) \
                     .replace( 'OF', 'Of' )
 
                 return self.__output
@@ -720,7 +721,7 @@ class DbConfig( ):
             elif self.__provider.name == Provider.SqlServer.name:
                 return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' \
                     + f'AttachDBFileName={path}' \
-                       + f'DATABASE={path}Trusted_Connection=yes;'
+                    + f'DATABASE={path}Trusted_Connection=yes;'
             else:
                 return f'{path} '
         except Exception as e:
@@ -1294,41 +1295,41 @@ class Query( ):
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__commandtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM { table }'
+                        self.__text = f'SELECT * FROM {table}'
                         return self.__text
                     if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f'FROM { table }' + f' { predicate }'
+                        self.__text = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
                         return self.__text
                 elif self.__commandtype == SQL.SELECT:
                     if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM { table }'
+                        self.__text = f'SELECT * FROM {table}'
                         return self.__text
                     if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f' FROM { table }' + f' { predicate }'
+                        self.__text = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
                         return self.__text
                 elif self.__commandtype == SQL.INSERT:
-                    self.__text = f'INSERT INTO {table} ' + f'{ columns } ' + f'{ values }'
+                    self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
                     return self.__text
                 elif self.__commandtype == SQL.UPDATE:
                     self.__text = f'UPDATE {table} ' \
-                                  + f'{ self.__sqlconfiguration.dump_set( ) } ' + f'{ values }'
+                                  + f'{self.__sqlconfiguration.dump_set( )} ' + f'{values}'
                     return self.__text
                 elif self.__commandtype == SQL.DELETE:
-                    self.__text = f'DELETE FROM { table } ' + f'{ predicate }'
+                    self.__text = f'DELETE FROM {table} ' + f'{predicate}'
                     return self.__text
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECT:
                         cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__text = f'SELECT { cols } FROM { table }'
+                        self.__text = f'SELECT {cols} FROM {table}'
                         return self.__text
                 elif not isinstance( self.__names, list ) \
                         and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
-                        self.__text = f'SELECT * FROM { table }'
+                        self.__text = f'SELECT * FROM {table}'
                         return self.__text
                 elif self.__commandtype == 'DELETE':
-                    self.__text = f'DELETE FROM { table }'
+                    self.__text = f'DELETE FROM {table}'
                     return self.__text
         except Exception as e:
             exc = Error( e )
@@ -1626,7 +1627,7 @@ class SqlData( Query ):
 
     def create_frame( self ) -> DataFrame:
         try:
-            query = f'SELECT * FROM { self.__table }'
+            query = f'SELECT * FROM {self.__table}'
             connection = self.__connection.connect( )
             self.__frame = sqlreader( query, connection )
             connection.close( )
@@ -1831,7 +1832,7 @@ class DataColumn( ):
             return self.__type
 
     @type.setter
-    def type( self, value: type):
+    def type( self, value: type ):
         if value is not None:
             self.__type = value
 

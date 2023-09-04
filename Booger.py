@@ -1,6 +1,6 @@
 from PIL import Image, ImageTk, ImageSequence, ImageGrab
 import PySimpleGUI as sg
-#import fitz
+# import fitz
 from enum import Enum
 import sys
 import traceback
@@ -28,7 +28,8 @@ from Static import EXT, Client, PNG
 
 # Error( heading = '' )
 class Error( Exception ):
-    '''Class wrapping exception data used as
+    '''Error( heading = '' ).
+    Class wrapping exception data used as
     the input argument for ErrorDialog class'''
     __class = None
     __module = None
@@ -39,91 +40,91 @@ class Error( Exception ):
     __info = None
 
     @property
-    def message( self ):
+    def message( self ) -> str:
         '''Gets the general heading for the dialog'''
         if self.__heading is not None:
             return self.__heading
 
     @message.setter
-    def message( self, value ):
+    def message( self, value: str ):
         '''Sets the general heading for the dialog'''
         if value is not None:
             self.__heading = value
 
     @property
-    def cause( self ):
+    def cause( self ) -> str:
         '''Gets string indicating the class generating the exception'''
         if self.__class is not None:
             return self.__class
 
     @cause.setter
-    def cause( self, value ):
+    def cause( self, value: str ):
         '''Sets the string indicating the class generating the exception'''
         if value is not None:
             self.__class = value
 
     @property
-    def method( self ):
+    def method( self ) -> str:
         '''Gets a string representing the method generating the exception'''
         if self.__method is not None:
             return self.__method
 
     @method.setter
-    def method( self, value ):
+    def method( self, value: str ):
         '''Sets a string representing method generating the exception'''
         if value is not None:
             self.__method = value
 
     @property
-    def module( self ):
+    def module( self ) -> str:
         '''Gets a string representing module generating the exception'''
         if self.__module is not None:
             return self.__module
 
     @module.setter
-    def module( self, value ):
+    def module( self, value: str ):
         '''Sets a string representing the module generating the exception'''
         if value is not None:
             self.__module = value
 
     @property
-    def type( self ):
+    def type( self ) -> str:
         '''sets the object type generating the exception'''
         if self.__type is not None:
             return self.__type
 
     @type.setter
-    def type( self, value ):
+    def type( self, value: str ):
         '''sets the object type generating the exception'''
         if value is not None:
             self.__type = value
 
     @property
-    def stack_trace( self ):
+    def stack_trace( self ) -> str:
         '''Gets string returned by the 'traceback.format_exc( ) method '''
         if self.__trace is not None:
             return self.__trace
 
     @stack_trace.setter
-    def stack_trace( self, value ):
+    def stack_trace( self, value: str ):
         '''Sets string returned by the 'traceback.format_exc( ) method '''
         if value is not None:
             self.__trace = value
 
     @property
-    def info( self ):
+    def info( self ) -> str:
         '''Gets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
         if self.__class is not None:
             return self.__class
 
     @info.setter
-    def info( self, value ):
+    def info( self, value: str ):
         '''Sets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
         if value is not None:
             self.__class = value
 
-    def __init__( self, exception, heading = '', cause = '',
-                  method = '', module = '' ):
+    def __init__( self, exception: Exception, heading: str = '', cause: str = '',
+                  method: str = '', module: str = '' ):
         super( ).__init__( )
         self.__heading = heading
         self.__class = cause
@@ -133,7 +134,7 @@ class Error( Exception ):
         self.__trace = traceback.format_exc( )
         self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + traceback.format_exc( )
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if self.__info is not None:
             return self.__info
 
@@ -145,33 +146,33 @@ class ButtonIcon( ):
     __filepath = None
 
     @property
-    def folder( self ):
+    def folder( self ) -> str:
         if self.__button is not None:
             return self.__button
 
     @folder.setter
-    def folder( self, value ):
+    def folder( self, value: str ):
         if value is not None:
             self.__button = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
     @property
-    def file_path( self ):
+    def file_path( self ) -> str:
         if self.__filepath is not None:
             return self.__filepath
 
     @file_path.setter
-    def file_path( self, value ):
-        if value  is not None:
+    def file_path( self, value: str ):
+        if value is not None:
             self.__filepath = value
 
     def __init__( self, png: Enum ):
@@ -191,33 +192,33 @@ class TitleIcon( ):
     __filepath = None
 
     @property
-    def folder( self ):
+    def folder( self ) -> str:
         if self.__button is not None:
             return self.__button
 
     @folder.setter
-    def folder( self, value ):
-        if value  is not None:
+    def folder( self, value: str ):
+        if value is not None:
             self.__button = value
 
     @property
-    def name( self ):
+    def name( self ) -> str:
         if self.__name is not None:
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if isinstance( value, str ):
             self.__name = value
 
     @property
-    def file_path( self ):
+    def file_path( self ) -> str:
         if self.__filepath is not None:
             return self.__filepath
 
     @file_path.setter
-    def file_path( self, value ):
-        if value  is not None:
+    def file_path( self, value: str ):
+        if value is not None:
             self.__filepath = value
 
     def __init__( self, ico ):
@@ -225,7 +226,7 @@ class TitleIcon( ):
         self.__folder = os.getcwd( ) + r'etc\ico'
         self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__filepath, str ):
             return self.__filepath
 
@@ -243,62 +244,62 @@ class ColorFormat( ):
     __output = None
 
     @property
-    def red( self ):
+    def red( self ) -> str:
         '''Property returning color tuple ( r, g, b ) '''
         if self.__red is not None:
             return self.__red
 
     @red.setter
-    def red( self, value ):
-        if value  is not None:
+    def red( self, value: str ):
+        if value is not None:
             self.__red = value
 
     @property
-    def green( self ):
+    def green( self ) -> str:
         '''Property returning color tuple ( r, g, b ) '''
         if self.__green is not None:
             return self.__green
 
     @green.setter
-    def green( self, value ):
-        if value  is not None:
+    def green( self, value: str ):
+        if value is not None:
             self.__green = value
 
     @property
-    def blue( self ):
+    def blue( self ) -> str:
         '''Property returning color tuple ( r, g, b ) '''
         if self.__blue is not None:
             return self.__blue
 
     @blue.setter
-    def blue( self, value ):
-        if value  is not None:
+    def blue( self, value: str ):
+        if value is not None:
             self.__blue = value
 
     @property
-    def rgb( self ):
+    def rgb( self ) -> str:
         '''Property returning color tuple ( r, g, b ) '''
         if self.__rgb is not None:
             return self.__rgb
 
     @rgb.setter
-    def rgb( self, value ):
+    def rgb( self, value: str ):
         if value is not None:
             self.__rgb = value
 
     @property
-    def hex( self ):
+    def hex( self ) -> str:
         '''Property returning color string '#rrggbb '''
         if self.__hex is not None:
             return self.__hex
 
     @hex.setter
-    def hex( self, value ):
+    def hex( self, value: str ):
         '''Property sets hex value of a color to a string '#rrggbb' '''
         if value is not None:
             self.__hex = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         self.__rgb = None
         self.__hex = None
         self.__hsl = None
@@ -345,6 +346,7 @@ class ColorFormat( ):
         return h, s, v
 
     def hsl_to_rgb( self, h: int, s: int, l: int ) -> tuple:
+        # noinspection PyShadowingNames
         def hue_to_rgb( p, q, t ):
             t += 1 if t < 0 else 0
             t -= 1 if t > 1 else 0
@@ -410,168 +412,168 @@ class Sith( ):
             self.__formsize = value
 
     @property
-    def settings_path( self ):
+    def settings_path( self ) -> str:
         '''Gets the size proerty as a tuple'''
         if self.__settingspath is not None:
             return self.__settingspath
 
     @settings_path.setter
-    def settings_path( self, value ):
+    def settings_path( self, value: str ):
         '''Sets the size property'''
         if value is not None:
             self.__settingspath = value
 
     @property
-    def theme_background( self ):
+    def theme_background( self ) -> str:
         if self.__themebackground is not None:
             return self.__themebackground
 
     @theme_background.setter
-    def theme_background( self, value ):
+    def theme_background( self, value: str ):
         if value is not None:
             self.__themebackground = value
 
     @property
-    def theme_textcolor( self ):
+    def theme_textcolor( self ) -> str:
         if self.__themetextcolor is not None:
             return self.__themetextcolor
 
     @theme_textcolor.setter
-    def theme_textcolor( self, value ):
+    def theme_textcolor( self, value: str ):
         if value is not None:
             self.__themetextcolor = value
 
     @property
-    def element_backcolor( self ):
+    def element_backcolor( self ) -> str:
         if self.__elementbackcolor is not None:
             return self.__elementbackcolor
 
     @element_backcolor.setter
-    def element_backcolor( self, value ):
+    def element_backcolor( self, value: str ):
         if value is not None:
             self.__elementbackcolor = value
 
     @property
-    def element_forecolor( self ):
+    def element_forecolor( self ) -> str:
         if self.__elementforecolor is not None:
             return self.__elementforecolor
 
     @element_forecolor.setter
-    def element_forecolor( self, value ):
+    def element_forecolor( self, value: str ):
         if value is not None:
             self.__elementforecolor = value
 
     @property
-    def text_forecolor( self ):
+    def text_forecolor( self ) -> str:
         if self.__themetextcolor is not None:
             return self.__themetextcolor
 
     @text_forecolor.setter
-    def text_forecolor( self, value ):
+    def text_forecolor( self, value: str ):
         if value is not None:
             self.__themetextcolor = value
 
     @property
-    def text_backcolor( self ):
+    def text_backcolor( self ) -> str:
         if self.__textbackcolor is not None:
             return self.__textbackcolor
 
     @text_backcolor.setter
-    def text_backcolor( self, value ):
+    def text_backcolor( self, value: str ):
         if value is not None:
             self.__textbackcolor = value
 
     @property
-    def input_backcolor( self ):
+    def input_backcolor( self ) -> str:
         if self.__inputbackcolor is not None:
             return self.__inputbackcolor
 
     @input_backcolor.setter
-    def input_backcolor( self, value ):
-        if value  is not None:
+    def input_backcolor( self, value: str ):
+        if value is not None:
             self.__inputbackcolor = value
 
     @property
-    def input_forecolor( self ):
+    def input_forecolor( self ) -> str:
         if self.__inputforecolor is not None:
             return self.__inputforecolor
 
     @input_forecolor.setter
-    def input_forecolor( self, value ):
+    def input_forecolor( self, value: str ):
         if value is not None:
             self.__inputforecolor = value
 
     @property
-    def button_color( self ):
+    def button_color( self ) -> str:
         if self.__buttoncolor is not None:
             return self.__buttoncolor
 
     @button_color.setter
-    def button_color( self, value ):
+    def button_color( self, value: str ):
         if value is not None:
             self.__buttoncolor = value
 
     @property
-    def button_backcolor( self ):
+    def button_backcolor( self ) -> str:
         if self.__buttonbackcolor is not None:
             return self.__buttonbackcolor
 
     @button_backcolor.setter
-    def button_backcolor( self, value ):
+    def button_backcolor( self, value: str ):
         if value is not None:
             self.__buttonbackcolor = value
 
     @property
-    def button_forecolor( self ):
+    def button_forecolor( self ) -> str:
         if self.__buttonforecolor is not None:
             return self.__buttonforecolor
 
     @button_forecolor.setter
-    def button_forecolor( self, value ):
+    def button_forecolor( self, value: str ):
         if value is not None:
             self.__buttonforecolor = value
 
     @property
-    def icon_path( self ):
+    def icon_path( self ) -> str:
         if self.__icon is not None:
             return self.__icon
 
     @icon_path.setter
-    def icon_path( self, value ):
+    def icon_path( self, value: str ):
         if value is not None:
             self.__icon = value
 
     @property
-    def theme_font( self ):
+    def theme_font( self ) -> str:
         if self.__themefont is not None:
             return self.__themefont
 
     @theme_font.setter
-    def theme_font( self, value ):
+    def theme_font( self, value: str ):
         if value is not None:
             self.__themefont = value
 
     @property
-    def scrollbar_color( self ):
+    def scrollbar_color( self ) -> str:
         if self.__scrollbarcolor is not None:
             return self.__scrollbarcolor
 
     @scrollbar_color.setter
-    def scrollbar_color( self, value ):
+    def scrollbar_color( self, value: str ):
         if value is not None:
             self.__scrollbarcolor = value
 
     @property
-    def progressbar_color( self ):
+    def progressbar_color( self ) -> str:
         if self.__progressbarcolor is not None:
             return self.__progressbarcolor
 
     @progressbar_color.setter
-    def progressbar_color( self, value ):
+    def progressbar_color( self, value: str ):
         if value is not None:
             self.__progressbarcolor = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         sg.theme( 'DarkGrey15' )
         sg.theme_input_text_color( '#FFFFFF' )
         sg.theme_element_text_color( '#69B1EF' )
@@ -613,23 +615,23 @@ class FileDialog( Sith ):
     __text = None
 
     @property
-    def selected_path( self ):
+    def selected_path( self ) -> str:
         if self.__selecteditem is not None:
             return self.__selecteditem
 
     @selected_path.setter
-    def selected_path( self, value ):
-        if value  is not None:
+    def selected_path( self, value: str ):
+        if value is not None:
             self.__selecteditem = value
 
     @property
-    def message( self ):
+    def message( self ) -> str:
         if self.__message is not None:
             return self.__message
 
     @message.setter
-    def message( self, value ):
-        if value  is not None:
+    def message( self, value: str ):
+        if value is not None:
             self.__message = value
 
     def __init__( self, extension = EXT.XLSX ):
@@ -648,20 +650,20 @@ class FileDialog( Sith ):
         self.__selecteditem = None
         self.__message = 'Search for File'
         self.__extension = extension if isinstance( extension, EXT ) else EXT.XLSX
-        self.__excel = ( ( 'Excel Files', '*.xlsx' ), )
-        self.__csv = ( ( 'CSV Files', '*.csv' ) ,)
-        self.__pdf = ( ( 'PDF Files', '*.pdf' ), )
-        self.__sql = ( ( 'SQL Files', '*.sql' , ), )
-        self.__text = ( ( 'Text Files', '*.txt'),)
-        self.__access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
-        self.__sqlite = ( ( 'SQLite Databases', '*.db' ), )
-        self.__sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), )
+        self.__excel = (('Excel Files', '*.xlsx'),)
+        self.__csv = (('CSV Files', '*.csv'),)
+        self.__pdf = (('PDF Files', '*.pdf'),)
+        self.__sql = (('SQL Files', '*.sql',),)
+        self.__text = (('Text Files', '*.txt'),)
+        self.__access = (('MS ACCDB Databases', '*.accdb'),)
+        self.__sqlite = (('SQLite Databases', '*.db'),)
+        self.__sqlserver = (('SQL Server Databases', '*.mdf', '*.ldf', '*.sdf'),)
 
     def __str__( self ) -> str:
         if self.__selecteditem is not None:
             return self.__selecteditem
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             layout = [ [ sg.Text( r'' ) ],
                        [ sg.Text( self.__message, font = ('Roboto', 11) ) ],
@@ -698,16 +700,16 @@ class FolderDialog( Sith ):
     __selecteditem = None
 
     @property
-    def selected_path( self ):
+    def selected_path( self ) -> str:
         if self.__selecteditem is not None:
             return self.__selecteditem
 
     @selected_path.setter
-    def selected_path( self, value ):
-        if value  is not None:
+    def selected_path( self, value: str ):
+        if value is not None:
             self.__selecteditem = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -726,7 +728,7 @@ class FolderDialog( Sith ):
         if isinstance( self.__selecteditem, str ):
             return self.__selecteditem
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             layout = [ [ sg.Text( r'' ) ],
                        [ sg.Text( 'Search for Directory' ) ],
@@ -767,22 +769,22 @@ class SaveFileDialog( Sith ):
     __filename = None
 
     @property
-    def original( self ):
+    def original( self ) -> str:
         if self.__original is not None:
             return self.__original
 
     @original.setter
-    def original( self, value ):
+    def original( self, value: str ):
         if value is not None:
             self.__original = value
 
     @property
-    def file_name( self ):
+    def file_name( self ) -> str:
         if self.__filename is not None:
             return self.__filename
 
     @file_name.setter
-    def file_name( self, value ):
+    def file_name( self, value: str ):
         if value is not None:
             self__filename = value
 
@@ -801,11 +803,11 @@ class SaveFileDialog( Sith ):
         self.__formsize = (400, 250)
         self.__original = path if isinstance( path, str ) and os.path.isfile( path ) else None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__filename, str ) and self.__filename != '':
             return self.__filename
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             username = os.environ.get( 'USERNAME' )
             filename = sg.popup_get_file( 'Select Location / Enter File Name',
@@ -835,36 +837,36 @@ class GoogleDialog( Sith ):
     __results = None
 
     @property
-    def search( self ):
+    def search( self ) -> str:
         if iself.__querytext is not None:
             return self.__querytext
 
     @search.setter
-    def search( self, value ):
-        if value  is not None:
+    def search( self, value: str ):
+        if value is not None:
             self.__querytext = value
 
     @property
-    def image( self ):
+    def image( self ) -> str:
         if self.__image is not None:
             return self.__image
 
     @image.setter
-    def image( self, value ):
-        if value  is not None:
+    def image( self, value: str ):
+        if value is not None:
             self.__image = value
 
     @property
-    def results( self ):
+    def results( self ) -> str:
         if self.__results is not None:
             return self.__results
 
     @results.setter
-    def results( self, value ):
+    def results( self, value: str ):
         if value is not None:
             self.__results = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -876,23 +878,23 @@ class GoogleDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = ( 500, 250 )
+        self.__formsize = (500, 250)
         self.__image = os.getcwd( ) + r'\etc\img\app\web\google.png'
 
     def __str__( self ) -> str:
         if isinstance( self.__results, list ):
             return self.__results[ 0 ]
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             self.__results = [ ]
             layout = [ [ sg.Text( r'' ) ],
                        [ sg.Image( source = self.__image ) ],
-                       [ sg.Text( '', size = ( 10, 1 ) ), sg.Input( '', key = '-QUERY-', size = ( 40, 2 ) ) ],
-                       [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                       [ sg.Text( r'', size = ( 100, 1 ) ) ],
-                       [ sg.Text( r'', size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ) ),
-                         sg.Text( r'', size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
+                       [ sg.Text( '', size = (10, 1) ), sg.Input( '', key = '-QUERY-', size = (40, 2) ) ],
+                       [ sg.Text( r'', size = (100, 1) ) ],
+                       [ sg.Text( r'', size = (100, 1) ) ],
+                       [ sg.Text( r'', size = (10, 1) ), sg.Submit( size = (15, 1) ),
+                         sg.Text( r'', size = (5, 1) ), sg.Cancel( size = (15, 1) ) ] ]
 
             window = sg.Window( '  Budget Execution', layout,
                                 icon = self.__icon,
@@ -901,7 +903,7 @@ class GoogleDialog( Sith ):
 
             while True:
                 event, values = window.read( )
-                if event in ( sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel' ):
+                if event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel'):
                     break
                 elif event == 'Submit':
                     self.__querytext = values[ '-QUERY-' ]
@@ -936,73 +938,73 @@ class EmailDialog( Sith ):
     __password = None
 
     @property
-    def sender( self ):
+    def sender( self ) -> str:
         if self.__sender is not None:
             return self.__sender
 
     @sender.setter
-    def sender( self, value ):
-        if value  is not None:
+    def sender( self, value: str ):
+        if value is not None:
             self.__sender = value
 
     @property
-    def receiver( self ):
+    def receiver( self ) -> str:
         if self.__receiver is not None:
             return self.__receiver
 
     @receiver.setter
-    def receiver( self, value ):
-        if value  is not None:
+    def receiver( self, value: str ):
+        if value is not None:
             self.__receiver = value
 
     @property
-    def message( self ):
+    def message( self ) -> str:
         if self.__message is not None:
             return self.__message
 
     @message.setter
-    def message( self, value ):
-        if value  is not None:
+    def message( self, value: str ):
+        if value is not None:
             self.__message = value
 
     @property
-    def subject( self ):
+    def subject( self ) -> str:
         if self.__subject is not None:
             return self.__subject
 
     @subject.setter
-    def subject( self, value ):
-        if value  is not None:
+    def subject( self, value: str ):
+        if value is not None:
             self.__subject = value
 
     @property
-    def others( self ):
+    def others( self ) -> str:
         if self.__others is not None:
             return self.__others
 
     @others.setter
-    def others( self, value ):
+    def others( self, value: str ):
         if value is not None:
             self.__others = value
 
     @property
-    def username( self ):
+    def username( self ) -> str:
         if self.__username is not None:
             return self.__username
 
     @username.setter
-    def username( self, value ):
-        if value  is not None:
+    def username( self, value: str ):
+        if value is not None:
             self.__username = value
 
     @property
-    def password( self ):
+    def password( self ) -> str:
         if self.__password is not None:
             return self.__password
 
     @password.setter
-    def password( self, value ):
-        if value  is not None:
+    def password( self, value: str ):
+        if value is not None:
             self.__password = value
 
     def __init__( self, sender = '', receiver = '', subject = '', message = '' ):
@@ -1028,12 +1030,12 @@ class EmailDialog( Sith ):
         if isinstance( self.__message, str ):
             return self.__message
 
-    def show( self ):
+    def show( self ) -> str:
         try:
-            btn = ( 20, 1 )
-            inp = ( 35, 1 )
-            spc = ( 5, 1 )
-            img = ( 50, 22 )
+            btn = (20, 1)
+            inp = (35, 1)
+            spc = (5, 1)
+            img = (50, 22)
             clr = '#69B1EF'
             layout = [ [ sg.Text( ' ', size = spc ), ],
                        [ sg.Text( ' ', size = spc ), ],
@@ -1062,7 +1064,7 @@ class EmailDialog( Sith ):
 
             while True:  # Event Loop
                 event, values = window.read( )
-                if event in ( sg.WIN_CLOSED, 'Cancel', 'Exit' ):
+                if event in (sg.WIN_CLOSED, 'Cancel', 'Exit'):
                     break
                 if event == 'Send':
                     sg.popup_quick_message( 'Sending your heading... this will take a moment...',
@@ -1091,13 +1093,13 @@ class MessageDialog( Sith ):
     __text = None
 
     @property
-    def text( self ):
+    def text( self ) -> str:
         if self.__text is not None:
             return self.__text
 
     @text.setter
-    def text( self, value ):
-        if value  is not None:
+    def text( self, value: str ):
+        if value is not None:
             self.__text = value
 
     def __init__( self, text = '' ):
@@ -1115,28 +1117,28 @@ class MessageDialog( Sith ):
         self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 250)
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__text, str ):
             return self.__text
 
-    def show( self ):
+    def show( self ) -> str:
         try:
-            txtsz = ( 100, 1 )
-            btnsz = ( 10, 1 )
+            txtsz = (100, 1)
+            btnsz = (10, 1)
             layout = [ [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
-                       [ sg.Text( r'', size = ( 5, 1 ) ),
+                       [ sg.Text( r'', size = (5, 1) ),
                          sg.Text( self.__text,
-                                  font = ( 'Roboto', 11 ),
+                                  font = ('Roboto', 11),
                                   enable_events = True,
                                   key = '-TEXT-',
                                   text_color = '#69B1EF',
-                                  size = ( 80, 1 ) ) ],
+                                  size = (80, 1) ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
                        [ sg.Text( r'', size = txtsz ) ],
-                       [ sg.Text( r'', size = ( 5, 1 ) ), sg.Ok( size = btnsz ),
-                         sg.Text( r'', size = ( 15, 1 ) ), sg.Cancel( size = btnsz ) ] ]
+                       [ sg.Text( r'', size = (5, 1) ), sg.Ok( size = btnsz ),
+                         sg.Text( r'', size = (15, 1) ), sg.Cancel( size = btnsz ) ] ]
 
             window = sg.Window( r'  Budget Execution', layout,
                                 icon = self.__icon,
@@ -1145,7 +1147,7 @@ class MessageDialog( Sith ):
 
             while True:
                 event, values = window.read( )
-                if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel' ):
+                if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel'):
                     break
 
             window.close( )
@@ -1171,73 +1173,73 @@ class ErrorDialog( Sith ):
     __exception = None
 
     @property
-    def info( self ):
+    def info( self ) -> str:
         '''Gets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
         if self.__class is not None:
             return self.__class
 
     @info.setter
-    def info( self, value ):
+    def info( self, value: str ):
         '''Sets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
-        if value  is not None:
+        if value is not None:
             self.__class = value
 
     @property
-    def cause( self ):
+    def cause( self ) -> str:
         '''Gets string indicating the class generating the exception'''
         if self.__class is not None:
             return self.__class
 
     @cause.setter
-    def cause( self, value ):
+    def cause( self, value: str ):
         '''Sets the string indicating the class generating the exception'''
-        if value  is not None:
+        if value is not None:
             self.__class = value
 
     @property
-    def method( self ):
+    def method( self ) -> str:
         '''Gets a string representing the method generating the exception'''
         if self.__method is not None:
             return self.__method
 
     @method.setter
-    def method( self, value ):
+    def method( self, value: str ):
         '''Sets a string representing method generating the exception'''
-        if value  is not None:
+        if value is not None:
             self.__method = value
 
     @property
-    def module( self ):
+    def module( self ) -> str:
         '''Gets a string representing module generating the exception'''
         if self.__module is not None:
             return self.__module
 
     @module.setter
-    def module( self, value ):
+    def module( self, value: str ):
         '''Sets a string representing the module generating the exception'''
-        if value  is not None:
+        if value is not None:
             self.__module = value
 
     @property
-    def type( self ):
+    def type( self ) -> str:
         '''sets the object type generating the exception'''
         if self.__type is not None:
             return self.__type
 
     @type.setter
-    def type( self, value ):
+    def type( self, value: str ):
         '''sets the object type generating the exception'''
-        if  value is not None:
+        if value is not None:
             self.__type = value
 
     @property
-    def message( self ):
+    def message( self ) -> str:
         if self.__heading is not None:
             return self.__heading
 
     @message.setter
-    def message( self, value ):
-        if value  is not None:
+    def message( self, value: str ):
+        if value is not None:
             self.__heading = value
 
     def __init__( self, exception ):
@@ -1259,26 +1261,26 @@ class ErrorDialog( Sith ):
         self.__buttoncolor = super( ).button_color
         self.__formsize = (500, 300)
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__info, str ):
             return self.__info
 
-    def show( self ):
+    def show( self ) -> str:
         msg = self.__heading if isinstance( self.__heading, str ) else None
         info = f'Module:\t{self.__module}\r\nClass:\t{self.__cause}\r\n' \
                f'Method:\t{self.__method}\r\n \r\n{self.__info}'
         red = '#F70202'
-        font = ( 'Roboto', 10 )
-        padsz = ( 3, 3, 3, 3 )
+        font = ('Roboto', 10)
+        padsz = (3, 3, 3, 3)
         # noinspection PyTypeChecker
         layout = [ [ sg.Text( r'' ) ],
-                   [ sg.Text( f'{msg}', size = ( 100, 1 ), key = '-MSG-', text_color = red,
+                   [ sg.Text( f'{msg}', size = (100, 1), key = '-MSG-', text_color = red,
                               font = font ) ],
-                   [ sg.Text( r'', size = ( 150, 1 ) ) ],
-                   [ sg.Multiline( f'{info}', key = '-INFO-', size = ( 80, 7 ), pad = padsz ) ],
+                   [ sg.Text( r'', size = (150, 1) ) ],
+                   [ sg.Multiline( f'{info}', key = '-INFO-', size = (80, 7), pad = padsz ) ],
                    [ sg.Text( r'' ) ],
-                   [ sg.Text( r'', size = ( 20, 1 ) ), sg.Cancel( size = ( 15, 1 ), key = '-CANCEL-' ),
-                     sg.Text( r'', size = ( 10, 1 ) ), sg.Ok( size = ( 15, 1 ), key = '-OK-' ) ] ]
+                   [ sg.Text( r'', size = (20, 1) ), sg.Cancel( size = (15, 1), key = '-CANCEL-' ),
+                     sg.Text( r'', size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
 
         window = sg.Window( r' Budget Execution', layout,
                             icon = self.__icon,
@@ -1287,7 +1289,7 @@ class ErrorDialog( Sith ):
 
         while True:
             event, values = window.read( )
-            if event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Canel', '-OK-' ):
+            if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Canel', '-OK-'):
                 break
 
         window.close( )
@@ -1300,23 +1302,23 @@ class InputDialog( Sith ):
     __themefont = None
 
     @property
-    def question( self ):
+    def question( self ) -> str:
         if self.__question is not None:
             return self.__question
 
     @question.setter
-    def question( self, value ):
-        if value  is not None:
+    def question( self, value: str ):
+        if value is not None:
             self.__question = value
 
     @property
-    def response( self ):
+    def response( self ) -> str:
         if self.__response is not None:
             return self.__response
 
     @response.setter
-    def response( self, value ):
-        if value  is not None:
+    def response( self, value: str ):
+        if value is not None:
             self.__response = value
 
     def __init__( self, question ):
@@ -1339,7 +1341,7 @@ class InputDialog( Sith ):
         if isinstance( self.__response, str ):
             return self.__response
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             layout = [ [ sg.Text( r'' ) ],
                        [ sg.Text( self.__question, font = ('Roboto', 9, 'bold') ) ],
@@ -1381,13 +1383,13 @@ class ScrollingDialog( Sith ):
     __arrowcolor = None
 
     @property
-    def text( self ):
+    def text( self ) -> str:
         if self.__text is not None:
             return self.__text
 
     @text.setter
-    def text( self, value ):
-        if value  is not None:
+    def text( self, value: str ):
+        if value is not None:
             self.__text = value
 
     def __init__( self, text = '' ):
@@ -1411,7 +1413,7 @@ class ScrollingDialog( Sith ):
             return self.__text
 
     # noinspection PyTypeChecker
-    def show( self ):
+    def show( self ) -> str:
         try:
             line = (100, 1)
             space = (5, 1)
@@ -1458,16 +1460,16 @@ class ContactForm( Sith ):
     '''class that produces a contact input form'''
 
     @property
-    def size( self ):
+    def size( self ) -> str:
         if self.__formsize is not None:
             return self.__formsize
 
     @size.setter
-    def size( self, value ):
+    def size( self, value: str ):
         if value is not None:
             self.__formsize = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -1482,7 +1484,7 @@ class ContactForm( Sith ):
         self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
         self.__formsize = (500, 300)
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             layout = [ [ sg.Text( r'', size = (100, 1) ) ],
                        [ sg.Text( r'Enter Contact Details' ) ],
@@ -1529,33 +1531,33 @@ class GridForm( Sith ):
     __columns = None
 
     @property
-    def field_width( self ):
+    def field_width( self ) -> str:
         if self.__width is not None:
             return self.__width
 
     @field_width.setter
-    def field_width( self, value ):
+    def field_width( self, value: str ):
         if value is not None:
             self.__width = value
 
     @property
-    def rows( self ):
+    def rows( self ) -> str:
         if self.__rows is not None:
             return self.__rows
 
     @rows.setter
-    def rows( self, value ):
-        if value  is not None:
+    def rows( self, value: str ):
+        if value is not None:
             self.__rows = value
 
     @property
-    def columns( self ):
+    def columns( self ) -> str:
         if self.__columns is not None:
             return self.__columns
 
     @columns.setter
-    def columns( self, value ):
-        if value  is not None:
+    def columns( self, value: str ):
+        if value is not None:
             self.__columns = value
 
     def __init__( self, rows = 30, columns = 10 ):
@@ -1576,7 +1578,7 @@ class GridForm( Sith ):
         self.__columns = columns
         self.__formsize = (1250, 700)
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             black = self.__themebackground
             columns = self.__columns
@@ -1621,16 +1623,16 @@ class LoadingPanel( Sith ):
     __timeout = None
 
     @property
-    def timeout( self ):
+    def timeout( self ) -> str:
         if isinstance( self.__timeout, int ):
             return self.__timeout
 
     @timeout.setter
-    def timeout( self, value ):
-        if value  is not None:
+    def timeout( self, value: str ):
+        if value is not None:
             self.__timeout = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -1646,7 +1648,7 @@ class LoadingPanel( Sith ):
         self.__formsize = (800, 600)
         self.__timeout = 6000
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             layout = [ [ sg.Text( '',
                                   background_color = '#000000',
@@ -1688,16 +1690,16 @@ class WaitingPanel( Sith ):
     __timeout = None
 
     @property
-    def timeout( self ):
+    def timeout( self ) -> str:
         if isinstance( self.__timeout, int ):
             return self.__timeout
 
     @timeout.setter
-    def timeout( self, value ):
-        if value  is not None:
+    def timeout( self, value: str ):
+        if value is not None:
             self.__timeout = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -1726,9 +1728,9 @@ class WaitingPanel( Sith ):
             window = sg.Window( '  Waiting...', layout,
                                 icon = self.__icon,
                                 element_justification = 'c',
-                                margins = ( 0, 0 ),
-                                element_padding = ( 0, 0),
-                                size = ( 800, 600 ),
+                                margins = (0, 0),
+                                element_padding = (0, 0),
+                                size = (800, 600),
                                 finalize = True )
 
             window[ '-T-' ].expand( True, True, True )
@@ -1758,16 +1760,16 @@ class ProcessingPanel( Sith ):
     __timeout = None
 
     @property
-    def timeout( self ):
+    def timeout( self ) -> str:
         if self.__timeout is not None:
             return self.__timeout
 
     @timeout.setter
-    def timeout( self, value ):
-        if value  is not None:
+    def timeout( self, value: str ):
+        if value is not None:
             self.__timeout = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -1783,7 +1785,7 @@ class ProcessingPanel( Sith ):
         self.__formsize = (800, 600)
         self.__timeout = None
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             layout = [ [ sg.Text( '',
                                   background_color = '#000000',
@@ -1831,16 +1833,16 @@ class SplashPanel( Sith ):
     __timeout = None
 
     @property
-    def timeout( self ):
+    def timeout( self ) -> str:
         if self.__timeout is not None:
             return self.__timeout
 
     @timeout.setter
-    def timeout( self, value ):
-        if value  is not None:
+    def timeout( self, value: str ):
+        if value is not None:
             self.__timeout = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -1858,7 +1860,7 @@ class SplashPanel( Sith ):
         self.__formsize = (800, 600)
         self.__timeout = 6000
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             img = self.__image
             imgsize = (500, 400)
@@ -1893,16 +1895,16 @@ class Notification( Sith ):
     __message = None
 
     @property
-    def message( self ):
+    def message( self ) -> str:
         if self.__message is not None:
             return self.__message
 
     @message.setter
-    def message( self, value ):
-        if value  is not None:
+    def message( self, value: str ):
+        if value is not None:
             self.__message = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__elementbackcolor = super( ).element_backcolor
@@ -1983,7 +1985,7 @@ class Notification( Sith ):
         if isinstance( self.__message, str ):
             return self.__message
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             return sg.popup_notify( self.__message,
                                     title = 'Budget Execution Notification',
@@ -2006,7 +2008,7 @@ class ImageSizeEncoder( Sith ):
     __image = None
     __timeout = None
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -2019,10 +2021,11 @@ class ImageSizeEncoder( Sith ):
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
 
-    def show( self ):
+    def show( self ) -> str:
         version = '1.3.1'
         __version__ = version.split( )[ 0 ]
 
+        # noinspection PyShadowingNames
         def resize( input_file, size, output_file = None, encode_format = 'PNG' ):
             image = Image.open( input_file )
             width, height = image.size
@@ -2044,10 +2047,10 @@ class ImageSizeEncoder( Sith ):
             return encoded
 
         def update_outfilename( ):
-            infile = values[ '-IN-' ]
-            if os.path.isfile( infile ):
-                image = Image.open( infile )
-                width, height = image.size
+            _infile = values[ '-IN-' ]
+            if os.path.isfile( _infile ):
+                image = Image.open( _infile )
+                _width, _height = image.size
                 window[ '-ORIG WIDTH-' ].update( image.size[ 0 ] )
                 if not values[ '-WIDTH-' ]:
                     window[ '-WIDTH-' ].update( image.size[ 0 ] )
@@ -2055,22 +2058,22 @@ class ImageSizeEncoder( Sith ):
                     window[ '-HEIGHT-' ].update( image.size[ 1 ] )
                 window[ '-ORIG HEIGHT-' ].update( image.size[ 1 ] )
 
-                infilename = os.path.basename( infile )
-                infilenameonly, infileext = os.path.splitext( infilename )
+                _infilename = os.path.basename( _infile )
+                _infilenameonly, _infileext = os.path.splitext( _infilename )
                 if values[ '-NEW FORMAT-' ]:
                     outfileext = values[ '-NEW FORMAT-' ].lower( )
                     if outfileext == 'jpeg':
                         outfileext = 'jpg'
                 else:
-                    outfileext = infileext[ 1: ]  # strip off the .
-                outfile = f'{infilenameonly}{width}x{height}.{outfileext}'
-                outfullfilename = os.path.join( os.path.dirname( infile ), outfile )
+                    outfileext = _infileext[ 1: ]  # strip off the .
+                outfile = f'{_infilenameonly}{_width}x{_height}.{outfileext}'
+                _outfullfilename = os.path.join( os.path.dirname( _infile ), outfile )
 
                 if values[ '-DO NOT SAVE-' ]:
                     window[ '-NEW FILENAME-' ].update( '' )
                     window[ '-BASE64-' ].update( True )
                 else:
-                    window[ '-NEW FILENAME-' ].update( outfullfilename )
+                    window[ '-NEW FILENAME-' ].update( _outfullfilename )
             else:
                 window[ '-NEW FILENAME-' ].update( '' )
                 window[ '-ORIG WIDTH-' ].update( '' )
@@ -2193,7 +2196,7 @@ class ImageSizeEncoder( Sith ):
 class PdfForm( Sith ):
     '''Creates form to view a PDF'''
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -2207,7 +2210,7 @@ class PdfForm( Sith ):
         self.__buttoncolor = super( ).button_color
         self.__formsize = (600, 800)
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             oldpage = 0
             zoom = 0
@@ -2330,7 +2333,7 @@ class CalendarDialog( Sith ):
     __year = None
 
     @property
-    def selected_item( self ):
+    def selected_item( self ) -> str:
         if isinstance( self.__selecteditem, tuple ):
             yr = str( self.__selecteditem[ 2 ] )
             mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
@@ -2339,41 +2342,41 @@ class CalendarDialog( Sith ):
             return date
 
     @selected_item.setter
-    def selected_item( self, value ):
+    def selected_item( self, value: str ):
         if isinstance( value, tuple ):
             self.__selecteditem = value
 
     @property
-    def day( self ):
+    def day( self ) -> str:
         if isinstance( self.__selecteditem, tuple ):
             return str( self.__selecteditem[ 1 ] ).zfill( 2 )
 
     @day.setter
-    def day( self, value ):
+    def day( self, value: str ):
         if isinstance( value, tuple ):
             self.__day = str( value[ 1 ] ).zfill( 2 )
 
     @property
-    def month( self ):
+    def month( self ) -> str:
         if isinstance( self.__selecteditem, tuple ):
             return str( self.__selecteditem[ 0 ] ).zfill( 2 )
 
     @month.setter
-    def month( self, value ):
+    def month( self, value: str ):
         if isinstance( value, tuple ):
             self.__day = str( value[ 0 ] ).zfill( 2 )
 
     @property
-    def year( self ):
+    def year( self ) -> str:
         if isinstance( self.__selecteditem, tuple ):
             return str( self.__selecteditem[ 2 ] )
 
     @year.setter
-    def year( self, value ):
+    def year( self, value: str ):
         if isinstance( value, tuple ):
             self.__day = str( value[ 2 ] ).zfill( 4 )
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -2385,7 +2388,7 @@ class CalendarDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = ( 500, 250 )
+        self.__formsize = (500, 250)
 
     def __str__( self ) -> str:
         if isinstance( self.__selecteditem, tuple ):
@@ -2395,10 +2398,10 @@ class CalendarDialog( Sith ):
             date = f'{yr}/{mo}/{dy}'
             return date
 
-    def show( self ):
+    def show( self ) -> str:
         try:
-            btnsize = ( 20, 1 )
-            calendar = ( 250, 250 )
+            btnsize = (20, 1)
+            calendar = (250, 250)
 
             months = [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL',
                        'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ]
@@ -2427,7 +2430,7 @@ class DatePanel( Sith ):
     ''' Desktop widget displaying today time text'''
     __selecteditem = None
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -2441,7 +2444,7 @@ class DatePanel( Sith ):
         self.__buttoncolor = super( ).button_color
         self.__formsize = (500, 250)
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             ALPHA = 0.9  # Initial alpha until user changes
             THEME = 'Dark green 3'  # Initial theme until user changes
@@ -2472,8 +2475,8 @@ class DatePanel( Sith ):
                                     keep_on_top = True )
                 old_theme = sg.theme( )
                 while True:  # Event Loop
-                    event, values = window.read( )
-                    if event in (sg.WIN_CLOSED, 'Exit', 'OK', 'Cancel'):
+                    _event, values = window.read( )
+                    if _event in (sg.WIN_CLOSED, 'Exit', 'OK', 'Cancel'):
                         break
                     sg.theme( values[ '-ITEM-' ][ 0 ] )
                     window.hide( )
@@ -2486,7 +2489,7 @@ class DatePanel( Sith ):
                 window.close( )
 
                 # after choice made, save theme or restore the old one
-                if event == 'OK' and values[ '-ITEM-' ]:
+                if _event == 'OK' and values[ '-ITEM-' ]:
                     sg.theme( values[ '-ITEM-' ][ 0 ] )
                     sg.user_settings_set_entry( '-theme-', values[ '-ITEM-' ][ 0 ] )
                     return values[ '-ITEM-' ][ 0 ]
@@ -2618,26 +2621,26 @@ class ComboBoxDialog( Sith ):
     __selecteditem = None
 
     @property
-    def items( self ):
+    def items( self ) -> str:
         if isinstance( self.__items, list ):
             return self.__items
 
     @items.setter
-    def items( self, value:list ):
+    def items( self, value: list ):
         if isinstance( value, list ):
             self.__items = value
 
     @property
-    def selected_item( self ):
+    def selected_item( self ) -> str:
         if isinstance( self.__selecteditem, str ):
             return self.__selecteditem
 
     @selected_item.setter
-    def selected_item( self, value:str ):
+    def selected_item( self, value: str ):
         if isinstance( value, str ):
             self.__selecteditem = value
 
-    def __init__( self, data:list = None ):
+    def __init__( self, data: list = None ):
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -2652,11 +2655,11 @@ class ComboBoxDialog( Sith ):
         self.__formsize = (400, 150)
         self.__items = data if isinstance( data, list ) and len( data ) > 0 else None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
             return self.__selecteditem
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             btnsize = (10, 1)
             space = (5, 1)
@@ -2703,23 +2706,23 @@ class ListBoxDialog( Sith ):
     __image = None
 
     @property
-    def items( self ):
+    def items( self ) -> str:
         if isinstance( self.__items, list ):
             return self.__items
 
     @items.setter
-    def items( self, value ):
+    def items( self, value: str ):
         if isinstance( value, list ):
             self.__items = value
 
     @property
-    def selected_item( self ):
+    def selected_item( self ) -> str:
         if isinstance( self.__selecteditem, str ):
             return self.__selecteditem
 
     @selected_item.setter
-    def selected_item( self, value ):
-        if value  is not None:
+    def selected_item( self, value: str ):
+        if value is not None:
             self.__selecteditem = value
 
     def __init__( self, data = None ):
@@ -2734,15 +2737,15 @@ class ListBoxDialog( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = ( 400, 250 )
+        self.__formsize = (400, 250)
         self.__image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
         self.__items = data if isinstance( data, list ) else None
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
             return self.__selecteditem
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             btnsize = (10, 1)
             space = (10, 1)
@@ -2810,46 +2813,46 @@ class ColorDialog( Sith ):
     __argb = None
 
     @property
-    def rgb( self ):
+    def rgb( self ) -> str:
         if self.__rgb is not None:
             return self.__rgb
 
     @rgb.setter
-    def rgb( self, value ):
-        if value  is not None:
+    def rgb( self, value: str ):
+        if value is not None:
             self.__rgb = value
 
     @property
-    def hex( self ):
+    def hex( self ) -> str:
         if self.__hex is not None:
             return self.__hex
 
     @hex.setter
-    def hex( self, value ):
-        if value  is not None:
+    def hex( self, value: str ):
+        if value is not None:
             self.__hex = value
 
     @property
-    def argb( self ):
+    def argb( self ) -> str:
         if self.__argb is not None:
             return self.__argb
 
     @argb.setter
-    def argb( self, value ):
-        if value  is not None:
+    def argb( self, value: str ):
+        if value is not None:
             self.__argb = value
 
     @property
-    def html( self ):
+    def html( self ) -> str:
         if self.__html is not None:
             return self.__html
 
     @html.setter
-    def html( self, value ):
-        if value  is not None:
+    def html( self, value: str ):
+        if value is not None:
             self.__html = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -2863,7 +2866,7 @@ class ColorDialog( Sith ):
         self.__buttoncolor = super( ).button_color
         self.__formsize = (450, 450)
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             color_map = {
                     'alice blue':             '#F0F8FF',
@@ -3622,86 +3625,86 @@ class BudgetForm( Sith ):
     __formlayout = None
 
     @property
-    def title_items( self ):
+    def title_items( self ) -> str:
         if self.__titleitems is not None:
             return self.__titleitems
 
     @title_items.setter
-    def title_items( self, value ):
+    def title_items( self, value: str ):
         if value is not None:
             self.__titleitems = value
 
     @property
-    def header_items( self ):
+    def header_items( self ) -> str:
         if self.__headeritems is not None:
             return self.__headeritems
 
     @header_items.setter
-    def header_items( self, value ):
+    def header_items( self, value: str ):
         if value is not None:
             self.__headeritems = value
 
     @property
-    def first_items( self ):
+    def first_items( self ) -> str:
         if self.__firstitems is not None:
             return self.__firstitems
 
     @first_items.setter
-    def first_items( self, value ):
+    def first_items( self, value: str ):
         if value is not None:
             self.__firstitems = value
 
     @property
-    def second_items( self ):
+    def second_items( self ) -> str:
         if self.__seconditems is not None:
             return self.__seconditems
 
     @second_items.setter
-    def second_items( self, value ):
+    def second_items( self, value: str ):
         if value is not None:
             self.__seconditems = value
 
     @property
-    def third_items( self ):
+    def third_items( self ) -> str:
         if self.__thirditems is not None:
             return self.__thirditems
 
     @third_items.setter
-    def third_items( self, value ):
+    def third_items( self, value: str ):
         if value is not None:
             self.__thirditems = value
 
     @property
-    def fourth_items( self ):
+    def fourth_items( self ) -> str:
         if self.__fourthitems is not None:
             return self.__fourthitems
 
     @fourth_items.setter
-    def fourth_items( self, value ):
+    def fourth_items( self, value: str ):
         if value is not None:
             self.__fourthitems = value
 
     @property
-    def form_size( self ):
+    def form_size( self ) -> str:
         if self.__formsize is not None:
             return self.__formsize
 
     @form_size.setter
-    def form_size( self, value ):
+    def form_size( self, value: str ):
         if value is not None:
             self.__formsize = value
 
     @property
-    def image( self ):
+    def image( self ) -> str:
         if self.__image is not None:
             return self.__image
 
     @image.setter
-    def image( self, value ):
-        if value  is not None:
+    def image( self, value: str ):
+        if value is not None:
             self.__image = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -3934,19 +3937,19 @@ class BudgetForm( Sith ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             blu = '#051F3D'
             blk = '#101010'
             mblk = '#1E1E1E'
-            BPAD_TOP = ( ( 5, 5 ), ( 5, 5 ) )
-            BPAD_LEFT = ( ( 5, 5 ), ( 5, 5 ) )
-            BPAD_LEFT_INSIDE = ( 5, ( 5, 5 ) )
-            BPAD_RIGHT = ( ( 5, 5 ), ( 5, 5 ) )
+            BPAD_TOP = ((5, 5), (5, 5))
+            BPAD_LEFT = ((5, 5), (5, 5))
+            BPAD_LEFT_INSIDE = (5, (5, 5))
+            BPAD_RIGHT = ((5, 5), (5, 5))
             hdr = 'Roboto 20'
             li = 'Roboto 10'
-            frasz = ( 450, 150 )
-            hdrsz = ( 920, 100 )
+            frasz = (450, 150)
+            hdrsz = (920, 100)
             self.__titlelayout = [
                     [ sg.Text( 'Budget Execution', font = hdr, background_color = mblk,
                                enable_events = True, grab = False ), sg.Push( background_color = mblk ),
@@ -3988,7 +3991,8 @@ class BudgetForm( Sith ):
                     [ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = mblk,
                                 expand_x = True, border_width = 0, grab = True ) ],
                     [ sg.Frame( '',
-                                [ [ sg.Frame( '', self.__headerlayout, size = frasz, pad = BPAD_TOP, expand_x = True, relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
+                                [ [ sg.Frame( '', self.__headerlayout, size = frasz, pad = BPAD_TOP, expand_x = True,
+                                              relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
                                 pad = BPAD_LEFT, background_color = blu, border_width = 0,
                                 expand_x = True, expand_y = False ), ],
                     [ sg.Frame( '',
@@ -4008,7 +4012,7 @@ class BudgetForm( Sith ):
                     [ sg.Sizegrip( background_color = mblk ) ] ]
             window = sg.Window( '  Budget Execution', self.__formlayout,
                                 size = self.__formsize,
-                                margins = ( 0, 0 ),
+                                margins = (0, 0),
                                 background_color = blk,
                                 grab_anywhere = True,
                                 no_titlebar = True,
@@ -4039,22 +4043,22 @@ class ChartPanel( Sith ):
     ''' Provides form with a bar chart '''
 
     @property
-    def header( self ):
+    def header( self ) -> str:
         if isin( self.__header, str ) and self.__header != '':
             return self.__header
 
     @header.setter
-    def header( self, value ):
-        if value  is not None:
+    def header( self, value: str ):
+        if value is not None:
             self.__header = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         sg.theme( 'DarkGrey15' )
         self.__icon = super( ).icon_path
-        self.__formsize = ( 750, 650 )
+        self.__formsize = (750, 650)
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             sm = (10, 1)
             md = (15, 1)
@@ -4112,16 +4116,16 @@ class CsvForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
 
     @property
-    def header( self ):
+    def header( self ) -> str:
         if self.__header is not None:
             return self.__header
 
     @header.setter
-    def header( self, value ):
-        if value  is not None:
+    def header( self, value: str ):
+        if value is not None:
             self.__header = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -4135,7 +4139,7 @@ class CsvForm( Sith ):
         self.__buttoncolor = super( ).button_color
         self.__formsize = (800, 600)
 
-    def show( self ):
+    def show( self ) -> str:
         try:
             sm = (3, 1)
             med = (15, 1)
@@ -4217,16 +4221,16 @@ class ExcelForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
 
     @property
-    def header( self ):
+    def header( self ) -> str:
         if isin( self.__header, str ) and self.__header != '':
             return self.__header
 
     @header.setter
-    def header( self, value ):
-        if value  is not None:
+    def header( self, value: str ):
+        if value is not None:
             self.__header = value
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -4238,13 +4242,13 @@ class ExcelForm( Sith ):
         self.__inputbackcolor = super( ).input_backcolor
         self.__inputforecolor = super( ).input_forecolor
         self.__buttoncolor = super( ).button_color
-        self.__formsize = ( 1350, 700 )
+        self.__formsize = (1350, 700)
 
-    def show( self ):
+    def show( self ) -> str:
         try:
-            sm = ( 3, 1 )
-            med = ( 15, 1 )
-            spc = ( 25, 1 )
+            sm = (3, 1)
+            med = (15, 1)
+            spc = (25, 1)
             fd = FileDialog( )
             fd.show( )
             filename = fd.selected_path
@@ -4260,7 +4264,7 @@ class ExcelForm( Sith ):
             button = sg.popup_yes_no( 'First Row Has Headers?',
                                       title = 'Headers?',
                                       icon = self.__icon,
-                                      font = ( 'Roboto', 9 ) )
+                                      font = ('Roboto', 9) )
 
             if filename is not None:
                 try:
@@ -4341,7 +4345,7 @@ class ExcelForm( Sith ):
 class GraphForm( Sith ):
     '''Provides form that reads CSV file with pandas'''
 
-    def __init__( self ):
+    def __init__( self ) -> str:
         super( ).__init__( )
         self.__themebackground = super( ).theme_background
         self.__themefont = super( ).theme_font
@@ -4355,7 +4359,7 @@ class GraphForm( Sith ):
         self.__buttoncolor = super( ).button_color
         self.__formsize = (800, 600)
 
-    def show( self ):
+    def show( self ) -> str:
         def create_axis_grid( ):
             plt.close( 'all' )
 

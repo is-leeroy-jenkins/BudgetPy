@@ -66,12 +66,12 @@ class Path( ):
 
     @property
     def extension( self ) -> str:
-        if  self.__ext is not None:
+        if self.__ext is not None:
             return self.__ext
 
     @extension.setter
     def extension( self, value: str ):
-        if  value is not None:
+        if value is not None:
             self.__ext = str( value )
 
     @property
@@ -143,8 +143,8 @@ class Path( ):
         self.__drive = os.path.splitdrive( filepath )[ 0 ]
 
     def __str__( self ) -> str:
-       if self.__input is not None:
-           return str( self.__input )
+        if self.__input is not None:
+            return str( self.__input )
 
     def exists( self ) -> bool:
         '''Method returning a boolean value indicating whether the
@@ -450,7 +450,7 @@ class File( Path ):
             err = ErrorDialog( exc )
             err.show( )
 
-    def verify( self, other: str) -> bool:
+    def verify( self, other: str ) -> bool:
         '''determines if an external file exists'''
         try:
             if other is not None:
@@ -665,11 +665,11 @@ class Folder( Path ):
         self.__size = os.path.getsize( filepath )
         self.__drive = super( ).drive
         self.__current = os.getcwd( )
-        self.__path = super().input
+        self.__path = super( ).input
         self.__name = os.path.basename( filepath )
         self.__parent = os.path.dirname( filepath )
         self.__absolutepath = os.path.abspath( filepath )
-        self.__relativepath = f'{ os.getcwd( ) }\\{ os.path.basename( filepath ) }'
+        self.__relativepath = f'{os.getcwd( )}\\{os.path.basename( filepath )}'
 
     def __str__( self ) -> str:
         if self.__path is not None:
@@ -975,7 +975,7 @@ class MessageBuilder( ):
             self.__others = value
 
     def __init__( self, sender: str = '', receiver: str = '',
-                  body: str = '', copy: str = '', subject: str = ''):
+                  body: str = '', copy: str = '', subject: str = '' ):
         self.__sender = sender
         self.__receiver = receiver
         self.__body = body
@@ -1111,12 +1111,12 @@ class ExcelReport( Excel ):
             self.__columns = value
 
     @property
-    def dimensions( self ) -> ( int, int ):
+    def dimensions( self ) -> (int, int):
         if self.__dimensions is not None:
             return self.__dimensions
 
     @dimensions.setter
-    def dimensions( self, value: ( int, int ) ):
+    def dimensions( self, value: (int, int) ):
         if value is not None:
             self.__dimensions = value
 
@@ -1126,7 +1126,7 @@ class ExcelReport( Excel ):
         self.__name = name
         self.__rows = rows
         self.__columns = cols
-        self.__dimensions = ( self.__rows, self.__columns )
+        self.__dimensions = (self.__rows, self.__columns)
 
 # ZipFile( fullpath )
 class ZipFile( ):
@@ -1177,7 +1177,6 @@ class ZipFile( ):
             exc.method = 'create( self )'
             err = ErrorDialog( exc )
             err.show( )
-
 
     def unzip( self ):
         ''' Extracts zip file contents '''

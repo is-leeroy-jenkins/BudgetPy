@@ -17,7 +17,6 @@ class EXT( Enum ):
     JPEG = auto( )
     SVG = auto( )
 
-
 class BOC( Enum ):
     '''Enumeration of object class codes'''
     PAYROLL = 10
@@ -26,7 +25,6 @@ class BOC( Enum ):
     CONTRACTS = 37
     WCF = 38
     GRANTS = 41
-
 
 class NPM( Enum ):
     '''Enumeration of NPM Codes'''
@@ -42,7 +40,6 @@ class NPM( Enum ):
     Y = 10
     W = 11
 
-
 class Source( Enum ):
     '''Enumeration of table_name names'''
     NS = auto( )
@@ -51,9 +48,7 @@ class Source( Enum ):
     Allocations = auto( )
     AmericanRescuePlan = auto( )
     AnnualCarryoverEstimates = auto( )
-    AnnualCarryoverSurvey = auto( )
     AnnualReimbursableEstimates = auto( )
-    AnnualReimbursableSurvey = auto( )
     AppropriationAvailableBalances = auto( )
     AppropriationDocuments = auto( )
     AppropriationLevelAuthority = auto( )
@@ -62,43 +57,33 @@ class Source( Enum ):
     CarryoverRequests = auto( )
     Changes = auto( )
     CompassLevels = auto( )
-    CompassOutlays = auto( )
     CongressionalReprogrammings = auto( )
-    Contacts = auto( )
     Defactos = auto( )
-    DeobligationActivity = auto( )
     Deobligations = auto( )
     DocumentControlNumbers = auto( )
     Earmarks = auto( )
     Expenditures = auto( )
     PayPeriods = auto( )
-    PayrollActivity = auto( )
     PayrollAuthority = auto( )
-    PayrollCostCodes = auto( )
     PayrollRequests = auto( )
     PRC = auto( )
-    ProjectCostCodes = auto( )
     QueryDefinitions = auto( )
     RegionalAuthority = auto( )
     RecoveryAct = auto( )
     ReimbursableAgreements = auto( )
     ReimbursableFunds = auto( )
     Reports = auto( )
-    Reprogrammings = auto( )
-    GrossAuthority = auto( )
-    GrossUtilization = auto( )
     HeadquartersAuthority = auto( )
     HumanResourceOrganizations = auto( )
     InflationReductionActCarryoverEstimates = auto( )
     JobsActCarryoverEstimates = auto( )
     MonthlyLedgerAccountBalances = auto( )
     MonthlyActuals = auto( )
-    NetAuthority = auto( )
     ObligationActivity = auto( )
     Obligations = auto( )
+    Outlays = auto( )
     OpenCommitments = auto( )
     SiteActivity = auto( )
-    SiteProjectCodes = auto( )
     SpecialAccounts = auto( )
     SpendingRates = auto( )
     SpendingDocuments = auto( )
@@ -112,7 +97,6 @@ class Source( Enum ):
     StatusOfSupplementalFunding = auto( )
     SuperfundSites = auto( )
     SupplementalCarryoverEstimates = auto( )
-    SupplementalReimburseableEstimates = auto( )
     TransferActivity = auto( )
     Transfers = auto( )
     UnliquidatedObligations = auto( )
@@ -127,11 +111,10 @@ class Source( Enum ):
     ApplicationTables = auto( )
     Appropriations = auto( )
     BudgetaryResourceExecution = auto( )
+    BudgetContacts = auto( )
     BudgetControls = auto( )
     BudgetObjectClasses = auto( )
-    BudgetOutlays = auto( )
     CapitalPlanningInvestmentCodes = auto( )
-    CarryoverOutlays = auto( )
     ColumnSchema = auto( )
     CompassErrors = auto( )
     CongressionalControls = auto( )
@@ -141,7 +124,6 @@ class Source( Enum ):
     FederalHolidays = auto( )
     FinanceObjectClasses = auto( )
     FiscalYears = auto( )
-    FiscalYearsBackUp = auto( )
     FundCategories = auto( )
     Funds = auto( )
     FundSymbols = auto( )
@@ -151,17 +133,14 @@ class Source( Enum ):
     GsPayScales = auto( )
     HeadquartersOffices = auto( )
     Images = auto( )
-    InfrastructureAccounts = auto( )
     Messages = auto( )
     MonthlyOutlays = auto( )
     NationalPrograms = auto( )
-    ObjectClassOutlays = auto( )
     Objectives = auto( )
     OperatingPlans = auto( )
     OperatingPlanUpdates = auto( )
     Organizations = auto( )
     ProgramAreas = auto( )
-    ProgramFinancingSchedule = auto( )
     ProgramProjectDescriptions = auto( )
     ProgramProjects = auto( )
     Projects = auto( )
@@ -176,10 +155,7 @@ class Source( Enum ):
     StateOrganizations = auto( )
     SubAppropriations = auto( )
     TransTypes = auto( )
-    UnobligatedAuthority = auto( )
     URL = auto( )
-    WorkCodes = auto( )
-
 
 class Provider( Enum ):
     '''Enumeration of data providers'''
@@ -189,12 +165,10 @@ class Provider( Enum ):
     Excel = 3
     CSV = 4
 
-
 class Model( Enum ):
     '''Enumeration of model types'''
     Data = auto( )
     Reference = auto( )
-
 
 class ParamStyle( Enum ):
     '''Enumeration of parameter styles'''
@@ -204,7 +178,6 @@ class ParamStyle( Enum ):
     name = 4
     qmark = 5
     NS = 6
-
 
 class SQL( Enum ):
     '''Enumeration of sql commands'''
@@ -220,7 +193,6 @@ class SQL( Enum ):
     ALTERTABLE = 9
     ALTERCOLUMN = 10
 
-
 class Client( Enum ):
     '''Enumeration of auxiliary applications'''
     SQLite = auto( )
@@ -231,7 +203,6 @@ class Client( Enum ):
     Chrome = auto( )
     ControlPanel = auto( )
     Calculator = auto( )
-
 
 class PNG( Enum ):
     '''Enumeration of images'''
@@ -345,7 +316,6 @@ class PNG( Enum ):
     XML = auto( )
     Yes = auto( )
 
-
 class ICO( Enum ):
     '''Enumeration of ICO files'''
     NS = auto( )
@@ -359,7 +329,6 @@ class ICO( Enum ):
     Notification = auto( )
     PDF = auto( )
     Text = auto( )
-
 
 class RPIO( Enum ):
     '''Enumeration of Resource Planning and Implementation Offices'''
@@ -386,7 +355,6 @@ class RPIO( Enum ):
     OLEM = 75
     OECA = 77
 
-
 class ACCDB( Enum ):
     '''Enumeration of access database types used in the application'''
     INTEGER = auto( )
@@ -401,14 +369,12 @@ class ACCDB( Enum ):
     ATTACHMENT = auto( )
     CALCULATED = auto( )
 
-
 class DB( Enum ):
     '''Enumeration of SQLite database types used in the application'''
     REAL = auto( )
     TEXT = auto( )
     INTEGER = auto( )
     BLOB = auto( )
-
 
 class MDF( Enum ):
     '''Enumeration of SQL Server database types used in the application'''
