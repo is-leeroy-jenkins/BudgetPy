@@ -46,7 +46,6 @@ from pandas import DataFrame
 from pandas import read_sql as sqlreader
 import pyodbc as db
 import os
-
 import pyodbc
 from Static import Source, Provider, SQL, ParamStyle
 from Booger import Error, ErrorDialog

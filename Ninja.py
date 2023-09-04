@@ -5186,10 +5186,13 @@ class BudgetaryResourceExecution( ):
             err = ErrorDialog( exc )
             err.show( )
 
-# BudgetOutlay( account, provider = Provider.SQLite )
-class BudgetOutlay( ):
-    '''BudgetOutlay( bfy, omb )
-    object provides OMB data'''
+# Outlay( account, provider = Provider.SQLite )
+class Outlay( ):
+    '''
+    Constructor; Outlay( bfy: str, omb: str )
+
+    Purpose: Class defines object that provides OMB data
+    '''
     __source = None
     __provider = None
     __budgetoutlaysid = None
@@ -5384,7 +5387,7 @@ class BudgetOutlay( ):
             return self.__outyear4
 
     @out_year_4.setter
-    def out_year_4( self, value: flaot ):
+    def out_year_4( self, value: float ):
         if value is not None:
             self.__outyear4 = value
 
@@ -8680,7 +8683,7 @@ class FinanceObjectClass( ):
             return self.__frame
 
     @table.setter
-    def table( self, frame: DataFram ):
+    def table( self, frame: DataFrame ):
         if isinstance( frame, DataFrame ):
             self.__frame = frame
 
