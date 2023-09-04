@@ -19168,15 +19168,15 @@ class SpendingRate( ):
                           'OutYear11',
                           'TotalSpendout' ]
 
-    def get_data( self  ) -> list[ Row ]:
+    def get_data( self  ) -> list[ tuple ]:
         try:
             source = self.__source
             provider = self.__provider
             command = SQL.SELECTALL
             names = [ 'OmbAccountCode', ]
             values = ( self.__budgetaccountcode, )
-            data = DataBuilder( provider, source, command, names, values )
-            self.__data = data.create_table( )
+            data = DataBuilder( source, provider, command, names, values )
+            self.__data = [ i for i in data.create_table( ) ]
             return self.__data
         except Exception as e:
             exc = Error( e )
@@ -19454,32 +19454,32 @@ class StatusOfSupplementalFunds( ):
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ) -> str:
+    def unliquidated_obligations( self ) -> float:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value: str ):
+    def unliquidated_obligations( self, value: float ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ) -> str:
+    def expenditures( self ) -> float:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value: str ):
+    def expenditures( self, value: float ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ) -> str:
+    def used( self ) -> float:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value: str ):
+    def used( self, value: float ):
         if value is not None:
             self.__used = value
 
@@ -21316,17 +21316,17 @@ class SpendingDocument( ):
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ) -> str:
+    def unliquidated_obligations( self ) -> float:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value: str ):
+    def unliquidated_obligations( self, value: float ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ) -> str:
+    def expenditures( self ) -> float:
         if isinstance( self.__expenditures, float ):
             return self.__expenditures
 
