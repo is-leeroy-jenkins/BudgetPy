@@ -51,7 +51,7 @@ from Data import DbConfig, SqlConfig, Connection, \
 from Static import Source, Provider
 from datetime import datetime
 from pandas import DataFrame
-from pyodbc import Row as Row
+from pyodbc import Row as Row, Row
 
 class Unit( ):
     '''Unit( value, value ) initializes object
@@ -13582,7 +13582,7 @@ class Obligation( ):
 
     @posted.setter
     def posted( self, value: float ):
-        if isinstance( self.__posted, value ):
+        if value is not None:
             self.__posted = value
 
     @property
@@ -15017,7 +15017,7 @@ class ResponsibilityCenter( ):
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
 
-    def get_data( self  ) -> list[ Row ]:
+    def get_data( self  ) -> list[ tuple ]:
         try:
             source = self.__source
             provider = self.__provider
@@ -15034,14 +15034,6 @@ class ResponsibilityCenter( ):
             self.__data =  [ i for i in data.fetchall( ) ]
             cursor.close( )
             sqlite.close( )
-            return self.__data
-            provider = Provider.SQLite
-            source = Source.ResponsibilityCenters
-            command = SQL.SELECTALL
-            names = [ 'Code', ]
-            values = ( self.__fundcode,)
-            df = DataBuilder( source, provider, command, names, values )
-            self.__data = df.create_table( )
             return self.__data
         except Exception as e:
             exc = Error( e )
@@ -15804,7 +15796,7 @@ class RegionalAuthority( ):
 
     @posted.setter
     def posted( self, value: float ):
-        if isinstance( self.__posted, value ):
+        if value is not None:
             self.__posted = value
 
     @property
@@ -16765,7 +16757,7 @@ class StatusOfSupplementalFunding( ):
 
     @posted.setter
     def posted( self, value: float ):
-        if isinstance( self.__posted, value ):
+        if value is not None:
             self.__posted = value
 
     @property
@@ -18450,37 +18442,37 @@ class StatusOfAppropriations( ):
             return self.__originalbudgetedamount
 
     @original_budgeted_amount.setter
-    def original_budgeted_amount( self, value: str ):
+    def original_budgeted_amount( self, value: float ):
         if value is not None:
             self.__originalbudgetedamount = value
 
     @property
-    def apportionments_posted( self ) -> str:
+    def apportionments_posted( self ) -> float:
         if self.__apportionmentsposted is not None:
             return self.__apportionmentsposted
 
     @apportionments_posted.setter
-    def apportionments_posted( self, value: str ):
+    def apportionments_posted( self, value: float ):
         if value is not None:
             self.__apportionmentsposted = value
 
     @property
-    def total_authority( self ) -> str:
+    def total_authority( self ) -> float:
         if self.__totalauthority is not None:
             return self.__totalauthority
 
     @total_authority.setter
-    def total_authority( self, value: str ):
+    def total_authority( self, value: float ):
         if value is not None:
             self.__totalauthority = value
 
     @property
-    def total_budgeted( self ) -> str:
+    def total_budgeted( self ) -> float:
         if self.__totalbudgeted is not None:
             return self.__totalbudgeted
 
     @total_budgeted.setter
-    def total_budgeted( self, value: str ):
+    def total_budgeted( self, value: float ):
         if value is not None:
             self.__totalbudgeted = value
 
@@ -18490,17 +18482,17 @@ class StatusOfAppropriations( ):
             return self.__totalpostedamount
 
     @total_posted_amount.setter
-    def total_posted_amount( self, value: str ):
+    def total_posted_amount( self, value: float ):
         if value is not None:
             self.__totalpostedamount = value
 
     @property
-    def funds_withdrawn_amounts( self ) -> str:
+    def funds_withdrawn_amounts( self ) -> float:
         if self.__fundswithdrawnprioryearamounts is not None:
             return self.__fundswithdrawnprioryearamounts
 
     @funds_withdrawn_amounts.setter
-    def funds_withdrawn_amounts( self, value: str ):
+    def funds_withdrawn_amounts( self, value: float ):
         if value is not None:
             self.__fundswithdrawnprioryearamounts = value
 
@@ -19437,7 +19429,7 @@ class StatusOfSupplementalFunds( ):
 
     @posted.setter
     def posted( self, value: float ):
-        if isinstance( self.__posted, value ):
+        if value is not None:
             self.__posted = value
 
     @property
@@ -20327,7 +20319,7 @@ class StatusOfEarmarks( ):
 
     @posted.setter
     def posted( self, value: float ):
-        if isinstance( self.__posted, value ):
+        if value is not None:
             self.__posted = value
 
     @property
@@ -21299,7 +21291,7 @@ class SpendingDocument( ):
 
     @posted.setter
     def posted( self, value: float ):
-        if isinstance( self.__posted, value ):
+        if value is not None:
             self.__posted = value
 
     @property

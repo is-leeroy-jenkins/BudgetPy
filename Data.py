@@ -1699,8 +1699,10 @@ class SqlData( Query ):
 
 # DataBuilder( provider, source, command, names, values )
 class DataBuilder( ):
-    '''DataBuilder( provider, source, command, names, values ).
-    Class provides methods that access
+    '''
+    Constructor: DataBuilder( provider, source, command, names, values ).
+
+    Purpose; Class provides methods that access
     application data. Constructor creates object using
     optional arguments ( provider: Provider, source: Source,
     command: DataCommand, names: list, values: tuple ) '''
