@@ -54,6 +54,7 @@ from Booger import Error, ErrorDialog
 class Pascal( ):
     '''
     Constructor: Pascal( input )
+
     Purpose: Claas splits string 'input' argument into Pascal Casing
     '''
     __input = None
@@ -1463,14 +1464,14 @@ class SQLiteData( Query ):
     # noinspection PyTypeChecker
     def create_table( self ) -> list[ tuple ]:
         try:
-            query = self.__query
-            sqlite = self.__connection.connect( )
-            cursor = sqlite.cursor( )
-            data = cursor.execute( query )
-            self.__columns = [ i[ 0 ] for i in cursor.description ]
-            self.__data = [ tuple( i ) for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
+            _query = self.__query
+            _conn = self.__connection.connect( )
+            _cursor = _conn.cursor( )
+            _data = _cursor.execute( _query )
+            self.__columns = [ i[ 0 ] for i in _cursor.description ]
+            self.__data = [ tuple( i ) for i in _data.fetchall( ) ]
+            _cursor.close( )
+            _conn.close( )
             return self.__data
         except Exception as e:
             exc = Error( e )
