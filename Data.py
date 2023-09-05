@@ -1200,7 +1200,10 @@ class SqlStatement( ):
 
 # Query( connection, sqlstatement )
 class Query( ):
-    '''Query( connection, sqlstatement ). Base class for database interaction'''
+    '''
+    Constructor:  Query( connection: Connection, sqlstatement: SqlStatement ).
+
+    Purpose: Base class for database interaction'''
     __connection = None
     __sqlstatement = None
     __sqlconfig = None
@@ -1338,8 +1341,8 @@ class Query( ):
         self.__commandtype = sql.command_type
         self.__path = conn.path
         self.__connectionstring = conn.connection_string
-        self.__names = self.__sqlconfig.dump_columns( )
-        self.__values = self.__sqlconfig.dump_values( )
+        self.__names = self.__sqlconfig.names
+        self.__values = self.__sqlconfig.values
 
     def __str__( self ) -> str:
         if self.__querytext is not None:
