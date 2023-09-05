@@ -1203,7 +1203,7 @@ class Query( ):
     '''Query( connection, sqlstatement ). Base class for database interaction'''
     __connection = None
     __sqlstatement = None
-    __sqlconfiguration = None
+    __sqlconfig = None
     __commandtype = None
     __source = None
     __table = None
@@ -1212,7 +1212,7 @@ class Query( ):
     __values = None
     __path = None
     __connectionstring = None
-    __commandtext = None
+    __querytext = None
 
     @property
     def source( self ) -> Source:
@@ -1311,13 +1311,13 @@ class Query( ):
 
     @property
     def command_text( self ) -> str:
-        if self.__commandtext is not None:
-            return self.__commandtext
+        if self.__querytext is not None:
+            return self.__querytext
 
     @command_text.setter
     def command_text( self, value: str ):
         if value is not None:
-            self.__commandtext = value
+            self.__querytext = value
 
     @property
     def connection_string( self ) -> str:
@@ -1332,64 +1332,64 @@ class Query( ):
     def __init__( self, conn: Connection, sql: SqlStatement ):
         self.__connection = conn
         self.__sqlstatement = sql
-        self.__sqlconfiguration = SqlConfig( )
+        self.__sqlconfig = SqlConfig( )
         self.__source = conn.source
         self.__provider = conn.provider
         self.__commandtype = sql.command_type
         self.__path = conn.path
         self.__connectionstring = conn.connection_string
-        self.__names = self.__sqlconfiguration.dump_columns( )
-        self.__values = self.__sqlconfiguration.dump_values( )
+        self.__names = self.__sqlconfig.dump_columns( )
+        self.__values = self.__sqlconfig.dump_values( )
 
     def __str__( self ) -> str:
-        if self.__commandtext is not None:
-            return self.__commandtext
+        if self.__querytext is not None:
+            return self.__querytext
 
     def get_query( self ) -> str:
         try:
             _table = self.__table
-            _criteria = self.__sqlconfiguration.dump_where( )
-            _cols = self.__names
-            _vals = self.__values
-            if isinstance( _cols, list ) and isinstance( _vals, tuple ):
+            _crit = self.__sqlconfig.dump_where( )
+            _cols = self.__sqlconfig.dump_columns( )
+            _vals = self.__sqlconfig.dump_values( )
+            if isinstance( self.__names, list ) and isinstance( _vals, tuple ):
                 if self.__commandtype == SQL.SELECTALL:
-                    if len( _cols ) == 0:
-                        self.__commandtext = f'SELECT * FROM {_table}'
-                        return self.__commandtext
-                    if len( _cols ) > 0:
-                        self.__commandtext = f'SELECT ' + self.__names + f'FROM {_table}' + f' {_criteria}'
-                        return self.__commandtext
+                    if len( self.__names ) == 0:
+                        self.__querytext = f'SELECT * FROM {_table}'
+                        return self.__querytext
+                    if len( self.__names ) > 0:
+                        self.__querytext = f'SELECT ' + _cols + f'FROM {_table}' + f' {_crit}'
+                        return self.__querytext
                 elif self.__commandtype == SQL.SELECT:
-                    if len( _cols ) == 0:
-                        self.__commandtext = f'SELECT * FROM {_table}'
-                        return self.__commandtext
-                    if len( _cols  ) > 0:
-                        self.__commandtext = f'SELECT ' + self.__names + f' FROM {_table}' + f' {_criteria}'
-                        return self.__commandtext
+                    if len( self.__names ) == 0:
+                        self.__querytext = f'SELECT * FROM {_table}'
+                        return self.__querytext
+                    if len( self.__names  ) > 0:
+                        self.__querytext = f'SELECT ' + _cols + f' FROM {_table}' + f' {_crit}'
+                        return self.__querytext
                 elif self.__commandtype == SQL.INSERT:
-                    self.__commandtext = f'INSERT INTO {_table} ' + f'{_cols} ' + f'{_vals}'
-                    return self.__commandtext
+                    self.__querytext = f'INSERT INTO {_table} ' + f'{_cols} ' + f'{_vals}'
+                    return self.__querytext
                 elif self.__commandtype == SQL.UPDATE:
-                    self.__commandtext = f'UPDATE {_table} ' \
-                                         + f'{self.__sqlconfiguration.dump_set( )} ' + f'{_vals}'
-                    return self.__commandtext
+                    self.__querytext = f'UPDATE {_table} ' \
+                                       + f'{self.__sqlconfig.dump_set( )} ' + f'{_vals}'
+                    return self.__querytext
                 elif self.__commandtype == SQL.DELETE:
-                    self.__commandtext = f'DELETE FROM {_table} ' + f'{_criteria}'
-                    return self.__commandtext
+                    self.__querytext = f'DELETE FROM {_table} ' + f'{_crit}'
+                    return self.__querytext
             else:
-                if isinstance( _cols , list ) and not isinstance( _vals, tuple ):
+                if isinstance( self.__names, list ) and not isinstance( _vals, tuple ):
                     if self.__commandtype == SQL.SELECT:
                         cols = _cols.lstrip( '(' ).rstrip( ')' )
-                        self.__commandtext = f'SELECT {cols} FROM {_table}'
-                        return self.__commandtext
-                elif not isinstance( _cols , list ) \
+                        self.__querytext = f'SELECT {cols} FROM {_table}'
+                        return self.__querytext
+                elif not isinstance( self.__names, list ) \
                         and not isinstance( _vals, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
-                        self.__commandtext = f'SELECT * FROM {_table}'
-                        return self.__commandtext
+                        self.__querytext = f'SELECT * FROM {_table}'
+                        return self.__querytext
                 elif self.__commandtype == 'DELETE':
-                    self.__commandtext = f'DELETE FROM {_table}'
-                    return self.__commandtext
+                    self.__querytext = f'DELETE FROM {_table}'
+                    return self.__querytext
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
