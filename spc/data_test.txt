@@ -20,7 +20,7 @@ from Minion import *
 a = 'This is a Test!!!!!!'
 src = Source.ProgramProjects
 pro = Provider.SQLite
-n = [ 'Code', ]
-v = ( 'A1' )
+_names = [ 'Code', ]
+_values = ( 'A1' )
 cnx = Connection( src, pro )
 scfg = SqlConfig( n, v )

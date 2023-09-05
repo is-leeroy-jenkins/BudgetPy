@@ -198,12 +198,12 @@ class Path( ):
             else:
                 return False
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Path'
-            exc.method = 'exists( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Path'
+            _exc.method = 'exists( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def is_folder( self ) -> bool:
         '''Method returning boolean value indicating whether         self.__input is a folder'''
@@ -213,12 +213,12 @@ class Path( ):
             else:
                 return False
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Path'
-            exc.method = 'is_folder( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Path'
+            _exc.method = 'is_folder( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def is_file( self ) -> bool:
         '''Method returning boolean value indicating whether         self.__input is a file'''
@@ -228,12 +228,12 @@ class Path( ):
             else:
                 return False
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Path'
-            exc.method = 'is_file( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Path'
+            _exc.method = 'is_file( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def is_absolute( self ) -> bool:
         '''Method to determine if the input fullpath is an
@@ -245,12 +245,12 @@ class Path( ):
                 elif os.path.isabs( self.__input ) == False:
                     return False
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Path'
-            exc.method = 'is_absolute_path( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Path'
+            _exc.method = 'is_absolute_path( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def is_relative( self ) -> bool:
         '''Method to determine if the input fullpath is a
@@ -262,12 +262,12 @@ class Path( ):
                 elif os.path.isabs( self.__input ) == False:
                     return True
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Path'
-            exc.method = 'is_relative_path( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Path'
+            _exc.method = 'is_relative_path( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def verify( self, other: str ) -> bool:
         '''Method returns a boolean value indicating if
@@ -278,12 +278,12 @@ class Path( ):
             else:
                 return False
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Path'
-            exc.method = 'verify( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Path'
+            _exc.method = 'verify( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def get_reportpath( self, ext = EXT.XLSX ) -> str:
         '''Method returns string representing the relative_path fullpath
@@ -293,12 +293,12 @@ class Path( ):
             if isinstance( self.__report, str ):
                 return self.__report
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Path'
-            exc.method = 'get_report_path( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Path'
+            _exc.method = 'get_report_path( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def join( self, first: str, second: str ) -> str:
         ''' Method concatenates the fullpath provided by the argument 'first'
@@ -307,12 +307,12 @@ class Path( ):
             if os.path.exists( first ) and os.path.exists( second ):
                 return os.path.join( first, second )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Path'
-            exc.method = 'join( self, first, second )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Path'
+            _exc.method = 'join( self, first, second )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # File( fullpath )
 class File( Path ):
@@ -455,12 +455,12 @@ class File( Path ):
                 os.rename( src, dst )
                 return dst
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'rename( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'rename( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def move( self, destination: str ) -> str:
         '''renames current_directory file'''
@@ -468,12 +468,12 @@ class File( Path ):
             if os.path.isdir( destination ):
                 return os.path.join( self.__name, destination )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'move( self, destination )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'move( self, destination )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def create( self, other: str, lines: list[ str ] = None ):
         ''' creates and returns 'selected_path' file '''
@@ -486,12 +486,12 @@ class File( Path ):
 
                     newfile.flush( )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'create( self, other, lines = None )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'create( self, other, lines = None )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def verify( self, other: str ) -> bool:
         '''determines if an external file exists'''
@@ -499,12 +499,12 @@ class File( Path ):
             if other is not None:
                 return os.path.exists( other )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'verify( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'verify( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def delete( self, other: str ):
         ''' deletes file at 'self.__selecteditem'   '''
@@ -512,12 +512,12 @@ class File( Path ):
             if os.path.isfile( other ):
                 os.remove( other )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'delete( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'delete( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def readlines( self, other: str ):
         '''reads all lines in 'other' into a list
@@ -529,12 +529,12 @@ class File( Path ):
                 file.close( )
                 return contents
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'realines( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'realines( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def readall( self, other: str ):
         '''reads a single line from the file into a string
@@ -547,12 +547,12 @@ class File( Path ):
                 file.close( )
                 return contents
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'readall( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'readall( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def writelines( self, lines: list[ str ] = None ):
         ''' writes the contents of 'lines' to self.__contents '''
@@ -565,12 +565,12 @@ class File( Path ):
                 contents.flush( )
                 return contents
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'writelines( self, lines = None )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'writelines( self, lines = None )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def writeall( self, other: str ):
         ''' writes the contents of 'lines' to self.__contents '''
@@ -587,12 +587,12 @@ class File( Path ):
                 lines.close( )
                 return contents
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'File'
-            exc.method = 'writeall( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'File'
+            _exc.method = 'writeall( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # Folder( fullpath )
 class Folder( Path ):
@@ -729,12 +729,12 @@ class Folder( Path ):
                     filenames.append( path )
             return filenames
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'get_files( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'get_files( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def get_subfiles( self ) -> list:
         '''Iterates get_subfolders in the base directory'''
@@ -750,12 +750,12 @@ class Folder( Path ):
                         filenames.append( path )
             return filenames
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'get_subfolders( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'get_subfolders( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def get_subfolders( self ) -> list:
         '''Iterates get_subfolders in the base directory'''
@@ -769,12 +769,12 @@ class Folder( Path ):
                             filenames.append( path )
             return filenames
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'get_subfolders( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'get_subfolders( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def rename( self, name ):
         '''renames current_directory file'''
@@ -782,12 +782,12 @@ class Folder( Path ):
             if self.__name is not None and isinstance( name, str ):
                 return os.rename( self.__name, name )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'rename( self, name )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'rename( self, name )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def move( self, destination: str ):
         '''renames current_directory file'''
@@ -795,12 +795,12 @@ class Folder( Path ):
             if not destination == '' and not os.path.exists( destination ):
                 return os.path.join( self.__name, destination )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'move( self, destination )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'move( self, destination )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def exists( self ) -> bool:
         '''determines if the base file exists'''
@@ -808,24 +808,24 @@ class Folder( Path ):
             if os.path.isdir( self.__path ):
                 return True
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'exists( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'exists( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def create( self, other: str ):
         try:
             if other is not None:
                 os.mkdir( other )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'create( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'create( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def delete( self, other: str ):
         ''' deletes 'selected_path' directory '''
@@ -833,12 +833,12 @@ class Folder( Path ):
             if other is not None and os.path.isdir( other ):
                 os.rmdir( other )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'delete( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'delete( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def iterate( self ) -> iter:
         '''iterates subfolders in the base directory'''
@@ -846,12 +846,12 @@ class Folder( Path ):
             for i in os.walk( self.__path ):
                 yield i
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Folder'
-            exc.method = 'iterate( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Folder'
+            _exc.method = 'iterate( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # Message( sender, receiver, body, subject, copy )
 class Message( ):
@@ -1118,12 +1118,12 @@ class Excel( ):
         try:
             self.__workbook.save( self.__path )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'Excel'
-            exc.method = 'save( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'Excel'
+            _exc.method = 'save( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # ExcelReport( title, rows = 46, cols = 12 )
 class ExcelReport( Excel ):
@@ -1214,12 +1214,12 @@ class ZipFile( ):
             if not self.__filepath == '':
                 zp.ZipFile( self.__zippath, 'w' ).write( self.__filepath, self.__name )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'ZipFile'
-            exc.method = 'create( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'ZipFile'
+            _exc.method = 'create( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def unzip( self ):
         ''' Extracts zip file contents '''
@@ -1228,9 +1228,9 @@ class ZipFile( ):
                 file = zp.ZipFile( self.__zippath )
                 file.extractall( self.__zippath )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'FileSys'
-            exc.cause = 'ZipFile'
-            exc.method = 'unzip( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'FileSys'
+            _exc.cause = 'ZipFile'
+            _exc.method = 'unzip( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )

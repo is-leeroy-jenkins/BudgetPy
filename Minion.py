@@ -138,12 +138,12 @@ class App( ):
             elif isinstance( self.__app, Client ) and self.__app == Client.Calculator:
                 sp.Popen( self.__calculator )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Minion'
-            exc.cause = 'App'
-            exc.method = 'run( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Minion'
+            _exc.cause = 'App'
+            _exc.method = 'run( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def run_args( self, args ):
         '''Method starts a process running the member
@@ -163,10 +163,10 @@ class App( ):
             elif isinstance( args, str ) and self.__app == Client.Chrome:
                     sp.Popen( [ self.__chrome, args ] )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Minion'
-            exc.cause = 'App'
-            exc.method = 'run_args( self, args )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Minion'
+            _exc.cause = 'App'
+            _exc.method = 'run_args( self, args )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 

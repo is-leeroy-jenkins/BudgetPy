@@ -80,11 +80,11 @@ class Pascal( ):
             return self.__output
 
     @output.setter
-    def output( self, value ):
+    def output( self, value: str ):
         if value is not None and value != self.__input:
             self.__output = value
 
-    def __init__( self, buffer = None ):
+    def __init__( self, buffer: str = None ):
         self.__input = buffer if buffer is not None and buffer != '' else None
 
     def __str__( self ) -> str:
@@ -92,31 +92,30 @@ class Pascal( ):
             return self.__output
 
     def split( self ) -> str:
-        '''takes the string provided as an inbuffer argument
-         and formats it into pascal case
+        '''takes the input string and formats it into pascal case
          @return: '''
         try:
             if self.__input != '' and self.__input.count( ' ' ) == 0:
-                inbuffer = list( self.__input )
-                rtnstr = ''
-                outstr = ''
-                cnt = len( inbuffer )
+                _buffer = list( self.__input )
+                _retval = ''
+                _output = ''
+                _count = len( _buffer )
 
-                for i in range( cnt ):
-                    char = inbuffer[ i ]
-                    if i <= 1 and char.islower( ):
-                        outstr += f'{char}'
-                    elif i <= 1 and char.isupper( ):
-                        outstr += f'{char}'
-                    elif i > 1 and char.islower( ):
-                        outstr += f'{char}'
-                    elif i > 1 and char.isupper( ):
-                        outstr += f' {char}'
+                for i in range( _count ):
+                    _char = _buffer[ i ]
+                    if i <= 1 and _char.islower( ):
+                        _output += f'{_char}'
+                    elif i <= 1 and _char.isupper( ):
+                        _output += f'{_char}'
+                    elif i > 1 and _char.islower( ):
+                        _output += f'{_char}'
+                    elif i > 1 and _char.isupper( ):
+                        _output += f' {_char}'
 
-                if len( outstr ) < 5:
-                    rtnstr = outstr.replace( ' ', '' )
+                if len( _output ) < 5:
+                    _retval = _output.replace( ' ', '' )
                 else:
-                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ) \
+                    _retval = _output.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ) \
                         .replace( 'Rpio', 'RPIO' ).replace( 'Rc', 'RC' ) \
                         .replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ) \
                         .replace( 'Omb', 'OMB' ).replace( 'Npm', 'NPM' ) \
@@ -125,15 +124,15 @@ class Pascal( ):
                         .replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' ) \
                         .replace( ' OF ', ' Of ' )
 
-                self.__output = rtnstr
+                self.__output = _retval
                 return self.__output
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'Pascal'
-            exc.method = 'split( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'Pascal'
+            _exc.method = 'split( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def join( self ) -> str:
         '''removes ' ' from strings previously formatted into pascal casing with split( self ) '''
@@ -161,12 +160,12 @@ class Pascal( ):
 
                 return self.__output
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'Pascal'
-            exc.method = 'join( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'Pascal'
+            _exc.method = 'join( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # SqlPath( )
 class SqlPath( ):
@@ -282,7 +281,7 @@ class SqlFile( ):
             return self.__provider
 
     @provider.setter
-    def provider( self, value ):
+    def provider( self, value: Provider ):
         if value is not None:
             self.__provider = value
 
@@ -292,7 +291,7 @@ class SqlFile( ):
             return self.__source
 
     @source.setter
-    def source( self, value ):
+    def source( self, value: Source ):
         if value is not None:
             self.__source = value
 
@@ -315,8 +314,8 @@ class SqlFile( ):
         try:
             sqlpath = SqlPath( )
             data = self.__data
-            provider = self.__provider.name
-            source = self.__source.name
+            _provider = self.__provider.name
+            _source = self.__source.name
             command = self.__command.name
             current = os.getcwd( )
             path = ''
@@ -333,12 +332,12 @@ class SqlFile( ):
                 path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
                 return os.path.join( current, path )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'path( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlFile'
+            _exc.method = 'path( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     @property
     def directory( self ) -> str:
@@ -347,8 +346,8 @@ class SqlFile( ):
         try:
             sqlpath = SqlPath( )
             data = self.__data
-            source = self.__source.name
-            provider = self.__provider.name
+            _source = self.__source.name
+            _provider = self.__provider.name
             command = self.__command.name
             current = os.getcwd( )
             folder = ''
@@ -365,38 +364,38 @@ class SqlFile( ):
                 folder = f'{sqlpath.sqlite_data}\\{command}'
                 return os.path.join( current, folder )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'directory( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlFile'
+            _exc.method = 'directory( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     @property
     def query( self ) -> str:
-        '''Method reads the given '.sql' file and returns
-        a string representing the text used the sql query'''
+        '''Method reads the given '._sql' file and returns
+        a string representing the text used the _sql _query'''
         try:
-            source = self.__source.name
-            paths = self.path
-            folder = self.directory
-            sql = ''
-            for name in os.listdir( folder ):
-                if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
-                    path = os.path.join( folder, name )
-                    query = open( path )
-                    sql = query.read( )
-                    return sql
+            _source = self.__source.name
+            _paths = self.path
+            _folder = self.directory
+            _sql = ''
+            for name in os.listdir( _folder ):
+                if name.endswith( '._sql' ) and os.path.splitext( name )[ 0 ] == _source:
+                    _path = os.path.join( _folder, name )
+                    _query = open( _path )
+                    _sql = _query.read( )
+                    return _sql
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'query( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlFile'
+            _exc.method = '_query( self, other )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
-    def __init__( self, source = None, provider = None,
-                  command = None ):
+    def __init__( self, source: Source = None, provider: Provider  = None,
+                  command: SQL = None ):
         self.__data = [ 'AccountingEvents',
                         'Accounts',
                         'ActivityCodes',
@@ -745,11 +744,11 @@ class DbConfig( ):
             else:
                 return self.__sqlitedriver
         except Exception as e:
-            exc = Error( e )
-            exc.cause = 'DbConfig Class'
-            exc.method = 'get_driver( self )'
-            error = ErrorDialog( exc )
-            error.show( )
+            _exc = Error( e )
+            _exc.cause = 'DbConfig Class'
+            _exc.method = 'get_driver( self )'
+            _error = ErrorDialog( _exc )
+            _error.show( )
 
     def get_path( self ) -> str:
         '''Returns the path to the DB in use'''
@@ -763,30 +762,30 @@ class DbConfig( ):
             else:
                 return self.__sqlitepath
         except Exception as e:
-            exc = Error( e )
-            exc.cause = 'DbConfig Class'
-            exc.method = 'path( self )'
-            error = ErrorDialog( exc )
-            error.show( )
+            _exc = Error( e )
+            _exc.cause = 'DbConfig Class'
+            _exc.method = 'path( self )'
+            _error = ErrorDialog( _exc )
+            _error.show( )
 
     def get_connectionstring( self ) -> str:
         '''Returns a connection string for the DB in use'''
         try:
-            path = self.get_path( )
+            _path = self.get_path( )
             if self.__provider.name == Provider.Access.name:
-                return self.get_driver( ) + path
+                return self.get_driver( ) + _path
             elif self.__provider.name == Provider.SqlServer.name:
                 return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' \
-                    + f'AttachDBFileName={path}' \
-                    + f'DATABASE={path}Trusted_Connection=yes;'
+                    + f'AttachDBFileName={_path}' \
+                    + f'DATABASE={_path}Trusted_Connection=yes;'
             else:
-                return f'{path} '
+                return f'{_path} '
         except Exception as e:
-            exc = Error( e )
-            exc.cause = 'DbConfig Class'
-            exc.method = 'get_connectionstring( self )'
-            error = ErrorDialog( exc )
-            error.show( )
+            _exc = Error( e )
+            _exc.cause = 'DbConfig Class'
+            _exc.method = 'get_connectionstring( self )'
+            _error = ErrorDialog( _exc )
+            _error.show( )
 
 # Connection( source, provider = Provider.SQLite )
 class Connection( DbConfig ):
@@ -845,12 +844,12 @@ class Connection( DbConfig ):
             else:
                 return sqlite.connect( self.__connectionstring )
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'Connection'
-            exc.method = 'connect( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'Connection'
+            _exc.method = 'connect( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # SqlConfig( command = SQL.SELECTALL, names = [ ], values = ( ), style = None )
 class SqlConfig( ):
@@ -920,7 +919,7 @@ class SqlConfig( ):
         if value is not None:
             self.__kvp = value
 
-    def __init__( self, command: SQL = SQL.SELECTALL, names: list = [ ],
+    def __init__( self, command: SQL = SQL.SELECTALL, names: list = None,
                   values: tuple= ( ), style: ParamStyle = None ):
         self.__command = command
         self.__names = names
@@ -942,12 +941,12 @@ class SqlConfig( ):
                 criteria = pairs.rstrip( ' AND ' )
                 return criteria
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_pairs( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlConfig'
+            _exc.method = 'dump_pairs( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def dump_where( self ) -> str:
         '''dump_where( ) returns a string
@@ -962,12 +961,12 @@ class SqlConfig( ):
                 criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
                 return criteria
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_where( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlConfig'
+            _exc.method = 'dump_where( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def dump_set( self ) -> str:
         '''dump_set( ) returns a string
@@ -982,12 +981,12 @@ class SqlConfig( ):
                 criteria = 'SET ' + pairs.rstrip( ', ' )
                 return criteria
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_set( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlConfig'
+            _exc.method = 'dump_set( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def dump_columns( self ) -> str:
         '''dump_columns( ) returns a string of _columns
@@ -1001,12 +1000,12 @@ class SqlConfig( ):
                 _columns = '(' + _colnames.rstrip( ', ' ) + ')'
                 return _columns
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_columns( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlConfig'
+            _exc.method = 'dump_columns( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def dump_values( self ) -> str:
         '''dump_values( ) returns a string of values
@@ -1020,12 +1019,12 @@ class SqlConfig( ):
                 values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
                 return values
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_values( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlConfig'
+            _exc.method = 'dump_values( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # SqlStatement( dbconfig,  sqlcfg )
 class SqlStatement( ):
@@ -1191,12 +1190,12 @@ class SqlStatement( ):
                     self.__text = f'DELETE FROM {table}'
                     return self.__text
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlStatement'
-            exc.method = 'getcommandtext( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlStatement'
+            _exc.method = 'getcommandtext( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # Query( connection, sqlstatement )
 class Query( ):
@@ -1494,12 +1493,12 @@ class SQLiteData( Query ):
             connection.close( )
             return self.__frame
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SQLiteData'
-            exc.method = 'create_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SQLiteData'
+            _exc.method = 'create_frame( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # AccessData( connection, sqlstatement )
 class AccessData( Query ):
@@ -1673,19 +1672,19 @@ class SqlData( Query ):
             query = self.__query
             connection = self.__connection.connect( )
             cursor = connection.cursor( )
-            data = cursor.execute( query )
+            _data = _cursor.execute( _query )
             self.__columns = [ i[ 0 ] for i in cursor.description ]
             self.__data = [ i for i in data.fetchall( ) ]
-            cursor.close( )
+            _cursor.close( )
             connection.close( )
             return self.__data
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlData'
-            exc.method = 'create_table( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlData'
+            _exc.method = 'create_table( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def create_frame( self ) -> DataFrame:
         try:
@@ -1695,12 +1694,12 @@ class SqlData( Query ):
             connection.close( )
             return self.__frame
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlData'
-            exc.method = 'create_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'SqlData'
+            _exc.method = 'create_frame( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # DataBuilder( provider, source, command, names, values )
 class DataBuilder( ):
@@ -1837,12 +1836,12 @@ class DataBuilder( ):
                 self.__data = [ tuple( i ) for i in sqlite.data ]
                 return self.__data
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'DataBuilder'
-            exc.method = 'create_table( self )'
-            error = ErrorDialog( exc )
-            error.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'DataBuilder'
+            _exc.method = 'create_table( self )'
+            _error = ErrorDialog( _exc )
+            _error.show( )
 
 # DataColumn( name = '', datatype = None, value = None  )
 class DataColumn( ):
@@ -1971,12 +1970,12 @@ class DataColumn( ):
             else:
                 return False
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'DataColumn'
-            exc.method = 'is_numeric( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'DataColumn'
+            _exc.method = 'is_numeric( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
     def is_text( self ) -> bool:
         '''Method used to return a boolean value indicating
@@ -1987,12 +1986,12 @@ class DataColumn( ):
             else:
                 return False
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'DataColumn'
-            exc.method = 'is_text( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Ninja'
+            _exc.cause = 'DataColumn'
+            _exc.method = 'is_text( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
 
 # DataRow( names = None, values = ( ), source = None)
 class DataRow( ):
@@ -2295,16 +2294,16 @@ class BudgetData( ):
         based on the Source input arguement 'source' given to the constructor'''
         try:
             path = self.__path
-            src = self.__source
+            _source = self.__source
             table = src.name
             conn = sqlite.connect( path )
             sql = f'SELECT * FROM {table};'
             frame = sqlreader( sql, conn )
             return frame
         except Exception as e:
-            exc = Error( e )
-            exc.module = 'Booger'
-            exc.cause = 'BudgetData'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+            _exc = Error( e )
+            _exc.module = 'Booger'
+            _exc.cause = 'BudgetData'
+            _exc.method = 'get_frame( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )

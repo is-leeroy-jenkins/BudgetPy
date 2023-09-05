@@ -374,7 +374,7 @@ class ColorFormat( ):
          an rgb color into its equivalent hsl color '''
 		high = max( r, g, b )
 		low = min( r, g, b )
-		h, s, v = ((high + low) / 2,) * 3
+		h, s, _values = ((high + low) / 2,) * 3
 		if high == low:
 			h = s = 0.0
 		else:
@@ -419,7 +419,7 @@ class ColorFormat( ):
 		return h, s, l
 
 	def hsl_to_hsv( self, h: int, s: int, l: int ) -> tuple:
-		v = (2 * l + s * (1 - fabs( 2 * l - 1 ))) / 2
+		_values = (2 * l + s * (1 - fabs( 2 * l - 1 ))) / 2
 		s = 2 * (v - l) / v
 		return h, s, v
 
@@ -731,12 +731,12 @@ class FileDialog( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'FileDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'FileDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # FolderDialog( ) -> str
 class FolderDialog( Sith ):
@@ -799,11 +799,11 @@ class FolderDialog( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.cause = 'FolderDialog'
-			exc.method = 'show( self )'
-			error = ErrorDialog( exc )
-			error.show( )
+			_exc = Error( e )
+			_exc.cause = 'FolderDialog'
+			_exc.method = 'show( self )'
+			_error = ErrorDialog( _exc )
+			_error.show( )
 
 # SaveFileDialog( fullpath = '' )
 class SaveFileDialog( Sith ):
@@ -866,12 +866,12 @@ class SaveFileDialog( Sith ):
 				src = io.open( self.__original, 'r' ).read( )
 				new = io.open( filename, 'w+' ).write( src )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'SaveFileDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'SaveFileDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # GoogleDialog(  )
 class GoogleDialog( Sith ):
@@ -960,12 +960,12 @@ class GoogleDialog( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'GoogleDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'GoogleDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # EmailDialog( sender = '', receiver = '', subject = '', heading = '' )
 class EmailDialog( Sith ):
@@ -1129,12 +1129,12 @@ class EmailDialog( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'EmailDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'EmailDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # MessageDialog( text = '' )
 class MessageDialog( Sith ):
@@ -1203,12 +1203,12 @@ class MessageDialog( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'MessageDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'MessageDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ErrorDialog( exception )
 class ErrorDialog( Sith ):
@@ -1424,12 +1424,12 @@ class InputDialog( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'InputDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'InputDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ScrollingDialog( text = '' )
 class ScrollingDialog( Sith ):
@@ -1502,12 +1502,12 @@ class ScrollingDialog( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'ScrollingDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( ), l
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'ScrollingDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( ), l
 
 # ContactForm( contact )
 class ContactForm( Sith ):
@@ -1573,12 +1573,12 @@ class ContactForm( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'ContactForm'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'ContactForm'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # GridForm( )
 class GridForm( Sith ):
@@ -1667,12 +1667,12 @@ class GridForm( Sith ):
 
 				window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'GridForm'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'GridForm'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # LoadingPanel( )
 class LoadingPanel( Sith ):
@@ -1734,12 +1734,12 @@ class LoadingPanel( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'LoadingPanel'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'LoadingPanel'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # WaitingPanel( )
 class WaitingPanel( Sith ):
@@ -1803,12 +1803,12 @@ class WaitingPanel( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'WaitingPanel'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'WaitingPanel'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ProcessingPanel( )
 class ProcessingPanel( Sith ):
@@ -1876,12 +1876,12 @@ class ProcessingPanel( Sith ):
 			window.close( )
 
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'ProcessingPanel'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'ProcessingPanel'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # SplashPanel( )
 class SplashPanel( Sith ):
@@ -1938,12 +1938,12 @@ class SplashPanel( Sith ):
 					break
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'SplashPanel'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'SplashPanel'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # Notification( )
 class Notification( Sith ):
@@ -2059,12 +2059,12 @@ class Notification( Sith ):
 				alpha = 1 )
 
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'Notification'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'Notification'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ImageSizeEncoder( )
 # noinspection PyUnresolvedReferences
@@ -2388,12 +2388,12 @@ class PdfForm( Sith ):
 					goto.update( f'{str( currentpage + 1 )} of {str( pages )}' )
 
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'PdfForm'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'PdfForm'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
@@ -2489,12 +2489,12 @@ class CalendarDialog( Sith ):
 			self.__selecteditem = cal
 
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'CalendarDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'CalendarDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # DatePanel( )
 class DatePanel( Sith ):
@@ -2686,12 +2686,12 @@ class DatePanel( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'DatePael'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'DatePael'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ComboBoxDialog( list )
 class ComboBoxDialog( Sith ):
@@ -2772,12 +2772,12 @@ class ComboBoxDialog( Sith ):
 
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'ComboBoxDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'ComboBoxDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ListBoxDialog( data )
 class ListBoxDialog( Sith ):
@@ -2884,12 +2884,12 @@ class ListBoxDialog( Sith ):
 			window.close( )
 
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'ListBoxDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'ListBoxDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ColorDialog( )
 class ColorDialog( Sith ):
@@ -3690,12 +3690,12 @@ class ColorDialog( Sith ):
 				border_width = 1,
 				tooltip_time = 100 )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'ColorDialog'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'ColorDialog'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # BudgetForm( )
 class BudgetForm( Sith ):
@@ -3835,12 +3835,12 @@ class BudgetForm( Sith ):
 				self.__titlelayout = title
 				return title
 			except Exception as e:
-				exc = Error( e )
-				exc.module = 'Booger'
-				exc.cause = 'BudgetForm'
-				exc.method = 'create_title( self, items )'
-				err = ErrorDialog( exc )
-				err.show( )
+				_exc = Error( e )
+				_exc.module = 'Booger'
+				_exc.cause = 'BudgetForm'
+				_exc.method = 'create_title( self, items )'
+				_err = ErrorDialog( _exc )
+				_err.show( )
 
 	def create_header( self, items: list ) -> list:
 		if items is not None:
@@ -3861,12 +3861,12 @@ class BudgetForm( Sith ):
 				self.__headerlayout = header
 				return header
 			except Exception as e:
-				exc = Error( e )
-				exc.module = 'Booger'
-				exc.cause = 'BudgetForm'
-				exc.method = 'create_header( self, items )'
-				err = ErrorDialog( exc )
-				err.show( )
+				_exc = Error( e )
+				_exc.module = 'Booger'
+				_exc.cause = 'BudgetForm'
+				_exc.method = 'create_header( self, items )'
+				_err = ErrorDialog( _exc )
+				_err.show( )
 
 	def create_first( self, items: list ) -> list:
 		if items is not None:
@@ -3891,12 +3891,12 @@ class BudgetForm( Sith ):
 				self.__firstlayout = first
 				return first
 			except Exception as e:
-				exc = Error( e )
-				exc.module = 'Booger'
-				exc.cause = 'BudgetForm'
-				exc.method = 'setfirsttext( self, items )'
-				err = ErrorDialog( exc )
-				err.show( )
+				_exc = Error( e )
+				_exc.module = 'Booger'
+				_exc.cause = 'BudgetForm'
+				_exc.method = 'setfirsttext( self, items )'
+				_err = ErrorDialog( _exc )
+				_err.show( )
 
 	def create_second( self, items: list ) -> list:
 		if items is not None:
@@ -3921,12 +3921,12 @@ class BudgetForm( Sith ):
 				self.__secondlayout = second
 				return second
 			except Exception as e:
-				exc = Error( e )
-				exc.module = 'Booger'
-				exc.cause = 'BudgetForm'
-				exc.method = 'create_second( self, items )'
-				err = ErrorDialog( exc )
-				err.show( )
+				_exc = Error( e )
+				_exc.module = 'Booger'
+				_exc.cause = 'BudgetForm'
+				_exc.method = 'create_second( self, items )'
+				_err = ErrorDialog( _exc )
+				_err.show( )
 
 	def create_third( self, items: list ) -> list:
 		if items is not None:
@@ -3951,12 +3951,12 @@ class BudgetForm( Sith ):
 				self.__thirdlayout = third
 				return third
 			except Exception as e:
-				exc = Error( e )
-				exc.module = 'Booger'
-				exc.cause = 'BudgetForm'
-				exc.method = 'create_third( self, items: list )'
-				err = ErrorDialog( exc )
-				err.show( )
+				_exc = Error( e )
+				_exc.module = 'Booger'
+				_exc.cause = 'BudgetForm'
+				_exc.method = 'create_third( self, items: list )'
+				_err = ErrorDialog( _exc )
+				_err.show( )
 
 	def create_fourth( self, items: list ) -> list:
 		if items is not None:
@@ -3981,12 +3981,12 @@ class BudgetForm( Sith ):
 				self.__fourthlayout = fourth
 				return fourth
 			except Exception as e:
-				exc = Error( e )
-				exc.module = 'Booger'
-				exc.cause = 'BudgetForm'
-				exc.method = 'create_fourth( self, items: list )'
-				err = ErrorDialog( exc )
-				err.show( )
+				_exc = Error( e )
+				_exc.module = 'Booger'
+				_exc.cause = 'BudgetForm'
+				_exc.method = 'create_fourth( self, items: list )'
+				_err = ErrorDialog( _exc )
+				_err.show( )
 
 	def set_layout( self ) -> list:
 		try:
@@ -4028,12 +4028,12 @@ class BudgetForm( Sith ):
 			self.__formlayout = layout
 			return layout
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'BudgetForm'
-			exc.method = 'set_layout( self, items )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'BudgetForm'
+			_exc.method = 'set_layout( self, items )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 	def show( self ):
 		try:
@@ -4138,12 +4138,12 @@ class BudgetForm( Sith ):
 					sg.popup_scrolled( 'This Python file is:', __file__ )
 			window.close( )
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'BudgetForm'
-			exc.method = 'show( self)'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'BudgetForm'
+			_exc.method = 'show( self)'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ChartPanel( )
 class ChartPanel( Sith ):
@@ -4221,7 +4221,7 @@ class ChartPanel( Sith ):
 			excp.cause = 'ChartForm'
 			excp.method = 'show( self)'
 			err = ErrorDialog( excp )
-			err.show( )
+			_err.show( )
 
 # CsvForm( )
 class CsvForm( Sith ):
@@ -4321,12 +4321,12 @@ class CsvForm( Sith ):
 			window.close( )
 
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'CsvForm'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'CsvForm'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # ExcelForm( )
 class ExcelForm( Sith ):
@@ -4449,12 +4449,12 @@ class ExcelForm( Sith ):
 
 
 		except Exception as e:
-			exc = Error( e )
-			exc.module = 'Booger'
-			exc.cause = 'ExcelForm'
-			exc.method = 'show( self )'
-			err = ErrorDialog( exc )
-			err.show( )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'ExcelForm'
+			_exc.method = 'show( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 # GraphForm( )
 class GraphForm( Sith ):
