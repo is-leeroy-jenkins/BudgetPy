@@ -1293,22 +1293,22 @@ class Query( ):
             self.__table = value
 
     @property
-    def names( self ) -> str:
+    def names( self ) -> list[ str ]:
         if self.__names is not None:
             return self.__names
 
     @names.setter
-    def names( self, value: str ):
+    def names( self, value: list[ str ] ):
         if value is not None:
             self.__names = value
 
     @property
-    def values( self ) -> str:
+    def values( self ) -> tuple:
         if self.__values is not None:
             return self.__values
 
     @values.setter
-    def values( self, value: str ):
+    def values( self, value: tuple ):
         if value is not None:
             self.__values = value
 
