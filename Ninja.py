@@ -46,16 +46,16 @@ from datetime import datetime
 from pandas import DataFrame
 from pyodbc import Row
 from Booger import Error, ErrorDialog
-from Data import (DbConfig, SqlConfig, Connection,
-                  SqlStatement, BudgetData, DataBuilder)
+from Data import ( DbConfig, SqlConfig, Connection,
+                  SqlStatement, BudgetData, DataBuilder )
 from Static import SQL
 from Static import Source, Provider
 
 class Unit( ):
     '''
-    Constructor: Unit( value, value )
+    Constructor: Unit( id: int )
      
-    Purpose: class defines an object
+    Purpose: Base class defines an object
     representing fundemental unit of data
     in the Budget Execution application'''
     __index = None
@@ -77,9 +77,12 @@ class Unit( ):
         if self.__code is not None:
             return self.__code
 
-# DataUnit( id, code, name )
 class DataUnit( Unit ):
-    '''DataUnit class represents fundamental program unit'''
+    '''
+    Constructor: DataUnit( id: int, code: str, name: str )
+    
+    Purpose: Base class providing a code and name
+    '''
     __index = None
     __code = None
     __name = None
@@ -106,12 +109,15 @@ class DataUnit( Unit ):
         self.__name = name 
 
     def __str__( self ) -> str:
-        if isinstance( self.__code, str ) and self.__code != '':
+        if self.__code is not None:
             return self.__code
 
-# BudgetUnit( id, code, name, treas, omb )
 class BudgetUnit( DataUnit ):
-    #base class for OMB reporting classes
+    '''
+    Constructor: BudgetUnit( id: int, code: str, nam: str, treas: str, main: str )
+    
+    Purpose: Base class for OMB reporting classes
+    '''
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -315,7 +321,7 @@ class Account( ):
         if self.__code is not None:
             return self.__code
 
-    def copy( self ):
+    def copy( self ) -> Account:
         try:
             _clone = Account( code = self.__code )
             _clone.goal_code = self.__goalcode
@@ -343,8 +349,8 @@ class Account( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -371,9 +377,12 @@ class Account( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ActivityCode( treas, provider = Provider.SQLite )
 class ActivityCode( ):
-    '''Defines the Activity Class'''
+    '''
+    Constructor: ActivityCode( treas, provider = Provider.SQLite )
+    
+    Purpose: Data class representing Activity Codes
+    '''
     __source = None
     __provider = None
     __activitycodesid = None
@@ -469,8 +478,8 @@ class ActivityCode( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -497,9 +506,11 @@ class ActivityCode( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# AllowanceHolder( fundcode, provider = Provider.SQLite )
 class AllowanceHolder( ):
-    '''Defines the AllowanceHolder Class'''
+    '''
+    Constructor: AllowanceHolder( code: str, provider: Provider = Provider.SQLite )
+    
+    Purpose: Data class representing Allowance Holders'''
     __source = None
     __provider = None
     __allowancholdersid = None
@@ -569,7 +580,7 @@ class AllowanceHolder( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code: str, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.AllowanceHolders
         self.__code = code if isinstance( self.__code, str ) else None
@@ -594,8 +605,8 @@ class AllowanceHolder( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -622,10 +633,12 @@ class AllowanceHolder( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# CarryoverEstimate( bfy, provider = Provider.SQLite )
 class AmericanRescuePlanCarryoverEstimate( ):
-    '''CarryoverEstimate( bfy ) initializes object bfy
-    providing Carryover Estimate data for'''
+    '''
+    Constructor: CarryoverEstimate( bfy: str, provider = Provider.SQLite )
+    
+    Purpose: Class representing estimates for ARP carryover
+    '''
     __source = None
     __provider = None
     __arpcarryoverestimatesid = None
@@ -855,8 +868,8 @@ class AmericanRescuePlanCarryoverEstimate( ):
                            'UnobligatedAuthority' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__unobligatedauthority, float ):
-            return str( self.__unobligatedauthority )
+        if self.__fundcode is not None:
+            return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -871,8 +884,8 @@ class AmericanRescuePlanCarryoverEstimate( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -898,10 +911,11 @@ class AmericanRescuePlanCarryoverEstimate( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# CarryoverEstimate( bfy, provider = Provider.SQLite )
 class AnnualCarryoverEstimate( ):
-    '''CarryoverEstimate( bfy ) initializes object bfy
-    providing Carryover Estimate data for'''
+    '''
+    Constructor: AnnualCarryoverEstimate( bfy: str, provider: Provider = Provider.SQLite )
+    
+    Purpose: Class providing Carryover Estimate data for'''
     __source = None
     __provider = None
     __annualcarryoverestimatesid = None
@@ -1104,7 +1118,7 @@ class AnnualCarryoverEstimate( ):
             self.__fields = value
 
 
-    def __init__( self, bfy: str, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.AnnualCarryoverEstimates
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -1132,8 +1146,8 @@ class AnnualCarryoverEstimate( ):
                            'UnobligatedAuthority' ]
 
     def __str__( self ) -> str:
-        if self.__unobligatedauthrity is not None:
-            return str( self.__unobligatedauthority )
+        if self.__fundcode is not None:
+            return str( self.__fundcode )
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -1148,8 +1162,8 @@ class AnnualCarryoverEstimate( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -1176,10 +1190,11 @@ class AnnualCarryoverEstimate( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ReimbursableEstimate( bfy, provider = Provider.SQLite )
 class AnnualReimbursableEstimate( ):
-    '''CarryoverEstimate( bfy ) initializes object bfy
-    providing Carryover Estimate data for'''
+    '''
+    Constructor: AnnualReimbursableEstimate( bfy: str, provider: Provider = Provider.SQLite )
+    
+    Purpose:  Class defining object representing reimbursable estimates'''
     __source = None
     __provider = None
     __annualreimbursableestimatesid = None
@@ -1319,11 +1334,11 @@ class AnnualReimbursableEstimate( ):
             self.__fields = value
 
 
-    def __init__( self, bfy: str, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.AnnualReimbursableEstimates
         self.__bfy = bfy
-        self.__fields = [ 'CarryoverEstimatesId',
+        self.__fields = [ 'AnnualReimbursableEstimatesId',
                            'BudgetLevel',
                            'BFY',
                            'EFY',
@@ -1346,8 +1361,8 @@ class AnnualReimbursableEstimate( ):
                            'UnobligatedAuthority' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__unobligatedauthority, float ):
-            return str( self.__unobligatedauthority )
+        if self.__fundcode is not None:
+            return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -1362,8 +1377,8 @@ class AnnualReimbursableEstimate( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -1390,9 +1405,11 @@ class AnnualReimbursableEstimate( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Appropriation( fundcode, provider = Provider.SQLite )
 class Appropriation( ):
-    '''Defines the Appropriation Class'''
+    '''
+    Constructor: Appropriation( fundcode, provider = Provider.SQLite )
+
+    Purpose: Data class representing Appropriations'''
     __source = None
     __provider = None
     __appropriationsid = None
@@ -1461,7 +1478,7 @@ class Appropriation( ):
                            'Name' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__code, str ) and self.__code != '':
+        if self.__code is not None:
             return self.__code
 
     def get_data( self ) -> list[ Row ]:
@@ -1477,8 +1494,8 @@ class Appropriation( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -1505,9 +1522,11 @@ class Appropriation( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# AppropriationAvailableBalance( bfy, efy, fundcode, provider = Provider.SQLite )
 class AppropriationAvailableBalance( ):
-    '''Defines the Appropriation Class'''
+    '''
+    Constructor: AppropriationAvailableBalance( bfy: str, efy: str, fundcode: str )
+
+    Purpose: Data class representing Appropriation-level balances'''
     __source = None
     __provider = None
     __appropriationavailablebalancesid = None
@@ -1725,7 +1744,7 @@ class AppropriationAvailableBalance( ):
                           'TotalAvailable']
 
     def __str__( self ) -> str:
-        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+        if self.__fundcode is not None:
             return self.__fundcode
 
     def get_data( self ) -> list[ Row ]:
@@ -1741,8 +1760,8 @@ class AppropriationAvailableBalance( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -1769,9 +1788,11 @@ class AppropriationAvailableBalance( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# AppropriationLevelAuthority( vfy, efy, fundcode, provider = Provider.SQLite )
 class AppropriationLevelAuthority( ):
-    '''Defines the Appropriation Class'''
+    '''
+    Constructor: AppropriationLevelAuthority( bfy: str, efy: str, fundcode: str )
+
+    Purpose: Data class representing Appropriation-level authority'''
     __source = None
     __provider = None
     __appropriationlevelauthorityid = None
@@ -1971,8 +1992,8 @@ class AppropriationLevelAuthority( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -1999,9 +2020,11 @@ class AppropriationLevelAuthority( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Allocation( bfy, fund, provider = Provider.SQLite )
 class Allocation( ):
-    '''object representing operating plan data'''
+    '''
+    Constructor: Allocation( bfy = None, fund = None, provider: Provider = Provider.SQLite )
+
+    Purpose: Class defining object representing Allocations'''
     __source = None
     __provider = None
     __allocationsid = None
@@ -2316,7 +2339,7 @@ class Allocation( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy = None, fund = None, provider = Provider.SQLite ):
+    def __init__( self, bfy = None, fund = None, provider: Provider = Provider.SQLite ):
         self.__source = Source.Allocations
         self.__provider = provider
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -2361,8 +2384,8 @@ class Allocation( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -2389,10 +2412,12 @@ class Allocation( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ApportionmentData( bfy, efy, treas, provider = Provider.SQLite )
 class ApportionmentData( ):
-    '''Apportionment( bfy, efy, omb )
-    initializes object representing Letters Of Apportionment'''
+    '''
+    Constructor:  ApportionmentData( bfy: str, efy: str, main: str,
+                                provider: Provider = Provider.SQLite )
+
+    Purpose: Data class representing Letters Of Apportionment'''
     __source = None
     __provider = None
     __apportionmentdataid = None
@@ -2552,13 +2577,13 @@ class ApportionmentData( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy: str, efy: str, omb: str,
+    def __init__( self, bfy: str, efy: str, main: str,
                   provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ApportionmentData
         self.__bfy = bfy
         self.__efy = efy
-        self.__budgetaccountcode = omb
+        self.__budgetaccountcode = main
         self.__fields = [ 'ApportionmentDataId',
                           'FiscalYear',
                           'BFY',
@@ -2594,8 +2619,8 @@ class ApportionmentData( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -3056,8 +3081,8 @@ class Actual( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -3536,8 +3561,8 @@ class AppropriationDocument( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -4071,8 +4096,8 @@ class BudgetDocument( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -4573,8 +4598,8 @@ class BudgetControl( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -4843,8 +4868,8 @@ class BudgetFiscalYear( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -4981,8 +5006,8 @@ class BudgetObjectClass( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -5159,8 +5184,8 @@ class BudgetaryResourceExecution( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -5190,7 +5215,7 @@ class BudgetaryResourceExecution( ):
 # Outlay( account, provider = Provider.SQLite )
 class Outlay( ):
     '''
-    Constructor; Outlay( bfy: str, omb: str )
+    Constructor; Outlay( bfy: str, main: str )
 
     Purpose: Class defines object that provides OMB data
     '''
@@ -5494,8 +5519,8 @@ class Outlay( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -5744,8 +5769,8 @@ class CongressionalControl( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -5972,8 +5997,8 @@ class CompassLevel( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -6504,8 +6529,8 @@ class Commitment( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -6669,8 +6694,8 @@ class CapitalPlanningInvestmentCodes( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -6880,8 +6905,8 @@ class DataRuleDescription( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -7366,8 +7391,8 @@ class Defacto( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -7881,8 +7906,8 @@ class Deobligation( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -8030,8 +8055,8 @@ class DocumentControlNumber( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -8576,8 +8601,8 @@ class Expenditure( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -8725,8 +8750,8 @@ class FinanceObjectClass( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -9166,8 +9191,8 @@ class Fund( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -9385,8 +9410,8 @@ class FederalHoliday( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -10069,8 +10094,8 @@ class FullTimeEquivalent( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -10316,8 +10341,8 @@ class Goal( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -10692,8 +10717,8 @@ class HeadquartersAuthority( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -10819,8 +10844,8 @@ class HeadquartersOffice( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -11098,8 +11123,8 @@ class InflationReductionActCarryoverEstimate( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -11375,8 +11400,8 @@ class JobsActCarryoverEstimate( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -11729,8 +11754,8 @@ class MonthlyActual( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -11759,7 +11784,7 @@ class MonthlyActual( ):
 
 # MonthlyOutlay( bfy, efy, account, provider = Provider.SQLite )
 class MonthlyOutlay( ):
-    '''MonthlyOutlay( bfy, efy, omb ) initializes
+    '''MonthlyOutlay( bfy, efy, main ) initializes
     object providing OMB outlay data'''
     __source = None
     __provider = None
@@ -11956,8 +11981,8 @@ class MonthlyOutlay( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -12105,8 +12130,8 @@ class NationalProgram( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -12232,8 +12257,8 @@ class Objective( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -12358,8 +12383,8 @@ class Organization( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -12716,8 +12741,8 @@ class OperatingPlan( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -13325,8 +13350,8 @@ class OpenCommitment( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -13932,8 +13957,8 @@ class Obligation( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -14133,8 +14158,8 @@ class Project( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -14258,8 +14283,8 @@ class ProgramArea( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -14407,8 +14432,8 @@ class ProgramProject( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -15036,8 +15061,8 @@ class ResponsibilityCenter( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -15161,8 +15186,8 @@ class ResourcePlanningOffice( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -15287,8 +15312,8 @@ class RegionalOffice( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -15550,8 +15575,8 @@ class ReimbursableAgreement( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -16021,8 +16046,8 @@ class RegionalAuthority( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -16503,8 +16528,8 @@ class StatusOfFunds( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -16990,8 +17015,8 @@ class StatusOfSupplementalFunding( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -17284,8 +17309,8 @@ class StateGrantObligation( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -17625,8 +17650,8 @@ class SpecialAccount( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -17811,8 +17836,8 @@ class SuperfundSite( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -17950,8 +17975,8 @@ class SubAppropriation( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -18070,8 +18095,8 @@ class StateOrganization( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -18779,8 +18804,8 @@ class StatusOfAppropriations( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -21032,8 +21057,8 @@ class SiteActivity( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -21641,8 +21666,8 @@ class SpendingDocument( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -21918,8 +21943,8 @@ class SupplementalCarryoverEstimate( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -22080,8 +22105,8 @@ class TreasurySymbol( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.create_commandtext( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -22466,8 +22491,8 @@ class Transfer( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -22750,8 +22775,8 @@ class UnobligatedBalance( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data
@@ -23278,8 +23303,8 @@ class UnliquidatedObligation( ):
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
-            _data = _cursor.execute( _query )
-            self.__data =  [ i for i in _data.fetchall( ) ]
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
             _sqlite.close( )
             return self.__data

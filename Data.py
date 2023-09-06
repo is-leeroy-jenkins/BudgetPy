@@ -180,73 +180,61 @@ class SqlPath( ):
 
     @property
     def sqlite_driver( self ) -> str:
-        '''Returns the sqlite driver '''
         if self.__sqlitedriver is not None:
             return self.__sqlitedriver
 
     @sqlite_driver.setter
     def sqlite_driver( self, value: str ):
-        '''Sets the sqlite driver'''
         if value is not None:
             self.__sqlitedriver = value
 
     @property
     def sqlite_database( self ) -> str:
-        '''Returns the sqlite database path'''
         if self.__sqlitedatabase is not None:
             return self.__sqlitedatabase
 
     @sqlite_database.setter
     def sqlite_database( self, value: str ):
-        '''Sets the sqlite database path '''
         if value is not None:
             self.__sqlitedatabase = value
 
     @property
     def access_driver( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
         if self.__accessdriver is not None:
             return self.__accessdriver
 
     @access_driver.setter
     def access_driver( self, value: str ):
-        '''Returns string representing the title of the selected_path 'base' '''
         if value is not None:
             self.__accessdriver = value
 
     @property
     def access_database( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
         if self.__accessdatabase is not None:
             return self.__accessdatabase
 
     @access_database.setter
     def access_database( self, value: str ):
-        '''Returns string representing the title of the selected_path 'base' '''
         if value is not None:
             self.__accessdatabase = value
 
     @property
     def sql_driver( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
         if self.__sqldriver is not None:
             return self.__sqldriver
 
     @sql_driver.setter
     def sql_driver( self, value: str ):
-        '''Returns string representing the title of the selected_path 'base' '''
         if value is not None:
             self.__sqldriver = value
 
     @property
     def sql_database( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
         if self.__sqldatabase is not None:
             return self.__sqldatabase
 
     @sql_database.setter
     def sql_database( self, value: str ):
-        '''Returns string representing the title of the selected_path 'base' '''
         if value is not None:
             self.__sqldatabase = value
 
@@ -260,8 +248,8 @@ class SqlPath( ):
 
 class SqlFile( ):
     '''
-    Construxtor: SqlFile( source: Source = None, provider: Provider = None,
-     command: SQL = None )
+    Construxtor: SqlFile( source: Source = None, provider: Provider  = Provider.SQLite,
+                  command: SQL = SQL.SELECTALL )
 
     Purpuse: Class providing access to sql sub-folders in the application provided
     optional arguments source, provider, and command
@@ -301,8 +289,8 @@ class SqlFile( ):
         if value is not None:
             self.__command = value
 
-    def __init__( self, source: Source = None, provider: Provider  = None,
-                  command: SQL = None ):
+    def __init__( self, source: Source = None, provider: Provider  = Provider.SQLite,
+                  command: SQL = SQL.SELECTALL ):
         self.__data = [ 'AccountingEvents',
                         'Accounts',
                         'ActivityCodes',
@@ -312,9 +300,7 @@ class SqlFile( ):
                         'AllowanceHolders',
                         'AmericanRescuePlanCarryoverEstimates',
                         'AnnualCarryoverEstimates',
-                        'AnnualCarryoverSurvey',
                         'AnnualReimbursableEstimates',
-                        'AnnualReimbursableSurvey',
                         'ApplicationTables',
                         'ApportionmentData',
                         'AppropriationAvailableBalances',
@@ -325,22 +311,17 @@ class SqlFile( ):
                         'BudgetControls',
                         'BudgetDocuments',
                         'BudgetObjectClasses',
-                        'BudgetOutlays',
                         'CapitalPlanningInvestmentCodes',
                         'CarryoverApportionments',
-                        'CarryoverOutlays',
                         'CarryoverRequests',
                         'Changes',
                         'ColumnSchema',
                         'CompassLevels',
-                        'CompassOutlays',
                         'CongressionalControls',
-                        'CongressionalReprogrammings',
                         'Contacts',
                         'CostAreas',
                         'DataRuleDescriptions',
                         'Defactos',
-                        'DeobligationActivity',
                         'Deobligations',
                         'DocumentControlNumbers',
                         'Documents',
@@ -349,19 +330,14 @@ class SqlFile( ):
                         'FederalHolidays',
                         'FinanceObjectClasses',
                         'FiscalYears',
-                        'FiscalYearsBackUp',
                         'FundCategories',
                         'Funds',
                         'FundSymbols',
                         'GeneralLedgerAccounts',
                         'Goals',
-                        'GrossAuthority',
-                        'GrossUtilization',
-                        'GrowthRates',
                         'GsPayScales',
                         'HeadquartersAuthority',
                         'HeadquartersOffices',
-                        'HumanResourceOrganizations',
                         'Images',
                         'InflationReductionActCarryoverEstimates',
                         'JobsActCarryoverEstimates',
@@ -370,25 +346,21 @@ class SqlFile( ):
                         'MonthlyLedgerAccountBalances',
                         'MonthlyOutlays',
                         'NationalPrograms',
-                        'ObjectClassOutlays',
                         'Objectives',
                         'ObligationActivity',
                         'Obligations',
                         'OpenCommitments',
                         'OperatingPlans',
-                        'OperatingPlanUpdates',
                         'Organizations',
+                        'Outlays',
                         'PayPeriods',
-                        'PayrollActivity',
                         'PayrollAuthority',
                         'PayrollCostCodes',
                         'PayrollRequests',
                         'PRC',
                         'ProgramAreas',
-                        'ProgramFinancingSchedule',
                         'ProgramProjectDescriptions',
                         'ProgramProjects',
-                        'ProjectCostCodes',
                         'Projects',
                         'Providers',
                         'PublicLaws',
@@ -400,13 +372,11 @@ class SqlFile( ):
                         'ReimbursableAgreements',
                         'ReimbursableFunds',
                         'Reports',
-                        'Reprogrammings',
                         'ResourcePlanningOffices',
                         'Resources',
                         'ResponsibilityCenters',
                         'SchemaTypes',
                         'SiteActivity',
-                        'SiteProjectCodes',
                         'SpecialAccounts',
                         'SpendingDocuments',
                         'SpendingRates',
@@ -423,20 +393,17 @@ class SqlFile( ):
                         'SubAppropriations',
                         'SuperfundSites',
                         'SupplementalCarryoverEstimates',
-                        'SupplementalReimburseableEstimates',
-                        'TableName',
                         'TransferActivity',
                         'Transfers',
                         'TransTypes',
                         'TreasurySymbols',
                         'UnliquidatedObligations',
-                        'UnobligatedAuthority',
                         'UnobligatedBalances',
-                        'URL',
-                        'WorkCodes' ]
-        self.__command = command if command is not None else SQL.SELECTALL
-        self.__source = source if source is not None else Source.StatusOfFunds
-        self.__provider = provider if provider is not None else Provider.SQLite
+                        'URL' ]
+
+        self.__command = command
+        self.__source = source
+        self.__provider = provider
 
     def get_path( self ) -> str:
         '''Method returning a string representing
@@ -597,9 +564,7 @@ class DbConfig( ):
                         'AllowanceHolders',
                         'AmericanRescuePlanCarryoverEstimates',
                         'AnnualCarryoverEstimates',
-                        'AnnualCarryoverSurvey',
                         'AnnualReimbursableEstimates',
-                        'AnnualReimbursableSurvey',
                         'ApplicationTables',
                         'ApportionmentData',
                         'AppropriationAvailableBalances',
@@ -610,22 +575,17 @@ class DbConfig( ):
                         'BudgetControls',
                         'BudgetDocuments',
                         'BudgetObjectClasses',
-                        'BudgetOutlays',
                         'CapitalPlanningInvestmentCodes',
                         'CarryoverApportionments',
-                        'CarryoverOutlays',
                         'CarryoverRequests',
                         'Changes',
                         'ColumnSchema',
                         'CompassLevels',
-                        'CompassOutlays',
                         'CongressionalControls',
-                        'CongressionalReprogrammings',
                         'Contacts',
                         'CostAreas',
                         'DataRuleDescriptions',
                         'Defactos',
-                        'DeobligationActivity',
                         'Deobligations',
                         'DocumentControlNumbers',
                         'Documents',
@@ -634,19 +594,14 @@ class DbConfig( ):
                         'FederalHolidays',
                         'FinanceObjectClasses',
                         'FiscalYears',
-                        'FiscalYearsBackUp',
                         'FundCategories',
                         'Funds',
                         'FundSymbols',
                         'GeneralLedgerAccounts',
                         'Goals',
-                        'GrossAuthority',
-                        'GrossUtilization',
-                        'GrowthRates',
                         'GsPayScales',
                         'HeadquartersAuthority',
                         'HeadquartersOffices',
-                        'HumanResourceOrganizations',
                         'Images',
                         'InflationReductionActCarryoverEstimates',
                         'JobsActCarryoverEstimates',
@@ -655,25 +610,21 @@ class DbConfig( ):
                         'MonthlyLedgerAccountBalances',
                         'MonthlyOutlays',
                         'NationalPrograms',
-                        'ObjectClassOutlays',
                         'Objectives',
                         'ObligationActivity',
                         'Obligations',
                         'OpenCommitments',
                         'OperatingPlans',
-                        'OperatingPlanUpdates',
                         'Organizations',
+                        'Outlays',
                         'PayPeriods',
-                        'PayrollActivity',
                         'PayrollAuthority',
                         'PayrollCostCodes',
                         'PayrollRequests',
                         'PRC',
                         'ProgramAreas',
-                        'ProgramFinancingSchedule',
                         'ProgramProjectDescriptions',
                         'ProgramProjects',
-                        'ProjectCostCodes',
                         'Projects',
                         'Providers',
                         'PublicLaws',
@@ -685,13 +636,11 @@ class DbConfig( ):
                         'ReimbursableAgreements',
                         'ReimbursableFunds',
                         'Reports',
-                        'Reprogrammings',
                         'ResourcePlanningOffices',
                         'Resources',
                         'ResponsibilityCenters',
                         'SchemaTypes',
                         'SiteActivity',
-                        'SiteProjectCodes',
                         'SpecialAccounts',
                         'SpendingDocuments',
                         'SpendingRates',
@@ -708,17 +657,13 @@ class DbConfig( ):
                         'SubAppropriations',
                         'SuperfundSites',
                         'SupplementalCarryoverEstimates',
-                        'SupplementalReimburseableEstimates',
-                        'TableName',
                         'TransferActivity',
                         'Transfers',
                         'TransTypes',
                         'TreasurySymbols',
                         'UnliquidatedObligations',
-                        'UnobligatedAuthority',
                         'UnobligatedBalances',
-                        'URL',
-                        'WorkCodes' ]
+                        'URL' ]
 
     def __str__( self ) -> str:
         if isinstance( self.__table, str ):
@@ -1475,7 +1420,7 @@ class AccessData( Query ):
     '''
     Constructor:  AccessData( conn: connection, sql: SqlStatement )
 
-    Purpose: Class represents the omb execution
+    Purpose: Class represents the main execution
     values model classes in the MS ACCDB database
     '''
     __query = None
@@ -2138,12 +2083,12 @@ class BudgetData( ):
     __index = None
 
     @property
-    def _source( self ) -> Source:
+    def source( self ) -> Source:
         if self.__source is not None:
             return self.__source
 
-    @_source.setter
-    def _source( self, value: Source ):
+    @source.setter
+    def source( self, value: Source ):
         if value is not None:
             self.__source = value
 
@@ -2240,7 +2185,7 @@ class BudgetData( ):
             return _frame
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Booger'
+            _exc.module = 'Data'
             _exc.cause = 'BudgetData'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
