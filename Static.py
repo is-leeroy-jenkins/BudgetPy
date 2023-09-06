@@ -236,7 +236,7 @@ class SQL( Enum ):
     ALTERTABLE = 9
     ALTERCOLUMN = 10
 
-class Client( Enum ):
+class APP( Enum ):
     '''Enumeration of auxiliary applications'''
     SQLite = auto( )
     Access = auto( )

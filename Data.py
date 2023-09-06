@@ -50,7 +50,6 @@ import pyodbc
 from Static import Source, Provider, SQL, ParamStyle
 from Booger import Error, ErrorDialog
 
-# Pascal( input )
 class Pascal( ):
     '''
     Constructor: Pascal( input: str )
@@ -165,7 +164,6 @@ class Pascal( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# SqlPath( )
 class SqlPath( ):
     '''
     Constructor: SqlPath( )
@@ -260,7 +258,6 @@ class SqlPath( ):
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
         self.__sqldatabase = r'db\mssql\datamodels\sql'
 
-# SqlFile( _source = None, _provider = None, command = None  )
 class SqlFile( ):
     '''
     Construxtor: SqlFile( source: Source = None, provider: Provider = None,
@@ -527,7 +524,6 @@ class SqlFile( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# DbConfig( source, _provider = Provider.SQLite )
 class DbConfig( ):
     '''
     Constructor: DbConfig( source: Source, provider: Provider = Provider.SQLite )
@@ -1198,7 +1194,6 @@ class SqlStatement( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Query( connection, sqlstatement )
 class Query( ):
     '''
     Constructor:  Query( connection: Connection, sqlstatement: SqlStatement ).
@@ -1245,7 +1240,7 @@ class Query( ):
             return self.__path
 
     @path.setter
-    def path( self, value ):
+    def path( self, value: str ):
         if value is not None:
             self.__path = value
 
@@ -1610,7 +1605,7 @@ class SqlData( Query ):
         self.__query = sql.get_query( )
         self.__table = conn._source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
-        self.__driver = r'{ SQL Server Native Client 11.0 };'
+        self.__driver = r'{ SQL Server Native APP 11.0 };'
 
     def __str__( self ) -> str:
         if self.__query is not None:
@@ -1791,11 +1786,12 @@ class DataBuilder( ):
             _error = ErrorDialog( _exc )
             _error.show( )
 
-# DataColumn( name = '', datatype = None, value = None  )
 class DataColumn( ):
-    '''Defines the DataColumn Class providing schema information.
-    Constructor uses optional arguments ( name: str, type: type,
-     value: object, series: DataSeries )'''
+    '''
+    Constructor: DataColumn( name: str = '', dtype: type = None, value: object = None )
+
+    Purpose:  Defines the class providing schema information.
+     '''
     __series = None
     __row = None
     __name = None
@@ -1808,12 +1804,12 @@ class DataColumn( ):
     __frame = None
 
     @property
-    def id( self ) -> str:
-        if self.__id > -1:
+    def id( self ) -> int:
+        if self.__id is not None:
             return self.__id
 
     @id.setter
-    def id( self, value ):
+    def id( self, value: int ):
         if value > -1:
             self.__id = value
 
@@ -1823,7 +1819,7 @@ class DataColumn( ):
             return self.__name
 
     @name.setter
-    def name( self, value ):
+    def name( self, value: str ):
         if value is not None:
             self.__name = value
 
@@ -1846,16 +1842,6 @@ class DataColumn( ):
     def type( self, value: type ):
         if value is not None:
             self.__type = value
-
-    @property
-    def ordinal( self ) -> int:
-        if self.__value is not None:
-            return self.__id
-
-    @ordinal.setter
-    def ordinal( self, value: int ):
-        if value is not None:
-            self.__id = value
 
     @property
     def caption( self ) -> str:
@@ -1898,11 +1884,11 @@ class DataColumn( ):
         if value is not None:
             self.__frame = value
 
-    def __init__( self, name: str = '', datatype: type = None, value: object = None ):
+    def __init__( self, name: str = '', dtype: type = None, value: object = None ):
         self.__name = name
         self.__label = name
         self.__caption = name
-        self.__type = datatype
+        self.__type = dtype
         self.__value = value
 
     def __str__( self ) -> str:
@@ -1941,10 +1927,11 @@ class DataColumn( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# DataRow( column_names = None, values = ( ), _source = None)
 class DataRow( ):
-    '''Defines the DataRow Class with optional arguments
-    ( column_names: list, values: list, _source: Source )'''
+    '''
+    Constructor: DataRow( column_names = None, values = ( ), _source = None)
+
+    Purpose:  Defines the class representing rows of data'''
     __source = None
     __names = None
     __items = None
@@ -2036,12 +2023,12 @@ class DataRow( ):
         if self.__index is not None:
             return 'Row ID: ' + str( self.__index )
 
-# DataTable( columns = None, rows = None, _source = None, dataframe = None  )
 class DataTable( ):
-    '''DataTable( columns = None, rows = None, _source = None, dataframe = None  ).
-    Defines the DataTable Class with optional arguments
-    ( columns: list( str ), rows: list( tuple ), _source: Source,
-     dataframe: DataFrame )'''
+    '''
+    Constructor: DataTable( columns = None, rows = None, source = None, dataframe = None  ).
+
+    Purpose: Defines the class representing table of data
+    '''
     __name = None
     __data = None
     __frame = None
@@ -2121,9 +2108,9 @@ class DataTable( ):
             self.__source = value
 
     def __init__( self, columns: list[ str ] = None, rows: list = None,
-                  _source: Source = None, dataframe: DataFrame = None ):
+                  source: Source = None, dataframe: DataFrame = None ):
         self.__frame = dataframe
-        self.__name = _source.name
+        self.__name = source.name
         self.__rows = [ tuple( r ) for r in dataframe.iterrows( ) ]
         self.__data = self.__rows
         self.__columns = [ str( c ) for c in columns ]
@@ -2133,13 +2120,13 @@ class DataTable( ):
         if self.__name is not None:
             return self.__name
 
-# BudgetData( source )
 class BudgetData( ):
     '''
     Constructor: BudgetData( source: Source ).
 
     Purpose:  Class containing factory method for providing
-    pandas dataframes based on the Source argument '_source' '''
+    pandas dataframes
+    '''
     __source = None
     __name = None
     __path = None
@@ -2235,12 +2222,12 @@ class BudgetData( ):
         self.__name = source.name
         self.__path = DbConfig( source ).get_path( )
         self.__sql = f'SELECT * FROM {source.name};'
-        self.__frame = self.get_frame( )
-        self.__data = [ tuple( i ) for i in self.get_frame( ).iterrows( ) ]
-        self.__columns = list( self.get_frame( ).columns )
-        self.__index = self.get_frame( ).index
+        self.__frame = self.create_frame( )
+        self.__data = [ tuple( i ) for i in self.create_frame( ).iterrows( ) ]
+        self.__columns = list( self.create_frame( ).columns )
+        self.__index = self.create_frame( ).index
 
-    def get_frame( self ) -> DataFrame:
+    def create_frame( self ) -> DataFrame:
         '''Method that returns a pandas DataFrame object
         based on the Source input arguement '_source' given to the constructor'''
         try:
@@ -2255,6 +2242,6 @@ class BudgetData( ):
             _exc = Error( e )
             _exc.module = 'Booger'
             _exc.cause = 'BudgetData'
-            _exc.method = 'get_frame( self )'
+            _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )

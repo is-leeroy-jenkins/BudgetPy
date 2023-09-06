@@ -47,53 +47,39 @@ from openpyxl import Workbook
 from Booger import Error, ErrorDialog
 from Static import EXT
 
-# Path( fullpath )
 class Path( ):
-    ''' Path( file_name ) initializes the
-    Path class providing selected_path information of get_subfolders
-    used in the application'''
+    '''
+    Constructor: Path( filename: str )
+
+    Purpose:  Class representing a path'''
     __name = None
     __input = None
-    __ext = None
-    __currdir = None
+    __extension = None
+    __currentdirectory = None
     __report = None
     __drive = None
-    __pathsep = None
-    __extsep = None
-    __drivesep = None
+    __pathseparator = None
+    __extensionseparator = None
+    __driveseparator = None
     __parentdirectory = None
 
     @property
     def input( self ) -> str:
-        '''Get the input string'''
         if self.__input is not None:
             return self.__input
 
     @input.setter
     def input( self, value: str ):
-        '''Sets the input string'''
         if value is not None:
             self.__input = value
 
     @property
     def name( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
         if self.__name is not None:
             return self.__name
 
     @name.setter
     def name( self, value: str ):
-        '''Returns string representing the title of the selected_path 'base' '''
-        if isinstance( value, str ):
-            self.__input = value
-
-    @property
-    def path( self ) -> str:
-        if self.__input is not None:
-            return self.__input
-
-    @path.setter
-    def path( self, value: str ):
         if value is not None:
             self.__input = value
 
@@ -109,25 +95,24 @@ class Path( ):
 
     @property
     def extension( self ) -> str:
-        if self.__ext is not None:
-            return self.__ext
+        if self.__extension is not None:
+            return self.__extension
 
     @extension.setter
     def extension( self, value: str ):
         if value is not None:
-            self.__ext = str( value )
+            self.__extension = str( value )
 
     @property
     def current_directory( self ) -> str:
-        if self.__currdir is not None:
-            return self.__currdir
+        if self.__currentdirectory is not None:
+            return self.__currentdirectory
 
     @current_directory.setter
     def current_directory( self, value: str ):
-        '''Set the current_directory directory to 'selected_path' '''
         if os.path.exists( value ):
             os.chdir( value )
-            self.__currdir = value
+            self.__currentdirectory = value
 
     @property
     def parent_directory( self ) -> str:
@@ -136,53 +121,49 @@ class Path( ):
 
     @parent_directory.setter
     def parent_directory( self, value: str ):
-        '''Set the current_directory directory to 'selected_path' '''
         if value is not None:
             self.__parentdirectory = value
 
     @property
     def path_separator( self ) -> str:
-        if self.__pathsep is not None:
-            return self.__pathsep
+        if self.__pathseparator is not None:
+            return self.__pathseparator
 
     @path_separator.setter
     def path_separator( self, value: str ):
-        '''Set the current_directory directory to 'selected_path' '''
         if value is not None:
-            self.__pathsep = value
+            self.__pathseparator = value
 
     @property
     def drive_separator( self ) -> str:
-        if self.__drivesep is not None:
-            return self.__drivesep
+        if self.__driveseparator is not None:
+            return self.__driveseparator
 
     @drive_separator.setter
     def drive_separator( self, value: str ):
-        '''Set the current_directory directory to 'selected_path' '''
         if value is not None:
-            self.__drivesep = value
+            self.__driveseparator = value
 
     @property
     def extension_separator( self ) -> str:
-        if self.__extsep is not None:
-            return self.__extsep
+        if self.__extensionseparator is not None:
+            return self.__extensionseparator
 
     @extension_separator.setter
     def extension_separator( self, value: str ):
-        '''Set the current_directory directory to 'selected_path' '''
         if value is not None:
-            self.__extsep = value
+            self.__extensionseparator = value
 
     def __init__( self, filepath: str ):
         self.__input = filepath
         self.__name = os.path.split( filepath )[ 1 ]
-        self.__currdir = os.getcwd( )
-        self.__ext = os.path.splitext( filepath )[ 1 ]
+        self.__currentdirectory = os.getcwd( )
+        self.__extension = os.path.splitext( filepath )[ 1 ]
         self.__parentdirectory = os.path.split( filepath )[ 0 ]
         self.__report = r'etc\templates\report\Excel.xlsx'
-        self.__pathsep = os.path.sep
-        self.__extsep = os.extsep
-        self.__drivesep = ':\\'
+        self.__pathseparator = os.path.sep
+        self.__extensionseparator = os.extsep
+        self.__driveseparator = ':\\'
         self.__drive = os.path.splitdrive( filepath )[ 0 ]
 
     def __str__( self ) -> str:
@@ -206,7 +187,7 @@ class Path( ):
             _err.show( )
 
     def is_folder( self ) -> bool:
-        '''Method returning boolean value indicating whether         self.__input is a folder'''
+        '''Method returning boolean value indicating if is a folder'''
         try:
             if os.path.isdir( self.__input ):
                 return True
@@ -221,7 +202,7 @@ class Path( ):
             _err.show( )
 
     def is_file( self ) -> bool:
-        '''Method returning boolean value indicating whether         self.__input is a file'''
+        '''Method returning boolean value indicating if is a file'''
         try:
             if os.path.isfile( self.__input ):
                 return True
@@ -236,8 +217,8 @@ class Path( ):
             _err.show( )
 
     def is_absolute( self ) -> bool:
-        '''Method to determine if the input fullpath is an
-        absolute_path file fullpath'''
+        '''Method to determine if the input path is an
+        absolute path file'''
         try:
             if isinstance( self.__input, str ) and self.__input != '':
                 if os.path.isabs( self.__input ) == True:
@@ -253,8 +234,8 @@ class Path( ):
             _err.show( )
 
     def is_relative( self ) -> bool:
-        '''Method to determine if the input fullpath is a
-        relative_path file fullpath'''
+        '''Method to determine if the input path is a
+        relative_path file path'''
         try:
             if isinstance( self.__input, str ) and self.__input != '':
                 if os.path.isabs( self.__input ) == True:
@@ -271,7 +252,7 @@ class Path( ):
 
     def verify( self, other: str ) -> bool:
         '''Method returns a boolean value indicating if
-        the external fullpath 'other' exists'''
+        the external path 'other' exists'''
         try:
             if os.path.exists( other ):
                 return True
@@ -285,8 +266,8 @@ class Path( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-    def get_reportpath( self, ext = EXT.XLSX ) -> str:
-        '''Method returns string representing the relative_path fullpath
+    def get_reportpath( self, ext: EXT = EXT.XLSX ) -> str:
+        '''Method returns string representing the relative_path path
         to the report template
         '''
         try:
@@ -301,8 +282,8 @@ class Path( ):
             _err.show( )
 
     def join( self, first: str, second: str ) -> str:
-        ''' Method concatenates the fullpath provided by the argument 'first'
-        to the fullpath provided by argument 'second' '''
+        ''' Method concatenates the path provided by the argument 'first'
+        to the path provided by argument 'second' '''
         try:
             if os.path.exists( first ) and os.path.exists( second ):
                 return os.path.join( first, second )
@@ -314,11 +295,12 @@ class Path( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# File( fullpath )
 class File( Path ):
-    '''File( selected_path ) initializes the
-     File Class providing file information for
-     get_subfolders used in the application'''
+    '''
+    Constructor: File( path: str )
+
+    Purpose: Class providing file information
+     '''
     __absolute = None
     __name = None
     __path = None
@@ -329,18 +311,16 @@ class File( Path ):
     __created = None
     __modified = None
     __accessed = None
-    __currdir = None
+    __currentdirectory = None
     __contents = [ ]
 
     @property
     def name( self ) -> str:
-        '''Get the title property'''
         if self.__name is not None:
             return self.__name
 
     @name.setter
     def name( self, value: str ):
-        '''Set the title property'''
         if os.path.exists( value ):
             self.__name = os.path.basename( value )
 
@@ -424,7 +404,7 @@ class File( Path ):
         if value is not None:
             self.__created = value
 
-    def __init__( self, path = None ):
+    def __init__( self, path: str = None ):
         super( ).__init__( path )
         self.__path = super( ).input
         self.__name = os.path.basename( path )
@@ -437,7 +417,7 @@ class File( Path ):
         self.__drive = super( ).drive
 
     def __str__( self ) -> str:
-        if isinstance( self.__path, str ) and self.__path != '':
+        if self.__path is not None:
             return self.__path
 
     def exists( self ) -> bool:
@@ -450,10 +430,10 @@ class File( Path ):
         '''Renames the current_directory file to 'other' '''
         try:
             if isinstance( other, str ) and not other == '':
-                src = os.path.abspath( self.__path )
-                dst = os.path.join( self.directory, other )
-                os.rename( src, dst )
-                return dst
+                _src = os.path.abspath( self.__path )
+                _dest = os.path.join( self.directory, other )
+                os.rename( _src, _dest )
+                return _dest
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -479,12 +459,12 @@ class File( Path ):
         ''' creates and returns 'selected_path' file '''
         try:
             if other is not None:
-                newfile = open( other, 'r+' )
+                _file = open( other, 'r+' )
                 if isinstance( lines, list ) and len( lines ) > 0:
                     for line in lines:
-                        newfile.write( line )
+                        _file.write( line )
 
-                    newfile.flush( )
+                    _file.flush( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -524,10 +504,10 @@ class File( Path ):
             then returns the list '''
         try:
             if os.path.isfile( other ):
-                file = open( other, 'r' )
-                contents = file.readlines( )
-                file.close( )
-                return contents
+                _file = open( other, 'r' )
+                _contents = _file.readlines( )
+                _file.close( )
+                return _contents
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -537,15 +517,15 @@ class File( Path ):
             _err.show( )
 
     def readall( self, other: str ):
-        '''reads a single line from the file into a string
+        '''reads a single line from the _file into a string
             then returns the string'''
         try:
-            contents = ''
+            _contents = ''
             if os.path.isfile( other ):
-                file = open( other, 'r' )
-                contents = file.read( )
-                file.close( )
-                return contents
+                _file = open( other, 'r' )
+                _contents = _file.read( )
+                _file.close( )
+                return _contents
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -555,15 +535,15 @@ class File( Path ):
             _err.show( )
 
     def writelines( self, lines: list[ str ] = None ):
-        ''' writes the contents of 'lines' to self.__contents '''
+        ''' writes the _contents of 'lines' to self.__contents '''
         try:
             if isinstance( lines, list ):
-                path = os.path.relpath( self.__path )
-                contents = open( path, 'a' )
+                _path = os.path.relpath( self.__path )
+                _contents = open( _path, 'a' )
                 for line in lines:
-                    contents.write( line )
-                contents.flush( )
-                return contents
+                    _contents.write( line )
+                _contents.flush( )
+                return _contents
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -573,19 +553,19 @@ class File( Path ):
             _err.show( )
 
     def writeall( self, other: str ):
-        ''' writes the contents of 'lines' to self.__contents '''
+        ''' writes the contents of '_lines' to self.__contents '''
         try:
-            contents = [ ]
-            lines = [ ]
+            _contents = [ ]
+            _lines = [ ]
             if os.path.isfile( other ):
-                path = os.path.relpath( self.__path )
-                contents = open( path, 'a' )
-                lines = open( other, 'r' )
-                for line in lines.readlines( ):
-                    contents.write( line )
-                contents.flush( )
-                lines.close( )
-                return contents
+                _path = os.path.relpath( self.__path )
+                _contents = open( _path, 'a' )
+                _lines = open( other, 'r' )
+                for line in _lines.readlines( ):
+                    _contents.write( line )
+                _contents.flush( )
+                _lines.close( )
+                return _contents
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -594,10 +574,12 @@ class File( Path ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Folder( fullpath )
 class Folder( Path ):
-    '''Folder( fullpath ) initializes the
-     Folder Class providing file directory information'''
+    '''
+    Constructor: Folder( path )
+
+    Purpose: Class providing file directory information
+    '''
     __absolutepath = None
     __relativepath = None
     __path = None
@@ -610,25 +592,21 @@ class Folder( Path ):
 
     @property
     def name( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
         if self.__path is not None:
             return self.__path
 
     @name.setter
     def name( self, value: str ):
-        '''Returns string representing the title of the selected_path 'base' '''
         if value is not None:
             self.__path = value
 
     @property
     def directory( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
         if self.__path is not None:
             return self.__path
 
     @directory.setter
     def directory( self, value: str ):
-        '''Returns string representing the title of the selected_path 'base' '''
         if value is not None:
             self.__name = value
 
@@ -722,12 +700,12 @@ class Folder( Path ):
         '''Iterates subfolders in the base directory
         and returns a list of subfile paths'''
         try:
-            filenames = [ ]
+            _names = [ ]
             for i in os.listdir( self.__absolutepath ):
-                path = os.path.join( self.__absolutepath, i )
-                if os.path.isfile( path ):
-                    filenames.append( path )
-            return filenames
+                _path = os.path.join( self.__absolutepath, i )
+                if os.path.isfile( _path ):
+                    _names.append( _path )
+            return _names
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -739,16 +717,16 @@ class Folder( Path ):
     def get_subfiles( self ) -> list:
         '''Iterates get_subfolders in the base directory'''
         try:
-            current = self.__current
-            abspath = self.__absolutepath
-            filenames = [ ]
-            for i in os.walk( abspath ):
-                dirpath = i[ 0 ]
+            _current = self.__current
+            _abspath = self.__absolutepath
+            _names = [ ]
+            for i in os.walk( _abspath ):
+                _dirpath = i[ 0 ]
                 if len( i[ 1 ] ) > 0:
                     for name in i[ 1 ]:
-                        path = os.path.join( dirpath, name )
-                        filenames.append( path )
-            return filenames
+                        path = os.path.join( _dirpath, name )
+                        _names.append( path )
+            return _names
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -760,14 +738,14 @@ class Folder( Path ):
     def get_subfolders( self ) -> list:
         '''Iterates get_subfolders in the base directory'''
         try:
-            filenames = [ ]
+            _names = [ ]
             for i in os.walk( self.__absolutepath ):
                 if len( i[ 1 ] ) > 0:
                     for file in i[ 1 ]:
-                        path = os.path.join( self.__absolutepath, file )
-                        if os.path.isdir( path ):
-                            filenames.append( path )
-            return filenames
+                        _path = os.path.join( self.__absolutepath, file )
+                        if os.path.isdir( _path ):
+                            _names.append( _path )
+            return _names
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'
@@ -776,10 +754,10 @@ class Folder( Path ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-    def rename( self, name ):
+    def rename( self, name: str ):
         '''renames current_directory file'''
         try:
-            if self.__name is not None and isinstance( name, str ):
+            if self.__name is not None:
                 return os.rename( self.__name, name )
         except Exception as e:
             _exc = Error( e )
@@ -792,7 +770,7 @@ class Folder( Path ):
     def move( self, destination: str ):
         '''renames current_directory file'''
         try:
-            if not destination == '' and not os.path.exists( destination ):
+            if destination is not None and os.path.exists( destination ):
                 return os.path.join( self.__name, destination )
         except Exception as e:
             _exc = Error( e )
@@ -805,7 +783,7 @@ class Folder( Path ):
     def exists( self ) -> bool:
         '''determines if the base file exists'''
         try:
-            if os.path.isdir( self.__path ):
+            if self.__path is not None and os.path.isdir( self.__path ):
                 return True
         except Exception as e:
             _exc = Error( e )
@@ -853,10 +831,12 @@ class Folder( Path ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Message( sender, receiver, body, subject, copy )
 class Message( ):
-    '''Message( sender, receiver, body, subject, copy ) initializes
-    class providing email behavior '''
+    '''
+    Constructor: Message( sender, receiver, body, subject, copy )
+
+    Purpose: Class providing email behavior
+    '''
     __sender = None
     __receiver = None
     __subject = None
@@ -865,65 +845,56 @@ class Message( ):
 
     @property
     def sender( self ) -> str:
-        ''' Gets the sender's email address '''
         if self.__sender is not None:
             return self.__sender
 
     @sender.setter
     def sender( self, value: str ):
-        ''' Set the sender's email address '''
         if value is not None:
             self.__sender = value
 
     @property
     def receiver( self ) -> list[ str ]:
-        ''' Gets the sender's email address '''
         if self.__receiver is not None:
             return [ self.__receiver, ]
 
     @receiver.setter
     def receiver( self, value: list[ str ] ):
-        ''' Sets the receiver's email address '''
         if value is not None:
             self.__receiver = value
 
     @property
     def subject( self ) -> str:
-        ''' Gets the email's subject line '''
         if self.__subject is not None:
             return self.__subject
 
     @subject.setter
     def subject( self, value: str ):
-        ''' Sets the email's subject line '''
         if value is not None:
             self.__receiver = value
 
     @property
     def body( self ) -> str:
-        ''' Gets the email's subject line '''
         if self.__body is not None:
             return self.__body
 
     @body.setter
     def body( self, value: str ):
-        ''' Sets the email's subject line '''
         if value is not None:
             self.__receiver = value
 
     @property
     def copy( self ) -> str:
-        ''' Gets the addresses to send copies  '''
         if self.__others is not None:
             return self.__others
 
     @copy.setter
     def copy( self, value: list ):
-        ''' Sets the address's to send copies  '''
         if value is not None:
             self.__others = value
 
-    def __init__( self, sender: str, receiver: str, body: str, subject: str, copy = '' ):
+    def __init__( self, sender: str, receiver: str,
+                  body: str, subject: str, copy: str = '' ):
         self.__sender = sender
         self.__receiver = receiver
         self.__body = body
@@ -934,13 +905,15 @@ class Message( ):
         if self.__body is not None:
             return self.__body
 
-# Emai( sender, receiver, body, subject, copy )
 class Email( Message ):
-    '''Emai( sender, receiver, body, subject, copy )
-    initializes class providing email behavior '''
+    '''
+    Constructor:  Emai( sender: str, receiver: str, body: str,
+                  subject: str, copy: str = '' )
+
+    Purpose: Class providing email behavior '''
 
     def __init__( self, sender: str, receiver: str, body: str,
-                  subject: str, copy = '' ):
+                  subject: str, copy: str = '' ):
         super( ).__init__( sender, receiver, body, subject, copy )
         self.__sender = super( ).sender
         self.__receiver = super( ).receiver
@@ -948,9 +921,12 @@ class Email( Message ):
         self.__others = super( ).copy
         self.__subject = super( ).subject
 
-# MessageBuilder(  )
 class MessageBuilder( ):
-    ''' Helper class for generating email messages '''
+    '''
+    Constructor: MessageBuilder(  )
+
+    Purpose:  Helper class for generating email messages
+    '''
     __sender = None
     __receiver = None
     __subject = None
@@ -959,61 +935,51 @@ class MessageBuilder( ):
 
     @property
     def sender( self ) -> str:
-        ''' Gets the sender's email address '''
         if self.__sender is not None:
             return self.__sender
 
     @sender.setter
     def sender( self, value: str ):
-        ''' Set the sender's email address '''
         if value is not None:
             self.__sender = value
 
     @property
     def receiver( self ) -> str:
-        ''' Gets the sender's email address '''
         if self.__receiver is not None:
             return self.__receiver
 
     @receiver.setter
     def receiver( self, value: str ):
-        ''' Sets the receiver's email address '''
         if value is not None:
             self.__receiver = value
 
     @property
     def subject( self ) -> str:
-        ''' Gets the email's subject line '''
         if self.__subject is not None:
             return self.__subject
 
     @subject.setter
     def subject( self, value: str ):
-        ''' Sets the email's subject line '''
         if value is not None:
             self.__subject = value
 
     @property
     def body( self ) -> str:
-        ''' Gets the email's subject line '''
         if self.__body is not None:
             return self.__body
 
     @body.setter
     def body( self, value: str ):
-        ''' Sets the email's subject line '''
         if value is not None:
             self.__body = value
 
     @property
     def copy( self ) -> str:
-        ''' Gets the addresses to send copies  '''
         if self.__others is not None:
             return self.__others
 
     @copy.setter
     def copy( self, value: str ):
-        ''' Sets the address's to send copies  '''
         if value is not None:
             self.__others = value
 
@@ -1029,17 +995,20 @@ class MessageBuilder( ):
         if self.__body is not None:
             return self.__body
 
-# Document( )
 class Document( File ):
-    '''Document( fullpath ) class provides
-    the spreadsheet for Budget Py reports '''
+    '''
+    Constructor:  Document( path: str )
+
+    Purpose:  Class provides
+    the spreadsheet for Budget Py reports
+    '''
     __title = None
 
-    def __init__( self, fullpath: str ):
-        super( ).__init__( fullpath )
-        self.__path = fullpath
-        self.__name = os.path.split( fullpath )[ 1 ]
-        self.__title = self.__name
+    def __init__( self, path: str ):
+        super( ).__init__( path )
+        self.__path = path
+        self.__name = os.path.split( path )[ 1 ]
+        self.__title = os.path.split( path )[ 1 ]
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
 
@@ -1047,10 +1016,11 @@ class Document( File ):
         if self.__path is not None:
             return self.__path
 
-# Excel( fullpath )
 class Excel( ):
-    '''Excel( selected_path ) class provides
-    the spreadsheet for Budget Py reports '''
+    '''
+    Constructor: Excel( path: str )
+
+    Purpose: Class provides the spreadsheet for reports '''
     __path = None
     __workbook = None
     __worksheet = None
@@ -1059,54 +1029,48 @@ class Excel( ):
 
     @property
     def path( self ) -> str:
-        ''' Get the title of the workbook '''
-        if isinstance( self.__path, str ) and self.__path != '':
+        if self.__path is not None and self.__path != '':
             return self.__path
 
     @path.setter
     def path( self, value: str ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__path = value
 
     @property
     def name( self ) -> str:
-        ''' Get the title of the workbook '''
-        if isinstance( self.__name, str ) and self.__name != '':
+        if self.__name is not None:
             return self.__name
 
     @name.setter
     def name( self, value: str ):
-        if value is not None and len( value ) > 0:
-            self.__name = str( value )
+        if value is not None:
+            self.__name = value
 
     @property
     def workbook( self ) -> Workbook:
-        ''' Gets the report template '''
         if self.__workbook is not None:
             return self.__workbook
 
     @workbook.setter
     def workbook( self, value: Workbook ):
-        ''' Gets the report template '''
         if value is not None:
             self.__workbook = value
 
     @property
     def worksheet( self ) -> str:
-        ''' Gets the workbooks worksheet '''
         if self.__workbook is not None:
             return self.__workbook.active
 
     @worksheet.setter
     def worksheet( self, value: Workbook ):
-        ''' Gets the workbooks worksheet '''
         if value is not None:
             self.__name = value.active
 
-    def __init__( self, fullpath: str ):
-        self.__path = fullpath
-        self.__name = os.path.split( fullpath )[ 1 ]
-        self.__title = self.__name
+    def __init__( self, path: str ):
+        self.__path = path
+        self.__name = os.path.split( path )[ 1 ]
+        self.__title = os.path.split( path )[ 1 ]
         self.__workbook = Workbook( )
         self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
 
@@ -1125,10 +1089,11 @@ class Excel( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ExcelReport( title, rows = 46, cols = 12 )
 class ExcelReport( Excel ):
-    '''ExcelReport( title, rows = 46, cols = 12 ). Class provides
-    the spreadsheet for Budget Py reports '''
+    '''
+    Constructor:  ExcelReport( title, rows = 46, cols = 12 ).
+
+    Purpose:  Class providing spreadsheet for reports '''
     __rows = None
     __columns = None
     __dimensions = None
@@ -1169,9 +1134,8 @@ class ExcelReport( Excel ):
         self.__name = name
         self.__rows = rows
         self.__columns = cols
-        self.__dimensions = (self.__rows, self.__columns)
+        self.__dimensions = ( self.__rows, self.__columns )
 
-# ZipFile( fullpath )
 class ZipFile( ):
     __infile = None
     __name = None
@@ -1222,11 +1186,11 @@ class ZipFile( ):
             _err.show( )
 
     def unzip( self ):
-        ''' Extracts zip file contents '''
+        ''' Extracts zip _file contents '''
         try:
             if os.path.exists( self.__zippath ):
-                file = zp.ZipFile( self.__zippath )
-                file.extractall( self.__zippath )
+                _file = zp.ZipFile( self.__zippath )
+                _file.extractall( self.__zippath )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'FileSys'

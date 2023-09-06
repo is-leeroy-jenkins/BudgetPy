@@ -62,7 +62,7 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d.axes3d import get_test_data
 from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
-from Static import EXT, Client 
+from Static import EXT, APP
 
 # Error( heading = '' )
 class Error( Exception ):
@@ -740,7 +740,7 @@ class FileDialog( Sith ):
 
 # FolderDialog( ) -> str
 class FolderDialog( Sith ):
-	'''Class defining dialog used to select a directory fullpath'''
+	'''Class defining dialog used to select a directory path'''
 	__selecteditem = None
 
 	@property
@@ -805,9 +805,9 @@ class FolderDialog( Sith ):
 			_error = ErrorDialog( _exc )
 			_error.show( )
 
-# SaveFileDialog( fullpath = '' )
+# SaveFileDialog( path = '' )
 class SaveFileDialog( Sith ):
-	'''SaveFileDialog( fullpath = '' ):
+	'''SaveFileDialog( path = '' ):
     class provides form to located file destinations'''
 	__original = None
 	__filename = None
@@ -953,7 +953,7 @@ class GoogleDialog( Sith ):
 				elif event == 'Submit':
 					self.__querytext = values[ '-QUERY-' ]
 					google = search( term = self.__querytext, num_results = 5, lang = 'en' )
-					app = App( Client.Edge )
+					app = App( APP.Edge )
 					for result in list( google ):
 						self.__results.append( result )
 						app.run_args( result )
@@ -4261,7 +4261,7 @@ class CsvForm( Sith ):
 			filename = fd.selected_path
 
 			if filename == '':
-				msg = MessageDialog( 'No file fullpath was provided!' )
+				msg = MessageDialog( 'No file path was provided!' )
 				msg.show( )
 				return
 

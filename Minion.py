@@ -43,7 +43,7 @@
   '''
 import subprocess as sp
 from Booger import *
-from Static import Client
+from Static import APP
 
 
 # App( client )
@@ -111,7 +111,7 @@ class App( ):
             self.__edge = value
 
     def __init__( self, client ):
-        self.__app = client if isinstance( client, Client ) else None
+        self.__app = client if isinstance( client, APP ) else None
         self.__sqliteclient = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
         self.__accessclient = r'C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE'
         self.__excelapp = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
@@ -123,19 +123,19 @@ class App( ):
     def run( self ):
         '''Method that starts process running the member client program'''
         try:
-            if isinstance( self.__app, Client ) and self.__app == Client.SQLite:
+            if isinstance( self.__app, APP ) and self.__app == APP.SQLite:
                 sp.Popen( self.__sqliteclient )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Access:
+            elif isinstance( self.__app, APP ) and self.__app == APP.Access:
                 sp.Popen( self.__accessclient )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Excel:
+            elif isinstance( self.__app, APP ) and self.__app == APP.Excel:
                 sp.Popen( self.__excelapp )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Edge:
+            elif isinstance( self.__app, APP ) and self.__app == APP.Edge:
                 sp.Popen( self.__edge )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Chrome:
+            elif isinstance( self.__app, APP ) and self.__app == APP.Chrome:
                 sp.Popen( self.__chrome )
-            elif isinstance( self.__app, Client ) and self.__app == Client.ControlPanel:
+            elif isinstance( self.__app, APP ) and self.__app == APP.ControlPanel:
                 sp.Popen( self.__control )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Calculator:
+            elif isinstance( self.__app, APP ) and self.__app == APP.Calculator:
                 sp.Popen( self.__calculator )
         except Exception as e:
             _exc = Error( e )
@@ -149,18 +149,18 @@ class App( ):
         '''Method starts a process running the member
          client program with the provided string 'args' '''
         try:
-            if isinstance( args, str ) and self.__app == Client.SQLite:
+            if isinstance( args, str ) and self.__app == APP.SQLite:
                 if os.path.isfile( args ):
                     sp.Popen( [ self.__sqliteclient, args ] )
-            elif isinstance( args, str ) and self.__app == Client.Access:
+            elif isinstance( args, str ) and self.__app == APP.Access:
                 if os.path.isfile( args ):
                     sp.Popen( [ self.__accessclient, args ] )
-            elif isinstance( args, str ) and self.__app == Client.Excel:
+            elif isinstance( args, str ) and self.__app == APP.Excel:
                 if os.path.isfile( args ):
                     sp.Popen( [ self.__excelapp, args ] )
-            elif isinstance( args, str ) and self.__app == Client.Edge:
+            elif isinstance( args, str ) and self.__app == APP.Edge:
                     sp.Popen( args )
-            elif isinstance( args, str ) and self.__app == Client.Chrome:
+            elif isinstance( args, str ) and self.__app == APP.Chrome:
                     sp.Popen( [ self.__chrome, args ] )
         except Exception as e:
             _exc = Error( e )
