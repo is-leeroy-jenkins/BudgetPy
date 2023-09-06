@@ -37,7 +37,8 @@
 
   </copyright>
   <summary>
-    Ninja.py
+    The Ninja module defines the data transfer objects used in the
+    BudgetPy application.
   </summary>
   ******************************************************************************************
   '''
@@ -46,10 +47,10 @@ from datetime import datetime
 from pandas import DataFrame
 from pyodbc import Row
 from Booger import Error, ErrorDialog
-from Data import ( DbConfig, SqlConfig, Connection,
-                  SqlStatement, BudgetData, DataBuilder )
 from Static import SQL
 from Static import Source, Provider
+from Data import ( DbConfig, SqlConfig, Connection,
+                  SqlStatement, BudgetData, DataBuilder )
 
 class Unit( ):
     '''
