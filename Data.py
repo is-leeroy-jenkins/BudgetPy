@@ -1398,7 +1398,7 @@ class Query( ):
             _exc = Error( e )
             _exc.module = 'Ninja'
             _exc.cause = 'SqlStatement'
-            _exc.method = 'query( self )'
+            _exc.method = 'query_text( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
@@ -1413,27 +1413,6 @@ class SQLiteData( Query ):
     __query = None
     __data = None
     __frame = None
-    __columns = None
-
-    @property
-    def driver( self ) -> str:
-        if self.__driver is not None:
-            return self.__driver
-
-    @driver.setter
-    def driver( self, value: str ):
-        if value is not None:
-            self.__driver = value
-
-    @property
-    def data( self ) -> tuple:
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, value: tuple ):
-        if value is not None:
-            self.__data = value
 
     @property
     def frame( self: DataFrame ):
@@ -1445,23 +1424,13 @@ class SQLiteData( Query ):
         if value is not None:
             self.__frame = value
 
-    @property
-    def columns( self ) -> list[ str ]:
-        if self.__columns is not None:
-            return self.__columns
-
-    @columns.setter
-    def columns( self, value: list[ str ] ):
-        if value is not None:
-            self.__columns = value
-
     def __init__( self, conn: Connection, sql: SqlStatement ):
         super( ).__init__( conn, sql )
         self.__provider = Provider.SQLite
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sql_statement
-        self.__source = super( )._source
-        self.__table = super( )._source.name
+        self.__source = super( ).source
+        self.__tablename = super( ).source.name
         self.__driver = super( ).connection.driver
         self.__query = super( ).sql_statement.get_query( )
 
@@ -1470,14 +1439,14 @@ class SQLiteData( Query ):
             return self.__query
 
     # noinspection PyTypeChecker
-    def create_table( self ) -> list[ tuple ]:
+    def create_table( self ) -> list[ pyodbc.Row ]:
         try:
             _query = self.__query
             _conn = self.__connection.connect( )
             _cursor = _conn.cursor( )
             _data = _cursor.execute( _query )
             self.__columns = [ i[ 0 ] for i in _cursor.description ]
-            self.__data = [ tuple( i ) for i in _data.fetchall( ) ]
+            self.__data = [ i for i in _data.fetchall( ) ]
             _cursor.close( )
             _conn.close( )
             return self.__data
@@ -1521,42 +1490,12 @@ class AccessData( Query ):
     __columns = None
 
     @property
-    def data( self ) -> list[ str ]:
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, value: list[ str ] ):
-        if value is not None:
-            self.__data = value
-
-    @property
-    def driver( self ) -> str:
-        if self.__driver is not None:
-            return self.__driver
-
-    @driver.setter
-    def driver( self, value: str ):
-        if value is not None:
-            self.__driver = value
-
-    @property
-    def columns( self ) -> list[ str ]:
-        if self.__columns is not None:
-            return self.__columns
-
-    @columns.setter
-    def columns( self, value: list[ str ] ):
-        if value is not None:
-            self.__columns = value
-
-    @property
-    def query( self ) -> str:
+    def query_text( self ) -> str:
         if self.__query is not None:
             return self.__query
 
-    @query.setter
-    def query( self, value: str ):
+    @query_text.setter
+    def query_text( self, value: str ):
         if value is not None:
             self.__query = value
 
@@ -1567,7 +1506,6 @@ class AccessData( Query ):
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sql_statement
         self.__query = sql.get_query( )
-        self.__table = super( ).table_name
         self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
 
@@ -1575,7 +1513,7 @@ class AccessData( Query ):
         if self.__query is not None:
             return self.__query
 
-    def create_table( self ) -> [ ]:
+    def create_table( self ) -> list[ pyodbc.Row ]:
         try:
             _query = self.__query
             _access = self.__connection.connect( )
