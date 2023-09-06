@@ -12095,9 +12095,11 @@ class MonthlyOutlay( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# NationalProgram( treas value, provider = Provider.SQLite )
 class NationalProgram( ):
-    '''Defines the NationalProgram Class'''
+    '''
+    Constructor:  NationalProgram( code: str, provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing the NationalProgram Class'''
     __source = None
     __provider = None
     __nationalprogramsid = None
@@ -12111,7 +12113,7 @@ class NationalProgram( ):
 
     @property
     def id( self ) -> int:
-        if isinstance( self.__nationalprogramsid, int ):
+        if self.__nationalprogramsid is not None:
             return self.__nationalprogramsid
 
     @id.setter
@@ -12141,7 +12143,7 @@ class NationalProgram( ):
 
     @property
     def rpio( self ) -> str:
-        if isinstance( self.__rpio, str ) and self.__rpio != '':
+        if self.__rpio is not None:
             return self.__rpio
 
     @rpio.setter
@@ -12151,7 +12153,7 @@ class NationalProgram( ):
 
     @property
     def title( self ) -> str:
-        if isinstance( self.__title, str ) and self.__title != '':
+        if self.__title is not None:
             return self.__title
 
     @title.setter
@@ -12244,10 +12246,12 @@ class NationalProgram( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Objective( treas, provider = Provider.SQLite )
 class Objective( ):
-    '''Objective( treas, provider = Provider.SQLite )
-    Defines the Objective Class'''
+    '''
+    Constructor:  Objective( code: str, provider: Provider = Provider.SQLite )
+
+
+    Purpose: Class defines object representing the Objective Class'''
     __source = None
     __provider = None
     __objectivesid = None
@@ -12259,7 +12263,7 @@ class Objective( ):
 
     @property
     def id( self ) -> int:
-        if isinstance( self.__objectivesid, int ):
+        if  self.__objectivesid is not None:
             return self.__objectivesid
 
     @id.setter
@@ -12317,7 +12321,7 @@ class Objective( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Objectives
         self.__code = code
@@ -12483,10 +12487,11 @@ class Organization( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# OperatingPlan( bfy, efy, treas, provider = Provider.SQLite )
 class OperatingPlan( ):
-    '''OperatingPlan( bfy, efy, treas, provider = Provider.SQLite )
-    object representing Operating plan allocations'''
+    '''
+    Constructor:  OperatingPlan( bfy, efy, treas, provider = Provider.SQLite )
+
+    Purpose: Class defining object representing Operating plan allocations'''
     __operatingplansid = None
     __source = None
     __provider = None
@@ -12856,10 +12861,12 @@ class OperatingPlan( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# OpenCommitment( bfy, efy, fund, account, boc, provider = Provider.SQLite )
 class OpenCommitment( ):
-    ''' OpenCommitment( bfy, efy, fund, account, boc, provider = Provider.SQLite )
-    initializes object providing OpenCommitment data.'''
+    '''
+    Constructor:  OpenCommitment( bfy: str, efy: str, fund: str,
+                  account: str, boc: str, provider: Provider = Provider.SQLite )
+
+    Purpose: Class defines object providing OpenCommitment data.'''
     __source = None
     __provider = None
     __opencommitmentsid = None
@@ -13466,10 +13473,12 @@ class OpenCommitment( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Obligation( bfy, efy, fund, account, boc, provider = Provider.SQLite )
 class Obligation( ):
-    '''Obligation( bfy, efy, fund, account, boc )
-    initializes object providing Obligation data'''
+    '''
+    Constructor:  Obligation( bfy: str, efy: str, fund: str,
+                  account: str, boc: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object providing Obligation data'''
     __source = None
     __provider = None
     __obligationsid = None
@@ -14074,8 +14083,13 @@ class Obligation( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# PublicLaw( bfy, number, provider = Provider.SQLite )
 class PublicLaw( ):
+    '''
+    Constructor: PublicLaw( bfy: str, efy: str,
+                  number: str, provider: Provider = Provider.SQLite  )
+
+    Purpose:
+    '''
     __source = None
     __provider = None
     __publiclawsid = None
@@ -14152,9 +14166,11 @@ class PublicLaw( ):
                           'Congress',
                           'BFY' ]
 
-# Project( code, provider = Provider.SQLite  )
 class Project( ):
-    '''Defines the Organization Class'''
+    '''
+    Constructor:  Project( code: str, provider: Provider = Provider.SQLite )
+
+    Purpoe:  Class defines the Organization Class'''
     __source = None
     __projectsid = None
     __code = None
@@ -14276,9 +14292,12 @@ class Project( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ProgramArea( code, provider = Provider.SQLite  )
 class ProgramArea( ):
-    '''defines the ProgramArea class'''
+    '''
+    Constructor:   ProgramArea( code: str, provider: Provider = Provider.SQLite  )
+
+    Purpose:  defines the ProgramArea class
+    '''
     __source = None
     __provider = None
     __programareasid = None
@@ -14401,9 +14420,12 @@ class ProgramArea( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ProgramProject( code, provider = Provider.SQLite  )
 class ProgramProject( ):
-    '''Defines the ProgramProject Class'''
+    '''
+    Constructor:  ProgramProject( code: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Defines the ProgramProject Class
+    '''
     __source = None
     __provider = None
     __programprojectsid = None
@@ -14535,9 +14557,14 @@ class ProgramProject( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ProgramResultsCode( bfy, efy, rpio, ah, account, boc, amount = 0.0, provider = Provider.SQLite )
 class ProgramResultsCode( ):
-    '''Defines the PRC class'''
+    '''
+    Constructor:   ProgramResultsCode( bfy: str = None, efy: str = None, fund: str = None,
+                  rpio: str = None, ah: str = None, account: str = None, boc: str = None,
+                  amount: float = 0.0, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines the PRCs
+    '''
     __source = None
     __provider = None
     __allocationsid = None
@@ -15052,9 +15079,13 @@ class ProgramResultsCode( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ResponsibilityCenter( fund, provider = Provider.SQLite  )
 class ResponsibilityCenter( ):
-    '''Defines the ResponsibilityCenter Class'''
+    '''
+    Constructor:  ResponsibilityCenter( code: str,
+            provider: Provider = Provider.SQLite  )
+
+    Purpose:  Class defines the ResponsibilityCenter Class
+    '''
     __source = None
     __provider = None
     __responsibilitycentersid = None
@@ -15178,9 +15209,12 @@ class ResponsibilityCenter( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ResourcePlanningOffice( fund, provider = Provider.SQLite  )
 class ResourcePlanningOffice( ):
-    '''defines the ResponsiblePlanningOffice class'''
+    '''
+    Constuctor:  ResourcePlanningOffice( code: str,
+            provider: Provider = Provider.SQLite )
+
+    Purpose:  defines the ResponsiblePlanningOffice class'''
     __source = None
     __provider = None
     __resourceplanningofficesid = None
@@ -15250,7 +15284,7 @@ class ResourcePlanningOffice( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ResourcePlanningOffices
         self.__code = code
@@ -15303,9 +15337,12 @@ class ResourcePlanningOffice( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# RegionalOffice( fund, provider = Provider.SQLite  )
 class RegionalOffice( ):
-    '''Defines a regional RPIO'''
+    '''
+    Constructor:  RegionalOffice( code: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Defines a regional RPIO
+    '''
     __source = None
     __provider = None
     __resourceplanningofficesid = None
@@ -15414,8 +15451,13 @@ class RegionalOffice( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ReimbursableAgreement( number, provider = Provide.SQLite )
 class ReimbursableAgreement( ):
+    '''
+    Constructor:  ReimbursableAgreement( number: str,
+            provider: Provider = Provider.SQLite  )
+
+    Purpose:  Class defines object representing Reimbursable Agreements
+    '''
     __source = None
     __provider = None
     __reimbursableagreementsid = None
@@ -15622,7 +15664,7 @@ class ReimbursableAgreement( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, number, provider = Provider.SQLite ):
+    def __init__( self, number: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ReimbursableAgreements
         self.__agreementnumber = number
@@ -15692,9 +15734,13 @@ class ReimbursableAgreement( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# RegionalAuthority( bfy, efy, fund, provider = Provider.SQLite )
 class RegionalAuthority( ):
-    '''object representing Regional Allocation'''
+    '''
+    Constructor:  RegionalAuthority( bfy: str, efy: str,
+     fund: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing Regional Allocation
+    '''
     __source = None
     __provider = None
     __regionalauthorityid = None
@@ -16163,9 +16209,12 @@ class RegionalAuthority( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# StatusOfFunds( bfy, fund, provider = Provider.SQLite )
 class StatusOfFunds( ):
-    '''Object representing execution data'''
+    '''
+    Constructor:  StatusOfFunds( bfy: str, fund: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing execution data
+    '''
     __source = None
     __provider = None
     __statusoffundsid = None
@@ -16645,9 +16694,13 @@ class StatusOfFunds( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# StatusOfSupplementalFunding( bfy, fund, provider = Provider.SQLite )
 class StatusOfSupplementalFunding( ):
-    '''Class representing Supplemental Funding execution data'''
+    '''
+    Constructor:  StatusOfFunds( bfy: str, efy: str,
+    fund: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class representing Supplemental Funding execution data
+    '''
     __source = None
     __provider = None
     __statusofsupplementalfundsid = None
@@ -17132,9 +17185,12 @@ class StatusOfSupplementalFunding( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# StateGrantObligation( bfy, rpio, provider = Provider.SQLite )
 class StateGrantObligation( ):
-    '''object representing the BIS'''
+    '''
+    Constructor:  StateGrantObligation( bfy: str, rpio: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing the BIS
+    '''
     __source = None
     __provider = None
     __stategrantobligationsid = None
@@ -17426,9 +17482,13 @@ class StateGrantObligation( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# SpecialAccount( bfy, fund, account, boc, provider = Provider.SQLite )
 class SpecialAccount( ):
-    '''' object providing SF Special Account data'''
+    '''
+     Constructor:  SpecialAccount( bfy = None, fund = None,
+                  account = None, boc = None, provider = Provider.SQLite )
+
+     Purpose: Class defines object providing SF Special Account data
+     '''
     __source = None
     __provider = None
     __specialaccountsid = None
@@ -17684,10 +17744,10 @@ class SpecialAccount( ):
                   account = None, boc = None, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.SpecialAccounts
-        self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-        self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
-        self.__accountcode = account if isinstance( account, str ) and account != '' else None
-        self.__boccode = boc if isinstance( boc, str ) and boc != '' else None
+        self.__bfy = bfy
+        self.__fundcode = fund
+        self.__accountcode = account
+        self.__boccode = boc
         self.__fields = [ 'SpecialAccountsId',
                            'BFY',
                            'RpioCode',
@@ -17723,8 +17783,8 @@ class SpecialAccount( ):
                            'CumulativeReceipts' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__amount, float ):
-            return str( self.__amount )
+        if  self.__sitecode is not None:
+            return self.__sitecode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -17767,9 +17827,13 @@ class SpecialAccount( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# SuperfundSite( bfy, rpio, provider = Provider.SQLite )
 class SuperfundSite( ):
-    ''' object providing SF Site data '''
+    '''
+    Constructor:  SuperfundSite( bfy: str = None, rpio: str = None,
+                  provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object providing SF Site data
+    '''
     __source = None
     __provider = None
     __superfundsitesid = None
@@ -17954,9 +18018,12 @@ class SuperfundSite( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Appropriation( bfy, efy, fund, provider = Provider.SQLite )
 class SubAppropriation( ):
-    '''Defines the Appropriation Class'''
+    '''
+    Constructor:  SubAppropriation( bfy: str, efy: str,
+    code: str, provider: Provider = Provider.SQLite )
+
+    Purpose: Class defines object representing the Sub-Appropriations'''
     __source = None
     __provider = None
     __subappropriationsid = None
@@ -18093,10 +18160,11 @@ class SubAppropriation( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# StateOrganization( fund, provider = Provider.SQLite  )
 class StateOrganization( ):
-    '''StateOrganization( code ) class
-    representing state codes'''
+    '''
+    Constructor:  StateOrganization( code: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing state organization codes'''
     __source = None
     __provider = None
     __stateorganizationsid = None
@@ -18213,10 +18281,12 @@ class StateOrganization( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# StatusOfAppropriations( bfy, efy, fund, provider = Provider.SQLite )
 class StatusOfAppropriations( ):
-    '''StatusOfAppropriations( bfy, efy, fund )
-    object representing Appropriation-level execution data'''
+    '''
+    Constructor:  StatusOfAppropriations( bfy: str, efy: str,
+                  fund: str, provider: Provider = Provider.SQLite )
+
+    Purpose: Class defines object representing Appropriation-level execution data'''
     __source = None
     __provider = None
     __statusofappropriationsid = None
@@ -18922,10 +18992,11 @@ class StatusOfAppropriations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# SpendingRate( account, provider = Provider.SQLite )
 class SpendingRate( ):
-    '''SpendingRate( fund ) initializes
-    object providing OMB spending rate data'''
+    '''
+    Constructor:  SpendingRate( accountcode: str, provider: Provider = Provider.SQLite )
+
+    Purpose: class object providing OMB spending rate data'''
     __source = None
     __provider = None
     __spendingratesid = None
@@ -19321,8 +19392,12 @@ class SpendingRate( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# StatusOfSupplementalFunds( bfy, efy, fund, provider = Provider.SQLite )
 class StatusOfSupplementalFunds( ):
+    '''
+    Constructor:  StatusOfSupplementalFunds( bfy, efy, fund, provider = Provider.SQLite )
+
+    Purpose:  Class defines object used for reporting on Supplemental funding
+    '''
     __statusofsupplementalfundsid = None
     __statusoffundsid = None
     __bfy = None
@@ -19764,8 +19839,13 @@ class StatusOfSupplementalFunds( ):
                            'NpmCode',
                            'NpmName' ]
 
-# StatusOfJobsActFunding( bfy, efy, fund, provider = Provider.SQLite )
 class StatusOfJobsActFunding( ):
+    '''
+    Constructor:  StatusOfJobsActFunding(  bfy: str, efy: str,
+        fundcode: str, provider = Provider.SQLite )
+
+    Purpose: Class defines object for reporting on IIJA funds
+    '''
     __source = None
     __provider = None
     __statusofjobsactfundingid = None
@@ -20209,8 +20289,13 @@ class StatusOfJobsActFunding( ):
                            'Used',
                            'Available' ]
 
-# StatusOfEarmarks( bfy, efy, fund, provider = Provider.SQLite )
 class StatusOfEarmarks( ):
+    '''
+    Constructor:  StatusOfEarmarks(  bfy: str, efy: str,
+     'fundcode: str, provider = Provider.SQLite )
+
+     Purpose: Class defines object for reporting on Earmarks
+    '''
     __source = None
     __provider = None
     __statusofearmarksid = None
@@ -20654,9 +20739,12 @@ class StatusOfEarmarks( ):
                            'Used',
                            'Available' ]
 
-# SiteActivity( bfy, rpio, provider = Provider.SQLite  )
 class SiteActivity( ):
-    '''provides data on superfund site spending'''
+    '''
+    Constructor:  SiteActivity(  bfy: str, efy: str,
+            rpio: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class provides data on superfund site spending'''
     __source = None
     __provider = None
     __siteactivityid = None
@@ -21175,9 +21263,13 @@ class SiteActivity( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# SpendingDocumnet( bfy, efy, fund, account, boc, provider = Provider.SQLite )
 class SpendingDocument( ):
-    # provides data on spending documents
+    '''
+    Constructor;   SpendingDocument(  bfy: str, efy: str, fund: str, account: str,
+                  boc: str, provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing Spending documnets
+    '''
     __source = None
     __provider = None
     __bfy = None
@@ -21785,10 +21877,11 @@ class SpendingDocument( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# CarryoverEstimate( bfy, provider = Provider.SQLite )
 class SupplementalCarryoverEstimate( ):
-    '''CarryoverEstimate( bfy ) initializes object bfy
-    providing Carryover Estimate data for'''
+    '''
+    Constructor:  CarryoverEstimate( bfy: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object providing Supplemental Carryover Estimate data for'''
     __source = None
     __provider = None
     __supplementalcarryoverestimatesid = None
@@ -22062,10 +22155,12 @@ class SupplementalCarryoverEstimate( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# TreasurySymbol( bfy, efy, fund, provider = Provider.SQLite )
 class TreasurySymbol( ):
-    '''TreasurySymbol( value )
-    creates object that represents a TAFS'''
+    '''
+    Constructor:  TreasurySymbol( bfy: str, efy: str,
+                treas: str, provider: Provider = Provider.SQLite)
+
+    Purpose:  Class defines object that represents a TAFS'''
     __source = None
     __provider = None
     __treasurysymbolsid = None
@@ -22224,10 +22319,11 @@ class TreasurySymbol( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Transfer( documentnumber, provider = Provider.SQLite )
 class Transfer( ):
-    ''' Transfer( documentnumber ) initializes object
-    representing EPA reprogrammings'''
+    '''
+     Constructor:  Transfer( documentnumber: str, provider = Provider.SQLite )
+
+     Purpose:  Class defines object representing EPA reprogrammings'''
     __source = None
     __provider = None
     __transfersid = None
@@ -22609,8 +22705,12 @@ class Transfer( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# TransType( bfy, fund, provider = Provider.SQLite )
 class TransType( ):
+    '''
+    Constructor:  TransType( bfy: str, fundcode: str, provider = Provider.SQLite )
+
+    Purpose: Class defines object representing trans types
+    '''
     __source = None
     __provider = None
     __transtypesid = None
@@ -22717,187 +22817,12 @@ class TransType( ):
                           'SequesterReduction',
                           'SequesterReturn' ]
 
-# UnobligatedBalance( bfy, efy, fund, provider = Provider.SQLite )
-class UnobligatedBalance( ):
-    '''object provides OMB data on unobligated
-    balances by Fund Code and General Ledger Account'''
-    __source = None
-    __provider = None
-    __unobligatedbalancesid = None
-    __bfy = None
-    __efy = None
-    __treasurysymbol = None
-    __fundcode = None
-    __fundname = None
-    __accountnumber = None
-    __accountname = None
-    __amount = None
-    __fields = None
-    __frame = None
-    __data = None
-
-    @property
-    def id( self ) -> int:
-        if self.__unobligatedbalancesid is not None:
-            return self.__unobligatedbalancesid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__unobligatedbalancesid = value
-
-    @property
-    def bfy( self ) -> str:
-        if self.__bfy is not None:
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value: str ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def efy( self ) -> str:
-        if self.__efy is not None:
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value: str ):
-        if value is not None:
-            self.__efy = value
-
-    @property
-    def fund_code( self ) -> str:
-        if self.__fundcode is not None:
-            return self.__fundcode
-
-    @fund_code.setter
-    def fund_code( self, value: str ):
-        if value is not None:
-            self.__fundcode = value
-
-    @property
-    def fund_name( self ) -> str:
-        if self.__fundname is not None:
-            return self.__fundname
-
-    @fund_name.setter
-    def fund_name( self, value: str ):
-        if value is not None:
-            self.__fundname = value
-
-    @property
-    def account_number( self ) -> str:
-        if self.__accountnumber is not None:
-            return self.__accountnumber
-
-    @account_number.setter
-    def account_number( self, value: str ):
-        if value is not None:
-            self.__accountnumber = value
-
-    @property
-    def account_name( self ) -> str:
-        if self.__accountname is not None:
-            return self.__accountname
-
-    @account_name.setter
-    def account_name( self, value: str ):
-        if value is not None:
-            self.__accountname = value
-
-    @property
-    def treasury_symbol( self ) -> str:
-        if self.__treasuryaccount is not None:
-            return self.__treasuryaccount
-
-    @treasury_symbol.setter
-    def treasury_symbol( self, value: str ):
-        if value is not None:
-            self.__treasuryaccount = value
-
-    @property
-    def amount( self ) -> float:
-        if self.__amount is not None:
-            return self.__amount
-
-    @amount.setter
-    def amount( self, value: float ):
-        if value is not None:
-            self.__amount = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-    def __init__( self, bfy: str, efy: str, fundcode: str, provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.UnobligatedBalances
-        self.__bfy = bfy
-        self.__efy = efy
-        self.__fundcode = fundcode
-        self.__fields =[ 'UnobligatedBalancesId',
-                           'BudgetYear',
-                           'BFY',
-                           'EFY',
-                           'TreasurySymbol',
-                           'FundCode',
-                           'FundName',
-                           'AccountNumber',
-                           'AccountName',
-                           'Amount' ]
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            source = Source.UnobligatedBalances
-            provider = Provider.SQLite
-            _names = [ 'BFY', 'EFY', 'FundCode' ]
-            _values = (self.__bfy, self.__efy, self.__fundcode)
-            _dbconfig = DbConfig( _source, _provider )
-            _sqlconfig = SqlConfig( names = _names, values = _values )
-            _connection = Connection( self.__source )
-            _sql = SqlStatement( _dbconfig, _sqlconfig )
-            _sqlite = _connection.connect( )
-            _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
-            _db = _cursor.execute( _query )
-            self.__data =  [ i for i in _db.fetchall( ) ]
-            _cursor.close( )
-            _sqlite.close( )
-            return self.__data
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Reporting'
-            _exc.cause = 'UnobligatedBalance'
-            _exc.method = 'get_data( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            _source = self.__source
-            _data = BudgetData( _source )
-            return _data.create_frame( )
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Reporting'
-            _exc.cause = 'UnobligatedBalance'
-            _exc.method = 'create_frame( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
-
-# UnliquidatedObligation( bfy, fund, account, boc, provider = Provider.SQLite )
 class UnliquidatedObligation( ):
-    '''UnliquidatedObligation( bfy, fund, account, boc )
-    initializes object providing ULO data'''
+    '''
+    Constructor:  UnliquidatedObligation( bfy: str, fund: str, account: str,
+                  boc: str, provider = Provider.SQLite )
+
+    Purpose: Class defines object providing ULO data'''
     __source = None
     __provider = None
     __unliquidatedobligationsid = None
