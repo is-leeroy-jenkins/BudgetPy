@@ -168,9 +168,11 @@ class BudgetUnit( DataUnit ):
         self.__treasuryaccountcode = treas 
         self.__budgetaccountcode = omb 
 
-# Account( treas, provider = Provider.SQLite )
 class Account( ):
-    '''defines the Account Code class'''
+    '''
+    Constructor:  Account( treas: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing Account Codes'''
     __source = None
     __provider = None
     __accountsid = None
@@ -379,7 +381,7 @@ class Account( ):
 
 class ActivityCode( ):
     '''
-    Constructor: ActivityCode( treas, provider = Provider.SQLite )
+    Constructor: ActivityCode( treas: str, provider: Provider = Provider.SQLite )
     
     Purpose: Data class representing Activity Codes
     '''
@@ -1407,7 +1409,7 @@ class AnnualReimbursableEstimate( ):
 
 class Appropriation( ):
     '''
-    Constructor: Appropriation( fundcode, provider = Provider.SQLite )
+    Constructor: Appropriation( fundcode: str, provider: Provider = Provider.SQLite )
 
     Purpose: Data class representing Appropriations'''
     __source = None
@@ -2391,7 +2393,7 @@ class Allocation( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Allocation'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -2406,7 +2408,7 @@ class Allocation( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Allocation'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -2647,9 +2649,11 @@ class ApportionmentData( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Actual( bfy, fund, provider = Provider.SQLite  )
 class Actual( ):
-    '''Object representing expenditure data'''
+    '''
+    Constructor: Actual( bfy, fund, provider = Provider.SQLite  )
+
+    Purpose:  Object representing expenditure data'''
     __source = None
     __provider = None
     __actualsid = None
@@ -3088,7 +3092,7 @@ class Actual( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Actual'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -3103,7 +3107,7 @@ class Actual( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Actual'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -3167,9 +3171,11 @@ class ApplicationTable( ):
         self.__provider = provider
         self.__tablename = name
 
-# AppropriationDocument( bfy, fund, provider = Provider.SQLite )
 class AppropriationDocument( ):
-    '''object representing Level 1 documents'''
+    '''
+    Constructor:  AppropriationDocument( bfy, fund, provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing Level 1 documents'''
     __source = None
     __provider = None
     __appropriationdocumentsid = None
@@ -3568,7 +3574,7 @@ class AppropriationDocument( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'AppropriationDocument'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -3583,15 +3589,17 @@ class AppropriationDocument( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'AppropriationDocument'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# BudgetDocument( bfy, fund, provider = Provider.SQLite )
 class BudgetDocument( ):
-    '''object representing Level 2-3 documents'''
+    '''
+    Constructor:  BudgetDocument( bfy, fund, provider = Provider.SQLite )
+
+    Purpose: Class defines object representing Level 2-3 documents'''
     __source = None
     __provider = None
     __budgetdocumentsid = None
@@ -4103,7 +4111,7 @@ class BudgetDocument( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'BudgetDocument'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -4118,15 +4126,17 @@ class BudgetDocument( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'BudgetDocument'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# BudgetControl( fundcode, provider = Provider.SQLite )
 class BudgetControl( ):
-    '''object representing compass control data'''
+    '''
+    Constructor:  BudgetControl( fundcode, provider = Provider.SQLite )
+
+    Purpose;  Class defines object representing compass control data'''
     __source = None
     __provider = None
     __budgetcontrolsid = None
@@ -4605,7 +4615,7 @@ class BudgetControl( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'BudgetControl'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -4620,7 +4630,7 @@ class BudgetControl( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'BudgetControl'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -5034,11 +5044,14 @@ class BudgetObjectClass( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# BudgetaryResourceExecution( bfy, efy, fundcode, provider = Provider.SQLite )
 class BudgetaryResourceExecution( ):
-    '''BudgetaryResourceExecution( bfy, efy, fundcode )
-    initializes object representing the MAX A-11 DE/SF-133
-    Status Of Budgetary Resources Execution Report'''
+    '''
+    Constructor: BudgetaryResourceExecution( bfy: str, efy: str,
+                  main: str, provider: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object representing the MAX A-11 DE/SF-133
+    Status Of Budgetary Resources Execution Report
+    '''
     __source = None
     __provider = None
     __budgetaryresourceexecutionid = None
@@ -5133,12 +5146,13 @@ class BudgetaryResourceExecution( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, ombcode, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str,
+                  main: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.BudgetaryResourceExecution
         self.__bfy = bfy
         self.__efy = efy
-        self.__budgetaccountcode = ombcode
+        self.__budgetaccountcode = main
         self.__fields = [ 'BudgetaryResourceExecutionId',
                           'FiscalYear',
                           'BFY',
@@ -5212,10 +5226,9 @@ class BudgetaryResourceExecution( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# Outlay( account, provider = Provider.SQLite )
 class Outlay( ):
     '''
-    Constructor; Outlay( bfy: str, main: str )
+    Constructor: Outlay( account: str, provider: Provider = Provider.SQLite  )
 
     Purpose: Class defines object that provides OMB data
     '''
@@ -5480,7 +5493,7 @@ class Outlay( ):
     def __init__( self, account: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Outlays
-        self.__budgetaccountcode = account if isinstance( account, str ) and len( account ) == 4 else None
+        self.__budgetaccountcode = account 
         self.__fields = [ 'BudgetOutlaysId',
                           'ReportYear',
                           'Category',
@@ -5776,18 +5789,18 @@ class CongressionalControl( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'CongressionalControl'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# CompassLevel( bfy, efy, fund, provider = Provider.SQLite )
 class CompassLevel( ):
     '''
-    Constructor: CompassLevel( bfy, efy, fund, provider = Provider.SQLite )
+    Constructor: CompassLevel( bfy: str, efy: str,
+                  fund: str, provider: Provider = Provider.SQLite )
 
-    Purpose: Object representing Compass data levels 1-7
+    Purpose: Class defines object representing Compass data levels 1-7
     '''
     __source = None
     __provider = None
@@ -5930,7 +5943,8 @@ class CompassLevel( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy, efy, fund, provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str,
+                  fund: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.CompassLevels
         self.__bfy = bfy
@@ -6004,7 +6018,7 @@ class CompassLevel( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'CompassLevel'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -6019,7 +6033,7 @@ class CompassLevel( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'CompassLevel'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -6536,7 +6550,7 @@ class Commitment( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Commitment'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -6551,7 +6565,7 @@ class Commitment( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Commitment'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -7398,7 +7412,7 @@ class Defacto( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Defacto'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -7413,7 +7427,7 @@ class Defacto( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Defacto'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -7913,7 +7927,7 @@ class Deobligation( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Deobligations'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -7928,7 +7942,7 @@ class Deobligation( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Deobligations'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -8062,7 +8076,7 @@ class DocumentControlNumber( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'DocumentControlNumber'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -8077,7 +8091,7 @@ class DocumentControlNumber( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'DocumentControlNumber'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -8608,7 +8622,7 @@ class Expenditure( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Expenditure'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -8623,7 +8637,7 @@ class Expenditure( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Expenditure'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -10101,7 +10115,7 @@ class FullTimeEquivalent( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'FullTimeEquivalent'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -10115,7 +10129,7 @@ class FullTimeEquivalent( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'FullTimeEquivalent'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -10724,7 +10738,7 @@ class HeadquartersAuthority( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'HeadquartersAuthority'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -10739,7 +10753,7 @@ class HeadquartersAuthority( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'HeadquartersAuthority'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -11761,7 +11775,7 @@ class MonthlyActual( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Actual'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -11776,7 +11790,7 @@ class MonthlyActual( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Actual'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -12748,7 +12762,7 @@ class OperatingPlan( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'OperatingPlan'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -12763,7 +12777,7 @@ class OperatingPlan( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'OperatingPlan'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -13357,7 +13371,7 @@ class OpenCommitment( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'OpenCommitment'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -13372,7 +13386,7 @@ class OpenCommitment( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'OpenCommitment'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -13964,7 +13978,7 @@ class Obligation( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Obligaions'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -13979,7 +13993,7 @@ class Obligation( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Obligation'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -16053,7 +16067,7 @@ class RegionalAuthority( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'RegionalAuthority'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -16068,7 +16082,7 @@ class RegionalAuthority( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'RegionalAuthority'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -16535,7 +16549,7 @@ class StatusOfFunds( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'StatusOfFunds'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -16550,7 +16564,7 @@ class StatusOfFunds( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'StatusOfFunds'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -17022,7 +17036,7 @@ class StatusOfSupplementalFunding( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'StatusOfSupplementalFunding'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -17037,7 +17051,7 @@ class StatusOfSupplementalFunding( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'StatusOfSupplementalFunding'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -17316,7 +17330,7 @@ class StateGrantObligation( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'StateGrantObligation'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -17331,7 +17345,7 @@ class StateGrantObligation( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'StateGrantObligation'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -17657,7 +17671,7 @@ class SpecialAccount( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'SpecialAccount'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -17672,7 +17686,7 @@ class SpecialAccount( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'SpecialAccount'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -17858,7 +17872,7 @@ class SuperfundSite( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'SuperfundSite'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -21064,7 +21078,7 @@ class SiteActivity( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'SiteActivity'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -21079,7 +21093,7 @@ class SiteActivity( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'SiteActivity'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -21673,7 +21687,7 @@ class SpendingDocument( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Obligaions'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -21688,7 +21702,7 @@ class SpendingDocument( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'Obligation'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
@@ -23310,7 +23324,7 @@ class UnliquidatedObligation( ):
             return self.__data
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'UnliquidatedObligation'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
@@ -23325,7 +23339,7 @@ class UnliquidatedObligation( ):
             return _data.create_frame( )
         except Exception as e:
             _exc = Error( e )
-            _exc.module = 'Control'
+            _exc.module = 'Ninja'
             _exc.cause = 'UnliquidatedObligation'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
