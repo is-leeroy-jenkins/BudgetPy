@@ -1142,53 +1142,53 @@ class SqlStatement( ):
         self.__text = self.get_query( )
 
     def __str__( self ) -> str:
-        if isinstance( self.__text, str ) and self.__text != '':
+        if self.__text is not None:
             return self.__text
 
     def get_query( self ) -> str:
         try:
-            table = self.__table
-            columns = self.__sqlconfig.dump_columns( )
-            values = self.__sqlconfig.dump_values( )
-            predicate = self.__sqlconfig.dump_where( )
+            _table = self.__table
+            _columns = self.__sqlconfig.dump_columns( )
+            _values = self.__sqlconfig.dump_values( )
+            _predicate = self.__sqlconfig.dump_where( )
             if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
                 if self.__commandtype == SQL.SELECTALL:
                     if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM {table}'
+                        self.__text = f'SELECT * FROM {_table}'
                         return self.__text
                     if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
+                        self.__text = f'SELECT ' + _columns + f'FROM {_table}' + f' {_predicate}'
                         return self.__text
                 elif self.__commandtype == SQL.SELECT:
                     if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM {table}'
+                        self.__text = f'SELECT * FROM {_table}'
                         return self.__text
                     if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
+                        self.__text = f'SELECT ' + _columns + f' FROM {_table}' + f' {_predicate}'
                         return self.__text
                 elif self.__commandtype == SQL.INSERT:
-                    self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
+                    self.__text = f'INSERT INTO {_table} ' + f'{_columns} ' + f'{_values}'
                     return self.__text
                 elif self.__commandtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{self.__sqlconfig.dump_set( )} ' \
-                                  + f'{values}'
+                    self.__text = f'UPDATE {_table} ' + f'{self.__sqlconfig.dump_set( )} ' \
+                                  + f'{_values}'
                     return self.__text
                 elif self.__commandtype == SQL.DELETE:
-                    self.__text = f'DELETE FROM {table} ' + f' {predicate}'
+                    self.__text = f'DELETE FROM {_table} ' + f' {_predicate}'
                     return self.__text
             else:
                 if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECT:
-                        cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__text = f'SELECT {cols} FROM {table}'
+                        cols = _columns.lstrip( '(' ).rstrip( ')' )
+                        self.__text = f'SELECT {cols} FROM {_table}'
                         return self.__text
                 elif not isinstance( self.__names, list ) \
                         and not isinstance( self.__values, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
-                        self.__text = f'SELECT * FROM {table}'
+                        self.__text = f'SELECT * FROM {_table}'
                         return self.__text
                 elif self.__commandtype == 'DELETE':
-                    self.__text = f'DELETE FROM {table}'
+                    self.__text = f'DELETE FROM {_table}'
                     return self.__text
         except Exception as e:
             _exc = Error( e )
@@ -1218,22 +1218,22 @@ class Query( ):
     __querytext = None
 
     @property
-    def _source( self ) -> Source:
+    def source( self ) -> Source:
         if self.__source is not None:
             return self.__source
 
-    @_source.setter
-    def _source( self, value: Source ):
+    @source.setter
+    def source( self, value: Source ):
         if value is not None:
             self.__source = value
 
     @property
-    def _provider( self ) -> Provider:
+    def provider( self ) -> Provider:
         if self.__provider is not None:
             return self.__provider
 
-    @_provider.setter
-    def _provider( self, value: Provider ):
+    @provider.setter
+    def provider( self, value: Provider ):
         if value is not None:
             self.__provider = value
         else:
@@ -1273,6 +1273,7 @@ class Query( ):
     def command_type( self ) -> SQL:
         if self.__commandtype is not None:
             return self.__commandtype
+
         if self.__commandtype is None:
             cmd = SQL( 'SELECT' )
             return cmd
@@ -1288,7 +1289,7 @@ class Query( ):
             return self.__table
 
     @table.setter
-    def table( self, value ):
+    def table( self, value: str ):
         if value is not None:
             self.__table = value
 
@@ -1329,8 +1330,8 @@ class Query( ):
 
     @connection_string.setter
     def connection_string( self, value: str ):
-        if isinstance( value, str ):
-            self.__connectionstring = str( value )
+        if value is not None:
+            self.__connectionstring = value
 
     def __init__( self, conn: Connection, sql: SqlStatement ):
         self.__connection = conn
@@ -1403,8 +1404,11 @@ class Query( ):
 
 # SQLiteData( connection, sqlstatement )
 class SQLiteData( Query ):
-    '''SQLiteData( connection, sqlstatement ) represents
-     the omb execution values classes'''
+    '''
+    Constructor: SQLiteData( conn: Connection, sql: SqlStatement )
+
+    Purpose; Class represents the SQLite data factory
+    '''
     __driver = None
     __dsn = None
     __query = None
@@ -1488,10 +1492,10 @@ class SQLiteData( Query ):
 
     def create_frame( self ) -> DataFrame:
         try:
-            query = f'SELECT * FROM {self.__source.name}'
-            connection = self.__connection.connect( )
-            self.__frame = sqlreader( query, connection )
-            connection.close( )
+            _query = f'SELECT * FROM {self.__source.name}'
+            _connection = self.__connection.connect( )
+            self.__frame = sqlreader( _query, _connection )
+            _connection.close( )
             return self.__frame
         except Exception as e:
             _exc = Error( e )
@@ -1501,11 +1505,13 @@ class SQLiteData( Query ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# AccessData( connection, sqlstatement )
 class AccessData( Query ):
-    '''AccessData( value, sqlcfg ) class
-      represents the omb execution
-      values model classes in the MS ACCDB database'''
+    '''
+    Constructor:  AccessData( conn: connection, sql: SqlStatement )
+
+    Purpose: Class represents the omb execution
+    values model classes in the MS ACCDB database
+    '''
     __query = None
     __driver = None
     __dsn = None
@@ -1514,7 +1520,7 @@ class AccessData( Query ):
 
     @property
     def data( self ) -> list[ str ]:
-        if isinstance( self.__data, list ):
+        if self.__data is not None:
             return self.__data
 
     @data.setter
@@ -1524,7 +1530,7 @@ class AccessData( Query ):
 
     @property
     def driver( self ) -> str:
-        if isinstance( self.__driver, str ):
+        if self.__driver is not None:
             return self.__driver
 
     @driver.setter
@@ -1534,7 +1540,7 @@ class AccessData( Query ):
 
     @property
     def columns( self ) -> list[ str ]:
-        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
+        if self.__columns is not None:
             return self.__columns
 
     @columns.setter
@@ -1564,7 +1570,7 @@ class AccessData( Query ):
         self.__data = [ ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__query, str ) and self.__query != '':
+        if self.__query is not None:
             return self.__query
 
     def create_table( self ) -> [ ]:
