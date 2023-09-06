@@ -324,7 +324,7 @@ class Account( ):
         if self.__code is not None:
             return self.__code
 
-    def copy( self ) -> Account:
+    def copy( self ):
         try:
             _clone = Account( code = self.__code )
             _clone.goal_code = self.__goalcode
