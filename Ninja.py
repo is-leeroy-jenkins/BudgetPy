@@ -6697,7 +6697,7 @@ class CapitalPlanningInvestmentCodes( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-# ColumnSchema( column, table, provider = Provider.SQLite )
+# ColumnSchema( column, table_name, provider = Provider.SQLite )
 class ColumnSchema( ):
     '''Provides data on the columns used in the application'''
     __source = None
@@ -22079,7 +22079,7 @@ class TreasurySymbol( ):
             sql = SqlStatement( dbcfg, sqlcfg )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.create_commandtext( )
             _data = _cursor.execute( _query )
             self.__data =  [ i for i in _data.fetchall( ) ]
             _cursor.close( )

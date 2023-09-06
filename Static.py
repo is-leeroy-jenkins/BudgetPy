@@ -84,7 +84,7 @@ class NPM( Enum ):
     W = 11
 
 class Source( Enum ):
-    '''Enumeration of table_name names'''
+    '''Enumeration of table_name column_names'''
     NS = auto( )
     Actuals = auto( )
     AdministrativeRequests = auto( )

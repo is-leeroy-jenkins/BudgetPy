@@ -4268,7 +4268,7 @@ class CsvForm( Sith ):
 			data = [ ]
 			header_list = [ ]
 
-			button = sg.popup_yes_no( 'Does file have column names?',
+			button = sg.popup_yes_no( 'Does file have column column_names?',
 				icon = self.__icon,
 				font = self.__themefont )
 
