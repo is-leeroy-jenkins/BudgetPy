@@ -41,7 +41,7 @@
   </summary>
   ******************************************************************************************
   '''
-from PIL import Image, ImageTk, ImageSequence 
+from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from enum import Enum
 import os
@@ -64,13 +64,12 @@ from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
 from Static import EXT, APP
 
-# Error( heading = '' )
 class Error( Exception ):
 	'''
     Constructor: Error( exception: Exception, heading: str = '', cause: str = '',
                   method: str = '', module: str = '' )
 
-    Purpose: Class wrapping exception data used as
+    Purpose: Class wrapping exception used as
     the input argument for ErrorDialog class
     '''
 	__class = None
@@ -83,85 +82,71 @@ class Error( Exception ):
 
 	@property
 	def message( self ) -> str:
-		'''Gets the general heading for the dialog'''
 		if self.__heading is not None:
 			return self.__heading
 
 	@message.setter
 	def message( self, value: str ):
-		'''Sets the general heading for the dialog'''
 		if value is not None:
 			self.__heading = value
 
 	@property
 	def cause( self ) -> str:
-		'''Gets string indicating the class generating the exception'''
 		if self.__class is not None:
 			return self.__class
 
 	@cause.setter
 	def cause( self, value: str ):
-		'''Sets the string indicating the class generating the exception'''
 		if value is not None:
 			self.__class = value
 
 	@property
 	def method( self ) -> str:
-		'''Gets a string representing the method generating the exception'''
 		if self.__method is not None:
 			return self.__method
 
 	@method.setter
 	def method( self, value: str ):
-		'''Sets a string representing method generating the exception'''
 		if value is not None:
 			self.__method = value
 
 	@property
 	def module( self ) -> str:
-		'''Gets a string representing module generating the exception'''
 		if self.__module is not None:
 			return self.__module
 
 	@module.setter
 	def module( self, value: str ):
-		'''Sets a string representing the module generating the exception'''
 		if value is not None:
 			self.__module = value
 
 	@property
 	def type( self ) -> str:
-		'''sets the object type generating the exception'''
 		if self.__type is not None:
 			return self.__type
 
 	@type.setter
 	def type( self, value: str ):
-		'''sets the object type generating the exception'''
 		if value is not None:
 			self.__type = value
 
 	@property
 	def stack_trace( self ) -> str:
-		'''Gets string returned by the 'traceback.format_exc( ) method '''
 		if self.__trace is not None:
 			return self.__trace
 
 	@stack_trace.setter
 	def stack_trace( self, value: str ):
-		'''Sets string returned by the 'traceback.format_exc( ) method '''
 		if value is not None:
 			self.__trace = value
 
 	@property
 	def info( self ) -> str:
-		'''Gets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
 		if self.__class is not None:
 			return self.__class
 
 	@info.setter
 	def info( self, value: str ):
-		'''Sets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
 		if value is not None:
 			self.__class = value
 
@@ -180,7 +165,6 @@ class Error( Exception ):
 		if self.__info is not None:
 			return self.__info
 
-# ButtonIcon( png )
 class ButtonIcon( ):
 	'''
     Constructor: ButtonIcon( png: Enum )
@@ -230,9 +214,12 @@ class ButtonIcon( ):
 		if self.__filepath is not None:
 			return self.__filepath
 
-# TitleIcon( ico )
 class TitleIcon( ):
-	'''class representing form images'''
+	'''
+	Construcotr: TitleIcon( ico )
+
+	Purpose: Class used to define the TitleIcon used on the GUI
+	'''
 	__folder = None
 	__name = None
 	__filepath = None
@@ -273,13 +260,14 @@ class TitleIcon( ):
 		self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
 
 	def __str__( self ) -> str:
-		if isinstance( self.__filepath, str ):
+		if self.__filepath is not None:
 			return self.__filepath
 
-# ColorFormat(  )
-# noinspection PyUnresolvedReferences
 class ColorFormat( ):
-	'''Class providing color conversion methods
+	'''
+	Construcotr:  ColorFormat(  )
+
+	Purpose:  Class providing color conversion methods
     given a color in hex format'''
 	__rgb = None
 	__hex = None
@@ -291,46 +279,46 @@ class ColorFormat( ):
 	__output = None
 
 	@property
-	def red( self ) -> str:
+	def red( self ) -> ( int, int, int ):
 		'''Property returning color tuple ( r, g, b ) '''
 		if self.__red is not None:
 			return self.__red
 
 	@red.setter
-	def red( self, value: str ):
+	def red( self, value: ( int, int, int ) ):
 		if value is not None:
 			self.__red = value
 
 	@property
-	def green( self ) -> str:
+	def green( self ) -> ( int, int, int ):
 		'''Property returning color tuple ( r, g, b ) '''
 		if self.__green is not None:
 			return self.__green
 
 	@green.setter
-	def green( self, value: str ):
+	def green( self, value: ( int, int, int ) ):
 		if value is not None:
 			self.__green = value
 
 	@property
-	def blue( self ) -> str:
+	def blue( self ) -> ( int, int, int ):
 		'''Property returning color tuple ( r, g, b ) '''
 		if self.__blue is not None:
 			return self.__blue
 
 	@blue.setter
-	def blue( self, value: str ):
+	def blue( self, value: ( int, int, int ) ):
 		if value is not None:
 			self.__blue = value
 
 	@property
-	def rgb( self ) -> str:
+	def rgb( self ) -> ( int, int, int ):
 		'''Property returning color tuple ( r, g, b ) '''
 		if self.__rgb is not None:
 			return self.__rgb
 
 	@rgb.setter
-	def rgb( self, value: str ):
+	def rgb( self, value: ( int, int, int ) ):
 		if value is not None:
 			self.__rgb = value
 
@@ -351,7 +339,7 @@ class ColorFormat( ):
 		self.__hex = None
 		self.__hsl = None
 
-	def hex_to_hsl( self, hex: str ):
+	def hex_to_hsl( self, hex: str ) -> str:
 		'''Converts the string input argument 'hex' representing a
          hexidecimal color returing its equivalent 'hsl' value as a tuple'''
 		self.__hex = hex
@@ -362,50 +350,50 @@ class ColorFormat( ):
 		hsl = rgb_to_hsl( r, g, b )
 		return hsl
 
-	def hex_to_rgb( self, hex: str ) -> tuple:
+	def hex_to_rgb( self, hex: str ) -> ( int, int, int ):
 		'''Converts the string input argument 'hex' representing a
          hexidecimal color into its equivalent 'rgb' value'''
 		hex = hex.lstrip( '#' )
 		hlen = len( hex )
 		return tuple( int( hex[ i:i + hlen // 3 ], 16 ) for i in range( 0, hlen, hlen // 3 ) )
 
-	def rgb_to_hsl( self, r: float, g: float, b: float ) -> tuple:
+	def rgb_to_hsl( self, r: float, g: float, b: float ) -> ( float, float, float ):
 		'''Converts integer input arguments 'r, g, and b' representing
          an rgb color into its equivalent hsl color '''
 		high = max( r, g, b )
 		low = min( r, g, b )
-		h, s, _values = ((high + low) / 2,) * 3
+		h, s, _values = ( ( high + low ) / 2, ) * 3
 		if high == low:
 			h = s = 0.0
 		else:
 			d = high - low
-			l = (high + low) / 2
-			s = d / (2 - high - low) if l > 0.5 else d / (high + low)
+			l = ( high + low ) / 2
+			s = d / ( 2 - high - low ) if l > 0.5 else d / ( high + low )
 			h = {
-					r: (g - b) / d + (6 if g < b else 0),
-					g: (b - r) / d + 2,
-					b: (r - g) / d + 4,
+					r: ( g - b ) / d + ( 6 if g < b else 0 ),
+					g: ( b - r ) / d + 2,
+					b: ( r - g ) / d + 4,
 			}[ high ]
 			h /= 6
 		return h, s, v
 
-	def hsl_to_rgb( self, h: int, s: int, l: int ) -> tuple:
+	def hsl_to_rgb( self, h: int, s: int, l: int ) -> ( int, int, int ):
 		# noinspection PyShadowingNames
 		def hue_to_rgb( p, q, t ):
 			t += 1 if t < 0 else 0
 			t -= 1 if t > 1 else 0
 			if t < 1 / 6:
-				return p + (q - p) * 6 * t
+				return p + ( q - p ) * 6 * t
 			if t < 1 / 2:
 				return q
 			if t < 2 / 3:
-				p + (q - p) * (2 / 3 - t) * 6
+				p + ( q - p ) * ( 2 / 3 - t ) * 6
 			return p
 
 		if s == 0:
 			r, g, b = l, l, l
 		else:
-			q = l * (1 + s) if l < 0.5 else l + s - l * s
+			q = l * ( 1 + s ) if l < 0.5 else l + s - l * s
 			p = 2 * l - q
 			r = hue_to_rgb( p, q, h + 1 / 3 )
 			g = hue_to_rgb( p, q, h )
@@ -413,19 +401,21 @@ class ColorFormat( ):
 
 		return r, g, b
 
-	def hsv_to_hsl( self, h: int, s: int, v: int ) -> tuple:
-		l = 0.5 * v * (2 - s)
-		s = v * s / (1 - fabs( 2 * l - 1 ))
-		return h, s, l
+	def hsv_to_hsl( self, h: int, s: int, v: int ) -> ( float, float, float ):
+		l = 0.5 * v * ( 2 - s )
+		_s = v * s / ( 1 - fabs( 2 * l - 1 ) )
+		return h, _s, l
 
-	def hsl_to_hsv( self, h: int, s: int, l: int ) -> tuple:
-		_values = (2 * l + s * (1 - fabs( 2 * l - 1 ))) / 2
-		s = 2 * (v - l) / v
-		return h, s, v
+	def hsl_to_hsv( self, h: int, s: int, l: int ) -> ( int, int, int ):
+		_values = ( 2 * l + s * ( 1 - fabs( 2 * l - 1  ) ) ) / 2
+		_s = 2 * ( v - l ) / v
+		return h, _s, v
 
-# Sith( )
 class Sith( ):
-	'''Base class for the dark-mode controls'''
+	'''
+	Construcotr: Sith( )
+
+	Purpose:  Base class for the dark-mode controls'''
 	__themebackground = None
 	__elementbackcolor = None
 	__elementforecolor = None
@@ -445,19 +435,16 @@ class Sith( ):
 
 	@property
 	def size( self ) -> (int, int):
-		'''Gets the size proerty as a tuple'''
 		if self.__formsize is not None:
 			return self.__formsize
 
 	@size.setter
 	def size( self, value: (int, int) ):
-		'''Sets the size property'''
 		if value is not None:
 			self.__formsize = value
 
 	@property
 	def settings_path( self ) -> str:
-		'''Gets the size proerty as a tuple'''
 		if self.__settingspath is not None:
 			return self.__settingspath
 
@@ -633,19 +620,22 @@ class Sith( ):
 		self.__buttonforecolor = sg.theme_button_color_text( )
 		self.__buttoncolor = sg.theme_button_color( )
 		self.__icon = os.getcwd( ) + r'\etc\ico\ninja.ico'
-		self.__themefont = ('Roboto', 9)
+		self.__themefont = ( 'Roboto', 9 )
 		self.__scrollbarcolor = '#755600'
 		self.__progressbarbackcolor = sg.theme
 		self.__progressbarcolor = sg.theme_progress_bar_color( )
-		self.__formsize = (400, 200)
+		self.__formsize = ( 400, 200 )
 		self.__settingspath = os.getcwd( ) + r'\etc\theme'
 		sg.set_global_icon( icon = self.__icon )
 		sg.set_options( font = self.__themefont )
 		sg.user_settings_save( 'Budget', self.__settingspath )
 
-# FileDialog( ) -> str
 class FileDialog( Sith ):
-	'''class that handles filenames a file'''
+	'''
+	Construcotr:  FileDialog( )
+
+	Purpose:  class that handles filenames a file
+	'''
 	__selecteditem = None
 	__extension = None
 	__message = None
@@ -690,18 +680,18 @@ class FileDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (475, 250)
+		self.__formsize = ( 475, 250 )
 		self.__selecteditem = None
 		self.__message = 'Search for File'
 		self.__extension = extension if isinstance( extension, EXT ) else EXT.XLSX
-		self.__excel = (('Excel Files', '*.xlsx'),)
-		self.__csv = (('CSV Files', '*.csv'),)
-		self.__pdf = (('PDF Files', '*.pdf'),)
-		self.__sql = (('SQL Files', '*.sql',),)
-		self.__text = (('Text Files', '*.txt'),)
-		self.__access = (('MS ACCDB Databases', '*.accdb'),)
-		self.__sqlite = (('SQLite Databases', '*.db'),)
-		self.__sqlserver = (('SQL Server Databases', '*.mdf', '*.ldf', '*.sdf'),)
+		self.__excel = ( ( 'Excel Files', '*.xlsx' ), )
+		self.__csv = ( ( 'CSV Files', '*.csv' ), )
+		self.__pdf = ( ( 'PDF Files', '*.pdf' ), )
+		self.__sql = ( ( 'SQL Files', '*.sql', ), )
+		self.__text = ( ( 'Text Files', '*.txt' ), )
+		self.__access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
+		self.__sqlite = ( ( 'SQLite Databases', '*.db' ), )
+		self.__sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), )
 
 	def __str__( self ) -> str:
 		if self.__selecteditem is not None:
@@ -709,27 +699,27 @@ class FileDialog( Sith ):
 
 	def show( self ):
 		try:
-			layout = [ [ sg.Text( ) ],
-			           [ sg.Text( self.__message, font = ('Roboto', 11) ) ],
-			           [ sg.Text( ) ],
-			           [ sg.Input( key = '-PATH-' ), sg.FileBrowse( size = (15, 1) ) ],
-			           [ sg.Text(  ) ],
-			           [ sg.Text(  ) ],
-			           [ sg.OK( size = (8, 1), ), sg.Cancel( size = (10, 1) ) ] ]
+			_layout = [ [ sg.Text( ) ],
+			            [ sg.Text( self.__message, font = ( 'Roboto', 11 ) ) ],
+			            [ sg.Text( ) ],
+			            [ sg.Input( key = '-PATH-' ), sg.FileBrowse( size = ( 15, 1 ) ) ],
+			            [ sg.Text( ) ],
+			            [ sg.Text( ) ],
+			            [ sg.OK( size = ( 8, 1 ), ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
-			window = sg.Window( ' Budget Execution', layout,
+			_window = sg.Window( ' Budget Execution', _layout,
 				font = self.__themefont,
 				size = self.__formsize )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
+				_event, _values = _window.read( )
+				if _event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
 					break
-				elif event == 'OK':
-					self.__selecteditem = values[ '-PATH-' ]
-					window.close( )
+				elif _event == 'OK':
+					self.__selecteditem = _values[ '-PATH-' ]
+					_window.close( )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -738,9 +728,12 @@ class FileDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# FolderDialog( ) -> str
 class FolderDialog( Sith ):
-	'''Class defining dialog used to select a directory path'''
+	'''
+	Construcotr: FolderDialog( )
+
+	Purpose:  Class defining dialog used to select a directory path
+	'''
 	__selecteditem = None
 
 	@property
@@ -765,7 +758,7 @@ class FolderDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (475, 250)
+		self.__formsize = ( 475, 250 )
 		self.__selecteditem = None
 
 	def __str__( self ) -> str:
@@ -774,30 +767,30 @@ class FolderDialog( Sith ):
 
 	def show( self ):
 		try:
-			layout = [ [ sg.Text(  ) ],
-			           [ sg.Text( 'Search for Directory' ) ],
-			           [ sg.Text(  ) ],
-			           [ sg.Input( key = '-PATH-' ), sg.FolderBrowse( size = (15, 1) ) ],
-			           [ sg.Text(  size = (100, 1) ) ],
-			           [ sg.Text(  size = (100, 1) ) ],
-			           [ sg.OK( size = (8, 1) ), sg.Cancel( size = (10, 1) ) ] ]
+			_layout = [ [ sg.Text( ) ],
+			            [ sg.Text( 'Search for Directory' ) ],
+			            [ sg.Text( ) ],
+			            [ sg.Input( key = '-PATH-' ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
+			            [ sg.Text( size = ( 100, 1 ) ) ],
+			            [ sg.Text( size = ( 100, 1 ) ) ],
+			            [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				font = self.__themefont,
 				size = self.__formsize )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
+				_event, _values = _window.read( )
+				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
 					break
-				elif event == 'OK':
-					self.__selecteditem = values[ '-PATH-' ]
+				elif _event == 'OK':
+					self.__selecteditem = _values[ '-PATH-' ]
 					sg.popup_ok( self.__selecteditem,
 						title = 'Results',
 						icon = self.__icon,
 						font = self.__themefont )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.cause = 'FolderDialog'
@@ -805,10 +798,12 @@ class FolderDialog( Sith ):
 			_error = ErrorDialog( _exc )
 			_error.show( )
 
-# SaveFileDialog( path = '' )
 class SaveFileDialog( Sith ):
-	'''SaveFileDialog( path = '' ):
-    class provides form to located file destinations'''
+	'''
+	Constructor:  SaveFileDialog( path = '' ):
+
+    Purpose:  Class define object that provides a dialog to locate file destinations
+    '''
 	__original = None
 	__filename = None
 
@@ -844,27 +839,27 @@ class SaveFileDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (400, 250)
-		self.__original = path if isinstance( path, str ) and os.path.isfile( path ) else None
+		self.__formsize = ( 400, 250 )
+		self.__original = path
 
 	def __str__( self ) -> str:
-		if isinstance( self.__filename, str ) and self.__filename != '':
+		if self.__filename is not None:
 			return self.__filename
 
 	def show( self ):
 		try:
-			username = os.environ.get( 'USERNAME' )
-			filename = sg.popup_get_file( 'Select Location / Enter File Name',
+			_username = os.environ.get( 'USERNAME' )
+			_filename = sg.popup_get_file( 'Select Location / Enter File Name',
 				title = '  Budget Execution',
 				font = self.__themefont,
 				icon = self.__icon,
 				save_as = True )
 
-			self.__filename = filename
+			self.__filename = _filename
 
 			if os.path.exists( self.__original ):
-				src = io.open( self.__original, 'r' ).read( )
-				new = io.open( filename, 'w+' ).write( src )
+				_src = io.open( self.__original, 'r' ).read( )
+				_dest = io.open( _filename, 'w+' ).write( _src )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -873,9 +868,12 @@ class SaveFileDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# GoogleDialog(  )
 class GoogleDialog( Sith ):
-	'''GoogleDialog(  ): class that renames a folder'''
+	'''
+	Construcotr: GoogleDialog(  )
+
+	Purpose:   class that renames a folder
+	'''
 	__image = None
 	__querytext = None
 	__results = None
@@ -932,33 +930,33 @@ class GoogleDialog( Sith ):
 	def show( self ):
 		try:
 			self.__results = [ ]
-			layout = [ [ sg.Text(  ) ],
-			           [ sg.Image( source = self.__image ) ],
-			           [ sg.Text( size = (10, 1) ),
-			             sg.Input( key = '-QUERY-', size = (40, 2) ) ],
-			           [ sg.Text( size = (100, 1) ) ],
-			           [ sg.Text( size = (100, 1) ) ],
-			           [ sg.Text( size = (10, 1) ), sg.Submit( size = (15, 1) ),
-			             sg.Text( size = (5, 1) ), sg.Cancel( size = (15, 1) ) ] ]
+			_layout = [ [ sg.Text( ) ],
+			            [ sg.Image( source = self.__image ) ],
+			            [ sg.Text( size = ( 10, 1 ) ),
+			              sg.Input( key = '-QUERY-', size = ( 40, 2 ) ) ],
+			            [ sg.Text( size = ( 100, 1 ) ) ],
+			            [ sg.Text( size = ( 100, 1 ) ) ],
+			            [ sg.Text( size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ) ),
+			              sg.Text( size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				icon = self.__icon,
 				font = self.__themefont,
 				size = self.__formsize )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel'):
+				_event, _values = _window.read( )
+				if _event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel'):
 					break
-				elif event == 'Submit':
-					self.__querytext = values[ '-QUERY-' ]
-					google = search( term = self.__querytext, num_results = 5, lang = 'en' )
-					app = App( APP.Edge )
-					for result in list( google ):
+				elif _event == 'Submit':
+					self.__querytext = _values[ '-QUERY-' ]
+					_google = search( term = self.__querytext, num_results = 5, lang = 'en' )
+					_app = App( APP.Edge )
+					for result in list( _google ):
 						self.__results.append( result )
-						app.run_args( result )
+						_app.run_args( result )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -967,11 +965,13 @@ class GoogleDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# EmailDialog( sender = '', receiver = '', subject = '', heading = '' )
 class EmailDialog( Sith ):
-	'''EmailDialog( sender = '', receiver = '', subject = '', heading = '' ):
-    Class providing form used to send email messages. Constructor
-    accepts optional string arguments 'sender', 'receiver', 'subject', and 'heading' '''
+	'''
+	Construcotr: EmailDialog( sender: str = '', receiver: str = '',
+			subject: str = '', heading: str = '' )
+
+	Purpose:  Class providing form used to send email messages.
+    '''
 	__image = None
 	__folderpath = None
 	__sender = None
@@ -1052,8 +1052,8 @@ class EmailDialog( Sith ):
 		if value is not None:
 			self.__password = value
 
-	def __init__( self, sender: str = '', receiver: str  = '',
-	              subject: str  = '', message: str  = '' ):
+	def __init__( self, sender: str = '', receiver: str = '',
+	              subject: str = '', message: str = '' ):
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
 		self.__themefont = super( ).theme_font
@@ -1066,7 +1066,7 @@ class EmailDialog( Sith ):
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
 		self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-		self.__formsize = ( 650, 550 )
+		self.__formsize = (650, 550)
 		self.__sender = sender
 		self.__receiver = receiver
 		self.__subject = subject
@@ -1078,56 +1078,56 @@ class EmailDialog( Sith ):
 
 	def show( self ):
 		try:
-			btn = (20, 1)
-			inp = (35, 1)
-			spc = (5, 1)
-			img = (50, 22)
-			clr = '#69B1EF'
-			layout = [ [ sg.Text( ' ', size = spc ), ],
-			           [ sg.Text( ' ', size = spc ), ],
-			           [ sg.Text( ' ', size = spc ),
-			             sg.Text( 'From:', size = btn, text_color = clr ),
-			             sg.Input( key = '-EMAIL FROM-', size = inp ) ],
-			           [ sg.Text( ' ', size = spc ), sg.Text( 'To:', size = btn, text_color =
-			           clr ),
-			             sg.Input( key = '-EMAIL TO-', size = inp ) ],
-			           [ sg.Text( ' ', size = spc ),
-			             sg.Text( 'Subject:', size = btn, text_color = clr ),
-			             sg.Input( key = '-EMAIL SUBJECT-', size = inp ) ],
-			           [ sg.Text( ' ', size = spc ), sg.Text( ) ],
-			           [ sg.Text( ' ', size = spc ),
-			             sg.Text( 'Username:', size = btn, text_color = clr ),
-			             sg.Input( key = '-USER-', size = inp ) ],
-			           [ sg.Text( ' ', size = spc ),
-			             sg.Text( 'Password:', size = btn, text_color = clr ),
-			             sg.Input( password_char = '*', key = '-PASSWORD-', size = inp ) ],
-			           [ sg.Text( ' ', size = spc ) ],
-			           [ sg.Text( ' ', size = spc ),
-			             sg.Multiline( 'Type your message here', size = (65, 10),
-				             key = '-EMAIL TEXT-' ) ],
-			           [ sg.Text( ' ', size = (100, 1) ) ],
-			           [ sg.Text( ' ', size = spc ), sg.Button( 'Send', size = btn ),
-			             sg.Text( ' ', size = btn ), sg.Button( 'Cancel', size = btn ) ] ]
+			_btn = (20, 1)
+			_input = (35, 1)
+			_spc = (5, 1)
+			_img = (50, 22)
+			_clr = '#69B1EF'
+			_layout = [ [ sg.Text( ' ', size = _spc ), ],
+			            [ sg.Text( ' ', size = _spc ), ],
+			            [ sg.Text( ' ', size = _spc ),
+			              sg.Text( 'From:', size = _btn, text_color = _clr ),
+			              sg.Input( key = '-EMAIL FROM-', size = _input ) ],
+			            [ sg.Text( ' ', size = _spc ), sg.Text( 'To:', size = _btn, text_color =
+			            _clr ),
+			              sg.Input( key = '-EMAIL TO-', size = _input ) ],
+			            [ sg.Text( ' ', size = _spc ),
+			              sg.Text( 'Subject:', size = _btn, text_color = _clr ),
+			              sg.Input( key = '-EMAIL SUBJECT-', size = _input ) ],
+			            [ sg.Text( ' ', size = _spc ), sg.Text( ) ],
+			            [ sg.Text( ' ', size = _spc ),
+			              sg.Text( 'Username:', size = _btn, text_color = _clr ),
+			              sg.Input( key = '-USER-', size = _input ) ],
+			            [ sg.Text( ' ', size = _spc ),
+			              sg.Text( 'Password:', size = _btn, text_color = _clr ),
+			              sg.Input( password_char = '*', key = '-PASSWORD-', size = _input ) ],
+			            [ sg.Text( ' ', size = _spc ) ],
+			            [ sg.Text( ' ', size = _spc ),
+			              sg.Multiline( 'Type your message here', size = (65, 10),
+				              key = '-EMAIL TEXT-' ) ],
+			            [ sg.Text( ' ', size = (100, 1) ) ],
+			            [ sg.Text( ' ', size = _spc ), sg.Button( 'Send', size = _btn ),
+			              sg.Text( ' ', size = _btn ), sg.Button( 'Cancel', size = _btn ) ] ]
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				icon = self.__icon,
 				size = self.__formsize )
 
 			while True:  # Event Loop
-				event, values = window.read( )
-				if event in ( sg.WIN_CLOSED, 'Cancel', 'Exit' ):
+				_event, _values = _window.read( )
+				if _event in (sg.WIN_CLOSED, 'Cancel', 'Exit'):
 					break
-				if event == 'Send':
+				if _event == 'Send':
 					sg.popup_quick_message( 'Sending your heading... this will take a moment...',
 						background_color = 'red' )
-					send_an_email( from_address = values[ '-EMAIL FROM-' ],
-						to_address = values[ '-EMAIL TO-' ],
-						subject = values[ '-EMAIL SUBJECT-' ],
-						message_text = values[ '-EMAIL TEXT-' ],
-						user = values[ '-USER-' ],
-						password = values[ '-PASSWORD-' ] )
+					send_an_email( from_address = _values[ '-EMAIL FROM-' ],
+						to_address = _values[ '-EMAIL TO-' ],
+						subject = _values[ '-EMAIL SUBJECT-' ],
+						message_text = _values[ '-EMAIL TEXT-' ],
+						user = _values[ '-USER-' ],
+						password = _values[ '-PASSWORD-' ] )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1136,11 +1136,13 @@ class EmailDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# MessageDialog( text = '' )
 class MessageDialog( Sith ):
-	''' MessageDialog( text = '' ):
-    Class that provides form used
-     to display informational messages '''
+	'''
+	Construcotr:  MessageDialog( text = '' )
+
+	Purpose:  Class that provides form used
+    to display informational messages
+    '''
 	__text = None
 
 	@property
@@ -1153,7 +1155,7 @@ class MessageDialog( Sith ):
 		if value is not None:
 			self.__text = value
 
-	def __init__( self, text: str  = '' ):
+	def __init__( self, text: str = '' ):
 		self.__text = text
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
@@ -1166,7 +1168,7 @@ class MessageDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 450, 250 )
+		self.__formsize = (450, 250)
 
 	def __str__( self ) -> str:
 		if self.__text is not None:
@@ -1174,34 +1176,34 @@ class MessageDialog( Sith ):
 
 	def show( self ):
 		try:
-			txtsz = (100, 1)
-			btnsz = (10, 1)
-			layout = [ [ sg.Text(  size = txtsz ) ],
-			           [ sg.Text(  size = txtsz ) ],
-			           [ sg.Text(  size = (5, 1) ),
-			             sg.Text( self.__text,
-				             font = ('Roboto', 11),
-				             enable_events = True,
-				             key = '-TEXT-',
-				             text_color = '#69B1EF',
-				             size = (80, 1) ) ],
-			           [ sg.Text(  size = txtsz ) ],
-			           [ sg.Text(  size = txtsz ) ],
-			           [ sg.Text(  size = txtsz ) ],
-			           [ sg.Text(  size = (5, 1) ), sg.Ok( size = btnsz ),
-			             sg.Text(  size = (15, 1) ), sg.Cancel( size = btnsz ) ] ]
+			_txtsz = (100, 1)
+			_btnsz = (10, 1)
+			_layout = [ [ sg.Text( size = _txtsz ) ],
+			            [ sg.Text( size = _txtsz ) ],
+			            [ sg.Text( size = (5, 1) ),
+			              sg.Text( self.__text,
+				              font = ('Roboto', 11),
+				              enable_events = True,
+				              key = '-TEXT-',
+				              text_color = '#69B1EF',
+				              size = (80, 1) ) ],
+			            [ sg.Text( size = _txtsz ) ],
+			            [ sg.Text( size = _txtsz ) ],
+			            [ sg.Text( size = _txtsz ) ],
+			            [ sg.Text( size = (5, 1) ), sg.Ok( size = _btnsz ),
+			              sg.Text( size = (15, 1) ), sg.Cancel( size = _btnsz ) ] ]
 
-			window = sg.Window( r'  Budget Execution', layout,
+			_window = sg.Window( r'  Budget Execution', _layout,
 				icon = self.__icon,
 				font = self.__themefont,
 				size = self.__formsize )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel'):
+				_event, _values = _window.read( )
+				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel'):
 					break
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1210,10 +1212,13 @@ class MessageDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ErrorDialog( exception )
 class ErrorDialog( Sith ):
-	'''Class that displays excetption data that accepts
-     a single, optional argument 'exception' of type Error'''
+	'''
+	Construcotr:  ErrorDialog( exception )
+
+	Purpose:  Class that displays excetption data that accepts
+     a single, optional argument 'exception' of type Error
+    '''
 	__class = None
 	__module = None
 	__method = None
@@ -1225,61 +1230,51 @@ class ErrorDialog( Sith ):
 
 	@property
 	def info( self ) -> str:
-		'''Gets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
 		if self.__class is not None:
 			return self.__class
 
 	@info.setter
 	def info( self, value: str ):
-		'''Sets string comprised of exc_info( )[ 0 ] and traceback.format_exc( ) '''
 		if value is not None:
 			self.__class = value
 
 	@property
 	def cause( self ) -> str:
-		'''Gets string indicating the class generating the exception'''
 		if self.__class is not None:
 			return self.__class
 
 	@cause.setter
 	def cause( self, value: str ):
-		'''Sets the string indicating the class generating the exception'''
 		if value is not None:
 			self.__class = value
 
 	@property
 	def method( self ) -> str:
-		'''Gets a string representing the method generating the exception'''
 		if self.__method is not None:
 			return self.__method
 
 	@method.setter
 	def method( self, value: str ):
-		'''Sets a string representing method generating the exception'''
 		if value is not None:
 			self.__method = value
 
 	@property
 	def module( self ) -> str:
-		'''Gets a string representing module generating the exception'''
 		if self.__module is not None:
 			return self.__module
 
 	@module.setter
 	def module( self, value: str ):
-		'''Sets a string representing the module generating the exception'''
 		if value is not None:
 			self.__module = value
 
 	@property
 	def type( self ) -> str:
-		'''sets the object type generating the exception'''
 		if self.__type is not None:
 			return self.__type
 
 	@type.setter
 	def type( self, value: str ):
-		'''sets the object type generating the exception'''
 		if value is not None:
 			self.__type = value
 
@@ -1317,37 +1312,39 @@ class ErrorDialog( Sith ):
 			return self.__info
 
 	def show( self ):
-		msg = self.__heading if isinstance( self.__heading, str ) else None
-		info = f'Module:\t{self.__module}\r\nClass:\t{self.__cause}\r\n' \
-		       f'Method:\t{self.__method}\r\n \r\n{self.__info}'
-		red = '#F70202'
-		font = ('Roboto', 10)
-		padsz = (3, 3, 3, 3)
-		# noinspection PyTypeChecker
-		layout = [ [ sg.Text(  ) ],
-		           [ sg.Text( f'{msg}', size = (100, 1), key = '-MSG-', text_color = red,
-			           font = font ) ],
-		           [ sg.Text(  size = (150, 1) ) ],
-		           [ sg.Multiline( f'{info}', key = '-INFO-', size = (80, 7), pad = padsz ) ],
-		           [ sg.Text(  ) ],
-		           [ sg.Text(  size = (20, 1) ), sg.Cancel( size = (15, 1), key = '-CANCEL-' ),
-		             sg.Text(  size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
+		_msg = self.__heading if isinstance( self.__heading, str ) else None
+		_info = f'Module:\t{self.__module}\r\nClass:\t{self.__cause}\r\n' \
+		        f'Method:\t{self.__method}\r\n \r\n{self.__info}'
+		_red = '#F70202'
+		_font = ('Roboto', 10)
+		_padsz = (3, 3, 3, 3)
+		_layout = [ [ sg.Text( ) ],
+		            [ sg.Text( f'{_msg}', size = (100, 1), key = '-MSG-', text_color = _red,
+			            font = _font ) ],
+		            [ sg.Text( size = (150, 1) ) ],
+		            [ sg.Multiline( f'{_info}', key = '-INFO-', size = (80, 7), pad = _padsz ) ],
+		            [ sg.Text( ) ],
+		            [ sg.Text( size = (20, 1) ), sg.Cancel( size = (15, 1), key = '-CANCEL-' ),
+		              sg.Text( size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
 
-		window = sg.Window( r' Budget Execution', layout,
+		_window = sg.Window( r' Budget Execution', _layout,
 			icon = self.__icon,
 			font = self.__themefont,
 			size = self.__formsize )
 
 		while True:
-			event, values = window.read( )
-			if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Canel', '-OK-'):
+			_event, _values = _window.read( )
+			if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Canel', '-OK-'):
 				break
 
-		window.close( )
+		_window.close( )
 
-# Input( question )
 class InputDialog( Sith ):
-	'''class that produces a contact input form'''
+	'''
+	Construcotr:  Input( question )
+
+	Purpose:  class that produces a contact input form
+	'''
 	__question = None
 	__response = None
 	__themefont = None
@@ -1394,35 +1391,35 @@ class InputDialog( Sith ):
 
 	def show( self ):
 		try:
-			layout = [ [ sg.Text(  ) ],
-			           [ sg.Text( self.__question, font = ('Roboto', 9, 'bold') ) ],
-			           [ sg.Text(  ) ],
-			           [ sg.Text( 'Enter:', size = (10, 2) ),
-			             sg.InputText( key = '-INPUT-', size = (40, 2) ) ],
-			           [ sg.Text(  size = (100, 1) ) ],
-			           [ sg.Text(  size = (100, 1) ) ],
-			           [ sg.Text(  size = (10, 1) ),
-			             sg.Submit( size = (15, 1), key = '-SUBMIT-' ),
-			             sg.Text(  size = (5, 1) ),
-			             sg.Cancel( size = (15, 1), key = '-CANCEL-' ) ] ]
+			_layout = [ [ sg.Text( ) ],
+			            [ sg.Text( self.__question, font = ('Roboto', 9, 'bold') ) ],
+			            [ sg.Text( ) ],
+			            [ sg.Text( 'Enter:', size = (10, 2) ),
+			              sg.InputText( key = '-INPUT-', size = (40, 2) ) ],
+			            [ sg.Text( size = (100, 1) ) ],
+			            [ sg.Text( size = (100, 1) ) ],
+			            [ sg.Text( size = (10, 1) ),
+			              sg.Submit( size = (15, 1), key = '-SUBMIT-' ),
+			              sg.Text( size = (5, 1) ),
+			              sg.Cancel( size = (15, 1), key = '-CANCEL-' ) ] ]
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				icon = self.__icon,
 				font = self.__themefont,
 				size = self.__formsize )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, '-CANCEL-', 'Exit'):
+				_event, _values = _window.read( )
+				if _event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, '-CANCEL-', 'Exit'):
 					break
 
-				self.__response = values[ '-INPUT-' ]
-				sg.popup( event, values, self.__response,
+				self.__response = _values[ '-INPUT-' ]
+				sg.popup( _event, _values, self.__response,
 					text_color = self.__themetextcolor,
 					font = self.__themefont,
 					icon = self.__icon )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1431,9 +1428,12 @@ class InputDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ScrollingDialog( text = '' )
 class ScrollingDialog( Sith ):
-	'''Provides form for multiline input/output'''
+	'''
+	Construcotr:  ScrollingDialog( text = '' )
+
+	Purpose:  Provides form for multiline input/output
+	'''
 	__arrowcolor = None
 
 	@property
@@ -1469,38 +1469,38 @@ class ScrollingDialog( Sith ):
 	# noinspection PyTypeChecker
 	def show( self ):
 		try:
-			line = (100, 1)
-			space = (5, 1)
-			btnsize = (25, 1)
-			arrow = self.__arrowcolor
-			back = super( ).button_backcolor
-			padsz = (3, 3, 3, 3)
-			layout = [ [ sg.Text( ' ', size = line ) ],
-			           [ sg.Text( ' ', size = line ) ],
-			           [ sg.Text( size = space ),
-			             sg.Multiline( size = (70, 20), key = '-TEXT-', pad = padsz ),
-			             sg.Text( size = space ) ],
-			           [ sg.Text( ' ', size = line ) ],
-			           [ sg.Text( ' ', size = space ), sg.Input( k = '-IN-', size = (70, 20) ),
-			             sg.Text( size = space ) ],
-			           [ sg.Text( ' ', size = line ) ],
-			           [ sg.Text( size = space ), sg.Button( 'Submit', size = btnsize ),
-			             sg.Text( size = (15, 1) ), sg.Button( 'Exit', size = btnsize ),
-			             sg.Text( size = space ), ] ]
+			_line = (100, 1)
+			_space = (5, 1)
+			_btnsize = (25, 1)
+			_arrow = self.__arrowcolor
+			_back = super( ).button_backcolor
+			_padsz = (3, 3, 3, 3)
+			_layout = [ [ sg.Text( ' ', size = _line ) ],
+			            [ sg.Text( ' ', size = _line ) ],
+			            [ sg.Text( size = _space ),
+			             sg.Multiline( size = (70, 20), key = '-TEXT-', pad = _padsz ),
+			             sg.Text( size = _space ) ],
+			            [ sg.Text( ' ', size = _line ) ],
+			            [ sg.Text( ' ', size = _space ), sg.Input( k = '-IN-', size = (70, 20) ),
+			             sg.Text( size = _space ) ],
+			            [ sg.Text( ' ', size = _line ) ],
+			            [ sg.Text( size = _space ), sg.Button( 'Submit', size = _btnsize ),
+			             sg.Text( size = (15, 1) ), sg.Button( 'Exit', size = _btnsize ),
+			             sg.Text( size = _space ), ] ]
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				icon = self.__icon,
 				size = self.__formsize,
 				font = self.__themefont,
 				resizable = True )
 
 			while True:
-				event, values = window.read( )
+				event, values = _window.read( )
 				self.__text = values[ '-TEXT-' ]
 				if event in (sg.WIN_CLOSED, 'Exit'):
 					break
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1509,9 +1509,12 @@ class ScrollingDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( ), l
 
-# ContactForm( contact )
 class ContactForm( Sith ):
-	'''class that produces a contact input form'''
+	'''
+	Construcotr: ContactForm( contact )
+
+	Purpose:  class that produces a contact input form
+	'''
 
 	@property
 	def size( self ) -> (int, int):
@@ -1540,38 +1543,38 @@ class ContactForm( Sith ):
 
 	def show( self ):
 		try:
-			layout = [ [ sg.Text(  size = (100, 1) ) ],
-			           [ sg.Text( r'Enter Contact Details' ) ],
-			           [ sg.Text(  size = (100, 1) ) ],
-			           [ sg.Text( 'Name', size = (10, 1) ),
-			             sg.InputText( '1', size = (80, 1), key = '-NAME-' ) ],
-			           [ sg.Text( 'Address', size = (10, 1) ),
-			             sg.InputText( '2', size = (80, 1), key = '-ADDRESS-' ) ],
-			           [ sg.Text( 'Phone', size = (10, 1) ),
-			             sg.InputText( '3', size = (80, 1), key = '-PHONE-' ) ],
-			           [ sg.Text(  size = (100, 1) ) ],
-			           [ sg.Text(  size = (100, 1) ) ],
-			           [ sg.Text(  size = (10, 1) ), sg.Submit( size = (10, 1) ),
-			             sg.Text(  size = (20, 1) ), sg.Cancel( size = (10, 1) ) ] ]
+			_layout = [ [ sg.Text( size = (100, 1) ) ],
+			            [ sg.Text( r'Enter Contact Details' ) ],
+			            [ sg.Text( size = (100, 1) ) ],
+			            [ sg.Text( 'Name', size = (10, 1) ),
+			              sg.InputText( '1', size = (80, 1), key = '-NAME-' ) ],
+			            [ sg.Text( 'Address', size = (10, 1) ),
+			              sg.InputText( '2', size = (80, 1), key = '-ADDRESS-' ) ],
+			            [ sg.Text( 'Phone', size = (10, 1) ),
+			              sg.InputText( '3', size = (80, 1), key = '-PHONE-' ) ],
+			            [ sg.Text( size = (100, 1) ) ],
+			            [ sg.Text( size = (100, 1) ) ],
+			            [ sg.Text( size = (10, 1) ), sg.Submit( size = (10, 1) ),
+			              sg.Text( size = (20, 1) ), sg.Cancel( size = (10, 1) ) ] ]
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				icon = self.__icon,
 				font = self.__themefont,
 				size = self.__formsize )
 
 			while True:
-				event, values = window.read( )
-				sg.popup( 'Results', values, values[ '-NAME-' ],
-					values[ '-ADDRESS-' ],
-					values[ '-PHONE-' ],
+				_event, _values = _window.read( )
+				sg.popup( 'Results', _values, _values[ '-NAME-' ],
+					_values[ '-ADDRESS-' ],
+					_values[ '-PHONE-' ],
 					text_color = self.__themetextcolor,
 					font = self.__themefont,
 					icon = self.__icon )
 
-				if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
+				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
 					break
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1580,9 +1583,12 @@ class ContactForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# GridForm( )
 class GridForm( Sith ):
-	'''object providing form that simulates a datagrid '''
+	'''
+	Construcotr: GridForm( )
+
+	Purpose:  object providing form that simulates a datagrid
+	'''
 	__width = None
 	__rows = None
 	__columns = None
@@ -1630,30 +1636,31 @@ class GridForm( Sith ):
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
 		self.__image = None
-		self.__width = (17, 1)
+		self.__width = ( 17, 1 )
 		self.__rows = rows
 		self.__columns = columns
 		self.__formsize = (1250, 700)
 
 	def show( self ):
 		try:
-			black = self.__themebackground
-			columns = self.__columns
-			headings = [ f'HEADER-{i + 1}' for i in range( columns ) ]
-			space = [ [ sg.Text( f'', size = (10, 1) ) ], [ sg.Text( f'', size = (10, 1) ) ],
-			          [ sg.Text( f'', size = (10, 1) ) ] ]
-			header = [
-					[ sg.Text( h, size = (16, 1), justification = 'left' ) for h in headings ] ]
-			records = [ [ [ sg.Input( size = self.__width, pad = (0, 0), font = self.__themefont )
-			                for c in range( len( headings ) ) ] for r in range( self.__rows ) ], ]
-			buttons = [ [ sg.Text( size = (35, 1) ), sg.Text( size = (10, 1) ), ],
-			            [ sg.Text( size = (100, 1) ), sg.Text( size = (100, 1) ),
-			              sg.Ok( size = (35, 2) ) ],
-			            [ sg.Sizegrip( background_color = black ) ] ]
+			_black = self.__themebackground
+			_columns = self.__columns
+			_headings = [ f'HEADER-{i + 1}' for i in range( _columns ) ]
+			_space = [ [ sg.Text( f'', size = ( 10, 1 ) ) ], [ sg.Text( f'', size = ( 10, 1 ) ) ],
+			           [ sg.Text( f'', size = ( 10, 1 ) ) ] ]
+			_header = [
+					[ sg.Text( h, size = ( 16, 1 ), justification = 'left' ) for h in _headings ] ]
+			_records = [ [ [ sg.Input( size = self.__width, pad = (0, 0), font = self.__themefont )
+			                 for c in range( len( _headings ) ) ] for r in range( self.__rows )
+			               ], ]
+			_buttons = [ [ sg.Text( size = ( 35, 1 ) ), sg.Text( size = ( 10, 1 ) ), ],
+			             [ sg.Text( size = ( 100, 1 ) ), sg.Text( size = ( 100, 1 ) ),
+			               sg.Ok( size = ( 35, 2 ) ) ],
+			             [ sg.Sizegrip( background_color = _black ) ] ]
 			# noinspection PyTypeChecker
-			layout = space + header + records + buttons
+			_layout = _space + _header + _records + _buttons
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				finalize = True,
 				size = self.__formsize,
 				icon = self.__icon,
@@ -1661,11 +1668,11 @@ class GridForm( Sith ):
 				resizable = True )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, '-CANCEL-'):
+				_event, _values = _window.read( )
+				if _event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-CANCEL-' ):
 					break
 
-				window.close( )
+				_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1674,9 +1681,12 @@ class GridForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# LoadingPanel( )
 class LoadingPanel( Sith ):
-	'''object providing form loading behavior '''
+	'''
+	Construcotr:  LoadingPanel( )
+
+	Purpose:  object providing form loading behavior
+	'''
 	__image = None
 	__timeout = None
 
@@ -1703,36 +1713,36 @@ class LoadingPanel( Sith ):
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
 		self.__image = os.getcwd( ) + r'\etc\img\loaders\loading.gif'
-		self.__formsize = (800, 600)
+		self.__formsize = ( 800, 600 )
 		self.__timeout = 6000
 
 	def show( self ):
 		try:
-			layout = [ [ sg.Text( 
+			_layout = [ [ sg.Text(
 				background_color = '#000000',
 				text_color = '#FFF000',
 				justification = 'c',
 				key = '-T-',
-				font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
+				font = ( 'Bodoni MT', 40 ) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
-			window = sg.Window( '  Loading...', layout,
+			_window = sg.Window( '  Loading...', _layout,
 				icon = self.__icon,
 				element_justification = 'c',
-				margins = (0, 0),
-				size = (800, 600),
-				element_padding = (0, 0), finalize = True )
+				margins = ( 0, 0 ),
+				size = ( 800, 600 ),
+				element_padding = ( 0, 0 ), finalize = True )
 
-			window[ '-T-' ].expand( True, True, True )
-			interframe_duration = Image.open( self.__image ).info[ 'duration' ]
+			_window[ '-T-' ].expand( True, True, True )
+			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
 
 			while True:
 				for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
-					event, values = window.read( timeout = interframe_duration )
-					if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+					_event, _values = _window.read( timeout = _interframe_duration )
+					if _event == sg.WIN_CLOSED or _event == sg.WIN_X_EVENT:
 						exit( 0 )
-					window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1741,9 +1751,12 @@ class LoadingPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# WaitingPanel( )
 class WaitingPanel( Sith ):
-	'''object providing form loader behavior '''
+	'''
+	Construcotr:  WaitingPanel( )
+
+	Purpose:  object providing form loader behavior
+	'''
 	__image = None
 	__timeout = None
 
@@ -1776,14 +1789,14 @@ class WaitingPanel( Sith ):
 
 	def show( self ):
 		try:
-			layout = [ [ sg.Text( 
+			_layout = [ [ sg.Text(
 				background_color = '#000000',
 				text_color = '#FFF000',
 				justification = 'c',
 				key = '-T-',
 				font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
-			window = sg.Window( '  Waiting...', layout,
+			_window = sg.Window( '  Waiting...', _layout,
 				icon = self.__icon,
 				element_justification = 'c',
 				margins = (0, 0),
@@ -1791,17 +1804,17 @@ class WaitingPanel( Sith ):
 				size = (800, 600),
 				finalize = True )
 
-			window[ '-T-' ].expand( True, True, True )
-			interframe_duration = Image.open( self.__image ).info[ 'duration' ]
+			_window[ '-T-' ].expand( True, True, True )
+			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
 
 			while True:
 				for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
-					event, values = window.read( timeout = interframe_duration )
-					if event == sg.WIN_CLOSED:
+					_event, _values = _window.read( timeout = _interframe_duration )
+					if _event == sg.WIN_CLOSED:
 						exit( 0 )
-					window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1810,9 +1823,12 @@ class WaitingPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ProcessingPanel( )
 class ProcessingPanel( Sith ):
-	'''object providing form processing behavior '''
+	'''
+	Construcotr:  ProcessingPanel( )
+
+	Purpose:  object providing form processing behavior
+	'''
 	__image = None
 	__timeout = None
 
@@ -1844,14 +1860,14 @@ class ProcessingPanel( Sith ):
 
 	def show( self ):
 		try:
-			layout = [ [ sg.Text( 
+			_layout = [ [ sg.Text(
 				background_color = '#000000',
 				text_color = '#FFF000',
 				justification = 'c',
 				key = '-T-',
 				font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
-			window = sg.Window( '  Processing...', layout,
+			_window = sg.Window( '  Processing...', _layout,
 				element_justification = 'c',
 				icon = self.__icon,
 				margins = (0, 0),
@@ -1859,21 +1875,21 @@ class ProcessingPanel( Sith ):
 				element_padding = (0, 0),
 				finalize = True )
 
-			window[ '-T-' ].expand( True, True, True )
+			_window[ '-T-' ].expand( True, True, True )
 
-			interframe_duration = Image.open( self.__image ).info[ 'duration' ]
-			self.__timeout = interframe_duration
+			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
+			self.__timeout = _interframe_duration
 
 			while True:
 				for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
-					event, values = window.read( timeout = self.__timeout,
+					_event, _values = _window.read( timeout = self.__timeout,
 						timeout_key = '-TIMEOUT-' )
-					if event == sg.WIN_CLOSED or event == sg.WIN_X_EVENT:
+					if _event == sg.WIN_CLOSED or _event == sg.WIN_X_EVENT:
 						exit( 0 )
 
-					window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
 
-			window.close( )
+			_window.close( )
 
 		except Exception as e:
 			_exc = Error( e )
@@ -1883,9 +1899,12 @@ class ProcessingPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# SplashPanel( )
 class SplashPanel( Sith ):
-	'''Class providing splash dialog behavior'''
+	'''
+	Construcotr:  SplashPanel( )
+
+	Purpose:  Class providing splash dialog behavior
+	'''
 	__image = None
 	__timeout = None
 
@@ -1947,7 +1966,11 @@ class SplashPanel( Sith ):
 
 # Notification( )
 class Notification( Sith ):
-	'''object providing form processing behavior '''
+	'''
+	Construcotr:
+
+	Purpose:  object providing form processing behavior
+	'''
 	__image = None
 	__message = None
 
@@ -2069,7 +2092,11 @@ class Notification( Sith ):
 # ImageSizeEncoder( )
 # noinspection PyUnresolvedReferences
 class ImageSizeEncoder( Sith ):
-	'''Class resizing image and encoding behavior'''
+	'''
+	Construcotr:
+
+	Purpose:  Class resizing image and encoding behavior
+	'''
 	__image = None
 	__timeout = None
 
@@ -2263,7 +2290,11 @@ class ImageSizeEncoder( Sith ):
 # PdfForm( )
 # noinspection PyUnresolvedReferences
 class PdfForm( Sith ):
-	'''Creates form to view a PDF'''
+	'''
+	Construcotr:
+
+	Purpose:  Creates form to view a PDF
+	'''
 
 	def __init__( self ):
 		super( ).__init__( )
@@ -2338,8 +2369,9 @@ class PdfForm( Sith ):
 			           [ image ], ]
 
 			keys = (
-			'Next', 'Next:34', 'Prev', 'Prior:33', 'MouseWheel:Down', 'MouseWheel:Up', '-IN-',
-			'-OUT-')
+					'Next', 'Next:34', 'Prev', 'Prior:33', 'MouseWheel:Down', 'MouseWheel:Up',
+					'-IN-',
+					'-OUT-')
 
 			window = sg.Window( title, layout,
 				size = self.__formsize,
@@ -2397,7 +2429,11 @@ class PdfForm( Sith ):
 
 # CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
-	'''class creates form providing today selection behavior'''
+	'''
+	Construcotr:
+
+	Purpose:  class creates form providing today selection behavior
+	'''
 	__selecteditem = None
 	__day = None
 	__month = None
@@ -2695,7 +2731,11 @@ class DatePanel( Sith ):
 
 # ComboBoxDialog( list )
 class ComboBoxDialog( Sith ):
-	'''Logger object provides form for log printing'''
+	'''
+	Construcotr:
+
+	Purpose:  Logger object provides form for log printing
+	'''
 	__items = None
 	__selecteditem = None
 
@@ -2782,8 +2822,9 @@ class ComboBoxDialog( Sith ):
 # ListBoxDialog( data )
 class ListBoxDialog( Sith ):
 	'''
-    Constructor: ListBoxDialog( data: list = None )
-    Purpose: List search and selection
+	Construcotr:
+
+	Purpose:   List search and selection
     '''
 	__selecteditem = None
 	__items = None
@@ -2844,15 +2885,15 @@ class ListBoxDialog( Sith ):
 			else:
 				names = [ f'Item - {i}' for i in range( 40 ) ]
 
-			layout = [ [ sg.Text( size = space ), sg.Text(  size = line ) ],
+			layout = [ [ sg.Text( size = space ), sg.Text( size = line ) ],
 			           [ sg.Text( size = space ), sg.Text( r'Search:' ) ],
 			           [ sg.Text( size = space ),
 			             sg.Input( size = inpsz, enable_events = True, key = '-INPUT-' ) ],
-			           [ sg.Text( size = space ), sg.Text(  size = line ) ],
+			           [ sg.Text( size = space ), sg.Text( size = line ) ],
 			           [ sg.Text( size = space ),
 			             sg.Listbox( names, size = lstsz, key = '-ITEM-',
 				             font = self.__themefont ) ],
-			           [ sg.Text( size = space ), sg.Text(  size = line ) ],
+			           [ sg.Text( size = space ), sg.Text( size = line ) ],
 			           [ sg.Text( size = space ),
 			             sg.Button( 'Select', size = btnsize, enable_events = True ),
 			             sg.Text( size = (3, 1) ), sg.Button( 'Exit', size = btnsize ) ] ]
@@ -2893,7 +2934,11 @@ class ListBoxDialog( Sith ):
 
 # ColorDialog( )
 class ColorDialog( Sith ):
-	'''class provides a form to select colors returning string values'''
+	'''
+	Construcotr:
+
+	Purpose:  class provides a form to select colors returning string values
+	'''
 	__rgb = None
 	__hex = None
 	__html = None
@@ -3697,7 +3742,6 @@ class ColorDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# BudgetForm( )
 class BudgetForm( Sith ):
 	'''
     Constructor: BudgetForm( )
@@ -3816,24 +3860,24 @@ class BudgetForm( Sith ):
 	def create_title( self, items: list ) -> list:
 		if items is not None:
 			try:
-				blu = '#051F3D'
-				blk = '#101010'
-				mblk = '#1E1E1E'
+				_blu = '#051F3D'
+				_blk = '#101010'
+				_mblk = '#1E1E1E'
 				BPAD_TOP = ((5, 5), (5, 5))
 				BPAD_LEFT = ((5, 5), (5, 5))
 				BPAD_LEFT_INSIDE = (5, (3, 5))
 				BPAD_RIGHT = ((5, 10), (3, 3))
-				hdr = 'Roboto 20'
-				frmsz = (450, 150)
-				hdrsz = (920, 100)
-				title = [
-						[ sg.Text( f'{items[ 0 ]}', font = hdr, background_color = mblk,
+				_font = 'Roboto 20'
+				_form = (450, 150)
+				_hdrsz = (920, 100)
+				_title = [
+						[ sg.Text( f'{items[ 0 ]}', font = _font, background_color = _mblk,
 							enable_events = True, grab = False ),
-						  sg.Push( background_color = mblk ),
-						  sg.Text( f'{items[ 1 ]}', font = hdr, background_color = mblk ) ],
+						  sg.Push( background_color = _mblk ),
+						  sg.Text( f'{items[ 1 ]}', font = _font, background_color = _mblk ) ],
 				]
-				self.__titlelayout = title
-				return title
+				self.__titlelayout = _title
+				return _title
 			except Exception as e:
 				_exc = Error( e )
 				_exc.module = 'Booger'
@@ -3845,17 +3889,17 @@ class BudgetForm( Sith ):
 	def create_header( self, items: list ) -> list:
 		if items is not None:
 			try:
-				blu = '#051F3D'
+				_blu = '#051F3D'
 				blk = '#101010'
 				mblk = '#1E1E1E'
 				BPAD_TOP = ((5, 5), (5, 5))
 				BPAD_LEFT = ((5, 5), (5, 5))
 				BPAD_LEFT_INSIDE = (5, (3, 5))
 				BPAD_RIGHT = ((5, 10), (3, 3))
-				hdr = 'Roboto 20'
-				frasz = (450, 150)
-				hdrsz = (920, 100)
-				header = [ [ sg.Push( ), sg.Text( f'{items[ 0 ]}', font = hdr ), sg.Push( ) ],
+				_hdr = 'Roboto 20'
+				_frasz = (450, 150)
+				_hdrsz = (920, 100)
+				header = [ [ sg.Push( ), sg.Text( f'{items[ 0 ]}', font = _hdr ), sg.Push( ) ],
 				           [ sg.Text( f'{items[ 1 ]}' ) ],
 				           [ sg.Text( f'{items[ 2 ]}' ) ] ]
 				self.__headerlayout = header
@@ -3871,25 +3915,25 @@ class BudgetForm( Sith ):
 	def create_first( self, items: list ) -> list:
 		if items is not None:
 			try:
-				blu = '#051F3D'
-				blk = '#101010'
-				mblk = '#1E1E1E'
+				_blu = '#051F3D'
+				_blk = '#101010'
+				_mblk = '#1E1E1E'
 				BPAD_TOP = ((5, 5), (5, 5))
 				BPAD_LEFT = ((5, 5), (5, 5))
 				BPAD_LEFT_INSIDE = (5, (3, 5))
 				BPAD_RIGHT = ((5, 10), (3, 3))
-				hdr = 'Roboto 20'
-				frasz = (450, 150)
-				hdrsz = (920, 100)
-				first = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 1 line 1', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 1 line 2', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 1 line 3', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 1 line 4', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 1 line 5', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 1 line 6', font = hdr ), sg.Push( ) ] ]
-				self.__firstlayout = first
-				return first
+				_hdr = 'Roboto 20'
+				_frasz = (450, 150)
+				_hdrsz = (920, 100)
+				_first = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 1', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 2', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 3', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 4', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 5', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 6', font = _hdr ), sg.Push( ) ] ]
+				self.__firstlayout = _first
+				return _first
 			except Exception as e:
 				_exc = Error( e )
 				_exc.module = 'Booger'
@@ -3901,25 +3945,25 @@ class BudgetForm( Sith ):
 	def create_second( self, items: list ) -> list:
 		if items is not None:
 			try:
-				blu = '#051F3D'
-				blk = '#101010'
-				mblk = '#1E1E1E'
+				_blu = '#051F3D'
+				_blk = '#101010'
+				_mblk = '#1E1E1E'
 				BPAD_TOP = ((5, 5), (5, 5))
 				BPAD_LEFT = ((5, 5), (5, 5))
 				BPAD_LEFT_INSIDE = (5, (3, 5))
 				BPAD_RIGHT = ((5, 10), (3, 3))
-				hdr = 'Roboto 20'
-				frasz = (450, 150)
-				hdrsz = (920, 100)
-				second = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 2 line 1', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 2 line 2', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 2 line 3', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 2 line 4', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 2 line 5', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 2 line 6', font = hdr ), sg.Push( ) ] ]
-				self.__secondlayout = second
-				return second
+				_hdr = 'Roboto 20'
+				_frasz = (450, 150)
+				_hdrsz = (920, 100)
+				_second = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 1', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 2', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 3', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 4', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 5', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 6', font = _hdr ), sg.Push( ) ] ]
+				self.__secondlayout = _second
+				return _second
 			except Exception as e:
 				_exc = Error( e )
 				_exc.module = 'Booger'
@@ -3931,25 +3975,25 @@ class BudgetForm( Sith ):
 	def create_third( self, items: list ) -> list:
 		if items is not None:
 			try:
-				blu = '#051F3D'
-				blk = '#101010'
-				mblk = '#1E1E1E'
+				_blu = '#051F3D'
+				_blk = '#101010'
+				_mblk = '#1E1E1E'
 				BPAD_TOP = ((5, 5), (5, 5))
 				BPAD_LEFT = ((5, 5), (5, 5))
 				BPAD_LEFT_INSIDE = (5, (3, 5))
 				BPAD_RIGHT = ((5, 10), (3, 3))
-				hdr = 'Roboto 20'
-				frasz = (450, 150)
-				hdrsz = (920, 100)
-				third = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 3 line 1', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 3 line 2', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 3 line 3', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 3 line 4', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 3 line 5', font = hdr ), sg.Push( ) ],
-				          [ sg.Push( ), sg.Text( 'Block 3 line 6', font = hdr ), sg.Push( ) ] ]
-				self.__thirdlayout = third
-				return third
+				_hdr = 'Roboto 20'
+				_frasz = (450, 150)
+				_hdrsz = (920, 100)
+				_third = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 1', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 2', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 3', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 4', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 5', font = _hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 6', font = _hdr ), sg.Push( ) ] ]
+				self.__thirdlayout = _third
+				return _third
 			except Exception as e:
 				_exc = Error( e )
 				_exc.module = 'Booger'
@@ -3961,25 +4005,25 @@ class BudgetForm( Sith ):
 	def create_fourth( self, items: list ) -> list:
 		if items is not None:
 			try:
-				blu = '#051F3D'
-				blk = '#101010'
-				mblk = '#1E1E1E'
+				_blu = '#051F3D'
+				_blk = '#101010'
+				_mblk = '#1E1E1E'
 				BPAD_TOP = ((5, 5), (5, 5))
 				BPAD_LEFT = ((5, 5), (5, 5))
 				BPAD_LEFT_INSIDE = (5, (3, 5))
 				BPAD_RIGHT = ((5, 10), (3, 3))
-				hdr = 'Roboto 20'
-				frasz = (450, 150)
-				hdrsz = (920, 100)
-				fourth = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 4 line 1', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 4 line 2', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 4 line 3', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 4 line 4', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 4 line 5', font = hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 4 line 6', font = hdr ), sg.Push( ) ] ]
-				self.__fourthlayout = fourth
-				return fourth
+				_hdr = 'Roboto 20'
+				_frasz = (450, 150)
+				_hdrsz = (920, 100)
+				_fourth = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 1', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 2', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 3', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 4', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 5', font = _hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 6', font = _hdr ), sg.Push( ) ] ]
+				self.__fourthlayout = _fourth
+				return _fourth
 			except Exception as e:
 				_exc = Error( e )
 				_exc.module = 'Booger'
@@ -3990,43 +4034,45 @@ class BudgetForm( Sith ):
 
 	def set_layout( self ) -> list:
 		try:
-			blu = '#051F3D'
-			blk = '#101010'
-			mblk = '#1E1E1E'
+			_blu = '#051F3D'
+			_blk = '#101010'
+			_mblk = '#1E1E1E'
 			BPAD_TOP = ((5, 5), (5, 5))
 			BPAD_LEFT = ((5, 5), (5, 5))
 			BPAD_LEFT_INSIDE = (5, (5, 5))
 			BPAD_RIGHT = ((5, 5), (5, 5))
-			hdr = 'Roboto 20'
-			li = 'Roboto 10'
-			frasz = (450, 150)
-			hdrsz = (920, 100)
-			layout = [
-					[ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = mblk,
+			_hdr = 'Roboto 20'
+			_li = 'Roboto 10'
+			_frasz = (450, 150)
+			_hdrsz = (920, 100)
+			_layout = [
+					[ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = _mblk,
 						expand_x = True,
 						border_width = 0, grab = True ) ],
 					[ sg.Frame( '', self.__headerlayout, size = hdrsz, pad = BPAD_TOP,
 						expand_x = True,
 						relief = sg.RELIEF_FLAT, border_width = 0 ) ],
 					[ sg.Frame( '',
-						[ [ sg.Frame( '', self.__firstlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+						[ [ sg.Frame( '', self.__firstlayout, size = _frasz, pad =
+						BPAD_LEFT_INSIDE,
 							border_width = 0, expand_x = True, expand_y = True, ) ],
-						  [ sg.Frame( '', self.__thirdlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+						  [ sg.Frame( '', self.__thirdlayout, size = _frasz, pad =
+						  BPAD_LEFT_INSIDE,
 							  border_width = 0, expand_x = True, expand_y = True ) ] ],
-						pad = BPAD_LEFT, background_color = blk, border_width = 0,
+						pad = BPAD_LEFT, background_color = _blk, border_width = 0,
 						expand_x = True, expand_y = True ),
 					  sg.Frame( '',
-						  [ [ sg.Frame( '', self.__secondlayout, size = frasz,
+						  [ [ sg.Frame( '', self.__secondlayout, size = _frasz,
 							  pad = BPAD_LEFT_INSIDE,
 							  border_width = 0, expand_x = True, expand_y = True ) ],
-						    [ sg.Frame( '', self.__fourthlayout, size = frasz,
+						    [ sg.Frame( '', self.__fourthlayout, size = _frasz,
 							    pad = BPAD_LEFT_INSIDE,
 							    border_width = 0, expand_x = True, expand_y = True ) ] ],
-						  pad = BPAD_LEFT, background_color = blk, border_width = 0,
+						  pad = BPAD_LEFT, background_color = _blk, border_width = 0,
 						  expand_x = True, expand_y = True ), ],
-					[ sg.Sizegrip( background_color = mblk ) ] ]
-			self.__formlayout = layout
-			return layout
+					[ sg.Sizegrip( background_color = _mblk ) ] ]
+			self.__formlayout = _layout
+			return _layout
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -4037,106 +4083,107 @@ class BudgetForm( Sith ):
 
 	def show( self ):
 		try:
-			blu = '#051F3D'
-			blk = '#101010'
-			mblk = '#1E1E1E'
+			_blu = '#051F3D'
+			_blk = '#101010'
+			_mblk = '#1E1E1E'
 			BPAD_TOP = ((5, 5), (5, 5))
 			BPAD_LEFT = ((5, 5), (5, 5))
 			BPAD_LEFT_INSIDE = (5, (5, 5))
 			BPAD_RIGHT = ((5, 5), (5, 5))
-			hdr = 'Roboto 20'
-			li = 'Roboto 10'
-			frasz = (450, 150)
-			hdrsz = (920, 100)
+			_hdr = 'Roboto 20'
+			_li = 'Roboto 10'
+			_frasz = (450, 150)
+			_hdrsz = (920, 100)
 			self.__titlelayout = [
-					[ sg.Text( 'Budget Execution', font = hdr, background_color = mblk,
-						enable_events = True, grab = False ), sg.Push( background_color = mblk ),
-					  sg.Text( 'Wednesday 27 Oct 2021', font = hdr, background_color = mblk ) ],
+					[ sg.Text( 'Budget Execution', font = _hdr, background_color = _mblk,
+						enable_events = True, grab = False ), sg.Push( background_color = _mblk ),
+					  sg.Text( 'Wednesday 27 Oct 2021', font = _hdr, background_color = _mblk ) ],
 			]
-			self.__headerlayout = [ [ sg.Push( ), sg.Text( 'Top Header', font = hdr ), sg.Push(
-
+			self.__headerlayout = [ [ sg.Push( ), sg.Text( 'Top Header', font = _hdr ), sg.Push(
 			) ],
 			                        [ sg.Image( source = self.__image, subsample = 3,
 				                        enable_events = True ), sg.Push( ) ],
 			                        [ sg.Text( 'Top Header line 2' ), sg.Push( ) ] ]
 			self.__firstlayout = [
-					[ sg.Push( ), sg.Text( 'Block 1 Header', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 1', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 2', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 3', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 4', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 5', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 6', font = hdr ), sg.Push( ) ] ]
+					[ sg.Push( ), sg.Text( 'Block 1 Header', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 1', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 2', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 3', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 4', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 5', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 6', font = _hdr ), sg.Push( ) ] ]
 			self.__secondlayout = [
-					[ sg.Push( ), sg.Text( 'Block 2 Header', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 1', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 2', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 3', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 4', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 5', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 6', font = hdr ), sg.Push( ) ] ]
+					[ sg.Push( ), sg.Text( 'Block 2 Header', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 1', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 2', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 3', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 4', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 5', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 6', font = _hdr ), sg.Push( ) ] ]
 			self.__thirdlayout = [
-					[ sg.Push( ), sg.Text( 'Block 3 Header', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 1', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 2', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 3', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 4', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 5', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 6', font = hdr ), sg.Push( ) ] ]
+					[ sg.Push( ), sg.Text( 'Block 3 Header', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 1', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 2', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 3', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 4', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 5', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 6', font = _hdr ), sg.Push( ) ] ]
 			self.__fourthlayout = [
-					[ sg.Push( ), sg.Text( 'Block 4 Header', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 1', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 2', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 3', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 4', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 5', font = hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 6', font = hdr ), sg.Push( ) ] ]
+					[ sg.Push( ), sg.Text( 'Block 4 Header', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 1', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 2', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 3', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 4', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 5', font = _hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 6', font = _hdr ), sg.Push( ) ] ]
 			self.__formlayout = [
-					[ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = mblk,
+					[ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = _mblk,
 						expand_x = True, border_width = 0, grab = True ) ],
 					[ sg.Frame( '',
-						[ [ sg.Frame( '', self.__headerlayout, size = frasz, pad = BPAD_TOP,
+						[ [ sg.Frame( '', self.__headerlayout, size = _frasz, pad = BPAD_TOP,
 							expand_x = True,
 							relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
-						pad = BPAD_LEFT, background_color = blu, border_width = 0,
+						pad = BPAD_LEFT, background_color = _blu, border_width = 0,
 						expand_x = True, expand_y = False ), ],
 					[ sg.Frame( '',
-						[ [ sg.Frame( '', self.__firstlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+						[ [ sg.Frame( '', self.__firstlayout, size = _frasz, pad =
+						BPAD_LEFT_INSIDE,
 							border_width = 0, expand_x = True, expand_y = True, ) ],
-						  [ sg.Frame( '', self.__thirdlayout, size = frasz, pad = BPAD_LEFT_INSIDE,
+						  [ sg.Frame( '', self.__thirdlayout, size = _frasz, pad =
+						  BPAD_LEFT_INSIDE,
 							  border_width = 0, expand_x = True, expand_y = True ) ] ],
-						pad = BPAD_LEFT, background_color = blu, border_width = 0,
+						pad = BPAD_LEFT, background_color = _blu, border_width = 0,
 						expand_x = True, expand_y = True ),
 					  sg.Frame( '',
-						  [ [ sg.Frame( '', self.__secondlayout, size = frasz,
+						  [ [ sg.Frame( '', self.__secondlayout, size = _frasz,
 							  pad = BPAD_LEFT_INSIDE,
 							  border_width = 0, expand_x = True, expand_y = True ) ],
-						    [ sg.Frame( '', self.__fourthlayout, size = frasz,
+						    [ sg.Frame( '', self.__fourthlayout, size = _frasz,
 							    pad = BPAD_LEFT_INSIDE,
 							    border_width = 0, expand_x = True, expand_y = True ) ] ],
-						  pad = BPAD_LEFT, background_color = blu, border_width = 0,
+						  pad = BPAD_LEFT, background_color = _blu, border_width = 0,
 						  expand_x = True, expand_y = True ), ],
-					[ sg.Sizegrip( background_color = mblk ) ] ]
-			window = sg.Window( '  Budget Execution', self.__formlayout,
+					[ sg.Sizegrip( background_color = _mblk ) ] ]
+			_window = sg.Window( '  Budget Execution', self.__formlayout,
 				size = self.__formsize,
 				margins = (0, 0),
-				background_color = blk,
+				background_color = _blk,
 				grab_anywhere = True,
 				no_titlebar = True,
 				resizable = True,
 				right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
 			while True:
-				event, values = window.read( )
-				print( event, values )
-				if event == sg.WIN_CLOSED or event == 'Exit':
+				_event, _values = _window.read( )
+				print( _event, _values )
+				if _event == sg.WIN_CLOSED or _event == 'Exit':
 					break
-				elif event == 'Edit Me':
+				elif _event == 'Edit Me':
 					sg.execute_editor( __file__ )
-				elif event == 'Version':
+				elif _event == 'Version':
 					sg.popup_scrolled( sg.get_versions( ), keep_on_top = True )
-				elif event == 'File Location':
+				elif _event == 'File Location':
 					sg.popup_scrolled( 'This Python file is:', __file__ )
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -4145,7 +4192,6 @@ class BudgetForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ChartPanel( )
 class ChartPanel( Sith ):
 	'''
     Constructor: ChartPanel( )
@@ -4216,16 +4262,19 @@ class ChartPanel( Sith ):
 
 			window.close( )
 		except Exception as e:
-			excp = Error( e )
-			excp.module = 'Booger'
-			excp.cause = 'ChartForm'
-			excp.method = 'show( self)'
-			err = ErrorDialog( excp )
+			_exc = Error( e )
+			_exc.module = 'Booger'
+			_exc.cause = 'ChartForm'
+			_exc.method = 'show( self)'
+			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# CsvForm( )
 class CsvForm( Sith ):
-	'''Provides form that reads CSV file with pandas'''
+	'''
+	Construcotr:  CsvForm( )
+
+	Purpose:  Provides form that reads CSV file with pandas
+	'''
 
 	@property
 	def header( self ) -> str:
@@ -4249,46 +4298,46 @@ class CsvForm( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 800, 600 )
+		self.__formsize = (800, 600)
 
 	def show( self ):
 		try:
-			sm = (3, 1)
-			med = (15, 1)
-			spc = (25, 1)
-			fd = FileDialog( )
-			fd.show( )
-			filename = fd.selected_path
+			_sm = (3, 1)
+			_med = (15, 1)
+			_spc = (25, 1)
+			_dialog = FileDialog( )
+			_dialog.show( )
+			_path = _dialog.selected_path
 
-			if filename == '':
-				msg = MessageDialog( 'No file path was provided!' )
-				msg.show( )
+			if _path == '':
+				_msg = MessageDialog( 'No file path was provided!' )
+				_msg.show( )
 				return
 
-			data = [ ]
-			header_list = [ ]
+			_data = [ ]
+			_header = [ ]
 
-			button = sg.popup_yes_no( 'Does file have column column_names?',
+			_button = sg.popup_yes_no( 'Does file have column column_names?',
 				icon = self.__icon,
 				font = self.__themefont )
 
-			if filename is not None:
+			if _path is not None:
 				try:
-					df = CsvReader( filename, sep = ',', engine = 'python', header = None )
-					data = df.values.tolist( )
-					if button == 'Yes':
-						header_list = df.iloc[ 0 ].tolist( )
-						data = df[ 1: ].values.tolist( )
-					elif button == 'No':
-						header_list = [ 'Column' + str( x ) for x in range( len( data[ 0 ] ) ) ]
+					_frame = CsvReader( _path, sep = ',', engine = 'python', header = None )
+					_data = _frame.values.tolist( )
+					if _button == 'Yes':
+						_header = _frame.iloc[ 0 ].tolist( )
+						_data = _frame[ 1: ].values.tolist( )
+					elif _button == 'No':
+						_header = [ 'Column' + str( x ) for x in range( len( _data[ 0 ] ) ) ]
 				except:
 					sg.popup_error( 'Error reading file' )
 					return
 
-			left = [ [ sg.Text( size = sm ), ] ]
-			right = [ [ sg.Text( size = sm ), ] ]
-			datagrid = [ [ sg.Table( values = data,
-				headings = header_list,
+			_left = [ [ sg.Text( size = _sm ), ] ]
+			_right = [ [ sg.Text( size = _sm ), ] ]
+			_datagrid = [ [ sg.Table( values = _data,
+				headings = _header,
 				justification = 'center',
 				row_height = 18,
 				display_row_numbers = True,
@@ -4308,17 +4357,17 @@ class CsvForm( Sith ):
 				expand_x = True,
 				expand_y = True,
 				sbar_relief = sg.RELIEF_FLAT,
-				num_rows = min( 26, len( data ) ) ), ], ]
+				num_rows = min( 26, len( _data ) ) ), ], ]
 
-			window = sg.Window( '  Budget Execution', datagrid,
+			_window = sg.Window( '  Budget Execution', _datagrid,
 				grab_anywhere = False,
 				icon = self.__icon,
 				font = self.__themefont,
 				resizable = True )
 
-			event, values = window.read( )
+			_event, _values = _window.read( )
 
-			window.close( )
+			_window.close( )
 
 		except Exception as e:
 			_exc = Error( e )
@@ -4328,9 +4377,12 @@ class CsvForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ExcelForm( )
 class ExcelForm( Sith ):
-	'''Provides form that reads CSV file with pandas'''
+	'''
+	Construcotr:  ExcelForm( )
+
+	Purpose:  Provides form that reads CSV file with pandas
+	'''
 
 	@property
 	def header( self ) -> str:
@@ -4358,43 +4410,43 @@ class ExcelForm( Sith ):
 
 	def show( self ):
 		try:
-			sm = (3, 1)
-			med = (15, 1)
-			spc = (25, 1)
-			fd = FileDialog( )
-			fd.show( )
-			filename = fd.selected_path
+			_small = (3, 1)
+			_med = (15, 1)
+			_spc = (25, 1)
+			_dialog = FileDialog( )
+			_dialog.show( )
+			_filename = _dialog.selected_path
 
-			if filename == '':
-				msg = MessageDialog( 'No file was provided!' )
-				msg.show( )
+			if _filename == '':
+				_msg = MessageDialog( 'No file was provided!' )
+				_msg.show( )
 				return
 
-			data = [ ]
-			header_list = [ ]
+			_data = [ ]
+			_header = [ ]
 
-			button = sg.popup_yes_no( 'First Row Has Headers?',
+			_button = sg.popup_yes_no( 'First Row Has Headers?',
 				title = 'Headers?',
 				icon = self.__icon,
 				font = ('Roboto', 9) )
 
-			if filename is not None:
+			if _filename is not None:
 				try:
-					df = ExcelReader( filename, index_col = 0 )
-					data = df.values.tolist( )
-					if button == 'Yes':
-						header_list = [ f'{i} ' for i in df.columns ]
-					elif button == 'No':
-						header_list = [ 'Column - ' + str( x ) for x in range( len( data[ 0 ] ) ) ]
+					_dataframe = ExcelReader( _filename, index_col = 0 )
+					_data = _dataframe.values.tolist( )
+					if _button == 'Yes':
+						_header = [ f'{i} ' for i in _dataframe.columns ]
+					elif _button == 'No':
+						_header = [ 'Column - ' + str( x ) for x in range( len( _data[ 0 ] ) ) ]
 
 				except:
 					sg.popup_error( 'Error reading file' )
 					return
 
-			left = [ [ sg.Text( size = sm ), ] ]
-			right = [ [ sg.Text( size = sm ), ] ]
-			datagrid = [ [ sg.Table( values = data,
-				headings = header_list,
+			_left = [ [ sg.Text( size = _small ), ] ]
+			_right = [ [ sg.Text( size = _small ), ] ]
+			_datagrid = [ [ sg.Table( values = _data,
+				headings = _header,
 				justification = 'center',
 				row_height = 18,
 				display_row_numbers = True,
@@ -4414,23 +4466,23 @@ class ExcelForm( Sith ):
 				expand_x = True,
 				expand_y = True,
 				sbar_relief = sg.RELIEF_FLAT,
-				num_rows = min( 26, len( data ) ) ), ], ]
+				num_rows = min( 26, len( _data ) ) ), ], ]
 
-			layout = [ [ sg.Text( size = (3, 3) ) ],
-			           [ sg.Column( left, expand_x = True ),
-			             sg.Column( datagrid, expand_x = True, expand_y = True ),
-			             sg.Column( right, expand_x = True ) ],
-			           [ sg.Text( size = sm ) ],
-			           [ sg.Text( size = (10, 1) ), sg.Button( 'Open', size = med,
-				           key = '-OPEN-' ),
-			             sg.Text( size = spc ), sg.Button( 'Export', size = med,
-				           key = '-EXPORT-' ),
-			             sg.Text( size = spc ), sg.Button( 'Save', size = med, key = '-SAVE-' ),
-			             sg.Text( size = spc ), sg.Button( 'Close', size = med, key = '-CLOSE-'
-			           ) ],
-			           [ sg.Sizegrip( ) ], ]
+			_layout = [ [ sg.Text( size = (3, 3) ) ],
+			            [ sg.Column( _left, expand_x = True ),
+			              sg.Column( _datagrid, expand_x = True, expand_y = True ),
+			              sg.Column( _right, expand_x = True ) ],
+			            [ sg.Text( size = _small ) ],
+			            [ sg.Text( size = (10, 1) ), sg.Button( 'Open', size = _med,
+				            key = '-OPEN-' ),
+			              sg.Text( size = _spc ), sg.Button( 'Export', size = _med,
+				            key = '-EXPORT-' ),
+			              sg.Text( size = _spc ), sg.Button( 'Save', size = _med, key = '-SAVE-' ),
+			              sg.Text( size = _spc ), sg.Button( 'Close', size = _med, key = '-CLOSE-'
+			            ) ],
+			            [ sg.Sizegrip( ) ], ]
 
-			window = sg.Window( ' Budget Execution', layout,
+			_window = sg.Window( ' Budget Execution', _layout,
 				size = self.__formsize,
 				grab_anywhere = True,
 				icon = self.__icon,
@@ -4438,14 +4490,14 @@ class ExcelForm( Sith ):
 				resizable = True,
 				right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
 
-			event, values = window.read( )
-			if event in (sg.WIN_X_EVENT, '-CLOSE-'):
-				window.close( )
-			elif event in ('-OPEN-', '-EXPORT-', '-SAVE-', 'Save'):
-				info = 'Not Yet Implemented!'
-				msg = MessageDialog( info )
-				msg.show( )
-				window.close( )
+			_event, _values = _window.read( )
+			if _event in (sg.WIN_X_EVENT, '-CLOSE-'):
+				_window.close( )
+			elif _event in ('-OPEN-', '-EXPORT-', '-SAVE-', 'Save'):
+				_info = 'Not Yet Implemented!'
+				_msg = MessageDialog( _info )
+				_msg.show( )
+				_window.close( )
 
 
 		except Exception as e:
@@ -4456,9 +4508,12 @@ class ExcelForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# GraphForm( )
 class GraphForm( Sith ):
-	'''Provides form that reads CSV file with pandas'''
+	'''
+	Construcotr:  raphForm( )
+
+	Purpose:  Provides form that reads CSV file with pandas
+	'''
 
 	def __init__( self ):
 		super( ).__init__( )
@@ -4479,102 +4534,102 @@ class GraphForm( Sith ):
 			plt.close( 'all' )
 
 			def get_demo_image( ):
-				delta = 0.5
-				extent = (-3, 4, -4, 3)
-				x = np.arange( -3.0, 4.001, delta )
-				y = np.arange( -4.0, 3.001, delta )
-				X, Y = np.meshgrid( x, y )
-				Z1 = np.exp( -X ** 2 - Y ** 2 )
-				Z2 = np.exp( -(X - 1) ** 2 - (Y - 1) ** 2 )
-				Z = (Z1 - Z2) * 2
+				_delta = 0.5
+				_extent = (-3, 4, -4, 3)
+				_xaxis = np.arange( -3.0, 4.001, _delta )
+				_yaxis = np.arange( -4.0, 3.001, _delta )
+				_X, _Y = np.meshgrid( _xaxis, _yaxis )
+				_Z1 = np.exp( -_X ** 2 - _Y ** 2 )
+				_Z2 = np.exp( -(_X - 1) ** 2 - (_Y - 1) ** 2 )
+				_Z = (_Z1 - _Z2) * 2
 
-				return Z, extent
+				return _Z, _extent
 
 			def get_rgb( ):
-				Z, extent = get_demo_image( )
+				_Z, _extent = get_demo_image( )
 
-				Z[ Z < 0 ] = 0.
-				Z = Z / Z.max( )
+				_Z[ _Z < 0 ] = 0.
+				_Z = _Z / _Z.max( )
 
-				R = Z[ :13, :13 ]
-				G = Z[ 2:, 2: ]
-				B = Z[ :13, 2: ]
+				_red = _Z[ :13, :13 ]
+				_green = _Z[ 2:, 2: ]
+				_blue = _Z[ :13, 2: ]
 
-				return R, G, B
+				return _red, _green, _blue
 
-			fig = plt.figure( 1 )
-			ax = RGBAxes( fig, [ 0.1, 0.1, 0.8, 0.8 ] )
+			_figure = plt.figure( 1 )
+			_axis = RGBAxes( _figure, [ 0.1, 0.1, 0.8, 0.8 ] )
 
-			r, g, b = get_rgb( )
-			kwargs = dict( origin = "lower", interpolation = "nearest" )
-			ax.imshow_rgb( r, g, b, **kwargs )
+			_r, _g, _b = get_rgb( )
+			_kwargs = dict( origin = "lower", interpolation = "nearest" )
+			_axis.imshow_rgb( _r, _g, _b, **_kwargs )
 
-			ax.RGB.set_xlim( 0., 9.5 )
-			ax.RGB.set_ylim( 0.9, 10.6 )
+			_axis.RGB.set_xlim( 0., 9.5 )
+			_axis.RGB.set_ylim( 0.9, 10.6 )
 
 			plt.draw( )
 			return plt.gcf( )
 
 		def create_figure( ):
-			fig = matplotlib.figure.Figure( figsize = (5, 4), dpi = 100 )
-			t = np.arange( 0, 3, .01 )
-			fig.add_subplot( 111 ).plot( t, 2 * np.sin( 2 * np.pi * t ) )
-			return fig
+			_figure = matplotlib.figure.Figure( figsize = (5, 4), dpi = 100 )
+			_data = np.arange( 0, 3, .01 )
+			_figure.add_subplot( 111 ).plot( _data, 2 * np.sin( 2 * np.pi * _data ) )
+			return _figure
 
 		def create_subplot_3d( ):
-			fig = plt.figure( )
-			ax = fig.add_subplot( 1, 2, 1, projection = '3d' )
-			X = np.arange( -5, 5, 0.25 )
-			Y = np.arange( -5, 5, 0.25 )
-			X, Y = np.meshgrid( X, Y )
-			R = np.sqrt( X ** 2 + Y ** 2 )
-			Z = np.sin( R )
-			surf = ax.plot_surface( X, Y, Z, rstride = 1, cstride = 1, cmap = cm.jet,
+			_figure = plt.figure( )
+			_axis = _figure.add_subplot( 1, 2, 1, projection = '3d' )
+			_x = np.arange( -5, 5, 0.25 )
+			_y = np.arange( -5, 5, 0.25 )
+			_x, _y = np.meshgrid( _x, _y )
+			_r = np.sqrt( _x ** 2 + _y ** 2 )
+			_z = np.sin( _r )
+			surf = _axis.plot_surface( _x, _y, _z, rstride = 1, cstride = 1, cmap = cm.jet,
 				linewidth = 0, antialiased = False )
 
-			ax.set_zlim3d( -1.01, 1.01 )
-			fig.colorbar( surf, shrink = 0.5, aspect = 5 )
-			ax = fig.add_subplot( 1, 2, 2, projection = '3d' )
-			X, Y, Z = get_test_data( 0.05 )
-			ax.plot_wireframe( X, Y, Z, rstride = 10, cstride = 10 )
-			return fig
+			_axis.set_zlim3d( -1.01, 1.01 )
+			_figure.colorbar( surf, shrink = 0.5, aspect = 5 )
+			_axis = _figure.add_subplot( 1, 2, 2, projection = '3d' )
+			_x, _y, _z = get_test_data( 0.05 )
+			_axis.plot_wireframe( _x, _y, _z, rstride = 10, cstride = 10 )
+			return _figure
 
 		def create_pyplot_scales( ):
 			plt.close( 'all' )
 			np.random.seed( 19680801 )
 
-			y = np.random.normal( loc = 0.5, scale = 0.4, size = 1000 )
-			y = y[ (y > 0) & (y < 1) ]
-			y.sort( )
-			x = np.arange( len( y ) )
+			_y = np.random.normal( loc = 0.5, scale = 0.4, size = 1000 )
+			_y = _y[ (_y > 0) & (_y < 1) ]
+			_y.sort( )
+			_x = np.arange( len( _y ) )
 
 			# plot with various axes scales
 			plt.figure( 1 )
 
 			# linear
 			plt.subplot( 221 )
-			plt.plot( x, y )
+			plt.plot( _x, _y )
 			plt.yscale( 'linear' )
 			plt.title( 'linear' )
 			plt.grid( True )
 
 			# log
 			plt.subplot( 222 )
-			plt.plot( x, y )
+			plt.plot( _x, _y )
 			plt.yscale( 'log' )
 			plt.title( 'log' )
 			plt.grid( True )
 
 			# symmetric log
 			plt.subplot( 223 )
-			plt.plot( x, y - y.mean( ) )
+			plt.plot( _x, _y - _y.mean( ) )
 			plt.yscale( 'symlog', linthreshy = 0.01 )
 			plt.title( 'symlog' )
 			plt.grid( True )
 
 			# logit
 			plt.subplot( 224 )
-			plt.plot( x, y )
+			plt.plot( _x, _y )
 			plt.yscale( 'logit' )
 			plt.title( 'logit' )
 			plt.grid( True )
@@ -4587,60 +4642,60 @@ class GraphForm( Sith ):
 
 		def draw_figure( element, figure ):
 			plt.close( 'all' )
-			canv = FigureCanvasAgg( figure )
-			buf = io.BytesIO( )
-			canv.print_figure( buf, format = 'png' )
-			if buf is None:
+			_canvas = FigureCanvasAgg( figure )
+			_buffer = io.BytesIO( )
+			_canvas.print_figure( _buffer, format = 'png' )
+			if _buffer is None:
 				return None
-			buf.seek( 0 )
-			element.update( data = buf.read( ) )
-			return canv
+			_buffer.seek( 0 )
+			element.update( data = _buffer.read( ) )
+			return _canvas
 
-		figures = {
+		_figures = {
 				'Axis Grid': create_axis_grid,
 				'Subplot 3D': create_subplot_3d,
 				'Scales': create_pyplot_scales,
 				'Basic Figure': create_figure }
 
 		def create_window( ):
-			left_col = [ [ sg.T( 'Charts' ) ],
-			             [ sg.Listbox( list( figures ),
-				             default_values = [ list( figures )[ 0 ] ], size = (15, 5),
-				             key = '-LB-' ) ],
-			             [ sg.T( 'Styles' ) ],
-			             [ sg.Combo( plt.style.available, size = (15, 10), key = '-STYLE-' ) ],
-			             [ sg.T( 'Themes' ) ],
-			             [ sg.Combo( sg.theme_list( ),
-				             default_value = sg.theme( ),
-				             size = (15, 10),
-				             key = '-THEME-' ) ] ]
+			_leftcolumn = [ [ sg.T( 'Charts' ) ],
+			                [ sg.Listbox( list( _figures ),
+				                default_values = [ list( _figures )[ 0 ] ], size = (15, 5),
+				                key = '-LB-' ) ],
+			                [ sg.T( 'Styles' ) ],
+			                [ sg.Combo( plt.style.available, size = (15, 10), key = '-STYLE-' ) ],
+			                [ sg.T( 'Themes' ) ],
+			                [ sg.Combo( sg.theme_list( ),
+				                default_value = sg.theme( ),
+				                size = (15, 10),
+				                key = '-THEME-' ) ] ]
 
-			layout = [ [ sg.T( 'Budget Chart', font = ('Roboto', 10) ) ],
-			           [ sg.Col( left_col ), sg.Image( key = '-IMAGE-' ) ],
-			           [ sg.B( 'Draw' ), sg.B( 'Exit' ) ] ]
+			_layout = [ [ sg.T( 'Budget Chart', font = ('Roboto', 10) ) ],
+			            [ sg.Col( _leftcolumn ), sg.Image( key = '-IMAGE-' ) ],
+			            [ sg.B( 'Draw' ), sg.B( 'Exit' ) ] ]
 
-			window = sg.Window( 'Budget Execution', layout, finalize = True )
+			_window = sg.Window( 'Budget Execution', _layout, finalize = True )
 
-			return window
+			return _window
 
-		window = create_window( )
+		_window = create_window( )
 
 		while True:
-			event, values = window.read( )
-			print( event, values )
-			if event == 'Exit' or event == sg.WIN_CLOSED:
+			_event, _values = _window.read( )
+			print( _event, _values )
+			if _event == 'Exit' or _event == sg.WIN_CLOSED:
 				break
-			if event == 'Draw':
-				if values[ '-THEME-' ] != sg.theme( ):
-					window.close( )
-					sg.theme( values[ '-THEME-' ] )
-					window = create_window( )
+			if _event == 'Draw':
+				if _values[ '-THEME-' ] != sg.theme( ):
+					_window.close( )
+					sg.theme( _values[ '-THEME-' ] )
+					_window = create_window( )
 
-				if values[ '-LB-' ]:
-					func = figures[ values[ '-LB-' ][ 0 ] ]
-					if values[ '-STYLE-' ]:
-						plt.style.use( values[ '-STYLE-' ] )
+				if _values[ '-LB-' ]:
+					_func = _figures[ _values[ '-LB-' ][ 0 ] ]
+					if _values[ '-STYLE-' ]:
+						plt.style.use( _values[ '-STYLE-' ] )
 
-					draw_figure( window[ '-IMAGE-' ], func( ) )
+					draw_figure( _window[ '-IMAGE-' ], _func( ) )
 
-		window.close( )
+		_window.close( )

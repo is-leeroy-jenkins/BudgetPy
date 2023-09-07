@@ -48,9 +48,11 @@ from Static import APP
 
 # App( client )
 class App( ):
-    '''App( client ) initializes object providing
-     factory methods run( ) and run( args ) that run
-     processes based on 'client' enumeration input args'''
+    '''
+    App( client ) initializes object providing
+    factory methods run( ) and run( args ) that run
+    processes based on 'client' enumeration input args
+     '''
     __app = None
     __sqliteclient = None
     __accessclient = None
