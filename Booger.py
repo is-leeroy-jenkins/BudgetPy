@@ -1933,29 +1933,29 @@ class SplashPanel( Sith ):
 		self.__buttonforecolor = super( ).button_forecolor
 		self.__buttobackcolor = super( ).button_backcolor
 		self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
-		self.__formsize = (800, 600)
+		self.__formsize = ( 800, 600 )
 		self.__timeout = 6000
 
 	def show( self ):
 		try:
-			img = self.__image
-			imgsize = (500, 400)
-			line = (100, 2)
-			space = (15, 1)
-			layout = [ [ sg.Text( size = space ), sg.Text( size = line ) ],
-			           [ sg.Text( size = space ), sg.Text( size = line ) ],
-			           [ sg.Text( size = space ),
-			             sg.Image( filename = self.__image, size = imgsize ) ] ]
-			window = sg.Window( '  Budget Execution', layout,
+			_img = self.__image
+			_imgsize = ( 500, 400 )
+			_line = ( 100, 2 )
+			_space = ( 15, 1 )
+			_layout = [ [ sg.Text( size = _space ), sg.Text( size = _line ) ],
+			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
+			            [ sg.Text( size = _space ),
+			             sg.Image( filename = self.__image, size = _imgsize ) ] ]
+			_window = sg.Window( '  Budget Execution', _layout,
 				no_titlebar = True,
 				keep_on_top = True,
 				grab_anywhere = True,
 				size = self.__formsize )
 			while True:
-				event, values = window.read( timeout = self.__timeout, close = True )
-				if event in (sg.WIN_CLOSED, 'Exit'):
+				_event, _values = _window.read( timeout = self.__timeout, close = True )
+				if _event in (sg.WIN_CLOSED, 'Exit'):
 					break
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1964,10 +1964,9 @@ class SplashPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# Notification( )
 class Notification( Sith ):
 	'''
-	Construcotr:
+	Construcotr:  Notification( )
 
 	Purpose:  object providing form processing behavior
 	'''
@@ -2089,11 +2088,9 @@ class Notification( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ImageSizeEncoder( )
-# noinspection PyUnresolvedReferences
 class ImageSizeEncoder( Sith ):
 	'''
-	Construcotr:
+	Construcotr:  ImageSizeEncoder( )
 
 	Purpose:  Class resizing image and encoding behavior
 	'''
@@ -2117,145 +2114,144 @@ class ImageSizeEncoder( Sith ):
 		version = '1.3.1'
 		__version__ = version.split( )[ 0 ]
 
-		# noinspection PyShadowingNames
 		def resize( input_file, size, output_file = None, encode_format = 'PNG' ):
-			image = Image.open( input_file )
-			width, height = image.size
-			new_width, new_height = size
-			if new_width != width or new_height != height:  # if the requested size is different
-				# than original size
-				scale = min( new_height / height, new_width / width )
-				resized_image = image.resize( (int( width * scale ), int( height * scale )),
+			_image = Image.open( input_file )
+			_width, _height = _image.size
+			_newwidth, _newheight = size
+			if _newwidth != _width or _newheight != _height:
+				_scale = min( _newheight / _height, _newwidth / _width )
+				_resizedimage = _image.resize( (int( _width * _scale ), int( _height * _scale )),
 					Image.ANTIALIAS )
 			else:
-				resized_image = image
+				_resizedimage = _image
 
 			if output_file is not None:
-				resized_image.save( output_file )
+				_resizedimage.save( output_file )
 
-			# encode a PNG formatted version of image into BASE64
 			with io.BytesIO( ) as bio:
-				resized_image.save( bio, format = encode_format )
-				contents = bio.getvalue( )
-				encoded = base64.b64encode( contents )
-			return encoded
+				_resizedimage.save( bio, format = encode_format )
+				_contents = bio.getvalue( )
+				_encoded = base64.b64encode( _contents )
+			return _encoded
 
 		def update_outfilename( ):
-			_infile = values[ '-IN-' ]
+			_infile = _values[ '-IN-' ]
 			if os.path.isfile( _infile ):
-				image = Image.open( _infile )
-				_width, _height = image.size
-				window[ '-ORIG WIDTH-' ].update( image.size[ 0 ] )
-				if not values[ '-WIDTH-' ]:
-					window[ '-WIDTH-' ].update( image.size[ 0 ] )
-				if not values[ '-HEIGHT-' ]:
-					window[ '-HEIGHT-' ].update( image.size[ 1 ] )
-				window[ '-ORIG HEIGHT-' ].update( image.size[ 1 ] )
+				_image = Image.open( _infile )
+				_width, _height = _image.size
+				_window[ '-ORIG WIDTH-' ].update( _image.size[ 0 ] )
+				if not _values[ '-WIDTH-' ]:
+					_window[ '-WIDTH-' ].update( _image.size[ 0 ] )
+				if not _values[ '-HEIGHT-' ]:
+					_window[ '-HEIGHT-' ].update( _image.size[ 1 ] )
+				_window[ '-ORIG HEIGHT-' ].update( _image.size[ 1 ] )
 
 				_infilename = os.path.basename( _infile )
 				_infilenameonly, _infileext = os.path.splitext( _infilename )
-				if values[ '-NEW FORMAT-' ]:
-					outfileext = values[ '-NEW FORMAT-' ].lower( )
+				if _values[ '-NEW FORMAT-' ]:
+					outfileext = _values[ '-NEW FORMAT-' ].lower( )
 					if outfileext == 'jpeg':
 						outfileext = 'jpg'
 				else:
 					outfileext = _infileext[ 1: ]  # strip off the .
 				outfile = f'{_infilenameonly}{_width}x{_height}.{outfileext}'
-				_outfullfilename = os.path.join( os.path.dirname( _infile ), outfile )
+				_outfullname = os.path.join( os.path.dirname( _infile ), outfile )
 
-				if values[ '-DO NOT SAVE-' ]:
-					window[ '-NEW FILENAME-' ].update( '' )
-					window[ '-BASE64-' ].update( True )
+				if _values[ '-DO NOT SAVE-' ]:
+					_window[ '-NEW FILENAME-' ].update( '' )
+					_window[ '-BASE64-' ].update( True )
 				else:
-					window[ '-NEW FILENAME-' ].update( _outfullfilename )
+					_window[ '-NEW FILENAME-' ].update( _outfullname )
 			else:
-				window[ '-NEW FILENAME-' ].update( '' )
-				window[ '-ORIG WIDTH-' ].update( '' )
-				# window['-WIDTH-'].update('')
-				window[ '-ORIG HEIGHT-' ].update( '' )
-				# window['-HEIGHT-'].update('')
-				window[ '-NEW FILENAME-' ].update( )
+				_window[ '-NEW FILENAME-' ].update( '' )
+				_window[ '-ORIG WIDTH-' ].update( '' )
+				# _window['-WIDTH-'].update('')
+				_window[ '-ORIG HEIGHT-' ].update( '' )
+				# _window['-HEIGHT-'].update('')
+				_window[ '-NEW FILENAME-' ].update( )
 
-		format_list = ('', 'PNG', 'JPEG', 'BMP', 'ICO', 'GIF', 'TIFF')
-		new_format_layout = [
-				[ sg.Combo( format_list,
+		_formatlist = ('', 'PNG', 'JPEG', 'BMP', 'ICO', 'GIF', 'TIFF')
+		_newformat = [
+				[ sg.Combo( _formatlist,
 					default_value = sg.user_settings_get_entry( '-new format-', '' ),
 					readonly = True, enable_events = True, key = '-NEW FORMAT-' ) ] ]
 
-		layout = [ [ sg.Text( 'Image Resizer' ) ],
-		           [ sg.Frame( 'Input Filename', [
+		_layout = [ [ sg.Text( 'Image Resizer' ) ],
+		            [ sg.Frame( 'Input Filename', [
 				           [ sg.Input( key = '-IN-', enable_events = True, s = 80 ),
 				             sg.FileBrowse( ), ],
 				           [ sg.T( 'Original size' ), sg.T( k = '-ORIG WIDTH-' ), sg.T( 'X' ),
 				             sg.T( k = '-ORIG HEIGHT-' ) ] ] ) ],
-		           [ sg.Frame( 'Output Filename',
+		            [ sg.Frame( 'Output Filename',
 			           [ [ sg.In( k = '-NEW FILENAME-', s = 80 ), sg.FileBrowse( ), ],
-			             [ sg.In( default_text = sg.user_settings_get_entry( '-width-', '' ),
+			             [ sg.In( default_text = sg.user_settings_get_entry( '-_width-', '' ),
 				             s = 4,
 				             k = '-WIDTH-' ), sg.T( 'X' ),
-			               sg.In( default_text = sg.user_settings_get_entry( '-height-', '' ),
+			               sg.In( default_text = sg.user_settings_get_entry( '-_height-', '' ),
 				               s = 4, k = '-HEIGHT-' ) ] ] ) ],
-		           [ sg.Frame( 'Convert To New Format', new_format_layout ) ],
-		           [ sg.CBox( 'Encode to Base64 and leave on Clipboard', k = '-BASE64-',
+		            [ sg.Frame( 'Convert To New Format', _newformat ) ],
+		            [ sg.CBox( 'Encode to Base64 and leave on Clipboard', k = '-BASE64-',
 			           default = sg.user_settings_get_entry( '-base64-', True ) ) ],
-		           [ sg.CBox( 'Do not save file - Only convert and Base64 Encode',
+		            [ sg.CBox( 'Do not save file - Only convert and Base64 Encode',
 			           k = '-DO NOT SAVE-', enable_events = True,
 			           default = sg.user_settings_get_entry( '-do not save-', False ) ) ],
-		           [ sg.CBox( 'Autoclose Immediately When Done',
+		            [ sg.CBox( 'Autoclose Immediately When Done',
 			           default = sg.user_settings_get_entry( '-autoclose-',
 				           True if sg.running_windows( ) else False ),
 			           k = '-AUTOCLOSE-' ) ],
-		           [ sg.Button( 'Resize', bind_return_key = True ), sg.Button( 'Exit' ) ],
-		           [ sg.T(
+		            [ sg.Button( 'Resize', bind_return_key = True ), sg.Button( 'Exit' ) ],
+		            [ sg.T(
 			           'Note - on some systems, autoclose cannot be used because the clipboard is '
 			           'cleared by tkinter' ) ],
-		           [ sg.T( 'Your settings are automatically saved between runs' ) ],
-		           [ sg.T( f'Version {version}' ),
+		            [ sg.T( 'Your settings are automatically saved between runs' ) ],
+		            [ sg.T( f'Version {version}' ),
 		             sg.T( 'Go to psgresizer GitHub Repo', font = '_ 8', enable_events = True,
 			             k = '-PSGRESIZER-' ),
 		             sg.T( 'A PySimpleGUI Application - Go to PySimpleGUI home', font = '_ 8',
 			             enable_events = True, k = '-PYSIMPLEGUI-' ) ],
-		           ]
+		            ]
 
-		window = sg.Window( 'Resize Image', layout, icon = self.__icon,
+		_window = sg.Window( 'Resize Image', _layout,
+			icon = self.__icon,
 			right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT,
-			enable_close_attempted_event = True, finalize = True )
-		window[ '-PSGRESIZER-' ].set_cursor( 'hand1' )
-		window[ '-PYSIMPLEGUI-' ].set_cursor( 'hand1' )
+			enable_close_attempted_event = True,
+			finalize = True )
+		_window[ '-PSGRESIZER-' ].set_cursor( 'hand1' )
+		_window[ '-PYSIMPLEGUI-' ].set_cursor( 'hand1' )
 		while True:
-			event, values = window.read( )
-			# print(event, values)
-			if event in (sg.WIN_CLOSED, sg.WIN_CLOSE_ATTEMPTED_EVENT, 'Exit'):
+			_event, _values = _window.read( )
+			# print(_event, _values)
+			if _event in ( sg.WIN_CLOSED, sg.WIN_CLOSE_ATTEMPTED_EVENT, 'Exit' ):
 				break
-			infile = values[ '-IN-' ]
+			_infile = _values[ '-IN-' ]
 			update_outfilename( )
 
-			if event == '-DO NOT SAVE-':
-				if values[ '-DO NOT SAVE-' ]:
-					window[ '-NEW FILENAME-' ].update( '' )
-					window[ '-BASE64-' ].update( True )
-			if event == 'Resize':
+			if _event == '-DO NOT SAVE-':
+				if _values[ '-DO NOT SAVE-' ]:
+					_window[ '-NEW FILENAME-' ].update( '' )
+					_window[ '-BASE64-' ].update( True )
+			if _event == 'Resize':
 				try:
-					if os.path.isfile( infile ):
+					if os.path.isfile( _infile ):
 						update_outfilename( )
-						infilename = os.path.basename( infile )
+						infilename = os.path.basename( _infile )
 						infilenameonly, infileext = os.path.splitext( infilename )
-						if values[ '-NEW FORMAT-' ]:
-							encode_format = values[ '-NEW FORMAT-' ].upper( )
+						if _values[ '-NEW FORMAT-' ]:
+							encode_format = _values[ '-NEW FORMAT-' ].upper( )
 						else:
 							encode_format = infileext[ 1: ].upper( )  # strip off the .
 						if encode_format == 'JPG':
 							encode_format = 'JPEG'
-						outfullfilename = values[ '-NEW FILENAME-' ]
-						width, height = int( values[ '-WIDTH-' ] ), int( values[ '-HEIGHT-' ] )
-						if values[ '-DO NOT SAVE-' ]:
-							encoded = resize( input_file = infile, size = (width, height),
+						outfullfilename = _values[ '-NEW FILENAME-' ]
+						width, height = int( _values[ '-WIDTH-' ] ), int( _values[ '-HEIGHT-' ] )
+						if _values[ '-DO NOT SAVE-' ]:
+							encoded = resize( input_file = _infile, size = (width, height),
 								output_file = None, encode_format = encode_format )
 						else:
-							encoded = resize( input_file = infile, size = (width, height),
+							encoded = resize( input_file = _infile, size = (width, height),
 								output_file = outfullfilename, encode_format = encode_format )
 
-						if values[ '-BASE64-' ]:
+						if _values[ '-BASE64-' ]:
 							sg.clipboard_set( encoded )
 
 						sg.popup_quick_message( 'DONE!', font = '_ 40', background_color = 'red',
@@ -2264,34 +2260,32 @@ class ImageSizeEncoder( Sith ):
 				except Exception as e:
 					sg.popup_error_with_traceback( 'Error resizing or converting',
 						'Error encountered during the resize or Base64 encoding', e )
-				if values[ '-AUTOCLOSE-' ]:
+				if _values[ '-AUTOCLOSE-' ]:
 					break
-			elif event == 'Version':
+			elif _event == 'Version':
 				sg.popup_scrolled( sg.get_versions( ), non_blocking = True )
-			elif event == 'Edit Me':
+			elif _event == 'Edit Me':
 				sg.execute_editor( __file__ )
-			elif event == 'File Location':
+			elif _event == 'File Location':
 				sg.popup_scrolled( 'This Python file is:', __file__ )
-			elif event == '-PYSIMPLEGUI-':
+			elif _event == '-PYSIMPLEGUI-':
 				webbrowser.open_new_tab( r'http://www.PySimpleGUI.com' )
-			elif event == '-PSGRESIZER-':
+			elif _event == '-PSGRESIZER-':
 				webbrowser.open_new_tab( r'https://github.com/PySimpleGUI/psgresizer' )
 
-		if event != sg.WIN_CLOSED:
-			sg.user_settings_set_entry( '-autoclose-', values[ '-AUTOCLOSE-' ] )
-			sg.user_settings_set_entry( '-new format-', values[ '-NEW FORMAT-' ] )
-			sg.user_settings_set_entry( '-do not save-', values[ '-DO NOT SAVE-' ] )
-			sg.user_settings_set_entry( '-base64-', values[ '-BASE64-' ] )
-			sg.user_settings_set_entry( '-width-', values[ '-WIDTH-' ] )
-			sg.user_settings_set_entry( '-height-', values[ '-HEIGHT-' ] )
+		if _event != sg.WIN_CLOSED:
+			sg.user_settings_set_entry( '-autoclose-', _values[ '-AUTOCLOSE-' ] )
+			sg.user_settings_set_entry( '-new format-', _values[ '-NEW FORMAT-' ] )
+			sg.user_settings_set_entry( '-do not save-', _values[ '-DO NOT SAVE-' ] )
+			sg.user_settings_set_entry( '-base64-', _values[ '-BASE64-' ] )
+			sg.user_settings_set_entry( '-_width-', _values[ '-WIDTH-' ] )
+			sg.user_settings_set_entry( '-_height-', _values[ '-HEIGHT-' ] )
 
-		window.close( )
+		_window.close( )
 
-# PdfForm( )
-# noinspection PyUnresolvedReferences
 class PdfForm( Sith ):
 	'''
-	Construcotr:
+	Construcotr:  PdfForm( )
 
 	Purpose:  Creates form to view a PDF
 	'''
@@ -2308,72 +2302,72 @@ class PdfForm( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (600, 800)
+		self.__formsize = ( 600, 800 )
 
 	def show( self ):
 		try:
-			oldpage = 0
-			zoom = 0
-			oldzoom = 0
+			_oldpage = 0
+			_zoom = 0
+			_oldzoom = 0
 
-			filename = sg.popup_get_file( 'Select file', ' Budget PDF Viewer',
+			_filename = sg.popup_get_file( 'Select file', ' Budget PDF Viewer',
 				icon = self.__icon,
 				font = self.__themefont,
-				file_types = (('PDF Files', '*.pdf'),) )
+				file_types = ( ( 'PDF Files', '*._pdf' ), ) )
 
-			if filename is None:
+			if _filename is None:
 				sg.popup_cancel( 'Cancelling' )
 				exit( 0 )
 
-			pdf = fitz.open( filename )
-			pages = len( pdf )
-			displaylist = [ None ] * pages
-			title = ' Budget Execution'
+			_pdf = fitz.open( _filename )
+			_pages = len( _pdf )
+			_displaylist = [ None ] * _pages
+			_title = ' Budget Execution'
 
 			def getpage( pno, zoom = 0 ):
-				display = displaylist[ pno ]
-				if not display:
-					displaylist[ pno ] = pdf[ pno ].get_displaylist( )
-					display = displaylist[ pno ]
+				_display = _displaylist[ pno ]
+				if not _display:
+					_displaylist[ pno ] = _pdf[ pno ].get_displaylist( )
+					_display = _displaylist[ pno ]
 
-				r = display.rect
-				mp = r.tl + (r.br - r.tl) * 0.5  # rect middle point
-				mt = r.tl + (r.tr - r.tl) * 0.5  # middle of top edge
-				ml = r.tl + (r.bl - r.tl) * 0.5  # middle of left edge
-				mr = r.tr + (r.br - r.tr) * 0.5  # middle of right egde
-				mb = r.bl + (r.br - r.bl) * 0.5  # middle of bottom edge
-				mat = fitz.Matrix( 2, 2 )
+				_r = _display.rect
+				_mp = _r.tl + (_r.br - _r.tl) * 0.5  # rect middle point
+				_mt = _r.tl + (_r.tr - _r.tl) * 0.5  # middle of top edge
+				_ml = _r.tl + (_r.bl - _r.tl) * 0.5  # middle of left edge
+				_mr = _r.tr + (_r.br - _r.tr) * 0.5  # middle of right egde
+				_mb = _r.bl + (_r.br - _r.bl) * 0.5  # middle of bottom edge
+				_mat = fitz.Matrix( 2, 2 )
 				if zoom == 1:
-					_clip = fitz.Rect( r.tl, mp )
+					_clip = fitz.Rect( _r.tl, _mp )
 				elif zoom == 4:
-					_clip = fitz.Rect( mp, r.br )
+					_clip = fitz.Rect( _mp, _r.br )
 				elif zoom == 2:
-					_clip = fitz.Rect( mt, mr )
+					_clip = fitz.Rect( _mt, _mr )
 				elif zoom == 3:
-					_clip = fitz.Rect( ml, mb )
+					_clip = fitz.Rect( _ml, _mb )
 				if zoom == 0:
-					pix = display.get_pixmap( alpha = False )
+					_pix = _display.get_pixmap( alpha = False )
 				else:
-					pix = display.get_pixmap( alpha = False, matrix = mat, clip = _clip )
-				return pix.tobytes( )
+					_pix = _display.get_pixmap( alpha = False, matrix = _mat, clip = _clip )
+				return _pix.tobytes( )
 
-			currentpage = 0
-			data = getpage( currentpage )
-			image = sg.Image( data = data )
-			goto = sg.InputText( f'{str( currentpage + 1 )} of {str( pages )}', size = (10, 1) )
-			layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ),
-			             sg.Text( '' ),
-			             sg.Text( 'Page:' ), goto,
-			             sg.Text( size = (10, 1) ), sg.Text( 'Zoom: ' ),
-			             sg.Button( ' In ', key = '-IN-' ), sg.Button( ' Out', key = '-OUT-' ), ],
-			           [ image ], ]
+			_current = 0
+			_data = getpage( _current )
+			_image = sg.Image( data = _data )
+			_goto = sg.InputText( f'{str( _current + 1 )} of {str( _pages )}', size = (10, 1) )
+			_layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ),
+			              sg.Text( '' ),
+			              sg.Text( 'Page:' ), _goto,
+			              sg.Text( size = (10, 1) ), sg.Text( 'Zoom: ' ),
+			              sg.Button( ' In ', key = '-IN-' ), sg.Button( ' Out', key = '-OUT-' ), ],
+			            [ _image ], ]
 
-			keys = (
+			_keys = (
 					'Next', 'Next:34', 'Prev', 'Prior:33', 'MouseWheel:Down', 'MouseWheel:Up',
 					'-IN-',
 					'-OUT-')
 
-			window = sg.Window( title, layout,
+			_window = sg.Window( _title, _layout,
 				size = self.__formsize,
 				font = self.__themefont,
 				modal = True,
@@ -2382,42 +2376,42 @@ class PdfForm( Sith ):
 				icon = self.__icon )
 
 			while True:
-				event, values = window.read( )
-				forcepage = False
-				if event == sg.WIN_CLOSED:
+				_event, _values = _window.read( )
+				_forcepage = False
+				if _event == sg.WIN_CLOSED:
 					break
-				elif event in ('Next', 'Next:34', 'MouseWheel:Down'):
-					currentpage += 1
-					goto.Update( f'{str( currentpage + 1 )} of {str( pages )}' )
-				elif event in ('Prev', 'Prior:33', 'MouseWheel:Up'):
-					currentpage -= 1
-					goto.Update( f'{str( currentpage + 1 )} of {str( pages )}' )
-				elif event == '-IN-':
-					zoom += 1
-				elif event == '-OUT-':
-					zoom -= 1
+				elif _event in ('Next', 'Next:34', 'MouseWheel:Down'):
+					_current += 1
+					_goto.Update( f'{str( _current + 1 )} of {str( _pages )}' )
+				elif _event in ('Prev', 'Prior:33', 'MouseWheel:Up'):
+					_current -= 1
+					_goto.Update( f'{str( _current + 1 )} of {str( _pages )}' )
+				elif _event == '-IN-':
+					_zoom += 1
+				elif _event == '-OUT-':
+					_zoom -= 1
 
-				if currentpage >= pages:
-					currentpage = 0
+				if _current >= _pages:
+					_current = 0
 
-				while currentpage < 0:
-					currentpage += pages
+				while _current < 0:
+					_current += _pages
 
-				if currentpage != oldpage:
-					zoom = oldzoom = 0
-					forcepage = True
-					if zoom != oldzoom:
-						forcepage = True
+				if _current != _oldpage:
+					_zoom = _oldzoom = 0
+					_forcepage = True
+					if _zoom != _oldzoom:
+						_forcepage = True
 
-				if forcepage:
-					data = getpage( currentpage, zoom )
-					image.update( data = data )
-					oldpage = currentpage
+				if _forcepage:
+					_data = getpage( _current, _zoom )
+					_image.update( data = _data )
+					_oldpage = _current
 
-				oldzoom = zoom
+				_oldzoom = _zoom
 
-				if event in keys or not values[ 0 ]:
-					goto.update( f'{str( currentpage + 1 )} of {str( pages )}' )
+				if _event in _keys or not _values[ 0 ]:
+					_goto.update( f'{str( _current + 1 )} of {str( _pages )}' )
 
 		except Exception as e:
 			_exc = Error( e )
@@ -2427,10 +2421,9 @@ class PdfForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# CalendarDialog( ) -> ( mm, dd, yyyy )
 class CalendarDialog( Sith ):
 	'''
-	Construcotr:
+	Construcotr:  CalendarDialog( )
 
 	Purpose:  class creates form providing today selection behavior
 	'''
@@ -2442,46 +2435,46 @@ class CalendarDialog( Sith ):
 	@property
 	def selected_item( self ) -> str:
 		if isinstance( self.__selecteditem, tuple ):
-			yr = str( self.__selecteditem[ 2 ] )
-			mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
-			dy = str( self.__selecteditem[ 1 ] ).zfill( 2 )
-			date = f'{yr}/{mo}/{dy}'
-			return date
+			_year = str( self.__selecteditem[ 2 ] )
+			_month = str( self.__selecteditem[ 0 ] ).zfill( 2 )
+			_day = str( self.__selecteditem[ 1 ] ).zfill( 2 )
+			_date = f'{_year}/{_month}/{_day}'
+			return _date
 
 	@selected_item.setter
-	def selected_item( self, value: str ):
-		if isinstance( value, tuple ):
+	def selected_item( self, value: tuple ):
+		if value is not None:
 			self.__selecteditem = value
 
 	@property
-	def day( self ) -> str:
-		if isinstance( self.__selecteditem, tuple ):
-			return str( self.__selecteditem[ 1 ] ).zfill( 2 )
+	def day( self ) -> tuple:
+		if self.__selecteditem is not None:
+			return self.__selecteditem[ 1 ].zfill( 2 )
 
 	@day.setter
-	def day( self, value: str ):
-		if isinstance( value, tuple ):
-			self.__day = str( value[ 1 ] ).zfill( 2 )
+	def day( self, value: tuple ):
+		if value is not None:
+			self.__day = value[ 1 ].zfill( 2 )
 
 	@property
-	def month( self ) -> str:
-		if isinstance( self.__selecteditem, tuple ):
-			return str( self.__selecteditem[ 0 ] ).zfill( 2 )
+	def month( self ) -> tuple:
+		if self.__selecteditem is not None:
+			return self.__selecteditem[ 0 ].zfill( 2 )
 
 	@month.setter
-	def month( self, value: str ):
-		if isinstance( value, tuple ):
-			self.__day = str( value[ 0 ] ).zfill( 2 )
+	def month( self, value: tuple ):
+		if value is not None:
+			self.__day = value[ 0 ].zfill( 2 )
 
 	@property
-	def year( self ) -> str:
-		if isinstance( self.__selecteditem, tuple ):
-			return str( self.__selecteditem[ 2 ] )
+	def year( self ) -> tuple:
+		if self.__selecteditem is not None:
+			return self.__selecteditem[ 2 ]
 
 	@year.setter
-	def year( self, value: str ):
-		if isinstance( value, tuple ):
-			self.__day = str( value[ 2 ] ).zfill( 4 )
+	def year( self, value: tuple ):
+		if value is not None:
+			self.__day = value[ 2 ].zfill( 4 )
 
 	def __init__( self ):
 		super( ).__init__( )
@@ -2495,34 +2488,34 @@ class CalendarDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (500, 250)
+		self.__formsize = ( 500, 250 )
 
 	def __str__( self ) -> str:
 		if isinstance( self.__selecteditem, tuple ):
-			yr = str( self.__selecteditem[ 2 ] )
-			mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
-			dy = str( self.__selecteditem[ 1 ] ).zfill( 2 )
-			date = f'{yr}/{mo}/{dy}'
-			return date
+			_yr = str( self.__selecteditem[ 2 ] )
+			_mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
+			_dy = str( self.__selecteditem[ 1 ] ).zfill( 2 )
+			_date = f'{_yr}/{_mo}/{_dy}'
+			return _date
 
 	def show( self ):
 		try:
-			btnsize = (20, 1)
-			calendar = (250, 250)
+			_btnsize = ( 20, 1 )
+			_calendar = ( 250, 250 )
 
-			months = [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL',
+			_months = [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL',
 			           'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ]
 
-			days = [ 'SUN', 'MON', 'TUE', 'WEC', 'THU', 'FRI', 'SAT' ]
+			_days = [ 'SUN', 'MON', 'TUE', 'WEC', 'THU', 'FRI', 'SAT' ]
 
-			cal = sg.popup_get_date( title = 'Calendar',
+			_cal = sg.popup_get_date( title = 'Calendar',
 				no_titlebar = False,
 				icon = self.__icon,
-				month_names = months,
-				day_abbreviations = days,
+				month_names = _months,
+				day_abbreviations = _days,
 				close_when_chosen = True )
 
-			self.__selecteditem = cal
+			self.__selecteditem = _cal
 
 		except Exception as e:
 			_exc = Error( e )
@@ -2532,9 +2525,12 @@ class CalendarDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# DatePanel( )
 class DatePanel( Sith ):
-	''' Desktop widget displaying today time text'''
+	'''
+	Constructor: DatePanel( )
+
+	Purpose: Desktop widget displaying today time text
+	'''
 	__selecteditem = None
 
 	def __init__( self ):
@@ -2549,57 +2545,57 @@ class DatePanel( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (500, 250)
+		self.__formsize = ( 500, 250 )
 
 	def show( self ):
 		try:
 			ALPHA = 0.9  # Initial alpha until user changes
-			THEME = 'Dark green 3'  # Initial theme until user changes
-			refresh_font = title_font = 'Roboto 8'
-			main_info_font = 'Roboto 20'
-			main_info_size = (10, 1)
+			THEME = 'Dark green 3'  # Initial _theme until user changes
+			_refreshfont = title_font = 'Roboto 8'
+			_mainfont = 'Roboto 20'
+			_mainsize = ( 10, 1 )
 			UPDATE_FREQUENCY_MILLISECONDS = 1000 * 60 * 60
 
 			def choose_theme( location, size ):
 				"""
-                A window to allow new themes to be tried out.
-                Changes the theme to the newly chosen one and returns theme's name
-                Automaticallyi switches to new theme and saves the setting in user settings file
+                A _window to allow new themes to be tried out.
+                Changes the _theme to the newly chosen one and returns _theme's name
+                Automaticallyi switches to new _theme and saves the setting in user settings file
 
-                :param location: (x,y) location of the Widget's window
+                :param location: (x,y) location of the Widget's _window
                 :type location:  Tuple[int, int]
-                :param size: Size in pixels of the Widget's window
+                :param size: Size in pixels of the Widget's _window
                 :type size: Tuple[int, int]
-                :return: The name of the newly selected theme
+                :return: The name of the newly selected _theme
                 :rtype: None | str
                 """
-				layout = [ [ sg.Text( 'Try a theme' ) ],
-				           [ sg.Listbox( values = sg.theme_list( ), size = (20, 20),
+				_layout = [ [ sg.Text( 'Try a _theme' ) ],
+				            [ sg.Listbox( values = sg.theme_list( ), size = (20, 20),
 					           key = '-ITEM-',
 					           enable_events = True ) ],
-				           [ sg.OK( ), sg.Cancel( ) ] ]
+				            [ sg.OK( ), sg.Cancel( ) ] ]
 
-				window = sg.Window( 'Look and Feel Browser', layout, location = location,
+				_window = sg.Window( 'Look and Feel Browser', _layout, location = location,
 					keep_on_top = True )
 				old_theme = sg.theme( )
 				while True:  # Event Loop
-					_event, values = window.read( )
+					_event, values = _window.read( )
 					if _event in (sg.WIN_CLOSED, 'Exit', 'OK', 'Cancel'):
 						break
 					sg.theme( values[ '-ITEM-' ][ 0 ] )
-					window.hide( )
-					# make at test window to the left of the current one
-					test_window = make_window(
+					_window.hide( )
+					# make at test _window to the left of the current one
+					_testwindow = make_window(
 						location = ((location[ 0 ] - size[ 0 ] * 1.2, location[ 1 ])),
 						test_window = True )
-					test_window.read( close = True )
-					window.un_hide( )
-				window.close( )
+					_testwindow.read( close = True )
+					_window.un_hide( )
+				_window.close( )
 
-				# after choice made, save theme or restore the old one
+				# after choice made, save _theme or restore the old one
 				if _event == 'OK' and values[ '-ITEM-' ]:
 					sg.theme( values[ '-ITEM-' ][ 0 ] )
-					sg.user_settings_set_entry( '-theme-', values[ '-ITEM-' ][ 0 ] )
+					sg.user_settings_set_entry( '-_theme-', values[ '-ITEM-' ][ 0 ] )
 					return values[ '-ITEM-' ][ 0 ]
 				else:
 					sg.theme( old_theme )
@@ -2607,120 +2603,120 @@ class DatePanel( Sith ):
 
 			def make_window( location, test_window = False ):
 				"""
-                Defines the layout and creates the window for the main window
-                If the parm test_window is True, then a simplified, and EASY to close version is
+                Defines the _layout and creates the _window for the main _window
+                If the parm _testwindow is True, then a simplified, and EASY to close version is
                 shown
 
-                :param location: (x,y) location to create_table the window
+                :param location: (x,y) location to create_table the _window
                 :type location: Tuple[int, int]
-                :param test_window: If True, then this is a test window & will close by clicking
+                :param test_window: If True, then this is a test _window & will close by clicking
                 on it
                 :type test_window: bool
-                :return: newly created window
+                :return: newly created _window
                 :rtype: sg.Window
                 """
-				title = sg.user_settings_get_entry( '-second_items-', '' )
+				_title = sg.user_settings_get_entry( '-second_items-', '' )
 				if not test_window:
-					theme = sg.user_settings_get_entry( '-theme-', THEME )
-					sg.theme( theme )
+					_theme = sg.user_settings_get_entry( '-_theme-', THEME )
+					sg.theme( _theme )
 
 				# ------------------- Window Layout -------------------
-				# If this is a test window (for choosing theme), then uses some extra Text Elements
-				# to display theme text
-				# and also enables events for the elements to make the window easy to close
+				# If this is a test _window (for choosing _theme), then uses some extra Text Elements
+				# to display _theme text
+				# and also enables events for the elements to make the _window easy to close
 				if test_window:
-					top_elements = [ [ sg.Text( title, size = (20, 1), font = title_font,
+					_topelements = [ [ sg.Text( _title, size = (20, 1), font = title_font,
 						justification = 'c', k = '-TITLE-', enable_events = True ) ],
 					                 [ sg.Text( 'Click to close', font = title_font,
 						                 enable_events = True ) ],
-					                 [ sg.Text( 'This is theme', font = title_font,
+					                 [ sg.Text( 'This is _theme', font = title_font,
 						                 enable_events = True ) ],
 					                 [ sg.Text( sg.theme( ), font = title_font,
 						                 enable_events = True ) ] ]
-					right_click_menu = [ [ '' ], [ 'Exit', ] ]
+					_contextmenu = [ [ '' ], [ 'Exit', ] ]
 				else:
-					top_elements = [ [ sg.Text( title, size = (20, 1), font = title_font,
+					_topelements = [ [ sg.Text( _title, size = (20, 1), font = title_font,
 						justification = 'c', k = '-TITLE-' ) ] ]
-					right_click_menu = [ [ '' ],
-					                     [ 'Choose Title', 'Edit Me', 'New Theme', 'Save Location',
+					_contextmenu = [ [ '' ],
+					                 [ 'Choose Title', 'Edit Me', 'New Theme', 'Save Location',
 					                       'Refresh', 'Set Refresh Rate', 'Show Refresh Info',
 					                       'Hide Refresh Info', 'Alpha',
 					                       [ str( x ) for x in range( 1, 11 ) ], 'Exit', ] ]
 
-				layout = top_elements + \
-				         [ [ sg.Text( '0', size = main_info_size, font = main_info_font,
+				_layout = _topelements + \
+				          [ [ sg.Text( '0', size = _mainsize, font = _mainfont,
 					         k = '-MAIN INFO-', justification = 'c',
 					         enable_events = test_window ) ],
 				           [ sg.pin(
-					           sg.Text( size = (15, 2), font = refresh_font, k = '-REFRESHED-',
+					           sg.Text( size = (15, 2), font = _refreshfont, k = '-REFRESHED-',
 						           justification = 'c',
 						           visible = sg.user_settings_get_entry( '-show refresh-',
 							           True ) ) ) ] ]
 
 				# ------------------- Window Creation -------------------
-				return sg.Window( 'Desktop Widget Template', layout, location = location,
-					no_titlebar = True, grab_anywhere = True, margins = (0, 0),
+				return sg.Window( 'Desktop Widget Template', _layout, location = location,
+					no_titlebar = True, grab_anywhere = True, margins = ( 0, 0 ),
 					element_justification = 'c',
-					element_padding = (0, 0),
+					element_padding = ( 0, 0 ),
 					alpha_channel = sg.user_settings_get_entry( '-alpha-', ALPHA ), finalize =
 					True,
-					right_click_menu = right_click_menu, keep_on_top = True )
+					right_click_menu = _contextmenu, keep_on_top = True )
 
-			window = make_window( sg.user_settings_get_entry( '-location-', location ) )
+			_window = make_window( sg.user_settings_get_entry( '-location-', location ) )
 
-			refresh_frequency = sg.user_settings_get_entry( '-fresh frequency-',
+			_refrequency = sg.user_settings_get_entry( '-fresh frequency-',
 				UPDATE_FREQUENCY_MILLISECONDS )
 
 			while True:
-				window[ '-MAIN INFO-' ].update( 'Your Info' )
-				window[ '-REFRESHED-' ].update(
+				_window[ '-MAIN INFO-' ].update( 'Your Info' )
+				_window[ '-REFRESHED-' ].update(
 					dt.datetime.now( ).strftime( "%m/%d/%Y\n%I:%M:%S %p" ) )
-				event, values = window.read( timeout = refresh_frequency )
-				print( event, values )
-				if event in (sg.WIN_CLOSED, 'Exit'):
+				_event, _values = _window.read( timeout = _refrequency )
+				print( _event, _values )
+				if _event in (sg.WIN_CLOSED, 'Exit'):
 					break
-				if event == 'Edit Me':
+				if _event == 'Edit Me':
 					sg.execute_editor( __file__ )
-				elif event == 'Choose Title':
+				elif _event == 'Choose Title':
 					new_title = sg.popup_get_text( 'Choose a second_items for your Widget',
-						location = window.current_location( ), keep_on_top = True )
+						location = _window.current_location( ), keep_on_top = True )
 					if new_title is not None:
-						window[ '-TITLE-' ].update( new_title )
+						_window[ '-TITLE-' ].update( new_title )
 						sg.user_settings_set_entry( '-second_items-', new_title )
-				elif event == 'Show Refresh Info':
-					window[ '-REFRESHED-' ].update( visible = True )
+				elif _event == 'Show Refresh Info':
+					_window[ '-REFRESHED-' ].update( visible = True )
 					sg.user_settings_set_entry( '-show refresh-', True )
-				elif event == 'Save Location':
-					sg.user_settings_set_entry( '-location-', window.current_location( ) )
-				elif event == 'Hide Refresh Info':
-					window[ '-REFRESHED-' ].update( visible = False )
+				elif _event == 'Save Location':
+					sg.user_settings_set_entry( '-location-', _window.current_location( ) )
+				elif _event == 'Hide Refresh Info':
+					_window[ '-REFRESHED-' ].update( visible = False )
 					sg.user_settings_set_entry( '-show refresh-', False )
-				elif event in [ str( x ) for x in range( 1, 11 ) ]:
-					window.set_alpha( int( event ) / 10 )
-					sg.user_settings_set_entry( '-alpha-', int( event ) / 10 )
-				elif event == 'Set Refresh Rate':
+				elif _event in [ str( x ) for x in range( 1, 11 ) ]:
+					_window.set_alpha( int( _event ) / 10 )
+					sg.user_settings_set_entry( '-alpha-', int( _event ) / 10 )
+				elif _event == 'Set Refresh Rate':
 					choice = sg.popup_get_text(
-						'How frequently to update window in seconds? (can be a float)',
+						'How frequently to update _window in seconds? (can be a float)',
 						default_text = sg.user_settings_get_entry( '-fresh frequency-',
 							UPDATE_FREQUENCY_MILLISECONDS ) / 1000,
-						location = window.current_location( ), keep_on_top = True )
+						location = _window.current_location( ), keep_on_top = True )
 					if choice is not None:
 						try:
-							refresh_frequency = float( choice ) * 1000
+							_refrequency = float( choice ) * 1000
 							sg.user_settings_set_entry( '-fresh frequency-',
-								float( refresh_frequency ) )
+								float( _refrequency ) )
 						except Exception as e:
 							sg.popup_error( f'You entered an incorrect number of seconds: '
 							                f'{choice}',
-								f'Error: {e}', location = window.current_location( ),
+								f'Error: {e}', location = _window.current_location( ),
 								keep_on_top = True )
-				elif event == 'New Theme':
-					loc = window.current_location( )
-					if choose_theme( window.current_location( ), window.formsize ) is not None:
-						window.close( )
-						window = make_window( loc )
+				elif _event == 'New Theme':
+					loc = _window.current_location( )
+					if choose_theme( _window.current_location( ), _window.formsize ) is not None:
+						_window.close( )
+						_window = make_window( loc )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -2780,8 +2776,8 @@ class ComboBoxDialog( Sith ):
 
 	def show( self ):
 		try:
-			btnsize = (10, 1)
-			space = (5, 1)
+			btnsize = ( 10, 1 )
+			space = ( 5, 1 )
 			if self.__items is None:
 				self.__items = [ f'Item {x} ' for x in range( 30 ) ]
 				values = self.__items
@@ -2789,7 +2785,7 @@ class ComboBoxDialog( Sith ):
 			layout = [ [ sg.Text( size = space ), sg.Text( size = space ) ],
 			           [ sg.Text( size = space ), sg.Text( 'Select Item' ) ],
 			           [ sg.Text( size = space ),
-			             sg.DropDown( self.__items, key = '-ITEM-', size = (35, 1) ) ],
+			             sg.DropDown( self.__items, key = '-ITEM-', size = ( 35, 1 ) ) ],
 			           [ sg.Text( size = space ), sg.Text( size = space ) ],
 			           [ sg.Text( size = space ), sg.OK( size = btnsize ), sg.Text( size = (8,
 			                                                                                1) ),
@@ -2819,10 +2815,10 @@ class ComboBoxDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ListBoxDialog( data )
+#
 class ListBoxDialog( Sith ):
 	'''
-	Construcotr:
+	Construcotr:  ListBox( data: list = None )
 
 	Purpose:   List search and selection
     '''
@@ -2872,57 +2868,57 @@ class ListBoxDialog( Sith ):
 
 	def show( self ):
 		try:
-			btnsize = (10, 1)
-			space = (10, 1)
-			line = (100, 1)
-			txtsz = (25, 1)
-			inpsz = (25, 1)
-			lstsz = (25, 5)
-			names = [ ]
+			_btnsize = ( 10, 1 )
+			_space = ( 10, 1 )
+			_line = ( 100, 1 )
+			_txtsz = ( 25, 1 )
+			_inpsz = ( 25, 1 )
+			_lstsz = ( 25, 5 )
+			_names = [ ]
 
 			if isinstance( self.__items, list ):
-				names = [ src for src in self.__items ]
+				_names = [ src for src in self.__items ]
 			else:
-				names = [ f'Item - {i}' for i in range( 40 ) ]
+				_names = [ f'Item - {i}' for i in range( 40 ) ]
 
-			layout = [ [ sg.Text( size = space ), sg.Text( size = line ) ],
-			           [ sg.Text( size = space ), sg.Text( r'Search:' ) ],
-			           [ sg.Text( size = space ),
-			             sg.Input( size = inpsz, enable_events = True, key = '-INPUT-' ) ],
-			           [ sg.Text( size = space ), sg.Text( size = line ) ],
-			           [ sg.Text( size = space ),
-			             sg.Listbox( names, size = lstsz, key = '-ITEM-',
+			_layout = [ [ sg.Text( size = _space ), sg.Text( size = _line ) ],
+			            [ sg.Text( size = _space ), sg.Text( r'Search:' ) ],
+			            [ sg.Text( size = _space ),
+			             sg.Input( size = _inpsz, enable_events = True, key = '-INPUT-' ) ],
+			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
+			            [ sg.Text( size = _space ),
+			             sg.Listbox( _names, size = _lstsz, key = '-ITEM-',
 				             font = self.__themefont ) ],
-			           [ sg.Text( size = space ), sg.Text( size = line ) ],
-			           [ sg.Text( size = space ),
-			             sg.Button( 'Select', size = btnsize, enable_events = True ),
-			             sg.Text( size = (3, 1) ), sg.Button( 'Exit', size = btnsize ) ] ]
+			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
+			            [ sg.Text( size = _space ),
+			             sg.Button( 'Select', size = _btnsize, enable_events = True ),
+			             sg.Text( size = ( 3, 1 ) ), sg.Button( 'Exit', size = _btnsize ) ] ]
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				size = self.__formsize,
 				font = self.__themefont,
 				icon = self.__icon )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_CLOSED, 'Exit'):
+				_event, _values = _window.read( )
+				if _event in ( sg.WIN_CLOSED, 'Exit' ):
 					break
-				self.__selecteditem = str( values[ '-ITEM-' ][ 0 ] )
-				if event == 'Selected':
-					self.__selecteditem = str( values[ '-ITEM-' ][ 0 ] )
+				self.__selecteditem = str( _values[ '-ITEM-' ][ 0 ] )
+				if _event == 'Selected':
+					self.__selecteditem = str( _values[ '-ITEM-' ][ 0 ] )
 					sg.popup( 'Results', self.__selecteditem,
 						font = self.__themefont,
 						icon = self.__icon )
-					window.close( )
+					_window.close( )
 
-				if values[ '-INPUT-' ] != '':
-					search = values[ '-INPUT-' ]
-					new_values = [ x for x in names if search in x ]
-					window[ '-ITEM-' ].update( new_values )
+				if _values[ '-INPUT-' ] != '':
+					_search = _values[ '-INPUT-' ]
+					_newvalues = [ x for x in _names if _search in x ]
+					_window[ '-ITEM-' ].update( _newvalues )
 				else:
-					window[ '-ITEM-' ].update( names )
+					_window[ '-ITEM-' ].update( _names )
 
-			window.close( )
+			_window.close( )
 
 		except Exception as e:
 			_exc = Error( e )
@@ -2932,10 +2928,9 @@ class ListBoxDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ColorDialog( )
 class ColorDialog( Sith ):
 	'''
-	Construcotr:
+	Construcotr:  ColorDialog( )
 
 	Purpose:  class provides a form to select colors returning string values
 	'''
@@ -2996,11 +2991,11 @@ class ColorDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (450, 450)
+		self.__formsize = ( 450, 450 )
 
 	def show( self ):
 		try:
-			color_map = {
+			_colormap = {
 					'alice blue': '#F0F8FF',
 					'AliceBlue': '#F0F8FF',
 					'antique white': '#FAEBD7',
@@ -3651,40 +3646,40 @@ class ColorDialog( Sith ):
 					'yellow3': '#CDCD00',
 					'yellow4': '#8B8B00',
 					'YellowGreen': '#9ACD32' }
-			hex_to_color = { v: k for k, v in color_map.items( ) }
-			color_list = list( color_map.keys( ) )
+			_hextocolor = { v: k for k, v in _colormap.items( ) }
+			_colorlist = list( _colormap.keys( ) )
 			COLORS_PER_ROW = 40
-			font_size = 9
+			_fontsize = 9
 
 			def make_window( ):
-				layout = [ [ sg.Text( ), ],
-				           [ sg.Text( f'{len( color_list )} Colors', font = self.__themefont ), ],
-				           [ sg.Text( size = (5, 1) ), ] ]
+				_layout = [ [ sg.Text( ), ],
+				            [ sg.Text( f'{len( _colorlist )} Colors', font = self.__themefont ), ],
+				            [ sg.Text( size = (5, 1) ), ] ]
 
-				for rows in range( len( color_list ) // COLORS_PER_ROW + 1 ):
-					row = [ ]
+				for rows in range( len( _colorlist ) // COLORS_PER_ROW + 1 ):
+					_row = [ ]
 
 					for i in range( COLORS_PER_ROW ):
 						try:
-							color = color_list[ rows * COLORS_PER_ROW + i ]
-							row.append(
+							color = _colorlist[ rows * COLORS_PER_ROW + i ]
+							_row.append(
 								sg.Text( ' ', s = 1, background_color = color, text_color = color,
 									font = self.__themefont,
-									right_click_menu = [ '_', color_map[ color ] ],
+									right_click_menu = [ '_', _colormap[ color ] ],
 									tooltip = color, enable_events = True,
-									key = (color, color_map[ color ]) ) )
+									key = (color, _colormap[ color ]) ) )
 						except IndexError as e:
 							break
 						except Exception as e:
-							sg.popup_error( f'Error while creating color window....', e,
+							sg.popup_error( f'Error while creating _color _window....', e,
 								f'rows = {rows}  i = {i}' )
 							break
-					layout.append( row )
-				layout.append( [ sg.Text( ' ', size = (10, 1) ), ] )
-				layout.append( [ sg.Text( ' ', size = (10, 1) ), ] )
-				layout.append( [ sg.Text( ' ', size = (50, 1) ), sg.Cancel( size = (20, 1) ), ] )
+					_layout.append( _row )
+				_layout.append( [ sg.Text( ' ', size = (10, 1) ), ] )
+				_layout.append( [ sg.Text( ' ', size = (10, 1) ), ] )
+				_layout.append( [ sg.Text( ' ', size = (50, 1) ), sg.Cancel( size = ( 20, 1 ) ), ] )
 
-				return sg.Window( ' Budget Execution', layout,
+				return sg.Window( ' Budget Execution', _layout,
 					font = self.__themefont,
 					size = self.__formsize,
 					element_padding = (1, 1),
@@ -3693,37 +3688,37 @@ class ColorDialog( Sith ):
 					right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_EXIT,
 					use_ttk_buttons = True )
 
-			window = make_window( )
+			_window = make_window( )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_CLOSED, 'Cancel', 'Exit'):
+				_event, _values = _window.read( )
+				if _event in (sg.WIN_CLOSED, 'Cancel', 'Exit'):
 					break
-				if event == 'Edit me':
+				if _event == 'Edit me':
 					sg.execute_editor( __file__ )
 					continue
-				elif isinstance( event, tuple ):
-					color, color_hex = event[ 0 ], event[ 1 ]
+				elif isinstance( _event, tuple ):
+					_color, _colorhex = _event[ 0 ], _event[ 1 ]
 				else:
-					color, color_hex = hex_to_color[ event ], event
+					_color, _colorhex = _hextocolor[ _event ], _event
 
-				layout2 = [ [ sg.Text( color_hex + ' on clipboard' ) ],
-				            [ sg.DummyButton( color, button_color = self.__buttoncolor,
-					            tooltip = color_hex ),
-				              sg.DummyButton( color, button_color = self.__buttoncolor,
-					              tooltip = color_hex ) ] ]
+				_layout2 = [ [ sg.Text( _colorhex + ' on clipboard' ) ],
+				             [ sg.DummyButton( _color, button_color = self.__buttoncolor,
+					            tooltip = _colorhex ),
+				              sg.DummyButton( _color, button_color = self.__buttoncolor,
+					              tooltip = _colorhex ) ] ]
 
-				window2 = sg.Window( 'Buttons with white and black text', layout2,
+				_window2 = sg.Window( 'Buttons with white and black text', _layout2,
 					keep_on_top = True,
 					finalize = True,
 					size = self.__formsize,
 					icon = self.__icon )
 
-				sg.clipboard_set( color_hex )
+				sg.clipboard_set( _colorhex )
 
-			window.close( )
+			_window.close( )
 
-			sg.popup_quick_message( 'Building window... one moment please...',
+			sg.popup_quick_message( 'Building _window... one moment please...',
 				background_color = self.__themebackground,
 				icon = self.__icon,
 				text_color = self.__themetextcolor,
@@ -3890,8 +3885,8 @@ class BudgetForm( Sith ):
 		if items is not None:
 			try:
 				_blu = '#051F3D'
-				blk = '#101010'
-				mblk = '#1E1E1E'
+				_blk = '#101010'
+				_mblk = '#1E1E1E'
 				BPAD_TOP = ((5, 5), (5, 5))
 				BPAD_LEFT = ((5, 5), (5, 5))
 				BPAD_LEFT_INSIDE = (5, (3, 5))
@@ -3899,11 +3894,11 @@ class BudgetForm( Sith ):
 				_hdr = 'Roboto 20'
 				_frasz = (450, 150)
 				_hdrsz = (920, 100)
-				header = [ [ sg.Push( ), sg.Text( f'{items[ 0 ]}', font = _hdr ), sg.Push( ) ],
-				           [ sg.Text( f'{items[ 1 ]}' ) ],
-				           [ sg.Text( f'{items[ 2 ]}' ) ] ]
-				self.__headerlayout = header
-				return header
+				_header = [ [ sg.Push( ), sg.Text( f'{items[ 0 ]}', font = _hdr ), sg.Push( ) ],
+				            [ sg.Text( f'{items[ 1 ]}' ) ],
+				            [ sg.Text( f'{items[ 2 ]}' ) ] ]
+				self.__headerlayout = _header
+				return _header
 			except Exception as e:
 				_exc = Error( e )
 				_exc.module = 'Booger'
@@ -4213,54 +4208,54 @@ class ChartPanel( Sith ):
 		super( ).__init__( )
 		sg.theme( 'DarkGrey15' )
 		self.__icon = super( ).icon_path
-		self.__formsize = (750, 650)
+		self.__formsize = ( 750, 650 )
 
 	def show( self ):
 		try:
-			sm = (10, 1)
-			md = (15, 1)
-			lg = (20, 1)
-			xl = (100, 1)
-			width = 50
-			space = 75
-			offset = 3
-			graphsz = datasz = (500, 500)
-			black = sg.theme_background_color( )
+			_sm = ( 10, 1 )
+			_md = ( 15, 1 )
+			_lg = ( 20, 1 )
+			_xl = ( 100, 1 )
+			_width = 50
+			_space = 75
+			_offset = 3
+			_graphsz = _datasz = (500, 500)
+			_black = sg.theme_background_color( )
 
-			layout = [ [ sg.Text( size = sm ), sg.Text( size = xl ) ],
-			           [ sg.Text( size = sm ),
-			             sg.Graph( graphsz, (0, 0), datasz, k = '-GRAPH-' ) ],
-			           [ sg.Text( size = sm ), sg.Text( size = xl ) ],
-			           [ sg.Text( size = lg ), sg.Button( 'Next', size = md ),
-			             sg.Text( size = lg ), sg.Exit( size = md ) ],
-			           [ sg.Sizegrip( background_color = black ) ] ]
+			_layout = [ [ sg.Text( size = _sm ), sg.Text( size = _xl ) ],
+			            [ sg.Text( size = _sm ),
+			              sg.Graph( _graphsz, ( 0, 0 ), _datasz, k = '-GRAPH-' ) ],
+			            [ sg.Text( size = _sm ), sg.Text( size = _xl ) ],
+			            [ sg.Text( size = _lg ), sg.Button( 'Next', size = _md ),
+			             sg.Text( size = _lg ), sg.Exit( size = _md ) ],
+			            [ sg.Sizegrip( background_color = _black ) ] ]
 
-			window = sg.Window( 'Budget Execution', layout,
+			_window = sg.Window( 'Budget Execution', _layout,
 				finalize = True,
 				resizable = True,
 				icon = self.__icon,
 				font = self.__themefont,
 				size = self.__formsize )
 
-			graph = window[ '-GRAPH-' ]
+			_graph = _window[ '-GRAPH-' ]
 
 			while True:
-				graph.erase( )
+				_graph.erase( )
 				for i in range( 7 ):
-					item = random.randint( 0, graphsz[ 1 ] )
-					graph.draw_rectangle( top_left = (i * space + offset, item),
-						bottom_right = (i * space + offset + width, 0),
+					_item = random.randint( 0, _graphsz[ 1 ] )
+					_graph.draw_rectangle( top_left = (i * _space + _offset, _item),
+						bottom_right = (i * _space + _offset + _width, 0),
 						fill_color = sg.theme_button_color_background( ),
 						line_color = sg.theme_button_color_text( ) )
 
-					graph.draw_text( text = item, color = '#FFFFFF',
-						location = (i * space + offset + 25, item + 10) )
+					_graph.draw_text( text = _item, color = '#FFFFFF',
+						location = (i * _space + _offset + 25, _item + 10) )
 
-				event, values = window.read( )
-				if event in (sg.WIN_CLOSED, 'Exit'):
+				_event, _values = _window.read( )
+				if _event in (sg.WIN_CLOSED, 'Exit'):
 					break
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
