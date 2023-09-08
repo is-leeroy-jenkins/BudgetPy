@@ -2577,7 +2577,7 @@ class DatePanel( Sith ):
 
 				_window = sg.Window( 'Look and Feel Browser', _layout, location = location,
 					keep_on_top = True )
-				old_theme = sg.theme( )
+				_oldtheme = sg.theme( )
 				while True:  # Event Loop
 					_event, values = _window.read( )
 					if _event in (sg.WIN_CLOSED, 'Exit', 'OK', 'Cancel'):
@@ -2598,7 +2598,7 @@ class DatePanel( Sith ):
 					sg.user_settings_set_entry( '-_theme-', values[ '-ITEM-' ][ 0 ] )
 					return values[ '-ITEM-' ][ 0 ]
 				else:
-					sg.theme( old_theme )
+					sg.theme( _oldtheme )
 				return None
 
 			def make_window( location, test_window = False ):
@@ -2725,10 +2725,9 @@ class DatePanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-# ComboBoxDialog( list )
 class ComboBoxDialog( Sith ):
 	'''
-	Construcotr:
+	Construcotr: ComboBoxDialog( data: list = None )
 
 	Purpose:  Logger object provides form for log printing
 	'''
@@ -2767,8 +2766,8 @@ class ComboBoxDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (400, 150)
-		self.__items = data if isinstance( data, list ) and len( data ) > 0 else None
+		self.__formsize = ( 400, 150 )
+		self.__items = data
 
 	def __str__( self ) -> str:
 		if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
@@ -2776,37 +2775,37 @@ class ComboBoxDialog( Sith ):
 
 	def show( self ):
 		try:
-			btnsize = ( 10, 1 )
-			space = ( 5, 1 )
+			_btnsz = (10, 1)
+			_spc = (5, 1)
 			if self.__items is None:
 				self.__items = [ f'Item {x} ' for x in range( 30 ) ]
-				values = self.__items
+				_values = self.__items
 
-			layout = [ [ sg.Text( size = space ), sg.Text( size = space ) ],
-			           [ sg.Text( size = space ), sg.Text( 'Select Item' ) ],
-			           [ sg.Text( size = space ),
+			_layout = [ [ sg.Text( size = _spc ), sg.Text( size = _spc ) ],
+			            [ sg.Text( size = _spc ), sg.Text( 'Select Item' ) ],
+			            [ sg.Text( size = _spc ),
 			             sg.DropDown( self.__items, key = '-ITEM-', size = ( 35, 1 ) ) ],
-			           [ sg.Text( size = space ), sg.Text( size = space ) ],
-			           [ sg.Text( size = space ), sg.OK( size = btnsize ), sg.Text( size = (8,
-			                                                                                1) ),
-			             sg.Cancel( size = btnsize ) ] ]
+			            [ sg.Text( size = _spc ), sg.Text( size = _spc ) ],
+			            [ sg.Text( size = _spc ), sg.OK( size = _btnsz ), sg.Text( size = (8,
+			                                                                               1) ),
+			              sg.Cancel( size = _btnsz ) ] ]
 
-			window = sg.Window( '  Budget Execution', layout,
+			_window = sg.Window( '  Budget Execution', _layout,
 				icon = self.__icon,
 				size = self.__formsize )
 
 			while True:
-				event, values = window.read( )
-				if event in (sg.WIN_CLOSED, 'Exit', 'Cancel'):
+				_event, _values = _window.read( )
+				if _event in (sg.WIN_CLOSED, 'Exit', 'Cancel'):
 					break
 
-				self.__selecteditem = values[ '-ITEM-' ]
-				sg.popup( event, values, self.__selecteditem,
+				self.__selecteditem = _values[ '-ITEM-' ]
+				sg.popup( _event, _values, self.__selecteditem,
 					text_color = self.__themetextcolor,
 					font = self.__themefont,
 					icon = self.__icon )
 
-			window.close( )
+			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -4243,16 +4242,16 @@ class ChartPanel( Sith ):
 				_graph.erase( )
 				for i in range( 7 ):
 					_item = random.randint( 0, _graphsz[ 1 ] )
-					_graph.draw_rectangle( top_left = (i * _space + _offset, _item),
-						bottom_right = (i * _space + _offset + _width, 0),
+					_graph.draw_rectangle( top_left = ( i * _space + _offset, _item ),
+						bottom_right = ( i * _space + _offset + _width, 0 ),
 						fill_color = sg.theme_button_color_background( ),
 						line_color = sg.theme_button_color_text( ) )
 
 					_graph.draw_text( text = _item, color = '#FFFFFF',
-						location = (i * _space + _offset + 25, _item + 10) )
+						location = ( i * _space + _offset + 25, _item + 10 ) )
 
 				_event, _values = _window.read( )
-				if _event in (sg.WIN_CLOSED, 'Exit'):
+				if _event in ( sg.WIN_CLOSED, 'Exit' ):
 					break
 
 			_window.close( )
