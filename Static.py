@@ -61,7 +61,11 @@ class EXT( Enum ):
     SVG = auto( )
 
 class BOC( Enum ):
-    '''Enumeration of object class codes'''
+    '''
+    Constructor:  BOC.Member
+
+    Purpose:  Enumeration of object class codes'''
+
     PAYROLL = 10
     FTE = 17
     EXPENSES = 36
@@ -70,7 +74,10 @@ class BOC( Enum ):
     GRANTS = 41
 
 class NPM( Enum ):
-    '''Enumeration of NPM Codes'''
+    '''
+    Constructor:  NPM.Member
+
+    Purpose:  Enumeration of NPM Codes'''
     A = 1
     B = 2
     C = 3
@@ -84,7 +91,11 @@ class NPM( Enum ):
     W = 11
 
 class Source( Enum ):
-    '''Enumeration of table_name column_names'''
+    '''
+    Constructor:  Source.Member
+
+    Purpose:  Enumeration of table_name column_names
+    '''
     NS = auto( )
     Actuals = auto( )
     AdministrativeRequests = auto( )
@@ -201,7 +212,11 @@ class Source( Enum ):
     URL = auto( )
 
 class Provider( Enum ):
-    '''Enumeration of data providers'''
+    '''
+    Constructor:  Provider.Member
+
+    Purpose:  Enumeration of data providers
+    '''
     SQLite = 0
     Access = 1
     SqlServer = 2
@@ -209,12 +224,20 @@ class Provider( Enum ):
     CSV = 4
 
 class Model( Enum ):
-    '''Enumeration of model types'''
+    '''
+    Constructor:  Model.Member
+
+    Purpose:  Enumeration of model types
+    '''
     Data = auto( )
     Reference = auto( )
 
 class ParamStyle( Enum ):
-    '''Enumeration of parameter styles'''
+    '''
+    Constructor:  ParamStyle( )
+
+    Purpose:  Enumeration of parameter styles
+    '''
     format = 1
     number = 2
     pyformat = 3
@@ -223,7 +246,11 @@ class ParamStyle( Enum ):
     NS = 6
 
 class SQL( Enum ):
-    '''Enumeration of sql commands'''
+    '''
+    Constructor:  SQL.Member
+
+    Purpose:   Enumeration of sql commands
+    '''
     SELECT = 0
     SELECTALL = 1
     INSERT = 2
@@ -237,7 +264,11 @@ class SQL( Enum ):
     ALTERCOLUMN = 10
 
 class APP( Enum ):
-    '''Enumeration of auxiliary applications'''
+    '''
+    Constructor:  APP.Member
+
+    Purpose:  Enumeration of auxiliary applications
+    '''
     SQLite = auto( )
     Access = auto( )
     Excel = auto( )
@@ -248,7 +279,11 @@ class APP( Enum ):
     Calculator = auto( )
 
 class PNG( Enum ):
-    '''Enumeration of images'''
+    '''
+    Constructor:  PNG.Member
+
+    Pupose:  Enumeration of images
+    '''
     NS = auto( )
     Attachment = auto( )
     Access = auto( )
@@ -360,7 +395,11 @@ class PNG( Enum ):
     Yes = auto( )
 
 class ICO( Enum ):
-    '''Enumeration of ICO files'''
+    '''
+    Constructor:  ICO.Member
+
+    Purpose:  Enumeration of ICO files
+    '''
     NS = auto( )
     Access = auto( )
     Browse = auto( )
@@ -374,7 +413,11 @@ class ICO( Enum ):
     Text = auto( )
 
 class RPIO( Enum ):
-    '''Enumeration of Resource Planning and Implementation Offices'''
+    '''
+    Constructor:  RPIO.Member
+
+    Pupose:  Enumeration of Resource Planning and Implementation Offices
+    '''
     NS = 0
     R1 = 1
     R2 = 2
@@ -399,7 +442,11 @@ class RPIO( Enum ):
     OECA = 77
 
 class ACCDB( Enum ):
-    '''Enumeration of access database types used in the application'''
+    '''
+    Constructor:  ACCDB.Member
+
+    Purpose:  Enumeration of access database types used in the application
+    '''
     INTEGER = auto( )
     NUMBER = auto( )
     AUTONUMBER = auto( )
@@ -413,14 +460,22 @@ class ACCDB( Enum ):
     CALCULATED = auto( )
 
 class DB( Enum ):
-    '''Enumeration of SQLite database types used in the application'''
+    '''
+    Constructor:  DB.Member
+
+    Purpose:  Enumeration of SQLite database types used in the application
+    '''
     REAL = auto( )
     TEXT = auto( )
     INTEGER = auto( )
     BLOB = auto( )
 
 class MDF( Enum ):
-    '''Enumeration of SQL Server database types used in the application'''
+    '''
+    Constructor:  MDF.Member
+
+    Purpose:  Enumeration of SQL Server database types used in the application
+    '''
     BIT = auto( )
     INT = auto( )
     DECIMAL = auto( )

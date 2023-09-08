@@ -45,14 +45,14 @@ import subprocess as sp
 from Booger import *
 from Static import APP
 
-
-# App( client )
 class App( ):
     '''
-    App( client ) initializes object providing
+    Constructor:  App( client: enum )
+
+    Purpose:  Class defines object providing
     factory methods run( ) and run( args ) that run
-    processes based on 'client' enumeration input args
-     '''
+    processes based on 'APP' enumeration input args
+    '''
     __app = None
     __sqliteclient = None
     __accessclient = None
