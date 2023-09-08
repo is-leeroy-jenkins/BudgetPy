@@ -2814,7 +2814,6 @@ class ComboBoxDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-#
 class ListBoxDialog( Sith ):
 	'''
 	Construcotr:  ListBox( data: list = None )

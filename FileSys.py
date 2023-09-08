@@ -576,7 +576,7 @@ class File( Path ):
 
 class Folder( Path ):
 	'''
-	Constructor: Folder( path )
+	Constructor: Folder( filepath: str )
 
 	Purpose: Class providing file directory information
 	'''
@@ -833,7 +833,8 @@ class Folder( Path ):
 
 class Message( ):
 	'''
-	Constructor: Message( sender, receiver, body, subject, copy )
+	Constructor: Message( sender: str, receiver: str,
+	              body: str, subject: str, copy: str = '')
 
 	Purpose: Class providing email behavior
 	'''
@@ -923,7 +924,8 @@ class Email( Message ):
 
 class MessageBuilder( ):
 	'''
-	Constructor: MessageBuilder(  )
+	Constructor: MessageBuilder( sender: str = '', receiver: str = '',
+	              body: str = '', copy: str = '', subject: str = '' )
 
 	Purpose:  Helper class for generating email messages
 	'''
@@ -1091,7 +1093,7 @@ class Excel( ):
 
 class ExcelReport( Excel ):
 	'''
-	Constructor:  ExcelReport( title, rows = 46, cols = 12 ).
+	Constructor:  ExcelReport( name: str, rows: int = 46, cols: int = 12 ).
 
 	Purpose:  Class providing spreadsheet for reports '''
 	__rows = None
@@ -1137,6 +1139,11 @@ class ExcelReport( Excel ):
 		self.__dimensions = (self.__rows, self.__columns)
 
 class ZipFile( ):
+	'''
+	Constructor:  ZipFile( path: str )
+
+	Purpose:  Class defines object providing zip file functionality
+	'''
 	__infile = None
 	__name = None
 	__filepath = None

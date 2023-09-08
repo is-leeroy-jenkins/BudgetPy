@@ -728,7 +728,8 @@ class Connection( DbConfig ):
     '''
     Constructor: Connection( source, provider = Provider.SQLite )
 
-    Purpose: Class providing object used to connect to the databases'''
+    Purpose: Class providing object used to connect to the databases
+    '''
     __driver = None
     __path = None
     __connectionstring = None
@@ -792,9 +793,10 @@ class Connection( DbConfig ):
 class SqlConfig( ):
     '''
      Constructor: SqlConfig( command: SQL = SQL.SELECTALL, column_names: list = None,
-     values: tuple = None, style: ParamStyle = None )
+                values: tuple = None, style: ParamStyle = None )
 
-     Purpose: Class provides database interaction behavior'''
+     Purpose: Class provides database interaction behavior
+     '''
     __command = None
     __names = None
     __values = None
@@ -1289,7 +1291,7 @@ class Query( ):
         if self.__querytext is not None:
             return self.__querytext
 
-    def create_commandtext( self ) -> str:
+    def create_sqltext( self ) -> str:
         try:
             _table = self.__tablename
             _crit = self.__sqlconfig.dump_where( )
@@ -1378,7 +1380,6 @@ class SQLiteData( Query ):
         if self.__query is not None:
             return self.__query
 
-    # noinspection PyTypeChecker
     def create_table( self ) -> list[ pyodbc.Row ]:
         try:
             _query = self.__query
@@ -1593,7 +1594,7 @@ class SqlData( Query ):
 class DataBuilder( ):
     '''
     Constructor: DataBuilder( provider: Provider, source: Source,
-    command: SQL, column_names: list, values: tuple ).
+            command: SQL, column_names: list, values: tuple ).
 
     Purpose; Class provides methods that access
     application data.
@@ -1876,7 +1877,8 @@ class DataRow( ):
     '''
     Constructor: DataRow( column_names = None, values = ( ), _source = None)
 
-    Purpose:  Defines the class representing rows of data'''
+    Purpose:  Defines the class representing rows of data
+    '''
     __source = None
     __names = None
     __items = None
@@ -2174,7 +2176,7 @@ class BudgetData( ):
 
     def create_frame( self ) -> DataFrame:
         '''Method that returns a pandas DataFrame object
-        based on the Source input arguement '_source' given to the constructor'''
+        based on the Source input arguement 'source' given to the constructor'''
         try:
             _path = self.__path
             _source = self.__source

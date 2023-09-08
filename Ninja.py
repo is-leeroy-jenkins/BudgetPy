@@ -22291,7 +22291,7 @@ class TreasurySymbol( ):
             sql = SqlStatement( dbcfg, sqlcfg )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.create_commandtext( )
+            _query = _sql.create_sqltext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
