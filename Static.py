@@ -263,9 +263,9 @@ class SQL( Enum ):
     ALTERTABLE = 9
     ALTERCOLUMN = 10
 
-class APP( Enum ):
+class Client( Enum ):
     '''
-    Constructor:  APP.Member
+    Constructor:  Client.Member
 
     Purpose:  Enumeration of auxiliary applications
     '''
@@ -1096,3 +1096,32 @@ class PrimaryKey( Enum ):
     UnliquidatedObligationsId = auto( )
     UnobligatedBalancesId = auto( )
     UrlId = auto( )
+
+class Holiday( Enum ):
+    '''
+    Constructor:  Holiday.Member
+
+    Purpose:  Enumberation representing federal holidays
+    New Year’s Day, January 1.
+    Martin Luther King, the third Monday in January.
+    Washington’s Birthday, the third Monday in February.
+    Memorial Day, the last Monday in May.
+    Juneteenth National Independence Day, June 19.
+    Independence Day,  July 4.
+    Veterans Day, November 11.
+    Labor Day, the first Monday in September.
+    Columbus Day, the second Monday in October.
+    Thanksgiving Day, the fourth Thursday in November.
+    Christmas Day, December 25.
+    '''
+    NewYearsDay = auto( )
+    MartinLutherKingDay = auto( )
+    WashingtonsDay = auto( )
+    MemorialDay = auto( )
+    JuneteenthDay = auto( )
+    IndependenceDay = auto( )
+    VeteransDay = auto( )
+    LaborDay = auto( )
+    ColumbusDay = auto( )
+    ThanksgivingDay = auto( )
+    ChristmasDay = auto( )

@@ -1551,7 +1551,7 @@ class SqlData( Query ):
         self.__query = sql.get_query( )
         self.__table = conn._source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
-        self.__driver = r'{ SQL Server Native APP 11.0 };'
+        self.__driver = r'{ SQL Server Native Client 11.0 };'
 
     def __str__( self ) -> str:
         if self.__query is not None:

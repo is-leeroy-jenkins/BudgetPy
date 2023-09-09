@@ -62,7 +62,7 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d.axes3d import get_test_data
 from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
-from Static import EXT, APP
+from Static import EXT, Client
 
 class Error( Exception ):
 	'''
@@ -951,7 +951,7 @@ class GoogleDialog( Sith ):
 				elif _event == 'Submit':
 					self.__querytext = _values[ '-QUERY-' ]
 					_google = search( term = self.__querytext, num_results = 5, lang = 'en' )
-					_app = App( APP.Edge )
+					_app = App( Client.Edge )
 					for result in list( _google ):
 						self.__results.append( result )
 						_app.run_args( result )
