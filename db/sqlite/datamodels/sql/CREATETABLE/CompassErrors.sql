@@ -1,4 +1,4 @@
-CREATE TABLE CompassErrors2 
+CREATE TABLE CompassErrors
 (
 	CompassErrorsId	INTEGER NOT NULL UNIQUE,
 	Code	TEXT(80) NULL DEFAULT NS,
