@@ -248,11 +248,11 @@ class SqlPath( ):
 
 class SqlFile( ):
     '''
-    Construxtor: SqlFile( source: Source = None, provider: Provider  = Provider.SQLite,
+    Construxtor: SqlFile( src: Source = None, pvdr: Provider  = Provider.SQLite,
                   command: SQL = SQL.SELECTALL )
 
     Purpuse: Class providing access to sql sub-folders in the application provided
-    optional arguments source, provider, and command
+    optional arguments src, pvdr, and command
     '''
     __data = None
     __command = None
@@ -493,7 +493,7 @@ class SqlFile( ):
 
 class DbConfig( ):
     '''
-    Constructor: DbConfig( source: Source, provider: Provider = Provider.SQLite )
+    Constructor: DbConfig( src: Source, pvdr: Provider = Provider.SQLite )
 
     Purpose: Class provides list of Budget Execution
     tables across two databases
@@ -543,109 +543,69 @@ class DbConfig( ):
         if value is not None:
             self.__table = value
 
-    def __init__( self, source: Source, provider = Provider.SQLite ):
+    def __init__( self, src: Source, pvdr = Provider.SQLite ):
         '''Constructor for the DbConfig class providing
         value details'''
-        self.__provider = provider
-        self.__source = source
-        self.__table = source.name
-        self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Dallocation_transfer_agency.db'
+        self.__provider = pvdr
+        self.__source = src
+        self.__table = src.name
+        self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
         self.__accesspath = os.getcwd( ) + \
-                            r'\db\access\datamodels\Dallocation_transfer_agency.accdb'
+                            r'\db\access\datamodels\Data.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
-        self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Dallocation_transfer_agency.mdf'
-        self.__data = [ 'AccountingEvents',
-                        'Accounts',
-                        'ActivityCodes',
-                        'Actuals',
+        self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
+        self.__data = [ 'Actuals',
                         'AdministrativeRequests',
                         'Allocations',
-                        'AllowanceHolders',
                         'AmericanRescuePlanCarryoverEstimates',
                         'AnnualCarryoverEstimates',
                         'AnnualReimbursableEstimates',
-                        'ApplicationTables',
                         'ApportionmentData',
                         'AppropriationAvailableBalances',
                         'AppropriationDocuments',
                         'AppropriationLevelAuthority',
-                        'Appropriations',
                         'BudgetaryResourceExecution',
-                        'BudgetControls',
+                        'BudgetAuthorityAndOutlays',
                         'BudgetDocuments',
-                        'BudgetObjectClasses',
-                        'CapitalPlanningInvestmentCodes',
                         'CarryoverApportionments',
                         'CarryoverRequests',
                         'Changes',
-                        'ColumnSchema',
                         'CompassLevels',
-                        'CongressionalControls',
+                        'CongressionalProjects',
                         'Contacts',
-                        'CostAreas',
-                        'DataRuleDescriptions',
                         'Defactos',
                         'Deobligations',
                         'DocumentControlNumbers',
-                        'Documents',
                         'Earmarks',
                         'Expenditures',
-                        'FederalHolidays',
-                        'FinanceObjectClasses',
-                        'FiscalYears',
-                        'FundCategories',
-                        'Funds',
-                        'FundSymbols',
-                        'GeneralLedgerAccounts',
-                        'Goals',
-                        'GsPayScales',
                         'HeadquartersAuthority',
-                        'HeadquartersOffices',
-                        'Images',
                         'InflationReductionActCarryoverEstimates',
                         'JobsActCarryoverEstimates',
-                        'Messages',
+                        'LedgerAccounts',
                         'MonthlyActuals',
                         'MonthlyLedgerAccountBalances',
                         'MonthlyOutlays',
-                        'NationalPrograms',
-                        'Objectives',
                         'ObligationActivity',
                         'Obligations',
                         'OpenCommitments',
                         'OperatingPlans',
-                        'Organizations',
                         'Outlays',
-                        'PayPeriods',
                         'PayrollAuthority',
-                        'PayrollCostCodes',
                         'PayrollRequests',
                         'PRC',
-                        'ProgramAreas',
-                        'ProgramProjectDescriptions',
-                        'ProgramProjects',
-                        'Projects',
-                        'Providers',
-                        'PublicLaws',
                         'QueryDefinitions',
                         'RecoveryAct',
-                        'ReferenceTables',
                         'RegionalAuthority',
-                        'RegionalOffices',
                         'ReimbursableAgreements',
                         'ReimbursableFunds',
                         'Reports',
-                        'ResourcePlanningOffices',
-                        'Resources',
-                        'ResponsibilityCenters',
-                        'SchemaTypes',
+                        'Reprogrammings',
                         'SiteActivity',
                         'SpecialAccounts',
                         'SpendingDocuments',
                         'SpendingRates',
                         'StateGrantObligations',
-                        'StateOrganizations',
                         'StatusOfAmericanRescuePlanFunds',
                         'StatusOfAppropriations',
                         'StatusOfBudgetaryResources',
@@ -654,15 +614,60 @@ class DbConfig( ):
                         'StatusOfInflationReductionActFunds',
                         'StatusOfJobsActFunds',
                         'StatusOfSupplementalFunds',
-                        'SubAppropriations',
                         'SuperfundSites',
                         'SupplementalCarryoverEstimates',
                         'TransferActivity',
                         'Transfers',
-                        'TransTypes',
-                        'TreasurySymbols',
                         'UnliquidatedObligations',
                         'UnobligatedBalances',
+                        'AccountingEvents',
+                        'Accounts',
+                        'ActivityCodes',
+                        'AllowanceHolders',
+                        'ApplicationTables',
+                        'Appropriations',
+                        'BudgetControls',
+                        'BudgetObjectClasses',
+                        'CapitalPlanningInvestmentCodes',
+                        'ColumnSchema',
+                        'CompassErrors',
+                        'CongressionalControls',
+                        'CostAreas',
+                        'DataRuleDescriptions',
+                        'Documents',
+                        'EarmarkCodes',
+                        'FederalHolidays',
+                        'FinanceObjectClasses',
+                        'FiscalYears',
+                        'FundCategories',
+                        'Funds',
+                        'FundSymbols',
+                        'Goals',
+                        'GsPayScales',
+                        'HeadquartersOffices',
+                        'Images',
+                        'Messages',
+                        'NationalPrograms',
+                        'Objectives',
+                        'Organizations',
+                        'PayPeriods',
+                        'ProgramAreas',
+                        'ProgramProjectDescriptions',
+                        'ProgramProjects',
+                        'Projects',
+                        'Providers',
+                        'PublicLaws',
+                        'ReconciliationLines',
+                        'ReferenceTables',
+                        'RegionalOffices',
+                        'ResourcePlanningOffices',
+                        'Resources',
+                        'ResponsibilityCenters',
+                        'SchemaTypes',
+                        'StateOrganizations',
+                        'SubAppropriations',
+                        'TransTypes',
+                        'TreasurySybmols',
                         'URL' ]
 
     def __str__( self ) -> str:
@@ -726,7 +731,7 @@ class DbConfig( ):
 
 class Connection( DbConfig ):
     '''
-    Constructor: Connection( source, provider = Provider.SQLite )
+    Constructor: Connection( src, pvdr = Provider.SQLite )
 
     Purpose: Class providing object used to connect to the databases
     '''
@@ -765,8 +770,8 @@ class Connection( DbConfig ):
         if value is not None:
             self.__connectionstring = value
 
-    def __init__( self, source: Source, provider: Provider = Provider.SQLite ):
-        super( ).__init__( source, provider )
+    def __init__( self, src: Source, pvdr: Provider = Provider.SQLite ):
+        super( ).__init__( src, pvdr )
         self.__source = super( ).source
         self.__provider = super( ).provider
         self.__path = super( ).get_path( )
@@ -827,13 +832,13 @@ class SqlConfig( ):
 
     @property
     def values( self ) -> tuple:
-        ''' builds crit from provider index namevaluepairs'''
+        ''' builds crit from pvdr index namevaluepairs'''
         if self.__values is not None:
             return self.__values
 
     @values.setter
     def values( self, value: tuple ):
-        ''' builds crit from provider index namevaluepairs'''
+        ''' builds crit from pvdr index namevaluepairs'''
         if value is not None:
             self.__values = value
 
@@ -933,7 +938,7 @@ class SqlConfig( ):
     def dump_columns( self ) -> str:
         '''dump_columns( ) returns a string of _columns
         used in select and insert statements from list self.__colnames
-        @return: '''
+         '''
         try:
             if self.__names is not None:
                 _colnames = ''
@@ -1013,16 +1018,6 @@ class SqlStatement( ):
             self.__provider = value
 
     @property
-    def path( self ) -> str:
-        if self.__path is not None:
-            return self.__path
-
-    @path.setter
-    def path( self, value: str ):
-        if value is not None:
-            self.__path = value
-
-    @property
     def table_name( self ) -> str:
         if self.__table is not None:
             return self.__table
@@ -1077,8 +1072,8 @@ class SqlStatement( ):
 
     def __init__( self, dbcfg: DbConfig, sqlcfg: SqlConfig ):
         self.__commandtype = sqlcfg.command
-        self.__provider = dbcfg._provider
-        self.__source = dbcfg._source
+        self.__provider = dbcfg.provider
+        self.__source = dbcfg.source
         self.__table = dbcfg.table_name
         self.__names = sqlcfg.names
         self.__values = sqlcfg.values
@@ -1279,8 +1274,8 @@ class Query( ):
         self.__connection = conn
         self.__sqlstatement = sql
         self.__sqlconfig = SqlConfig( )
-        self.__source = conn._source
-        self.__provider = conn._provider
+        self.__source = conn.source
+        self.__provider = conn.provider
         self.__commandtype = sql.command_type
         self.__path = conn.path
         self.__connectionstring = conn.connection_string
@@ -1413,9 +1408,6 @@ class SQLiteData( Query ):
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
-        finally:
-            if _connection is not None:
-                _connection = None
 
 class AccessData( Query ):
     '''
@@ -1442,7 +1434,7 @@ class AccessData( Query ):
 
     def __init__( self, conn: Connection, sql: SqlStatement ):
         super( ).__init__( conn, sql )
-        self.__source = super( )._source
+        self.__source = super( ).source
         self.__provider = Provider.Access
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sql_statement
@@ -1546,10 +1538,10 @@ class SqlData( Query ):
         super( ).__init__( conn, sql )
         self.__provider = Provider.SqlServer
         self.__connection = conn
-        self.__source = conn._source
+        self.__source = conn.source
         self.__sqlstatement = sql
         self.__query = sql.get_query( )
-        self.__table = conn._source.name
+        self.__table = conn.source.name
         self.__server = r'(LocalDB)\MSSQLLocalDB;'
         self.__driver = r'{ SQL Server Native Client 11.0 };'
 
@@ -1593,7 +1585,7 @@ class SqlData( Query ):
 
 class DataBuilder( ):
     '''
-    Constructor: DataBuilder( provider: Provider, source: Source,
+    Constructor: DataBuilder( pvdr: Provider, src: Source,
             command: SQL, column_names: list, values: tuple ).
 
     Purpose; Class provides methods that access
@@ -1972,7 +1964,7 @@ class DataRow( ):
 
 class DataTable( ):
     '''
-    Constructor: DataTable( columns = None, rows = None, source = None, dataframe = None  ).
+    Constructor: DataTable( columns = None, rows = None, src = None, dataframe = None  ).
 
     Purpose: Defines the class representing table of data
     '''
@@ -2069,7 +2061,7 @@ class DataTable( ):
 
 class BudgetData( ):
     '''
-    Constructor: BudgetData( source: Source ).
+    Constructor: BudgetData( src: Source ).
 
     Purpose:  Class containing factory method for providing
     pandas dataframes
@@ -2176,7 +2168,7 @@ class BudgetData( ):
 
     def create_frame( self ) -> DataFrame:
         '''Method that returns a pandas DataFrame object
-        based on the Source input arguement 'source' given to the constructor'''
+        based on the Source input arguement 'src' given to the constructor'''
         try:
             _path = self.__path
             _source = self.__source
