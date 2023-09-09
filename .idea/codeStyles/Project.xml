@@ -1,5 +1,6 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
+    <option name="RIGHT_MARGIN" value="100" />
     <DBN-PSQL>
       <case-options enabled="true">
         <option name="KEYWORD_CASE" value="lower" />
@@ -12,9 +13,9 @@
     </DBN-PSQL>
     <DBN-SQL>
       <case-options enabled="true">
-        <option name="KEYWORD_CASE" value="lower" />
-        <option name="FUNCTION_CASE" value="lower" />
-        <option name="PARAMETER_CASE" value="lower" />
+        <option name="KEYWORD_CASE" value="upper" />
+        <option name="FUNCTION_CASE" value="upper" />
+        <option name="PARAMETER_CASE" value="upper" />
         <option name="DATATYPE_CASE" value="lower" />
         <option name="OBJECT_CASE" value="preserve" />
       </case-options>
@@ -35,16 +36,25 @@
       <option name="USE_CONTINUATION_INDENT_FOR_COLLECTION_AND_COMPREHENSIONS" value="true" />
       <option name="FROM_IMPORT_PARENTHESES_FORCE_IF_MULTILINE" value="true" />
     </Python>
+    <editorconfig>
+      <option name="ENABLED" value="false" />
+    </editorconfig>
+    <codeStyleSettings language="EditorConfig">
+      <option name="SPACE_AFTER_COLON" value="true" />
+    </codeStyleSettings>
     <codeStyleSettings language="Python">
       <option name="RIGHT_MARGIN" value="100" />
+      <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="0" />
       <option name="KEEP_BLANK_LINES_IN_CODE" value="0" />
-      <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
       <option name="ALIGN_MULTILINE_PARAMETERS_IN_CALLS" value="false" />
       <option name="SPACE_WITHIN_METHOD_CALL_PARENTHESES" value="true" />
+      <option name="SPACE_WITHIN_EMPTY_METHOD_CALL_PARENTHESES" value="true" />
       <option name="SPACE_WITHIN_METHOD_PARENTHESES" value="true" />
+      <option name="SPACE_WITHIN_EMPTY_METHOD_PARENTHESES" value="true" />
       <option name="SPACE_WITHIN_BRACKETS" value="true" />
       <option name="WRAP_LONG_LINES" value="true" />
       <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="true" />
         <option name="SMART_TABS" value="true" />
       </indentOptions>
     </codeStyleSettings>

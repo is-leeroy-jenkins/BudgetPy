@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS StateOrganizations 
 (
 	StateOrganizationsId	INTEGER NOT NULL UNIQUE,
-	Name	TEXT,
-	Code	TEXT,
-	RpioName	TEXT,
-	RpioCode	TEXT,
+	Name	TEXT(80) NULL DEFAULT NS,
+	Code	TEXT(80) NULL DEFAULT NS,
+	RpioName	TEXT(80) NULL DEFAULT NS,
+	RpioCode	TEXT(80) NULL DEFAULT NS,
 	PRIMARY KEY(StateOrganizationsId AUTOINCREMENT)
 );

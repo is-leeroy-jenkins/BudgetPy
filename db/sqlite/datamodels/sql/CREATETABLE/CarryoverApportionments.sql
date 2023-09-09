@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS CarryoverApportionments
 (
     CarryoverApportionmentsId INTEGER NOT NULL UNIQUE,
-    MainAccount TEXT(80) NULL DEFAULT NS,
-    TreasurySymbol TEXT(80) NULL DEFAULT NS,
     FiscalYear  TEXT(80) NULL DEFAULT NS,
+    MainAccount TEXT(80) NULL DEFAULT NS,
+    TreasuryAccount TEXT(80) NULL DEFAULT NS,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
     Year  TEXT(80) NULL DEFAULT NS,

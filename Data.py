@@ -1,2246 +1,2190 @@
+'''
+  ******************************************************************************************
+      Assembly:                BudgetPy
+      Filename:                Data.py
+      Author:                  Terry D. Eppler
+      Created:                 05-31-2023
+
+      Last Modified By:        Terry D. Eppler
+      Last Modified On:        06-01-2023
+  ******************************************************************************************
+  <copyright file="Data.py" company="Terry D. Eppler">
+
+     This is a Federal Budget, Finance, and Accounting application.
+     Copyright ©  2023  Terry Eppler
+
+     Permission is hereby granted, free of charge, to any person obtaining a copy
+     of this software and associated documentation files (the “Software”),
+     to deal in the Software without restriction,
+     including without limitation the rights to use,
+     copy, modify, merge, publish, distribute, sublicense,
+     and/or sell copies of the Software,
+     and to permit persons to whom the Software is furnished to do so,
+     subject to the following conditions:
+
+     The above copyright notice and this permission notice shall be included in all
+     copies or substantial portions of the Software.
+
+     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+     DEALINGS IN THE SOFTWARE.
+
+     You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+
+  </copyright>
+  <summary>
+    Data.py
+  </summary>
+  ******************************************************************************************
+  '''
 import sqlite3 as sqlite
 from pandas import DataFrame
 from pandas import read_sql as sqlreader
 import pyodbc as db
 import os
-
 import pyodbc
 from Static import Source, Provider, SQL, ParamStyle
 from Booger import Error, ErrorDialog
 
-# Pascal( input )
 class Pascal( ):
-    '''Pascal( input ).
-    Splits 'input' argument into Pascal Casing'''
-    __input = None
-    __output = None
+	'''
+	Constructor: Pascal( input: str )
 
-    @property
-    def input( self ) -> str:
-        if self.__input is not None:
-            return self.__input
+	Purpose: Claas splits string 'input' argument into Pascal Casing
+	'''
+	__input = None
+	__output = None
 
-    @input.setter
-    def input( self, value: str ):
-        if value is not None:
-            self.__input = value
+	@property
+	def input( self ) -> str:
+		if self.__input is not None:
+			return self.__input
 
-    @property
-    def output( self ) -> str:
-        """
+	@input.setter
+	def input( self, value: str ):
+		if value is not None:
+			self.__input = value
 
-        @return:
-        """
-        if self.__output is not None:
-            return self.__output
+	@property
+	def output( self ) -> str:
+		if self.__output is not None:
+			return self.__output
 
-    @output.setter
-    def output( self, value ):
-        if value is not None and value != self.__input:
-            self.__output = value
+	@output.setter
+	def output( self, value: str ):
+		if value is not None and value != self.__input:
+			self.__output = value
 
-    def __init__( self, buffer = None ):
-        self.__input = buffer if buffer is not None and buffer != '' else None
+	def __init__( self, buffer: str = None ):
+		self.__input = buffer
 
-    def __str__( self ) -> str:
-        if self.__output is not None and self.__output != '':
-            return self.__output
+	def __str__( self ) -> str:
+		if self.__output is not None:
+			return self.__output
 
-    def split( self ) -> str:
-        '''takes the string provided as an inbuffer argument
-         and formats it into pascal case
-         @return: '''
-        try:
-            if self.__input != '' and self.__input.count( ' ' ) == 0:
-                inbuffer = list( self.__input )
-                rtnstr = ''
-                outstr = ''
-                cnt = len( inbuffer )
+	def split( self ) -> str:
+		'''Method that formats the input string
+		 into pascal casing.
+		 '''
+		try:
+			if self.__input is not None and self.__input.count( ' ' ) == 0:
+				_buffer = [ c for c in self.__input ]
+				_retval = ''
+				_output = ''
+				_count = len( _buffer )
 
-                for i in range( cnt ):
-                    char = inbuffer[ i ]
-                    if i <= 1 and char.islower( ):
-                        outstr += f'{char}'
-                    elif i <= 1 and char.isupper( ):
-                        outstr += f'{char}'
-                    elif i > 1 and char.islower( ):
-                        outstr += f'{char}'
-                    elif i > 1 and char.isupper( ):
-                        outstr += f' {char}'
+				for i in range( _count ):
+					_char = _buffer[ i ]
+					if i <= 1 and _char.islower( ):
+						_output += f'{_char}'
+					elif i <= 1 and _char.isupper( ):
+						_output += f'{_char}'
+					elif i > 1 and _char.islower( ):
+						_output += f'{_char}'
+					elif i > 1 and _char.isupper( ):
+						_output += f' {_char}'
 
-                if len( outstr ) < 5:
-                    rtnstr = outstr.replace( ' ', '' )
-                else:
-                    rtnstr = outstr.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ) \
-                        .replace( 'Rpio', 'RPIO' ).replace( 'Rc', 'RC' ) \
-                        .replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ) \
-                        .replace( 'Omb', 'OMB' ).replace( 'Npm', 'NPM' ) \
-                        .replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ) \
-                        .replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' ) \
-                        .replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' ) \
-                        .replace( ' OF ', ' Of ' )
+				if len( _output ) < 5:
+					_retval = _output.replace( ' ', '' )
+				else:
+					_retval = _output.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ) \
+						.replace( 'Rpio', 'RPIO' ).replace( 'Rc', 'RC' ) \
+						.replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ) \
+						.replace( 'Omb', 'OMB' ).replace( 'Npm', 'NPM' ) \
+						.replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ) \
+						.replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' ) \
+						.replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' ) \
+						.replace( ' OF ', ' Of ' )
 
-                self.__output = rtnstr
-                return self.__output
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'Pascal'
-            exc.method = 'split( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+				self.__output = _retval
+				return self.__output
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'Pascal'
+			_exc.method = 'split( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    def join( self ) -> str:
-        '''removes ' ' from strings previously formatted into pascal casing with split( self ) '''
-        try:
-            if isinstance( self.__input, str ) and self.__input.count( ' ' ) > 0:
-                inbuffer = list( self.__input )
-                outlist = list( )
-                outstr = ''
+	def join( self ) -> str:
+		'''Method removes ' ' from strings previously
+		formatted into pascal casing with split( self ) '''
+		try:
+			if self.__input is not None and self.__input.count( ' ' ) > 0:
+				_buffer = [ c for c in self.__input ]
+				_output = list( )
+				_retval = ''
 
-                for char in inbuffer:
-                    if char != ' ':
-                        outlist.append( char )
+				for char in _buffer:
+					if char != ' ':
+						_output.append( char )
 
-                for o in outlist:
-                    outstr += f'{o}'
+				for o in _output:
+					_retval += f'{o}'
 
-                self.__output = outstr.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ) \
-                    .replace( 'RPIO', 'Rpio' ).replace( 'RC', 'Rc' ) \
-                    .replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ) \
-                    .replace( 'OMB', 'Omb' ).replace( 'NPM', 'Npm' ) \
-                    .replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
-                    .replace( 'THE', 'The' ).replace( 'OR', 'Or' ) \
-                    .replace( 'AND', 'And' ).replace( 'BUT', 'But' ) \
-                    .replace( 'OF', 'Of' )
+				self.__output = _retval.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ) \
+					.replace( 'RPIO', 'Rpio' ).replace( 'RC', 'Rc' ) \
+					.replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ) \
+					.replace( 'OMB', 'Omb' ).replace( 'NPM', 'Npm' ) \
+					.replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
+					.replace( 'THE', 'The' ).replace( 'OR', 'Or' ) \
+					.replace( 'AND', 'And' ).replace( 'BUT', 'But' ) \
+					.replace( 'OF', 'Of' )
 
-                return self.__output
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'Pascal'
-            exc.method = 'join( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+				return self.__output
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'Pascal'
+			_exc.method = 'join( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-# SqlPath( )
 class SqlPath( ):
-    '''class providing relative_path paths to the
-    folders containing sql files and driver paths used in the application'''
-    __accessdriver = None
-    __accessdata = None
-    __sqlitedriver = None
-    __sqlitedata = None
-    __sqldriver = None
-    __sqldata = None
+	'''
+	Constructor: SqlPath( )
 
-    @property
-    def sqlite_driver( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
-        if self.__sqlitedriver is not None:
-            return self.__sqlitedriver
+	Purpose: Class providing relative_path paths to the
+	folders containing sql files and driver paths used in the application
+	'''
+	__accessdriver = None
+	__accessdatabase = None
+	__sqlitedriver = None
+	__sqlitedatabase = None
+	__sqldriver = None
+	__sqldatabase = None
 
-    @sqlite_driver.setter
-    def sqlite_driver( self, value ):
-        '''Returns string representing the title of the selected_path 'base' '''
-        if value is not None:
-            self.__sqlitedriver = value
+	@property
+	def sqlite_driver( self ) -> str:
+		if self.__sqlitedriver is not None:
+			return self.__sqlitedriver
 
-    @property
-    def sqlite_data( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
-        if self.__sqlitedata is not None:
-            return self.__sqlitedata
+	@sqlite_driver.setter
+	def sqlite_driver( self, value: str ):
+		if value is not None:
+			self.__sqlitedriver = value
 
-    @sqlite_data.setter
-    def sqlite_data( self, value ):
-        '''Returns string representing the title of the selected_path 'base' '''
-        if value is not None:
-            self.__sqlitedata = value
+	@property
+	def sqlite_database( self ) -> str:
+		if self.__sqlitedatabase is not None:
+			return self.__sqlitedatabase
 
-    @property
-    def access_driver( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
-        if self.__accessdriver is not None:
-            return self.__accessdriver
+	@sqlite_database.setter
+	def sqlite_database( self, value: str ):
+		if value is not None:
+			self.__sqlitedatabase = value
 
-    @access_driver.setter
-    def access_driver( self, value ):
-        '''Returns string representing the title of the selected_path 'base' '''
-        if value is not None:
-            self.__accessdriver = value
+	@property
+	def access_driver( self ) -> str:
+		if self.__accessdriver is not None:
+			return self.__accessdriver
 
-    @property
-    def access_data( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
-        if self.__accessdata is not None:
-            return self.__accessdata
+	@access_driver.setter
+	def access_driver( self, value: str ):
+		if value is not None:
+			self.__accessdriver = value
 
-    @access_data.setter
-    def access_data( self, value ):
-        '''Returns string representing the title of the selected_path 'base' '''
-        if value is not None:
-            self.__accessdata = value
+	@property
+	def access_database( self ) -> str:
+		if self.__accessdatabase is not None:
+			return self.__accessdatabase
 
-    @property
-    def sql_driver( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
-        if self.__sqldriver is not None:
-            return self.__sqldriver
+	@access_database.setter
+	def access_database( self, value: str ):
+		if value is not None:
+			self.__accessdatabase = value
 
-    @sql_driver.setter
-    def sql_driver( self, value ):
-        '''Returns string representing the title of the selected_path 'base' '''
-        if value is not None:
-            self.__sqldriver = value
+	@property
+	def sql_driver( self ) -> str:
+		if self.__sqldriver is not None:
+			return self.__sqldriver
 
-    @property
-    def sql_data( self ) -> str:
-        '''Returns string representing the title of the selected_path 'base' '''
-        if self.__sqldata is not None:
-            return self.__sqldata
+	@sql_driver.setter
+	def sql_driver( self, value: str ):
+		if value is not None:
+			self.__sqldriver = value
 
-    @sql_data.setter
-    def sql_data( self, value ):
-        '''Returns string representing the title of the selected_path 'base' '''
-        if value is not None:
-            self.__sqldata = value
+	@property
+	def sql_database( self ) -> str:
+		if self.__sqldatabase is not None:
+			return self.__sqldatabase
 
-    def __init__( self ):
-        self.__sqlitedriver = 'sqlite3'
-        self.__sqlitedata = r'db\sqlite\datamodels\sql'
-        self.__accessdriver = r'DRIVER={Microsoft ACCDB Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdata = r'db\access\datamodels\sql'
-        self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-        self.__sqldata = r'db\mssql\datamodels\sql'
+	@sql_database.setter
+	def sql_database( self, value: str ):
+		if value is not None:
+			self.__sqldatabase = value
 
-# SqlFile( source = None, provider = None, command = None  )
+	def __init__( self ):
+		self.__sqlitedriver = 'sqlite3'
+		self.__sqlitedatabase = r'db\sqlite\datamodels\sql'
+		self.__accessdriver = r'DRIVER={Microsoft ACCDB Driver (*.mdb, *.accdb)};DBQ='
+		self.__accessdatabase = r'db\access\datamodels\sql'
+		self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
+		self.__sqldatabase = r'db\mssql\datamodels\sql'
+
 class SqlFile( ):
-    '''Class providing access to sql sub-folders in the application provided
-    optional arguments source, provider, and command'''
-    __data = None
-    __command = None
-    __source = None
-    __provider = None
+	'''
+	Construxtor: SqlFile( src: Source = None, pvdr: Provider  = Provider.SQLite,
+				  command: SQL = SQL.SELECTALL )
 
-    @property
-    def provider( self ) -> Provider:
-        if self.__provider is not None:
-            return self.__provider
+	Purpuse: Class providing access to sql sub-folders in the application provided
+	optional arguments src, pvdr, and command
+	'''
+	__data = None
+	__command = None
+	__source = None
+	__provider = None
 
-    @provider.setter
-    def provider( self, value ):
-        if value is not None:
-            self.__provider = value
+	@property
+	def provider( self ) -> Provider:
+		if self.__provider is not None:
+			return self.__provider
 
-    @property
-    def source( self ) -> Source:
-        if self.__source is not None:
-            return self.__source
+	@provider.setter
+	def provider( self, value: Provider ):
+		if value is not None:
+			self.__provider = value
 
-    @source.setter
-    def source( self, value ):
-        if value is not None:
-            self.__source = value
+	@property
+	def source( self ) -> Source:
+		if self.__source is not None:
+			return self.__source
 
-    @property
-    def command( self ) -> SQL:
-        if self.__command is not None:
-            return self.__command
+	@source.setter
+	def source( self, value: Source ):
+		if value is not None:
+			self.__source = value
 
-    @command.setter
-    def command( self, value: SQL ):
-        if value is not None:
-            self.__command = value
+	@property
+	def command( self ) -> SQL:
+		if self.__command is not None:
+			return self.__command
 
-    @property
-    def path( self ) -> str:
-        '''Method returning a string representing
-         the absolute_path path to the SQL file used to execute the
-         command 'self.__cmdtype' against the table_name given by the
-         member self.__source depending on the member self.__provider'''
-        try:
-            sqlpath = SqlPath( )
-            data = self.__data
-            provider = self.__provider.name
-            source = self.__source.name
-            command = self.__command.name
-            current = os.getcwd( )
-            path = ''
-            if provider == 'SQLite' and source in data:
-                path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
-                return os.path.join( current, path )
-            elif provider == 'ACCDB' and source in data:
-                path = f'{sqlpath.access_data}\\{command}\\{source}.sql'
-                return os.path.join( current, path )
-            elif provider == 'SqlServer' and source in data:
-                path = f'{sqlpath.sql_data}\\{command}\\{source}.sql'
-                return os.path.join( current, path )
-            else:
-                path = f'{sqlpath.sqlite_data}\\{command}\\{source}.sql'
-                return os.path.join( current, path )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'path( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	@command.setter
+	def command( self, value: SQL ):
+		if value is not None:
+			self.__command = value
 
-    @property
-    def directory( self ) -> str:
-        '''Method creates and returns a string representing
-        the parent directory where the SQL file resides'''
-        try:
-            sqlpath = SqlPath( )
-            data = self.__data
-            source = self.__source.name
-            provider = self.__provider.name
-            command = self.__command.name
-            current = os.getcwd( )
-            folder = ''
-            if provider == 'SQLite' and source in data:
-                folder = f'{sqlpath.sqlite_data}\\{command}'
-                return os.path.join( current, folder )
-            elif provider == 'ACCDB' and source in data:
-                folder = f'{sqlpath.access_data}\\{command}'
-                return os.path.join( current, folder )
-            elif provider == 'SqlServer' and source in data:
-                folder = f'{sqlpath.sql_data}\\{command}'
-                return os.path.join( current, folder )
-            else:
-                folder = f'{sqlpath.sqlite_data}\\{command}'
-                return os.path.join( current, folder )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'directory( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def __init__( self, source: Source = None, provider: Provider = Provider.SQLite,
+	              command: SQL = SQL.SELECTALL ):
+		self.__data = [ 'AccountingEvents',
+		                'Accounts',
+		                'ActivityCodes',
+		                'Actuals',
+		                'AdministrativeRequests',
+		                'Allocations',
+		                'AllowanceHolders',
+		                'AmericanRescuePlanCarryoverEstimates',
+		                'AnnualCarryoverEstimates',
+		                'AnnualReimbursableEstimates',
+		                'ApplicationTables',
+		                'ApportionmentData',
+		                'AppropriationAvailableBalances',
+		                'AppropriationDocuments',
+		                'AppropriationLevelAuthority',
+		                'Appropriations',
+		                'BudgetaryResourceExecution',
+		                'BudgetControls',
+		                'BudgetDocuments',
+		                'BudgetObjectClasses',
+		                'CapitalPlanningInvestmentCodes',
+		                'CarryoverApportionments',
+		                'CarryoverRequests',
+		                'Changes',
+		                'ColumnSchema',
+		                'CompassLevels',
+		                'CongressionalControls',
+		                'Contacts',
+		                'CostAreas',
+		                'DataRuleDescriptions',
+		                'Defactos',
+		                'Deobligations',
+		                'DocumentControlNumbers',
+		                'Documents',
+		                'Earmarks',
+		                'Expenditures',
+		                'FederalHolidays',
+		                'FinanceObjectClasses',
+		                'FiscalYears',
+		                'FundCategories',
+		                'Funds',
+		                'FundSymbols',
+		                'GeneralLedgerAccounts',
+		                'Goals',
+		                'GsPayScales',
+		                'HeadquartersAuthority',
+		                'HeadquartersOffices',
+		                'Images',
+		                'InflationReductionActCarryoverEstimates',
+		                'JobsActCarryoverEstimates',
+		                'Messages',
+		                'MonthlyActuals',
+		                'MonthlyLedgerAccountBalances',
+		                'MonthlyOutlays',
+		                'NationalPrograms',
+		                'Objectives',
+		                'ObligationActivity',
+		                'Obligations',
+		                'OpenCommitments',
+		                'OperatingPlans',
+		                'Organizations',
+		                'Outlays',
+		                'PayPeriods',
+		                'PayrollAuthority',
+		                'PayrollCostCodes',
+		                'PayrollRequests',
+		                'PRC',
+		                'ProgramAreas',
+		                'ProgramProjectDescriptions',
+		                'ProgramProjects',
+		                'Projects',
+		                'Providers',
+		                'PublicLaws',
+		                'QueryDefinitions',
+		                'RecoveryAct',
+		                'ReferenceTables',
+		                'RegionalAuthority',
+		                'RegionalOffices',
+		                'ReimbursableAgreements',
+		                'ReimbursableFunds',
+		                'Reports',
+		                'ResourcePlanningOffices',
+		                'Resources',
+		                'ResponsibilityCenters',
+		                'SchemaTypes',
+		                'SiteActivity',
+		                'SpecialAccounts',
+		                'SpendingDocuments',
+		                'SpendingRates',
+		                'StateGrantObligations',
+		                'StateOrganizations',
+		                'StatusOfAmericanRescuePlanFunds',
+		                'StatusOfAppropriations',
+		                'StatusOfBudgetaryResources',
+		                'StatusOfEarmarks',
+		                'StatusOfFunds',
+		                'StatusOfInflationReductionActFunds',
+		                'StatusOfJobsActFunds',
+		                'StatusOfSupplementalFunds',
+		                'SubAppropriations',
+		                'SuperfundSites',
+		                'SupplementalCarryoverEstimates',
+		                'TransferActivity',
+		                'Transfers',
+		                'TransTypes',
+		                'TreasurySymbols',
+		                'UnliquidatedObligations',
+		                'UnobligatedBalances',
+		                'URL' ]
 
-    @property
-    def query( self ) -> str:
-        '''Method reads the given '.sql' file and returns
-        a string representing the text used the sql query'''
-        try:
-            source = self.__source.name
-            paths = self.path
-            folder = self.directory
-            sql = ''
-            for name in os.listdir( folder ):
-                if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == source:
-                    path = os.path.join( folder, name )
-                    query = open( path )
-                    sql = query.read( )
-                    return sql
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlFile'
-            exc.method = 'query( self, other )'
-            err = ErrorDialog( exc )
-            err.show( )
+		self.__command = command
+		self.__source = source
+		self.__provider = provider
 
-    def __init__( self, source = None, provider = None,
-                  command = None ):
-        self.__data = [ 'AccountingEvents',
-                        'Accounts',
-                        'ActivityCodes',
-                        'Actuals',
-                        'AdministrativeRequests',
-                        'Allocations',
-                        'AllowanceHolders',
-                        'AmericanRescuePlanCarryoverEstimates',
-                        'AnnualCarryoverEstimates',
-                        'AnnualCarryoverSurvey',
-                        'AnnualReimbursableEstimates',
-                        'AnnualReimbursableSurvey',
-                        'ApplicationTables',
-                        'ApportionmentData',
-                        'AppropriationAvailableBalances',
-                        'AppropriationDocuments',
-                        'AppropriationLevelAuthority',
-                        'Appropriations',
-                        'BudgetaryResourceExecution',
-                        'BudgetControls',
-                        'BudgetDocuments',
-                        'BudgetObjectClasses',
-                        'BudgetOutlays',
-                        'CapitalPlanningInvestmentCodes',
-                        'CarryoverApportionments',
-                        'CarryoverOutlays',
-                        'CarryoverRequests',
-                        'Changes',
-                        'ColumnSchema',
-                        'CompassLevels',
-                        'CompassOutlays',
-                        'CongressionalControls',
-                        'CongressionalReprogrammings',
-                        'Contacts',
-                        'CostAreas',
-                        'DataRuleDescriptions',
-                        'Defactos',
-                        'DeobligationActivity',
-                        'Deobligations',
-                        'DocumentControlNumbers',
-                        'Documents',
-                        'Earmarks',
-                        'Expenditures',
-                        'FederalHolidays',
-                        'FinanceObjectClasses',
-                        'FiscalYears',
-                        'FiscalYearsBackUp',
-                        'FundCategories',
-                        'Funds',
-                        'FundSymbols',
-                        'GeneralLedgerAccounts',
-                        'Goals',
-                        'GrossAuthority',
-                        'GrossUtilization',
-                        'GrowthRates',
-                        'GsPayScales',
-                        'HeadquartersAuthority',
-                        'HeadquartersOffices',
-                        'HumanResourceOrganizations',
-                        'Images',
-                        'InflationReductionActCarryoverEstimates',
-                        'JobsActCarryoverEstimates',
-                        'Messages',
-                        'MonthlyActuals',
-                        'MonthlyLedgerAccountBalances',
-                        'MonthlyOutlays',
-                        'NationalPrograms',
-                        'ObjectClassOutlays',
-                        'Objectives',
-                        'ObligationActivity',
-                        'Obligations',
-                        'OpenCommitments',
-                        'OperatingPlans',
-                        'OperatingPlanUpdates',
-                        'Organizations',
-                        'PayPeriods',
-                        'PayrollActivity',
-                        'PayrollAuthority',
-                        'PayrollCostCodes',
-                        'PayrollRequests',
-                        'PRC',
-                        'ProgramAreas',
-                        'ProgramFinancingSchedule',
-                        'ProgramProjectDescriptions',
-                        'ProgramProjects',
-                        'ProjectCostCodes',
-                        'Projects',
-                        'Providers',
-                        'PublicLaws',
-                        'QueryDefinitions',
-                        'RecoveryAct',
-                        'ReferenceTables',
-                        'RegionalAuthority',
-                        'RegionalOffices',
-                        'ReimbursableAgreements',
-                        'ReimbursableFunds',
-                        'Reports',
-                        'Reprogrammings',
-                        'ResourcePlanningOffices',
-                        'Resources',
-                        'ResponsibilityCenters',
-                        'SchemaTypes',
-                        'SiteActivity',
-                        'SiteProjectCodes',
-                        'SpecialAccounts',
-                        'SpendingDocuments',
-                        'SpendingRates',
-                        'StateGrantObligations',
-                        'StateOrganizations',
-                        'StatusOfAmericanRescuePlanFunds',
-                        'StatusOfAppropriations',
-                        'StatusOfBudgetaryResources',
-                        'StatusOfEarmarks',
-                        'StatusOfFunds',
-                        'StatusOfInflationReductionActFunds',
-                        'StatusOfJobsActFunds',
-                        'StatusOfSupplementalFunds',
-                        'SubAppropriations',
-                        'SuperfundSites',
-                        'SupplementalCarryoverEstimates',
-                        'SupplementalReimburseableEstimates',
-                        'TableName',
-                        'TransferActivity',
-                        'Transfers',
-                        'TransTypes',
-                        'TreasurySymbols',
-                        'UnliquidatedObligations',
-                        'UnobligatedAuthority',
-                        'UnobligatedBalances',
-                        'URL',
-                        'WorkCodes' ]
-        self.__command = command if command is not None else SQL.SELECTALL
-        self.__source = source if source is not None else Source.StatusOfFunds
-        self.__provider = provider if provider is not None else Provider.SQLite
+	def get_path( self ) -> str:
+		'''Method returning a string representing
+		 the absolute_path _path to the SQL file used to execute the
+		 _command 'self.__cmdtype' against the table_name given by the
+		 member self.__source depending on the member self.__provider'''
+		try:
+			_sqlpath = SqlPath( )
+			_data = self.__data
+			_provider = self.__provider.name
+			_source = self.__source.name
+			_command = self.__command.name
+			_current = os.getcwd( )
+			_path = ''
+			if _provider == 'SQLite' and _source in _data:
+				_path = f'{_sqlpath.sqlite_database}\\{_command}\\{_source}.sql'
+				return os.path.join( _current, _path )
+			elif _provider == 'ACCDB' and _source in _data:
+				_path = f'{_sqlpath.access_database}\\{_command}\\{_source}.sql'
+				return os.path.join( _current, _path )
+			elif _provider == 'SqlServer' and _source in _data:
+				_path = f'{_sqlpath.sql_database}\\{_command}\\{_source}.sql'
+				return os.path.join( _current, _path )
+			else:
+				_path = f'{_sqlpath.sqlite_database}\\{_command}\\{_source}.sql'
+				return os.path.join( _current, _path )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlFile'
+			_exc.method = '_path( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-# DbConfig( source, provider = Provider.SQLite )
+	def get_directory( self ) -> str:
+		'''Method creates and returns a string representing
+		the parent directory where the SQL file resides'''
+		try:
+			_sqlpath = SqlPath( )
+			_data = self.__data
+			_source = self.__source.name
+			_provider = self.__provider.name
+			_command = self.__command.name
+			_current = os.getcwd( )
+			_folder = ''
+			if _provider == 'SQLite' and _source in _data:
+				_folder = f'{_sqlpath.sqlite_database}\\{_command}'
+				return os.path.join( _current, _folder )
+			elif _provider == 'ACCDB' and _source in _data:
+				_folder = f'{_sqlpath.access_database}\\{_command}'
+				return os.path.join( _current, _folder )
+			elif _provider == 'SqlServer' and _source in _data:
+				_folder = f'{_sqlpath.sql_database}\\{_command}'
+				return os.path.join( _current, _folder )
+			else:
+				_folder = f'{_sqlpath.sqlite_database}\\{_command}'
+				return os.path.join( _current, _folder )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlFile'
+			_exc.method = 'directory( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def get_query( self ) -> str:
+		'''Method reads the given '._sql' file and returns
+		a string representing the text used the _sql _query'''
+		try:
+			_source = self.__source.name
+			_paths = self.get_path( )
+			_folder = self.get_directory( )
+			_sql = ''
+			for name in os.listdir( _folder ):
+				if name.endswith( '._sql' ) and os.path.splitext( name )[ 0 ] == _source:
+					_path = os.path.join( _folder, name )
+					_query = open( _path )
+					_sql = _query.read( )
+					return _sql
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlFile'
+			_exc.method = '_query( self, other )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class DbConfig( ):
-    '''DbConfig( source, provider = Provider. SQLite ) provides list of Budget Execution
-    tables across two databases ( values and references ) '''
-    __source = None
-    __provider = None
-    __data = [ ]
-    __accessdriver = None
-    __accesspath = None
-    __sqldriver = None
-    __sqlpath = None
-    __sqlitepath = None
-    __sqlitedriver = None
-    __table = None
-    __name = None
+	'''
+	Constructor: DbConfig( src: Source, pvdr: Provider = Provider.SQLite )
 
-    @property
-    def source( self ) -> Source:
-        '''Gets the Source property'''
-        if self.__source is not None:
-            return self.__source
+	Purpose: Class provides list of Budget Execution
+	tables across two databases
+	'''
+	__source = None
+	__provider = None
+	__data = [ ]
+	__accessdriver = None
+	__accesspath = None
+	__sqldriver = None
+	__sqlpath = None
+	__sqlitepath = None
+	__sqlitedriver = None
+	__table = None
+	__name = None
 
-    @source.setter
-    def source( self, value: Source ):
-        if value is not None:
-            self.__source = value
+	@property
+	def source( self ) -> Source:
+		'''Gets the Source property'''
+		if self.__source is not None:
+			return self.__source
 
-    @property
-    def provider( self ) -> Provider:
-        '''Get the Provider property'''
-        if self.__provider is not None:
-            return self.__provider
+	@source.setter
+	def source( self, value: Source ):
+		if value is not None:
+			self.__source = value
 
-    @provider.setter
-    def provider( self, value: Provider ):
-        if value is not None:
-            self.__provider = value
+	@property
+	def provider( self ) -> Provider:
+		'''Get the Provider property'''
+		if self.__provider is not None:
+			return self.__provider
 
-    @property
-    def table_name( self ) -> str:
-        '''Gets the'''
-        if self.__table is not None:
-            return self.__table
+	@provider.setter
+	def provider( self, value: Provider ):
+		if value is not None:
+			self.__provider = value
 
-    @table_name.setter
-    def table_name( self, value: str ):
-        if value is not None:
-            self.__table = value
+	@property
+	def table_name( self ) -> str:
+		'''Gets the'''
+		if self.__table is not None:
+			return self.__table
 
-    def __init__( self, source: Source, provider = Provider.SQLite ):
-        '''Constructor for the DbConfig class providing
-        value details'''
-        self.__provider = provider
-        self.__source = source
-        self.__table = source.name
-        self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Dallocation_transfer_agency.db'
-        self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
-        self.__accesspath = os.getcwd( ) + \
-                            r'\db\access\datamodels\Dallocation_transfer_agency.accdb'
-        self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
-        self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Dallocation_transfer_agency.mdf'
-        self.__data = [ 'AccountingEvents',
-                        'Accounts',
-                        'ActivityCodes',
-                        'Actuals',
-                        'AdministrativeRequests',
-                        'Allocations',
-                        'AllowanceHolders',
-                        'AmericanRescuePlanCarryoverEstimates',
-                        'AnnualCarryoverEstimates',
-                        'AnnualCarryoverSurvey',
-                        'AnnualReimbursableEstimates',
-                        'AnnualReimbursableSurvey',
-                        'ApplicationTables',
-                        'ApportionmentData',
-                        'AppropriationAvailableBalances',
-                        'AppropriationDocuments',
-                        'AppropriationLevelAuthority',
-                        'Appropriations',
-                        'BudgetaryResourceExecution',
-                        'BudgetControls',
-                        'BudgetDocuments',
-                        'BudgetObjectClasses',
-                        'BudgetOutlays',
-                        'CapitalPlanningInvestmentCodes',
-                        'CarryoverApportionments',
-                        'CarryoverOutlays',
-                        'CarryoverRequests',
-                        'Changes',
-                        'ColumnSchema',
-                        'CompassLevels',
-                        'CompassOutlays',
-                        'CongressionalControls',
-                        'CongressionalReprogrammings',
-                        'Contacts',
-                        'CostAreas',
-                        'DataRuleDescriptions',
-                        'Defactos',
-                        'DeobligationActivity',
-                        'Deobligations',
-                        'DocumentControlNumbers',
-                        'Documents',
-                        'Earmarks',
-                        'Expenditures',
-                        'FederalHolidays',
-                        'FinanceObjectClasses',
-                        'FiscalYears',
-                        'FiscalYearsBackUp',
-                        'FundCategories',
-                        'Funds',
-                        'FundSymbols',
-                        'GeneralLedgerAccounts',
-                        'Goals',
-                        'GrossAuthority',
-                        'GrossUtilization',
-                        'GrowthRates',
-                        'GsPayScales',
-                        'HeadquartersAuthority',
-                        'HeadquartersOffices',
-                        'HumanResourceOrganizations',
-                        'Images',
-                        'InflationReductionActCarryoverEstimates',
-                        'JobsActCarryoverEstimates',
-                        'Messages',
-                        'MonthlyActuals',
-                        'MonthlyLedgerAccountBalances',
-                        'MonthlyOutlays',
-                        'NationalPrograms',
-                        'ObjectClassOutlays',
-                        'Objectives',
-                        'ObligationActivity',
-                        'Obligations',
-                        'OpenCommitments',
-                        'OperatingPlans',
-                        'OperatingPlanUpdates',
-                        'Organizations',
-                        'PayPeriods',
-                        'PayrollActivity',
-                        'PayrollAuthority',
-                        'PayrollCostCodes',
-                        'PayrollRequests',
-                        'PRC',
-                        'ProgramAreas',
-                        'ProgramFinancingSchedule',
-                        'ProgramProjectDescriptions',
-                        'ProgramProjects',
-                        'ProjectCostCodes',
-                        'Projects',
-                        'Providers',
-                        'PublicLaws',
-                        'QueryDefinitions',
-                        'RecoveryAct',
-                        'ReferenceTables',
-                        'RegionalAuthority',
-                        'RegionalOffices',
-                        'ReimbursableAgreements',
-                        'ReimbursableFunds',
-                        'Reports',
-                        'Reprogrammings',
-                        'ResourcePlanningOffices',
-                        'Resources',
-                        'ResponsibilityCenters',
-                        'SchemaTypes',
-                        'SiteActivity',
-                        'SiteProjectCodes',
-                        'SpecialAccounts',
-                        'SpendingDocuments',
-                        'SpendingRates',
-                        'StateGrantObligations',
-                        'StateOrganizations',
-                        'StatusOfAmericanRescuePlanFunds',
-                        'StatusOfAppropriations',
-                        'StatusOfBudgetaryResources',
-                        'StatusOfEarmarks',
-                        'StatusOfFunds',
-                        'StatusOfInflationReductionActFunds',
-                        'StatusOfJobsActFunds',
-                        'StatusOfSupplementalFunds',
-                        'SubAppropriations',
-                        'SuperfundSites',
-                        'SupplementalCarryoverEstimates',
-                        'SupplementalReimburseableEstimates',
-                        'TableName',
-                        'TransferActivity',
-                        'Transfers',
-                        'TransTypes',
-                        'TreasurySymbols',
-                        'UnliquidatedObligations',
-                        'UnobligatedAuthority',
-                        'UnobligatedBalances',
-                        'URL',
-                        'WorkCodes' ]
+	@table_name.setter
+	def table_name( self, value: str ):
+		if value is not None:
+			self.__table = value
 
-    def __str__( self ) -> str:
-        if isinstance( self.__table, str ):
-            return self.__table
+	def __init__( self, src: Source, pvdr = Provider.SQLite ):
+		'''Constructor for the DbConfig class providing
+		value details'''
+		self.__provider = pvdr
+		self.__source = src
+		self.__table = src.name
+		self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
+		self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
+		self.__accesspath = os.getcwd( ) + \
+		                    r'\db\access\datamodels\Data.accdb'
+		self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
+		self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
+		self.__data = [ 'Actuals',
+		                'AdministrativeRequests',
+		                'Allocations',
+		                'AmericanRescuePlanCarryoverEstimates',
+		                'AnnualCarryoverEstimates',
+		                'AnnualReimbursableEstimates',
+		                'ApportionmentData',
+		                'AppropriationAvailableBalances',
+		                'AppropriationDocuments',
+		                'AppropriationLevelAuthority',
+		                'BudgetaryResourceExecution',
+		                'BudgetAuthorityAndOutlays',
+		                'BudgetDocuments',
+		                'CarryoverApportionments',
+		                'CarryoverRequests',
+		                'Changes',
+		                'CompassLevels',
+		                'CongressionalProjects',
+		                'Contacts',
+		                'Defactos',
+		                'Deobligations',
+		                'DocumentControlNumbers',
+		                'Earmarks',
+		                'Expenditures',
+		                'HeadquartersAuthority',
+		                'InflationReductionActCarryoverEstimates',
+		                'JobsActCarryoverEstimates',
+		                'LedgerAccounts',
+		                'MonthlyActuals',
+		                'MonthlyLedgerAccountBalances',
+		                'MonthlyOutlays',
+		                'ObligationActivity',
+		                'Obligations',
+		                'OpenCommitments',
+		                'OperatingPlans',
+		                'Outlays',
+		                'PayrollAuthority',
+		                'PayrollRequests',
+		                'PRC',
+		                'QueryDefinitions',
+		                'RecoveryAct',
+		                'RegionalAuthority',
+		                'ReimbursableAgreements',
+		                'ReimbursableFunds',
+		                'Reports',
+		                'Reprogrammings',
+		                'SiteActivity',
+		                'SpecialAccounts',
+		                'SpendingDocuments',
+		                'SpendingRates',
+		                'StateGrantObligations',
+		                'StatusOfAmericanRescuePlanFunds',
+		                'StatusOfAppropriations',
+		                'StatusOfBudgetaryResources',
+		                'StatusOfEarmarks',
+		                'StatusOfFunds',
+		                'StatusOfInflationReductionActFunds',
+		                'StatusOfJobsActFunds',
+		                'StatusOfSupplementalFunds',
+		                'SuperfundSites',
+		                'SupplementalCarryoverEstimates',
+		                'TransferActivity',
+		                'Transfers',
+		                'UnliquidatedObligations',
+		                'UnobligatedBalances',
+		                'AccountingEvents',
+		                'Accounts',
+		                'ActivityCodes',
+		                'AllowanceHolders',
+		                'ApplicationTables',
+		                'Appropriations',
+		                'BudgetControls',
+		                'BudgetObjectClasses',
+		                'CapitalPlanningInvestmentCodes',
+		                'ColumnSchema',
+		                'CompassErrors',
+		                'CongressionalControls',
+		                'CostAreas',
+		                'DataRuleDescriptions',
+		                'Documents',
+		                'EarmarkCodes',
+		                'FederalHolidays',
+		                'FinanceObjectClasses',
+		                'FiscalYears',
+		                'FundCategories',
+		                'Funds',
+		                'FundSymbols',
+		                'Goals',
+		                'GsPayScales',
+		                'HeadquartersOffices',
+		                'Images',
+		                'Messages',
+		                'NationalPrograms',
+		                'Objectives',
+		                'Organizations',
+		                'PayPeriods',
+		                'ProgramAreas',
+		                'ProgramProjectDescriptions',
+		                'ProgramProjects',
+		                'Projects',
+		                'Providers',
+		                'PublicLaws',
+		                'ReconciliationLines',
+		                'ReferenceTables',
+		                'RegionalOffices',
+		                'ResourcePlanningOffices',
+		                'Resources',
+		                'ResponsibilityCenters',
+		                'SchemaTypes',
+		                'StateOrganizations',
+		                'SubAppropriations',
+		                'TransTypes',
+		                'TreasurySybmols',
+		                'URL' ]
 
-    def get_driver( self ) -> str:
-        '''Returns a string defining the driver being used'''
-        try:
-            if self.__provider.name == 'SQLite':
-                return self.get_path( )
-            elif self.__provider.name == 'Access':
-                return self.__accessdriver
-            elif self.__provider.name == 'SqlServer':
-                return self.__sqldriver
-            else:
-                return self.__sqlitedriver
-        except Exception as e:
-            exc = Error( e )
-            exc.cause = 'DbConfig Class'
-            exc.method = 'get_driver( self )'
-            error = ErrorDialog( exc )
-            error.show( )
+	def __str__( self ) -> str:
+		if isinstance( self.__table, str ):
+			return self.__table
 
-    def get_path( self ) -> str:
-        '''Returns the path to the DB in use'''
-        try:
-            if self.__provider.name == 'SQLite':
-                return self.__sqlitepath
-            elif self.__provider.name == 'Access':
-                return self.__accesspath
-            elif self.__provider.name == 'SqlServer':
-                return self.__sqlpath
-            else:
-                return self.__sqlitepath
-        except Exception as e:
-            exc = Error( e )
-            exc.cause = 'DbConfig Class'
-            exc.method = 'path( self )'
-            error = ErrorDialog( exc )
-            error.show( )
+	def get_driver( self ) -> str:
+		'''Returns a string defining the driver being used'''
+		try:
+			if self.__provider.name == 'SQLite':
+				return self.get_path( )
+			elif self.__provider.name == 'Access':
+				return self.__accessdriver
+			elif self.__provider.name == 'SqlServer':
+				return self.__sqldriver
+			else:
+				return self.__sqlitedriver
+		except Exception as e:
+			_exc = Error( e )
+			_exc.cause = 'DbConfig Class'
+			_exc.method = 'get_driver( self )'
+			_error = ErrorDialog( _exc )
+			_error.show( )
 
-    def get_connectionstring( self ) -> str:
-        '''Returns a connection string for the DB in use'''
-        try:
-            path = self.get_path( )
-            if self.__provider.name == Provider.Access.name:
-                return self.get_driver( ) + path
-            elif self.__provider.name == Provider.SqlServer.name:
-                return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' \
-                    + f'AttachDBFileName={path}' \
-                    + f'DATABASE={path}Trusted_Connection=yes;'
-            else:
-                return f'{path} '
-        except Exception as e:
-            exc = Error( e )
-            exc.cause = 'DbConfig Class'
-            exc.method = 'get_connectionstring( self )'
-            error = ErrorDialog( exc )
-            error.show( )
+	def get_path( self ) -> str:
+		'''Returns the path to the DB in use'''
+		try:
+			if self.__provider.name == 'SQLite':
+				return self.__sqlitepath
+			elif self.__provider.name == 'Access':
+				return self.__accesspath
+			elif self.__provider.name == 'SqlServer':
+				return self.__sqlpath
+			else:
+				return self.__sqlitepath
+		except Exception as e:
+			_exc = Error( e )
+			_exc.cause = 'DbConfig Class'
+			_exc.method = 'path( self )'
+			_error = ErrorDialog( _exc )
+			_error.show( )
 
-# Connection( source, provider = Provider.SQLite )
+	def get_connectionstring( self ) -> str:
+		'''Returns a connection string for the DB in use'''
+		try:
+			_path = self.get_path( )
+			if self.__provider.name == Provider.Access.name:
+				return self.get_driver( ) + _path
+			elif self.__provider.name == Provider.SqlServer.name:
+				return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' \
+					+ f'AttachDBFileName={_path}' \
+					+ f'DATABASE={_path}Trusted_Connection=yes;'
+			else:
+				return f'{_path} '
+		except Exception as e:
+			_exc = Error( e )
+			_exc.cause = 'DbConfig Class'
+			_exc.method = 'get_connectionstring( self )'
+			_error = ErrorDialog( _exc )
+			_error.show( )
+
 class Connection( DbConfig ):
-    '''Connection( source, provider = Provider.SQLite ) initializes
-    object used to connect to the databases'''
-    __driver = None
-    __path = None
-    __connectionstring = None
+	'''
+	Constructor: Connection( src, pvdr = Provider.SQLite )
 
-    @property
-    def driver( self ) -> str:
-        if self.__driver is not None:
-            return self.__driver
+	Purpose: Class providing object used to connect to the databases
+	'''
+	__driver = None
+	__path = None
+	__connectionstring = None
 
-    @driver.setter
-    def driver( self, value ):
-        if value is not None:
-            self.__driver = value
+	@property
+	def driver( self ) -> str:
+		if self.__driver is not None:
+			return self.__driver
 
-    @property
-    def path( self ) -> str:
-        if self.__path is not None:
-            return self.__path
+	@driver.setter
+	def driver( self, value: str ):
+		if value is not None:
+			self.__driver = value
 
-    @path.setter
-    def path( self, value ):
-        if value is not None:
-            self.__path = value
+	@property
+	def path( self ) -> str:
+		if self.__path is not None:
+			return self.__path
 
-    @property
-    def connection_string( self ) -> str:
-        if self.__connectionstring is not None \
-                and self.__connectionstring != '':
-            return self.__connectionstring
+	@path.setter
+	def path( self, value: str ):
+		if value is not None:
+			self.__path = value
 
-    @connection_string.setter
-    def connection_string( self, value ):
-        if value is not None:
-            self.__connectionstring = value
+	@property
+	def connection_string( self ) -> str:
+		if self.__connectionstring is not None \
+				and self.__connectionstring != '':
+			return self.__connectionstring
 
-    def __init__( self, source: Source, provider = Provider.SQLite ):
-        super( ).__init__( source, provider )
-        self.__source = super( ).source
-        self.__provider = super( ).provider
-        self.__path = super( ).get_path( )
-        self.__driver = super( ).get_driver( )
-        self.__dsn = super( ).table_name + ';'
-        self.__connectionstring = super( ).get_connectionstring( )
+	@connection_string.setter
+	def connection_string( self, value: str ):
+		if value is not None:
+			self.__connectionstring = value
 
-    def connect( self ):
-        try:
-            if self.__provider.name == Provider.Access.name:
-                return db.connect( self.__connectionstring )
-            elif self.__provider.name == Provider.SqlServer.name:
-                return db.connect( self.__connectionstring )
-            else:
-                return sqlite.connect( self.__connectionstring )
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'Connection'
-            exc.method = 'connect( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def __init__( self, src: Source, pvdr: Provider = Provider.SQLite ):
+		super( ).__init__( src, pvdr )
+		self.__source = super( ).source
+		self.__provider = super( ).provider
+		self.__path = super( ).get_path( )
+		self.__driver = super( ).get_driver( )
+		self.__dsn = super( ).table_name + ';'
+		self.__connectionstring = super( ).get_connectionstring( )
 
-# SqlConfig( command = SQL.SELECTALL, names = [ ], values = ( ), style = None )
+	def connect( self ):
+		try:
+			if self.__provider.name == Provider.Access.name:
+				return db.connect( self.__connectionstring )
+			elif self.__provider.name == Provider.SqlServer.name:
+				return db.connect( self.__connectionstring )
+			else:
+				return sqlite.connect( self.__connectionstring )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'Connection'
+			_exc.method = 'connect( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class SqlConfig( ):
-    '''SqlConfig( command = SQL.SELECTALL, names = [ ], values = ( ), style = None )
-     provides database interaction behavior'''
-    __command = None
-    __names = None
-    __values = None
-    __paramstyle = None
-    __kvp = None
+	'''
+	 Constructor: SqlConfig( command: SQL = SQL.SELECTALL, column_names: list = None,
+				values: tuple = None, style: ParamStyle = None )
 
-    @property
-    def command( self ) -> SQL:
-        if self.__command is not None:
-            return self.__command
+	 Purpose: Class provides database interaction behavior
+	 '''
+	__command = None
+	__names = None
+	__values = None
+	__paramstyle = None
+	__kvp = None
 
-    @command.setter
-    def command( self, value: SQL ):
-        if value is not None:
-            self.__command = value
+	@property
+	def command( self ) -> SQL:
+		if self.__command is not None:
+			return self.__command
 
-    @property
-    def names( self ) -> list[ str ]:
-        ''' builds crit from provider index namevaluepairs'''
-        if self.__names is not None:
-            return self.__names
+	@command.setter
+	def command( self, value: SQL ):
+		if value is not None:
+			self.__command = value
 
-    @names.setter
-    def names( self, value: list[ str ] ):
-        ''' builds crit from provider index namevaluepairs'''
-        if value is not None:
-            self.__names = value
+	@property
+	def names( self ) -> list[ str ]:
+		''' builds crit from _provider index namevaluepairs'''
+		if self.__names is not None:
+			return self.__names
 
-    @property
-    def values( self ) -> tuple:
-        ''' builds crit from provider index namevaluepairs'''
-        if self.__values is not None:
-            return self.__values
+	@names.setter
+	def names( self, value: list[ str ] ):
+		''' builds crit from _provider index namevaluepairs'''
+		if value is not None:
+			self.__names = value
 
-    @values.setter
-    def values( self, value: tuple ):
-        ''' builds crit from provider index namevaluepairs'''
-        if value is not None:
-            self.__values = value
+	@property
+	def values( self ) -> tuple:
+		''' builds crit from pvdr index namevaluepairs'''
+		if self.__values is not None:
+			return self.__values
 
-    @property
-    def param_style( self ) -> ParamStyle:
-        ''' Property representing the DBI param_style'''
-        if self.__paramstyle is not None:
-            return self.__paramstyle
+	@values.setter
+	def values( self, value: tuple ):
+		''' builds crit from pvdr index namevaluepairs'''
+		if value is not None:
+			self.__values = value
 
-    @param_style.setter
-    def param_style( self, value: ParamStyle ):
-        ''' Property representing the DBI param_style attribute'''
-        if value is not None:
-            self.__paramstyle = value
-        else:
-            self.__paramstyle = ParamStyle.qmark
+	@property
+	def param_style( self ) -> ParamStyle:
+		''' Property representing the DBI param_style'''
+		if self.__paramstyle is not None:
+			return self.__paramstyle
 
-    @property
-    def key_value_pairs( self ) -> dict:
-        if self.__kvp is not None:
-            return self.__kvp
+	@param_style.setter
+	def param_style( self, value: ParamStyle ):
+		''' Property representing the DBI param_style attribute'''
+		if value is not None:
+			self.__paramstyle = value
+		else:
+			self.__paramstyle = ParamStyle.qmark
 
-    @key_value_pairs.setter
-    def key_value_pairs( self, value: dict ):
-        if value is not None:
-            self.__kvp = value
+	@property
+	def key_value_pairs( self ) -> dict:
+		if self.__kvp is not None:
+			return self.__kvp
 
-    def __init__( self, command = SQL.SELECTALL, names = ( ), values = ( ), style = None ):
-        self.__command = command
-        self.__names = names if names is not None else [ ]
-        self.__values = values if values is not None else ( )
-        self.__paramstyle = style if style is not None else ParamStyle.qmark
-        self.__kvp = dict( zip( names, list( values ) ) ) \
-            if isinstance( names, list ) and isinstance( values, tuple ) else None
+	@key_value_pairs.setter
+	def key_value_pairs( self, value: dict ):
+		if value is not None:
+			self.__kvp = value
 
-    def dump_pairs( self ) -> str:
-        '''dump( ) returns string of 'values = index AND' pairs
-        @return:
-        '''
-        try:
-            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-                pairs = ''
-                kvp = zip( self.__names, self.__values )
-                for k, v in kvp:
-                    pairs += f'{k} = \'{v}\' AND '
-                criteria = pairs.rstrip( ' AND ' )
-                return criteria
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_pairs( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def __init__( self, command: SQL = SQL.SELECTALL, names: list = None,
+	              values: tuple = ( ), style: ParamStyle = None ):
+		self.__command = command
+		self.__names = names
+		self.__values = values
+		self.__paramstyle = style
+		self.__kvp = dict( zip( names, list( values ) ) ) \
+			if isinstance( names, list ) and isinstance( values, tuple ) else None
 
-    def dump_where( self ) -> str:
-        '''dump_where( ) returns a string
-        using list arguments names and values
-        @return: '''
-        try:
-            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-                pairs = ''
-                criteria = ''
-                for k, v in zip( self.__names, self.__values ):
-                    pairs += f'{k} = \'{v}\' AND '
-                criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
-                return criteria
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_where( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def dump_pairs( self ) -> str:
+		'''dump( ) returns string of 'values = index AND' _pairs
+		@return:
+		'''
+		try:
+			if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
+				_pairs = ''
+				_kvp = zip( self.__names, self.__values )
+				for k, v in _kvp:
+					_pairs += f'{k} = \'{v}\' AND '
+				_criteria = _pairs.rstrip( ' AND ' )
+				return _criteria
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlConfig'
+			_exc.method = 'dump_pairs( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    def dump_set( self ) -> str:
-        '''dump_set( ) returns a string
-        using list arguments names and values
-        @return: '''
-        try:
-            if self.__names is not None and self.__values is not None:
-                pairs = ''
-                criteria = ''
-                for k, v in zip( self.__names, self.__values ):
-                    pairs += f'{k} = \'{v}\', '
-                criteria = 'SET ' + pairs.rstrip( ', ' )
-                return criteria
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_set( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def dump_where( self ) -> str:
+		'''dump_where( ) returns a string
+		using list arguments column_names and values
+		@return: '''
+		try:
+			if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
+				pairs = ''
+				criteria = ''
+				for k, v in zip( self.__names, self.__values ):
+					pairs += f'{k} = \'{v}\' AND '
+				criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
+				return criteria
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlConfig'
+			_exc.method = 'dump_where( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    def dump_columns( self ) -> str:
-        '''dump_columns( ) returns a string of columns
-        used in select and insert statements from list self.__names
-        @return: '''
-        try:
-            if self.__names is not None:
-                cols = ''
-                for n in self.__names:
-                    cols += f'{n}, '
-                columns = '(' + cols.rstrip( ', ' ) + ')'
-                return columns
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_columns( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def dump_set( self ) -> str:
+		'''dump_set( ) returns a string
+		using list arguments column_names and values
+		@return: '''
+		try:
+			if self.__names is not None and self.__values is not None:
+				_pairs = ''
+				_criteria = ''
+				for k, v in zip( self.__names, self.__values ):
+					_pairs += f'{k} = \'{v}\', '
+				_criteria = 'SET ' + _pairs.rstrip( ', ' )
+				return _criteria
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlConfig'
+			_exc.method = 'dump_set( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    def dump_values( self ) -> str:
-        '''dump_values( ) returns a string of values
-        used in select statements from list self.__names
-        @return: '''
-        try:
-            if self.__values is not None:
-                vals = ''
-                for v in self.__values:
-                    vals += f'{v}, '
-                values = 'VALUES (' + vals.rstrip( ', ' ) + ')'
-                return values
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlConfig'
-            exc.method = 'dump_values( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def dump_columns( self ) -> str:
+		'''dump_columns( ) returns a string of _columns
+		used in select and insert statements from list self.__colnames
+		 '''
+		try:
+			if self.__names is not None:
+				_colnames = ''
+				for n in self.__names:
+					_colnames += f'{n}, '
+				_columns = '(' + _colnames.rstrip( ', ' ) + ')'
+				return _columns
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlConfig'
+			_exc.method = 'dump_columns( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-# SqlStatement( dbconfig,  sqlcfg )
+	def dump_values( self ) -> str:
+		'''dump_values( ) returns a string of _values
+		used in select statements from list self.__colnames
+		@return: '''
+		try:
+			if self.__values is not None:
+				_vals = ''
+				for v in self.__values:
+					_vals += f'{v}, '
+				_values = 'VALUES (' + _vals.rstrip( ', ' ) + ')'
+				return _values
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlConfig'
+			_exc.method = 'dump_values( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class SqlStatement( ):
-    '''SqlStatement( dbconfig, sqlcfg ) Class
-    represents the values models used in the SQLite database'''
-    __commandtype = None
-    __sqlconfig = None
-    __dbconfig = None
-    __source = None
-    __provider = None
-    __table = None
-    __names = None
-    __values = None
-    __text = None
+	'''
+	Constructor: SqlStatement( dbcfg: DbConfig, sqlcfg: SqlConfig )
 
-    @property
-    def source( self ) -> Source:
-        """
+	Purpose: Class represents the values models used in the SQLite database
+	'''
+	__commandtype = None
+	__sqlconfig = None
+	__dbconfig = None
+	__source = None
+	__provider = None
+	__table = None
+	__names = None
+	__values = None
+	__text = None
 
-        @return: =Source
-        """
-        if isinstance( self.__source, Source ):
-            return self.__source
+	@property
+	def source( self ) -> Source:
+		"""
 
-    @source.setter
-    def source( self, value: Source ):
-        if isinstance( value, Source ):
-            self.__source = value
+		@return: =Source
+		"""
+		if isinstance( self.__source, Source ):
+			return self.__source
 
-    @property
-    def provider( self ) -> Provider:
-        """
+	@source.setter
+	def source( self, value: Source ):
+		if isinstance( value, Source ):
+			self.__source = value
 
-        @return: Provider
-        """
-        if self.__provider is not None:
-            return self.__provider
+	@property
+	def provider( self ) -> Provider:
+		"""
 
-    @provider.setter
-    def provider( self, value: Provider ):
-        if value is not None:
-            self.__provider = value
+		@return: Provider
+		"""
+		if self.__provider is not None:
+			return self.__provider
 
-    @property
-    def path( self ) -> str:
-        if self.__path is not None:
-            return self.__path
+	@provider.setter
+	def provider( self, value: Provider ):
+		if value is not None:
+			self.__provider = value
 
-    @path.setter
-    def path( self, value ):
-        if value is not None:
-            self.__path = value
+	@property
+	def table_name( self ) -> str:
+		if self.__table is not None:
+			return self.__table
 
-    @property
-    def table_name( self ) -> str:
-        if self.__table is not None:
-            return self.__table
+	@table_name.setter
+	def table_name( self, value: str ):
+		if value is not None:
+			self.__table = value
 
-    @table_name.setter
-    def table_name( self, value ):
-        if value is not None:
-            self.__table = value
+	@property
+	def names( self ) -> str:
+		if self.__names is not None:
+			return self.__names
 
-    @property
-    def names( self ) -> list[ str ]:
-        if self.__names is not None:
-            return self.__names
+	@names.setter
+	def names( self, value: str ):
+		if value is not None:
+			self.__names = value
 
-    @names.setter
-    def names( self, value: list[ str ] ):
-        if value is not None:
-            self.__names = value
+	@property
+	def values( self ) -> str:
+		if self.__values is not None:
+			return self.__values
 
-    @property
-    def values( self ) -> tuple:
-        if self.__values is not None:
-            return self.__values
+	@values.setter
+	def values( self, value: str ):
+		if value is not None:
+			self.__values = value
 
-    @values.setter
-    def values( self, value: tuple ):
-        if value is not None:
-            self.__values = value
+	@property
+	def command_text( self ) -> str:
+		if self.__text is not None:
+			return self.__text
 
-    @property
-    def command_text( self ) -> str:
-        if self.__text is not None:
-            return self.__text
+	@command_text.setter
+	def command_text( self, value: str ):
+		if value is not None:
+			self.__text = value
 
-    @command_text.setter
-    def command_text( self, value: str ):
-        if value is not None:
-            self.__text = value
+	@property
+	def command_type( self ) -> SQL:
+		if self.__commandtype is not None:
+			return self.__commandtype
 
-    @property
-    def command_type( self ) -> SQL:
-        if self.__commandtype is not None:
-            return self.__commandtype
+	@command_type.setter
+	def command_type( self, value: SQL ):
+		if value is not None:
+			self.__commandtype = value
+		else:
+			command = SQL( 'SELECT' )
+			self.__commandtype = command
 
-    @command_type.setter
-    def command_type( self, value: SQL ):
-        if value is not None:
-            self.__commandtype = value
-        else:
-            command = SQL( 'SELECT' )
-            self.__commandtype = command
+	def __init__( self, dbcfg: DbConfig, sqlcfg: SqlConfig ):
+		self.__commandtype = sqlcfg.command
+		self.__provider = dbcfg.provider
+		self.__source = dbcfg.source
+		self.__table = dbcfg.table_name
+		self.__names = sqlcfg.dump_columns( )
+		self.__values = sqlcfg.dump_values( )
+		self.__text = self.get_query( )
 
-    def __init__( self, dbcfg: DbConfig, sqlcfg: SqlConfig ):
-        self.__commandtype = sqlcfg.command
-        self.__provider = dbcfg.provider
-        self.__source = dbcfg.source
-        self.__table = dbcfg.table_name
-        self.__names = sqlcfg.names
-        self.__values = sqlcfg.values
-        self.__text = self.get_query( )
+	def __str__( self ) -> str:
+		if self.__text is not None:
+			return self.__text
 
-    def __str__( self ) -> str:
-        if isinstance( self.__text, str ) and self.__text != '':
-            return self.__text
+	def get_query( self ) -> str:
+		try:
+			if self.__names is not None and isinstance( self.__values, tuple ):
+				if self.__commandtype == SQL.SELECTALL:
+					if len( self.__names ) == 0:
+						self.__text = f'SELECT * FROM {self.__table}'
+						return self.__text
+					if len( self.__names ) > 0:
+						self.__text = f'SELECT ' + self.__names + f'FROM {self.__table}' + f' {self.__sqlconfig.dump_where( )}'
+						return self.__text
+				elif self.__commandtype == SQL.SELECT:
+					if len( self.__names ) == 0:
+						self.__text = f'SELECT * FROM {self.__table}'
+						return self.__text
+					if len( self.__names ) > 0:
+						self.__text = f'SELECT ' + self.__names + f' FROM {self.__table}' + f' {self.__sqlconfig.dump_where( )}'
+						return self.__text
+				elif self.__commandtype == SQL.INSERT:
+					self.__text = f'INSERT INTO {self.__table} ' + f'{self.__names} ' + f'{self.__values}'
+					return self.__text
+				elif self.__commandtype == SQL.UPDATE:
+					self.__text = f'UPDATE {self.__table} ' + f'{self.__sqlconfig.dump_set( )} ' \
+					              + f'{self.__table}'
+					return self.__text
+				elif self.__commandtype == SQL.DELETE:
+					self.__text = f'DELETE FROM {self.__table} ' \
+					              + f' {self.__sqlconfig.dump_set( )}'
+					return self.__text
+			elif self.__names is not None and not isinstance( self.__values, tuple ):
+				if self.__commandtype == SQL.SELECT:
+					cols = self.__names.lstrip( '(' ).rstrip( ')' )
+					self.__text = f'SELECT {cols} FROM {self.__table}'
+					return self.__text
+			elif not isinstance( self.__names, list ) \
+					and not isinstance( self.__values, tuple ):
+				if self.__commandtype == SQL.SELECTALL:
+					self.__text = f'SELECT * FROM {self.__table}'
+					return self.__text
+			elif self.__commandtype == 'DELETE':
+				self.__text = f'DELETE FROM {self.__table}'
+				return self.__text
+			else:
+				if self.__names is None and self.__values is None:
+					if self.__commandtype == SQL.SELECTALL:
+						self.__text = f'SELECT * FROM {self.__table}'
+						return self.__text
+				elif self.__commandtype == 'DELETE':
+					self.__text = f'DELETE FROM {self.__table}'
+					return self.__text
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlStatement'
+			_exc.method = 'getcommandtext( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    def get_query( self ) -> str:
-        try:
-            table = self.__table
-            columns = self.__sqlconfig.dump_columns( )
-            values = self.__sqlconfig.dump_values( )
-            predicate = self.__sqlconfig.dump_where( )
-            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-                if self.__commandtype == SQL.SELECTALL:
-                    if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM {table}'
-                        return self.__text
-                    if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
-                        return self.__text
-                elif self.__commandtype == SQL.SELECT:
-                    if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM {table}'
-                        return self.__text
-                    if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
-                        return self.__text
-                elif self.__commandtype == SQL.INSERT:
-                    self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
-                    return self.__text
-                elif self.__commandtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' + f'{self.__sqlconfig.dump_set( )} ' \
-                                  + f'{values}'
-                    return self.__text
-                elif self.__commandtype == SQL.DELETE:
-                    self.__text = f'DELETE FROM {table} ' + f' {predicate}'
-                    return self.__text
-            else:
-                if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
-                    if self.__commandtype == SQL.SELECT:
-                        cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__text = f'SELECT {cols} FROM {table}'
-                        return self.__text
-                elif not isinstance( self.__names, list ) \
-                        and not isinstance( self.__values, tuple ):
-                    if self.__commandtype == SQL.SELECTALL:
-                        self.__text = f'SELECT * FROM {table}'
-                        return self.__text
-                elif self.__commandtype == 'DELETE':
-                    self.__text = f'DELETE FROM {table}'
-                    return self.__text
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlStatement'
-            exc.method = 'getcommandtext( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# Query( connection, sqlstatement )
 class Query( ):
-    '''Query( connection, sqlstatement ). Base class for database interaction'''
-    __connection = None
-    __sqlstatement = None
-    __sqlconfiguration = None
-    __commandtype = None
-    __source = None
-    __table = None
-    __provider = None
-    __names = None
-    __values = None
-    __path = None
-    __connectionstring = None
-    __text = None
+	'''
+	Constructor:  Query( connection: Connection, sqlstatement: SqlStatement ).
 
-    @property
-    def source( self ) -> Source:
-        if self.__source is not None:
-            return self.__source
+	Purpose: Base class for database interaction'''
+	__connection = None
+	__sqlstatement = None
+	__sqlconfig = None
+	__commandtype = None
+	__source = None
+	__tablename = None
+	__provider = None
+	__colnames = None
+	__values = None
+	__path = None
+	__connectionstring = None
+	__querytext = None
 
-    @source.setter
-    def source( self, value: Source ):
-        if value is not None:
-            self.__source = value
+	@property
+	def source( self ) -> Source:
+		if self.__source is not None:
+			return self.__source
 
-    @property
-    def provider( self ) -> Provider:
-        if self.__provider is not None:
-            return self.__provider
+	@source.setter
+	def source( self, value: Source ):
+		if value is not None:
+			self.__source = value
 
-    @provider.setter
-    def provider( self, value: Provider ):
-        if value is not None:
-            self.__provider = value
-        else:
-            self.__provider = Provider.SQLite
+	@property
+	def provider( self ) -> Provider:
+		if self.__provider is not None:
+			return self.__provider
 
-    @property
-    def path( self ) -> str:
-        if self.__path is not None:
-            return self.__path
+	@provider.setter
+	def provider( self, value: Provider ):
+		if value is not None:
+			self.__provider = value
+		else:
+			self.__provider = Provider.SQLite
 
-    @path.setter
-    def path( self, value ):
-        if value is not None:
-            self.__path = value
+	@property
+	def path( self ) -> str:
+		if self.__path is not None:
+			return self.__path
 
-    @property
-    def connection( self ) -> Connection:
-        if self.__connection is not None:
-            return self.__connection
+	@path.setter
+	def path( self, value: str ):
+		if value is not None:
+			self.__path = value
 
-    @connection.setter
-    def connection( self, value: Connection ):
-        if value is not None:
-            self.__connection = value
+	@property
+	def connection( self ) -> Connection:
+		if self.__connection is not None:
+			return self.__connection
 
-    @property
-    def sql_statement( self ) -> SqlStatement:
-        if self.__sqlstatement is not None:
-            return self.__sqlstatement
+	@connection.setter
+	def connection( self, value: Connection ):
+		if value is not None:
+			self.__connection = value
 
-    @sql_statement.setter
-    def sql_statement( self, value: SqlStatement ):
-        if isinstance( value, SqlStatement ):
-            self.__sqlstatement = value
+	@property
+	def sql_statement( self ) -> SqlStatement:
+		if self.__sqlstatement is not None:
+			return self.__sqlstatement
 
-    @property
-    def command_type( self ) -> SQL:
-        if self.__commandtype is not None:
-            return self.__commandtype
-        if self.__commandtype is None:
-            cmd = SQL( 'SELECT' )
-            return cmd
+	@sql_statement.setter
+	def sql_statement( self, value: SqlStatement ):
+		if isinstance( value, SqlStatement ):
+			self.__sqlstatement = value
 
-    @command_type.setter
-    def command_type( self, value: SQL ):
-        if isinstance( value, SQL ):
-            self.__commandtype = value
+	@property
+	def command_type( self ) -> SQL:
+		if self.__commandtype is not None:
+			return self.__commandtype
 
-    @property
-    def table( self ) -> str:
-        if self.__table is not None:
-            return self.__table
+		if self.__commandtype is None:
+			cmd = SQL( 'SELECT' )
+			return cmd
 
-    @table.setter
-    def table( self, value ):
-        if value is not None:
-            self.__table = value
+	@command_type.setter
+	def command_type( self, value: SQL ):
+		if isinstance( value, SQL ):
+			self.__commandtype = value
 
-    @property
-    def names( self ) -> list[ str ]:
-        if self.__names is not None:
-            return self.__names
+	@property
+	def table_name( self ) -> str:
+		if self.__tablename is not None:
+			return self.__tablename
 
-    @names.setter
-    def names( self, value: list[ str ] ):
-        if value is not None:
-            self.__names = value
+	@table_name.setter
+	def table_name( self, value: str ):
+		if value is not None:
+			self.__tablename = value
 
-    @property
-    def values( self ) -> tuple:
-        if self.__values is not None:
-            return self.__values
+	@property
+	def column_names( self ) -> list[ str ]:
+		if self.__colnames is not None:
+			return self.__colnames
 
-    @values.setter
-    def values( self, value: tuple ):
-        if value is not None:
-            self.__values = value
+	@column_names.setter
+	def column_names( self, value: list[ str ] ):
+		if value is not None:
+			self.__colnames = value
 
-    @property
-    def command_text( self ) -> str:
-        if self.__text is not None:
-            return self.__text
+	@property
+	def values( self ) -> tuple:
+		if self.__values is not None:
+			return self.__values
 
-    @command_text.setter
-    def command_text( self, value: str ):
-        if value is not None:
-            self.__text = value
+	@values.setter
+	def values( self, value: tuple ):
+		if value is not None:
+			self.__values = value
 
-    @property
-    def connection_string( self ) -> str:
-        if self.__connectionstring is not None:
-            return self.__connectionstring
+	@property
+	def command_text( self ) -> str:
+		if self.__querytext is not None:
+			return self.__querytext
 
-    @connection_string.setter
-    def connection_string( self, value: str ):
-        if isinstance( value, str ):
-            self.__connectionstring = str( value )
+	@command_text.setter
+	def command_text( self, value: str ):
+		if value is not None:
+			self.__querytext = value
 
-    def __init__( self, conn: Connection, sql: SqlStatement ):
-        self.__connection = conn
-        self.__sqlstatement = sql
-        self.__sqlconfiguration = SqlConfig( )
-        self.__source = conn.source
-        self.__provider = conn.provider
-        self.__commandtype = sql.command_type
-        self.__path = conn.path
-        self.__connectionstring = conn.connection_string
-        self.__text = sql.get_query( )
+	@property
+	def connection_string( self ) -> str:
+		if self.__connectionstring is not None:
+			return self.__connectionstring
 
-    def __str__( self ) -> str:
-        if self.__text is not None:
-            return self.__text
+	@connection_string.setter
+	def connection_string( self, value: str ):
+		if value is not None:
+			self.__connectionstring = value
 
-    def get_query( self ) -> str:
-        try:
-            table = self.__table
-            columns = self.__sqlconfiguration.dump_columns( )
-            values = self.__sqlconfiguration.dump_values( )
-            predicate = self.__sqlconfiguration.dump_where( )
-            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
-                if self.__commandtype == SQL.SELECTALL:
-                    if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM {table}'
-                        return self.__text
-                    if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f'FROM {table}' + f' {predicate}'
-                        return self.__text
-                elif self.__commandtype == SQL.SELECT:
-                    if len( self.__names ) == 0:
-                        self.__text = f'SELECT * FROM {table}'
-                        return self.__text
-                    if len( self.__names ) > 0:
-                        self.__text = f'SELECT ' + columns + f' FROM {table}' + f' {predicate}'
-                        return self.__text
-                elif self.__commandtype == SQL.INSERT:
-                    self.__text = f'INSERT INTO {table} ' + f'{columns} ' + f'{values}'
-                    return self.__text
-                elif self.__commandtype == SQL.UPDATE:
-                    self.__text = f'UPDATE {table} ' \
-                                  + f'{self.__sqlconfiguration.dump_set( )} ' + f'{values}'
-                    return self.__text
-                elif self.__commandtype == SQL.DELETE:
-                    self.__text = f'DELETE FROM {table} ' + f'{predicate}'
-                    return self.__text
-            else:
-                if isinstance( self.__names, list ) and not isinstance( self.__values, tuple ):
-                    if self.__commandtype == SQL.SELECT:
-                        cols = columns.lstrip( '(' ).rstrip( ')' )
-                        self.__text = f'SELECT {cols} FROM {table}'
-                        return self.__text
-                elif not isinstance( self.__names, list ) \
-                        and not isinstance( self.__values, tuple ):
-                    if self.__commandtype == SQL.SELECTALL:
-                        self.__text = f'SELECT * FROM {table}'
-                        return self.__text
-                elif self.__commandtype == 'DELETE':
-                    self.__text = f'DELETE FROM {table}'
-                    return self.__text
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlStatement'
-            exc.method = 'query( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def __init__( self, conn: Connection, sql: SqlStatement ):
+		self.__connection = conn
+		self.__sqlstatement = sql
+		self.__sqlconfig = SqlConfig( )
+		self.__source = conn.source
+		self.__provider = conn.provider
+		self.__commandtype = sql.command_type
+		self.__path = conn.path
+		self.__connectionstring = conn.connection_string
+		self.__colnames = self.__sqlconfig.names
+		self.__values = self.__sqlconfig.values
 
-# SQLiteData( connection, sqlstatement )
+	def __str__( self ) -> str:
+		if self.__querytext is not None:
+			return self.__querytext
+
+	def create_sqltext( self ) -> str:
+		try:
+			_table = self.__tablename
+			_crit = self.__sqlconfig.dump_where( )
+			_cols = self.__sqlconfig.dump_columns( )
+			_vals = self.__sqlconfig.dump_values( )
+			if isinstance( self.__colnames, list ) and isinstance( _vals, tuple ):
+				if self.__commandtype == SQL.SELECTALL:
+					if len( self.__colnames ) == 0:
+						self.__querytext = f'SELECT * FROM {_table}'
+						return self.__querytext
+					if len( self.__colnames ) > 0:
+						self.__querytext = f'SELECT ' + _cols + f'FROM {_table}' + f' {_crit}'
+						return self.__querytext
+				elif self.__commandtype == SQL.SELECT:
+					if len( self.__colnames ) == 0:
+						self.__querytext = f'SELECT * FROM {_table}'
+						return self.__querytext
+					if len( self.__colnames ) > 0:
+						self.__querytext = f'SELECT ' + _cols + f' FROM {_table}' + f' {_crit}'
+						return self.__querytext
+				elif self.__commandtype == SQL.INSERT:
+					self.__querytext = f'INSERT INTO {_table} ' + f'{_cols} ' + f'{_vals}'
+					return self.__querytext
+				elif self.__commandtype == SQL.UPDATE:
+					self.__querytext = f'UPDATE {_table} ' \
+					                   + f'{self.__sqlconfig.dump_set( )} ' + f'{_vals}'
+					return self.__querytext
+				elif self.__commandtype == SQL.DELETE:
+					self.__querytext = f'DELETE FROM {_table} ' + f'{_crit}'
+					return self.__querytext
+			else:
+				if isinstance( self.__colnames, list ) and not isinstance( _vals, tuple ):
+					if self.__commandtype == SQL.SELECT:
+						cols = _cols.lstrip( '(' ).rstrip( ')' )
+						self.__querytext = f'SELECT {cols} FROM {_table}'
+						return self.__querytext
+				elif not isinstance( self.__colnames, list ) \
+						and not isinstance( _vals, tuple ):
+					if self.__commandtype == SQL.SELECTALL:
+						self.__querytext = f'SELECT * FROM {_table}'
+						return self.__querytext
+				elif self.__commandtype == 'DELETE':
+					self.__querytext = f'DELETE FROM {_table}'
+					return self.__querytext
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlStatement'
+			_exc.method = 'query_text( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class SQLiteData( Query ):
-    '''SQLiteData( connection, sqlstatement ) represents
-     the omb execution values classes'''
-    __driver = None
-    __dsn = None
-    __query = None
-    __data = None
-    __frame = None
-    __columns = None
+	'''
+	Constructor: SQLiteData( conn: Connection, sql: SqlStatement )
 
-    @property
-    def driver( self ) -> str:
-        if self.__driver is not None:
-            return self.__driver
+	Purpose; Class represents the SQLite data factory
+	'''
+	__driver = None
+	__dsn = None
+	__query = None
+	__data = None
+	__frame = None
 
-    @driver.setter
-    def driver( self, value: str ):
-        if value is not None:
-            self.__driver = value
+	@property
+	def frame( self: DataFrame ):
+		if self.__frame is not None:
+			return self.__frame
 
-    @property
-    def data( self ) -> tuple:
-        if self.__data is not None:
-            return self.__data
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
-    @data.setter
-    def data( self, value: tuple ):
-        if value is not None:
-            self.__data = value
+	def __init__( self, conn: Connection, sql: SqlStatement ):
+		super( ).__init__( conn, sql )
+		self.__provider = Provider.SQLite
+		self.__connection = super( ).connection
+		self.__sqlstatement = super( ).sql_statement
+		self.__source = super( ).source
+		self.__tablename = super( ).source.name
+		self.__driver = super( ).connection.driver
+		self.__query = super( ).sql_statement.get_query( )
 
-    @property
-    def frame( self: DataFrame ):
-        if self.__frame is not None:
-            return self.__frame
+	def __str__( self ) -> str:
+		if self.__query is not None:
+			return self.__query
 
-    @frame.setter
-    def frame( self, value: DataFrame ):
-        if value is not None:
-            self.__frame = value
+	def create_table( self ) -> list[ pyodbc.Row ]:
+		try:
+			_query = self.__query
+			_conn = self.__connection.connect( )
+			_cursor = _conn.cursor( )
+			_data = _cursor.execute( _query )
+			self.__columns = [ i[ 0 ] for i in _cursor.description ]
+			self.__data = [ i for i in _data.fetchall( ) ]
+			_cursor.close( )
+			_conn.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SQLiteData'
+			_exc.method = 'create_table( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    @property
-    def columns( self ) -> list[ str ]:
-        if self.__columns is not None:
-            return self.__columns
+	def create_frame( self ) -> DataFrame:
+		try:
+			_query = f'SELECT * FROM {self.__source.name}'
+			_connection = self.__connection.connect( )
+			self.__frame = sqlreader( _query, _connection )
+			_connection.close( )
+			return self.__frame
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SQLiteData'
+			_exc.method = 'create_frame( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    @columns.setter
-    def columns( self, value: list[ str ] ):
-        if value is not None:
-            self.__columns = value
-
-    def __init__( self, conn: Connection, sql: SqlStatement ):
-        super( ).__init__( conn, sql )
-        self.__provider = Provider.SQLite
-        self.__connection = super( ).connection
-        self.__sqlstatement = super( ).sql_statement
-        self.__source = super( ).source
-        self.__table = super( ).source.name
-        self.__driver = super( ).connection.driver
-        self.__query = super( ).sql_statement.get_query( )
-
-    def __str__( self ) -> str:
-        if self.__query is not None:
-            return self.__query
-
-    # noinspection PyTypeChecker
-    def create_table( self ) -> list[ tuple ]:
-        try:
-            query = self.__query
-            sqlite = self.__connection.connect( )
-            cursor = sqlite.cursor( )
-            data = cursor.execute( query )
-            self.__columns = [ i[ 0 ] for i in cursor.description ]
-            self.__data = [ tuple( i ) for i in data.fetchall( ) ]
-            cursor.close( )
-            sqlite.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SQLiteData'
-            exc.method = 'create_table( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def create_frame( self ) -> DataFrame:
-        try:
-            query = f'SELECT * FROM {self.__source.name}'
-            connection = self.__connection.connect( )
-            self.__frame = sqlreader( query, connection )
-            connection.close( )
-            return self.__frame
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SQLiteData'
-            exc.method = 'create_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# AccessData( connection, sqlstatement )
 class AccessData( Query ):
-    '''AccessData( value, sqlcfg ) class
-      represents the omb execution
-      values model classes in the MS ACCDB database'''
-    __query = None
-    __driver = None
-    __dsn = None
-    __data = None
-    __columns = None
+	'''
+	Constructor:  AccessData( conn: connection, sql: SqlStatement )
 
-    @property
-    def data( self ) -> list[ str ]:
-        if isinstance( self.__data, list ):
-            return self.__data
+	Purpose: Class represents the main execution
+	values model classes in the MS ACCDB database
+	'''
+	__query = None
+	__driver = None
+	__dsn = None
+	__data = None
+	__columns = None
 
-    @data.setter
-    def data( self, value: list[ str ] ):
-        if value is not None:
-            self.__data = value
+	@property
+	def query_text( self ) -> str:
+		if self.__query is not None:
+			return self.__query
 
-    @property
-    def driver( self ) -> str:
-        if isinstance( self.__driver, str ):
-            return self.__driver
+	@query_text.setter
+	def query_text( self, value: str ):
+		if value is not None:
+			self.__query = value
 
-    @driver.setter
-    def driver( self, value: str ):
-        if value is not None:
-            self.__driver = value
+	def __init__( self, conn: Connection, sql: SqlStatement ):
+		super( ).__init__( conn, sql )
+		self.__source = super( ).source
+		self.__provider = Provider.Access
+		self.__connection = super( ).connection
+		self.__sqlstatement = super( ).sql_statement
+		self.__query = sql.get_query( )
+		self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
+		self.__data = [ ]
 
-    @property
-    def columns( self ) -> list[ str ]:
-        if isinstance( self.__columns, list ) and len( self.__columns ) > 0:
-            return self.__columns
+	def __str__( self ) -> str:
+		if self.__query is not None:
+			return self.__query
 
-    @columns.setter
-    def columns( self, value: list[ str ] ):
-        if value is not None:
-            self.__columns = value
+	def create_table( self ) -> list[ pyodbc.Row ]:
+		try:
+			_query = self.__query
+			_access = self.__connection.connect( )
+			_cursor = _access.cursor( )
+			_data = _cursor.execute( _query )
+			self.__columns = [ i[ 0 ] for i in _cursor.description ]
+			self.__data = [ i for i in _data.fetchall( ) ]
+			_cursor.close( )
+			_access.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'AccessData'
+			_exc.method = 'create_table( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    @property
-    def query( self ) -> str:
-        if self.__query is not None:
-            return self.__query
+	def create_frame( self ) -> DataFrame:
+		try:
+			_query = self.__query
+			_conn = self.__connection.connect( )
+			self.__frame = sqlreader( _query, _conn )
+			_conn.close( )
+			return self.__frame
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'AccessData'
+			_exc.method = 'create_frame( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    @query.setter
-    def query( self, value: str ):
-        if value is not None:
-            self.__query = value
-
-    def __init__( self, conn: Connection, sql: SqlStatement ):
-        super( ).__init__( conn, sql )
-        self.__source = super( ).source
-        self.__provider = Provider.Access
-        self.__connection = super( ).connection
-        self.__sqlstatement = super( ).sql_statement
-        self.__query = sql.get_query( )
-        self.__table = super( ).table
-        self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
-        self.__data = [ ]
-
-    def __str__( self ) -> str:
-        if isinstance( self.__query, str ) and self.__query != '':
-            return self.__query
-
-    def create_table( self ) -> [ ]:
-        try:
-            query = self.__query
-            access = self.__connection.connect( )
-            cursor = access.cursor( )
-            data = cursor.execute( query )
-            self.__columns = [ i[ 0 ] for i in cursor.description ]
-            self.__data = [ self.__data.append( i ) for i in data.fetchall( ) ]
-            cursor.close( )
-            access.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'AccessData'
-            exc.method = 'create_table( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-    def create_frame( self ) -> DataFrame:
-        try:
-            query = self.__query
-            connection = self.__connection.connect( )
-            self.__frame = sqlreader( query, connection )
-            connection.close( )
-            return self.__frame
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'AccessData'
-            exc.method = 'create_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# SqlData( connection, sqlstatement )
 class SqlData( Query ):
-    '''SqlData( value, sqlcfg ) object
-    represents the values models in the MS SQL Server
-    database'''
-    __query = None
-    __server = None
-    __driver = None
-    __dsn = None
-    __columns = None
-    __data = None
+	'''
+	 Constructor: SqlData( conn: Connection, sql: SqlStatement )
 
-    @property
-    def server( self ) -> str:
-        if isinstance( self.__server, str ):
-            return self.__server
+	 Purpose:  Class providing object represents the
+	 value models in the MS SQL Server database
+	 '''
+	__query = None
+	__server = None
+	__driver = None
+	__dsn = None
+	__columns = None
+	__data = None
 
-    @server.setter
-    def server( self, value ):
-        if isinstance( value, str ):
-            self.__server = value
+	@property
+	def server( self ) -> str:
+		if self.__server is not None:
+			return self.__server
 
-    @property
-    def driver( self ) -> str:
-        if isinstance( self.__driver, str ):
-            return self.__driver
+	@server.setter
+	def server( self, value: str ):
+		if value is not None:
+			self.__server = value
 
-    @driver.setter
-    def driver( self, value ):
-        if isinstance( value, str ):
-            self.__driver = value
+	@property
+	def driver( self ) -> str:
+		if self.__driver is not None:
+			return self.__driver
 
-    @property
-    def data( self ) -> tuple:
-        if self.__data is not None:
-            return self.__data
+	@driver.setter
+	def driver( self, value: str ):
+		if value is not None:
+			self.__driver = value
 
-    @data.setter
-    def data( self, value: tuple ):
-        if value is not None:
-            self.__data = value
+	@property
+	def data( self ) -> tuple:
+		if self.__data is not None:
+			return self.__data
 
-    @property
-    def columns( self ) -> list[ str ]:
-        if self.__columns is not None:
-            return self.__columns
+	@data.setter
+	def data( self, value: tuple ):
+		if value is not None:
+			self.__data = value
 
-    @columns.setter
-    def columns( self, value: list[ str ] ):
-        if value is not None:
-            self.__columns = value
+	@property
+	def columns( self ) -> list[ str ]:
+		if self.__columns is not None:
+			return self.__columns
 
-    def __init__( self, conn: Connection, sql: SqlStatement ):
-        super( ).__init__( conn, sql )
-        self.__provider = Provider.SqlServer
-        self.__connection = conn
-        self.__source = conn.source
-        self.__sqlstatement = sql
-        self.__query = sql.get_query( )
-        self.__table = conn.source.name
-        self.__server = r'(LocalDB)\MSSQLLocalDB;'
-        self.__driver = r'{ SQL Server Native Client 11.0 };'
+	@columns.setter
+	def columns( self, value: list[ str ] ):
+		if value is not None:
+			self.__columns = value
 
-    def __str__( self ) -> str:
-        if self.__query is not None:
-            return self.__query
+	def __init__( self, conn: Connection, sql: SqlStatement ):
+		super( ).__init__( conn, sql )
+		self.__provider = Provider.SqlServer
+		self.__connection = conn
+		self.__source = conn.source
+		self.__sqlstatement = sql
+		self.__query = sql.get_query( )
+		self.__table = conn.source.name
+		self.__server = r'(LocalDB)\MSSQLLocalDB;'
+		self.__driver = r'{ SQL Server Native Client 11.0 };'
 
-    def create_table( self ) -> list[ pyodbc.Row ]:
-        try:
-            query = self.__query
-            connection = self.__connection.connect( )
-            cursor = connection.cursor( )
-            data = cursor.execute( query )
-            self.__columns = [ i[ 0 ] for i in cursor.description ]
-            self.__data = [ i for i in data.fetchall( ) ]
-            cursor.close( )
-            connection.close( )
-            return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlData'
-            exc.method = 'create_table( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def __str__( self ) -> str:
+		if self.__query is not None:
+			return self.__query
 
-    def create_frame( self ) -> DataFrame:
-        try:
-            query = f'SELECT * FROM {self.__table}'
-            connection = self.__connection.connect( )
-            self.__frame = sqlreader( query, connection )
-            connection.close( )
-            return self.__frame
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'SqlData'
-            exc.method = 'create_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def create_table( self ) -> list[ pyodbc.Row ]:
+		try:
+			_query = self.__query
+			_connection = self.__connection.connect( )
+			_cursor = _connection.cursor( )
+			_data = _cursor.execute( _query )
+			self.__columns = [ i[ 0 ] for i in _cursor.description ]
+			self.__data = [ i for i in _data.fetchall( ) ]
+			_cursor.close( )
+			_connection.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlData'
+			_exc.method = 'create_table( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-# DataBuilder( provider, source, command, names, values )
+	def create_frame( self ) -> DataFrame:
+		try:
+			_query = f'SELECT * FROM {self.__table}'
+			_connection = self.__connection.connect( )
+			self.__frame = sqlreader( _query, _connection )
+			_connection.close( )
+			return self.__frame
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'SqlData'
+			_exc.method = 'create_frame( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class DataBuilder( ):
-    '''DataBuilder( provider, source, command, names, values ).
-    Class provides methods that access
-    application data. Constructor creates object using
-    optional arguments ( provider: Provider, source: Source,
-    command: DataCommand, names: list, values: tuple ) '''
-    __names = None
-    __values = None
-    __commandtype = None
-    __source = None
-    __provider = None
-    __dbconfig = None
-    __sqlcfg = None
-    __cnx = None
-    __sql = None
-    __query = None
-    __data = None
+	'''
+	Constructor: DataBuilder( pvdr: Provider, src: Source,
+			command: SQL, column_names: list, values: tuple ).
 
-    @property
-    def source( self ) -> Source:
-        if self.__source is not None:
-            return self.__source
+	Purpose; Class provides methods that access
+	application data.
+	'''
+	__names = None
+	__values = None
+	__commandtype = None
+	__source = None
+	__provider = None
+	__dbconfig = None
+	__sqlcfg = None
+	__cnx = None
+	__sql = None
+	__query = None
+	__data = None
 
-    @source.setter
-    def source( self, value: Source ):
-        if value is not None:
-            self.__source = value
+	@property
+	def source( self ) -> Source:
+		if self.__source is not None:
+			return self.__source
 
-    @property
-    def provider( self ) -> Provider:
-        '''Gets the provider'''
-        if self.__provider is not None:
-            return self.__provider
+	@source.setter
+	def source( self, value: Source ):
+		if value is not None:
+			self.__source = value
 
-    @provider.setter
-    def provider( self, value: Provider ):
-        '''Sets the provider'''
-        if value is not None:
-            self.__provider = value
-        else:
-            self.__provider = Provider.SQLite
+	@property
+	def provider( self ) -> Provider:
+		'''Gets the _provider'''
+		if self.__provider is not None:
+			return self.__provider
 
-    @property
-    def command( self ) -> SQL:
-        '''Gets an instance of the DataCommand object'''
-        if self.__commandtype is not None:
-            return self.__commandtype
+	@provider.setter
+	def provider( self, value: Provider ):
+		'''Sets the _provider'''
+		if value is not None:
+			self.__provider = value
+		else:
+			self.__provider = Provider.SQLite
 
-    @command.setter
-    def command( self, value: SQL ):
-        '''Set the command property to a DataCommand instance'''
-        if value is not None:
-            self.__commandtype = value
+	@property
+	def command( self ) -> SQL:
+		'''Gets an instance of the DataCommand object'''
+		if self.__commandtype is not None:
+			return self.__commandtype
 
-    @property
-    def names( self ) -> str:
-        '''Provides list of value names'''
-        if self.__names is not None:
-            return self.__names
+	@command.setter
+	def command( self, value: SQL ):
+		'''Set the command property to a DataCommand instance'''
+		if value is not None:
+			self.__commandtype = value
 
-    @names.setter
-    def names( self, value ):
-        '''Sets the list of value names'''
-        if value is not None:
-            self.__names = value
+	@property
+	def names( self ) -> list[ str ]:
+		'''Provides list of value column_names'''
+		if self.__names is not None:
+			return self.__names
 
-    @property
-    def values( self ) -> tuple:
-        '''Provides tuple of value values'''
-        if self.__values is not None:
-            return self.__values
+	@names.setter
+	def names( self, value: list[ str ] ):
+		'''Sets the list of value column_names'''
+		if value is not None:
+			self.__names = value
 
-    @values.setter
-    def values( self, value: tuple ):
-        '''Sets tuple of value values'''
-        if value is not None:
-            self.__values = value
+	@property
+	def values( self ) -> tuple:
+		'''Provides tuple of value values'''
+		if self.__values is not None:
+			return self.__values
 
-    @property
-    def dataconfig( self ) -> DbConfig:
-        if self.__dbconfig is not None:
-            return self.__dbconfig
+	@values.setter
+	def values( self, value: tuple ):
+		'''Sets tuple of value values'''
+		if value is not None:
+			self.__values = value
 
-    @dataconfig.setter
-    def dataconfig( self, value: DbConfig ):
-        if value is not None:
-            self.__dbconfig = value
+	@property
+	def dataconfig( self ) -> DbConfig:
+		if self.__dbconfig is not None:
+			return self.__dbconfig
 
-    @property
-    def sqlconfig( self ) -> SqlConfig:
-        '''Gets instance of the SqlConfig class'''
-        if self.__sqlcfg is not None:
-            return self.__sqlcfg
+	@dataconfig.setter
+	def dataconfig( self, value: DbConfig ):
+		if value is not None:
+			self.__dbconfig = value
 
-    @sqlconfig.setter
-    def sqlconfig( self, value: SqlConfig ):
-        '''Sets property to an instance of the SqlConfig class'''
-        if value is not None:
-            self.__sqlcfg = value
+	@property
+	def sqlconfig( self ) -> SqlConfig:
+		'''Gets instance of the SqlConfig class'''
+		if self.__sqlcfg is not None:
+			return self.__sqlcfg
 
-    def __init__( self, source: Source, provider = Provider.SQLite,
-                  command = SQL.SELECTALL, names: list[ str ] = None,
-                  values: tuple = None ):
-        self.__source = source
-        self.__provider = provider
-        self.__commandtype = command
-        self.__name = names
-        self.__values = values
-        self.__dbconfig = DbConfig( self.__source, self.__provider )
-        self.__cnx = Connection( source )
-        self.__sqlcfg = SqlConfig( self.__commandtype, self.__names, self.__values )
-        self.__sql = SqlStatement( self.__dbconfig, self.__sqlcfg )
+	@sqlconfig.setter
+	def sqlconfig( self, value: SqlConfig ):
+		'''Sets property to an instance of the SqlConfig class'''
+		if value is not None:
+			self.__sqlcfg = value
 
-    def create_table( self ) -> list[ tuple ]:
-        try:
-            if self.__provider == Provider.SQLite:
-                sqlite = SQLiteData( self.__cnx, self.__sql )
-                self.__data = [ tuple( i ) for i in sqlite.data ]
-                return self.__data
-            elif self.__provider == Provider.Access:
-                access = AccessData( self.__cnx, self.__sql )
-                self.__data = [ tuple( i ) for i in access.data ]
-                return self.__data
-            elif self.__provider == Provider.SqlServer:
-                sqlserver = SqlData( self.__cnx, self.__sql )
-                self.__data = [ tuple( i ) for i in sqlserver.data ]
-                return self.__data
-            else:
-                sqlite = SQLiteData( self.__cnx, self.__sql )
-                self.__data = [ tuple( i ) for i in sqlite.data ]
-                return self.__data
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'DataBuilder'
-            exc.method = 'create_table( self )'
-            error = ErrorDialog( exc )
-            error.show( )
+	def __init__( self, source: Source, provider = Provider.SQLite,
+	              command = SQL.SELECTALL, names: list[ str ] = None,
+	              values: tuple = None ):
+		self.__source = source
+		self.__provider = provider
+		self.__commandtype = command
+		self.__name = names
+		self.__values = values
+		self.__dbconfig = DbConfig( self.__source, self.__provider )
+		self.__cnx = Connection( source )
+		self.__sqlcfg = SqlConfig( self.__commandtype, self.__names, self.__values )
+		self.__sql = SqlStatement( self.__dbconfig, self.__sqlcfg )
 
-# DataColumn( name = '', datatype = None, value = None  )
+	def create_table( self ) -> list[ tuple ]:
+		try:
+			if self.__provider == Provider.SQLite:
+				_sqlite = SQLiteData( self.__cnx, self.__sql )
+				self.__data = [ tuple( i ) for i in _sqlite.data ]
+				return self.__data
+			elif self.__provider == Provider.Access:
+				_access = AccessData( self.__cnx, self.__sql )
+				self.__data = [ tuple( i ) for i in _access.data ]
+				return self.__data
+			elif self.__provider == Provider.SqlServer:
+				_sqlserver = SqlData( self.__cnx, self.__sql )
+				self.__data = [ tuple( i ) for i in _sqlserver.data ]
+				return self.__data
+			else:
+				_sqlite = SQLiteData( self.__cnx, self.__sql )
+				self.__data = [ tuple( i ) for i in _sqlite.data ]
+				return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'DataBuilder'
+			_exc.method = 'create_table( self )'
+			_error = ErrorDialog( _exc )
+			_error.show( )
+
 class DataColumn( ):
-    '''Defines the DataColumn Class providing schema information.
-    Constructor uses optional arguments ( name: str, type: type,
-     value: object, series: DataSeries )'''
-    __series = None
-    __row = None
-    __name = None
-    __value = None
-    __label = None
-    __id = None
-    __type = None
-    __caption = None
-    __table = None
-    __frame = None
+	'''
+	Constructor: DataColumn( name: str = '', dtype: type = None, value: object = None )
 
-    @property
-    def id( self ) -> str:
-        if self.__id > -1:
-            return self.__id
+	Purpose:  Defines the class providing schema information.
+	 '''
+	__series = None
+	__row = None
+	__name = None
+	__value = None
+	__label = None
+	__id = None
+	__type = None
+	__caption = None
+	__table = None
+	__frame = None
 
-    @id.setter
-    def id( self, value ):
-        if value > -1:
-            self.__id = value
+	@property
+	def id( self ) -> int:
+		if self.__id is not None:
+			return self.__id
 
-    @property
-    def name( self ) -> str:
-        if self.__name != None:
-            return self.__name
+	@id.setter
+	def id( self, value: int ):
+		if value > -1:
+			self.__id = value
 
-    @name.setter
-    def name( self, value ):
-        if value is not None:
-            self.__name = value
+	@property
+	def name( self ) -> str:
+		if self.__name is not None:
+			return self.__name
 
-    @property
-    def value( self ) -> object:
-        if self.__type is not None:
-            return self.__value
+	@name.setter
+	def name( self, value: str ):
+		if value is not None:
+			self.__name = value
 
-    @value.setter
-    def value( self, value: object ):
-        if value is not None:
-            self.__value = value
+	@property
+	def value( self ) -> object:
+		if self.__type is not None:
+			return self.__value
 
-    @property
-    def type( self ) -> type:
-        if self.__type is not None:
-            return self.__type
+	@value.setter
+	def value( self, value: object ):
+		if value is not None:
+			self.__value = value
 
-    @type.setter
-    def type( self, value: type ):
-        if value is not None:
-            self.__type = value
+	@property
+	def type( self ) -> type:
+		if self.__type is not None:
+			return self.__type
 
-    @property
-    def ordinal( self ) -> int:
-        if self.__value is not None:
-            return self.__id
+	@type.setter
+	def type( self, value: type ):
+		if value is not None:
+			self.__type = value
 
-    @ordinal.setter
-    def ordinal( self, value: int ):
-        if value is not None:
-            self.__id = value
+	@property
+	def caption( self ) -> str:
+		if isinstance( self.__caption, str ):
+			return self.__caption
 
-    @property
-    def caption( self ) -> str:
-        if isinstance( self.__caption, str ):
-            return self.__caption
+	@caption.setter
+	def caption( self, value: str ):
+		if value is not None:
+			self.__caption = value
 
-    @caption.setter
-    def caption( self, value: str ):
-        if value is not None:
-            self.__caption = value
+	@property
+	def table( self ) -> str:
+		if self.__table is not None:
+			return self.__table
 
-    @property
-    def table( self ) -> str:
-        if self.__table is not None:
-            return self.__table
+	@table.setter
+	def table( self, value ):
+		if value is not None:
+			self.__table = value
 
-    @table.setter
-    def table( self, value ):
-        if value is not None:
-            self.__table = value
+	@property
+	def row( self ) -> object:
+		if self.__row is not None:
+			return self.__row
 
-    @property
-    def row( self ) -> object:
-        if self.__row is not None:
-            return self.__row
+	@row.setter
+	def row( self, value: object ):
+		if value is not None:
+			self.__series = value
+			self.__row = self.__series
 
-    @row.setter
-    def row( self, value: object ):
-        if value is not None:
-            self.__series = value
-            self.__row = self.__series
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
 
-    @property
-    def frame( self ) -> DataFrame:
-        if self.__frame is not None:
-            return self.__frame
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
-    @frame.setter
-    def frame( self, value: DataFrame ):
-        if value is not None:
-            self.__frame = value
+	def __init__( self, name: str = '', dtype: type = None, value: object = None ):
+		self.__name = name
+		self.__label = name
+		self.__caption = name
+		self.__type = dtype
+		self.__value = value
 
-    def __init__( self, name: str = '', datatype: type = None, value: object = None ):
-        self.__name = name
-        self.__label = name
-        self.__caption = name
-        self.__type = datatype
-        self.__value = value
+	def __str__( self ) -> str:
+		if isinstance( self.__name, str ) and self.__name != '':
+			return self.__name
 
-    def __str__( self ) -> str:
-        if isinstance( self.__name, str ) and self.__name != '':
-            return self.__name
+	def is_numeric( self ) -> bool:
+		'''Method used to return a boolean value indicating whether
+		the data column contains numeric data'''
+		try:
+			if self.__value is not None:
+				return True
+			else:
+				return False
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'DataColumn'
+			_exc.method = 'is_numeric( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    def is_numeric( self ) -> bool:
-        '''Method used to return a boolean value indicating whether
-        the data column contains numeric data'''
-        try:
-            if self.__value is not None:
-                return True
-            else:
-                return False
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'DataColumn'
-            exc.method = 'is_numeric( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def is_text( self ) -> bool:
+		'''Method used to return a boolean value indicating
+		whether the data column contains text data'''
+		try:
+			if self.__value is not None:
+				return True
+			else:
+				return False
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'DataColumn'
+			_exc.method = 'is_text( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
-    def is_text( self ) -> bool:
-        '''Method used to return a boolean value indicating
-        whether the data column contains text data'''
-        try:
-            if self.__value is not None:
-                return True
-            else:
-                return False
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Ninja'
-            exc.cause = 'DataColumn'
-            exc.method = 'is_text( self )'
-            err = ErrorDialog( exc )
-            err.show( )
-
-# DataRow( names = None, values = ( ), source = None)
 class DataRow( ):
-    '''Defines the DataRow Class with optional arguments
-    ( names: list, values: list, source: Source )'''
-    __source = None
-    __names = None
-    __items = None
-    __data = None
-    __values = None
-    __key = None
-    __index = None
+	'''
+	Constructor: DataRow( column_names = None, values = ( ), _source = None)
 
-    @property
-    def id( self ) -> int:
-        if self.__index is not None:
-            return self.__index
+	Purpose:  Defines the class representing rows of data
+	'''
+	__source = None
+	__names = None
+	__items = None
+	__data = None
+	__values = None
+	__key = None
+	__index = None
 
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__index = value
+	@property
+	def id( self ) -> int:
+		if self.__index is not None:
+			return self.__index
 
-    @property
-    def key( self ) -> str:
-        if self.__key is not None:
-            return self.__key
+	@id.setter
+	def id( self, value: int ):
+		if value is not None:
+			self.__index = value
 
-    @key.setter
-    def key( self, value: str ):
-        if value is not None:
-            self.__key = value
+	@property
+	def key( self ) -> str:
+		if self.__key is not None:
+			return self.__key
 
-    @property
-    def data( self ) -> list[ tuple ]:
-        if self.__data is not None:
-            return self.__data
+	@key.setter
+	def key( self, value: str ):
+		if value is not None:
+			self.__key = value
 
-    @data.setter
-    def data( self, value: list[ tuple ] ):
-        if value is not None:
-            self.__data = value
+	@property
+	def data( self ) -> list[ tuple ]:
+		if self.__data is not None:
+			return self.__data
 
-    @property
-    def items( self ) -> zip:
-        if self.__items is not None:
-            return self.__items
+	@data.setter
+	def data( self, value: list[ tuple ] ):
+		if value is not None:
+			self.__data = value
 
-    @items.setter
-    def items( self, value: zip ):
-        if value is not None:
-            self.__items = value
+	@property
+	def items( self ) -> zip:
+		if self.__items is not None:
+			return self.__items
 
-    @property
-    def names( self ) -> list[ str ]:
-        if self.__names is not None:
-            return self.__names
+	@items.setter
+	def items( self, value: zip ):
+		if value is not None:
+			self.__items = value
 
-    @names.setter
-    def names( self, value: list[ str ] ):
-        if value is not None:
-            self.__names = value
+	@property
+	def names( self ) -> list[ str ]:
+		if self.__names is not None:
+			return self.__names
 
-    @property
-    def values( self ) -> tuple:
-        if self.__values is not None:
-            return self.__values
+	@names.setter
+	def names( self, value: list[ str ] ):
+		if value is not None:
+			self.__names = value
 
-    @values.setter
-    def values( self, value: tuple ):
-        if value is not None:
-            self.__values = value
+	@property
+	def values( self ) -> tuple:
+		if self.__values is not None:
+			return self.__values
 
-    @property
-    def source( self ) -> Source:
-        if self.__source is not None:
-            return self.__source
+	@values.setter
+	def values( self, value: tuple ):
+		if value is not None:
+			self.__values = value
 
-    @source.setter
-    def source( self, value: Source ):
-        if value is not None:
-            self.__source = value
+	@property
+	def _source( self ) -> Source:
+		if self.__source is not None:
+			return self.__source
 
-    def __init__( self, names: list[ str ] = None, values: tuple = ( ),
-                  source: Source = None ):
-        self.__source = source
-        self.__names = names
-        self.__values = values
-        self.__items = zip( names, list( values ) )
-        self.__key = str( self.__names[ 0 ] )
-        self.__index = int( self.__values[ 0 ] )
+	@_source.setter
+	def _source( self, value: Source ):
+		if value is not None:
+			self.__source = value
 
-    def __str__( self ) -> str:
-        if self.__index is not None:
-            return 'Row ID: ' + str( self.__index )
+	def __init__( self, names: list[ str ] = None, values: tuple = ( ),
+	              _source: Source = None ):
+		self.__source = _source
+		self.__names = names
+		self.__values = values
+		self.__items = zip( names, list( values ) )
+		self.__key = str( self.__names[ 0 ] )
+		self.__index = int( self.__values[ 0 ] )
 
-# DataTable( columns = None, rows = None, source = None, dataframe = None  )
+	def __str__( self ) -> str:
+		if self.__index is not None:
+			return 'Row ID: ' + str( self.__index )
+
 class DataTable( ):
-    '''DataTable( columns = None, rows = None, source = None, dataframe = None  ).
-    Defines the DataTable Class with optional arguments
-    ( columns: list( str ), rows: list( tuple ), source: Source,
-     dataframe: DataFrame )'''
-    __name = None
-    __data = None
-    __frame = None
-    __rows = None
-    __columns = None
-    __schema = None
-    __source = None
+	'''
+	Constructor: DataTable( columns = None, rows = None, src = None, dataframe = None  ).
 
-    @property
-    def name( self ) -> str:
-        if self.__name is not None:
-            return self.__name
+	Purpose: Defines the class representing table of data
+	'''
+	__name = None
+	__data = None
+	__frame = None
+	__rows = None
+	__columns = None
+	__schema = None
+	__source = None
 
-    @name.setter
-    def name( self, value ):
-        if value is not None:
-            self.__name = str( value )
+	@property
+	def name( self ) -> str:
+		if self.__name is not None:
+			return self.__name
 
-    @property
-    def data( self ) -> list:
-        if self.__rows is not None:
-            return self.__rows
+	@name.setter
+	def name( self, value ):
+		if value is not None:
+			self.__name = str( value )
 
-    @data.setter
-    def data( self, value: list ):
-        if value is not None:
-            self.__rows = value
+	@property
+	def data( self ) -> list:
+		if self.__rows is not None:
+			return self.__rows
 
-    @property
-    def frame( self ) -> DataFrame:
-        if self.__frame is not None:
-            return self.__frame
+	@data.setter
+	def data( self, value: list ):
+		if value is not None:
+			self.__rows = value
 
-    @frame.setter
-    def frame( self, value: DataFrame ):
-        if value is not None:
-            self.__frame = value
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
 
-    @property
-    def schema( self ) -> list[ str ]:
-        if self.__columns is not None:
-            return self.__columns
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
-    @schema.setter
-    def schema( self, value: list[ str ] ):
-        if value is not None:
-            self.__columns = value
+	@property
+	def schema( self ) -> list[ str ]:
+		if self.__columns is not None:
+			return self.__columns
 
-    @property
-    def rows( self ) -> list:
-        if self.__rows is not None:
-            return self.__rows
+	@schema.setter
+	def schema( self, value: list[ str ] ):
+		if value is not None:
+			self.__columns = value
 
-    @rows.setter
-    def rows( self, value ):
-        if value is not None:
-            self.__rows = value
+	@property
+	def rows( self ) -> list:
+		if self.__rows is not None:
+			return self.__rows
 
-    @property
-    def columns( self ) -> list[ str ]:
-        if self.__columns is not None:
-            return self.__columns
+	@rows.setter
+	def rows( self, value ):
+		if value is not None:
+			self.__rows = value
 
-    @columns.setter
-    def columns( self, value: list[ str ] ):
-        if value is not None:
-            self.__columns = value
+	@property
+	def columns( self ) -> list[ str ]:
+		if self.__columns is not None:
+			return self.__columns
 
-    @property
-    def source( self ) -> Source:
-        if self.__source is not None:
-            return self.__source
+	@columns.setter
+	def columns( self, value: list[ str ] ):
+		if value is not None:
+			self.__columns = value
 
-    @source.setter
-    def source( self, value: Source ):
-        if value is not None:
-            self.__source = value
+	@property
+	def _source( self ) -> Source:
+		if self.__source is not None:
+			return self.__source
 
-    def __init__( self, columns: list[ str ] = None, rows: list = None,
-                  source: Source = None, dataframe: DataFrame = None ):
-        self.__frame = dataframe
-        self.__name = source.name
-        self.__rows = [ tuple( r ) for r in dataframe.iterrows( ) ]
-        self.__data = self.__rows
-        self.__columns = [ str( c ) for c in columns ]
-        self.__schema = [ DataColumn( c ) for c in columns ]
+	@_source.setter
+	def _source( self, value: Source ):
+		if value is not None:
+			self.__source = value
 
-    def __str__( self ) -> str:
-        if self.__name is not None:
-            return self.__name
+	def __init__( self, columns: list[ str ] = None, rows: list = None,
+	              source: Source = None, dataframe: DataFrame = None ):
+		self.__frame = dataframe
+		self.__name = source.name
+		self.__rows = [ tuple( r ) for r in dataframe.iterrows( ) ]
+		self.__data = self.__rows
+		self.__columns = [ str( c ) for c in columns ]
+		self.__schema = [ DataColumn( c ) for c in columns ]
 
-# BudgetData( source )
+	def __str__( self ) -> str:
+		if self.__name is not None:
+			return self.__name
+
 class BudgetData( ):
-    '''BudgetData( source ). Class containing factory method for providing
-    pandas dataframes based on the Source argument 'source' '''
-    __source = None
-    __name = None
-    __path = None
-    __connection = None
-    __sql = None
-    __data = None
-    __frame = None
-    __columns = None
-    __index = None
+	'''
+	Constructor: BudgetData( src: Source ).
 
-    @property
-    def source( self ) -> Source:
-        if self.__source is not None:
-            return self.__source
+	Purpose:  Class containing factory method for providing
+	pandas dataframes
+	'''
+	__source = None
+	__name = None
+	__path = None
+	__connection = None
+	__sql = None
+	__data = None
+	__frame = None
+	__columns = None
+	__index = None
 
-    @source.setter
-    def source( self, value: Source ):
-        if value is not None:
-            self.__source = value
+	@property
+	def source( self ) -> Source:
+		if self.__source is not None:
+			return self.__source
 
-    @property
-    def name( self ) -> str:
-        if self.__name is not None:
-            return self.__name
+	@source.setter
+	def source( self, value: Source ):
+		if value is not None:
+			self.__source = value
 
-    @name.setter
-    def name( self, value: str ):
-        if value is not None:
-            self.__name = value
+	@property
+	def name( self ) -> str:
+		if self.__name is not None:
+			return self.__name
 
-    @property
-    def path( self ) -> str:
-        if self.__path is not None:
-            return self.__path
+	@name.setter
+	def name( self, value: str ):
+		if value is not None:
+			self.__name = value
 
-    @path.setter
-    def path( self, value: str ):
-        if value is not None:
-            self.__path = value
+	@property
+	def path( self ) -> str:
+		if self.__path is not None:
+			return self.__path
 
-    @property
-    def data( self ) -> list[ tuple ]:
-        if self.__data is not None:
-            return self.__data
+	@path.setter
+	def path( self, value: str ):
+		if value is not None:
+			self.__path = value
 
-    @data.setter
-    def data( self, value: list[ tuple ] ):
-        if value is not None:
-            self.__data = value
+	@property
+	def data( self ) -> list[ tuple ]:
+		if self.__data is not None:
+			return self.__data
 
-    @property
-    def query( self ) -> str:
-        if self.__sql is not None:
-            return self.__sql
+	@data.setter
+	def data( self, value: list[ tuple ] ):
+		if value is not None:
+			self.__data = value
 
-    @query.setter
-    def query( self, value: str ):
-        if value is not None:
-            self.__sql = value
+	@property
+	def query( self ) -> str:
+		if self.__sql is not None:
+			return self.__sql
 
-    @property
-    def columns( self ) -> list[ str ]:
-        if self.__columns is not None:
-            return self.__columns
+	@query.setter
+	def query( self, value: str ):
+		if value is not None:
+			self.__sql = value
 
-    @columns.setter
-    def columns( self, value: list[ str ] ):
-        if value is not None:
-            self.__columns = value
+	@property
+	def columns( self ) -> list[ str ]:
+		if self.__columns is not None:
+			return self.__columns
 
-    @property
-    def index( self ) -> int:
-        if self.__index is not None:
-            return self.__index
+	@columns.setter
+	def columns( self, value: list[ str ] ):
+		if value is not None:
+			self.__columns = value
 
-    @index.setter
-    def index( self, value: int ):
-        if value is not None:
-            self.__index = value
+	@property
+	def index( self ) -> int:
+		if self.__index is not None:
+			return self.__index
 
-    @property
-    def frame( self ) -> DataFrame:
-        if self.__frame is not None:
-            return self.__frame
+	@index.setter
+	def index( self, value: int ):
+		if value is not None:
+			self.__index = value
 
-    @frame.setter
-    def frame( self, value: DataFrame ):
-        if value is not None:
-            self.__frame = value
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
 
-    def __init__( self, source: Source ):
-        self.__source = source
-        self.__name = source.name
-        self.__path = DbConfig( source, Provider.SQLite ).get_path( )
-        self.__sql = f'SELECT * FROM {source.name};'
-        self.__frame = self.get_frame( )
-        self.__data = [ tuple( i ) for i in self.get_frame( ).iterrows( ) ]
-        self.__columns = list( self.get_frame( ).columns )
-        self.__index = self.get_frame( ).index
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
-    def get_frame( self ) -> DataFrame:
-        '''Factory method that returns a pandas DataFrame object
-        based on the Source input arguement 'source' given to the constructor'''
-        try:
-            path = self.__path
-            src = self.__source
-            table = src.name
-            conn = sqlite.connect( path )
-            sql = f'SELECT * FROM {table};'
-            frame = sqlreader( sql, conn )
-            return frame
-        except Exception as e:
-            exc = Error( e )
-            exc.module = 'Booger'
-            exc.cause = 'BudgetData'
-            exc.method = 'get_frame( self )'
-            err = ErrorDialog( exc )
-            err.show( )
+	def __init__( self, source: Source ):
+		self.__source = source
+		self.__name = source.name
+		self.__path = DbConfig( source ).get_path( )
+		self.__sql = f'SELECT * FROM {source.name};'
+		self.__frame = self.create_frame( )
+		self.__data = [ tuple( i ) for i in self.create_frame( ).iterrows( ) ]
+		self.__columns = list( self.create_frame( ).columns )
+		self.__index = self.create_frame( ).index
+
+	def create_frame( self ) -> DataFrame:
+		'''Method that returns a pandas DataFrame object
+		based on the Source input arguement 'src' given to the constructor'''
+		try:
+			_path = self.__path
+			_source = self.__source
+			_table = _source.name
+			_connection = sqlite.connect( _path )
+			_sql = f'SELECT * FROM {_table};'
+			_frame = sqlreader( _sql, _connection )
+			return _frame
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Data'
+			_exc.cause = 'BudgetData'
+			_exc.method = 'create_frame( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )

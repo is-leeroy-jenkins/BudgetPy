@@ -1,18 +1,31 @@
-CREATE TABLE AppropriationAvailableBalances
+CREATE TABLE IF NOT EXISTS AppropriationAvailableBalances
 (
-	AppropriationAvailableBalancesId AUTOINCREMENT NOT NULL UNIQUE,
+	AppropriationAvailableBalancesId INTEGER NOT NULL UNIQUE,
 	BFY TEXT(80) NULL DEFAULT NS,
 	EFY TEXT(80) NULL DEFAULT NS,
-	AppropriationFundCode TEXT(80) NULL DEFAULT NS,
-	AppropriationFundName TEXT(80) NULL DEFAULT NS,
-	TreasurySymbol TEXT(80) NULL DEFAULT NS,
-	OmbAccountCode TEXT(80) NULL DEFAULT NS,
-	Availability TEXT(80) NULL DEFAULT NS,
-	TotalAuthority  NULL,
-	TotalUsed DOUBLE NULL DEFAULT 0.0,
-	Available DOUBLE NULL DEFAULT 0.0,
-	CONSTRAINT AppropriationAvailableBalancesPrimaryKey 
-		PRIMARY KEY(AppropriationAvailableBalancesId)
+	FundCode TEXT(80) NULL DEFAULT NS,
+	FundName TEXT(80) NULL DEFAULT NS,
+	BudgetAccountCode	TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName	TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountCode	TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName	TEXT(80) NULL DEFAULT NS,
+	OriginalAmount	TEXT(80) NULL DEFAULT NS,
+	Authority	TEXT(80) NULL DEFAULT NS,
+	Budgeted	TEXT(80) NULL DEFAULT NS,
+	Posted	TEXT(80) NULL DEFAULT NS,
+	EstimatedRecoveries	DOUBLE NULL DEFAULT NS,
+	EstimatedReimbursements	DOUBLE NULL DEFAULT NS,
+	ActualReimbursements	DOUBLE NULL DEFAULT NS,
+	AccrualRecoveries	DOUBLE NULL DEFAULT NS,
+	CarryoverIn	DOUBLE NULL DEFAULT NS,
+	CarryoverOut	DOUBLE NULL DEFAULT NS,
+	TransferIn	DOUBLE NULL DEFAULT NS,
+	TransferOut	DOUBLE NULL DEFAULT NS,
+	OpenCommitments	DOUBLE NULL DEFAULT NS,
+	Obligations	DOUBLE NULL DEFAULT NS,
+	UnliquidatedObligations	DOUBLE NULL DEFAULT NS,
+	Used	DOUBLE NULL DEFAULT NS,
+	Expenditures	DOUBLE NULL DEFAULT NS,
+	Available	DOUBLE NULL DEFAULT NS,
+	PRIMARY KEY(AppropriationAvailableBalancesId AUTOINCREMENT)
 );
-
-

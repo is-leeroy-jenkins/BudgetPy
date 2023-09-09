@@ -1,6 +1,6 @@
-CREATE TABLE IF NOT EXISTS AmericanRescuePlanCarryoverEstimates 
+CREATE TABLE IF NOT EXISTS JobsActCarryoverEstimates 
 (
-    AmericanRescuePlanCarryoverEstimatesId INTEGER NOT NULL UNIQUE,
+    JobsActCarryoverEstimatesId INTEGER NOT NULL UNIQUE,
     BudgetLevel TEXT(80) NULL DEFAULT NS,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
@@ -13,5 +13,5 @@ CREATE TABLE IF NOT EXISTS AmericanRescuePlanCarryoverEstimates
     OpenCommitments DOUBLE NULL DEFAULT 0.0,
     Avaialbe DOUBLE NULL DEFAULT 0.0,
     Estimate DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(AmericanRescuePlanCarryoverEstimatesId AUTOINCREMENT)
+    PRIMARY KEY(JobsActCarryoverEstimatesId AUTOINCREMENT)
 );
