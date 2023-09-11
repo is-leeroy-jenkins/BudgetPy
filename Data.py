@@ -169,7 +169,7 @@ class SqlPath( ):
 	Constructor: SqlPath( )
 
 	Purpose: Class providing relative_path paths to the
-	folders containing sql files and driver paths used in the application
+	folders containing sqlstatement files and driver paths used in the application
 	'''
 	__accessdriver = None
 	__accessdatabase = None
@@ -251,7 +251,7 @@ class SqlFile( ):
 	Construxtor: SqlFile( src: Source = None, pvdr: Provider  = Provider.SQLite,
 				  command: SQL = SQL.SELECTALL )
 
-	Purpuse: Class providing access to sql sub-folders in the application provided
+	Purpuse: Class providing access to sqlstatement sub-folders in the application provided
 	optional arguments src, pvdr, and command
 	'''
 	__data = None
@@ -419,16 +419,16 @@ class SqlFile( ):
 			_current = os.getcwd( )
 			_path = ''
 			if _provider == 'SQLite' and _source in _data:
-				_path = f'{_sqlpath.sqlite_database}\\{_command}\\{_source}.sql'
+				_path = f'{_sqlpath.sqlite_database}\\{_command}\\{_source}.sqlstatement'
 				return os.path.join( _current, _path )
 			elif _provider == 'ACCDB' and _source in _data:
-				_path = f'{_sqlpath.access_database}\\{_command}\\{_source}.sql'
+				_path = f'{_sqlpath.access_database}\\{_command}\\{_source}.sqlstatement'
 				return os.path.join( _current, _path )
 			elif _provider == 'SqlServer' and _source in _data:
-				_path = f'{_sqlpath.sql_database}\\{_command}\\{_source}.sql'
+				_path = f'{_sqlpath.sql_database}\\{_command}\\{_source}.sqlstatement'
 				return os.path.join( _current, _path )
 			else:
-				_path = f'{_sqlpath.sqlite_database}\\{_command}\\{_source}.sql'
+				_path = f'{_sqlpath.sqlite_database}\\{_command}\\{_source}.sqlstatement'
 				return os.path.join( _current, _path )
 		except Exception as e:
 			_exc = Error( e )
@@ -1345,7 +1345,7 @@ class Query( ):
 
 class SQLiteData( Query ):
 	'''
-	Constructor: SQLiteData( conn: Connection, sql: SqlStatement )
+	Constructor: SQLiteData( connection: Connection, sqlstatement: SqlStatement )
 
 	Purpose: Class represents the SQLite data factory
 	'''
@@ -1415,7 +1415,7 @@ class SQLiteData( Query ):
 
 class AccessData( Query ):
 	'''
-	Constructor:  AccessData( conn: connection, sql: SqlStatement )
+	Constructor:  AccessData( connection: Connection, sqlstatement: SqlStatement )
 
 	Purpose: Class represents the main execution
 	values model classes in the MS ACCDB database
@@ -1436,13 +1436,13 @@ class AccessData( Query ):
 		if value is not None:
 			self.__query = value
 
-	def __init__( self, conn: Connection, sql: SqlStatement ):
-		super( ).__init__( conn, sql )
+	def __init__( self, connection: Connection, sqlstatement: SqlStatement ):
+		super( ).__init__( connection, sqlstatement )
 		self.__source = super( ).source
 		self.__provider = Provider.Access
 		self.__connection = super( ).connection
 		self.__sqlstatement = super( ).sql_statement
-		self.__query = sql.get_query( )
+		self.__query = sqlstatement.get_query( )
 		self.__driver = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
 		self.__data = [ ]
 
@@ -1486,7 +1486,7 @@ class AccessData( Query ):
 
 class SqlData( Query ):
 	'''
-	 Constructor: SqlData( conn: Connection, sql: SqlStatement )
+	 Constructor: SqlData( connection: Connection, sqlstatement: SqlStatement )
 
 	 Purpose:  Class providing object represents the
 	 value models in the MS SQL Server database
@@ -1538,14 +1538,14 @@ class SqlData( Query ):
 		if value is not None:
 			self.__columns = value
 
-	def __init__( self, conn: Connection, sql: SqlStatement ):
-		super( ).__init__( conn, sql )
+	def __init__( self, connection: Connection, sqlstatement: SqlStatement ):
+		super( ).__init__( connection, sqlstatement )
 		self.__provider = Provider.SqlServer
-		self.__connection = conn
-		self.__source = conn.source
-		self.__sqlstatement = sql
-		self.__query = sql.get_query( )
-		self.__table = conn.source.name
+		self.__connection = connection
+		self.__source = connection.source
+		self.__sqlstatement = sqlstatement
+		self.__query = sqlstatement.get_query( )
+		self.__table = connection.source.name
 		self.__server = r'(LocalDB)\MSSQLLocalDB;'
 		self.__driver = r'{ SQL Server Native Client 11.0 };'
 
@@ -1589,10 +1589,11 @@ class SqlData( Query ):
 
 class DataBuilder( ):
 	'''
-	Constructor: DataBuilder( pvdr: Provider, src: Source,
-			command: SQL, column_names: list, values: tuple ).
+	Constructor: DataBuilder( source: Source, provider = Provider.SQLite,
+	              command = SQL.SELECTALL, names: list[ str ] = None,
+	              values: tuple = None ).
 
-	Purpose; Class provides methods that access
+	Purpose: Class provides methods that access
 	application data.
 	'''
 	__names = None
@@ -2065,7 +2066,7 @@ class DataTable( ):
 
 class BudgetData( ):
 	'''
-	Constructor: BudgetData( src: Source ).
+	Constructor: BudgetData( source: Source ).
 
 	Purpose:  Class containing factory method for providing
 	pandas dataframes

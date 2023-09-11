@@ -687,7 +687,7 @@ class FileDialog( Sith ):
 		self.__excel = ( ( 'Excel Files', '*.xlsx' ), )
 		self.__csv = ( ( 'CSV Files', '*.csv' ), )
 		self.__pdf = ( ( 'PDF Files', '*.pdf' ), )
-		self.__sql = ( ( 'SQL Files', '*.sql', ), )
+		self.__sql = ( ( 'SQL Files', '*.sqlstatement', ), )
 		self.__text = ( ( 'Text Files', '*.txt' ), )
 		self.__access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
 		self.__sqlite = ( ( 'SQLite Databases', '*.db' ), )

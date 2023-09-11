@@ -249,7 +249,7 @@ class SQL( Enum ):
     '''
     Constructor:  SQL.Member
 
-    Purpose:   Enumeration of sql commands
+    Purpose:   Enumeration of sqlstatement commands
     '''
     SELECT = 0
     SELECTALL = 1
