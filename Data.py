@@ -1365,8 +1365,8 @@ class SQLiteData( Query ):
 		if value is not None:
 			self.__frame = value
 
-	def __init__( self, conn: Connection, sql: SqlStatement ):
-		super( ).__init__( conn, sql )
+	def __init__( self, connection: Connection, sqlstatement: SqlStatement ):
+		super( ).__init__( connection, sqlstatement )
 		self.__provider = Provider.SQLite
 		self.__connection = super( ).connection
 		self.__sqlstatement = super( ).sql_statement

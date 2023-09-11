@@ -21,6 +21,6 @@ CREATE TABLE AnnualCarryoverEstimates
     AvailableBalance DOUBLE NULL DEFAULT 0.0,
     OpenCommitments DOUBLE NULL DEFAULT 0.0,
     UnobligatedAuthority DOUBLE NULL DEFAULT 0.0,
-    CONSTRAINT AnnualCarryoverEstimatesId
+    CONSTRAINT AnnualCarryoverEstimatesPrimaryKey
         PRIMARY KEY(AnnualCarryoverEstimatesId)
 );
