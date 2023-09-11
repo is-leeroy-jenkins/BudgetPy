@@ -14,6 +14,14 @@
         <option value="DIRECTORY:db" />
         <option value="DIRECTORY:venv" />
         <option value="DIRECTORY:spc" />
+        <option value="FILE:.gitattributes" />
+        <option value="FILE:.gitignore" />
+        <option value="FILE:.editorconfig" />
+        <option value="FILE:README.md" />
+        <option value="FILE:requirements.txt" />
+        <option value="FILE:LICENSE" />
+        <option value="FILE:pyodbc.pyi" />
+        <option value="FILE:Desktop" />
       </list>
     </option>
     <option name="projectKey" value="BudgetPy" />

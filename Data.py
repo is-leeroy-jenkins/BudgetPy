@@ -1347,7 +1347,7 @@ class SQLiteData( Query ):
 	'''
 	Constructor: SQLiteData( conn: Connection, sql: SqlStatement )
 
-	Purpose; Class represents the SQLite data factory
+	Purpose: Class represents the SQLite data factory
 	'''
 	__driver = None
 	__dsn = None
@@ -1702,23 +1702,23 @@ class DataBuilder( ):
 		self.__sqlcfg = SqlConfig( self.__commandtype, self.__names, self.__values )
 		self.__sql = SqlStatement( self.__dbconfig, self.__sqlcfg )
 
-	def create_table( self ) -> list[ tuple ]:
+	def create_table( self ) -> list[ db.Row ]:
 		try:
 			if self.__provider == Provider.SQLite:
 				_sqlite = SQLiteData( self.__cnx, self.__sql )
-				self.__data = [ tuple( i ) for i in _sqlite.data ]
+				self.__data = [ i for i in _sqlite.create_table( ) ]
 				return self.__data
 			elif self.__provider == Provider.Access:
 				_access = AccessData( self.__cnx, self.__sql )
-				self.__data = [ tuple( i ) for i in _access.data ]
+				self.__data = [ i for i in _access.create_table( ) ]
 				return self.__data
 			elif self.__provider == Provider.SqlServer:
-				_sqlserver = SqlData( self.__cnx, self.__sql )
-				self.__data = [ tuple( i ) for i in _sqlserver.data ]
+				_sql = SqlData( self.__cnx, self.__sql )
+				self.__data = [ i for i in _sql.create_table( ) ]
 				return self.__data
 			else:
 				_sqlite = SQLiteData( self.__cnx, self.__sql )
-				self.__data = [ tuple( i ) for i in _sqlite.data ]
+				self.__data = [ i  for i in _sqlite.create_table( )]
 				return self.__data
 		except Exception as e:
 			_exc = Error( e )
