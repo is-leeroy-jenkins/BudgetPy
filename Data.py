@@ -407,28 +407,28 @@ class SqlFile( ):
 
 	def get_path( self ) -> str:
 		'''Method returning a string representing
-		 the absolute_path _path to the SQL file used to execute the
-		 _command 'self.__cmdtype' against the table_name given by the
-		 member self.__source depending on the member self.__provider'''
+		 the absolute path to the SQL file used to execute the
+		 command 'self.__command' against the table given by the
+		 'source' and 'provider' members'''
 		try:
 			_sqlpath = SqlPath( )
 			_data = self.__data
 			_provider = self.__provider.name
-			_source = self.__source.name
+			_tablename = self.__source.name
 			_command = self.__command.name
 			_current = os.getcwd( )
 			_path = ''
-			if _provider == 'SQLite' and _source in _data:
-				_path = f'{_sqlpath.sqlite_path}\\{_command}\\{_source}.sqlstatement'
+			if _provider == 'SQLite' and _tablename in _data:
+				_path = f'{_sqlpath.sqlite_path}\\{_command}\\{_tablename}.sqlstatement'
 				return os.path.join( _current, _path )
-			elif _provider == 'ACCDB' and _source in _data:
-				_path = f'{_sqlpath.access_path}\\{_command}\\{_source}.sqlstatement'
+			elif _provider == 'ACCDB' and _tablename in _data:
+				_path = f'{_sqlpath.access_path}\\{_command}\\{_tablename}.sqlstatement'
 				return os.path.join( _current, _path )
-			elif _provider == 'SqlServer' and _source in _data:
-				_path = f'{_sqlpath.sql_path}\\{_command}\\{_source}.sqlstatement'
+			elif _provider == 'SqlServer' and _tablename in _data:
+				_path = f'{_sqlpath.sql_path}\\{_command}\\{_tablename}.sqlstatement'
 				return os.path.join( _current, _path )
 			else:
-				_path = f'{_sqlpath.sqlite_path}\\{_command}\\{_source}.sqlstatement'
+				_path = f'{_sqlpath.sqlite_path}\\{_command}\\{_tablename}.sqlstatement'
 				return os.path.join( _current, _path )
 		except Exception as e:
 			_exc = Error( e )
