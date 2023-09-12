@@ -189,12 +189,12 @@ class SqlPath( ):
 			self.__sqlitedriver = value
 
 	@property
-	def sqlite_database( self ) -> str:
+	def sqlite_path( self ) -> str:
 		if self.__sqlitedatabase is not None:
 			return self.__sqlitedatabase
 
-	@sqlite_database.setter
-	def sqlite_database( self, value: str ):
+	@sqlite_path.setter
+	def sqlite_path( self, value: str ):
 		if value is not None:
 			self.__sqlitedatabase = value
 
@@ -209,12 +209,12 @@ class SqlPath( ):
 			self.__accessdriver = value
 
 	@property
-	def access_database( self ) -> str:
+	def access_path( self ) -> str:
 		if self.__accessdatabase is not None:
 			return self.__accessdatabase
 
-	@access_database.setter
-	def access_database( self, value: str ):
+	@access_path.setter
+	def access_path( self, value: str ):
 		if value is not None:
 			self.__accessdatabase = value
 
@@ -229,12 +229,12 @@ class SqlPath( ):
 			self.__sqldriver = value
 
 	@property
-	def sql_database( self ) -> str:
+	def sql_path( self ) -> str:
 		if self.__sqldatabase is not None:
 			return self.__sqldatabase
 
-	@sql_database.setter
-	def sql_database( self, value: str ):
+	@sql_path.setter
+	def sql_path( self, value: str ):
 		if value is not None:
 			self.__sqldatabase = value
 
@@ -419,16 +419,16 @@ class SqlFile( ):
 			_current = os.getcwd( )
 			_path = ''
 			if _provider == 'SQLite' and _source in _data:
-				_path = f'{_sqlpath.sqlite_database}\\{_command}\\{_source}.sqlstatement'
+				_path = f'{_sqlpath.sqlite_path}\\{_command}\\{_source}.sqlstatement'
 				return os.path.join( _current, _path )
 			elif _provider == 'ACCDB' and _source in _data:
-				_path = f'{_sqlpath.access_database}\\{_command}\\{_source}.sqlstatement'
+				_path = f'{_sqlpath.access_path}\\{_command}\\{_source}.sqlstatement'
 				return os.path.join( _current, _path )
 			elif _provider == 'SqlServer' and _source in _data:
-				_path = f'{_sqlpath.sql_database}\\{_command}\\{_source}.sqlstatement'
+				_path = f'{_sqlpath.sql_path}\\{_command}\\{_source}.sqlstatement'
 				return os.path.join( _current, _path )
 			else:
-				_path = f'{_sqlpath.sqlite_database}\\{_command}\\{_source}.sqlstatement'
+				_path = f'{_sqlpath.sqlite_path}\\{_command}\\{_source}.sqlstatement'
 				return os.path.join( _current, _path )
 		except Exception as e:
 			_exc = Error( e )
@@ -450,16 +450,16 @@ class SqlFile( ):
 			_current = os.getcwd( )
 			_folder = ''
 			if _provider == 'SQLite' and _source in _data:
-				_folder = f'{_sqlpath.sqlite_database}\\{_command}'
+				_folder = f'{_sqlpath.sqlite_path}\\{_command}'
 				return os.path.join( _current, _folder )
 			elif _provider == 'ACCDB' and _source in _data:
-				_folder = f'{_sqlpath.access_database}\\{_command}'
+				_folder = f'{_sqlpath.access_path}\\{_command}'
 				return os.path.join( _current, _folder )
 			elif _provider == 'SqlServer' and _source in _data:
-				_folder = f'{_sqlpath.sql_database}\\{_command}'
+				_folder = f'{_sqlpath.sql_path}\\{_command}'
 				return os.path.join( _current, _folder )
 			else:
-				_folder = f'{_sqlpath.sqlite_database}\\{_command}'
+				_folder = f'{_sqlpath.sqlite_path}\\{_command}'
 				return os.path.join( _current, _folder )
 		except Exception as e:
 			_exc = Error( e )
@@ -1587,6 +1587,132 @@ class SqlData( Query ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
+class BudgetData( ):
+	'''
+	Constructor: BudgetData( source: Source ).
+
+	Purpose:  Class containing factory method for providing
+	pandas dataframes
+	'''
+	__source = None
+	__name = None
+	__path = None
+	__connection = None
+	__sql = None
+	__data = None
+	__frame = None
+	__columns = None
+	__index = None
+
+	@property
+	def source( self ) -> Source:
+		if self.__source is not None:
+			return self.__source
+
+	@source.setter
+	def source( self, value: Source ):
+		if value is not None:
+			self.__source = value
+
+	@property
+	def name( self ) -> str:
+		if self.__name is not None:
+			return self.__name
+
+	@name.setter
+	def name( self, value: str ):
+		if value is not None:
+			self.__name = value
+
+	@property
+	def path( self ) -> str:
+		if self.__path is not None:
+			return self.__path
+
+	@path.setter
+	def path( self, value: str ):
+		if value is not None:
+			self.__path = value
+
+	@property
+	def data( self ) -> list[ tuple ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ tuple ] ):
+		if value is not None:
+			self.__data = value
+
+	@property
+	def query( self ) -> str:
+		if self.__sql is not None:
+			return self.__sql
+
+	@query.setter
+	def query( self, value: str ):
+		if value is not None:
+			self.__sql = value
+
+	@property
+	def columns( self ) -> list[ str ]:
+		if self.__columns is not None:
+			return self.__columns
+
+	@columns.setter
+	def columns( self, value: list[ str ] ):
+		if value is not None:
+			self.__columns = value
+
+	@property
+	def index( self ) -> int:
+		if self.__index is not None:
+			return self.__index
+
+	@index.setter
+	def index( self, value: int ):
+		if value is not None:
+			self.__index = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	def __init__( self, source: Source ):
+		self.__source = source
+		self.__name = source.name
+		self.__path = DbConfig( source ).get_path( )
+		self.__sql = f'SELECT * FROM {source.name};'
+		self.__frame = self.create_frame( )
+		self.__data = [ tuple( i ) for i in self.create_frame( ).iterrows( ) ]
+		self.__columns = list( self.create_frame( ).columns )
+		self.__index = self.create_frame( ).index
+
+	def create_frame( self ) -> DataFrame:
+		'''Method that returns a pandas DataFrame object
+		based on the Source input arguement 'src' given to the constructor'''
+		try:
+			_path = self.__path
+			_source = self.__source
+			_table = _source.name
+			_connection = sqlite.connect( _path )
+			_sql = f'SELECT * FROM {_table};'
+			_frame = sqlreader( _sql, _connection )
+			return _frame
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Data'
+			_exc.cause = 'BudgetData'
+			_exc.method = 'create_frame( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class DataBuilder( ):
 	'''
 	Constructor: DataBuilder( source: Source, provider = Provider.SQLite,
@@ -2063,129 +2189,3 @@ class DataTable( ):
 	def __str__( self ) -> str:
 		if self.__name is not None:
 			return self.__name
-
-class BudgetData( ):
-	'''
-	Constructor: BudgetData( source: Source ).
-
-	Purpose:  Class containing factory method for providing
-	pandas dataframes
-	'''
-	__source = None
-	__name = None
-	__path = None
-	__connection = None
-	__sql = None
-	__data = None
-	__frame = None
-	__columns = None
-	__index = None
-
-	@property
-	def source( self ) -> Source:
-		if self.__source is not None:
-			return self.__source
-
-	@source.setter
-	def source( self, value: Source ):
-		if value is not None:
-			self.__source = value
-
-	@property
-	def name( self ) -> str:
-		if self.__name is not None:
-			return self.__name
-
-	@name.setter
-	def name( self, value: str ):
-		if value is not None:
-			self.__name = value
-
-	@property
-	def path( self ) -> str:
-		if self.__path is not None:
-			return self.__path
-
-	@path.setter
-	def path( self, value: str ):
-		if value is not None:
-			self.__path = value
-
-	@property
-	def data( self ) -> list[ tuple ]:
-		if self.__data is not None:
-			return self.__data
-
-	@data.setter
-	def data( self, value: list[ tuple ] ):
-		if value is not None:
-			self.__data = value
-
-	@property
-	def query( self ) -> str:
-		if self.__sql is not None:
-			return self.__sql
-
-	@query.setter
-	def query( self, value: str ):
-		if value is not None:
-			self.__sql = value
-
-	@property
-	def columns( self ) -> list[ str ]:
-		if self.__columns is not None:
-			return self.__columns
-
-	@columns.setter
-	def columns( self, value: list[ str ] ):
-		if value is not None:
-			self.__columns = value
-
-	@property
-	def index( self ) -> int:
-		if self.__index is not None:
-			return self.__index
-
-	@index.setter
-	def index( self, value: int ):
-		if value is not None:
-			self.__index = value
-
-	@property
-	def frame( self ) -> DataFrame:
-		if self.__frame is not None:
-			return self.__frame
-
-	@frame.setter
-	def frame( self, value: DataFrame ):
-		if value is not None:
-			self.__frame = value
-
-	def __init__( self, source: Source ):
-		self.__source = source
-		self.__name = source.name
-		self.__path = DbConfig( source ).get_path( )
-		self.__sql = f'SELECT * FROM {source.name};'
-		self.__frame = self.create_frame( )
-		self.__data = [ tuple( i ) for i in self.create_frame( ).iterrows( ) ]
-		self.__columns = list( self.create_frame( ).columns )
-		self.__index = self.create_frame( ).index
-
-	def create_frame( self ) -> DataFrame:
-		'''Method that returns a pandas DataFrame object
-		based on the Source input arguement 'src' given to the constructor'''
-		try:
-			_path = self.__path
-			_source = self.__source
-			_table = _source.name
-			_connection = sqlite.connect( _path )
-			_sql = f'SELECT * FROM {_table};'
-			_frame = sqlreader( _sql, _connection )
-			return _frame
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'Data'
-			_exc.cause = 'BudgetData'
-			_exc.method = 'create_frame( self )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
