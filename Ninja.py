@@ -180,8 +180,11 @@ class Account( ):
     __code = None
     __name = None
     __goalcode = None
+    __goalname = None
     __objectivecode = None
+    __objectivename = None
     __npmcode = None
+    __npmname = None
     __programprojectcode = None
     __programprojectname = None
     __fields = None
@@ -229,6 +232,16 @@ class Account( ):
             self.__goalcode = value
 
     @property
+    def goal_name( self ) -> str:
+        if self.__goalname is not None:
+            return self.__goalname
+
+    @goal_name.setter
+    def goal_name( self, value: str ):
+        if value is not None:
+            self.__goalname = value
+
+    @property
     def objective_code( self ) -> str:
         if self.__objectivecode is not None:
             return self.__objectivecode
@@ -239,12 +252,32 @@ class Account( ):
             self.__objectivecode = value
 
     @property
+    def objective_name( self ) -> str:
+        if self.__objectivename is not None:
+            return self.__objectivename
+
+    @objective_name.setter
+    def objective_name( self, value: str ):
+        if value is not None:
+            self.__objectivename = value
+
+    @property
     def npm_code( self ) -> str:
         if  self.__npmcode is not None:
             return self.__npmcode
 
     @npm_code.setter
     def npm_code( self, value: str ):
+        if value is not None:
+            self.__npmcode = value
+
+    @property
+    def npm_name( self ) -> str:
+        if  self.__npmcode is not None:
+            return self.__npmcode
+
+    @npm_code.setter
+    def npm_name( self, value: str ):
         if value is not None:
             self.__npmcode = value
 
