@@ -1005,10 +1005,6 @@ class SqlStatement( ):
 
 	@property
 	def provider( self ) -> Provider:
-		"""
-
-		@return: Provider
-		"""
 		if self.__provider is not None:
 			return self.__provider
 
@@ -1116,11 +1112,6 @@ class SqlStatement( ):
 					cols = self.__names.lstrip( '(' ).rstrip( ')' )
 					self.__text = f'SELECT {cols} FROM {self.__table}'
 					return self.__text
-			elif not isinstance( self.__names, list ) \
-					and not isinstance( self.__values, tuple ):
-				if self.__commandtype == SQL.SELECTALL:
-					self.__text = f'SELECT * FROM {self.__table}'
-					return self.__text
 			elif self.__commandtype == 'DELETE':
 				self.__text = f'DELETE FROM {self.__table}'
 				return self.__text
@@ -1144,7 +1135,8 @@ class Query( ):
 	'''
 	Constructor:  Query( connection: Connection, sqlstatement: SqlStatement ).
 
-	Purpose: Base class for database interaction'''
+	Purpose: Base class for database interaction
+	'''
 	__connection = None
 	__sqlstatement = None
 	__sqlconfig = None
@@ -1543,15 +1535,14 @@ class SqlData( Query ):
 		self.__provider = Provider.SqlServer
 		self.__connection = connection
 		self.__source = connection.source
-		self.__sqlstatement = sqlstatement
 		self.__query = sqlstatement.get_query( )
 		self.__table = connection.source.name
 		self.__server = r'(LocalDB)\MSSQLLocalDB;'
 		self.__driver = r'{ SQL Server Native Client 11.0 };'
 
 	def __str__( self ) -> str:
-		if self.__query is not None:
-			return self.__query
+		if self.__source is not None:
+			return self.__source.name
 
 	def create_table( self ) -> list[ pyodbc.Row ]:
 		try:

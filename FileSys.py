@@ -221,9 +221,9 @@ class Path( ):
 		absolute path file'''
 		try:
 			if isinstance( self.__input, str ) and self.__input != '':
-				if os.path.isabs( self.__input ) == True:
+				if os.path.isabs( self.__input ):
 					return True
-				elif os.path.isabs( self.__input ) == False:
+				elif not os.path.isabs( self.__input ):
 					return False
 		except Exception as e:
 			_exc = Error( e )
@@ -238,9 +238,9 @@ class Path( ):
 		relative_path file path'''
 		try:
 			if isinstance( self.__input, str ) and self.__input != '':
-				if os.path.isabs( self.__input ) == True:
+				if os.path.isabs( self.__input ):
 					return False
-				elif os.path.isabs( self.__input ) == False:
+				elif not os.path.isabs( self.__input ):
 					return True
 		except Exception as e:
 			_exc = Error( e )

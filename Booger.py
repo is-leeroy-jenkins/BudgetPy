@@ -64,6 +64,7 @@ from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
 from Static import EXT, Client
 
+# noinspection PyTypeChecker
 class Error( Exception ):
 	'''
     Constructor: Error( exception: Exception, heading: str = '', cause: str = '',
@@ -121,12 +122,12 @@ class Error( Exception ):
 			self.__module = value
 
 	@property
-	def type( self ) -> str:
+	def type( self ) -> object:
 		if self.__type is not None:
 			return self.__type
 
 	@type.setter
-	def type( self, value: str ):
+	def type( self, value: object ):
 		if value is not None:
 			self.__type = value
 
@@ -1316,13 +1317,13 @@ class ErrorDialog( Sith ):
 		_info = f'Module:\t{self.__module}\r\nClass:\t{self.__cause}\r\n' \
 		        f'Method:\t{self.__method}\r\n \r\n{self.__info}'
 		_red = '#F70202'
-		_font = ('Roboto', 10)
-		_padsz = (3, 3, 3, 3)
+		_font = ( 'Roboto', 10 )
+		_padsz = ( 3, 3, 3, 3 )
 		_layout = [ [ sg.Text( ) ],
 		            [ sg.Text( f'{_msg}', size = (100, 1), key = '-MSG-', text_color = _red,
 			            font = _font ) ],
-		            [ sg.Text( size = (150, 1) ) ],
-		            [ sg.Multiline( f'{_info}', key = '-INFO-', size = (80, 7), pad = _padsz ) ],
+		            [ sg.Text( size = ( 150, 1 ) ) ],
+		            [ sg.Multiline( f'{_info}', key = '-INFO-', size = ( 80, 7 ), pad = _padsz ) ],
 		            [ sg.Text( ) ],
 		            [ sg.Text( size = (20, 1) ), sg.Cancel( size = (15, 1), key = '-CANCEL-' ),
 		              sg.Text( size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
