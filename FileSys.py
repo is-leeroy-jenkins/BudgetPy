@@ -56,7 +56,7 @@ class Path( ):
 	__input = None
 	__extension = None
 	__currentdirectory = None
-	__report = None
+	__template = None
 	__drive = None
 	__pathseparator = None
 	__extensionseparator = None
@@ -160,7 +160,7 @@ class Path( ):
 		self.__currentdirectory = os.getcwd( )
 		self.__extension = os.path.splitext( filepath )[ 1 ]
 		self.__parentdirectory = os.path.split( filepath )[ 0 ]
-		self.__report = r'etc\templates\report\Excel.xlsx'
+		self.__template = r'etc\templates\report\Excel.xlsx'
 		self.__pathseparator = os.path.sep
 		self.__extensionseparator = os.extsep
 		self.__driveseparator = ':\\'
@@ -266,13 +266,13 @@ class Path( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def get_reportpath( self, ext: EXT = EXT.XLSX ) -> str:
-		'''Method returns string representing the relative_path path
-		to the report template
+	def get_templatepath( self, ext: EXT = EXT.XLSX ) -> str:
+		'''Method returns string representing the relative path
+		to the excel report template
 		'''
 		try:
-			if isinstance( self.__report, str ):
-				return self.__report
+			if isinstance( self.__template, str ):
+				return self.__template
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
