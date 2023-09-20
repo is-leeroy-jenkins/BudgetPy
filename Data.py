@@ -543,10 +543,10 @@ class DbConfig( ):
 		if value is not None:
 			self.__table = value
 
-	def __init__( self, src: Source, pvdr = Provider.SQLite ):
+	def __init__( self, src: Source, provider = Provider.SQLite ):
 		'''Constructor for the DbConfig class providing
 		value details'''
-		self.__provider = pvdr
+		self.__provider = provider
 		self.__source = src
 		self.__table = src.name
 		self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
@@ -770,8 +770,8 @@ class Connection( DbConfig ):
 		if value is not None:
 			self.__connectionstring = value
 
-	def __init__( self, src: Source, pvdr: Provider = Provider.SQLite ):
-		super( ).__init__( src, pvdr )
+	def __init__( self, src: Source, provider: Provider = Provider.SQLite ):
+		super( ).__init__( src, provider )
 		self.__source = super( ).source
 		self.__provider = super( ).provider
 		self.__path = super( ).get_path( )
@@ -1087,14 +1087,16 @@ class SqlStatement( ):
 						self.__text = f'SELECT * FROM {self.__table}'
 						return self.__text
 					if len( self.__names ) > 0:
-						self.__text = f'SELECT ' + self.__names + f'FROM {self.__table}' + f' {self.__sqlconfig.dump_where( )}'
+						self.__text = f'SELECT ' + self.__names + f'FROM {self.__table}' \
+						              + f' {self.__sqlconfig.dump_where( )}'
 						return self.__text
 				elif self.__commandtype == SQL.SELECT:
 					if len( self.__names ) == 0:
 						self.__text = f'SELECT * FROM {self.__table}'
 						return self.__text
 					if len( self.__names ) > 0:
-						self.__text = f'SELECT ' + self.__names + f' FROM {self.__table}' + f' {self.__sqlconfig.dump_where( )}'
+						self.__text = f'SELECT ' + self.__names + f' FROM {self.__table}' \
+						              + f' {self.__sqlconfig.dump_where( )}'
 						return self.__text
 				elif self.__commandtype == SQL.INSERT:
 					self.__text = f'INSERT INTO {self.__table} ' + f'{self.__names} ' + f'{self.__values}'
@@ -1282,6 +1284,7 @@ class Query( ):
 		if self.__querytext is not None:
 			return self.__querytext
 
+	@property
 	def create_sqltext( self ) -> str:
 		try:
 			_table = self.__tablename
@@ -1836,7 +1839,7 @@ class DataBuilder( ):
 				return self.__data
 			else:
 				_sqlite = SQLiteData( self.__cnx, self.__sql )
-				self.__data = [ i  for i in _sqlite.create_table( )]
+				self.__data = [ i for i in _sqlite.create_table( ) ]
 				return self.__data
 		except Exception as e:
 			_exc = Error( e )

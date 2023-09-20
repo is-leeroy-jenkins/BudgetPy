@@ -90,7 +90,7 @@
           <tns-folder value="" />
           <tns-profile value="" />
           <files>
-            <file path="C:\Users\teppler\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
+            <file path="C:\Users\terry\source\repos\BudgetPy\db\sqlite\datamodels\Data.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
@@ -303,9 +303,9 @@
     </dataset-editor-settings>
     <code-editor-settings>
       <general>
-        <show-object-navigation-gutter value="true" />
-        <show-spec-declaration-navigation-gutter value="true" />
-        <enable-spellchecking value="true" />
+        <show-object-navigation-gutter value="false" />
+        <show-spec-declaration-navigation-gutter value="false" />
+        <enable-spellchecking value="false" />
         <enable-reference-spellchecking value="false" />
       </general>
       <confirmations>
