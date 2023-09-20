@@ -858,7 +858,7 @@ class SaveFileDialog( Sith ):
 			self.__filename = _filename
 
 			if os.path.exists( self.__original ):
-				_src = io.open( self.__original, 'r' ).read( )
+				_src = io.open( self.__original ).read( )
 				_dest = io.open( _filename, 'w+' ).write( _src )
 		except Exception as e:
 			_exc = Error( e )
@@ -950,7 +950,7 @@ class GoogleDialog( Sith ):
 					break
 				elif _event == 'Submit':
 					self.__querytext = _values[ '-QUERY-' ]
-					_google = search( term = self.__querytext, num_results = 5, lang = 'en' )
+					_google = search( term = self.__querytext, num_results = 5 )
 					_app = App( Client.Edge )
 					for result in list( _google ):
 						self.__results.append( result )
@@ -1646,8 +1646,8 @@ class GridForm( Sith ):
 			_black = self.__themebackground
 			_columns = self.__columns
 			_headings = [ f'HEADER-{i + 1}' for i in range( _columns ) ]
-			_space = [ [ sg.Text( f'', size = ( 10, 1 ) ) ], [ sg.Text( f'', size = ( 10, 1 ) ) ],
-			           [ sg.Text( f'', size = ( 10, 1 ) ) ] ]
+			_space = [ [ sg.Text( size = ( 10, 1 ) ) ], [ sg.Text( size = ( 10, 1 ) ) ],
+			           [ sg.Text( size = ( 10, 1 ) ) ] ]
 			_header = [
 					[ sg.Text( h, size = ( 16, 1 ), justification = 'left' ) for h in _headings ] ]
 			_records = [ [ [ sg.Input( size = self.__width, pad = (0, 0), font = self.__themefont )
@@ -1732,7 +1732,7 @@ class LoadingPanel( Sith ):
 				size = ( 800, 600 ),
 				element_padding = ( 0, 0 ), finalize = True )
 
-			_window[ '-T-' ].expand( True, True, True )
+			_window[ '-T-' ].expand( True, True )
 			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
 
 			while True:
@@ -1804,7 +1804,7 @@ class WaitingPanel( Sith ):
 				size = (800, 600),
 				finalize = True )
 
-			_window[ '-T-' ].expand( True, True, True )
+			_window[ '-T-' ].expand( True, True  )
 			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
 
 			while True:
@@ -1875,7 +1875,7 @@ class ProcessingPanel( Sith ):
 				element_padding = (0, 0),
 				finalize = True )
 
-			_window[ '-T-' ].expand( True, True, True )
+			_window[ '-T-' ].expand( True, True )
 
 			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
 			self.__timeout = _interframe_duration
@@ -2246,7 +2246,7 @@ class ImageSizeEncoder( Sith ):
 						width, height = int( _values[ '-WIDTH-' ] ), int( _values[ '-HEIGHT-' ] )
 						if _values[ '-DO NOT SAVE-' ]:
 							encoded = resize( input_file = _infile, size = (width, height),
-								output_file = None, encode_format = encode_format )
+								encode_format = encode_format )
 						else:
 							encoded = resize( input_file = _infile, size = (width, height),
 								output_file = outfullfilename, encode_format = encode_format )
@@ -2356,7 +2356,7 @@ class PdfForm( Sith ):
 			_image = sg.Image( data = _data )
 			_goto = sg.InputText( f'{str( _current + 1 )} of {str( _pages )}', size = (10, 1) )
 			_layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ),
-			              sg.Text( '' ),
+			              sg.Text( ),
 			              sg.Text( 'Page:' ), _goto,
 			              sg.Text( size = (10, 1) ), sg.Text( 'Zoom: ' ),
 			              sg.Button( ' In ', key = '-IN-' ), sg.Button( ' Out', key = '-OUT-' ), ],
@@ -4135,9 +4135,8 @@ class BudgetForm( Sith ):
 					[ sg.Frame( '',
 						[ [ sg.Frame( '', self.__headerlayout, size = _frasz, pad = BPAD_TOP,
 							expand_x = True,
-							relief = sg.RELIEF_FLAT, border_width = 0 ) ] ],
-						pad = BPAD_LEFT, background_color = _blu, border_width = 0,
-						expand_x = True, expand_y = False ), ],
+							relief = sg.RELIEF_FLAT, border_width = 0 ) ] ], pad = BPAD_LEFT,
+						background_color = _blu, border_width = 0, expand_x = True ), ],
 					[ sg.Frame( '',
 						[ [ sg.Frame( '', self.__firstlayout, size = _frasz, pad =
 						BPAD_LEFT_INSIDE,
@@ -4329,34 +4328,18 @@ class CsvForm( Sith ):
 
 			_left = [ [ sg.Text( size = _sm ), ] ]
 			_right = [ [ sg.Text( size = _sm ), ] ]
-			_datagrid = [ [ sg.Table( values = _data,
-				headings = _header,
-				justification = 'center',
-				row_height = 18,
-				display_row_numbers = True,
-				vertical_scroll_only = False,
-				header_background_color = '#1B262E',
-				header_relief = sg.RELIEF_FLAT,
-				header_border_width = 1,
-				selected_row_colors = ('#FFFFFF', '#4682B4'),
-				header_text_color = '#FFFFFF',
-				header_font = ('Roboto', 8, 'bold'),
-				font = ('Roboto', 8),
-				background_color = '#EDF3F8',
-				alternating_row_color = '#EDF3F8',
-				auto_size_columns = True,
-				border_width = 1,
-				text_color = '#000000',
-				expand_x = True,
-				expand_y = True,
-				sbar_relief = sg.RELIEF_FLAT,
+			_datagrid = [ [ sg.Table( values = _data, headings = _header, justification = 'center',
+				row_height = 18, display_row_numbers = True, vertical_scroll_only = False,
+				header_background_color = '#1B262E', header_relief = sg.RELIEF_FLAT,
+				header_border_width = 1, selected_row_colors = ('#FFFFFF', '#4682B4'),
+				header_text_color = '#FFFFFF', header_font = ('Roboto', 8, 'bold'),
+				font = ('Roboto', 8), background_color = '#EDF3F8',
+				alternating_row_color = '#EDF3F8', border_width = 1, text_color = '#000000',
+				expand_x = True, expand_y = True, sbar_relief = sg.RELIEF_FLAT,
 				num_rows = min( 26, len( _data ) ) ), ], ]
 
-			_window = sg.Window( '  Budget Execution', _datagrid,
-				grab_anywhere = False,
-				icon = self.__icon,
-				font = self.__themefont,
-				resizable = True )
+			_window = sg.Window( '  Budget Execution', _datagrid, icon = self.__icon,
+				font = self.__themefont, resizable = True )
 
 			_event, _values = _window.read( )
 
@@ -4438,27 +4421,14 @@ class ExcelForm( Sith ):
 
 			_left = [ [ sg.Text( size = _small ), ] ]
 			_right = [ [ sg.Text( size = _small ), ] ]
-			_datagrid = [ [ sg.Table( values = _data,
-				headings = _header,
-				justification = 'center',
-				row_height = 18,
-				display_row_numbers = True,
-				vertical_scroll_only = False,
-				header_background_color = '#1B262E',
-				header_relief = sg.RELIEF_FLAT,
-				header_border_width = 1,
-				selected_row_colors = ('#FFFFFF', '#4682B4'),
-				header_text_color = '#FFFFFF',
-				header_font = ('Roboto', 8, 'bold'),
-				font = ('Roboto', 8),
-				background_color = '#EDF3F8',
-				alternating_row_color = '#EDF3F8',
-				auto_size_columns = True,
-				border_width = 1,
-				text_color = '#000000',
-				expand_x = True,
-				expand_y = True,
-				sbar_relief = sg.RELIEF_FLAT,
+			_datagrid = [ [ sg.Table( values = _data, headings = _header, justification = 'center',
+				row_height = 18, display_row_numbers = True, vertical_scroll_only = False,
+				header_background_color = '#1B262E', header_relief = sg.RELIEF_FLAT,
+				header_border_width = 1, selected_row_colors = ('#FFFFFF', '#4682B4'),
+				header_text_color = '#FFFFFF', header_font = ('Roboto', 8, 'bold'),
+				font = ('Roboto', 8), background_color = '#EDF3F8',
+				alternating_row_color = '#EDF3F8', border_width = 1, text_color = '#000000',
+				expand_x = True, expand_y = True, sbar_relief = sg.RELIEF_FLAT,
 				num_rows = min( 26, len( _data ) ) ), ], ]
 
 			_layout = [ [ sg.Text( size = (3, 3) ) ],
@@ -4583,7 +4553,7 @@ class GraphForm( Sith ):
 			_axis.set_zlim3d( -1.01, 1.01 )
 			_figure.colorbar( surf, shrink = 0.5, aspect = 5 )
 			_axis = _figure.add_subplot( 1, 2, 2, projection = '3d' )
-			_x, _y, _z = get_test_data( 0.05 )
+			_x, _y, _z = get_test_data( )
 			_axis.plot_wireframe( _x, _y, _z, rstride = 10, cstride = 10 )
 			return _figure
 

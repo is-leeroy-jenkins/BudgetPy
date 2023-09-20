@@ -504,7 +504,7 @@ class File( Path ):
 			then returns the list '''
 		try:
 			if os.path.isfile( other ):
-				_file = open( other, 'r' )
+				_file = open( other )
 				_contents = _file.readlines( )
 				_file.close( )
 				return _contents
@@ -522,7 +522,7 @@ class File( Path ):
 		try:
 			_contents = ''
 			if os.path.isfile( other ):
-				_file = open( other, 'r' )
+				_file = open( other )
 				_contents = _file.read( )
 				_file.close( )
 				return _contents
@@ -560,7 +560,7 @@ class File( Path ):
 			if os.path.isfile( other ):
 				_path = os.path.relpath( self.__path )
 				_contents = open( _path, 'a' )
-				_lines = open( other, 'r' )
+				_lines = open( other )
 				for line in _lines.readlines( ):
 					_contents.write( line )
 				_contents.flush( )
