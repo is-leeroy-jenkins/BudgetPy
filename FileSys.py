@@ -74,26 +74,6 @@ class Path( ):
 			self.__input = value
 
 	@property
-	def name( self ) -> str:
-		if self.__name is not None:
-			return self.__name
-
-	@name.setter
-	def name( self, value: str ):
-		if value is not None:
-			self.__input = value
-
-	@property
-	def drive( self ) -> str:
-		if self.__drive is not None:
-			return self.__drive
-
-	@drive.setter
-	def drive( self, value: str ):
-		if value is not None:
-			self.__drive = os.path.splitdrive( value )[ 0 ]
-
-	@property
 	def extension( self ) -> str:
 		if self.__extension is not None:
 			return self.__extension
@@ -302,27 +282,13 @@ class File( Path ):
 	Purpose: Class providing file information
 	 '''
 	__absolute = None
-	__name = None
 	__path = None
 	__size = None
-	__extension = None
 	__directory = None
-	__drive = None
 	__created = None
 	__modified = None
 	__accessed = None
-	__currentdirectory = None
 	__contents = [ ]
-
-	@property
-	def name( self ) -> str:
-		if self.__name is not None:
-			return self.__name
-
-	@name.setter
-	def name( self, value: str ):
-		if os.path.exists( value ):
-			self.__name = os.path.basename( value )
 
 	@property
 	def path( self ) -> str:
@@ -353,26 +319,6 @@ class File( Path ):
 	def directory( self, value: str ):
 		if os.path.isdir( value ):
 			self.__directory = os.path.dirname( value )
-
-	@property
-	def extension( self ) -> str:
-		if self.__extension is not None:
-			return self.__extension
-
-	@extension.setter
-	def extension( self, value: str ):
-		if isinstance( value, str ) and value != '':
-			self.__extension = value
-
-	@property
-	def drive( self ) -> str:
-		if self.__drive is not None:
-			return self.__drive
-
-	@drive.setter
-	def drive( self, value: str ):
-		if os.path.ismount( value ):
-			self.__drive = str( value )
 
 	@property
 	def modified( self ) -> float:
@@ -419,12 +365,6 @@ class File( Path ):
 	def __str__( self ) -> str:
 		if self.__path is not None:
 			return self.__path
-
-	def exists( self ) -> bool:
-		if os.path.exists( self.__path ):
-			return True
-		else:
-			return False
 
 	def rename( self, other: str ) -> str:
 		'''Renames the current_directory file to 'other' '''
@@ -473,19 +413,6 @@ class File( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def verify( self, other: str ) -> bool:
-		'''determines if an external file exists'''
-		try:
-			if other is not None:
-				return os.path.exists( other )
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'FileSys'
-			_exc.cause = 'File'
-			_exc.method = 'verify( self, other )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
 	def delete( self, other: str ):
 		''' deletes file at 'self.__selecteditem'   '''
 		try:
@@ -504,7 +431,7 @@ class File( Path ):
 			then returns the list '''
 		try:
 			if os.path.isfile( other ):
-				_file = open( other, 'r' )
+				_file = open( other )
 				_contents = _file.readlines( )
 				_file.close( )
 				return _contents
@@ -522,7 +449,7 @@ class File( Path ):
 		try:
 			_contents = ''
 			if os.path.isfile( other ):
-				_file = open( other, 'r' )
+				_file = open( other )
 				_contents = _file.read( )
 				_file.close( )
 				return _contents
@@ -560,7 +487,7 @@ class File( Path ):
 			if os.path.isfile( other ):
 				_path = os.path.relpath( self.__path )
 				_contents = open( _path, 'a' )
-				_lines = open( other, 'r' )
+				_lines = open( other )
 				for line in _lines.readlines( ):
 					_contents.write( line )
 				_contents.flush( )
@@ -583,10 +510,8 @@ class Folder( Path ):
 	__absolutepath = None
 	__relativepath = None
 	__path = None
-	__name = None
 	__parent = None
 	__dir = None
-	__drive = None
 	__current = None
 	__size = None
 
@@ -777,19 +702,6 @@ class Folder( Path ):
 			_exc.module = 'FileSys'
 			_exc.cause = 'Folder'
 			_exc.method = 'move( self, destination )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
-	def exists( self ) -> bool:
-		'''determines if the base file exists'''
-		try:
-			if self.__path is not None and os.path.isdir( self.__path ):
-				return True
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'FileSys'
-			_exc.cause = 'Folder'
-			_exc.method = 'exists( self, other )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
