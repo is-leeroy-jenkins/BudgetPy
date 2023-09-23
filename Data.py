@@ -512,7 +512,13 @@ class DbConfig( ):
 
 	@property
 	def source( self ) -> Source:
-		'''Gets the Source property'''
+		'''
+		Purpose:  Gets the Source property
+
+		Parameters: None
+
+		Returns: Source
+		'''
 		if self.__source is not None:
 			return self.__source
 
