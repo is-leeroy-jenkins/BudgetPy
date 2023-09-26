@@ -675,7 +675,13 @@ class DbConfig( ):
 			return self.__table
 
 	def get_driver( self ) -> str:
-		'''Returns a string defining the driver being used'''
+		'''
+		Purpose: Returns a string defining the driver being used
+
+		Parameters:  None
+
+		Retval:  str
+		'''
 		try:
 			if self.__provider.name == 'SQLite':
 				return self.get_path( )
