@@ -225,15 +225,6 @@ class Provider( Enum ):
     Excel = 3
     CSV = 4
 
-class Model( Enum ):
-    '''
-    Constructor:  Model.Member
-
-    Purpose:  Enumeration of model types
-    '''
-    Data = auto( )
-    Reference = auto( )
-
 class ParamStyle( Enum ):
     '''
     Constructor:  ParamStyle( )
