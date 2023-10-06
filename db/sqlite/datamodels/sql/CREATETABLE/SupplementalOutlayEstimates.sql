@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS SupplementalOutlayEstimates
 	FY2731	DOUBLE NULL DEFAULT 0.0,
 	Supplemental	TEXT(80) NULL DEFAULT NS,
 	FundCode	TEXT(80) NULL DEFAULT NS,
-	FundName	TEXT(80) NULL DEFAULT NS
-	CONSTRAINT SupplementalOutlayEstimatesPrimaryKey 
-		PRIMARY KEY(SupplementalOutlayEstimatesId AUTOINCREMENT)
+	FundName	TEXT(80) NULL DEFAULT NS,
+	PRIMARY KEY(SupplementalOutlayEstimatesId AUTOINCREMENT)
 );

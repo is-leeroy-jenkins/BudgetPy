@@ -1,6 +1,6 @@
-CREATE TABLE IF NOT EXISTS CongressionalProjects 
+CREATE TABLE CongressionalProjects 
 (
-	CongressionalProjectsId	INTEGER NOT NULL UNIQUE,
+	CongressionalProjectsId  AUTOINCREMENT NOT NULL UNIQUE,
 	BFY	TEXT(80) NULL DEFAULT NS,
 	EFY	TEXT(80) NULL DEFAULT NS,
 	FundCode	TEXT(80) NULL DEFAULT NS,
@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS CongressionalProjects
 	StateName	TEXT(80) NULL DEFAULT NS,
 	CongressionalProject	TEXT(80) NULL DEFAULT NS,
 	Amount	DOUBLE NULL DEFAULT 0.0,
-	PRIMARY KEY(CongressionalProjectsId AUTOINCREMENT)
+    CONSTRAINT CongressionalProjectsPrimaryKey
+	    PRIMARY KEY(CongressionalProjectsId)
 );

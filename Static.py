@@ -96,7 +96,6 @@ class Source( Enum ):
 
     Purpose:  Enumeration of table_name column_names
     '''
-    NS = auto( )
     Actuals = auto( )
     AdministrativeRequests = auto( )
     Allocations = auto( )
@@ -139,8 +138,6 @@ class Source( Enum ):
     Obligations = auto( )
     Outlays = auto( )
     OpenCommitments = auto( )
-    SiteActivity = auto( )
-    SpecialAccounts = auto( )
     SpendingRates = auto( )
     SpendingDocuments = auto( )
     StateGrantObligations = auto( )
@@ -150,8 +147,9 @@ class Source( Enum ):
     StatusOfFunds = auto( )
     StatusOfJobsActFunding = auto( )
     StatusOfInflationReductionActFunds = auto( )
+    StatusOfSpecialAccountFunds = auto( )
     StatusOfSupplementalFunding = auto( )
-    SuperfundSites = auto( )
+    StatusOfSuperfundSites = auto( )
     SupplementalCarryoverEstimates = auto( )
     TransferActivity = auto( )
     Transfers = auto( )
@@ -208,6 +206,7 @@ class Source( Enum ):
     ResourcePlanningOffices = auto( )
     Resources = auto( )
     ResponsibilityCenters = auto( )
+    ReportingLines = auto( )
     SchemaTypes = auto( )
     StateOrganizations = auto( )
     SubAppropriations = auto( )

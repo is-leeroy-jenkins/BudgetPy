@@ -19,6 +19,6 @@ CREATE TABLE SupplementalOutlayEstimates
 	Supplemental	TEXT(80) NULL DEFAULT NS,
 	FundCode	TEXT(80) NULL DEFAULT NS,
 	FundName	TEXT(80) NULL DEFAULT NS,
-    CONSTRAINT SupplementalOutlayEstimatesPrimaryKey 
-        PRIMARY KEY(SupplementalOutlayEstimatesId)
+	CONSTRAINT SupplementalOutlayEstimatesPrimaryKey
+		PRIMARY KEY(SupplementalOutlayEstimatesId)
 );
